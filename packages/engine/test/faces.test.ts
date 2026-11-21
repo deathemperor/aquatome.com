@@ -58,10 +58,13 @@ test("a video section's photo the owner rejected leaves its section every cycle;
   expect(JSON.parse(await readFile(page, 'utf8')).video.figures).toEqual([{ heading: 'A', moments: [{ t: 1 }] }, { heading: 'B', moments: [], photo: { url: 'tank' } }])
 })
 
-test("a face on a page's last photo: it stays, held for a second look (last-photo.ts); one the look cleared stays though the page gains another", async () => {
-  // The chief of staff, 2026-11-14: a page's last photo doesn't come off on an automatic check's word alone.
+test("a face on a page's last photo that passed the check before: it stays, held for a second look (last-photo.ts); one the look cleared stays though the page gains another", async () => {
+  // The chief of staff, 2026-11-14: a page's last photo doesn't come off on an automatic check's word alone. Since 20 Nov
+  // the hold protects a photo that passed the check before; one that never passed comes off (photo-check-unshown.test.ts).
   const root = await mkdtemp(join(tmpdir(), 'fl-'))
   const content = join(root, 'content')
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(join(root, 'engine-state', '_photo-subjects.json'), JSON.stringify({ person: { a: { ok: 'yes', typical: true, note: 'a live fish' } } }))
   await mkdir(join(content, 'species', 'a'), { recursive: true })
   await mkdir(join(content, 'species', 'b'), { recursive: true })
   await writeFile(join(content, 'species', 'a', 'entity.json'), JSON.stringify({ id: 'a', photos: [{ url: 'person' }] }))

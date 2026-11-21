@@ -275,6 +275,18 @@ test('gallery: a photo blocked after it moved to our bucket (a watermark) is kno
   expect(await readFile(join(r, 'content/gallery/betta-splendens.json'), 'utf8').then(t => JSON.parse(t).photos)).toEqual([])
 })
 
+test('gallery: a candidate queued before it joined the never-again list leaves the queue unscreened', async () => {
+  const r = await root()
+  const queued = { url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/78/original.jpg', thumb: 'https://inaturalist-open-data.s3.amazonaws.com/photos/78/medium.jpg', width: 1332, height: 1776, licence: 'CC BY', author: 'a', sourceUrl: 'https://www.inaturalist.org/photos/78', key: 'inat:78' }
+  await mkdir(join(r, 'engine-state/gallery'), { recursive: true })
+  await writeFile(join(r, 'engine-state/gallery/betta-splendens.json'), JSON.stringify({ queue: [queued], judged: [], hashes: {} }))
+  // Listed by our copy's address, for any page.
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [`https://media.aquatome.com/${mirrorPlan(queued.url)!.key}`]: 'people: a hand' }))
+  await galleries(r, deps(), { sheets: 5 })
+  expect(urls(await read(r, 'content/gallery/betta-splendens.json'))).not.toContain(queued.sourceUrl)
+  expect((await read(r, 'engine-state/gallery/betta-splendens.json')).queue.map((c: { key: string }) => c.key)).not.toContain('inat:78')
+})
+
 test("gallery: a photo the photo check took off this page is never put back, from the queue or a search; another page's verdict doesn't count", async () => {
   const r = await root()
   const inat1 = 'https://inaturalist-open-data.s3.amazonaws.com/photos/1/large.jpg'
@@ -294,6 +306,22 @@ test("gallery: a photo the photo check took off this page is never put back, fro
   expect(shown).not.toContain(queued.sourceUrl)
   expect(shown).not.toContain('https://www.inaturalist.org/photos/1')
   expect(shown.some(u => u.includes('commons.wikimedia.org'))).toBe(true)
+})
+
+test("gallery: a photo the check called dead here that a second look cleared may come back from the queue; one it didn't clear stays out", async () => {
+  const r = await root()
+  const cand = (n: number) => ({ url: `https://inaturalist-open-data.s3.amazonaws.com/photos/${n}/original.jpg`, thumb: `https://inaturalist-open-data.s3.amazonaws.com/photos/${n}/medium.jpg`, width: 1332, height: 1776, licence: 'CC BY', author: 'a', sourceUrl: `https://www.inaturalist.org/photos/${n}`, key: `inat:${n}` })
+  const back = cand(81), kept = cand(82)
+  await mkdir(join(r, 'engine-state/gallery'), { recursive: true })
+  await writeFile(join(r, 'engine-state/gallery/betta-splendens.json'), JSON.stringify({ queue: [back, kept], judged: [], hashes: {} }))
+  const dead = { ok: 'dead', typical: false, note: 'a fish on a board' }
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [back.url]: { 'betta-splendens': dead }, [kept.url]: { 'betta-splendens': dead } }))
+  const rec = { why: 'dead: withheld [sha256:' + 'b'.repeat(64) + ']', step: 'the photo check', pages: ['species/betta-splendens'], at: '2026-11-20', off: true }
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [back.url]: { ...rec, look: { said: 'clear', by: 'the chief of staff', on: '2026-11-20' } }, [kept.url]: rec }))
+  await galleries(r, deps(), { sheets: 5 })
+  const shown = urls(await read(r, 'content/gallery/betta-splendens.json'))
+  expect(shown).toContain(back.sourceUrl)
+  expect(shown).not.toContain(kept.sourceUrl)
 })
 
 test('gallery: the sheet budget stops the run; the next run continues from the queue and the cursor', async () => {

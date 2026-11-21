@@ -150,8 +150,8 @@
     "back": false
   },
   "amaralia-hypsiura": {
-    "hash": "92210296fa61853ec74c714b3f1ee83ea337d2384a2a36e94e1398a80d7194a7",
-    "at": "2026-11-18T18:09:03.739Z",
+    "hash": "7612e20157dd194dbe8a69dcfc683eb50e623e78c35bba2403275efea45b3434",
+    "at": "2026-11-21T01:04:59.166Z",
     "sonnet": 0.7,
     "back": false
   },
@@ -326,10 +326,11 @@
     "back": true
   },
   "apistogramma-bitaeniata": {
-    "hash": "f7c87b16949b285f69fac71b908b5457f2ec57107e606ade59e68eed6db12afd",
-    "at": "2026-11-19T07:39:01.883Z",
-    "sonnet": 0.7,
-    "back": false
+    "hash": "fefe12a4bc189320f288d6c5608c6a186180463a538d4b983195ecd2ec772cae",
+    "at": "2026-11-21T01:04:16.408Z",
+    "sonnet": 0.95,
+    "opus": 0.9,
+    "back": true
   },
   "apistogramma-cinilabra": {
     "hash": "37bd1b42618f4ca5e829f31f9b02b9d4ea0f6d35a8eecdab4dde402a35422f24",
@@ -627,6 +628,163 @@
     "sonnet": 0.7,
     "back": false
   },
+  "barbucca-diabolica": {
+    "hash": "69488e21c779b587bdb6e64f7d5fe40992e43c4eb09ce9dbf89f2116076200f3",
+    "at": "2026-11-20T06:54:01.449Z",
+    "sonnet": 0.92,
+    "opus": 0.88,
+    "back": true
+  },
+  "barilius-bendelisis": {
+    "hash": "321877d85fb0b2c161387b170aab7ec6489c2e7b3ff91bf2431649d60046c555",
+    "at": "2026-11-20T06:54:13.840Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "barilius-canarensis": {
+    "hash": "a9af6436b42315c19e02f41a9b426d7b81d1e3e2f58687557668f8637a2adaf3",
+    "at": "2026-11-20T06:54:45.567Z",
+    "sonnet": 0.9,
+    "opus": 0.88,
+    "back": true
+  },
+  "barilius-shacra": {
+    "hash": "5f0814eb33a688ec0c9905f7c4a785aaa3cf76e7e752652284c6916ede7ada4c",
+    "at": "2026-11-20T06:54:57.112Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 4: \"total hardness 28.5–34.2 mg/l\" and \"µs/cm\" are copied from the source. Use the standard \"µS/cm\"."
+    ]
+  },
+  "baryancistrus-beggini": {
+    "hash": "5c8f5b6ba7684b8eaa1983ab971be908db3a7733a5619e85aa310a0a12ada79f",
+    "at": "2026-11-20T06:55:10.383Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "baryancistrus-demantoides": {
+    "hash": "7cdcbc17e36359c45fa7c3f2780f4122844e97005a2f2aeb74be2970c73e051a",
+    "at": "2026-11-20T06:55:22.185Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "beaufortia-cyclica": {
+    "hash": "ff4ea534969b7289c6dab2790acfd4b8a3795050f4b0719fa3782f89cd121880",
+    "at": "2026-11-20T06:55:58.037Z",
+    "sonnet": 0.88,
+    "opus": 0.85,
+    "back": true
+  },
+  "betta-antoni": {
+    "hash": "860b06eaefcc325321851cb9f9d7ad23733e06ed82395c2bf0970cea277d3265",
+    "at": "2026-11-20T06:56:34.285Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": true
+  },
+  "betta-bellica": {
+    "hash": "efc248a0ab9d14f7f60c776d53df1df60b28641a2b04e251224ae36798c08df3",
+    "at": "2026-11-20T11:41:58.505Z",
+    "sonnet": 0.9,
+    "opus": 0.7,
+    "back": false
+  },
+  "betta-chloropharynx": {
+    "hash": "25537f2de5bc58eb5917cd2a78fb58cc7a5b7486427432b2a82db4a46a7ecf50",
+    "at": "2026-11-20T11:42:10.883Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "betta-dimidiata": {
+    "hash": "a2279d9d1cd0a6f736cd4a2fbc1e5740427ce0975da18ca348077aa0f440a632",
+    "at": "2026-11-20T11:42:47.667Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": true
+  },
+  "betta-edithae": {
+    "hash": "03d631a00f7c1423e7df998e6fdf54d42703201371c121337e18b5ee29920a05",
+    "at": "2026-11-20T11:43:21.503Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": true
+  },
+  "betta-enisae": {
+    "hash": "2e22dbe8b45400983bb7f31936037874d3dc9fe33a62b54e74259efa0070f3b7",
+    "at": "2026-11-20T11:43:50.170Z",
+    "sonnet": 0.95,
+    "opus": 0.88,
+    "back": true
+  },
+  "betta-falx": {
+    "hash": "28627fba12bd6109b3e5547e24421cdde5cc1411d7080e3ce344ced90d18f455",
+    "at": "2026-11-20T11:44:21.659Z",
+    "sonnet": 0.95,
+    "opus": 0.8,
+    "back": true
+  },
+  "betta-krataios": {
+    "hash": "3c7ba5b180162431754d79f8dc73865a5ec0d2105a42df6d1f8713e1865a90c6",
+    "at": "2026-11-20T11:44:35.913Z",
+    "sonnet": 0.72,
+    "back": false
+  },
+  "betta-mandor": {
+    "hash": "c8f0eb65852eeaa0bd776ca376f51ae4c3a9777063b0534ecca059cfa280b3a7",
+    "at": "2026-11-20T11:45:07.425Z",
+    "sonnet": 0.95,
+    "opus": 0.95,
+    "back": true
+  },
+  "betta-midas": {
+    "hash": "dce23f12f4009b764354680f1969088c45b0927ebf8ea65545b8bb55beafa147",
+    "at": "2026-11-20T11:45:26.651Z",
+    "sonnet": 0.95,
+    "opus": 0.5,
+    "back": false
+  },
+  "betta-pallida": {
+    "hash": "458c0a2580384554c2cbf39d43f86a2a17784acf398e78ae36ba63fe9fc4e6a9",
+    "at": "2026-11-20T11:45:40.960Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "betta-pardalotos": {
+    "hash": "fb6ca591d1ebeb96b0a9e1068af23ee50bb1a3a1d868bfbfddce2df89d43eeb9",
+    "at": "2026-11-20T11:46:12.173Z",
+    "sonnet": 0.93,
+    "opus": 0.88,
+    "back": true
+  },
+  "betta-picta": {
+    "hash": "9a393b9a7a85c3262ef1a5c2daef5ad0fff7f5bcac419e67302c4cb9b05c88ac",
+    "at": "2026-11-20T11:46:24.590Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 10: 'burayak' is used for fry, but 'anakan Betta' is used later for 'young Betta'; harmonise."
+    ]
+  },
+  "betta-pinguis": {
+    "hash": "385054db08e0dd5414ac2dc9faadf11b4e908a7b0572e202543a69a183569ddd",
+    "at": "2026-11-20T11:46:37.548Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "betta-pulchra": {
+    "hash": "b6090ebc40ca61189bfd20e42bb9452bf901f73746593aa8d38456dc6c6b0a0e",
+    "at": "2026-11-20T11:46:49.010Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "betta-renata": {
+    "hash": "ce87bfc884c752c29159da2082db41c52bc3c46992d4bcbe52757a56fe542ad6",
+    "at": "2026-11-20T17:22:56.910Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": true
+  },
   "betta-simplex": {
     "hash": "e8e22287a63e2f2ea2cfe7d63a609b65381622ac926f419f01bb24c5d391cf51",
     "at": "2026-11-18T00:29:03.853Z",
@@ -640,11 +798,184 @@
     "opus": 0.9,
     "back": true
   },
+  "bhavania-australis": {
+    "hash": "1b5ed8b80b34a8096e4df04c5042db91c1735771c55a8bf47559e755cd2df030",
+    "at": "2026-11-20T17:23:31.428Z",
+    "sonnet": 0.8,
+    "opus": 0.9,
+    "back": true
+  },
+  "boraras-naevus": {
+    "hash": "a35406a85c5b0ba27f35ad89b99d3f2b16c37854eec726e478c0878dd7333578",
+    "at": "2026-11-20T17:23:44.932Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "botia-dario": {
+    "hash": "d128f96c57cad824971a305b3c2d5350db393c530f1e047ba2dd441ef229e1f4",
+    "at": "2026-11-20T17:23:50.779Z",
+    "sonnet": 0.5,
+    "back": false,
+    "held": [
+      "Item 12: \"Tarian ini bisa berlangsung\" – 'Tarian ini' is added wording but harmless; however the 'Botia appears to be the basal... lineage' paragraph drops \"rather then being grouped\" nuance okay. Main issue: \"Pertunjukan seperti ini\" for \"Such displays\" is awkward; use \"Perilaku menunjukkan diri seperti ini\"."
+    ]
+  },
+  "botia-histrionica": {
+    "hash": "b3b773f0672c28ac50d9c4a0fa88d8fcfb188efdc665af5e68e2e701e34b0cae",
+    "at": "2026-11-20T17:23:57.730Z",
+    "sonnet": 0.4,
+    "back": false
+  },
+  "botia-lohachata": {
+    "hash": "164f6f6684d93f015d8757b6d807fc45f5e9c32e24472bfa31fb946418608e8c",
+    "at": "2026-11-20T17:24:16.030Z",
+    "sonnet": 0.8,
+    "opus": 0.95,
+    "back": true
+  },
+  "botia-rostrata": {
+    "hash": "f71e0243c0d54de93bc3a33d0d4a23497d8ab0bbc98f478a1c645f0149072c1f",
+    "at": "2026-11-20T17:24:54.064Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": true
+  },
+  "botia-striata": {
+    "hash": "84ab2eecc15424135e744766b0738f0ff401b7c3f792fb63c2af19bfdf4f2792",
+    "at": "2026-11-20T17:25:05.939Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 12: \"Levamisole yang tergolong antibiotik\" repeats the source's error, but Levamisole is an anthelmintic, not an antibiotic. Fenbendazole is also an anthelmintic. Fix the wording or add a neutral note. Check this against the source before finalising."
+    ]
+  },
+  "botia-udomritthiruji": {
+    "hash": "0bcb19e36a04a02646e958b692a42ec4f987f7dda046be6e86f00f1fa11c6b13",
+    "at": "2026-11-20T17:25:44.298Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": false,
+    "held": [
+      "Item 12: \"Hobbyists in the UK tend to use ... Levamisole\" – translation \"antibiotik Levamisole\" repeats source's error; fine. \"Obat\" fine."
+    ]
+  },
+  "boulengerella-lateristriga": {
+    "hash": "fa05a9cf63a4f12b155cd2dd1ef6ca81dcf372ff8f2f85fbe5274c8ef6e02487",
+    "at": "2026-11-20T17:25:56.641Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "boulengerella-lucius": {
+    "hash": "0cbd2f7c731a178318d6f12df35e61aab6506c4a2e52e16b1ad007402c44579a",
+    "at": "2026-11-20T17:26:25.528Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": true
+  },
+  "boulengerella-maculata": {
+    "hash": "bd3d8c91fbf598da8444fe1caa194d696047b024a4e1e9640d1212875047b2a6",
+    "at": "2026-11-20T17:26:35.896Z",
+    "sonnet": 0.6,
+    "back": false
+  },
   "brachychalcinus-orbicularis": {
     "hash": "860a4365720de71049f69d9543ff4a50950fc0a28c6cc319b2cf5665526fe520",
     "at": "2026-11-17T11:23:39.463Z",
     "sonnet": 0.6,
     "back": false
+  },
+  "brachygobius-doriae": {
+    "hash": "7ac54061ce84a9a00cef02e6bba3f3e4aec217466333a056d3d347e9ced14a5e",
+    "at": "2026-11-20T17:27:11.909Z",
+    "sonnet": 0.93,
+    "opus": 0.7,
+    "back": false
+  },
+  "brachygobius-kabiliensis": {
+    "hash": "144b724c85697083db47b02eff1b3f64f339c6b5ca12b650f14dbb8e3716803e",
+    "at": "2026-11-20T17:27:28.479Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "brachygobius-mekongensis": {
+    "hash": "279b697fdea41b8a5b4c3b87a9e1e7c7d9e013bc9e2fe4087789ca0e215a470f",
+    "at": "2026-11-20T17:27:40.146Z",
+    "sonnet": 0.72,
+    "back": false
+  },
+  "brachyplatystoma-juruense": {
+    "hash": "90ef4dfb1e55cf98e9f3d2c4b04eb995cd311de9288a49ed629fae4b8130bb0d",
+    "at": "2026-11-21T01:05:30.222Z",
+    "sonnet": 0.92,
+    "opus": 0.9,
+    "back": true
+  },
+  "brachyplatystoma-vaillantii": {
+    "hash": "a7f595244b3eb8bdf0e6271a811ebd076308b2dc13a95354a3a865dbc3b8e09d",
+    "at": "2026-11-21T01:05:43.645Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "brachyrhamdia-heteropleura": {
+    "hash": "8cb3d6c3baf392221f50faf0e9550649c59cdaaf1229f2353b20ad5b474ec29f",
+    "at": "2026-11-21T01:05:55.349Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "brachyrhamdia-imitator": {
+    "hash": "f4ded784dfa96abb77533b3009cd51c9090843de3499db3ce4855b7ea735903b",
+    "at": "2026-11-21T01:06:06.838Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "brachyrhamdia-meesi": {
+    "hash": "a924744ecc3654b0ad256536e786547f178b5e0d22e3ac6fcf978427d474368c",
+    "at": "2026-11-21T01:06:17.895Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "brachyrhaphis-roseni": {
+    "hash": "81182cfa3c30491a33f1fc9a48691eba21c585f0ca9610bddac971343b2d4344",
+    "at": "2026-11-21T01:06:38.639Z",
+    "sonnet": 0.85,
+    "opus": 0.9,
+    "back": true
+  },
+  "brevibora-cheeya": {
+    "hash": "b92f5abbcb6362e0d8fba17e03eada1f30116acec53bc023825be7b9fc43c1d7",
+    "at": "2026-11-21T01:06:51.279Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "brotia-pagodula": {
+    "hash": "f4343bde57f9a5473115da1fc1a7cd41118ebbf03bcd83467e3cfd049c674668",
+    "at": "2026-11-21T01:07:04.507Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "butis-butis": {
+    "hash": "4f984ec50b7e856d6b8e1373a78492f8433490663894c49442a987faa11ae1a4",
+    "at": "2026-11-21T01:07:35.004Z",
+    "sonnet": 0.92,
+    "opus": 0.85,
+    "back": true
+  },
+  "cambarellus-shufeldtii": {
+    "hash": "16ca9ad155328e185a12d9cb4f90d072468b0533babae1eab8693b253bbf013a",
+    "at": "2026-11-21T01:07:48.101Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "cambarus-bartonii": {
+    "hash": "508737b2f81dfab6a19e7becf695f03892569cd4424d2dd620e7689e1e346d5b",
+    "at": "2026-11-21T01:08:01.008Z",
+    "sonnet": 0.62,
+    "back": false,
+    "held": [
+      "Section 6: the Fahrenheit figures were dropped correctly, but \"ultimate upper incipient lethal temperature\" as \"suhu letal atas awal\" is a loose gloss. The English term is given in brackets, so this is acceptable.",
+      "Section 6: \"suhu letal atas awal (ultimate upper incipient lethal temperature)\" is a clumsy rendering of the technical term. Check it against the standard term \"suhu letal atas awal ultimat\".",
+      "Section 6: \"dapat bertahan (LC50) pada pH 2,43\" is imprecise. Say that LC50 (50% mortality) was reached at pH 2,43 over 96 jam."
+    ]
   },
   "caquetaia-myersi": {
     "hash": "7369a31ceb4d1105bb2e26677406592964768d6389004342300d73cf83ea9398",
@@ -695,6 +1026,12 @@
     "sonnet": 0.7,
     "back": false
   },
+  "ciliopagurus-strigatus": {
+    "hash": "44d545723020b12436dce980e611fcf82eb5f97334384af690e73b0adf138670",
+    "at": "2026-11-20T06:51:12.807Z",
+    "sonnet": 0.6,
+    "back": false
+  },
   "copella-nattereri": {
     "hash": "b66479a5d4460cfa36f6be06a330953d60f7643866b53edc587d936a7fea846f",
     "at": "2026-11-20T01:35:35.857Z",
@@ -732,6 +1069,13 @@
     "sonnet": 0.6,
     "back": false
   },
+  "danio-feegradei": {
+    "hash": "f5c2caef7c844a80551b66831e31fcfddf74fdf650056be5d1b407df7803a373",
+    "at": "2026-11-20T06:51:50.684Z",
+    "sonnet": 0.85,
+    "opus": 0.85,
+    "back": true
+  },
   "devario-chrysotaeniatus": {
     "hash": "15dee50668df115afb2c82dce352b8408373cd50c4d70e40ad59287ae026e23b",
     "at": "2026-11-17T11:25:02.699Z",
@@ -758,10 +1102,11 @@
     "back": false
   },
   "dicrossus-maculatus": {
-    "hash": "ee1f5ac8743ef92f4d7060b54bd6e7e539027fc48c546e8b27ac68ccafc4faa4",
-    "at": "2026-11-17T11:25:52.941Z",
-    "sonnet": 0.6,
-    "back": false
+    "hash": "e65fcf199c3c9d7be96823869741b6bdc8a524cba626307231b653064fe9be63",
+    "at": "2026-11-21T01:04:40.775Z",
+    "sonnet": 0.9,
+    "opus": 0.95,
+    "back": true
   },
   "dimidiochromis-strigatus": {
     "hash": "fb5f02bf0b7235ba13fac62a02ba5faba5fa57fb45987d96434f385a696dc987",
@@ -875,6 +1220,15 @@
     "sonnet": 0.5,
     "back": false
   },
+  "faunus-ater": {
+    "hash": "b1addb9c64fd1d43c3623a4aff1fa25f27574ad227768b2aaf43abbb53e7d5d0",
+    "at": "2026-11-20T06:52:01.285Z",
+    "sonnet": 0.7,
+    "back": false,
+    "held": [
+      "Item 7: \"menjadi kurang aktif\" is fine, but \"They are not particularly salt tolerant\" is kept while item 4 says \"sangat tahan terhadap garam\" (source contradiction); consider consistency, not a translator error."
+    ]
+  },
   "gastromyzon-punctulatus": {
     "hash": "7f4e31e08717e43d71a18465c60692ae3addde22a75870c252f7d82f1a233c5c",
     "at": "2026-11-17T17:47:39.604Z",
@@ -883,6 +1237,12 @@
     "held": [
       "Item 12: \"fights are always harmless\" became \"perkelahiannya selalu tidak berbahaya\". This is acceptable, but \"Sesamanya\" is awkward. Use \"Sesama ikan ini\"."
     ]
+  },
+  "gastromyzon-viriosus": {
+    "hash": "4b4ff425b7175ca4afcbc9e64a46c231034ecac3277c34d81ce33c81d49096ff",
+    "at": "2026-11-20T06:52:17.846Z",
+    "sonnet": 0.6,
+    "back": false
   },
   "gymnothorax-polyuranodon": {
     "hash": "1a3f6ab005382ac94819acb54a94ccf243cac210403151d8af0f6bca132c20a4",
@@ -966,11 +1326,13 @@
     "back": true
   },
   "microdevario-kubotai": {
-    "hash": "ba48894a8ab50d41169b8df37d62ec3e4c35c4fb5b3f6c19d0e700119146bb91",
-    "at": "2026-11-19T00:26:41.560Z",
-    "sonnet": 0.85,
-    "opus": 0.7,
-    "back": false
+    "hash": "c082558d104ea7c81586e4f269d2e793def38d302f91a973fdaf5837b3cdf978",
+    "at": "2026-11-21T01:04:47.922Z",
+    "sonnet": 0.5,
+    "back": false,
+    "held": [
+      "#14: the English 'TDS: 18 to 179 ppm' is kept correctly, no change needed."
+    ]
   },
   "mikrogeophagus-ramirezi": {
     "hash": "08f12294cad7ba729bc3be9017777a19c219869d8a950c50de6b728b5e097e32",
@@ -993,6 +1355,12 @@
     "hash": "da5d146e7121c0be630bc7e2c7006b5e02c3dc6478bf72e6e3c6868ed71cd082",
     "at": "2026-11-17T17:49:26.436Z",
     "sonnet": 0.6,
+    "back": false
+  },
+  "neopetrolisthes-maculatus": {
+    "hash": "01ba2e693cde4ff5cd8f224ead4700183ef83bc0e5d9bc2673423e322fbe93b2",
+    "at": "2026-11-20T06:52:29.359Z",
+    "sonnet": 0.7,
     "back": false
   },
   "oryzias-dancena": {
@@ -1022,6 +1390,12 @@
     "sonnet": 0.6,
     "back": false
   },
+  "parosphromenus-filamentosus": {
+    "hash": "f11d18df428974562f550db844f6328e640367f09ca7f455bf40059453939faa",
+    "at": "2026-11-20T11:41:18.521Z",
+    "sonnet": 0.7,
+    "back": false
+  },
   "parosphromenus-linkei": {
     "hash": "688c1b9587e9a291db31df162902bdd22f95b32d676b820016f0eaee0844a266",
     "at": "2026-11-20T01:36:02.012Z",
@@ -1047,11 +1421,24 @@
     "opus": 0.88,
     "back": true
   },
+  "rhynchocinetes-durbanensis": {
+    "hash": "c0a5537a49146fd283f7b62d3ba0c99420fecb125aea8e3fa40fd83e07b51b57",
+    "at": "2026-11-20T06:52:43.585Z",
+    "sonnet": 0.7,
+    "back": false
+  },
   "sahyadria-denisonii": {
     "hash": "4cb18c33a65d46917b36bf2a9792cfd909a3acc21cf14f4b832a99e19a9a89d9",
     "at": "2026-11-18T00:32:04.747Z",
     "sonnet": 0.5,
     "back": false
+  },
+  "sphaerichthys-selatanensis": {
+    "hash": "b7cbf9ddb02a9fc9295162263487be7da45028e41ccf2b4d2fc5deb0e0d3df24",
+    "at": "2026-11-20T06:53:26.382Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": true
   },
   "sphaerichthys-vaillanti": {
     "hash": "3701d22e6e77749ac7ad9cf70de94953acce044cb4d6c7dd9faea01adbb94d8e",

@@ -1,14 +1,18 @@
 {
   "slug": "duong-ben",
   "name": "Đường bên",
-  "altNames": [],
+  "altNames": [
+    "Cơ quan đường bên",
+    "Lateral line"
+  ],
   "sections": {},
   "linkNames": [
     "vảy đường bên"
   ],
-  "definition": "Dãy cơ quan cảm giác chạy dọc hai bên thân cá, giúp cá cảm nhận rung động và dòng nước xung quanh. Số vảy trên đường bên thường được dùng trong định loài; các vết lõm loét quanh đầu và đường bên có thể là dấu hiệu bệnh.",
+  "body": "<h3>Trong bể của bạn</h3><p>Bài báo này nói thêm:</p><ul><li>Các đơn vị cảm giác của đường bên tên là neuromast. Chúng nằm trên bề mặt cơ thể và trong những ống chứa chất nhầy chạy dọc hai bên thân.</li><li>Cá dùng đường bên để quay đầu ngược dòng, bơi theo đàn và tìm mồi.</li><li>Dòng chảy và sóng có thể làm nhiễu những gì đường bên cảm nhận.</li><li>Sóng dội lại từ thành bể có thể làm cá căng thẳng, vì đường bên của chúng rất nhạy. Có thể thêm những vật như khúc gỗ và cây để phá những luồng nước dội lại từ thành bể.</li></ul><p>Lỗ, hố hay vết tổn thương nhỏ trên đầu hoặc dọc đường bên là dấu hiệu cần để ý. Bệnh thủng đầu (hole-in-the-head, HLLE) thường bắt đầu như vậy. Căng thẳng nằm trong các nguyên nhân được kể.</p><h3>Nên làm gì</h3><p>Một tiệm ở Việt Nam ghi:</p><ul><li>Ở cá đĩa, dấu hiệu của bệnh gồm cả nhớt dạng sợi trên da và vết thương.</li><li>Phòng bệnh bằng cách cho ăn đa dạng, giàu vitamin và khoáng, ít tim bò, và không dùng than hoạt tính trong lọc.</li><li>Không dùng nước RO hay nước cất nguyên chất một mình, mà pha với nước máy hoặc thêm sản phẩm bổ sung khoáng.</li></ul><h3>Sai lầm cần tránh</h3><p>Một nguồn người nuôi ghi:</p><ul><li>Gõ kính gửi rung động qua nước. Rung động này có thể đủ mạnh để làm cá hoảng, kể cả khi gõ ở tận phía bên kia bể.</li><li>Một tiếng động đột ngột có thể làm cá bỏ chạy và tự làm mình bị thương khi va vào đồ trong bể.</li><li>Muốn cá nhát ra ngoài thì đừng gõ kính. Hãy đưa những con cá hung dữ chung bể ra, thêm cây rậm cho cá có chỗ trốn và dùng thức ăn để dụ.</li></ul>",
+  "definition": "Đường bên là một trong các cơ quan cảm giác của cá, thường chạy dọc hai bên thân. Một bài báo nói nó gồm tế bào và dây thần kinh trong da. Cá dùng nó để cảm nhận rung động trong nước.",
   "quality": {
-    "score": 0.9,
+    "score": 1,
     "indexable": true
   }
 }

@@ -1,0 +1,50 @@
+{
+  "id": "youtube-dNMQlFf2HKc",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=dNMQlFf2HKc",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "betta-splendens"
+  ],
+  "updatedAt": "2026-11-20",
+  "video": {
+    "youtubeId": "dNMQlFf2HKc",
+    "title": "Betta Aquarium Temperature? Do Bettas Need A Heater?",
+    "channel": "KGTropicals",
+    "channelUrl": "https://www.youtube.com/channel/UCyyGJeKITfR7Y5cq2zX4-oQ",
+    "durationSec": 389,
+    "publishedAt": "2019-12-10",
+    "chapters": [],
+    "series": {
+      "id": "PLbk3wN8TF_D3M0cs1kMNjuGfDri7B1f7u",
+      "position": 19
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/dNMQlFf2HKc/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Betta splendens"
+    ],
+    "gear": [
+      {
+        "category": "suoi",
+        "type": "chinh-nhiet",
+        "brand": "Aqueon",
+        "t": 140
+      },
+      {
+        "category": "suoi",
+        "type": "chinh-nhiet",
+        "t": 30
+      },
+      {
+        "category": "loc",
+        "t": 330
+      }
+    ]
+  }
+}

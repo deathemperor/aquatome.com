@@ -1,8 +1,13 @@
 {
   "slug": "niger",
-  "name": "Niger",
+  "name": "Negeri Niger",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.85,
+    "at": "2026-11-20T07:07:06.183Z"
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

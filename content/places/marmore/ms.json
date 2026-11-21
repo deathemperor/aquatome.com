@@ -3,6 +3,12 @@
   "name": "Marmoré",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-20T17:35:20.998Z",
+    "why": "The source sentence uses Marmoré as a river basin (the Mamoré River), and the bare name leaves out the Malay kind word \"Sungai\" that an atlas in Malaysia would put before it."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

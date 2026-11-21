@@ -7,14 +7,21 @@
   ],
   "sections": {
     "notes:glaser": "<p>Ancistrus patronus là một trong nhiều loài cá lau kiếng Ancistrus mình đen chấm trắng. Trước khi được mô tả khoa học vào tháng 2 năm 2019, loài này có tên trong giới nuôi là Ancistrus sp. “Puerto Ayacucho” và A. sp. “Rio Parucito”. Hai mã L125 và L150 được đặt cho những con nhập về mà không ai biết chính xác chúng từ đâu. Người chơi cá da trơn cho rằng hai mã này cũng là A. patronus.</p><p>Còn một dạng họ hàng nữa là Ancistrus sp. “Rio Tocantins”. Dạng này màu rất nổi bật nhưng chưa bao giờ có mã L. Nhìn hoa văn tổ ong là nhận ra nó ngay. Ngoài tự nhiên, nó sống chung với loài Ancistrus L156. Ngoài màu khác, thân nó cũng dẹt hơn hẳn các loài Ancistrus khác.</p>",
-    "maintenance:glaser": "<p>Cả hai loài đều dễ nuôi, dễ cho đẻ. Cách nuôi và cho đẻ giống như các loài Ancistrus quen thuộc.</p>"
+    "quickFacts:scotcat": "<p>Họ: Loricariidae. Kích thước: 8,5 cm. Nhiệt độ: 24–28°C. pH: 6,0–7,5. Tình trạng IUCN: Ít quan tâm.</p><p>Thân và vây đen tuyền, điểm những chấm trắng li ti. Phần màng vây lưng thứ nhất gần gốc có sắc tố sẫm. Hai mút trên và dưới của vây đuôi đôi khi có màu trắng hoặc màu kem.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: Venezuela. Loài này có ở thượng nguồn sông Orinoco, từ sông Cinaruco ngược lên, và ở sông Casiquiare.</p>",
+    "habitat:scotcat": "<p>Ancistrus patronus sống trên một vùng rộng, chủ yếu ở những nơi ít bị tác động. Trong vùng phân bố của nó, đây là một trong những loài Ancistrus dễ gặp hơn cả, sống ở nhiều kiểu môi trường khác nhau. Có vẻ loài này không gặp mối đe dọa lớn nào, nên được xếp vào mức Ít quan tâm (IUCN 2023).</p>",
+    "maintenance:scotcat": "<p>Ancistrus hợp để nuôi chung với cá khác, miễn là chúng không lớn quá cỡ bể. Một số loài cần điều kiện nuôi riêng, nên tốt nhất là tìm hiểu kỹ loài mình đang nuôi. Chẳng hạn, xem nó có cần nhiều oxy hơn không. Loài có gốc từ miền nam Nam Mỹ thì xem nó có ưa nước mát hơn các loài ở xa hơn về phía bắc không.</p>",
+    "diet:scotcat": "<p>Cho ăn rau củ như dưa chuột, bí ngòi, kèm thức ăn viên nén và thức ăn có thịt.</p>",
+    "reproduction:scotcat": "<p>Cá đực chọn một cái hang hoặc khe đá rồi dọn sạch. Cá cái vào đó đẻ trứng thành một cụm. Sau đó cá đực thường đuổi cá cái đi rồi ở lại canh trứng. Cá bột bám vào thành hang. Sau khoảng bốn đến bảy ngày, khi đã tiêu hết túi noãn hoàng, chúng bắt đầu ăn được trùng cỏ, rau củ, ấu trùng artemia mới nở hoặc giun vi sinh. Trong bể nuôi chung, nếu có đủ chỗ trốn thì vẫn có vài con sống sót.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: tên loài patronus có nghĩa là \"đặt theo tên những người cha tốt\". Trong tiếng Latin, patronus là người bảo vệ, người che chở, bắt nguồn từ chữ pater, nghĩa là cha.</p><p>Trong vùng phân bố của nó, Ancistrus patronus khác mọi loài Ancistrus khác ở chỗ toàn thân đen, điểm những chấm nhỏ từ trắng đến vàng ánh. Chỉ có A. lithurgicus, A. macrophthalmus, A. maximus và A. nudiceps là cũng có đặc điểm này. So với A. nudiceps, loài này nhỏ hơn nhiều khi lớn hết cỡ (86 so với 138 mm SL). Còn so với A. leoni, A. lithurgicus và A. macrophthalmus, nó có thân cao chứ không dẹt, và mắt nằm ở hai bên đầu.</p>",
+    "references:scotcat": "<p>Armbruster, J.W. 2023. Ancistrus patronus. The IUCN Red List of Threatened Species 2023.</p><p>Souza, LS de; Taphorn, DC &amp; Armbruster, JW, 2019 \"Review of Ancistrus (Siluriformes: Loricariidae) from the northwestern Guiana Shield, Orinoco Andes, and adjacent basins with description of six new species\" (Zootaxa, Vol. 4552 No. 1).</p>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.8
-    },
-    "reason": "thin"
+      "glaser": 0.8,
+      "scotcat": 0.85
+    }
   }
 }

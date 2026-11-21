@@ -146,6 +146,10 @@
       {
         "source": "seriouslyfish",
         "value": 5.5
+      },
+      {
+        "source": "glaser",
+        "value": 5
       }
     ],
     "difficulty": [
@@ -172,6 +176,13 @@
           "min": 0.5,
           "max": 1
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 1,
+          "max": 1
+        }
       }
     ],
     "tankCm": [
@@ -193,12 +204,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-rachovii",
       "html": "<p>The bluefin nothobranch, Nothobranchius rachovii, is a killifish of seasonal pools and swamps in eastern Mozambique. Its habitats dry out for several months each year and the adults die, while the eggs survive in the substrate and hatch when the rains return. Northern and southern populations once included in it are now described as N. krysanovi and N. pienaari, and N. rachovii sensu stricto is restricted to the lower Pungwe and Zambezi basins.</p>"
-    },
-    {
-      "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius_rachovii_en/",
-      "html": "<ul><li>Origin: bred in captivity</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -231,6 +236,12 @@
       "html": "<p>Inhabits ephemeral, water-filled depressions, pools and swamps mostly located in lowland floodplains. Water levels in these seasonally-variable habitats typically decrease during the dry season and eventually become completely desiccated for several months each year. pH values are typically 6.0–7.0. Aquatic plant species include Nymphea, Ottelia, Lagarosiphon and Utricularia species with common sympatric fishes including the congeners N. kadleci and N. orthonotus plus Clarias gariepinus, Ctenopoma multispine, Protopterus annectens and unidentified 'Barbus' spp. Some habitats are apparently used for low intensity, subsistence rice cultivation.</p>"
     },
     {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius-rachovii-3/",
+      "html": "<p>In the wild, these fish usually live for only a few months, after which their home waters dry up. In nature, strong temperature fluctuations of the water of more than 10°C often occur in the day-night change.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/nothobranchius-rachovii-detailed-guide-care-diet-and-breeding/",
@@ -253,6 +264,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-rachovii",
       "html": "<p>This species does not require peat although peat moss is often used as a spawning medium.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius-rachovii-3/",
+      "html": "<p>In the aquarium they can get much older, about one year. A daytime temperature of 24-25°C is favourable; at night the temperature may drop to room temperature (about 18°C). This fluctuation is achieved simply by switching off the heater with the light at night. Although the fish are rather indifferent to the chemical composition of the water, they are less susceptible to Oodinum in harder water.</p>"
     },
     {
       "key": "waterConditions",
@@ -285,10 +302,22 @@
       "html": "<p>A natural micropredator meaning small live or frozen foods such as Daphnia, Artemia and chopped bloodworm should form the basis of the diet.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius-rachovii-3/",
+      "html": "<p>Very nutritious food is important for successful care (best worm food such as Tubifex), because the fish have a very fast metabolism.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/nothobranchius-rachovii-detailed-guide-care-diet-and-breeding/",
       "html": "<p>Females are very peaceful and harmless. Males are brightly coloured and have a temperament to match. Besides aggression toward subordinate males, dominant males may also be aggressive toward females and toward other fish species, even slightly larger ones. With multiple males in the aquarium, each will claim and guard its territory.</p><p>It is better to keep them in nest groups, with two to three females per male. To reduce aggression, they can be raised and bred in groups of 5–6 males and 10–12 females without separating them. Isolating a male from the group, even for a week, can lead to problems. Keeping groups together from the start distributes aggression evenly and offers a larger genetic pool, but needs larger aquariums.</p><p>This diurnal species is lively and active, constantly on the move, especially at feeding time. It spends most of the time in the open, often checking the bottom and hovering in midwater, and is fond of dense vegetation and hiding places. It shows sleep-like states with short periods of inactivity, floating near the surface with no pectoral fin movement during the night.</p><ul><li>Social: yes</li><li>Activity: high</li><li>Placement: middle and bottom</li><li>Peaceful: conditionally</li><li>Nippers: no</li><li>Jumpers: yes</li></ul>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius-rachovii-3/",
+      "html": "<p>Nothobranchius species are best kept in single-species tanks; they are hardly competitive against other fish.</p>"
     },
     {
       "key": "dimorphism",
@@ -301,6 +330,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-rachovii",
       "html": "<p>Males grow larger and are far more colourful than females.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius-rachovii-3/",
+      "html": "<p>Males grow to about 5 cm and females to about 4 cm.</p>"
     },
     {
       "key": "reproduction",
@@ -327,6 +362,12 @@
       "html": "<p>There exists an aquarium strain which is apparently derived from an import made by Roloff in 1958 while other collections are generally labelled with some form of code in order that they can be told apart, thus limiting the possibility of hybridisation. Examples include 'Beira 1998' in reference to a commercial collection made in that area during 1998 and MOZ 99/1, MOZ 99/2, MOX 99/3, etc. in which 'MOZ' represents 'Mozambique', '99' the year of collection (1999) and the latter figure collection locality. The putative subgenus Zononothobranchius, to which N. rachovii has been assigned in the past, currently contains only the single species known as Nothobranchius rubroreticulatus according to the mtDNA analyses of Shidlovskiy et al. (2010).</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius-rachovii-3/",
+      "html": "<p>Nothobranchius: Ancient Greek \"nothos\" = fake and \"branchion\" = gill; refers to the structure of the gills. rachovii: dedication name in honour of the German aquarist Arthur Rachow (1884-1960).</p>"
+    },
+    {
       "key": "references",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/nothobranchius-rachovii-detailed-guide-care-diet-and-breeding/",
@@ -337,12 +378,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-rachovii",
       "html": "<ul><li>Shidlovskiy, K. M., B. R. Watters, and R. H. Wildekamp (2010). Notes on the annual killifish species Nothobranchus rachovii (Cyprinodontiformes: Nothobranchiidae) with the description of two new species. Zootaxa 2724, 37-57</li><li>Dorn, A., E. Ng'oma , K. Janko , K. Reichwald, M. Polačik, M. Platzer, A. Cellerino, and M. Reichard (2011). Phylogeny, genetic variability and colour polymorphism of an emerging animal model: The short-lived annual Nothobranchius fishes from southern Mozambique. Molecular Phylogenetics and Evolution 61(3), 739-749</li></ul>"
-    },
-    {
-      "key": "references",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius_rachovii_en/",
-      "html": "<p>Lexikon: Nothobranchius: from ancient Greek \"nothos\" = false, untrue and \"branchion\" = gill, referring to the gill anatomy. rachovii: dedication name for the German aquarist Arthur Rachow (1884 – 1960).</p>"
     }
   ],
   "photos": [
@@ -355,9 +390,64 @@
       "author": "Aquarium Breeder",
       "sourceUrl": "https://aquariumbreeder.com/nothobranchius-rachovii-detailed-guide-care-diet-and-breeding/",
       "source": "aquariumbreeder"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/3b204ffcc721d328.webp",
+      "thumb": "https://media.aquatome.com/glaser/3b204ffcc721d328-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius-rachovii-3/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/3bcda2ad859fcb43.webp",
+      "thumb": "https://media.aquatome.com/glaser/3bcda2ad859fcb43-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius-rachovii-3/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/10c4c4db9071c7f2.webp",
+      "thumb": "https://media.aquatome.com/glaser/10c4c4db9071c7f2-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius-rachovii-3/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "24R2KlxfwqU",
+      "title": "Nothobranchius Rachovii: The Living Jewel of the Wild! #nothobranchius #killifish #shorts",
+      "durationSec": 21,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Svjd4QQMB7M",
+      "title": "KIND OF KILLIFISH #rachovii #killifish",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "FODoykTlfNc",
+      "title": "Ce poisson vit moins d'un an ! 🐟 Nothobranchius rachovii #aquarium #fish #animaux",
+      "durationSec": 55,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "3d1S8Jl18f8",
+      "title": "BUYING RARE NEW FISH for AQUARIUM! Bluefin Notho * Nothobranchius Rachovii*",
+      "durationSec": 243,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -388,5 +478,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-11"
+  "updatedAt": "2026-11-20"
 }

@@ -21,10 +21,10 @@
     "references:seriouslyfish": "<ul><li>Chen, Y.-Y. (1980). Systematic studies of the fishes of the family Homalopteridae of China II. Classification of the fishes of the subfamily Gastromyzoninae. Acta Hydrobiologica Sinica 7(1), 95-120</li><li>Du, L.-N., Y.-F. Huang, X.-Y. Chen and J.-X. Yang (2008). Three new records of fish in Yunnan and analysis of the value of faunal presence of fish in the Tuoniang River. Zoological Research 29(1), 69-77</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li></ul>"
   },
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.7
+      "seriouslyfish": 0.85
     }
   }
 }

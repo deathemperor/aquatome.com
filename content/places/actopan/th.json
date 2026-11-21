@@ -3,6 +3,12 @@
   "name": "อักโตปัน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-21T01:16:14.992Z",
+    "why": "Actopan is a Mexican municipality/region, and the Thai transliteration อักโตปัน is phonetically sound, but it lacks a kind word such as เทศบาล or เขต that an atlas would typically include, and the common Thai rendering is อากโตปัน/อักโตปัน with uncertain convention."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

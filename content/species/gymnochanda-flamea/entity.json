@@ -1,0 +1,149 @@
+{
+  "id": "gymnochanda-flamea",
+  "scientificName": "Gymnochanda flamea",
+  "order": "Perciformes",
+  "family": "Ambassidae",
+  "genus": "Gymnochanda",
+  "group": "other",
+  "places": [
+    "asia",
+    "indonesia",
+    "borneo"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/gymnochanda-flamea-2/",
+      "html": "<p>Gymnochanda flamea, the red filamentous glassfish, is a dwarf glassfish from Indonesia, up to 4 cm long. All Gymnochanda species (G. filamentosa, G. flamea, G. limi, G. ploegi and G. verae) are pure freshwater fish, and salt should never be added to the water.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/gymnochanda-flamea-2/",
+      "html": "<p>G. flamea occurs in South Borneo. Only G. flamea and G. filamentosa (Malaysia, Sumatra (?), West Borneo) have thread-like long dorsal and anal fin rays, red in G. flamea and white-blue in G. filamentosa.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/gymnochanda-flamea-2/",
+      "html": "<p>The care of these cute animals, maximum 4 cm long, is not very difficult.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/gymnochanda-flamea-2/",
+      "html": "<p>Soft, slightly acidic water (pH 6–7) and a temperature of 24–28°C are recommended.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/gymnochanda-flamea-2/",
+      "html": "<p>They only eat live food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/gymnochanda-flamea-2/",
+      "html": "<p>Among each other they are very peaceful, even towards other fish, but they should, if at all, only be kept with other tiny and peaceful species.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/gymnochanda-flamea-2/",
+      "html": "<p>The animals are egglayers without brood care. The eggs are deposited in fine-grained plants. As far as is known, no successful rearing of the brood under aquarium conditions has been reported so far.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/b7cc21288e01fd1d.webp",
+      "thumb": "https://media.aquatome.com/glaser/b7cc21288e01fd1d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/gymnochanda-flamea-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/fc16f97251e04b49.webp",
+      "thumb": "https://media.aquatome.com/glaser/fc16f97251e04b49-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/gymnochanda-flamea-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/88806e752df7c024.webp",
+      "thumb": "https://media.aquatome.com/glaser/88806e752df7c024-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/gymnochanda-flamea-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/fae2994b5ea511d4.webp",
+      "thumb": "https://media.aquatome.com/glaser/fae2994b5ea511d4-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/gymnochanda-flamea-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn sống cho cá nhỏ",
+        "bo bo",
+        "artemia"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 40 lít"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

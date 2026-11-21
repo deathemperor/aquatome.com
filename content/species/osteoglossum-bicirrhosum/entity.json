@@ -649,6 +649,10 @@
       {
         "source": "seriouslyfish",
         "value": 80
+      },
+      {
+        "source": "glaser",
+        "value": 90
       }
     ],
     "tankCm": [
@@ -678,10 +682,22 @@
       "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump.</li></ul><p>The silver arowana, Osteoglossum bicirrhosum, is a large predator from the Amazon basin, plus river systems in Guyana and French Guiana. Reaching 80 cm, it is largely unsuitable for the home aquarium, and although juveniles are readily available, few private aquarists can house an adult long-term. Juveniles have a single dark lateral stripe, while in those of its only congener, O. ferreirai, most of the body and fins are dark.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/osteoglossum-bicirrhosum-3/",
+      "html": "<p>In trade are both imported animals from Peru and Colombia – mostly young fish up to about 10 cm long – but also offspring from Singapore and Indonesia. From these breeding centres often larger animals are imported, sometimes also breeding forms which do not exist in nature. Since arowanas are identified with dragons in Asian mythology and dragons bring luck, among other things, platinum-coloured or albino arowanas are sought-after and also expensive fish.</p><p>Albino youngsters from Indonesia are on offer. The ivory body lacks any black markings, only the yellow spots on the scales immediately behind the head, which in the natural form frame the black shoulder spot, and the yellow vertical stripes on the anal fin are present. The eye is not red, as is common in mammalian albinos; fish have more types of colour pigment cells than mammals, so albinism in them is not necessarily coupled with red-eye.</p><p>Specimens 7–9 cm long, of the same size, of an albino from Indonesia and a wild form from Colombia show obvious differences.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/osteoglossum-bicirrhosum",
       "html": "<p>Cuvier gave type locality as 'Brazil', with modern records indicating it to range throughout much of the Amazon basin in Brazil, Peru, Colombia and Ecuador, plus the Rupununi and Oyapock systems in Guyana and French Guiana, respectively.</p><p>In the rio Negro, Brazil, plus a handful of blackwater rivers draining into the Río Orinoco through eastern Colombia it's replaced by the congener O. ferreirai while there exist no records of the genus from the Orinoco or other drainages in Venezuela.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/osteoglossum-bicirrhosum-3/",
+      "html": "<p>One of the absolute classics among the large fish, which have been an indispensable part of the assortment of zoos, show aquariums and also private large aquariums for decades, is the silver arowana, Osteoglossum bicirrhosum, which is widespread in the Amazon region and the rivers Rupununi and Oyapock (Brazil, Colombia, Ecuador, Guyana, French Guiana and Peru). The species grows up to 90 cm long and is an important food fish in its native countries. Arowanas practice brood care, the species is a mouth-breeder in the male sex.</p>"
     },
     {
       "key": "habitat",
@@ -741,46 +757,101 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/84f557378f0c3b1d.webp",
+      "thumb": "https://media.aquatome.com/commons/84f557378f0c3b1d-480.webp",
       "width": 960,
       "height": 596,
-      "licence": "CC BY-SA 3.0",
-      "author": "User:Qwertzy2",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osteoglossum_bicirrhosum.JPG",
-      "caption": "Image of Osteoglossum bicirrhosum (Silver Arowana). They are native to the Amazon River system, and are know to have grown as long as 1 meter long in captivity and 1.2 meter in the wild. When kept in ",
-      "thumb": "https://media.aquatome.com/commons/84f557378f0c3b1d-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/84f557378f0c3b1d-large.webp",
         "width": 1934,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "User:Qwertzy2",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osteoglossum_bicirrhosum.JPG",
+      "caption": "Image of Osteoglossum bicirrhosum (Silver Arowana). They are native to the Amazon River system, and are know to have grown as long as 1 meter long in captivity and 1.2 meter in the wild. When kept in "
     },
     {
       "url": "https://media.aquatome.com/commons/01e5c545c6cd2645.webp",
+      "thumb": "https://media.aquatome.com/commons/01e5c545c6cd2645-480.webp",
       "width": 960,
       "height": 640,
-      "licence": "CC BY-SA 4.0",
-      "author": "Michael Barera",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Milwaukee_County_Zoo_August_2022_098_(silver_arowana).jpg",
-      "caption": "A silver arowana at the Milwaukee County Zoo in Milwaukee, Wisconsin (United States).",
-      "thumb": "https://media.aquatome.com/commons/01e5c545c6cd2645-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/01e5c545c6cd2645-large.webp",
         "width": 1800,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Michael Barera",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Milwaukee_County_Zoo_August_2022_098_(silver_arowana).jpg",
+      "caption": "A silver arowana at the Milwaukee County Zoo in Milwaukee, Wisconsin (United States)."
     },
     {
       "url": "https://media.aquatome.com/commons/abc7f85db0d600c0.webp",
+      "thumb": "https://media.aquatome.com/commons/abc7f85db0d600c0-480.webp",
       "width": 960,
       "height": 624,
       "licence": "Public domain",
       "author": "Ltshears - Trisha M Shears",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arawana_Image_001.jpg",
-      "caption": "Arawana - Osteoglossum bicirrhosum",
-      "thumb": "https://media.aquatome.com/commons/abc7f85db0d600c0-480.webp"
+      "caption": "Arawana - Osteoglossum bicirrhosum"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b38aef01d2eb58e8.webp",
+      "thumb": "https://media.aquatome.com/glaser/b38aef01d2eb58e8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/osteoglossum-bicirrhosum-3/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/322d635ef583aaa4.webp",
+      "thumb": "https://media.aquatome.com/glaser/322d635ef583aaa4-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/osteoglossum-bicirrhosum-3/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/089a642746af5263.webp",
+      "thumb": "https://media.aquatome.com/glaser/089a642746af5263-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/osteoglossum-bicirrhosum-3/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "eE3KITkYruM",
+      "title": "Silver Arowana / glossum bicirrhosum / kawasui Aquarium",
+      "durationSec": 15,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "nE4CPvenTJ4",
+      "title": "2 FEET  SILVER AROWANA",
+      "durationSec": 8,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "H6j7qxxF62E",
+      "title": "[4K] Silver Arowanas Grace - 50cm / 20 inch - 2.5 Years - Osteoglossum bicirrhosum",
+      "durationSec": 123,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "fR3jGK-MO9Q",
+      "title": "Silver Arowana Gliding Beneath Flooded Trees",
+      "durationSec": 11,
+      "lang": "en-US"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -809,5 +880,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-21"
 }

@@ -1,0 +1,24 @@
+{
+  "slug": "oc-dua-neritodryas-cornea",
+  "name": "Ốc đua Neritodryas cornea",
+  "altNames": [
+    "Ốc đua",
+    "Racing snail",
+    "Zebra racing snail"
+  ],
+  "sections": {
+    "notes:glaser": "<p>Chuyện tên loài không quá quan trọng. Cái quan trọng là nuôi ốc thế nào.</p>",
+    "habitat:glaser": "<p>Các loài ốc đua nuôi gần giống nhau. Chúng chịu được độ mặn thay đổi rất rộng và sống trong rừng ngập mặn ven biển. Lúc triều lên, chúng ngập trong nước biển hoàn toàn, còn khi triều lên và triều xuống cũng có lúc chúng ở trong nước ngọt hoàn toàn. Nhiều con còn sống sâu trong đất liền, ở vùng nước ngọt hẳn. Nhưng nơi ở của chúng lúc nào cũng chịu ảnh hưởng của thủy triều, vì ấu trùng ốc chỉ lớn được ngoài biển.</p>",
+    "waterConditions:glaser": "<p>Nước trong bể không nên quá mềm. Giữ pH khoảng 7, hơi cao một chút thì tốt hơn hơi thấp. Ngoài chuyện đó ra thì khó làm sai điều gì.</p>",
+    "diet:glaser": "<p>Ốc ăn rêu rất hăng, nhưng không ăn được tảo lam và rêu sợi. Chúng chỉ ăn lớp màng rêu xanh và tảo nâu bám trên kính và đồ trang trí. Thức ăn cho cá dạng mảnh hay dạng viên thì chúng cũng ăn.</p>",
+    "behaviour:glaser": "<p>Ốc mới về hay bò ra khỏi bể. Đây là thói quen còn giữ lại từ lúc sống theo con nước lên xuống ngoài tự nhiên. Bể phải đậy thật kín, không chừa một khe hở nào.</p>"
+  },
+  "quality": {
+    "score": 0.5,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.5
+    },
+    "reason": "thin"
+  }
+}

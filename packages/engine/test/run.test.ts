@@ -568,6 +568,32 @@ test('the network gone: the source stops after 3 pages in a row, so the rest kee
   expect(r.errors.at(-1)).toMatch(/seriouslyfish: stopping: 3 pages in a row failed on the network/)
 })
 
+test("a source answering 429 page after page: it stops after 3 in a row, as with the network gone, and the pages after them keep their attempts (the chief of staff, 20 Nov)", async () => {
+  const root = await fresh()
+  const { d } = deps(root, { urls: ['f1', 'f2', 'f3', 'f4', 'f5'] })
+  const asked: string[] = []
+  d.fetcher.get = async (u: string) => { asked.push(u); return { status: 429, html: '<html><head><title>Slow down</title></head><body><p>Please wait.</p></body></html>', finalUrl: u } }
+  const r = await runEngine(d, { sources: ['seriouslyfish'] })
+  expect(asked).toHaveLength(3)
+  expect(r.perSource.seriouslyfish).toMatchObject({ fetched: 3, errors: 3 })
+  expect(r.errors.at(-1)).toMatch(/seriouslyfish: stopping: 3 pages in a row failed on the network \(HTTP 429\)/)
+  const state = JSON.parse(await readFile(join(root, 'engine-state', 'seriouslyfish.json'), 'utf8'))
+  expect(Object.keys(state).map(u => u.slice(SF.length))).toEqual(['f1', 'f2', 'f3'])
+  // A page the source answers with its own error (404, 403) ends a run of failures, as before: two timeouts, a 404 and
+  // a timeout don't stop it (a reader's point).
+  const root2 = await fresh()
+  const { d: d2 } = deps(root2, { urls: ['g1', 'g2', 'g3', 'g4', 'g5'] })
+  const asked2: string[] = []
+  d2.fetcher.get = async (u: string) => {
+    asked2.push(u)
+    if (u.endsWith('g3')) return { status: 404, html: '<html><head><title>Not found</title></head><body><p>Gone.</p></body></html>', finalUrl: u }
+    throw new Error('page.goto: Timeout 45000ms exceeded.')
+  }
+  const r2 = await runEngine(d2, { sources: ['seriouslyfish'] })
+  expect(asked2).toHaveLength(5)
+  expect(r2.errors.some(e => /stopping/.test(e))).toBe(false)
+})
+
 test('a usage limit uses none of the page\'s attempts', async () => {
   const root = await fresh()
   await runEngine(deps(root, { urls: ['f1'], llmFails: true }).d, { sources: ['seriouslyfish'] })

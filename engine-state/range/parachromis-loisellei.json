@@ -1,0 +1,65 @@
+{
+  "id": "parachromis-loisellei",
+  "native": {
+    "input": "3a0a84bc632ea0a1",
+    "at": "2026-11-20T07:13:45.828Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parachromis loisellei",
+    "status": "ACCEPTED",
+    "taxonKey": 5208209,
+    "datasets": [
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        14
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        5
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        5
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        3
+      ],
+      [
+        "0c17fe57-fdea-4c15-a592-24631241215a",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-20T07:13:45.828Z"
+  }
+}

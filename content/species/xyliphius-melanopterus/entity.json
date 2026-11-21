@@ -10,6 +10,127 @@
     "ecuador",
     "bobonaza"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "EC"
+      ],
+      "regions": [
+        "Amazon",
+        "Orinoco",
+        "Bobonaza"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Type locality: el bajo Pucayacu no lejos de su desembocadura en el Bobonaza [Ecuador].",
+          "countries": [
+            "EC"
+          ],
+          "regions": [
+            "Bobonaza"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Upper Amazon and Orinoco River basins.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340562,
+      "total": 24,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "PE",
+          11
+        ],
+        [
+          "EC",
+          7
+        ],
+        [
+          "BO",
+          3
+        ],
+        [
+          "VE",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          8,
+          0
+        ],
+        [
+          -73.125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -15.46875,
+          2,
+          0
+        ],
+        [
+          -66.09375,
+          7.03125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

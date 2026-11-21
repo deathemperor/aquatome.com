@@ -149,13 +149,6 @@
           "min": 27,
           "max": 32
         }
-      },
-      {
-        "source": "glaser",
-        "value": {
-          "min": 28,
-          "max": 30
-        }
       }
     ],
     "ph": [
@@ -186,10 +179,6 @@
       {
         "source": "seriouslyfish",
         "value": 4
-      },
-      {
-        "source": "glaser",
-        "value": 6
       }
     ]
   },
@@ -197,14 +186,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/_en-2/",
-      "html": "<ul><li>Origin: Brazil</li><li>Four colour varieties: L18, L81, L81n and L177</li></ul>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/_en-2/",
-      "html": "<p>Baryancistrus L18, L81, L81n and L177 are beautiful and desirable fish, but successful keeping and breeding is possible only for those who are willing to fulfil the very special requirements of these species.</p><p>The catfish are very sensitive to water temperatures below 28°C. Baryancistrus are territorial and quarrelsome fish. Specimens larger than 20 cm need a lot of space.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/baryancistrus-xanthellus-l18-l81-l81n-l177-2/",
+      "html": "<p>Baryancistrus xanthellus was scientifically described only in 2011, although the fish is extremely common in nature, also occurs in shallow water and has been used as a food fish since time immemorial. The season of the Golden Nuggets lasts from the end of May to the end of September.</p>"
     },
     {
       "key": "distribution",
@@ -215,8 +198,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/_en-2/",
-      "html": "<p>All these gold seams originate from the Rio Xingu and its tributaries. L18 comes from the main Xingu River. L177 is collected in a tributary of the Xingu, the Iriri River. L81n is a more recent variety whose exact origin is still unknown, but it seems to be collected in the Xingu as well.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/baryancistrus-xanthellus-l18-l81-l81n-l177-2/",
+      "html": "<p>All Baryancistrus xanthellus come from the Rio Xingu and its tributaries.</p>"
     },
     {
       "key": "habitat",
@@ -225,16 +208,16 @@
       "html": "<p>Occurs predominantly in whitewater rapids with young specimens observed to congregate under flat rocks at the bottom of shallow stretches whereas adults are found under and among submerged rocks and boulders. Other species recorded in the same habitats include Baryancistrus aff. niveatus, Ancistrus spp., Oligancistrus punctatissimus, Oligancistrus sp. Parancistrus nudiventris, Pseudancistrus sp., Scobinancistrus aureatus, S. cf. pariolispos, and Hypostomus spp.</p>"
     },
     {
-      "key": "habitat",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/_en-2/",
-      "html": "<p>These fish are common in the wild, live in shallow waters and are traditionally used as food fish. The Xingu river has relatively warm water the whole year through. L18 and L81 seem to live syntopically in the wild.</p>"
-    },
-    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/baryancistrus-xanthellus",
       "html": "<p>Given the adult size an aquarium with base dimensions of 120 × 45 cm (about 243 litres) or equivalent should be the smallest considered for long-term maintenance.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/baryancistrus-xanthellus-l18-l81-l81n-l177-2/",
+      "html": "<p>All four forms can reach a length of 25-30 cm. They are territorial and quarrelsome and need space once they have exceeded the 20-cm mark.</p>"
     },
     {
       "key": "maintenance",
@@ -251,8 +234,8 @@
     {
       "key": "waterConditions",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/_en-2/",
-      "html": "<p>The Xingu river has relatively warm water the whole year through. The catfish are very sensitive to water temperatures below 28°C.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/baryancistrus-xanthellus-l18-l81-l81n-l177-2/",
+      "html": "<p>The Xingu has relatively warm water all year round. The catfish are sensitive to temperatures below 28°C.</p>"
     },
     {
       "key": "diet",
@@ -263,8 +246,8 @@
     {
       "key": "diet",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/_en-2/",
-      "html": "<p>These Baryancistrus are used to feeding the whole day through, because their food contains only very few nutrients. One or two feedings a day is definitely too little for these fish.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/baryancistrus-xanthellus-l18-l81-l81n-l177-2/",
+      "html": "<p>They are extremely demanding animals, adapted in nature to constantly take up relatively nutrient-poor food. One or two feedings per day are not enough for these catfish.</p>"
     },
     {
       "key": "behaviour",
@@ -275,14 +258,20 @@
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/_en-2/",
-      "html": "<p>Baryancistrus are territorial and quarrelsome fish. Specimens larger than 20 cm need a lot of space.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/baryancistrus-xanthellus-l18-l81-l81n-l177-2/",
+      "html": "<p>They are territorial and quarrelsome animals, which need space once they have exceeded the 20-cm mark.</p>"
     },
     {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/baryancistrus-xanthellus",
       "html": "<p>Adult males develop a broader, slightly flatter head profile and longer pectoral-fin spines than females.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/baryancistrus-xanthellus-l18-l81-l81n-l177-2/",
+      "html": "<p>Four colour forms can be distinguished. L18, \"the\" Golden Nugget, has relatively large spots and comes from the main river. L81 has much smaller dots and apparently occurs together with L18 in the main river. The largest spots of all are found in L177, which comes from the Rio Iriri, a tributary of the Xingu. L81n \"New Stardust\" resembles L81 in dot size, but has a much broader dorsal fin seam and stronger yellow coloration; its exact origin is unknown, only that it is said to come from the Xingu. Dot size, width of the fin seams and yellow portion vary considerably, so single animals are sometimes difficult to assign to an L-number. When fully grown, all four look relatively the same and the spots are much smaller than in young animals.</p>"
     },
     {
       "key": "reproduction",
@@ -293,8 +282,8 @@
     {
       "key": "reproduction",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/_en-2/",
-      "html": "<p>Breeding of these Baryancistrus in the home aquarium is possible, but a rare event. The fish are typical cave brooders. It is difficult to fulfil their needs in the tank, so there are very few reports of successful breeding.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/baryancistrus-xanthellus-l18-l81-l81n-l177-2/",
+      "html": "<p>Breeding can also succeed in the aquarium. They are typical cave breeders. However, because of their special requirements, breeding successes are very rare.</p>"
     },
     {
       "key": "notes",
@@ -305,8 +294,8 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/_en-2/",
-      "html": "<p>The main collecting season starts around the end of May and lasts until the end of September. Although these fish are common, they could not be connected with any of the about 700 species of Loricariidae known to science, so L-numbers are used in the trade as a basis for communication.</p><p>Four colour varieties are recognised. L18, the \"golden nugget\", has relatively large spots. The spots in L81 are much smaller and more numerous. L177 has the largest spots of all. L81n has spots like L81 but much broader seams in the dorsal and caudal fins (the \"n\" stands for \"new\").</p><p>In all four L-numbers the number, size and colour of the spots varies, as does the breadth of the seams of the dorsal and caudal fins, so in some cases a single specimen cannot be identified for sure. Fully grown specimens (about 30 cm) look more or less the same, with much smaller spots.</p><p>Addendum: the fish have since been scientifically described as Baryancistrus xanthellus.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/baryancistrus-xanthellus-l18-l81-l81n-l177-2/",
+      "html": "<p>Baryancistrus L18, L81, L81n and L177 are very beautiful and desirable fish, but care and breeding in the aquarium can only be successful if their very special requirements are met intensively.</p>"
     },
     {
       "key": "references",
@@ -359,9 +348,44 @@
       "sourceUrl": "https://www.scotcat.com/loricariidae/baryancistrus_xanthellus.htm",
       "caption": "Baryancistrus xanthellus",
       "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f466aca196c89bbf.webp",
+      "thumb": "https://media.aquatome.com/glaser/f466aca196c89bbf-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/baryancistrus-xanthellus-l18-l81-l81n-l177-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "sijfJwOZhA0",
+      "title": "Baryancistrus xanthellus (Gold Nugget Pleco) ~Aquarium Care",
+      "durationSec": 941,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "QVWTev_ic_k",
+      "title": "GOLD NUGGET PLECO , Baryancistrus xanthellus : Collecting and keeping plecos from Rio Xingu",
+      "durationSec": 320,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ZaEYRiJleew",
+      "title": "REPRODUÇÃO INÉDITA do CASCUDO PEPITA-DE-OURO (Baryancistrus xanthellus) em AQUÁRIO!",
+      "durationSec": 1140,
+      "lang": "pt-BR"
+    },
+    {
+      "youtubeId": "hiaDP2lpCIU",
+      "title": "номерные сомы L-177 Baryancistrus xanthellus в нашем аквариуме 🥰 #pleco #aquarium #сомы #aquarium",
+      "durationSec": 17,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -394,5 +418,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-05"
+  "updatedAt": "2026-11-21"
 }

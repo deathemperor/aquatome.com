@@ -1,9 +1,14 @@
 {
   "id": "pseudochalceus-kyburzi",
-  "summary": "Pseudochalceus kyburzi dài khoảng 5 cm khi trưởng thành, có nguồn gốc từ Colombia. Hồ sơ nói dáng vẻ và tập tính của loài này giống các loài cá neon hoàng đế (Nematobrycon) hơn cả, nên có thể lấy đó để hình dung. Hồ sơ không ghi nhiệt độ, pH, độ cứng hay cỡ bể tối thiểu, nên bạn cần tìm thêm thông tin về những mục này trước khi quyết định nuôi.",
-  "mistakes": [],
-  "speciesUpdatedAt": "2026-11-18",
-  "writtenFrom": "36105cc733d8baba",
-  "generatedAt": "2026-11-20T02:03:57.232Z",
-  "review": "approved"
+  "summary": "Cá Pseudochalceus kyburzi dài khoảng 5 cm, giống cá tetra hoàng đế (Nematobrycon) về dáng vẻ lẫn tính nết. Hồ sơ không nêu bể tối thiểu hay thông số nước, nên chưa đủ căn cứ để chốt cỡ bể. Điểm khó nhất là tính gây gổ: trong đàn chúng lúc nào cũng đánh nhau, con đực lớn có răng khỏe nên vây thường tưa.",
+  "mistakes": [
+    "Cho ăn thiếu thì vây dễ bị rách nặng; nên cho ăn đầy đủ, khi đó vây chỉ rách nhẹ và lành lại nhanh."
+  ],
+  "speciesUpdatedAt": "2026-11-20",
+  "writtenFrom": "6671a3b69b3763c5",
+  "generatedAt": "2026-11-20T19:59:51.810Z",
+  "review": "pending",
+  "problems": [
+    "\"Cho ăn thiếu thì vây dễ bị rách nặng\": the page doesn't say underfeeding causes badly torn fins. It only says that with enough food the fins tear only slightly and heal fast. The summary turns this into a stated consequence of underfeeding, and the mistake is not on the page."
+  ]
 }

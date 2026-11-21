@@ -278,9 +278,65 @@
       "author": "lienyuan lee",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E9%87%91%E7%B7%9A%E7%B6%A0%E9%BC%A0_Corydoras_aeneus_-_panoramio.jpg",
       "caption": "Cá chuột đồng màu vàng đồng trong bể nền sỏi đá"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/293463793.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/293463793-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Zane Libke",
+      "sourceUrl": "https://www.inaturalist.org/photos/293463793",
+      "caption": "Cá chuột đồng bơi sát đáy cát, đầu ánh cam",
+      "best": true,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/359315087.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/359315087-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "EmhartVuletich",
+      "sourceUrl": "https://www.inaturalist.org/photos/359315087",
+      "caption": "Cá chuột đồng nhìn nghiêng trên nền trắng",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/359543010.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/359543010-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "EmhartVuletich",
+      "sourceUrl": "https://www.inaturalist.org/photos/359543010",
+      "caption": "Cá chuột đồng cạnh thước đo, thân ánh xanh lục",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/360535099.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/360535099-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "EmhartVuletich",
+      "sourceUrl": "https://www.inaturalist.org/photos/360535099",
+      "caption": "Cá chuột đồng trong khay chụp cạnh thước",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
     }
   ],
-  "seen": 69,
-  "updatedAt": "2026-11-06",
-  "builtAt": "2026-11-06"
+  "seen": 109,
+  "updatedAt": "2026-11-20",
+  "builtAt": "2026-11-20"
 }

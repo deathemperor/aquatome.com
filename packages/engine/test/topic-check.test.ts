@@ -87,3 +87,15 @@ test("a guide in a language the site doesn't serve yet is read too, under its ow
   const r = await topicCheck(root, (async () => ({ offTopic: [] })) as never, { limit: 5 })
   expect(r.checked).toEqual(['lighting:ms'])
 })
+
+// The cycle runs it with a limit of 0 until Monday's change (engine-cycle.sh): no guide read, no call, no guide changed
+// (its own state file is still written).
+test('a limit of 0 reads no guide', async () => {
+  const root = await site({ 'youtube-light': guide })
+  let calls = 0
+  const llm = async <T,>() => { calls++; return offTopic as T }
+  const r = await topicCheck(root, llm, { limit: 0 })
+  expect(calls).toBe(0)
+  expect(r.checked).toEqual([])
+  expect(await read(root, 'youtube-light')).toEqual(guide)
+})

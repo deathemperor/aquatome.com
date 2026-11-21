@@ -15,6 +15,7 @@ import { getContent } from '../../lib/content'
 import { searchAliases } from '../../lib/search'
 import { PLANT_LABELS } from '../../lib/format'
 import { creditsFor, VIDEO_CARDS } from '../../lib/credits'
+import { shareImage } from '../../lib/gallery'
 import { plantParts } from '../../lib/plant-page'
 import { i18n, langOf } from '../../lib/i18n'
 import { alternatesOf } from '../../lib/alternates'
@@ -41,7 +42,7 @@ import RedirectNote from '../../components/RedirectNote.astro'
 import BackToTop from '../../components/BackToTop.astro'
 const alternates = await alternatesOf('plants', p.id)
 ---
-<Base title={plantTitle(lang, p.t.name, p.scientificName)} description={`${withSci(p.t.name, p.scientificName)}: ${facts.map(([k, v]) => `${k.toLowerCase()} ${v.toLowerCase()}`).join(', ')}. ${t('Cách trồng và chăm sóc.')}`} image={p.photos[0]?.url} noindex={!p.t.quality.indexable} alternates={alternates} credits={creditsFor([...figures, ...strip, ...videoPhotos.slice(0, VIDEO_CARDS)].map(x => x ?? undefined))}>
+<Base title={plantTitle(lang, p.t.name, p.scientificName)} description={`${withSci(p.t.name, p.scientificName)}: ${facts.map(([k, v]) => `${k.toLowerCase()} ${v.toLowerCase()}`).join(', ')}. ${t('Cách trồng và chăm sóc.')}`} image={shareImage(p.photos)} noindex={!p.t.quality.indexable} alternates={alternates} credits={creditsFor([...figures, ...strip, ...videoPhotos.slice(0, VIDEO_CARDS)].map(x => x ?? undefined))}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label={t('Đường dẫn')}><a href="/vi/cay/">{t('Cây thủy sinh')}</a></nav>
   <header class="wrap top">

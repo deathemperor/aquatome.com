@@ -11,7 +11,8 @@
     "mae-klong",
     "ranong",
     "myanmar",
-    "salween"
+    "salween",
+    "ataran"
   ],
   "range": {
     "native": {
@@ -20,10 +21,10 @@
         "MM"
       ],
       "regions": [
+        "Ataran",
         "Salween",
-        "Mae Khlong",
-        "Ataran River",
-        "Suriya"
+        "Suriya",
+        "Thai-Malay peninsula"
       ],
       "sources": [
         "bwaquatics",
@@ -33,30 +34,20 @@
       "quotes": [
         {
           "source": "bwaquatics",
-          "quote": "Native to Thailand, found in the Mae Khlong and Mae Klong tributary basins.",
+          "quote": "Native to peninsular Thailand (Ranong and Phang Nga provinces) and the Ataran basin, Myanmar.",
           "countries": [
-            "TH"
-          ],
-          "regions": [
-            "Mae Khlong"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Microdevario kubotai is a miniature cyprinid from peninsular Thailand and the Salween drainage in southern Myanmar.",
-          "countries": [
+            "TH",
             "MM"
           ],
-          "regions": [
-            "Salween"
-          ]
+          "regions": []
         },
         {
           "source": "seriouslyfish",
           "quote": "Known from Ranong and Phang Nga provinces on the northwestern slope of peninsular Thailand and the Ataran River basin, a tributary within the Salween drainage in southern Myanmar which rises in Kanchanaburi province, western Thailand.",
           "countries": [],
           "regions": [
-            "Ataran River"
+            "Ataran",
+            "Salween"
           ]
         },
         {
@@ -65,6 +56,14 @@
           "countries": [],
           "regions": [
             "Suriya"
+          ]
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Clear forest streams of the Thai-Malay peninsula.",
+          "countries": [],
+          "regions": [
+            "Thai-Malay peninsula"
           ]
         }
       ]
@@ -104,13 +103,6 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 20,
-          "max": 27
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 20,
@@ -123,18 +115,25 @@
           "min": 22,
           "max": 26
         }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
       }
     ],
     "ph": [
       {
-        "source": "bwaquatics",
+        "source": "seriouslyfish",
         "value": {
           "min": 6,
           "max": 7
         }
       },
       {
-        "source": "seriouslyfish",
+        "source": "bwaquatics",
         "value": {
           "min": 6,
           "max": 7
@@ -143,26 +142,25 @@
     ],
     "sizeCm": [
       {
-        "source": "bwaquatics",
-        "value": 4,
-        "overruled": "BW Aquatics' 2.5 to 4 cm; Seriously Fish gives 20 mm SL. Seriously Fish's figure stands where two sources are twice apart and no second source agrees with the other (rule of 10 Nov 2026; chief of staff, 17 Nov)"
-      },
-      {
         "source": "seriouslyfish",
         "value": 2
       },
       {
         "source": "glaser",
         "value": 2.5
+      },
+      {
+        "source": "bwaquatics",
+        "value": 2
       }
     ],
     "difficulty": [
       {
-        "source": "bwaquatics",
+        "source": "seriouslyfish",
         "value": 4
       },
       {
-        "source": "seriouslyfish",
+        "source": "bwaquatics",
         "value": 4
       }
     ],
@@ -206,7 +204,7 @@
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/microdevario-kubotai",
-      "html": "<p>Native to Thailand, found in the Mae Khlong and Mae Klong tributary basins.</p>"
+      "html": "<p>Native to peninsular Thailand (Ranong and Phang Nga provinces) and the Ataran basin, Myanmar.</p>"
     },
     {
       "key": "distribution",
@@ -224,7 +222,7 @@
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/microdevario-kubotai",
-      "html": "<p>In their natural environment the water is clear, and the substrate is composed of fallen branches, leaf litter, gravel, rocks, and exposed bedrock forming submerged rocky outcrops around heavily vegetated margins.</p>"
+      "html": "<p>Clear forest streams of the Thai-Malay peninsula. The water is clear and the bottom is fallen branches, leaf litter, gravel, rocks and exposed bedrock, with heavily vegetated margins. It is not a blackwater fish.</p>"
     },
     {
       "key": "habitat",
@@ -245,16 +243,28 @@
       "html": "<p>An aquarium with base dimensions measuring at least 60 × 30 cm is required (about 54 litres).</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/microdevario-kubotai",
+      "html": "<p>Maximum size about 2 cm (15 to 20 mm).</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/microdevario-kubotai",
       "html": "<p>Looks particularly effective in a planted arrangement with a darker substrate, and can appear a little washed out in sparsely-decorated set-ups. Also thrives in a set-up designed to resemble a flowing river or stream with a substrate of variably-sized rocks and gravel and some large water-worn boulders. This could be further furnished with driftwood branches and plants such as Microsorum, Bolbitis or Anubias spp. grown attached to the décor.</p><p>Since it naturally inhabits running water this species should never be added to a biologically immature set-up as it requires stable water conditions, and weekly water changes of 30-50 % aquarium volume should be considered mandatory.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/microdevario-kubotai",
+      "html": "<p>Difficulty is intermediate: they are easy to keep once the aquarium is stable, but their small, delicate nature makes them difficult at times. Tank: densely planted with hiding places such as rocks and driftwood, but they also do well in hardscape tanks.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/microdevario-kubotai",
-      "html": "<ul><li>pH: 6.0 – 7.0</li><li>TDS: 18-179</li><li>Temperature: 20-27°C (70-82°F)</li></ul>"
+      "html": "<ul><li>TDS: 18 to 179 ppm</li><li>pH: 6.0 to 7.0</li><li>Temperature: 20 to 27°C</li></ul>"
     },
     {
       "key": "waterConditions",
@@ -270,12 +280,6 @@
     },
     {
       "key": "equipment",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/microdevario-kubotai",
-      "html": "<p>They prefer a densely planted aquarium with plenty of hiding places, such as rocks and driftwood, but can also do well in a hardscape aquarium.</p>"
-    },
-    {
-      "key": "equipment",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/microdevario-kubotai-2/",
       "html": "<p>The brilliant green stripe can be seen only when the light comes from ahead, so the illumination of the tank should be arranged appropriately.</p>"
@@ -284,7 +288,7 @@
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/microdevario-kubotai",
-      "html": "<p>In the wild, they feed on small invertebrates and insects. In the aquarium, they accept a variety of foods, including flake food, freeze-dried or frozen foods, and small live foods such as brine shrimp or daphnia.</p>"
+      "html": "<p>Feeds on small invertebrates and insects in the wild. In the aquarium they accept flake food, freeze-dried or frozen foods, and small live foods such as baby brine shrimp or daphnia.</p>"
     },
     {
       "key": "diet",
@@ -296,7 +300,7 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/microdevario-kubotai",
-      "html": "<p>Peaceful and social fish that do well in small groups of 6-8 individuals. They are active swimmers and spend most of their time in the middle and upper levels of the aquarium.</p>"
+      "html": "<p>Peaceful and social. Keep in groups of at least 6 to 8; more is better. Active swimmers in the middle and upper water.</p>"
     },
     {
       "key": "behaviour",
@@ -314,7 +318,7 @@
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/microdevario-kubotai",
-      "html": "<p>Egg-layers; breeding can be difficult in captivity. They require very soft and acidic water, as well as a densely planted aquarium with fine-leaved plants such as Java moss.</p>"
+      "html": "<p>Egg scatterer; breeding can be difficult in captivity. Use soft, slightly acidic water and dense fine-leaved plants such as Java moss, and remove adults after spawning.</p>"
     },
     {
       "key": "reproduction",
@@ -433,5 +437,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-18"
+  "updatedAt": "2026-11-20"
 }

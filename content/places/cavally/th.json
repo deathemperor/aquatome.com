@@ -3,6 +3,12 @@
   "name": "กาวัลลี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-20T07:10:09.893Z",
+    "why": "กาวัลลี is a Thai transliteration of Cavally, but the place is a region (Cavally Region, Côte d'Ivoire) and the name lacks the kind word \"แคว้น/ภูมิภาค\", and the source sentence is about the Cavally River system, so the record is loose."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

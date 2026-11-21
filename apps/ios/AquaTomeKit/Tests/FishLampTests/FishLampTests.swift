@@ -78,3 +78,71 @@ private func hex(_ b: ArraySlice<UInt8>) -> String { b.map { String(format: "%02
   #expect(try trial("trial-off-recorded")[8...19] == off.plain[8...19])
   #expect(try trial("trial-on-recorded")[8...19] == on.plain[8...19])
 }
+
+// A colour built anew from degrees and fractions is byte for byte the recording of the same colour, given its byte 0: Fish
+// lamp's hue is degrees × 65535 / 360 rounded half up (60° is `2a ab`), its saturation 16 bits, its brightness one byte
+// doubled. Orange is left out: Fish lamp's is `15 40`, not 30°.
+@Test func aColourBuiltAnewIsTheRecordingOfTheSameColour() throws {
+  let colours: [(id: String, hue: Double, saturation: Double)] = [
+    ("white", 0, 0), ("red", 0, 1), ("yellow", 60, 1), ("green", 120, 1), ("cyan", 180, 1), ("blue", 240, 1), ("magenta", 300, 1),
+  ]
+  for c in colours {
+    let r = try command(c.id)
+    let built = try #require(FishLamp.colour(hue: c.hue, saturation: c.saturation, brightness: 1, sequence: r.plain[0]))
+    #expect(built.sent == r.sent, Comment(rawValue: c.id))
+  }
+}
+
+// Half brightness is the trial white the light took on 14 Nov. Fish lamp's sliders send brightness as a byte doubled
+// (`a8 a8` for 168) and saturation in 16 bits (`a9 52`, 6 Nov). Hue goes round; saturation and brightness stop at their ends.
+@Test func aColoursBrightnessAndSaturationAreOnFishLampsScales() throws {
+  let white = try #require(FishLamp.trials.first { $0.id == "trial-white-half" })
+  #expect(try #require(FishLamp.colour(hue: 0, saturation: 0, brightness: 0.5, sequence: 0x48)).sent == white.sent)
+  // White from anywhere on the wheel is that white: hue 00 00 at saturation 0, as the light took it.
+  #expect(try #require(FishLamp.colour(hue: 187.5, saturation: 0, brightness: 0.5, sequence: 0x48)).sent == white.sent)
+  #expect(try #require(FishLamp.colour(hue: 300, saturation: -0.2, brightness: 0.5, sequence: 0x48)).sent == white.sent)
+  let pale = try #require(FishLamp.colour(hue: 0, saturation: Double(0xa952) / 65535, brightness: 168.0 / 255, sequence: 1))
+  #expect(hex(pale.plain[12...15]) == "a9 52 a8 a8")
+  #expect(hex(try #require(FishLamp.colour(hue: 420, saturation: 2, brightness: -1, sequence: 1)).plain[10...15]) == "2a ab ff ff 00 00")
+  #expect(hex(try #require(FishLamp.colour(hue: -60, saturation: 1, brightness: 1, sequence: 1)).plain[10...11]) == "d5 55")
+}
+
+// Byte 0 of a command built anew: under 0x80, as every byte 0 a phone has sent, never one a recording or a trial uses, and
+// round all the others before any comes back.
+@Test func aFreshByte0IsNoRecordingsOrTrialsAndGoesRoundTheRest() {
+  let used = Set((FishLamp.loveEcology + FishLamp.trials).map { $0.plain[0] })
+  var b: UInt8 = 0x7F
+  var seen: [UInt8] = []
+  for _ in 0..<(128 - used.count) {
+    b = FishLamp.sequence(after: b)
+    seen.append(b)
+  }
+  #expect(seen.allSatisfy { $0 < 0x80 && !used.contains($0) })
+  #expect(Set(seen).count == seen.count)
+  #expect(FishLamp.sequence(after: b) == seen.first)
+  #expect(FishLamp.sequence(after: 0xFF) < 0x80)
+}
+
+// A slider's value goes out once the finger pauses, or at once when it lifts, and never sooner than the gap after the last
+// broadcast ends, even one still on air.
+@Test func aSlidersValueGoesOnPauseOrLiftAndNotBeforeTheGap() {
+  let pacer = FishLamp.Pacer(pause: .milliseconds(300), gap: .seconds(2))
+  let t = ContinuousClock.now
+  #expect(pacer.due(moved: t, lifted: false, lastEnded: nil) == t + .milliseconds(300))
+  #expect(pacer.due(moved: t, lifted: true, lastEnded: nil) == t)
+  #expect(pacer.due(moved: t, lifted: true, lastEnded: t - .seconds(5)) == t)
+  #expect(pacer.due(moved: t, lifted: true, lastEnded: t - .seconds(1)) == t + .seconds(1))
+  #expect(pacer.due(moved: t, lifted: false, lastEnded: t + .seconds(1)) == t + .seconds(3))
+}
+
+// A swatch at the card's level: each recorded colour's own hue and saturation (orange's `15 40` too) at another brightness;
+// at full brightness with its byte 0 it is the recording. On and off aren't colours.
+@Test func aRecordedColourAtAnotherBrightnessKeepsItsHueAndSaturation() throws {
+  for r in FishLamp.loveEcology where r.plain[8] == 0x02 {
+    #expect(try #require(FishLamp.colour(like: r, brightness: 1, sequence: r.plain[0])).sent == r.sent, Comment(rawValue: r.id))
+    let dim = try #require(FishLamp.colour(like: r, brightness: 0.35, sequence: 1)).plain
+    #expect(dim[10...13] == r.plain[10...13], Comment(rawValue: r.id))
+    #expect(hex(dim[14...15]) == "59 59", Comment(rawValue: r.id))
+  }
+  #expect(FishLamp.colour(like: try command("off"), brightness: 1, sequence: 1) == nil)
+}

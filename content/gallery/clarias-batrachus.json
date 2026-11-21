@@ -2,18 +2,6 @@
   "id": "clarias-batrachus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/9d24dfc812e8537b.webp",
-      "thumb": "https://media.aquatome.com/commons/9d24dfc812e8537b-480.webp",
-      "width": 1200,
-      "height": 708,
-      "licence": "CC0",
-      "author": "Vassil",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clarias_batrachus_Aquarium_tropical_du_Palais_de_la_Porte_Dor%C3%A9e_10_04_2016_2.jpg",
-      "caption": "Cá trê đi bộ dạng đốm đen trắng bơi trong bể",
-      "best": true,
-      "kind": "form"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/604051014.webp",
       "thumb": "https://media.aquatome.com/inaturalist/604051014-480.webp",
       "width": 1024,
@@ -24,6 +12,66 @@
       "caption": "Cá trê đi bộ trong nước nông giữa thảm cỏ xanh",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/347158791.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/347158791-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Jeremiah Degenhardt",
+      "sourceUrl": "https://www.inaturalist.org/photos/347158791",
+      "caption": "Cá trê đi bộ bò trên nền cát ban đêm",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/524812571.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/524812571-480.webp",
+      "width": 1024,
+      "height": 769,
+      "licence": "CC BY",
+      "author": "James Rogers",
+      "sourceUrl": "https://www.inaturalist.org/photos/524812571",
+      "caption": "Cá trê đi bộ đang bò trên mặt đường ẩm",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/555eb50401616e48.webp",
+      "thumb": "https://media.aquatome.com/commons/555eb50401616e48-480.webp",
+      "width": 1200,
+      "height": 797,
+      "licence": "CC BY 3.0",
+      "author": "Biswarup Ganguly",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Catfish_-_Kolkata_2016-08-02_5731.JPG",
+      "caption": "Hai cá trê đi bộ bò trên nền đất",
+      "best": false,
+      "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/429541910.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/429541910-480.webp",
+      "width": 801,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Nick Tobler (Cowturtle)",
+      "sourceUrl": "https://www.inaturalist.org/photos/429541910",
+      "caption": "Cá trê đi bộ màu sẫm trên nền bùn ven bờ ban đêm",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/9d24dfc812e8537b.webp",
+      "thumb": "https://media.aquatome.com/commons/9d24dfc812e8537b-480.webp",
+      "width": 1200,
+      "height": 708,
+      "licence": "CC0",
+      "author": "Vassil",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clarias_batrachus_Aquarium_tropical_du_Palais_de_la_Porte_Dor%C3%A9e_10_04_2016_2.jpg",
+      "caption": "Cá trê đi bộ dạng đốm đen trắng bơi trong bể",
+      "best": true,
+      "kind": "form"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/49681251.webp",
@@ -62,30 +110,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/347158791.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/347158791-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Jeremiah Degenhardt",
-      "sourceUrl": "https://www.inaturalist.org/photos/347158791",
-      "caption": "Cá trê đi bộ bò trên nền cát ban đêm",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/524812571.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/524812571-480.webp",
-      "width": 1024,
-      "height": 769,
-      "licence": "CC BY",
-      "author": "James Rogers",
-      "sourceUrl": "https://www.inaturalist.org/photos/524812571",
-      "caption": "Cá trê đi bộ đang bò trên mặt đường ẩm",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/5ca8bfbd5a22408b.webp",
       "thumb": "https://media.aquatome.com/commons/5ca8bfbd5a22408b-480.webp",
       "width": 1200,
@@ -96,30 +120,6 @@
       "caption": "Cá trê đi bộ thân đốm trắng bơi trên nền sỏi trong bể",
       "best": true,
       "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/555eb50401616e48.webp",
-      "thumb": "https://media.aquatome.com/commons/555eb50401616e48-480.webp",
-      "width": 1200,
-      "height": 797,
-      "licence": "CC BY 3.0",
-      "author": "Biswarup Ganguly",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Catfish_-_Kolkata_2016-08-02_5731.JPG",
-      "caption": "Hai cá trê đi bộ bò trên nền đất",
-      "best": false,
-      "kind": "pair"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/429541910.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/429541910-480.webp",
-      "width": 801,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Nick Tobler (Cowturtle)",
-      "sourceUrl": "https://www.inaturalist.org/photos/429541910",
-      "caption": "Cá trê đi bộ màu sẫm trên nền bùn ven bờ ban đêm",
-      "best": false,
-      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/1b2a471be58432e2.webp",
@@ -154,30 +154,6 @@
       "author": "Sara",
       "sourceUrl": "https://www.inaturalist.org/photos/21326952",
       "caption": "Cá trê đi bộ bò trên vỉa hè bê tông",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/348008050.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/348008050-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC BY-SA",
-      "author": "Seno Nur Rohman",
-      "sourceUrl": "https://www.inaturalist.org/photos/348008050",
-      "caption": "Cá trê đi bộ leo trên bức tường bê tông",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/357344752.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/357344752-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "James-LaFontaine",
-      "sourceUrl": "https://www.inaturalist.org/photos/357344752",
-      "caption": "Cá trê đi bộ bơi trong bể kính",
       "best": true,
       "kind": "other"
     },
@@ -276,6 +252,18 @@
       "caption": "Đàn cá trê đi bộ tụ tập ở mép nước ngoài tự nhiên",
       "best": true,
       "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/348008050.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/348008050-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY-SA",
+      "author": "Seno Nur Rohman",
+      "sourceUrl": "https://www.inaturalist.org/photos/348008050",
+      "caption": "Cá trê đi bộ leo trên bức tường bê tông",
+      "best": true,
+      "kind": "other"
     }
   ],
   "seen": 142,

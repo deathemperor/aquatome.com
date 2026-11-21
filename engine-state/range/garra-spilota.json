@@ -1,8 +1,8 @@
 {
   "id": "garra-spilota",
   "native": {
-    "input": "854f67870c6873ba",
-    "at": "2026-11-08T10:57:49.558Z",
+    "input": "13babd361bdd3d29",
+    "at": "2026-11-20T07:13:45.828Z",
     "claims": [
       {
         "code": "MM",
@@ -10,6 +10,14 @@
         "source": "seriouslyfish",
         "quote": "Probably endemic to the Rakhine Yoma/Arakan mountains in Rakhine state, western Myanmar, a range forming a natural barrier isolating most the area from the remainder of the country.",
         "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Garra spilota is a species from Burma that is striking due to its spot pattern.",
+        "words": "Burma",
         "ok": true
       }
     ],

@@ -1,0 +1,35 @@
+{
+  "id": "astroblepus-bellezaensis",
+  "native": {
+    "input": "84beefcebedd9def",
+    "at": "2026-11-21T01:22:16.258Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Colombia, Department of Santander.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astroblepus bellezaensis",
+    "status": "ACCEPTED",
+    "taxonKey": 9542702,
+    "datasets": [],
+    "native": [
+      "CO"
+    ],
+    "requests": 2,
+    "at": "2026-11-21T01:22:16.258Z"
+  }
+}

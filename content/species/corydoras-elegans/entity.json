@@ -27,9 +27,9 @@
       ],
       "regions": [
         "Amazon",
+        "Solimões",
         "Ucayali",
         "Napo",
-        "Solimões",
         "Marañón"
       ],
       "sources": [
@@ -47,7 +47,7 @@
         },
         {
           "source": "seriouslyfish",
-          "quote": "The elegant cory, Gastrodermus elegans, long known as Corydoras elegans, is an armoured catfish from the western Amazon basin in Peru, Ecuador and Brazil.",
+          "quote": "The elegant cory, Gastrodermus elegans, long known as Corydoras elegans, is an armoured catfish from the western Amazon basin in Peru, Ecuador and Brazil. Unlike most congeners it spends a fair amount of time away from the substrate, often forming groups in midwater.",
           "countries": [
             "PE",
             "EC"
@@ -60,9 +60,9 @@
           "countries": [],
           "regions": [
             "Amazon",
+            "Solimões",
             "Ucayali",
-            "Napo",
-            "Solimões"
+            "Napo"
           ]
         },
         {
@@ -298,6 +298,18 @@
       "html": "<p>Max size: 55 mm SL. Temperature: 20–26°C. pH: 6.0–7.5. Hardness: 1–15 dGH.</p><p>The elegant cory, Gastrodermus elegans, long known as Corydoras elegans, is an armoured catfish from the western Amazon basin in Peru, Ecuador and Brazil. Unlike most congeners it spends a fair amount of time away from the substrate, often forming groups in midwater.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-peru-4/",
+      "html": "<p>Several species of Corydoras cannot be distinguished even by pronounced specialists. In such cases it might be useful to speak of species groups instead of species. One such example is the species group around Corydoras elegans in the narrower sense, which includes C. elegans, C. napoensis, C. nanus and several C- and CW-numbers. What they all have in common is that males and females are completely different in colour during the breeding season. In addition, these species swim more frequently in open water than other Corydoras.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-peru-4/",
+      "html": "<p>In wild catches, a distinction is usually made between Corydoras elegans (widespread in Amazonia), in which the sexually active males have bands in the dorsal fin, and C. napoensis (Peru, Rio Napo), in which the sexually active males have a black dot in the dorsal fin; there are usually no imports from the distribution area of C. nanus (Suriname) and the various C- and CW-numbers. Based on the characteristic of the dorsal fin coloration, the Corydoras from Peru are C. elegans.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=110",
@@ -402,21 +414,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/f3ba2550161c0660.webp",
-      "thumb": "https://media.aquatome.com/commons/f3ba2550161c0660-480.webp",
-      "width": 960,
-      "height": 641,
-      "licence": "CC BY 2.5",
-      "author": "User:Toniher",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_elegans.jpg",
-      "caption": "Corydoras elegans",
-      "large": {
-        "url": "https://media.aquatome.com/commons/f3ba2550161c0660-large.webp",
-        "width": 1048,
-        "height": 700
-      }
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/d9835fa2d3abcbb3.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/d9835fa2d3abcbb3-480.webp",
       "width": 800,
@@ -428,6 +425,21 @@
       "source": "seriouslyfish"
     },
     {
+      "url": "https://media.aquatome.com/commons/f3ba2550161c0660.webp",
+      "thumb": "https://media.aquatome.com/commons/f3ba2550161c0660-480.webp",
+      "width": 960,
+      "height": 641,
+      "large": {
+        "url": "https://media.aquatome.com/commons/f3ba2550161c0660-large.webp",
+        "width": 1048,
+        "height": 700
+      },
+      "licence": "CC BY 2.5",
+      "author": "User:Toniher",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_elegans.jpg",
+      "caption": "Corydoras elegans"
+    },
+    {
       "url": "https://media.aquatome.com/commons/eece3ec28edfbedb.webp",
       "thumb": "https://media.aquatome.com/commons/eece3ec28edfbedb-480.webp",
       "width": 960,
@@ -436,6 +448,36 @@
       "author": "Kennyannydenny",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Elegant_corydoras_(Corydoras_elegans).JPG",
       "caption": "The Elegant corydoras (Corydoras elegans)."
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c95411c654ed9c34.webp",
+      "thumb": "https://media.aquatome.com/glaser/c95411c654ed9c34-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-peru-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/249e59bbac7c682a.webp",
+      "thumb": "https://media.aquatome.com/glaser/249e59bbac7c682a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-peru-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a5c426a62e31cbd3.webp",
+      "thumb": "https://media.aquatome.com/glaser/a5c426a62e31cbd3-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-peru-4/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -487,5 +529,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-20"
 }

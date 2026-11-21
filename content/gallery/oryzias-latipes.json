@@ -60,18 +60,6 @@
       "kind": "female"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/666939521.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/666939521-480.webp",
-      "width": 1024,
-      "height": 762,
-      "licence": "CC BY",
-      "author": "Rainer Breitling",
-      "sourceUrl": "https://www.inaturalist.org/photos/666939521",
-      "caption": "Cá medaka vàng cam nhìn từ trên xuống trong bể",
-      "best": false,
-      "kind": "form"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/437199589.webp",
       "thumb": "https://media.aquatome.com/inaturalist/437199589-480.webp",
       "width": 1024,
@@ -82,18 +70,6 @@
       "caption": "Cá medaka nhỏ bơi gần mặt nước trong ao",
       "best": false,
       "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/363975671.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/363975671-480.webp",
-      "width": 1024,
-      "height": 630,
-      "licence": "CC0",
-      "author": "hhkaaks",
-      "sourceUrl": "https://www.inaturalist.org/photos/363975671",
-      "caption": "Cá medaka Nhật trưởng thành bơi gần mặt nước trong bể",
-      "best": false,
-      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/726842951.webp",
@@ -165,6 +141,18 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E3%83%92%E3%83%A1%E3%83%80%E3%82%AB.jpg",
       "caption": "Cá medaka vàng cam bơi trong bể kính",
       "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/666939521.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/666939521-480.webp",
+      "width": 1024,
+      "height": 762,
+      "licence": "CC BY",
+      "author": "Rainer Breitling",
+      "sourceUrl": "https://www.inaturalist.org/photos/666939521",
+      "caption": "Cá medaka vàng cam nhìn từ trên xuống trong bể",
+      "best": false,
       "kind": "form"
     },
     {
@@ -366,6 +354,18 @@
       "author": "りなべる",
       "sourceUrl": "https://www.inaturalist.org/photos/658919845",
       "caption": "Cá medaka Nhật bơi bên cạnh thước đo, nền xanh",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/363975671.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/363975671-480.webp",
+      "width": 1024,
+      "height": 630,
+      "licence": "CC0",
+      "author": "hhkaaks",
+      "sourceUrl": "https://www.inaturalist.org/photos/363975671",
+      "caption": "Cá medaka Nhật trưởng thành bơi gần mặt nước trong bể",
       "best": false,
       "kind": "other"
     }

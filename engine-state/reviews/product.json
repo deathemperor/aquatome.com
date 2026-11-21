@@ -814,6 +814,85 @@
       "kept": true
     }
   ],
+  "vi/products/seachem-tidal": [
+    {
+      "at": "2026-11-21T01:44:53Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.8,
+      "notes": [
+        "\"vạch xanh trên nắp nhô lên\" / \"cửa bên\": facts say a blue indicator rises on top, which is roughly fine; minor.",
+        "\"Mút chặn đầu hút (nếu có lắp) và cánh quạt thì rửa thường xuyên\": the facts say the prefilter sponge, but the page recasts it as an optional add-on. This is a small stretch.",
+        "\"ống hút rút ngắn dài được\": awkward wording for the telescoping intake. It is not a fact error.",
+        "\"Cánh quạt và trục làm bằng vật liệu chống ăn mòn\": supported. The page does not say the 6-month impeller claim conflicts with the 3-year warranty, but it is mostly consistent.",
+        "\"điều khoản bảo hành 3 năm của Seachem không tính cánh quạt\" together with \"đăng ký thì lên 5 năm, nhưng không tính cánh quạt\": supported.",
+        "\"Giá có thể khác tùy nhà phân phối\" and the Fluval \"thường rẻ hơn\": both are in the facts.",
+        "\"Với bể san hô, có thể dùng nó làm chỗ chạy vật liệu lọc riêng (media reactor) luôn\": the facts say it \"could even work\" as a media reactor, so the page states it more firmly than the source."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T01:44:53Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.72,
+      "notes": [
+        "\"Cả bốn cỡ đều chỉnh được lưu lượng\": facts only say flow is adjustable generally (example Tidal 110); the claim for all four is an extrapolation, though mild.",
+        "\"vì máy càng to thì càng cần lùi xa tường\": a causal explanation not in the facts; the facts only give clearance by model.",
+        "\"Tidal 35 ... dành cho bể khoảng 130 L trở xuống\": facts say up to 35 gal (130 L), so this is roughly fine, but 'smallest size' is inferred.",
+        "\"nên không sợ dòng quá mạnh lúc bể cần dòng nhẹ\": an unsupported benefit claim about gentle flow.",
+        "\"Máy này thường rẻ hơn\" (Fluval): fine, but \"không có đầu hút mặt nước\" is stated as absolute; facts say 'no surface skimmer', which is okay.",
+        "\"Trước tiên vệ sinh mút chặn đầu hút và cánh quạt\": the facts say a prefilter sponge is a sensible add-on, and that the Matrix and sponge come with the unit. The page treats the sponge as an added 'mút chặn đầu hút' to install, which is a slight mismatch.",
+        "\"hai nguồn ghi khác nhau ... Điều khoản bảo hành 3 năm của Seachem không tính cánh quạt. Còn trang hỗ trợ ... 6 tháng\": the facts do contrast the two, but call it a 'two sources disagree' framing; the page also says 'Nhà phân phối ... bảo hành 3 năm' which is supported.",
+        "\"Giỏ lọc nhấc ra được mà không nhỏ nước, mang đi xả vật liệu cũng đỡ vất\": the 'dễ rửa' is supported, but the wording is loose embellishment.",
+        "\"có vài chiếc Tidal 110 vẫn ồn sau khi đã bảo hành\" in the intro and \"vì đồ bẩn hay gây ồn\": supported, minor."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/products/tropica-aquarium-soil": [
+    {
+      "at": "2026-11-20T10:45:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.7,
+      "notes": [
+        "\"Bao 9 L: loại hạt thường, cỡ bao các shop hay bán\" – the facts don't say it is the size most shops sell.",
+        "\"khả năng giữ pH ngắn hơn\" (intro) – the comparison only gives 12–18 months for this soil, and 18–24 for ADA. It doesn't say the soil holds pH for a shorter time than ADA in those words. This is a mild inference.",
+        "\"Có thể đổ dốc dần về phía sau\" – the facts only say you can slope the soil. They don't say which direction.",
+        "\"vì Dennerle nhả ít amoniac hơn lúc đầu\" – the facts give this as a Dennerle trait. They don't say it is the comparison's stated reason for the shrimp advice, so this is a mild inference.",
+        "\"Nếu bể nuôi tép Caridina hoặc không chịu được amoniac thì cũng bài đó khuyên chọn Dennerle\" – this is supported. \"Hàng chiết lẻ\" omits the 120,000₫ price, which is not an error.",
+        "\"nền nuôi cây suốt hai năm mà không phải nhét thêm phân\" – the facts say \"without root tabs\". This is roughly equivalent and acceptable.",
+        "\"Nuôi tép có hợp không? Các shop có bán nó cho bể tép\" – this is supported."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T10:45:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.72,
+      "notes": [
+        "\"Bao đã mở thì buộc kín miệng lại\" - the facts say reseal, which is close, but \"buộc\" (tie) is a small embellishment.",
+        "\"Nền dùng được bao lâu? ... Một người chơi kể nền nuôi cây được hai năm\" - the facts only say it fed plants for two years without root tabs. The page presents this as a lifespan of the soil, which turns the fact around.",
+        "\"Hàng chiết lẻ: ... hỏi lại shop xem được bao nhiêu lít\" - this is an invented recommendation. It is mild and not in the facts.",
+        "\"Trồng cây tiền cảnh nhỏ và cây trải thảm trên loại này dễ hơn\" (Powder bullet) - supported by the alternatives entry, but the Powder is described as finer grain \"dành cho cây tiền cảnh\", and the page repeats the claim.",
+        "\"Một shop khác thì khuyên thay 2–3 lần một tuần sau khi set bể\" and \"mỗi tuần hai lần\" - the facts say twice a week for 4 weeks. The page is consistent with this.",
+        "\"các loại trộn sẵn trong nước\" - the facts say \"local mixes\". This is a loose paraphrase.",
+        "\"nghe nói giữ pH lâu hơn so với số tiền bỏ ra\" - supported. The page omits that the facts say Dennerle is \"good for shrimp tanks\", but this is not an error.",
+        "The intro says it is a complete nutrient substrate and \"hợp với bể Hà Lan\". It states the comparison's claim accurately, but it never notes the shop claim that the soil lowers pH, so it ignores that spec. This is a minor omission and not an error."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/products/tropica-aquasoil": [
     {
       "at": "2026-11-18T01:45:49Z",
@@ -913,6 +992,45 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/products/twinstar-30b": [
+    {
+      "at": "2026-11-20T19:45:28Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.85,
+      "notes": [
+        "\"Dòng B làm cho cây cần sáng thấp đến trung bình\" is fine, but the opening presents it as the 30B's own design; this is acceptable.",
+        "\"Điểm trừ người chơi có nhắc là dimmer không có màn hình\": the facts say the forum user found the dimmer simple to use and only noted that it has no display. Calling it a \"downside\" slightly distorts that.",
+        "\"Đây là lựa chọn thay cho B Line mà shop Việt hay bán\": the facts say it is a common local alternative, not that shops often sell it. This is a minor paraphrase drift.",
+        "\"Chỉnh chân đỡ của đèn cho vừa bề rộng bể rồi gác lên thành kính\": the facts say the legs or supports are adjustable, but they don't give this as a step-by-step install order. This is a minor generalisation.",
+        "\"nên sáng hơn và chỉnh được nhiều hơn, nhưng giá ở Việt Nam cao hơn\": the facts support this. The page leaves out the price figure, which is fine.",
+        "\"Ai muốn chỉnh kỹ hơn qua điện thoại thì có bộ điều khiển Bluetooth LightControl Standard bán riêng\": this is supported, but the facts don't say the controller works with every version."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T19:45:28Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.72,
+      "notes": [
+        "\"Hãng nói bản làm lại năm 2025 sáng hơn, phổ cân hơn\" - the facts say the redesign is \"said to be\" better with no named source. Attributing it to the maker (Hãng) is unsupported.",
+        "\"Bể có viền hoặc kính dày hơn mức đó thì không hợp kiểu gác này\" - the facts only say the light is designed for rimless tanks under 10 mm. They don't say framed or thicker-glass tanks are unsuitable.",
+        "\"Bể to hơn tầm 30B thì xem sang các cỡ lớn hơn trong cùng dòng\" - this recommendation is not in the facts.",
+        "\"Gặp số lạ thì đối chiếu với thông số của hãng\" - this advice is not in the facts, and no manufacturer spec source is given.",
+        "\"Đối chiếu công suất là dễ nhất\" - using wattage as the easiest way to tell versions apart is not in the facts. The facts only list 9 W vs 11 W, and the 9 W figure is for the earlier B Line 30B, not necessarily II.",
+        "\"bản cũ không có chế độ tối dần\" - the forum user said the older unit had no sunset function. The page ties this to the dimmer and generalises it.",
+        "\"Người chơi trong nước hay dùng dòng này thay cho dòng B\" - the facts say only that it is a common local alternative sold by shops, not that players use it.",
+        "\"bản B II thì phải cắm qua ổ hẹn giờ\" and \"Bản B II không tự hẹn giờ được\" - the facts say the B II light has no timer of its own. The 30B II dimmer is not stated to lack a timer, and the page conflates B II with 30B II.",
+        "\"Dòng B làm cho cây cần sáng thấp đến trung bình\" and \"bucep\" in the FAQ list of plants - bucep comes from the shop's recommendation, not the B-line source. The FAQ merges the two."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ]
 }

@@ -5,8 +5,8 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
-import { fitKey, fitText, type FitFinding, type FitState } from '../src/fit'
-import { changedFiles, fitPct, fitSummary, gate, gateCall, gateChecks, HELD_BY_HAND, heldMendsOf, MEND_AGAIN_DAYS, putBackFile, wrongChecks } from '../src/gate'
+import { fitKey, fitReport, fitText, type FitFinding, type FitState } from '../src/fit'
+import { changedFiles, fitPct, fitSummary, gate, gateCall, gateChecks, gateFitReport, HELD_BY_HAND, heldMendsOf, MEND_AGAIN_DAYS, putBackFile, wrongChecks } from '../src/gate'
 import { localizeSpecies, partHash } from '../src/localize'
 import { loadPages, type Page } from '../src/pages'
 import { plantsWithoutPlanting } from '../src/planting'
@@ -60,6 +60,22 @@ test('what the gate does with a page, from its checks now and before', () => {
   expect(gateCall(s('harm'), { isNew: false, wasHeld: false, before: s('harm') })).toEqual({ action: 'hold', checks: ['harm'] })
   expect(gateCall(s('harm'), { isNew: false, wasHeld: false, before: s() })).toEqual({ action: 'revert', checks: ['harm'] })
   expect(gateCall(s('harm', 'kit'), { isNew: false, wasHeld: false, before: s('kit') })).toEqual({ action: 'revert', checks: ['harm'] })
+})
+
+// A reader of #1731: gate() returns the pages it read, so its report counted a text put back on the one it threw out. On the
+// pages as the run ends with them, the guide put back has a read of its own text: read, and not open without one.
+test("the gate's report counts a text put back by the read it ends with", async () => {
+  const root = await repo()
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p>` })
+  const r = await gate(root, { llm: reader(), now })
+  expect(r.report.revert).toHaveLength(1)
+  // [Pages, Read, Open, no read of its text] in the Vietnamese row.
+  const row = (md: string) => md.split('\n').find(l => l.startsWith('| Vietnamese |'))!.split('|').slice(2, 5).map(c => Number(c.trim()))
+  const [pages, read, open] = row(await gateFitReport(root, r.state, r.held))
+  const [, readThrown, openThrown] = row(fitReport(r.pages, r.state, r.held))
+  expect(pages).toBeGreaterThan(1)
+  expect(read).toBe(readThrown! + 1)
+  expect(open).toBe(openThrown! - 1)
 })
 
 test('a new page that fails is held, and one that passes goes out', async () => {
@@ -1162,4 +1178,26 @@ test('a guide held for the video\'s own dose goes to its editor while the read f
   await gate(again, { llm: dosed(), now, mend: dropper(again, none), heldMends: 1 })
   expect(none).toEqual([])
   expect((await readJson(again, GUIDE)).held).toEqual({ checks: ['dose', 'shop'], at: '2026-11-09' })
+})
+
+// The chief of staff, 20 Nov 2026: the guard on a body a person fixed (bodyFixed) stops the writers and the menders, never
+// the gate. A guarded guide is read like any other: held, it stays held while its read finds a fault; live, harm found on
+// it holds it.
+test('a body a person fixed is read and held like any other: the guard stops only the writers and menders', async () => {
+  const root = await repo()
+  await edit(root, GUIDE, t => { t.bodyFixed = true; t.held = { checks: ['shop'], at: '2026-11-08' } })
+  commit(root, 'held, fixed by hand')
+  await edit(root, GUIDE, t => { t.body = '<p>Lọc mua ở Petco là được.</p>' })
+  const calls: string[] = []
+  await gate(root, { llm: reader(calls), now })
+  expect(calls).toHaveLength(1)
+  expect((await readJson(root, GUIDE)).held.checks).toEqual(['shop'])
+
+  const live = await repo()
+  await edit(live, GUIDE, t => { t.bodyFixed = true })
+  commit(live, 'fixed by hand')
+  const page = await guidePage(live)
+  await saveState(live, { [fitKey(page)]: { at: '2026-11-09', hash: fitText(page).hash, model: 'opus', checklist: 3, findings: [{ check: 'harm', part: 'P1', quote: 'Lọc', why: 'x', by: 'model' }], products: [] } })
+  await gate(live, { llm: reader(), now })
+  expect((await readJson(live, GUIDE)).held).toEqual({ checks: ['harm'], at: '2026-11-09' })
 })

@@ -3,6 +3,12 @@
   "name": "Pará",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T07:07:59.503Z",
+    "why": "Malay atlases and Malaysian usage write the Brazilian state as \"Para\" without the accent, or \"Negeri Para\", so retaining the Portuguese diacritic \"Pará\" is a plausible but not standard rendering."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

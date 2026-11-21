@@ -3820,10 +3820,14 @@
     "reason": "book review, many species"
   },
   "o8kFvl5duq8": {
-    "at": "2026-11-07",
+    "at": "2026-11-20",
     "title": "Discover the Enchanting Sterbai Corydoras: A Must-Have for any Aquarium",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Corydoras sterbai",
+    "page": "species/corydoras-sterbai",
+    "done": "added",
+    "score": 0.82
   },
   "o8v-JO2phNI": {
     "at": "2026-11-18",
@@ -3842,10 +3846,15 @@
     "reason": "show pair selection advice"
   },
   "oCNgBx6j9PY": {
-    "at": "2026-11-07",
+    "at": "2026-11-20",
     "title": "Red Velvet Swordtail Fish (Species Spotlight)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Xiphophorus hellerii",
+    "page": "species/xiphophorus-hellerii",
+    "done": "low",
+    "score": 0.6,
+    "reason": "\"dọc mép thùy dưới vây đuôi, tức là dọc theo cây kiếm\": the video says the black stripe runs along the lower lobe of the anal fin, not the tail fin or sword. This changes where the stripe is.; \"đồ thực vật chiếm phần lớn trong thức ăn\": the video says only \"a large part\" of the diet is vegetation. \"Phần lớn\" reads as most, which overstates it."
   },
   "oEPCdzB3qZk": {
     "at": "2026-11-07",
@@ -3998,10 +4007,14 @@
     "reason": "several species"
   },
   "p1gcQEYnW5I": {
-    "at": "2026-11-07",
+    "at": "2026-11-20",
     "title": "Meet the Nego Dagua Tetra: A Closer Look at Hyphessobrycon negodagua",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Hyphessobrycon negodagua",
+    "page": "species/hyphessobrycon-negodagua",
+    "done": "new page",
+    "score": 0.8
   },
   "p2RHCOv-z-E": {
     "at": "2026-11-07",
@@ -4052,10 +4065,14 @@
     "reason": "many species list"
   },
   "pDL703qE4w4": {
-    "at": "2026-11-07",
+    "at": "2026-11-20",
     "title": "Strawberry Leporinus - Leporinus granti - Rare Freshwater Tropical Aquarium Fish",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Leporinus granti",
+    "page": "species/leporinus-granti",
+    "done": "new page",
+    "score": 0.96
   },
   "pFqzYnG_zlY": {
     "at": "2026-11-07",
@@ -4114,10 +4131,14 @@
     "reason": "disease general"
   },
   "PSy6YDg3fug": {
-    "at": "2026-11-07",
+    "at": "2026-11-20",
     "title": "Saddleback Loach - Homaloptera Orthogoniata - Rare Freshwater Loach Aquarium Fish Profile",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Homaloptera orthogoniata",
+    "page": "species/homaloptera-orthogoniata",
+    "done": "added",
+    "score": 0.8
   },
   "ptOLs3ZBnB0": {
     "at": "2026-11-11",
@@ -4150,10 +4171,12 @@
     "reason": "aquascape"
   },
   "PXFIlVo_ihU": {
-    "at": "2026-11-07",
+    "at": "2026-11-20",
     "title": "DWARF ANCHOR CATISH SPECIES PROFILE",
     "channel": "Daniel Keeping Fish",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "pxhkIYRxa0Q": {
     "at": "2026-11-07",
@@ -5245,6 +5268,12 @@
     "kind": "other",
     "done": "skipped",
     "reason": "conservation problem, wild"
+  },
+  "XF-PP7cdsdo": {
+    "at": "2026-11-20",
+    "title": "Keeping Platy Fish: What I Learned",
+    "channel": "FishLoft",
+    "kind": "profile"
   },
   "xhi5lF7shKI": {
     "at": "2026-11-07",

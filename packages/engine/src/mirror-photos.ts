@@ -4,6 +4,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { IMAGE_SWITCHES, isInatNonCommercial, isNonCommercial, type ImageSwitches } from '@aq/schema'
 import type { Media } from './source-photos'
+import { looks, readSecondLook, writeSecondLook } from './last-photo'
 
 type Photo = { url: string; thumb?: string; width: number; height: number; licence: string; author: string; sourceUrl: string }
 type Stored = Awaited<ReturnType<Media['put']>>
@@ -62,15 +63,20 @@ const URL_KEYED = ['_album-ask.json', '_photo-check.json', '_photo-faces.json', 
  * cookies (Lighthouse Best Practices), send JPEGs with a short cache life, and each is one more connection before the
  * page's main picture. Each photo becomes a ≤1200 px WebP plus a 480 px thumb; credit, licence and the link to the
  * photo's own page are kept. `limit`: uploads this run. Idempotent: a photo already on our host is left alone. A
- * non-commercial photo is copied only where the site shows it: an iNaturalist album photo under CC BY-NC or CC BY-NC-SA,
- * its switch on (`switches`, IMAGE_SWITCHES.inatNonCommercial).
+ * non-commercial photo is copied only where the site shows it: an iNaturalist photo under CC BY-NC or CC BY-NC-SA in an
+ * album or on a fish's page, which keeps one only as its head (gallery.ts dropNonCommercial), its switch on (`switches`,
+ * IMAGE_SWITCHES.inatNonCommercial).
  */
 export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: number; dryRun?: boolean; switches?: Readonly<ImageSwitches> } = {}) {
   const nc = (o.switches ?? IMAGE_SWITCHES).inatNonCommercial
   const albums = join(root, 'content', 'gallery')
+  const shows = (file: string) => file.startsWith(albums) || ['species', 'plants', 'breeds'].some(k => file.startsWith(join(root, 'content', k)) && file.endsWith('entity.json'))
   const report = { mirrored: 0, files: 0, pending: 0, failed: [] as string[] }
   const done = new Map<string, Stored>()
   const moved: [string, string][] = []
+  // A photo off at its first verdict is coming off every page: it isn't copied, so its waiting entry and its record keep
+  // one address (last-photo.ts; the independent reader, 20 Nov).
+  const marked = looks(await readSecondLook(root)).off
   for (const file of await files(join(root, 'content'))) {
     const raw = await readFile(file, 'utf8').catch(() => null)
     if (!raw) continue
@@ -78,8 +84,8 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
     let changed = false
     for (const p of photosIn(data)) {
       const plan = mirrorPlan(p.url)
-      if (!plan) continue
-      if (isNonCommercial(p.licence) && !(nc && file.startsWith(albums) && isInatNonCommercial(p))) continue
+      if (!plan || marked(p.url)) continue
+      if (isNonCommercial(p.licence) && !(nc && shows(file) && isInatNonCommercial(p))) continue
       let stored = done.get(plan.key)
       if (!stored) {
         if (o.dryRun || (o.limit !== undefined && done.size >= o.limit)) { report.pending++; continue }
@@ -112,6 +118,14 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
     let n = 0
     for (const [from, to] of moved) if (from in cache && !(to in cache)) { cache[to] = cache[from]; n++ }
     if (n) await writePhotoState(path, cache)
+  }
+  // A second look's "clear" follows its photo to our bucket, so the cleared verdict copied above doesn't take it off there.
+  if (moved.length) {
+    const sl = await readSecondLook(root)
+    const cleared = looks(sl).cleared
+    let n = 0
+    for (const [from, to] of moved) if (cleared(from) && !(to in sl)) { sl[to] = sl[from]!; n++ }
+    if (n) await writeSecondLook(root, sl)
   }
   report.mirrored = done.size
   return report

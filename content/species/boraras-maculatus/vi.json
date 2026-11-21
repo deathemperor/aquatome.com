@@ -3,8 +3,8 @@
   "name": "Cá rasbora lùn",
   "altNames": [
     "Cá rasbora đốm",
-    "Dwarf Rasbora",
-    "Spotted Rasbora",
+    "Dwarf rasbora",
+    "Spotted rasbora",
     "Cá rasbora lùn đốm",
     "Cá rasbora lùn đỏ"
   ],
@@ -28,14 +28,18 @@
     "waterConditions:bwaquatics": "<ul><li>TDS: 0 đến 60 ppm (dưới 100)</li><li>pH: 4,5 đến 6,5</li><li>Nhiệt độ: 22–26°C</li></ul>",
     "diet:bwaquatics": "<p>Đây là loài săn mồi tí hon. Có thể cho ăn cám mảnh bóp thật mịn, cám viên siêu nhỏ, và Artemia mới nở, cyclops, microworm loại tươi sống hoặc đông lạnh. Tốt nhất là chia thành vài bữa nhỏ mỗi ngày.</p>",
     "behaviour:bwaquatics": "<p>Loài này cực kỳ hiền. Nên nuôi theo đàn ít nhất 10–12 con, trong bể chỉ có mỗi loài này hoặc bể nano nuôi chung với Boraras brigittae, Sundadanio axelrodi, cá mắt xanh neon đỏ (Pseudomugil luminatus) hay tép Caridina nhỏ. Không thả chung với cá lớn hoặc cá bơi quá hăng. Chúng cũng hợp làm cá nuôi chung với các loài cá nước đen khác, như cá sặc licorice hay các loài betta nhỏ ấp trứng trong miệng như Betta channoides và Betta albimarginata.</p>",
-    "reproduction:bwaquatics": "<p>Cá đẻ trứng rải, thả trứng vào giữa đám cây lá nhỏ, rêu hoặc lá khô. Muốn cá đẻ thì cần nước rất mềm, chua và đèn dịu. Đẻ xong thì vớt cá bố mẹ ra. Trứng nở sau 36 đến 48 giờ, và 3 đến 4 ngày sau đó cá bột bơi được. Lúc đầu cho ăn trùng cỏ, sau đó chuyển sang Artemia mới nở.</p>"
+    "reproduction:bwaquatics": "<p>Cá đẻ trứng rải, thả trứng vào giữa đám cây lá nhỏ, rêu hoặc lá khô. Muốn cá đẻ thì cần nước rất mềm, chua và đèn dịu. Đẻ xong thì vớt cá bố mẹ ra. Trứng nở sau 36 đến 48 giờ, và 3 đến 4 ngày sau đó cá bột bơi được. Lúc đầu cho ăn trùng cỏ, sau đó chuyển sang Artemia mới nở.</p>",
+    "quickFacts:glaser": "<p>Cá rasbora lùn (Boraras maculatus, trước đây gọi là Rasbora maculata) là loài Boraras có mặt trong giới nuôi cá cảnh lâu nhất. Các loài trong giống này đều không lớn quá 2–3 cm, nên rất hợp với bể nano. Loài nào cũng thích nước mềm, hơi axit và bể hơi tối, nhưng bể vẫn phải nhiều cây, tốt nhất là có cây thả nổi. Chúng thích thức ăn tươi sống cỡ nhỏ, dù thức ăn khô cũng ăn ngay. Ngoài ra nên nuôi chúng theo đàn với đồng loại.</p>",
+    "distribution:glaser": "<p>Cá rasbora lùn sống ở bán đảo Mã Lai, miền nam Thái Lan và Sumatra. Lúc đầu người ta hay tưởng nó là cá con của Rasbora kalochroma, một loài lớn hơn nhiều. Sau khi người ta nuôi trong bể, theo dõi và cho đẻ thành công thì không còn ai nghi ngờ đây là một loài riêng.</p>",
+    "notes:glaser": "<p>Cá rasbora lùn có rất nhiều dạng, và biết đâu sau này có dạng sẽ được tách thành loài riêng. Dạng nào cũng có đốm lớn ở vai, và đốm này luôn to hơn mắt. Màu nền của thân tùy dạng, từ cam nhạt tới đỏ thẫm. Mọi con rasbora lùn đều có ba đốm đen: một ở vai, một ở chỗ vây hậu môn bắt đầu và một ở gốc vây đuôi. Một số quần thể còn có thêm một đốm đen ở đầu cuống đuôi, ngay phía trên vây hậu môn.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
       "bwaquatics": 0.9,
-      "seriouslyfish": 0.8
+      "seriouslyfish": 0.8,
+      "glaser": 0.85
     }
   }
 }

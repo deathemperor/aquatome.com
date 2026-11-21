@@ -1,0 +1,83 @@
+{
+  "id": "youtube-d1IqnjVMBnI",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=d1IqnjVMBnI",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "betta-splendens"
+  ],
+  "updatedAt": "2026-11-20",
+  "video": {
+    "youtubeId": "d1IqnjVMBnI",
+    "title": "Top Tips For Keeping A HEALTHY Betta Fish! Beginner Betta Techniques",
+    "channel": "KGTropicals",
+    "channelUrl": "https://www.youtube.com/channel/UCyyGJeKITfR7Y5cq2zX4-oQ",
+    "durationSec": 642,
+    "publishedAt": "2020-06-14",
+    "chapters": [],
+    "series": {
+      "id": "PLbk3wN8TF_D3M0cs1kMNjuGfDri7B1f7u",
+      "position": 4
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/d1IqnjVMBnI/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Betta splendens"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "chuan",
+        "t": 94
+      },
+      {
+        "category": "suoi",
+        "type": "mini",
+        "t": 156
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 219
+      },
+      {
+        "category": "loc",
+        "type": "treo",
+        "t": 250
+      },
+      {
+        "category": "thuc-an",
+        "type": "kho",
+        "brand": "Xtreme",
+        "model": "Betta pellet",
+        "t": 441
+      },
+      {
+        "category": "thuc-an",
+        "type": "kho",
+        "brand": "Xtreme",
+        "model": "Crow flake",
+        "t": 441
+      },
+      {
+        "category": "thuc-an",
+        "type": "kho",
+        "brand": "API",
+        "model": "Betta flakes",
+        "t": 500
+      },
+      {
+        "category": "thuc-an",
+        "type": "kho",
+        "brand": "Hikari",
+        "model": "Pellets",
+        "t": 500
+      }
+    ]
+  }
+}

@@ -62,7 +62,7 @@ export const factShardOf = (id: string, shards: number) => pageShard(id, shards)
 
 /**
  * Each catalog page's facts. `photos`: the page's photos then its gallery's (`gallery`), as `thumb` makes them, `count`
- * at most; never a non-commercial album photo, which stays in its album (the owner's yes, 10 Nov). A species' and a plant's text is its sources' dimorphism, then their notes (first source first); a breed
+ * at most; never a non-commercial photo, a page's head or not (the owner's yes, 10 Nov; the chief of staff's rule, 17 Nov: never a fish-ID reference). A species' and a plant's text is its sources' dimorphism, then their notes (first source first); a breed
  * has no sections, so its text is its own summary (Vietnamese, as the page writes it).
  */
 export function buildFacts<P>(catalog: Catalog, pages: FactPages<P>, thumb: (p: P) => string, opts: { gallery?: (id: string) => P[]; count?: number } = {}): Facts[] {

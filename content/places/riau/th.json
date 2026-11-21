@@ -3,6 +3,12 @@
   "name": "เรียว",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-20T11:56:23.315Z",
+    "why": "Thai atlases write the Indonesian province Riau as \"เรียว\" in some usage, but the standard Thai rendering is \"จังหวัดเรียว\" (Riau Province) or \"รีเยา\"; bare \"เรียว\" is ambiguous and lacks the kind word."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

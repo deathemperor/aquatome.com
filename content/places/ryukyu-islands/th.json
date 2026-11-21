@@ -1,8 +1,13 @@
 {
   "slug": "ryukyu-islands",
-  "name": "หมู่เกาะรีวกีว",
+  "name": "หมู่เกาะริวกิว",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-20T11:57:00.802Z"
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

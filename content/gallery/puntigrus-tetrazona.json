@@ -6,17 +6,17 @@
       "thumb": "https://media.aquatome.com/inaturalist/505901851-480.webp",
       "width": 1024,
       "height": 576,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/505901851-large.webp",
+        "width": 2048,
+        "height": 1152
+      },
       "licence": "CC BY",
       "author": "olmagon",
       "sourceUrl": "https://www.inaturalist.org/photos/505901851",
       "caption": "Đàn cá tứ vân bơi giữa cây thủy sinh trong bể",
       "best": true,
-      "kind": "group",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/505901851-large.webp",
-        "width": 2048,
-        "height": 1152
-      }
+      "kind": "group"
     },
     {
       "url": "https://media.aquatome.com/commons/2f41fe23061b89e3.webp",
@@ -43,30 +43,30 @@
       "thumb": "https://media.aquatome.com/commons/bd3cb84d6747be00-480.webp",
       "width": 1200,
       "height": 749,
-      "licence": "CC BY-SA 2.5",
-      "author": "Faucon",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puntius_tetrazona001.JPG",
-      "caption": "Cá tứ vân màu vàng bơi trước lá thủy sinh xanh",
       "large": {
         "url": "https://media.aquatome.com/commons/bd3cb84d6747be00-large.webp",
         "width": 1921,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 2.5",
+      "author": "Faucon",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puntius_tetrazona001.JPG",
+      "caption": "Cá tứ vân màu vàng bơi trước lá thủy sinh xanh"
     },
     {
       "url": "https://media.aquatome.com/commons/a9ce5abbcfa6ca8b.webp",
       "thumb": "https://media.aquatome.com/commons/a9ce5abbcfa6ca8b-480.webp",
       "width": 1200,
       "height": 728,
-      "licence": "CC BY-SA 2.5",
-      "author": "André Karwath aka Aka",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puntius_tetrazona_(aka).jpg",
-      "caption": "Cá tứ vân đực vây lưng đen viền đỏ, nền sáng",
       "large": {
         "url": "https://media.aquatome.com/commons/a9ce5abbcfa6ca8b-large.webp",
         "width": 1978,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 2.5",
+      "author": "André Karwath aka Aka",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puntius_tetrazona_(aka).jpg",
+      "caption": "Cá tứ vân đực vây lưng đen viền đỏ, nền sáng"
     },
     {
       "url": "https://media.aquatome.com/commons/17e0de9a0913b1ee.webp",
@@ -153,15 +153,15 @@
       "thumb": "https://media.aquatome.com/commons/6cb220bf81038534-480.webp",
       "width": 1200,
       "height": 675,
-      "licence": "CC BY-SA 4.0",
-      "author": "Editor General of Wiki",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tiger_barb_fish.jpg",
-      "caption": "Đàn cá tứ vân trong bể thủy sinh cây xanh",
       "large": {
         "url": "https://media.aquatome.com/commons/6cb220bf81038534-large.webp",
         "width": 2133,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Editor General of Wiki",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tiger_barb_fish.jpg",
+      "caption": "Đàn cá tứ vân trong bể thủy sinh cây xanh"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/514212391.webp",
@@ -234,9 +234,202 @@
       "author": "Abu Hamas",
       "sourceUrl": "https://www.inaturalist.org/photos/569743774",
       "caption": "Ba cá tứ vân bơi trên nền sỏi đá trong bể"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/208072283.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/208072283-480.webp",
+      "width": 1024,
+      "height": 633,
+      "licence": "CC BY-NC",
+      "author": "Mark Henry Sabaj",
+      "sourceUrl": "https://www.inaturalist.org/photos/208072283",
+      "caption": "Cá tứ vân cận cảnh với sọc đen rõ nét trong bể nhỏ",
+      "best": true,
+      "kind": "pair",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/253217947.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/253217947-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Irfan Nurarifin",
+      "sourceUrl": "https://www.inaturalist.org/photos/253217947",
+      "caption": "Đàn cá tứ vân trong hộp chụp ảnh bên mặt nước",
+      "best": true,
+      "kind": "group",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/436465208.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/436465208-480.webp",
+      "width": 1024,
+      "height": 771,
+      "licence": "CC BY-NC",
+      "author": "Ahsan al hidayat",
+      "sourceUrl": "https://www.inaturalist.org/photos/436465208",
+      "caption": "Cá tứ vân vàng sọc đen bơi trong bể kính nhỏ",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/542727271.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/542727271-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Ahsan al hidayat",
+      "sourceUrl": "https://www.inaturalist.org/photos/542727271",
+      "caption": "Đàn cá tứ vân trong bể chụp nhỏ",
+      "best": true,
+      "kind": "group",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/467771616.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/467771616-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY-NC",
+      "author": "Hendra",
+      "sourceUrl": "https://www.inaturalist.org/photos/467771616",
+      "caption": "Cá tứ vân trong hộp trong suốt bên cạnh thước đo",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/625550368.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/625550368-480.webp",
+      "width": 1024,
+      "height": 808,
+      "licence": "CC BY-NC",
+      "author": "管牧山",
+      "sourceUrl": "https://www.inaturalist.org/photos/625550368",
+      "caption": "Cá tứ vân cạnh thước đo, nhìn nghiêng",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/761697799.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/761697799-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "AKAS PRASETYO PANGGABEAN",
+      "sourceUrl": "https://www.inaturalist.org/photos/761697799",
+      "caption": "Cá tứ vân bơi trong hộp nhựa trong suốt",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/253217961.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/253217961-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Irfan Nurarifin",
+      "sourceUrl": "https://www.inaturalist.org/photos/253217961",
+      "caption": "Đàn cá tứ vân đông đúc trong khay chụp ảnh",
+      "best": false,
+      "kind": "group",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/351719438.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/351719438-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Rafael Abizar",
+      "sourceUrl": "https://www.inaturalist.org/photos/351719438",
+      "caption": "Cá tứ vân giữa đá và rễ cây ở môi trường tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/538838004.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/538838004-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "nakarinfearless",
+      "sourceUrl": "https://www.inaturalist.org/photos/538838004",
+      "caption": "Cá tứ vân trong đĩa thủy tinh để chụp ảnh",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/287818884.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/287818884-480.webp",
+      "width": 1024,
+      "height": 484,
+      "licence": "CC BY-NC",
+      "author": "Hendra",
+      "sourceUrl": "https://www.inaturalist.org/photos/287818884",
+      "caption": "Nhóm cá tứ vân trong bể kính chụp ảnh",
+      "best": false,
+      "kind": "group",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/351719448.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/351719448-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Rafael Abizar",
+      "sourceUrl": "https://www.inaturalist.org/photos/351719448",
+      "caption": "Đàn cá tứ vân trong môi trường sống tự nhiên có đá và cành",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/625550301.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/625550301-480.webp",
+      "width": 1024,
+      "height": 826,
+      "licence": "CC BY-NC",
+      "author": "管牧山",
+      "sourceUrl": "https://www.inaturalist.org/photos/625550301",
+      "caption": "Cá tứ vân bụng to cạnh thước đo",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/287818902.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/287818902-480.webp",
+      "width": 1024,
+      "height": 484,
+      "licence": "CC BY-NC",
+      "author": "Hendra",
+      "sourceUrl": "https://www.inaturalist.org/photos/287818902",
+      "caption": "Đàn cá tứ vân bơi trong hộp kính nhỏ",
+      "best": false,
+      "kind": "group",
+      "setup": true,
+      "unchecked": true
     }
   ],
-  "seen": 92,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 143,
+  "updatedAt": "2026-11-20",
+  "builtAt": "2026-11-20"
 }

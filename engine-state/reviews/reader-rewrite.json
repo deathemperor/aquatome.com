@@ -208,6 +208,18 @@
       "kept": true
     }
   ],
+  "vi/guides/aquatome-ca-koi-thuc-an-cho-an-sinh-san-dieu-kien-nuoi#body": [
+    {
+      "at": "2026-11-21T01:34:08Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/aquatome-may-sui-oxy-suc-khi-cho-be-ca-cong-dung-va-cach-chon#body": [
     {
       "at": "2026-11-17T05:33:35Z",
@@ -1152,6 +1164,21 @@
       "notes": [
         "\"bắt vít cho ốp chặt vào máng\": BEFORE says \"vặn ốp vào\" (twist/screw it on). AFTER specifies screws (\"bắt vít\") and adds \"chặt vào máng\", which is a small addition.",
         "\"Mặt sau lưng máng gắn 4 quạt\": \"ốp\" (mount/attach onto) became \"gắn\". This is acceptable."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-mdW19245Utg#body": [
+    {
+      "at": "2026-11-20T17:53:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "The opening condition \"Khi hai bể cùng cỡ, bể trên không lọt gọn dưới bể khác được\" is dropped. AFTER gives a different cause, \"Bể sâu hơn kệ\", so the same-size-tanks context is lost.",
+        "\"nhưng không bắt buộc\" became \"nhưng không làm cũng được\". This is a small nuance shift but acceptable."
       ],
       "attempt": "first",
       "kept": false

@@ -3,6 +3,12 @@
   "name": "กึม",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-21T01:19:52.724Z",
+    "why": "กึม is a plausible Thai transliteration of Korean \"Keum\" (금), but the place is an unspecified region and the name lacks any kind word, so it's a reasonable but uncertain rendering."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

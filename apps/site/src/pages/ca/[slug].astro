@@ -23,6 +23,7 @@ import GalleryStrip from '../../components/GalleryStrip.astro'
 import BreedList from '../../components/BreedList.astro'
 import { getContent } from '../../lib/content'
 import { creditsFor, VIDEO_CARDS } from '../../lib/credits'
+import { shareImage } from '../../lib/gallery'
 import { matePhoto } from '../../lib/companions'
 import { searchAliases } from '../../lib/search'
 import { speciesDescription, speciesTitle } from '../../lib/meta'
@@ -43,7 +44,7 @@ const url = new URL(Astro.url.pathname, Astro.site).href
 // 15 Nov: the fiddler crab's page).
 const list = t(isFish(s) ? 'Loài cá' : 'Loài')
 const jsonld = [
-  { '@context': 'https://schema.org', '@type': 'Article', headline: s.t.name, ...(sciBeside(s.t.name, s.scientificName) ? { alternativeHeadline: s.scientificName } : {}), inLanguage: lang, dateModified: s.updatedAt, image: s.photos[0]?.url, mainEntityOfPage: url,
+  { '@context': 'https://schema.org', '@type': 'Article', headline: s.t.name, ...(sciBeside(s.t.name, s.scientificName) ? { alternativeHeadline: s.scientificName } : {}), inLanguage: lang, dateModified: s.updatedAt, image: shareImage(s.photos), mainEntityOfPage: url,
     about: { '@type': 'Taxon', name: s.scientificName, taxonRank: 'species', alternateName: [s.t.name, ...s.t.altNames] } },
   { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
     { '@type': 'ListItem', position: 1, name: list, item: new URL('/vi/ca/', Astro.site).href },
@@ -56,7 +57,7 @@ const { country, firstSource, researched, card, sources, summary, gallery, strip
 const tank = resolveDataCard(s.dataCard.tankCm ?? [], 'tankCm')?.value
 const alternates = await alternatesOf('species', s.id)
 ---
-<Base title={speciesTitle(lang, s.t.name, s.scientificName)} description={speciesDescription(lang, s.t.name, s.scientificName, s.dataCard, isFish(s))} image={s.photos[0]?.url} noindex={!s.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...figures, ...strip, ...more, ...breedPhotos, ...(showMates ? [...mates.good, ...mates.avoid].map(m => matePhoto(m.s)) : []), ...videoPhotos.slice(0, VIDEO_CARDS)].map(p => p ?? undefined))}>
+<Base title={speciesTitle(lang, s.t.name, s.scientificName)} description={speciesDescription(lang, s.t.name, s.scientificName, s.dataCard, isFish(s))} image={shareImage(s.photos)} noindex={!s.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...figures, ...strip, ...more, ...breedPhotos, ...(showMates ? [...mates.good, ...mates.avoid].map(m => matePhoto(m.s)) : []), ...videoPhotos.slice(0, VIDEO_CARDS)].map(p => p ?? undefined))}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label={t('Đường dẫn')}>
     <a href="/vi/ca/">{list}</a> / <a href={taxonHref(s, 2)}>{s.family}</a> / <a href={taxonHref(s, 3)} class="sci">{s.genus}</a>

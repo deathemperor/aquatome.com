@@ -78,7 +78,7 @@ func theButtonsCommandsGoAsRecorded() throws {
   }
 }
 
-@MainActor @Test("The card's trials go to Bluetooth as built, and its trial green as the recorded green")
+@MainActor @Test("The card's trials go to Bluetooth as built, and a recorded green as recorded")
 func theTrialsGoAsBuilt() throws {
   // Built, not recorded: compared with their own bytes.
   for c in FishLamp.trials {
@@ -94,7 +94,8 @@ func theAppsLampGlueIsAsPinned() throws {
   let lights = try read("AquaTome/Lights/LoveEcology.swift"), sender = try read("AquaTome/Master/LampSender.swift")
   let pinned: [(String, String)] = [
     (lights, "static let commands = FishLamp.loveEcology"),
-    (lights, #"static let trials = FishLamp.trials + FishLamp.loveEcology.filter { $0.id == "green" }.map { FishLamp.Command(id: "trial-green", sent: $0.sent) }"#),
+    // The trial row as Love Ecology's card has it since 15 Nov: its four built Bật and Tắt, no trial green.
+    (lights, #"static let trials = FishLamp.trials.filter { ["trial-off", "trial-on", "trial-off-recorded", "trial-on-recorded"].contains($0.id) }"#),
     (lights, "LampRadio.start(command.uuids, by: self)"),
     (lights, "core.start(uuids, allowed: allowed, done: done)"),
     (lights, "manager?.startAdvertising([CBAdvertisementDataServiceUUIDsKey: uuids.map { CBUUID(string: $0) }])"),

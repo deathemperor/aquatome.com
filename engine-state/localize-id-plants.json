@@ -439,18 +439,34 @@
     ]
   },
   "bucephalandra": {
-    "at": "2026-11-05",
-    "from": "2026-11-04",
+    "at": "2026-11-20",
+    "from": "2026-11-20",
     "name": "Bucephalandra",
     "confidence": "high",
     "score": 0.85,
-    "notes": [
-      "Item 8: \"special odours that attract pollinators\" became \"aroma khas yang menarik serangga penyerbuk\"; \"serangga\" (insects) is added and not in the source. Use \"penyerbuk\" only.",
-      "Item 6: \"Nutrients are stored mainly in the rhizome\" is rendered as \"Cadangan nutrisi\". This is acceptable but could be closer to the source.",
-      "Item 6: \"hewan pemakan alga\" is fine, but \"algae eaters\" is usually written \"hewan pemakan alga (algae eater)\" in Indonesian hobby writing. This is minor.",
-      "Items 3 and 6: \"emersed\" and \"submersed\" are left as English terms with a gloss only once. Use \"emers\" and \"submers\", or give a consistent gloss. This is minor.",
-      "Item 6: \"Another option is to leave the plant in its plastic basket\" is rendered as \"pot plastiknya\". \"Pot\" is common, but \"keranjang/pot jaring\" is more precise. This is minor."
-    ]
+    "notes": [],
+    "parts": {
+      "quickFacts:aquariumcoop": "d81e85552c76",
+      "beforeYouBuy:aquariumcoop": "a34b7793c0f9",
+      "distribution:aquariumcoop": "e0186ea4e791",
+      "habitat:aquariumcoop": "7cbfe5e4979d",
+      "aquariumSize:aquariumcoop": "a3baeaf52246",
+      "maintenance:aquariumcoop": "37d503dd6910",
+      "waterConditions:aquariumcoop": "64cabfe51254",
+      "reproduction:aquariumcoop": "f6f50b2bf10c",
+      "notes:aquariumcoop": "363198704527"
+    },
+    "failed": {
+      "at": "2026-11-20T06:21:28.330Z",
+      "parts": {
+        "quickFacts:aquariumbreeder": "0cca1832cc9b",
+        "distribution:aquariumbreeder": "9aa3ba9346ff",
+        "habitat:aquariumbreeder": "833a28d7b05d",
+        "maintenance:aquariumbreeder": "836bcfa44b71",
+        "waterConditions:aquariumbreeder": "8b2596cfaf8a",
+        "notes:aquariumbreeder": "1006582effd5"
+      }
+    }
   },
   "bucephalandra-diabolica": {
     "at": "2026-10-30",
@@ -610,6 +626,24 @@
       "Item 3: \"Di daerah asalnya\" narrows \"locally\" a little. \"Secara lokal\" or \"Di beberapa daerah\" would be closer."
     ]
   },
+  "cabomba-furcata": {
+    "at": "2026-11-21",
+    "from": "2026-11-20",
+    "name": "Cabomba Furcata",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"Pasokan nutrisi yang cukup\" fine, but \"pucuknya lebih kecil\" for \"smaller crowns\" is slightly vague; consider \"rumpun pucuk yang lebih kecil\".",
+      "\"tidak terlalu tinggi\" for \"not terribly high\" is fine, but \"toleran terhadap kesadahan tertentu\" is vague for \"some hardness\"; use \"kesadahan sedang\".",
+      "\"ini berarti tanaman harus dicabut cukup sering\" understates \"very regularly\"; use \"sangat sering\" or \"rutin\".",
+      "\"Cahaya yang sangat kuat\" for \"Aggressively high light levels\" is acceptable; \"Bisa juga memotong\" is slightly awkward, use \"Anda juga bisa memotong\" or passive \"Bagian pucuk juga bisa dipotong\"."
+    ],
+    "parts": {
+      "quickFacts:2hraquarist": "9c74b81d21a2",
+      "maintenance:2hraquarist": "1be9bcc7d10e",
+      "notes:2hraquarist": "79323d5a2ef5"
+    }
+  },
   "cabomba-sp": {
     "at": "2026-11-17",
     "from": "2026-11-17",
@@ -664,14 +698,39 @@
     ]
   },
   "ceratophyllum-demersum": {
-    "at": "2026-11-09",
-    "from": "2026-11-09",
+    "at": "2026-11-20",
+    "from": "2026-11-20",
     "name": "Hornwort",
     "confidence": "high",
-    "score": 0.9,
+    "score": 0.92,
     "notes": [
-      "\"mirip daun pinus\": \"pine needles\" lebih tepat \"jarum pinus\"."
-    ]
+      "Item 12: \"Kalau lampunya terlalu terang\" adds \"terlalu\" (too); the source says only strong light (đèn mạnh), so use \"Kalau lampunya terang/kuat\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "a48f285c68d0",
+      "quickFacts:aquariumcoop": "80122459c043",
+      "quickFacts:aquariumbreeder": "bb957d48ea3f",
+      "beforeYouBuy:aquatome": "7710d868a536",
+      "beforeYouBuy:aquariumbreeder": "e7f6a5505266",
+      "distribution:aquariumcoop": "82c4325510a5",
+      "distribution:aquatome": "f66b1cc75a70",
+      "distribution:aquariumbreeder": "3b77050c300e",
+      "habitat:aquariumbreeder": "ca267868c198",
+      "aquariumSize:aquariumbreeder": "3b2dde22aa2a",
+      "maintenance:aquariumcoop": "937ae8fafd03",
+      "maintenance:aquatome": "580107f491b5",
+      "maintenance:aquariumbreeder": "1e78ff1a909d",
+      "waterConditions:aquatome": "6b37e0505175",
+      "waterConditions:aquariumbreeder": "957362b9affa",
+      "equipment:aquariumbreeder": "48e70bb7657c",
+      "behaviour:aquariumcoop": "c9efacc463c7",
+      "behaviour:aquariumbreeder": "2046eabbd733",
+      "reproduction:aquariumcoop": "2b84acb04f4d",
+      "reproduction:aquariumbreeder": "67e85131840f",
+      "notes:tropica": "d1be9a60d3a2",
+      "notes:aquariumcoop": "d3f61e600264",
+      "notes:aquariumbreeder": "343c3dff4596"
+    }
   },
   "ceratopteris-thalictroides": {
     "at": "2026-11-20",
@@ -1368,21 +1427,34 @@
     ]
   },
   "hygrophila-difformis": {
-    "at": "2026-11-02",
-    "from": "2026-11-02",
+    "at": "2026-11-20",
+    "from": "2026-11-20",
     "name": "Water Wisteria",
     "confidence": "high",
-    "score": 0.7,
+    "score": 0.9,
     "notes": [
-      "Item 4: \"Plant the individual plants with some distance between them into the bottom substrate\" is fine, but the English \"remove the leaves from the lowest 5 cm (2\\\")\" is converted OK; the real problem is \"ikan lain yang sensitif\" for \"shrimps and other delicate fish\" – fine, but \"Tanaman ini dijual sebagai satu ikat ... dijepit dengan pemberat (anchor)\" adds \"dijual\"/\"dijepit\"; better: \"diikat dengan pemberat/penjepit timah\".",
-      "Item 7: \"berbentuk seperti bulu dengan lebar hingga 10 cm\" is unclear; say \"helai daun seperti bulu burung (feathery fronds) selebar hingga 10 cm\".",
-      "Item 7: \"Water wisteria vs. water sprite\" heading left in English; translate (e.g. \"Water wisteria vs. water sprite (Ceratopteris)\" with Indonesian: \"Water wisteria dan water sprite: apa bedanya\").",
-      "Item 7: \"Daun emersed ... lebih lebar\" fine, but \"kebun komersial\" for \"commercial farms\" should be \"pembudidaya/kebun komersial\" – acceptable; \"kekurangan nutrisi\" for \"starvation\" OK.",
-      "Item 5: \"Peralihan dari emersed ke submersed\" and \"kesadahan (GH) rendah\" fine; \"boleh dibuang\" for \"you can remove them\" is okay but \"sebaiknya dibuang\" is more natural.",
-      "Item 5: \"leggy\" translated as \"terlalu panjang kurus\"; use \"memanjang dan jarang daunnya (etiolasi)\".",
-      "Item 3: \"countries ranging between India and Thailand\" -> \"Berasal dari negara-negara di antara India dan Thailand\" – 'kawasan' is slightly redundant.",
-      "Item 6: \"lobed leaves ... distinctive group\" -> \"kelompok yang khas\" is vague; say \"rumpun yang mencolok\"."
-    ]
+      "Item 16: the heading 'Water wisteria vs. water sprite' is left fully in English. Use something like 'Water wisteria vs. water sprite (perbandingan)' or translate it as 'Water wisteria dan water sprite: perbedaannya'.",
+      "Item 17: the label 'Water sprite vs water wisteria:' is left in English. Translate the 'vs' as 'dibandingkan' or 'versus'."
+    ],
+    "parts": {
+      "quickFacts:tropica": "97a5af628acf",
+      "quickFacts:aquariumcoop": "1f7ab2d5523d",
+      "quickFacts:aquariumbreeder": "d60281aa2681",
+      "beforeYouBuy:aquariumbreeder": "912300957c8e",
+      "distribution:aquariumcoop": "5f394b360c28",
+      "distribution:aquariumbreeder": "e976a206d1bd",
+      "habitat:aquariumbreeder": "4a5e2e3e0e8b",
+      "aquariumSize:aquariumbreeder": "4e3475eb2949",
+      "maintenance:tropica": "85e7d850830d",
+      "maintenance:aquariumcoop": "3c46ee06425c",
+      "maintenance:aquariumbreeder": "9cb99312e504",
+      "waterConditions:aquariumbreeder": "520a23347b37",
+      "equipment:aquariumbreeder": "b6e2236c5197",
+      "behaviour:aquariumbreeder": "991e170ac858",
+      "notes:tropica": "e1d0b346673e",
+      "notes:aquariumcoop": "599bbf2b4a8b",
+      "notes:aquariumbreeder": "64fbbb56ed00"
+    }
   },
   "hygrophila-lancea-araguaia": {
     "at": "2026-11-02",
@@ -1859,6 +1931,28 @@
       "\"Asal\" in the spec list is slightly terse; \"Asal daerah\" or \"Asal negara/benua\" reads more naturally; minor."
     ]
   },
+  "micranthemum-tweedei": {
+    "at": "2026-11-20",
+    "from": "2026-11-20",
+    "name": "Micranthemum tweedei",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "#6 Maintenance: \"agar tidak membusuk dan menambah kotoran serta amonia berlebih\" adds \"membusuk\" (rotting), which is not in the English (\"to avoid dirt and excess ammonia\"). Remove it.",
+      "#6 Maintenance: \"angkat/saring\" is awkward for \"sieve out\". Use a single verb such as \"saring\" or \"ambil\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "e6f95c1a65ec",
+      "beforeYouBuy:aquariumbreeder": "18c971e9799a",
+      "distribution:aquariumbreeder": "3a5ca014682b",
+      "habitat:aquariumbreeder": "bf24ee5d67cb",
+      "aquariumSize:aquariumbreeder": "aebe9a0032de",
+      "maintenance:aquariumbreeder": "549129c73240",
+      "waterConditions:aquariumbreeder": "42d6fcbabed9",
+      "equipment:aquariumbreeder": "a66bf507c123",
+      "behaviour:aquariumbreeder": "09f05f862d95"
+    }
+  },
   "micranthemum-tweediei": {
     "at": "2026-11-08",
     "from": "2026-11-07",
@@ -1899,20 +1993,39 @@
     ]
   },
   "microsorum-pteropus": {
-    "at": "2026-11-04",
-    "from": "2026-10-31",
+    "at": "2026-11-21",
+    "from": "2026-11-20",
     "name": "Java Fern",
     "confidence": "high",
     "score": 0.7,
     "notes": [
-      "Item 5: \"It does best with a 6700K bulb. Low to medium-high light is perfect\" is fine, but \"Cahaya rendah sampai sedang-tinggi sudah ideal\" is awkward; use \"cahaya rendah hingga sedang-terang\".",
-      "Item 3: \"tekan tanaman ke lem selama 30 detik\" is fine, but \"oleskan setitik lem\" (bead of glue) is slightly off; \"teteskan sedikit lem\" is better.",
-      "Item 3: \"jangan sembarangan memulai akuarium dengan tanaman ini\" misses the meaning. It should say not to start a new tank with this plant alone, because algae can overwhelm it. As written, the advice is ambiguous.",
-      "Item 3: \"cabut beberapa helai daun\" and \"ambil tunasnya dan mulai tanam lagi\" are acceptable, but \"cabut\" (uproot) is less apt for leaves; use \"lepaskan\" or \"patahkan\".",
-      "Item 8: \"pendiri perusahaan yang mengembangkannya\" replaces the name \"Tropica\". Tropica is a trade name hobbyists know, so the source name was dropped without need. Use \"pendiri Tropica\".",
-      "Item 4: \"Tanaman ini tidak dimakan ikan herbivora\" is an absolute claim. Keep the original's sense, but \"biasanya tidak dimakan\" would be safer.",
-      "Item 5: \"lupa menyimpannya di ember\" is fine, but \"Hampir semua jenis lampu\" (almost any light) is acceptable. \"akuaris\" is an uncommon term in Indonesia; use \"aquascaper\" or \"hobiis akuarium\"."
-    ]
+      "Item 15: 'pendiri nurseri yang mengembangkannya' drops the name 'Tropica' (named after Tropica's founder). Restore it: 'pendiri Tropica'.",
+      "Item 11: 'ada akuaris yang lupa meninggalkannya di ember' is wrong. The English says aquarists forgot it in a bucket. Use 'melupakannya di dalam ember' or 'lupa mengangkatnya dari ember'.",
+      "Item 7: 'Salah satu cara favorit' drops 'The author's favourite'. Neutral wording is fine, but 'setetes lem' for 'a bead of glue' is slightly off. Use 'sedikit lem'.",
+      "Item 7: 'bisa kalah telak bersaing dengan alga' changes 'fight badly with algae'. 'Sulit melawan alga' would be more natural.",
+      "Item 12: 'burayak' is right for fry, but 'lobster air tawar' for crayfish is fine. 'rumpunnya yang lebat dan rimbun' for 'dense bushy mats' is slightly redundant.",
+      "Item 16: 'sampai 2 tahun' (can live up to 2 years) is kept as is. 'Narrow Leaf ... leaves about 10–20 cm, up to 30 cm tall' is fine.",
+      "Item 5: 'bentuknya mulai dari rimbun sampai runcing' is OK, but 'hardy and leathery' → 'liat seperti kulit' is awkward. Use 'kuat dan bertekstur seperti kulit'.",
+      "Item 9: 'lem' for adhesive and 'Tambahan nutrisi' are fine. 'Sulit dimakan' in item 12 is fine."
+    ],
+    "parts": {
+      "quickFacts:aquariumcoop": "6bcf2166a992",
+      "quickFacts:tropica": "a7149f4500ca",
+      "quickFacts:aquariumbreeder": "4b67a7e0bba1",
+      "distribution:aquariumbreeder": "35d0ed39deaa",
+      "habitat:aquariumbreeder": "2675f5165117",
+      "aquariumSize:aquariumbreeder": "1de66aed8c0e",
+      "maintenance:aquariumcoop": "052ba487355e",
+      "maintenance:tropica": "dc99c6df5692",
+      "maintenance:aquariumbreeder": "949d248a4a75",
+      "waterConditions:aquariumbreeder": "127cce48dcee",
+      "equipment:aquariumcoop": "5d2099ea38b1",
+      "behaviour:aquariumbreeder": "2f25ad2a6255",
+      "reproduction:aquariumcoop": "2e1f91cf5aa3",
+      "notes:aquariumcoop": "947a0d98f7a0",
+      "notes:tropica": "b734195ea119",
+      "notes:aquariumbreeder": "ce35473c445a"
+    }
   },
   "microsorum-pteropus-narrow": {
     "at": "2026-11-08",
@@ -2192,6 +2305,33 @@
       "maintenance:aquatome": "93eaabd38bf6"
     }
   },
+  "pistia-stratiotes": {
+    "at": "2026-11-21",
+    "from": "2026-11-20",
+    "name": "Kayu Apu Mini",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Item 3: \"akuarium 75 cm\" is fine, but item 5 \"kelembapan tinggi (70 atau lebih)\" drops the % unit that the source implies; write \"70% atau lebih\" (check the original).",
+      "Item 8: \"siput mystery (keong murbei)\" - \"keong murbei\" is a wrong/unclear local name for mystery snail; use \"siput mystery (mystery snail)\" or \"keong mistery\".",
+      "Item 8: inconsistent naming of snails: \"siput ramshorn\", \"Japanese trapdoor snail\" left in English while others are localised; make consistent, e.g. \"siput trapdoor Jepang\".",
+      "Item 8: \"burayak\" for fry is acceptable, but \"Akar ... menjadi tempat berkembang biak\" is fine; \"capung jarum\" for damselfly nymphs - write \"nimfa capung dan nimfa capung jarum\" (only the capung nymph is named, damselfly nymph omitted).",
+      "Item 5: \"air sadah (lebih dari 12)\" lacks the unit; add \"GH\" (\"lebih dari 12 GH\").",
+      "Item 8: \"Daun tertua ... bisa langsung dicabut\" - \"peeled off\" is better as \"dikupas/dilepas\"; minor.",
+      "Item 2: \"Nile Cabbage atau Water Cabbage\" left in English; add local equivalents such as \"Kubis Nil\" / \"Kubis Air\" or note them as English names.",
+      "Item 4: \"Tanamannya tetap akan hidup\" fine; but \"Atasi dengan penambah nutrisi alami\" is ok. \"tanaman... bisa menghabiskan nutrisi\" fine."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "3eb80a8a1e48",
+      "distribution:aquariumbreeder": "db39b6147851",
+      "aquariumSize:aquariumbreeder": "663e05138600",
+      "maintenance:aquariumbreeder": "b42da1c29bf2",
+      "waterConditions:aquariumbreeder": "5ab34853ef5b",
+      "equipment:aquariumbreeder": "99af1c617753",
+      "reproduction:aquariumbreeder": "96034b16044b",
+      "notes:aquariumbreeder": "28b4fc2db8bc"
+    }
+  },
   "plagiomnium-sp-thyme-moss": {
     "at": "2026-11-05",
     "from": "2026-10-31",
@@ -2317,7 +2457,7 @@
       "notes:tropica": "d021ce008122"
     },
     "failed": {
-      "at": "2026-11-13T23:30:24.633Z",
+      "at": "2026-11-21T00:25:39.049Z",
       "parts": {
         "quickFacts:aquariumbreeder": "ec0d038e5db9",
         "beforeYouBuy:aquariumbreeder": "3603ce7f9742",

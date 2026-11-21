@@ -1,8 +1,8 @@
 {
   "id": "parathelphusa-pantherina",
   "native": {
-    "input": "8910d8916d42fd2d",
-    "at": "2026-11-17T11:42:48.614Z",
+    "input": "c6f15db8b7b6178c",
+    "at": "2026-11-20T17:43:20.430Z",
     "claims": [
       {
         "code": "ID",
@@ -10,6 +10,14 @@
         "source": "glaser",
         "quote": "Origin: Indonesia.",
         "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "In the wild, the Panther Crab is found on the Indonesian island of Sulawesi.",
+        "words": "Indonesian",
         "ok": true
       }
     ],
@@ -19,6 +27,19 @@
         "source": "glaser",
         "quote": "Panther crabs were received from Lake Matano in Indonesia.",
         "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Sulawesi",
+        "source": "aquariumbreeder",
+        "quote": "In the wild, the Panther Crab is found on the Indonesian island of Sulawesi.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Lake Matano",
+        "source": "aquariumbreeder",
+        "quote": "Populations are concentrated in and around Lake Matano, though they have also been found in areas south of the lake.",
         "ok": true
       }
     ],

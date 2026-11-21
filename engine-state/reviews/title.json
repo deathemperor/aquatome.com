@@ -401,5 +401,19 @@
       "attempt": "first",
       "kept": true
     }
+  ],
+  "vi/guides/youtube-zYwObJhuJ5k": [
+    {
+      "at": "2026-11-20T20:41:08Z",
+      "model": "opus",
+      "ran": "claude-opus-5-5",
+      "cli": "2.1.329",
+      "score": 0.95,
+      "notes": [
+        "The text's own claim of '2 cách' doesn't match its nine sections, but dropping the count from the title avoids the conflict."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
   ]
 }

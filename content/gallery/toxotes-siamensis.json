@@ -2,20 +2,6 @@
   "id": "toxotes-siamensis",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/14213696.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/14213696-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "coenobita",
-      "sourceUrl": "https://www.inaturalist.org/photos/14213696",
-      "caption": "Cá măng rổ Siam bơi trong nước trong ở suối",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/28404400.webp",
       "thumb": "https://media.aquatome.com/inaturalist/28404400-480.webp",
       "width": 1024,
@@ -26,22 +12,7 @@
       "caption": "Cá măng rổ Siam với các đốm đen rõ nét ở mặt nước",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/29009678.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/29009678-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Julien Renoult",
-      "sourceUrl": "https://www.inaturalist.org/photos/29009678",
-      "caption": "Cá măng rổ Siam bơi trên đáy sỏi trong suối",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/89682832.webp",
@@ -54,8 +25,7 @@
       "caption": "Cá măng rổ Siam nhìn nghiêng rõ các đốm đen trên nền cát",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/89685016.webp",
@@ -68,8 +38,7 @@
       "caption": "Cá măng rổ Siam bơi chéo trên nền cát gợn sóng",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/157460660.webp",
@@ -82,8 +51,7 @@
       "caption": "Cá măng rổ Siam bơi trong nước trong trên nền sỏi",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/157463264.webp",
@@ -96,8 +64,33 @@
       "caption": "Cá măng rổ Siam với các đốm đen rõ trên thân",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/14213696.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/14213696-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "coenobita",
+      "sourceUrl": "https://www.inaturalist.org/photos/14213696",
+      "caption": "Cá măng rổ Siam bơi trong nước trong ở suối",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/29009678.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/29009678-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Julien Renoult",
+      "sourceUrl": "https://www.inaturalist.org/photos/29009678",
+      "caption": "Cá măng rổ Siam bơi trên đáy sỏi trong suối",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/158140723.webp",
@@ -110,8 +103,7 @@
       "caption": "Cá măng rổ Siam bơi trong nước xanh, các đốm đen rõ",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/199055963.webp",
@@ -124,8 +116,7 @@
       "caption": "Cá măng rổ Siam thân đốm đen trên nền nước vàng",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/1746026.webp",
@@ -138,8 +129,7 @@
       "caption": "Cá măng rổ Siam bơi gần mặt nước trong tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/14308393.webp",
@@ -152,8 +142,7 @@
       "caption": "Cá măng rổ Siam nhìn từ trên xuống trong nước xanh",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/14583372.webp",
@@ -166,8 +155,7 @@
       "caption": "Cá măng rổ Siam bơi gần mặt nước có lá",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/48548500.webp",
@@ -180,8 +168,7 @@
       "caption": "Cá măng rổ Siam bơi trong nước đục màu nâu",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/48548504.webp",
@@ -194,8 +181,7 @@
       "caption": "Cá măng rổ Siam bơi nghiêng trong nước nâu",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/89557825.webp",
@@ -208,8 +194,7 @@
       "caption": "Cá măng rổ Siam bơi trên nền cát vàng trong tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/89685018.webp",
@@ -222,8 +207,7 @@
       "caption": "Cá măng rổ Siam với các đốm đen nổi bật gần mặt nước",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/111689662.webp",
@@ -236,8 +220,7 @@
       "caption": "Cá măng rổ Siam bơi trong nước xanh trong",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/154136398.webp",
@@ -250,8 +233,7 @@
       "caption": "Cá măng rổ Siam bơi trong nước xanh, thân có đốm đen",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/157460690.webp",
@@ -264,8 +246,7 @@
       "caption": "Cá măng rổ Siam bơi trong nước trong, nền sỏi",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/157463050.webp",
@@ -278,8 +259,7 @@
       "caption": "Cá măng rổ Siam bơi sát mặt nước xanh lục",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/157463057.webp",
@@ -292,8 +272,7 @@
       "caption": "Cá măng rổ Siam nhìn nghiêng gần mặt nước",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/157463252.webp",
@@ -306,8 +285,7 @@
       "caption": "Cá măng rổ Siam giữa cành cây và rong ngoài tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/158140633.webp",
@@ -320,8 +298,7 @@
       "caption": "Cá măng rổ Siam bơi trong nước xanh sẫm",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/199055971.webp",
@@ -334,8 +311,7 @@
       "caption": "Cá măng rổ Siam trưởng thành bơi trong nước vàng",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/200429219.webp",
@@ -348,8 +324,7 @@
       "caption": "Cá măng rổ Siam ánh hồng với đốm đen bơi trong nước",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     }
   ],
   "seen": 60,

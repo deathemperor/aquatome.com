@@ -69,7 +69,13 @@ export const MAX_PHOTOS = 8
 const rank = (p: Photo) => (p.source && !SOURCES.find(s => s.id === p.source)?.photoStep ? SOURCE_IDS.indexOf(p.source) : SOURCE_IDS.length)
 
 const MAX_LLM_FAILURES = 3
-/** Pages in a row that failed on the network: it is the network, not the pages, so the source stops (their attempts last). */
+/**
+ * Pages in a row that failed on the network or that the source refused for now (HTTP 408, 429, a 5xx: state.ts
+ * errorKind 'transient'): the source stops for the rest of the run, so the pages after them keep their attempts. Each
+ * failed one used an attempt and goes first in the source's next run, but one that has used all MAX_ATTEMPTS waits until
+ * its source changes it (state.ts needsFetch). A page read early for its credit lines alone counts toward the three but
+ * keeps its state: it uses no attempt and keeps its own turn. There is no rest past the run: the next run asks again.
+ */
 const MAX_NETWORK_FAILURES = 3
 const BLOCK_MEMORY_MS = 86_400_000
 /** A source that meets a browser check on this many runs within the window reads the Internet Archive's copies from then on (the owner, 2026-11-10: a person can't always pass one). */
@@ -553,7 +559,9 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       try {
         if (url in lineWaiting && !lineWaiting[url]!.turn) await lineTurn(url)
         const r = await get(url)
-        networkFailures = 0
+        // A page that came back ends a run of network failures, but not one the source refused for now (408, 429, a 5xx):
+        // a source answering 429 page after page stops too (the chief of staff, 20 Nov).
+        if (errorKind(`HTTP ${r.status}`) !== 'transient') networkFailures = 0
         const o = htmlToOutline(r.html, src.contentSelector)
         if (isChallenge(o.title, o.outline)) {
           await block()

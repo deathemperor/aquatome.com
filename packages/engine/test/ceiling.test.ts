@@ -252,7 +252,9 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
   // job runs 80 sheets a run to judge the 621 page heads no check has seen; $12 again from 18 Nov (the chief of staff,
   // 15 Nov 2026), but $20 on 18 Nov alone, with the backstop $8 higher, for Glaser's first hundred pages and the last 72
   // heads judged by hand (the chief of staff, 17 Nov 2026); $30 on 20 Nov alone, with the backstop $18 higher, so Glaser's 290
-  // returned photos are judged the same evening (the chief of staff, 20 Nov 2026).
+  // returned photos are judged the same evening, raised to $35 that afternoon, with the backstop $5 higher again, for a hand
+  // run on 24 plant pages beside them; and the glossary's $100 raised to $115 that afternoon, the backstop $15 higher again,
+  // so the night's glossary work runs by day (the chief of staff, 20 Nov 2026).
   const periods = [
     { from: '2026-11-12T13:00:00+07:00', to: '2026-11-13T07:59:00+07:00', steps: 142, backstop: 150, small: 1, run: 30, localize: 25, second: 12, fit: 5, vi: 3, crops: 1, board: 1, photos: 6 },
     { from: '2026-11-13T08:00:00+07:00', to: '2026-11-13T21:59:00+07:00', steps: 278, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 12, crops: 4, board: 2, photos: 10 },
@@ -266,7 +268,7 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     { from: '2026-11-18T00:00:00+07:00', to: '2026-11-18T23:59:00+07:00', whole: true, steps: 503, backstop: 562, small: 4, run: 65, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 12, glossary: 100, material: 8, ask: 2, ideas: 4, judge: 24, photos: 20, recheck: 12 },
     { from: '2026-11-19T00:00:00+07:00', to: '2026-11-19T12:59:00+07:00', whole: true, steps: 521, backstop: 580, writer: 14, small: 4, run: 65, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 30, glossary: 100, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12, recheck: 6 },
     { from: '2026-11-19T13:00:00+07:00', to: '2026-11-19T23:59:00+07:00', whole: true, steps: 540, backstop: 599, writer: 14, small: 4, run: 65, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 30, glossary: 100, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12, recheck: 25 },
-    { from: '2026-11-20T00:00:00+07:00', to: '2026-11-20T23:59:00+07:00', whole: true, steps: 554, backstop: 613, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, judge: 24, photos: 30, recheck: 25 },
+    { from: '2026-11-20T00:00:00+07:00', to: '2026-11-20T23:59:00+07:00', whole: true, steps: 574, backstop: 633, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 115, material: 8, ask: 2, ideas: 4, judge: 24, photos: 35, recheck: 25 },
     { from: '2026-11-21T00:00:00+07:00', to: '2026-11-24T23:59:00+07:00', whole: true, steps: 522, backstop: 595, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, photos: 12, recheck: 25 },
     { from: '2026-11-25T00:00:00+07:00', to: '2026-12-31T00:00:00+07:00', whole: true, steps: 443, backstop: 516, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, photos: 12, recheck: 6 },
   ]

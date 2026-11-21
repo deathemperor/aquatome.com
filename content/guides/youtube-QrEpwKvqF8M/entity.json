@@ -43,6 +43,82 @@
         "model": "Aquasoil",
         "t": 6
       }
+    ],
+    "figures": [
+      {
+        "heading": "Dấu hiệu cá đã nhảy ra ngoài",
+        "moments": [
+          {
+            "t": 50,
+            "url": "https://media.aquatome.com/video/QrEpwKvqF8M/at50-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh có nắp đậy, khe sau bể gần lọc cần kiểm tra.",
+            "sharpness": 93.1
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/QrEpwKvqF8M/p0-82NDU2NzgwLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/QrEpwKvqF8M/p0-82NDU2NzgwLmpwZw-480.webp",
+          "width": 960,
+          "height": 870,
+          "licence": "CC BY-SA 3.0",
+          "author": "Gourami Watcher",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_splendens_6456780.jpg",
+          "caption": "Betta xanh bơi sát thành kính bể, như đang chờ chủ lại gần cho ăn."
+        }
+      },
+      {
+        "heading": "Nhặt được cá rồi thì làm gì",
+        "moments": [
+          {
+            "t": 55,
+            "url": "https://media.aquatome.com/video/QrEpwKvqF8M/at55-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh che màng bọc trên miệng, có lọc mini bên cạnh.",
+            "sharpness": 464.2,
+            "person": false
+          },
+          {
+            "t": 70,
+            "url": "https://media.aquatome.com/video/QrEpwKvqF8M/at70-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Miệng bể được che bằng màng bọc thực phẩm có đục vài lỗ nhỏ.",
+            "sharpness": 1223.1,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Cách tự cắt nắp kính từ bể cũ",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/QrEpwKvqF8M/p3-NzbmlqZGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/QrEpwKvqF8M/p3-NzbmlqZGVyLmpwZw-480.webp",
+          "width": 960,
+          "height": 388,
+          "licence": "CC BY-SA 3.0",
+          "author": "Rasbak",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Glassnijder.jpg",
+          "caption": "Dao cắt kính cán gỗ, dụng cụ dùng để rạch kính làm nắp bể."
+        }
+      },
+      {
+        "heading": "Có nắp thì bể kém đẹp, có đáng không",
+        "moments": [
+          {
+            "t": 170,
+            "url": "https://media.aquatome.com/video/QrEpwKvqF8M/at170-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nắp kính trên miệng bể, có chút hơi nước đọng bên dưới.",
+            "sharpness": 1144.3,
+            "person": false
+          }
+        ]
+      }
     ]
   }
 }

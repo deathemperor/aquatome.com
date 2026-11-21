@@ -1,10 +1,7 @@
 {
  "queue": [],
  "judged": [],
- "hashes": {
-  "https://media.aquatome.com/scotcat/cb3acb3aa9733cba.webp": "604842f0e4e88ce1",
-  "https://media.aquatome.com/scotcat/57c909afc423f6af.webp": "3f3f533278321273"
- },
+ "hashes": {},
  "commons": "2026-11-09",
  "inat": {
   "taxon": 1136784,
@@ -13,5 +10,9 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 10392625,
+  "next": null
  }
 }

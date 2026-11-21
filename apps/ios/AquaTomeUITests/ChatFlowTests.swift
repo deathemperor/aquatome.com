@@ -175,7 +175,7 @@ final class ChatFlowTests: XCTestCase {
     RunLoop.current.run(until: Date().addingTimeInterval(1.5))
     XCTAssertTrue(send.exists, "no Gửi")
     XCTAssertLessThanOrEqual(send.frame.maxY, keyboard.frame.minY + 0.5, "Gửi under the keyboard: \(send.frame) and \(keyboard.frame)")
-    XCTAssertGreaterThanOrEqual(send.frame.height, 44, "Gửi's tap area cut: \(send.frame)")
+    XCTAssertGreaterThanOrEqual(heightOnPixels(send), 44, "Gửi's tap area cut: \(send.frame)")
     XCTAssertTrue(send.isHittable, "Gửi can't be tapped")
     let field = reason.frame
     reason.typeText("Sai số lít ở câu thứ hai")
@@ -204,7 +204,7 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(keyboard.waitForExistence(timeout: 5), "no keyboard")
     RunLoop.current.run(until: Date().addingTimeInterval(1.5))
     XCTAssertLessThanOrEqual(send.frame.maxY, keyboard.frame.minY + 0.5, "Gửi under the keyboard: \(send.frame) and \(keyboard.frame)")
-    XCTAssertGreaterThanOrEqual(send.frame.height, 44, "Gửi's tap area cut: \(send.frame)")
+    XCTAssertGreaterThanOrEqual(heightOnPixels(send), 44, "Gửi's tap area cut: \(send.frame)")
     XCTAssertTrue(send.isHittable, "Gửi can't be tapped")
   }
 
@@ -810,7 +810,7 @@ final class ChatFlowTests: XCTestCase {
     section.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
     let close = app.buttons["Thu gọn"]
     XCTAssertTrue(close.waitForExistence(timeout: 5), "didn't open")
-    XCTAssertGreaterThanOrEqual(close.frame.height, 44, "Thu gọn under 44 pt to tap")
+    XCTAssertGreaterThanOrEqual(heightOnPixels(close), 44, "Thu gọn under 44 pt to tap")
     XCTAssertEqual(section.frame.minY, top, accuracy: 2, "the view moved as the section opened")
     XCTAssertTrue(drawn(firstLine), "opened, and its text never reached the screen")
     let left = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'còn tiếp:'")).firstMatch
@@ -928,7 +928,7 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertFalse(compare.buttons.matching(NSPredicate(format: "label == 'Cá đĩa'")).firstMatch.exists, "a list of names over the figures")
     let fish = compare.descendants(matching: .any).matching(NSPredicate(format: "label == 'Cá đĩa: 120 cm'")).firstMatch
     XCTAssertEqual(fish.elementType, .link, "a fish's line isn't announced as a link")
-    XCTAssertGreaterThanOrEqual(fish.frame.height, 44, "a fish's line is too small to tap")
+    XCTAssertGreaterThanOrEqual(heightOnPixels(fish), 44, "a fish's line is too small to tap")
     reveal(app, fish, times: 10)
     fish.tap()
     XCTAssertTrue(element(app, "v2-species").waitForExistence(timeout: 10), "a fish's line didn't open its page")

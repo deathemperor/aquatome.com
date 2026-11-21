@@ -1,0 +1,72 @@
+{
+  "id": "guianacara-dacrya",
+  "native": {
+    "input": "64e59e1d14c95ef7",
+    "at": "2026-11-21T01:22:16.258Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Rio Branco",
+        "source": "glaser",
+        "quote": "Guianacara dacrya was described in 2011 and originates from the tributaries of the rivers Rio Branco and Essequibo.",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "glaser",
+        "quote": "Guianacara dacrya was described in 2011 and originates from the tributaries of the rivers Rio Branco and Essequibo.",
+        "ok": true
+      },
+      {
+        "name": "Guiana shield",
+        "source": "glaser",
+        "quote": "The genus Guianacara currently comprises seven described species, all of which originate from the Guiana shield in South America.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Guianacara dacrya",
+    "status": "ACCEPTED",
+    "taxonKey": 5961938,
+    "datasets": [
+      [
+        "1ba8458b-ccbd-47ba-9415-fe13b9e622cd",
+        56
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        33
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        30
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        13
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        3
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-21T01:22:16.258Z"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "id": "astroblepus-latidens",
+  "scientificName": "Astroblepus latidens",
+  "order": "Siluriformes",
+  "family": "Astroblepidae",
+  "genus": "Astroblepus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "meta"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 15,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_latidens.htm",
+      "html": "<p>Family: Astroblepidae. Size: 8.0 cm. Temperature: 15–20°C. Etymology: the specific name latidens comes from latus, wide, and dens, teeth, referring to the wider teeth on the outer row of the premaxillary compared to the similar A. trifasciatus.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_latidens.htm",
+      "html": "<p>South America: Upper Meta River basin, Colombia and Suarez River basin, Colombia. Type locality: Piperel, Colombia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_latidens.htm",
+      "html": "<p>Fishes of the family Astroblepidae are found in freshwater streams (between 200 to 13,400 feet above sea level) of the tropical Andes from Panama to Bolivia, and occur in both the western Pacific and eastern Amazonian slope drainage systems in South and Central America.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_latidens.htm",
+      "html": "<p>Not an easy family of catfishes to keep, so they would have to have a large tank with rocks and some appropriate vegetation. The water would need to be fast flowing and provided with extra oxygen via an air tube fed into the powerhead flow. The tank should be set up with rocks so as to provide an area where the water current will be slower.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_latidens.htm",
+      "html": "<p>Invertebrates, insect larvae, spirulina tablets or paste, algae based foods and live bloodworm would probably be the staple diet but you may wish to try glassworm and blackworm (although these won't tend to stay on the substrate unless the current takes them there).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_latidens.htm",
+      "html": "<p>Astroblepus latidens has a restricted range (extent of occurrence (EOO) = 17,000 km²). It is affected by a continuing decline in habitat quality due to deforestation for large-scale agriculture in one of the locations, while mining and road construction are increasing sedimentation and polluting the water in other parts of its range. There are certainly fewer than ten locations. Hence, the species qualifies for listing as Vulnerable (IUCN 2016).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_latidens.htm",
+      "html": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 06/2023 ).</p><p>Mesa-Salazar, L., Sanchez-Duarte, P. &amp; Lasso, C. 2016. Astroblepus latidens. The IUCN Red List of Threatened Species 2016.</p><p>Ochoa LE, Melo BF, García-Melo JE, Maldonado-Ocampo JA, Souza CS, Albornoz-Garzón JG, Conde-Saldaña CC, Villa-Navarro F, Ortega-Lara A, Oliveira C. Species delimitation reveals an underestimated diversity of Andean catfishes of the family Astroblepidae (Teleostei: Siluriformes). Neotrop Ichthyol. 2020; 18(4).</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/f7590029396b0372.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f7590029396b0372-480.webp",
+      "width": 500,
+      "height": 196,
+      "licence": "dùng với sự cho phép",
+      "author": "Ochoa LE., et al 2020 / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_latidens.htm",
+      "caption": "Astroblepus latidens",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng",
+        "máy bơm tạo sóng",
+        "sủi khí bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn spirulina cho cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

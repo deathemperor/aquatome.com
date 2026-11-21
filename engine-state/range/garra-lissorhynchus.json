@@ -1,0 +1,67 @@
+{
+  "id": "garra-lissorhynchus",
+  "native": {
+    "input": "8f0cb220efc8eeec",
+    "at": "2026-11-20T17:43:20.430Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This species comes from India, or more precisely from the Khasi Hills on the edge of the Himalayas in northeastern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Khasi Hills",
+        "source": "glaser",
+        "quote": "This species comes from India, or more precisely from the Khasi Hills on the edge of the Himalayas in northeastern India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Himalayas",
+        "source": "glaser",
+        "quote": "This species comes from India, or more precisely from the Khasi Hills on the edge of the Himalayas in northeastern India.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Garra lissorhynchus",
+    "status": "ACCEPTED",
+    "taxonKey": 2366815,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        13
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        12
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 12,
+    "at": "2026-11-20T17:43:20.430Z"
+  }
+}

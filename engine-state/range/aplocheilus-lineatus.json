@@ -1,8 +1,8 @@
 {
   "id": "aplocheilus-lineatus",
   "native": {
-    "input": "7f108f6fb1f868d1",
-    "at": "2026-11-05T19:44:13.099Z",
+    "input": "5a65b4117a803b86",
+    "at": "2026-11-20T17:43:20.430Z",
     "claims": [
       {
         "code": "IN",
@@ -34,6 +34,14 @@
         "source": "seriouslyfish",
         "quote": "It has been introduced to Singapore and Hong Kong.",
         "words": "Hong Kong",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The striped panchax (Aplocheilus lineatus) comes from South India.",
+        "words": "India",
         "ok": true
       }
     ],

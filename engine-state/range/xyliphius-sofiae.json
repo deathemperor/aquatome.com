@@ -1,0 +1,43 @@
+{
+  "id": "xyliphius-sofiae",
+  "native": {
+    "input": "af3bddcae6e27f15",
+    "at": "2026-11-20T17:43:20.430Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Río Amazonas, main channel in the vicinity of Iquitos, Maynas, Loreto, Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Amazonas",
+        "source": "scotcat",
+        "quote": "South America: Río Amazonas, main channel in the vicinity of Iquitos, Maynas, Loreto, Peru.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Xyliphius sofiae",
+    "status": "ACCEPTED",
+    "taxonKey": 9603551,
+    "datasets": [],
+    "native": [
+      "PE"
+    ],
+    "requests": 2,
+    "at": "2026-11-20T17:43:20.430Z"
+  }
+}

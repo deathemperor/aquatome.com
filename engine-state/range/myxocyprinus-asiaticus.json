@@ -1,9 +1,17 @@
 {
   "id": "myxocyprinus-asiaticus",
   "native": {
-    "input": "3bfc5d613adbe3b4",
-    "at": "2026-11-05T16:38:28.515Z",
+    "input": "dcd37226d80a9abd",
+    "at": "2026-11-20T07:13:45.828Z",
     "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Chinese sailfin sucker, Myxocyprinus asiaticus, is a catostomid endemic to the upper and middle Yangtze River system in China, including the Min.",
+        "words": "China",
+        "ok": true
+      },
       {
         "code": "CN",
         "status": "native",
@@ -16,6 +24,13 @@
     "regions": [
       {
         "name": "Yangtze",
+        "source": "seriouslyfish",
+        "quote": "Endemic to upper and middle sections of the Yangtze River system in China including its major tributary the Min River.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Min River",
         "source": "seriouslyfish",
         "quote": "Endemic to upper and middle sections of the Yangtze River system in China including its major tributary the Min River.",
         "country": "CN",

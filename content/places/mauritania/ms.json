@@ -3,6 +3,12 @@
   "name": "Mauritania",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-20T17:35:31.328Z",
+    "why": "Malay in Malaysia (DBP) writes the country as \"Mauritania\" or \"Mauritania\" with variant \"Moritania\"; the commonly used form in Malaysian atlases is \"Mauritania\", but the Malay standard is often \"Mauritania\" so the name matches the source spelling."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

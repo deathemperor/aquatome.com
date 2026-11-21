@@ -1,0 +1,14 @@
+---
+url: https://www.aquariumglaser.de/en/25-perchlike-fishes/crenicichla-sp-regani-orinoco-2/
+title: Crenicichla sp. "regani-Orinoco" - Aquarium Glaser GmbH
+fetchedAt: 2026-11-20T19:06:03.312Z
+hash: 1cef3ac6c2c96adbc86d0dc9bb9ecc0c60eb981869288cf6eabb0ce4923ab7d2
+---
+
+The pike cichlids (Crenicichla) are one of the most species-rich cichlid genera with 94 valid species at present. Many species grow to well over 20 cm in length and thus belong to the large cichlids, but there are also dwarf cichlids. The latter include the beautiful, slender C. regani, which according to literature should grow 15 cm long in the male sex and 8 cm in the female sex. Wild catches, as we usually have , are however considerably smaller. The larger of the photographed animals, for example, which are already sexually mature, have a total length (i.e. with caudal fin) of 7 cm (males) and 5 cm (females), while the slightly smaller specimens from our current stock, which do not yet show any differences in colour, are only 1-2 cm smaller.
+The species Crenicichla regani is widely distributed in Amazonia. Similar to the Tropheus cichlids in Lake Tanganyika, they form numerous geographical colour variants, of which it is unclear in individual cases whether they belong to the species C. regani, to the closely related species C. notophthalmus, C. wallacei or to a new species yet to be described.
+In this category belong the beautiful animals that we regularly import from Venezuela and Colombia and call Crenicichla sp. “regani-Orinoco”. Characteristic for this species/population is the cherry-red edge around the eye spot (ocellus) in the dorsal fin of the female, which by the way is a sure sex difference; however, among the currently in our stock, about 45 specimens (4-7 cm long), not a single one shows a dorsal fin spot. As it is very unlikely that these are only males and that there are clearly animals with a “female figure” (i.e. a clearly rounder, reddish belly), we assume that the females probably still have to train the ocellus in the dorsal fin and are currently a little too young for this.
+It is not difficult to keep these beautiful animals. But you should not put them in too small aquaria, they are very quarrelsome there. They eat coarse frozen and live food of all kinds. In nature the animals can be found in soft, very sour water. In the aquarium this is not so important, but you should keep the animals warm (27-32°C). All Crenicichla are cave breeders with parent family.
+For our customers: the animals have code 672712 on our stocklist. Please note that we only supply the wholesale trade.
+Lexicon: Crenicichla: ancient Greek, means “Cichla with comb”; Cichla is another genus of cichlid. regani: dedication name for Charles Tate Regan (1878 – 1943), a famous ichthyologist at the British Museum in London.
+Text & photos: Frank Schäfer

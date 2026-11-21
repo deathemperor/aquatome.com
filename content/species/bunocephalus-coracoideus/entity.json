@@ -10,7 +10,9 @@
     "bolivia",
     "peru",
     "brazil",
-    "amazon"
+    "amazon",
+    "colombia",
+    "venezuela"
   ],
   "range": {
     "native": {
@@ -29,7 +31,7 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The banjo catfish, Bunocephalus coracoideus, is an aspredinid catfish from Bolivia, Peru and Brazil.",
+          "quote": "Bolivia, Peru and Brazil.",
           "countries": [
             "BO",
             "PE",
@@ -648,6 +650,12 @@
       "html": "<p>The Banjo Cat is a rugged looking individual with its lumps and bumps and cannot be classed as pretty, but has a charm all of its own in the catfish world. Its head is very broad and flat with very small eyes, 3 pairs of barbels with the maxillary barbels reaching to about a third of the length of the strong serrated pectoral spine.</p><p>Family: Aspredinidae. Size: 13 cm. Temperature: 22–26°C. pH: 6.0–8.0.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/bunocephalus-coracoideus-2/",
+      "html": "<p>Banjo catfish (Bunocephalus) are very common in nature. Most of the time they are sold as Bunocephalus coracoideus, which may be correct in many cases. However, a swarm of banjo catfish will always contain other species as well. These usually cannot be determined with reasonable effort and certainly not sorted.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/bunocephalus-coracoideus",
@@ -658,6 +666,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_coracoideus.htm",
       "html": "<p>South America: Amazon River basin of Bolivia, Brazil and Peru. Type locality: Nauta, Peru.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/bunocephalus-coracoideus-2/",
+      "html": "<p>Banjo catfish from Colombia and Venezuela are currently available.</p>"
     },
     {
       "key": "habitat",
@@ -706,6 +720,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/bunocephalus-coracoideus",
       "html": "<p>Will not predate on smaller fish and so is suitable for most community aquaria. Ideally keep it in a South American biotope aquarium, with tetras, dwarf cichlids and other peaceful catfish such as Corydoras sp. and smaller Loricariids. It's totally unaggressive towards conspecifics, and is equally happy when kept singly, or as part of a group.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/bunocephalus-coracoideus-2/",
+      "html": "<p>It is very exciting to raise and observe a group of perhaps 20 of these animals in the aquarium. Their colouration is very variable, and there are clear differences in anatomy, especially the bone ridges along the middle of the back in front of the dorsal fin. Some species also prefer to bury themselves in the sand much more than others.</p>"
     },
     {
       "key": "dimorphism",
@@ -797,6 +817,36 @@
       "author": "Kacper Aleksander",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Banjo_cat_burried.jpg",
       "caption": "Banjo catfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7b81be861f1cbc5d.webp",
+      "thumb": "https://media.aquatome.com/glaser/7b81be861f1cbc5d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/bunocephalus-coracoideus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/75022c9f7e946d0a.webp",
+      "thumb": "https://media.aquatome.com/glaser/75022c9f7e946d0a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/bunocephalus-coracoideus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f65ffd32001e8a19.webp",
+      "thumb": "https://media.aquatome.com/glaser/f65ffd32001e8a19-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/bunocephalus-coracoideus-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -853,5 +903,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-19"
+  "updatedAt": "2026-11-20"
 }

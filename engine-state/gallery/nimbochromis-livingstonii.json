@@ -3,7 +3,12 @@
  "judged": [
   "File:Nimbochromis livingstonii by MKOliver.jpg"
  ],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/glaser/4263f2840db6fee2.webp": "3c7ccd831d60606c",
+  "https://media.aquatome.com/glaser/ab1d046f7dbb4933.webp": "3331c5c0f8c0f094",
+  "https://media.aquatome.com/glaser/b1dcb1e129a27fe8.webp": "c67cf578e1c66f3c",
+  "https://media.aquatome.com/glaser/afe77f0823775728.webp": "578f5e930d19c1a9"
+ },
  "commons": "2026-11-09",
  "inat": {
   "taxon": 107041,
@@ -15,6 +20,9 @@
  },
  "gbif": {
   "key": 2371163,
+  "next": null
+ },
+ "openverse": {
   "next": null
  }
 }

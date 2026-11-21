@@ -26,6 +26,20 @@
       "kind": "group"
     },
     {
+      "url": "https://media.aquatome.com/gbif/4886580465-6026afb942c2f12b.webp",
+      "thumb": "https://media.aquatome.com/gbif/4886580465-6026afb942c2f12b-480.webp",
+      "width": 750,
+      "height": 1000,
+      "licence": "CC BY-SA 4.0",
+      "author": "Tello Neckheim",
+      "sourceUrl": "https://www.gbif.org/occurrence/4886580465",
+      "caption": "Ốc đĩa California lớn bò trên lá sen",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/46656528.webp",
       "thumb": "https://media.aquatome.com/inaturalist/46656528-480.webp",
       "width": 1024,
@@ -127,6 +141,20 @@
       "unchecked": true
     },
     {
+      "url": "https://media.aquatome.com/gbif/4880895060-b19e06014ba02690.webp",
+      "thumb": "https://media.aquatome.com/gbif/4880895060-b19e06014ba02690-480.webp",
+      "width": 1000,
+      "height": 750,
+      "licence": "CC BY-SA 4.0",
+      "author": "Tello Neckheim",
+      "sourceUrl": "https://www.gbif.org/occurrence/4880895060",
+      "caption": "Ốc đĩa California vỏ nâu sẫm bò trên lá",
+      "best": true,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/d4982c558faa146d.webp",
       "thumb": "https://media.aquatome.com/commons/d4982c558faa146d-480.webp",
       "width": 1200,
@@ -151,6 +179,20 @@
       "kind": "pair"
     },
     {
+      "url": "https://media.aquatome.com/gbif/6151300818-87231d6bc04a6068.webp",
+      "thumb": "https://media.aquatome.com/gbif/6151300818-87231d6bc04a6068-480.webp",
+      "width": 1000,
+      "height": 947,
+      "licence": "CC BY-SA 4.0",
+      "author": "Tello Neckheim",
+      "sourceUrl": "https://www.gbif.org/occurrence/6151300818",
+      "caption": "Ốc đĩa California màu nâu cam bò trên kính bể",
+      "best": false,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/b34a40ad8b39072d.webp",
       "thumb": "https://media.aquatome.com/commons/b34a40ad8b39072d-480.webp",
       "width": 1200,
@@ -163,6 +205,20 @@
       "kind": "form"
     },
     {
+      "url": "https://media.aquatome.com/gbif/4886580465-5f2f5b68110e3e0f.webp",
+      "thumb": "https://media.aquatome.com/gbif/4886580465-5f2f5b68110e3e0f-480.webp",
+      "width": 750,
+      "height": 1000,
+      "licence": "CC BY-SA 4.0",
+      "author": "Tello Neckheim",
+      "sourceUrl": "https://www.gbif.org/occurrence/4886580465",
+      "caption": "Ốc đĩa California màu tối bò trên vật màu vàng",
+      "best": false,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/1d6221e9cf6d8c2b.webp",
       "thumb": "https://media.aquatome.com/commons/1d6221e9cf6d8c2b-480.webp",
       "width": 1200,
@@ -173,6 +229,34 @@
       "caption": "Ốc đĩa vỏ hồng tím trên nền sỏi trong bể",
       "best": false,
       "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/gbif/6151300818-f7a30c962c44dc38.webp",
+      "thumb": "https://media.aquatome.com/gbif/6151300818-f7a30c962c44dc38-480.webp",
+      "width": 750,
+      "height": 1000,
+      "licence": "CC BY-SA 4.0",
+      "author": "Tello Neckheim",
+      "sourceUrl": "https://www.gbif.org/occurrence/6151300818",
+      "caption": "Nhóm ốc đĩa California vàng nâu trong khay nước nông",
+      "best": true,
+      "kind": "group",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/gbif/6150864875-15fa807cae3d204c.webp",
+      "thumb": "https://media.aquatome.com/gbif/6150864875-15fa807cae3d204c-480.webp",
+      "width": 1000,
+      "height": 750,
+      "licence": "CC BY-SA 4.0",
+      "author": "Tello Neckheim",
+      "sourceUrl": "https://www.gbif.org/occurrence/6150864875",
+      "caption": "Hai ốc đĩa California trong cốc nhựa trong",
+      "best": false,
+      "kind": "pair",
+      "setup": true,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/97db4a417a17edcb.webp",
@@ -211,7 +295,7 @@
       "kind": "juvenile"
     }
   ],
-  "seen": 63,
-  "updatedAt": "2026-11-13",
-  "builtAt": "2026-11-13"
+  "seen": 83,
+  "updatedAt": "2026-11-20",
+  "builtAt": "2026-11-20"
 }

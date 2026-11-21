@@ -3,6 +3,12 @@
   "name": "Manuripi",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-20T17:35:14.837Z",
+    "why": "Manuripi is a province in Pando, Bolivia, and Malay atlases would normally write \"Wilayah Manuripi\" or \"Daerah Manuripi\" with a kind word, so the bare name leaves out the Malay kind word."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

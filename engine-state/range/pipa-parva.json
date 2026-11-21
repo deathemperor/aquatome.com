@@ -1,26 +1,23 @@
 {
   "id": "pipa-parva",
   "native": {
-    "input": "a59cceb1c8d414b5",
-    "at": "2026-11-17T11:42:48.614Z",
+    "input": "4d87e19dbc144a15",
+    "at": "2026-11-20T17:43:20.430Z",
     "claims": [
       {
         "code": "VE",
         "status": "native",
         "source": "glaser",
-        "quote": "Venezuela.",
+        "quote": "The dwarf Surinam toad (Pipa parva) comes from Venezuela.",
         "words": "Venezuela",
-        "ok": false,
-        "why": "no sentence"
+        "ok": true
       }
     ],
     "regions": [],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [
-        "VE"
-      ],
+      "pagesOnly": [],
       "sourcesOnly": []
     }
   },
@@ -50,8 +47,10 @@
         2
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-12T21:02:28.514Z"
+    "native": [
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-20T17:43:20.430Z"
   }
 }

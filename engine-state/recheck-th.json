@@ -267,6 +267,15 @@
     "sonnet": 0.6,
     "back": false
   },
+  "ancylomenes-pedersoni": {
+    "hash": "e223e2de28f9395044e5409a4cc047a05316782e605e1fe35de967d723413cfb",
+    "at": "2026-11-20T11:47:09.032Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Section 6: 'รักษาแคลเซียมไว้ที่ 400–450' and 'ค่าอัลคาไลน์' lack units (mg/L) – source also lacks, but 'alkalinity' is usually 'ค่าความเป็นด่าง'."
+    ]
+  },
   "anostomus-ternetzi": {
     "hash": "98a75c0bd0648e33b3ba671e2a716df8ff1408a209d691cb82fb37e6e37275f4",
     "at": "2026-11-20T01:41:54.473Z",
@@ -328,6 +337,33 @@
     "sonnet": 0.7,
     "back": false
   },
+  "aphyosemion-hanneloreae": {
+    "hash": "083ac4305128130c1e246ec1a95d50973344f4c359855e4d1cf5243ee82e0e7b",
+    "at": "2026-11-20T06:57:58.378Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "apistogramma-alacrina": {
+    "hash": "7d992352096660d4d92f60c486584401b556fa9358412a580ae8d40aeca839c5",
+    "at": "2026-11-20T06:58:45.392Z",
+    "sonnet": 0.85,
+    "opus": 0.85,
+    "back": true
+  },
+  "apistogramma-barlowi": {
+    "hash": "650147a48ae5a87ff5291f86cc4b5a8bd74245b9622a825fccdbaf09cd01b1db",
+    "at": "2026-11-20T06:59:33.387Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": true
+  },
+  "apistogramma-brevis": {
+    "hash": "7cce7a7c3eb4c6c556c3a750152cb6ee1b06fcc504feb9641e6365f0e337981f",
+    "at": "2026-11-20T07:00:08.230Z",
+    "sonnet": 0.9,
+    "opus": 0.8,
+    "back": true
+  },
   "apistogramma-cacatuoides": {
     "hash": "7f783286c6c79d55645896c1d96c9b7933342bef009e510bc5cc75e7920f9870",
     "at": "2026-11-17T11:29:12.554Z",
@@ -335,10 +371,70 @@
     "opus": 0.82,
     "back": true
   },
+  "apistogramma-commbrae": {
+    "hash": "e210fc77b13a602573c8557543461b720097ff3b439de31b8c186522803c9e2b",
+    "at": "2026-11-20T07:00:28.770Z",
+    "sonnet": 0.65,
+    "back": false
+  },
   "apistogramma-elizabethae": {
     "hash": "d79c70a5dbe8c0e536d0f4cfc6e9079a58336416683c5214657993fe63fb30d7",
     "at": "2026-11-17T17:49:45.686Z",
     "sonnet": 0.6,
+    "back": false
+  },
+  "apistogramma-eremnopyge": {
+    "hash": "24a245fc6457d27bb6b3639c3c7dfe564181ca26605ba812b9b45d748162c4d4",
+    "at": "2026-11-20T07:00:44.135Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "apistogramma-hoignei": {
+    "hash": "f007e8ff1f393f5b7280dab715ede1ed27ca2aa6d6c619644feab5500760fd7b",
+    "at": "2026-11-20T07:01:24.138Z",
+    "sonnet": 0.95,
+    "opus": 0.9,
+    "back": true
+  },
+  "apistogramma-iniridae": {
+    "hash": "3cee8138281e4465c92f2f4ddccb02707db06b384083b8e984da42523ce7ce65",
+    "at": "2026-11-20T07:01:50.429Z",
+    "sonnet": 0.75,
+    "opus": 0.85,
+    "back": true
+  },
+  "apistogramma-macmasteri": {
+    "hash": "362a51ceff6bb518f44e52ebfbe07c4ceff3ac52ef57a19bee80ded76372cde1",
+    "at": "2026-11-20T07:02:06.965Z",
+    "sonnet": 0.55,
+    "back": false
+  },
+  "apistogramma-paulmuelleri": {
+    "hash": "827be4bf9223f3229222e1d120c5c4f1566baa6c3e6ae94d0e44071f4b81673c",
+    "at": "2026-11-20T07:02:21.845Z",
+    "sonnet": 0.55,
+    "back": false
+  },
+  "apistogramma-steindachneri": {
+    "hash": "8ed7e85a63c6b49545554016e401f03175d769d56a0a6f9d7072bfa10946313d",
+    "at": "2026-11-20T07:03:15.924Z",
+    "sonnet": 0.85,
+    "opus": 0.8,
+    "back": false,
+    "held": [
+      "#7: \"ไรแดง (Daphnia และ Moina)\" treats Daphnia as ไรแดง, which is not right. Give them separately, e.g. \"ไรน้ำ (Daphnia) และไรแดง (Moina)\"."
+    ]
+  },
+  "aplocheilus-lineatus": {
+    "hash": "8abd71e6785a528f6ca2fbe2bfb7c20e1ad20ec9e8f1f42681e70a5c366b6ab4",
+    "at": "2026-11-20T07:03:30.892Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "apteronotus-macrostomus": {
+    "hash": "cf0fcb53c0a241b380f903f84a8ef70d1cb7c75f077e4912d9f7e4cf70709c43",
+    "at": "2026-11-20T11:47:58.185Z",
+    "sonnet": 0.72,
     "back": false
   },
   "ariopsis-assimilis": {
@@ -354,6 +450,12 @@
     "sonnet": 0.7,
     "back": false
   },
+  "arnoldichthys-spilopterus": {
+    "hash": "2bfed10bfe6f040a65fadc221116ad45f7d875057a1999077fda903d70333b02",
+    "at": "2026-11-20T11:48:03.335Z",
+    "sonnet": 0.4,
+    "back": false
+  },
   "asellus-aquaticus": {
     "hash": "99848c1debd284e86706bfebc9971da823cc50b20abf786a74ef85abe06506e6",
     "at": "2026-11-19T07:39:59.114Z",
@@ -366,6 +468,13 @@
     "at": "2026-11-18T12:14:36.553Z",
     "sonnet": 0.55,
     "back": false
+  },
+  "aspidoras-taurus": {
+    "hash": "ae6caafee449a502dfd8e742e2289f05b55fe1bd6fec3f04af63c0a39b44665b",
+    "at": "2026-11-20T11:48:36.955Z",
+    "sonnet": 0.88,
+    "opus": 0.9,
+    "back": true
   },
   "aspistor-luniscutis": {
     "hash": "97aecad72a0a6537bf0bec25e330058b78654f71845664470eaa14f110e8b7ad",
@@ -389,16 +498,98 @@
     "opus": 0.95,
     "back": true
   },
+  "astyanax-bimaculatus": {
+    "hash": "de986c21f9411ac741fd8167d877be80e42cccabdb1232feb0aab9dc8b773f61",
+    "at": "2026-11-20T11:48:52.071Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "ataeniobius-toweri": {
+    "hash": "06c89c08269912cbb0881e0416ca65f8197830eb600cd12dcaf6646c896ba39a",
+    "at": "2026-11-20T11:49:06.249Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "atyoida-pilipes": {
+    "hash": "a279377bb4e1cd7dbb781fb094b4f606e6840fb5bfbb3a55744bed1cfcf5c8e0",
+    "at": "2026-11-20T11:49:33.569Z",
+    "sonnet": 0.85,
+    "opus": 0.9,
+    "back": false,
+    "held": [
+      "Item 2: \"ไม่เป็นอันตรายต่อสัตว์อื่นเลย\" is an added claim. The source just says harmless; it is a slight over-specification."
+    ]
+  },
+  "auriglobus-modestus": {
+    "hash": "34ccbb4f902e3c661d151195de75cb3f270b58f41a19df36c27127a093c47dec",
+    "at": "2026-11-20T11:49:48.117Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "austrolebias-nigripinnis": {
+    "hash": "b1decbe7886802f960396cce60068c779d29cbfb4f277c74fc17a18de2311287",
+    "at": "2026-11-20T11:50:01.574Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "austruca-annulipes": {
+    "hash": "f32be944a5902793273b3224af55054d70142f8ec655be5bd2d995efbec78fb5",
+    "at": "2026-11-20T11:50:13.025Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "axelrodia-riesei": {
+    "hash": "1b6f8c42ef337a031a86d83cefff05370ac0df0e62dc46230cc6c10e1539af13",
+    "at": "2026-11-20T11:50:34.692Z",
+    "sonnet": 0.55,
+    "back": false,
+    "held": [
+      "Item 22: 'ไม่มีพิษภัย' for 'harmless' is fine, but 'ปลาคลาวน์คิลลี่' fine. 'Avoid crayfish' translated as 'กุ้งเครย์ฟิช' ok."
+    ]
+  },
+  "babylonia-spirata": {
+    "hash": "ef711fef2c80720a9b4f18f2d68957c706fa3a81809608ecb13d8e603bd514ce",
+    "at": "2026-11-20T11:51:20.240Z",
+    "sonnet": 0.9,
+    "opus": 0.88,
+    "back": true
+  },
+  "badis-assamensis": {
+    "hash": "57c39de236092c8f4ba72439fb27cb8ebcab2ea9c46ae517e6be6970588fd82c",
+    "at": "2026-11-20T17:28:02.465Z",
+    "sonnet": 0.5,
+    "back": false
+  },
   "badis-autumnum": {
     "hash": "35313d2b7f447c266fb62f63fac8720d17dc4b709e00fa68ba0827158696de75",
     "at": "2026-11-18T12:14:49.595Z",
     "sonnet": 0.6,
     "back": false
   },
+  "badis-blosyrus": {
+    "hash": "f2be9a8db7d91293264e4ffa5401c64a5729c1d9bf4d98a13ee27db15b03fa84",
+    "at": "2026-11-20T17:28:58.473Z",
+    "sonnet": 0.78,
+    "opus": 0.8,
+    "back": true
+  },
+  "badis-pyema": {
+    "hash": "e65bb2b56576aa13a9438c27f1f021028366adb6ad9e3001ba036aaca385975c",
+    "at": "2026-11-20T17:29:49.892Z",
+    "sonnet": 0.92,
+    "opus": 0.75,
+    "back": true
+  },
   "bagarius-suchus": {
     "hash": "2fb8e41ad8e1302a30b2aff6e0b68e209ef6a25a2a2f43b2f9aee5a2277e67cb",
     "at": "2026-11-18T12:14:57.445Z",
     "sonnet": 0.5,
+    "back": false
+  },
+  "bagarius-vegrandis": {
+    "hash": "28b8c9cc2990ec9c7eb005ea4ae2dd2e4296832ad1679820b6e82a36b6da65e9",
+    "at": "2026-11-20T17:30:03.505Z",
+    "sonnet": 0.7,
     "back": false
   },
   "bagre-marinus": {
@@ -410,11 +601,165 @@
       "Item 5: 'ปลาหนังน้ำเค็ม' is a non-standard gloss for 'Salt-water Catfish'; consider the established name 'ปลาสังกะวาดทะเล' or just keep the English name."
     ]
   },
+  "balitoropsis-zollingeri": {
+    "hash": "757330cf5b92fa82b6d5ead827d1dc7d8e45e3ce49e83535c73a619df3195da5",
+    "at": "2026-11-20T17:30:18.172Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 9: 'harmless squabbles may occur' is rendered 'กระทบกระทั่งกันเล็กน้อยที่ไม่เป็นอันตราย'. This is acceptable but wordy. 'ขี้อาย' for 'retiring' is fine.",
+      "Item 9: 'harmless squabbles' fine; 'ขี้อาย' for 'retiring' acceptable. 'gobies' rendered 'ปลาบู่' fine."
+    ]
+  },
+  "bangana-behri": {
+    "hash": "e3a172fa696ed6c1e792ec39ca86d92cb7d947a644d363b661d2b236ca2a05b6",
+    "at": "2026-11-20T17:30:33.431Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 12: \"ไม่ค่อยรอด\" (don't survive well) changes \"not do well\". Use \"อยู่ได้ไม่ดี/ไม่ค่อยเจริญเติบโตดี\" so it does not claim a death rate."
+    ]
+  },
+  "barbodes-aurotaeniatus": {
+    "hash": "4c8c1b37d5f4e06cf8f952d00cb8a23da8d21904a7f4061c66bd30ff077b86fe",
+    "at": "2026-11-20T17:30:55.821Z",
+    "sonnet": 0.72,
+    "back": false,
+    "held": [
+      "Item 8: 'ปลาหมูและปลาค้อหลายชนิดในวงศ์ Cobitidae, Nemacheilidae' is unclear. 'ปลาหมู' is Botiidae and Cobitidae is 'ปลาหมูอารีย์/ปลาไหลหิน' in the hobby. The sentence also treats Botiidae as 'ปลาหมู' and Cobitidae as 'ปลาหมูและปลาค้อ' without distinguishing them."
+    ]
+  },
+  "barilius-caudiocellatus": {
+    "hash": "7d77338d04114fb4532f3bde94f2cd167f77c6fcbe70ab36a540ff2a494e3a46",
+    "at": "2026-11-20T17:31:14.203Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "barilius-ornatus": {
+    "hash": "c876e1a3e3387fd5a9959ab405a4d36068bbdf595de16f785d310d99088c92cb",
+    "at": "2026-11-20T17:31:56.185Z",
+    "sonnet": 0.75,
+    "opus": 0.7,
+    "back": false
+  },
+  "barilius-shacra": {
+    "hash": "7d90ccefa084337fd85fad87f8753fc88a5d5e3c088178359bf9b93f7f2a65f7",
+    "at": "2026-11-20T17:32:26.942Z",
+    "sonnet": 0.95,
+    "opus": 0.95,
+    "back": false,
+    "held": [
+      "Item 4: \"alkalinity 17.1 mg/l, total hardness 28.5–34.2 mg/l\" — fine, but \"dissolved oxygen ... ppm\" kept; no issue. Real problem is elsewhere (see below)."
+    ]
+  },
+  "baryancistrus-demantoides": {
+    "hash": "939c4e4f8ddf44b6f3ef18d9e60ee6b5f5ade45fbcbc8226787a20ef025fcf6d",
+    "at": "2026-11-20T17:32:41.682Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "bathyclarias-nyasensis": {
+    "hash": "38d9eaa0c7415cee295ff8c953a39f18aff381f641f6098bff85eb20f13c0a66",
+    "at": "2026-11-20T17:32:52.611Z",
+    "sonnet": 0.7,
+    "back": false
+  },
   "batrachocephalus-mino": {
     "hash": "7cb4ef47ef40abdf9db69b7348f9d7f807b7a9ebaa5ef52955f611c0ebf9b16e",
     "at": "2026-11-19T00:30:00.072Z",
     "sonnet": 0.7,
     "back": false
+  },
+  "batrochoglanis-villosus": {
+    "hash": "9765a3247b974719c62466d0d72065766fac87f8fa54a5149c823b8b298b70fb",
+    "at": "2026-11-20T17:33:03.963Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "beaufortia-leveretti": {
+    "hash": "c1810009562830a90eebf3edfe01521ceb87a68f69bb79ab00c04611dafc85c9",
+    "at": "2026-11-20T17:33:15.521Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "bedotia-geayi": {
+    "hash": "ad5bc80e5d3db6c1f159a3d47b4ece9dd6b498c09d64919a2d50fb8faa49e321",
+    "at": "2026-11-21T01:09:15.468Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": true
+  },
+  "benitochromis-finleyi": {
+    "hash": "3c04ee4fd39580a8178a2cd421f34b38b07726de8fa357103bccc1d2363ec1a7",
+    "at": "2026-11-21T01:09:24.625Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "betadevario-ramachandrani": {
+    "hash": "c1f3ee58f5a1de2979b35d848289e1c2dc1cb4b84de6b1fd753f8cd043e122fa",
+    "at": "2026-11-21T01:09:58.867Z",
+    "sonnet": 0.93,
+    "opus": 0.9,
+    "back": true
+  },
+  "betta-akarensis": {
+    "hash": "01c3a68c59c3dbeffed2edc85a63cd81c5df7377142a086325adeea47c9c542e",
+    "at": "2026-11-21T01:10:45.027Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": true
+  },
+  "betta-apollon": {
+    "hash": "60886b8c8aa994bba3251b9860ba85670f5573e23c1eabcd9c75cb4536d3bce9",
+    "at": "2026-11-21T01:10:57.572Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "betta-bellica": {
+    "hash": "735ce68b31f17f3ee132e5802495029c5f6524b88eeab9af43b4e9adf84ad468",
+    "at": "2026-11-21T01:11:16.298Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "betta-breviobesus": {
+    "hash": "ed51c79cc71e4dc5d43de5072c89726d953f197b8a1503605a9fc9aab5d2928b",
+    "at": "2026-11-21T01:11:26.065Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "betta-dimidiata": {
+    "hash": "7666d95dfb1c8e4b5fea3af80b205e97a783bf6fc0ba32238ef2600b36d4b8b6",
+    "at": "2026-11-21T01:11:45.302Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "betta-enisae": {
+    "hash": "2f41c0f0820642fe64384dfc7876c1df0b3058a45a5ce951af8e80d07bf04f49",
+    "at": "2026-11-21T01:12:31.457Z",
+    "sonnet": 0.9,
+    "opus": 0.8,
+    "back": true
+  },
+  "betta-hipposideros": {
+    "hash": "2e0293f1aa609bfb1f41f53666c6f80b22676037fd8cccfa0bf62d73e8c809ed",
+    "at": "2026-11-21T01:13:11.615Z",
+    "sonnet": 0.93,
+    "opus": 0.9,
+    "back": true
+  },
+  "betta-mandor": {
+    "hash": "c2b300ebefd0855ec574ab4473d476b332ff6b7e28cf83c14bf19e1e5b572149",
+    "at": "2026-11-21T01:14:03.738Z",
+    "sonnet": 0.92,
+    "opus": 0.85,
+    "back": true
+  },
+  "betta-pinguis": {
+    "hash": "35255758b7edc82c4006481c77d0fc4de285c2c236be52710cb0f7f5edea75f2",
+    "at": "2026-11-21T01:14:43.999Z",
+    "sonnet": 0.85,
+    "opus": 0.8,
+    "back": true
   },
   "betta-siamorientalis": {
     "hash": "8b085e1a488698dbb43e4842e6aec67c44f58225063ee1d32b60367331680402",
@@ -443,6 +788,28 @@
     "at": "2026-11-20T01:41:10.770Z",
     "sonnet": 0.9,
     "opus": 0.7,
+    "back": false
+  },
+  "bunocephalus-amaurus": {
+    "hash": "0a3f755c712b99b7b488e44f7d746f2c9f66b744ac827052b3a9a6faa5e3675c",
+    "at": "2026-11-20T17:27:52.136Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 1: 'วงศ์ย่อย ... ซึ่งแยกจากกันได้จากครีบก้นที่ยาวกว่าและลำตัวที่ยาวกว่าของกลุ่มหลัง' is okay, but 'การทำท่าเหมือนตาย' changes the source: the English says the appearance of death is a natural defence, not that the fish act dead. Use 'การดูเหมือนตาย'.",
+      "Item 1: 'การทำท่าเหมือนตาย' changes the meaning: the English says the appearance of death (looking dead), not playing dead as behaviour. Use 'การดูเหมือนตายนี้'."
+    ]
+  },
+  "bunocephalus-doriae": {
+    "hash": "d9e1fa8581582a828396aa55aa72278d16e4321908728caa341093cf3366f9cb",
+    "at": "2026-11-20T11:47:33.351Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "callochromis-pleurospilus": {
+    "hash": "b2a4ccb6c9a3f788f276390b53d97a91ea08c853aa75687980c2edde4c32b1c0",
+    "at": "2026-11-20T11:47:45.508Z",
+    "sonnet": 0.7,
     "back": false
   },
   "cambarellus-texanus": {
@@ -484,6 +851,12 @@
     "held": [
       "Item 6: 'quarantine medication trio' translated 'ชุดยากักโรคสามตัว' is vague/awkward; 'pet store chains' as 'ร้านสัตว์เลี้ยงแบบเครือข่าย' awkward."
     ]
+  },
+  "centrodoras-brachiatus": {
+    "hash": "2ff3b96c9e761cb86fbf636aeda94e26646b34dbad9d912423ec0858c604801c",
+    "at": "2026-11-21T01:08:14.671Z",
+    "sonnet": 0.6,
+    "back": false
   },
   "cephalocassis-jatia": {
     "hash": "98fda630e67d9b5d868cbe8655794b1a2413bd1af08e371522857935108cb1c8",
@@ -571,9 +944,9 @@
     "back": true
   },
   "dicrossus-maculatus": {
-    "hash": "71e32c94b624816c571a5219295ca072e50861f38bf6cdcc1edff906683ba747",
-    "at": "2026-11-17T17:50:00.806Z",
-    "sonnet": 0.55,
+    "hash": "b0291a69e7d4c63f1853aabb999766b564d97e0105f691e07e69663f6bab0571",
+    "at": "2026-11-21T01:08:28.832Z",
+    "sonnet": 0.6,
     "back": false
   },
   "dimidiochromis-compressiceps": {
@@ -769,6 +1142,12 @@
     "sonnet": 0.55,
     "back": false
   },
+  "hemirhamphodon-tengah": {
+    "hash": "251cba33581df7d8b9cdc663b262a9b13bc36ece94d40e87bc96411e33382f5c",
+    "at": "2026-11-21T01:08:40.879Z",
+    "sonnet": 0.7,
+    "back": false
+  },
   "hexanematichthys-sagor": {
     "hash": "4f9f109dedb1ede6368fb3c8be0693b9c91baf61001b8dc3c3cff4d60fb81d0c",
     "at": "2026-11-19T00:31:18.570Z",
@@ -820,10 +1199,11 @@
     "back": false
   },
   "myxocyprinus-asiaticus": {
-    "hash": "6d42eb6c040f1c9247f115ac991dde22a4d6cb518b3be622fb287eba006e87c6",
-    "at": "2026-11-18T18:14:07.455Z",
-    "sonnet": 0.5,
-    "back": false
+    "hash": "dfd126e96f9e0c571944983a0deb19c325f38bce0c893d4e1ff9078b462843a4",
+    "at": "2026-11-20T06:57:48.822Z",
+    "sonnet": 0.93,
+    "opus": 0.9,
+    "back": true
   },
   "nemapteryx-nenga": {
     "hash": "44dd3aab8c0a3a95a40002e5dc1ec39051da59e0b054a52abce61bd92e7d8260",
@@ -928,6 +1308,12 @@
     "sonnet": 0.6,
     "back": false
   },
+  "rhynchocinetes-durbanensis": {
+    "hash": "02ce0547b8a7e9343533153f229a7849baceb0954aad442ceeea0c48c7dcd26c",
+    "at": "2026-11-20T06:57:04.143Z",
+    "sonnet": 0.6,
+    "back": false
+  },
   "sewellia-breviventralis": {
     "hash": "738b0e77ab6a7954f05fb8298d61266334f4795771cbe91f81300e643a1a8632",
     "at": "2026-11-18T05:52:05.877Z",
@@ -967,6 +1353,12 @@
     "held": [
       "Items 3 and 16: the unit \"มก./ล.\" was added to \"Nitrate: less than 60\", which the source does not give. Keep the number as in the source or note the unit is assumed."
     ]
+  },
+  "trigonopoma-pauciperforatum": {
+    "hash": "90ede33254949eaa365aa861879099224c5fba62f67eb2bb7cd38bd8d280f686",
+    "at": "2026-11-20T06:57:12.247Z",
+    "sonnet": 0.5,
+    "back": false
   },
   "trigonostigma-espei": {
     "hash": "8d583db31463fa01d3400dc41a732b9d201355b5b5778c97f12048292c723f9a",

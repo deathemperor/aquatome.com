@@ -1,0 +1,63 @@
+{
+  "id": "astroblepus-cacharas",
+  "native": {
+    "input": "f02854fb5411775b",
+    "at": "2026-11-21T01:22:16.258Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Upper part of Cáchira River, Magdalena River basin in Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Magdalena River",
+        "source": "scotcat",
+        "quote": "South America: Upper part of Cáchira River, Magdalena River basin in Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Cáchira River",
+        "source": "scotcat",
+        "quote": "South America: Upper part of Cáchira River, Magdalena River basin in Colombia.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astroblepus cacharas",
+    "status": "ACCEPTED",
+    "taxonKey": 6168111,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-21T01:22:16.258Z"
+  }
+}

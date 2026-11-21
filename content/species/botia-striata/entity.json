@@ -16,14 +16,15 @@
         "IN"
       ],
       "regions": [
-        "Krishna",
         "Tunga",
+        "Krishna",
         "Tungabhadra",
         "Western Ghats",
         "Bhadra"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -145,6 +146,10 @@
       {
         "source": "seriouslyfish",
         "value": 9
+      },
+      {
+        "source": "glaser",
+        "value": 8
       }
     ],
     "tankCm": [
@@ -166,6 +171,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/botia-striata",
       "html": "<ul><li>Max size: 90 mm SL (3.5 in SL)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 21–26°C (70–79°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 1–10 dGH</li><li>Difficulty: moderate; it needs a well-established tank and stable water.</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/botia-striata-2/",
+      "html": "<p>The animals have an ideal size of 3–4 cm. The maximum length the species can reach is about 6–8 cm. In many species of loach the generic name has changed in the past years. The Clown loach, formerly known as Botia macracanthus, is now Chromobotia macracanthus, the tiger loaches are now placed in the genus Syncrossus, the checkerboard loaches are now Ambastaia and most of the remaining southeast Asian species are placed in Yasuhikotakia. Only the Indian species (India in the broad sense, including Burma etc.) stayed in Botia. B. striata is one of them.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -216,6 +227,12 @@
       "html": "<p>Peaceful but don't keep it with much smaller fishes as they may be intimidated by its size and sometimes very active behaviour.</p><p>Slow-moving, long-finned species such as ornamental bettas, guppies and many cichlids should also be avoided as trailing fins can be nipped.</p><p>More suitable tankmates include peaceful, open water-dwelling cyprinids, while in larger tanks members of Barilius, Luciosoma, Balantiocheilos and Barbonymus become options.</p><p>In terms of other bottom-dwellers they will do well alongside most other Botia and in very large tanks, Chromobotia macracanthus.</p><p>Some cobitid and nemacheilid loaches are also possibilities as are members of Epalzeorhynchos, Crossocheilus and Garra and many catfishes. As always, thorough research prior to selecting a community of fishes is the best way to avoid problems.</p><p>Botia spp. are gregarious, form complex social hierarchies and should be maintained in groups of at least 5 or 6 specimens, preferably 10 or more.</p><p>When kept singly they can become withdrawn or aggressive towards similarly-shaped fishes, and if only a pair or trio are purchased the dominant individual may stress the other(s) to the extent that they stop feeding.</p><p>That said they seemingly require regular contact with conspecifics, a fact exemplified by a number of behavioural rituals which have been recorded consistently in aquaria (see 'Notes').</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/botia-striata-2/",
+      "html": "<p>Zebra loaches are comparatively peaceful loaches. Several other species are known to be quite quarrelsome. So the zebra loach is a good inhabitant for community tanks. One should keep them always in groups (starting from 6–8 animals, more are possible), for these loaches are very social animals. Like all loaches of the former catch-all genus Botia the zebra loach is a good snail-hunter.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/botia-striata",
@@ -234,6 +251,12 @@
       "html": "<p>This species is perhaps the best choice of Botia sp. for the general community given its adult size and peaceable nature. Following Grant (2007) it's included in the B. dario complex of closely-related species within the genus.</p><p>These are characterised by body patterning consisting of a base yellow to golden colour with 7-9 blue, green, grey or black body bars usually with thinner, lighter bars between.</p><p>In some individuals the bars break up to varying degrees in a process sometimes referred to as anastomosis (the bars splitting and joining up again) meaning patterning can be highly variable, and in B. striata break up entirely in some specimens. Anyway it's one of the most easily-recognised in the genus due to its distinctive colouration and typically red mouthparts.</p><p>The currently-recognised distribution of the genus Botia extends eastwards from the Indus River basin in Pakistan across northern India, then southwards through Myanmar as far as the Salween drainage (Ataran River). This range was previously much larger but modern studies have resulted in various changes to the taxonomy of both family and genus.</p><p>Behavioural routines: some behaviours exhibited by Botia spp. have been recorded often enough that they've been assigned non-scientific terms. During dominance battles the protagonists normally lose much of their body patterning and colouration, known as 'greying out'. 'Shadowing' is a behaviour in which younger individuals swim flank-to-flank with older ones, mimicking their every movement. These loaches can produce audible clicking sounds, increasing in volume when the fish are excited, and the so-called 'loachy dance' involves an entire group swimming restlessly around the sides of the tank. Botiids also often settle at peculiar angles, and possess sharp, motile sub-ocular spines which are erected when stressed, so care is necessary with nets.</p><p>Botiids are also susceptible to 'skinny disease', characterised by weight loss, especially in newly-imported specimens and thought to be caused by a species of the flagellate genus Spironucleus. It's treatable although the recommended medication varies depending on country: hobbyists in the UK tend to use the antibiotic Levamisole and those in the United States Fenbendazole (aka Panacur).</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/botia-striata-2/",
+      "html": "<p>The zebra loach is a common sight for hobbyists, but one should reflect that it is classified as an endangered species (see Dahanukar, N. 2013. Botia striata. The IUCN Red List of Threatened Species 2013: e.T168591A6521075). The species is known only from a comparatively restricted area in the south of India. Here it inhabits exclusively hillstreams with clear water. Deforestation and recreation activities in the mountains lead to erosion and pollution of the water. Collecting the animals for the ornamental fish trade is no threat for the species. On the contrary: as long as collecting zebra loaches from the wild is at least a small local business there is still hope that the ongoing destruction of the natural habitat may be stopped.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/botia-striata",
@@ -243,50 +266,105 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/dad88aad53ed71c8.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/dad88aad53ed71c8-480.webp",
       "width": 800,
       "height": 571,
       "licence": "dùng với sự cho phép",
       "author": "Mark Duffill / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/botia-striata",
       "caption": "This species has distinctive colouration - also note the red mouthparts.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/dad88aad53ed71c8-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/77595a648110ec6b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/77595a648110ec6b-480.webp",
       "width": 800,
       "height": 554,
       "licence": "dùng với sự cho phép",
       "author": "Mark Duffill / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/botia-striata",
       "caption": "Patterning in this species can be highly variable.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/77595a648110ec6b-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/8dff6f8d421b7e29.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/8dff6f8d421b7e29-480.webp",
       "width": 800,
       "height": 392,
       "licence": "dùng với sự cho phép",
       "author": "Mark Duffill / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/botia-striata",
       "caption": "Youngster - this is the most typical patterning.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/8dff6f8d421b7e29-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/84d3dd39de0b924c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/84d3dd39de0b924c-480.webp",
       "width": 712,
       "height": 756,
       "licence": "dùng với sự cho phép",
       "author": "Mark Duffill / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/botia-striata",
       "caption": "The following series of images serve to further exemplify these variations.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/84d3dd39de0b924c-480.webp"
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2ff96e8b7dd6fc77.webp",
+      "thumb": "https://media.aquatome.com/glaser/2ff96e8b7dd6fc77-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/botia-striata-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/eef2c29c404086bf.webp",
+      "thumb": "https://media.aquatome.com/glaser/eef2c29c404086bf-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/botia-striata-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/62b123b55e09c51c.webp",
+      "thumb": "https://media.aquatome.com/glaser/62b123b55e09c51c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/botia-striata-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "di8Xr7GNp0Q",
+      "title": "SPECIES SPOTLIGHT | Zebra loach",
+      "durationSec": 375,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "liF64SrF5Yg",
+      "title": "Ficha Técnica Botia Cebra (Botia striata)",
+      "durationSec": 283,
+      "lang": "es-MX"
+    },
+    {
+      "youtubeId": "aYJJif9l3AA",
+      "title": "Zebra-Prachtschmerle (Botia striata)",
+      "durationSec": 117,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "XlGISaKq7os",
+      "title": "Botia Striata  Zebra Loach #aquarium #botia #loach  #fish #fishkeeping #botiafish",
+      "durationSec": 40,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -316,5 +394,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-20"
 }

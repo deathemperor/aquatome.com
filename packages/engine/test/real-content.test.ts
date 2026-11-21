@@ -1053,11 +1053,11 @@ test('the two kits and the quarantine video are off for good, each to the page i
 // The Writing Lead's answer of 15 Nov 2026 on 60 findings in 17 held video guides (the source talking, units, prices),
 // fixed by hand: each guide is bodyFixed, and the pond guide's FAQ faqFixed, so no run takes a fix back. Each line is in
 // test/fixtures/held-video-fixes.json: what went, and what stands in its place.
-const handFixesHold = (fixture: string) => {
+const handFixesHold = (fixture: string, prefix = 'youtube-') => {
   const root = fileURLToPath(new URL('../../../content/guides', import.meta.url))
   const fixes = JSON.parse(readFileSync(fileURLToPath(new URL(`./fixtures/${fixture}`, import.meta.url)), 'utf8')) as Record<string, { in: 'body' | 'summary' | 'faq'; gone?: string; now?: string }[]>
   for (const [id, edits] of Object.entries(fixes)) {
-    const t = JSON.parse(readFileSync(join(root, `youtube-${id}`, 'vi.json'), 'utf8')) as { body: string; bodyFixed?: boolean; summary?: string[]; faq?: { q: string; a: string }[]; faqFixed?: boolean }
+    const t = JSON.parse(readFileSync(join(root, `${prefix}${id}`, 'vi.json'), 'utf8')) as { body: string; bodyFixed?: boolean; summary?: string[]; faq?: { q: string; a: string }[]; faqFixed?: boolean }
     expect(t.bodyFixed, id).toBe(true)
     const text = { body: t.body, summary: (t.summary ?? []).join('\n'), faq: (t.faq ?? []).map(q => q.a).join('\n') }
     for (const e of edits) {
@@ -1075,6 +1075,19 @@ test('the hand fixes to the 17 held video guides hold: each cut line is gone, ea
 // its one tank a rule. Each guide is bodyFixed, which keeps its summary too, and the self-balancing tank's FAQ faqFixed,
 // so no run takes them back (test/fixtures/mend-fixes-1120.json).
 test("the Writing Lead's eight sentences of 20 Nov hold on their six guides", () => handFixesHold('mend-fixes-1120.json'))
+
+// The morning check of 20 Nov 2026: four things the night's steps took from guides, put back by hand as they stood (the
+// chief of staff): the Endlers guide's condition and another guide's hedge, which the cutter took; the rummynose guide's
+// warning, with its section and summary line, which the topic check took; the egg scatterers' frame step, which the
+// reader-fit rewrite took. Each guide is bodyFixed, which keeps its summary too, so no run takes them out again
+// (test/fixtures/net-putbacks-1120.json, by each guide's whole id).
+test('the four things the night of 19 Nov took from guides are back', () => handFixesHold('net-putbacks-1120.json', ''))
+
+// The Writing Lead's lines of 20 Nov 2026 on eight more video guides, in the house form (the maker's tank is "bể trong
+// bài", what was done is said as done, the maker's own hedge stays), each checked against the video's words: the rest of
+// the list of guides where a step the video took had become advice. Each guide is bodyFixed, and faqFixed where its FAQ
+// changed (test/fixtures/mend-fixes-1120-rest.json).
+test("the Writing Lead's lines of 20 Nov hold on eight more guides", () => handFixesHold('mend-fixes-1120-rest.json'))
 
 // The Writing Lead, 15 Nov 2026, on the rainbowfish guide's label ("Bể cầu vồng của …"): no video guide's label, the
 // words over its thumbnail, names the person in the video or the channel.

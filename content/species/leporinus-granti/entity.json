@@ -1,0 +1,229 @@
+{
+  "id": "leporinus-granti",
+  "scientificName": "Leporinus granti",
+  "order": "Characiformes",
+  "family": "Anostomidae",
+  "genus": "Leporinus",
+  "group": "other",
+  "places": [
+    "south-america",
+    "french-guiana",
+    "mana-river",
+    "mana-river-basin",
+    "guyana",
+    "maripicru-creek",
+    "suriname",
+    "colombia",
+    "orinoco-river-basin",
+    "brazil"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 22,
+          "max": 29
+        },
+        "ref": 0
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        },
+        "ref": 0
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 20,
+          "max": 25
+        },
+        "ref": 0
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này hiếm gặp ở tiệm cá, dù nó có được bắt bán làm cá cảnh. Nuôi trong bể, nó có tiếng là hay quậy. Nó cũng nhảy rất khỏe, nên nắp bể phải đậy kín và chắc.</p><p>Giống các loài <em>Leporinus</em> khác, nó hay bị gán cho tiếng là cá săn mồi dữ tợn. Tiếng đó không đúng.</p>",
+      "refs": [
+        0,
+        2
+      ]
+    },
+    {
+      "key": "distribution",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Các nguồn chưa thống nhất về vùng phân bố của loài này. Có nguồn chỉ ghi lưu vực sông Mana ở phía tây Guiana thuộc Pháp, trên bờ biển đông bắc Nam Mỹ. Có nguồn nói tới giờ mới chỉ biết nó ở vùng Guiana. Một nguồn khác thì ghi rộng hơn nhiều: từ lưu vực sông Orinoco tới Guiana thuộc Pháp và Brazil, có cả ở Guyana, Suriname và Colombia, còn Ecuador thì chưa chắc.</p>",
+      "refs": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "habitat",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Ngoài tự nhiên, cá lớn tụ thành đàn đông ở cửa các con suối, nơi đáy cát hoặc bùn, nước chảy xiết hay chảy chậm đều có. Cá non thì sống ở chỗ nước nông và lặng, trong các vùng nước xoáy ngược hoặc giữa đám cây.</p>",
+      "refs": [
+        0,
+        2
+      ]
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Cá lớn con và khỏe nên cần bể đủ rộng, có nhiều chỗ trốn. Chẳng hạn có người nuôi nó trong bể 450 lít. Bày vài khúc lũa và mấy hòn đá trơn để nó có chỗ trốn cho yên tâm. Chiều dài bể tối thiểu thì chưa có nguồn nào công bố.</p>",
+      "refs": [
+        2
+      ]
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Nguồn tham khảo ghi nhiệt độ 22–29 °C và pH 5,5–7,5. Về độ cứng thì nguồn chỉ ghi mức trên là 20 dH, còn khoảng độ cứng (dGH) cụ thể thì chưa có nguồn nào công bố.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này chủ yếu ăn thực vật. Nó hay chúi đầu xuống để gặm rêu. Khi trong bể ít rêu, nó sẽ quay sang ăn lá cây. Dù vậy, có người vẫn nuôi được nó chung với Cryptocoryne và Anubias trồng thật.</p><p>Thật ra nó ăn tạp và dễ ăn. Cám viên và thức ăn dạng vảy loại tốt nó đều ăn ngay. Nó cũng nhận đồ tươi và đồ đông lạnh như lăng quăng, trùng huyết, artemia và giun đất cắt nhỏ. Nguồn tham khảo còn ghi nó tiêu hóa được chitin, pectin, hemicellulose và mucopolysaccharide.</p>",
+      "refs": [
+        0,
+        2
+      ]
+    },
+    {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Cá khá hiếu động nhưng cũng nhút nhát, hay lánh đi. Cá lớn có thể giành chỗ với nhau, nhưng nuôi nhiều con cùng loài thì chúng có vẻ vẫn ổn. Khi tranh nhau, hai con chỉ bơi sát cạnh nhau và cọ mình vào nhau chứ không đánh thật.</p><p>Nó hợp nuôi chung với cá rô Nam Mỹ cỡ lớn, cá barb cỡ vừa tới lớn, cá headstander, cá da trơn, cá lau kiếng và các loài <em>Leporinus</em> khác. Không nên thả chung với cá nhỏ hay cá vây dài mỏng manh. Có người thấy đàn cá bảy màu sống chung với <em>Leporinus</em> của họ ít khi bị làm phiền, thậm chí còn đẻ được, nhưng chính họ cũng nói chuyện này có lẽ không phải lúc nào cũng vậy.</p>",
+      "refs": [
+        2
+      ]
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Rất khó phân biệt đực cái. Con cái thường to hơn một chút, màu nhạt hơn một chút và bụng đầy đặn hơn con đực. Theo nguồn tham khảo, con cái dài tối đa 25 cm, con đực 20 cm.</p>",
+      "refs": [
+        0,
+        2
+      ]
+    },
+    {
+      "key": "reproduction",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Người ta biết rất ít về cách loài này sinh sản. Ngoài tự nhiên, nó đẻ từ tháng 12 tới tháng 6. Từng cặp riêng tách ra đẻ ở những chỗ cây cỏ rậm. Có lẽ đây là loài đẻ theo mùa, rải trứng vào đám cây và không giữ con.</p><p>Nghe nói trong bể, <em>L. granti</em> (hoặc một loài rất gần) là <em>Leporinus</em> duy nhất cho đẻ thành công tới giờ. Nó rải trứng và không chăm trứng hay cá con.</p>",
+      "refs": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p><em>Leporinus granti</em> là một loài cá thuộc họ Anostomidae, bộ Characiformes. Carl H. Eigenmann mô tả loài này năm 1912. Mẫu chuẩn (FMNH 53383) lấy từ suối Maripicru ở Guyana. Tên loài đặt để ghi công William Grant, người dẫn đường cho Eigenmann trong chuyến đi British Guiana năm 1908. Còn tên chi <em>Leporinus</em> lấy từ chữ Latin <em>lepus, leporis</em>, nghĩa là con thỏ.</p><p>Vị trí phân loại của nó vừa thay đổi. Theo Sidlauskas và cộng sự (2025) và Ito và cộng sự (2026), loài này nay được xếp vào chi <em>Hypomasticus</em>, với tên <em>Hypomasticus granti</em>. Có một mẫu ở bảo tàng London (BMNH 1911.10.31.465) từng mang tên này nhưng thực ra là loài khác.</p><p>Trong tiếng Anh, nó có tên Strawberry Leporinus. Con cá bán với tên <em>Leporinus</em> sp. 'Strawberry' là họ hàng rất gần, hoặc chính là <em>L. granti</em>. So với các loài <em>Leporinus</em> người chơi hay nuôi thì nó thuộc loại nhỏ, nhưng vẫn lớn con và chắc khỏe. Con cái có thể dài tới 25 cm, con đực khoảng 20 cm.</p><p>Danh lục đỏ IUCN xếp loài này ở mức Ít quan tâm (đánh giá năm 2020). Độ khó khi nuôi và tuổi thọ của nó thì chưa có nguồn nào công bố.</p>",
+      "refs": [
+        0,
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/dce92b85e3476c94.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 4.0",
+      "author": "Julien Renoult",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leporinus_granti_5587308.jpg",
+      "caption": "Hypomasticus granti in French Guiana",
+      "thumb": "https://media.aquatome.com/commons/dce92b85e3476c94-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/dce92b85e3476c94-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/3a99e928b456b0d9.webp",
+      "width": 960,
+      "height": 511,
+      "licence": "CC BY 4.0",
+      "author": "Julien Renoult",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leporinus_granti_5587308_(cropped).jpg",
+      "caption": "Leporinus granti in French Guiana",
+      "thumb": "https://media.aquatome.com/commons/3a99e928b456b0d9-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "pDL703qE4w4",
+      "title": "Strawberry Leporinus - Leporinus granti - Rare Freshwater Tropical Aquarium Fish",
+      "durationSec": 277,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Sx5TqxjDvkI",
+      "title": "Leporinus sp strawberry ( Leporinus granti )草莓鉛筆/草莓大鉛筆/草莓血斑大铅笔/格氏兔脂鲤",
+      "durationSec": 106,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "zaeL3PX2CC8",
+      "title": "Strawberry Leporinus.",
+      "durationSec": 63,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "OhIYotvKBcc",
+      "title": "Strawberry Leporinus - Leporinus granti #shorts",
+      "durationSec": 60,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-20",
+  "refs": [
+    {
+      "url": "https://www.fishbase.se/summary/27848",
+      "title": "Leporinus granti : fisheries, aquarium"
+    },
+    {
+      "url": "https://researcharchive.calacademy.org/research/ichthyology/catalog/fishcatget.asp?spid=30156",
+      "title": "Eschmeyer's Catalog of Fishes: Hypomasticus granti (Eigenmann 1912)"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=pDL703qE4w4",
+      "title": "Strawberry Leporinus - Leporinus granti - Rare Freshwater Tropical Aquarium Fish"
+    },
+    {
+      "url": "https://www.aquariumglaser.de/en/fish-archives/leporinus_sp_strawberry__en/",
+      "title": "Leporinus sp. \"Strawberry\" - Aquarium Glaser GmbH"
+    }
+  ]
+}

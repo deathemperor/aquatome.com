@@ -9,7 +9,8 @@
   "places": [
     "south-america",
     "brazil",
-    "cuiaba"
+    "cuiaba",
+    "rio-paraguay-parana"
   ],
   "range": {
     "native": {
@@ -126,6 +127,10 @@
       {
         "source": "seriouslyfish",
         "value": 7
+      },
+      {
+        "source": "glaser",
+        "value": 8
       }
     ],
     "tankCm": [
@@ -149,6 +154,12 @@
       "html": "<p>Ancistrus claro, the gold marble bristlenose catfish (LDA 008), is a suckermouth catfish from the rios Claro and Coxipó in Mato Grosso, Brazil. It inhabits flowing streams over boulders and bedrock. Sometimes confused with unidentified fishes such as A. sp. 'L352', it has long maxillary barbels and small spots on the head, with vermiform lines on the body in males and spots all over in females. A peaceful cave-spawner, it has been bred in aquaria on numerous occasions.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-claro-2/",
+      "html": "<p>One of the smallest Ancistrus species is Ancistrus claro, which was known as LDA 8 before its scientific description. It becomes at most 6-8 cm long.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
@@ -159,6 +170,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
       "html": "<p>Inhabits flowing streams with substrates of boulders and bedrock.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-claro-2/",
+      "html": "<p>The catfish originates from clear water streams with a strong current in the upper part of the Rio Paraguay-Paraná river basin.</p>"
     },
     {
       "key": "aquariumSize",
@@ -195,6 +212,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
       "html": "<p>Adult males possess well-developed odontodes on the pectoral fins and opercle and tentacles on the head while females do not.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-claro-2/",
+      "html": "<p>The sexes are not quite as easy to distinguish as with other Ancistrus species, because just like the dwarf women in Tolkien's \"Lord of the Rings\", the females of the dwarf ancistrus have mighty beards.</p>"
     },
     {
       "key": "reproduction",
@@ -237,9 +260,64 @@
       "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_claro.htm",
       "caption": "Ancistrus claro: Pair",
       "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e893fa72b04753aa.webp",
+      "thumb": "https://media.aquatome.com/glaser/e893fa72b04753aa-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-claro-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0419ee6e93fa694e.webp",
+      "thumb": "https://media.aquatome.com/glaser/0419ee6e93fa694e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-claro-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d0d792f8bf41e035.webp",
+      "thumb": "https://media.aquatome.com/glaser/d0d792f8bf41e035-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-claro-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "7Red_FTvfRA",
+      "title": "Breeding Project:  Ancistrus claro",
+      "durationSec": 369,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "n90PNi-ARqM",
+      "title": "Ancistrus claro breeding: emptying cave of free swimming fry",
+      "durationSec": 153,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1MxpS6AI8M8",
+      "title": "Ancistrus Claro",
+      "durationSec": 106,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UwL3BgldyQ8",
+      "title": "Ancistrus Claro",
+      "durationSec": 134,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -269,5 +347,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-21"
 }

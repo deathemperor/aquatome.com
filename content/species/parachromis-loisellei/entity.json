@@ -55,7 +55,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cichlasoma-loisellei-2/",
       "source": "glaser"
     },
@@ -65,7 +65,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cichlasoma-loisellei-2/",
       "source": "glaser"
     },
@@ -75,17 +75,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cichlasoma-loisellei-2/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/627a70eca189241e.webp",
-      "thumb": "https://media.aquatome.com/glaser/627a70eca189241e-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cichlasoma-loisellei-2/",
       "source": "glaser"
     }
@@ -107,12 +97,6 @@
       "youtubeId": "MJxT1H0bdcE",
       "title": "Predator Cichlids Growouts (Parachromis loisellei & Nandopsis tetracantus)",
       "durationSec": 565,
-      "lang": "en"
-    },
-    {
-      "youtubeId": "ihxQ05WNPqs",
-      "title": "The Loiselle Cichlid (Parachromis Loisellei) | Amazing Aquatics",
-      "durationSec": 56,
       "lang": "en"
     }
   ],
@@ -139,5 +123,85 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-20"
+  "updatedAt": "2026-11-20",
+  "range": {
+    "records": {
+      "taxonKey": 5208209,
+      "total": 42,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "CR",
+          31
+        ],
+        [
+          "HN",
+          3
+        ],
+        [
+          "NI",
+          3
+        ],
+        [
+          "PA",
+          3
+        ],
+        [
+          "CA",
+          1
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -88.59375,
+          15.46875,
+          2
+        ],
+        [
+          -87.1875,
+          15.46875,
+          1
+        ],
+        [
+          -85.78125,
+          9.84375,
+          5
+        ],
+        [
+          -85.78125,
+          11.25,
+          1
+        ],
+        [
+          -84.375,
+          8.4375,
+          2
+        ],
+        [
+          -84.375,
+          9.84375,
+          22
+        ],
+        [
+          -82.96875,
+          8.4375,
+          7
+        ],
+        [
+          -80.15625,
+          43.59375,
+          1
+        ],
+        [
+          -75.9375,
+          7.03125,
+          1
+        ]
+      ]
+    }
+  }
 }

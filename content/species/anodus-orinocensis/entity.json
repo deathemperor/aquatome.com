@@ -1,0 +1,119 @@
+{
+  "id": "anodus-orinocensis",
+  "scientificName": "Anodus orinocensis",
+  "order": "Characiformes",
+  "family": "Hemiodontidae",
+  "genus": "Anodus",
+  "group": "other",
+  "places": [
+    "south-america",
+    "venezuela",
+    "orinoco"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/anodus-orinocensis-2/",
+      "html": "<p>Anodus orinocensis was imported from Venezuela for the first time. With a final length of a good 30 cm it becomes considerably larger than Hemiodus gracilis. It is peaceful.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/anodus-orinocensis-2/",
+      "html": "<p>Anodus orinocensis comes from Venezuela, in the Orinoco.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/anodus-orinocensis-2/",
+      "html": "<p>The water composition is not important, but like so many species from the Orinoco, A. orinocensis needs warmth and should be kept in the range of 24-30°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/anodus-orinocensis-2/",
+      "html": "<p>Anodus is an Aufwuchs eater and also filters the water for small organisms. It requires an attentive diet with the smallest possible food (cyclops, fine flake food, small granules).</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/anodus-orinocensis-2/",
+      "html": "<p>As a young fish A. orinocensis often lives in mixed shoals with Hemiodus gracilis. The two species look amazingly similar, but Anodus swims mostly in a \"normal\" horizontal position, while H. gracilis is a small animal eater and almost always swims in a slanting head-up position. They are peaceful animals.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/bb41689df602b4bd.webp",
+      "thumb": "https://media.aquatome.com/glaser/bb41689df602b4bd-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/anodus-orinocensis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/537fbb1155148b6c.webp",
+      "thumb": "https://media.aquatome.com/glaser/537fbb1155148b6c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/anodus-orinocensis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/484031bb3382f175.webp",
+      "thumb": "https://media.aquatome.com/glaser/484031bb3382f175-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/anodus-orinocensis-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 300 lít"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên nhỏ cho cá",
+        "thức ăn mảnh cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

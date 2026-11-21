@@ -3,6 +3,12 @@
   "name": "Cuanza",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-20T17:37:30.637Z",
+    "why": "\"Cuanza\" is the Portuguese spelling and could stand for the Cuanza (Kwanza) river or the Cuanza Norte and Cuanza Sul provinces. An Indonesian atlas would more likely write \"Kwanza\" or \"Kuanza\" and add a kind word such as \"Sungai\" or \"Provinsi\", and the bare name gives no kind word."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

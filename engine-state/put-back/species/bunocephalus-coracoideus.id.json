@@ -1,36 +1,56 @@
 {
- "at": "2026-11-12T13:20:29Z",
- "checks": [],
- "findings": [],
- "unread": true,
+ "at": "2026-11-21T01:49:57Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Banjo catfish dari Kolombia dan Venezuela saat ini tersedia di pasaran.",
+   "why": "This is the source's own stock news, not something the reader can rely on."
+  }
+ ],
  "text": {
   "slug": "bunocephalus-coracoideus",
   "name": "Bunocephalus coracoideus",
   "altNames": [
    "Banjo catfish",
    "Lele banjo",
+   "Banjo cat",
    "Ikan banjo",
-   "Banjo cat"
+   "Guitarrita"
   ],
   "sections": {
-   "quickFacts:seriouslyfish": "<p>Banjo catfish, Bunocephalus coracoideus, adalah lele dari famili Aspredinidae yang berasal dari Bolivia, Peru, dan Brasil. Spesies ini paling sering ditemui di akuarium toko ikan hias dibandingkan anggota genusnya yang lain. Habitatnya sungai kecil di hutan, danau, dan kolam yang banyak serasah daunnya. Tubuhnya berkamuflase sehingga mirip daun mati. Ikan ini kebanyakan diam dan suka bersembunyi, baru aktif setelah gelap. Seperti anggota Aspredinidae lainnya, sesekali ikan ini berganti kulit.</p><ul><li>Ukuran maksimal: 150 mm SL</li><li>Ukuran akuarium: 60 × 38 cm</li><li>Suhu: 20–27 °C</li><li>pH: 5,8–7,8</li><li>Kesadahan: 2–20 dGH</li></ul>",
+   "quickFacts:seriouslyfish": "<p>Banjo catfish, Bunocephalus coracoideus, adalah lele dari famili Aspredinidae yang berasal dari Bolivia, Peru, dan Brasil. Spesies ini paling sering dijumpai di akuarium para penjual dibanding anggota genusnya yang lain. Habitatnya sungai kecil di hutan, danau, dan kolam yang banyak serasah daunnya, dan tubuhnya berkamuflase menyerupai daun mati. Ikan ini sebagian besar tidak aktif dan suka bersembunyi, baru aktif setelah gelap, dan seperti aspredinid lainnya, sesekali berganti kulit.</p><ul><li>Ukuran maksimum: 150 mm SL</li><li>Ukuran akuarium: 60 × 38 cm</li><li>Suhu: 20–27 °C</li><li>pH: 5,8–7,8</li><li>Kesadahan: 2–20 dGH</li></ul>",
+   "quickFacts:scotcat": "<p>Banjo cat berpenampilan kasar dengan tonjolan dan benjolan di tubuhnya, dan tidak bisa dibilang cantik, tetapi punya pesona tersendiri di dunia lele. Kepalanya sangat lebar dan pipih dengan mata yang sangat kecil, memiliki 3 pasang sungut, dengan sungut maksila yang panjangnya mencapai sekitar sepertiga panjang duri sirip dada yang kuat dan bergerigi.</p><p>Famili: Aspredinidae. Ukuran: 13 cm. Suhu: 22–26 °C. pH: 6,0–8,0.</p>",
    "distribution:seriouslyfish": "<p>Bolivia, Peru, dan Brasil.</p>",
-   "habitat:seriouslyfish": "<p>Hidup di sungai kecil di hutan, danau, dan kolam yang khasnya dipenuhi banyak serasah daun, ranting yang jatuh, dan serpihan sejenisnya.</p>",
-   "aquariumSize:seriouslyfish": "<p>Spesies ini kebanyakan diam, jadi tidak butuh banyak ruang kalau dibandingkan dengan ukuran maksimalnya. Akuarium berukuran 60 × 38 × 30 cm, kira-kira 68 liter, sudah cukup.</p>",
-   "maintenance:seriouslyfish": "<p>Butuh banyak tempat persembunyian dan pencahayaan redup. Tempat berlindung bisa berupa substrat pasir setebal sekitar 5 cm, atau celah-celah di antara batu dan kayu bogwood. Taburan daun ek atau daun beech kering di atas substrat bisa terlihat sangat menarik, dan membuat ikan ini bisa menyatu dengan sekitarnya seperti di alam.</p>",
-   "waterConditions:seriouslyfish": "<ul><li>Suhu: 20–27 °C, tapi usahakan di batas atas kisaran ini.</li><li>pH: 5,8–7,8</li><li>Kesadahan: 2–20 dGH</li></ul>",
-   "diet:seriouslyfish": "<p>Tidak rewel soal makan dan mau menyantap hampir semua pakan yang tenggelam ke dasar. Ikan ini sangat suka pakan hidup dan beku seperti cacing darah, cacing tanah, dan sebagainya, juga pakan kering yang tenggelam. Beri pakan setelah lampu dimatikan supaya ikan ini kebagian jatahnya.</p>",
-   "behaviour:seriouslyfish": "<p>Tidak memangsa ikan yang lebih kecil, jadi cocok untuk sebagian besar akuarium komunitas. Idealnya dipelihara di akuarium biotop Amerika Selatan bersama tetra, cichlid kerdil, dan lele damai lainnya seperti Corydoras sp. serta Loricariidae yang berukuran lebih kecil. Ikan ini sama sekali tidak agresif terhadap sesamanya, dan sama nyamannya dipelihara sendirian maupun berkelompok.</p>",
+   "distribution:scotcat": "<p>Amerika Selatan: daerah aliran Sungai Amazon di Bolivia, Brasil, dan Peru. Lokasi tipe: Nauta, Peru.</p>",
+   "habitat:seriouslyfish": "<p>Menghuni sungai kecil di hutan, danau, dan kolam yang khas dengan banyaknya serasah daun, ranting yang jatuh, dan puing serupa lainnya.</p>",
+   "aquariumSize:seriouslyfish": "<p>Spesies yang sebagian besar tidak aktif ini membutuhkan ruang yang relatif kecil jika dibandingkan dengan ukuran maksimalnya. Akuarium berukuran 60 × 38 × 30 cm, sekitar 68 liter, sudah memadai.</p>",
+   "maintenance:seriouslyfish": "<p>Membutuhkan banyak tempat persembunyian dan pencahayaan redup. Tempat berlindung bisa berupa substrat pasir setebal sekitar 5 cm, atau celah-celah di antara batu dan kayu bogwood. Taburan daun ek atau beech kering di atas substrat bisa terlihat sangat menarik, dan membuat ikan ini menyatu dengan lingkungannya seperti di alam.</p>",
+   "maintenance:scotcat": "<p>Substrat pasir adalah yang terbaik, tempat mereka bisa membenamkan diri hampir sepanjang siang dan baru muncul di malam hari, saat mereka terlihat bergerak cepat di dasar untuk mencari makan. Mereka bisa mendorong tubuhnya di air dengan cara menghisap air lewat mulut lalu mengeluarkannya lewat insang, sehingga melesat cepat di atas substrat.</p>",
+   "waterConditions:seriouslyfish": "<ul><li>Suhu: 20–27 °C, tetapi usahakan di batas atas kisaran ini.</li><li>pH: 5,8–7,8</li><li>Kesadahan: 2–20 dGH</li></ul>",
+   "diet:seriouslyfish": "<p>Tidak pilih-pilih makanan dan mau menerima sebagian besar pakan yang tenggelam ke dasar. Sangat menyukai pakan hidup dan beku seperti cacing darah, cacing tanah, dan sebagainya, juga pakan kering yang tenggelam. Berikan pakan setelah lampu dimatikan agar ikan ini kebagian jatahnya.</p>",
+   "diet:scotcat": "<p>Ikan dewasa yang sudah betah di akuariumnya tidak pilih-pilih makanan dan bisa diberi menu sehat berupa pakan cacing seperti cacing darah beku dan cacing sutra, juga pakan tablet saat lampu dimatikan.</p>",
+   "behaviour:seriouslyfish": "<p>Tidak memangsa ikan yang lebih kecil sehingga cocok untuk sebagian besar akuarium komunitas. Idealnya dipelihara di akuarium biotop Amerika Selatan bersama tetra, cichlid kerdil, dan lele damai lainnya seperti Corydoras sp. dan Loricariidae berukuran kecil. Sama sekali tidak agresif terhadap sesamanya, dan sama-sama nyaman dipelihara sendirian maupun berkelompok.</p>",
    "dimorphism:seriouslyfish": "<p>Sulit dibedakan jenis kelaminnya, meskipun betina dewasa cenderung lebih besar dan perutnya lebih bulat dibanding jantan.</p>",
-   "reproduction:seriouslyfish": "<p>Jarang berhasil dipijahkan di akuarium, tapi bisa. Sebaiknya siapkan kelompok berisi minimal enam ekor dewasa untuk mencoba memijahkannya. Ikan ini memijah pada malam hari dan meletakkan telurnya langsung di atas substrat. Induknya akan memakan telurnya sendiri, jadi disarankan menyiapkan akuarium cadangan yang berisi air sama persis dengan akuarium pemijahan. Telur bisa dipindahkan ke sana begitu terlihat. Telur menetas dalam sekitar 3 hari, dan setelah burayak menghabiskan kuning telurnya, mereka mau menerima microworm atau naupli artemia sebagai pakan pertama.</p>",
-   "notes:seriouslyfish": "<p>Bunocephalus adalah genus terbesar dalam famili Aspredinidae, dan ada beberapa spesies yang belum dideskripsikan. B. coracoideus adalah anggota yang paling sering terlihat di akuarium toko ikan hias. Nama lokalnya di daerah asal, \"Guitarrita\", berarti \"gitar kecil\" dan merujuk pada bentuk ikan ini kalau dilihat dari atas. Meskipun sering dijual, ikan ini sebenarnya bukan lele yang bagus untuk akuarium komunitas biasa, karena kebanyakan diam, suka bersembunyi, dan hanya keluar serta aktif saat gelap. Meski begitu, ikan ini tetap menarik dipelihara oleh penghobi yang serius karena kamuflasenya luar biasa. Penampilannya mirip daun mati, dan biasanya ikan ini bahkan tidak mau berenang menghindari jaring. Saat dilepas ke akuarium, ikan ini cuma hanyut terbawa arus sampai menyentuh dasar. Semua anggota famili ini sesekali berganti kulit, meskipun alasan pastinya belum diketahui. Mereka juga punya cara bergerak yang unik, yaitu menyedot air lewat mulut lalu menyemburkannya lewat insang, sehingga gerakan renangnya agak tersentak-sentak.</p>",
-   "references:seriouslyfish": "<ul><li>ScotCat (2003). Bunocephalus coracoideus ScotCat factsheet 087 scotcat.com/factsheets/bunocephalus_coracoideus.htm</li></ul>"
+   "reproduction:seriouslyfish": "<p>Jarang berhasil dipijahkan di akuarium, tetapi bisa. Sebaiknya siapkan kelompok berisi setidaknya enam ekor dewasa untuk upaya pemijahan. Ikan ini memijah di malam hari dan meletakkan telurnya langsung di substrat. Induk akan memakan telurnya, jadi disarankan menyiapkan akuarium cadangan berisi air yang sama persis dengan akuarium pemijahan. Telur kemudian bisa dipindahkan ke sana begitu muncul. Telur menetas dalam sekitar 3 hari, dan setelah kantong kuning telurnya habis, burayak mau menerima microworm atau naupli artemia sebagai pakan pertama.</p>",
+   "reproduction:scotcat": "<p>Ini salah satu dari sedikit banjo catfish yang pernah berhasil dipijahkan di penangkaran. Telurnya, yang jumlahnya bisa mencapai 4.000 butir, diletakkan di pasir dan mungkin lebih baik dipindahkan ke akuarium atau wadah yang lebih kecil. Setelah menetas dan kantong kuning telurnya habis, burayak membutuhkan pakan pertama yang sangat halus seperti artemia dan microworm. Setelah itu mereka bisa dialihkan ke pakan cacing kecil seperti grindal worm dan cacing sutra.</p>",
+   "notes:seriouslyfish": "<p>Bunocephalus adalah genus terbesar dalam famili Aspredinidae dan ada beberapa spesies yang belum dideskripsikan. B. coracoideus adalah anggota yang paling sering terlihat di akuarium para penjual. Nama lokalnya, \"Guitarrita\", berarti \"gitar kecil\" dan merujuk pada bentuk ikan ini jika dilihat dari atas. Meskipun cukup sering dijual, ikan ini sebenarnya kurang cocok untuk akuarium komunitas umum karena sebagian besar tidak aktif dan suka bersembunyi, baru keluar dan aktif saat gelap. Meski begitu, ikan ini menarik bagi para penghobi karena kemampuan kamuflasenya yang luar biasa. Penampilannya menyerupai daun mati, dan biasanya ikan ini bahkan tidak berenang untuk menghindari jaring. Saat dilepas ke akuarium, ia hanya hanyut terbawa arus sampai menyentuh dasar. Semua anggota famili ini sesekali berganti kulit, meskipun alasan pastinya belum diketahui. Mereka juga punya cara bergerak yang unik, yaitu menghisap air lewat mulut lalu mengeluarkannya lewat insang, sehingga gerakan renangnya agak tersentak-sentak.</p>",
+   "notes:scotcat": "<p>Etimologi: nama genus Bunocephalus: buno-, gundukan atau tonjolan; cephalus, kepala, merujuk pada tonjolan atau benjolan bulat di kepala. Nama spesies coracoideus: seperti burung gagak, hitam.</p><p>Daftar Merah IUCN: spesies ini dinilai Risiko Rendah (Least Concern) karena sebarannya luas, populasinya melimpah, dan tidak ada ancaman besar yang diketahui (IUCN 2021).</p>",
+   "references:seriouslyfish": "<ul><li>ScotCat (2003). Bunocephalus coracoideus ScotCat factsheet 087 scotcat.com/factsheets/bunocephalus_coracoideus.htm</li></ul>",
+   "references:scotcat": "<p>Frederico, R.G., Reis, R. &amp; Lima, F. 2021. Bunocephalus coracoideus. The IUCN Red List of Threatened Species 2021. ScotCat Factsheet no. 87. Sept. 2003.</p>",
+   "beforeYouBuy:glaser": "<p>Banjo catfish (Bunocephalus) sangat umum dijumpai di alam. Biasanya ikan ini dijual dengan nama Bunocephalus coracoideus, yang dalam banyak kasus mungkin memang benar. Namun, dalam satu kiriman banjo catfish yang berjumlah banyak, selalu ada spesies lain yang ikut tercampur. Spesies-spesies ini biasanya tidak bisa diidentifikasi tanpa usaha yang berlebihan, apalagi dipilah-pilah.</p>",
+   "distribution:glaser": "<p>Banjo catfish dari Kolombia dan Venezuela saat ini tersedia di pasaran.</p>",
+   "behaviour:glaser": "<p>Membesarkan dan mengamati satu kelompok berisi sekitar 20 ekor ikan ini di akuarium sangat mengasyikkan. Warnanya sangat bervariasi, dan ada perbedaan anatomi yang jelas, terutama pada tonjolan tulang di sepanjang tengah punggung di depan sirip punggung. Beberapa spesies juga jauh lebih suka membenamkan diri di pasir dibanding yang lain.</p>"
   },
   "quality": {
    "score": 0.85,
    "indexable": true,
    "bySource": {
-    "seriouslyfish": 0.85
+    "seriouslyfish": 0.9,
+    "scotcat": 0.9,
+    "glaser": 0.85
    }
   }
  }

@@ -3,6 +3,12 @@
   "name": "Narathiwat",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T07:06:39.104Z",
+    "why": "Narathiwat is a Thai province, and Malay atlases usually write \"Wilayah Narathiwat\" or \"Narathiwat\" (Malay: Menara/Narathiwat), but the bare name omits the region/province word Malay uses, though keeping the proper name's spelling is acceptable."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

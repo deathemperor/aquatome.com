@@ -1,15 +1,103 @@
 {
   "id": "faunus-ater",
   "native": {
-    "input": "7992e13c29d363f1",
-    "at": "2026-11-10T20:57:55.515Z",
-    "claims": [],
-    "regions": [],
+    "input": "def5c51159dc2eb9",
+    "at": "2026-11-20T07:13:45.828Z",
+    "claims": [
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They have been reported from Sri Lanka, India, Myanmar, Thailand, Malaysia, Singapore, the Philippines, Indonesia, New Guinea, northern Australia and China.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They have been reported from Sri Lanka, India, Myanmar, Thailand, Malaysia, Singapore, the Philippines, Indonesia, New Guinea, northern Australia and China.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They have been reported from Sri Lanka, India, Myanmar, Thailand, Malaysia, Singapore, the Philippines, Indonesia, New Guinea, northern Australia and China.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They have been reported from Sri Lanka, India, Myanmar, Thailand, Malaysia, Singapore, the Philippines, Indonesia, New Guinea, northern Australia and China.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They have been reported from Sri Lanka, India, Myanmar, Thailand, Malaysia, Singapore, the Philippines, Indonesia, New Guinea, northern Australia and China.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They have been reported from Sri Lanka, India, Myanmar, Thailand, Malaysia, Singapore, the Philippines, Indonesia, New Guinea, northern Australia and China.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They have been reported from Sri Lanka, India, Myanmar, Thailand, Malaysia, Singapore, the Philippines, Indonesia, New Guinea, northern Australia and China.",
+        "words": "the Philippines",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They have been reported from Sri Lanka, India, Myanmar, Thailand, Malaysia, Singapore, the Philippines, Indonesia, New Guinea, northern Australia and China.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They have been reported from Sri Lanka, India, Myanmar, Thailand, Malaysia, Singapore, the Philippines, Indonesia, New Guinea, northern Australia and China.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They have been reported from Sri Lanka, India, Myanmar, Thailand, Malaysia, Singapore, the Philippines, Indonesia, New Guinea, northern Australia and China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "New Guinea",
+        "source": "aquariumbreeder",
+        "quote": "They have been reported from Sri Lanka, India, Myanmar, Thailand, Malaysia, Singapore, the Philippines, Indonesia, New Guinea, northern Australia and China.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
       "pagesOnly": [
-        "TH"
+        "PG"
       ],
       "sourcesOnly": []
     }
@@ -32,15 +120,15 @@
         7
       ],
       [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        6
+      ],
+      [
         "d8cd16ba-bb74-4420-821e-083f2bac17c2",
         6
       ],
       [
         "040c5662-da76-4782-a48e-cdea1892d14c",
-        5
-      ],
-      [
-        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
         5
       ],
       [
@@ -96,8 +184,19 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-10T20:57:55.515Z"
+    "native": [
+      "LK",
+      "IN",
+      "MM",
+      "TH",
+      "MY",
+      "SG",
+      "PH",
+      "ID",
+      "AU",
+      "CN"
+    ],
+    "requests": 13,
+    "at": "2026-11-20T07:13:45.828Z"
   }
 }

@@ -26,11 +26,11 @@
     "references:seriouslyfish": "<ul><li>Liu, J., J. Chen, Z. Yu and L. Liu (1995). Controlled Reproduction and Broodstock Rearing of the Chinese Sucker Myxocyprinus asiaticus. Asian Fisheries Science 8, 223-227</li><li>Gao, Z., Y. Li and W. Wang (2008). Threatened fishes of the world: Myxocyprinus asiaticus Bleeker 1864 (Catostomidae). Environmental Biology of Fishes 83(3), 345-346</li></ul>"
   },
   "quality": {
-    "score": 0.55,
-    "indexable": false,
+    "score": 0.9,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.55,
-      "seriouslyfish": 0.55
+      "seriouslyfish": 0.9,
+      "glaser": 0.9
     }
   }
 }

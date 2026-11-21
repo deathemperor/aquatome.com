@@ -16,7 +16,8 @@
         "CN"
       ],
       "regions": [
-        "Yangtze"
+        "Yangtze",
+        "Min River"
       ],
       "sources": [
         "seriouslyfish"
@@ -24,12 +25,19 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Endemic to upper and middle sections of the Yangtze River system in China including its major tributary the Min River.",
+          "quote": "The Chinese sailfin sucker, Myxocyprinus asiaticus, is a catostomid endemic to the upper and middle Yangtze River system in China, including the Min.",
           "countries": [
             "CN"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to upper and middle sections of the Yangtze River system in China including its major tributary the Min River.",
+          "countries": [],
           "regions": [
-            "Yangtze"
+            "Yangtze",
+            "Min River"
           ]
         }
       ]
