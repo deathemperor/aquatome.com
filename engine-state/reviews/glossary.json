@@ -2827,5 +2827,87 @@
       "attempt": "rewrite",
       "kept": false
     }
+  ],
+  "vi/glossary/di-hinh-gioi-tinh": [
+    {
+      "at": "2026-11-21T18:56:02Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Dị hình giới tính là khi con đực và con cái của cùng một loài trông khác nhau, như ở cỡ thân, màu hay vây.\"",
+        "Rule 12: \"Một tiệm thứ ba ghi:\" opens the Cichlidae list, but that list comes from the same shop as the Corydoras item, \"một tiệm ghi cá cái to và đầy thân hơn cá đực\" (both are source 7, aquaplantshub). It is not a third shop. Since it comes back after other shops, it should read \"Tiệm thứ nhất cũng ghi:\". The Betta list then opens a second shop with \"Một tiệm ghi:\", which should be \"Một tiệm kh…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T18:56:02Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.96,
+      "notes": [
+        "\"Riêng các dòng cao cấp như Full Red và Koi thì cá cái cũng lên màu đẹp.\": the facts don't carry it (uncredited, uncredited, uncredited): Only caguppy.com gives this, and the list opening credits no page / only caguppy.com says this; not credited / Only caguppy.com says this, and the sentence gives no credit",
+        "Rule 12: in the definition, \"Loài nào khác nhau rõ thì nhìn là biết đực cái, còn loài khác ít thì khó nhận ra hơn.\" must be written word for word as \"Loài nào đực cái khác nhau rõ thì dễ phân biệt hơn, còn loài khác ít thì khó nhận ra hơn.\" Fact 4 says only that how hard it is depends on how visibly the sexes differ. \"nhìn là biết\" says more than that.",
+        "Rule 12: under \"Dấu hiệu ở các loài này\", the opening \"Dấu hiệu thì mỗi loài một khác:\" must go. No fact says it, and the list should stand under its heading.",
+        "Rule 12: in the Cá bảy màu item, \"cá cái to hơn cá đực và ít màu hơn.\" must be written word for word as \"cá cái to hơn cá đực.\" (facts 11, 12 and 14).",
+        "Rule 12: in the Cá bảy màu item, \"Riêng các dòng cao cấp như Full Red và Koi thì cá cái cũng lên màu đẹp.\" must go. Only one site gives it (fact 17), and that site would be a fourth past the three the entry credits.",
+        "Rule 12: in the Corydoras item, \"cá cái to và đầy thân hơn cá đực.\" is a claim only one site gives (fact 28, aquaplantshub.com, a shop). It is written as plain fact with no credit such as \"Một tiệm ghi …\".",
+        "Rule 12: in the Betta item, \"vây cá đực dài và to hơn vây cá cái.\" must be written word for word as \"vây hậu môn cá đực dài và to hơn cá cái.\" Facts 20 and 21 agree on the anal fin only.",
+        "Rule 12: in the first shop's list under \"Xem đực cái Betta thế này\", \"Betta bắt đầu trổ mã từ 2–3 tháng tuổi.\" must be written word for word as \"Betta bắt đầu có dấu hiệu trưởng thành từ 2–3 tháng tuổi.\"",
+        "Rule 12: \"Tiệm này chỉ dùng các đặc điểm phân đực cái của cá trưởng thành cho cá từ 4 tháng tuổi trở lên.\" adds \"chỉ\", a hedge fact 19 doesn't have. It must be written as \"Tiệm này dùng các đặc điểm phân đực cái của cá trưởng thành cho cá từ 4 tháng tuổi trở lên.\"",
+        "Rule 12: \"Cá cái đầu thuôn, bụng tròn và có sọc.\" must be written word for word as \"Cá cái đầu thuôn, bụng đầy đặn và có sọc.\" (fact 38: plump)."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T18:18:37Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.96,
+      "notes": [
+        "\"Riêng các dòng cao cấp như Full Red và Koi thì cá cái cũng lên màu đẹp.\": the facts don't carry it (uncredited, uncredited, uncredited): only caguppy.com gives this; no credit / Full Red/Koi female colour comes only from caguppy.com / only caguppy.com, list opening credits no page",
+        "Rule 12: \"Riêng các dòng cao cấp như Full Red và Koi thì cá cái cũng lên màu đẹp.\" Only one site gives this: caguppy.com, a shop. The standing line says a claim only one site gives must say whose it is, for example \"Một tiệm ghi …\". Here it is written as plain fact, and it sits in the same item as the two-site claims about guppies (cá bảy màu)."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "draft": "2dbbad6bffe2fd82756843bfe3d56b6199b37e7b0832739d73f014a33da2f45f"
+    },
+    {
+      "at": "2026-11-21T18:18:37Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.92,
+      "notes": [
+        "\"Ở cá chuột đồng, cá cái có xu hướng to hơn, và cá cái đã đến tuổi đẻ tròn, rộng thân hơn hẳn cá đực, nhất là khi mang trứng.\": the facts don't carry it (supported, uncredited, uncredited): bronze cory detail only from seriouslyfish.com, no credit / bronze cory claim only from seriouslyfish.com, stated as plain fact",
+        "\"Khi xem thì soi cá dưới ánh sáng tốt.\": the facts don't carry it (uncredited, uncredited, supported): good-light advice only from aquariumcare.vn, stated without credit / good-light advice only from aquariumcare.vn, no credit",
+        "Rule 12: \"Ở cá chuột đồng, cá cái có xu hướng to hơn, và cá cái đã đến tuổi đẻ tròn, rộng thân hơn hẳn cá đực, nhất là khi mang trứng.\" Only one site gives this (seriouslyfish.com, a reference site), but it is written as plain fact with no credit. Crediting it would make seriouslyfish a fourth named source, after the three shops already named. The claim is background that a keeper can't act on, s…",
+        "Rule 4: \"cá cái to và đầy thân hơn cá đực\" and \"cá cái có xu hướng to hơn\" in the Corydoras item both say that females are bigger. The second sentence repeats the first, so this should be said once.",
+        "Rule 12: \"cá cái to hơn cá đực và thường ít màu hơn\" in the guppy item. The fact that says females are less colourful has no hedge, so \"thường\" adds one. Another fact limits the claim: in high-end lines such as Full Red and Koi, the females also colour up well. That limit isn't said beside the claim. It should be stated, or the claim should take the credit of the site that gives it broadly."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T18:18:37Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.89,
+      "notes": [
+        "\"Phân biệt đực cái dễ hay khó là tùy loài đó có dị hình giới tính rõ hay không.\": the facts don't carry it (uncredited, uncredited, uncredited): only msdvetmanual says this; no credit / only msdvetmanual.com gives this; no credit / only msdvetmanual gives this; no credit",
+        "\"Ở một số loài, cá đực to hơn và màu sặc sỡ hơn cá cái.\": the facts don't carry it (uncredited, uncredited, uncredited): only msdvetmanual says males larger and showier; no credit / only msdvetmanual.com gives larger and showier males; no credit / only msdvetmanual gives this; no credit",
+        "\"Corydoras: cá cái to và đầy thân hơn cá đực, cá chuột đồng cũng vậy.\": the facts don't carry it (unsupported, unsupported, supported): drops 'tend to' hedge for bronze cory / drops the 'tend to' hedge for the bronze cory",
+        "Rule 4: The definition's \"Loài nào khác nhau rõ thì nhìn là biết đực cái, còn loài khác ít thì khó nhận ra hơn\" is said again in the body's first sentence, \"Phân biệt đực cái dễ hay khó là tùy loài đó có dị hình giới tính rõ hay không\". It should be said once.",
+        "Rule 12: \"Ở một số loài, cá đực to hơn và màu sặc sỡ hơn cá cái.\" comes from one site only (source 0, a vet manual) but is written as plain fact with no credit. With the three shops already credited, this would make a fourth page, which is over the limit of three. It is background a keeper can't act on, so it should be dropped.",
+        "Rule 12: The headings \"Trong bể của bạn\", \"Xem đực cái ở Betta\" and \"Dấu hiệu ở Cichlidae\" do not end in \"này\", which THIS TERM requires.",
+        "Rule 12: The link phrase \"phân biệt đực cái\" (in \"Phân biệt đực cái dễ hay khó là tùy loài đó…\") is printed as plain text and not linked.",
+        "Rule 12: In \"cá chuột đồng cũng vậy\", the fact's hedge is dropped. The fact says female bronze cory 'tend to' grow larger, and that mature females are rounder 'especially when gravid'. \"cũng vậy\" turns this into a flat match with the Corydoras claim.",
+        "Rule 4: The male Betta's longer, larger fins are said three times: in the list (\"Betta: vây cá đực dài và to hơn vây cá cái\"), again under the first shop (\"Vây dài của cá đực là vây lưng, vây hậu môn và vây đuôi\") and again under the second shop (\"Vây hậu môn cá đực dài, to và cứng hơn\").",
+        "Rule 4: The advice to look in good light is said more than once: \"Khi xem thì soi cá dưới ánh sáng tốt, đừng xem chỗ tối\", \"soi dưới đèn\" and \"Khi xem thì soi đèn pin vào bể\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }
