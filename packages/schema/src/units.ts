@@ -325,12 +325,13 @@ function tanks(seg: string, lang: UnitLang): string {
 
 // Nominal pipe sizes → outside diameter in mm, as Vietnamese shops name them ("phi 27").
 const PIPE: [number, number][] = [[0.5, 21], [0.75, 27], [1, 34], [1.25, 42], [1.5, 49], [2, 60], [2.5, 76], [3, 90], [4, 114]]
-const PIPE_WORD = String.raw`(?<!\p{Script=Latin})(?:[ốỐ]ng|PVC|manifold|[rR]en|[pP]ipa|[pP]aip|ท่อ)(?!\p{Script=Latin})(?:(?!mềm|selang|สายยาง|tubing|hose|dài|cao|sâu|rộng|cắt|đường kính trong)[^\d.,;:()<>]){0,30}?`
-// A length right before the figure: a pipe's length, depth, cut or a distance to slide it ("pipa PVC panjang 2 inci",
-// "ท่อ PVC ฝังลึก 2 นิ้ว", "luồn ống PVC thêm 1–2 inch"). Only right before it: "model panjang ukuran ¾ inci" and "แบบยาว ขนาด
-// 2 นิ้ว" are a long fitting's size (Codex's reads of #1782, 21 Nov 2026). A "roughly" between them still makes it a length
-// ("ยาวประมาณ 1–2 นิ้ว", "sepanjang kira-kira 1–2 inci").
-const NOT_LENGTH = String.raw`(?<!(?:panjang|dipotong|potong|ยาว|ลึก|thêm)\s*(?:${QUAL}\s*)?)`
+const PIPE_WORD = String.raw`(?<!\p{Script=Latin})(?:[ốỐ]ng|PVC|manifold|[rR]en|[pP]ipa|[pP]aip|ท่อ)(?!\p{Script=Latin})(?:(?!mềm|selang|สายยาง|tubing|hose|dài|cao|sâu|rộng|cắt|đường kính trong)[^\d½¼¾.,;:()<>]){0,30}?`
+// A range right after a length word is a length: a pipe's length, depth, cut or a distance to slide it ("pipa PVC panjang
+// 1–2 inci", "ท่อ PVC ยาวประมาณ 1–2 นิ้ว", "luồn ống PVC thêm 1–2 inch"), holes' spacing or size along a spray bar ("ống
+// PVC khoan lỗ cách nhau 1–2 inch"), past one "roughly". The range rule's alone: for one
+// size the same words also name a long fitting's size ("model panjang ¾ inci", "แบบยาว 2 นิ้ว"), which the one-size rule
+// has always read as a size (Codex's reads of #1782, 21 Nov 2026).
+const NOT_LENGTH = String.raw`(?<!(?:panjang|dipotong|potong|ยาว|ลึก|thêm|cách(?: nhau)?|lỗ|jarak|berjarak|lubang|ห่าง(?:กัน)?|รู)\s*(?:${QUAL}\s*)?)`
 function pipes(t: string, lang: UnitLang): string {
   const od = (fig: string) => PIPE.find(([inch]) => inch === parseNum(fig, lang))?.[1]
   const name = (mm: number) => (lang === 'vi' ? `phi ${mm}` : `${mm} ${lang === 'th' ? 'มม.' : 'mm'}`)
@@ -342,7 +343,7 @@ function pipes(t: string, lang: UnitLang): string {
     // figure alone ("½–phi 27").
     .replace(re(String.raw`(${PIPE_WORD})${NOT_LENGTH}(${N})(?:${INCH})?${TO}(${N})${INCH}(?:\s*\(\s*(?:${QUAL}\s*)?${N}(?:${TO}${N})?\s*(?:mm|cm|มม\.|ซม\.)\s*\))?`), (all, pre: string, lo: string, hi: string) => { const a = od(lo), b = od(hi); return a && b && a < b ? `${pre}${span(a, b)}` : all })
     // "ống ... ¾ inch (khoảng 19 mm)"
-    .replace(re(String.raw`(${PIPE_WORD})${NOT_LENGTH}(${N})${INCH}(?:\s*\(\s*(?:${QUAL}\s*)?${N}\s*(?:mm|cm|มม\.|ซม\.)\s*\))?`), (all, pre: string, fig: string) => { const mm = od(fig); return mm ? `${pre}${name(mm)}` : all })
+    .replace(re(String.raw`(${PIPE_WORD})(${N})${INCH}(?:\s*\(\s*(?:${QUAL}\s*)?${N}\s*(?:mm|cm|มม\.|ซม\.)\s*\))?`), (all, pre: string, fig: string) => { const mm = od(fig); return mm ? `${pre}${name(mm)}` : all })
     // "ống ... đường kính khoảng 19 mm (3/4 inch)"
     .replace(re(String.raw`(${PIPE_WORD})(?:đường kính\s+(?:ngoài\s+)?)?(?:${QUAL}\s*)?${N}\s*(?:mm|มม\.)\s*\(\s*(${N})${INCH}\s*\)`), (all, pre: string, fig: string) => { const mm = od(fig); return mm ? `${pre}${name(mm)}` : all })
 }

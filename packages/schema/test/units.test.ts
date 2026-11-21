@@ -132,23 +132,25 @@ test('guides: a pipe or fitting is the pipe shops sell (outside diameter); a hos
   expect(th('ท่อ PVC 1/2–3/4 นิ้ว')).toBe('ท่อ PVC 21–27 มม.')
   // A hose is its own size, a range too.
   expect(vi('ống mềm ½–¾ inch')).toBe('ống mềm 1,5–2 cm')
-  // Codex's read of this rule (21 Nov 2026): the unit said twice is the same range (main made it "phi 53 đến 2 cm"); a
-  // pipe's length is a length in Indonesian and Thai too, one size or two (main made "panjang 2 inci" 60 mm); tubing is a
-  // hose. A length word after the size is left alone: "ống PVC ¾ inch dài 1 m" is a ¾-inch pipe.
+  // Codex's reads of this rule (21 Nov 2026): the unit said twice is the same range (main made it "phi 53 đến 2 cm"); a
+  // range after a pipe's length word is a length in Indonesian and Thai too; tubing is a hose. A length word after the
+  // size is left alone: "ống PVC ¾ inch dài 1 m" is a ¾-inch pipe. One size stays as it was: the same words also name a
+  // long fitting's size.
   expect(vi('Dùng ống PVC ½ inch đến ¾ inch.')).toBe('Dùng ống PVC phi 21 đến phi 27.')
   expect(id('Pipa PVC panjang 1–2 inci.')).toBe('Pipa PVC panjang 2,5–5 cm.')
-  expect(id('Pipa PVC panjang 2 inci.')).toBe('Pipa PVC panjang 5 cm.')
   expect(th('ท่อ PVC ยาว 1–2 นิ้ว')).toBe('ท่อ PVC ยาว 2.5–5 ซม.')
-  expect(th('ท่อ PVC ยาว 2 นิ้ว')).toBe('ท่อ PVC ยาว 5 ซม.')
   // Only a pipe's length and cut: "high" names a pressure rating as often (the re-check, 21 Nov).
   expect(id('Pipa PVC bertekanan tinggi ¾ inci')).toBe('Pipa PVC bertekanan tinggi 27 mm')
   expect(th('ท่อ PVC แรงดันสูง ¾ นิ้ว')).toBe('ท่อ PVC แรงดันสูง 27 มม.')
-  // A depth is a length, as "sâu" in Vietnamese; a cut piece ("potongan") still has its size (the third look, 21 Nov).
-  expect(th('ท่อ PVC ฝังลึก 2 นิ้ว')).toBe('ท่อ PVC ฝังลึก 5 ซม.')
+  // A depth and a cut are lengths too; a cut piece ("potongan") keeps its size (the third look, 21 Nov).
+  expect(th('ท่อ PVC ฝังลึก 1–2 นิ้ว')).toBe('ท่อ PVC ฝังลึก 2.5–5 ซม.')
+  expect(id('Pipa PVC dipotong 1–2 inci')).toBe('Pipa PVC dipotong 2,5–5 cm')
   expect(id('Pipa PVC sisa potongan ukuran ¾ inci')).toBe('Pipa PVC sisa potongan ukuran 27 mm')
-  expect(id('Pipa PVC dipotong 2 inci')).toBe('Pipa PVC dipotong 5 cm')
-  // A length word only right before the figure: a long-pattern fitting with its size named keeps the size, and a
-  // distance to slide a pipe in is a length (Codex's fourth look, against main).
+  // A long-pattern fitting keeps its size, its size word named or not, one size as the one-size rule always read it; a
+  // distance to slide a pipe in is a length (Codex's fourth and sixth looks, against main).
+  expect(th('ใช้ข้อต่อท่อ PVC แบบยาว 2 นิ้ว')).toBe('ใช้ข้อต่อท่อ PVC แบบยาว 60 มม.')
+  expect(id('Gunakan sambungan pipa PVC model panjang ¾ inci')).toBe('Gunakan sambungan pipa PVC model panjang 27 mm')
+  expect(ms('Gunakan penyambung paip PVC jenis panjang ¾ inci')).toBe('Gunakan penyambung paip PVC jenis panjang 27 mm')
   expect(id('Sambungan pipa PVC model panjang ukuran ¾ inci')).toBe('Sambungan pipa PVC model panjang ukuran 27 mm')
   expect(th('ข้อต่อท่อ PVC แบบยาว ขนาด 2 นิ้ว')).toBe('ข้อต่อท่อ PVC แบบยาว ขนาด 60 มม.')
   expect(vi('Luồn ống PVC thêm 1–2 inch vào khớp nối')).toBe('Luồn ống PVC thêm 2,5–5 cm vào khớp nối')
@@ -157,6 +159,11 @@ test('guides: a pipe or fitting is the pipe shops sell (outside diameter); a hos
   expect(id('Pipa PVC dipotong sepanjang kira-kira 1–2 inci')).toBe('Pipa PVC dipotong sepanjang kira-kira 2,5–5 cm')
   expect(ms('Potong paip PVC sepanjang kira-kira 1–2 inci')).toBe('Potong paip PVC sepanjang kira-kira 2.5–5 cm')
   expect(th('ท่อ PVC ยาวประมาณ 1–2 นิ้ว')).toBe('ท่อ PVC ยาวประมาณ 2.5–5 ซม.')
+  // A spray bar's holes, their spacing or their size: lengths, as main said.
+  expect(vi('Khoan ống PVC thành các lỗ cách nhau 1–2 inch')).toBe('Khoan ống PVC thành các lỗ cách nhau 2,5–5 cm')
+  expect(vi('ống PVC khoan lỗ ½–¾ inch')).toBe('ống PVC khoan lỗ 1,5–2 cm')
+  expect(id('Bor pipa PVC dengan lubang berjarak 1–2 inci')).toBe('Bor pipa PVC dengan lubang berjarak 2,5–5 cm')
+  expect(th('เจาะรูท่อ PVC ห่างกัน 1–2 นิ้ว')).toBe('เจาะรูท่อ PVC ห่างกัน 2.5–5 ซม.')
   expect(vi('Ống PVC tubing ½–¾ inch')).toBe('Ống PVC tubing 1,5–2 cm')
   expect(vi('ống PVC ¾ inch dài 1 m')).toBe('ống PVC phi 27 dài 1 m')
 })
