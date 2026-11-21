@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import * as schema from '@aq/schema'
-import { PHOTO_SCREEN_FILE } from '@aq/schema'
+import { LANGS, PHOTO_SCREEN_FILE } from '@aq/schema'
 import { expect, test } from 'vitest'
 import { GALLERY_MIN } from '../../../apps/site/src/lib/gallery'
 import { albumOf, hasAlbum } from '../../../apps/site/src/lib/photo-page'
@@ -50,21 +50,29 @@ test("the engine's rule is the site's: a page shows a photo when the loader leav
   // either, photo or not.
   await put('content/one-voice.json', { hushed: { habitat: false } })
   await put('content/species/held/entity.json', fish('held', [photo('hd1')])); await put('content/species/held/vi.json', { ...vi('ca-held'), held: { checks: ['harm'], at: '2026-11-20' } })
-  await put(`engine-state/${PHOTO_SCREEN_FILE}`, { ...JSON.parse(await readFile(join(r, 'engine-state', PHOTO_SCREEN_FILE), 'utf8')), [url('hd1')]: judged })
-  const refs = ['species/own', 'species/waits', 'species/album', 'species/none', 'species/closed', 'species/hushed', 'species/held', 'breeds/with-one', 'breeds/with-none']
+  // thai is held back in Vietnamese but not in Thai: the site has its Thai page.
+  await put('content/species/thai/entity.json', fish('thai', [photo('t1')])); await put('content/species/thai/vi.json', { ...vi('ca-thai'), held: { checks: ['harm'], at: '2026-11-20' } })
+  await put('content/species/thai/th.json', vi('pla-thai'))
+  await put(`engine-state/${PHOTO_SCREEN_FILE}`, { ...JSON.parse(await readFile(join(r, 'engine-state', PHOTO_SCREEN_FILE), 'utf8')), [url('hd1')]: judged, [url('t1')]: judged })
+  const refs = ['species/own', 'species/waits', 'species/album', 'species/none', 'species/closed', 'species/hushed', 'species/held', 'species/thai', 'breeds/with-one', 'breeds/with-none']
   const engine = await showingPhotos(refs, disk(r))
   // The site's own content, as its public build loads it (apps/site/src/lib/content.ts).
   const env = { CONTENT_ROOT: process.env.CONTENT_ROOT, PUBLIC_BUILD: process.env.PUBLIC_BUILD, HIDDEN_FILE: process.env.HIDDEN_FILE }
   Object.assign(process.env, { CONTENT_ROOT: join(r, 'content'), PUBLIC_BUILD: '1', HIDDEN_FILE: join(r, 'no-hidden.json') })
-  const c = await (await import('../../../apps/site/src/lib/content')).getContent('vi').finally(() => {
+  const { getContent } = await import('../../../apps/site/src/lib/content')
+  const site = new Map<string, boolean>()
+  try {
+    for (const lang of LANGS) {
+      const c = await getContent(lang)
+      const shows = (ref: string, yes: boolean) => site.set(ref, site.get(ref) === true || yes)
+      for (const s of c.species) shows(`species/${s.id}`, s.photos.length > 0 || hasAlbum(albumOf(c, 'species', s)))
+      for (const b of c.breeds) shows(`breeds/${b.id}`, b.photos.length > 0 || hasAlbum(albumOf(c, 'breeds', b)))
+    }
+  } finally {
     for (const [k, v] of Object.entries(env)) if (v === undefined) delete process.env[k]; else process.env[k] = v
-  })
-  const site = new Map([
-    ...c.species.map(s => [`species/${s.id}`, s.photos.length > 0 || hasAlbum(albumOf(c, 'species', s))] as const),
-    ...c.breeds.map(b => [`breeds/${b.id}`, b.photos.length > 0 || hasAlbum(albumOf(c, 'breeds', b))] as const),
-  ])
+  }
   expect([...engine].sort()).toEqual([...site].sort())
-  expect([...engine].filter(([, shows]) => shows).map(([ref]) => ref).sort()).toEqual(['breeds/with-one', 'species/album', 'species/own'])
+  expect([...engine].filter(([, shows]) => shows).map(([ref]) => ref).sort()).toEqual(['breeds/with-one', 'species/album', 'species/own', 'species/thai'])
   expect(engine.has('species/hushed')).toBe(false)
   expect(engine.has('species/held')).toBe(false)
 })

@@ -2,7 +2,7 @@ import { spawnSync } from 'node:child_process'
 import { access, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
-import { loadAll, PHOTO_BOXES_FILE, PHOTO_SCREEN_FILE, vnDate } from '@aq/schema'
+import { LANGS, loadAll, PHOTO_BOXES_FILE, PHOTO_SCREEN_FILE, vnDate } from '@aq/schema'
 
 /**
  * Fish pages our removals left with no photo, first for new photos (the chief of staff, 21 Nov): every page a run's own
@@ -48,13 +48,13 @@ export const LOADER_FILES = {
 
 /**
  * Whether each of `refs` (`species/id`, `breeds/id`) shows a photo, by the site's own rule, read from where the site
- * reads it: the site's loader (@aq/schema loadAll, as the site's public build runs it in Vietnamese, held pages left out:
- * apps/site/src/lib/content.ts getContent) over those pages as `read` holds them, with
+ * reads it: the site's loader (@aq/schema loadAll, as the site's public build runs it in each language it serves, held
+ * pages left out: apps/site/src/lib/content.ts getContent) over those pages as `read` holds them, with
  * every other file it reads that decides a fish page and its photos (LOADER_FILES). A page shows a photo when the loader
  * leaves it one of its own, or when its album (a species' gallery; a breed's own photos after its first, then its
- * gallery: apps/site/src/lib/photo-page.ts albumOf) holds SITE_GALLERY_MIN pictures. A page the loader drops (no section
- * it may show, or held back by the reader-fit gate) has no answer: it is no page, with or without photos. The loader runs
- * on a copy of those files in the
+ * gallery: apps/site/src/lib/photo-page.ts albumOf) holds SITE_GALLERY_MIN pictures, in any language. A page the loader
+ * drops in every language (no section it may show, or held back by the reader-fit gate) has no answer: it is no page,
+ * with or without photos. The loader runs on a copy of those files in the
  * system's temp folder, removed after.
  */
 export async function showingPhotos(refs: string[], read: Read): Promise<Map<string, boolean>> {
@@ -73,12 +73,15 @@ export async function showingPhotos(refs: string[], read: Read): Promise<Map<str
     for (const f of LOADER_FILES.records) await put(`engine-state/${f}`)
     for (const ref of refs) {
       const [kind, id] = ref.split('/') as [string, string]
-      for (const f of [`content/${kind}/${id}/entity.json`, `content/${kind}/${id}/vi.json`, `content/gallery/${id}.json`]) await put(f)
+      for (const f of [`content/${kind}/${id}/entity.json`, ...LANGS.map(l => `content/${kind}/${id}/${l}.json`), `content/gallery/${id}.json`]) await put(f)
     }
-    const c = await loadAll({ root: join(tmp, 'content'), lang: 'vi', publicBuild: true, leaveOutHeld: true })
     const album = (photos: unknown[]) => photos.length >= SITE_GALLERY_MIN
-    for (const s of c.species) out.set(`species/${s.id}`, s.photos.length > 0 || album(c.galleries[s.id] ?? []))
-    for (const b of c.breeds) out.set(`breeds/${b.id}`, b.photos.length > 0 || album([...b.photos.slice(1), ...(c.galleries[b.id] ?? [])]))
+    const shows = (ref: string, yes: boolean) => out.set(ref, out.get(ref) === true || yes)
+    for (const lang of LANGS) {
+      const c = await loadAll({ root: join(tmp, 'content'), lang, publicBuild: true, leaveOutHeld: true })
+      for (const s of c.species) shows(`species/${s.id}`, s.photos.length > 0 || album(c.galleries[s.id] ?? []))
+      for (const b of c.breeds) shows(`breeds/${b.id}`, b.photos.length > 0 || album([...b.photos.slice(1), ...(c.galleries[b.id] ?? [])]))
+    }
     return new Map([...out].filter(([r]) => refs.includes(r)))
   } finally {
     await rm(tmp, { recursive: true, force: true })
