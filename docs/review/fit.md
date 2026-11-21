@@ -6,23 +6,23 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Open, no read of its text | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 5003 | 4291 | 693 | 1601 | 38 | 44 | 197 | 44 | 1133 | 349 | 2692 | 456 | 9 | 12 | 0 | 3 | 5 | 4 | 0 |
-| Indonesian | 1685 | 1533 | 152 | 426 | 25 | 12 | 4 | 5 | 205 | 38 | 71 | 194 | 0 | 2 | 0 | 2 | 2 | 0 | 0 |
-| Thai | 1673 | 1506 | 167 | 393 | 21 | 3 | 5 | 3 | 190 | 42 | 97 | 181 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
-| Malay | 537 | 495 | 42 | 137 | 13 | 3 | 0 | 2 | 70 | 17 | 27 | 50 | 0 | 1 | 0 | 2 | 0 | 0 | 0 |
+| Vietnamese | 5029 | 4321 | 689 | 1593 | 38 | 44 | 197 | 44 | 1129 | 348 | 2701 | 450 | 9 | 13 | 0 | 3 | 5 | 4 | 0 |
+| Indonesian | 1689 | 1539 | 150 | 427 | 25 | 12 | 4 | 5 | 205 | 38 | 74 | 193 | 0 | 2 | 0 | 3 | 2 | 0 | 0 |
+| Thai | 1677 | 1513 | 164 | 395 | 21 | 3 | 5 | 4 | 190 | 43 | 96 | 180 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
+| Malay | 541 | 499 | 42 | 140 | 14 | 3 | 0 | 2 | 72 | 17 | 28 | 50 | 0 | 1 | 0 | 3 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 13 of 156, Indonesian 2 of 61, Thai 2 of 55, Malay 1 of 30.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 13 of 156, Indonesian 2 of 62, Thai 2 of 56, Malay 1 of 29.
 
 ## Doses on more than one page
 
 Per litre, by what the pages say each is for. A conflict is the same treatment, strength, use and method at rates that can't both be right: flagged, never averaged. A person settles which holds.
 
 - hydrogen peroxide 3% — **21 conflicts**: cyanobacteria, spot: 0.75 ml/l (2 pages); disinfecting, dip: 0.5–0.75 ml/l (1 pages); algae, wholeTank: 0.333 ml/l, 0.4 ml/l, 0.395 ml/l (5 pages); algae, spot: 0.75 ml/l, 0.167 ml/l, 0.5 ml/l (7 pages); bacteria, wholeTank: 0.333 ml/l (1 pages)
-- salt — **5 conflicts**: water, unsaid: 5–15 g/l, 5–10 g/l, 10–15 g/l, 10–20 g/l (8 pages); water, wholeTank: 1–2 g/l, 10–20 g/l, 5–10 g/l, 0.5 ml/l, 10–15 g/l, 5–15 g/l, 1–3 g/l (19 pages); other, wholeTank: 0.5 ml/l, 1.111–1.667 ml/l, 3.75 ml/l, 1–3 g/l, 1.5 ml/l (11 pages); fungus, unsaid: 1 g/l, 1.364 ml/l, 1–2 g/l, 1–3 g/l (4 pages); parasites, wholeTank: 0.75 ml/l, 0.013 cup/l, 3.2 ml/l (6 pages); water, other: 15–25 g/l (1 pages); bacteria, wholeTank: 1.364 ml/l (2 pages); ich, wholeTank: 1.875 ml/l (2 pages); other, other: 15 ml/l, 5 ml/l, 0.5 ml/l, 30 g/l (5 pages); bacteria, bath: 22.222 g/l (3 pages); finRot, bath: 10 g/l (4 pages); other, unsaid: 1–3 g/l, 17 g/l, 12 g/l, 1.316 ml/l (3 pages); ich, bath: 4–5 g/l (1 pages); fungus, wholeTank: 1–5 g/l, 1–3 g/l, 1.364 ml/l, 2 ml/l, 3.947 ml/l (3 pages); fungus, bath: 30 g/l, 1–5 g/l (4 pages); other, bath: 1–3 g/l (3 pages); snails, dip: 63.158 ml/l, 0.263 cup/l (3 pages); disinfecting, other: 5 ml/l (2 pages); bacteria, unsaid: 7.368 g/l (1 pages); finRot, wholeTank: 1–3 g/l (1 pages); disinfecting, bath: 5 ml/l (1 pages); bacteria, dip: 22.222 g/l (1 pages)
+- salt — **5 conflicts**: water, unsaid: 5–15 g/l, 5–10 g/l, 10–15 g/l, 10–20 g/l (8 pages); water, wholeTank: 1–2 g/l, 10–20 g/l, 5–10 g/l, 0.5 ml/l, 10–15 g/l, 5–15 g/l, 1–3 g/l (19 pages); other, wholeTank: 0.5 ml/l, 1.111–1.667 ml/l, 3.75 ml/l, 1–3 g/l, 1.5 ml/l, 3.947 ml/l (12 pages); fungus, unsaid: 1 g/l, 1.364 ml/l, 1–2 g/l, 1–3 g/l (4 pages); parasites, wholeTank: 0.75 ml/l, 0.013 cup/l, 3.2 ml/l (6 pages); water, other: 15–25 g/l (1 pages); bacteria, wholeTank: 1.364 ml/l (3 pages); ich, wholeTank: 1.875 ml/l (3 pages); other, other: 15 ml/l, 5 ml/l, 0.5 ml/l, 30 g/l (5 pages); bacteria, bath: 22.222 g/l (3 pages); finRot, bath: 10 g/l (4 pages); other, unsaid: 1–3 g/l, 17 g/l, 12 g/l, 1.316 ml/l (3 pages); ich, bath: 4–5 g/l (1 pages); fungus, wholeTank: 1–5 g/l, 1–3 g/l, 1.364 ml/l, 2 ml/l, 3.947 ml/l (3 pages); fungus, bath: 30 g/l, 1–5 g/l (4 pages); other, bath: 1–3 g/l (3 pages); snails, dip: 63.158 ml/l, 0.263 cup/l (3 pages); disinfecting, other: 5 ml/l (2 pages); bacteria, unsaid: 7.368 g/l (1 pages); finRot, wholeTank: 1–3 g/l (1 pages); disinfecting, bath: 5 ml/l (1 pages); bacteria, dip: 22.222 g/l (1 pages)
 - liquid fertiliser — **1 conflicts**: plants, wholeTank: 0.02 ml/l, 0.04 ml/l, 0.05 ml/l (2 pages)
 - sea salt: water, wholeTank: 1–2 g/l, 1–3 g/l, 5 ml/l, 5–10 g/l, 0.1 thìa/l, 0.5–1 ml/l, 3–10 g/l, 15 g/l, 0.5 ml/l, 10–20 g/l, 18.75 ml/l, 7.5 ml/l, 0.1 sendok/l, 0.1 ช้อน/l (51 pages); water, unsaid: 1–3 g/l, 5–15 g/l, 10–20 g/l (6 pages); other, wholeTank: 0.1 thìa/l, 0.5–1 ml/l (2 pages); water, other: 30 ml/l, 7.5 ml/l (5 pages); other, other: 15 ml/l (1 pages); other, unsaid: 1–3 g/l, 0.5–1 ml/l (3 pages)
 - metronidazole: other, wholeTank: 13 mg/l, 13.158 mg/l, 13.21 mg/l (4 pages); bacteria, wholeTank: 12.5 mg/l (3 pages); parasites, wholeTank: 12.5 mg/l, 0.013 g/l (8 pages); parasites, bath: 6.25 mg/l, 0.05 tablet/l (4 pages); bacteria, unsaid: 12.5 mg/l (1 pages)
-- formalin: ich, unsaid: 25 mg/l, 12.5 mg/l (2 pages); parasites, bath: 0.15–0.25 ml/l (4 pages); ich, wholeTank: 25 mg/l, 12.5 mg/l (1 pages)
+- formalin: ich, unsaid: 25 mg/l, 12.5 mg/l (2 pages); parasites, bath: 0.15–0.25 ml/l (4 pages); ich, wholeTank: 25 mg/l, 12.5 mg/l (2 pages)
 - malachite green: ich, wholeTank: 0.132 ml/l (1 pages); fungus, bath: 0.1 mg/l (4 pages); fungus, spot: 100 mg/l (4 pages)
 - seachem stability: other, wholeTank: 0.125 ml/l, 0.063 ml/l, 0.013 nắp/l, 0.013 cap/l (3 pages)
 - alum: snails, bath: 3.75–11.25 ml/l (1 pages); snails, dip: 3.947 ml/l, 3.947–11.842 ml/l, 10–15 ml/l (4 pages); disinfecting, dip: 15 ml/l (1 pages)
@@ -109,10 +109,10 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - weld-on 4: 9
 - api leaf zone: 8
 - fluval: 8
+- instant ocean: 8
 - tropica specialised nutrition: 8
 - api: 7
 - easy shrimp and snail shells: 7
 - fluval bug bites: 7
 - fluval plant and shrimp stratum: 7
-- instant ocean: 7
 - krylon fusion: 7

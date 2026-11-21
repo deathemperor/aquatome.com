@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 4963,
-   "read": 4275,
-   "wrong": 1595,
+   "pages": 4988,
+   "read": 4305,
+   "wrong": 1587,
    "pct": 37,
-   "held": 581
+   "held": 584
   },
   "id": {
-   "pages": 1676,
-   "read": 1524,
-   "wrong": 426,
+   "pages": 1680,
+   "read": 1530,
+   "wrong": 427,
    "pct": 28,
-   "held": 172
+   "held": 174
   },
   "th": {
-   "pages": 1664,
-   "read": 1497,
-   "wrong": 393,
+   "pages": 1668,
+   "read": 1504,
+   "wrong": 395,
    "pct": 26,
-   "held": 151
+   "held": 152
   },
   "ms": {
-   "pages": 528,
-   "read": 486,
-   "wrong": 137,
-   "pct": 28,
-   "held": 92
+   "pages": 532,
+   "read": 490,
+   "wrong": 140,
+   "pct": 29,
+   "held": 94
   }
  },
  "labels": {
@@ -78,17 +78,22 @@
    ]
   },
   {
+   "lang": "vi",
+   "path": "/vi/ca/ca-oto-peppermint/",
+   "url": "https://aquatome.com/ca/ca-oto-peppermint/",
+   "title": "Cá oto peppermint",
+   "wrong": [
+    {
+     "check": "source",
+     "quote": "Lô cá nhập từ Venezuela hiện nay rất ổn định và không gặp vấn đề gì."
+    }
+   ]
+  },
+  {
    "lang": "th",
    "path": "/th/fish/corydoras-paleatus/",
    "url": "https://aquatome.com/th/fish/corydoras-paleatus/",
    "title": "แพะพริกไทย",
-   "wrong": []
-  },
-  {
-   "lang": "id",
-   "path": "/id/ikan/flat-head-pleco/",
-   "url": "https://aquatome.com/id/ikan/flat-head-pleco/",
-   "title": "Flat Head Pleco L151",
    "wrong": []
   }
  ]
