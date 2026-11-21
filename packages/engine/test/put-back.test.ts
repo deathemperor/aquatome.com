@@ -44,8 +44,8 @@ const why = compactRejection('dead: a fish on a board')
 const cleared = (o: object = {}) => ({ why, step: 'the photo check', pages: ['species/aaa'], at: '2026-11-20', off: true, look: { said: 'clear', by: 'the chief of staff', on: '2026-11-21' }, ...o })
 /** The history as git would read it: where a-dead stood on aaa's page and album before it left. */
 const left: LeftPlace[] = [
-  { file: 'content/species/aaa/entity.json', index: 1, photo: photo('a-dead') },
-  { file: 'content/gallery/aaa.json', index: 0, photo: photo('a-dead') },
+  { file: 'content/species/aaa/entity.json', index: 1, photo: photo('a-dead'), times: 1 },
+  { file: 'content/gallery/aaa.json', index: 0, photo: photo('a-dead'), times: 1 },
 ]
 const counting = (places: LeftPlace[] | undefined) => { const calls: string[] = []; const h: History = async u => { calls.push(u); return places }; return { h, calls } }
 async function clearedStore(entry: string | undefined = waitingEntry(why)) {
@@ -119,31 +119,70 @@ test('with no history to read here, nothing goes back and the record waits unmar
   expect(await photosOf(r, 'aaa')).toEqual(['a-fish', 'a-dead', 'a-other'])
 })
 
-test('a page that already shows the photo again keeps it once; a page that is gone is skipped', async () => {
+test('a page that already shows the photo again keeps it once; a page that is gone is passed over and reported', async () => {
   const r = await clearedStore()
   await page(r, 'aaa', ['a-dead', 'a-fish', 'a-other'])
-  const out = await sweep(r, { history: async () => [...left, { file: 'content/species/gone/entity.json', index: 0, photo: photo('a-dead') }] })
+  const out = await sweep(r, { history: async () => [...left, { file: 'content/species/gone/entity.json', index: 0, photo: photo('a-dead'), times: 1 }] })
   expect(await photosOf(r, 'aaa')).toEqual(['a-dead', 'a-fish', 'a-other'])
   expect(out.putBack).toEqual([`content/gallery/aaa.json: ${url('a-dead')}`])
+  expect(out.putBackOff).toEqual([`${url('a-dead')}: content/species/gone/entity.json is gone`])
 })
 
-test('the history from git: each page and album file the photo left, its place and entry just before, the latest leaving file by file', async () => {
+test('only the removal its mark made comes back: not a place it left again after coming back, nor a page its record does not name where the check refused it there', async () => {
+  const r = await store({ aaa: ['a-fish'], bbb: ['b-fish'], ccc: ['c-fish'] })
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [url('a-dead')]: cleared() }))
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('a-dead')]: waitingEntry(why) }))
+  // The check: dead on aaa (the page its record names, which the clear answers), another fish on bbb, the fish on ccc.
+  const v = (ok: string) => ({ ok, typical: true, note: '', person: false, logo: false })
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [url('a-dead')]: { aaa: v('dead'), bbb: v('other'), ccc: v('yes') } }))
+  const at = (id: string, times = 1): LeftPlace => ({ file: `content/species/${id}/entity.json`, index: 1, photo: photo('a-dead'), times })
+  const out = await sweep(r, { history: async () => [at('aaa'), at('bbb'), at('ccc', 2)], today: '2026-11-21' })
+  expect(await photosOf(r, 'aaa')).toEqual(['a-fish', 'a-dead'])
+  expect(await photosOf(r, 'bbb')).toEqual(['b-fish'])
+  expect(await photosOf(r, 'ccc')).toEqual(['c-fish'])
+  expect(out.putBackOff.sort()).toEqual([
+    `${url('a-dead')}: it left content/species/ccc/entity.json again after it came back, and that removal stands`,
+    `${url('a-dead')}: the check refused it on bbb`,
+  ])
+})
+
+test('a guide it left takes it back too', async () => {
+  const r = await clearedStore()
+  await mkdir(join(r, 'content/guides/ggg'), { recursive: true })
+  await writeFile(join(r, 'content/guides/ggg/entity.json'), `${JSON.stringify({ id: 'ggg', photos: [photo('g-1')] }, null, 2)}\n`)
+  const out = await sweep(r, { history: async () => [...left, { file: 'content/guides/ggg/entity.json', index: 0, photo: photo('a-dead'), times: 1 }], today: '2026-11-21' })
+  expect(out.putBack).toContain(`content/guides/ggg/entity.json: ${url('a-dead')}`)
+  expect(((await json(r, 'content/guides/ggg/entity.json')).photos as { url: string }[]).map(p => name(p.url))).toEqual(['a-dead', 'g-1'])
+})
+
+test('the history from git: each page, album and guide file the photo left since the start of its record\'s day, its place and entry just before it last left, and how often it left', async () => {
   const r = await mkdtemp(join(tmpdir(), 'aq-put-back-git-'))
   const git = (...a: string[]) => execFileSync('git', a, { cwd: r, encoding: 'utf8' })
   git('init', '-q', '-b', 'main'); git('config', 'user.email', 't@example.org'); git('config', 'user.name', 'Sample Tester')
   const ent = (ns: string[]) => ({ photos: ns.map(photo) })
   const put = async (f: string, d: object) => { await mkdir(join(r, f, '..'), { recursive: true }); await writeFile(join(r, f), `${JSON.stringify(d, null, 2)}\n`) }
   await put('content/species/ggg/entity.json', ent(['g1', 'g-dead', 'g2'])); await put('content/gallery/ggg.json', ent(['g-dead'])); await put('content/species/hhh/entity.json', ent(['h1']))
+  await put('content/guides/care/entity.json', ent(['c1', 'g-dead']))
   git('add', '.'); git('commit', '-qm', 'pages')
   // Off its page and album at its first verdict; back on the page by a step, and off it again later.
-  await put('content/species/ggg/entity.json', ent(['g1', 'g2'])); await put('content/gallery/ggg.json', ent([])); git('commit', '-qam', 'off')
+  await put('content/species/ggg/entity.json', ent(['g1', 'g2'])); await put('content/gallery/ggg.json', ent([])); await put('content/guides/care/entity.json', ent(['c1'])); git('commit', '-qam', 'off')
   await put('content/species/ggg/entity.json', ent(['g-dead', 'g1', 'g2'])); git('commit', '-qam', 'back by a step')
   await put('content/species/ggg/entity.json', ent(['g1', 'g2'])); await put('content/species/hhh/entity.json', ent(['h1', 'h2'])); git('commit', '-qam', 'off again')
   const places = await gitHistory(r)(url('g-dead'), new Date().toISOString().slice(0, 10))
   expect(places?.sort((a, b) => a.file.localeCompare(b.file))).toEqual([
-    { file: 'content/gallery/ggg.json', index: 0, photo: photo('g-dead') },
-    { file: 'content/species/ggg/entity.json', index: 0, photo: photo('g-dead') },
+    { file: 'content/gallery/ggg.json', index: 0, photo: photo('g-dead'), times: 1 },
+    { file: 'content/guides/care/entity.json', index: 1, photo: photo('g-dead'), times: 1 },
+    { file: 'content/species/ggg/entity.json', index: 0, photo: photo('g-dead'), times: 2 },
   ])
+  // A removal before its record's day isn't read: records are dated by the day in UTC, and the day before is another's.
+  const d = await mkdtemp(join(tmpdir(), 'aq-put-back-day-'))
+  const at = (when: string, ...a: string[]) => execFileSync('git', a, { cwd: d, encoding: 'utf8', env: { ...process.env, GIT_AUTHOR_DATE: when, GIT_COMMITTER_DATE: when } })
+  at('2026-11-18T12:00:00Z', 'init', '-q', '-b', 'main'); at('2026-11-18T12:00:00Z', 'config', 'user.email', 't@example.org'); at('2026-11-18T12:00:00Z', 'config', 'user.name', 'Sample Tester')
+  const putIn = async (ns: string[]) => { await mkdir(join(d, 'content/species/ddd'), { recursive: true }); await writeFile(join(d, 'content/species/ddd/entity.json'), `${JSON.stringify(ent(ns), null, 2)}\n`) }
+  await putIn(['d1', 'g-dead']); at('2026-11-18T12:00:00Z', 'add', '.'); at('2026-11-18T12:00:00Z', 'commit', '-qm', 'page')
+  await putIn(['d1']); at('2026-11-19T23:30:00Z', 'commit', '-qam', 'off the day before')
+  expect(await gitHistory(d)(url('g-dead'), '2026-11-20')).toEqual([])
+  expect(await gitHistory(d)(url('g-dead'), '2026-11-19')).toEqual([{ file: 'content/species/ddd/entity.json', index: 1, photo: photo('g-dead'), times: 1 }])
   // Not a repository: nothing to read.
   expect(await gitHistory(await mkdtemp(join(tmpdir(), 'aq-put-back-none-')))(url('g-dead'), '2026-11-20')).toBeUndefined()
 })

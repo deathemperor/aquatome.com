@@ -568,7 +568,19 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   // A photo off at its first verdict that the second look cleared, back where it was, before anything reads a page: what
   // the pass does after acts on it as on any photo (last-photo.ts putBackCleared).
-  const put = await putBackCleared(root, o.history ?? gitHistory(root), o.today)
+  // A page its record doesn't name keeps the check's refusal (photo-check.ts refusedOn, with the head picks that stand).
+  const putRefused = await (async () => {
+    const subjects = JSON.parse(await readFile(join(root, 'engine-state', '_photo-subjects.json'), 'utf8').catch(() => '{}')) as Record<string, Record<string, PhotoVerdict>>
+    const picks = JSON.parse(await readFile(join(root, 'engine-state', '_photo-head-picks.json'), 'utf8').catch(() => '{}')) as Record<string, string>
+    const yes = await readPersonYes(root)
+    const standing = Object.entries(picks).filter(([ref, url]) => pickStands(ref, url, subjects, yes))
+    const kindOf = new Map<string, string>()
+    for (const kind of ['species', 'breeds', 'plants']) for (const id of await readdir(join(content, kind)).catch(() => [] as string[])) kindOf.set(id, kind)
+    const pickedOn = new Set(standing.map(([ref, url]) => `${ref.split('/')[1]}\n${url}`))
+    const why = refusedOn(subjects, id => kindOf.get(id), (id, url) => pickedOn.has(`${id}\n${url}`), new Set(standing.map(([, url]) => url)))
+    return (id: string, url: string) => why(id, url) !== undefined
+  })()
+  const put = await putBackCleared(root, o.history ?? gitHistory(root), o.today, putRefused)
   for (const x of put.back) changed(x.slice(0, x.indexOf(': ')).replace(/^content\//, ''))
   report.putBack = put.back
   report.putBackOff = put.off
