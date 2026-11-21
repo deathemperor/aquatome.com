@@ -4,10 +4,11 @@
  * timeout does, with no status, which the key rotation counts as the network's (fishid/keys.ts `classify`); with the
  * call's time spent, the rotation then reports no key answered (17 Nov: two nights' "no key answered" were our own limit).
  *
- * `cut` says the time limit was ours, and when. Ours is our timer, or the SDK's own timeout (the `timeout` we give it,
- * which ends only a call that hasn't begun); any other failure leaves it empty. When: before the answer's text began or
- * while it was being written. Writing is the answer's text, as the Worker counts it: thinking and a tool's input aren't.
- * Each try sets it afresh, so after a rotation it is the last try's.
+ * `cut` says our timer ended the call, and when: before the answer's text began or while it was being written. Only our
+ * timer sets it. The SDK's own timeout is given the same time and starts after ours, so ours always ends the call first;
+ * a timeout the SDK reports before that is the network's (a connection that timed out), and leaves it empty, as any
+ * other failure does (17 Nov, Codex's read). Writing is the answer's text, as the Worker counts it: thinking and a
+ * tool's input aren't. Each try sets it afresh, so after a rotation it is the last try's.
  */
 export type Cut = { by?: 'before writing' | 'while writing' }
 type Stream<M> = AsyncIterable<any> & { finalMessage(): Promise<M> }
@@ -30,7 +31,6 @@ export async function streamOnce<M>(open: (signal: AbortSignal) => Stream<M>, ti
     }
     return await stream.finalMessage()
   } catch (e: any) {
-    if (e?.constructor?.name === 'APIConnectionTimeoutError') cut.by ??= when()
     if (e?.name === 'TimeoutError' || /aborted/i.test(String(e?.message))) throw Object.assign(new Error('Request timed out.'), { status: undefined })
     throw e
   } finally { clearTimeout(timer) }
