@@ -189,9 +189,10 @@ final class LanguageFlowTests: XCTestCase {
   /// A schedule written over another, its undo offered, then Thai picked: the undo is still there after the switch, and
   /// puts the first schedule back. The notice is the only place it's offered, and a switch cleared every notice (Fable,
   /// 21 Nov); one with a button or a warning now stays, in its words. Then the trial colour on, and Tiếng Việt again: its
-  /// notice stays too, as the light is still so.
+  /// notice stays too, as the light is still so; and today's colour until the schedule's off (`-now 08:00`, before its on),
+  /// and Thai again: its notice stays, before its end.
   func testTheUndoOfASchedulesWriteStaysAcrossASwitch() {
-    let app = launch(.v2)
+    let app = launch(.v2, "-now", "08:00")
     app.openTab("Đèn")
     app.buttons["scan"].tap()
     let light = app.buttons["light"].firstMatch
@@ -220,6 +221,18 @@ final class LanguageFlowTests: XCTestCase {
     pick(app, "Tiếng Việt", Self.vi)
     XCTAssertTrue(reached(app, "notice").exists, "the switch took the notice of the trial colour on")
     XCTAssertEqual(element(app, "notice").label, trial, "not the trial colour's notice after the switch")
+
+    tap(app, "try")
+    XCTAssertTrue(waitFor { !element(app, "try").isSelected }, "the trial didn't end")
+    tap(app, "quick-as-scheduled")
+    let confirm2 = app.alerts.buttons["Bật với màu của lịch"]
+    XCTAssertTrue(confirm2.waitForExistence(timeout: 5), "no confirmation of today's colour")
+    confirm2.tap()
+    XCTAssertTrue(waitFor { element(app, "notice").label.contains("19:00") }, "no notice of today's colour until 19:00")
+    let today = element(app, "notice").label
+    pick(app, "ภาษาไทย", Self.th)
+    XCTAssertTrue(reached(app, "notice").exists, "the switch took the notice of today's colour, before its end")
+    XCTAssertEqual(element(app, "notice").label, today, "not today's colour's notice after the switch")
   }
 
   /// The Love Ecology light's colour on air (40 s here, `-lamp-on-air`) as a language is picked: the card after the switch

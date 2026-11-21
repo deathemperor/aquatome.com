@@ -363,7 +363,6 @@ final class HandbookModel {
     // The old language's read lands nowhere (`generation`): stopped, not left to fetch.
     reading?.cancel()
     reading = nil
-    reads += 1
     Task { await load() }
   }
 
