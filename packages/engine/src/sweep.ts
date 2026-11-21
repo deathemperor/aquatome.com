@@ -7,6 +7,7 @@ import { IMAGE_SWITCHES, isNonCommercial, loadAll, mayPublish, vnDate, ownNumber
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
+import { listEmptied } from './emptied-pages'
 import { dealerNotice } from './fit'
 import { droppedName, FISH_NAMES, KIND_PASSAGES, ownWords, type FishName, type KindPassage } from './names'
 import { withLNumber } from './l-numbers'
@@ -176,6 +177,8 @@ export type SweepReport = {
   albumKeptOut: string[]
   /** Aquarium Glaser kept-mark photos past what a page shows, left out of the page's own photos (own-mark.ts keptCapOwn), `kind/id: url`. */
   ownKeptOut: string[]
+  /** Fish pages this run left with no photo, put first for new photos (emptied-pages.ts), `kind/id`. */
+  emptiedListed?: string[]
   /**
    * Non-commercial photos taken off an album or a page (gallery.ts dropNonCommercial), `file: url`: every one with
    * IMAGE_SWITCHES.inatNonCommercial off, all but iNaturalist's album photos with it on.
@@ -1455,6 +1458,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     ;(report.text['emails'] ??= []).push(f.replace(/\.json$/, ''))
   }
   if (emails.emptied.length) report.text['emails-emptied'] = emails.emptied
+  // Last of all: a fish page this run's steps left with no photo goes first for new photos (emptied-pages.ts).
+  report.emptiedListed = await listEmptied(root, o.today ?? vnDate(new Date()))
   return report
 }
 
