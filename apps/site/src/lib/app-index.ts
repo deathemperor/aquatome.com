@@ -493,7 +493,9 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   // No fish or plant led by a non-commercial photo: a shelf features them (the chief of staff's rule, 17 Nov).
   const ncLed = (xs: { id: string; photos: Photo[] }[]) => new Set(xs.filter(x => x.photos.some(p => isNonCommercial(p.licence ?? ''))).map(x => x.id))
   const fishNc = ncLed([...c.species, ...c.breeds]), plantNc = ncLed(c.plants)
-  const pictured = new Map(items.filter(i => i.kind === 'fish' && i.img && !fishNc.has(i.id ?? '')).map(i => [i.id, i.path]))
+  // Nor one whose photo the calendar keeps off cards, as the row before it (`avoid`; #1772's reader, 21 Nov).
+  const offCards = new Set([...c.species, ...c.breeds].filter(x => Object.hasOwn(cur?.calendar.avoid ?? {}, pagePhoto(x.photos)?.url ?? '')).map(x => x.id))
+  const pictured = new Map(items.filter(i => i.kind === 'fish' && i.img && !fishNc.has(i.id ?? '') && !offCards.has(i.id ?? '')).map(i => [i.id, i.path]))
   const popular = [...STAPLE_SPECIES, ...POPULAR.map(slugify)].flatMap(id => pictured.get(id) ?? [])
   const plantAt = new Map(items.filter(i => i.kind === 'plant' && !plantNc.has(i.id ?? '')).map(i => [i.id, i.path]))
   home.browse = {

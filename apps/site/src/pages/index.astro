@@ -45,8 +45,8 @@ const nativeShown = nativeCards(lang, c, featured, 4, avoid)
 // cards above show its best one.
 const pics = pagePictures(c)
 pics.add(HERO.url)
-const featuredPhotos = takeEach(pics, featured, s => tilePhotos(s.photos))
-const nativePhotos = native.place?.parent && nativeShown.length === 4 ? takeEach(pics, nativeShown, s => tilePhotos(s.photos)) : []
+const featuredPhotos = takeEach(pics, featured, s => tilePhotos(s.photos, avoid))
+const nativePhotos = native.place?.parent && nativeShown.length === 4 ? takeEach(pics, nativeShown, s => tilePhotos(s.photos, avoid)) : []
 const groups = groupTiles(lang, c, pics, avoid)
 // The guide and video rows: four each, at most one drawing a cover for want of a picture (takeRow).
 const { items: guides, photos: guidePhotos } = takeRow(pics, leadGuides(c).filter(g => g !== cycle && g !== water), g => guideImages(c, g))
