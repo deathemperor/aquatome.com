@@ -62,6 +62,7 @@ export const FACES_FILE = '_photo-faces.json'
 /**
  * More own photos than this that the face finder hasn't read is a lost or damaged record, not a run's new photos: the
  * site's build fails rather than publish its pages without them. A normal run leaves 0 to 2 (main, 19 to 21 Nov); a
- * pages run whose faces step failed, 128 to 138; a lost record, about 7,100.
+ * pages run whose faces step failed, 128 to 138; a lost record, about 7,100. One failed pages run must not stop every
+ * deploy, a lost record must (the chief of staff's ruling, 21 Nov).
  */
-export const UNREAD_FACES_LIMIT = 50
+export const UNREAD_FACES_LIMIT = 300
