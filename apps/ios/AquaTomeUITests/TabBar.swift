@@ -13,20 +13,23 @@ extension XCUIApplication {
   func endsAboveTheTabBar(_ screen: String, file: StaticString = #filePath, line: UInt = #line) {
     // At the end once two flings in a row leave the lowest words where they were. With one, a kind of kit's page stopped
     // after its second fling (main's run, 21 Nov): 877.7 read after both, under the screen's foot, though its recording shows
-    // the page moving between them; the retry flung five times and passed. The failure names what it read.
-    var low = -1.0, still = 0
-    for _ in 0..<30 {
+    // the page moving between them; the retry flung five times and passed. Where they were: the same words in the same
+    // frame, not only at the same height, which other words can take as the page moves. The failure names what it read
+    // and the flings it took (30 at most).
+    var low = "", still = 0, flings = 0
+    while flings < 30 {
       swipeUp()
+      flings += 1
       _ = XCTWaiter.wait(for: [XCTestExpectation(description: "still")], timeout: 0.8)
-      let now = lowestWords().y
-      still = abs(now - low) < 0.5 ? still + 1 : 0
+      let now = lowestWords().what
+      still = now == low ? still + 1 : 0
       if still == 2 { break }
       low = now
     }
     let bar = tabBars.firstMatch
     XCTAssertTrue(bar.exists, "\(screen): no tab bar", file: file, line: line)
     let lowest = lowestWords()
-    XCTAssertLessThanOrEqual(lowest.y, bar.frame.minY + 0.5, "\(screen): its last words end under the tab bar: \(lowest.what)", file: file, line: line)
+    XCTAssertLessThanOrEqual(lowest.y, bar.frame.minY + 0.5, "\(screen): its last words end under the tab bar after \(flings) flings: \(lowest.what)", file: file, line: line)
   }
 
   /// Whether what scrolls under the title stays out of sight behind it, the clock and the title.

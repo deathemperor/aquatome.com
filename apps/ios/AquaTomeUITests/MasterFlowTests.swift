@@ -306,16 +306,17 @@ final class MasterFlowTests: XCTestCase {
     expect(app, "master-step-Quạt", contains: "Ổ cắm · Tắt")
     tap(app, "master-end-60")
     tap(app, "master-done")
-    // The step's wait starts after this.
+    // The step's wait starts after this, and before the press has landed: the wait for its turn below counts from then.
     let tapped = Date()
     tap(app, "master-start")
+    let pressed = Date()
     app.openAccount()
     app.scrollToAndTap("sign-out")
     XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
     // Past the step's turn, signed out; then the owner again, to read the card.
     let out = Date().timeIntervalSince(tapped)
     XCTAssertLessThan(out, stepWait, "signed out \(Int(out)) s after the press, the step due at \(Int(stepWait)) s: the step went signed in, and this proves nothing")
-    RunLoop.current.run(until: tapped.addingTimeInterval(stepWait + 10))
+    RunLoop.current.run(until: pressed.addingTimeInterval(stepWait + 10))
     app.signInWithStandInApple()
     app.openTab("Đèn")
     expect(app, "master-problems", contains: "Chưa gửi vì bạn đã đăng xuất.", timeout: 40)

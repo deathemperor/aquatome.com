@@ -1016,11 +1016,17 @@ final class LightFlowTests: XCTestCase {
     leaveAndComeBack(app)
     expect(app, "lamp-status", contains: "Gửi “Xanh lá”, \(level) bị ngắt vì bạn rời ứng dụng.")
     XCTAssertEqual(gap(app, "lamp-level", "lamp-trial-off"), under, accuracy: 0.5, "Gửi lại moved the trial row")
+    // Red alone went: green was still held when the app left. The hold let go, and past the gap (8 s from red's end, a
+    // second's look at the gate) green still doesn't go: leaving dropped it, not the hold.
+    let n = level.dropLast()
+    XCTAssertEqual(element(app, "lamp-sent").label, "red@\(n)", "green went before the app left: the flow proves nothing")
     gates.open("lamp-gap")
+    let more = expectation(for: NSPredicate(format: "label != %@", "red@\(n)"), evaluatedWith: element(app, "lamp-sent"))
+    more.isInverted = true
+    XCTAssertEqual(XCTWaiter.wait(for: [more], timeout: 12), .completed, "green went after the app left: \(element(app, "lamp-sent").label)")
     tap(app, "lamp-again")
     expect(app, "lamp-status", contains: "Đã gửi “Xanh lá”, \(level) lúc", timeout: 15)
-    let sent = element(app, "lamp-sent").label
-    XCTAssertTrue(sent.hasPrefix("red@") && sent.hasSuffix("green@\(level.dropLast())"), sent)
+    XCTAssertEqual(element(app, "lamp-sent").label, "red@\(n) green@\(n)")
   }
 
   /// Khác's wheel: a drag on it sends once, when the finger lifts, its colour at the slider's level. VoiceOver reads it as
