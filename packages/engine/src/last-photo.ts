@@ -268,6 +268,13 @@ export function gitHistory(root: string): History {
 }
 
 /**
+ * The subject verdict a second look's clear answers, on the pages its record names, for a photo marked off at its first
+ * verdict: the dead fish (a person is a mark on a verdict, not a verdict of its own). Another fish, nothing of the
+ * subject and "no" are the page's own, and stand (the chief of staff, 21 Nov).
+ */
+export const CLEARED_VERDICT = 'dead' as const
+
+/**
  * The sweep's part, before anything else reads a page: each photo off at its first verdict that the look cleared goes
  * back where it was, once (the chief of staff, 20 Nov 2026). Every page, album and guide that showed it when it was
  * marked off and that it left from then on, at its place there and as its entry was, from the repository's history; one
@@ -278,14 +285,16 @@ export function gitHistory(root: string): History {
  * - a photo on the never-again list for anything else stays off everywhere;
  * - a place it left before its mark keeps that removal, and so does a place it came to only after the mark, and one it
  *   came back to and left again;
- * - a page or album of a page its record doesn't name stays without it where `refused` says the check refused it there
- *   for itself (on its record's pages, the clear sets the check's verdict aside, as the album step does);
+ * - a reason on record always wins (the chief of staff, 21 Nov): a page or album whose subject record refuses the photo
+ *   (`refused`: another fish, nothing of the subject, "no") stays without it, Synodontis robbianus's album being the case.
+ *   On its record's pages the clear sets aside only the verdict it answers, the dead fish (`CLEARED_VERDICT`), as the
+ *   album step does;
  * - a file that's gone (a page renamed or folded) is passed over and reported.
  * The sweep's own rules (the credit rule, the cap, the captions) still act on what returns. Its record takes `back` (the
  * day), so a later removal, on any step's word, stands. Where there's no history to read, it waits, unmarked (`unread`).
  * Returns `file: url` for each place it went back to, `url: why` for each place or photo kept off, and `unread`.
  */
-export async function putBackCleared(root: string, history: History, at = today(), refused: (id: string, url: string) => boolean = () => false): Promise<{ back: string[]; off: string[]; unread: string[] }> {
+export async function putBackCleared(root: string, history: History, at = today(), refused: (id: string, url: string, aside?: typeof CLEARED_VERDICT) => boolean = () => false): Promise<{ back: string[]; off: string[]; unread: string[] }> {
   const out = { back: [] as string[], off: [] as string[], unread: [] as string[] }
   const sl = await readSecondLook(root)
   const l = looks(sl)
@@ -309,7 +318,7 @@ export async function putBackCleared(root: string, history: History, at = today(
       if (p.times > 1) { out.off.push(`${u}: it left ${p.file} again after it came back, and that removal stands`); continue }
       const id = p.file.match(/^content\/(?:species|plants|breeds)\/([^/]+)\/entity\.json$|^content\/gallery\/([^/]+)\.json$/)
       const page = id?.[1] ?? id?.[2]
-      if (page && !named.has(page) && refused(page, u)) { out.off.push(`${u}: the check refused it on ${page}`); continue }
+      if (page && refused(page, u, named.has(page) ? CLEARED_VERDICT : undefined)) { out.off.push(`${u}: the check refused it on ${page}`); continue }
       const file = join(root, p.file)
       const raw = await readFile(file, 'utf8').catch(() => undefined)
       if (raw === undefined) { out.off.push(`${u}: ${p.file} is gone`); continue }

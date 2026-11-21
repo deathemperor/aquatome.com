@@ -13,7 +13,7 @@ import { cantTellOn, OFF, type PhotoVerdict } from './photo-check'
 import { namedOn, namedOrder, SPECIES, type Named } from './photo-named'
 import { keptCap, keptMarks } from './own-mark'
 import { isRejected, unfitCommons } from './photos'
-import { looks, readSecondLook } from './last-photo'
+import { CLEARED_VERDICT, looks, readSecondLook } from './last-photo'
 import { contactSheet } from './video-images'
 import { authorText } from './wiki-author'
 import { WikimediaRefused } from './wikimedia-rest'
@@ -501,12 +501,14 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   const subjects = JSON.parse(await readFile(join(root, 'engine-state/_photo-subjects.json'), 'utf8').catch(() => '{}')) as Record<string, Record<string, PhotoVerdict>>
   const offBy = new Map<string, Record<string, string>>()
   // One a second look cleared isn't off on that verdict on the pages its record names, so their albums may take it again
-  // (last-photo.ts); another page's verdict still keeps it off that page (the chief of staff, 20 Nov 2026). The record
-  // names pages as kind/id, the verdicts by id.
+  // (last-photo.ts); another page's verdict still keeps it off that page (the chief of staff, 20 Nov 2026). For one marked
+  // off at its first verdict, the clear answers only the dead fish there: another fish, nothing of the subject or "no" on
+  // its own page still keeps it out, as in the put-back (CLEARED_VERDICT; the chief of staff, 21 Nov). The record names
+  // pages as kind/id, the verdicts by id.
   const sl = await readSecondLook(root)
   const cleared = looks(sl).cleared
-  const clearedOn = (url: string, id: string) => cleared(url) && sl[url]!.pages.some(p => p.slice(p.indexOf('/') + 1) === id)
-  for (const [url, pages] of Object.entries(subjects)) for (const [id, v] of Object.entries(pages)) if (OFF.has(v.ok) && !clearedOn(url, id)) (offBy.get(id) ?? offBy.set(id, {}).get(id)!)[url] = v.ok
+  const clearedOn = (url: string, id: string, ok: PhotoVerdict['ok']) => cleared(url) && sl[url]!.pages.some(p => p.slice(p.indexOf('/') + 1) === id) && (sl[url]!.off !== true || ok === CLEARED_VERDICT)
+  for (const [url, pages] of Object.entries(subjects)) for (const [id, v] of Object.entries(pages)) if (OFF.has(v.ok) && !clearedOn(url, id, v.ok)) (offBy.get(id) ?? offBy.set(id, {}).get(id)!)[url] = v.ok
   const gbifNames = JSON.parse(await readFile(join(root, 'engine-state/_gbif-names.json'), 'utf8').catch(() => '{}')) as Record<string, { canonicalName: string } | null>
   const looksOn = await albumLooks(root, subjects)
   const on = await namedOn(content)

@@ -157,6 +157,20 @@ test('only the removal its mark made comes back: not a place it left again after
   ])
 })
 
+test("a reason on record always wins: on a page its record names, another fish in the subject record keeps it off that page and its album (Synodontis robbianus's album is the case); the dead fish there is what the clear answers", async () => {
+  const r = await store({ aaa: ['a-fish'], rrr: ['r-fish'] }, { rrr: ['r-album'] })
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [url('a-dead')]: cleared({ pages: ['species/aaa', 'species/rrr'] }) }))
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('a-dead')]: waitingEntry(why) }))
+  const v = (ok: string) => ({ ok, typical: true, note: '', person: false, logo: false })
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [url('a-dead')]: { aaa: v('dead'), rrr: v('other') } }))
+  const left = (file: string): LeftPlace => ({ file, index: 1, photo: photo('a-dead'), times: 1 })
+  const out = await sweep(r, { history: async () => [left('content/species/aaa/entity.json'), left('content/species/rrr/entity.json'), left('content/gallery/rrr.json')], today: '2026-11-21' })
+  expect(await photosOf(r, 'aaa')).toEqual(['a-fish', 'a-dead'])
+  expect(await photosOf(r, 'rrr')).toEqual(['r-fish'])
+  expect(await albumOf(r, 'rrr')).toEqual(['r-album'])
+  expect(out.putBackOff).toEqual([`${url('a-dead')}: the check refused it on rrr`, `${url('a-dead')}: the check refused it on rrr`])
+})
+
 test('a guide it left takes it back too', async () => {
   const r = await clearedStore()
   await mkdir(join(r, 'content/guides/ggg'), { recursive: true })
