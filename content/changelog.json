@@ -2,6 +2,13 @@
   {
     "date": "2026-11-21",
     "kind": "species",
+    "id": "pethia-nigrofasciata",
+    "source": "aquatome",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-21",
+    "kind": "species",
     "id": "satanoperca-jurupari",
     "source": "glaser",
     "action": "updated"
@@ -3489,13 +3496,6 @@
     "date": "2026-11-18",
     "kind": "species",
     "id": "leporacanthicus-joselimai",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-18",
-    "kind": "species",
-    "id": "carinotetraodon-irrubesco",
     "source": "glaser",
     "action": "updated"
   }
