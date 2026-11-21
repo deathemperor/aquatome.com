@@ -1129,6 +1129,11 @@ test('the care facts the lane would cut whole are on hand-fixed text: a temperat
   }
 })
 
+// The cutter's read of 20 Nov 2026 (the chief of staff): the Thai micro crab guide lost the one size it gives for the
+// unfiltered bowl the crabs live in, cut 15 Nov for the maker's voice. Back in the Writing Lead's house form, which
+// answers that source finding, the body guarded, the page open (test/fixtures/crab-bowl-1120.json).
+test("the crab bowl's 13 litres are back on the Thai micro crab guide", () => handFixesHold('crab-bowl-1120.json'))
+
 // Page Recovery, 16 Nov 2026 (the chief of staff): the leak-repair guide sent a keeper here to seven American silicones and
 // super glues by name, none in the market table, so no check of the gate saw them; it was held by hand. The Writing
 // Lead's plain words replace the three lists (what to look for on the tube, a small tube, thin super glue), the body is
