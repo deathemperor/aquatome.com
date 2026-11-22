@@ -11,5 +11,11 @@
       "aquariumcoop": 0.9
     }
   },
-  "bodyFixed": true
+  "bodyFixed": true,
+  "held": {
+    "checks": [
+      "elsewhere"
+    ],
+    "at": "2026-11-22"
+  }
 }
