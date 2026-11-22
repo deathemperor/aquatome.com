@@ -109,8 +109,7 @@
       "sourceUrl": "https://www.inaturalist.org/photos/337742594",
       "caption": "Cá da trơn ripsaw nâu nằm trên nền cát trắng",
       "best": false,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/386048636.webp",
@@ -122,22 +121,7 @@
       "sourceUrl": "https://www.inaturalist.org/photos/386048636",
       "caption": "Cá da trơn ripsaw nằm trên đá trong bể lớn",
       "best": false,
-      "kind": "other",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/741743043.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/741743043-480.webp",
-      "width": 1024,
-      "height": 680,
-      "licence": "CC BY",
-      "author": "Matthew Inabinett",
-      "sourceUrl": "https://www.inaturalist.org/photos/741743043",
-      "caption": "Cá da trơn ripsaw trên nền sỏi nhìn từ phía trước",
-      "best": false,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/025f94ccdcf401c3.webp",
@@ -259,6 +243,19 @@
       "caption": "Cá ripsaw màu nâu vàng bơi nghiêng trong bể",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/741743043.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/741743043-480.webp",
+      "width": 1024,
+      "height": 680,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/741743043",
+      "caption": "Cá da trơn ripsaw trên nền sỏi nhìn từ phía trước",
+      "best": false,
+      "kind": "other",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/c9498c9c51ce7dde.webp",

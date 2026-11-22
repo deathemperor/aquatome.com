@@ -106,6 +106,19 @@
       "setup": true
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/100633405.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/100633405-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Bennett Grappone",
+      "sourceUrl": "https://www.inaturalist.org/photos/100633405",
+      "caption": "Cá fathead minnow bơi trong hộp nhựa trong suốt",
+      "best": true,
+      "kind": "other",
+      "setup": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/84623937.webp",
       "thumb": "https://media.aquatome.com/inaturalist/84623937-480.webp",
       "width": 1024,
@@ -143,34 +156,6 @@
       "best": false,
       "kind": "other",
       "setup": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/95460143.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/95460143-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Louis Imbeau",
-      "sourceUrl": "https://www.inaturalist.org/photos/95460143",
-      "caption": "Cá fathead minnow bơi trên nền cát ở vùng nước nông",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/100633405.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/100633405-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Bennett Grappone",
-      "sourceUrl": "https://www.inaturalist.org/photos/100633405",
-      "caption": "Cá fathead minnow bơi trong hộp nhựa trong suốt",
-      "best": true,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/8476479.webp",
@@ -262,6 +247,19 @@
       "best": true,
       "kind": "group",
       "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/95460143.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/95460143-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Louis Imbeau",
+      "sourceUrl": "https://www.inaturalist.org/photos/95460143",
+      "caption": "Cá fathead minnow bơi trên nền cát ở vùng nước nông",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/30607881.webp",

@@ -63,7 +63,12 @@
       "author": "Ganjar Cahyadi",
       "sourceUrl": "https://www.inaturalist.org/photos/69546364",
       "caption": "Cá lóc Bangka bên cạnh thước đo trong bể chụp ảnh",
-      "setup": true
+      "setup": true,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/69546364-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

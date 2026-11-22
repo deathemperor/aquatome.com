@@ -106,20 +106,6 @@
       "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/533511347.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/533511347-480.webp",
-      "width": 1024,
-      "height": 687,
-      "licence": "CC BY-SA",
-      "author": "Rafael Rosa",
-      "sourceUrl": "https://www.inaturalist.org/photos/533511347",
-      "caption": "Ốc Strombus alatus sống dưới nước, thò mắt ra khỏi vỏ",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/353734547.webp",
       "thumb": "https://media.aquatome.com/inaturalist/353734547-480.webp",
       "width": 1024,
@@ -232,6 +218,19 @@
       "author": "Kristály Cravens-Liszak",
       "sourceUrl": "https://www.inaturalist.org/photos/341394695",
       "caption": "Ốc Strombus alatus còn sống trên nền cát ở vùng nước nông",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/533511347.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/533511347-480.webp",
+      "width": 1024,
+      "height": 687,
+      "licence": "CC BY-SA",
+      "author": "Rafael Rosa",
+      "sourceUrl": "https://www.inaturalist.org/photos/533511347",
+      "caption": "Ốc Strombus alatus sống dưới nước, thò mắt ra khỏi vỏ",
       "best": true,
       "kind": "habitat",
       "setup": false

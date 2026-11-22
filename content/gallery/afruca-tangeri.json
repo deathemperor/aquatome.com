@@ -93,6 +93,19 @@
       "setup": false
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/125446576.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/125446576-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Pedo Reis",
+      "sourceUrl": "https://www.inaturalist.org/photos/125446576",
+      "caption": "Cua chân cam ở cửa hang trên nền bùn",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/60318381.webp",
       "thumb": "https://media.aquatome.com/inaturalist/60318381-480.webp",
       "width": 1024,
@@ -119,34 +132,6 @@
       "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/83054196.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/83054196-480.webp",
-      "width": 1024,
-      "height": 737,
-      "licence": "CC BY-SA",
-      "author": "João Pedro Gato",
-      "sourceUrl": "https://www.inaturalist.org/photos/83054196",
-      "caption": "Ba con cua đàn trên bãi bùn ven biển",
-      "best": false,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/125446576.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/125446576-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "Pedo Reis",
-      "sourceUrl": "https://www.inaturalist.org/photos/125446576",
-      "caption": "Cua chân cam ở cửa hang trên nền bùn",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/22002121.webp",
       "thumb": "https://media.aquatome.com/inaturalist/22002121-480.webp",
       "width": 576,
@@ -170,6 +155,19 @@
       "caption": "Cua đực càng trắng bên vũng nước trên bãi bùn",
       "best": true,
       "kind": "male",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/83054196.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/83054196-480.webp",
+      "width": 1024,
+      "height": 737,
+      "licence": "CC BY-SA",
+      "author": "João Pedro Gato",
+      "sourceUrl": "https://www.inaturalist.org/photos/83054196",
+      "caption": "Ba con cua đàn trên bãi bùn ven biển",
+      "best": false,
+      "kind": "group",
       "setup": false
     },
     {

@@ -12,31 +12,31 @@
  "langs": {
   "vi": {
    "pages": 5171,
-   "read": 4524,
-   "wrong": 1640,
-   "pct": 36,
-   "held": 637
+   "read": 4758,
+   "wrong": 1814,
+   "pct": 37,
+   "held": 643
   },
   "id": {
    "pages": 1708,
-   "read": 1569,
-   "wrong": 430,
-   "pct": 27,
-   "held": 174
+   "read": 1580,
+   "wrong": 438,
+   "pct": 28,
+   "held": 175
   },
   "th": {
    "pages": 1706,
-   "read": 1559,
-   "wrong": 404,
+   "read": 1570,
+   "wrong": 413,
    "pct": 26,
-   "held": 159
+   "held": 160
   },
   "ms": {
    "pages": 582,
-   "read": 540,
-   "wrong": 147,
+   "read": 544,
+   "wrong": 148,
    "pct": 27,
-   "held": 101
+   "held": 102
   }
  },
  "labels": {
@@ -82,11 +82,24 @@
    ]
   },
   {
-   "lang": "id",
-   "path": "/id/ikan/clown-knife/",
-   "url": "https://aquatome.com/id/ikan/clown-knife/",
-   "title": "Clown Knife",
-   "wrong": []
+   "lang": "vi",
+   "path": "/vi/huong-dan/set-be-loc-tran-nuoi-ca-than-tien-ca-dia-kinh-nghiem-sau-4/",
+   "url": "https://aquatome.com/huong-dan/set-be-loc-tran-nuoi-ca-than-tien-ca-dia-kinh-nghiem-sau-4/",
+   "title": "Set bể lọc tràn dưới nuôi cá thần tiên, cá đĩa với cây dễ tính",
+   "wrong": [
+    {
+     "check": "source",
+     "quote": "Sau 4 tháng chạy, bể dưới đây có cá khỏe, nước ổn, và người chủ chăm cũng không vất vả."
+    },
+    {
+     "check": "source",
+     "quote": "Bể ở đây thì dùng lọc tràn đặt dưới tủ."
+    },
+    {
+     "check": "source",
+     "quote": "Bể làm gần Tết nên mua được bộ lũa đẹp, đặt vào dùng được ngay là khá khó."
+    }
+   ]
   }
  ]
 }

@@ -1314,9 +1314,8 @@
    "date": "2026-12-01",
    "fish": "species/polypterus-senegalus",
    "img": "https://media.aquatome.com/commons/d7ac46635fc173c6-large.webp",
-   "guide": "guides/2hraquarist-blogs-algae-control-tackle-algae-by-doing-nothing",
-   "guideImg": "https://media.aquatome.com/2hraquarist/e97391145c58b6d6.webp",
-   "why": "Fish: Cá khủng long Senegal, on this week's list. Guide: Xử lý tảo bằng cách... không làm gì cả?, the best left with a big enough photo.",
+   "guide": "guides/2hraquarist-blogs-beginners-planted-tank-101-10-best-low-tech-plants",
+   "why": "Guide: 10 loại cây thủy sinh low-tech tốt nhất, the best left with a big enough photo.",
    "fixed": true
   },
   {
@@ -1332,9 +1331,8 @@
    "date": "2026-12-03",
    "fish": "species/synodontis-petricola",
    "img": "https://media.aquatome.com/commons/0729c51cc067b013-large.webp",
-   "guide": "guides/2hraquarist-blogs-algae-control-this-wouldnt-work",
-   "guideImg": "https://media.aquatome.com/2hraquarist/e97391145c58b6d6.webp",
-   "why": "Fish: Cá nheo Synodontis petricola, on this week's list. Guide: Khi bể “đơn giản” lại là con đường khó, the best left with a big enough photo."
+   "guide": "guides/2hraquarist-blogs-beginners-planted-tank-101-101-growth-plllars",
+   "why": "Guide: 3 trụ cột giúp cây thủy sinh phát triển: ánh sáng, dinh dưỡng và CO2, the best left with a big enough photo."
   },
   {
    "date": "2026-12-04",
@@ -1348,15 +1346,16 @@
    "date": "2026-12-05",
    "fish": "species/acnodon-normani",
    "img": "https://media.aquatome.com/commons/38d8e400e9421e9a-large.webp",
-   "guide": "guides/aquatome-ca-di-phan-trang-benh-trung-roi-hexamita-ca-dia-nguyen-nhan-cach-chua",
-   "why": "Fish: Cá pacu cừu, the best left with a big enough photo. Guide: the discus guide, back now its page opens on a discus, in place of The Spruce Pets' catfish guide, whose photo credits wait for a read (the chief of staff, 15 Nov)."
+   "guide": "guides/sprucepets-killifishes-or-egg-laying-tooth-carps-4107831",
+   "why": "Guide: Tất cả những gì cần biết về cá killifish, the best left with a big enough photo.",
+   "guideImg": "https://media.aquatome.com/sprucepets/ae70d4d37175c5ec.webp"
   },
   {
    "date": "2026-12-06",
    "fish": "species/pterophyllum-scalare",
    "img": "https://media.aquatome.com/commons/45fccde9d99b3154-large.webp",
-   "guide": "guides/youtube-ohUzvlrSQDs",
-   "why": "Fish: Cá ông tiên, well known. Guide: Set bể thủy sinh chủ đề châu Phi cho cichlid bướm và cá Congo, on this week's list, the week's video guide."
+   "guide": "guides/youtube-_7ktT3cTWUk",
+   "why": "Guide: Set bể thủy sinh mini không lọc: nền đất vườn phủ cát, ít đá, nhiều cây, the week's video guide."
   },
   {
    "date": "2026-12-07",
@@ -1405,6 +1404,14 @@
    "guide": "guides/2hraquarist-blogs-algae-control-how-to-control-cynobacteria",
    "guideImg": "https://media.aquatome.com/2hraquarist/df5fdbb89b7067de.webp",
    "why": "Fish: Cá rainbow cichlid, on this week's list, easy to keep. Guide: Cách kiểm soát vi khuẩn lam (tảo lam) trong bể thủy sinh, the best left with a big enough photo."
+  },
+  {
+   "date": "2026-12-13",
+   "fish": "species/jordanella-floridae",
+   "img": "https://media.aquatome.com/commons/37af2da26ced4e00-large.webp",
+   "guide": "guides/aquariumbreeder-crayfish-external-anatomy",
+   "guideImg": "https://media.aquatome.com/aquariumbreeder/0f4b7c62558af8a8.webp",
+   "why": "Fish: Cá flagfish Florida, on this week's list, easy to keep. Guide: Cấu tạo ngoài của tôm hùm đất (crayfish), the best left with a big enough photo."
   }
  ],
  "loops": {
@@ -3086,6 +3093,7 @@
   "https://media.aquatome.com/inaturalist/118219523.webp": "engine: a non-commercial photo",
   "https://media.aquatome.com/inaturalist/118752790-large.webp": "engine: a non-commercial photo",
   "https://media.aquatome.com/inaturalist/118752790.webp": "engine: a non-commercial photo",
+  "https://media.aquatome.com/inaturalist/1531961.webp": "engine: a non-commercial photo",
   "https://media.aquatome.com/inaturalist/170445669-large.webp": "engine: a non-commercial photo",
   "https://media.aquatome.com/inaturalist/170445669.webp": "engine: a non-commercial photo",
   "https://media.aquatome.com/inaturalist/172923166-large.webp": "engine: a non-commercial photo",
@@ -3107,6 +3115,8 @@
   "https://media.aquatome.com/inaturalist/31272383.webp": "engine: a non-commercial photo",
   "https://media.aquatome.com/inaturalist/325057818-large.webp": "engine: a non-commercial photo",
   "https://media.aquatome.com/inaturalist/325057818.webp": "engine: a non-commercial photo",
+  "https://media.aquatome.com/inaturalist/337982833-large.webp": "engine: a non-commercial photo",
+  "https://media.aquatome.com/inaturalist/337982833.webp": "engine: a non-commercial photo",
   "https://media.aquatome.com/inaturalist/341488623-large.webp": "engine: a non-commercial photo",
   "https://media.aquatome.com/inaturalist/341488623.webp": "engine: a non-commercial photo",
   "https://media.aquatome.com/inaturalist/350170727-large.webp": "engine: a non-commercial photo",
@@ -3153,6 +3163,10 @@
   "https://media.aquatome.com/inaturalist/664172351.webp": "engine: a non-commercial photo",
   "https://media.aquatome.com/inaturalist/667562742-large.webp": "engine: a non-commercial photo",
   "https://media.aquatome.com/inaturalist/667562742.webp": "engine: a non-commercial photo",
+  "https://media.aquatome.com/inaturalist/69546364-large.webp": "engine: a non-commercial photo",
+  "https://media.aquatome.com/inaturalist/69546364.webp": "engine: a non-commercial photo",
+  "https://media.aquatome.com/inaturalist/70817766-large.webp": "engine: a non-commercial photo",
+  "https://media.aquatome.com/inaturalist/70817766.webp": "engine: a non-commercial photo",
   "https://media.aquatome.com/inaturalist/722423310-large.webp": "engine: a non-commercial photo",
   "https://media.aquatome.com/inaturalist/722423310.webp": "engine: a non-commercial photo",
   "https://media.aquatome.com/inaturalist/736535201-large.webp": "engine: a non-commercial photo",
@@ -3658,14 +3672,10 @@
   "https://media.aquatome.com/commons/c61a7aecabf37bf2-large.webp": "frontosa: the card cuts its mouth at the left edge (looked at on the card, 2026-11-11)"
  },
  "off": {
-  "species/boraras-merah": "reader fit: source, elsewhere",
   "species/channa-gachua": "reader fit: source",
-  "species/danio-erythromicron": "reader fit: elsewhere",
-  "species/hemigrammus-erythrozonus": "reader fit: elsewhere",
   "species/micropercops-swinhonis": "reader fit: source",
   "species/paracheirodon-innesi": "reader fit: elsewhere",
-  "species/phallichthys-tico": "reader fit: source",
-  "species/poecilia-reticulata": "reader fit: elsewhere, source"
+  "species/phallichthys-tico": "reader fit: source"
  },
  "searches": {
   "vi": [

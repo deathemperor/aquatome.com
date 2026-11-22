@@ -64,6 +64,19 @@
       "setup": false
     },
     {
+      "url": "https://media.aquatome.com/gbif/2834991976-96f7dc1219f795ad.webp",
+      "thumb": "https://media.aquatome.com/gbif/2834991976-96f7dc1219f795ad-480.webp",
+      "width": 1000,
+      "height": 668,
+      "licence": "CC BY-SA 4.0",
+      "author": "Arthur Baart",
+      "sourceUrl": "https://www.gbif.org/occurrence/2834991976",
+      "caption": "Cá bitterling châu Âu trong hộp ảnh nhỏ, nhìn nghiêng rõ nét",
+      "best": true,
+      "kind": "other",
+      "setup": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/8017c03843b54067.webp",
       "thumb": "https://media.aquatome.com/commons/8017c03843b54067-480.webp",
       "width": 1200,
@@ -89,16 +102,16 @@
       "setup": false
     },
     {
-      "url": "https://media.aquatome.com/gbif/4956411873-aaae49463447b139.webp",
-      "thumb": "https://media.aquatome.com/gbif/4956411873-aaae49463447b139-480.webp",
-      "width": 750,
-      "height": 1000,
-      "licence": "CC0 1.0",
-      "author": "Jan van der Broek",
-      "sourceUrl": "https://www.gbif.org/occurrence/4956411873",
-      "caption": "Hai cá bitterling trong bể chụp nhỏ bên thước đo",
-      "best": false,
-      "kind": "group",
+      "url": "https://media.aquatome.com/gbif/3729958987-e1f379d9f16b6600.webp",
+      "thumb": "https://media.aquatome.com/gbif/3729958987-e1f379d9f16b6600-480.webp",
+      "width": 1000,
+      "height": 750,
+      "licence": "CC BY-SA 4.0",
+      "author": "Robert Top",
+      "sourceUrl": "https://www.gbif.org/occurrence/3729958987",
+      "caption": "Cá bitterling châu Âu trong hộp trong suốt, thân ánh hồng",
+      "best": true,
+      "kind": "other",
       "setup": true
     },
     {
@@ -112,36 +125,20 @@
       "caption": "Cá bitterling đực màu sắc rực rỡ bơi cùng các cá khác",
       "best": true,
       "kind": "male",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
-      "url": "https://media.aquatome.com/gbif/2834991976-96f7dc1219f795ad.webp",
-      "thumb": "https://media.aquatome.com/gbif/2834991976-96f7dc1219f795ad-480.webp",
-      "width": 1000,
-      "height": 668,
-      "licence": "CC BY-SA 4.0",
-      "author": "Arthur Baart",
-      "sourceUrl": "https://www.gbif.org/occurrence/2834991976",
-      "caption": "Cá bitterling châu Âu trong hộp ảnh nhỏ, nhìn nghiêng rõ nét",
-      "best": true,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/gbif/3729958987-e1f379d9f16b6600.webp",
-      "thumb": "https://media.aquatome.com/gbif/3729958987-e1f379d9f16b6600-480.webp",
-      "width": 1000,
-      "height": 750,
-      "licence": "CC BY-SA 4.0",
-      "author": "Robert Top",
-      "sourceUrl": "https://www.gbif.org/occurrence/3729958987",
-      "caption": "Cá bitterling châu Âu trong hộp trong suốt, thân ánh hồng",
-      "best": true,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "url": "https://media.aquatome.com/gbif/4956411873-aaae49463447b139.webp",
+      "thumb": "https://media.aquatome.com/gbif/4956411873-aaae49463447b139-480.webp",
+      "width": 750,
+      "height": 1000,
+      "licence": "CC0 1.0",
+      "author": "Jan van der Broek",
+      "sourceUrl": "https://www.gbif.org/occurrence/4956411873",
+      "caption": "Hai cá bitterling trong bể chụp nhỏ bên thước đo",
+      "best": false,
+      "kind": "group",
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/gbif/4460185587-d7440740ec66e8dd.webp",
@@ -154,8 +151,7 @@
       "caption": "Cá bitterling châu Âu trong hộp trong suốt chụp ngoài trời",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/688711707.webp",

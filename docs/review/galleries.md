@@ -10,7 +10,7 @@ Written by `pnpm engine gallery` (2026-11-22). Targets: packages/engine/src/gall
 | covered | 30 | 905 | 32 | 9 | 27 | 919 |
 | rest | 20 | 1953 | 81 | 0 | 120 | 1914 |
 
-## Short of target: every source read (809)
+## Short of target: every source read (810)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -126,6 +126,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/trachydoras-steindachneri | rest | 0 | 20 |
 | species/zaireichthys-kunenensis | rest | 0 | 20 |
 | species/astroblepus-rosei | rest | 0 | 20 |
+| species/auchenipterichthys-longimanus | rest | 0 | 20 |
 | species/paracheirodon-innesi | staple | 21 | 100 |
 | species/paracheirodon-axelrodi | staple | 29 | 100 |
 | species/trigonostigma-heteromorpha | staple | 26 | 100 |

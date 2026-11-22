@@ -65,28 +65,14 @@
       "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/287971421.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/287971421-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/383581654.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/383581654-480.webp",
       "width": 768,
       "height": 1024,
       "licence": "CC BY",
-      "author": "Clive Freedman",
-      "sourceUrl": "https://www.inaturalist.org/photos/287971421",
-      "caption": "Cá tench bơi gần mặt nước xanh trong hồ",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/287971493.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/287971493-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Clive Freedman",
-      "sourceUrl": "https://www.inaturalist.org/photos/287971493",
-      "caption": "Cá tench bơi trong nước xanh ngoài tự nhiên",
+      "author": "Stefan Metz",
+      "sourceUrl": "https://www.inaturalist.org/photos/383581654",
+      "caption": "Cá tench bơi dưới nước trong môi trường tự nhiên",
       "best": true,
       "kind": "habitat",
       "setup": false,
@@ -144,6 +130,19 @@
       "kind": "group"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/287971421.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/287971421-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Clive Freedman",
+      "sourceUrl": "https://www.inaturalist.org/photos/287971421",
+      "caption": "Cá tench bơi gần mặt nước xanh trong hồ",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/commons/ab9d39d07a827e53.webp",
       "thumb": "https://media.aquatome.com/commons/ab9d39d07a827e53-480.webp",
       "width": 1200,
@@ -167,6 +166,19 @@
       "best": true,
       "kind": "pair",
       "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/287971493.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/287971493-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Clive Freedman",
+      "sourceUrl": "https://www.inaturalist.org/photos/287971493",
+      "caption": "Cá tench bơi trong nước xanh ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/9e3fc1d7cd9e661e.webp",
@@ -194,14 +206,14 @@
       "setup": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/287900123.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/287900123-480.webp",
-      "width": 776,
-      "height": 1024,
+      "url": "https://media.aquatome.com/inaturalist/320403541.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/320403541-480.webp",
+      "width": 1024,
+      "height": 624,
       "licence": "CC BY",
-      "author": "Fethullah ÖZTÜRK",
-      "sourceUrl": "https://www.inaturalist.org/photos/287900123",
-      "caption": "Cá tench vàng nâu bơi trong xô nhựa",
+      "author": "Yvan Papa",
+      "sourceUrl": "https://www.inaturalist.org/photos/320403541",
+      "caption": "Cá tench sống trong hộp nhựa trong suốt, nhìn nghiêng",
       "best": true,
       "kind": "other",
       "setup": true,
@@ -257,7 +269,7 @@
       "kind": "juvenile"
     }
   ],
-  "seen": 145,
+  "seen": 165,
   "updatedAt": "2026-11-22",
   "builtAt": "2026-11-22"
 }

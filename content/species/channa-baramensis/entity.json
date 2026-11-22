@@ -185,7 +185,12 @@
       "author": "Vojtěch Tobias Blažek",
       "sourceUrl": "https://www.inaturalist.org/photos/337982833",
       "caption": "Cá lóc Baram nhìn từ trên xuống giữa lá khô trong suối",
-      "setup": false
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/337982833-large.webp",
+        "width": 1200,
+        "height": 1800
+      }
     }
   ],
   "videos": [],

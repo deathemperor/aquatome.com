@@ -279,7 +279,12 @@
       "author": "Francisco González Táboas",
       "sourceUrl": "https://www.inaturalist.org/photos/70817766",
       "caption": "Cá tetra cướp cầu vồng bơi trong bể ảnh nhỏ ngoài trời",
-      "setup": true
+      "setup": true,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/70817766-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [
