@@ -14,7 +14,7 @@ import { atCeiling } from './at-ceiling'
 
 const photo = (url: string, caption: string) => ({ url, width: 1200, height: 800, licence: 'CC BY 4.0', author: 'A', sourceUrl: 'https://commons.wikimedia.org/x', caption })
 const species = (id: string, sci: string, o: { dataCard?: object; photos?: object[] } = {}) => ({
-  id, scientificName: sci, order: 'O', family: 'F', genus: sci.split(' ')[0], group: 'g', places: [], dataCard: o.dataCard ?? {},
+  id, scientificName: sci, order: 'O', family: 'F', genus: sci.split(' ')[0], group: 'other', places: [], dataCard: o.dataCard ?? {},
   sections: [{ key: 'distribution', source: 'seriouslyfish', sourceUrl: 'https://www.seriouslyfish.com/x', html: '<p>Rivers.</p>' }, { key: 'habitat', source: 'seriouslyfish', sourceUrl: 'https://www.seriouslyfish.com/x', html: '<p>Rivers.</p>' }],
   photos: o.photos ?? [], videos: [], productSlots: [], updatedAt: '2026-10-01',
 })

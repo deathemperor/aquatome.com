@@ -9,7 +9,7 @@ import { englishOf } from '../src/english'
 import { tilapiaUnnamed } from '../src/kind-words'
 import { droppedName, FISH_NAMES, KIND_PASSAGES, oldNames, renamings } from '../src/names'
 import { altKey, NOT_ITS } from '../src/alt-names'
-import { GROUP_ORDERS, MISMATCHED } from '../src/gbif'
+import { GROUP_ORDERS, GROUPS, MISMATCHED } from '../src/gbif'
 import { productOf } from '../src/fit'
 import { loadPages } from '../src/pages'
 import { ENGLISH_PLACE_WORD, kindTwice } from '../src/place-names'
@@ -980,6 +980,20 @@ test('every species page\'s order fits its group', () => {
     return GROUP_ORDERS[e.group] !== undefined && !GROUP_ORDERS[e.group]!.includes(e.order)
   })
   expect(off.sort()).toEqual([])
+})
+
+// The chief of staff, 22 Nov 2026: 14 pages went out under groups the model wrote outside its list ("characins",
+// "characoids", "cyprinid"), which the site has no words for: it printed "characins: 8 loài, cách nuôi" as a page's
+// title, and a Thai page's label went to the UI translator as Vietnamese, which held a rewrite run. Every page's group is
+// one the engine names (gbif.ts GROUPS, each with a name in every served language: apps/site/test/labels.test.ts), so a
+// run whose page has another fails here before it publishes. The sweep moves such a page by its order (pageGroup).
+test('every species page is in a group the site names', () => {
+  const root = fileURLToPath(new URL('../../../content/species', import.meta.url))
+  const unnamed = readdirSync(root).flatMap(id => {
+    const { group } = JSON.parse(readFileSync(join(root, id, 'entity.json'), 'utf8')) as { group: string }
+    return GROUPS.includes(group) ? [] : [`${id}: ${group}`]
+  })
+  expect(unnamed.sort()).toEqual([])
 })
 
 // The chief of staff, 2026-11-13: the skunk cory's text under a tube worm's name ends as one page with its fish's, the

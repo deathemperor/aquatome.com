@@ -64,22 +64,35 @@ const GROUP_CLASSES: Record<string, { fish: boolean; classes: string[] }> = {
  */
 export const GROUP_ORDERS: Record<string, string[]> = {
   catfish: ['Siluriformes'],
-  tetras: ['Characiformes'], characins: ['Characiformes'], characoids: ['Characiformes'],
-  barbs: ['Cypriniformes'], danios: ['Cypriniformes'], rasboras: ['Cypriniformes'], cyprinid: ['Cypriniformes'],
+  tetras: ['Characiformes'],
+  barbs: ['Cypriniformes'], danios: ['Cypriniformes'], rasboras: ['Cypriniformes'],
   loaches: ['Cypriniformes'],
   cichlids: ['Perciformes', 'Cichliformes'], labyrinth: ['Perciformes', 'Anabantiformes'], gobies: ['Perciformes', 'Gobiiformes'],
   killifish: ['Cyprinodontiformes', 'Beloniformes'], livebearers: ['Cyprinodontiformes', 'Beloniformes'],
   rainbowfish: ['Atheriniformes'], shrimp: ['Decapoda'],
 }
 /**
+ * The groups a page can be in, each one the site names in every language it serves (apps/site/src/lib/format.ts
+ * GROUP_LABELS), and the list the model is given (prompts/process.md). Until 22 Nov 2026 the table above also held
+ * "characins", "characoids" and "cyprinid", names a model wrote outside that list, and 14 pages went out under them: the
+ * site printed "characins" as a group's title, and a Thai page's label went to the UI translator as if it were Vietnamese.
+ */
+export const GROUPS: readonly string[] = [...new Set([...Object.keys(GROUP_ORDERS), ...Object.keys(GROUP_CLASSES)])].sort()
+/**
  * A page's group as its order allows (the chief of staff, 14 Nov 2026): the group given when its orders include the page's,
  * else the one group that has that order, else "other", which is for an order no single group has. An order shared by
  * several groups (Cypriniformes: barbs, danios, rasboras, loaches) can't place a fish by itself, and a guess would list a
- * loach with the barbs. An order GBIF doesn't give can't be judged, so the group stands.
+ * loach with the barbs. An order GBIF doesn't give can't be judged, so the group stands. A group not on the list (GROUPS)
+ * is placed by its order the same way, and with no order goes to "other": it never stands.
  */
 export function pageGroup(group: string, order: string | undefined): string {
+  if (!GROUPS.includes(group)) return order ? orderGroup(order) : 'other'
   const orders = GROUP_ORDERS[group]
   if (!order || !orders || orders.includes(order)) return group
+  return orderGroup(order)
+}
+/** The one group that holds an order, else "other". */
+function orderGroup(order: string): string {
   const holders = Object.keys(GROUP_ORDERS).filter(g => GROUP_ORDERS[g]!.includes(order))
   return holders.length === 1 ? holders[0]! : 'other'
 }

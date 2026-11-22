@@ -43,6 +43,12 @@ export const GROUP_LABELS: Record<string, string> = {
   barbs: 'Cá barb', killifish: 'Cá killi', gobies: 'Cá bống', livebearers: 'Cá đẻ con', rainbowfish: 'Cá cầu vồng', snails: 'Ốc', other: 'Loài khác',
 }
 export const groupLabel = (g: string) => GROUP_LABELS[g] ?? g
+/**
+ * Group names a model wrote outside its list, whose pages went out from 14 to 22 Nov 2026 under the raw name ("characins:
+ * 8 loài, cách nuôi"): each to the group the engine placed its pages in by their order (gbif.ts pageGroup), so the old
+ * group addresses forward there (redirects.json).
+ */
+export const FORMER_GROUPS: Record<string, string> = { characins: 'tetras', characoids: 'tetras', cyprinid: 'other' }
 
 export const PLANT_LABELS = {
   difficulty: { 1: 'Dễ', 2: 'Trung bình', 3: 'Khó' } as Record<number, string>,

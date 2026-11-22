@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { gbifMatch, pageGroup, type Taxon } from '../src/gbif'
+import { gbifMatch, GROUPS, pageGroup, type Taxon } from '../src/gbif'
 
 const fx = (n: string) => JSON.parse(readFileSync(new URL(`./fixtures/gbif/${n}.json`, import.meta.url), 'utf8'))
 
@@ -186,9 +186,21 @@ test("a page's group as its order allows: kept where it fits, the order's one gr
   expect(pageGroup('loaches', 'Synbranchiformes')).toBe('other') // no group has the spiny eels' order
   expect(pageGroup('loaches', 'Siluriformes')).toBe('catfish') // one group has it
   expect(pageGroup('tetras', 'Atheriniformes')).toBe('rainbowfish')
-  expect(pageGroup('catfish', 'Cypriniformes')).toBe('other') // five groups share it: a guess would list a loach with the barbs
+  expect(pageGroup('catfish', 'Cypriniformes')).toBe('other') // four groups share it: a guess would list a loach with the barbs
   expect(pageGroup('other', 'Characiformes')).toBe('other') // "other" and "snails" aren't held to orders
   expect(pageGroup('snails', 'Architaenioglossa')).toBe('snails')
   expect(pageGroup('loaches', '')).toBe('loaches') // no order from GBIF: nothing to judge by
   expect(pageGroup('loaches', undefined)).toBe('loaches')
+})
+
+// 22 Nov 2026: a model wrote groups outside its list ("characins", "characoids", "cyprinid") and 14 pages went out under
+// names the site has no words for. A group not on the list never stands: its order places it, as a misfiled one's does.
+test("a group the engine doesn't name is placed by its order, and the engine's groups are the model's list", () => {
+  expect(pageGroup('characins', 'Characiformes')).toBe('tetras') // the order's one group
+  expect(pageGroup('characoids', 'Characiformes')).toBe('tetras')
+  expect(pageGroup('cyprinid', 'Cypriniformes')).toBe('other') // four groups share the order
+  expect(pageGroup('cyprinid', undefined)).toBe('other') // no order to place it by: never left unnamed
+  expect(pageGroup('cyprinid', '')).toBe('other')
+  const prompt = readFileSync(new URL('../src/prompts/process.md', import.meta.url), 'utf8')
+  expect([...GROUPS]).toEqual(prompt.match(/group: one of ([a-z, ]+)\./)![1]!.split(/,\s*/).sort())
 })
