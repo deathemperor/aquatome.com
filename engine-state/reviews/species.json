@@ -2066,6 +2066,45 @@
       "kept": false
     }
   ],
+  "vi/species/neocaridina-davidi#R2WBeiemNjY": [
+    {
+      "at": "2026-11-22T02:42:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.4,
+      "notes": [
+        "[distribution] \"Một người nuôi loài này lâu năm cho rằng...\" misattributes a video fact (cherry shrimp originate from Taiwan) to a keeper's opinion; the video states it as fact. Also the page says China and Taiwan, and the video's difference (Taiwan only, not China) is not stated plainly.",
+        "[behaviour] \"có thể thả chung với cá nhỏ hiền như cá micro rasbora\": the page already has rasbora, snails and other shrimp as tank mates, so this repeats the page.",
+        "[behaviour] \"chạch rắn kuhli\": the video says \"coulee loach\" (likely kuhli); this is an unverified identification.",
+        "[behaviour] The video's neon tetras are dropped, while the page already mentions neon. The tank mates section largely duplicates the page.",
+        "[reproduction] \"Tép đủ lớn để đẻ khi được khoảng 4–6 tháng tuổi\" is fine, but \"Tép cái khỏe thì hầu như lúc nào cũng đang ôm trứng\" is the video's claim stated as a rule; the video says \"pregnant most of the time\".",
+        "[reproduction] \"Lai lẫn với nhau thì lứa sau sẽ quay về màu tép hoang\" is general content, and the page already covers wild-type colour (translucent with brown spots) in [distribution]. The new text repeats it.",
+        "[notes] The heading \"notes\" for colour description is odd, and the section is not a proper page heading. \"Phần trắng thật ra là phần thân trong suốt\" is fine, but \"Tỉ lệ đỏ mỗi con một khác\" adds nothing new.",
+        "[behaviour] \"Nếu tép bị đe dọa... thì chúng có thể trở nên nhát\" omits the video's advice to add decor (rocks, driftwood, plants, caves). The page already has hiding places, but the advice is a point from the video."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-22T02:42:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.68,
+      "notes": [
+        "\"thân thường trong mờ với đốm hoặc sọc nâu\": the page's distribution section already says wild shrimp are translucent with brown blotches, so this repeats it.",
+        "\"Tép rili không có ngoài tự nhiên. Đây là dòng màu người ta chọn lọc từ tép cherry\": the page already lists rili as a colour strain of the cherry shrimp. The overlap is partial, and it adds little beyond the page.",
+        "\"Nên xếp đá, lũa, cây và hang\": the page's maintenance section already recommends plants, caves and hiding places. This is mostly repeated.",
+        "\"thì tép thành nhát, ít ra ngoài\": the video only says the shrimp may become shy. \"ít ra ngoài\" is added detail.",
+        "\"con cái thường nhặt bỏ trứng hỏng để trứng không bị nấm\": the page already covers the female keeping eggs clear of fungus by fanning them. The overlap is partial.",
+        "The video says the red rili's origin is the cherry shrimp from Taiwan, and the page says China and Taiwan. NEW does not say where the video differs from the page.",
+        "\"Ngoài neon, tép nuôi chung được với...\": the video says neon tetras and micro rasboras. The phrasing \"Ngoài neon\" reads awkwardly, and the page already lists tank mates like rasbora and snails."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/neocaridina-davidi#fJmubCLthGg": [
     {
       "at": "2026-11-16T11:42:27Z",
