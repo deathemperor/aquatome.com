@@ -2,20 +2,6 @@
   "id": "enteromius-sublineatus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/162142028.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/162142028-480.webp",
-      "width": 939,
-      "height": 472,
-      "licence": "CC BY-NC",
-      "author": "Karsten Mody",
-      "sourceUrl": "https://www.inaturalist.org/photos/162142028",
-      "caption": "Cá barb sublineatus ngoài tự nhiên trên nền cát",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/360994408.webp",
       "thumb": "https://media.aquatome.com/inaturalist/360994408-480.webp",
       "width": 1024,
@@ -26,8 +12,20 @@
       "caption": "Cá barb sublineatus trong bể kính, sọc đen dọc thân",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/162142028.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/162142028-480.webp",
+      "width": 939,
+      "height": 472,
+      "licence": "CC BY-NC",
+      "author": "Karsten Mody",
+      "sourceUrl": "https://www.inaturalist.org/photos/162142028",
+      "caption": "Cá barb sublineatus ngoài tự nhiên trên nền cát",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 6,

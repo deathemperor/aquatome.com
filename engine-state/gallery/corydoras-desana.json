@@ -1,7 +1,12 @@
 {
  "queue": [],
  "judged": [],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/glaser/7bf6e2c57d006167.webp": "3ffccc384ac89c1b",
+  "https://media.aquatome.com/glaser/d4708cb3195f3efa.webp": "4b4ef7256565e4f4",
+  "https://media.aquatome.com/glaser/d3a83d0d35254cd4.webp": "0b7b1bb3b5e4ec78",
+  "https://media.aquatome.com/glaser/0887821b337a23c7.webp": "cbc1b38aca4ee6e7"
+ },
  "commons": "2026-11-07",
  "inat": {
   "taxon": 1314484,
@@ -18,5 +23,9 @@
  "inatNc": {
   "after": 0,
   "done": true
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-22"
 }

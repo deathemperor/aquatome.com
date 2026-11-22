@@ -532,8 +532,7 @@
       "caption": "Cụm Cây đại hồng xanh mọc trên cạn ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/197290596.webp",
@@ -546,8 +545,7 @@
       "caption": "Thảm Cây đại hồng xanh mọc dày ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/197290746.webp",
@@ -560,22 +558,7 @@
       "caption": "Cây đại hồng lá đỏ mọc ở nước nông",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/249521740.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/249521740-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "damien6868",
-      "sourceUrl": "https://www.inaturalist.org/photos/249521740",
-      "caption": "Thảm Cây đại hồng ngập nước trong suối",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/63066939.webp",
@@ -588,8 +571,7 @@
       "caption": "Cành Cây đại hồng ngả đỏ mọc trong nước nông",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/219068649.webp",
@@ -602,8 +584,7 @@
       "caption": "Đám Cây đại hồng xanh tốt mọc trên cạn",
       "best": false,
       "kind": "emersed",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/106945990.webp",
@@ -616,64 +597,7 @@
       "caption": "Hoa tím nhạt của cây mọc ngoài tự nhiên",
       "best": false,
       "kind": "flower",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/63066948.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/63066948-480.webp",
-      "width": 729,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Alan R. Franck",
-      "sourceUrl": "https://www.inaturalist.org/photos/63066948",
-      "caption": "Cây đại hồng mọc ngoài tự nhiên ở vũng nước nông",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/256160847.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/256160847-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Sean Patton",
-      "sourceUrl": "https://www.inaturalist.org/photos/256160847",
-      "caption": "Cây đại hồng mọc bò trên bờ ẩm",
-      "best": false,
-      "kind": "emersed",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/255729806.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/255729806-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "山野人",
-      "sourceUrl": "https://www.inaturalist.org/photos/255729806",
-      "caption": "Hoa trắng của Cây đại hồng cận cảnh",
-      "best": false,
-      "kind": "flower",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/96913053.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/96913053-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "sandy-huiping",
-      "sourceUrl": "https://www.inaturalist.org/photos/96913053",
-      "caption": "Cây đại hồng mọc cạnh tảng đá ven nước",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/112228485.webp",
@@ -686,8 +610,33 @@
       "caption": "Cây đại hồng mọc ven bờ ẩm ngoài tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/256160847.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/256160847-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Sean Patton",
+      "sourceUrl": "https://www.inaturalist.org/photos/256160847",
+      "caption": "Cây đại hồng mọc bò trên bờ ẩm",
+      "best": false,
+      "kind": "emersed",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/255729806.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/255729806-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "山野人",
+      "sourceUrl": "https://www.inaturalist.org/photos/255729806",
+      "caption": "Hoa trắng của Cây đại hồng cận cảnh",
+      "best": false,
+      "kind": "flower",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/118680121.webp",
@@ -769,6 +718,45 @@
       "sourceUrl": "https://www.inaturalist.org/photos/80363589",
       "caption": "Ngọn Cây đại hồng xanh tươi nhô lên khỏi mặt nước",
       "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/249521740.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/249521740-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "damien6868",
+      "sourceUrl": "https://www.inaturalist.org/photos/249521740",
+      "caption": "Thảm Cây đại hồng ngập nước trong suối",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/63066948.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/63066948-480.webp",
+      "width": 729,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Alan R. Franck",
+      "sourceUrl": "https://www.inaturalist.org/photos/63066948",
+      "caption": "Cây đại hồng mọc ngoài tự nhiên ở vũng nước nông",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/96913053.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/96913053-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "sandy-huiping",
+      "sourceUrl": "https://www.inaturalist.org/photos/96913053",
+      "caption": "Cây đại hồng mọc cạnh tảng đá ven nước",
+      "best": false,
       "kind": "habitat",
       "setup": false
     }

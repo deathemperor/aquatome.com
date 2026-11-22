@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-22). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
 | shop | 60 | 131 | 81 | 24 | 36 | 200 |
 | popular | 40 | 21 | 0 | 0 | 1 | 20 |
-| covered | 30 | 905 | 32 | 9 | 27 | 919 |
-| rest | 20 | 1953 | 81 | 0 | 120 | 1914 |
+| covered | 30 | 916 | 32 | 9 | 27 | 930 |
+| rest | 20 | 1979 | 81 | 0 | 120 | 1940 |
 
-## Short of target: every source read (810)
+## Short of target: every source read (822)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -132,7 +132,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/trigonostigma-heteromorpha | staple | 26 | 100 |
 | species/symphysodon-aequifasciatus | staple | 63 | 100 |
 | species/puntius-titteya | staple | 14 | 100 |
-| species/danio-rerio | staple | 43 | 100 |
+| species/danio-rerio | staple | 42 | 100 |
 | species/mikrogeophagus-ramirezi | staple | 28 | 100 |
 | breeds/balloon-molly | shop | 2 | 60 |
 | species/anentome-helena | shop | 14 | 60 |
@@ -169,6 +169,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/taxiphyllum-barbieri | shop | 4 | 60 |
 | species/puntigrus-tetrazona | shop | 35 | 60 |
 | breeds/koi-guppy | shop | 0 | 60 |
+| species/corydoras-aeneus | shop | 34 | 60 |
 | breeds/dumbo-ear-guppy | shop | 0 | 60 |
 | species/chromobotia-macracanthus | shop | 20 | 60 |
 | plants/aegagropila-linnaei | shop | 34 | 60 |
@@ -195,8 +196,8 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/peckoltia-compta | shop | 3 | 60 |
 | plants/monosolenium-tenerum | shop | 3 | 60 |
 | plants/echinodorus-grisebachii | shop | 7 | 60 |
-| plants/hygrophila-difformis | shop | 17 | 60 |
 | species/caridina-multidentata | shop | 37 | 60 |
+| plants/hygrophila-difformis | shop | 17 | 60 |
 | species/leporacanthicus-joselimai | shop | 1 | 60 |
 | plants/hygrophila-corymbosa | shop | 9 | 60 |
 | species/melanotaenia-lacustris | shop | 4 | 60 |
@@ -433,6 +434,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/tetraodon-mbu | covered | 21 | 30 |
 | species/trichogaster-chuna | covered | 10 | 30 |
 | species/xyliphius-lepturus | covered | 0 | 30 |
+| species/yunnanilus-cruciatus | covered | 0 | 30 |
 | species/acanthicus-adonis | covered | 1 | 30 |
 | species/acanthopsoides-robertsi | covered | 0 | 30 |
 | species/acarichthys-heckelii | covered | 0 | 30 |
@@ -486,6 +488,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/auchenipterus-nigripinnis | covered | 1 | 30 |
 | species/auchenoglanis-occidentalis | covered | 5 | 30 |
 | species/axelrodia-stigmatias | covered | 0 | 30 |
+| species/badis-badis | covered | 2 | 30 |
 | species/bagarius-suchus | covered | 0 | 30 |
 | species/bagre-marinus | covered | 7 | 30 |
 | species/bagrichthys-hypselopterus | covered | 0 | 30 |
@@ -555,10 +558,12 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/callochromis-macrops | covered | 0 | 30 |
 | species/cambarellus-diminutus | covered | 1 | 30 |
 | species/camposcia-retusa | covered | 19 | 30 |
+| species/caridina-babaulti | covered | 1 | 30 |
 | species/carinotetraodon-borneensis | covered | 0 | 30 |
 | species/carnegiella-myersi | covered | 3 | 30 |
 | species/centrochir-crocodili | covered | 0 | 30 |
 | species/centromochlus-heckelii | covered | 3 | 30 |
+| species/centromochlus-macracanthus | covered | 0 | 30 |
 | species/cetopsis-coecutiens | covered | 0 | 30 |
 | species/chaca-bankanensis | covered | 1 | 30 |
 | species/chaca-chaca | covered | 0 | 30 |
@@ -587,6 +592,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-britskii | covered | 0 | 30 |
 | species/corydoras-burgessi | covered | 0 | 30 |
 | species/corydoras-carlae | covered | 2 | 30 |
+| species/corydoras-desana | covered | 0 | 30 |
 | species/corydoras-ephippifer | covered | 0 | 30 |
 | species/corydoras-gossei | covered | 0 | 30 |
 | species/corydoras-haraldschultzi | covered | 0 | 30 |
@@ -798,6 +804,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/melanotaenia-rubrostriata | covered | 0 | 30 |
 | species/metaloricaria-nijsseni | covered | 0 | 30 |
 | species/microctenopoma-fasciolatum | covered | 1 | 30 |
+| species/nannacara-adoketa | covered | 2 | 30 |
 | species/nannostomus-anduzei | covered | 0 | 30 |
 | species/neblinichthys-pilosus | covered | 0 | 30 |
 | species/nematogenys-inermis | covered | 1 | 30 |
@@ -812,6 +819,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/parosphromenus-bintan | covered | 0 | 30 |
 | species/pelvicachromis-taeniatus | covered | 11 | 30 |
 | species/pseudoplatystoma-corruscans | covered | 1 | 30 |
+| species/pseudotropheus-elongatus | covered | 3 | 30 |
 | species/retroculus-acherontos | covered | 0 | 30 |
 | species/rhadinoloricaria-rhami | covered | 0 | 30 |
 | species/rhinodoras-boehlkei | covered | 0 | 30 |
@@ -819,10 +827,14 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/rita-kuturnee | covered | 0 | 30 |
 | species/serrasalmus-brandtii | covered | 3 | 30 |
 | species/serrasalmus-gouldingi | covered | 0 | 30 |
+| species/synodontis-albolineatus | covered | 0 | 30 |
 | species/synodontis-bastiani | covered | 0 | 30 |
 | species/synodontis-lucipinnis | covered | 1 | 30 |
+| species/ariopsis-assimilis | rest | 15 | 20 |
 | species/astroblepus-mindoensis | rest | 1 | 20 |
+| species/colomesus-tocantinensis | rest | 3 | 20 |
 | species/eutropiichthys-vacha | rest | 1 | 20 |
 | species/hyphessobrycon-compressus | rest | 1 | 20 |
+| species/protopterus-aethiopicus-congicus | rest | 6 | 20 |
 | species/sciades-couma | rest | 2 | 20 |
 | species/sciades-paucus | rest | 2 | 20 |

@@ -16,7 +16,8 @@
   "inat:753199681"
  ],
  "hashes": {
-  "https://media.aquatome.com/inaturalist/121764279.webp": "6434551d3b31f9cc"
+  "https://media.aquatome.com/inaturalist/121764279.webp": "6434551d3b31f9cc",
+  "https://media.aquatome.com/aquariumbreeder/efd5800b58f1b791.webp": "666d230f85014953"
  },
  "inat": {
   "taxon": 434619,
@@ -34,5 +35,9 @@
  "inatNc": {
   "after": 409620624,
   "done": true
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-22"
 }

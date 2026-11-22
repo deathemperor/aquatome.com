@@ -95,16 +95,7 @@
     "figures": [
       {
         "heading": "Lọc mút: dễ dùng nhất",
-        "moments": [
-          {
-            "t": 105,
-            "url": "https://media.aquatome.com/video/tqgAOTIOaE4/at105-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bóp rửa miếng mút lọc trong xô nước bể.",
-            "sharpness": 234.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/tqgAOTIOaE4/p0-JfZm9hbV8xLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/tqgAOTIOaE4/p0-JfZm9hbV8xLmpwZw-480.webp",
@@ -156,7 +147,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hộp lọc treo mở nắp, thấy giỏ vật liệu lọc màu xanh bên trong.",
-            "sharpness": 297.2
+            "sharpness": 297.2,
+            "person": false
           },
           {
             "t": 295,
@@ -164,30 +156,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Lọc treo gắn sau thành bể, nhìn rõ ngăn chứa vật liệu lọc.",
-            "sharpness": 309.4
+            "sharpness": 309.4,
+            "person": false
           }
         ]
       },
       {
         "heading": "Lọc thùng: mạnh, gọn trong bể nhưng tốn tiền và công",
-        "moments": [
-          {
-            "t": 380,
-            "url": "https://media.aquatome.com/video/tqgAOTIOaE4/at380-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khay chứa vật liệu lọc của lọc thùng đang được rửa ở bồn.",
-            "sharpness": 497.4
-          },
-          {
-            "t": 395,
-            "url": "https://media.aquatome.com/video/tqgAOTIOaE4/at395-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khay vật liệu lọc vi sinh của lọc thùng, nhiều ngăn xếp chồng.",
-            "sharpness": 327.2
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/tqgAOTIOaE4/p3-JfRmlsdGVyLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/tqgAOTIOaE4/p3-JfRmlsdGVyLmpwZw-480.webp",
@@ -203,20 +179,13 @@
         "heading": "Sump: lọc lớn đặt dưới bể, không dành cho người mới",
         "moments": [
           {
-            "t": 465,
-            "url": "https://media.aquatome.com/video/tqgAOTIOaE4/at465-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể lớn với các thùng lọc đặt gọn trong tủ bên dưới.",
-            "sharpness": 855
-          },
-          {
             "t": 515,
             "url": "https://media.aquatome.com/video/tqgAOTIOaE4/at515-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh ống dẫn nước nối vào thùng lọc đặt dưới bể.",
-            "sharpness": 204.5
+            "sharpness": 204.5,
+            "person": false
           }
         ],
         "photo": {
@@ -239,7 +208,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cá cichlid châu Phi vàng và cam bơi gần đá.",
-            "sharpness": 271.6
+            "sharpness": 271.6,
+            "person": false
           },
           {
             "t": 755,
@@ -247,7 +217,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá oscar đỏ trắng bơi trong bể tối.",
-            "sharpness": 240.5
+            "sharpness": 240.5,
+            "person": false
           }
         ],
         "photo": {

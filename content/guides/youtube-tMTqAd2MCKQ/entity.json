@@ -80,16 +80,7 @@
     "figures": [
       {
         "heading": "Những loài hợp bể 20 lít",
-        "moments": [
-          {
-            "t": 150,
-            "url": "https://media.aquatome.com/video/tMTqAd2MCKQ/at150-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đàn cá nhỏ bơi thành bầy trong bể, rất hợp bể 20 lít.",
-            "sharpness": 363.7
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/tMTqAd2MCKQ/p0-JvZGlfKDIpLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/tMTqAd2MCKQ/p0-JvZGlfKDIpLmpwZw-480.webp",
@@ -163,7 +154,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá endler bơi trong bể có cây thủy sinh và lũa.",
-            "sharpness": 1298.2
+            "sharpness": 1298.2,
+            "person": false
           }
         ],
         "photo": {
@@ -186,7 +178,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh nhỏ có vài con cá bơi gần lũa và cây.",
-            "sharpness": 482.4
+            "sharpness": 482.4,
+            "person": false
           },
           {
             "t": 690,
@@ -194,7 +187,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá nhỏ bơi giữa cây thủy sinh và lũa trong bể.",
-            "sharpness": 1044.9
+            "sharpness": 1044.9,
+            "person": false
           }
         ],
         "photo": {
@@ -217,7 +211,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh nhỏ đã lên cây xanh um, có cá nhỏ bơi.",
-            "sharpness": 818.9
+            "sharpness": 818.9,
+            "person": false
           }
         ],
         "photo": {

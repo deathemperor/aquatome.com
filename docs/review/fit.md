@@ -6,12 +6,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Open, no read of its text | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 5303 | 4861 | 421 | 1843 | 39 | 52 | 226 | 59 | 1302 | 401 | 2967 | 495 | 9 | 23 | 0 | 2 | 14 | 6 | 2 |
+| Vietnamese | 5303 | 5161 | 121 | 1927 | 39 | 52 | 228 | 59 | 1356 | 404 | 3157 | 528 | 9 | 24 | 0 | 2 | 14 | 6 | 2 |
 | Indonesian | 1717 | 1589 | 128 | 438 | 28 | 13 | 4 | 6 | 202 | 38 | 75 | 197 | 0 | 3 | 0 | 6 | 2 | 0 | 0 |
 | Thai | 1715 | 1579 | 136 | 413 | 24 | 3 | 5 | 5 | 198 | 43 | 102 | 187 | 0 | 1 | 0 | 3 | 0 | 0 | 0 |
 | Malay | 591 | 553 | 38 | 148 | 14 | 3 | 0 | 2 | 73 | 18 | 33 | 55 | 0 | 1 | 0 | 3 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 15 of 210, Indonesian 2 of 74, Thai 2 of 69, Malay 1 of 36.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 15 of 215, Indonesian 2 of 74, Thai 2 of 69, Malay 1 of 36.
 
 ## Doses on more than one page
 
@@ -22,7 +22,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - metronidazole — **4 conflicts**: other, wholeTank: 13 mg/l, 13.158 mg/l, 13.21 mg/l (4 pages); bacteria, unsaid: 12.5 mg/l (2 pages); parasites, wholeTank: 12.5 mg/l, 6.25 mg/l, 0.013 g/l (8 pages); parasites, bath: 0.05 tablet/l, 6.25 mg/l (4 pages); bacteria, wholeTank: 12.5 mg/l (2 pages)
 - praziquantel — **1 conflicts**: parasites, bath: 10 mg/l (4 pages); parasites, wholeTank: 2.5 mg/l, 10 mg/l (2 pages)
 - liquid fertiliser — **1 conflicts**: plants, wholeTank: 0.02 ml/l, 0.04 ml/l, 0.05 pump/l, 0.05 ml/l (3 pages)
-- sea salt: water, wholeTank: 1–2 g/l, 1–3 g/l, 5 ml/l, 5–10 g/l, 0.1 thìa/l, 0.5–1 ml/l, 3–10 g/l, 15 g/l, 0.5 ml/l, 10–20 g/l, 18.75 ml/l, 7.5 ml/l, 0.1 sendok/l, 0.1 ช้อน/l (54 pages); water, unsaid: 1–3 g/l, 5–15 g/l, 10–20 g/l (7 pages); other, wholeTank: 0.1 thìa/l, 0.5–1 ml/l (2 pages); water, other: 30 ml/l, 7.5 ml/l (5 pages); other, other: 15 ml/l (1 pages); other, unsaid: 1–3 g/l, 0.5–1 ml/l (3 pages)
+- sea salt: water, wholeTank: 1–2 g/l, 1–3 g/l, 5 ml/l, 5–10 g/l, 0.1 thìa/l, 0.5–1 ml/l, 3–10 g/l, 15 g/l, 0.5 ml/l, 10–20 g/l, 18.75 ml/l, 7.5 ml/l, 0.1 sendok/l, 0.1 ช้อน/l (53 pages); water, unsaid: 1–3 g/l, 5–15 g/l, 10–20 g/l (8 pages); other, wholeTank: 0.1 thìa/l, 0.5–1 ml/l (2 pages); water, other: 30 ml/l, 7.5 ml/l (5 pages); other, other: 15 ml/l (1 pages); other, unsaid: 1–3 g/l, 0.5–1 ml/l (3 pages)
 - formalin: ich, unsaid: 25 mg/l, 12.5 mg/l (2 pages); parasites, bath: 0.15–0.25 ml/l (4 pages); ich, wholeTank: 25 mg/l, 12.5 mg/l (2 pages)
 - seachem stability: other, wholeTank: 0.125 ml/l, 0.063 ml/l, 0.013 nắp/l, 0.013 cap/l (3 pages)
 - epsom salt: water, other: 2.5 ml/l (1 pages); other, wholeTank: 0.25–0.75 ml/l (1 pages); other, bath: 0.264 thìa/l, 0.263 ช้อน/l (2 pages); bacteria, unsaid: 0.263 ml/l (1 pages); other, unsaid: 0.263 ml/l, 0.25 ml/l (3 pages)
@@ -78,13 +78,13 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 
 ## Products the market table has no row for, Vietnamese pages
 
+- keo 502: 50
 - repashy: 50
-- keo 502: 49
 - panacur: 36
-- ada: 33
+- ada: 35
 - ada amazonia aqua soil: 26
+- dennerle: 26
 - tropica: 26
-- dennerle: 25
 - ada amazonia: 24
 - hikari shrimp cuisine: 23
 - fluval stratum: 19
@@ -106,13 +106,13 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - jbl: 11
 - tropica aquarium soil: 11
 - ge silicone 1: 10
+- repashy soilent green: 10
 - tetramin: 10
 - api: 9
 - fluval: 9
 - fluval bug bites: 9
 - instant ocean: 9
 - reef roids: 9
-- repashy soilent green: 9
 - weld-on 4: 9
 - api leaf zone: 8
 - bacter ae: 8

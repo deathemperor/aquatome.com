@@ -288,7 +288,12 @@
       "author": "Nick Volpe",
       "sourceUrl": "https://www.inaturalist.org/photos/756119142",
       "caption": "Cá chuột báo với đốm nâu và vạch đen dọc thân, nền đen",
-      "setup": true
+      "setup": true,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/756119142-large.webp",
+        "width": 2018,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

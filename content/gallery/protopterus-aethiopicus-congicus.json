@@ -2,6 +2,62 @@
   "id": "protopterus-aethiopicus-congicus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/425435446.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/425435446-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "andreytkachev",
+      "sourceUrl": "https://www.inaturalist.org/photos/425435446",
+      "caption": "Cá phổi cẩm thạch sẫm màu bò trên bãi cỏ ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/598524238.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/598524238-480.webp",
+      "width": 1024,
+      "height": 473,
+      "licence": "CC BY-NC",
+      "author": "tiwongegawa",
+      "sourceUrl": "https://www.inaturalist.org/photos/598524238",
+      "caption": "Cá phổi cẩm thạch vân vàng nâu trên nền đất và cỏ",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/598524275.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/598524275-480.webp",
+      "width": 1024,
+      "height": 473,
+      "licence": "CC BY-NC",
+      "author": "tiwongegawa",
+      "sourceUrl": "https://www.inaturalist.org/photos/598524275",
+      "caption": "Cá phổi cẩm thạch uốn mình trên bãi cỏ ven hồ",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/598524259.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/598524259-480.webp",
+      "width": 1024,
+      "height": 473,
+      "licence": "CC BY-NC",
+      "author": "tiwongegawa",
+      "sourceUrl": "https://www.inaturalist.org/photos/598524259",
+      "caption": "Cá phổi cẩm thạch nhỏ màu nâu vàng giữa đám cỏ",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/342222708.webp",
       "thumb": "https://media.aquatome.com/inaturalist/342222708-480.webp",
       "width": 1024,
@@ -28,7 +84,7 @@
       "setup": false
     }
   ],
-  "seen": 23,
-  "updatedAt": "2026-11-21",
-  "builtAt": "2026-11-21"
+  "seen": 37,
+  "updatedAt": "2026-11-22",
+  "builtAt": "2026-11-22"
 }

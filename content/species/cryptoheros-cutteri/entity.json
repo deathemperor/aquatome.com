@@ -137,7 +137,12 @@
       "author": "Roland Rumm",
       "sourceUrl": "https://www.inaturalist.org/photos/231256582",
       "caption": "Đàn cá Cryptoheros cutteri bơi trên nền cát ngoài tự nhiên",
-      "setup": false
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/231256582-large.webp",
+        "width": 1430,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

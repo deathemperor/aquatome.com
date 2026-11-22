@@ -1,7 +1,12 @@
 {
  "queue": [],
  "judged": [],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/glaser/bc233e8090f187d8.webp": "bd2c360c1fdbdc88",
+  "https://media.aquatome.com/glaser/0b3529c3e1421588.webp": "0cbcbe9e370e000f",
+  "https://media.aquatome.com/glaser/d7d27c2e9b1f3c0a.webp": "cdcecf7efc76baf8",
+  "https://media.aquatome.com/glaser/22b4e1cfa1ca2ad3.webp": "af3f5f74d8fac080"
+ },
  "inat": {
   "taxon": 112513,
   "pass": "done",

@@ -89,7 +89,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây sưởi thủy tinh trong hồ, đàn cá bơi quanh.",
-            "sharpness": 291.7
+            "sharpness": 291.7,
+            "person": false
           },
           {
             "t": 145,
@@ -97,7 +98,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Máy sưởi điện nhỏ đặt trên sàn để sưởi cả căn phòng.",
-            "sharpness": 400.3
+            "sharpness": 400.3,
+            "person": false
           }
         ],
         "photo": {
@@ -114,14 +116,6 @@
       {
         "heading": "Lọc ngừng chạy: kiểm tra cánh quạt trước",
         "moments": [
-          {
-            "t": 285,
-            "url": "https://media.aquatome.com/video/hFkdex-4ASk/at285-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm máy bơm đã tháo ra, thấy cánh quạt màu xanh bên trong.",
-            "sharpness": 175.8
-          },
           {
             "t": 290,
             "url": "https://media.aquatome.com/video/hFkdex-4ASk/at290-hd.webp",
@@ -143,19 +137,6 @@
         }
       },
       {
-        "heading": "Lọc chết hẳn thì giữ bể thế nào trong lúc chờ",
-        "moments": [
-          {
-            "t": 355,
-            "url": "https://media.aquatome.com/video/hFkdex-4ASk/at355-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh đang được thay nước bằng ống siphon và xô.",
-            "sharpness": 1667.9
-          }
-        ]
-      },
-      {
         "heading": "Lọc mút cũng có thể \"hỏng\"",
         "moments": [
           {
@@ -172,7 +153,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Miếng mút lọc sẫm màu đặt trong bể nước xanh có vài con cá.",
-            "sharpness": 251.5
+            "sharpness": 251.5,
+            "person": false
           }
         ],
         "photo": {
@@ -195,7 +177,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bọt khí sủi lên từ cục sủi đen trong bể cá cichlid.",
-            "sharpness": 164.7
+            "sharpness": 164.7,
+            "person": false
           },
           {
             "t": 510,

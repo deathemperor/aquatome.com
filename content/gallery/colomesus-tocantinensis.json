@@ -2,6 +2,20 @@
   "id": "colomesus-tocantinensis",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/759192664.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/759192664-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY-NC",
+      "author": "Ivan Sazima",
+      "sourceUrl": "https://www.inaturalist.org/photos/759192664",
+      "caption": "Cá nóc Tocantins sống bơi giữa rễ cây và lá khô trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/31272383.webp",
       "thumb": "https://media.aquatome.com/inaturalist/31272383-480.webp",
       "width": 1024,
@@ -28,7 +42,7 @@
       "setup": false
     }
   ],
-  "seen": 20,
-  "updatedAt": "2026-11-21",
-  "builtAt": "2026-11-21"
+  "seen": 23,
+  "updatedAt": "2026-11-22",
+  "builtAt": "2026-11-22"
 }

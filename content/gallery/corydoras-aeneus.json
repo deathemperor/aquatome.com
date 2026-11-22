@@ -280,6 +280,20 @@
       "caption": "Cá chuột đồng màu vàng đồng trong bể nền sỏi đá"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/685632635.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/685632635-480.webp",
+      "width": 1024,
+      "height": 597,
+      "licence": "CC BY-NC",
+      "author": "Aquatic Ecosystem Health",
+      "sourceUrl": "https://www.inaturalist.org/photos/685632635",
+      "caption": "Cá chuột đồng dạng bạch tạng màu vàng cam",
+      "best": true,
+      "kind": "form",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/293463793.webp",
       "thumb": "https://media.aquatome.com/inaturalist/293463793-480.webp",
       "width": 1024,
@@ -322,6 +336,34 @@
       "unchecked": true
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/664383707.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/664383707-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Jérémy Delolme",
+      "sourceUrl": "https://www.inaturalist.org/photos/664383707",
+      "caption": "Cá chuột đồng màu xanh ánh đồng bơi sát kính trong bể",
+      "best": true,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/726382061.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/726382061-480.webp",
+      "width": 1024,
+      "height": 949,
+      "licence": "CC BY-NC",
+      "author": "martind",
+      "sourceUrl": "https://www.inaturalist.org/photos/726382061",
+      "caption": "Cá chuột đồng Corydoras aeneus trong hộp nhựa nhỏ, chụp ngoài thực địa",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/360535099.webp",
       "thumb": "https://media.aquatome.com/inaturalist/360535099-480.webp",
       "width": 1024,
@@ -334,9 +376,23 @@
       "kind": "other",
       "setup": true,
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/595861274.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/595861274-480.webp",
+      "width": 1024,
+      "height": 771,
+      "licence": "CC BY-NC",
+      "author": "Maria Eduarda Carmo dos Santos",
+      "sourceUrl": "https://www.inaturalist.org/photos/595861274",
+      "caption": "Cá chuột đồng đứng trên đá trong bể nhỏ",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
     }
   ],
-  "seen": 109,
-  "updatedAt": "2026-11-20",
-  "builtAt": "2026-11-20"
+  "seen": 137,
+  "updatedAt": "2026-11-22",
+  "builtAt": "2026-11-22"
 }

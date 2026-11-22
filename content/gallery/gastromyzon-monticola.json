@@ -12,8 +12,7 @@
       "caption": "Cá tỳ bà bướm trên đá dưới suối, nhìn từ trên xuống",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/359835810.webp",
@@ -26,22 +25,7 @@
       "caption": "Cá tỳ bà bướm vằn sọc trên tảng đá trong suối",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/612593086.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/612593086-480.webp",
-      "width": 1024,
-      "height": 578,
-      "licence": "CC BY-NC",
-      "author": "Tse Chung Yi",
-      "sourceUrl": "https://www.inaturalist.org/photos/612593086",
-      "caption": "Cá tỳ bà bướm đốm trên tảng đá ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/79408105.webp",
@@ -54,8 +38,7 @@
       "caption": "Cá tỳ bà bướm bám trên đá trong suối nước trong",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/79408093.webp",
@@ -68,8 +51,20 @@
       "caption": "Hai cá tỳ bà bướm bám trên đá dưới suối",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/612593086.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/612593086-480.webp",
+      "width": 1024,
+      "height": 578,
+      "licence": "CC BY-NC",
+      "author": "Tse Chung Yi",
+      "sourceUrl": "https://www.inaturalist.org/photos/612593086",
+      "caption": "Cá tỳ bà bướm đốm trên tảng đá ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 6,

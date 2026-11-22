@@ -7316,6 +7316,14 @@
     "at": "2026-11-22",
     "off": true
   },
+  "https://media.aquatome.com/inaturalist/262373086.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/garra-arupi"
+    ],
+    "at": "2026-11-22"
+  },
   "https://media.aquatome.com/inaturalist/28384257.webp": {
     "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
     "step": "the photo check",
@@ -7351,6 +7359,14 @@
     ],
     "at": "2026-11-21",
     "off": true
+  },
+  "https://media.aquatome.com/inaturalist/339520440.webp": {
+    "why": "watermark: withheld [sha256:abeef0c619604feb9028165ecd5e57e82667deafccef9c4c6d701ee7ce0e3ef8]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/devario-chrysotaeniatus"
+    ],
+    "at": "2026-11-22"
   },
   "https://media.aquatome.com/inaturalist/359315056.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
@@ -7476,6 +7492,22 @@
     "at": "2026-11-21",
     "off": true
   },
+  "https://media.aquatome.com/inaturalist/611437010.webp": {
+    "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/devario-affinis"
+    ],
+    "at": "2026-11-22"
+  },
+  "https://media.aquatome.com/inaturalist/619819982.webp": {
+    "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/datnioides-undecimradiatus"
+    ],
+    "at": "2026-11-22"
+  },
   "https://media.aquatome.com/inaturalist/621776511.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
     "step": "the photo check",
@@ -7510,6 +7542,15 @@
       "species/crenicichla-proteus"
     ],
     "at": "2026-11-22"
+  },
+  "https://media.aquatome.com/inaturalist/658889077.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/corynopoma-riisei"
+    ],
+    "at": "2026-11-22",
+    "off": true
   },
   "https://media.aquatome.com/inaturalist/726952954.webp": {
     "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
@@ -7546,6 +7587,23 @@
     ],
     "at": "2026-11-21",
     "off": true
+  },
+  "https://media.aquatome.com/scotcat/0880af0323910640.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/cetopsis-oliveirai"
+    ],
+    "at": "2026-11-22",
+    "off": true
+  },
+  "https://media.aquatome.com/scotcat/0a075c7c4f1c5ffb.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/gagata-sexualis"
+    ],
+    "at": "2026-11-22"
   },
   "https://media.aquatome.com/scotcat/0f18393d5e479141.webp": {
     "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
@@ -7696,6 +7754,15 @@
       "species/bunocephalus-amaurus"
     ],
     "at": "2026-11-19"
+  },
+  "https://media.aquatome.com/scotcat/29eab3bef10102d1.webp": {
+    "why": "dead: withheld [sha256:e9435100b3f67144b679ff617b6764a6a466adbf2c7c1a013aca482563607e6a]",
+    "step": "the dead-fish screen",
+    "pages": [
+      "species/heterobranchus-bidorsalis"
+    ],
+    "at": "2026-11-22",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/368c748697fa4119.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
@@ -7944,6 +8011,14 @@
     ],
     "at": "2026-11-20",
     "off": true
+  },
+  "https://media.aquatome.com/scotcat/78e4d7f45f9e11b8.webp": {
+    "why": "rejected: withheld [sha256:cb04d23923065e8145f733a2e98392bcfa2b6e33e227b629f292332f199ca975]",
+    "step": "the photo check",
+    "pages": [
+      "species/auchenipterus-demerarae"
+    ],
+    "at": "2026-11-22"
   },
   "https://media.aquatome.com/scotcat/7fdbba6b47ff93e2.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
@@ -8333,6 +8408,15 @@
     ],
     "at": "2026-11-15"
   },
+  "https://media.aquatome.com/scotcat/f5b3c51e16df680b.webp": {
+    "why": "dead: withheld [sha256:b0fd04bac5cb9103d42d098910d2f2ba12dd7581599cc374b0a1e379fd512b42]",
+    "step": "the photo check",
+    "pages": [
+      "species/auchenipterus-ambyiacus"
+    ],
+    "at": "2026-11-22",
+    "off": true
+  },
   "https://media.aquatome.com/scotcat/f7590029396b0372.webp": {
     "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
@@ -8350,6 +8434,14 @@
     ],
     "at": "2026-11-21",
     "off": true
+  },
+  "https://media.aquatome.com/scotcat/fb95f952bc430866.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/gagata-sexualis"
+    ],
+    "at": "2026-11-22"
   },
   "https://media.aquatome.com/scotcat/fd3f9c1eb0d13ea9.webp": {
     "why": "dead: withheld [sha256:e9435100b3f67144b679ff617b6764a6a466adbf2c7c1a013aca482563607e6a]",
@@ -8513,47 +8605,6 @@
     "step": "the dead-fish screen",
     "pages": [
       "species/heterobranchus-bidorsalis"
-    ],
-    "at": "2026-11-22",
-    "off": true
-  },
-  "https://media.aquatome.com/inaturalist/262373086.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/garra-arupi"
-    ],
-    "at": "2026-11-22"
-  },
-  "https://media.aquatome.com/inaturalist/339520440.webp": {
-    "why": "watermark: withheld [sha256:abeef0c619604feb9028165ecd5e57e82667deafccef9c4c6d701ee7ce0e3ef8]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/devario-chrysotaeniatus"
-    ],
-    "at": "2026-11-22"
-  },
-  "https://media.aquatome.com/inaturalist/611437010.webp": {
-    "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/devario-affinis"
-    ],
-    "at": "2026-11-22"
-  },
-  "https://media.aquatome.com/inaturalist/619819982.webp": {
-    "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/datnioides-undecimradiatus"
-    ],
-    "at": "2026-11-22"
-  },
-  "https://media.aquatome.com/inaturalist/658889077.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
-    "step": "the photo check",
-    "pages": [
-      "species/corynopoma-riisei"
     ],
     "at": "2026-11-22",
     "off": true

@@ -73,7 +73,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá lớn bơi trong bể rộng phủ sỏi, bên cạnh có cá oscar.",
-            "sharpness": 1027.2
+            "sharpness": 1027.2,
+            "person": false
           },
           {
             "t": 90,
@@ -81,7 +82,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai con cá oscar đỏ cỡ lớn bơi sát nhau trong bể.",
-            "sharpness": 1019.8
+            "sharpness": 1019.8,
+            "person": false
           }
         ],
         "photo": {
@@ -104,7 +106,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá thần tiên bơi giữa cây thủy sinh và đá lũa trong bể.",
-            "sharpness": 1108
+            "sharpness": 1108,
+            "person": false
           },
           {
             "t": 180,
@@ -112,7 +115,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh phông xanh với lũa, cây xanh rậm và đàn cá nhỏ.",
-            "sharpness": 565.4
+            "sharpness": 565.4,
+            "person": false
           }
         ],
         "photo": {
@@ -128,24 +132,7 @@
       },
       {
         "heading": "Mua cá theo cảm hứng ở tiệm",
-        "moments": [
-          {
-            "t": 270,
-            "url": "https://media.aquatome.com/video/oTi2e3FQKHE/at270-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Người xem cá chăm chú bên dãy bể trong tiệm cá.",
-            "sharpness": 1115.2
-          },
-          {
-            "t": 280,
-            "url": "https://media.aquatome.com/video/oTi2e3FQKHE/at280-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dãy bể trưng bày trong tiệm cá với đèn sáng và cây thủy sinh.",
-            "sharpness": 1029.3
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/oTi2e3FQKHE/p2-EwMzY1MTUpLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/oTi2e3FQKHE/p2-EwMzY1MTUpLmpwZw-480.webp",
@@ -166,7 +153,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá chuột kiếm ăn trên nền sỏi đáy bể.",
-            "sharpness": 278.7
+            "sharpness": 278.7,
+            "person": false
           },
           {
             "t": 420,
@@ -174,7 +162,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá bơi tầng giữa trong bể có cây thủy sinh, đáy phủ sỏi.",
-            "sharpness": 424
+            "sharpness": 424,
+            "person": false
           }
         ],
         "photo": {
@@ -197,7 +186,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nhiều con pleco bám đầy trên tảng đá trong bể.",
-            "sharpness": 1224.1
+            "sharpness": 1224.1,
+            "person": false
           },
           {
             "t": 530,
@@ -205,7 +195,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Một con pleco đốm bám trên đá giữa bể cây thủy sinh.",
-            "sharpness": 217.3
+            "sharpness": 217.3,
+            "person": false
           }
         ],
         "photo": {
@@ -228,7 +219,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá nhỏ bơi trong bể có nền sỏi và đá trang trí.",
-            "sharpness": 237.2
+            "sharpness": 237.2,
+            "person": false
           },
           {
             "t": 710,
@@ -236,7 +228,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá vàng óng bơi trong bể nền xanh, nước trong.",
-            "sharpness": 329.1
+            "sharpness": 329.1,
+            "person": false
           }
         ],
         "photo": {
