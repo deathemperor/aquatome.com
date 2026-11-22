@@ -1,13 +1,13 @@
 import { execFileSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
-import { copyFileSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
-import { mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/promises'
+import { copyFileSync, lstatSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
+import { mkdir, mkdtemp, readdir, readFile, rm, symlink, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { PHRASES, phraseRun } from '../src/phrases'
-import { LISTED_ON, listedBy, marksFor, phrasesPass, rewriteMarks, sentText, writeReport } from '../src/rewrite-marks'
+import { gitChanged, LISTED_ON, listedBy, marksFor, phrasesPass, rewriteMarks, slips, textParts, writeReport, type ChangedParts } from '../src/rewrite-marks'
 import { rewriteExisting, type RewriteState } from '../src/vi-backfill'
 
 const put = async (root: string, path: string, v: unknown) => { await mkdir(join(root, path, '..'), { recursive: true }); await writeFile(join(root, path), JSON.stringify(v)) }
@@ -17,6 +17,16 @@ const guide = (root: string, slug: string, body: string) => Promise.all([
 ])
 const rec = (at: string, more: Partial<RewriteState[string]> = {}) => ({ at, rewritten: 1, of: 1, scores: [0.9], v: 2, ...more })
 const opts = { mode: 'fix' as const }
+// What `gitChanged` finds when each record's commit changed the page's body to what it is now, but for the pages named:
+// 'none', no commit found; 'unchanged', the commit left the page as it was.
+const landed = (root: string, but: Record<string, 'none' | 'unchanged'> = {}): ChangedParts => async want => {
+  const out = new Map<string, Record<string, string>>()
+  for (const id of Object.keys(want)) {
+    const body = await readFile(join(root, id, 'vi.json'), 'utf8').then(t => JSON.parse(t).body as string, () => undefined)
+    if (but[id] !== 'none' && body !== undefined) out.set(id, but[id] === 'unchanged' ? {} : { body })
+  }
+  return out
+}
 
 async function setup(state: RewriteState, pages: Record<string, string>) {
   const root = join(await mkdtemp(join(tmpdir(), 'aq-marks-')), 'content') // engine-state beside it, as in the repository
@@ -55,13 +65,48 @@ test('a word counts only for a page rewritten on a later day than its row reache
   expect(marksFor('["Phần lớn cá… nửa tá con"]', '2026-11-13', PHRASES.vi!).sort()).toEqual(['nửa tá', 'phần lớn'])
 })
 
-test('a word counts only in the part the rewrite read', () => {
-  const page = { body: '<p>Phần lớn cá.</p>', definition: 'Dù vậy là…', faq: [{ q: 'Khó không?', a: 'Nhìn chung là dễ.' }] }
-  expect(sentText('guides', page, 'aquariumcoop')).toBe(page.body) // a guide's body, never its questions
-  expect(sentText('guides', page, 'youtube')).toBe('') // a video guide's body went to no rewrite
-  expect(sentText('guides', { ...page, bodyFixed: true }, 'aquariumcoop')).toBe('') // nor a body a person fixed
-  expect(sentText('glossary', page)).toBe(page.definition)
-  expect(sentText('species', page)).toContain('Nhìn chung') // a fish or plant page: all of it, as --phrases reads it
+test('a word is marked only in a part the rewrite commit changed, and only when the page has it nowhere else', () => {
+  const list = PHRASES.vi!, at = '2026-11-15', body = '<p>Phần lớn cá.</p>'
+  expect(slips({ body }, { body }, at, list)).toEqual(['phần lớn'])
+  expect(slips({}, { body }, at, list)).toEqual([]) // the commit changed nothing: the rewrite came back as it was
+  expect(slips({ body }, { body, 'faq:0:a': 'Phần lớn là dễ.' }, at, list)).toEqual([]) // in a question too, which the queue never sends
+  expect(slips({ body }, { body: '<p>Cá khỏe.</p>' }, at, list)).toEqual([]) // gone from the page since
+  expect(slips({ body: '<p>Cá khỏe.</p>' }, { body }, at, list)).toEqual([]) // came in later: not the writer's
+  // A fish page: a word in its references, or in a section the commit didn't change, closes the mark.
+  const fish = { 'care:sf': body, 'diet:sf': '<p>Phần lớn ăn rêu.</p>', 'references:sf': '<li>Loricariid catfishes</li>' }
+  expect(slips({ 'care:sf': body }, fish, at, list)).toEqual([])
+  expect(slips({ 'care:sf': body, 'diet:sf': fish['diet:sf'] }, fish, at, list)).toEqual(['phần lớn'])
+  expect(textParts({ body: 'b', summary: ['s'], faq: [{ q: 'q', a: 'a' }], definition: 'd', sections: { 'x:sf': 'x' } })).toEqual({ body: 'b', 'summary:0': 's', 'faq:0:q': 'q', 'faq:0:a': 'a', definition: 'd', 'x:sf': 'x' })
+})
+
+// From Fable's read of 22 Nov: four marked pages had their words in text byte-identical to before their rewrite, and on
+// one the rewrite's commit didn't touch the page. The lookup reads the commit that wrote each record.
+test('the lookup in git: what the commit that wrote each record changed on its page', async () => {
+  const dir = mkdtempSync(join(tmpdir(), 'aq-marks-git-'))
+  const git = (...a: string[]) => execFileSync('git', ['-c', 'user.name=t', '-c', 'user.email=t@example.com', ...a], { cwd: dir, stdio: 'pipe' })
+  const page = (slug: string, v: object) => { mkdirSync(join(dir, 'content/guides', slug), { recursive: true }); writeFileSync(join(dir, 'content/guides', slug, 'vi.json'), JSON.stringify(v)) }
+  const record = (m: object) => { mkdirSync(join(dir, 'engine-state'), { recursive: true }); writeFileSync(join(dir, 'engine-state/vi-rewrite.json'), JSON.stringify(m, null, 2)) }
+  git('init', '-q', '-b', 'main')
+  const old = { body: '<p>Phần lớn cá sống ở suối. Dù vậy, cá khỏe.</p>', faq: [{ q: 'Khó không?', a: 'Dễ.' }] }
+  page('landed', old); page('as-was', old); record({})
+  git('add', '.'); git('commit', '-qm', 'pages')
+  const now = { ...old, body: '<p>Phần lớn cá sống ở suối. Cá vẫn khỏe.</p>' }
+  page('landed', now) // the rewrite changed the body and kept "phần lớn"; "as-was" came back as it was
+  const state = { 'guides/landed': rec('2026-11-15'), 'guides/as-was': rec('2026-11-15') }
+  record(state); git('commit', '-qam', 'rewrite')
+  page('landed', { ...now, summary: ['Cá dễ nuôi.'] }); git('commit', '-qam', 'a later step')
+  const found = await gitChanged(join(dir, 'content'))({ ...state, 'guides/none': rec('2026-11-15') })
+  expect(found.get('guides/landed')).toEqual({ body: now.body })
+  expect(found.get('guides/as-was')).toEqual({})
+  expect(found.has('guides/none')).toBe(false)
+  // The step itself, from git: the page whose rewrite landed is marked, the one that came back as it was isn't.
+  const r = await rewriteMarks(join(dir, 'content'), join(dir, 'engine-state/vi-rewrite.json'), { dry: true, opts })
+  expect(r.marked).toEqual(['guides/landed'])
+  expect([r.unchanged, r.noCommit]).toEqual([1, 0])
+  // No history (not a git checkout): nothing is marked.
+  const { root, file } = await setup(state, { landed: now.body, 'as-was': old.body })
+  const none = await rewriteMarks(root, file, { dry: true, opts })
+  expect([none.marked.length, none.noCommit]).toEqual([0, 2])
 })
 
 test('marks what a page kept from a rewrite made with its word listed; the rest stays for --phrases, as its own dry run picks', async () => {
@@ -77,6 +122,9 @@ test('marks what a page kept from a rewrite made with its word listed; the rest 
     'guides/no-marks': rec('2026-11-15', { phrases: [] }), // an empty list is no marks: marked
     'guides/late-row': rec('2026-11-12'), // has a 12 Nov row's word on 12 Nov: that word stays, the other is marked
     'guides/faq-only': rec('2026-11-15'), // its word is only in an FAQ answer, which the rewrite never sent: not marked
+    'guides/unchanged': rec('2026-11-15'), // its commit left the page as it was: not marked
+    'guides/no-commit': rec('2026-11-15'), // no commit found that wrote its record: not marked
+    'guides/both': rec('2026-11-15'), // its word is in its body and a question too: the mark would close the question, not marked
   }
   const { root, file } = await setup(state, {
     slip: '<p>Phần lớn cá sống ở suối.</p>',
@@ -90,33 +138,38 @@ test('marks what a page kept from a rewrite made with its word listed; the rest 
     'no-marks': '<p>Dù vậy, cá vẫn khỏe.</p>',
     'late-row': '<p>Phần lớn cá đẻ nửa tá trứng.</p>',
     'faq-only': '<p>Cá dễ nuôi.</p>',
+    unchanged: '<p>Phần lớn cá sống ở suối.</p>',
+    'no-commit': '<p>Phần lớn cá sống ở suối.</p>',
+    both: '<p>Phần lớn cá sống ở suối.</p>',
     never: '<p>Nhìn chung cá dễ nuôi.</p>', // never rewritten: --phrases takes it up
     clean: '<p>Cá dễ nuôi.</p>', // no listed word: never due
   })
   await put(root, 'guides/faq-only/vi.json', { slug: 'faq-only', name: 'F', body: '<p>Cá dễ nuôi.</p>', faq: [{ q: 'Khó không?', a: 'Nhìn chung là dễ.' }], quality: { score: 0.85, indexable: true } })
+  await put(root, 'guides/both/vi.json', { slug: 'both', name: 'B', body: '<p>Phần lớn cá sống ở suối.</p>', faq: [{ q: 'Khó không?', a: 'Phần lớn là dễ.' }], quality: { score: 0.85, indexable: true } })
+  const changed = landed(root, { 'guides/unchanged': 'unchanged', 'guides/no-commit': 'none' })
   const before = await readFile(file, 'utf8')
-  const dry = await rewriteMarks(root, file, { dry: true, opts })
+  const dry = await rewriteMarks(root, file, { dry: true, opts, changed })
   expect(await readFile(file, 'utf8')).toBe(before)
-  const r = await rewriteMarks(root, file, { opts })
+  const r = await rewriteMarks(root, file, { opts, changed })
   expect(r).toEqual(dry)
   expect(r.marked.sort()).toEqual(['guides/late-row', 'guides/no-marks', 'guides/slip'])
-  expect([r.records, r.skipped, r.partial, r.eligible]).toEqual([11, 3, 2, 6])
+  expect([r.records, r.skipped, r.partial, r.eligible, r.noCommit, r.unchanged]).toEqual([14, 3, 2, 9, 1, 1])
   const after = JSON.parse(await readFile(file, 'utf8')) as RewriteState
   expect(after['guides/slip']!.phrases).toEqual(['phần lớn'])
   expect(after['guides/no-marks']!.phrases).toEqual(['dù vậy'])
   expect(after['guides/late-row']!.phrases).toEqual(['phần lớn'])
-  for (const id of ['guides/same-day', 'guides/before', 'guides/kept', 'guides/partial', 'guides/failed', 'guides/failed-quiet', 'guides/marked', 'guides/faq-only']) expect(after[id]).toEqual(state[id])
+  for (const id of ['guides/same-day', 'guides/before', 'guides/kept', 'guides/partial', 'guides/failed', 'guides/failed-quiet', 'guides/marked', 'guides/faq-only', 'guides/unchanged', 'guides/no-commit', 'guides/both']) expect(after[id]).toEqual(state[id])
   const ids = (xs: string[]) => xs.map(x => x.split(' ')[0]).sort()
-  expect(ids(r.dueBefore)).toEqual(['guides/before', 'guides/failed', 'guides/failed-quiet', 'guides/faq-only', 'guides/kept', 'guides/late-row', 'guides/marked', 'guides/never', 'guides/no-marks', 'guides/partial', 'guides/same-day', 'guides/slip'])
-  expect(ids(r.dueAfter)).toEqual(['guides/before', 'guides/failed', 'guides/failed-quiet', 'guides/faq-only', 'guides/kept', 'guides/late-row', 'guides/marked', 'guides/never', 'guides/partial', 'guides/same-day'])
-  expect([r.afterRecorded, r.afterNever, r.parts]).toEqual([9, 1, 10])
+  expect(ids(r.dueBefore)).toEqual(['guides/before', 'guides/both', 'guides/failed', 'guides/failed-quiet', 'guides/faq-only', 'guides/kept', 'guides/late-row', 'guides/marked', 'guides/never', 'guides/no-commit', 'guides/no-marks', 'guides/partial', 'guides/same-day', 'guides/slip', 'guides/unchanged'])
+  expect(ids(r.dueAfter)).toEqual(['guides/before', 'guides/both', 'guides/failed', 'guides/failed-quiet', 'guides/faq-only', 'guides/kept', 'guides/late-row', 'guides/marked', 'guides/never', 'guides/no-commit', 'guides/partial', 'guides/same-day', 'guides/unchanged'])
+  expect([r.afterRecorded, r.afterNever, r.parts]).toEqual([12, 1, 14]) // "both" sends its body and its question
   // The count is the rewrite's own: with the record as written, --phrases takes up exactly the pages left.
   const real = await rewriteExisting(root, file, { llm: async () => { throw new Error('no model') }, opts, now: () => new Date() }, { limit: Infinity, ...phraseRun('vi'), dry: true })
   expect(ids(real.done)).toEqual(ids(r.dueAfter))
-  expect(r.byRow['phần lớn']).toEqual({ rewrittenWith: 4, stillHave: 2, leftWith: 3 })
-  expect(r.byRow['nửa tá']).toEqual({ rewrittenWith: 3, stillHave: 0, leftWith: 1 })
+  expect(r.byRow['phần lớn']).toEqual({ rewrittenWith: 5, stillHave: 2, leftWith: 6 })
+  expect(r.byRow['nửa tá']).toEqual({ rewrittenWith: 4, stillHave: 0, leftWith: 1 })
   // A second run marks nothing more.
-  const again = await rewriteMarks(root, file, { opts })
+  const again = await rewriteMarks(root, file, { opts, changed })
   expect(again.marked).toEqual([])
   expect(await readFile(file, 'utf8')).toBe(`${JSON.stringify(after, null, 2)}\n`)
 })
@@ -124,10 +177,17 @@ test('marks what a page kept from a rewrite made with its word listed; the rest 
 test('the record is written whole, and not at all if it changed during the run; the report never goes over a file', async () => {
   const { root, file } = await setup({ 'guides/slip': rec('2026-11-15') }, { slip: '<p>Phần lớn cá sống ở suối.</p>' })
   const changed = JSON.stringify({ 'guides/slip': rec('2026-11-15'), 'guides/new': rec('2026-11-22') })
-  await expect(rewriteMarks(root, file, { opts, beforeWrite: () => writeFile(file, changed) })).rejects.toThrow('changed while the marks were made')
+  await expect(rewriteMarks(root, file, { opts, changed: landed(root), beforeWrite: () => writeFile(file, changed) })).rejects.toThrow('changed while the marks were made')
   expect(await readFile(file, 'utf8')).toBe(changed)
   expect(await readdir(join(file, '..'))).not.toContainEqual(expect.stringContaining('.marks-'))
-  const r = await rewriteMarks(root, file, { opts })
+  // A file already where the new one goes (here a link to the record) is never written through: the record stays as it was.
+  const side = `${file}.marks-${process.pid}`
+  await symlink(file, side)
+  await expect(rewriteMarks(root, file, { opts, changed: landed(root) })).rejects.toThrow('EEXIST')
+  expect(await readFile(file, 'utf8')).toBe(changed)
+  expect(lstatSync(side).isSymbolicLink()).toBe(true)
+  await rm(side)
+  const r = await rewriteMarks(root, file, { opts, changed: landed(root) })
   expect(r.marked).toEqual(['guides/slip'])
   await expect(writeReport(file, r)).rejects.toThrow()
   expect(JSON.parse(await readFile(file, 'utf8'))['guides/slip'].phrases).toEqual(['phần lớn'])
@@ -149,14 +209,14 @@ test('the pass writes the marks before its first page, so it takes up only what 
   // Without the marks, --phrases takes the slip up again.
   expect(ids((await rewriteExisting(root, file, none, { limit: Infinity, ...phraseRun('vi'), dry: true })).done)).toEqual(['guides/before', 'guides/never', 'guides/slip'])
   const before = await readFile(file, 'utf8')
-  const dry = await phrasesPass(root, file, none, { limit: Infinity, dry: true })
+  const dry = await phrasesPass(root, file, none, { limit: Infinity, dry: true }, { changed: landed(root) })
   expect(await readFile(file, 'utf8')).toBe(before)
   expect(dry.marks.marked).toEqual(['guides/slip'])
   expect(ids(dry.run.done)).toEqual(['guides/before', 'guides/never'])
   // A pass: when its first page goes to the model, the record already has the slip's mark.
   const seen: unknown[] = []
   const llm = async () => { seen.push(JSON.parse(await readFile(file, 'utf8'))['guides/slip'].phrases); throw new Error('stand-in') }
-  const r = await phrasesPass(root, file, { llm, opts, now: () => new Date() }, { limit: 1 })
+  const r = await phrasesPass(root, file, { llm, opts, now: () => new Date() }, { limit: 1 }, { changed: landed(root) })
   expect(r.marks.marked).toEqual(['guides/slip'])
   expect(seen.length).toBeGreaterThan(0)
   expect(seen).toEqual(seen.map(() => ['phần lớn']))

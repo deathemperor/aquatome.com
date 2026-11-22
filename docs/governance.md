@@ -429,7 +429,7 @@ The layers above still check the result.
         step (`rewrite-marks.ts`, no model call; the chief of staff's option of 20 Nov). The daily queue writes none, and
         no record from before them has any. The pass's own command writes them, so no one has to remember a hand run
         days ahead, and the days between can't refill the list (the chief of staff, 22 Nov). `pnpm engine rewrite-marks`
-        counts them and writes nothing. The record merges page by page (`.gitattributes`, `scripts/merge-json-map.mjs`),
+        counts them and writes nothing but its `--out` report. The record merges page by page (`.gitattributes`, `scripts/merge-json-map.mjs`),
         so a daily run's push that meets the pass's commit keeps both. A page gets a mark for a
         word it still has only when the word's row was in the rewrite's prompt the day the page was rewritten: 61 rows
         from 8 Nov, four from 12 Nov, from the list's history in git.
@@ -440,13 +440,18 @@ The layers above still check the result.
           marks is left as it is; an empty list is none, as `--phrases` reads it. A row added since is never marked by
           it. A row's words are pinned as on its day (a test): one that widens takes the widening's day, so a page
           rewritten before it isn't marked for the new word.
-        - A word counts only in the part the rewrite read. For a guide, its body: its summary and questions went to no
-          rewrite before, and `--phrases` sends them. For a glossary term, its definition. For a fish or plant, all its
-          text: its fixed parts and references go to no rewrite, the pass's included. A video guide or a guide whose body
-          is fixed sent none, so it's never marked.
-        - The record is written whole, through a temporary file, and only if it hasn't changed since the step read it:
-          otherwise nothing is written and the step says to run it again.
-        - `--dry-run` writes nothing in the repository. It reports, per row, the pages rewritten whole with it, those
+        - A word counts only in what the rewrite's own commit changed, read from git: the newest commit in which the
+          page's record took the value it has, and the parts of the page that commit changed, as it left them. "Rewritten
+          whole" alone doesn't prove the text changed: on 22 Nov, 4 of the 44 pages then marked had their words in text
+          byte-identical to before (Fable's read), and on one the rewrite's commit didn't touch the page. A part the
+          commit didn't change is never marked, nor is a page whose commit can't be found (no history, a shallow clone).
+          A word the page also has in a part that commit didn't change (a guide's question, a fish page's references or
+          fixed sections) isn't marked either: a mark is the page's, so it would close that part too. Another step that
+          ran in the same commit and changed a part makes it count as changed.
+        - The record is written whole, through a new file of its own beside it (never one already there), and only if it
+          was unchanged at the last read before the write: otherwise nothing is written and the step says to run it
+          again. A write in the moment between is still lost, so it runs only in the pass's own checkout.
+        - The count, and the pass's `--dry-run`, write nothing in the repository but the count's `--out` report. It reports, per row, the pages rewritten whole with it, those
           that still have it (each such word stays on the page once marked), and the pages `--phrases` would still take
           up for it. The pages it gives as left are `rewrite-vi --phrases --dry-run`'s own, run on a marked copy in the
           system's temporary folder. `--out` writes the report only to a file that doesn't exist yet.

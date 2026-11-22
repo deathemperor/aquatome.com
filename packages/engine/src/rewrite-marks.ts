@@ -1,6 +1,8 @@
+import { execFile } from 'node:child_process'
 import { copyFile, mkdtemp, readFile, rename, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { basename, dirname, join } from 'node:path'
+import { promisify } from 'node:util'
 import type { Llm } from './claude'
 import { PHRASES, phraseRun, phraseWords, type Phrase } from './phrases'
 import { listedText, REWRITE_KINDS, rewriteExisting, type RewriteState } from './vi-backfill'
@@ -32,17 +34,66 @@ export const listedBy = (say: string, at: string) => { const on = LISTED_ON[say]
 export const marksFor = (text: string, at: string, list: readonly Phrase[]) =>
   [...new Set(list.filter(p => listedBy(p.say, at)).flatMap(p => phraseWords(text, 'vi', [p])))]
 
-type Page = Parameters<typeof listedText>[0] & { bodyFixed?: boolean }
+type Page = Parameters<typeof listedText>[0]
+
+/** A page's parts by the ids the rewrite gives them: a guide's body, summary and FAQ lines, a term's definition, each section of a fish or plant page (references and fixed ones too): all the text `--phrases` reads. */
+export function textParts(vi: Page | null): Record<string, string> {
+  if (!vi) return {}
+  return {
+    ...(vi.body ? { body: vi.body } : {}),
+    ...Object.fromEntries((vi.summary ?? []).map((t, i) => [`summary:${i}`, t])),
+    ...Object.fromEntries((vi.faq ?? []).flatMap((f, i) => [[`faq:${i}:q`, f.q], [`faq:${i}:a`, f.a]])),
+    ...(vi.definition ? { definition: vi.definition } : {}),
+    ...(vi.sections ?? {}),
+  }
+}
+
+/** For each record asked about, the parts of its page that the commit which wrote that record changed, as that commit left them. A page missing from the map: no such commit was found. */
+export type ChangedParts = (want: RewriteState) => Promise<Map<string, Record<string, string>>>
+
+const run = promisify(execFile)
+const same = (a: unknown, b: unknown) => JSON.stringify(a) === JSON.stringify(b)
 
 /**
- * The text the style rewrite sent for a page, which its marks are matched against: a guide's body (the queue pass sends
- * no summary or FAQ line, nor a video guide's or a fixed body at all), a glossary term's definition, a fish or plant
- * page's sections. A word elsewhere on the page was never in front of the writer, so it isn't marked.
+ * From git, in the checkout the content is in: the newest commit (merges aside) in which each record took the value it
+ * has, and what that commit changed on the page. A rewrite writes the page and its record in one commit, so a part it
+ * changed is a part the writer's text went into. No history (a shallow clone): an empty map, so nothing is marked.
  */
-export function sentText(kind: string, vi: Page, source?: string): string {
-  if (kind === 'guides') return vi.bodyFixed || source === 'youtube' ? '' : vi.body ?? ''
-  if (kind === 'glossary') return vi.definition ?? ''
-  return listedText(vi)
+export const gitChanged = (contentRoot: string, stateRel = 'engine-state/vi-rewrite.json'): ChangedParts => async want => {
+  const cwd = dirname(contentRoot)
+  const git = (...a: string[]) => run('git', a, { cwd, maxBuffer: 512 << 20 }).then(r => r.stdout)
+  const show = (rev: string, path: string) => git('show', `${rev}:./${path}`).then(t => JSON.parse(t) as Record<string, unknown>).catch(() => ({}) as Record<string, unknown>)
+  const out = new Map<string, Record<string, string>>()
+  const left = new Map(Object.entries(want))
+  const commits = (await git('log', '--no-merges', '--format=%H', '--', stateRel).catch(() => '')).split('\n').filter(Boolean)
+  for (const c of commits) {
+    if (!left.size) break
+    const [after, before] = await Promise.all([show(c, stateRel), show(`${c}^`, stateRel)])
+    for (const [id, rec] of left) {
+      if (!same(after[id], rec) || same(before[id], rec)) continue
+      left.delete(id)
+      const path = `${basename(contentRoot)}/${id}/vi.json`
+      const [now, was] = await Promise.all([show(c, path), show(`${c}^`, path)])
+      const a = textParts(now as Page), b = textParts(was as Page)
+      out.set(id, Object.fromEntries(Object.entries(a).filter(([k, t]) => b[k] !== t)))
+    }
+  }
+  return out
+}
+
+/**
+ * A page's marks: each word its rewrite's own text kept, where the page still has it and has it nowhere else. A part the
+ * commit didn't change is a part the writer's text never went into (a rewrite that came back as it was, a part not sent),
+ * so its words aren't marked; nor is a word also in another part (a guide's question, a fish page's references), which
+ * the mark would close too, since a mark is the page's.
+ */
+export function slips(changed: Record<string, string>, now: Record<string, string>, at: string, list: readonly Phrase[]): string[] {
+  const inside = Object.keys(changed).filter(k => k in now)
+  const words = (keys: string[], from: Record<string, string>) => new Set(phraseWords(JSON.stringify(keys.map(k => from[k])), 'vi', [...list]))
+  const kept = new Set(marksFor(JSON.stringify(inside.map(k => changed[k])), at, list))
+  const still = words(inside, now)
+  const outside = words(Object.keys(now).filter(k => !inside.includes(k)), now)
+  return [...kept].filter(w => still.has(w) && !outside.has(w))
 }
 
 /** A record the step may mark: no marks yet, no failure (an empty message is one), and every part rewritten and kept. */
@@ -54,7 +105,10 @@ export type MarksReport = {
   skipped: number
   partial: number
   eligible: number
-  /** Per listed row: eligible records rewritten with it in the prompt; of those, the pages whose rewritten text still has its words (each such word is marked); and the pages `--phrases` still takes up for its words after the step. */
+  /** Of those it may mark: no commit found that wrote the record (no history, a shallow clone); the commit changed no part of the page (the rewrite came back as it was). Neither is marked. */
+  noCommit: number
+  unchanged: number
+  /** Per listed row: eligible records rewritten with it in the prompt; of those, the pages marked for its words (the rewrite's own text kept them, and the page has them nowhere else); and the pages `--phrases` still takes up for its words after the step. */
   byRow: Record<string, { rewrittenWith: number; stillHave: number; leftWith: number }>
   /** Pages marked, and the marks written. */
   marked: string[]
@@ -62,7 +116,7 @@ export type MarksReport = {
   /** What `rewrite-vi --phrases` takes up before the marks and after: pages, with their parts ("guides/x (2 parts)"). */
   dueBefore: string[]
   dueAfter: string[]
-  /** Of those after: pages with a record, and pages the rewrite never did. */
+  /** Of those after: pages with a record, and pages with none (never rewritten, or a record an engine repair took off). */
   afterRecorded: number
   afterNever: number
   parts: number
@@ -89,31 +143,35 @@ async function dueWith(contentRoot: string, state: RewriteState, list: Phrase[],
 }
 
 /**
- * Marks each eligible record for the words its rewritten text still has whose row was in the prompt that day. `dry`:
- * writes nothing in the checkout (the picker's dry runs read a copy in the system's temp folder). Calls no model. The
- * record is written whole (a copy beside it, then renamed), and only if no one changed it during the run. A second run
- * marks nothing more: a record with marks is left as it is.
+ * Marks each eligible record for the words its rewrite's own text kept whose row was in the prompt that day (`slips`).
+ * `dry`: writes nothing in the checkout (the picker's dry runs read a copy in the system's temp folder). Calls no model.
+ * The record is written whole (a new file beside it, then renamed), and only if it was unchanged at the last read before
+ * the write: a write in the moment between is still lost, so it runs only in the pass's own checkout. A second run marks
+ * nothing more: a record with marks is left as it is.
  */
-export async function rewriteMarks(contentRoot: string, stateFile: string, o: { dry?: boolean; list?: Phrase[]; opts: RewriteOpts; /** Tests: runs before the record is read again for the write. */ beforeWrite?: () => Promise<void> }): Promise<MarksReport> {
+export async function rewriteMarks(contentRoot: string, stateFile: string, o: { dry?: boolean; list?: Phrase[]; opts: RewriteOpts; /** What each record's commit changed (default: from git, `gitChanged`). */ changed?: ChangedParts; /** Tests: runs before the record is read again for the write. */ beforeWrite?: () => Promise<void> }): Promise<MarksReport> {
   const list = o.list ?? PHRASES.vi ?? []
   const read = await readFile(stateFile, 'utf8')
   const state = JSON.parse(read) as RewriteState
   const next: RewriteState = { ...state }
   const byRow: MarksReport['byRow'] = Object.fromEntries(list.map(p => [p.say, { rewrittenWith: 0, stillHave: 0, leftWith: 0 }]))
   const marked: string[] = []
-  let skipped = 0, partial = 0, ok = 0, marks = 0
+  let skipped = 0, partial = 0, ok = 0, marks = 0, noCommit = 0, unchanged = 0
+  const may = Object.fromEntries(Object.entries(state).filter(([, e]) => eligible(e) && list.some(p => listedBy(p.say, e.at))))
+  const changed = await (o.changed ?? gitChanged(contentRoot))(may)
   for (const [id, e] of Object.entries(state)) {
     if (e.phrases?.length || 'error' in e) { skipped++; continue }
     if (!eligible(e)) { partial++; continue }
     ok++
-    const vi = await json<Page>(join(contentRoot, id, 'vi.json')).catch(() => null)
-    const source = id.startsWith('guides/') ? (await json<{ source?: string }>(join(contentRoot, id, 'entity.json')).catch(() => ({}) as { source?: string })).source : undefined
-    const text = vi ? sentText(id.split('/')[0]!, vi, source) : ''
+    if (!may[id]) continue
+    const c = changed.get(id)
+    if (!c) { noCommit++; continue }
+    if (!Object.keys(c).length) { unchanged++; continue }
+    const m = slips(c, textParts(await json<Page>(join(contentRoot, id, 'vi.json')).catch(() => null)), e.at, list)
     for (const p of list) if (listedBy(p.say, e.at)) {
       byRow[p.say]!.rewrittenWith++
-      if (phraseWords(text, 'vi', [p]).length) byRow[p.say]!.stillHave++
+      if (phraseWords(JSON.stringify(m), 'vi', [p]).length) byRow[p.say]!.stillHave++
     }
-    const m = marksFor(text, e.at, list)
     if (!m.length) continue
     next[id] = { ...e, phrases: m }
     marked.push(id)
@@ -132,11 +190,17 @@ export async function rewriteMarks(contentRoot: string, stateFile: string, o: { 
   if (!o.dry && marked.length) {
     await o.beforeWrite?.()
     if (await readFile(stateFile, 'utf8') !== read) throw new Error(`${stateFile} changed while the marks were made: nothing written; run it again`)
+    // A new file of its own (never one already there, which may be a link to the record), gone again if the write fails.
     const tmp = `${stateFile}.marks-${process.pid}`
-    await writeFile(tmp, `${JSON.stringify(next, null, 2)}\n`)
-    await rename(tmp, stateFile)
+    try {
+      await writeFile(tmp, `${JSON.stringify(next, null, 2)}\n`, { flag: 'wx' })
+      await rename(tmp, stateFile)
+    } catch (err) {
+      if ((err as NodeJS.ErrnoException).code !== 'EEXIST') await rm(tmp, { force: true })
+      throw err
+    }
   }
-  return { records: Object.keys(state).length, skipped, partial, eligible: ok, byRow, marked, marks, dueBefore, dueAfter, afterRecorded, afterNever: dueAfter.length - afterRecorded, parts: dueAfter.reduce((n, x) => n + partsOf(x), 0) }
+  return { records: Object.keys(state).length, skipped, partial, eligible: ok, noCommit, unchanged, byRow, marked, marks, dueBefore, dueAfter, afterRecorded, afterNever: dueAfter.length - afterRecorded, parts: dueAfter.reduce((n, x) => n + partsOf(x), 0) }
 }
 
 /**
@@ -144,12 +208,12 @@ export async function rewriteMarks(contentRoot: string, stateFile: string, o: { 
  * a hand run and the pass refill the list (the chief of staff, 22 Nov). `dry`: the marks go in a copy in the system's
  * temp folder, and the rewrite's dry run reads that copy, so it lists what the pass would take up and writes nothing.
  */
-export async function phrasesPass(contentRoot: string, stateFile: string, d: Parameters<typeof rewriteExisting>[2], o: Omit<Parameters<typeof rewriteExisting>[3], 'match' | 'listed'>) {
+export async function phrasesPass(contentRoot: string, stateFile: string, d: Parameters<typeof rewriteExisting>[2], o: Omit<Parameters<typeof rewriteExisting>[3], 'match' | 'listed'>, m: { changed?: ChangedParts } = {}) {
   const dir = o.dry ? await mkdtemp(join(tmpdir(), 'aq-pass-')) : undefined
   const file = dir ? join(dir, 'vi-rewrite.json') : stateFile
   try {
     if (dir) await copyFile(stateFile, file)
-    const marks = await rewriteMarks(contentRoot, file, { opts: d.opts })
+    const marks = await rewriteMarks(contentRoot, file, { opts: d.opts, ...m })
     return { marks, run: await rewriteExisting(contentRoot, file, d, { ...o, ...phraseRun('vi') }) }
   } finally {
     if (dir) await rm(dir, { recursive: true, force: true })

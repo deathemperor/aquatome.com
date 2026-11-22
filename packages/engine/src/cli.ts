@@ -1361,7 +1361,7 @@ if (cmd === 'photo-privacy') {
   const d = { llm: claudeCli, opts: VI_WRITE, now: () => new Date() }
   const o = { limit: values.limit ? Number(values.limit) : 10, kinds, dry: values['dry-run'], ...(values.first ? { first: values.first.split(',') } : {}) }
   const pass = values.phrases ? await phrasesPass(join(ROOT, 'content'), join(ROOT, 'engine-state/vi-rewrite.json'), d, o) : undefined
-  if (pass) console.log(`rewrite-vi --phrases: first the marks${values['dry-run'] ? ' (in a copy)' : ''}: ${pass.marks.marked.length} pages marked (${pass.marks.marks} words)`)
+  if (pass) console.log(`rewrite-vi --phrases: first the marks${values['dry-run'] ? ' (in a copy)' : ''}: ${pass.marks.marked.length} pages marked (${pass.marks.marks} words); not marked: ${pass.marks.noCommit} with no commit found, ${pass.marks.unchanged} whose commit left the page as it was`)
   const r = pass?.run ?? await rewriteExisting(join(ROOT, 'content'), join(ROOT, 'engine-state/vi-rewrite.json'), d, { ...o, ...(values.match ? { match: new RegExp(values.match, 'i') } : {}) })
   if (values['dry-run']) console.log(`rewrite-vi (dry run): ${r.done.length} pages, ${r.done.reduce((n, x) => n + Number(/\((\d+) parts?\)/.exec(x)?.[1] ?? 0), 0)} parts, each a write and a review (and a second try under the bar)`)
   else console.log(`rewrite-vi: ${r.done.length} rewritten, ${r.kept.length} kept as they were, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
@@ -1369,13 +1369,14 @@ if (cmd === 'photo-privacy') {
   for (const x of r.kept) console.log(`kept: ${x}`)
   for (const x of r.failed) console.log(`failed: ${x}`)
 } else if (cmd === 'rewrite-marks') {
-  // The marks `rewrite-vi --phrases` would write as its first step (rewrite-marks.ts), counted: the words each page kept
-  // from a rewrite made with them in its prompt. Writes no mark: only the pass does (the chief of staff, 22 Nov). No model call.
+  // The marks `rewrite-vi --phrases` would write as its first step (rewrite-marks.ts), counted: the words each page's
+  // rewrite kept in what it changed, with them in its prompt. Writes no mark, only its --out report: the pass writes them
+  // (the chief of staff, 22 Nov). No model call; reads the record's history in git.
   // pnpm engine rewrite-marks [--out <new file>: the report as JSON; never over a file that exists]
   if (values.out && existsSync(values.out)) throw new Error(`--out ${values.out} exists: the report goes only to a new file`)
   const r = await rewriteMarks(join(ROOT, 'content'), join(ROOT, 'engine-state/vi-rewrite.json'), { dry: true, opts: VI_WRITE })
   if (values.out) await writeReport(values.out, r)
-  console.log(`rewrite-marks (writes nothing): ${r.records} records: ${r.skipped} marked already or failed, ${r.partial} with a part the reviewer refused (not marked), ${r.eligible} rewritten whole; ${r.marked.length} of those marked (${r.marks} words). rewrite-vi --phrases takes up ${r.dueBefore.length} pages before, ${r.dueAfter.length} after: ${r.afterRecorded} with a record, ${r.afterNever} never rewritten; ${r.parts} parts`)
+  console.log(`rewrite-marks (writes nothing): ${r.records} records: ${r.skipped} marked already or failed, ${r.partial} with a part the reviewer refused (not marked), ${r.eligible} rewritten whole (${r.noCommit} with no commit found, ${r.unchanged} whose commit left the page as it was: not marked); ${r.marked.length} marked (${r.marks} words). rewrite-vi --phrases takes up ${r.dueBefore.length} pages before, ${r.dueAfter.length} after: ${r.afterRecorded} with a record, ${r.afterNever} with none; ${r.parts} parts`)
   for (const [say, n] of Object.entries(r.byRow)) if (n.rewrittenWith || n.leftWith) console.log(`  ${say}: rewritten whole with it listed ${n.rewrittenWith}, still have it (marked) ${n.stillHave}, left for --phrases ${n.leftWith}`)
 } else if (cmd === 'discover-videos') {
   // More teaching playlists: YouTube playlist searches + known channels → overlap filter → model vets → engine-state/youtube-playlists.json.
