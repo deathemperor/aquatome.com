@@ -1,0 +1,104 @@
+{
+  "id": "ageneiosus-militaris",
+  "scientificName": "Ageneiosus militaris",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Ageneiosus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "argentina",
+    "la-plata",
+    "brazil",
+    "paraguay",
+    "uruguay"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_militaris.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern (IUCN 2023)</li></ul><p>This genus was previously placed in its own family, Ageneiosidae, and some publications still follow this arrangement.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_militaris.htm",
+      "html": "<p>South America: La Plata River basin: Argentina, Brazil, Paraguay and Uruguay. This species is widely distributed in the Paraná and Paraguay River basins.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_militaris.htm",
+      "html": "<p>Ageneiosus militaris lives in rivers, eating fish and microcrustaceans. In the Paraná River it is found in spring, summer and early fall.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_militaris.htm",
+      "html": "<p>They do not have parental care and fertilization is internal. In the breeding season males have ossified chins, modifications in the spine of the dorsal fin and the anterior anal fin rays form a gonopodium (Da Graça and Pavanelli, 2007).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_militaris.htm",
+      "html": "<p>Etymology: the genus name Ageneiosus means beardless, referring to the very small maxillary barbels. The specific name militaris means soldier or war-like, presumably referring to the long dorsal spine, serrated on both sides.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_militaris.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Ferraris, C.J. Jr., 2003. Auchenipteridae (Driftwood catfishes). p. 470-482. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil. Frederico, R.G. 2023. Ageneiosus militaris. The IUCN Red List of Threatened Species 2023. Froese, R. and D. Pauly. Editors. 2009. FishBase. www.fishbase.org, version (06/2016). Loureiro M, González-Bergonzoni I, Teixeira de Mello F. 2023. Freshwater Fishes of Uruguay. Second edition. Vertebrate Zoology Laboratory, Faculty of Sciences, University of the Republic.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 200 lít",
+        "bể cá 150cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

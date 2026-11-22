@@ -12,13 +12,38 @@
     "paraguay",
     "rio-parana",
     "uruguay",
-    "rio-uruguay"
+    "rio-uruguay",
+    "argentina",
+    "parana",
+    "uruguay-river"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 60
+      },
+      {
+        "source": "scotcat",
+        "value": 40
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -36,19 +61,94 @@
       "html": "<p>Scientific doctrine holds that there are two species that occur in quite different river systems of South America: Rhinelepis aspera from the Rio Sao Francisco and R. strigosa from the Rio Parana and Rio Uruguay systems. Animals have now been imported from Paraguay, which should therefore be Rhinelepis strigosa.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rhinelepis_strigosa.htm",
+      "html": "<p>South America: Paraná and Uruguay River basins. Type locality: Dans le Parana et d’autres rXvières de la province de Corrientes [Argentina].</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rhinelepis_strigosa.htm",
+      "html": "<p>The Rhinelepis group has a total of only nine species distributed in the Amazon, Paraná, and São Francisco basins and some smaller, coastal streams in south eastern Brazil.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rhinelepis_strigosa.htm",
+      "html": "<p>Grows rather large and would need a large tank to accommodate it.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rhinelepis_strigosa.htm",
+      "html": "<p>Omnivore: feed vegetables, frozen foods and also tablet and pellet food.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rhinelepis-cf-strigosa-2/",
       "html": "<p>The difference between R. aspera and R. strigosa is that R. strigosa has many odontodes on the bony plates of the body and R. aspera does not. In the six specimens imported (four 16-18 cm, two 25-30 cm long) some correspond in this respect more to strigosa, others more to aspera, which is why all of them are called R. cf. strigosa as a precaution. Possibly this \"species difference\" is rather a sex difference after all.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rhinelepis_strigosa.htm",
+      "html": "<p>May not be possible as this genus migrates to spawn, and scatters its eggs with no parental protection.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rhinelepis-cf-strigosa-2/",
       "html": "<p>There are only a few Rhinelepis specimens in museum collections worldwide and therefore the fine systematics of these fishes is very poorly studied.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rhinelepis_strigosa.htm",
+      "html": "<p>The Rhinelepis group is an assemblage of four genera of medium to large sized species. It is unique among Loricariids for possessing a round (normal) iris versus a bilobed iris. The species also has thick plates and lacks an adipose fin.</p><p>Etymology: the specific name strigosa is Latin for lean, lanky, thin or meager; the allusion is not explained nor evident.</p><p>IUCN Red List: despite the little information available on this species, it has a wide range and no major threats. Therefore, it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rhinelepis_strigosa.htm",
+      "html": "<p>Armbruster, J.W., 1998. Phylogenetic relationships of the suckermouth armored catfishes of the Rhinelepis group (Loricariidae: Hypostominae). Copeia 1998(3):620-636.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (04/2010).</p><p>Salvador, G.N. 2023. Rhinelepis strigosa. The IUCN Red List of Threatened Species 2023.</p><p>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/a950f749c2f95724.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a950f749c2f95724-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rhinelepis_strigosa.htm",
+      "caption": "Rhinelepis strigosa",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/c64be1a04a0a5992.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c64be1a04a0a5992-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rhinelepis_strigosa.htm",
+      "caption": "Rhinelepis strigosa",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/ca9cca5fdde01d06.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ca9cca5fdde01d06-480.webp",
+      "width": 500,
+      "height": 309,
+      "licence": "dùng với sự cho phép",
+      "author": "Steven Grant / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rhinelepis_strigosa.htm",
+      "caption": "Rhinelepis strigosa",
+      "source": "scotcat"
+    },
     {
       "url": "https://media.aquatome.com/glaser/8ad99577e019546b.webp",
       "thumb": "https://media.aquatome.com/glaser/8ad99577e019546b-480.webp",

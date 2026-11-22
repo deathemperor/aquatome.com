@@ -1,0 +1,120 @@
+{
+  "id": "auchenipterichthys-longimanus",
+  "scientificName": "Auchenipterichthys longimanus",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Auchenipterichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 21,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_longimanus.htm",
+      "html": "<ul><li>Common name: none</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_longimanus.htm",
+      "html": "<p>South America: Lower and middle Amazon, Tocantins, and Orinoco river basins. Type locality: River Capin, Para [Brazil].</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_longimanus.htm",
+      "html": "<p>Good community catfish with normal sized patrons but not to be trusted with small Tetras for instance, which will be picked off at night on its twilight patrols.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_longimanus.htm",
+      "html": "<p>Can be fed most aquarium fare such as good quality flake, white worm, tablet and pellet foods and frozen foods such as bloodworm. Better to feed at lights out until they get accustomed to the daytime feeding regime when they may very well join in.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_longimanus.htm",
+      "html": "<p>This family practices internal fertilisation with the female depositing the fertilized eggs on aquatic vegetation with no care of the eggs shown. An unsuccessful breeding report states that the male swims behind the female and they suddenly lock their pectoral, female's adipose and caudal fin. They speed around the tank and are oblivious to anything around them. After this confrontation they break apart and fall to the aquarium floor where they sit for a couple hours in a \"dazed\" condition.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_longimanus.htm",
+      "html": "<p>The Neotropical auchenipterid catfish genus Auchenipterichthys includes four species. Etymology: The specific name longimanus: Long hands (pectoral fins). IUCN Red List: the species faces no direct threats and is widely distributed. Therefore, it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_longimanus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Ferraris, C.J. Jr., 2003. Auchenipteridae (Driftwood catfishes). p. 470-482. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Ferraris, C.J. Jr., Vari, Richard P. and Raredon, Sandra J. Catfishes of the genus Auchenipterichthys (Osteichthyes: Siluriformes: Auchenipteridae); a revisionary study. Neotropical Ichthyology, 3(1):89-106, 2005.</p><p>Frederico, R.G. 2023. Auchenipterichthys longimanus. The IUCN Red List of Threatened Species 2023.</p><p>Froese, R. and D. Pauly. Editors. 2018. FishBase. World Wide Web electronic publication. www.fishbase.org, (02/2018).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/e4c8ad6d3a5fc41e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/e4c8ad6d3a5fc41e-480.webp",
+      "width": 500,
+      "height": 187,
+      "licence": "dùng với sự cho phép",
+      "author": "Rupert Collins / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_longimanus.htm",
+      "caption": "Auchenipterichthys longimanus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy lọc bể cá cộng đồng"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

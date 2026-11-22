@@ -1,8 +1,17 @@
-# Tóm tắt chờ duyệt (182)
+# Tóm tắt chờ duyệt (183)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
 Duyệt: `pnpm engine summaries approve <id,id|all>`. Sửa: chỉnh `content/summaries/<id>.json` rồi duyệt.
+
+## Cá lau kính đuôi đàn lia chấm bi (Acanthicus adonis)
+id: `acanthicus-adonis`
+
+Loài này chỉ hợp với người có bể tư nhân thuộc loại lớn nhất hoặc hồ nuôi nhiệt đới. Cá lớn tới 100 cm và cần bể dài tối thiểu 600 cm (khoảng 24.000 lít), nước 23–30 °C, pH 6–7,5, độ cứng 2–12 dGH, ánh sáng yếu, có lũa, đá hoặc ống làm chỗ trú. Độ khó 6/8. Khó nhất là bể quá lớn, hệ lọc cực lớn, oxy luôn cao, và cá càng lớn càng hung dữ.
+
+- Mua cá con vì có đốm đẹp rồi để nuôi lâu dài; cá mất đốm khi trưởng thành và lớn tới 100 cm, nên chỉ mua khi đã có bể dài 600 cm.
+- Thả chung với cá sống đáy khác; cá trưởng thành nên nuôi một con, bạn cùng bể chọn cá tầng nước cỡ lớn và khỏe như Cichla hay Osteoglossum.
+- Để oxy tụt vì tưởng cá tự thở khí được; loài này không thở bằng không khí, nên giữ oxy hòa tan luôn cao, lọc cực lớn và thay nước đều.
 
 ## Cá trê tắc kè Mae Klong (Acrochordonichthys septentrionalis)
 id: `acrochordonichthys-septentrionalis`

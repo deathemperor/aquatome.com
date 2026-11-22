@@ -19,7 +19,10 @@
     "essequibo",
     "suriname",
     "courantyne",
-    "pirara-river"
+    "pirara-river",
+    "french-guiana",
+    "paraguay",
+    "parana"
   ],
   "range": {
     "native": {
@@ -846,8 +849,8 @@
       {
         "source": "scotcat",
         "value": {
-          "min": 22,
-          "max": 24
+          "min": 23,
+          "max": 26
         }
       }
     ],
@@ -863,7 +866,7 @@
         "source": "scotcat",
         "value": {
           "min": 6.5,
-          "max": 7.5
+          "max": 7.2
         }
       }
     ],
@@ -883,7 +886,7 @@
       },
       {
         "source": "scotcat",
-        "value": 12
+        "value": 35
       }
     ],
     "tankCm": [
@@ -909,8 +912,8 @@
     {
       "key": "quickFacts",
       "source": "scotcat",
-      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_cf_ucayalensis.htm",
-      "html": "<ul><li>IUCN Red List: Not Evaluated</li></ul>"
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_ucayalensis.htm",
+      "html": "<ul><li>Common name: Duck Catfish</li></ul>"
     },
     {
       "key": "distribution",
@@ -921,8 +924,8 @@
     {
       "key": "distribution",
       "source": "scotcat",
-      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_cf_ucayalensis.htm",
-      "html": "<p>South America: Pirara River, Guyana (Amazon Basin).</p>"
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_ucayalensis.htm",
+      "html": "<p>South America: Amazon and Orinoco River basins; Guianas, and upper Paraná River basin. Type locality: un lac, près de l'Ucayale, et qui communiquait avec cette rivière [Peru].</p>"
     },
     {
       "key": "habitat",
@@ -931,22 +934,28 @@
       "html": "<p>Given its enormous natural range this species is likely to be something of a habitat generalist, but most records we've seen pertain to middle and lower sections of river channels and larger tributaries.</p>"
     },
     {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_ucayalensis.htm",
+      "html": "<p>Occurs in the quiet zones of swamps or the lower parts of stream.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ageneiosus-ucayalensis",
       "html": "<p>Standard length: 290 mm SL (11 in). Aquarium base: 180 × 60 cm (72 × 24 in). Volume: ~648 litres (~171 US gal).</p><p>Minimum base dimensions of 180 × 60 cm (72 × 24 in) are required for long-term care since this is an active species that can sometimes act skittishly and easily acquire injuries by swimming into the glass.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_ucayalensis.htm",
+      "html": "<p>A large tank would be needed with plenty of swimming space.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ageneiosus-ucayalensis",
       "html": "<p>Likely to prefer dim lighting and access to refuges in the form of driftwood, large rocks or lengths of plastic piping. An enormous filtration system and dedicated regime of water changes will also be required and maintenance of high dissolved oxygen levels should be considered mandatory given the species' natural habitat plus the fact that unlike some relatives it cannot respire atmospheric oxygen.</p>"
-    },
-    {
-      "key": "maintenance",
-      "source": "scotcat",
-      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_cf_ucayalensis.htm",
-      "html": "<p>Although reputed to be of a smaller size, they could still prove to be predatory as per this genus, so would need to be kept with fish that are not too small.</p>"
     },
     {
       "key": "waterConditions",
@@ -963,14 +972,20 @@
     {
       "key": "diet",
       "source": "scotcat",
-      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_cf_ucayalensis.htm",
-      "html": "<p>Presumably meat based.</p>"
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_ucayalensis.htm",
+      "html": "<p>Carnivorous. Swims close to the bottom, feeding mainly on fish.</p>"
     },
     {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ageneiosus-ucayalensis",
       "html": "<p>This species is capable of consuming large prey items and is likely to be safe only alongside similarly-sized catfishes or pelagic characins such as Brycon, Colossoma or Piaractus, a combination only possible in public aquaria in the vast majority of cases.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_ucayalensis.htm",
+      "html": "<p>As per this genera they will be fine as juveniles, but as they mature they become predatory so would need to be kept with fish that are not too small.</p>"
     },
     {
       "key": "dimorphism",
@@ -993,14 +1008,20 @@
     {
       "key": "notes",
       "source": "scotcat",
-      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_cf_ucayalensis.htm",
-      "html": "<p>This genus was previously placed in its own family, Ageneiosidae, and you can still find some publications that follow this line. This specimen was collected in the Pirara River, Guyana (Amazon Basin) on a Donald Taphorn expedition. Similar to Ageneiosus ucayalensis.</p>"
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_ucayalensis.htm",
+      "html": "<p>This genus was previously placed in its own family of Ageneiosidae and you can still find some publications that still follow this line.</p><p>Etymology: The genus name Ageneiosus: beardless, pertaining to the very small maxillary barbels. The specific epithet ucayalensis: named for the Ucayali River, Peru, South America.</p><p>IUCN Red List: This species is widely distributed and therefore, it is assessed as Least Concern (IUCN 2023).</p>"
     },
     {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ageneiosus-ucayalensis",
       "html": "<ul><li>Castillo, G. O. and G. Oscar Brull (1989). Ageneiosus magoi una nueva especie de bagre ageneiosido (Teleostei, Siluriformes) para Venezuela y algunas notas sobre su historia natural. Acta Biologica Venezuelica 12(3-4), 72-87</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ribeiro, F. R. V. and L. H. Rapp Py-Daniel (2010). Ageneiosus uranophthalmus, a new species of aucheniperid catfish (Osteichthyes: Siluriformes) from river channels of the central Amazon basin, Brazil. Neotropical Ichthyology 8(1), 97-104</li><li>Schraml, E. (2004). 'Gotta Lotta Bottle'. Today's Fishkeeper, November 2004, 32-34</li><li>Sullivan, J. P., J. G. Lundberg and M. Hardman (2006). A phylogenetic analysis of the major groups of catfishes (Teleostei: Siluriformes) using rag1 and rag2 nuclear gene sequences. Molecular Phylogenetics and Evolution 41(3), 636–662</li><li>Walsh, S. J. (1990). A Systematic Revision of the Neotropical Catfish Family Ageneiosidae (Teleostei: Ostariophysi: Siluriformes). Unpublished Ph.D. Dissertation, University of Florida, Gainesville, 1-363</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_ucayalensis.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2003. Auchenipteridae (Driftwood catfishes). p. 470-482. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Frederico, R.G. 2023. Ageneiosus ucayalensis. The IUCN Red List of Threatened Species 2023.</p><p>Froese, R. and D. Pauly. Editors. 2020. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 12/2020 ).</p>"
     }
   ],
   "photos": [],

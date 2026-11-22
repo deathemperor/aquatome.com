@@ -1,21 +1,28 @@
 {
   "slug": "ca-da-tron-platysilurus-mucosus",
   "name": "Cá da trơn Platysilurus mucosus",
-  "altNames": [],
+  "altNames": [
+    "Cá Platysilurus",
+    "Swallowtail pimeloid"
+  ],
   "sections": {
     "quickFacts:glaser": "<p>Platysilurus mucosus là một loài cá da trơn săn mồi, chỉ dài 20-30 cm. Điểm đặc biệt của nó là đôi râu hàm rất dài và cái vây đuôi rất lớn. Vây đuôi ở cá con nổi bật hơn ở cá lớn.</p>",
     "distribution:glaser": "<p>P. mucosus sống ở lưu vực sông Amazon và Orinoco, và loài này có mặt rộng khắp ở đó. Những con được mô tả ở đây có nguồn gốc từ Peru. Cùng chi còn có loài thứ hai là P. malarmo. Loài này chỉ có ở Venezuela và Colombia, và lớn hơn hẳn, khoảng 50 cm.</p>",
     "maintenance:glaser": "<p>Lúc bắt cá phải hết sức cẩn thận. Vây ngực của nó nhọn như kim, có lẽ còn hơi có độc. Tốt nhất là dồn cá bằng một cái vợt thật lớn so với cá, mắt lưới càng nhỏ càng tốt, rồi múc cá ra bằng cốc, con lớn thì dùng xô. Làm vậy thì cả người lẫn cá đỡ căng thẳng hơn nhiều.</p>",
     "diet:glaser": "<p>Chúng ăn mọi loại thức ăn thịt lọt miệng, kể cả cá nhỏ và tép!</p>",
-    "behaviour:glaser": "<p>Loài này sống hiền với đồng loại. Nếu thả chung với cá khác thì phải để ý xem P. mucosus có được ăn đủ không. So với các loài cá da trơn săn mồi khác, chúng nhát hơn nhiều.</p>"
+    "behaviour:glaser": "<p>Loài này sống hiền với đồng loại. Nếu thả chung với cá khác thì phải để ý xem P. mucosus có được ăn đủ không. So với các loài cá da trơn săn mồi khác, chúng nhát hơn nhiều.</p>",
+    "quickFacts:scotcat": "<p>Họ: Pimelodidae. Tên thường gọi: Swallowtail pimeloid. Kích thước: 20 cm SL. Nhiệt độ: 22–27°C. pH: 6,0–7,2.</p><p>Râu dài tới gấp ba chiều dài thân. Đầu cao, thon dần về phía trước, miệng nằm lệch xuống dưới. Gốc râu hàm có một phần dày lên dạng màng. Thóp lớn và mỏng, kéo tới ngay trước tấm lưng. Mấu vai lộ rõ ra ngoài.</p><p>Màu sắc: lưng màu nâu hoặc xám, bụng nhạt màu. Hai bên thân thường có những đốm tròn, số đốm mỗi con một khác. Vây trong suốt.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Amazon và Orinoco. Nơi thu mẫu chuẩn: São Antonio de R. Madeira [Brazil].</p><p>Tài liệu ghi loài này sống ở sông Amazon và Orinoco. Nhưng mấy con non trong hai ảnh nhỏ cuối lại được bắt ở sông Madre de Dios, miền nam Peru, và chính người góp ảnh đã chụp chúng.</p>",
+    "notes:scotcat": "<p>Có thời nó bị coi là tên đồng nghĩa của Duopalatinus, vì loài duy nhất P. barbatus khi đó được xác định là tên đồng nghĩa của Duopalatinus goeldii. Về sau, nghiên cứu kỹ hơn cho thấy cả P. barbatus lẫn D. goeldii đều là tên đồng nghĩa của P. mucosus (Vaillant, 1880).</p><p>Nguồn gốc tên: tên loài mucosus lấy từ tiếng Latin mucosa, mucosus, nghĩa là chất nhầy. Tên này chỉ những lỗ lớn nằm dày dưới hàm dưới. Vaillant gọi chúng là lỗ nhầy, nhưng thật ra đó là lỗ cảm giác.</p><p>Danh sách đỏ IUCN: thông tin về loài này còn ít, nhưng nó phân bố rộng và chưa thấy mối đe dọa nào rõ ràng. Vì thế IUCN xếp nó vào nhóm Ít quan tâm (IUCN 2023).</p>",
+    "references:scotcat": "<p>Burgess, W.E. 1989 An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Conservación Internacional; seris de Guías Tropicales De Campo. Pecos del medio Amazonas Región de Leticia. 546 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Salvador, G.N. 2023. Platysilurus mucosus. The IUCN Red List of Threatened Species 2023.</p>"
   },
   "quality": {
     "score": 0.88,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.88
-    },
-    "reason": "thin"
+      "glaser": 0.88,
+      "scotcat": 0.9
+    }
   },
   "held": {
     "checks": [

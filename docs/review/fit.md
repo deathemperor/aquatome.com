@@ -6,19 +6,19 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Open, no read of its text | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 5197 | 4514 | 663 | 1649 | 37 | 44 | 204 | 48 | 1160 | 351 | 2758 | 461 | 9 | 17 | 0 | 3 | 2 | 5 | 2 |
+| Vietnamese | 5216 | 4536 | 660 | 1658 | 37 | 44 | 206 | 48 | 1164 | 352 | 2765 | 464 | 9 | 18 | 0 | 3 | 2 | 5 | 2 |
 | Indonesian | 1717 | 1574 | 143 | 429 | 27 | 13 | 4 | 6 | 200 | 36 | 74 | 194 | 0 | 2 | 0 | 3 | 2 | 0 | 0 |
 | Thai | 1715 | 1566 | 149 | 404 | 22 | 3 | 5 | 4 | 197 | 41 | 100 | 182 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
 | Malay | 587 | 545 | 42 | 148 | 14 | 3 | 0 | 2 | 74 | 17 | 31 | 55 | 0 | 1 | 0 | 3 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 13 of 167, Indonesian 2 of 64, Thai 2 of 59, Malay 1 of 33.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 13 of 169, Indonesian 2 of 64, Thai 2 of 59, Malay 1 of 33.
 
 ## Doses on more than one page
 
 Per litre, by what the pages say each is for. A conflict is the same treatment, strength, use and method at rates that can't both be right: flagged, never averaged. A person settles which holds.
 
-- hydrogen peroxide 3% — **15 conflicts**: cyanobacteria, spot: 0.75 ml/l (2 pages); other, wholeTank: 0.222–0.333 ml/l (1 pages); disinfecting, dip: 0.5–0.75 ml/l (1 pages); algae, wholeTank: 0.395 ml/l, 0.4 ml/l (5 pages); algae, spot: 0.789 ml/l, 0.167 ml/l, 0.5 ml/l (7 pages); bacteria, wholeTank: 0.333 ml/l (1 pages)
-- salt — **6 conflicts**: water, unsaid: 5–15 g/l, 5–10 g/l, 10–15 g/l, 10–20 g/l (8 pages); water, wholeTank: 1–2 g/l, 10–20 g/l, 5–10 g/l, 0.5 ml/l, 10–15 g/l, 5–15 g/l, 1–3 g/l (20 pages); other, wholeTank: 0.5 ml/l, 1.111–1.667 ml/l, 3.75 ml/l, 1–3 g/l, 1.5 ml/l, 3.947 ml/l (12 pages); fungus, unsaid: 1 g/l, 1.364 ml/l, 1–2 g/l, 1–3 g/l (4 pages); other, dip: 0.263 cup/l (1 pages); parasites, wholeTank: 0.75 ml/l, 0.013 cup/l, 3.2 ml/l (7 pages); water, other: 15–25 g/l (1 pages); bacteria, wholeTank: 1.364 ml/l, 1.316 ml/l (5 pages); ich, wholeTank: 1.875 ml/l, 1.974 ml/l (5 pages); other, other: 15 ml/l, 5 ml/l, 0.5 ml/l, 30 g/l (5 pages); bacteria, bath: 22.222 g/l (3 pages); finRot, bath: 10 g/l (4 pages); other, unsaid: 1–3 g/l, 17 g/l, 12 g/l, 1.316 ml/l (3 pages); ich, bath: 4–5 g/l (1 pages); fungus, wholeTank: 1–5 g/l, 1–3 g/l, 1.364 ml/l, 2 ml/l, 3.947 ml/l (3 pages); fungus, bath: 30 g/l, 1–5 g/l (4 pages); other, bath: 1–3 g/l (3 pages); snails, dip: 63.158 ml/l, 0.263 cup/l (3 pages); disinfecting, other: 5 ml/l (2 pages); bacteria, unsaid: 7.368 g/l (1 pages); finRot, wholeTank: 1–3 g/l (1 pages); quarantine, wholeTank: 1.364 ml/l, 1.316 ml/l (2 pages); disinfecting, bath: 5 ml/l (1 pages); bacteria, dip: 22.222 g/l (1 pages)
+- hydrogen peroxide 3% — **15 conflicts**: cyanobacteria, spot: 0.75 ml/l (2 pages); other, wholeTank: 0.222–0.333 ml/l (1 pages); disinfecting, dip: 0.5–0.75 ml/l (1 pages); algae, wholeTank: 0.395 ml/l, 0.4 ml/l (5 pages); snails, wholeTank: 3.75 ml/l (1 pages); algae, spot: 0.789 ml/l, 0.167 ml/l, 0.5 ml/l (7 pages); parasites, wholeTank: 0.333 ml/l (1 pages); bacteria, wholeTank: 0.333 ml/l (1 pages)
+- salt — **6 conflicts**: water, unsaid: 5–15 g/l, 5–10 g/l, 10–15 g/l, 10–20 g/l (8 pages); water, wholeTank: 1–2 g/l, 10–20 g/l, 5–10 g/l, 0.5 ml/l, 10–15 g/l, 5–15 g/l, 1–3 g/l (20 pages); other, wholeTank: 0.5 ml/l, 1.111–1.667 ml/l, 3.75 ml/l, 1–3 g/l, 1.5 ml/l, 3.947 ml/l (12 pages); fungus, unsaid: 1 g/l, 1.364 ml/l, 1–2 g/l, 1–3 g/l (4 pages); other, dip: 0.263 cup/l (1 pages); parasites, wholeTank: 0.75 ml/l, 0.2 g/l, 0.013 cup/l, 3.2 ml/l (8 pages); water, other: 15–25 g/l (1 pages); bacteria, wholeTank: 1.364 ml/l, 1.316 ml/l (5 pages); ich, wholeTank: 1.875 ml/l, 1.974 ml/l (5 pages); other, other: 15 ml/l, 5 ml/l, 0.5 ml/l, 30 g/l (5 pages); bacteria, bath: 22.222 g/l (3 pages); finRot, bath: 10 g/l (4 pages); other, unsaid: 1–3 g/l, 17 g/l, 12 g/l, 1.316 ml/l (3 pages); ich, bath: 4–5 g/l (1 pages); fungus, wholeTank: 1–5 g/l, 1–3 g/l, 1.364 ml/l, 2 ml/l, 3.947 ml/l (3 pages); fungus, bath: 30 g/l, 1–5 g/l (4 pages); other, bath: 1–3 g/l (3 pages); snails, dip: 63.158 ml/l, 0.263 cup/l (3 pages); disinfecting, other: 5 ml/l (2 pages); bacteria, unsaid: 7.368 g/l (1 pages); finRot, wholeTank: 1–3 g/l (1 pages); quarantine, wholeTank: 1.364 ml/l, 1.316 ml/l (2 pages); disinfecting, bath: 5 ml/l (1 pages); bacteria, dip: 22.222 g/l (1 pages)
 - bleach — **1 conflicts**: disinfecting, dip: 53.333 ml/l, 47.368 ml/l, 0.125 litre/l (3 pages)
 - liquid fertiliser — **1 conflicts**: plants, wholeTank: 0.02 ml/l, 0.04 ml/l, 0.05 ml/l (2 pages)
 - sea salt: water, wholeTank: 1–2 g/l, 1–3 g/l, 5 ml/l, 5–10 g/l, 0.1 thìa/l, 0.5–1 ml/l, 3–10 g/l, 15 g/l, 0.5 ml/l, 10–20 g/l, 18.75 ml/l, 7.5 ml/l, 0.1 sendok/l, 0.1 ช้อน/l (53 pages); water, unsaid: 1–3 g/l, 5–15 g/l, 10–20 g/l (7 pages); other, wholeTank: 0.1 thìa/l, 0.5–1 ml/l (2 pages); water, other: 30 ml/l, 7.5 ml/l (5 pages); other, other: 15 ml/l (1 pages); other, unsaid: 1–3 g/l, 0.5–1 ml/l (3 pages)
@@ -80,12 +80,12 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 
 - repashy: 49
 - keo 502: 40
-- panacur: 35
+- panacur: 36
 - ada: 26
+- ada amazonia aqua soil: 26
 - tropica: 25
-- ada amazonia aqua soil: 24
+- hikari shrimp cuisine: 23
 - ada amazonia: 22
-- hikari shrimp cuisine: 20
 - fluval stratum: 19
 - seachem fluorite: 18
 - dennerle: 17
@@ -99,13 +99,13 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - 1-2-grow: 11
 - apt fix: 11
 - aquario neo soil: 11
+- fluval plant and shrimp stratum: 11
 - hikari: 11
 - tropica aquarium soil: 11
 - twinstar: 11
 - aquaclear: 10
 - ge silicone 1: 10
 - tetramin: 10
-- fluval plant and shrimp stratum: 9
 - instant ocean: 9
 - jbl: 9
 - reef roids: 9

@@ -11,13 +11,38 @@
     "amazon",
     "venezuela",
     "orinoco",
-    "colombia"
+    "colombia",
+    "brazil",
+    "madeira",
+    "madre-de-dios"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 30
+      },
+      {
+        "source": "scotcat",
+        "value": 20
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -29,10 +54,22 @@
       "html": "<p>Platysilurus mucosus is a predatory catfish that grows to only 20-30 cm in length. Its special features are the very long maxillary barbels and the huge caudal fin, the latter being more pronounced in juveniles than in adults.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/platysilurus_mucosus.htm",
+      "html": "<p>Family: Pimelodidae. Common name: Swallowtail pimeloid. Size: 20 cm SL. Temperature: 22–27°C. pH: 6.0–7.2.</p><p>The barbels reach up to three times the length of the body. The head is high and narrows with a subterminal mouth. The maxillary barbels display a membranous thickening at the base. The fontanel is large and thin and reaches just before the dorsal plate; the humeral process is visible.</p><p>Colouration: the body is brown or grey on the back, with a clear ventral area. There are usually circular spots on the flanks, the number of which can vary. The fins are translucent.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platysilurus-mucosus-2/",
       "html": "<p>The home of P. mucosus is the Amazon and Orinoco, where the species is widespread. The animals described here come from Peru. A second species, P. malarmo, is only found in Venezuela and Colombia and becomes remarkably larger (around 50 cm).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/platysilurus_mucosus.htm",
+      "html": "<p>South America: Amazon and Orinoco River basins. Type locality: São Antonio de R. Madeira [Brazil].</p><p>Catalogued as being from the Amazon and Orinoco Rivers, but the juvenile specimens in the last two thumbnails were captured in the Madre de Dios in southern Peru and photographed by the image contributor.</p>"
     },
     {
       "key": "maintenance",
@@ -51,6 +88,18 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platysilurus-mucosus-2/",
       "html": "<p>Among themselves the animals are peaceful. In community tanks you have to take care that P. mucosus get enough food, because they are, compared to other predatory catfishes, very shy.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/platysilurus_mucosus.htm",
+      "html": "<p>Was thought to be a synonym of Duopalatinus since the single species P. barbatus was found to be a synonym of Duopalatinus goeldii, but further study revealed that P. barbatus and D. goeldii were synonyms of P. mucosus (Vaillant, 1880).</p><p>Etymology: the specific name mucosus comes from Latin mucosa, mucosus = mucous. It refers to the numerous large pores under the lower jaw, which Vaillant called mucous pores (but which are sensory pores).</p><p>IUCN Red List: despite the little information available on this species, it has a wide range and no apparent threats. It is therefore assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/platysilurus_mucosus.htm",
+      "html": "<p>Burgess, W.E. 1989 An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Conservación Internacional; seris de Guías Tropicales De Campo. Pecos del medio Amazonas Región de Leticia. 546 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Salvador, G.N. 2023. Platysilurus mucosus. The IUCN Red List of Threatened Species 2023.</p>"
     }
   ],
   "photos": [

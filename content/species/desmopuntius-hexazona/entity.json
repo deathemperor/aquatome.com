@@ -12,7 +12,9 @@
     "indonesia",
     "kampar",
     "malaysia",
-    "singapore"
+    "singapore",
+    "malay-peninsula",
+    "sumatra"
   ],
   "range": {
     "native": {
@@ -140,6 +142,10 @@
       {
         "source": "seriouslyfish",
         "value": 5.5
+      },
+      {
+        "source": "bwaquatics",
+        "value": 5.6
       }
     ],
     "tempC": [
@@ -149,11 +155,25 @@
           "min": 20,
           "max": 26
         }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
       }
     ],
     "ph": [
       {
         "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 7
+        }
+      },
+      {
+        "source": "bwaquatics",
         "value": {
           "min": 4,
           "max": 7
@@ -196,6 +216,12 @@
       "html": "<p>Normally traded as the 'pentazona' barb, Desmopuntius hexazona is a cyprinid from southern Borneo, eastern Sumatra, Singapore and the Malay Peninsula. It is almost identical to D. pentazona, which has a small dark marking at the rear of the dorsal-fin base that D. hexazona lacks. Older literature may label it 'Puntius johorensis'. In Singapore it is considered highly endangered and is restricted to the Central Catchment nature reserve.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus-aka-snake-skin-barbs-copy",
+      "html": "<p>From the Desmopuntius genus (banded barbs). IUCN Red List: Least Concern. Origin: wild caught.</p><p>Most fish sold as the \"Five-Banded Barb\" (D. pentazona) are actually this species. It has six dark vertical bands, counting the one through the eye and the one at the tail base. It is calmer than most barbs and does well in blackwater community tanks.</p><p>Body shape: compact, moderately deep barb. Fins: red-tinted dorsal and tail fins, brightest in males. Coloration: golden to reddish-orange body with six dark vertical bands. Males are more red.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/desmopuntius_hexazona_wild_en/",
@@ -208,16 +234,34 @@
       "html": "<p>Native to parts of southern Borneo, eastern Sumatra, Singapore, and the Malay Peninsula.</p><p>In Singapore it's considered highly-endangered and is now restricted to the Central Catchment nature reserve.</p><p>Type locality is 'Tuluk and Gunung Sahilan, Sumatra, Indonesia' which appears to correspond to localities within the Kampar River drainage of which the former is now known as Teluk Meranti and is one of many sites on Sumatra where the ancient peat swamp forest has been cleared to make space for oil palm plantations.</p>"
     },
     {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus-aka-snake-skin-barbs-copy",
+      "html": "<p>Malay Peninsula, Singapore, Sumatra and Borneo.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-hexazona",
       "html": "<p>Most often inhabits peat swamps and associated black water streams as well as other still waters, often in areas with submerged grasses or aquatic plants and dense riparian vegetation.</p><p>The water itself is typically stained brown with humic acids and other chemicals released by decaying organic material, dissolved mineral content is generally negligible and pH as low as 3.0 or 4.0.</p><p>Substrates are usually littered with fallen leaves, branches and submerged tree roots though in some places aquatic plants from genera such as Cryptocoryne or Barcalaya can be found.</p><p>In the North Selangor peat swamp, Peninsular Malaysia, sympatric fishes include Rasbora cephalotaenia, R. einthovenii, R. kalochroma, Nemacheilus selangoricus, Neohomaloptera johorensis, Kottelatlimia pristes, Mystus bimaculatus, Belontia hasselti, Betta bellica, B. livida, Sphaerichthys osphromenoides, Trichopodus trichopterus, and Luciocephalus pulcher.</p>"
     },
     {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus-aka-snake-skin-barbs-copy",
+      "html": "<p>Peat swamp forests and acidic blackwater streams. Shaded peat swamp streams with leaf litter.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-hexazona",
       "html": "<ul><li>Max size: 55 mm SL</li><li>Aquarium base: 80 × 30 cm</li><li>Volume: ~72 litres</li></ul><p>Base dimensions of at least 80 × 30 cm or equivalent are required.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus-aka-snake-skin-barbs-copy",
+      "html": "<p>Max size: about 5.6 cm.</p>"
     },
     {
       "key": "maintenance",
@@ -238,16 +282,34 @@
       "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 4.0–7.0</li><li>Hardness: 1–5 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus-aka-snake-skin-barbs-copy",
+      "html": "<p>TDS: under 150 ppm. pH: 4.0 to 7.0 (5.0 to 6.5 ideal). Temperature: 22 to 28°C; 25 to 26°C recommended.</p>"
+    },
+    {
       "key": "equipment",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/desmopuntius_hexazona_wild_en/",
       "html": "<p>A tank furnished with many dead leaves, wood, and waterplants.</p>"
     },
     {
+      "key": "equipment",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus-aka-snake-skin-barbs-copy",
+      "html": "<p>Dark substrate, dim light, dense plants or floating cover, driftwood and leaf litter.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-hexazona",
       "html": "<p>Primarily a micropredator feeding on small insects, worms, crustaceans and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should not be fed these exclusively.</p><p>Daily meals of small live and frozen fare such as Daphnia, Artemia and suchlike will result in the best colouration and encourage the fish to come into breeding condition.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus-aka-snake-skin-barbs-copy",
+      "html": "<p>Omnivore that prefers small live or frozen foods such as daphnia, brine shrimp and insect larvae. Accepts quality flakes and micro pellets.</p>"
     },
     {
       "key": "behaviour",
@@ -262,16 +324,34 @@
       "html": "<p>An ideal addition to a peaceful community of Southeast Asian fishes with comparably-sized, open water-dwelling cyprinids, small loaches, and certain anabantoids perhaps constituting the best choices.</p><p>Some sympatric species from Peninsular Malaysia are listed above in 'Habitat', many of which are available in the aquarium trade.</p><p>Avoid boisterous or very vigorous tankmates as they may outcompete it for food.</p><p>It's a schooling species by nature, and really should be kept in a group of at least 8-10 specimens.</p><p>Maintaining it in decent numbers will not only make the fish less skittish but result in a more effective, natural-looking display, and males will also display their best colours as they compete with one other for female attention.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus-aka-snake-skin-barbs-copy",
+      "html": "<p>Peaceful. Keep in groups of 6 or more. Good with small rasboras, peaceful loaches and small gouramis. Avoid fin-nippers, large barbs and cichlids.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-hexazona",
       "html": "<p>Adult males tend to be slightly smaller, are noticeably slimmer and exhibit more intense colouration than females.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus-aka-snake-skin-barbs-copy",
+      "html": "<p>Males are more red, with brighter red-tinted dorsal and tail fins.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-hexazona",
       "html": "<p>Like most small cyprinids Desmopuntius spp. are egg-scattering free spawners exhibiting no parental care.</p><p>When in good condition they will spawn often and in a mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but a smaller aquarium should also be set up and filled with mature water.</p><p>This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles.</p><p>Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should within the ranges suggested above, and an air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced, and spawning should take place the following morning.</p><p>An alternative is to spawn the fish in a group with half a dozen specimens of each sex being a good number, although a larger aquarium may be necessary.</p><p>In either situation the adults will probably eat the eggs given the chance and should be removed as soon as any are noticed.</p><p>These should hatch in 24 - 36 hours with the fry free swimming after 3-4 days.</p><p>They should be fed on an infusoria-grade food for the first few days until large enough to accept microworm, Artemia nauplii, or suchlike.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus-aka-snake-skin-barbs-copy",
+      "html": "<p>Egg scatterer. Spawn in a separate tank with very soft, slightly acidic water and fine-leaved plants or mops. Spawning happens at first light. Remove adults afterward. Eggs hatch in 24 to 36 hours; feed infusoria first, then baby brine shrimp or microworms.</p>"
     },
     {
       "key": "notes",
@@ -294,16 +374,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/cdc824e83be01b1b.webp",
-      "thumb": "https://media.aquatome.com/commons/cdc824e83be01b1b-480.webp",
-      "width": 800,
-      "height": 600,
-      "licence": "CC BY-SA 2.0 de",
-      "author": "Wikimedia Commons",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Desmopuntius_hexazona.jpg",
-      "caption": "Desmopuntius hexazona.jpg"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/c9dbfa951dbc4df7.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/c9dbfa951dbc4df7-480.webp",
       "width": 639,
@@ -313,6 +383,26 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-hexazona",
       "caption": "Specimen from the aquarium trade.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/80728f840654f46f.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/80728f840654f46f-480.webp",
+      "width": 947,
+      "height": 943,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus-aka-snake-skin-barbs-copy",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/cdc824e83be01b1b.webp",
+      "thumb": "https://media.aquatome.com/commons/cdc824e83be01b1b-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "CC BY-SA 2.0 de",
+      "author": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Desmopuntius_hexazona.jpg",
+      "caption": "Desmopuntius hexazona.jpg"
     }
   ],
   "videos": [
@@ -371,5 +461,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-22"
 }

@@ -53964,6 +53964,16 @@
   "findings": [],
   "products": []
  },
+ "vi/guides/aquariumbreeder-aquarium-floating-plants-pros-and-cons": {
+  "at": "2026-11-22",
+  "hash": "71f8ab0d4e8de574",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "Bacter AE"
+  ]
+ },
  "vi/guides/aquariumbreeder-aquarium-safety-and-checklist": {
   "at": "2026-11-18",
   "hash": "024cfc718df08613",
@@ -54105,6 +54115,29 @@
    "ADA Amazonia",
    "Fluval Plant"
   ]
+ },
+ "vi/guides/aquariumbreeder-best-cleaners-for-nano-and-small-aquariums": {
+  "at": "2026-11-22",
+  "hash": "a53819e5bf2f48c1",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "price",
+    "part": "P3",
+    "quote": "chỉ vài đô la một con",
+    "why": "Price given in US dollars, meaningful only abroad.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P9",
+    "quote": "dài khoảng 0,6 – 4 cm",
+    "why": "0,6 cm is a converted quarter inch, not a length keepers in Vietnam write.",
+    "by": "model"
+   }
+  ],
+  "products": []
  },
  "vi/guides/aquariumbreeder-best-corals-for-a-nano-reef-tank": {
   "at": "2026-11-10",
@@ -55225,6 +55258,42 @@
    "Finnex FugeRay Aquarium LED Light Plus Moonlights",
    "Finnex Ray2 Aquarium LED Daylight",
    "Kessil A80 Tuna Sun LED Light"
+  ]
+ },
+ "vi/guides/aquariumbreeder-hints-for-survival-your-shrimp": {
+  "at": "2026-11-22",
+  "hash": "88b54969f49b7144",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "Nhà máy nước gần như đều đã chuyển từ chlorine sang chloramine (NH2Cl) để khử trùng nước.",
+    "why": "Describes US municipal water practice; Vietnamese tap water is mostly chlorinated, not chloraminated.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "nếu nhà hoặc phòng nuôi tép lúc nào cũng dưới 20°C",
+    "why": "A home always below 20°C is a cold-country house, not a Vietnamese one.",
+    "by": "model"
+   },
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "Nếu muốn dùng baking powder hoặc các loại chất chỉnh pH khác",
+    "why": "Baking powder is a mistranslation; keepers use baking soda to raise KH/pH.",
+    "by": "model",
+    "fix": "baking soda (muối nở)"
+   }
+  ],
+  "products": [
+   "Seachem Prime",
+   "Aquarium Pharmaceuticals",
+   "polyfilter",
+   "No-planaria"
   ]
  },
  "vi/guides/aquariumbreeder-holtodrilus-truncates-parasites-in-shrimp-keeping-hobby": {
@@ -56479,6 +56548,65 @@
    "Tetra AlguMin"
   ]
  },
+ "vi/guides/aquariumbreeder-how-to-remove-snails-from-a-shrimp-tank": {
+  "at": "2026-11-22",
+  "hash": "1ffc3559279ee8b6",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "harm",
+    "part": "P1",
+    "quote": "Cho vào bể 1 muỗng canh oxy già cho mỗi 4 lít nước, để yên một giờ.",
+    "why": "About 110 ppm of peroxide, then only a 30–50% water change before the fish go back in and the filter restarts. That can kill the livestock and the filter bacteria.",
+    "by": "model"
+   },
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "Không dùng bất kỳ chất khử nước nào trong bể.",
+    "why": "\"Chất khử nước\" is a calque of \"water conditioner\".",
+    "by": "model",
+    "fix": "thuốc khử clo"
+   }
+  ],
+  "products": [
+   "Jungle Clear Water",
+   "Prime",
+   "Sera snail collect",
+   "ISTA Snail Trap",
+   "No-Planaria",
+   "Panacur",
+   "Esha Gastropex"
+  ],
+  "doses": [
+   {
+    "treatment": "bleach",
+    "strength": "",
+    "amount": 1,
+    "amountMax": 0,
+    "unit": "part",
+    "per": 19,
+    "perUnit": "part water",
+    "use": "snails",
+    "method": "dip",
+    "quote": "Pha 19 phần nước với 1 phần nước tẩy"
+   },
+   {
+    "treatment": "hydrogen peroxide",
+    "strength": "3%",
+    "amount": 1,
+    "amountMax": 0,
+    "unit": "tablespoon",
+    "per": 4,
+    "perUnit": "litre",
+    "use": "snails",
+    "method": "wholeTank",
+    "quote": "Cho vào bể 1 muỗng canh oxy già cho mỗi 4 lít nước"
+   }
+  ],
+  "sourceRead": true
+ },
  "vi/guides/aquariumbreeder-how-to-remove-staghorn-algae-in-aquariums": {
   "at": "2026-11-22",
   "hash": "e94def9259f75cc2",
@@ -56797,6 +56925,81 @@
   ],
   "products": []
  },
+ "vi/guides/aquariumbreeder-hydra-in-a-shrimp-tank-treatment": {
+  "at": "2026-11-22",
+  "hash": "e3ea1d130410144a",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "price",
+    "part": "P1",
+    "quote": "Chi phí xử lý: 3–25 USD",
+    "why": "The cost is given in US dollars, which only makes sense for a reader abroad.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Cách này là của Marks Shrimp Tanks. Theo người này",
+    "why": "It names the outside channel the method came from, and the reader doesn't know who that is.",
+    "by": "model"
+   },
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "cá thanh ngọc lùn",
+    "why": "This is a word-for-word translation of 'dwarf gourami'. Keepers in Vietnam call this fish cá sặc gấm.",
+    "by": "model",
+    "fix": "cá sặc gấm"
+   }
+  ],
+  "products": [
+   "No Planaria",
+   "Planaria Zero",
+   "Safe-Guard",
+   "Panacur ® Suspension 10%"
+  ],
+  "doses": [
+   {
+    "treatment": "hydrogen peroxide",
+    "strength": "",
+    "amount": 14.3,
+    "amountMax": 0,
+    "unit": "μl",
+    "per": 1,
+    "perUnit": "litre",
+    "use": "other",
+    "method": "wholeTank",
+    "quote": "Mức an toàn là 14,3 μl H2O2 cho mỗi lít"
+   },
+   {
+    "treatment": "hydrogen peroxide",
+    "strength": "3%",
+    "amount": 1.5,
+    "amountMax": 0,
+    "unit": "ml",
+    "per": 4.5,
+    "perUnit": "litre",
+    "use": "parasites",
+    "method": "wholeTank",
+    "quote": "Dùng oxy già 3%, liều 1,5 ml cho mỗi 4,5 lít nước, đổ cho cả bể."
+   },
+   {
+    "treatment": "salt",
+    "strength": "",
+    "amount": 20,
+    "amountMax": 0,
+    "unit": "g",
+    "per": 100,
+    "perUnit": "litre",
+    "use": "parasites",
+    "method": "wholeTank",
+    "quote": "Có thể cho 20 g muối vào 100 lít nước bể."
+   }
+  ],
+  "sourceRead": true
+ },
  "vi/guides/aquariumbreeder-importance-of-surface-agitation-in-aquariums": {
   "at": "2026-11-10",
   "hash": "e31113ae47637f3a",
@@ -57101,6 +57304,29 @@
    }
   ],
   "sourceRead": true
+ },
+ "vi/guides/aquariumbreeder-most-common-shrimp-and-fish-tank-mistakes": {
+  "at": "2026-11-22",
+  "hash": "f0b29e2e38383ce7",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "có lỗi thì gặp thường xuyên trong thư người chơi gửi về hỏi",
+    "why": "Speaks in the original writer's voice, as if readers sent this writer letters with their questions.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Có những bài riêng tổng hợp cách trị hiệu quả nhất cho Scutariella Japonica, Planaria, Vorticella, Hydra",
+    "why": "Points to separate articles the page doesn't have or name.",
+    "by": "model"
+   }
+  ],
+  "products": []
  },
  "vi/guides/aquariumbreeder-most-popular-aquarium-crayfish-species": {
   "at": "2026-11-08",
@@ -58596,6 +58822,28 @@
    "coral frenzy",
    "Kent Marine Sea Squirt Feeder",
    "Julian’s Thing"
+  ]
+ },
+ "vi/guides/aquariumbreeder-what-causes-cloudy-white-aquarium-water": {
+  "at": "2026-11-22",
+  "hash": "a294840720da8efc",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "Cách chuẩn bị phân nền (soil) trước khi cho vào bể",
+    "why": "In Vietnam 'phân nền' means root-tab or substrate fertiliser; aqua soil is called 'nền soil' or 'đất nền'.",
+    "by": "model",
+    "fix": "nền soil"
+   }
+  ],
+  "products": [
+   "Seachem Prime",
+   "Seachem Clarity",
+   "API ACCU-CLEAR Freshwater Aquarium Water Clarifier",
+   "Tetra WaterClarifier Treatment Solution for Freshwater Aquariums"
   ]
  },
  "vi/guides/aquariumbreeder-what-do-crabs-eat": {
@@ -113248,9 +113496,33 @@
   "findings": [],
   "products": []
  },
+ "vi/species/ageneiosus-militaris": {
+  "at": "2026-11-22",
+  "hash": "818c7821d746d33f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/ageneiosus-pardalis": {
+  "at": "2026-11-22",
+  "hash": "54cbd78f94c6642d",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/ageneiosus-polystictus": {
+  "at": "2026-11-22",
+  "hash": "6fa9061d09e8ed04",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/species/ageneiosus-ucayalensis": {
   "at": "2026-11-22",
-  "hash": "f73ba8662b5e024d",
+  "hash": "292ff715faaa7740",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -116485,19 +116757,11 @@
   "products": []
  },
  "vi/species/asterophysus-batrachus": {
-  "at": "2026-11-08",
-  "hash": "45bef5b06d0a4f42",
+  "at": "2026-11-22",
+  "hash": "e54e8fef7c838559",
   "model": "opus",
-  "checklist": 2,
-  "findings": [
-   {
-    "check": "elsewhere",
-    "part": "P3",
-    "quote": "Mỗi năm lượng cá nhập về vẫn rất ít.",
-    "why": "Describes yearly imports into the source shop's country as if it were the reader's market.",
-    "by": "model"
-   }
-  ],
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/species/astroblepus-ardiladuartei": {
@@ -116984,20 +117248,19 @@
   "products": []
  },
  "vi/species/auchenipterichthys-coracoideus": {
-  "at": "2026-11-08",
-  "hash": "f74735e995bb9657",
+  "at": "2026-11-22",
+  "hash": "acfb36b0cbdd7084",
   "model": "opus",
-  "checklist": 2,
-  "findings": [
-   {
-    "check": "words",
-    "part": "P7",
-    "quote": "trùng chỉ đỏ",
-    "why": "Literal rendering of 'bloodworms'; Vietnamese keepers call them trùng huyết (trùng chỉ means tubifex).",
-    "by": "model",
-    "fix": "trùng huyết"
-   }
-  ],
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/auchenipterichthys-longimanus": {
+  "at": "2026-11-22",
+  "hash": "e48ebe6f0e6f5cc9",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/species/auchenipterichthys-punctatus": {
@@ -117006,6 +117269,22 @@
   "model": "opus",
   "checklist": 3,
   "findings": [],
+  "products": []
+ },
+ "vi/species/auchenipterichthys-thoracatus": {
+  "at": "2026-11-22",
+  "hash": "5268158e06fd4083",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P7",
+    "quote": "Ảnh minh họa có thể đúng hoặc không đúng là loài này.",
+    "why": "It talks about a photo the page doesn't have, along with its contributor, both carried over from the source site.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "vi/species/auchenipterus-nigripinnis": {
@@ -121042,6 +121321,22 @@
   "findings": [],
   "products": []
  },
+ "vi/species/caridina-cantonensis": {
+  "at": "2026-11-22",
+  "hash": "49a2d7583744161d",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "Salty Shrimp (GH+)",
+   "ADA Amazonia aqua soil",
+   "Fluval Plant and Shrimp Stratum",
+   "Bacter A.E.",
+   "Dennerle Shrimp King",
+   "Hikari Shrimp Cuisine",
+   "Glassgarden Shrimp Dinner Food Pads"
+  ]
+ },
  "vi/species/caridina-logemanni": {
   "at": "2026-11-07",
   "hash": "081f6932c776118b",
@@ -121094,6 +121389,16 @@
   "findings": [],
   "products": []
  },
+ "vi/species/caridina-parvidentata": {
+  "at": "2026-11-22",
+  "hash": "dd133d00de6dbfef",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "Salty Shrimp GH/KH+"
+  ]
+ },
  "vi/species/caridina-propinqua": {
   "at": "2026-11-17",
   "hash": "12e2fe0e713dbaff",
@@ -121111,6 +121416,43 @@
   "products": [
    "ADA Amazonia aqua soil",
    "Fluval Plant and Shrimp Stratum",
+   "Dennerle Shrimp King",
+   "Hikari Shrimp Cuisine",
+   "Glassgarden Shrimp Dinner Food Pads"
+  ]
+ },
+ "vi/species/caridina-serrata": {
+  "at": "2026-11-22",
+  "hash": "530920f933860331",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "ADA Amazonia aqua soil",
+   "Fluval Plant and Shrimp Stratum"
+  ]
+ },
+ "vi/species/caridina-serratirostris": {
+  "at": "2026-11-22",
+  "hash": "7044f3914d5152df",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "Seachem Prime",
+   "Dennerle Shrimp King",
+   "Hikari Shrimp Cuisine",
+   "Glassgarden Shrimp Dinner Food Pads"
+  ]
+ },
+ "vi/species/caridina-woltereckae": {
+  "at": "2026-11-22",
+  "hash": "c4ed3bb3633df76e",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "Sulawesi Mineral 8.5",
    "Dennerle Shrimp King",
    "Hikari Shrimp Cuisine",
    "Glassgarden Shrimp Dinner Food Pads"
@@ -125438,10 +125780,10 @@
   "products": []
  },
  "vi/species/cynodon-gibbus": {
-  "at": "2026-11-07",
-  "hash": "1dbd746d007ff3fd",
+  "at": "2026-11-22",
+  "hash": "26d2042cd5e4374c",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -126313,16 +126655,16 @@
   "products": []
  },
  "vi/species/desmopuntius-hexazona": {
-  "at": "2026-11-08",
-  "hash": "84e4d6139b01eb3d",
+  "at": "2026-11-22",
+  "hash": "2d133f27705e13ef",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "source",
-    "part": "P1",
+    "part": "P2",
     "quote": "Hiện có cá Desmopuntius hexazona đánh bắt ngoài tự nhiên, rất đẹp, đã đạt kích thước tối đa",
-    "why": "This is the source shop's stock announcement, telling the reader what fish it has in now.",
+    "why": "This is a shop's stock notice, which the reader has no connection to.",
     "by": "model"
    }
   ],
@@ -134538,6 +134880,24 @@
   "findings": [],
   "products": []
  },
+ "vi/species/macrobrachium-lanchesteri": {
+  "at": "2026-11-22",
+  "hash": "1398d40ef9ffbccd",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P7",
+    "quote": "pH: 6,5–8,5 (bảng tóm tắt ghi 6,5–8,0)",
+    "why": "Refers to the source article's summary table, which this page's quick facts do not contain.",
+    "by": "model"
+   }
+  ],
+  "products": [
+   "golden pearls"
+  ]
+ },
  "vi/species/macrobrachium-rosenbergii": {
   "at": "2026-11-18",
   "hash": "9204a65e3d7a803e",
@@ -138907,9 +139267,10 @@
   "products": []
  },
  "vi/species/oxydoras-niger": {
-  "at": "2026-11-07",
+  "at": "2026-11-22",
   "hash": "dcc21ff237660d66",
   "model": "opus",
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -139584,23 +139945,23 @@
   ]
  },
  "vi/species/paracheirodon-innesi": {
-  "at": "2026-11-15",
-  "hash": "8d2f30fb53e24153",
+  "at": "2026-11-22",
+  "hash": "da16389b74e8a52f",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "units",
-    "part": "P2",
+    "part": "P3",
     "quote": "Kích thước bể tối thiểu: 38 lít",
-    "why": "38 litres is a converted 10-gallon tank size, not a size a keeper in Vietnam would quote.",
+    "why": "38 litres is a converted 10-gallon tank size, not one a keeper in Vietnam would give.",
     "by": "model"
    },
    {
     "check": "elsewhere",
-    "part": "P9",
+    "part": "P10",
     "quote": "Nón cây alder cũng có tác dụng tương tự.",
-    "why": "Alder cones come from a temperate tree that keepers in Vietnam don't gather or usually buy.",
+    "why": "Alder cones come from a European tree that keepers in Vietnam don't buy or gather.",
     "by": "model"
    }
   ],
@@ -141498,15 +141859,29 @@
  },
  "vi/species/platysilurus-mucosus": {
   "at": "2026-11-22",
-  "hash": "3e550d325501ae50",
+  "hash": "7bb3136a6483d4f5",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
-    "part": "P2",
-    "quote": "Những con được mô tả ở đây có nguồn gốc từ Peru.",
-    "why": "This is about the source's own imported fish, written as if the reader knew those fish.",
+    "part": "P4",
+    "quote": "mấy con non trong hai ảnh nhỏ cuối lại được bắt ở sông Madre de Dios",
+    "why": "Points to photos the page doesn't have, from the source article's gallery.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P4",
+    "quote": "chính người góp ảnh đã chụp chúng",
+    "why": "Brings in the source site's photo contributor, someone the reader doesn't know.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P3",
+    "quote": "Những con được mô tả ở đây có nguồn gốc từ Peru",
+    "why": "Talks about the source writer's own fish as if the reader knew them.",
     "by": "model"
    }
   ],
@@ -143425,7 +143800,7 @@
  },
  "vi/species/pterygoplichthys-parnaibae": {
   "at": "2026-11-22",
-  "hash": "a0fd751bf6daf229",
+  "hash": "774700138a5afee1",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -144261,7 +144636,7 @@
  },
  "vi/species/rhinelepis-strigosa": {
   "at": "2026-11-22",
-  "hash": "8b4a2aed131893a7",
+  "hash": "c79018c3e3050345",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -144269,14 +144644,14 @@
     "check": "source",
     "part": "P2",
     "quote": "Đợt cá nhập gần đây đến từ Paraguay, nên hẳn là Rhinelepis strigosa.",
-    "why": "Refers to the source shop's own recent import shipment as if the reader knew it.",
+    "why": "Refers to the source shop's own recent import as if the reader knew about it.",
     "by": "model"
    },
    {
     "check": "source",
-    "part": "P3",
+    "part": "P7",
     "quote": "Trong sáu con nhập về (bốn con dài 16–18 cm, hai con dài 25–30 cm)",
-    "why": "Describes the source's own imported stock as if known to the reader.",
+    "why": "Describes the source shop's own imported stock, which the reader has never seen.",
     "by": "model"
    }
   ],
@@ -149089,6 +149464,22 @@
     "why": "\"khoảng\" for a fish's territory is a translation artefact; keepers say \"vùng\" or \"lãnh địa\".",
     "by": "model",
     "fix": "vùng / lãnh địa"
+   }
+  ],
+  "products": []
+ },
+ "vi/species/xenotoca-doadrioi": {
+  "at": "2026-11-22",
+  "hash": "77c087a59464cbea",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P4",
+    "quote": "lá bồ công anh, rau tràng sao (chickweed)",
+    "why": "Dandelion and chickweed are wild greens that European keepers pick from gardens; keepers in Vietnam don't usually gather them as fish food.",
+    "by": "model"
    }
   ],
   "products": []
