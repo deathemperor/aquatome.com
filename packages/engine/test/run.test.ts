@@ -213,16 +213,11 @@ test("the Mac's lock on the archive held elsewhere: the source stops as on a ref
   let asked = 0
   const busy = 'the lock on 127.0.0.1:1 was held 600 s, at every try, by one process or more: nothing was asked, and this is no refusal'
   const archive = { ...d.fetcher, text: async () => `${pages.join('\n')}\n`, get: async () => { asked++; throw new LockBusy(busy) } }
-  // Both on the line-read list: the one the lock stopped keeps its early turn (Codex, 22 Nov 2026).
-  const lines = join(root, 'engine-state/_credit-lines.json')
-  await mkdir(join(root, 'engine-state'), { recursive: true })
-  await writeFile(lines, JSON.stringify(Object.fromEntries(pages.map(u => [u, { source: 'planetcatfish', at: '2026-11-20', by: 'the chief of staff' }]))))
   const r = await runEngine({ ...d, archive }, { sources: ['planetcatfish', 'seriouslyfish'] })
   expect(asked).toBe(1)
   expect(r.errors).toContain(`planetcatfish: not read: ${busy}`)
   expect(r.perSource.seriouslyfish).toMatchObject({ processed: 1 })
   expect(JSON.parse(await readFile(join(root, 'engine-state/planetcatfish.json'), 'utf8').catch(() => '{}'))).toEqual({})
-  expect(Object.values(JSON.parse(await readFile(lines, 'utf8'))).map(x => (x as { turn?: true }).turn)).toEqual([undefined, undefined])
 })
 
 test('Wikimedia resting: a page that needs it waits, unmarked and with its attempts, and the source goes on; a refusal is no "nothing found"', async () => {

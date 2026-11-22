@@ -145,8 +145,13 @@ export class ArchiveFetcher {
    * staff, 21 Nov 2026); its pace and the minute's wait after a failure are outside it. `at`: the address that answered.
    */
   private async call(url: string) {
-    // No file is no rest; any other failure to read it is no answer either way (Codex, 22 Nov 2026).
-    const resting = async () => JSON.parse(await readFile(this.d.restFile, 'utf8').catch((e: NodeJS.ErrnoException) => { if (e.code === 'ENOENT') return 'null'; throw e })) as Rest | null
+    // No file is no rest; any other failure to read it, or a file with no time in it, is no answer either way (Codex, 22 Nov
+    // 2026: `{}` read as no rest).
+    const resting = async () => {
+      const r = JSON.parse(await readFile(this.d.restFile, 'utf8').catch((e: NodeJS.ErrnoException) => { if (e.code === 'ENOENT') return 'null'; throw e })) as Rest | null
+      if (r !== null && (typeof r?.until !== 'string' || Number.isNaN(Date.parse(r.until)))) throw new RestUnreadable('no time in it')
+      return r
+    }
     // A first look, before the lock: one it can't read (another job's, mid-write, as an older engine wrote it) is left to the
     // look under the lock, the one that counts (Codex, 22 Nov 2026).
     let rest = await resting().catch(() => null)
@@ -169,7 +174,7 @@ export class ArchiveFetcher {
         if (this.asked >= this.cap) throw new AsksSpent(this.cap)
         // Read again just before the request (Codex, 21 Nov 2026): another job on this Mac may have been refused while this
         // one waited its pace or the lock, or had the one answer that ends a wait.
-        const now = await resting().catch((e: unknown) => { throw new RestUnreadable((e as NodeJS.ErrnoException).code ?? (e as Error).name) })
+        const now = await resting().catch((e: NodeJS.ErrnoException) => { throw e instanceof RestUnreadable ? e : new RestUnreadable(e.code ?? e.name) })
         if (now && this.d.now().getTime() < new Date(now.until).getTime()) throw new ArchiveRefused(now.until)
         rest = now
         await this.onAsk?.()

@@ -18,7 +18,7 @@ import { recordKindFallback } from './kind-words'
 import { ensurePlaces, guideId, mergePlant, mergeSpecies, writeGuide } from './merge'
 import { METRIC_KINDS } from './metric'
 import { htmlToOutline, isChallenge, type PageImage } from './outline'
-import { namePictureLines, readLineReads, writeLineReads, type LineRead } from './publisher-credits'
+import { namePictureLines, readLineReads, writeLineReads } from './publisher-credits'
 import { findPhotos } from './photos'
 import { withSections } from './guide-sections'
 import { processPage, type ProcessedPage } from './process'
@@ -301,13 +301,12 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     delete lineWaiting[url]
   }
   // A page the list reads early is read early once: marked before its request, it then waits for its own turn whatever
-  // the read meets (a failed request, a failed read of its lines), so a page that keeps failing isn't asked every cycle.
-  // `taken` false gives it back: the Archive stopped its source, not the page (Codex, 22 Nov 2026).
-  const lineTurn = async (url: string, taken = true) => {
-    const mark = ({ turn: _turn, ...read }: LineRead): LineRead => (taken ? { ...read, turn: true } : read)
+  // the read meets (a failed request, a failed read of its lines, the Archive stopping its source), so a page that keeps
+  // failing isn't asked every cycle.
+  const lineTurn = async (url: string) => {
     const reads = await readLineReads(root)
-    if (url in reads) await writeLineReads(root, { ...reads, [url]: mark(reads[url]!) })
-    lineWaiting[url] = mark(lineWaiting[url]!)
+    if (url in reads) await writeLineReads(root, { ...reads, [url]: { ...reads[url]!, turn: true } })
+    lineWaiting[url] = { ...lineWaiting[url]!, turn: true }
   }
 
   // Species our pages name but don't have yet: their source pages are fetched first (see wanted.ts); the audit lists the rest.
@@ -558,9 +557,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       const base = { ...(lastmod ? { lastmod } : {}), entityIds: prev?.entityIds ?? [], updatedAt: deps.now().toISOString() }
       const save = async (next: UrlState) => { state[url] = next; await saveState(root, id, state) }
       counts.fetched++
-      const earlyTurn = url in lineWaiting && !lineWaiting[url]!.turn
       try {
-        if (earlyTurn) await lineTurn(url)
+        if (url in lineWaiting && !lineWaiting[url]!.turn) await lineTurn(url)
         const r = await get(url)
         // A page that came back ends a run of network failures, but not one the source refused for now (408, 429, a 5xx):
         // a source answering 429 page after page stops too (the chief of staff, 20 Nov).
@@ -607,9 +605,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
           llmFailures = 0
         })
       } catch (e) {
-        // Nothing is wrong with the page, so nothing is marked on it, its early turn is given back, and the source waits with
-        // the archive.
-        if (archiveStops(e)) { if (earlyTurn) await lineTurn(url, false); report.errors.push(`${id}: not read: ${e.message}`); break }
+        // Nothing is wrong with the page, so nothing is marked on it, and the source waits with the archive.
+        if (archiveStops(e)) { report.errors.push(`${id}: not read: ${e.message}`); break }
         // Wikimedia resting: the page waits, unmarked and with its attempts, and the source goes on.
         if (e instanceof WikimediaRefused) { report.errors.push(`${url}: waits for Wikimedia: ${e.message}`); continue }
         const message = (e as Error).message

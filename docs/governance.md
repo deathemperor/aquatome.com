@@ -1030,9 +1030,11 @@ The layers above still check the result.
     its own; a lock held by anything else is waited for, said in the log once at 2 minutes, and at 10 the run asks the
     Archive nothing more (the magazine's: the step runs nothing, and the next cycle's runs it), which is no refusal: no rest is written, and nothing is asked without the lock (the chief of
     staff, 22 Nov 2026). That wait is counted in tries, never read off the clock, and a lock not had, or a rest on file that
-    can't be read under it, stops the source as a refusal does: no page is marked, none loses an attempt or the early
-    turn the line-read list gave it, a page waits rather than losing its pictures, and the magazine's listing keeps its
-    day's try when nothing was asked. Once one call gives up on the lock, no other in that run asks, even one that has
+    can't be read under it or holds no time, stops the source as a refusal does: no page is marked, none loses an
+    attempt, a page waits rather than losing its pictures (one the line-read list read early waits for its own turn, as
+    after any failed read), and the magazine's listing keeps its day's try when the lock, or a rest it can't read, stopped it before
+    anything was asked (a rest on file spends it, as ever). A magazine ledger that
+    can't be read stops the step, rather than the record's copy counting the day's requests again. Once one call gives up on the lock, no other in that run asks, even one that has
     it after. A reader's allowance is read again under the lock, so two calls waiting on one reader never both go; the rest is written whole
     (to a file beside it, then moved into place), and the look before the lock passes over a rest it can't read, which
     the look under it reads again; what a reader runs before a request (its pace, its count) never asks the Archive

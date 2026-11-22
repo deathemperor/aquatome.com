@@ -94,8 +94,11 @@ test("the CLI's wiring: its one Archive reader takes the Mac's lock, and the mag
   expect(listing).toBeLessThan(guide)
   expect(guide).toBeLessThan(given)
   expect(step.match(/release\(\)/g)).toHaveLength(1)
-  // Both locks wait as long as the Mac's rule says, and say so when it says: the CLI sets neither (Codex, 22 Nov 2026).
+  // Both locks wait as long as the Mac's rule says, and say so when it says: the lock's own defaults, and the CLI sets
+  // neither (Codex, 22 Nov 2026).
   expect([LOCK_NOTE_MS, LOCK_WAIT_MS]).toEqual([2 * 60_000, 10 * 60_000])
+  const lock = readFileSync(fileURLToPath(new URL('../src/mac-lock.ts', import.meta.url)), 'utf8')
+  expect(lock).toMatch(/const \{ waitMs = LOCK_WAIT_MS, noteMs = LOCK_NOTE_MS, log = console\.log \} = o\n/)
   expect(cli).not.toMatch(/\b(?:waitMs|noteMs)\b/)
 })
 
@@ -121,8 +124,9 @@ test('3. a holder not ours: the reader waits, says so once in the log, then fail
   const other = createServer()
   await new Promise<void>(ok => other.listen({ port, host: '127.0.0.1' }, ok))
   const said: string[] = [], saidAt: number[] = []
-  const t0 = Date.now()
-  const e = await macLock(port, { waitMs: 600, noteMs: 200, log: l => { said.push(l); saidAt.push(Date.now() - t0) } }).catch((x: unknown) => x)
+  // Timed on a clock nothing sets back (Codex, 22 Nov 2026).
+  const t0 = performance.now()
+  const e = await macLock(port, { waitMs: 600, noteMs: 200, log: l => { said.push(l); saidAt.push(performance.now() - t0) } }).catch((x: unknown) => x)
   expect(e).toBeInstanceOf(LockBusy)
   // Never before its time (Codex, 22 Nov 2026), however slow the Mac: a slow one only says it later.
   expect(saidAt[0]).toBeGreaterThanOrEqual(200)

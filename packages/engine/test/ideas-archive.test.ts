@@ -197,7 +197,7 @@ test('the listing through the Archive is tried once a day at most, its week over
   expect(next.asked.length).toBeGreaterThan(0)
 })
 
-test("a listing the Archive stopped before anything was asked of it keeps the day's try: the Mac's lock held elsewhere", async () => {
+test("a listing the Mac's lock stopped before anything was asked keeps the day's try; a rest on file still spends it", async () => {
   const root = await site()
   const asked: string[] = []
   const busy = new LockBusy('the lock on 127.0.0.1:1 was held 600 s, at every try, by one process or more: nothing was asked, and this is no refusal')
@@ -210,6 +210,23 @@ test("a listing the Archive stopped before anything was asked of it keeps the da
   const a = await archive(holding, '2026-11-21T09:00:00Z')
   await refreshMagazine(root, macOf(root, nowhere, a.reader, '2026-11-21T09:00:00Z'))
   expect(a.asked.length).toBeGreaterThan(0)
+  // A rest on file is the Archive's refusal: the day's try is spent, as before this change, and the listing waits its day.
+  const resting = await site()
+  const file = await restFile()
+  await writeFile(file, JSON.stringify({ until: '2026-11-21T12:00:00.000Z', waitMs: 6 * 3600_000 }))
+  const b = await archive(holding, '2026-11-21T06:00:00Z', file)
+  await refreshMagazine(resting, macOf(resting, nowhere, b.reader))
+  expect(b.asked).toEqual([])
+  expect((await ledger(resting)).tried).toEqual({ practicalfishkeeping: '2026-11-21T06:00:00.000Z' })
+})
+
+test("a ledger that can't be read stops the magazine step: no stale copy counts the day's requests again", async () => {
+  const root = await site()
+  // The record says nothing was asked today; the Mac's ledger, which would say otherwise, can't be read.
+  await mkdir(ledgerOf(root))
+  const a = await archive(holding)
+  await expect(refreshMagazine(root, macOf(root, nowhere, a.reader))).rejects.toMatchObject({ code: 'EISDIR' })
+  expect(a.asked).toEqual([])
 })
 
 test(`the magazine's listing asks the Archive at most ${ARCHIVE_LISTING_WEEK} times in seven days, the daily try included, counted as each ask is made`, async () => {

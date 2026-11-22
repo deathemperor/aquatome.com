@@ -113,7 +113,9 @@ export type MagazineLedger = Pick<MagazineState, 'asks' | 'tried' | 'waits'> & {
   made?: Record<string, number>
 }
 async function readLedger(file: string, m: MagazineState): Promise<MagazineLedger> {
-  const raw = await readFile(file, 'utf8').catch(() => undefined)
+  // The record's copy only when the ledger is missing: one that can't be read stops the step, rather than a stale copy
+  // counting requests again (Codex, 22 Nov 2026).
+  const raw = await readFile(file, 'utf8').catch((e: NodeJS.ErrnoException) => { if (e.code === 'ENOENT') return undefined; throw e })
   if (raw !== undefined) return JSON.parse(raw) as MagazineLedger
   return { ...(m.asks ? { asks: m.asks } : {}), ...(m.tried ? { tried: m.tried } : {}), ...(m.waits ? { waits: m.waits } : {}) }
 }
@@ -389,8 +391,8 @@ async function listSite(root: string, s: IdeaSource, before: Post[] | undefined,
       if (asksLeft(l, 'listing', d.now()) <= 0) throw new Error(`the week's ${ARCHIVE_LISTING_WEEK} requests to the archive are spent`)
       ;(l.tried ??= {})[s.id] = d.now().toISOString()
       await saveLedger(file, l)
-      // The day's try given back when the Archive stopped the read before anything was asked of it: a rest on file, the
-      // Mac's lock held elsewhere (Codex, 22 Nov 2026).
+      // The day's try given back when the read stopped before anything was asked, and not on a refusal: the Mac's lock
+      // held elsewhere, or a rest it can't read (Codex, 22 Nov 2026). A rest on file spends it, as ever.
       untried = async () => { if (tried) l.tried![s.id] = tried; else delete l.tried![s.id]; if (!Object.keys(l.tried!).length) delete l.tried; await saveLedger(file, l) }
       reader = magazineReader(archive!.reader, l, file, 'listing', d.now, d.sleep)
     }
@@ -405,7 +407,7 @@ async function listSite(root: string, s: IdeaSource, before: Post[] | undefined,
     if (since) await setSourceBlock(root, s.id, undefined)
     return kept
   } catch (err) {
-    if (untried && reader?.asked === 0 && archiveStops(err)) await untried()
+    if (untried && reader?.asked === 0 && archiveStops(err) && !(err instanceof ArchiveRefused)) await untried()
     report.failed.push(`${s.id}: ${(err as Error).message.slice(0, 120)}, its last titles kept`)
     return undefined
   }
