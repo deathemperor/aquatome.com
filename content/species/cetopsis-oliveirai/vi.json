@@ -1,0 +1,24 @@
+{
+  "slug": "ca-cetopsis-oliveirai",
+  "name": "Cá Cetopsis oliveirai",
+  "altNames": [
+    "Cá da trơn cá voi",
+    "Whale Cat"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Cetopsis oliveirai (Lundberg &amp; Rapp Py-Daniel, 1994)</li><li>Tên thường gọi: Whale Cat</li><li>Tên đồng nghĩa: Bathycetopsis oliveirai</li><li>Danh sách đỏ IUCN: Chưa đánh giá</li></ul>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: trung và thượng lưu sông Amazon. Mẫu chuẩn lấy ở Rio Solimões, phía bắc đảo Ilha da Marchantaria, cách cửa sông Rio Negro ở Manaus khoảng 15 km, bang Amazonas, Brazil. Nơi này cao khoảng 15 m so với mực nước biển.</p>",
+    "diet:planetcatfish": "<p>Ngoài tự nhiên, loài này ăn nhện và côn trùng.</p>",
+    "reproduction:planetcatfish": "<p>Chưa có thông tin. Đến nay chưa ai báo cáo đã cho loài này đẻ.</p>",
+    "notes:planetcatfish": "<p>Nguồn gốc tên: chữ Cetopsis ghép từ tiếng Hy Lạp cetos là cá voi và -opsis là giống như. Cá được đặt tên vậy vì trông giống cá voi.</p>",
+    "references:planetcatfish": "<p>Copeia 1994 (no. 2), pp 383, Figs. 1, 3-4.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.85
+    },
+    "reason": "thin"
+  }
+}

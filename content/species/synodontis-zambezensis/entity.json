@@ -1,0 +1,162 @@
+{
+  "id": "synodontis-zambezensis",
+  "scientificName": "Synodontis zambezensis",
+  "order": "Siluriformes",
+  "family": "Mochokidae",
+  "genus": "Synodontis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "south-africa",
+    "pongolo",
+    "mozambique",
+    "pungwe",
+    "zimbabwe",
+    "zambezi",
+    "tanzania",
+    "rukwa",
+    "zambia",
+    "luangwa"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 18.5,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 43
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1443",
+      "html": "<p>Synodontis zambezensis Peters, 1852. Common names: Brown Squeaker, Bruin Skreeubaber (South African). Type locality: Zambezi River, Mozambique. Size: 43 cm SL.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1443",
+      "html": "<p>Africa: Pongolo, Limpopo, Pungwe and Zambezi basins; Rukwa Lake; Luangwe River. Absent from upper Save-Runde system.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1443",
+      "html": "<p>Found in pools and slow-flowing reaches of perennial and seasonal rivers. Prefers riverine habitats to floodplains. Shelters in holes or crevices or on the underside of logs, frequently in an upside-down position.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1443",
+      "html": "<p>pH: 6.5–7.8. Temperature: 18.5–25.0°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1443",
+      "html": "<p>Active at night, a bottom feeder on detritus and plant matter such as seeds as well as small invertebrates like insects and snails.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1443",
+      "html": "<p>Suggested tankmates: medium-sized cyprinids and cichlids with similar requirements. These fish produce audible sounds when disturbed by rubbing the base of the pectoral spine against the pectoral girdle.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1443",
+      "html": "<p>Lay the fish in your hand with its head toward your palm and the tail toward your fingers. Hold the dorsal spine between your middle and ring finger so the fish is belly up and you won't get punctured by the sharp fin spines. The genital pore is in a small furrow of tissue (in healthy fish) and will be obstructed by the pelvic fins. Pull down on the tail gently to arch the spine and the pelvic fins will stand and the furrow open to display the genital pore and the anus. The male has a somewhat ridged genital papilla on which the spermatoduct is on the back side, facing the tail fin. A gravid female will also show an extended papilla but the oviduct is on the ventral side of the papilla. It may also show a little redness if gravid. A thin or emaciated female will have just two pink pores, the oviduct and the anus.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1443",
+      "html": "<p>Unreported in aquaria. In the wild, spawns in the summer during rainy periods.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1443",
+      "html": "<p>Body deep, adipose fin large, caudal fin forked, barbels long and slender, mandibular branches filamentous. Plain olive brown or gray. Small spots present or absent. Spotted specimens are more common in populations from the Limpopo, Incomati, and Pholongo. Juveniles with albino patches on body often found.</p><p>South African angling record 0.29 kg, Zimbabwe 0.82 kg, Malawi 0.57 kg.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1443",
+      "html": "<p>Bericht über die zur Bekanntmachung geeigneten Verhandlungen der Königlichen Preussischen Akademie der Wissenschaften zu Berlin 1852, pp 682.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/699724663125d7fd.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 4.0",
+      "author": "Mahomed Desai",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synodontis_zambezensis_70328519.jpg",
+      "caption": "brown squeaker (Synodontis zambezensis)",
+      "thumb": "https://media.aquatome.com/commons/699724663125d7fd-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/5b13f6bdfc2baa8c.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 4.0",
+      "author": "Mahomed Desai",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:JuvenileSynodontiszambezensis_2.jpg",
+      "caption": "Juvenile Synodontis zambezensis, from Mozambique.",
+      "thumb": "https://media.aquatome.com/commons/5b13f6bdfc2baa8c-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "S9R0Lt-HkQo",
+      "title": "Synodontis Zambezensis",
+      "durationSec": 46,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200 lít",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá đáy",
+        "thức ăn chìm cho cá nheo"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

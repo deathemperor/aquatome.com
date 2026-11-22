@@ -245,10 +245,6 @@
       {
         "source": "seriouslyfish",
         "value": 5
-      },
-      {
-        "source": "glaser",
-        "value": 5.5
       }
     ],
     "tankCm": [
@@ -274,8 +270,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/gymnocorymbus-socolofi-en/",
-      "html": "<p>The genus Gymnocorymbus comprises only three species, one of which – the Black Skirt tetra, G. ternetzi – is among the most popular ornamental fish. The other two species are absolute rarities, including the rare Gymnocorymbus socolofi from Colombia.</p><p>This tetra reaches a maximum length of about 5.5 cm and is, like its famous relative, a pretty and undemanding schooling fish. At a length of about 2 cm the species exhibit the prettiest colour. However, even fully grown fish look very nice due to their unusual body shape and the golden back.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/gymnocorymbus-bondi-formerly-g-socolofi/",
+      "html": "<p>Until 2015, the orangefin tetra was known as Gymnocorymbus socolofi. During a revision of the genus, Benine et al. realized that it had previously been overlooked that the orangefin tetra had already been described as Phenacogaster bondi, and that this name is older than G. socolofi and thus has priority.</p>"
     },
     {
       "key": "distribution",
@@ -286,7 +282,7 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/gymnocorymbus-socolofi-en/",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/gymnocorymbus-bondi-formerly-g-socolofi/",
       "html": "<p>Colombia.</p>"
     },
     {
@@ -346,11 +342,52 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/gymnocorymbus-socolofi-en/",
-      "html": "<p>Currently it is discussed whether G. socolofi is identical with the species described as Phenacogaster bondi. If so, the latter name, as the older one, will be the valid one due to priority and the fish would have to be named Gymnocorymbus bondi.</p><p>Gymnocorymbus: from ancient Greek, meaning roughly \"with naked peak\", referring to the scaleless anterior back. socolofi: dedication name for Ross Socolof (1925 – 2009). ternetzi: dedication name for Carl Ternetz. Phenacogaster: from ancient Greek, meaning roughly \"with elusive belly\". bondi: dedication name for Frank E. Bond, who organized an expedition to the Orinoco where the species was discovered.</p><p>Suggested common name: Goldback Skirt tetra.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/gymnocorymbus-bondi-formerly-g-socolofi/",
+      "html": "<p>Very small animals strikingly resemble the Yellow Tetra (Hyphessobrycon bifasciatus), but with increasing growth the body shape changes more and more to the one known from Gymnocorymbus.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/cd1bcd6a2db28283.webp",
+      "thumb": "https://media.aquatome.com/glaser/cd1bcd6a2db28283-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/gymnocorymbus-bondi-formerly-g-socolofi/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1265bc5e40d4838e.webp",
+      "thumb": "https://media.aquatome.com/glaser/1265bc5e40d4838e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/gymnocorymbus-bondi-formerly-g-socolofi/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/25e21f675521d4ca.webp",
+      "thumb": "https://media.aquatome.com/glaser/25e21f675521d4ca-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/gymnocorymbus-bondi-formerly-g-socolofi/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/46c310381f578e4c.webp",
+      "thumb": "https://media.aquatome.com/glaser/46c310381f578e4c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/gymnocorymbus-bondi-formerly-g-socolofi/",
+      "source": "glaser"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "shN1bClW6EE",
@@ -399,5 +436,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-22"
 }

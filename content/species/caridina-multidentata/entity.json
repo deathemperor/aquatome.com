@@ -166,6 +166,13 @@
           "min": 18,
           "max": 28
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 18,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -182,6 +189,13 @@
           "min": 6,
           "max": 8
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7,
+          "max": 7.4
+        }
       }
     ],
     "gh": [
@@ -190,6 +204,13 @@
         "value": {
           "min": 3,
           "max": 10
+        }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7,
+          "max": 8
         }
       }
     ],
@@ -201,6 +222,10 @@
       {
         "source": "aquariumcoop",
         "value": 5
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -213,6 +238,10 @@
       {
         "source": "sprucepets",
         "value": 1
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 2
       }
     ],
     "lifeYears": [
@@ -221,6 +250,13 @@
         "value": {
           "min": 2,
           "max": 3
+        }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 2,
+          "max": 5
         }
       }
     ]
@@ -239,6 +275,12 @@
       "html": "<p><em>Caridina multidentata</em> (formerly <em>Caridina japonica</em>) is an algae-eating dwarf shrimp that grows to about 4–5 cm, slightly bigger than the average Neocaridina cherry shrimp. It is clear-colored with a tan or gray-blue tint (sometimes affected by diet) and a solid stripe down the back.</p><p>Amano shrimp won't crossbreed with cherry or crystal shrimp. They are not capable of reproducing in regular freshwater tanks, since their larvae require highly brackish or salt water to survive.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/amano-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Scientific name: Caridina multidentata (previously Caridina japonica)</li><li>Tank size: 10 gallons and more</li><li>Breeding: difficult (larvae stage needs saltwater)</li><li>Optimal KH: 2 – 4 (1 – 8)</li><li>Optimal temperature: 18 – 28°C, ideal 24°C</li><li>TDS: 150 – 200 (100 – 400)</li><li>Diet: algae eater/omnivore</li><li>Nitrate: less than 20 ppm</li><li>Temperament: peaceful</li></ul><p>Amano shrimp are among the most adaptable shrimp in the hobby and can survive in almost any water condition. They are not aggressive in general, unless it is feeding time, when they become voracious eaters and are often seen stealing food from smaller shrimp. Caridina multidentata is very easy to care for but difficult to breed, and is a great choice for an aquarium of any size with peaceful inhabitants. Amano shrimp have a translucent body covered with reddish-brown points of about 0.3 mm on the sides, which may look like a broken reddish line. The back has a white stripe running from head to tail and the eyes are black.</p>"
+    },
+    {
       "key": "distribution",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/amano-shrimp-species-profile-5101733",
@@ -251,10 +293,22 @@
       "html": "<p>They come from East Asia, in countries like Japan, Taiwan and Korea, and can thrive in both freshwater and low brackish waters.</p>"
     },
     {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/amano-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Amano shrimp are also known as Yamato shrimp, Japanese swamp shrimp, Algae-eater shrimp or Caridina multidentata. The species was found in Japan and parts of Korea and Taiwan. In the wild they live coastally, in large colonies of hundreds of shrimp.</p><p>It was introduced to the aquarium hobby by Takashi Amano in the early 1980s, and the shrimp took his name. Takashi Amano used them in most of his aquascapes. Caridina multidentata was previously known to aquarists as Caridina japonica (described in 1892); it was renamed in 2006 after earlier studies on Caridina multidentata from 1860 were found.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
       "html": "<p>They have a low bioload and do not need to be kept in groups, so they can live in most nano tanks (or larger), as long as there is a tight-fitting lid. Amano shrimp are expert escapers, so cover any openings where power cords or airline tubing come out of the tank.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/amano-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Amano shrimp are the biggest dwarf shrimp. Due to their size it is advisable to keep them in at least a 10-gallon aquarium, which is enough for 5-6 shrimp without overstocking.</p><p>There is no exact answer for stocking; as a rule of thumb, keep 1 Amano shrimp per 7-10 litres, taking into consideration what else is in the tank. Takashi Amano himself said that 1 Amano shrimp per 1 litre is good enough. In nature they live in huge colonies; from the experience of many shrimp breeders it is reasonable to keep at least 6-10 shrimp. The more shrimp, the less stressed and shy they are.</p>"
     },
     {
       "key": "maintenance",
@@ -263,10 +317,22 @@
       "html": "<p>The Amano shrimp is an excellent addition to a well-established aquarium with a shrimp-friendly substrate. Although you do not need to use a shrimp-specific substrate, large rocks or lots of bulky décor items are harder for a shrimp to navigate in comparison to smaller rocks, gravel, sand, or live plant substrate.</p><p>Live plants are a great addition to a shrimp aquarium and you will often see them nibbling on dead areas. There is a common misconception that shrimp destroy live plants, but they only eat the dead materials. If your plants fail to thrive, do not blame your shrimp.</p><p>Just because the Amano shrimp likes to clean your tank for a living does not mean your maintenance routine should be altered! Continue to keep a close eye on your water chemistry and stick to your usual maintenance practices. Just like fish, shrimp do not tolerate poor water quality. Depending on how many shrimp you have in your tank, expect to continue cleaning some of the algae yourself!</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/amano-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Amano shrimp tend to jump or climb out of the aquarium, especially when they do not like the water parameters or when swimming hard, so use a lid to cover the tank. With a rimless tank, lower the water level by a few centimetres.</p><p>Females may throw off unfertilized eggs when the pheromones of other females in the tank overlap so that males cannot find a female. Other reasons are stress, bad water parameters or big water changes (more than 70%).</p><p>Amano shrimp may turn almost blue-green over time if they keep eating algae; if they show no signs of stress this is normal. If they look like this and are stressed, they may have Ellobiopsidae, which is a disease.</p><p>All aquatic invertebrates are susceptible to copper, which is toxic to all dwarf shrimp. Check fertilizers and medications beforehand, as they can contain elevated levels of copper.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
       "html": "<p>Their hardiness makes them adaptable to a wide range of water parameters: 18–28°C, pH 6–8, and moderate to hard GH. As with most crustaceans, they need at least some minerals to promote healthy exoskeleton molts, so add a mineral supplement such as Easy Shrimp and Snail Shell or Seachem Equilibrium if you have soft water.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/amano-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Amano shrimp care is simple and undemanding. They tolerate a wide range of temperatures, from cool water (about 18°C) up to about 29°C, as well as a wide range of hardness. As long as pH, KH, GH and temperature are not too extreme, the shrimp can moult without difficulty. Their optimal water parameters are close to those of Neocaridina shrimp, which makes them ideal tank mates.</p><p>They are more active at higher temperatures, but this will shorten their lifespan. Keep an eye on CO2 levels in a high-tech tank: if CO2 runs out, bad algae blooms follow. Any shrimp must be acclimated before being put in the tank.</p>"
     },
     {
       "key": "equipment",
@@ -287,6 +353,12 @@
       "html": "<p>These scavengers will eat anything they can get their little hands on: all types of fish foods, blanched vegetables, biofilm, rotting leaves and algae. They prefer not to eat algae if tastier options are available, so limit feedings for a few days if you want them to work on an algae problem.</p><p>Unlike snails, they aren't as good at eating flat algae that grows on surfaces, but they will go after hair algae, thread algae and even black beard algae if you have a large group of hungry shrimp. They are also great at picking out leftover crumbs from tight corners and small crevices.</p><p>Foods with added calcium, like shrimp foods and Hikari Crab Cuisine, help make sure they can molt successfully. If you see an empty exoskeleton that is clear (not solid-colored), leave the molt in the tank so the shrimp can consume it for extra minerals. A molted exoskeleton looks like a dead shrimp but is empty inside and clear in color.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/amano-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The diet consists of whatever falls to the bottom of the tank. Amano shrimp are an ultimate clean-up crew and eat up excess food. They forage all day as long as no big fish intimidate, pick on or try to eat them. They are absolute workhorses at eating algae: unlike many other shrimp, they eat algae and do not only graze on it. Because of their size (usually 5 to 6 centimetres) they are more efficient than other shrimp, so you do not need many to keep a tank clean.</p><p>They eat hair algae, brush algae and most types of string algae, and are one of the few animals that can even eat black beard algae. The only algae they really struggle with is spot algae on glass or hardscape; for this, snails such as Nerite snails, Mystery (Apple) snails or Malaysian trumpet snails (ốc tháp) can help. A complete algae-fighting force: Amano shrimp, Nerite snail and Otocinclus catfish.</p><p>It is strongly recommended not to give them a lot of processed foods, which can in the long run affect their algae-eating abilities, since they will eat what is easy and tasty instead. To get results, keep them a bit hungry.</p><p>Some shrimp breeders keep Amano shrimp in one tank and move them to tanks with algae problems for a day or two, or move decorations or plants over for them to clean. Professional breeders, however, usually avoid sharing even equipment between tanks to prevent contamination.</p><p>In an experiment, Amano shrimp, fish and snails were left to graze on tiles with green algae, which were then removed and analyzed. Whichever way the grazing rate was expressed, the Amano shrimp was the most efficient grazer. Per animal, it was 7-fold more efficient than the Red cherry shrimp and 2.4-fold more efficient than the Siamese algae eater (SAE). Since a large animal consumes more food per time unit than a much smaller one, expressed per gram of animal the Amano shrimp is only 1.8-fold more efficient than the cherry shrimp; the SAE is bigger than the Amano shrimp, so per gram the difference is 5.4-fold. The study concluded that Amano shrimp remove much more algal biomass per time unit and are the best algae eater among the candidates.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/amano-shrimp-species-profile-5101733",
@@ -297,6 +369,12 @@
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
       "html": "<p>While not the most attractive shrimp, they show many interesting behaviors: constantly grazing for food with their front legs, climbing plant leaves and swiping food from bigger fish.</p><p>Because of their outgoing nature and lack of breeding, they can be kept with many similar-sized, peaceful community animals like tetras, Endler's livebearers, corydoras catfish, bristlenose plecos, kuhli loaches, other shrimp and snails. Avoid fish big enough to eat them, like medium to large cichlids, barbs and goldfish. They will happily steal fish food from tank mates, so don't keep too many with smaller dwarf shrimp and other slower eaters. They are larger than cherry shrimp and may outcompete them for food if there isn't plenty.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/amano-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Amano shrimp are non-aggressive, but they are extremely aggressive eaters. They have no problem running in, taking food for themselves and pushing other shrimp aside. In a small tank with other dwarf shrimp they can out-compete them for food (except perhaps shrimp of similar size, such as Ghost shrimp).</p><p>They are unlikely to go after red cherry shrimp; they are scavengers, not hunters, though starving shrimp might. They do not eat plants, being algae and detritus eaters. Like most crustaceans, Amano shrimp tend to be nocturnal scavengers. They do not cross-breed with other shrimp.</p>"
     },
     {
       "key": "dimorphism",
@@ -311,6 +389,12 @@
       "html": "<p>Males are smaller and have dots along the side of the body, while females are larger and have a row of dashes instead of dots.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/amano-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>The easiest way to determine sex is the lowest stripe along the body. Females have dashes that look like a broken line along the tail, with a more elongated lower row of dots. Males have the same line composed of circular dots evenly spaced apart.</li><li>Females are generally much larger than males, growing up to 5-6 cm, while males are usually 3-4 cm.</li><li>Females have a saddle (embryonic eggs) and, underneath the belly, the place where she keeps the eggs.</li><li>Females have significantly longer pleopods on the abdomen and a more rounded abdomen, while males have a flat and narrow belly.</li></ul>"
+    },
+    {
       "key": "reproduction",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/amano-shrimp-species-profile-5101733",
@@ -321,6 +405,18 @@
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
       "html": "<p>They are not capable of reproducing in regular freshwater tanks, since their larvae require highly brackish or salt water to survive. If you see a female fanning eggs under her tail, don't expect baby shrimp.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/amano-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Breeding Amano shrimp in captivity is hard, but with determination and patience it is possible. They do not complete their life cycle in freshwater: the larvae need saltwater to grow through metamorphosis and then become freshwater shrimp again. It takes Amano shrimp 5 months to reach maturity. In the wild the larvae (zoea) are released and swept out to sea, where they feed on algae and plankton for about 40 to 50 days (6-7 weeks) before becoming shrimplets and migrating back upstream to freshwater.</p><p>The female moults and releases pheromones to attract males, then the fertilized eggs move under the tail. A female can carry hundreds or even thousands of eggs (a Cherry shrimp female generally 20-55). Incubation lasts 4 to 5 weeks. To avoid stressing the female, leave the colony in the freshwater tank until she is close to hatching, since brackish water does not hurt adults but kills the eggs.</p><p><strong>Rearing tank:</strong> a small tank (5-10 litres is more than enough) with sea salt at 32-35 PPT; higher (above 40) or lower (below 25) levels will kill the larvae. Keep the light on 24/7 for algae growth, set up in advance so algae have time to grow, otherwise the larvae starve. Optionally add Tetraselmis or seaweed. Use real sea salt, a refractometer to measure salinity, and an airstone with reduced flow (or bare airline tube), otherwise the flow lifts larvae to the surface, where they stick to the bacterial film and die. Temperature 21-24°C.</p><p><strong>Hatching day:</strong> when the eyes of the embryos can be seen through the eggshell, the eggs will hatch within a few days. Either move the berried female to a separate container (4-5 litres) of water from the main tank, where the eggs hatch, then return her to the main tank so she does not eat the young (she will moult and almost immediately produce another batch); or leave everything as is and catch the larvae in the big tank. Doing a water change can trigger the females to release eggs. The larvae must go into brackish water within 48 hours or they will all die. Light attracts larvae: lure them with a flashlight or desk lamp, then catch them with a turkey baster or big syringe (they are about 1.5 mm long).</p><p><strong>Days 1-20:</strong> the larvae are pelagic and need saltwater to complete development. Besides algae, feed a crushed spirulina flake and dry yeast powder, ideally every 5 hours. Other foods: Liquizell, Golden Pearls (5-50 microns), spirulina powder, Mosura Shrimpton, phytoplankton (Tetraselmis, Dunaliella salina, Nannochloropsis). Some breeders drop the zoeas directly into an algal culture, so nitrate and ammonia never accumulate. Do not overfeed; do water changes of 10-20% every 2-3 days, using light to move larvae to one side and siphoning from the other. Keep salinity at 32-35 PPT; if phytoplankton is so dense that the opposite side of the tank is barely visible, do a 50% change. Remove the bacterial film on the surface, as larvae can stick to it and die. For the first weeks the larvae swim head down and are almost transparent.</p><p><strong>Days 21-30:</strong> from days 25-30 start lowering salinity to 15-25 ppt by water changes with freshwater. Feeding stays the same; if there is a lot of algae, cut the spirulina flakes or other extra food.</p><p><strong>Days 40-45:</strong> the larvae complete metamorphosis into tiny copies of adult shrimp and can no longer tolerate high salinity. They swim only forward non-stop, a sign they are ready for the main aquarium (in nature they swim upstream out of the saltwater). Do not transition suddenly: replace half of the brackish water with aquarium water for 1 day, then drain the water down to the bottom and move them to the main tank.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/amano-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Amano shrimp live 2 to 5 years in captivity; some breeders report shrimp over 6 years old showing no signs of slowing down. Most hobbyists keep them without breeding them; they are fairly cheap, so breeding only makes sense on a big scale.</p>"
     }
   ],
   "photos": [
@@ -367,6 +463,16 @@
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
       "caption": "cherry vs amano shrimp",
       "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/3898148ba5861e16.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/3898148ba5861e16-480.webp",
+      "width": 640,
+      "height": 418,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/amano-shrimp-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
     }
   ],
   "videos": [
@@ -425,5 +531,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-18"
+  "updatedAt": "2026-11-22"
 }

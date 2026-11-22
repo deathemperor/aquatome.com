@@ -2,19 +2,20 @@
   "slug": "ca-kiem-signum",
   "name": "Cá kiếm signum",
   "altNames": [
-    "Swordtail"
+    "Swordtail",
+    "Cá kiếm Xiphophorus signum"
   ],
   "sections": {
-    "beforeYouBuy:glaser": "<p>Loài cá kiếm này rất hiếm khi có bán ở tiệm cá. Mới nhìn qua thì dễ tưởng nó là một dòng của cá kiếm thường gặp X. hellerii, nhưng thân X. signum thon hơn nhiều.</p>",
-    "notes:glaser": "<p>Tên khoa học của loài này lấy từ một cái dấu trên thân (tiếng Latin signum nghĩa là dấu hiệu). Ở cá cái, dấu này nằm trên gốc vây đuôi và lúc nào cũng thấy rõ. Ở cá đực thì viền sẫm của kiếm che mất nó.</p>",
-    "waterConditions:glaser": "<p>Cũng như các dòng cá kiếm hoang dã khác, Xiphophorus signum khá khó nuôi. Nó cần nước trong và ít vi khuẩn.</p>",
-    "diet:glaser": "<p>Loài này cần ăn đủ chất và đổi món nhiều loại, có cả thức ăn đông lạnh lẫn đồ tươi sống.</p>"
+    "beforeYouBuy:glaser": "<p>Loài cá kiếm này rất hiếm khi có bán ở tiệm. Mới nhìn qua thì dễ tưởng đây là một dòng của cá kiếm thường gặp X. hellerii, nhưng X. signum thon hơn nhiều.</p>",
+    "quickFacts:glaser": "<p>Tên khoa học của loài này lấy từ một vệt dấu trên thân (tiếng Latin signum nghĩa là dấu hiệu). Ở cá cái, vệt này luôn hiện rõ ở gốc vây đuôi. Ở cá đực thì nó bị viền sẫm của cây kiếm che mất.</p>",
+    "maintenance:glaser": "<p>Giống hầu hết các dòng cá kiếm hoang dã khác, Xiphophorus signum khá khó nuôi. Loài này cần nước trong và ít vi khuẩn.</p>",
+    "diet:glaser": "<p>Phải cho chúng ăn đầy đủ và đổi nhiều loại thức ăn, trong đó có cả đồ đông lạnh và đồ tươi sống.</p>"
   },
   "quality": {
-    "score": 0.85,
+    "score": 0.8,
     "indexable": false,
     "bySource": {
-      "glaser": 0.85
+      "glaser": 0.8
     },
     "reason": "thin"
   }

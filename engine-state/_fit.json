@@ -53723,6 +53723,129 @@
   "findings": [],
   "products": []
  },
+ "vi/guides/2hraquarist-blogs-beginners-planted-tank-101-connecting-hardscape": {
+  "at": "2026-11-22",
+  "hash": "799cbbdc40ecb715",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/guides/2hraquarist-blogs-beginners-planted-tank-101-filter-buying-checklist": {
+  "at": "2026-11-22",
+  "hash": "235bb4f33ffca959",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "Oase Biomaster",
+   "Aquael"
+  ]
+ },
+ "vi/guides/2hraquarist-blogs-beginners-planted-tank-101-filter-tank-cycling": {
+  "at": "2026-11-22",
+  "hash": "8249b09edc35186a",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "Chạy chu trình (cycle) cho bể thủy sinh là nuôi các quần thể vi khuẩn này",
+    "why": "Calque of 'cycling a tank'; Vietnamese keepers call this running bacteria for the tank.",
+    "by": "model",
+    "fix": "chạy vi sinh"
+   }
+  ],
+  "products": [
+   "Bio-home",
+   "osmocote"
+  ]
+ },
+ "vi/guides/2hraquarist-blogs-beginners-planted-tank-101-fish-tank-to-planted-tank": {
+  "at": "2026-11-22",
+  "hash": "1399b0a7501fd27a",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/guides/2hraquarist-blogs-beginners-planted-tank-101-how-much-to-dose": {
+  "at": "2026-11-22",
+  "hash": "54ffaba94cd1320b",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Bể mẫu cho phần này trồng theo cách ADA (dùng APT 1).",
+    "why": "It refers to the source's own example tank, which the reader has never seen and the page doesn't show.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Một bể mẫu khác châm một ít phân nước, kết hợp với nền giàu dinh dưỡng.",
+    "why": "It points to another of the source's example tanks that the page doesn't have.",
+    "by": "model"
+   },
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "Với nhiều bể thiên về lá cứng và ít cây, EI quá giàu.",
+    "why": "\"Lá cứng\" is a mistranslation of \"hardscape\". Keepers say bố cục đá, lũa or hardscape.",
+    "by": "model",
+    "fix": "bể thiên về đá, lũa (hardscape)"
+   }
+  ],
+  "products": [
+   "ADA",
+   "ADA Aquasoil",
+   "Green Brighty",
+   "APT 1",
+   "APT 3",
+   "APT Complete"
+  ],
+  "doses": [
+   {
+    "treatment": "nitrate",
+    "strength": "",
+    "amount": 6,
+    "amountMax": 0,
+    "unit": "ppm",
+    "per": 0,
+    "perUnit": "",
+    "use": "plants",
+    "method": "wholeTank",
+    "quote": "muốn châm khoảng 18 ppm NO3 mỗi tuần theo cách EI thì châm 6 ppm mỗi lần vào thứ Hai, thứ Tư và thứ Sáu"
+   }
+  ],
+  "sourceRead": true
+ },
+ "vi/guides/2hraquarist-blogs-beginners-planted-tank-101-low-tech-setup-checklist": {
+  "at": "2026-11-22",
+  "hash": "5c714eac0ff1dd69",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Một bể của Cory Hopkins chủ yếu chỉ dùng một loài cây là trân châu",
+    "why": "Points to a particular keeper's tank from the source as if the reader knew it.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "nếu sống ở vùng khí hậu ôn đới mà muốn nuôi cá và cây nhiệt đới thì có thể cần sưởi",
+    "why": "Written for a reader in a temperate country; Vietnam is tropical.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
  "vi/guides/aquariumbreeder-10-questions-to-ask-when-buying-aquarium-crustaceans": {
   "at": "2026-11-13",
   "hash": "dca552ff66a789bc",
@@ -54647,6 +54770,14 @@
   ],
   "products": []
  },
+ "vi/guides/aquariumbreeder-culling-shrimp-selective-breeding": {
+  "at": "2026-11-22",
+  "hash": "706a3485fbfd1f9e",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/guides/aquariumbreeder-cycling-your-shrimp-aquarium-fishless": {
   "at": "2026-11-22",
   "hash": "ddab2d363f8469d8",
@@ -55091,6 +55222,92 @@
   ],
   "products": []
  },
+ "vi/guides/aquariumbreeder-ellobiopsidae-or-cladogonium-ogishimae-green-fungus-in-shrimp-tank": {
+  "at": "2026-11-22",
+  "hash": "0f3a69fb54d45b3c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "dose",
+    "part": "P1",
+    "quote": "bắt đầu với 2 mL Rid Ich Plus cho 1 gram Snowflake",
+    "why": "Dose of a named commercial medicine soaked into a named food.",
+    "by": "model",
+    "product": "Kordon Rid Ich Plus"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Theo Marks Shrimp Tanks, oxy già có thể chữa được \"nấm xanh\".",
+    "why": "Names a foreign shrimp channel or shop as the source of the method, which the reader doesn't know.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Theo aquariumwiki, ngưỡng đồng gây nguy hiểm là:",
+    "why": "Cites a website the source article relied on, not a scientific authority.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Trên mạng có một bài đăng khá thú vị. Một người nuôi tép kể đã chữa khỏi",
+    "why": "Points to an unnamed online post the page doesn't include.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "cũng có một người nuôi tép và cá khác nhận xét về thuốc này",
+    "why": "Points to an unnamed reviewer and a review the page doesn't have.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "Thả 3 hoặc 4 lá bàng nhỏ và vài quả alder để nước nhiều tanin.",
+    "why": "Alder cones come from a European tree that keepers in Vietnam don't usually gather.",
+    "by": "model"
+   }
+  ],
+  "products": [
+   "Kordon Rid Ich Plus",
+   "Snowflake",
+   "Seachem Paraguard",
+   "JBL Punktol ultra",
+   "Quick Cure",
+   "Aquarium Solutions ICH-X"
+  ],
+  "doses": [
+   {
+    "treatment": "malachite green and formaldehyde",
+    "strength": "0,038%",
+    "amount": 2,
+    "amountMax": 0,
+    "unit": "ml",
+    "per": 1,
+    "perUnit": "gram",
+    "use": "parasites",
+    "method": "food",
+    "quote": "bắt đầu với 2 mL Rid Ich Plus cho 1 gram Snowflake"
+   },
+   {
+    "treatment": "hydrogen peroxide",
+    "strength": "",
+    "amount": 1.5,
+    "amountMax": 0,
+    "unit": "ml",
+    "per": 4.5,
+    "perUnit": "litre",
+    "use": "parasites",
+    "method": "wholeTank",
+    "quote": "Châm 1,5 ml cho mỗi 4,5 lít nước."
+   }
+  ],
+  "sourceRead": true
+ },
  "vi/guides/aquariumbreeder-everything-about-aquarium-activated-carbon": {
   "at": "2026-11-16",
   "hash": "c8fae8bc9ed3b197",
@@ -55452,6 +55669,14 @@
   "products": [
    "API Master Test Kit"
   ]
+ },
+ "vi/guides/aquariumbreeder-how-frequent-mating-effect-dwarf-shrimp": {
+  "at": "2026-11-22",
+  "hash": "d1297aecc9218c02",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
  },
  "vi/guides/aquariumbreeder-how-i-drip-acclimate-shrimp-and-why": {
   "at": "2026-11-22",
@@ -58616,6 +58841,17 @@
   "findings": [],
   "products": []
  },
+ "vi/guides/aquariumbreeder-top-5-plants-for-your-shrimp-tank": {
+  "at": "2026-11-22",
+  "hash": "e150f92fbdc53f9d",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "Bacter AE",
+   "ADA Amazonia"
+  ]
+ },
  "vi/guides/aquariumbreeder-top-5-pros-and-cons-of-having-plants-in-shrimp-aquarium": {
   "at": "2026-11-22",
   "hash": "65126bf050bde71c",
@@ -58860,6 +59096,14 @@
  "vi/guides/aquariumbreeder-water-mites-profile-water-mites-in-shrimp-and-fish-tank": {
   "at": "2026-11-08",
   "hash": "5d7a09652eac3f5f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/guides/aquariumbreeder-water-parameters-everything-about-tds-in-shrimp-tank": {
+  "at": "2026-11-22",
+  "hash": "8f2057bf5bd50096",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -117133,6 +117377,14 @@
   ],
   "products": []
  },
+ "vi/species/astronotus-mikoljii": {
+  "at": "2026-11-22",
+  "hash": "968673a0e5d435b9",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/species/astronotus-ocellatus": {
   "at": "2026-11-20",
   "hash": "6c42f416c009fef1",
@@ -117326,6 +117578,55 @@
   ],
   "products": []
  },
+ "vi/species/auchenipterus-ambyiacus": {
+  "at": "2026-11-22",
+  "hash": "78865984bcb40dd5",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/auchenipterus-brachyurus": {
+  "at": "2026-11-22",
+  "hash": "4bf7c6e9951c3e0b",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P6",
+    "quote": "Tên này chỉ phần \"thân đuôi\" của nó ngắn hơn so với A. nuchalis.",
+    "why": "\"Thân đuôi\" is a literal rendering of caudal peduncle; Vietnamese keepers call it \"cuống đuôi\".",
+    "by": "model",
+    "fix": "cuống đuôi"
+   }
+  ],
+  "products": []
+ },
+ "vi/species/auchenipterus-demerarae": {
+  "at": "2026-11-22",
+  "hash": "2a02b3160bbb45e7",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/auchenipterus-dentatus": {
+  "at": "2026-11-22",
+  "hash": "353d67da0fb950a9",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/auchenipterus-menezesi": {
+  "at": "2026-11-22",
+  "hash": "1c6350dc294375a1",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/species/auchenipterus-nigripinnis": {
   "at": "2026-11-08",
   "hash": "62e0bc0877a654b7",
@@ -117356,6 +117657,22 @@
     "fix": "cám lá loại tốt"
    }
   ],
+  "products": []
+ },
+ "vi/species/auchenipterus-nuchalis": {
+  "at": "2026-11-22",
+  "hash": "1f0c2dd6c19ba25e",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/auchenipterus-osteomystax": {
+  "at": "2026-11-22",
+  "hash": "6cbd1e34d59f3ac0",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/species/auchenoglanis-biscutatus": {
@@ -121354,7 +121671,7 @@
   ]
  },
  "vi/species/caridina-babaulti": {
-  "at": "2026-11-18",
+  "at": "2026-11-22",
   "hash": "1cf999771ac77a44",
   "model": "opus",
   "checklist": 3,
@@ -121375,6 +121692,21 @@
    "Dennerle Shrimp King",
    "Hikari Shrimp Cuisine",
    "Glassgarden Shrimp Dinner Food Pads"
+  ]
+ },
+ "vi/species/caridina-dennerli": {
+  "at": "2026-11-22",
+  "hash": "98763ca45b3c73cc",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "Salty Shrimp Sulawesi Mineral 8.5",
+   "Salty Shrimp Mineral 7.5",
+   "API Master Test Kit",
+   "ADA Amazonia",
+   "Seachem Fluorite",
+   "Bacter AE"
   ]
  },
  "vi/species/caridina-logemanni": {
@@ -121402,24 +121734,43 @@
   "products": []
  },
  "vi/species/caridina-multidentata": {
-  "at": "2026-11-19",
-  "hash": "e670c0f27992d803",
+  "at": "2026-11-22",
+  "hash": "367ac9de627a6462",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "units",
-    "part": "P2",
+    "part": "P3",
     "quote": "Bể tối thiểu: 38 lít",
-    "why": "38 litres is a 10-gallon tank converted from US units; keepers in Vietnam don't size tanks this way.",
+    "why": "38 litres is a converted 10-gallon figure that keepers in Vietnam would not use.",
     "by": "model"
    }
   ],
   "products": [
    "Easy Shrimp and Snail Shell",
    "Seachem Equilibrium",
-   "Hikari Crab Cuisine"
-  ]
+   "Hikari Crab Cuisine",
+   "Liquizell",
+   "Golden Pearls",
+   "Mosura Shrimpton",
+   "Tetraselmis"
+  ],
+  "doses": [
+   {
+    "treatment": "sea salt",
+    "strength": "",
+    "amount": 32,
+    "amountMax": 35,
+    "unit": "ppt",
+    "per": 0,
+    "perUnit": "",
+    "use": "other",
+    "method": "wholeTank",
+    "quote": "pha muối biển ở mức 32-35 PPT"
+   }
+  ],
+  "sourceRead": true
  },
  "vi/species/caridina-pareparensis-parvidentata": {
   "at": "2026-11-07",
@@ -121600,10 +121951,10 @@
   "products": []
  },
  "vi/species/carnegiella-strigata": {
-  "at": "2026-11-08",
-  "hash": "1d096c0401712661",
+  "at": "2026-11-22",
+  "hash": "04d34e6da3ea3af2",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -121721,6 +122072,14 @@
   "findings": [],
   "products": []
  },
+ "vi/species/centromochlus-akwe": {
+  "at": "2026-11-22",
+  "hash": "24fd834fae082423",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/species/centromochlus-heckelii": {
   "at": "2026-11-07",
   "hash": "03826b82bb067b13",
@@ -121752,10 +122111,10 @@
   "products": []
  },
  "vi/species/centromochlus-macracanthus": {
-  "at": "2026-11-08",
-  "hash": "0f1454114aeba235",
+  "at": "2026-11-22",
+  "hash": "f9b34d6cf7ff08e9",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -121791,8 +122150,8 @@
   "products": []
  },
  "vi/species/centromochlus-schultzi": {
-  "at": "2026-11-21",
-  "hash": "068c43d00fea0615",
+  "at": "2026-11-22",
+  "hash": "09e246f22c2d3b35",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -121872,6 +122231,22 @@
  "vi/species/cetopsis-coecutiens": {
   "at": "2026-11-10",
   "hash": "b04b0c52e9713784",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/cetopsis-oliveirai": {
+  "at": "2026-11-22",
+  "hash": "b5716524f63e097a",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/cetopsis-sandrae": {
+  "at": "2026-11-22",
+  "hash": "dbceafd780f4df28",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -122095,6 +122470,14 @@
   "hash": "6c2918a97156d4ab",
   "model": "opus",
   "checklist": 2,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/chandramara-chandramara": {
+  "at": "2026-11-22",
+  "hash": "400159a0890946ab",
+  "model": "opus",
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -122567,8 +122950,8 @@
   "products": []
  },
  "vi/species/cherax-peknyi": {
-  "at": "2026-11-17",
-  "hash": "1659208f64cd5e55",
+  "at": "2026-11-22",
+  "hash": "0a5ecc57a9a3820b",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -122798,6 +123181,14 @@
  "vi/species/chrysichthys-auratus": {
   "at": "2026-11-14",
   "hash": "ea7f57d1b6a8cd4a",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/chrysichthys-wagenaari": {
+  "at": "2026-11-22",
+  "hash": "d2d292c665acc9d7",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -123934,10 +124325,10 @@
   "products": []
  },
  "vi/species/corydoras-desana": {
-  "at": "2026-11-08",
-  "hash": "86163bafcb30181d",
+  "at": "2026-11-22",
+  "hash": "a52254c1f1854f71",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -124346,16 +124737,16 @@
   "products": []
  },
  "vi/species/corydoras-loxozonus": {
-  "at": "2026-11-13",
-  "hash": "c3a8f81c97beeffe",
+  "at": "2026-11-22",
+  "hash": "d1b02fc03b2cb546",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "elsewhere",
     "part": "P13",
-    "quote": "Mùa này trùng với mùa đông ở Anh. Nếu cho đẻ vào mùa hè mãi không được, bạn có thể đợi đến mùa đông",
-    "why": "The breeding season advice uses British seasons, which don't fit Vietnam's climate.",
+    "quote": "Mùa này trùng với mùa đông ở Anh.",
+    "why": "Ties spawning season to the UK's winter, written for a British reader.",
     "by": "model"
    }
   ],
@@ -124426,32 +124817,39 @@
   "products": []
  },
  "vi/species/corydoras-narcissus": {
-  "at": "2026-11-08",
-  "hash": "212e91f099f6acb9",
+  "at": "2026-11-22",
+  "hash": "8a758d3ab3d633ae",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "elsewhere",
-    "part": "P10",
-    "quote": "Chúng sinh sản vào mùa mưa ở vùng bản địa, và mùa này trùng với mùa đông ở Anh.",
-    "why": "Uses the UK winter as the reader's own season for spawning.",
+    "part": "P7",
+    "quote": "bạn có thể dùng gỗ dẻ gai thường, miễn là gỗ đã phơi thật khô và bóc sạch vỏ",
+    "why": "Beech wood is a European tree that keepers in Vietnam don't gather or buy.",
     "by": "model"
    },
    {
     "check": "elsewhere",
-    "part": "P5",
-    "quote": "bạn có thể dùng gỗ dẻ gai thường, miễn là gỗ đã phơi thật khô và bóc sạch vỏ",
-    "why": "Beech wood and beech/oak leaves are European materials a keeper in Vietnam would not have at hand.",
+    "part": "P7",
+    "quote": "Lá dẻ gai dùng được, lá sồi cũng hợp.",
+    "why": "Beech and oak leaves are European leaf litter that keepers in Vietnam don't use.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P14",
+    "quote": "mùa này trùng với mùa đông ở Anh",
+    "why": "The spawning-season advice is timed to the British reader's seasons.",
     "by": "model"
    },
    {
     "check": "words",
-    "part": "P10",
-    "quote": "thả một quả nón cây tống quán sủi (alder) vào thùng ấp",
-    "why": "Dictionary translation of 'alder cone'; local keepers just say alder cone.",
+    "part": "P14",
+    "quote": "thả một quả nón cây tống quán sủi (alder)",
+    "why": "'Nón cây tống quán sủi' is a dictionary term. Keepers call this item by its English name.",
     "by": "model",
-    "fix": "quả alder"
+    "fix": "quả alder (alder cone)"
    }
   ],
   "products": []
@@ -128589,6 +128987,14 @@
   "findings": [],
   "products": []
  },
+ "vi/species/gagata-sexualis": {
+  "at": "2026-11-22",
+  "hash": "f79ee8b272b16c9d",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/species/galeichthys-ater": {
   "at": "2026-11-18",
   "hash": "6685e8c1f112db0b",
@@ -129559,6 +129965,23 @@
   ],
   "products": []
  },
+ "vi/species/glyptothorax-cavia": {
+  "at": "2026-11-22",
+  "hash": "a40c332cf052adcd",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P7",
+    "quote": "cá sóc (Danio)",
+    "why": "In Vietnam 'cá sóc' means medaka (Oryzias), not Danio, so this name is wrong for these fish.",
+    "by": "model",
+    "fix": "cá danio"
+   }
+  ],
+  "products": []
+ },
  "vi/species/glyptothorax-dorsalis": {
   "at": "2026-11-08",
   "hash": "31fe3521da6b840b",
@@ -129847,16 +130270,16 @@
   "products": []
  },
  "vi/species/gymnocorymbus-bondi": {
-  "at": "2026-11-13",
-  "hash": "a96fd2d6d877a507",
+  "at": "2026-11-22",
+  "hash": "a24cd5b2706cba8a",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "units",
     "part": "P6",
-    "quote": "Một bể 60 × 38 × 30 cm, tức khoảng 68 lít",
-    "why": "The 38 cm depth and 68-litre volume look converted from an imperial tank size (24 × 15 × 12 inches), not one a Vietnamese keeper would give.",
+    "quote": "Một bể 60 × 38 × 30 cm",
+    "why": "A 38 cm side is 15 inches converted, showing the tank size was first given in imperial units.",
     "by": "model"
    }
   ],
@@ -131308,8 +131731,8 @@
   "products": []
  },
  "vi/species/herichthys-cyanoguttatus": {
-  "at": "2026-11-09",
-  "hash": "7f086eb5d07871e9",
+  "at": "2026-11-22",
+  "hash": "780bb01bb6e068d6",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -131436,6 +131859,14 @@
    "Hikari First Bites",
    "TetraMin Crisps"
   ]
+ },
+ "vi/species/heterobranchus-bidorsalis": {
+  "at": "2026-11-22",
+  "hash": "5b1c5c9d158c18b0",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
  },
  "vi/species/heterocharax-virgulatus": {
   "at": "2026-11-11",
@@ -132856,6 +133287,14 @@
  "vi/species/ichthyborus-ornatus": {
   "at": "2026-11-16",
   "hash": "e823c97a07981953",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/iguanodectes-purusii": {
+  "at": "2026-11-22",
+  "hash": "daeeb9f71456680a",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -135513,26 +135952,18 @@
   "products": []
  },
  "vi/species/megalodoras-uranoscopus": {
-  "at": "2026-11-09",
-  "hash": "6c9ae7755645d486",
+  "at": "2026-11-22",
+  "hash": "90ccdddf6ee1380b",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "words",
-    "part": "P1",
+    "part": "P2",
     "quote": "có thể nuôi chung với nhiều loài khác trong hệ thống đủ lớn",
-    "why": "'Hệ thống' is a calque of English 'system'; Vietnamese keepers just say the tank.",
+    "why": "'Hệ thống' is a calque of English 'system' for an aquarium setup; keepers say 'bể'.",
     "by": "model",
     "fix": "trong bể đủ lớn"
-   },
-   {
-    "check": "words",
-    "part": "P11",
-    "quote": "cá da trơn đàn banjo",
-    "why": "Literal translation of 'banjo catfish'; local keepers say cá banjo.",
-    "by": "model",
-    "fix": "cá banjo"
    }
   ],
   "products": []
@@ -136497,30 +136928,23 @@
   "products": []
  },
  "vi/species/moenkhausia-pittieri": {
-  "at": "2026-11-13",
-  "hash": "8e8fde93de52a7ca",
+  "at": "2026-11-22",
+  "hash": "ffe03712fdb69620",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "units",
-    "part": "P6",
-    "quote": "Đáy bể: 60 × 38 cm.",
-    "why": "The 38 cm side and 68 litres are converted from a 24 × 15 inch, 18-gallon tank, a size not sold in Vietnam.",
-    "by": "model"
-   },
-   {
     "check": "elsewhere",
     "part": "P7",
     "quote": "bạn có thể dùng gỗ dẻ gai (beech) thông thường, miễn là phơi thật khô và bóc sạch vỏ",
-    "why": "Beech wood is a common European wood. It is not something a keeper in Vietnam has to hand.",
+    "why": "Beech is a European tree whose wood keepers in Vietnam don't buy or collect.",
     "by": "model"
    },
    {
     "check": "elsewhere",
     "part": "P7",
     "quote": "Lá dẻ gai dùng được, lá sồi cũng hợp.",
-    "why": "Beech and oak leaves are European leaf litter. Keepers in Vietnam use local leaves such as lá bàng.",
+    "why": "Beech and oak leaves are European tank leaves that keepers in Vietnam don't gather.",
     "by": "model"
    }
   ],
@@ -138614,6 +139038,14 @@
   "findings": [],
   "products": []
  },
+ "vi/species/olivaichthys-viedmensis": {
+  "at": "2026-11-22",
+  "hash": "66d6a85b14097986",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/species/omobranchus-zebra": {
   "at": "2026-11-17",
   "hash": "16cb14f77f8d0fa5",
@@ -140029,8 +140461,8 @@
   "products": []
  },
  "vi/species/paracyprichromis-nigripinnis": {
-  "at": "2026-11-13",
-  "hash": "ce6bc7ba48713523",
+  "at": "2026-11-22",
+  "hash": "5a74ac9d83a43d2d",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -140463,6 +140895,14 @@
   "findings": [],
   "products": []
  },
+ "vi/species/pardiglanis-tarabinii": {
+  "at": "2026-11-22",
+  "hash": "e24c728bca8800c2",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/species/pareiodon-microps": {
   "at": "2026-11-09",
   "hash": "0d4f94837469ca2e",
@@ -140522,6 +140962,14 @@
  "vi/species/pareutropius-buffei": {
   "at": "2026-11-09",
   "hash": "45352bf00805f589",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/pareutropius-mandevillei": {
+  "at": "2026-11-22",
+  "hash": "a3ae41480c89b464",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -143140,11 +143588,20 @@
   "products": []
  },
  "vi/species/pseudohemiodon-laticeps": {
-  "at": "2026-11-21",
-  "hash": "a19f8eb475f5bb76",
+  "at": "2026-11-22",
+  "hash": "ccc1a205265b37ba",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "một trong những loài cá da trơn whiptail ấp trứng trong miệng",
+    "why": "Leaves the English hobby term 'whiptail' untranslated; keepers in Vietnam call these fish cá lau kiếng đuôi roi.",
+    "by": "model",
+    "fix": "cá lau kiếng đuôi roi"
+   }
+  ],
   "products": []
  },
  "vi/species/pseudohemiodon-thorectes": {
@@ -143182,6 +143639,14 @@
  "vi/species/pseudolais-micronemus": {
   "at": "2026-11-13",
   "hash": "d47b5608473c0df2",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/pseudolais-pleurotaenia": {
+  "at": "2026-11-22",
+  "hash": "0841c73450cce014",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -145191,6 +145656,14 @@
   ],
   "products": []
  },
+ "vi/species/salvelinus-gracillimus": {
+  "at": "2026-11-22",
+  "hash": "374d8ccab3a266ef",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/species/sandelia-bainsii": {
   "at": "2026-11-09",
   "hash": "8485dbba4663a98a",
@@ -145422,6 +145895,14 @@
     "fix": "cá nâu"
    }
   ],
+  "products": []
+ },
+ "vi/species/schilbe-mandibularis": {
+  "at": "2026-11-22",
+  "hash": "2d6202f8fbf7e64e",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/species/schilbe-marmoratus": {
@@ -146766,8 +147247,8 @@
   "products": []
  },
  "vi/species/steatocranus-tinanti": {
-  "at": "2026-11-09",
-  "hash": "11cf5daca8390d9c",
+  "at": "2026-11-22",
+  "hash": "3d4a50280431242f",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -147029,6 +147510,14 @@
   "findings": [],
   "products": []
  },
+ "vi/species/sturisoma-robustum": {
+  "at": "2026-11-22",
+  "hash": "d39e286f9f6e774e",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/species/sturisomatichthys-aureum": {
   "at": "2026-11-09",
   "hash": "c22b051d6d391080",
@@ -147246,25 +147735,24 @@
   "products": []
  },
  "vi/species/synodontis-albolineatus": {
-  "at": "2026-11-10",
-  "hash": "d84e36ec6a443e84",
+  "at": "2026-11-22",
+  "hash": "699174470333a3b7",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "words",
-    "part": "P1",
-    "quote": "là một loài cá nheo rên nhỏ",
-    "why": "\"Cá nheo rên\" is a literal calque of the English \"squeaker catfish\"; keepers in Vietnam just call these fish Synodontis.",
-    "by": "model",
-    "fix": "cá Synodontis"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/species/synodontis-angelicus": {
   "at": "2026-11-13",
   "hash": "75176ba3c582d370",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/synodontis-annectens": {
+  "at": "2026-11-22",
+  "hash": "97f56dd9f3ae490b",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -147318,6 +147806,23 @@
   "findings": [],
   "products": []
  },
+ "vi/species/synodontis-centralis": {
+  "at": "2026-11-22",
+  "hash": "40f882f9e4d5ba67",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P5",
+    "quote": "Khi bị động, chúng cọ gốc gai vây ngực",
+    "why": "\"Bị động\" means \"passive\"; it is a mistranslation of \"when disturbed\".",
+    "by": "model",
+    "fix": "Khi bị quấy nhiễu"
+   }
+  ],
+  "products": []
+ },
  "vi/species/synodontis-clarias": {
   "at": "2026-11-08",
   "hash": "8a813d2889f68189",
@@ -147342,9 +147847,25 @@
   "findings": [],
   "products": []
  },
+ "vi/species/synodontis-cuangoanus": {
+  "at": "2026-11-22",
+  "hash": "fcca5ec00c46311a",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/species/synodontis-decorus": {
   "at": "2026-11-20",
   "hash": "5135f277c8e3a0be",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/synodontis-depauwi": {
+  "at": "2026-11-22",
+  "hash": "c33e776cdfa0009f",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -147364,6 +147885,14 @@
     "by": "model"
    }
   ],
+  "products": []
+ },
+ "vi/species/synodontis-dorsomaculatus": {
+  "at": "2026-11-22",
+  "hash": "015de1fce244c1de",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/species/synodontis-eupterus": {
@@ -147398,6 +147927,22 @@
   "hash": "1844b24212d25bee",
   "model": "opus",
   "checklist": 2,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/synodontis-fuelleborni": {
+  "at": "2026-11-22",
+  "hash": "6edda92abcac7c55",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/synodontis-geledensis": {
+  "at": "2026-11-22",
+  "hash": "b1e6840d5645dcc3",
+  "model": "opus",
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -147438,6 +147983,14 @@
     "by": "model"
    }
   ],
+  "products": []
+ },
+ "vi/species/synodontis-macrostigma": {
+  "at": "2026-11-22",
+  "hash": "e9b9599c60f2618f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/species/synodontis-melanopterus": {
@@ -147616,9 +148169,25 @@
   "findings": [],
   "products": []
  },
+ "vi/species/synodontis-velifer": {
+  "at": "2026-11-22",
+  "hash": "ac56f4a484432ce2",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/species/synodontis-waterloti": {
   "at": "2026-11-10",
   "hash": "4a1c3e2962065ef1",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/synodontis-zambezensis": {
+  "at": "2026-11-22",
+  "hash": "54c7dc330b8f449c",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -149086,6 +149655,14 @@
   "findings": [],
   "products": []
  },
+ "vi/species/uegitglanis-zammaranoi": {
+  "at": "2026-11-22",
+  "hash": "e67fef3dcc67044b",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/species/umbra-pygmaea": {
   "at": "2026-11-20",
   "hash": "d3569b65b05b52a7",
@@ -149596,8 +150173,8 @@
   "products": []
  },
  "vi/species/xiphophorus-signum": {
-  "at": "2026-11-21",
-  "hash": "d0f4a25a48084d75",
+  "at": "2026-11-22",
+  "hash": "aed7321274a315fc",
   "model": "opus",
   "checklist": 3,
   "findings": [],

@@ -1,0 +1,93 @@
+{
+  "id": "pseudolais-pleurotaenia",
+  "scientificName": "Pseudolais pleurotaenia",
+  "order": "Siluriformes",
+  "family": "Pangasiidae",
+  "genus": "Pseudolais",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "laos",
+    "mekong",
+    "thailand",
+    "chao-phraya"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 35
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1444",
+      "html": "<p>Type locality: Laos.</p><p>Size: 350 mm (13.8\") SL.</p><p>IUCN Red List category: Least Concern (last assessed 2011).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1444",
+      "html": "<p>Asia: Mekong, Chao Phraya, Meklong and Tapi basins (Thailand and Laos).</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1444",
+      "html": "<p>Needs a large amount of open space for swimming room and some plants to help reduce the nervous nature of the fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1444",
+      "html": "<p>Females are fuller-bodied.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1444",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1444",
+      "html": "<p>Bulletin de la Société philomathique de Paris (7th Série) v. 2, pp 235 [3].</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "K0zRaZkdUZs",
+      "title": "ปลาสังกะวาด ปลายอน Pseudolais,Pseudolais pleurotaenia",
+      "durationSec": 381,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "44TnDY0lCtQ",
+      "title": "( . .)﻿ ♥ปลาชะวาด สังกะวาด",
+      "durationSec": 141,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá dài 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

@@ -1,0 +1,89 @@
+{
+  "id": "auchenipterus-osteomystax",
+  "scientificName": "Auchenipterus osteomystax",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Auchenipterus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "tocantins"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 27
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_osteomystax.htm",
+      "html": "<p>Family: Auchenipteridae. Size: 27 cm. Temperature: 23–26°C. pH: 6.5–7.2. The genus Auchenipterus is closely related to, and similar to, Epapterus and Pseudepapterus.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_osteomystax.htm",
+      "html": "<p>South America: La Plata River basin, Tocantins River, and several rivers of lower Amazon River basin. Type locality: Santa Rita das Antas, Rio Vermelho, Goyaz [Brazil].</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_osteomystax.htm",
+      "html": "<p>Can grow quite large so would need a large tank to house this species. Other tankmates would need to be the same size or larger as they will pick off smaller species in their night time forays.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_osteomystax.htm",
+      "html": "<p>Can be fed most aquarium fare such as good quality flake, white worm, tablet and pellet foods and frozen foods such as bloodworm. Better to feed at lights out until they get accustomed to the daytime feeding regime, when they may very well join in.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_osteomystax.htm",
+      "html": "<p>Description: A. osteomystax is distinguished from all other congeners by the following combination of characters: the anal fin origin is located anterior of the middle of the body; the caudal fin with tips of lobes dark; the pelvic fins darkly pigmented on the leading edge and, often, on the margin; 49-51 vertebrae (rarely 48); and 38-51 (modally 45) gill rakers on the outer edge of the first arch. It is most similar to A. ambyiacus, from which it is most easily distinguished by higher gill raker counts.</p><p>Etymology: The specific name osteomystax: osteo-, from ostéon, bone; mýstax, moustache, referring to the ossified maxillary barbels of mature males.</p><p>IUCN Red List: widely distributed with no direct threats; assessed as Least Concern (IUCN 2023).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 400 lít"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

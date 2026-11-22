@@ -6,12 +6,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Open, no read of its text | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 5216 | 4540 | 656 | 1646 | 37 | 44 | 206 | 48 | 1157 | 352 | 2768 | 459 | 9 | 18 | 0 | 3 | 2 | 5 | 2 |
+| Vietnamese | 5263 | 4587 | 655 | 1650 | 38 | 44 | 206 | 49 | 1161 | 352 | 2774 | 461 | 9 | 18 | 0 | 3 | 2 | 5 | 2 |
 | Indonesian | 1717 | 1578 | 139 | 430 | 27 | 13 | 4 | 6 | 201 | 36 | 74 | 194 | 0 | 2 | 0 | 3 | 2 | 0 | 0 |
 | Thai | 1715 | 1568 | 147 | 404 | 22 | 3 | 5 | 4 | 195 | 41 | 100 | 184 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
 | Malay | 591 | 549 | 42 | 147 | 14 | 3 | 0 | 2 | 73 | 17 | 32 | 55 | 0 | 1 | 0 | 3 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 13 of 169, Indonesian 2 of 64, Thai 2 of 59, Malay 1 of 33.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 13 of 172, Indonesian 2 of 64, Thai 2 of 59, Malay 1 of 33.
 
 ## Doses on more than one page
 
@@ -56,7 +56,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - bionoc 2: ich, wholeTank: 0.1 drop/l, 0.05 drop/l (1 pages)
 - fritzzyme 7: other, wholeTank: 3.132 ml/l, 1.579 ml/l (1 pages)
 - fritzzyme 7 freshwater: other, wholeTank: 3.132 ml/l, 1.579 ml/l (1 pages)
-- marine salt: water, wholeTank: 0.5 ml/l (1 pages); water, unsaid: 7.5 ml/l (1 pages)
+- hydrogen peroxide: parasites, wholeTank: 0.333 ml/l (1 pages); other, wholeTank: 14.3 μl/l (1 pages)
 
 ## What each check is
 
@@ -81,13 +81,13 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - repashy: 49
 - keo 502: 39
 - panacur: 36
-- ada: 26
+- ada: 27
 - ada amazonia aqua soil: 26
 - tropica: 25
+- ada amazonia: 24
 - hikari shrimp cuisine: 23
-- ada amazonia: 22
 - fluval stratum: 19
-- seachem fluorite: 18
+- seachem fluorite: 19
 - dennerle: 17
 - carib sea eco-complete: 14
 - hikari first bites: 14
@@ -113,8 +113,8 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - weld-on 4: 9
 - api: 8
 - api leaf zone: 8
+- bacter ae: 8
 - fluval: 8
 - fluval bug bites: 8
 - tropica specialised nutrition: 8
-- easy shrimp and snail shells: 7
-- hikari tropical crab cuisine: 7
+- api master test kit: 7

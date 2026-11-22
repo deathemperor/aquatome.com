@@ -74,6 +74,13 @@
           "min": 25,
           "max": 28
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -98,6 +105,10 @@
       {
         "source": "seriouslyfish",
         "value": 13
+      },
+      {
+        "source": "glaser",
+        "value": 15
       }
     ],
     "tankCm": [
@@ -119,6 +130,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-tinanti",
       "html": "<ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul><p>Steatocranus tinanti is a rheophilic cichlid from around Malebo Pool in the River Congo, Democratic Republic of Congo. It has a confused taxonomic history, having been classified in Gobiochromis and then Leptotilapia, and further revision is likely since it differs in behaviour and morphology from other Steatocranus. It inhabits rapids and turbulent water, digs shallow pits along the shorelines and moves by 'hopping' around the aquarium floor.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/steatocranus-tinanti-2/",
+      "html": "<p>It can grow up to 15 cm long, but as a wild caught fish it is already sexually mature with 6-7 cm (male) and 3-4 cm (female). In this size the fish shows very pretty yellow fins.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/steatocranus-tinanti-2/",
+      "html": "<p>Unfortunately imports from the Congo are becoming more and more rare, but when they do come, they usually include humphead cichlids (Steatocranus). There are almost always three species mixed. The strongest and most high-backed of them is S. casuarius, which can be recognized by the black scale centers. It has – due to mood – irregular vertical body bands. Slightly more slender and with pale scale centers is S. gibbiceps, which shows regular vertical body bands. Finally, the most delicate and slender of this troop, S. tinanti, which shows two horizontal body bands.</p>"
     },
     {
       "key": "distribution",
@@ -151,16 +174,34 @@
       "html": "<ul><li>Temperature: 25–28°C</li><li>pH: 6.0–7.5</li><li>Hardness: 5–19 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/steatocranus-tinanti-2/",
+      "html": "<p>Water temperature should be in the range of 24-28°C, water composition (hardness, pH) are largely irrelevant as long as extremes are avoided.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-tinanti",
       "html": "<p>It will accept dried pellets or flakes, but these should be supplemented with regular feedings of live and frozen foods such as bloodworm and brine shrimp.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/steatocranus-tinanti-2/",
+      "html": "<p>Any common ornamental fish food is readily accepted, but it should not be too fatty and contain plenty of fiber.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-tinanti",
       "html": "<p>A territorial species that can be combined with other species requiring similar conditions. Good tankmates include some Alestiid tetras, Chaetostoma sp., Chiloglanis sp., some of the larger characins and barbs and rheophilic Synodontis species such as S. brichardi. It should not be kept with any other cichlids unless the tank is very large and even in that case should not be combined with boisterous species. S. casuarius should be kept in pairs. A suitably large tank is required if you wish to house more than one pair together.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/steatocranus-tinanti-2/",
+      "html": "<p>Steatocranus tinanti is a peaceful fish despite its threatening looking massive jaw. S. tinanti is a typical cave-breeder with pair-bond. The male guards and defends the territory, the female takes care of spawn and young.</p>"
     },
     {
       "key": "dimorphism",
@@ -187,18 +228,73 @@
       "thumb": "https://media.aquatome.com/commons/b3afb089ae8f2e31-480.webp",
       "width": 1200,
       "height": 676,
-      "licence": "CC BY-SA 4.0",
-      "author": "Cedricguppy - Loury Cédric",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Steatocranus_tinanti_-_Aqua_Porte_Dor%C3%A9e_02.JPG",
-      "caption": "Cá Steatocranus tinanti màu xanh lam nằm trên đá trong bể",
       "large": {
         "url": "https://media.aquatome.com/commons/b3afb089ae8f2e31-large.webp",
         "width": 2129,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Cedricguppy - Loury Cédric",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Steatocranus_tinanti_-_Aqua_Porte_Dor%C3%A9e_02.JPG",
+      "caption": "Cá Steatocranus tinanti màu xanh lam nằm trên đá trong bể"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b365219b3475496c.webp",
+      "thumb": "https://media.aquatome.com/glaser/b365219b3475496c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/steatocranus-tinanti-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f0b47a69f1ce31a8.webp",
+      "thumb": "https://media.aquatome.com/glaser/f0b47a69f1ce31a8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/steatocranus-tinanti-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/42eb4d7575c7b5f1.webp",
+      "thumb": "https://media.aquatome.com/glaser/42eb4d7575c7b5f1-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/steatocranus-tinanti-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "BL-RqRvEjNQ",
+      "title": "Steatocranus tinanti  -  tank update",
+      "durationSec": 96,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "X7QPi_eaQ2c",
+      "title": "Slender Buffalo Head Feeding Frenzy (Steatocranus tinanti)",
+      "durationSec": 21,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "gyi2bzUlyp4",
+      "title": "Steatocranus Tinanti eggs!!!!!",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "9XVF3patf8Y",
+      "title": "Steatocranus Tinanti Fry",
+      "durationSec": 56,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -230,5 +326,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-22"
 }

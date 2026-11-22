@@ -4,15 +4,6 @@ Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có t
 
 Duyệt: `pnpm engine summaries approve <id,id|all>`. Sửa: chỉnh `content/summaries/<id>.json` rồi duyệt.
 
-## Cá lau kính đuôi đàn lia chấm bi (Acanthicus adonis)
-id: `acanthicus-adonis`
-
-Loài này chỉ hợp với người có bể tư nhân thuộc loại lớn nhất hoặc hồ nuôi nhiệt đới. Cá lớn tới 100 cm và cần bể dài tối thiểu 600 cm (khoảng 24.000 lít), nước 23–30 °C, pH 6–7,5, độ cứng 2–12 dGH, ánh sáng yếu, có lũa, đá hoặc ống làm chỗ trú. Độ khó 6/8. Khó nhất là bể quá lớn, hệ lọc cực lớn, oxy luôn cao, và cá càng lớn càng hung dữ.
-
-- Mua cá con vì có đốm đẹp rồi để nuôi lâu dài; cá mất đốm khi trưởng thành và lớn tới 100 cm, nên chỉ mua khi đã có bể dài 600 cm.
-- Thả chung với cá sống đáy khác; cá trưởng thành nên nuôi một con, bạn cùng bể chọn cá tầng nước cỡ lớn và khỏe như Cichla hay Osteoglossum.
-- Để oxy tụt vì tưởng cá tự thở khí được; loài này không thở bằng không khí, nên giữ oxy hòa tan luôn cao, lọc cực lớn và thay nước đều.
-
 ## Cá trê tắc kè Mae Klong (Acrochordonichthys septentrionalis)
 id: `acrochordonichthys-septentrionalis`
 
@@ -34,17 +25,6 @@ Aegla platensis là cua nước ngọt nhỏ, trưởng thành 5 cm, hợp với
 
 Kiểm tra:
 - "hợp với người muốn nuôi loài ít gặp": the page never says the species is rare or uncommon in the hobby, so this suitability claim is unsupported.
-
-## Cá Aequidens superomaculatum (Aequidens superomaculatum)
-id: `aequidens-superomaculatum`
-
-Cá Aequidens superomaculatum cỡ khoảng 15 cm, sống kín đáo và hơi nhát. Hồ sơ không có số liệu về bể tối thiểu, nhiệt độ hay pH nên chưa nói được cần bể và nước thế nào. Khó nhất là nhận đúng loài: cá nhập về có lẽ là Ae. superomaculatum nhưng phải nghiên cứu thêm mới chốt được tên, vì trông rất giống Ae. sp. "Jenaro Herrera" và Ae. diadema.
-
-- Đừng tin chắc tên loài khi mua: cá nhập về chỉ có lẽ là Ae. superomaculatum, nên coi tên là chưa chốt và tìm hiểu thêm.
-- Đừng chỉ nhìn một đốm bên để nhận loài: lô mới có hai đốm bên, nên xem cả đốm dưới vây lưng lẫn đốm trong dải dọc thân.
-
-Kiểm tra:
-- Second mistake, "nên xem cả đốm dưới vây lưng lẫn đốm trong dải dọc thân": the page gives no such identification advice. It says the two-spot lot looks identical to Ae. sp. "Jenaro Herrera", so checking both spots would not settle the species. This is a fix the page does not give, and it presents the spots as a way to identify the species.
 
 ## Cá trê Amblyceps arunachalense (Amblyceps arunachalense)
 id: `amblyceps-arunachalense`
@@ -69,6 +49,21 @@ Cá trê nhỏ, trưởng thành 6,5 cm, hợp người có bể nước mát 18
 
 Kiểm tra:
 - "nên cần cho ăn đúng loại mồi giun": the page only says that in the tank they "thích" (prefer) worms such as frozen bloodworm and white worms. It does not say that feeding must be exactly worms, or that their frantic feeding is the reason. A preference has become a requirement.
+
+## Cá nheo Mỹ đen (Ameiurus melas)
+id: `ameiurus-melas`
+
+Cá nheo Mỹ đen hợp với người thích con cá có cá tính, chịu nuôi cá ăn thịt cỡ lớn, hoạt động chủ yếu về đêm. Hồ sơ ghi loài này không cần thiết bị gì và không kén thông số nước, ăn gần như mọi loại thức ăn, nuôi bể hay hồ ngoài vườn đều được. Điểm khó nhất là chuyện pháp lý và trách nhiệm: loài này bị xếp vào loài xâm lấn, EU cấm buôn bán từ tháng 5 năm 2022, và nuôi không muốn giữ nữa cũng tuyệt đối không được thả ra ngoài.
+
+- Đừng thả cá ra sông hồ khi không muốn nuôi nữa, vì loài này là xâm lấn và gây hại; tuyệt đối giữ cá trong nhà.
+- Đừng nuôi chung với cá nhỏ, vì đây là cá săn mồi ăn thịt.
+- Đừng mua bán hay mang cá đi mà chưa xem quy định, vì EU cấm buôn bán loài này từ tháng 5 năm 2022; hãy kiểm tra luật nơi mình ở trước.
+
+Kiểm tra:
+- "EU cấm buôn bán loài này từ tháng 5 năm 2022" and "EU cấm buôn bán từ tháng 5 năm 2022": the page hedges this with "Trừ khi lại có phép màu" (unless a miracle happens) and says the EU "sẽ cấm" (will ban). The summary states the ban as a certainty.
+- "tuyệt đối giữ cá trong nhà": the page says the fish may be kept in a garden pond ("thả hồ ngoài vườn đều được"). It only says never to release them into the wild. "Trong nhà" (indoors) contradicts this.
+- "hãy kiểm tra luật nơi mình ở trước" and "mang cá đi": the page gives no advice to check local rules and says nothing about transporting the fish. This is advice the page doesn't give.
+- "Đừng nuôi chung với cá nhỏ": the page says nothing about tank mates. This is only loosely inferred from the fish being a predator.
 
 ## Cá Ammoglanis multidentatus (Ammoglanis multidentatus)
 id: `ammoglanis-multidentatus`
@@ -334,20 +329,6 @@ Benitochromis nigrodorsalis là cichlid Tây Phi hiếm, dài khoảng 12 cm, nu
 Kiểm tra:
 - The mistake says "Đừng chuẩn bị hang đẻ như với Pelvicachromis" and the fix says "theo dõi cả đôi chứ đừng chỉ nhìn hang". The page gives no advice about caves or about watching the pair. It only says Pelvicachromis spawn in caves and Benitochromis are mouthbrooders. The summary turns that contrast into care advice the page doesn't give.
 
-## Cá betta gladiator (Betta gladiator)
-id: `betta-gladiator`
-
-Cá betta gladiator (Betta gladiator) hợp với người chịu nuôi riêng một cặp trong bể dài tối thiểu 90 cm, độ khó 4/8. Cần nước chua mềm, 22–27 °C, pH 4–6, độ cứng 0–5 dGH, đèn tối, lọc nhẹ, có rễ lũa và lá khô làm chỗ nấp. Điểm khó nhất là tính hung dữ: khó nuôi chung với cá khác, đực nhốt chung hay đánh nhau, và cá nhảy giỏi nên bể phải đậy kín.
-
-- Thả chung với cá hiền trong bể cộng đồng thông thường thì dễ có chuyện; nên nuôi riêng, hoặc chỉ ghép với loài thật hiền.
-- Nuôi nhiều con đực chung trong bể chật, chúng đánh nhau suốt và có thể giết nhau; nên nuôi một cặp, hoặc nuôi nhóm một thời gian để cá tự chọn đôi.
-- Để bể hở hoặc đổ nước đầy tới miệng thì cá dễ nhảy ra ngoài; nên đậy bể thật kín và đừng đổ nước đầy tới miệng.
-
-Kiểm tra:
-- "cá nhảy giỏi nên bể phải đậy kín": the page hedges with "Loài này chắc là cũng nhảy rất giỏi" (probably a very good jumper), and the summary states it as certain.
-- "đực nhốt chung hay đánh nhau" and "chúng đánh nhau suốt và có thể giết nhau": the page says only "nghe nói đánh nhau suốt" (reportedly fight constantly), and the summary drops that hedge.
-- "Điểm khó nhất là tính hung dữ": the page frames aggression as a reputation ("nổi tiếng", "Nếu loài này dữ đúng như lời đồn"), and the summary states it as established fact.
-
 ## Cá betta lehi (Betta lehi)
 id: `betta-lehi`
 
@@ -473,18 +454,6 @@ Kiểm tra:
 - "chịu chơi bể lớn": the page never recommends a large tank. It only says a small tank with unsuitable tank mates can cause trouble.
 - Mistake 1, "thì cá trở nên khó chịu": the page hedges with "có thể trở nên khá khó chịu" (can become fairly unpleasant). The mistake states it as a certainty.
 
-## Tép ong đốm trắng (Caridina dennerli)
-id: `caridina-dennerli`
-
-Tép ong đốm trắng (Caridina dennerli) hợp với người đã có kinh nghiệm, cần nước ấm 27–30 °C để nuôi và cho đẻ tốt. Điểm khó nhất là chịu sốc rất kém: điều kiện lệch một chút hoặc bị lạnh khi vận chuyển là tép chết nhanh. Tép trại ở Đức được cho là dễ nuôi hơn, nhưng độ khỏe lâu dài thì chưa rõ.
-
-- Để nước nguội trong thời gian dài: giữ nước ở 27–30 °C, kể cả với tép trại.
-- Để tép bị lạnh hoặc sốc khi vận chuyển: tép chịu sốc rất kém nên cần giữ ấm và hạn chế thay đổi đột ngột.
-- Cho rằng tép trại chắc chắn bền: hồ sơ ghi độ khỏe lâu dài chưa biết, nên vẫn giữ điều kiện sát nhu cầu của chúng.
-
-Kiểm tra:
-- "hợp với người đã có kinh nghiệm" states as fact what the page only reports as a past reputation ("bị coi là chỉ dành cho người chơi lâu năm"). The page then gives the breeder's view that it is "không khó nuôi chút nào", and the card has no difficulty. The hedge became a certainty.
-
 ## Cá da trơn biển Carlarius heudelotii (Carlarius heudelotii)
 id: `carlarius-heudelotii`
 
@@ -506,6 +475,18 @@ Cá rìu lùn (Carnegiella myersi) hợp với người đã có bể chạy lâ
 
 Kiểm tra:
 - "chỉ chọn cá characid hiền cỡ tương đương hoặc cá da trơn callichthyid, loricariid cỡ nhỏ hơn": the page only says these are the best choices ("tốt nhất chọn") and also says the species can live with other fish of the same genus. The summary turns a hedged recommendation into an exclusive rule.
+
+## Cá Centromochlus schultzi (Centromochlus schultzi)
+id: `centromochlus-schultzi`
+
+Loài này nuôi không khó lắm, miễn là giữ nước sạch và không để nước quá kiềm. Cá dài khoảng 10 cm, hoạt động chủ yếu về đêm hoặc lúc chạng vạng, ban ngày trốn trong cây nên ít thấy. Cần bể thủy sinh nhiều cây, 22–25 °C, pH 6–7, độ khó 4/8 (mức vừa). Khó nhất là giữ nước sạch và không để nước quá kiềm.
+
+- Để nước quá kiềm: giữ pH trong khoảng 6–7 và giữ nước sạch.
+- Bể ít chỗ trốn: trồng nhiều cây và thả thêm vài đoạn ống để cá có chỗ chọn.
+- Chờ cá tự ra ăn ban ngày: cho trùng huyết đông lạnh để dụ cá ra khỏi chỗ trốn, còn giun trắng thì chỉ cho ít.
+
+Kiểm tra:
+- "Cần bể thủy sinh nhiều cây": the page only says the fish "thích" (like) a planted tank because they hide in it by day. It never says the tank is required, so a preference has become a certainty.
 
 ## Cá trê săn mồi Apure (Cephalosilurus apurensis)
 id: `cephalosilurus-apurensis`
@@ -1028,15 +1009,14 @@ Kiểm tra:
 ## Cá rô phi Texas (Herichthys cyanoguttatus)
 id: `herichthys-cyanoguttatus`
 
-Cá rô phi Texas (Herichthys cyanoguttatus) hợp người đã có kinh nghiệm với cichlid cỡ lớn, độ khó 4/8. Cá lớn tới 30 cm, nuôi một con cũng cần bể dài ít nhất 120 cm (120 x 45 x 45 cm, khoảng 255 lít), pH 6–7,5, độ cứng 5–12 dGH, nước sạch và giàu oxy. Khó nhất là tính hung hăng, giữ lãnh thổ gắt, nhất là cá đực trong bể nhỏ, nên gần như không nuôi chung được và phải chịu cảnh cá đào bới suốt ngày.
+Cá rô phi Texas (Herichthys cyanoguttatus) hợp với người đã quen cichlid cỡ lớn và chịu chơi bể to. Cá dài tới 30 cm, nuôi một con cũng cần bể dài ít nhất 120 cm (120 x 45 x 45 cm, khoảng 255 lít), nước pH 6–7,5, độ cứng 5–12 dGH, độ khó 4/8; nuôi cặp hoặc nuôi chung với loài khác thì cần bể lớn hơn hẳn. Khó nhất là tính hung hăng, giữ lãnh thổ gắt và việc phải giữ nước sạch vì cá đào bới suốt ngày.
 
-- Trồng cây cắm rễ hoặc dùng lọc đáy sẽ bị cá xới tung; thay vào đó rải một lớp cát hoặc sỏi mịn khá dày, thêm đá nhẵn hoặc lũa.
-- Lười thay nước thì chất thải hữu cơ tích tụ, loài này chịu rất kém; dùng lọc thùng ngoài cỡ khá và thay 25–50% nước mỗi tuần.
-- Thả bừa một đực một cái để ghép cặp thì cá đực thường giết cá cái; nên mua nhóm từ sáu cá con trở lên, nuôi lớn cùng nhau để chúng tự bắt cặp.
+- Trồng cây cắm rễ và dùng lọc đáy thì cá sẽ xới tung hết, nên rải một lớp cát hoặc sỏi mịn khá dày, thêm đá nhẵn hoặc lũa.
+- Thả bừa một đực một cái vào chung bể thì cá đực thường giết cá cái, nên mua nhóm từ sáu cá con trở lên, nuôi lớn cùng nhau để chúng tự bắt cặp.
+- Để chất thải hữu cơ tích tụ thì cá không chịu được, nên dùng lọc thùng ngoài cỡ khá và thay 25–50% nước mỗi tuần.
 
 Kiểm tra:
-- "nên gần như không nuôi chung được": the page only says a bigger tank is needed for keeping it with other species (aquariumSize) and that a breeding pair's tank can't hold others. It does not say tank mates are nearly impossible, so a hedge became a near-certainty.
-- "hợp người đã có kinh nghiệm với cichlid cỡ lớn": the page never says it needs experienced keepers. The card rates it medium (4/8), so this suitability claim is unsupported.
+- "việc phải giữ nước sạch vì cá đào bới suốt ngày": the page gives a different reason for clean water. It says the water must be clean and oxygen-rich because the species cannot tolerate accumulated organic waste. Digging is mentioned separately, as the reason not to plant rooted plants or use an undergravel filter. The summary invents a causal link.
 
 ## Cá trê vundu (Heterobranchus longifilis)
 id: `heterobranchus-longifilis`
@@ -1555,18 +1535,6 @@ Cá panchax xanh phấn (Pachypanchax omalonotus) hợp người đã có bể r
 Kiểm tra:
 - "cá nhỏ sẽ bị ăn, nên nuôi riêng, không thả chung loài khác": the page hedges ("chắc sẽ bị ăn", "có lẽ nên nuôi riêng"), but the summary states both as certainties.
 
-## Cá nóc Pao abei (Pao abei)
-id: `pao-abei`
-
-Cá nóc Pao abei cỡ trưởng thành 10 cm, hợp với người thích cá nóc nước ngọt đẹp và thú vị, chấp nhận loài này sống hoàn toàn trong nước ngọt. Hồ sơ không nêu bể tối thiểu, nhiệt độ hay pH, nên cần tự tìm thêm trước khi nuôi. Khó nhất là định loài: cá đổi màu rất nhanh, hoa văn mỗi con một khác, nên lứa mới nhập về chưa chắc đã đúng Pao abei.
-
-- Đừng tin màu sắc hay ảnh nhà cung cấp để khẳng định loài, vì cá đổi màu rất nhanh và rất mạnh; hãy coi tên loài là chưa chắc chắn.
-- Đừng cho rằng con cá mới nhập chắc chắn là Pao abei; nhóm này khó phân biệt, nên hỏi rõ nguồn gốc lứa cá trước khi mua.
-
-Kiểm tra:
-- The second mistake's fix, "nên hỏi rõ nguồn gốc lứa cá trước khi mua", is advice the page never gives. The page only says the species identity is uncertain. It says nothing about asking the seller about the batch's origin.
-- "cần tự tìm thêm trước khi nuôi" is also advice the page does not give, though it is minor.
-
 ## Cá chạch Parabotia lijiangensis (Parabotia lijiangensis)
 id: `parabotia-lijiangensis`
 
@@ -1639,20 +1607,6 @@ Cá bảy màu đốm đuôi (Phalloceros caudimaculatus) hợp người muốn 
 Kiểm tra:
 - "thì con cái bị đuổi dai": the page says males "có thể đuổi theo con cái khá dai" (only a possibility). The summary states it as a certainty, which drops the hedge.
 - "Nuôi số đực bằng hoặc nhiều hơn số cái": the page only advises more females than males. It doesn't say what happens with equal numbers.
-
-## Cá tetra Congo Phenacogrammus taeniatus (Phenacogrammus taeniatus)
-id: `phenacogrammus-taeniatus`
-
-Cá tetra Congo Phenacogrammus taeniatus trưởng thành 6 cm, sống thành đàn lớn, ánh bạc, bơi ở vùng nước thoáng. Hồ sơ không nêu nhiệt độ, pH hay bể tối thiểu, nên cần hỏi thêm trước khi chuẩn bị bể. Khó nhất là khó chắc con mình mua đúng loài, vì nhiều loài về tiệm dưới tên tự đặt và giá khá đắt.
-
-- Nuôi lẻ một hai con: loài này sống thành đàn lớn, nên nuôi theo đàn.
-- Thấy sọc đen mờ rồi cho là cá bệnh: sọc đổi đậm nhạt theo tâm trạng cá, nên theo dõi thêm chứ đừng vội xử lý.
-- Tin tên trên nhãn khi mua: nhiều loài tetra Congo bán dưới tên tự đặt, nên hỏi rõ nguồn gốc cá trước khi mua.
-
-Kiểm tra:
-- "nên hỏi rõ nguồn gốc cá trước khi mua": the page gives no advice to ask about the fish's origin. It only says many are sold under self-given names, so this fix is invented.
-- "nên theo dõi thêm chứ đừng vội xử lý" and "cho là cá bệnh": the page says nothing about disease or about watching and not treating. It only says the stripe changes with mood, so this advice goes beyond the page.
-- "nên hỏi thêm trước khi chuẩn bị bể": the page gives no such advice. It is an invented recommendation.
 
 ## Cá hồng bụng đỏ (Piaractus brachypomus)
 id: `piaractus-brachypomus`
@@ -1789,6 +1743,18 @@ Hợp người đã quen giữ nước mềm, axit và muốn nuôi một đàn 
 
 Kiểm tra:
 - "tính dữ với đồng loại": the page hedges this as hearsay ("Nghe nói đây là một trong những loài dữ với đồng loại hơn cả trong giống"). The summary states it as a certain trait and drops the hedge.
+
+## Cá lau kiếng Parnaiba (Pterygoplichthys parnaibae)
+id: `pterygoplichthys-parnaibae`
+
+Hợp với người đã có hoặc sẵn sàng làm bể lớn, muốn con lau kiếng hiền và dễ nuôi (độ khó 2/8). Cá lớn tới 50 cm, sống ở 25–30 °C, pH 6–7,5, cần lọc ngoài tốt để nước giàu oxy. Khó nhất là chỗ ở và vệ sinh: cá cần bể rộng và phải chuyển dần sang bể lớn hơn khi lớn lên, lại ăn rau củ nhiều nên thải rất nhiều phân.
+
+- Chỉ trông vào rêu trong bể thì cá không đủ ăn; cho thêm rau bina, xà lách chần, dưa leo, bí ngòi.
+- Để nước bẩn lâu ngày thì màng vây có thể thủng lỗ nhỏ; thấy cá rời nền, xòe vây treo lơ lửng thì thay nước ngay.
+- Giữ cá mãi trong bể nhỏ ban đầu; cá lớn nhanh nên cần chuyển dần sang bể lớn hơn.
+
+Kiểm tra:
+- Third mistake: "cá lớn nhanh" – the page never says the fish grows fast. It only says to start with a 90 cm tank while the fish is small and move to a bigger tank later. This growth-rate claim is invented.
 
 ## Cá lau kiếng mũi tê giác (Pterygoplichthys scrophus)
 id: `pterygoplichthys-scrophus`
@@ -1954,6 +1920,18 @@ Cá trê lũa (Sorubimichthys planiceps) hợp với người nuôi có kinh ngh
 Kiểm tra:
 - "chỉ nuôi cùng cá da trơn cỡ lớn như họ Pimelodidae hoặc Doradidae": the page says the fish can live with any species that has similar water needs and is big enough not to be swallowed. It only offers these catfish families as suggestions ("gợi ý"). "Chỉ" turns a suggestion into an exclusive rule.
 
+## Cá barb sọc dọc (Striuntius lineatus)
+id: `striuntius-lineatus`
+
+Cá barb sọc dọc (Striuntius lineatus) hợp với người muốn một đàn cá nhỏ, hiền cho bể cộng đồng; độ khó 2/8, trưởng thành 5,5 cm. Cần bể dài tối thiểu 80 cm (đáy 80 × 30 cm, khoảng 72 lít), nước 20–26 °C, pH 4–7, độ cứng 1–10 dGH, nền mềm, ánh sáng yếu, có rễ, cành và lá khô rải đáy. Điểm khó nhất là giữ đàn đủ đông và chọn bạn cùng bể hiền, vì cá hơi nhát.
+
+- Nuôi lẻ vài con thì cá nhát; nên nuôi đàn ít nhất 8–10 con.
+- Chọn bạn cùng bể không hiền; nên thả chung cá hiền như cá chép cùng cỡ, cá họ chạch hay anabantoid.
+- Cho ăn thiếu thức ăn sống hoặc đông lạnh thì cá khó lên màu đẹp; nên cho đều trùng huyết, bo bo, Artemia, kèm thức ăn khô có thành phần thực vật hoặc tảo.
+
+Kiểm tra:
+- The summary lists "nền mềm, ánh sáng yếu, có rễ, cành và lá khô rải đáy" as things the fish needs. The page only says the fish does well in a heavily planted tank OR a forest-stream tank, and it describes those features only for the stream-style tank. The page gives no requirement for soft substrate, dim light or leaf litter in every tank.
+
 ## Cá Sundasalanx (Sundasalanx microps)
 id: `sundasalanx-microps`
 
@@ -1964,6 +1942,17 @@ Sundasalanx microps là cá tí hon, lớn tới 2 cm, độ khó 4/8 (vừa). C
 
 Kiểm tra:
 - "yếu thế khi tranh ăn": the page only says the fish is likely at a disadvantage when competing with other fish ("cạnh tranh với cá khác"). It does not say the competition is over food, so the summary adds a claim the page doesn't make.
+
+## Cá Synodontis centralis (Synodontis centralis)
+id: `synodontis-centralis`
+
+Cá Synodontis centralis cỡ 13,5 cm khi trưởng thành, là cá có gai vây lưng và vây ngực cứng, có răng cưa nên cần cẩn thận khi cầm. Hồ sơ không có số liệu về nhiệt độ, pH, độ cứng hay bể tối thiểu, nên cần tìm thêm thông tin trước khi chuẩn bị bể. Điểm khó nhất là chưa có ghi chép nào về việc loài này sinh sản.
+
+- Gai vây lưng sắc dễ đâm vào tay khi cầm cá, nên đặt cá nằm trên tay, đầu quay vào lòng bàn tay, kẹp gai vây lưng giữa ngón giữa và ngón áp út.
+- Con cái gầy hoặc suy kiệt chỉ lộ hai lỗ màu hồng là lỗ ống dẫn trứng và hậu môn, nên đừng đợi thấy núm nhô ra mới xác định là cái; hãy đối chiếu vị trí lỗ trên núm sinh dục.
+
+Kiểm tra:
+- Second mistake: "nên đừng đợi thấy núm nhô ra mới xác định là cái; hãy đối chiếu vị trí lỗ trên núm sinh dục" is advice the page doesn't give. The page says only that a thin or exhausted female shows two pink openings. It does not say to stop waiting for the papilla. The fix also contradicts itself, because it tells the reader to check hole position on a papilla that such a female doesn't show.
 
 ## Cá trê lông Synodontis clarias (Synodontis clarias)
 id: `synodontis-clarias`
@@ -2149,6 +2138,18 @@ Cá rô đầu đỏ (Vieja melanura) hợp với người có chỗ đặt bể
 
 Kiểm tra:
 - "Khó nhất là giữ cho hai con sống chung được một bể" turns a breeding-specific remark into the hardest part of keeping the species in general. The page says this is the hardest part of breeding ("Cái khó nhất khi cho loài này sinh sản"). It also says a bonded pair usually lives together fairly calmly.
+
+## Ếch móng vuốt nhiệt đới (Xenopus tropicalis)
+id: `xenopus-tropicalis`
+
+Ếch móng vuốt nhiệt đới (Xenopus tropicalis) hợp với người mới nuôi, độ khó 2/8, chỉ lớn khoảng 4 cm nên dễ xếp vào bể chung với cá. Ăn được đủ loại thức ăn cá cảnh, từ khô, đông lạnh tới tươi sống. Điểm khó nhất là bể phải đậy thật kín vì ếch rất giỏi trốn, và cá nuôi chung phải đủ lớn để không lọt miệng ếch.
+
+- Để bể hở hoặc đậy lỏng: ếch trốn rất tài và bò ra phòng khách thường chết, nên đậy thật kín.
+- Thả cá nhỏ chung bể: ếch thấy gì lọt miệng là nuốt, nên chỉ nuôi chung với cá đủ lớn, không lọt miệng ếch.
+- Lầm với Xenopus laevis rồi chuẩn bị bể theo loài lớn: X. tropicalis chỉ khoảng 4 cm và là loài nhiệt đới, nên hỏi rõ đúng loài trước khi mua.
+
+Kiểm tra:
+- The third mistake, "Lầm với Xenopus laevis rồi chuẩn bị bể theo loài lớn ... nên hỏi rõ đúng loài trước khi mua", is not on the page. The page only says X. tropicalis differs from X. laevis in size and eyes and is tropical. It never mentions mixing the two up, sizing a tank for the larger species, or asking the seller which species it is. The fix is invented advice.
 
 ## Cá da trơn cát đốm (Zaireichthys conspicuus)
 id: `zaireichthys-conspicuus`

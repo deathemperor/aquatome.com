@@ -1,0 +1,103 @@
+{
+  "id": "auchenipterus-brachyurus",
+  "scientificName": "Auchenipterus brachyurus",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Auchenipterus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "amazon",
+    "bolivia",
+    "rio-madeira"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 16.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_brachyurus.htm",
+      "html": "<p>The genus Auchenipterus is closely related to and is similar to Epapterus and Pseudepapterus. Distinguished from all species except A. nigripinnis by the presence of a broad, black band that obliquely crosses the middle of the upper lobe of the caudal fin.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_brachyurus.htm",
+      "html": "<p>This species will not be seen too often in the hobby.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_brachyurus.htm",
+      "html": "<p>South America: Western portions of the Amazon River basin including the Rio Ucayali and Rio Napo, and the upper portion of the Rio Madeira in Bolivia. Type locality: Peruvian Amazon.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_brachyurus.htm",
+      "html": "<p>Can be fed most aquarium fare such as good quality flake, white worm, tablet and pellet foods and frozen foods such as bloodworm. Better to feed at lights out until they get accustomed to the daytime feeding regime when they may very well join in.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_brachyurus.htm",
+      "html": "<p>Good community catfish with normal sized patrons but not to be trusted with small Tetras for instance, which will be picked off at night on its twilight patrols.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_brachyurus.htm",
+      "html": "<p>Etymology: The specific name brachyurus: Short-tailed, from brachýs, short, and urus, from ourá, tail, referring to shorter \"caudal region\" compared with A. nuchalis.</p><p>IUCN Red List: Despite there being little information available on this species, it is assessed as Least Concern due to its wide range and no direct threats (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_brachyurus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Ferraris, C.J. Jr., 1999. The South American catfish genus Auchenipterus Valenciennes, 1840 (Ostariophysi: Siluriformes: Auchenipteridae) : monopoly and relationships, with a revisionary study. Zoological Journal. Vol. 126, Part 4, 1999.</p><p>Frederico, R.G. 2023. Auchenipterus brachyurus. The IUCN Red List of Threatened Species 2023.</p><p>Ortega, H. and R.P. Vari, 1986. Annotated checklist of the freshwater fishes of Peru. Smithson. Contrib. Zool. (437):1-25.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

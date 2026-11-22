@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/25-perchlike-fishes/steatocranus-tinanti-2/
 title: Steatocranus tinanti - Aquarium Glaser GmbH
-fetchedAt: 2026-11-22T13:02:19.160Z
+fetchedAt: 2026-11-22T19:20:40.016Z
 hash: 2964614f6c79b38aa0cd7e22c80e978cc77f61b43e651df11e0fc92cee436a48
 ---
 

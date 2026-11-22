@@ -1,0 +1,53 @@
+{
+  "id": "pardiglanis-tarabinii",
+  "scientificName": "Pardiglanis tarabinii",
+  "order": "Siluriformes",
+  "family": "Claroteidae",
+  "genus": "Pardiglanis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "somalia",
+    "juba-river",
+    "kenya",
+    "tana-river"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 75
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1437",
+      "html": "<p>Scientific name: Pardiglanis tarabinii Poll, Lanza &amp; Romoli Sassi, 1972. Common name: Somalian Giant Catfish. Family: Claroteidae. Synonym: Clarotes tarabinii. Maximum size: 75 cm SL. IUCN Red List: Data Deficient (last assessed 2009).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1437",
+      "html": "<p>Africa: restricted to the Juba River, Somalia and the Lower Tana River in Kenya. Type locality: Juba River, Gelib, southern Somalia.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1437",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1437",
+      "html": "<p>Monitore Zoologico Italiano Suppl. 4 (no. 15), pp 338, Figs. 1-7.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-22"
+}

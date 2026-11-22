@@ -119,6 +119,10 @@
       {
         "source": "seriouslyfish",
         "value": 11
+      },
+      {
+        "source": "glaser",
+        "value": 10
       }
     ],
     "tankCm": [
@@ -140,6 +144,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/paracyprichromis-nigripinnis",
       "html": "<p>A deep-water cichlid endemic to Lake Tanganyika, Paracyprichromis nigripinnis is easily confused with P. brieni, its only congener. It has larger eyes and a slightly rounder, stockier body than that species. Males hold territories under rocky overhangs and can often be seen hanging upside down beneath them. Several colour morphs exist that hybridise if mixed, and the fish loses its best colouration under bright lighting or with boisterous tankmates.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/paracyprichromis-nigripinnis-blue-neon-2/",
+      "html": "<p>Cyprichromis and Paracyprichromis are very special mouthbrooding cichlids from Lake Tanganyika. They live in sometimes huge schools and feed on small animals that they pick from the free water column. To attract the attention of females, the males can be very colorful. They do not occupy actual territories. The females, on the other hand, are as inconspicuously colored as possible and enjoy the protection of the community from predators in the shoal.</p><p>Paracyprichromis nigripinnis grows to about 10 cm in length.</p>"
     },
     {
       "key": "distribution",
@@ -190,6 +200,12 @@
       "html": "<p>Males tend to grow larger than females, are more colourful and develop longer caudal extensions.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/paracyprichromis-nigripinnis-blue-neon-2/",
+      "html": "<p>The genus Paracyprichromis differs from Cyprichromis purely visually mainly by the tail fin shape, which in male Paracyprichromis is adorned with extended tips. Females are less intensely colored than males and have a transparent caudal fin.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/paracyprichromis-nigripinnis",
@@ -211,26 +227,81 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/88178f2f1fbf3e6b.webp",
+      "thumb": "https://media.aquatome.com/commons/88178f2f1fbf3e6b-480.webp",
       "width": 960,
       "height": 638,
       "licence": "CC BY-SA 3.0",
       "author": "Pinpin",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paracyprichromis_Nigripinnis-2.JPG",
-      "caption": "Tanganyika lake fishes : Paracyprichromis Nigripinnis",
-      "thumb": "https://media.aquatome.com/commons/88178f2f1fbf3e6b-480.webp"
+      "caption": "Tanganyika lake fishes : Paracyprichromis Nigripinnis"
     },
     {
       "url": "https://media.aquatome.com/commons/da63d8d749c991a5.webp",
+      "thumb": "https://media.aquatome.com/commons/da63d8d749c991a5-480.webp",
       "width": 960,
       "height": 622,
       "licence": "CC BY-SA 3.0",
       "author": "Pinpin",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paracyprichromis_Nigripinnis-1.JPG",
-      "caption": "Tanganyika lake fishes : Paracyprichromis Nigripinnis",
-      "thumb": "https://media.aquatome.com/commons/da63d8d749c991a5-480.webp"
+      "caption": "Tanganyika lake fishes : Paracyprichromis Nigripinnis"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/21d7a3511ef5d69f.webp",
+      "thumb": "https://media.aquatome.com/glaser/21d7a3511ef5d69f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/paracyprichromis-nigripinnis-blue-neon-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/8f62cddf17787e74.webp",
+      "thumb": "https://media.aquatome.com/glaser/8f62cddf17787e74-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/paracyprichromis-nigripinnis-blue-neon-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/3e10240e6af129d5.webp",
+      "thumb": "https://media.aquatome.com/glaser/3e10240e6af129d5-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/paracyprichromis-nigripinnis-blue-neon-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "mxK2hl6ZqAs",
+      "title": "Unterwasseraufnahme im Aquarium: Paracyprichromis nigripinnis",
+      "durationSec": 106,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "IIlyslsGzag",
+      "title": "Cichlid Species Profile #1 - Paracyprichromis Nigripinnis",
+      "durationSec": 442,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "JJjh0El5feM",
+      "title": "Paracyprichromis Blue Neon juveniles 45 days old",
+      "durationSec": 21,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "qBxAQUkE7_0",
+      "title": "Blue Neon Cyp.  Paracyprichromis nigripinnis",
+      "durationSec": 739,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -259,5 +330,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-22"
 }

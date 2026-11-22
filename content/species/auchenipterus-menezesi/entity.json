@@ -1,0 +1,101 @@
+{
+  "id": "auchenipterus-menezesi",
+  "scientificName": "Auchenipterus menezesi",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Auchenipterus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "parnaiba"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 13
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_menezesi.htm",
+      "html": "<p>The genus Auchenipterus is closely related to and is similar to Epapterus and Pseudepapterus.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_menezesi.htm",
+      "html": "<p>South America: Parnaíba and Pindaré-Mirim River basins of Maranhão and Piauí, Brazil. Type locality: Lago de Viana, Rio Pindaré, Mirim basin, Maranhão, Brazil.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_menezesi.htm",
+      "html": "<p>In its natural habitat, microcrustaceans, algae, and insects were among the food found routinely in the gut contents. Can be fed most aquarium fare such as good quality flake, white worm, tablet and pellet foods and frozen foods such as bloodworm. Better to feed at lights out until they get accustomed to the daytime feeding regime, when they may very well join in.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_menezesi.htm",
+      "html": "<p>A good community catfish with normal-sized tankmates, but not to be trusted with small tetras, for instance, which will be picked off at night on its twilight patrols.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_menezesi.htm",
+      "html": "<p>Etymology: The specific name, menezesi, is in honour of Dr. Rui Simões de Menezes, Universidade Federal do Ceará, Brazil, in recognition of his studies of the life history of freshwater fishes of northeastern Brazil, including this species.</p><p>IUCN Red List: Auchenipterus menezesi occurs in the Parnaíba and Pindaré-Mirim river basins, in the states of Maranhão, Ceará, and Piauí. The species is frequent, although not very abundant. No significant threats to its population have been identified. For these reasons, A. menezesi has been categorised as Least Concern (IUCN 2022).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_menezesi.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Ferraris, C.J. Jr. and R.P. Vari, 1999. The South American catfish genus Auchenipterus Valenciennes, 1840 (Ostariophysi: Siluriformes: Auchenipteridae): monophyly and relationships, with a revisionary study. Zool. J. Linn. Soc. (126):387-450.</p><p>Froese, R. and D. Pauly. Editors. 2022. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 08/2022 ).</p><p>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2022. Auchenipterus menezesi. The IUCN Red List of Threatened Species 2022.</p><p>Vieira LO, Campos DS, Oliveira RF, South J, Coelho MS.P, Paiva MJ.S, Bragança PH.N, Guimarães EC, Katz AM, Brito PS, Santos JP, Ottoni FP (2023) Checklist of the fish fauna of the Munim River Basin, Maranhão, north-eastern Brazil. Biodiversity Data Journal 11: e98632.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

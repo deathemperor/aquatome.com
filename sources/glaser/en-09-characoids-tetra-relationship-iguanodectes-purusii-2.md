@@ -1,0 +1,12 @@
+---
+url: https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/iguanodectes-purusii-2/
+title: Iguanodectes purusii - Aquarium Glaser GmbH
+fetchedAt: 2026-11-22T19:33:34.822Z
+hash: 8056658d40e1f9c93b4a8e6bda218784f4100b86b68863577d48bb098d161bce
+---
+
+Four species of the peculiar lizard tetras (Iguanodectes) are imported from time to time: I. spilurus, I. adujai, I. geisleri and I. purusii. But altogether there are eight accepted species and because of the similarity of these fishes and their wide distribution it is not always so sure if the classification of the imports is correct. After all there are clear differences between the four species mentioned at the beginning: I. spilurus has no red longitudinal banding; I. adujai has a very long anal fin compared to the other species; I. geisleri and I purusii have a tricolor longitudinal banding – red-gold-black from top to bottom. For pictures of I. geisleri and I. adujai see https://www.aquariumglaser.de/en/fish-archives/iguanodectes_geisleri_en/ and https://www.aquariumglaser.de/en/fish-archives/iguanodectes_arrived__en/.
+Now we have received from the Rio Purus in Brazil very nice three-banded lizard tetras, which we address as I. purusii; but it is also not excluded that it is a local form of I. geisleri, which is clearly different in color from the animals we received earlier from Venezuela; this is indicated by the low number of anal fin rays. By the way, these peaceful schooling fishes, which reach 6-7 cm in length, got the strange name “lizard tetra” from their tooth shape, which reminds of the tooth shape in certain iguanas.
+Iguanodectes are extremely attractive, somewhat sensitive fish, which attract attention by their unusual body shape and swimming style. These fish are especially sensitive during transport and acclimation. Once well acclimated they do not cause any problems and please the owner for many years. We don’t know anything about a successful breeding; however, we have such fish in one of our show aquariums for a long time and there you can observe from time to time that single males separate themselves from the shoal and defend a broad-leaved plant (Anubias) against other males; females, on the other hand, are then intensively courted. Possibly they are adhesive spawners. Males are slimmer and more colorful than females, otherwise there are no externally recognizable sex differences.
+For our customers: the animals have code 264402 on our stocklist. Please note that we only supply wholesale.
+Text & photos: Frank Schäfer

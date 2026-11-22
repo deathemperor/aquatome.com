@@ -7,33 +7,75 @@
   "group": "other",
   "places": [
     "oceania",
-    "papua-new-guinea"
+    "papua-new-guinea",
+    "fly-river"
   ],
-  "dataCard": {},
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "New Guinea"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Cherax peknyi Lukhaup & Herbert, 2008, the zebra lobster, is a colourful freshwater crayfish from New Guinea.",
+          "countries": [],
+          "regions": [
+            "New Guinea"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5789930,
+      "total": 0,
+      "fetched": "2026-11-18",
+      "countries": [],
+      "cells": []
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 12
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax-peknyi-2/",
-      "html": "<p>Cherax peknyi Lukhaup &amp; Herbert, 2008, the zebra lobster, is a colourful freshwater crayfish from New Guinea. It is easy to keep and breed in the aquarium.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax-peknyi-4/",
+      "html": "<p>Maximum length 10-12 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax-peknyi-4/",
+      "html": "<p>Cherax peknyi originates from the Fly River drainage in Papua New Guinea.</p>"
     },
     {
       "key": "diet",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax-peknyi-2/",
-      "html": "<p>The basic food for all of them is dead leaves from trees, but they also accept practically all types of fish food accepted by ornamental fish.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax-peknyi-4/",
+      "html": "<p>They feed on dead foliage as their main food, and can be fed literally almost anything that ornamental fish will accept as food.</p>"
     },
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax-peknyi-2/",
-      "html": "<p>They always try to hide and usually leave their hiding places only at night and when they are fed.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax-peknyi-4/",
+      "html": "<p>The Cherax crayfishes from New Guinea are well keepable and breedable aquarium animals. You only have to be aware of the fact that they are very addicted to hiding and usually leave their hiding place only at night and for feeding.</p>"
     },
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax-peknyi-2/",
-      "html": "<p>These crayfish were the subject of several changes in determination, because the freshwater crayfish from New Guinea were hardly known before they appeared as aquarium inhabitants. Initially they were imported under the name C. misolicus, but it was guessed they might be closer to C. papuanus. The valid name is now Cherax peknyi Lukhaup &amp; Herbert, 2008.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax-peknyi-4/",
+      "html": "<p>These crayfish experienced some name changes because the freshwater crayfishes of New Guinea were little known prior to their aquaristic discovery. The animal originally entered the trade as Cherax misolicus, but it was thought to be more likely C. papuanus. Its valid name is now Cherax peknyi Lukhaup &amp; Herbert, 2008.</p><p>Very similar is Cherax alyciae, which was thought to be a color variant (\"Blue Kong\") of C. peknyi before its scientific description in 2018. However, coloration is highly variable in crayfishes, even within the same population, so it cannot be used well to distinguish species. The most reliable way to recognize C. alyciae is that the adult males develop a soft, bubble-like bulge in the anterior region on the outer claw finger, but the males of C. peknyi do not.</p><p>Some animals show fiery red claws with overall lighter and reddish coloration, while others tend more in the blue direction.</p>"
     }
   ],
   "photos": [
@@ -75,6 +117,36 @@
       "licence": "dùng với sự cho phép",
       "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax-peknyi-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b21647db80505894.webp",
+      "thumb": "https://media.aquatome.com/glaser/b21647db80505894-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax-peknyi-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9e61eb0c8f183ada.webp",
+      "thumb": "https://media.aquatome.com/glaser/9e61eb0c8f183ada-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax-peknyi-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ba75e03c494ff6ba.webp",
+      "thumb": "https://media.aquatome.com/glaser/ba75e03c494ff6ba-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax-peknyi-4/",
       "source": "glaser"
     }
   ],
@@ -119,33 +191,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-17",
-  "range": {
-    "native": {
-      "countries": [],
-      "regions": [
-        "New Guinea"
-      ],
-      "sources": [
-        "glaser"
-      ],
-      "quotes": [
-        {
-          "source": "glaser",
-          "quote": "Cherax peknyi Lukhaup & Herbert, 2008, the zebra lobster, is a colourful freshwater crayfish from New Guinea.",
-          "countries": [],
-          "regions": [
-            "New Guinea"
-          ]
-        }
-      ]
-    },
-    "records": {
-      "taxonKey": 5789930,
-      "total": 0,
-      "fetched": "2026-11-18",
-      "countries": [],
-      "cells": []
-    }
-  }
+  "updatedAt": "2026-11-22"
 }

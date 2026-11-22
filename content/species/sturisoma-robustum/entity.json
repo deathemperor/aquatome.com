@@ -1,0 +1,91 @@
+{
+  "id": "sturisoma-robustum",
+  "scientificName": "Sturisoma robustum",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Sturisoma",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "paraguay",
+    "rio-paraguay"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 25
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1424",
+      "html": "<ul><li>Scientific name: Sturisoma robustum (Regan, 1904)</li><li>Common name: Whiptail Pleco</li><li>Type locality: Río Paraguay</li><li>Synonym: Oxyloricaria robustum</li><li>Etymology: German sturio = sturgeon + Greek soma = body; the epithet robustum means strong, robust.</li><li>IUCN Red List: Least Concern (last assessed 2021)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1424",
+      "html": "<p>South America: La Plata River basin (La Plata, Paraná, Paraguay).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1424",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1424",
+      "html": "<p>Sturisoma and Sturisomatichthys can be difficult to tell apart. Older descriptions of the genera emphasized the length of the snout (elongated in Sturisoma), but this trait is not reliable across species. Recent analyses allow discrimination based on the abdominal plates, fin colors and lateral plates: Sturisoma has its central abdominal plates arranged in three clearly-defined longitudinal series; all fins (except sometimes pectoral fins) lack dark spots; and 20–21 lateral plates in median series. Sturisomatichthys has its central abdominal plates less organized, not arranged in clearly-defined longitudinal series; dark spots usually present on one or more of the dorsal-, pectoral-, pelvic, or anal-fins; and 15–18 lateral plates in median series. Furthermore, to date all Sturisoma are cis-Andean; most (but not all) Sturisomatichthys are trans-Andean.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1424",
+      "html": "<p>Transactions of the Zoological Society of London v. 17 (pt 3, no. 1), pp 300, Pl. 19 (fig. 1).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "WLF91bRYC-w",
+      "title": "Sturisoma robustum with eggs",
+      "durationSec": 41,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "LVT2KPUBx_w",
+      "title": "Sturisoma robustum (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 44,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "czn-5-FPmdo",
+      "title": "Peces del río Paraná aquamundo peces",
+      "durationSec": 147,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá 150cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

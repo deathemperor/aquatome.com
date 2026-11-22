@@ -1,0 +1,82 @@
+{
+  "id": "cetopsis-sandrae",
+  "scientificName": "Cetopsis sandrae",
+  "order": "Siluriformes",
+  "family": "Cetopsidae",
+  "genus": "Cetopsis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "tapajos"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 7.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1428",
+      "html": "<ul><li>Scientific name: Cetopsis sandrae Vari, Ferraris &amp; de Pinna, 2005</li><li>Common name: Whale Cat</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1428",
+      "html": "<p>South America: Rio Tapajós system in Brazil (Amazon, Lower Amazon, Tapajós, Upper Tapajós, Juruena, Arinos).</p><p>Type locality: Nova Mutum, unnamed córrego, Fazenda Buriti, about 1.5 kilometres south of Fazenda, Mato Grosso State, Brazil.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1428",
+      "html": "<p>Unreported in the aquarium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1428",
+      "html": "<p>Etymology: Cetopsis comes from the Greek cetos, meaning whale, and -opsis, meaning likeness, in reference to the whale-like appearance. The specific name, sandrae, is in reference to Sandra J. Raredon.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1428",
+      "html": "<p>Neotropical Ichthyology v. 3 (no. 2), pp 195, 39-40.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "1HirfjhYnsw",
+      "title": "面臨危機的可愛動作-琥珀藍鯨(Cetopsis sandrae)",
+      "durationSec": 32,
+      "lang": "zh-Hant"
+    },
+    {
+      "youtubeId": "s-9Futp9aJQ",
+      "title": "魚樂無窮Live 紫金鮫鯨 幻彩藍寶石雷龍魚 奶茶雷龍 Channa ornatipinnis Cetopsis sandrae 17/03 #aquarium #catfish #channa",
+      "durationSec": 2890,
+      "lang": "zh-HK"
+    },
+    {
+      "youtubeId": "4BSeTToKYUM",
+      "title": "魚樂無窮Live 紫金鮫鯨 幻彩藍寶石雷龍魚 奶茶雷龍 Channa ornatipinnis Cetopsis sandrae 19/03 #aquarium #catfish #channa",
+      "durationSec": 2201,
+      "lang": "zh-HK"
+    },
+    {
+      "youtubeId": "zzRMk0RwhDs",
+      "title": "魚樂無窮Live 紫金鮫鯨 幻彩藍寶石雷龍魚 奶茶雷龍 Channa ornatipinnis Cetopsis sandrae 27/03 #aquarium #catfish #channa",
+      "durationSec": 2285,
+      "lang": "zh-HK"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-22"
+}

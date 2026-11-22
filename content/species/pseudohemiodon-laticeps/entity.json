@@ -212,6 +212,13 @@
           "min": 18,
           "max": 24
         }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -220,6 +227,13 @@
         "value": {
           "min": 6,
           "max": 7.5
+        }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.5,
+          "max": 7
         }
       }
     ],
@@ -240,6 +254,10 @@
       {
         "source": "glaser",
         "value": 35
+      },
+      {
+        "source": "planetcatfish",
+        "value": 29.8
       }
     ],
     "tankCm": [
@@ -269,10 +287,22 @@
       "html": "<p>Pseudohemiodon laticeps from Paraguay is one of the longest-known mouth-breeding Whiptail Catfish in the hobby. It is a large species (up to 35 cm) with a broad, triangular head.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=144",
+      "html": "<p>Scientific name: Pseudohemiodon laticeps (Regan, 1904).</p><p>Common name: Giant Whiptail Catfish.</p><p>Type locality: Paraguay.</p><p>Synonym: Loricaria laticeps.</p><p>Etymology: Greek, pseudes = false + Greek, hemi = half + Greek, odous = teeth.</p><p>Size: 298 mm (11.7\") SL.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudohemiodon-laticeps",
       "html": "<p>Distributed throughout the rios Uruguay, Paraná and Paraguay with records existing from southern Brazil, Paraguay and Argentina.</p><p>Type locality is given simply as 'Paraguay'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=144",
+      "html": "<p>South America: La Plata, Paraná, Paraguay, Uruguay and the Middle Paraná Delta drainages.</p>"
     },
     {
       "key": "habitat",
@@ -305,6 +335,12 @@
       "html": "<p>Because of its southern origin, Pseudohemiodon laticeps can be kept in moderately heated aquariums, since in its home country the water temperature drops to around 16°C at least during certain seasons.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=144",
+      "html": "<p>pH: 6.5–7.0.</p><p>Temperature: 22–28°C.</p><p>Requires fastidiously maintained water quality.</p>"
+    },
+    {
       "key": "equipment",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudohemiodon-laticeps-2/",
@@ -329,6 +365,12 @@
       "html": "<p>A paternal 'lip brooder' which has been bred in aquaria.</p><p>Post-spawning the male carries the eggs attached to his labial barbels for a period of 12-14 days after which the fry hatch with a large yolk sac attached, this being absorbed over the next 48 hours or so.</p><p>During incubation the behaviour of the male is apparently unaffected and he may burrow into the substrate with the eggs attached.</p><p>Successful captive breeding has tended to involve removing the eggs to a separate aquarium just prior to hatching.</p><p>The fry are able to accept Artemia nauplii and suchlike as soon as the yolk sac has been fully-absorbed with a yield of 15-20 considered a good number.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=144",
+      "html": "<p>There is but a single breeding report.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudohemiodon-laticeps-2/",
@@ -339,6 +381,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudohemiodon-laticeps",
       "html": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Evers, H-G. and I. Seidel (2005). Catfish Atlas: Volume 1 Mergus Verlag GmbH, Melle, 1-943</li><li>Regan, C. T. (1904). A monograph of the fishes of the family Loricariidae. Transactions of the Zoological Society of London 17 (pt 3, no. 1), 191-350</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=144",
+      "html": "<p>Transactions of the Zoological Society of London v. 17 (pt 3, no. 1), pp 295, Pl. 20 (fig. 1).</p>"
     }
   ],
   "photos": [
@@ -472,5 +520,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21"
+  "updatedAt": "2026-11-22"
 }

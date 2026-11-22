@@ -1,0 +1,63 @@
+{
+  "id": "cetopsis-oliveirai",
+  "scientificName": "Cetopsis oliveirai",
+  "order": "Siluriformes",
+  "family": "Cetopsidae",
+  "genus": "Cetopsis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 3.6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1436",
+      "html": "<ul><li>Scientific name: Cetopsis oliveirai (Lundberg &amp; Rapp Py-Daniel, 1994)</li><li>Common name: Whale Cat</li><li>Synonym: Bathycetopsis oliveirai</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1436",
+      "html": "<p>South America: middle and upper Amazon River basin. Type locality: Rio Solimões north of Ilha da Marchantaria, about 15 km from the mouth of Rio Negro at Manaus, Amazonas, Brazil, elevation about 15 m.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1436",
+      "html": "<p>In nature it feeds on spiders and insects.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1436",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1436",
+      "html": "<p>Etymology: Cetopsis comes from the Greek cetos, meaning whale, and -opsis, meaning likeness, in reference to the whale-like appearance.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1436",
+      "html": "<p>Copeia 1994 (no. 2), pp 383, Figs. 1, 3-4.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-22"
+}

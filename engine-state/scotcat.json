@@ -2241,6 +2241,56 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/auchenipteridae/auchenipterus_ambyiacus.htm": {
+    "entityIds": [
+      "species/auchenipterus-ambyiacus"
+    ],
+    "updatedAt": "2026-11-22T18:00:35.729Z",
+    "hash": "783541da682797bb662ef3a1cc78ceed03a156855c6ab6f543e30bd272ae3d7f",
+    "processedHash": "783541da682797bb662ef3a1cc78ceed03a156855c6ab6f543e30bd272ae3d7f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenipteridae/auchenipterus_brachyurus.htm": {
+    "entityIds": [
+      "species/auchenipterus-brachyurus"
+    ],
+    "updatedAt": "2026-11-22T18:03:02.925Z",
+    "hash": "753d5aa126298f91850af032f185c047b1a7ca32ef40328dd84dd55753821fef",
+    "processedHash": "753d5aa126298f91850af032f185c047b1a7ca32ef40328dd84dd55753821fef",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenipteridae/auchenipterus_demerarae.htm": {
+    "entityIds": [
+      "species/auchenipterus-demerarae"
+    ],
+    "updatedAt": "2026-11-22T18:05:05.374Z",
+    "hash": "59c020caef64c1e78e67adf2f65dba1a38cd11773842a17828561ef66248368a",
+    "processedHash": "59c020caef64c1e78e67adf2f65dba1a38cd11773842a17828561ef66248368a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenipteridae/auchenipterus_dentatus.htm": {
+    "entityIds": [
+      "species/auchenipterus-dentatus"
+    ],
+    "updatedAt": "2026-11-22T18:06:55.485Z",
+    "hash": "7b3d379ea5389657b731cace5e906673d3e8e7f672c3f9561c2231f62c9bb3d1",
+    "processedHash": "7b3d379ea5389657b731cace5e906673d3e8e7f672c3f9561c2231f62c9bb3d1",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenipteridae/auchenipterus_menezesi.htm": {
+    "entityIds": [
+      "species/auchenipterus-menezesi"
+    ],
+    "updatedAt": "2026-11-22T18:08:24.568Z",
+    "hash": "0513af8a4b86329fe2417c79d395e15d5905355153eecc02f281da0438f355b2",
+    "processedHash": "0513af8a4b86329fe2417c79d395e15d5905355153eecc02f281da0438f355b2",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/auchenipteridae/auchenipterus_nigripinnis.htm": {
     "entityIds": [
       "species/auchenipterus-nigripinnis"
@@ -2248,6 +2298,56 @@
     "updatedAt": "2026-11-06T18:45:28.910Z",
     "hash": "c297e01b58a723e9ce32fa1e958aed952fc2778d898086f8713bd05af4d228fa",
     "processedHash": "c297e01b58a723e9ce32fa1e958aed952fc2778d898086f8713bd05af4d228fa",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenipteridae/auchenipterus_nuchalis.htm": {
+    "entityIds": [
+      "species/auchenipterus-nuchalis"
+    ],
+    "updatedAt": "2026-11-22T18:09:46.125Z",
+    "hash": "0b65e58f03420bc55bb24c73615aaf68208ff609f2d74340918febe5cd303112",
+    "processedHash": "0b65e58f03420bc55bb24c73615aaf68208ff609f2d74340918febe5cd303112",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenipteridae/auchenipterus_osteomystax.htm": {
+    "entityIds": [
+      "species/auchenipterus-osteomystax"
+    ],
+    "updatedAt": "2026-11-22T18:12:59.199Z",
+    "hash": "ff1090c537c203fb1d79eb321fed30c4dc6f13aab07e0788ff4ca3de953759b1",
+    "processedHash": "ff1090c537c203fb1d79eb321fed30c4dc6f13aab07e0788ff4ca3de953759b1",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenipteridae/balroglanis_akwe.htm": {
+    "entityIds": [
+      "species/centromochlus-akwe"
+    ],
+    "updatedAt": "2026-11-22T18:14:12.634Z",
+    "hash": "08877b7333d7631dbbe1d34568f45c002926b6b7d674ab073e80d68a5e91b549",
+    "processedHash": "08877b7333d7631dbbe1d34568f45c002926b6b7d674ab073e80d68a5e91b549",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenipteridae/balroglanis_macracanthus.htm": {
+    "entityIds": [
+      "species/centromochlus-macracanthus"
+    ],
+    "updatedAt": "2026-11-22T18:15:40.053Z",
+    "hash": "50e51a4f85268f7894d232942ff04f09f724d1239b9167ccfc80f8f86bb303d5",
+    "processedHash": "50e51a4f85268f7894d232942ff04f09f724d1239b9167ccfc80f8f86bb303d5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenipteridae/balroglanis_schultzi.htm": {
+    "entityIds": [
+      "species/centromochlus-schultzi"
+    ],
+    "updatedAt": "2026-11-22T18:17:49.626Z",
+    "hash": "6da421a0c6885f69c8ac026650f9d57c3a9351f00da701a4f6099893ca3cfc31",
+    "processedHash": "6da421a0c6885f69c8ac026650f9d57c3a9351f00da701a4f6099893ca3cfc31",
     "status": "processed",
     "attempts": 0
   },

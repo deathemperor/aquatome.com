@@ -20,7 +20,8 @@
     "guyana",
     "essequibo",
     "suriname",
-    "courantyne"
+    "courantyne",
+    "ecuador"
   ],
   "range": {
     "native": {
@@ -826,6 +827,10 @@
       {
         "source": "seriouslyfish",
         "value": 3.5
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -849,6 +854,12 @@
       "html": "<ul><li>Max size: 35 mm SL (1.4 in)</li><li>Aquarium size: 75 × 30 cm</li><li>Temperature: 20–28°C</li><li>pH: 4.0–7.0</li><li>Hardness: 1–10 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/carnegiella-strigata-vesca-2/",
+      "html": "<p>The marble hatchetfish (Carnegiella strigata) is the ideal aquarium fish. It remains small (4 cm), is peaceful and has an interesting coloration.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/carnegiella-strigata",
@@ -859,6 +870,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/carnegiella-strigata",
       "html": "<p>Currently accepted to have an enormous range throughout Amazonian Bolivia, Brazil, Peru and Colombia plus the Río Orinoco system in Venezuela and some coastal drainages in Guyana and Suriname but this may be open to question (see 'Notes').</p><p>There is no type locality since the species was described from an old collection.</p><p>The majority of fish in the ornamental trade are collected in the rio Negro basin, Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/carnegiella-strigata-vesca-2/",
+      "html": "<p>The species is widely distributed in South America (Brazil, Ecuador, Bolivia, Colombia, Guyana, Peru and Suriname) and common. That is why it is almost always found in the offer of the ornamental fish trade.</p>"
     },
     {
       "key": "habitat",
@@ -891,16 +908,34 @@
       "html": "<p>Primarily a predator feeding on terrestrial and aquatic invertebrates and other zooplankton taken at or near the water surface in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should also be offered regular meals of small live and frozen fare such as Artemia nauplii, Daphnia, Moina, grindal worm, etc.</p><p>Small insects such as young crickets or Drosophila fruit flies are also suitable to use although it's best to fill the stomachs of these by feeding them fish flakes or some kind of vegetable matter before offering them to the fish.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/carnegiella-strigata-vesca-2/",
+      "html": "<p>When feeding, make sure that the animals only take food from the surface. Dry food is a good nutritional basis, but for breeding you have to put a little more effort and feed small insects like fruit flies.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/carnegiella-strigata",
       "html": "<p>Very peaceful but does not make an ideal community fish due to its small size and rather timid nature.</p><p>In a community it's best kept with similarly-sized, peaceful characids and smaller callichthyid or loricariid catfishes.</p><p>It also makes an ideal dither fish for Apistogramma spp. and other dwarf cichlids since it tends to inhabit the middle-to-upper regions of the tank, and does not actively predate fry.</p><p>It's very much a gregarious animal so buy as many as possible, ideally 10 or more, as when kept in larger groups any aggression is spread between individuals plus the fish are bolder and exhibit more natural behaviour.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/carnegiella-strigata-vesca-2/",
+      "html": "<p>Hatchetfishes are somewhat skittish during acclimation and should never be kept with rowdy species. Ideal is a combination with bottom fish like corydoras catfish.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/carnegiella-strigata",
       "html": "<p>Some specimens do grow larger and become rounder-bodied than others, and presumably these represent adult females.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/carnegiella-strigata-vesca-2/",
+      "html": "<p>The sexes are not distinguishable externally, but females grow slightly larger and are plumper around the middle at spawning time.</p>"
     },
     {
       "key": "reproduction",
@@ -932,9 +967,64 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/carnegiella-strigata",
       "caption": "Carnegiella species are gregarious and should be maintained in numbers.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e117ee930d4e52ab.webp",
+      "thumb": "https://media.aquatome.com/glaser/e117ee930d4e52ab-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/carnegiella-strigata-vesca-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b31221ff6bda7486.webp",
+      "thumb": "https://media.aquatome.com/glaser/b31221ff6bda7486-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/carnegiella-strigata-vesca-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9bff892e7c366938.webp",
+      "thumb": "https://media.aquatome.com/glaser/9bff892e7c366938-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/carnegiella-strigata-vesca-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "RWfsAKYFVsY",
+      "title": "Keeping Marbled Hatchetfish: What I Learned",
+      "durationSec": 308,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "oJlXO3FJoJE",
+      "title": "Poisson hachette marbré - Carnegiella strigata ✔",
+      "durationSec": 196,
+      "lang": "fr"
+    },
+    {
+      "youtubeId": "fuvhP3PNxhM",
+      "title": "Carnegiella strigata | Cuidados y Alimentación del PEZ HACHA | AcuariosLP",
+      "durationSec": 314,
+      "lang": "es"
+    },
+    {
+      "youtubeId": "FXdFvGrq8pc",
+      "title": "🐟 Hatchetfish Care: Tank Setup & Diet",
+      "durationSec": 625,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -964,5 +1054,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-22"
 }

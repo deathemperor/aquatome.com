@@ -5,7 +5,11 @@
   "family": "Atyidae",
   "genus": "Caridina",
   "group": "shrimp",
-  "places": [],
+  "places": [
+    "asia",
+    "indonesia",
+    "lake-matano"
+  ],
   "range": {
     "records": {
       "taxonKey": 6454959,
@@ -34,10 +38,62 @@
           "min": 27,
           "max": 30
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7.8,
+          "max": 8.2
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 2.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 6
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 1,
+          "max": 2
+        }
       }
     ]
   },
   "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cardinal-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Common names: Cardinal Shrimp, White Glove shrimp, Sulawesi shrimp</li><li>Scientific name: Caridina dennerli</li><li>Tank size: 5 gallons minimum, 10 gallons optimal (~20–40 litres)</li><li>Keeping: hard; breeding: medium</li><li>Optimal KH: 4–8 (3–10)</li><li>Optimal TDS: 100 (50–150)</li><li>Nitrate: less than 10 ppm</li><li>Diet: algae eater/omnivore</li><li>Temperament: peaceful</li><li>Colour: red (different shades) with white spots</li></ul>"
+    },
     {
       "key": "beforeYouBuy",
       "source": "glaser",
@@ -45,10 +101,76 @@
       "html": "<p>When the White Spot Bee Shrimp first appeared in larger numbers in the ornamental fish trade about 10 years ago, there was great enthusiasm for them. Sadly, it turned out that these tiny animals are very sensitive to temporary stress, for example low temperatures during transport, and die very quickly if their needs are not met perfectly. The initial enthusiasm turned into disillusion, and the shrimps came to be regarded as animals suited only to specialists.</p><p>German-bred specimens are now available. The breeder says that these shrimps are not difficult to keep at all. Even for these bred shrimps, the water temperature should not fall below 25°C for longer periods. It is not yet known how hardy they will prove to be in the long term.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cardinal-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Cardinal shrimp is one of the newcomers to the shrimp keeping hobby and is fast becoming one of the most sought-after species. It is suitable only for experienced hobbyists and should not be taken up by those new to shrimp keeping, even though it is one of the easiest Sulawesi species.</p><p>It is listed as an endangered species on the IUCN Red List. Rising water pollution endangers this species enormously.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cardinal-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The cardinal shrimp entered the hobbyists' books in late 2007 and is native to the Sulawesi region of Indonesia. It lives in Lake Matano. Shrimps are caught from several lakes in the region, including Lake Poso and the five-lake Malili system, all of which have similar flora, fauna and water values.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cardinal-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>In Lake Matano the water parameters do not fluctuate to any substantial degree. Water parameters in the shallows of Lake Matano:</p><table><tr><th>Parameter</th><th>Value</th></tr><tr><td>Temperature</td><td>28.7°C</td></tr><tr><td>pH</td><td>8.5</td></tr><tr><td>General hardness</td><td>7 °GH</td></tr><tr><td>Carbonate hardness</td><td>5 °KH</td></tr><tr><td>Conductance</td><td>175 μS</td></tr><tr><td>Total dissolved solids</td><td>87.5 ppm</td></tr><tr><td>Oxygen</td><td>6.93 mg/l</td></tr></table>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cardinal-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>An aquarium of at least five gallons (~20 litres) is needed, with \"at least\" being key. A larger size is recommended to keep the water values stable. A group of at least 15–25 shrimp is recommended to start with.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/caridina-dennerli-2/",
       "html": "<p>The best temperature to keep and breed them is 27–30°C.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cardinal-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>These shrimps may be more fragile than expected. They require a higher water temperature (optimal 26–30°C) and high pH (ideally around 7.8–8.2). Unlike Neocaridina and other Caridina species, a heater is a must.</p><p>Tap water is not recommended; reverse osmosis (RO) water should be used, with parameters as close as possible to the natural ones. RO/DI water has close to zero TDS and no minerals, so remineralizers (Salty Shrimp Sulawesi Mineral 8.5 and Salty Shrimp Mineral 7.5) are crucial.</p><p>Never introduce cardinal shrimp into an aquarium that is not fully cycled. They are extremely sensitive to nitrite and ammonia, so test the water frequently (for example with the API Master Test Kit) and watch nitrate too. Small, regular water changes are the best way to keep nitrite low; avoid changing a lot of water at once or adding water too quickly, as it can cause molting problems.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cardinal-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>A heater, a filter, and potentially an extra air pump to keep the water oxygenated. A heater is a must: water temperature below 25°C can stress them to death. Keep decorations to a minimum and use relatively faint, low lighting if possible.</p><p>Most keepers set up the tank as close as possible to the natural habitat: a dark, carbonate-rich substrate, driftwood and rocks, and a few plants. Choose porous rocks with enough surface area for algae to grow. The black substrate helps bring out intense coloration. Do not use active (buffered) substrates (such as ADA Amazonia), as they can cause the pH to drop; use only inert substrates (for example Seachem Fluorite). High temperatures are unsuitable for most aquarium plants, so the choice of plants is limited.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cardinal-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>This species will eat at any time of the day but seems more active and comfortable at night; they come out and feed better when the lights are turned down or off. Feed once a day, only an amount the shrimp can consume within 2–3 hours. Excess food is bad for water values, and overfeeding is known to cause deaths. Shrimp are instinctive scavengers, and even a one- or two-day break from feeding will not affect them.</p><p>Cardinal shrimp are typically detritus feeders and do not respond as strongly to food as some other dwarf shrimp. Powdered or very fine foods seem to work: spirulina powder, Bacter AE or other microorganism-based foods. Do not over-clean the tank: do not remove all algae growth, so the shrimp can graze whenever they want.</p><p>In large colonies, balance feeding and diet; blanched and boiled vegetables are the most commonly used supplements, but they should be used with great care because at high temperatures bacteria can rapidly increase in density. In the natural habitat the bacteria level is relatively low, so the shrimp are very sensitive to a high concentration of bacteria in the water. Calcium also plays a big role for shrimp.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cardinal-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>When first introduced to an established aquarium, they tend to be extremely shy. Over time they show behaviours typical of most dwarf shrimp: they constantly scavenge the substrate, rocks and plants, prefer scraping rocks and forage on algae-covered rocks, and display social behaviours. They are not aggressive and seem to enjoy the presence of other species; they are reportedly more active with species from their native Sulawesi habitat. In bigger numbers they feel safer and follow each other when eating. They are safe with plants.</p><p>Tankmates: tanks are often set up as biotopes. Sulawesi snails of the genus Tylomelania (rabbit snails) share the habitat in Lake Matano and make good tankmates. Several Sulawesi shrimp species (for example Malawa shrimp) can be mixed in the same tank, as they prefer similar water values and are not known to interbreed.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cardinal-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Sexing is quite difficult and cannot be done with the naked eye. Females have a saddle under the carapace that shows the eggs, but it can only be seen with infrared light. The usual rule that females have a curved underbelly and are larger does not apply; males and females look the same.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cardinal-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Breeding is quite simple. With water parameters around optimum and proper feeding, males and females will most probably breed. Berried females carry approximately 20–30 reddish eggs between their pleopods, which hatch in around 20–28 days into tiny copies of the adults. Breeding is done in fully fresh water. There is no larval stage. The young show adult coloration at birth and grow quite fast, even as fast as some Neocaridina, but broods are smaller than in other shrimps.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cardinal-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Cardinal shrimp vary from deep to light red. The darkness of the red varies among individuals and is not an indicator of sex or health. White dots are present all over the body, and some may have a blue outline. A conspicuous feature is the white front legs, which move rapidly when feeding and set this species apart from other Sulawesi shrimps.</p>"
     }
   ],
   "photos": [
@@ -57,18 +179,43 @@
       "thumb": "https://media.aquatome.com/inaturalist/510305343-480.webp",
       "width": 1023,
       "height": 1024,
-      "licence": "CC BY",
-      "author": "Kai Löhr",
-      "sourceUrl": "https://www.inaturalist.org/photos/510305343",
-      "caption": "Tép Caridina dennerli đỏ trên đá xanh trong bể",
       "large": {
         "url": "https://media.aquatome.com/inaturalist/510305343-large.webp",
         "width": 1200,
         "height": 1201
-      }
+      },
+      "licence": "CC BY",
+      "author": "Kai Löhr",
+      "sourceUrl": "https://www.inaturalist.org/photos/510305343",
+      "caption": "Tép Caridina dennerli đỏ trên đá xanh trong bể"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "Pzj_WEGPXuI",
+      "title": "10 gallon Cardinal Sulawesi shrimp breeding setup (Caridina dennerli)",
+      "durationSec": 22,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "mCEmfsajAgA",
+      "title": "How to keep Sulawesi Cardinal Shrimp - Full Guide for Caridina Dennerli",
+      "durationSec": 887,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HDbHV8xD8S4",
+      "title": "So halte ich meine Kardinalsgarnelen | Caridina dennerli | Jungle Exotica",
+      "durationSec": 564,
+      "lang": "de"
+    },
+    {
+      "youtubeId": "h_u_6nQGBfQ",
+      "title": "Lake Matano Biotope Aquarium Setup | Caridina Dennerli in DOOA Neo Glass AIR",
+      "durationSec": 307,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "suoi",
@@ -97,5 +244,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-22"
 }

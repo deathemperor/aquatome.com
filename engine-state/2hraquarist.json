@@ -926,6 +926,80 @@
     "attempts": 3,
     "error": "no archived copy (HTTP 404)"
   },
+  "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/connecting-hardscape": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-beginners-planted-tank-101-connecting-hardscape"
+    ],
+    "updatedAt": "2026-11-22T17:11:22.325Z",
+    "hash": "dd0fd16ece5922932d8df30e4ea8e215a2e04cceceb5aaaf6c6ee8a521844212",
+    "processedHash": "dd0fd16ece5922932d8df30e4ea8e215a2e04cceceb5aaaf6c6ee8a521844212",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/fastest-way-to-stabilize-a-new-tank": {
+    "entityIds": [],
+    "updatedAt": "2026-11-22T17:16:36.469Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "no archived copy (HTTP 404)"
+  },
+  "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/filter-buying-checklist": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-beginners-planted-tank-101-filter-buying-checklist"
+    ],
+    "updatedAt": "2026-11-22T17:16:48.360Z",
+    "hash": "5544ec8e9611e3c1816ea8b215763e2c455ca864c28153f266bdf4af54b1d9c1",
+    "processedHash": "5544ec8e9611e3c1816ea8b215763e2c455ca864c28153f266bdf4af54b1d9c1",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/filter-tank-cycling": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-beginners-planted-tank-101-filter-tank-cycling"
+    ],
+    "updatedAt": "2026-11-22T17:18:32.062Z",
+    "hash": "b7ad7c5c0bbf073531f3bfcb587cc30a3b191d432aeccda10cf0420e39363ada",
+    "processedHash": "b7ad7c5c0bbf073531f3bfcb587cc30a3b191d432aeccda10cf0420e39363ada",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/fish-tank-to-planted-tank": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-beginners-planted-tank-101-fish-tank-to-planted-tank"
+    ],
+    "updatedAt": "2026-11-22T17:20:37.314Z",
+    "hash": "391769882dbb6e30f0a21d985ed451c8b65ab480fa87bdab5140e753d3bad369",
+    "processedHash": "391769882dbb6e30f0a21d985ed451c8b65ab480fa87bdab5140e753d3bad369",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/how-much-to-dose": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-beginners-planted-tank-101-how-much-to-dose"
+    ],
+    "updatedAt": "2026-11-22T17:22:04.650Z",
+    "hash": "910099a859226d3e06e678d2cabab02f4057abd165a45dfb7d7d1bc492c8260d",
+    "processedHash": "910099a859226d3e06e678d2cabab02f4057abd165a45dfb7d7d1bc492c8260d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/how-to-reset-a-tank": {
+    "entityIds": [],
+    "updatedAt": "2026-11-22T17:29:11.063Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "no archived copy (HTTP 404)"
+  },
+  "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/low-tech-setup-checklist": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-beginners-planted-tank-101-low-tech-setup-checklist"
+    ],
+    "updatedAt": "2026-11-22T17:29:20.274Z",
+    "hash": "fee81bf181d3a1f314b41ad7a016f6b710ebb9afdcb77c1d5914f7ea78dfdba2",
+    "processedHash": "fee81bf181d3a1f314b41ad7a016f6b710ebb9afdcb77c1d5914f7ea78dfdba2",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-cabomba-furcata": {
     "entityIds": [
       "plants/cabomba-furcata"

@@ -8,14 +8,20 @@
     "distribution:glaser": "<p>Balroglanis schultzi (trước đây xếp vào chi Centromochlus) sống ở thượng nguồn sông Xingu và sông Tocantins của Brazil.</p>",
     "quickFacts:glaser": "<p>Loài này dài khoảng 10 cm, và mỗi con có kiểu chấm riêng. Mắt cá nhìn xuống dưới và có một lớp da bảo vệ phủ ngoài, nên trông như bị đục. Đến giờ vẫn chưa ai biết cấu tạo lạ này để làm gì.</p>",
     "behaviour:glaser": "<p>Cá trê lũa chủ yếu hoạt động về đêm hoặc lúc chạng vạng. Nhiều loài có tập tính bơi sát ngay dưới mặt nước để săn côn trùng trên cạn rơi xuống.</p>",
-    "reproduction:glaser": "<p>Ngày càng nhiều người nuôi cá trê lũa, vì cho chúng đẻ trong bể thường thành công. Theo những gì biết được đến nay, tất cả các loài đều thụ tinh trong. Cá cái đẻ trứng sau đó mà không cần cá đực ở bên.</p>"
+    "reproduction:glaser": "<p>Ngày càng nhiều người nuôi cá trê lũa, vì cho chúng đẻ trong bể thường thành công. Theo những gì biết được đến nay, tất cả các loài đều thụ tinh trong. Cá cái đẻ trứng sau đó mà không cần cá đực ở bên.</p>",
+    "distribution:scotcat": "<p>Brazil: thượng nguồn lưu vực sông Xingu và sông Tocantins. Nơi thu mẫu chuẩn: Brasilien, oberer Rio Xingu.</p><p>Loài này chỉ có ở Brazil. Chúng phân bố rộng ở lưu vực sông Xingu, sông Tocantins, thượng nguồn sông Madeira và thượng nguồn sông Tapajós. Ngoài tự nhiên chúng vốn phổ biến nhưng không hay gặp, thường sống ở các con suối nhỏ và vừa. Trong vùng có khá nhiều dự án thủy điện, nhưng người ta vẫn thấy loài này ở phía thượng nguồn hồ chứa của nhà máy thủy điện Lajeado. Chưa thấy mối đe dọa đáng kể nào tới quần thể của chúng, nên IUCN xếp loài này vào mức Ít quan tâm (LC) (IUCN 2022).</p>",
+    "maintenance:scotcat": "<p>Nuôi loài này không khó lắm, miễn là giữ nước sạch và đừng để nước quá kiềm. pH nên nằm trong khoảng 6,5–7,0. Chúng thích bể thủy sinh nhiều cây, vì ban ngày chúng trốn trong đó. Với chi cá này, nên thả thêm vài đoạn ống để chúng có thêm chỗ trốn mà chọn.</p>",
+    "diet:scotcat": "<p>Ngoài tự nhiên, chúng ăn côn trùng, chủ yếu là kiến, bọ cánh cứng và phù du. Về bể thì cho gì chúng cũng ăn: trùng huyết đông lạnh (món này dụ được chúng ra khỏi chỗ trốn để ăn), thức ăn viên cho cá da trơn, bo bo, giun trắng (chỉ cho ít) và các loại thức ăn dạng giun khác.</p>",
+    "reproduction:scotcat": "<p>Chúng đẻ trứng thành một khối nhầy dưới đá hoặc lũa. Giống các loài khác trong họ, cá đực thụ tinh trong cho cá cái.</p>",
+    "notes:scotcat": "<p>Mees (1974) xếp loài này vào chi Tatia, nhưng Ferraris (2007) đưa nó về lại chi gốc là Centromochlus. Tháng 9 năm 2019, dựa trên nghiên cứu trước đó của Steven Grant (2015), một bài báo của Bárbara B. Calegari và cộng sự đã chuyển loài này, cùng Tatia carolae Vari &amp; Ferraris, 2013 và C. macracanthus Soares-Porto, 2000, sang một chi mới là Balroglanis. Khi tìm trên mạng, đôi chỗ vẫn còn ghi loài này là Centromochlus schultzi.</p><p>Từ nguyên: Balroglanis nghĩa là \"cá da trơn Balrog\", lấy từ con Balrog tên Durin's Bane trong thế giới truyện của J. R. R. Tolkien. Tên loài schultzi đặt để vinh danh Harald Schultz (1909–1966), nhà dân tộc học kiêm người sưu tầm cá người Brazil. Ông là người đã thu mẫu holotype.</p>",
+    "references:scotcat": "<p>Bárbara B Calegari, Richard P Vari, Roberto E Reis, 2019. Phylogenetic systematics of the driftwood catfishes (Siluriformes: Auchenipteridae): a combined morphological and molecular analysis, Zoological Journal of the Linnean Society, zlz036.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Grant, S., 2015: Four new subgenera of Centromochlus Kner, 1858 with comments on the boundaries of some related genera (Siluriformes: Auchenipteridae: Centromochlinae). Ichthyofile 3: 1–16.</p><p>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2022. Centromochlus (Balroglanis) schultzi. The IUCN Red List of Threatened Species 2022.</p><p>Sarmento-Soares, Luisa Maria; Martins-Pinheiro, Ronaldo Fernando A systematic revision of Tatia (Siluriformes: Auchenipteridae: Centromochlinae) Neotropical Ichthyology, 6(3):495-542, 2008.</p>"
   },
   "quality": {
     "score": 0.88,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.88
-    },
-    "reason": "thin"
+      "glaser": 0.88,
+      "scotcat": 0.97
+    }
   }
 }

@@ -1,0 +1,54 @@
+{
+  "id": "schilbe-mandibularis",
+  "scientificName": "Schilbe mandibularis",
+  "order": "Siluriformes",
+  "family": "Schilbeidae",
+  "genus": "Schilbe",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "liberia",
+    "ghana",
+    "prah",
+    "cote-d-ivoire",
+    "sassandra"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 45
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1433",
+      "html": "<p>Schilbe mandibularis (Günther, 1867). Family Schilbeidae. Type locality: Bossumprah River, Ghana. Maximum size 450 mm (17.7 inches) SL. IUCN Red List status: Least Concern.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1433",
+      "html": "<p>Africa: from St. Paul in Liberia to the Prah River in Ghana, including the St. John, Farmington, Nipoué, Cavally, Néro, Sassandra, Boubo, Bandama, Agnébi, Comoé and Tano Rivers.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1433",
+      "html": "<p>Feeds mainly on terrestrial insects (Hymenoptera, Hemiptera, Coleoptera) washed into the water and on mayfly larvae.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1433",
+      "html": "<p>Unreported.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-22"
+}

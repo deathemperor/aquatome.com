@@ -1,0 +1,93 @@
+{
+  "id": "gagata-sexualis",
+  "scientificName": "Gagata sexualis",
+  "order": "Siluriformes",
+  "family": "Sisoridae",
+  "genus": "Gagata",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "ganges"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 18,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 5.8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1447",
+      "html": "<p>Gagata sexualis Tilak, 1970. Size: 58 mm (2.3 inches) SL. Distinguished by its small size, the presence of 5 dark saddles on the body, an elongate and slender snout, and pronounced sexual dimorphism in the shape of the dorsal fin. IUCN Red List: Least Concern (last assessed 2009).</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1447",
+      "html": "<p>This is a very delicate species, even more so than G. cenia, so it is unlikely to be encountered in the aquarium trade as it fares very poorly upon capture.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1447",
+      "html": "<p>Asia: India. Found in the Padma, Jamuna, Brahmaputra, Koel and Ganges drainages, and in West Bengal (Ichamati River). Type locality: North Koel River at Daltonganj, Chotanagpur, southern Bihar, India.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1447",
+      "html": "<p>pH 6.0–7.0. Temperature 18–25°C. Requires well oxygenated water.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1447",
+      "html": "<p>Mature males have a long filamentous extension to the dorsal fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1447",
+      "html": "<p>Unreported in the aquarium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1447",
+      "html": "<p>Etymology: the generic name comes from the local name of the fish (keyakatta). The specific epithet comes from the pronounced sexual dimorphism of this species.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1447",
+      "html": "<p>Zoologische Mededelingen (Leiden) v. 44 (no. 14), pp 207, Figs. 1-6.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-22"
+}

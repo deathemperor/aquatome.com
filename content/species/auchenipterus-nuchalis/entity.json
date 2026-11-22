@@ -1,0 +1,106 @@
+{
+  "id": "auchenipterus-nuchalis",
+  "scientificName": "Auchenipterus nuchalis",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Auchenipterus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "suriname",
+    "marowijne",
+    "guyana",
+    "rupununi"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 27
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_nuchalis.htm",
+      "html": "<ul><li>Common name: Moustache Cat</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_nuchalis.htm",
+      "html": "<p>South America: Lower Amazon and Tocantins rivers northward to Marowijne River; possibly also in Rupununi River, Guyana, and Negro River, Brazil. Type locality: Brasilia aequatoriali [now: Rio Capim, near São Domingos do Capim, Brazil, by neotype designation].</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_nuchalis.htm",
+      "html": "<p>Inhabits lower courses of the larger rivers. Free swimming species found near the surface. Nocturnal, plus active during dusk and dawn. Occurs less frequently in flood zones, prefers eroded zones where it appears in large numbers.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_nuchalis.htm",
+      "html": "<p>Feeds on smaller fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_nuchalis.htm",
+      "html": "<p>The male is recognisable by his thick, ossified maxillary barbels and by the first few rays of the anal fin which are fused, supporting the urogenyla tube that runs along the anterior border to the tip of the rays.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_nuchalis.htm",
+      "html": "<p>Description: Body moderately slender, elongate; body depth at anal-fin origin 17-25% SL; body compressed, width at anal-fin origin approximately 40% (32-45%) of body depth at that point. Lateral line complete, midlateral, canal forms irregular zig-zag pattern, with vertical or slightly oblique branches extending of angles in canal; canal bifurcates at caudal fin base; long posteriorly-directed branches extend from each main branch.</p><p>Colouration: Caudal fin with dark marginal bar. Most specimens with pigmentation on upper caudal fin lobe distictly darker than on lower lobe; lower lobe sometimes unpigmented.</p><p>Etymology: The specific name nuchalis: Latin for of the neck or nape, referring to its elevated nape.</p><p>IUCN Red List: assessed as Least Concern due to its large distribution and the lack of any known major widespread threats to this species (IUCN 2023).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá dài cho cá trê"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "quạt làm mát bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

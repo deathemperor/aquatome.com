@@ -1,0 +1,100 @@
+{
+  "id": "heterobranchus-bidorsalis",
+  "scientificName": "Heterobranchus bidorsalis",
+  "order": "Siluriformes",
+  "family": "Clariidae",
+  "genus": "Heterobranchus",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "egypt",
+    "nile",
+    "chad",
+    "chad-basin",
+    "niger",
+    "burkina-faso",
+    "volta",
+    "guinea",
+    "senegal",
+    "gambia",
+    "gambia-river"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 150
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1439",
+      "html": "<ul><li>Scientific name: Heterobranchus bidorsalis Geoffroy St. Hilaire, 1809</li><li>Type locality: Nile River</li><li>IUCN Red List: Least Concern (last assessed 2019)</li><li>Etymology: from the Greek heteros, meaning different, and branchos, meaning fin; in reference to the presence of the two dorsal fins (rayed and adipose).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1439",
+      "html": "<p>Africa: Nile. Africa: Chad basin, Niger, Upper Volta, Guinea and Senegal. Also known from the Gambia River.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1439",
+      "html": "<p>The genital papilla, which is right below the anus, is elongated and pointy in males while it is round and relatively larger (and larger than the anus) in females. In ventral view especially, females are much broader in the body than males of equal age and rearing practices.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1439",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1439",
+      "html": "<p>Identification: head oval-shaped to rectangular dorsally; snout broadly rounded; eyes rather laterally placed. Frontal fontanelle long and narrow; occipital fontanelle relatively long and oval shaped. 'Postorbital' bones completely united. Suprabranchial organ well developed. Pectoral spine smooth. Openings of secondary sensory canals with regular geometric pattern. Body and fins occasionally with irregularly placed spots.</p><p>FishBase lists 150 cm TL.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "P1D20c79YnE",
+      "title": "【アフリカ怪魚】ヘテロブランクスBaby＃Heterobranchus longifilis＃　　Heterobranchus　bidorsalis＃ヘテロブランクス＃アフリカンクララ＃catfish",
+      "durationSec": 4,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Ta12pdsadYs",
+      "title": "Heterobranchus bidorsalis @ Fattyfin Catfish (Nigeria)",
+      "durationSec": 103,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "NYWE1Eb2SAU",
+      "title": "Heterobranchus bidorsalis @ Vundu Catfish (Nigeria)",
+      "durationSec": 62,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "H_X1EKQJ6W8",
+      "title": "Pearl farm heterobranchus",
+      "durationSec": 16,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-22"
+}
