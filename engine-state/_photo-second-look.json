@@ -265,7 +265,7 @@
     }
   },
   "https://media.aquatome.com/gbif/4034583722-ca12c466cdba6a77.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
     "step": "the photo check",
     "pages": [
       "species/sandelia-bainsii"
@@ -7255,7 +7255,7 @@
     "at": "2026-11-15"
   },
   "https://media.aquatome.com/inaturalist/12202793.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
     "step": "the photo check",
     "pages": [
       "species/hexanematichthys-sagor"
@@ -7264,7 +7264,7 @@
     "off": true
   },
   "https://media.aquatome.com/inaturalist/151730269.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
     "step": "the photo check",
     "pages": [
       "species/bagre-pinnimaculatus"
@@ -7279,10 +7279,15 @@
       "species/strophidon-sathete"
     ],
     "at": "2026-11-21",
-    "off": true
+    "off": true,
+    "look": {
+      "said": "agree",
+      "by": "the chief of staff",
+      "on": "2026-11-22"
+    }
   },
   "https://media.aquatome.com/inaturalist/28384257.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
     "step": "the photo check",
     "pages": [
       "species/strophidon-sathete"
@@ -7291,7 +7296,7 @@
     "off": true
   },
   "https://media.aquatome.com/inaturalist/28384263.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/strophidon-sathete"
@@ -7300,7 +7305,7 @@
     "off": true
   },
   "https://media.aquatome.com/inaturalist/28384278.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/strophidon-sathete"
@@ -7309,7 +7314,7 @@
     "off": true
   },
   "https://media.aquatome.com/inaturalist/306793453.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
     "step": "the photo check",
     "pages": [
       "species/strophidon-sathete"
@@ -7318,7 +7323,7 @@
     "off": true
   },
   "https://media.aquatome.com/inaturalist/431845588.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
     "step": "the photo check",
     "pages": [
       "species/netuma-bilineata"
@@ -7344,7 +7349,7 @@
     "off": true
   },
   "https://media.aquatome.com/inaturalist/546830588.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
     "step": "the photo check",
     "pages": [
       "species/pangasius-macronema"
@@ -7370,7 +7375,7 @@
     "at": "2026-11-21"
   },
   "https://media.aquatome.com/inaturalist/589258911.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/plicofollis-nella"
@@ -7385,10 +7390,15 @@
       "species/plicofollis-nella"
     ],
     "at": "2026-11-21",
-    "off": true
+    "off": true,
+    "look": {
+      "said": "agree",
+      "by": "the chief of staff",
+      "on": "2026-11-22"
+    }
   },
   "https://media.aquatome.com/inaturalist/726952954.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
     "step": "the photo check",
     "pages": [
       "species/hexanematichthys-mastersi"
@@ -7571,7 +7581,12 @@
       "species/astroblepus-rosei"
     ],
     "at": "2026-11-21",
-    "off": true
+    "off": true,
+    "look": {
+      "said": "agree",
+      "by": "the chief of staff",
+      "on": "2026-11-22"
+    }
   },
   "https://media.aquatome.com/scotcat/411ab228a2685ff2.webp": {
     "why": "rejected: withheld [sha256:0a7c0806b6889d5d62757a41f2d405cb2218f411339ac15cb70fec1dda9c81d0]",
@@ -7787,7 +7802,12 @@
       "species/astroblepus-rosei"
     ],
     "at": "2026-11-21",
-    "off": true
+    "off": true,
+    "look": {
+      "said": "agree",
+      "by": "the chief of staff",
+      "on": "2026-11-22"
+    }
   },
   "https://media.aquatome.com/scotcat/9476fd9905d2d9c2.webp": {
     "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
@@ -7898,7 +7918,12 @@
       "species/astroblepus-rosei"
     ],
     "at": "2026-11-21",
-    "off": true
+    "off": true,
+    "look": {
+      "said": "agree",
+      "by": "the chief of staff",
+      "on": "2026-11-22"
+    }
   },
   "https://media.aquatome.com/scotcat/c49afb16d11f99cc.webp": {
     "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
