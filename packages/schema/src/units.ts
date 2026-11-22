@@ -326,15 +326,17 @@ function tanks(seg: string, lang: UnitLang): string {
 // Nominal pipe sizes → outside diameter in mm, as Vietnamese shops name them ("phi 27").
 const PIPE: [number, number][] = [[0.5, 21], [0.75, 27], [1, 34], [1.25, 42], [1.5, 49], [2, 60], [2.5, 76], [3, 90], [4, 114]]
 const PIPE_NAME = String.raw`(?<!\p{Script=Latin})(?:[ốỐ]ng|PVC|manifold|[rR]en|[pP]ipa|[pP]aip|ท่อ)(?!\p{Script=Latin})`
-const PIPE_WORD = String.raw`${PIPE_NAME}(?:(?!mềm|selang|สายยาง|tubing|hose|dài|cao|sâu|rộng|cắt|đường kính trong)[^\d.,;:()<>]){0,30}?`
+const PIPE_WORD = String.raw`${PIPE_NAME}(?:(?!mềm|selang|สายยาง|dài|cao|sâu|rộng|cắt|đường kính trong)[^\d.,;:()<>]){0,30}?`
 // A range is two pipe sizes only after a size word right after the pipe's name ("ống PVC cỡ ½–¾ inch", "pipa PVC ukuran
 // ½–¾ inci", "ท่อ PVC ขนาด ½–¾ นิ้ว"). Without one it stays a length, as before: a range right after the pipe's name is as
 // often what to cut off, slide in or leave standing above the water ("Potong pipa PVC 1–2 inci dari ujungnya", "Ống PVC
 // nhô lên 1–2 inch"; Codex's reads of #1782, 21 Nov 2026).
 const SIZE_WORD = String.raw`(?:cỡ|loại|size|kích thước|đường kính(?! trong)(?:\s+ngoài)?|ukuran|saiz|diameter|berdiameter|ขนาด|เส้นผ่าน(?:ศูนย์กลาง)?)`
 // A length word right after a range, with no figure of its own, says the range is the length ("1–2 inch chiều dài", "1–2
-// นิ้ว ตามแนวยาว"); with one, it's another measure ("½–¾ inch dài 1 m": sizes, then a length; Codex's eighth look).
-const LENGTH_AFTER = new RegExp(String.raw`^\s*(?:theo\s+)?(?:chiều dài|dài|panjangnya|panjang|ตามแนวยาว|ความยาว|ยาว)(?!\s*(?:${QUAL}\s*)?\d)`, 'u')
+// นิ้ว ตามแนวยาว", "1–2 inch, đo theo chiều dài"); with one, it's another measure ("½–¾ inch dài 1 m": sizes, then a
+// length; Codex's eighth look). A whole word where words have spaces: "panjangnya 1 m" is not "panjang" (the fresh
+// read, 22 Nov); Thai writes its words together.
+const LENGTH_AFTER = new RegExp(String.raw`^\s*,?\s*(?:đo\s+)?(?:theo\s+)?(?:(?:chiều dài|dài|panjangnya|panjang)(?!\p{Script=Latin})|ตามแนวยาว|ความยาว|ยาว)(?!\s*(?:${QUAL}\s*)?\d)`, 'u')
 // The one-size rule never takes a range's second figure ("½–phi 27"): a range it can't read stays a length.
 const NOT_SECOND = String.raw`(?<!(?:\d|[½¼¾])${TO})`
 function pipes(t: string, lang: UnitLang): string {

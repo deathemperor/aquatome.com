@@ -185,6 +185,11 @@ test('guides: a pipe or fitting is the pipe shops sell (outside diameter); a hos
   expect(vi('ống PVC cỡ ½–¾ inch dài 1 m')).toBe('ống PVC cỡ phi 21 đến phi 27 dài 1 m')
   expect(vi('Ống PVC tubing ½–¾ inch')).toBe('Ống PVC tubing 1,5–2 cm')
   expect(vi('ống PVC ¾ inch dài 1 m')).toBe('ống PVC phi 27 dài 1 m')
+  // The fresh read (22 Nov): a thread's size on a hose fitting is a pipe size, as main reads it; a length said after a
+  // comma keeps the range a length, as main; "panjangnya 1 m" is another measure, so the range is sizes.
+  expect(id('Gunakan adaptor PVC hose barb dengan ulir ¾ inci.')).toBe('Gunakan adaptor PVC hose barb dengan ulir 27 mm.')
+  expect(vi('Dùng ống PVC loại 1–2 inch, đo theo chiều dài, để làm chân kê.')).toBe('Dùng ống PVC loại 2,5–5 cm, đo theo chiều dài, để làm chân kê.')
+  expect(id('Pipa PVC ukuran ½–¾ inci panjangnya 1 m.')).toBe('Pipa PVC ukuran 21–27 mm panjangnya 1 m.')
 })
 
 test('guides: a change of temperature, and the middle of a decade of °F', () => {
