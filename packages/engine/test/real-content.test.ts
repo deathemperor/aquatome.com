@@ -1085,6 +1085,12 @@ test("the Writing Lead's eight sentences of 20 Nov hold on their six guides", ()
 // guide's whole id).
 test("the Writing Lead's words hold on the four guides the night of 19 Nov cut", () => handFixesHold('guarded-four-1120.json', ''))
 
+// The gang valve guide's PVC pipe, "½ to ¾ inch" at its source: two pipe sizes, which a keeper buys as phi 21 and phi 27,
+// not the inches' length in millimetres ("13–19 mm"). Fixed by hand, bodyFixed, and held for the gate's read (the chief of
+// staff, 21 Nov 2026; test/fixtures/pipe-range-1121.json). A rule in units.ts for such ranges was tried and taken out after
+// eleven reads found phrases it read worse than main (22 Nov); the writers get the rule instead, with the gallon rule.
+test("the gang valve guide's pipe is said as the two pipe sizes", () => handFixesHold('pipe-range-1121.json', ''))
+
 // The chief of staff's yes of 21 Nov 2026 on the live-food guide's Indonesian and Malay copies: the bloodworm survey said
 // in the Writing Lead's fix of 20 Nov, the Thai page's form (an informal 2018 survey of 445 respondents, 34% known or
 // suspected, the median of four years), and the Malay FAQ's allergy line no more than the English. Each copy's body is
