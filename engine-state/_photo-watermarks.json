@@ -5603,6 +5603,9 @@
   "https://inaturalist-open-data.s3.amazonaws.com/photos/357344752/large.jpg": {
     "ocr": []
   },
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/35812909/large.jpeg": {
+    "ocr": []
+  },
   "https://inaturalist-open-data.s3.amazonaws.com/photos/358769752/large.jpeg": {
     "ocr": []
   },
@@ -10717,6 +10720,9 @@
   "https://media.aquatome.com/aquariumbreeder/0112252b5064fb4d.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/aquariumbreeder/01bf6dd6e00772db.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/aquariumbreeder/027e2e51e6191faf.webp": {
     "ocr": [
       {
@@ -10830,6 +10836,38 @@
       "top left",
       "bottom left",
       "bottom right"
+    ]
+  },
+  "https://media.aquatome.com/aquariumbreeder/03987d1109bfc419.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 4,
+        "mark": false,
+        "hash": "d49dbef4d9086119d6ed0aa217328a66ab3d0defdf13a8c1c86282ac33152a61"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "c6969fc304af6af864d3e4e7c1ab284f614e4bc9697a751afb0ec115e8af03a0"
+      },
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 4,
+        "mark": false,
+        "hash": "5c5c68f419f2c429c5432556484a9d8200eb3aec8d5bd729cc45578a9ba61efa"
+      }
+    ],
+    "watermark": true,
+    "kind": "caption",
+    "locations": [
+      "middle left",
+      "middle centre",
+      "middle right"
     ]
   },
   "https://media.aquatome.com/aquariumbreeder/04d8e1765b4ec85e.webp": {
@@ -11019,6 +11057,9 @@
       "middle centre",
       "bottom right"
     ]
+  },
+  "https://media.aquatome.com/aquariumbreeder/0dda8f7630015363.webp": {
+    "ocr": []
   },
   "https://media.aquatome.com/aquariumbreeder/0e26f160bc5e1211.webp": {
     "ocr": [
@@ -11606,6 +11647,9 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/aquariumbreeder/21c5d8556d1318c9.webp": {
+    "ocr": []
   },
   "https://media.aquatome.com/aquariumbreeder/21e00f095fffa322.webp": {
     "ocr": []
@@ -13106,6 +13150,38 @@
   "https://media.aquatome.com/aquariumbreeder/71349dba649c60d6.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/aquariumbreeder/7236172e8c7e74da.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 2,
+        "mark": false,
+        "hash": "4a44dc15364204a80fe80e9039455cc1608281820fe2b24f1e5233ade6af1dd5"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "f16d255b59eac56575a02a838196e4265d1f5dc12d0bdab19db15d9b841fb8a8"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 20,
+        "mark": false,
+        "hash": "6a18b290900b9f3d446649406718e75fa8f97f4bbe5dbecf7b98dbc7e7f753ce"
+      }
+    ],
+    "watermark": true,
+    "kind": "caption",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ]
+  },
   "https://media.aquatome.com/aquariumbreeder/73dfb9befb516058.webp": {
     "ocr": []
   },
@@ -13372,6 +13448,30 @@
       "top centre"
     ]
   },
+  "https://media.aquatome.com/aquariumbreeder/7e9441798b706780.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 11,
+        "mark": false,
+        "hash": "734ebbaed16454b92557925caf565a04765ed8c8668199a658f2220f098baea4"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 15,
+        "mark": false,
+        "hash": "88848325f73de8c55f579cd3116320d960a4b80af2a746716c1e42cca4122bd4"
+      }
+    ],
+    "watermark": true,
+    "kind": "caption",
+    "locations": [
+      "top centre",
+      "bottom centre"
+    ]
+  },
   "https://media.aquatome.com/aquariumbreeder/7ee5356aa42d43dd.webp": {
     "ocr": [
       {
@@ -13583,6 +13683,9 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/aquariumbreeder/85579e8adcaa7ec3.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/aquariumbreeder/85e72b1c63c001c5.webp": {
     "ocr": []
   },
@@ -13702,6 +13805,9 @@
   "https://media.aquatome.com/aquariumbreeder/8a7a458cc977f7b1.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/aquariumbreeder/8b4ff0674db5e69a.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/aquariumbreeder/8b5595dc34a3270f.webp": {
     "ocr": []
   },
@@ -13794,6 +13900,9 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/aquariumbreeder/903db0390898106b.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/aquariumbreeder/90993191be4d429d.webp": {
     "ocr": [
       {
@@ -13876,6 +13985,29 @@
     ],
     "locations": [
       "middle right",
+      "middle centre"
+    ]
+  },
+  "https://media.aquatome.com/aquariumbreeder/959ffa4bd2d247d7.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 19,
+        "mark": false,
+        "hash": "777d6583b4437526c6affe9ae7016a61c01a22bd75baa203ba365d4329d8f4ca"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 10,
+        "mark": false,
+        "hash": "7c2270f27f5c014d673cbb9f928252fcd25643b04b0f048d549125c9440d92e9"
+      }
+    ],
+    "watermark": true,
+    "kind": "caption",
+    "locations": [
       "middle centre"
     ]
   },
@@ -14530,6 +14662,9 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/aquariumbreeder/c80e8cb92bbd181a.webp": {
+    "ocr": []
   },
   "https://media.aquatome.com/aquariumbreeder/c8de9e7239960f5d.webp": {
     "ocr": []
@@ -15249,6 +15384,22 @@
   },
   "https://media.aquatome.com/aquariumbreeder/f89da6cfadd571b0.webp": {
     "ocr": []
+  },
+  "https://media.aquatome.com/aquariumbreeder/f98e3bb7f4c5d256.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 36,
+        "mark": false,
+        "hash": "c230b33d1492e8e961c449d86a7208e97b44f4f28f0fe379078f6969b0b21790"
+      }
+    ],
+    "watermark": true,
+    "kind": "caption",
+    "locations": [
+      "middle centre"
+    ]
   },
   "https://media.aquatome.com/aquariumbreeder/fab1bb6483699ea8.webp": {
     "ocr": [
@@ -26702,6 +26853,11 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/bwaquatics/80728f840654f46f.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
   "https://media.aquatome.com/bwaquatics/81368704f0027834.webp": {
     "ocr": [
       {
@@ -36026,6 +36182,9 @@
   "https://media.aquatome.com/commons/2b77d1a9ead8f0f9.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/commons/2b7cfc3f61008638.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/commons/2b9e35095d9bffc9.webp": {
     "ocr": []
   },
@@ -39896,6 +40055,30 @@
   "https://media.aquatome.com/commons/46102e5e0b46d459.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/commons/4619bd813334c03c.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 41,
+        "mark": false,
+        "hash": "5956446edede8f91c260547533260085d26fe5ee65586ac40d147654356264cd"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 23,
+        "mark": true,
+        "hash": "429dd5f2ce764b265e82073a458a296d6b22616a7463dfa29df0a595435bc5eb"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top left",
+      "top right"
+    ]
+  },
   "https://media.aquatome.com/commons/4652cd29e5bb0fde.webp": {
     "ocr": []
   },
@@ -41163,6 +41346,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/commons/4f023d34d2734c17.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/commons/4f0315006f103f33.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/commons/4f210ee11f5888bb.webp": {
@@ -45804,6 +45990,9 @@
   "https://media.aquatome.com/commons/6d103c63d8947f8a.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/commons/6d1f96a2bc94648d.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/commons/6d2147040025a630.webp": {
     "ocr": []
   },
@@ -46693,6 +46882,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/commons/74776a689e2a82dd.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/commons/7483b698944bfc84.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/commons/74a951c88518258c.webp": {
@@ -49141,6 +49333,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/commons/84d15bbcedbeed5e.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/commons/84e1ec32110cd679.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/commons/84f557378f0c3b1d.webp": {
@@ -61446,6 +61641,9 @@
   "https://media.aquatome.com/commons/d19f517da301cb1a.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/commons/d1ae9e2a43c8988a.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/commons/d1b7c0a8c72ca269.webp": {
     "ocr": []
   },
@@ -67795,6 +67993,9 @@
   "https://media.aquatome.com/commons/fc98e8e2f9ff1877.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/commons/fc9b51497ff83bdb.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/commons/fc9c642dc05a316f.webp": {
     "ocr": []
   },
@@ -70120,6 +70321,9 @@
   "https://media.aquatome.com/gbif/1265267036-c810f3eac0c75451.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/gbif/1958365199-d4a734f2b5f1fbcd.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/gbif/2612362320-a82896638963a6c0.webp": {
     "ocr": [
       {
@@ -70495,7 +70699,13 @@
       "top left"
     ]
   },
+  "https://media.aquatome.com/gbif/2834991976-96f7dc1219f795ad.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/gbif/2842166591-ced7b993d7101623.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/gbif/3729958987-e1f379d9f16b6600.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/gbif/3905434571-a683ae41f60ac9a6.webp": {
@@ -70532,6 +70742,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/gbif/4410788833-861fc878a5bddc45.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/gbif/4460185587-d7440740ec66e8dd.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/gbif/4461737432-737f1b11c9432068.webp": {
@@ -119482,6 +119695,37 @@
       "by": "return"
     }
   },
+  "https://media.aquatome.com/glaser/40419633f2751a7b.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "31ded457a4b1792f69af9a6b77687f2eb738506fed00be3ff95ef0d9aa8f6551"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/oxydoras-niger-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/4045b349c23a5a6d.webp": {
     "ocr": [
       {
@@ -122469,6 +122713,44 @@
       "top centre",
       "top right"
     ]
+  },
+  "https://media.aquatome.com/glaser/43dffaf44d495de0.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 17,
+        "mark": false,
+        "hash": "89b2b625e6fe1eceddf49b98a53425313243cefee2147ea788e5c5c13b53d069"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 21,
+        "mark": false,
+        "hash": "9a26a38a58b6c264e033cae9bd81fc90f81f836cde9c5d63a6c8ad3cf87e5bc1"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 30,
+        "mark": false,
+        "hash": "3981213cc39c46f2b3c72d39eb244d34b07a1f247748a69552a2025e1b950742"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/cynodon_gibbus_en/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/43e6e5eb46990a5a.webp": {
     "ocr": [
@@ -130536,6 +130818,11 @@
       "by": "return"
     }
   },
+  "https://media.aquatome.com/glaser/4dc19bd970903be0.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
   "https://media.aquatome.com/glaser/4dc2773aaf3c1ceb.webp": {
     "ocr": [
       {
@@ -130860,6 +131147,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/4df09133537293a3.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/cynodon_gibbus_en/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/4df20ebb99f1f2df.webp": {
@@ -150960,6 +151278,37 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/6af54b63e88c14f6.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/paracheirodon-innesi-wild-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/6af7acc87e7150e6.webp": {
     "ocr": [
       {
@@ -154934,6 +155283,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/70ce695324a05fe0.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "bottom left",
+      "bottom centre",
+      "bottom right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/paracheirodon-innesi-wild-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/70d77630c6a2deb2.webp": {
@@ -171077,6 +171457,37 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/853fb90b1d412c95.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "8c7a604e048f72bc6b16afe32d1b5fa0f542c6531ae7ef3160e8bfb4fc1f20d0"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xenotoca-doadrioi-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/8540b0bdf8549517.webp": {
     "ocr": [
       {
@@ -171424,6 +171835,51 @@
     "locations": [
       "top centre"
     ]
+  },
+  "https://media.aquatome.com/glaser/85bc9426e0c383ee.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 0.3,
+        "at": "top left",
+        "alnum": 6,
+        "mark": false,
+        "hash": "befb6c5f8e2a6b1709f7115aa1fa69e487692b1eb433f296a0e2ad725fb1a003"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 16,
+        "mark": false,
+        "hash": "3894d39ef20aae304f56daf8c8725c81c3faf31f6af94c89db5c9c22aa14a4ee"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 28,
+        "mark": false,
+        "hash": "9fa8ca781ace4dd7af235e39915440c8e9609f43c425f589d3bd8d4b95440233"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/cynodon_gibbus_en/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/85d1d61d37780dbb.webp": {
     "ocr": [
@@ -173947,6 +174403,37 @@
       "top right",
       "bottom left"
     ]
+  },
+  "https://media.aquatome.com/glaser/896f75a44e8ac644.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "4e975a97b3f63ad17d187963adbbc0d7c96ccd2e5b5a2d58b3626b8ba23c691c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xenotoca-doadrioi-2/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/89760f7395df96bd.webp": {
     "ocr": [
@@ -179035,6 +179522,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/906b58cb3cf0b22f.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/cynodon_gibbus_en/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/906d7e45d7bcfb38.webp": {
@@ -193761,6 +194279,44 @@
       "top centre",
       "top right"
     ]
+  },
+  "https://media.aquatome.com/glaser/a4b32a95951d7de0.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "44991ba03c391799629d7182831add7470928b1183bceb2d611a1cae1766f071"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/oxydoras-niger-2/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/a4c0f346d8a056bc.webp": {
     "ocr": [
@@ -212581,6 +213137,11 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/bbfa09a68b5efe35.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
   "https://media.aquatome.com/glaser/bc0346ca66446a13.webp": {
     "ocr": [
       {
@@ -218731,6 +219292,37 @@
       "top centre",
       "top right"
     ]
+  },
+  "https://media.aquatome.com/glaser/c337da6b3da45933.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xenotoca-doadrioi-2/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/c33f55cdf1f56fdd.webp": {
     "ocr": [
@@ -249844,6 +250436,37 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/ecc83ed1de6f5f35.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 17,
+        "mark": false,
+        "hash": "bdcc11b4783eb5f5a234c7b440fe752799e8670350a06e28c854df206e23e9e5"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "e4f515ee944993c846c891bc7563266ec2cbe6f6e641ce11cd30f74b6429a707"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xenotoca-doadrioi-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/eccac034eb4a4353.webp": {
     "ocr": [
       {
@@ -265968,6 +266591,12 @@
   "https://media.aquatome.com/inaturalist/123415604.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/123526.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/123527.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/123606727.webp": {
     "ocr": []
   },
@@ -266600,6 +267229,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/13567935.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/13598939.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/136007676.webp": {
@@ -267236,6 +267868,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/153128498.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/1531961.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/153260186.webp": {
@@ -269812,6 +270447,72 @@
   "https://media.aquatome.com/inaturalist/180321988.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/1803261.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 2,
+        "mark": false,
+        "hash": "d59eced1ded07f84c145592f65bdf854358e009c5cd705f5215bf18697fed103"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 3,
+        "mark": false,
+        "hash": "1e472b39b105d349bcd069c4a711b44a2fffb8e274714bb07ecfff69a9a7f67b"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 3,
+        "mark": false,
+        "hash": "39bb88f40d3aa2b2fe9dea67be27c74765db0ebb3ff3cf8fb779af6319fa2045"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 3,
+        "mark": false,
+        "hash": "d8d1790737d57ac4fe91a2c0a28087c0a97c81f5dc6b19d5e4aec20c08bb95ae"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 3,
+        "mark": false,
+        "hash": "7f0a22117f8fe0172cf9209ff622b64a51aaeda21d58b5b62685a93dbe2dad25"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 3,
+        "mark": false,
+        "hash": "09895de0407bcb0386733daa14bdb5dfa544505530c634334a05a60f161b71fc"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 3,
+        "mark": false,
+        "hash": "983bd614bb5afece5ab3b6023f71147cd7b6bc2314f9d27af7422541c6558389"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 3,
+        "mark": false,
+        "hash": "226f76b55acb49701e06ded1d95165d179458f6fc37f5c6fc760ae30dec1c378"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "bottom left",
+      "bottom centre"
+    ]
+  },
   "https://media.aquatome.com/inaturalist/180445632.webp": {
     "ocr": []
   },
@@ -270012,6 +270713,15 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/183488460.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/1835983.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/1835984.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/1835986.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/183790749.webp": {
@@ -270501,6 +271211,12 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/190601320.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/19081792.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/19081798.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/190892708.webp": {
@@ -271050,6 +271766,9 @@
   "https://media.aquatome.com/inaturalist/201597364.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/201735524.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/201844546.webp": {
     "ocr": []
   },
@@ -271348,6 +272067,9 @@
   "https://media.aquatome.com/inaturalist/209865066.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/21005676.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/210091322.webp": {
     "ocr": []
   },
@@ -271355,6 +272077,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/210181926.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/21025630.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/210477484.webp": {
@@ -271439,6 +272164,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/213516571.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/213925716.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/21395055.webp": {
@@ -271544,6 +272272,73 @@
   },
   "https://media.aquatome.com/inaturalist/215754163.webp": {
     "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/21581092.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 1,
+        "mark": false,
+        "hash": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 2,
+        "mark": false,
+        "hash": "48449a14a4ff7d79bb7a1b6f3d488eba397c36ef25634c111b49baf362511afc"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 2,
+        "mark": false,
+        "hash": "69f59c273b6e669ac32a6dd5e1b2cb63333d8b004f9696447aee2d422ce63763"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 3,
+        "mark": false,
+        "hash": "ad57366865126e55649ecb23ae1d48887544976efea46a48eb5d85a6eeb4d306"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 3,
+        "mark": false,
+        "hash": "9bdb2af6799204a299c603994b8e400e4b1fd625efdb74066cc869fee42c9df3"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 3,
+        "mark": false,
+        "hash": "2abaca4911e68fa9bfbf3482ee797fd5b9045b841fdff7253557c5fe15de6477"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 3,
+        "mark": false,
+        "hash": "38d66d9692ac590000a91b03a88da1c88d51fab2b78f63171f553ecc551a0c6f"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 2,
+        "mark": false,
+        "hash": "8527a891e224136950ff32ca212b45bc93f69fbb801c3b1ebedac52775f99e61"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "bottom left",
+      "bottom centre",
+      "bottom right"
+    ]
   },
   "https://media.aquatome.com/inaturalist/215871060.webp": {
     "ocr": []
@@ -272224,6 +273019,12 @@
   "https://media.aquatome.com/inaturalist/221727339.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/221896098.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/221896105.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/221942058.webp": {
     "ocr": []
   },
@@ -272812,6 +273613,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/231688951.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/23169075.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/23172072.webp": {
@@ -273578,6 +274382,9 @@
       "top left"
     ]
   },
+  "https://media.aquatome.com/inaturalist/24331229.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/243352781.webp": {
     "ocr": []
   },
@@ -274315,6 +275122,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/247541667.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/24755444.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/247612122.webp": {
@@ -275056,6 +275866,12 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/254812410.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/254959588.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/254959611.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/254959831.webp": {
@@ -275826,6 +276642,73 @@
   "https://media.aquatome.com/inaturalist/263380699.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/26357027.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 2,
+        "mark": false,
+        "hash": "ba805a268b799a38a2a1e5aac38ad5d53982214c74dfb267a446220e79f9c26d"
+      },
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 2,
+        "mark": false,
+        "hash": "3fdba35f04dc8c462986c992bcf875546257113072a909c162f7e470e581e278"
+      },
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 2,
+        "mark": false,
+        "hash": "8527a891e224136950ff32ca212b45bc93f69fbb801c3b1ebedac52775f99e61"
+      },
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 2,
+        "mark": false,
+        "hash": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 2,
+        "mark": false,
+        "hash": "4ec9599fc203d176a301536c2e091a19bc852759b255bd6818810a42c5fed14a"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 2,
+        "mark": false,
+        "hash": "9400f1b21cb527d7fa3d3eabba93557a18ebe7a2ca4e471cfe5e4c5b4ca7f767"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 2,
+        "mark": false,
+        "hash": "a2f1c4973c2d9f3784a81a755cf29d9c7723dc899a30522563bed2b606a10fc8"
+      },
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 4,
+        "mark": false,
+        "hash": "ca71a56f4ccd6687ce7f97287a0d83ad398bccea55ded651b24f63586969439e"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "middle right",
+      "middle centre",
+      "middle left"
+    ]
+  },
   "https://media.aquatome.com/inaturalist/263647027.webp": {
     "ocr": []
   },
@@ -275839,6 +276722,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/26368696.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/26407123.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/264135881.webp": {
@@ -275899,6 +276785,9 @@
       "middle left",
       "bottom centre"
     ]
+  },
+  "https://media.aquatome.com/inaturalist/26470567.webp": {
+    "ocr": []
   },
   "https://media.aquatome.com/inaturalist/264807516.webp": {
     "ocr": []
@@ -275985,6 +276874,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/266479624.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/26667264.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/266948318.webp": {
@@ -276368,10 +277260,16 @@
   "https://media.aquatome.com/inaturalist/27181474.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/272037155.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/272264446.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/272430964.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/27256720.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/27257014.webp": {
@@ -276502,6 +277400,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/27649517.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/276655940.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/27669619.webp": {
@@ -276939,6 +277840,22 @@
         "alnum": 16,
         "mark": false,
         "hash": "d485c9655ea260df7019f4cbc8debf8314b4ae13a99a225cdd3d83738f213ff9"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "bottom right"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/28382342.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 16,
+        "mark": true,
+        "hash": "6b33e1821375aa32809317085f949d2803dc350c2797c3d26efb063f42f95a30"
       }
     ],
     "watermark": true,
@@ -279754,6 +280671,12 @@
   "https://media.aquatome.com/inaturalist/305104773.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/3052562.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/3052563.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/305374082.webp": {
     "ocr": []
   },
@@ -280130,6 +281053,9 @@
   "https://media.aquatome.com/inaturalist/312876772.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/312918873.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/31299163.webp": {
     "ocr": []
   },
@@ -280395,6 +281321,38 @@
   "https://media.aquatome.com/inaturalist/316710940.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/316782295.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 20,
+        "mark": true,
+        "hash": "3ca37febbc2ddf397a630cfd60e4eaf3e0a7d1d47279825bbccc0054824eced2"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/316782302.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 19,
+        "mark": true,
+        "hash": "3ee650d3a4f6318a1c31a1e362bee9fbf10694d66b120d8fbf89b79b4e2ba1fb"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top right"
+    ]
+  },
   "https://media.aquatome.com/inaturalist/317055092.webp": {
     "ocr": []
   },
@@ -280487,6 +281445,22 @@
   },
   "https://media.aquatome.com/inaturalist/319315775.webp": {
     "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/319612227.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 20,
+        "mark": false,
+        "hash": "e14cbe4a763f1ffc866569d9c61bf297740f52c36980e4fd0eaee42bc6af3477"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top left"
+    ]
   },
   "https://media.aquatome.com/inaturalist/319644283.webp": {
     "ocr": []
@@ -280603,6 +281577,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/319908499.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/32015599.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/320260796.webp": {
@@ -281017,6 +281994,38 @@
   "https://media.aquatome.com/inaturalist/327070000.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/327156129.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 20,
+        "mark": false,
+        "hash": "e4be63d95cc4faf807cb099887036e38baecbc8d165509eaed00c1726c418f8b"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top left"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/327156296.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 21,
+        "mark": false,
+        "hash": "eb89dd817d165e3e712b006e078dd3f4e4e19a2593c2b07eef0272e71a8afcbb"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "bottom left"
+    ]
+  },
   "https://media.aquatome.com/inaturalist/327447851.webp": {
     "ocr": []
   },
@@ -281331,6 +282340,20 @@
   "https://media.aquatome.com/inaturalist/332788903.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/332802089.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 1,
+        "mark": false,
+        "hash": "8c2574892063f995fdf756bce07f46c1a5193e54cd52837ed91e32008ccf41ac"
+      }
+    ],
+    "locations": [
+      "bottom right"
+    ]
+  },
   "https://media.aquatome.com/inaturalist/332849952.webp": {
     "ocr": []
   },
@@ -281552,6 +282575,9 @@
   "https://media.aquatome.com/inaturalist/335350624.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/33541410.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/335517017.webp": {
     "ocr": []
   },
@@ -281681,6 +282707,12 @@
   "https://media.aquatome.com/inaturalist/337973661.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/337982833.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/337982845.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/338074968.webp": {
     "ocr": []
   },
@@ -281688,6 +282720,18 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/338087674.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/338127062.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/338127073.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/338127081.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/33816890.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/338353082.webp": {
@@ -281845,8 +282889,56 @@
   "https://media.aquatome.com/inaturalist/339193048.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/339217506.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 20,
+        "mark": true,
+        "hash": "d4f182cfc8d41262c1c425bfbfa7aed4a6890aa2a326c3ae484e5e5987b2b1ba"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top left"
+    ]
+  },
   "https://media.aquatome.com/inaturalist/339340319.webp": {
     "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/339388483.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 20,
+        "mark": false,
+        "hash": "4df9756f1bb1a1ef89bcf97676b7bf89dda39796640234ef52a1fdc0edb427b1"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/339388484.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 21,
+        "mark": false,
+        "hash": "13c92e22bbf0ea1d1f25847724a22e9c3f43c086b2ef24a66c3571ddf346bf2f"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top left"
+    ]
   },
   "https://media.aquatome.com/inaturalist/339456346.webp": {
     "ocr": []
@@ -281977,6 +283069,9 @@
   "https://media.aquatome.com/inaturalist/341364126.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/34137263.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/341394695.webp": {
     "ocr": []
   },
@@ -282019,6 +283114,22 @@
   },
   "https://media.aquatome.com/inaturalist/341710565.webp": {
     "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/341793075.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 20,
+        "mark": false,
+        "hash": "b3effa2dcec1c201716ca633889b6f461801d04577f3e16cada96f74c7f73626"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top left"
+    ]
   },
   "https://media.aquatome.com/inaturalist/341801997.webp": {
     "ocr": []
@@ -282824,6 +283935,12 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/350235082.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/35026100.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/35026116.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/350327016.webp": {
@@ -285380,6 +286497,12 @@
   "https://media.aquatome.com/inaturalist/40389926.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/404071770.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/404071809.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/404098643.webp": {
     "ocr": []
   },
@@ -285393,6 +286516,25 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/404554126.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/4047426.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 11,
+        "mark": true,
+        "hash": "d1884257c720dd4e989b007c0053a1bd04ab96496285db0fee6f72dafa0adb02"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "bottom left"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/4047427.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/404806320.webp": {
@@ -287833,6 +288975,9 @@
   "https://media.aquatome.com/inaturalist/418232431.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/41825781.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/418302416.webp": {
     "ocr": [
       {
@@ -288135,6 +289280,12 @@
   "https://media.aquatome.com/inaturalist/421411835.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/421608122.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/421608334.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/42243244.webp": {
     "ocr": []
   },
@@ -288311,6 +289462,42 @@
   },
   "https://media.aquatome.com/inaturalist/428982137.webp": {
     "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/42899876.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 1,
+        "mark": false,
+        "hash": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 2,
+        "mark": false,
+        "hash": "f2c115a382c600ed22499dcf02cf738a69775c29b84933151714c790dd1b7286"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 1,
+        "mark": false,
+        "hash": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce"
+      },
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 1,
+        "mark": false,
+        "hash": "0efeb8229b9e78d2efb05c0e3e36c693575b1d47a3d56e487b1ac85454af07bf"
+      }
+    ],
+    "locations": [
+      "middle centre",
+      "middle right"
+    ]
   },
   "https://media.aquatome.com/inaturalist/429120409.webp": {
     "ocr": []
@@ -288504,6 +289691,9 @@
   "https://media.aquatome.com/inaturalist/435078182.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/435101653.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/435137351.webp": {
     "ocr": []
   },
@@ -288645,6 +289835,12 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/438936531.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/43895391.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/43895454.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/438971839.webp": {
@@ -289014,6 +290210,15 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/448913472.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/449001.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/44906894.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/44906906.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/44908046.webp": {
@@ -289539,6 +290744,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/461918734.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/461927088.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/462041124.webp": {
@@ -290956,6 +292164,9 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/inaturalist/476651187.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/47681523.webp": {
     "ocr": []
   },
@@ -291138,6 +292349,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/481273934.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/481362506.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/481742002.webp": {
@@ -291565,6 +292779,9 @@
   "https://media.aquatome.com/inaturalist/49030460.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/49048747.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/490490965.webp": {
     "ocr": []
   },
@@ -291877,6 +293094,9 @@
   "https://media.aquatome.com/inaturalist/499374790.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/49986973.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/49998123.webp": {
     "ocr": []
   },
@@ -291909,6 +293129,20 @@
   },
   "https://media.aquatome.com/inaturalist/50269890.webp": {
     "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/5029114.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 2,
+        "mark": false,
+        "hash": "b7a56873cd771f2c446d369b649430b65a756ba278ff97ec81bb6f55b2e73569"
+      }
+    ],
+    "locations": [
+      "middle right"
+    ]
   },
   "https://media.aquatome.com/inaturalist/50292634.webp": {
     "ocr": []
@@ -296177,6 +297411,20 @@
       "bottom centre"
     ]
   },
+  "https://media.aquatome.com/inaturalist/5903829.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 2,
+        "mark": false,
+        "hash": "9ee3b7c03a22b0ebb8995404573bbdb70305786bb8456f147ad26d463e4aef6c"
+      }
+    ],
+    "locations": [
+      "bottom left"
+    ]
+  },
   "https://media.aquatome.com/inaturalist/59052816.webp": {
     "ocr": []
   },
@@ -296340,6 +297588,45 @@
   },
   "https://media.aquatome.com/inaturalist/592159129.webp": {
     "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/5921687.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 11,
+        "mark": false,
+        "hash": "a16c2efb1371568033488e276466b4e38b4e7fda46807cb573c9089471b1f18a"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 19,
+        "mark": false,
+        "hash": "29db64d77ede91d52e4b114cbc1955bebba35f2a8cbab61e3596a37e108c56af"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 2,
+        "mark": false,
+        "hash": "4324733b48d7c547695d9df158a9c9db5f1d906ef15c6c04c616a048b3527f93"
+      },
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 8,
+        "mark": false,
+        "hash": "7f5ef3de95249c22c796c6edd80f578002d2dabb92fd0d80d3e6b022508e3313"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "top centre",
+      "top left",
+      "middle left"
+    ]
   },
   "https://media.aquatome.com/inaturalist/59226920.webp": {
     "ocr": []
@@ -297627,6 +298914,9 @@
   "https://media.aquatome.com/inaturalist/61182164.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/611860667.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/612065531.webp": {
     "ocr": []
   },
@@ -298124,6 +299414,12 @@
   "https://media.aquatome.com/inaturalist/619150957.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/619179892.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/619179905.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/6192389.webp": {
     "ocr": []
   },
@@ -298178,6 +299474,9 @@
   "https://media.aquatome.com/inaturalist/621067225.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/62117126.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/621638032.webp": {
     "ocr": []
   },
@@ -298191,6 +299490,12 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/622104735.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/6221996.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/6221997.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/622448062.webp": {
@@ -298799,6 +300104,85 @@
   "https://media.aquatome.com/inaturalist/63671259.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/6371281.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 6,
+        "mark": false,
+        "hash": "75f66a8f2df857f74e65ada992331743c2c1ad12f8e6d0cfd9bbc083a9e76755"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 4,
+        "mark": false,
+        "hash": "61bff133af9440ae8869baf6a97f0de220acd97be4e8947a3d7642039859ee79"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 8,
+        "mark": false,
+        "hash": "e82c73f99cbcde6a2aac92ce6bffe60186df2adcb8d4d755887579895f9b9994"
+      },
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 3,
+        "mark": false,
+        "hash": "f02f3e1d95a11325e3830b3a0cb9411dad7041fb6e73e3b24a9099f46b999332"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "top left",
+      "middle centre",
+      "top right",
+      "middle right"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/6371289.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 6,
+        "mark": false,
+        "hash": "75f66a8f2df857f74e65ada992331743c2c1ad12f8e6d0cfd9bbc083a9e76755"
+      },
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 3,
+        "mark": false,
+        "hash": "7e7d0319d1c351aa52eb663c65131c2d8080a00cae3156cb01c4aa4641200ff5"
+      },
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 8,
+        "mark": false,
+        "hash": "e82c73f99cbcde6a2aac92ce6bffe60186df2adcb8d4d755887579895f9b9994"
+      },
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 3,
+        "mark": false,
+        "hash": "f02f3e1d95a11325e3830b3a0cb9411dad7041fb6e73e3b24a9099f46b999332"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "top left",
+      "middle left",
+      "middle right"
+    ]
+  },
   "https://media.aquatome.com/inaturalist/637346599.webp": {
     "ocr": []
   },
@@ -299332,6 +300716,15 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/65469494.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/65478484.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/65478486.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/65478488.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/654836322.webp": {
@@ -300215,6 +301608,35 @@
   "https://media.aquatome.com/inaturalist/694677774.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/69546364.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 2,
+        "mark": false,
+        "hash": "4ec9599fc203d176a301536c2e091a19bc852759b255bd6818810a42c5fed14a"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 2,
+        "mark": false,
+        "hash": "9400f1b21cb527d7fa3d3eabba93557a18ebe7a2ca4e471cfe5e4c5b4ca7f767"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 2,
+        "mark": false,
+        "hash": "f5ca38f748a1d6eaf726b8a42fb575c3c71f1864a8143301782de13da2d9202b"
+      }
+    ],
+    "locations": [
+      "bottom left",
+      "bottom centre"
+    ]
+  },
   "https://media.aquatome.com/inaturalist/695711336.webp": {
     "ocr": []
   },
@@ -300513,6 +301935,9 @@
   "https://media.aquatome.com/inaturalist/708082606.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/70817766.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/708206137.webp": {
     "ocr": []
   },
@@ -300550,6 +301975,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/7108663.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/7111007.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/711306300.webp": {
@@ -301724,6 +303152,12 @@
   "https://media.aquatome.com/inaturalist/762819977.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/76615028.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/76615039.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/77231070.webp": {
     "ocr": []
   },
@@ -301887,6 +303321,9 @@
   "https://media.aquatome.com/inaturalist/82674707.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/82685461.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/83054187.webp": {
     "ocr": []
   },
@@ -302044,6 +303481,9 @@
   "https://media.aquatome.com/inaturalist/84837343.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/8485063.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/84869641.webp": {
     "ocr": []
   },
@@ -302111,6 +303551,12 @@
     }
   },
   "https://media.aquatome.com/inaturalist/85107504.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/85142632.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/85142645.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/85317571.webp": {
@@ -302303,6 +303749,9 @@
     ]
   },
   "https://media.aquatome.com/inaturalist/8708875.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/8710001.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/87289211.webp": {
@@ -307379,6 +308828,11 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/scotcat/29bdd26fd0a7de56.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
   "https://media.aquatome.com/scotcat/29f757c021f23b69.webp": {
     "ocr": [],
     "watermark": false,
@@ -307424,6 +308878,11 @@
     "watermark": false,
     "kind": "none"
   },
+  "https://media.aquatome.com/scotcat/2a4333b3ebbc4a27.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
   "https://media.aquatome.com/scotcat/2a6775281413c3e6.webp": {
     "ocr": [],
     "watermark": false,
@@ -307444,6 +308903,11 @@
     "locations": [
       "bottom left"
     ]
+  },
+  "https://media.aquatome.com/scotcat/2a7f85176a3aef9d.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
   },
   "https://media.aquatome.com/scotcat/2af6101bf34a4374.webp": {
     "ocr": [],
@@ -310258,6 +311722,22 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/scotcat/4e2f5f15961cdd00.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 17,
+        "mark": false,
+        "hash": "cb1a07ebb7ec3756c19160727e169f952c59c14ccc2f8d7711f9a916051202fb"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "bottom left"
+    ]
+  },
   "https://media.aquatome.com/scotcat/4e408528bff54393.webp": {
     "ocr": [],
     "watermark": false,
@@ -310695,6 +312175,11 @@
     }
   },
   "https://media.aquatome.com/scotcat/53c9802cde27d581.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
+  "https://media.aquatome.com/scotcat/53e854453c15b41b.webp": {
     "ocr": [],
     "watermark": false,
     "kind": "none"
@@ -313296,6 +314781,11 @@
     "watermark": false,
     "kind": "none"
   },
+  "https://media.aquatome.com/scotcat/7378c7753d581870.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
   "https://media.aquatome.com/scotcat/73a4c19f04d69598.webp": {
     "ocr": [
       {
@@ -313914,6 +315404,22 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/scotcat/7cb48637dd61ecbc.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 17,
+        "mark": true,
+        "hash": "41262b1380866486cf6530e746202c4decbe59ce4b387c4e06d6154059844390"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top left"
+    ]
+  },
   "https://media.aquatome.com/scotcat/7cdd8aff099d2e90.webp": {
     "ocr": [
       {
@@ -314424,6 +315930,11 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/scotcat/81b21d94be65015a.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
   },
   "https://media.aquatome.com/scotcat/81c82434e49c6e56.webp": {
     "ocr": [],
@@ -315321,6 +316832,11 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/scotcat/8ef7b0d7fb41bba8.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
   },
   "https://media.aquatome.com/scotcat/8f0581814854d4bf.webp": {
     "ocr": [],
@@ -316996,6 +318512,22 @@
     "watermark": false,
     "kind": "none"
   },
+  "https://media.aquatome.com/scotcat/a41563dc217d7155.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 10,
+        "mark": true,
+        "hash": "ce7fe2abbc1a9e31e5e7aeb0e12e163012ddd83e779eb266cfe7e28991360ac0"
+      }
+    ],
+    "watermark": true,
+    "kind": "url",
+    "locations": [
+      "middle left"
+    ]
+  },
   "https://media.aquatome.com/scotcat/a42d8a9dfa0894a6.webp": {
     "ocr": [],
     "watermark": false,
@@ -317485,6 +319017,11 @@
       "people": true
     }
   },
+  "https://media.aquatome.com/scotcat/a950f749c2f95724.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
   "https://media.aquatome.com/scotcat/a9a0bce1deab8603.webp": {
     "ocr": [],
     "watermark": false,
@@ -317509,6 +319046,11 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/scotcat/a9c92413f55fda54.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
   },
   "https://media.aquatome.com/scotcat/a9ed8ecbe5824a40.webp": {
     "ocr": [],
@@ -319647,6 +321189,11 @@
     "watermark": false,
     "kind": "none"
   },
+  "https://media.aquatome.com/scotcat/c64be1a04a0a5992.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
   "https://media.aquatome.com/scotcat/c65e071156c2f13e.webp": {
     "ocr": [
       {
@@ -319813,6 +321360,23 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/scotcat/c7343772495cd840.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 10,
+        "mark": true,
+        "hash": "ce7fe2abbc1a9e31e5e7aeb0e12e163012ddd83e779eb266cfe7e28991360ac0"
+      }
+    ],
+    "watermark": true,
+    "kind": "url",
+    "locations": [
+      "top right",
+      "middle centre"
+    ]
   },
   "https://media.aquatome.com/scotcat/c7aed417e6d5f153.webp": {
     "ocr": [],
@@ -320147,6 +321711,11 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/scotcat/ca9cca5fdde01d06.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
   },
   "https://media.aquatome.com/scotcat/ca9e2625b042b4d1.webp": {
     "ocr": [],
@@ -322016,6 +323585,11 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/scotcat/e4c8ad6d3a5fc41e.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
   },
   "https://media.aquatome.com/scotcat/e4e6e9c757d53479.webp": {
     "ocr": [],
@@ -505220,1580 +506794,6 @@
     "ocr": []
   },
   "https://upload.wikimedia.org/wikipedia/commons/f/fc/Midorifugu1.JPG": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/aquariumbreeder/01bf6dd6e00772db.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/aquariumbreeder/03987d1109bfc419.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "middle left",
-        "alnum": 4,
-        "mark": false,
-        "hash": "d49dbef4d9086119d6ed0aa217328a66ab3d0defdf13a8c1c86282ac33152a61"
-      },
-      {
-        "c": 1,
-        "at": "middle centre",
-        "alnum": 14,
-        "mark": false,
-        "hash": "c6969fc304af6af864d3e4e7c1ab284f614e4bc9697a751afb0ec115e8af03a0"
-      },
-      {
-        "c": 1,
-        "at": "middle right",
-        "alnum": 4,
-        "mark": false,
-        "hash": "5c5c68f419f2c429c5432556484a9d8200eb3aec8d5bd729cc45578a9ba61efa"
-      }
-    ],
-    "watermark": true,
-    "kind": "caption",
-    "locations": [
-      "middle left",
-      "middle centre",
-      "middle right"
-    ]
-  },
-  "https://media.aquatome.com/aquariumbreeder/0dda8f7630015363.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/aquariumbreeder/21c5d8556d1318c9.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/aquariumbreeder/7236172e8c7e74da.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 2,
-        "mark": false,
-        "hash": "4a44dc15364204a80fe80e9039455cc1608281820fe2b24f1e5233ade6af1dd5"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 14,
-        "mark": false,
-        "hash": "f16d255b59eac56575a02a838196e4265d1f5dc12d0bdab19db15d9b841fb8a8"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 20,
-        "mark": false,
-        "hash": "6a18b290900b9f3d446649406718e75fa8f97f4bbe5dbecf7b98dbc7e7f753ce"
-      }
-    ],
-    "watermark": true,
-    "kind": "caption",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ]
-  },
-  "https://media.aquatome.com/aquariumbreeder/7e9441798b706780.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 11,
-        "mark": false,
-        "hash": "734ebbaed16454b92557925caf565a04765ed8c8668199a658f2220f098baea4"
-      },
-      {
-        "c": 1,
-        "at": "bottom centre",
-        "alnum": 15,
-        "mark": false,
-        "hash": "88848325f73de8c55f579cd3116320d960a4b80af2a746716c1e42cca4122bd4"
-      }
-    ],
-    "watermark": true,
-    "kind": "caption",
-    "locations": [
-      "top centre",
-      "bottom centre"
-    ]
-  },
-  "https://media.aquatome.com/aquariumbreeder/8b4ff0674db5e69a.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/aquariumbreeder/903db0390898106b.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/aquariumbreeder/959ffa4bd2d247d7.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "middle centre",
-        "alnum": 19,
-        "mark": false,
-        "hash": "777d6583b4437526c6affe9ae7016a61c01a22bd75baa203ba365d4329d8f4ca"
-      },
-      {
-        "c": 1,
-        "at": "middle centre",
-        "alnum": 10,
-        "mark": false,
-        "hash": "7c2270f27f5c014d673cbb9f928252fcd25643b04b0f048d549125c9440d92e9"
-      }
-    ],
-    "watermark": true,
-    "kind": "caption",
-    "locations": [
-      "middle centre"
-    ]
-  },
-  "https://media.aquatome.com/aquariumbreeder/c80e8cb92bbd181a.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/aquariumbreeder/f98e3bb7f4c5d256.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "middle centre",
-        "alnum": 36,
-        "mark": false,
-        "hash": "c230b33d1492e8e961c449d86a7208e97b44f4f28f0fe379078f6969b0b21790"
-      }
-    ],
-    "watermark": true,
-    "kind": "caption",
-    "locations": [
-      "middle centre"
-    ]
-  },
-  "https://media.aquatome.com/bwaquatics/80728f840654f46f.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/glaser/40419633f2751a7b.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "31ded457a4b1792f69af9a6b77687f2eb738506fed00be3ff95ef0d9aa8f6551"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/oxydoras-niger-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/43dffaf44d495de0.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 17,
-        "mark": false,
-        "hash": "89b2b625e6fe1eceddf49b98a53425313243cefee2147ea788e5c5c13b53d069"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 21,
-        "mark": false,
-        "hash": "9a26a38a58b6c264e033cae9bd81fc90f81f836cde9c5d63a6c8ad3cf87e5bc1"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 30,
-        "mark": false,
-        "hash": "3981213cc39c46f2b3c72d39eb244d34b07a1f247748a69552a2025e1b950742"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/cynodon_gibbus_en/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/4dc19bd970903be0.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/glaser/4df09133537293a3.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 14,
-        "mark": false,
-        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/cynodon_gibbus_en/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/6af54b63e88c14f6.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/paracheirodon-innesi-wild-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/70ce695324a05fe0.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "bottom centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
-      },
-      {
-        "c": 1,
-        "at": "bottom centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "bottom left",
-      "bottom centre",
-      "bottom right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/paracheirodon-innesi-wild-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/853fb90b1d412c95.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "8c7a604e048f72bc6b16afe32d1b5fa0f542c6531ae7ef3160e8bfb4fc1f20d0"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xenotoca-doadrioi-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/85bc9426e0c383ee.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 14,
-        "mark": false,
-        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
-      },
-      {
-        "c": 0.3,
-        "at": "top left",
-        "alnum": 6,
-        "mark": false,
-        "hash": "befb6c5f8e2a6b1709f7115aa1fa69e487692b1eb433f296a0e2ad725fb1a003"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 16,
-        "mark": false,
-        "hash": "3894d39ef20aae304f56daf8c8725c81c3faf31f6af94c89db5c9c22aa14a4ee"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 28,
-        "mark": false,
-        "hash": "9fa8ca781ace4dd7af235e39915440c8e9609f43c425f589d3bd8d4b95440233"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/cynodon_gibbus_en/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/896f75a44e8ac644.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "4e975a97b3f63ad17d187963adbbc0d7c96ccd2e5b5a2d58b3626b8ba23c691c"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xenotoca-doadrioi-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/906b58cb3cf0b22f.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/cynodon_gibbus_en/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/a4b32a95951d7de0.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
-      },
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 14,
-        "mark": false,
-        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 39,
-        "mark": false,
-        "hash": "44991ba03c391799629d7182831add7470928b1183bceb2d611a1cae1766f071"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/oxydoras-niger-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/bbfa09a68b5efe35.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/glaser/c337da6b3da45933.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xenotoca-doadrioi-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/ecc83ed1de6f5f35.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 17,
-        "mark": false,
-        "hash": "bdcc11b4783eb5f5a234c7b440fe752799e8670350a06e28c854df206e23e9e5"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "e4f515ee944993c846c891bc7563266ec2cbe6f6e641ce11cd30f74b6429a707"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xenotoca-doadrioi-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/scotcat/29bdd26fd0a7de56.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/2a4333b3ebbc4a27.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/2a7f85176a3aef9d.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/4e2f5f15961cdd00.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "bottom left",
-        "alnum": 17,
-        "mark": false,
-        "hash": "cb1a07ebb7ec3756c19160727e169f952c59c14ccc2f8d7711f9a916051202fb"
-      }
-    ],
-    "watermark": true,
-    "kind": "credit",
-    "locations": [
-      "bottom left"
-    ]
-  },
-  "https://media.aquatome.com/scotcat/53e854453c15b41b.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/7378c7753d581870.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/7cb48637dd61ecbc.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 17,
-        "mark": true,
-        "hash": "41262b1380866486cf6530e746202c4decbe59ce4b387c4e06d6154059844390"
-      }
-    ],
-    "watermark": true,
-    "kind": "credit",
-    "locations": [
-      "top left"
-    ]
-  },
-  "https://media.aquatome.com/scotcat/81b21d94be65015a.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/8ef7b0d7fb41bba8.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/a41563dc217d7155.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "middle left",
-        "alnum": 10,
-        "mark": true,
-        "hash": "ce7fe2abbc1a9e31e5e7aeb0e12e163012ddd83e779eb266cfe7e28991360ac0"
-      }
-    ],
-    "watermark": true,
-    "kind": "url",
-    "locations": [
-      "middle left"
-    ]
-  },
-  "https://media.aquatome.com/scotcat/a950f749c2f95724.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/a9c92413f55fda54.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/c64be1a04a0a5992.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/c7343772495cd840.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 10,
-        "mark": true,
-        "hash": "ce7fe2abbc1a9e31e5e7aeb0e12e163012ddd83e779eb266cfe7e28991360ac0"
-      }
-    ],
-    "watermark": true,
-    "kind": "url",
-    "locations": [
-      "top right",
-      "middle centre"
-    ]
-  },
-  "https://media.aquatome.com/scotcat/ca9cca5fdde01d06.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/e4c8ad6d3a5fc41e.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/35812909/large.jpeg": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/aquariumbreeder/85579e8adcaa7ec3.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/commons/2b7cfc3f61008638.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/commons/4619bd813334c03c.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 41,
-        "mark": false,
-        "hash": "5956446edede8f91c260547533260085d26fe5ee65586ac40d147654356264cd"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 23,
-        "mark": true,
-        "hash": "429dd5f2ce764b265e82073a458a296d6b22616a7463dfa29df0a595435bc5eb"
-      }
-    ],
-    "watermark": true,
-    "kind": "credit",
-    "locations": [
-      "top left",
-      "top right"
-    ]
-  },
-  "https://media.aquatome.com/commons/4f0315006f103f33.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/commons/6d1f96a2bc94648d.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/commons/7483b698944bfc84.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/commons/84e1ec32110cd679.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/commons/d1ae9e2a43c8988a.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/commons/fc9b51497ff83bdb.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/gbif/1958365199-d4a734f2b5f1fbcd.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/gbif/2834991976-96f7dc1219f795ad.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/gbif/3729958987-e1f379d9f16b6600.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/gbif/4460185587-d7440740ec66e8dd.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/123526.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/123527.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/13598939.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/1531961.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/1803261.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "bottom left",
-        "alnum": 2,
-        "mark": false,
-        "hash": "d59eced1ded07f84c145592f65bdf854358e009c5cd705f5215bf18697fed103"
-      },
-      {
-        "c": 1,
-        "at": "bottom left",
-        "alnum": 3,
-        "mark": false,
-        "hash": "1e472b39b105d349bcd069c4a711b44a2fffb8e274714bb07ecfff69a9a7f67b"
-      },
-      {
-        "c": 1,
-        "at": "bottom left",
-        "alnum": 3,
-        "mark": false,
-        "hash": "39bb88f40d3aa2b2fe9dea67be27c74765db0ebb3ff3cf8fb779af6319fa2045"
-      },
-      {
-        "c": 1,
-        "at": "bottom left",
-        "alnum": 3,
-        "mark": false,
-        "hash": "d8d1790737d57ac4fe91a2c0a28087c0a97c81f5dc6b19d5e4aec20c08bb95ae"
-      },
-      {
-        "c": 1,
-        "at": "bottom left",
-        "alnum": 3,
-        "mark": false,
-        "hash": "7f0a22117f8fe0172cf9209ff622b64a51aaeda21d58b5b62685a93dbe2dad25"
-      },
-      {
-        "c": 1,
-        "at": "bottom centre",
-        "alnum": 3,
-        "mark": false,
-        "hash": "09895de0407bcb0386733daa14bdb5dfa544505530c634334a05a60f161b71fc"
-      },
-      {
-        "c": 1,
-        "at": "bottom centre",
-        "alnum": 3,
-        "mark": false,
-        "hash": "983bd614bb5afece5ab3b6023f71147cd7b6bc2314f9d27af7422541c6558389"
-      },
-      {
-        "c": 1,
-        "at": "bottom centre",
-        "alnum": 3,
-        "mark": false,
-        "hash": "226f76b55acb49701e06ded1d95165d179458f6fc37f5c6fc760ae30dec1c378"
-      }
-    ],
-    "watermark": false,
-    "kind": "none",
-    "locations": [
-      "bottom left",
-      "bottom centre"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/1835983.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/1835984.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/1835986.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/19081792.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/19081798.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/201735524.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/21005676.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/21025630.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/213925716.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/21581092.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "bottom left",
-        "alnum": 1,
-        "mark": false,
-        "hash": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
-      },
-      {
-        "c": 1,
-        "at": "bottom left",
-        "alnum": 2,
-        "mark": false,
-        "hash": "48449a14a4ff7d79bb7a1b6f3d488eba397c36ef25634c111b49baf362511afc"
-      },
-      {
-        "c": 1,
-        "at": "bottom left",
-        "alnum": 2,
-        "mark": false,
-        "hash": "69f59c273b6e669ac32a6dd5e1b2cb63333d8b004f9696447aee2d422ce63763"
-      },
-      {
-        "c": 1,
-        "at": "bottom centre",
-        "alnum": 3,
-        "mark": false,
-        "hash": "ad57366865126e55649ecb23ae1d48887544976efea46a48eb5d85a6eeb4d306"
-      },
-      {
-        "c": 1,
-        "at": "bottom centre",
-        "alnum": 3,
-        "mark": false,
-        "hash": "9bdb2af6799204a299c603994b8e400e4b1fd625efdb74066cc869fee42c9df3"
-      },
-      {
-        "c": 1,
-        "at": "bottom right",
-        "alnum": 3,
-        "mark": false,
-        "hash": "2abaca4911e68fa9bfbf3482ee797fd5b9045b841fdff7253557c5fe15de6477"
-      },
-      {
-        "c": 1,
-        "at": "bottom right",
-        "alnum": 3,
-        "mark": false,
-        "hash": "38d66d9692ac590000a91b03a88da1c88d51fab2b78f63171f553ecc551a0c6f"
-      },
-      {
-        "c": 1,
-        "at": "bottom right",
-        "alnum": 2,
-        "mark": false,
-        "hash": "8527a891e224136950ff32ca212b45bc93f69fbb801c3b1ebedac52775f99e61"
-      }
-    ],
-    "watermark": false,
-    "kind": "none",
-    "locations": [
-      "bottom left",
-      "bottom centre",
-      "bottom right"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/221896098.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/221896105.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/23169075.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/24331229.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/24755444.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/254959588.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/254959611.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/26357027.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "middle right",
-        "alnum": 2,
-        "mark": false,
-        "hash": "ba805a268b799a38a2a1e5aac38ad5d53982214c74dfb267a446220e79f9c26d"
-      },
-      {
-        "c": 1,
-        "at": "middle right",
-        "alnum": 2,
-        "mark": false,
-        "hash": "3fdba35f04dc8c462986c992bcf875546257113072a909c162f7e470e581e278"
-      },
-      {
-        "c": 1,
-        "at": "middle right",
-        "alnum": 2,
-        "mark": false,
-        "hash": "8527a891e224136950ff32ca212b45bc93f69fbb801c3b1ebedac52775f99e61"
-      },
-      {
-        "c": 1,
-        "at": "middle right",
-        "alnum": 2,
-        "mark": false,
-        "hash": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb"
-      },
-      {
-        "c": 1,
-        "at": "middle centre",
-        "alnum": 2,
-        "mark": false,
-        "hash": "4ec9599fc203d176a301536c2e091a19bc852759b255bd6818810a42c5fed14a"
-      },
-      {
-        "c": 1,
-        "at": "middle centre",
-        "alnum": 2,
-        "mark": false,
-        "hash": "9400f1b21cb527d7fa3d3eabba93557a18ebe7a2ca4e471cfe5e4c5b4ca7f767"
-      },
-      {
-        "c": 1,
-        "at": "middle centre",
-        "alnum": 2,
-        "mark": false,
-        "hash": "a2f1c4973c2d9f3784a81a755cf29d9c7723dc899a30522563bed2b606a10fc8"
-      },
-      {
-        "c": 1,
-        "at": "middle left",
-        "alnum": 4,
-        "mark": false,
-        "hash": "ca71a56f4ccd6687ce7f97287a0d83ad398bccea55ded651b24f63586969439e"
-      }
-    ],
-    "watermark": false,
-    "kind": "none",
-    "locations": [
-      "middle right",
-      "middle centre",
-      "middle left"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/26407123.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/26470567.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/26667264.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/272037155.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/27256720.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/276655940.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/28382342.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "bottom right",
-        "alnum": 16,
-        "mark": true,
-        "hash": "6b33e1821375aa32809317085f949d2803dc350c2797c3d26efb063f42f95a30"
-      }
-    ],
-    "watermark": true,
-    "kind": "credit",
-    "locations": [
-      "bottom right"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/3052562.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/3052563.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/312918873.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/316782295.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 20,
-        "mark": true,
-        "hash": "3ca37febbc2ddf397a630cfd60e4eaf3e0a7d1d47279825bbccc0054824eced2"
-      }
-    ],
-    "watermark": true,
-    "kind": "credit",
-    "locations": [
-      "top right"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/316782302.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 19,
-        "mark": true,
-        "hash": "3ee650d3a4f6318a1c31a1e362bee9fbf10694d66b120d8fbf89b79b4e2ba1fb"
-      }
-    ],
-    "watermark": true,
-    "kind": "credit",
-    "locations": [
-      "top right"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/319612227.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 20,
-        "mark": false,
-        "hash": "e14cbe4a763f1ffc866569d9c61bf297740f52c36980e4fd0eaee42bc6af3477"
-      }
-    ],
-    "watermark": true,
-    "kind": "credit",
-    "locations": [
-      "top left"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/32015599.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/327156129.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 20,
-        "mark": false,
-        "hash": "e4be63d95cc4faf807cb099887036e38baecbc8d165509eaed00c1726c418f8b"
-      }
-    ],
-    "watermark": true,
-    "kind": "credit",
-    "locations": [
-      "top left"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/327156296.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "bottom left",
-        "alnum": 21,
-        "mark": false,
-        "hash": "eb89dd817d165e3e712b006e078dd3f4e4e19a2593c2b07eef0272e71a8afcbb"
-      }
-    ],
-    "watermark": true,
-    "kind": "credit",
-    "locations": [
-      "bottom left"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/332802089.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "bottom right",
-        "alnum": 1,
-        "mark": false,
-        "hash": "8c2574892063f995fdf756bce07f46c1a5193e54cd52837ed91e32008ccf41ac"
-      }
-    ],
-    "locations": [
-      "bottom right"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/33541410.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/337982833.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/337982845.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/338127062.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/338127073.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/338127081.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/33816890.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/339217506.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 20,
-        "mark": true,
-        "hash": "d4f182cfc8d41262c1c425bfbfa7aed4a6890aa2a326c3ae484e5e5987b2b1ba"
-      }
-    ],
-    "watermark": true,
-    "kind": "credit",
-    "locations": [
-      "top left"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/339388483.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 20,
-        "mark": false,
-        "hash": "4df9756f1bb1a1ef89bcf97676b7bf89dda39796640234ef52a1fdc0edb427b1"
-      }
-    ],
-    "watermark": true,
-    "kind": "credit",
-    "locations": [
-      "top right"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/339388484.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 21,
-        "mark": false,
-        "hash": "13c92e22bbf0ea1d1f25847724a22e9c3f43c086b2ef24a66c3571ddf346bf2f"
-      }
-    ],
-    "watermark": true,
-    "kind": "credit",
-    "locations": [
-      "top left"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/34137263.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/341793075.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 20,
-        "mark": false,
-        "hash": "b3effa2dcec1c201716ca633889b6f461801d04577f3e16cada96f74c7f73626"
-      }
-    ],
-    "watermark": true,
-    "kind": "credit",
-    "locations": [
-      "top left"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/35026100.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/35026116.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/404071770.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/404071809.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/4047426.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "bottom left",
-        "alnum": 11,
-        "mark": true,
-        "hash": "d1884257c720dd4e989b007c0053a1bd04ab96496285db0fee6f72dafa0adb02"
-      }
-    ],
-    "watermark": true,
-    "kind": "credit",
-    "locations": [
-      "bottom left"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/4047427.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/41825781.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/421608122.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/421608334.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/42899876.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "middle centre",
-        "alnum": 1,
-        "mark": false,
-        "hash": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
-      },
-      {
-        "c": 1,
-        "at": "middle centre",
-        "alnum": 2,
-        "mark": false,
-        "hash": "f2c115a382c600ed22499dcf02cf738a69775c29b84933151714c790dd1b7286"
-      },
-      {
-        "c": 1,
-        "at": "middle centre",
-        "alnum": 1,
-        "mark": false,
-        "hash": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce"
-      },
-      {
-        "c": 1,
-        "at": "middle right",
-        "alnum": 1,
-        "mark": false,
-        "hash": "0efeb8229b9e78d2efb05c0e3e36c693575b1d47a3d56e487b1ac85454af07bf"
-      }
-    ],
-    "locations": [
-      "middle centre",
-      "middle right"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/435101653.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/43895391.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/43895454.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/449001.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/44906894.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/44906906.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/461927088.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/476651187.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/481362506.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/49048747.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/49986973.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/5029114.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "middle right",
-        "alnum": 2,
-        "mark": false,
-        "hash": "b7a56873cd771f2c446d369b649430b65a756ba278ff97ec81bb6f55b2e73569"
-      }
-    ],
-    "locations": [
-      "middle right"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/5903829.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "bottom left",
-        "alnum": 2,
-        "mark": false,
-        "hash": "9ee3b7c03a22b0ebb8995404573bbdb70305786bb8456f147ad26d463e4aef6c"
-      }
-    ],
-    "locations": [
-      "bottom left"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/5921687.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 11,
-        "mark": false,
-        "hash": "a16c2efb1371568033488e276466b4e38b4e7fda46807cb573c9089471b1f18a"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 19,
-        "mark": false,
-        "hash": "29db64d77ede91d52e4b114cbc1955bebba35f2a8cbab61e3596a37e108c56af"
-      },
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 2,
-        "mark": false,
-        "hash": "4324733b48d7c547695d9df158a9c9db5f1d906ef15c6c04c616a048b3527f93"
-      },
-      {
-        "c": 1,
-        "at": "middle left",
-        "alnum": 8,
-        "mark": false,
-        "hash": "7f5ef3de95249c22c796c6edd80f578002d2dabb92fd0d80d3e6b022508e3313"
-      }
-    ],
-    "watermark": false,
-    "kind": "none",
-    "locations": [
-      "top centre",
-      "top left",
-      "middle left"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/611860667.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/619179892.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/619179905.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/62117126.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/6221996.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/6221997.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/6371281.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 6,
-        "mark": false,
-        "hash": "75f66a8f2df857f74e65ada992331743c2c1ad12f8e6d0cfd9bbc083a9e76755"
-      },
-      {
-        "c": 1,
-        "at": "middle centre",
-        "alnum": 4,
-        "mark": false,
-        "hash": "61bff133af9440ae8869baf6a97f0de220acd97be4e8947a3d7642039859ee79"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 8,
-        "mark": false,
-        "hash": "e82c73f99cbcde6a2aac92ce6bffe60186df2adcb8d4d755887579895f9b9994"
-      },
-      {
-        "c": 1,
-        "at": "middle right",
-        "alnum": 3,
-        "mark": false,
-        "hash": "f02f3e1d95a11325e3830b3a0cb9411dad7041fb6e73e3b24a9099f46b999332"
-      }
-    ],
-    "watermark": false,
-    "kind": "none",
-    "locations": [
-      "top left",
-      "middle centre",
-      "top right",
-      "middle right"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/6371289.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 6,
-        "mark": false,
-        "hash": "75f66a8f2df857f74e65ada992331743c2c1ad12f8e6d0cfd9bbc083a9e76755"
-      },
-      {
-        "c": 1,
-        "at": "middle left",
-        "alnum": 3,
-        "mark": false,
-        "hash": "7e7d0319d1c351aa52eb663c65131c2d8080a00cae3156cb01c4aa4641200ff5"
-      },
-      {
-        "c": 1,
-        "at": "middle right",
-        "alnum": 8,
-        "mark": false,
-        "hash": "e82c73f99cbcde6a2aac92ce6bffe60186df2adcb8d4d755887579895f9b9994"
-      },
-      {
-        "c": 1,
-        "at": "middle right",
-        "alnum": 3,
-        "mark": false,
-        "hash": "f02f3e1d95a11325e3830b3a0cb9411dad7041fb6e73e3b24a9099f46b999332"
-      }
-    ],
-    "watermark": false,
-    "kind": "none",
-    "locations": [
-      "top left",
-      "middle left",
-      "middle right"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/65478484.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/65478486.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/65478488.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/69546364.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "bottom left",
-        "alnum": 2,
-        "mark": false,
-        "hash": "4ec9599fc203d176a301536c2e091a19bc852759b255bd6818810a42c5fed14a"
-      },
-      {
-        "c": 1,
-        "at": "bottom left",
-        "alnum": 2,
-        "mark": false,
-        "hash": "9400f1b21cb527d7fa3d3eabba93557a18ebe7a2ca4e471cfe5e4c5b4ca7f767"
-      },
-      {
-        "c": 1,
-        "at": "bottom centre",
-        "alnum": 2,
-        "mark": false,
-        "hash": "f5ca38f748a1d6eaf726b8a42fb575c3c71f1864a8143301782de13da2d9202b"
-      }
-    ],
-    "locations": [
-      "bottom left",
-      "bottom centre"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/70817766.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/7111007.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/76615028.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/76615039.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/82685461.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/8485063.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/85142632.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/85142645.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/8710001.webp": {
     "ocr": []
   }
 }
