@@ -14,7 +14,7 @@ import { plain, sentences, splice, type Piece } from './sentences'
  * - The swap: a model only picks, for each listed text in a sentence, one of its entry's words (`swap`) or none. Code
  *   puts the pick in the text's place, so the rest of the sentence stays word for word by construction; a pick that
  *   isn't on the list is none. A text in a clause with a negation ("không phải lựa chọn lý tưởng") isn't offered, nor
- *   one a key gives no words (a longer key where the words would read wrong: "dành phần lớn thời gian").
+ *   one a key gives no words (a longer key where the words would read wrong: "phần lớn thời gian", "của bạn cần").
  * - The recast: a sentence the swap left (no word fits, or its change was refused) is written again by a model, freely,
  *   with no listed word, but only a plain one: no hedge, no figure or number word, no word of how many or how sure
  *   (COUNTED), no tag or entity, no listed word outside the lane, one sentence. Its new text is held to the same: one
@@ -23,7 +23,7 @@ import { plain, sentences, splice, type Piece } from './sentences'
  *   "Đa số" and "hầu hết" are no swap for "phần lớn": the repeat check counts the three as one word (phrases.ts TICS).
  * - Each change a reviewer reads, before and after, and each is kept or refused on its own: one refused sentence
  *   doesn't refuse its part (the fit rewrite's mend kept 19 of 47 parts on 15 Nov for that).
- * - A page gains at most CAP of any one word the swap puts in ("thường", "nhưng"), which the repeat check doesn't
+ * - A page gains at most CAP of any one word the swap puts in ("nhưng", "chỗ trốn"), which the repeat check doesn't
  *   count, and no listed word; and a change that puts back a word of a kind the page repeats (phrases.ts TICS, counted
  *   over the whole page, fixed parts too), or leaves a stacked "nên", is refused.
  * - Titles, headings, table headers, a guide's references, FAQ questions and parts a person fixed are left. Held pages
@@ -62,9 +62,9 @@ export const unrecast = (say: string) => SURE.has(say)
 /**
  * What a recast may neither meet nor bring in: a hedge (hedges.ts), a figure (any numeral, ⅔ too), a number word, a
  * word of how many or how sure that no hedge check reads ("một số", "gần như", "dường như", "tất cả", "luôn", "cả",
- * "đều", "mỗi", "hiếm", "hoàn toàn", "chỉ"), a tag or an entity.
+ * "đều", "mỗi", "từng", "hiếm", "hoàn toàn", "chỉ", "chục"), a tag or an entity.
  */
-const COUNTED = /(?<![\p{L}\p{N}])(?:một|hai|ba|bốn|năm|sáu|bảy|tám|chín|mười|mươi|trăm|nghìn|ngàn|triệu|tá|nửa|đôi|vài|mấy|một số|nhiều|ít|gần như|hầu như|hiếm khi|hiếm|ít khi|có vẻ|dường như|tất cả|mọi|cả|đều|mỗi|hoàn toàn|toàn bộ|chỉ|luôn|luôn luôn|không bao giờ|chắc chắn|chắc|khoảng|chừng|tầm|ít nhất|tối đa|tối thiểu|hơn|nhất)(?![\p{L}\p{N}])/iu
+const COUNTED = /(?<![\p{L}\p{N}])(?:một|hai|ba|bốn|năm|sáu|bảy|tám|chín|mười|mươi|trăm|nghìn|ngàn|triệu|tá|chục|nửa|đôi|vài|dăm|mấy|từng|một số|nhiều|ít|gần như|hầu như|hiếm khi|hiếm|ít khi|có vẻ|dường như|tất cả|mọi|cả|đều|mỗi|hoàn toàn|toàn bộ|chỉ|luôn|luôn luôn|không bao giờ|chắc chắn|chắc|khoảng|chừng|tầm|ít nhất|tối đa|tối thiểu|hơn|nhất)(?![\p{L}\p{N}])/iu
 export const counted = (html: string) => { const t = plain(html); return HEDGE_VI.test(t) || COUNTED.test(t) || /\p{N}/u.test(t) || /[<&]/.test(html) }
 /** A sentence with a full stop, a question or an exclamation mark anywhere before its end: it may be two. */
 const twoSentences = (html: string) => /[.!?…]/u.test(plain(html).replace(/[.!?…"'»”’)\s]+$/u, ''))
@@ -74,6 +74,10 @@ const doubled = (html: string) => [...plain(html).matchAll(/(?<![\p{L}\p{N}])(\p
 const END = /[.!?…]+["'»”’)]*$/u
 /** An abbreviation's full stop ("spp.", "cf.", an initial): no sentence starts after it. */
 const ABBR = /(?:^|[\s(])(?:spp?|ssp|subsp|var|cf|aff|v\.v|vd|tr|\p{L})\.$/iu
+/** Whether a sentence starts after this text: nothing before it, or a full stop that isn't an abbreviation's. */
+const opens = (text: string) => /(?:^|[.!?…]["'»”’)]*)\s*$/u.test(text) && !ABBR.test(text)
+/** A question's or an exclamation's mark at a sentence's end, before what closes after it: "?" stays a question. */
+const tone = (html: string) => (/[.!?…]+(?=["'»”’)]*$)/u.exec(plain(html))?.[0] ?? '').replace(/[.…]/gu, '')
 
 /** Each listed text of the lane's entries in a sentence's HTML, outside its tags, in order: a table's longest key first. */
 export function hitsIn(html: string, lane: readonly Phrase[] = LANE): Hit[] {
@@ -92,7 +96,7 @@ export function hitsIn(html: string, lane: readonly Phrase[] = LANE): Hit[] {
         if (taken(s, e)) continue
         const head = before(seg, m.index!)
         const negated = NEGATED.test(head)
-        out.push({ say: p.say, key: k, from: m[0], start: s, end: e, options: negated || (MID_ONLY.has(p.say) && !head.trim()) ? [] : p.swap![k]!, negated })
+        out.push({ say: p.say, key: k, from: m[0], start: s, end: e, options: negated || (MID_ONLY.has(p.say) && opens(head)) ? [] : p.swap![k]!, negated })
       }
       for (const m of seg.text.matchAll(new RegExp(pattern(p, 'vi'), 'giu'))) {
         const s = seg.at + m.index!, e = s + m[0].length
@@ -136,7 +140,7 @@ export function applied(html: string, picks: readonly { hit: Hit; to: string }[]
   for (const { hit, to } of [...picks].sort((a, b) => b.hit.start - a.hit.start)) {
     let head = s.slice(0, hit.start), tail = s.slice(hit.end)
     // A sentence's start, or a text that began with a capital (after "spp.", only that tells a new sentence).
-    const big = (/(?:^|[.!?…]["'»”’)]*)\s*$/u.test(plain(head)) && !ABBR.test(plain(head))) || /^\p{Lu}/u.test(hit.from)
+    const big = opens(plain(head)) || /^\p{Lu}/u.test(hit.from)
     if (to) { s = head + (big ? capital(to) : to) + tail; continue }
     const open = /<(strong|em|b|i)>\s*$/.exec(head)
     const close = open && new RegExp(`^\\s*</${open[1]}>`).exec(tail)
@@ -327,12 +331,14 @@ export async function mendPage(llm: Llm, page: string, parts: readonly Part[], o
       // A sentence keeps its end: given without its full stop, it would run into the next.
       const end = END.exec(plain(f.html))?.[0]
       const raw = inline(given)
-      const now = raw && end && !END.test(plain(raw)) ? `${raw.trimEnd()}${end}` : raw
+      // Its own closing quote goes, so the end isn't doubled ("…lạ”.”").
+      const now = raw && end && !END.test(plain(raw)) ? `${raw.trimEnd().replace(/["'»”’)]+$/u, '')}${end}` : raw
       const no = (why: string) => outcomes.push({ page, field: f.field, n: f.n, says: says(f), step: 'recast', before: f.html, ...(now ? { after: now } : {}), kept: false, why })
       if (!now) return no('the writer gave no sentence')
       if (now === f.html) return no('the writer gave it back as it was')
       if (counted(given) || counted(now)) return no('it brought in a hedge, a figure, a word of how many or how sure, or a tag')
       if (twoSentences(now)) return no('it became two sentences')
+      if (tone(now) !== tone(f.html)) return no('it ends another way: a question made a statement, or the like')
       const why = guard(f, now, 'recast', f.hits.map(h => h.from))
       if (why) return no(why)
       tries.push({ f, now })
@@ -496,16 +502,21 @@ export async function wordingMend(root: string, d: { llm: Llm; now: () => Date }
     for (const c of chosen) {
       try {
         const r = await piece(c.key, () => mendPage(d.llm, c.key, c.parts, { ...(o.models ? { models: o.models } : {}), rest: c.rest ?? '' }), { now: d.now })
-        report.outcomes.push(...r.outcomes); report.left.push(...r.left)
         // The page as this run left it: a draft from an earlier run that this one changed nothing in goes.
         const changed = [...r.changes.values()].some(m => m.size)
         const draft = join(out, 'content', c.key, 'vi.json')
-        const was = await readFile(draft, 'utf8').catch(() => undefined)
+        // A draft there that can't be read can't be put back: the page stops before anything goes over it.
+        const was = await readFile(draft, 'utf8').catch((e: NodeJS.ErrnoException) => { if (e.code === 'ENOENT') return undefined; throw e })
         await put(draft, changed ? `${JSON.stringify(withChanges(c.vi, c.parts, r.changes), null, 2)}\n` : undefined)
         const marks = { ...state, [c.key]: { at: d.now().toISOString(), marks: [...new Set([...(state[c.key]?.marks ?? []), ...c.marks])] } }
         // A page whose mark can't be written failed: its draft goes back to what it was, so no draft stands for it.
-        await put(stateFile, `${JSON.stringify(marks, null, 1)}\n`).catch(async (e: unknown) => { await put(draft, was).catch(() => undefined); throw e })
+        await put(stateFile, `${JSON.stringify(marks, null, 1)}\n`).catch(async (e: unknown) => {
+          await put(draft, was).catch((b: unknown) => { throw new Error(`${e instanceof Error ? e.message : String(e)}; and its draft couldn't be put back: ${b instanceof Error ? b.message : String(b)}`) })
+          throw e
+        })
         state[c.key] = marks[c.key]!
+        // Counted only once both writes landed: a page that failed has no edit on disk.
+        report.outcomes.push(...r.outcomes); report.left.push(...r.left)
       } catch (err) {
         const said = err instanceof Error ? err.message : String(err)
         // A page the day's line doesn't admit isn't started, and nothing of it is written or marked (pieces.ts).

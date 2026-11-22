@@ -1,6 +1,6 @@
-import { link, mkdir, mkdtemp, readFile, readdir, rm, symlink, writeFile } from 'node:fs/promises'
+import { chmod, link, mkdir, mkdtemp, readFile, readdir, rm, symlink, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 import { afterEach, beforeEach, expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
 import { pattern, PHRASES } from '../src/phrases'
@@ -334,6 +334,33 @@ test('the swap words offer nothing where they would change or break the sentence
   expect(offers('Thả vào bể cộng đồng.')).toEqual([['bể cộng đồng', 'bể cộng đồng', ['bể chung']]])
 })
 
+// The trial build's last read (22 Nov, 11:00; Codex, Fable): what it found breaking a sentence, or changing what it says.
+test('the last read: no words offered where they break the sentence, make it surer, or lose a ranking', () => {
+  const offers = (html: string, say?: string) => hitsIn(html).filter(h => !say || h.say === say).map(h => [h.say, h.key, h.options])
+  expect(offers('Vì vậy, bể của bạn cần đủ rộng.')).toEqual([['bạn nên', 'của bạn cần', []]]) // not "bể của cần"
+  expect(offers('Đèn mạnh khiến bạn cần thay nước nhiều hơn.')).toEqual([['bạn nên', 'khiến bạn cần', []]])
+  expect(offers('Cách này giảm bớt hành vi hung hăng.')).toEqual([['hung hăng', 'hành vi hung hăng', ['hành vi hung dữ']]]) // not "hành vi dữ"
+  expect(offers('Phần lớn sự hung hăng là do chật chỗ.', 'hung hăng')).toEqual([['hung hăng', 'sự hung hăng', ['sự hung dữ']]]) // not "sự dữ"
+  expect(offers('Cá này ít khi làm bạn cùng bể bị thương.')).toEqual([['bạn cùng bể', 'làm bạn cùng bể bị', []]]) // not "nuôi chung bị thương"
+  expect(offers('Người ta cho rằng lý do là để tránh cá dữ.')).toEqual([['lý do là', 'rằng lý do là', []]])
+  expect(offers('Xem hình minh họa. Lý do là Granville đã đổi tên.')).toEqual([['lý do là', 'lý do là', []]]) // a sentence starts there
+  expect(offers('Tuy vậy, cá mồi sống vẫn là lựa chọn lý tưởng nhất.', 'lý tưởng')).toEqual([['lý tưởng', 'lựa chọn lý tưởng nhất', []]]) // not "rất hợp nhất"
+  expect(offers('Rất nhiều khả năng cá bị nấm.')).toEqual([['nhiều khả năng', 'rất nhiều khả năng', []]]) // "Rất chắc" is surer
+})
+
+test('the last read: a recast keeps a count word and the way its sentence ends', async () => {
+  // "từng cặp" says it's pair by pair, so the sentence isn't sent; "hàng chục" brought in is refused.
+  const r0 = await mendPage(model({}).llm, 'species/a', body('Trước khi đẻ, từng cặp cá bắt đầu giữ lãnh thổ.'))
+  expect(r0.left).toMatchObject([{ why: expect.stringContaining('a figure') }])
+  const { llm } = model({
+    recast: [{ sentences: [{ s: 1, vi: 'Cá đực đuổi hàng chục cá khác.' }, { s: 2, vi: 'Cá đực đuổi cá lạ.' }, { s: 3, vi: '“Cá đực đuổi cá lạ”' }] }],
+    review: [{ verdicts: [{ s: 1, ok: true }] }],
+  })
+  const r = await mendPage(llm, 'species/a', body('Cá đực giữ lãnh thổ quanh hang.', 'Vì sao cá đực giữ lãnh thổ?', '“Cá đực giữ lãnh thổ.”'))
+  expect(r.outcomes.map(x => [x.n, x.kept, x.why])).toEqual([[0, false, expect.stringContaining('brought in')], [1, false, 'it ends another way: a question made a statement, or the like'], [2, true, undefined]])
+  expect(r.changes.get('body')).toEqual(new Map([[2, '“Cá đực đuổi cá lạ.”']])) // not "…lạ”.”"
+})
+
 test('a swap that puts one word twice in a row is refused', async () => {
   const { llm } = model({ pick: [{ picks: [{ s: 1, h: 1, pick: 1 }] }], recast: [{ sentences: [] }] })
   const r = await mendPage(llm, 'species/a', body('Thả vào bể cộng đồng chung với cá hiền.'))
@@ -410,6 +437,18 @@ test('the trial never writes through a hard link, and a page whose mark fails le
   const r2 = await wordingMend(root, { llm: answers(), now }, { out: out2, limit: 1, pages: ['species/a'] })
   expect(r2.failed).toEqual([expect.stringContaining('species/a')])
   expect((await readdir(out2, { recursive: true })).filter(f => f.endsWith('vi.json'))).toEqual([])
+  // Nor does the report count an edit for it: none landed (Codex, the last read).
+  expect(r2.outcomes).toEqual([])
+  // A draft already there that can't be read stops the page before anything goes over it.
+  const out3 = await outside()
+  const prior = join(out3, 'content/species/a/vi.json')
+  await mkdir(dirname(prior), { recursive: true })
+  await writeFile(prior, '{"old":1}')
+  await chmod(prior, 0o000)
+  const r3 = await wordingMend(root, { llm: answers(), now }, { out: out3, limit: 1, pages: ['species/a'] }).finally(() => chmod(prior, 0o644))
+  expect(r3.failed).toEqual([expect.stringContaining('species/a')])
+  expect(await readFile(prior, 'utf8')).toBe('{"old":1}')
+  expect(r3.outcomes).toEqual([])
 })
 
 test('two runs in the same millisecond keep two reports; a page record that is a link to nothing stops the run', async () => {

@@ -35,7 +35,7 @@ export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
   // the transcripts of Vietnamese planted-tank videos (0.3M words). Each is at least ten times rarer in both than on the
   // site, except where its line says; per million words: site | forum | videos.
   vi: [
-    { say: 'nhiều khả năng', instead: '"chắc là", "có lẽ" (giữ đúng mức chắc chắn của nguồn)', swap: { 'có nhiều khả năng': [], 'nhiều khả năng nhất': [], 'nhiều khả năng hơn': [], 'nhiều khả năng là': ['chắc là'], 'nhiều khả năng': ['chắc'] } }, // 473 | 5 | 0
+    { say: 'nhiều khả năng', instead: '"chắc là", "có lẽ" (giữ đúng mức chắc chắn của nguồn)', swap: { 'có nhiều khả năng': [], 'rất nhiều khả năng': [], 'khá nhiều khả năng': [], 'nhiều khả năng nhất': [], 'nhiều khả năng hơn': [], 'nhiều khả năng là': ['chắc là'], 'nhiều khả năng': ['chắc'] } }, // 473 | 5 | 0
     // The owner, 2026-11-11: "Cá thài lài doesn't exist in Vietnamese". 0 in the forum and the videos; the plant's name.
     { say: 'thài lài', find: '(?<!(?:cỏ|rau|cây|hoa|họ)\\s)thài lài(?! tía)', instead: 'tên cá: "cá sặc" cho cá gourami, "cá sặc mật ong", "cá bã trầu" (cây "cỏ thài lài" giữ nguyên)' },
     // The reader check's wording findings on top-card pages (2026-11-08); the sweep writes each the keepers' way (sanitize.ts).
@@ -46,16 +46,16 @@ export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
     { say: 'phần lớn', instead: '"thường", "chủ yếu", hoặc bỏ', swap: { 'phần lớn là': ['chủ yếu là'], 'phần lớn thời gian': [] } }, // 1100 | 25 | 15
     { say: 'nhìn chung', instead: '"thường", hoặc bỏ', swap: { 'nhìn chung,': ['nói chung,'], 'nhìn chung': ['nói chung'] } }, // 167 | 14 | 15
     { say: 'nhờ vậy', find: 'nhờ (?:vậy|đó)', instead: 'để câu sau tự nói; "thế là" chỉ khi đúng là chuyện xảy ra tiếp', swap: {} }, // 169 | 12 | 0
-    { say: 'lý do là', instead: '"vì", "là do"', swap: { 'một lý do là': [], 'những lý do là': [], 'các lý do là': [], 'lý do là vì': ['là vì'], 'lý do là': ['là do', 'vì'] } }, // 153 | 6 | 19
+    { say: 'lý do là', instead: '"vì", "là do"', swap: { 'một lý do là': [], 'những lý do là': [], 'các lý do là': [], 'rằng lý do là': [], 'dù lý do là': [], 'lý do là vì': ['là vì'], 'lý do là': ['là do', 'vì'] } }, // 153 | 6 | 19
     { say: 'thủ phạm', instead: '"nguyên nhân", "là do"' }, // 70 | 6 | 0
-    { say: 'lý tưởng', instead: '"hợp nhất", "tốt nhất", hoặc nói thẳng con số ("nên giữ 24–26 °C")', swap: { 'lựa chọn lý tưởng': ['lựa chọn rất hợp'], 'là lý tưởng': ['là rất hợp'], 'rất lý tưởng': ['rất hợp'], 'lý tưởng nhất': ['tốt nhất'], 'lý tưởng': [] } }, // 230 | 34 | 15: seven times the forum's
+    { say: 'lý tưởng', instead: '"hợp nhất", "tốt nhất", hoặc nói thẳng con số ("nên giữ 24–26 °C")', swap: { 'lựa chọn lý tưởng nhất': [], 'lựa chọn lý tưởng hơn': [], 'lựa chọn lý tưởng': ['lựa chọn rất hợp'], 'là lý tưởng': ['là rất hợp'], 'rất lý tưởng': ['rất hợp'], 'lý tưởng nhất': ['tốt nhất'], 'lý tưởng': [] } }, // 230 | 34 | 15: seven times the forum's
     { say: 'khuyến nghị', instead: '"nên", "khuyên"' }, // 43 | 0 | 0
     { say: 'bắt buộc phải', instead: '"phải"', swap: { 'bắt buộc phải': ['phải'] } }, // 103 | 7 | 37: three times the videos'
     { say: 'tốt nhất bạn nên', instead: '"nên", "tốt nhất là"' }, // 41 | 3 | 0
     // Five times the forum's and three and a half times the videos': most of the pages say it, in most paragraphs.
-    { say: 'bạn nên', find: 'bạn (?:nên|cần)', instead: '"nên", "cần", hoặc nói thẳng việc cần làm ("Thay 30% nước mỗi tuần")', swap: { 'nên bạn nên': [], 'nên bạn cần': [], 'vậy bạn nên': [], 'thế bạn nên': [], 'bạn nên': ['nên'], 'bạn cần': ['cần'] } }, // bạn nên 848 | 187 | 240, bạn cần 366 | 51 | 137
-    { say: 'hung hăng', instead: '"dữ", "hung dữ"', swap: { 'hung hăng': ['hung dữ', 'dữ'] } }, // 189 | 9 | 0
-    { say: 'bạn cùng bể', instead: '"cá nuôi chung", "nuôi chung với…"', swap: { 'làm bạn cùng bể': ['nuôi chung'] } }, // 222 | 0 | 0
+    { say: 'bạn nên', find: 'bạn (?:nên|cần)', instead: '"nên", "cần", hoặc nói thẳng việc cần làm ("Thay 30% nước mỗi tuần")', swap: { 'nên bạn nên': [], 'nên bạn cần': [], 'của bạn cần': [], 'khiến bạn cần': [], 'vậy bạn nên': [], 'thế bạn nên': [], 'bạn nên': ['nên'], 'bạn cần': ['cần'] } }, // bạn nên 848 | 187 | 240, bạn cần 366 | 51 | 137
+    { say: 'hung hăng', instead: '"dữ", "hung dữ"', swap: { 'sự hung hăng': ['sự hung dữ'], 'hành vi hung hăng': ['hành vi hung dữ'], 'cơn hung hăng': ['cơn hung dữ'], 'mức độ hung hăng': ['mức độ hung dữ'], 'thái độ hung hăng': ['thái độ hung dữ'], 'hung hăng': ['hung dữ', 'dữ'] } }, // 189 | 9 | 0
+    { say: 'bạn cùng bể', instead: '"cá nuôi chung", "nuôi chung với…"', swap: { 'làm bạn cùng bể bị': [], 'làm bạn cùng bể cho': [], 'làm bạn cùng bể': ['nuôi chung'] } }, // 222 | 0 | 0
     { say: 'giới chơi', instead: '"người chơi", hoặc bỏ', swap: { 'trong giới chơi': [], 'giới chơi': ['người chơi'] } }, // 220 | 4 | 0
     { say: 'thị trường cá cảnh', instead: '"tiệm cá", "trên thị trường"', swap: {} }, // 126 | 2 | 0
     { say: 'thức ăn sống', find: '(?:thức ăn|mồi) sống', instead: '"thức ăn tươi sống", "đồ tươi"' }, // 427 | 9 | 0
