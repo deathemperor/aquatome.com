@@ -40,7 +40,7 @@ const model = (answers: { pick?: Answer[]; review?: Answer[]; recast?: Answer[] 
 const body = (...ps: string[]) => [{ field: 'body', text: ps.map(p => `<p>${p}</p>`).join('') }] as Part[]
 /** A hit on a text of a sentence, whatever the table offers: for how a pick goes in. */
 const at = (html: string, text: string): Hit => { const start = html.indexOf(text); return { say: 'x', from: text, start, end: start + text.length, options: [''], negated: false } }
-const none = { sentences: 1, offered: 1, recastable: 1, swapped: 0, recast: 0, refused: 0, left: 0 }
+const none = { sentences: 1, offered: 1, mendable: 1, swapped: 0, recast: 0, refused: 0, left: 0 }
 
 test('the swap words: each holds its entry as the list finds it, none cuts how sure or how many, and five entries stay out', () => {
   expect(LANE.map(p => p.say)).toHaveLength(20)
@@ -311,4 +311,6 @@ test('the kinds take turns, and the rarest entry gets its sentences first', () =
   expect(pick(cands, {}, { limit: 3 }).map(c => c.key)).toEqual(['species/a', 'plants/c', 'guides/d'])
   expect(pick(cands, {}, { limit: 1, perEntry: 1 }).map(c => c.key)).toEqual(['guides/d'])
   expect(pick(cands, { 'species/a': { at: '', marks: cands[0]!.marks } }, { limit: 9 }).map(c => c.key)).toEqual(['species/b', 'plants/c', 'guides/d'])
+  // A sentence counts for its entry only if the lane may mend it: "Phần lớn cá…" has no word offered and is never recast.
+  expect(pick([page('species/e', 'Phần lớn cá khỏe.'), page('species/f', 'Phần lớn là cá hoang dã.')], {}, { limit: 1, perEntry: 1 }).map(c => c.key)).toEqual(['species/f'])
 })

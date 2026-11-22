@@ -1323,7 +1323,7 @@ if (cmd === 'photo-privacy') {
   const r = await wordingMend(ROOT, { llm: claudeCli, now: () => new Date() }, { out, limit: Number(values.limit ?? 40), perEntry: Number(values.per ?? 4), ...(values.pages ? { pages: values.pages.split(',') } : {}), dry: !!values['dry-run'] })
   const kept = r.outcomes.filter(x => x.kept)
   console.log(`mend-words${values['dry-run'] ? ' (dry run)' : ''}: ${r.pages.length} pages; ${kept.filter(x => x.step === 'swap').length} sentences swapped, ${kept.filter(x => x.step === 'recast').length} recast, ${r.outcomes.length - kept.length} changes refused${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
-  for (const [say, e] of Object.entries(r.byEntry)) if (e.sentences) console.log(`  ${say}: ${e.sentences} sentences, ${e.offered} offered a swap, ${e.recastable} the recast may take${values['dry-run'] ? '' : `; ${e.swapped} swapped, ${e.recast} recast, ${e.refused} refused, ${e.left} left`}`)
+  for (const [say, e] of Object.entries(r.byEntry)) if (e.sentences) console.log(`  ${say}: ${e.sentences} sentences, ${e.offered} offered a swap, ${e.mendable} the lane may mend${values['dry-run'] ? '' : `; ${e.swapped} swapped, ${e.recast} recast, ${e.refused} refused, ${e.left} left`}`)
   for (const x of r.failed) console.log(`failed: ${x}`)
   console.log(`written under ${out}: ${reportName(r)}`)
   if (r.failed.length) process.exitCode = 1

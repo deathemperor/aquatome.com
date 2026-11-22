@@ -221,7 +221,7 @@ const recastWhy = (f: Flagged): string | undefined => {
 export type Step = 'swap' | 'recast'
 /** A sentence's outcome, for the report and the editors' blind read. */
 export type Outcome = { page: string; field: string; n: number; says: string[]; step: Step; before: string; after?: string; kept: boolean; why?: string }
-export type WordingReport = { at: string; dry?: true; pages: string[]; failed: string[]; stopped?: string; outcomes: Outcome[]; left: { page: string; field: string; n: number; says: string[]; why: string }[]; byEntry: Record<string, { sentences: number; offered: number; recastable: number; swapped: number; recast: number; refused: number; left: number }> }
+export type WordingReport = { at: string; dry?: true; pages: string[]; failed: string[]; stopped?: string; outcomes: Outcome[]; left: { page: string; field: string; n: number; says: string[]; why: string }[]; byEntry: Record<string, { sentences: number; offered: number; mendable: number; swapped: number; recast: number; refused: number; left: number }> }
 type State = Record<string, { at: string; marks: string[] }>
 
 /** One page's listed sentences mended: its changes by part (field → sentence → new HTML), and each sentence's outcome. */
@@ -382,14 +382,15 @@ export async function candidates(contentRoot: string): Promise<Candidate[]> {
 
 /**
  * The pages a run takes up: those named, in their order, or else the due ones (a mark not yet in the state), picked so
- * each entry has at least `perEntry` sentences, rarest entry first, then in page order, up to `limit`. The kinds take
+ * each entry has at least `perEntry` sentences the lane may mend, rarest entry first, then in page order, up to `limit`. The kinds take
  * turns (a fish page, a plant, a guide, a breed), so a trial reads each kind's writing.
  */
 export function pick(cands: readonly Candidate[], state: State, o: { limit: number; perEntry?: number; pages?: readonly string[] }): Candidate[] {
   if (o.pages?.length) return [...new Set(o.pages)].flatMap(k => cands.filter(c => c.key === k)).slice(0, o.limit)
   const byKind = KINDS.map(k => cands.filter(c => c.key.startsWith(`${k}/`) && c.marks.some(m => !state[c.key]?.marks.includes(m))))
   const due = Array.from({ length: Math.max(0, ...byKind.map(l => l.length)) }, (_, i) => byKind.flatMap(l => (l[i] ? [l[i]!] : []))).flat()
-  const count = (c: Candidate, say: string) => c.sentences.filter(f => f.hits.some(h => h.say === say)).length
+  // A sentence counts for an entry only if the lane may mend it: a word offered in place, or a recast if the swap leaves it.
+  const count = (c: Candidate, say: string) => c.sentences.filter(f => f.hits.some(h => h.say === say) && (f.hits.some(h => h.say === say && h.options.length) || !recastWhy(f))).length
   const total = new Map(LANE.map(p => [p.say, due.reduce((n, c) => n + count(c, p.say), 0)]))
   const chosen: Candidate[] = []
   for (const p of [...LANE].sort((a, b) => total.get(a.say)! - total.get(b.say)!)) {
@@ -409,13 +410,14 @@ export function pick(cands: readonly Candidate[], state: State, o: { limit: numb
  * kept change counts for an entry only if the sentence lost one of its words; one that kept them all leaves it.
  */
 const sumEntry = (r: WordingReport, cands: readonly Candidate[]) => {
-  for (const p of LANE) r.byEntry[p.say] = { sentences: 0, offered: 0, recastable: 0, swapped: 0, recast: 0, refused: 0, left: 0 }
+  for (const p of LANE) r.byEntry[p.say] = { sentences: 0, offered: 0, mendable: 0, swapped: 0, recast: 0, refused: 0, left: 0 }
   for (const c of cands) for (const f of c.sentences) for (const s of new Set(f.hits.map(h => h.say))) {
     const e = r.byEntry[s]!
     e.sentences++
     // What the lane may do with it before any model: a word offered in place, or a recast if the swap leaves it.
-    if (f.hits.some(h => h.say === s && h.options.length)) e.offered++
-    if (!recastWhy(f)) e.recastable++
+    const offered = f.hits.some(h => h.say === s && h.options.length)
+    if (offered) e.offered++
+    if (offered || !recastWhy(f)) e.mendable++
   }
   const end = new Map<string, { says: string[]; as: 'swapped' | 'recast' | 'refused' | 'left'; before?: string; after?: string }>()
   for (const x of r.outcomes) end.set(`${x.page} ${x.field} ${x.n}`, { says: x.says, as: x.kept ? (x.step === 'swap' ? 'swapped' : 'recast') : 'refused', before: x.before, after: x.after })
