@@ -261,6 +261,12 @@
     "opus": 0.95,
     "back": true
   },
+  "ancistrus-leucostictus": {
+    "hash": "56e9c883c347d4ca1786bd18f9ab3d400c28ebb3e329283ed47d5ff204ee9a3c",
+    "at": "2026-11-22T00:27:20.552Z",
+    "sonnet": 0.6,
+    "back": false
+  },
   "ancistrus-triradiatus": {
     "hash": "801a2dad6e154c183bd52f45975979194c995a1a29f3c45a9640d1b9075d770a",
     "at": "2026-11-20T01:41:42.904Z",
@@ -349,6 +355,12 @@
     "sonnet": 0.85,
     "opus": 0.85,
     "back": true
+  },
+  "apistogramma-allpahuayo": {
+    "hash": "a564bb45f0e2acf940299f802f33ddf4309557e2403e08182b1ac20a03f944c0",
+    "at": "2026-11-22T00:27:35.037Z",
+    "sonnet": 0.6,
+    "back": false
   },
   "apistogramma-barlowi": {
     "hash": "650147a48ae5a87ff5291f86cc4b5a8bd74245b9622a825fccdbaf09cd01b1db",
@@ -497,6 +509,24 @@
     "sonnet": 0.85,
     "opus": 0.95,
     "back": true
+  },
+  "astroblepus-ardiladuartei": {
+    "hash": "1022dc8d12049e78653b385800b20b7240a23ca4da3b63b3feda78049eb76816",
+    "at": "2026-11-22T00:27:49.731Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "astroblepus-cacharas": {
+    "hash": "8a8d1fdb15d8891f0c3b94fc10a006e87b88c41b2b8678b23e5014a5abe722b8",
+    "at": "2026-11-22T00:28:02.249Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "astroblepus-cyclopus": {
+    "hash": "3f057a970ba2a940177cf2aa3f8da33d82284f189de681f094f6152c95c36cf5",
+    "at": "2026-11-22T00:28:15.498Z",
+    "sonnet": 0.6,
+    "back": false
   },
   "astyanax-bimaculatus": {
     "hash": "de986c21f9411ac741fd8167d877be80e42cccabdb1232feb0aab9dc8b773f61",
@@ -974,6 +1004,12 @@
     "opus": 0.8,
     "back": true
   },
+  "cambarellus-shufeldtii": {
+    "hash": "c49c502790e8ed30caec1755c270c19da700bba282d88d1de035d4956445bf16",
+    "at": "2026-11-22T00:29:02.667Z",
+    "sonnet": 0.6,
+    "back": false
+  },
   "cambarellus-texanus": {
     "hash": "8a4e2708e5539821e35c1d98a4b24c985d29d1e261d83280a57574e6e105dbe9",
     "at": "2026-11-18T18:12:10.398Z",
@@ -984,11 +1020,24 @@
       "#6: \"ควรปรับสภาพน้ำก่อนปล่อยลงตู้\" reads like treating tap water. The source means acclimating the animals, so use \"ควรค่อย ๆ ปรับกุ้งให้คุ้นกับน้ำในตู้ (acclimate) ก่อนปล่อย\"."
     ]
   },
+  "campylomormyrus-compressirostris": {
+    "hash": "08e9b6166b8f1efbb7fb038759baf228e523d9d0bc084242b0884520f15297db",
+    "at": "2026-11-22T00:29:17.856Z",
+    "sonnet": 0.7,
+    "back": false
+  },
   "campylomormyrus-tamandua": {
     "hash": "ffa0137edc3c0e0c294afefe932f65bb9d1fc33bd26e0ae0196eeaf189ca5d3b",
     "at": "2026-11-21T18:50:30.085Z",
     "sonnet": 0.6,
     "back": false
+  },
+  "canthophrys-gongota": {
+    "hash": "f1adedaa27f6a4e8060bcd086347659378ae67843a5c101ddc2ca28258346b3c",
+    "at": "2026-11-22T00:29:53.006Z",
+    "sonnet": 0.9,
+    "opus": 0.8,
+    "back": true
   },
   "caquetaia-kraussii": {
     "hash": "7a01309fb8226beef0e5b61f93421b63c1e20a3a659a547e14edc86293bbc8a8",
@@ -1011,11 +1060,51 @@
     "sonnet": 0.5,
     "back": false
   },
+  "caridina-rubropunctata": {
+    "hash": "11eb3610560b129f63d80f7a512394e6f18ad33e7901bc24fe0d084de6a3df0a",
+    "at": "2026-11-22T00:30:31.294Z",
+    "sonnet": 0.75,
+    "opus": 0.85,
+    "back": true
+  },
+  "carinotetraodon-salivator": {
+    "hash": "d72f1002e563d4280d670a09ee8cb29712adf01f25763e86252162d48f87b43e",
+    "at": "2026-11-22T00:31:11.477Z",
+    "sonnet": 0.93,
+    "opus": 0.8,
+    "back": true
+  },
   "carinotetraodon-travancoricus": {
     "hash": "39f0c4c73ae587a21a31de5dd669107b9b1b8793691f405268f437515df40e89",
     "at": "2026-11-21T13:03:20.931Z",
     "sonnet": 0.8,
     "opus": 0.65,
+    "back": false
+  },
+  "carnegiella-strigata": {
+    "hash": "54a71a299ed1c568f789643582a9ba6064999081ac235b6e1f69249ed5b5618f",
+    "at": "2026-11-22T00:32:10.038Z",
+    "sonnet": 0.9,
+    "opus": 0.8,
+    "back": false,
+    "held": [
+      "Item 8: \"ไรแดง (Daphnia, Moina)\" treats Daphnia as ไรแดง. Thai hobbyists call Moina ไรแดง and Daphnia ไรน้ำ/ไรแดงฝรั่ง. List them separately, e.g. \"ไรน้ำ (Daphnia) ไรแดง (Moina)\"."
+    ]
+  },
+  "catalaphyllia-jardinei": {
+    "hash": "6f4201a054432959d0c8d9034df1b1ce7176c0859c955609900eee15d5379cf5",
+    "at": "2026-11-22T00:32:57.912Z",
+    "sonnet": 0.93,
+    "opus": 0.85,
+    "back": false,
+    "held": [
+      "Item 6: \"ทายาปฏิชีวนะ\" (apply antibiotics) is fine, but \"จุ่มน้ำยาระหว่างปรับสภาพ\" for \"dips during acclimation\" is vague; say \"จุ่มน้ำยาฆ่าเชื้อ/ปรสิต (dip)\"."
+    ]
+  },
+  "catlocarpio-siamensis": {
+    "hash": "6a04a74b04e8decedbf1a3c15fc61ea83f00d88cd6f009f4e42daef864bc6d1a",
+    "at": "2026-11-22T00:33:10.420Z",
+    "sonnet": 0.7,
     "back": false
   },
   "centrodoras-brachiatus": {
@@ -1339,9 +1428,9 @@
     "back": false
   },
   "glyptothorax-schmidti": {
-    "hash": "01d26df781ba9f9c59803ed9e4846e15e813197ef11ccd62a3ca5f1bbe3f017f",
-    "at": "2026-11-21T18:51:19.987Z",
-    "sonnet": 0.6,
+    "hash": "f0c1a9ed0115eba39a5b4d18de764d9d05aee1760006e4704f4c235f7700b407",
+    "at": "2026-11-22T00:28:29.901Z",
+    "sonnet": 0.7,
     "back": false
   },
   "gymnochanda-ploegi": {
@@ -1563,6 +1652,12 @@
     "hash": "98f10a6c8b09cde14f83dc97d05e55a491b64ed23612327a49c8dd8d1707d7a6",
     "at": "2026-11-19T18:43:54.070Z",
     "sonnet": 0.6,
+    "back": false
+  },
+  "ptychognathus-barbatus": {
+    "hash": "43816658bd0b7547c1b7b3e0e2a6ac725172db13a4e576e987c2310d701f5c01",
+    "at": "2026-11-22T00:28:46.882Z",
+    "sonnet": 0.7,
     "back": false
   },
   "rhynchocinetes-durbanensis": {

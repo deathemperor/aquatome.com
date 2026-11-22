@@ -1,0 +1,29 @@
+{
+  "slug": "astroblepus-caquetae",
+  "name": "แอสโทรบลีปัส คาเคทาเอ",
+  "altNames": [
+    "Climbing catfish",
+    "แคทฟิชแอนดีส"
+  ],
+  "sections": {
+    "distribution:scotcat": "<p>อเมริกาใต้: ลุ่มแม่น้ำแอมะซอนตอนบน ในประเทศโคลอมเบียและเอกวาดอร์ สถานที่พบตัวอย่างต้นแบบ (type locality): Florencia, Río Ortueguasa ประเทศโคลอมเบีย</p>",
+    "habitat:scotcat": "<p>ปลาในวงศ์ Astroblepidae พบในลำธารน้ำจืด (ที่ระดับความสูงประมาณ 60–4,080 เมตรจากระดับน้ำทะเล) ของเทือกเขาแอนดีสเขตร้อน ตั้งแต่ปานามาไปจนถึงโบลิเวีย และพบทั้งในระบบลุ่มน้ำฝั่งตะวันตกที่ไหลลงมหาสมุทรแปซิฟิก และฝั่งตะวันออกที่ไหลลงแอมะซอน ในอเมริกาใต้และอเมริกากลาง</p>",
+    "maintenance:scotcat": "<p>ปลาแมวในวงศ์นี้เลี้ยงไม่ง่าย จึงต้องใช้ตู้ปลาขนาดใหญ่ที่มีก้อนหินและพืชที่เหมาะสมจำนวนหนึ่ง น้ำต้องไหลแรง และควรเพิ่มออกซิเจนด้วยการต่อสายลมเข้ากับกระแสน้ำของปั๊มน้ำ (powerhead) ควรจัดวางก้อนหินในตู้ให้มีบริเวณที่กระแสน้ำไหลช้าลง</p>",
+    "diet:scotcat": "<p>อาหารหลักน่าจะเป็นสัตว์ไม่มีกระดูกสันหลัง ตัวอ่อนแมลง สาหร่ายสไปรูลินาชนิดเม็ดหรือแบบเพสต์ อาหารที่มีส่วนผสมของสาหร่าย และหนอนแดงแบบมีชีวิต แต่อาจลองให้หนอนแก้วและไส้เดือนน้ำ (blackworm) ด้วยก็ได้ (แม้ว่าอาหารเหล่านี้มักจะไม่อยู่บนพื้นตู้ เว้นแต่กระแสน้ำจะพัดไปตกที่นั่น)</p>",
+    "notes:scotcat": "<p>ปลาในวงศ์ Astroblepidae มีความใกล้ชิดกับวงศ์ Loricariidae และที่จริงมีปลาสกุลหนึ่ง (Lithogenes Eigenman, 1909) ที่ดูเหมือนอยู่กึ่งกลางระหว่างสองวงศ์นี้ คือมีรูปร่างลักษณะแบบ Astroblepidae แต่มีแผ่นเกล็ดแข็งบางส่วนบนลำตัวและลักษณะทางสัณฐานวิทยาอื่น ๆ ที่ใกล้เคียงกับ Loricariidae มากกว่า ณ เวลาที่เขียน Lithogenes ถูกจัดอยู่ในวงศ์ Loricariidae</p><p>ที่มาของชื่อ: ชื่อชนิด caquetae หมายถึง จังหวัด Caquetá ประเทศโคลอมเบีย ซึ่งเป็นที่ตั้งของสถานที่พบตัวอย่างต้นแบบ (Río Orteguasa)</p><p>บัญชีแดงของ IUCN: ปลาชนิดนี้เป็นที่รู้จักจากสถานที่พบตัวอย่างต้นแบบเท่านั้น และไม่มีข้อมูลเกี่ยวกับการกระจายพันธุ์และประชากร จัดอยู่ในสถานะข้อมูลไม่เพียงพอ (Data Deficient) แต่จำเป็นต้องปรับปรุงข้อมูลใหม่ (IUCN 2016)</p>",
+    "references:scotcat": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 06/2023 ).</p><p>Mojica, J., Jimenez-Segura, L. &amp; Alonso, J. C. 2016. Astroblepus caquetae. The IUCN Red List of Threatened Species 2016.</p><p>Ochoa LE, Melo BF, García-Melo JE, Maldonado-Ocampo JA, Souza CS, Albornoz-Garzón JG, Conde-Saldaña CC, Villa-Navarro F, Ortega-Lara A, Oliveira C. Species delimitation reveals an underestimated diversity of Andean catfishes of the family Astroblepidae (Teleostei: Siluriformes). Neotrop Ichthyol. 2020; 18(4).</p>"
+  },
+  "quality": {
+    "score": 0.88,
+    "indexable": true,
+    "bySource": {
+      "scotcat": 0.88
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-22"
+  }
+}

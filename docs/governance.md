@@ -1377,6 +1377,14 @@ The layers above still check the result.
     in the run's list for the chief of staff, and a true care line in one gets its general half back by hand the same
     day (the chief of staff, 17 Nov 2026: after eight runs at one for one, 62 of the 74 were left, the fallback never
     having run on a page with another finding; `fit-rewrite.test.ts`, `fit-front.test.ts`).
+  - The open pages no read covers, put out by a push or a hand change with no read (docs/review/fit.md's "Open, no read
+    of its text": 1,054 on 21 Nov 2026), are read once by a pass on two nights, 23 and 24 Nov from midnight to 07:00, in
+    the Mac's photos part on the Mac's second sign-in, on a line of its own in `ceilings.json` (`pnpm engine fit-pass`,
+    `fit-pass.ts`, `fit-pass.json`): first the 86 open pages read against a source that has changed since, then the
+    rest, Vietnamese, Indonesian, Thai and Malay, guides first. It records each read, marked as the pass's, and holds
+    nothing itself: the gate after it holds a page whose read found harm, in every language, and a kit the pass finds
+    holds none. The rest goes to the site lead's morning report (the chief of staff, 21 Nov 2026; `fit-pass.test.ts`,
+    `gate.test.ts`).
   - The app's short cards (`content/cards`, the Curation Lead's) pass the same gate, read with lines of their own: a
     dated source is expected on a card; a new species is "described", with its paper's date, never "discovered" unless
     the source says so; a trend names its figures and where they come from. A held card stays out of the app, and the

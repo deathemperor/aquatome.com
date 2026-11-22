@@ -12,6 +12,93 @@
     "brazil",
     "amazon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PE"
+      ],
+      "regions": [
+        "Amazon",
+        "Solimões",
+        "Orosa"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Middle and upper Amazon River basin, State of Amazonas in Brazil and Loreto Region in Peru.",
+          "countries": [
+            "BR",
+            "PE"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "It occurs in the upper Amazon, where the river is still called the Solimões.",
+          "countries": [],
+          "regions": [
+            "Solimões"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Loreto, río Solimões drainage, río Orosa, mouth of Tonche Cano, about 112 km east of Iquitos, about 3°47'26\"S, 73°14'50\"W, Peru.",
+          "countries": [],
+          "regions": [
+            "Orosa"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8755660,
+      "total": 8,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "PE",
+          6
+        ],
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -73.125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -187,65 +274,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21",
-  "range": {
-    "native": {
-      "countries": [],
-      "regions": [
-        "Amazon",
-        "Solimões"
-      ],
-      "sources": [
-        "glaser"
-      ],
-      "quotes": [
-        {
-          "source": "glaser",
-          "quote": "It occurs in the upper Amazon, where the river is still called the Solimões.",
-          "countries": [],
-          "regions": [
-            "Amazon",
-            "Solimões"
-          ]
-        }
-      ]
-    },
-    "records": {
-      "taxonKey": 8755660,
-      "total": 8,
-      "fetched": "2026-11-21",
-      "countries": [
-        [
-          "PE",
-          6
-        ],
-        [
-          "BR",
-          2
-        ]
-      ],
-      "cells": [
-        [
-          -74.53125,
-          -4.21875,
-          5
-        ],
-        [
-          -73.125,
-          -4.21875,
-          1
-        ],
-        [
-          -68.90625,
-          -9.84375,
-          1
-        ],
-        [
-          -61.875,
-          -4.21875,
-          1
-        ]
-      ]
-    }
-  }
+  "updatedAt": "2026-11-21"
 }

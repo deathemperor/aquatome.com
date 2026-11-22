@@ -1,8 +1,8 @@
 {
   "id": "pimelodina-flavipinnis",
   "native": {
-    "input": "54d88a53e97454ae",
-    "at": "2026-11-21T19:07:52.042Z",
+    "input": "cd7702cd29bcc933",
+    "at": "2026-11-22T00:38:58.151Z",
     "claims": [
       {
         "code": "BR",
@@ -27,6 +27,14 @@
         "quote": "The species was scientifically described as early as 1876 and is widespread: the imported animal comes from the Rio Negro in Brazil, but it also exists in the Rio Madeira, in Peru and in the llanos of Venezuela and other areas of the Orinoco.",
         "words": "Venezuela",
         "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon and Orinoco River basins. Type locality: Amazonenstrom bei Para [Brazil].",
+        "words": "Brazil",
+        "ok": true
       }
     ],
     "regions": [
@@ -47,6 +55,18 @@
         "name": "Orinoco",
         "source": "glaser",
         "quote": "The species was scientifically described as early as 1876 and is widespread: the imported animal comes from the Rio Negro in Brazil, but it also exists in the Rio Madeira, in Peru and in the llanos of Venezuela and other areas of the Orinoco.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Amazon and Orinoco River basins. Type locality: Amazonenstrom bei Para [Brazil].",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "South America: Amazon and Orinoco River basins. Type locality: Amazonenstrom bei Para [Brazil].",
         "ok": true
       }
     ],

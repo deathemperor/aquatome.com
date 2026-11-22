@@ -1112,6 +1112,21 @@ test("the live-food guide's Indonesian and Malay survey lines hold", () => {
 // read of these words lets it out, so this holds the words and not the hold (test/fixtures/live-food-1122-ms.json).
 test("the live-food guide's Malay copy says its betta keeper's tips come from a forum", () => handFixesHold('live-food-1122-ms.json', '', 'ms'))
 
+// The Writing Lead's dose answers of 22 Nov 2026 (the chief of staff): Aquarium Breeder means the US gallon, as these four
+// guides convert it everywhere else, so each of their doses is per 3,8 lít, the staghorn guide's spot dose too, so one page
+// never gives a gallon as 3,8 lít in one line and 4 lít in the next; the algae guide's whole-tank figures take the comma a
+// Vietnamese decimal takes. The Malay live-food copy says "alahan", the Malaysian word, in its five places. Each body is
+// bodyFixed (the Malay FAQ faqFixed too), so no run takes a line back (test/fixtures/doses-1122.json, -ms.json).
+test("the Writing Lead's dose lines of 22 Nov hold: Aquarium Breeder's gallon as 3,8 lít, and the Malay allergy word", () => {
+  handFixesHold('doses-1122.json', '')
+  handFixesHold('doses-1122-ms.json', '', 'ms')
+  const guide = (id: string, lang = 'vi') => JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/guides/${id}/${lang}.json`, import.meta.url)), 'utf8')) as Translation
+  for (const id of ['black-beard-algae', 'staghorn-algae-in-aquariums', 'hair-algae-in-aquariums'].map(s => `aquariumbreeder-how-to-remove-${s}`).concat('aquariumbreeder-rust-disease-in-a-shrimp-tank-treatment')) {
+    expect(guide(id).body, id).not.toMatch(/ml cho mỗi 4(?:,5)? lít/u)
+  }
+  expect(JSON.stringify(guide('aquatome-cac-loai-thuc-an-cho-ca-thuc-an-song-trun-chi-trung-huyet-artemia-bobo', 'ms'))).not.toMatch(/alergi/iu)
+})
+
 // The Writing Lead's yes or no of 20 Nov 2026 on what that change left as it was, each checked against the saved source
 // or the video's transcript: three of the shop's photo captions out of the egg scatterers' body and the fourth moved to
 // the paragraph it belongs to; the keeper's own hedge on why the Endlers tank still needs water changes, and the snails
@@ -1134,6 +1149,29 @@ test('the ten-tips low-tech guide is held by hand in every language it has', () 
   const langs = readdirSync(dir).filter(f => f !== 'entity.json' && f.endsWith('.json'))
   expect(langs).toContain('vi.json')
   for (const f of langs) expect((JSON.parse(readFileSync(join(dir, f), 'utf8')) as Translation).held, f).toEqual(hold)
+})
+
+// The Writing Lead's words of 22 Nov 2026 on those five sentences (the chief of staff): the red plants and the cheap
+// lights, the mixed substrate, the algae, the tank with no filter as the keeper's own tanks, and the summary's
+// fertiliser point as his advice to dose sparingly with his routine told as his. The body stays bodyFixed, which keeps its
+// summary too, and the guide stays held by hand (test/fixtures/ten-tips-five-1122.json).
+test("the ten-tips guide's five sentences and its summary's fertiliser point hold in the Writing Lead's words", () => handFixesHold('ten-tips-five-1122.json', ''))
+
+// The Writing Lead's words of 22 Nov 2026 on the goldfish guide (the chief of staff): the video names two plants, each as
+// it went in the keeper's tanks, so the title, the intro, the heading and one FAQ question no longer promise a list of
+// plants goldfish leave alone, and the two tanks are the Rotala's alone. The title is fixed by hand (nameFixed), the body and
+// the FAQ stay bodyFixed and faqFixed, and the video's pictures for that section name the new heading, so they stay under
+// it and don't drop to the end of the page (test/fixtures/goldfish-1122.json).
+test("the goldfish guide says the two plants its keeper tried, under its own title and heading", () => {
+  handFixesHold('goldfish-1122.json')
+  const dir = fileURLToPath(new URL('../../../content/guides/youtube-N_35ut9PWGM', import.meta.url))
+  const vi = JSON.parse(readFileSync(join(dir, 'vi.json'), 'utf8')) as Translation
+  expect(vi.name).toBe("Bể cá vàng trồng cây: xử lý tảo nâu, và hai cây đã thử với cá vàng")
+  expect(vi.nameFixed).toBe(true)
+  const heading = "Hai cây đàn cá vàng của người nuôi không phá"
+  expect(vi.body).toContain(`<h3>${heading}</h3>`)
+  const e = JSON.parse(readFileSync(join(dir, 'entity.json'), 'utf8')) as { video: { figures: { heading: string }[] } }
+  expect(e.video.figures.map(f => f.heading)).toContain(heading)
 })
 
 // The Writing Lead's lines of 20 Nov 2026 on eight more video guides, in the house form (the maker's tank is "bể trong
@@ -1171,7 +1209,8 @@ test('no video guide\'s label names a person or the channel', () => {
 
 // The read of the cutter's 17 cuts (20 Nov 2026): five took something nothing else on the page carried. Each is back in
 // the Writing Lead's words, said as the keeper's, and the goldfish guide's summary and FAQ keep to what the keeper saw in
-// two tanks (test/fixtures/cutter-answers-1120.json). Each body guarded; the goldfish guide's FAQ too.
+// two tanks (test/fixtures/cutter-answers-1120.json). Each body guarded; the goldfish guide's FAQ too. The goldfish
+// guide's summary point, FAQ question and answer are in the Writing Lead's words of 22 Nov (goldfish-1122.json).
 test("the Writing Lead's answers to five of the cutter's cuts hold", () => {
   handFixesHold('cutter-answers-1120.json')
   // Each where the Lead put it (#1721's reader): the check above would pass a passage moved whole within its field.
@@ -1198,7 +1237,7 @@ test("the Writing Lead's answers to five of the cutter's cuts hold", () => {
   const goldfish = guide('N_35ut9PWGM')
   const said = (where: string) => fixture['N_35ut9PWGM']!.find(e => e.in === where)!.now!
   expect(goldfish.summary[3]).toContain(said('summary'))
-  expect(goldfish.faq[2]?.q).toBe('Nuôi cá vàng thì trồng cây gì để không bị phá?')
+  expect(goldfish.faq[2]?.q).toBe('Cá vàng có phá rong đuôi chồn và Rotala không?')
   expect(goldfish.faq[2]?.a).toContain(said('faq'))
 })
 

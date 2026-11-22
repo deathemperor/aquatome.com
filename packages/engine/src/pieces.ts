@@ -108,6 +108,7 @@ export const WRAPPED: Record<string, string> = {
   localize: 'localize.ts', 'localize-guides': 'topics.ts', reader: 'reader.ts', run: 'run.ts', videos: 'youtube.ts',
   gallery: 'gallery.ts', 'album-ask': 'album-ask.ts', 'review-backfill': 'review-backfill.ts', 'review-backfill-97': 'review-backfill.ts', material: 'materials.ts',
   'judge-places': 'place-judge.ts', 'frame-sheet': 'frame-sheet.ts', recheck: 'localize-recheck.ts', 'mend-words': 'wording-mend.ts',
+  fit: 'fit.ts', 'fit-pass': 'fit.ts',
 }
 /** Steps with no engine items to check. */
 export const ONE_CALL: Record<string, string> = {
