@@ -8,7 +8,7 @@ import { byHand, cycleOnlyHosts, refused } from './cycle-only'
 import { IDEA_SOURCES, ideaHost, NEVER_RESEARCHED, type Drop, type IdeaSource, type Listing } from './idea-sources'
 import { isMarketplace } from './marketplaces'
 import { htmlToOutline, isChallenge } from './outline'
-import { tryLock, type Release } from './mac-lock'
+import { LockBusy, macLock, type Release } from './mac-lock'
 import { piece } from './pieces'
 import { snapshotHash } from './snapshot'
 import { setSourceBlock, sourceBlockedSince } from './state'
@@ -131,15 +131,16 @@ function mirror(m: MagazineState, l: MagazineLedger) {
   if (l.waits?.length) m.waits = l.waits; else delete m.waits
 }
 /**
- * One magazine step at a time on the Mac, since its ledger is read and then written at each request: a step that finds
- * another running fails, naming it, so the cycle logs it. The lock is the Mac's own (mac-lock.ts), freed when its step ends
- * however it ends, so no step takes over a dead one's (Codex, 21 Nov 2026: two could take over the same one and both run).
+ * One magazine step at a time on the Mac, since its ledger is read and then written at each request. The lock is the Mac's
+ * own (mac-lock.ts), freed when its step ends however it ends, so no step takes over a dead one's (Codex, 21 Nov 2026: two
+ * could take over the same one and both run). A step that finds it held waits its turn, as a reader waits for the
+ * Archive's (the chief of staff, 22 Nov 2026): said once in `log` past 2 minutes, and past 10 it runs nothing (LockBusy,
+ * naming the port), which is no refusal, so the cycle logs it and the next cycle runs it. Its record and the ledger are
+ * read only once it holds the lock (cli.ts), so a step that waited spends nothing the one before it spent.
  * `port`: the magazine's own on the Mac, which only the CLI names (mac-lock.ts); a test's own.
  */
-export async function holdMagazine(port: number): Promise<Release> {
-  const release = await tryLock(port)
-  if (!release) throw new Error(`another magazine step is running, or something else holds 127.0.0.1:${port}`)
-  return release
+export async function holdMagazine(port: number, o: Parameters<typeof macLock>[1] = {}): Promise<Release> {
+  return macLock(port, o).catch((e: unknown) => { throw e instanceof LockBusy ? new LockBusy(`another magazine step is running, or something else holds the lock: ${e.message}`) : e })
 }
 /** The magazine's newest read: GitHub's ideas are made again when it is newer than the one they were made from. */
 const magazineRead = (m: MagazineState) => Object.values(m.readAt ?? {}).filter((x): x is string => !!x).sort().at(-1)

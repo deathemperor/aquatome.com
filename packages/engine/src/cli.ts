@@ -1304,10 +1304,11 @@ if (cmd === 'photo-privacy') {
     process.exit(1)
   }
   // Its requests to the Archive are kept beside the Archive's rest, outside any checkout (ideas.ts MagazineLedger), and one
-  // such step runs at a time: one that finds another running fails, naming it.
+  // such step runs at a time: one that finds another running waits its turn, and says so (ideas.ts holdMagazine). Nothing
+  // of the record or the ledger is read before it holds the lock.
   const cache = join(homedir(), '.cache/aquatome')
   const ledger = join(cache, 'magazine-archive.json')
-  const release = await holdMagazine(MAGAZINE_LOCK_PORT).catch((e: Error) => { console.error(`magazine: ${e.message}`); process.exit(1) })
+  const release = await holdMagazine(MAGAZINE_LOCK_PORT, { log: line => console.log(`magazine: ${line}`) }).catch((e: Error) => { console.error(`magazine: ${e.message}`); process.exit(1) })
   const archive = archiveReader()
   const get = fetchListing(fetch, UA)
   try {

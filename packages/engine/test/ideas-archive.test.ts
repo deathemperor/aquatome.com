@@ -5,10 +5,11 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { slugify } from '@aq/schema'
 import { expect, test } from 'vitest'
-import { ARCHIVE_POLITE, ArchiveFetcher } from '../src/archive'
+import { ARCHIVE_POLITE, ArchiveFetcher, ArchiveRefused } from '../src/archive'
 import { LlmError, type Llm } from '../src/claude'
 import { cycleOnlyHosts } from '../src/cycle-only'
 import { ARCHIVE_LISTING_WEEK, ARCHIVE_POST_DAY, holdMagazine, ListingRefused, MAGAZINE_PER_DAY, readIdeas, readMagazine, refreshIdeas, refreshMagazine, writeIdeas, writeMagazine, type IdeasState, type MagazineState } from '../src/ideas'
+import { LockBusy } from '../src/mac-lock'
 import { COPY_WORDS, makeTopic, POST_OTHER_SITES, POST_SHARE, siteOf, topicId } from '../src/topics'
 
 /** A lock no other reader holds (archive.ts, mac-lock.ts). */
@@ -509,16 +510,35 @@ test("the Archive's requests are the Mac's ledger's, written before each is made
   expect((await ledger(rest)).waits).toEqual(['2026-11-21', '2026-11-22'])
 })
 
-test('one magazine step at a time on the Mac: another one running fails, naming it; of two starting at once, one runs', async () => {
+test('one magazine step at a time on the Mac: another waits its turn, never two at once', async () => {
   const port = await new Promise<number>(ok => { const s = createServer(); s.listen(0, '127.0.0.1', () => { const { port } = s.address() as AddressInfo; s.close(() => ok(port)) }) })
-  const release = await holdMagazine(port)
-  await expect(holdMagazine(port)).rejects.toThrow(`another magazine step is running, or something else holds 127.0.0.1:${port}`)
-  await release()
-  // Two steps starting at the same moment, as two taking over one dead step's lock could (Codex, 21 Nov 2026): one runs. A
-  // step that died holds nothing: the Mac frees its lock (mac-lock.test.ts).
-  const both = await Promise.allSettled([holdMagazine(port), holdMagazine(port)])
-  expect(both.map(x => x.status).sort()).toEqual(['fulfilled', 'rejected'])
-  await (both.find(x => x.status === 'fulfilled') as PromiseFulfilledResult<() => Promise<void>>).value()
+  // Two steps starting at the same moment, as two taking over one dead step's lock could (Codex, 21 Nov 2026): both run, one
+  // after the other. A step that died holds nothing: the Mac frees its lock (mac-lock.test.ts).
+  let holding = 0, most = 0, ran = 0
+  const step = async () => {
+    const release = await holdMagazine(port)
+    holding++; most = Math.max(most, holding)
+    await new Promise(r => setTimeout(r, 300))
+    holding--; ran++
+    await release()
+  }
+  await Promise.all([step(), step()])
+  expect([ran, most]).toEqual([2, 1])
+})
+
+test('a magazine port held by something not ours: the step waits, says so once, then runs nothing, naming the port, which is no refusal', async () => {
+  const port = await new Promise<number>(ok => { const s = createServer(); s.listen(0, '127.0.0.1', () => { const { port } = s.address() as AddressInfo; s.close(() => ok(port)) }) })
+  // The chief of staff, 22 Nov 2026: the magazine's port is held to the reader's three.
+  const other = createServer()
+  await new Promise<void>(ok => other.listen({ port, host: '127.0.0.1' }, ok))
+  const said: string[] = []
+  const e = await holdMagazine(port, { waitMs: 600, noteMs: 200, log: l => said.push(l) }).catch((x: unknown) => x)
+  await new Promise(ok => other.close(ok))
+  expect(e).toBeInstanceOf(LockBusy)
+  expect(e).not.toBeInstanceOf(ArchiveRefused)
+  expect((e as Error).message).toMatch(new RegExp(`^another magazine step is running, or something else holds the lock: the lock on 127\\.0\\.0\\.1:${port} was held by another process for \\d+ s: nothing was asked, and this is no refusal$`))
+  expect(said).toHaveLength(1)
+  expect(said[0]).toMatch(new RegExp(`^waiting for the lock on 127\\.0\\.0\\.1:${port}: another process has held it \\d+ s`))
   await (await holdMagazine(port))()
 })
 

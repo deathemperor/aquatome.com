@@ -1021,14 +1021,14 @@ The layers above still check the result.
     a copy. The magazine's own listing, GitHub's shops' listings and its forum step follow redirects by hand, never to a
     copy site such as the Archive, nor from a shop's to the magazine's. One magazine guide a day, counted in the Mac's
     ledger too, once: one whose record isn't saved stops the step. One magazine step runs at a time, by a lock the Mac
-    frees when its step ends however it ends, so no step takes over a dead one's (`127.0.0.1:41232`, `mac-lock.ts`), on
-    the Mac alone (not on GitHub, and only on macOS). The reader, name, pace (10 s) and rest are the archived sources',
+    frees when its step ends however it ends, so no step takes over a dead one's (`127.0.0.1:41232`, `mac-lock.ts`); a
+    step that finds it held waits its turn, and reads its record and the ledger only once it holds it, on the Mac alone (not on GitHub, and only on macOS). The reader, name, pace (10 s) and rest are the archived sources',
     and each request holds the Mac's one lock on the Archive (`127.0.0.1:41231`) from reading the rest to its answer, the
     rest written or cleared, in every job and checkout, its pace and the minute's wait after a failure outside it (the
     chief of staff, 21 Nov 2026): no request goes out past a refusal another just got, and no answer clears a wait another
     just began. Both locks are held on 127.0.0.1 alone, only the CLI names their ports, and every test names a free port of
     its own; a lock held by anything else is waited for, said in the log once at 2 minutes, and at 10 the run asks the
-    Archive nothing more, which is no refusal: no rest is written, and nothing is asked without the lock (the chief of
+    Archive nothing more (the magazine's: the step runs nothing, and the next cycle's runs it), which is no refusal: no rest is written, and nothing is asked without the lock (the chief of
     staff, 22 Nov 2026). That wait is counted in tries, never read off the clock, and a lock not had stops the source as a
     refusal does: no page is marked, none loses an attempt, and a page waits rather than losing its pictures. A reader's
     allowance is read again under the lock, so two calls waiting on one reader never both go; the rest is written whole

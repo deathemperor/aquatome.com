@@ -85,7 +85,10 @@ test("the CLI's wiring: its one Archive reader takes the Mac's lock, and the mag
   expect(cli).toMatch(/const archiveReader = \(\) => new ArchiveFetcher\(\{[^\n]*\block: \(\) => macLock\(ARCHIVE_LOCK_PORT\b/)
   const step = cli.slice(cli.indexOf("} else if (cmd === 'magazine') {"), cli.indexOf("} else if (cmd === 'topic') {"))
   const at = (s: string) => { const i = step.indexOf(s); expect(i, s).toBeGreaterThan(-1); return i }
-  const taken = at('await holdMagazine(MAGAZINE_LOCK_PORT)')
+  // Its wait said under its own name; and nothing of its record or ledger read before it holds the lock, so a step that
+  // waited for another reads what that one left.
+  const taken = at('await holdMagazine(MAGAZINE_LOCK_PORT, { log: line => console.log(`magazine: ${line}`) })')
+  expect(step.slice(0, taken)).not.toMatch(/\b(?:read\w*|refreshMagazine|writeMagazine|archiveReader)\(/)
   const listing = at('await refreshMagazine('), guide = at('await writeMagazine('), given = at('} finally {\n    await release()')
   expect(taken).toBeLessThan(listing)
   expect(listing).toBeLessThan(guide)
