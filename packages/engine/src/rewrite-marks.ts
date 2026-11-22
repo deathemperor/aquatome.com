@@ -1,4 +1,4 @@
-import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { mkdtemp, readFile, rename, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import type { Llm } from './claude'
@@ -32,11 +32,29 @@ export const listedBy = (say: string, at: string) => { const on = LISTED_ON[say]
 export const marksFor = (text: string, at: string, list: readonly Phrase[]) =>
   [...new Set(list.filter(p => listedBy(p.say, at)).flatMap(p => phraseWords(text, 'vi', [p])))]
 
+type Page = Parameters<typeof listedText>[0] & { bodyFixed?: boolean }
+
+/**
+ * The text the style rewrite sent for a page, which its marks are matched against: a guide's body (the queue pass sends
+ * no summary or FAQ line, nor a video guide's or a fixed body at all), a glossary term's definition, a fish or plant
+ * page's sections. A word elsewhere on the page was never in front of the writer, so it isn't marked.
+ */
+export function sentText(kind: string, vi: Page, source?: string): string {
+  if (kind === 'guides') return vi.bodyFixed || source === 'youtube' ? '' : vi.body ?? ''
+  if (kind === 'glossary') return vi.definition ?? ''
+  return listedText(vi)
+}
+
+/** A record the step may mark: no marks yet, no failure (an empty message is one), and every part rewritten and kept. */
+export const eligible = (e: RewriteState[string]) => !e.phrases?.length && !('error' in e) && e.of > 0 && e.rewritten === e.of
+
 export type MarksReport = {
-  /** Records the step read, and those it left as they were (marked already, or the rewrite failed). */
+  /** Records the step read; those left as they were for marks or a failure; those with a part the reviewer refused (never marked: their text wasn't rewritten); those it may mark. */
   records: number
-  untouched: number
-  /** Per listed row: records rewritten with it in the prompt; of those, the pages that still have its words (each such word is marked); and the pages that have its words with no mark after the step. */
+  skipped: number
+  partial: number
+  eligible: number
+  /** Per listed row: eligible records rewritten with it in the prompt; of those, the pages whose rewritten text still has its words (each such word is marked); and the pages `--phrases` still takes up for its words after the step. */
   byRow: Record<string, { rewrittenWith: number; stillHave: number; leftWith: number }>
   /** Pages marked, and the marks written. */
   marked: string[]
@@ -49,6 +67,9 @@ export type MarksReport = {
   afterNever: number
   parts: number
 }
+
+/** Writes the report to a file that doesn't exist yet, never over one (the record, a page). */
+export const writeReport = (file: string, r: MarksReport) => writeFile(file, `${JSON.stringify(r, null, 2)}\n`, { flag: 'wx' })
 
 const partsOf = (x: string) => Number(/\((\d+) parts?\)/.exec(x)?.[1] ?? 0)
 const json = async <T>(f: string): Promise<T> => JSON.parse(await readFile(f, 'utf8'))
@@ -68,21 +89,26 @@ async function dueWith(contentRoot: string, state: RewriteState, list: Phrase[],
 }
 
 /**
- * Marks each record that has none and whose rewrite went through (kept or not, as #1717 marks), for the words the page
- * still has whose row was in the prompt that day. `dry`: writes nothing. Calls no model. A second run marks nothing more:
- * a record with marks is left as it is.
+ * Marks each eligible record for the words its rewritten text still has whose row was in the prompt that day. `dry`:
+ * writes nothing in the checkout (the picker's dry runs read a copy in the system's temp folder). Calls no model. The
+ * record is written whole (a copy beside it, then renamed), and only if no one changed it during the run. A second run
+ * marks nothing more: a record with marks is left as it is.
  */
-export async function rewriteMarks(contentRoot: string, stateFile: string, o: { dry?: boolean; list?: Phrase[]; opts: RewriteOpts }): Promise<MarksReport> {
+export async function rewriteMarks(contentRoot: string, stateFile: string, o: { dry?: boolean; list?: Phrase[]; opts: RewriteOpts; /** Tests: runs before the record is read again for the write. */ beforeWrite?: () => Promise<void> }): Promise<MarksReport> {
   const list = o.list ?? PHRASES.vi ?? []
-  const state = await json<RewriteState>(stateFile)
+  const read = await readFile(stateFile, 'utf8')
+  const state = JSON.parse(read) as RewriteState
   const next: RewriteState = { ...state }
   const byRow: MarksReport['byRow'] = Object.fromEntries(list.map(p => [p.say, { rewrittenWith: 0, stillHave: 0, leftWith: 0 }]))
   const marked: string[] = []
-  let untouched = 0, marks = 0
+  let skipped = 0, partial = 0, ok = 0, marks = 0
   for (const [id, e] of Object.entries(state)) {
-    if (e.phrases || e.error) { untouched++; continue }
-    const vi = await json<Parameters<typeof listedText>[0]>(join(contentRoot, id, 'vi.json')).catch(() => null)
-    const text = vi ? listedText(vi) : ''
+    if (e.phrases?.length || 'error' in e) { skipped++; continue }
+    if (!eligible(e)) { partial++; continue }
+    ok++
+    const vi = await json<Page>(join(contentRoot, id, 'vi.json')).catch(() => null)
+    const source = id.startsWith('guides/') ? (await json<{ source?: string }>(join(contentRoot, id, 'entity.json')).catch(() => ({}) as { source?: string })).source : undefined
+    const text = vi ? sentText(id.split('/')[0]!, vi, source) : ''
     for (const p of list) if (listedBy(p.say, e.at)) {
       byRow[p.say]!.rewrittenWith++
       if (phraseWords(text, 'vi', [p]).length) byRow[p.say]!.stillHave++
@@ -97,12 +123,18 @@ export async function rewriteMarks(contentRoot: string, stateFile: string, o: { 
   const dueAfter = await dueWith(contentRoot, next, list, o.opts)
   for (const x of dueAfter) {
     const id = x.split(' ')[0]!
-    const vi = await json<Parameters<typeof listedText>[0]>(join(contentRoot, id, 'vi.json')).catch(() => null)
+    const vi = await json<Page>(join(contentRoot, id, 'vi.json')).catch(() => null)
     const text = vi ? listedText(vi) : ''
     const have = new Set(next[id]?.phrases ?? [])
     for (const p of list) if (phraseWords(text, 'vi', [p]).some(w => !have.has(w))) byRow[p.say]!.leftWith++
   }
   const afterRecorded = dueAfter.filter(x => state[x.split(' ')[0]!]).length
-  if (!o.dry && marked.length) await writeFile(stateFile, `${JSON.stringify(next, null, 2)}\n`)
-  return { records: Object.keys(state).length, untouched, byRow, marked, marks, dueBefore, dueAfter, afterRecorded, afterNever: dueAfter.length - afterRecorded, parts: dueAfter.reduce((n, x) => n + partsOf(x), 0) }
+  if (!o.dry && marked.length) {
+    await o.beforeWrite?.()
+    if (await readFile(stateFile, 'utf8') !== read) throw new Error(`${stateFile} changed while the marks were made: nothing written; run it again`)
+    const tmp = `${stateFile}.marks-${process.pid}`
+    await writeFile(tmp, `${JSON.stringify(next, null, 2)}\n`)
+    await rename(tmp, stateFile)
+  }
+  return { records: Object.keys(state).length, skipped, partial, eligible: ok, byRow, marked, marks, dueBefore, dueAfter, afterRecorded, afterNever: dueAfter.length - afterRecorded, parts: dueAfter.reduce((n, x) => n + partsOf(x), 0) }
 }

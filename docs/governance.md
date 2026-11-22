@@ -431,10 +431,19 @@ The layers above still check the result.
         from 8 Nov, four from 12 Nov, from the list's history in git.
         - The record's day is UTC and a row's is Vietnam's, so only a later day than the row's counts. A page rewritten
           the day its row landed keeps the word for the pass.
-        - A failed rewrite and a record that has marks are left as they are. A row added since is never marked by it.
-        - `--dry-run` writes nothing. It reports, per row, the pages rewritten with it, those that still have it (each
-          such word is a writer's slip, and its mark leaves it on the page), and the pages `--phrases` would still take
-          up for it. The pages it gives as left are `rewrite-vi --phrases --dry-run`'s own, run on the marked record.
+        - Only a page rewritten whole is marked: every part it sent came back rewritten. A page with a part the reviewer
+          refused kept that part's old words, so it's left for the pass, as is a failed rewrite. A record that has
+          marks, even none, is left as it is. A row added since is never marked by it.
+        - A word counts only in the part the rewrite read. For a guide, its body: its summary and questions went to no
+          rewrite before, and `--phrases` sends them. For a glossary term, its definition. For a fish or plant, all its
+          text: its fixed parts and references go to no rewrite, the pass's included. A video guide or a guide whose body
+          is fixed sent none, so it's never marked.
+        - The record is written whole, through a temporary file, and only if it hasn't changed since the step read it:
+          otherwise nothing is written and the step says to run it again.
+        - `--dry-run` writes nothing in the repository. It reports, per row, the pages rewritten whole with it, those
+          that still have it (each such word stays on the page once marked), and the pages `--phrases` would still take
+          up for it. The pages it gives as left are `rewrite-vi --phrases --dry-run`'s own, run on a marked copy in the
+          system's temporary folder. `--out` writes the report only to a file that doesn't exist yet.
   - **An Indonesian or Thai fish page out of search for its score comes back on two fresh reads on two models**
     (`pnpm engine recheck`, `localize-recheck.ts`, in the rewrite part after the other translations; the chief of staff,
     2026-11-16). A kept rewrite is no longer the only way back. The steady Sonnet read of the page's text as it is, then,

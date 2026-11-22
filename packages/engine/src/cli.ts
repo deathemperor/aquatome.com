@@ -1,5 +1,5 @@
 import { videoBudgetStopped } from './youtube'
-import { appendFileSync, readFileSync } from 'node:fs'
+import { appendFileSync, existsSync, readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile, rename } from 'node:fs/promises'
 import { get as httpsGet } from 'node:https'
 import { homedir } from 'node:os'
@@ -92,7 +92,7 @@ import { videoStills } from './video-stills'
 import { frameSheet } from './frame-sheet'
 import { searchCommons } from './photos'
 import { REWRITE_KINDS, rewriteExisting } from './vi-backfill'
-import { rewriteMarks } from './rewrite-marks'
+import { rewriteMarks, writeReport } from './rewrite-marks'
 import { VI_WRITE } from './vi-rewrite'
 import { addOwnerPicks, discoverPlaylists, discoverSingles, QUERIES_BY_LANG } from './video-discovery'
 import { galleries, VET_SCHEMA as GALLERY_VET, type GalleryDeps, type Vet } from './gallery'
@@ -1308,11 +1308,12 @@ if (cmd === 'photo-privacy') {
 } else if (cmd === 'rewrite-marks') {
   // Once: marks the style rewrite's record for the words each page kept from a rewrite made with them in its prompt
   // (rewrite-marks.ts), so `rewrite-vi --phrases` takes up only the rest. No model call.
-  // pnpm engine rewrite-marks [--dry-run: write nothing] [--out <file>: the report as JSON]
+  // pnpm engine rewrite-marks [--dry-run: write nothing] [--out <new file>: the report as JSON; never over a file that exists]
+  if (values.out && existsSync(values.out)) throw new Error(`--out ${values.out} exists: the report goes only to a new file`)
   const r = await rewriteMarks(join(ROOT, 'content'), join(ROOT, 'engine-state/vi-rewrite.json'), { dry: values['dry-run'], opts: VI_WRITE })
-  if (values.out) await writeFile(values.out, `${JSON.stringify(r, null, 2)}\n`)
-  console.log(`rewrite-marks${values['dry-run'] ? ' (dry run)' : ''}: ${r.records} records, ${r.untouched} left as they were; ${r.marked.length} pages marked (${r.marks} words). rewrite-vi --phrases takes up ${r.dueBefore.length} pages before, ${r.dueAfter.length} after (${r.afterRecorded} with a record, ${r.afterNever} never rewritten; ${r.parts} parts)`)
-  for (const [say, n] of Object.entries(r.byRow)) if (n.rewrittenWith || n.leftWith) console.log(`  ${say}: rewritten with it ${n.rewrittenWith}, still have it ${n.stillHave}, left with it ${n.leftWith}`)
+  if (values.out) await writeReport(values.out, r)
+  console.log(`rewrite-marks${values['dry-run'] ? ' (dry run)' : ''}: ${r.records} records: ${r.skipped} marked already or failed, ${r.partial} with a part the reviewer refused (not marked), ${r.eligible} rewritten whole; ${r.marked.length} of those marked (${r.marks} words). rewrite-vi --phrases takes up ${r.dueBefore.length} pages before, ${r.dueAfter.length} after: ${r.afterRecorded} with a record, ${r.afterNever} never rewritten; ${r.parts} parts`)
+  for (const [say, n] of Object.entries(r.byRow)) if (n.rewrittenWith || n.leftWith) console.log(`  ${say}: rewritten whole with it listed ${n.rewrittenWith}, still have it (marked) ${n.stillHave}, left for --phrases ${n.leftWith}`)
 } else if (cmd === 'discover-videos') {
   // More teaching playlists: YouTube playlist searches + known channels → overlap filter → model vets → engine-state/youtube-playlists.json.
   // --channels a,b: only those channels (no searches); --lang vi: only that language's searches (no channels; ignores the
