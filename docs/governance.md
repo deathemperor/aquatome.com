@@ -1033,8 +1033,9 @@ The layers above still check the result.
     can't be read under it or holds no time, stops the source as a refusal does: no page is marked, none loses an
     attempt, a page waits rather than losing its pictures (one the line-read list read early waits for its own turn, as
     after any failed read), and the magazine's listing keeps its day's try when the lock, or a rest it can't read, stopped it before
-    anything was asked (a rest on file spends it, as ever). A magazine ledger that
-    can't be read stops the step, rather than the record's copy counting the day's requests again. Once one call gives up on the lock, no other in that run asks, even one that has
+    anything was asked (a rest on file spends it, as ever). As the magazine's post is
+    read, either makes the day's guide wait for the next run, as a refusal does, with no day of the rest counted. A
+    magazine ledger that can't be read stops the step, rather than the record's copy counting the day's requests again. Once one call gives up on the lock, no other in that run asks, even one that has
     it after. A reader's allowance is read again under the lock, so two calls waiting on one reader never both go; the rest is written whole
     (to a file beside it, then moved into place), and the look before the lock passes over a rest it can't read, which
     the look under it reads again; what a reader runs before a request (its pace, its count) never asks the Archive

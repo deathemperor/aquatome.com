@@ -145,11 +145,13 @@ export class ArchiveFetcher {
    * staff, 21 Nov 2026); its pace and the minute's wait after a failure are outside it. `at`: the address that answered.
    */
   private async call(url: string) {
-    // No file is no rest; any other failure to read it, or a file with no time in it, is no answer either way (Codex, 22 Nov
-    // 2026: `{}` read as no rest).
-    const resting = async () => {
-      const r = JSON.parse(await readFile(this.d.restFile, 'utf8').catch((e: NodeJS.ErrnoException) => { if (e.code === 'ENOENT') return 'null'; throw e })) as Rest | null
-      if (r !== null && (typeof r?.until !== 'string' || Number.isNaN(Date.parse(r.until)))) throw new RestUnreadable('no time in it')
+    // No file is no rest; any other failure to read it, or a file with no time in it (`null` too), is no answer either way
+    // (Codex, 22 Nov 2026: `{}` and `null` read as no rest).
+    const resting = async (): Promise<Rest | null> => {
+      const text = await readFile(this.d.restFile, 'utf8').catch((e: NodeJS.ErrnoException) => { if (e.code === 'ENOENT') return undefined; throw e })
+      if (text === undefined) return null
+      const r = JSON.parse(text) as Rest | null
+      if (typeof r?.until !== 'string' || Number.isNaN(Date.parse(r.until))) throw new RestUnreadable('no time in it')
       return r
     }
     // A first look, before the lock: one it can't read (another job's, mid-write, as an older engine wrote it) is left to the

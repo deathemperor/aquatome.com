@@ -419,6 +419,23 @@ test("during the Archive's rest the day's magazine guide waits, its idea untouch
   expect(await once('2026-11-23T06:00:00Z')).toBe(1)
 })
 
+test("the Mac's lock on the Archive held elsewhere as the post is read: the day's guide waits for the next run, its idea untouched, and no day of the rest is counted", async () => {
+  // Codex, 22 Nov 2026: taken as "not reached", the guide was written without its post and spent the day's one.
+  const root = await waiting([magazineIdea('Nước bể cá bị đục')])
+  const busy = new LockBusy('the lock on 127.0.0.1:1 was held 600 s, at every try, by one process or more: nothing was asked, and this is no refusal')
+  const held = new ArchiveFetcher({ lock: async () => { throw busy }, fetch: async u => { throw new Error(`asked ${u}`) }, now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'AquaTome test', restFile: await restFile() })
+  const asked: string[] = []
+  const r = await write(root, researchCiting(0, 3, asked), held)
+  expect(asked).toEqual([])
+  expect(r.stopped).toBe(busy.message)
+  expect([r.written, r.failed, r.waited]).toEqual([[], [], undefined])
+  expect(await guideOf(root, 'Nước bể cá bị đục')).toBeUndefined()
+  expect((await readMagazine(root)).waits).toBeUndefined()
+  // The lock free at the next run: the guide is written, with its post.
+  const done = await write(root, researchCiting(1, 3, []), (await archive(article())).reader)
+  expect(done.written).toEqual([topicId('Nước bể cá bị đục')])
+})
+
 test(`no whole-post rewrite: the post may give at most ${POST_SHARE * 100}% of the facts, beside ${POST_OTHER_SITES} other sites, in every language's facts, or the guide is written without it`, async () => {
   // Four of the six facts from the post: too much of one source. The guide goes on with the other sites' facts alone.
   const root = await waiting([magazineIdea('Nước bể cá bị đục')])

@@ -578,7 +578,7 @@ test("a rest on file that can't be read under the lock stops the request, as no 
   expect((e as Error).message).toBe("the archive's rest on this Mac can't be read (EISDIR): nothing was asked, and this is no refusal")
   expect(sent).toBe(0)
   // Read whole, but with no time to wait until (Codex, 22 Nov 2026: `{}` was no rest): the same.
-  for (const text of ['{}', '{"until":"soon"}', '0']) {
+  for (const text of ['{}', '{"until":"soon"}', '0', 'null']) {
     const other = restFile()
     writeFileSync(other, text)
     const g = new ArchiveFetcher({ lock: free, restFile: other, fetch: async () => { sent++; return capture(200, '<title>ok</title>') }, now: () => new Date(start), sleep: async () => {}, ua: 'test' })

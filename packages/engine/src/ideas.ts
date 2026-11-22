@@ -531,7 +531,9 @@ const magazineOf = (url: string) => IDEA_SOURCES.find(s => s.magazine && ideaHos
  * holds (refreshMagazine), else its first, read from the Archive's newest good copy (archive.ts get: an archived browser check
  * is no copy). Its text (the outline's: no photo is fetched) is held for this run alone and never written anywhere; `hash`
  * stands for it in the record. `page` undefined: `unread` says why, no copy, or none reached (the day's requests spent,
- * the Archive not answering). A refusal of the Archive's is thrown, so the guide waits for the next run.
+ * the Archive not answering). A refusal of the Archive's is thrown, so the guide waits for the next run, and so are the
+ * Mac's lock on it held elsewhere and a rest it can't read (archiveStops; Codex, 22 Nov 2026: written without its post,
+ * the guide spent the day's one on nothing the Archive said).
  */
 async function magazinePost(idea: Idea, posts: MagazineState['posts'], archive: ArchiveReader): Promise<{ url: string; page?: GivenPage & { hash: string }; unread?: 'no copy' | 'not reached' } | undefined> {
   const mine = idea.posts.filter(isMagazinePost)
@@ -542,7 +544,7 @@ async function magazinePost(idea: Idea, posts: MagazineState['posts'], archive: 
   try {
     got = await archive.get(url)
   } catch (e) {
-    if (e instanceof ArchiveRefused) throw e
+    if (archiveStops(e)) throw e
     console.warn(`magazine: ${url}: ${(e as Error).message.slice(0, 120)}`)
     return { url, unread: !(e instanceof AsksSpent) && noCopy(e) ? 'no copy' : 'not reached' }
   }
@@ -680,6 +682,9 @@ export async function writeMagazine(root: string, d: { research: Llm; llm: Llm; 
         report.waited = l.waits.length
         break
       }
+      // The Mac's lock on the Archive held elsewhere, or its rest unreadable: the guide waits for the next run, the idea as
+      // it was, and it is no day of the Archive's rest (Codex, 22 Nov 2026).
+      if (archiveStops(err)) { report.stopped = err.message; break }
       // It counts, and is not tried again (the reason is kept).
       m.guides[key] = { skipped: `failed: ${clean(err).slice(0, 120)}`, at: d.now().toISOString() }
       await counted()
