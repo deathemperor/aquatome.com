@@ -13,8 +13,7 @@
       "sourceCaption": "Xenopus tropicalis",
       "best": true,
       "kind": "pair",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/577856871.webp",
@@ -27,8 +26,7 @@
       "caption": "Ếch móng vuốt nhiệt đới màu nâu sẫm, nhìn từ trên",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/commons/62de714e7cbc9b67.webp",
@@ -42,23 +40,7 @@
       "sourceCaption": "Xenopus tropicalis",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/2e2deaecbed00d13.webp",
-      "thumb": "https://media.aquatome.com/commons/2e2deaecbed00d13-480.webp",
-      "width": 1042,
-      "height": 1033,
-      "licence": "CC BY 2.5",
-      "author": "Narbonne P, Simpson D, Gurdon J (2011)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xenopus_laevis_x_tropicalis_cybrid_male.png",
-      "caption": "Ếch móng vuốt màu vàng nhạt cạnh đồng xu để so kích thước",
-      "sourceCaption": "A male hybrid formed by the cross-fertilization of Xenopus laevis eggs with Silurana tropicalis sperm. Diameter of the coin present in the background: 2 cm.",
-      "best": false,
-      "kind": "form",
-      "setup": true,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/542256726.webp",
@@ -71,8 +53,7 @@
       "caption": "Ếch móng vuốt nhiệt đới ngoài tự nhiên trên lá khô",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/580093084.webp",
@@ -85,8 +66,7 @@
       "caption": "Ếch móng vuốt nhiệt đới với màng chân rõ trong khay chụp",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     }
   ],
   "seen": 29,
