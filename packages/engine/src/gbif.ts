@@ -87,8 +87,21 @@ export const GROUPS: readonly string[] = [...new Set([...Object.keys(GROUP_ORDER
 export function pageGroup(group: string, order: string | undefined): string {
   const orders = GROUP_ORDERS[group]
   if (!order || !orders || orders.includes(order)) return group
-  const holders = Object.keys(GROUP_ORDERS).filter(g => GROUP_ORDERS[g]!.includes(order))
+  return byOrder(order)
+}
+/** The one group that has an order, else "other". */
+function byOrder(order: string | undefined): string {
+  const holders = order ? Object.keys(GROUP_ORDERS).filter(g => GROUP_ORDERS[g]!.includes(order)) : []
   return holders.length === 1 ? holders[0]! : 'other'
+}
+/**
+ * A page's group as it's written (merge.ts, species-research.ts): pageGroup's, but a word on neither table (GROUPS) is no
+ * group. A page on file keeps the group it has; a new one goes where its order puts it, as pageGroup does, and to "other"
+ * with no order. Until 22 Nov 2026 such a word stood, the site had no name for it, and the checks held the cycle's whole
+ * work for that one page (the chief of staff). The sweep's regroup (pageGroup) leaves the pages on file as they are.
+ */
+export function newPageGroup(group: string, order: string | undefined, onFile?: string): string {
+  return GROUPS.includes(group) ? pageGroup(group, order) : onFile ?? byOrder(order)
 }
 
 /**

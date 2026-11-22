@@ -7,7 +7,7 @@ import { CARE_FIELDS, careValue, DIFFICULTY, LIFE_YEARS, type CareField } from '
 import { appendChangelog } from './changelog'
 import type { Llm } from './claude'
 import { namesSource } from './content-rules'
-import { gbifMatch, gbifSearchTaxon, pageGroup, type Taxon } from './gbif'
+import { gbifMatch, gbifSearchTaxon, newPageGroup, type Taxon } from './gbif'
 import { isMarketplace } from './marketplaces'
 import { ensurePlaces, pickSlug, placeId, usableRegion } from './merge'
 import { findPhotos } from './photos'
@@ -266,7 +266,7 @@ export async function makeSpecies(root: string, d: SpeciesDeps, a: SpeciesAsk, o
   const found = d.findVideos ? await soft(() => d.findVideos!([sci, ...c.enNames]), []) : []
   const videos = [...asked, ...(was?.videos ?? []), ...found].filter((v, i, xs) => xs.findIndex(x => x.youtubeId === v.youtubeId) === i).slice(0, 4)
   const entity = SpeciesSchema.parse({
-    id, scientificName: sci, order: taxon.order, family: taxon.family, genus: taxon.genus ?? sci.split(' ')[0], group: pageGroup(researched.group ?? 'other', taxon.order), places,
+    id, scientificName: sci, order: taxon.order, family: taxon.family, genus: taxon.genus ?? sci.split(' ')[0], group: newPageGroup(researched.group ?? 'other', taxon.order, was?.group), places,
     ...(was?.range ? { range: was.range } : {}), dataCard, sections, photos, videos, productSlots: was?.productSlots ?? [], updatedAt: today, refs: c.refs,
   })
 

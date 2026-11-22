@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { gbifMatch, pageGroup, type Taxon } from '../src/gbif'
+import { gbifMatch, newPageGroup, pageGroup, type Taxon } from '../src/gbif'
 
 const fx = (n: string) => JSON.parse(readFileSync(new URL(`./fixtures/gbif/${n}.json`, import.meta.url), 'utf8'))
 
@@ -191,4 +191,19 @@ test("a page's group as its order allows: kept where it fits, the order's one gr
   expect(pageGroup('snails', 'Architaenioglossa')).toBe('snails')
   expect(pageGroup('loaches', '')).toBe('loaches') // no order from GBIF: nothing to judge by
   expect(pageGroup('loaches', undefined)).toBe('loaches')
+})
+
+// 22 Nov 2026: a model had filed pages under three words outside its list since 30 Oct, and a word on neither group table
+// would have held a cycle's whole work at its checks. A new page goes where its order puts it; a page on file keeps its own.
+test("a page written in a word on neither group table: a new one where its order puts it, one on file where it is", () => {
+  expect(newPageGroup('plecos', 'Siluriformes')).toBe('catfish') // the order's one group
+  expect(newPageGroup('pufferfish', 'Tetraodontiformes')).toBe('other') // no group has it
+  expect(newPageGroup('piranhas', 'Characiformes')).toBe('other') // three groups share it
+  expect(newPageGroup('pufferfish', undefined)).toBe('other') // no order to place it by
+  expect(newPageGroup('piranhas', 'Characiformes', 'characins')).toBe('characins') // on file: it stays
+  // A word on the tables is pageGroup's, on file or not.
+  expect(newPageGroup('characins', 'Characiformes')).toBe('characins')
+  expect(newPageGroup('loaches', 'Siluriformes', 'loaches')).toBe('catfish')
+  expect(newPageGroup('snails', 'Architaenioglossa')).toBe('snails')
+  expect(newPageGroup('loaches', undefined)).toBe('loaches')
 })
