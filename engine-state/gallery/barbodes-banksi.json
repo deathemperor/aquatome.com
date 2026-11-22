@@ -2,9 +2,17 @@
  "queue": [],
  "judged": [
   "inat:356946879",
-  "File:Barbodes banksi(top view).jpg"
+  "File:Barbodes banksi(top view).jpg",
+  "inat:350170803",
+  "inat:350170698",
+  "inat:350170727",
+  "inat:410903718",
+  "inat:558828360"
  ],
- "hashes": {},
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/350170803/large.jpg": "dbe4e3c15e861b52",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/350170727/large.jpg": "b1d093844d6a2c36"
+ },
  "commons": "2026-11-06",
  "inat": {
   "taxon": 553202,
@@ -17,5 +25,9 @@
  "gbif": {
   "key": 8202230,
   "next": null
+ },
+ "inatNc": {
+  "after": 309667006,
+  "done": true
  }
 }

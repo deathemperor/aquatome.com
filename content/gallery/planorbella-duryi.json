@@ -36,8 +36,7 @@
       "caption": "Ốc đĩa California lớn bò trên lá sen",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/46656528.webp",
@@ -64,19 +63,6 @@
       "kind": "pair"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/468798062.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/468798062-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Tim Johnson",
-      "sourceUrl": "https://www.inaturalist.org/photos/468798062",
-      "caption": "Ba con ốc đĩa trên khúc gỗ, vỏ nâu bóng",
-      "best": true,
-      "kind": "group",
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/289235761.webp",
       "thumb": "https://media.aquatome.com/inaturalist/289235761-480.webp",
       "width": 1024,
@@ -86,8 +72,7 @@
       "sourceUrl": "https://www.inaturalist.org/photos/289235761",
       "caption": "Ốc đĩa vỏ nâu bò trên lá đỏ",
       "best": true,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/732d2872089a513d.webp",
@@ -102,19 +87,6 @@
       "kind": "pair"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/470299111.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/470299111-480.webp",
-      "width": 1024,
-      "height": 578,
-      "licence": "CC BY",
-      "author": "Nico Hernandez",
-      "sourceUrl": "https://www.inaturalist.org/photos/470299111",
-      "caption": "Nhiều ốc đĩa bám trên lát dưa leo trong bể",
-      "best": true,
-      "kind": "group",
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/732099938.webp",
       "thumb": "https://media.aquatome.com/inaturalist/732099938-480.webp",
       "width": 1024,
@@ -124,8 +96,7 @@
       "sourceUrl": "https://www.inaturalist.org/photos/732099938",
       "caption": "Ốc đĩa vỏ nâu đỏ bò trên lá trong bể thủy sinh",
       "best": true,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/319652582.webp",
@@ -149,6 +120,34 @@
       "author": "Tello Neckheim",
       "sourceUrl": "https://www.gbif.org/occurrence/4880895060",
       "caption": "Ốc đĩa California vỏ nâu sẫm bò trên lá",
+      "best": true,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/gbif/4155901096-57ec28e035d9ecf8.webp",
+      "thumb": "https://media.aquatome.com/gbif/4155901096-57ec28e035d9ecf8-480.webp",
+      "width": 1000,
+      "height": 750,
+      "licence": "CC BY-SA 4.0",
+      "author": "Tello Neckheim",
+      "sourceUrl": "https://www.gbif.org/occurrence/4155901096",
+      "caption": "Ốc đĩa California sống bò trên miếng bọt biển xanh",
+      "best": true,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/gbif/4155901096-4fcb6f18938b7338.webp",
+      "thumb": "https://media.aquatome.com/gbif/4155901096-4fcb6f18938b7338-480.webp",
+      "width": 1000,
+      "height": 750,
+      "licence": "CC BY-SA 4.0",
+      "author": "Tello Neckheim",
+      "sourceUrl": "https://www.gbif.org/occurrence/4155901096",
+      "caption": "Ốc đĩa California nhìn từ trên, vỏ nâu sẫm xoắn đĩa",
       "best": true,
       "kind": "other",
       "setup": false,
@@ -231,6 +230,44 @@
       "kind": "form"
     },
     {
+      "url": "https://media.aquatome.com/gbif/4155901096-5e080d3db6b2ae01.webp",
+      "thumb": "https://media.aquatome.com/gbif/4155901096-5e080d3db6b2ae01-480.webp",
+      "width": 1000,
+      "height": 750,
+      "licence": "CC BY-SA 4.0",
+      "author": "Tello Neckheim",
+      "sourceUrl": "https://www.gbif.org/occurrence/4155901096",
+      "caption": "Ốc đĩa California nhìn bên, thân đen và vỏ nâu",
+      "best": false,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/468798062.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/468798062-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Tim Johnson",
+      "sourceUrl": "https://www.inaturalist.org/photos/468798062",
+      "caption": "Ba con ốc đĩa trên khúc gỗ, vỏ nâu bóng",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/470299111.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/470299111-480.webp",
+      "width": 1024,
+      "height": 578,
+      "licence": "CC BY",
+      "author": "Nico Hernandez",
+      "sourceUrl": "https://www.inaturalist.org/photos/470299111",
+      "caption": "Nhiều ốc đĩa bám trên lát dưa leo trong bể",
+      "best": true,
+      "kind": "group"
+    },
+    {
       "url": "https://media.aquatome.com/gbif/6151300818-f7a30c962c44dc38.webp",
       "thumb": "https://media.aquatome.com/gbif/6151300818-f7a30c962c44dc38-480.webp",
       "width": 750,
@@ -239,6 +276,20 @@
       "author": "Tello Neckheim",
       "sourceUrl": "https://www.gbif.org/occurrence/6151300818",
       "caption": "Nhóm ốc đĩa California vàng nâu trong khay nước nông",
+      "best": true,
+      "kind": "group",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/gbif/3995154497-99912998176759ee.webp",
+      "thumb": "https://media.aquatome.com/gbif/3995154497-99912998176759ee-480.webp",
+      "width": 1000,
+      "height": 750,
+      "licence": "CC BY-SA 4.0",
+      "author": "Tello Neckheim",
+      "sourceUrl": "https://www.gbif.org/occurrence/3995154497",
+      "caption": "Ba con ốc đĩa California trong cốc thủy tinh trong",
       "best": true,
       "kind": "group",
       "setup": true,
@@ -295,7 +346,7 @@
       "kind": "juvenile"
     }
   ],
-  "seen": 83,
-  "updatedAt": "2026-11-20",
-  "builtAt": "2026-11-20"
+  "seen": 98,
+  "updatedAt": "2026-11-22",
+  "builtAt": "2026-11-22"
 }

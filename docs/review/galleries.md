@@ -1,16 +1,16 @@
 # Photo galleries
 
-Written by `pnpm engine gallery` (2026-11-21). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
+Written by `pnpm engine gallery` (2026-11-22). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
 | shop | 60 | 131 | 81 | 24 | 37 | 199 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 871 | 32 | 9 | 28 | 884 |
-| rest | 20 | 1926 | 81 | 0 | 120 | 1887 |
+| covered | 30 | 879 | 32 | 9 | 28 | 892 |
+| rest | 20 | 1934 | 81 | 0 | 119 | 1896 |
 
-## Short of target: every source read (785)
+## Short of target: every source read (803)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -65,7 +65,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/pseudobunocephalus-bifidus | rest | 0 | 20 |
 | species/puntigrus-navjotsodhii | rest | 0 | 20 |
 | species/sciades-parkeri | rest | 0 | 20 |
-| species/serrasalmus-gouldingi | rest | 0 | 20 |
 | species/sinibotia-superciliaris | rest | 0 | 20 |
 | species/synodontis-pleurops | rest | 0 | 20 |
 | species/xyliphius-barbatus | rest | 0 | 20 |
@@ -105,10 +104,28 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/euchilichthys-guentheri | rest | 0 | 20 |
 | species/gogo-brevibarbis | rest | 0 | 20 |
 | species/gogo-ornatus | rest | 0 | 20 |
+| species/hemiarius-verrucosus | rest | 0 | 20 |
+| species/hexanematichthys-mastersi | rest | 0 | 20 |
+| species/hyphessobrycon-brumado | rest | 0 | 20 |
 | species/hyphessobrycon-heterorhabdus | covered | 0 | 30 |
 | species/hypostomus-isbrueckeri | covered | 0 | 30 |
 | species/leporinus-arcus | covered | 0 | 30 |
 | species/mochokus-niloticus | covered | 0 | 30 |
+| species/nemapteryx-macronotacantha | rest | 0 | 20 |
+| species/netuma-bilineata | rest | 0 | 20 |
+| species/netuma-proxima | rest | 0 | 20 |
+| species/osteogeneiosus-militaris | rest | 0 | 20 |
+| species/pangasius-macronema | rest | 0 | 20 |
+| species/phractura-fasciata | rest | 0 | 20 |
+| species/plicofollis-argyropleuron | rest | 0 | 20 |
+| species/plicofollis-nella | rest | 0 | 20 |
+| species/plicofollis-platystomus | rest | 0 | 20 |
+| species/sciades-herzbergii | rest | 0 | 20 |
+| species/strophidon-sathete | rest | 0 | 20 |
+| species/synodontis-robbianus | rest | 0 | 20 |
+| species/trachydoras-steindachneri | rest | 0 | 20 |
+| species/zaireichthys-kunenensis | rest | 0 | 20 |
+| species/astroblepus-rosei | rest | 0 | 20 |
 | species/paracheirodon-innesi | staple | 21 | 100 |
 | species/paracheirodon-axelrodi | staple | 29 | 100 |
 | species/trigonostigma-heteromorpha | staple | 26 | 100 |
@@ -230,7 +247,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/channa-asiatica | shop | 5 | 60 |
 | species/channa-aurantimaculata | shop | 0 | 60 |
 | species/danio-margaritatus | shop | 9 | 60 |
-| species/atractosteus-spatula | shop | 39 | 60 |
+| species/atractosteus-spatula | shop | 36 | 60 |
 | species/hyphessobrycon-megalopterus | shop | 4 | 60 |
 | plants/vesicularia-montagnei | shop | 4 | 60 |
 | species/hyphessobrycon-sweglesi | shop | 4 | 60 |
@@ -383,6 +400,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hypancistrus-zebra | covered | 0 | 30 |
 | species/hyphessobrycon-vilmae | covered | 2 | 30 |
 | species/hypostomus-luteus | covered | 0 | 30 |
+| species/hypostomus-roseopunctatus | covered | 0 | 30 |
 | species/kryptopterus-geminus | covered | 0 | 30 |
 | species/lepthoplosternum-pectorale | covered | 3 | 30 |
 | species/leptodoras-cataniai | covered | 1 | 30 |
@@ -709,7 +727,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hypostomus-gymnorhynchus | covered | 3 | 30 |
 | species/hypostomus-hondae | covered | 1 | 30 |
 | species/hypostomus-pusarum | covered | 0 | 30 |
-| species/hypostomus-roseopunctatus | covered | 0 | 30 |
 | species/hypostomus-soniae | covered | 0 | 30 |
 | species/hypostomus-taphorni | covered | 0 | 30 |
 | species/hypselecara-temporalis | covered | 4 | 30 |
@@ -796,6 +813,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/rineloricaria-eigenmanni | covered | 0 | 30 |
 | species/rita-kuturnee | covered | 0 | 30 |
 | species/serrasalmus-brandtii | covered | 3 | 30 |
+| species/serrasalmus-gouldingi | covered | 0 | 30 |
 | species/astroblepus-mindoensis | rest | 1 | 20 |
 | species/eutropiichthys-vacha | rest | 1 | 20 |
 | species/hyphessobrycon-compressus | rest | 1 | 20 |

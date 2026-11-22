@@ -55802,16 +55802,16 @@
   "products": []
  },
  "vi/guides/aquariumbreeder-how-to-remove-black-beard-algae": {
-  "at": "2026-11-17",
-  "hash": "be7122aea727be93",
+  "at": "2026-11-22",
+  "hash": "29daadc2527bd277",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "dose",
     "part": "P1",
-    "quote": "1 viên cho mỗi 20 lít nước bể",
-    "why": "Per-volume dose of a named commercial anti-algae product.",
+    "quote": "1 viên cho mỗi 20 lít nước bể.",
+    "why": "Gives a per-volume dose of a named commercial algaecide.",
     "by": "model",
     "product": "Tetra Algizit"
    }
@@ -55829,11 +55829,11 @@
     "amount": 1.5,
     "amountMax": 0,
     "unit": "ml",
-    "per": 4.5,
+    "per": 3.8,
     "perUnit": "litre",
     "use": "algae",
     "method": "wholeTank",
-    "quote": "Dùng oxy già 3%, liều 1,5 ml cho mỗi 4,5 lít nước bể"
+    "quote": "Dùng oxy già 3%, liều 1,5 ml cho mỗi 3,8 lít nước bể."
    },
    {
     "treatment": "tetra algizit",
@@ -55845,7 +55845,7 @@
     "perUnit": "litre",
     "use": "algae",
     "method": "wholeTank",
-    "quote": "1 viên cho mỗi 20 lít nước bể"
+    "quote": "1 viên cho mỗi 20 lít nước bể."
    }
   ],
   "sourceRead": true
@@ -55987,8 +55987,8 @@
   "products": []
  },
  "vi/guides/aquariumbreeder-how-to-remove-hair-algae-in-aquariums": {
-  "at": "2026-11-18",
-  "hash": "1749b1b41c4ee438",
+  "at": "2026-11-22",
+  "hash": "a469a4fc41dcbc19",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -55996,7 +55996,7 @@
     "check": "dose",
     "part": "P1",
     "quote": "Châm 1 ml Tetra AlgaeControl cho mỗi 45 lít nước bể.",
-    "why": "Gives an amount per volume of a named commercial algaecide.",
+    "why": "Gives a per-volume dose of a named commercial algaecide.",
     "by": "model",
     "product": "Tetra AlgaeControl"
    }
@@ -56026,11 +56026,11 @@
     "amount": 1,
     "amountMax": 0,
     "unit": "ml",
-    "per": 4.5,
+    "per": 3.8,
     "perUnit": "litre",
     "use": "algae",
     "method": "wholeTank",
-    "quote": "Châm hỗn hợp oxy già và Excel đã pha, liều 1 ml cho mỗi 4,5 lít nước."
+    "quote": "Châm hỗn hợp oxy già và Excel đã pha, liều 1 ml cho mỗi 3,8 lít nước."
    },
    {
     "treatment": "hydrogen peroxide and seachem excel",
@@ -56038,11 +56038,11 @@
     "amount": 1.5,
     "amountMax": 0,
     "unit": "ml",
-    "per": 4.5,
+    "per": 3.8,
     "perUnit": "litre",
     "use": "algae",
     "method": "wholeTank",
-    "quote": "thay vì 1 ml cho mỗi 4,5 lít nước bể thì dùng 1,5 ml hoặc hơn"
+    "quote": "thay vì 1 ml cho mỗi 3,8 lít nước bể thì dùng 1,5 ml hoặc hơn"
    },
    {
     "treatment": "tetra algaecontrol",
@@ -56113,8 +56113,8 @@
   ]
  },
  "vi/guides/aquariumbreeder-how-to-remove-staghorn-algae-in-aquariums": {
-  "at": "2026-11-18",
-  "hash": "715b84810d1066e6",
+  "at": "2026-11-22",
+  "hash": "da0852741bc2962b",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -56131,11 +56131,11 @@
     "amount": 3,
     "amountMax": 0,
     "unit": "ml",
-    "per": 4,
+    "per": 3.8,
     "perUnit": "litre",
     "use": "algae",
     "method": "spot",
-    "quote": "Hút oxy già 3% vào xi lanh, liều 3 ml cho mỗi 4 lít nước bể."
+    "quote": "Hút oxy già 3% vào xi lanh, liều 3 ml cho mỗi 3,8 lít nước bể."
    },
    {
     "treatment": "hydrogen peroxide",
@@ -56143,11 +56143,11 @@
     "amount": 1.5,
     "amountMax": 0,
     "unit": "ml",
-    "per": 4.5,
+    "per": 3.8,
     "perUnit": "litre",
     "use": "algae",
     "method": "wholeTank",
-    "quote": "Dùng oxy già 3%, liều 1,5 ml cho mỗi 4,5 lít nước, châm cho cả bể."
+    "quote": "Dùng oxy già 3%, liều 1,5 ml cho mỗi 3,8 lít nước, châm cho cả bể."
    }
   ],
   "sourceRead": true
