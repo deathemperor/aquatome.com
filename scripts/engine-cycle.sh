@@ -301,8 +301,11 @@ if part rewrite; then
     pnpm engine localize-cards --lang "$lang" || log "localize-cards $lang: failed"
   done
   # UI text those pages need that src/i18n lacks (a label no page used before): translated now, committed with the content.
-  if I18N_MISSING_OUT=/tmp/aq-i18n-missing.json PUBLIC_BUILD=1 pnpm --filter site build >/dev/null 2>&1 \
-    && node -e 'process.exit(Object.values(require("/tmp/aq-i18n-missing.json")).some(s => s.length) ? 0 : 1)'; then
+  # A build that fails translates none, and says so in one line: the face finder's record lost or past its limit fails it
+  # (packages/schema load.ts UNREAD_FACES_LIMIT), and its output goes nowhere (the chief of staff, 21 Nov).
+  if ! I18N_MISSING_OUT=/tmp/aq-i18n-missing.json PUBLIC_BUILD=1 pnpm --filter site build >/dev/null 2>&1; then
+    log "ui strings: the site's build failed, so this run translated no new UI strings"
+  elif node -e 'process.exit(Object.values(require("/tmp/aq-i18n-missing.json")).some(s => s.length) ? 0 : 1)'; then
     pnpm --filter @aq/engine exec tsx scripts/translate-ui.ts /tmp/aq-i18n-missing.json || log "translate-ui: failed"
   fi
   # Languages the site doesn't serve yet (the language table's `served: false`): their pages, written ahead of going live;

@@ -8,7 +8,7 @@ import { LANGS, PHOTO_SCREEN_FILE } from '@aq/schema'
 import { expect, test } from 'vitest'
 import { GALLERY_MIN } from '../../../apps/site/src/lib/gallery'
 import { albumOf, hasAlbum } from '../../../apps/site/src/lib/photo-page'
-import { EMPTIED_FILE, listEmptied, LOADER_FILES, showingPhotos, SITE_GALLERY_MIN } from '../src/emptied-pages'
+import { diskOwners, EMPTIED_FILE, listEmptied, LOADER_FILES, showingPhotos, SITE_GALLERY_MIN } from '../src/emptied-pages'
 import { priorityFish } from '../src/priority-fish'
 
 // A fish page our removals left with no photo goes first for new photos, and stops at its first shown photo (the chief
@@ -55,7 +55,7 @@ test("the engine's rule is the site's: a page shows a photo when the loader leav
   await put('content/species/thai/th.json', vi('pla-thai'))
   await put(`engine-state/${PHOTO_SCREEN_FILE}`, { ...JSON.parse(await readFile(join(r, 'engine-state', PHOTO_SCREEN_FILE), 'utf8')), [url('hd1')]: judged, [url('t1')]: judged })
   const refs = ['species/own', 'species/waits', 'species/album', 'species/none', 'species/closed', 'species/hushed', 'species/held', 'species/thai', 'breeds/with-one', 'breeds/with-none']
-  const engine = await showingPhotos(refs, disk(r))
+  const engine = await showingPhotos(refs, disk(r), diskOwners(r))
   // The site's own content, as its public build loads it (apps/site/src/lib/content.ts).
   const env = { CONTENT_ROOT: process.env.CONTENT_ROOT, PUBLIC_BUILD: process.env.PUBLIC_BUILD, HIDDEN_FILE: process.env.HIDDEN_FILE }
   Object.assign(process.env, { CONTENT_ROOT: join(r, 'content'), PUBLIC_BUILD: '1', HIDDEN_FILE: join(r, 'no-hidden.json') })
@@ -120,6 +120,23 @@ test('a run that leaves a fish page with no photo lists it, dated; one emptied b
   // Not a repository: nothing to compare with.
   const { r: bare } = await store({ species: { x: [] } })
   expect(await listEmptied(bare, '2026-11-21')).toEqual([])
+})
+
+test("an album photo that another page owns and the face finder hasn't read shows on neither, before the run or after: the page that owns it is read too", async () => {
+  // y1 and y2 own u1 and u2, which the face finder hasn't read, and which x1's and x2's albums show. Neither y changes.
+  const { r, put } = await store({ species: { x1: [], y1: ['u1'], x2: [], y2: ['u2'] }, albums: { x1: ['p1', 'u1'], x2: ['u2'] } })
+  await put(`engine-state/${schema.FACES_FILE}`, {})
+  const git = (...a: string[]) => execFileSync('git', a, { cwd: r, encoding: 'utf8' })
+  git('init', '-q', '-b', 'main'); git('config', 'user.email', 't@example.org'); git('config', 'user.name', 'Sample Tester')
+  git('add', '.'); git('commit', '-qm', 'pages')
+  // x1's album loses the photo that showed: what is left waits, so it is emptied now. x2's album showed nothing before
+  // (its one photo waited) and is empty now: not emptied by this run.
+  await put('content/gallery/x1.json', { id: 'x1', photos: [photo('u1')], seen: 1, updatedAt: '2026-11-01' })
+  await put('content/gallery/x2.json', { id: 'x2', photos: [], seen: 0, updatedAt: '2026-11-01' })
+  expect(await listEmptied(r, '2026-11-22')).toEqual(['species/x1'])
+  // Read by the face finder: x1 shows its photo again.
+  await put(`engine-state/${schema.FACES_FILE}`, { [url('u1')]: 0, [url('u2')]: 0 })
+  expect(await showingPhotos(['species/x1'], disk(r), diskOwners(r))).toEqual(new Map([['species/x1', true]]))
 })
 
 test("a page emptied by this run's removal and main's together is listed on main as it is now, after the run caught up", async () => {

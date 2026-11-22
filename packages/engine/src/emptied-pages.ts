@@ -1,8 +1,8 @@
 import { spawnSync } from 'node:child_process'
-import { access, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { access, mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
-import { LANGS, loadAll, PHOTO_BOXES_FILE, PHOTO_SCREEN_FILE, vnDate } from '@aq/schema'
+import { FACES_FILE, LANGS, loadAll, PHOTO_BOXES_FILE, PHOTO_SCREEN_FILE, vnDate } from '@aq/schema'
 
 /**
  * Fish pages our removals left with no photo, first for new photos (the chief of staff, 21 Nov): every page a run's own
@@ -19,7 +19,8 @@ import { LANGS, loadAll, PHOTO_BOXES_FILE, PHOTO_SCREEN_FILE, vnDate } from '@aq
  * step made that removal. Hand changes go through the records and the sweep, so the next run's removal is seen (as with
  * the chief of staff's 46 of 21 Nov). And one the engine can't know: a page hidden on the owner's dashboard is dropped by
  * the site at deploy (apps/site/src/lib/hidden.ts, from a file fetched then, not in the repository), so it can be listed
- * and taken first.
+ * and taken first. Nor is a page whose own files didn't change, emptied because the face finder hasn't read another
+ * page's own photo that its album shows (load.ts), until a change to its own files brings it in.
  */
 export const EMPTIED_FILE = '_priority-emptied.json'
 
@@ -33,11 +34,41 @@ export const SITE_GALLERY_MIN = 1
 export type Read = (path: string) => Promise<string | undefined>
 
 /**
+ * The species, plant and guide pages' entity files (from the repository's root) that may name any of `urls`, as the same
+ * state as a Read holds them: the pages that may own one as their own photo.
+ */
+export type Owners = (urls: string[]) => Promise<string[]>
+
+const OWNER_KINDS = ['species', 'plants', 'guides'] as const
+
+/** Owners as the working tree at `root` holds them: each page whose own photos hold one of the addresses. */
+export const diskOwners = (root: string): Owners => async urls => {
+  const want = new Set(urls), out: string[] = []
+  for (const kind of OWNER_KINDS) {
+    for (const id of await readdir(join(root, 'content', kind)).catch(() => [] as string[])) {
+      const f = `content/${kind}/${id}/entity.json`
+      const s = await readFile(join(root, f), 'utf8').catch(() => undefined)
+      if (s !== undefined && ((JSON.parse(s) as { photos?: { url: string }[] }).photos ?? []).some(p => want.has(p.url))) out.push(f)
+    }
+  }
+  return out
+}
+
+/** Owners as commit `at` of the repository at `root` holds them: each such page whose file names one of the addresses. */
+const commitOwners = (root: string, at: string): Owners => async urls => {
+  const r = spawnSync('git', ['-C', root, 'grep', '-l', '-F', '-f', '-', at, '--', ...OWNER_KINDS.map(k => `content/${k}/*/entity.json`)], { input: urls.join('\n'), encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+  if (r.status === 1) return []
+  if (r.status !== 0) throw new Error(`git grep at ${at}: ${r.stderr.trim()}`)
+  return r.stdout.split('\n').filter(Boolean).map(l => l.slice(at.length + 1))
+}
+
+/**
  * What the site's loader reads (@aq/schema load.ts), by whether it decides a fish page and the photos it shows. `content`
  * and `records` (engine-state) are copied for it; `pages` per page (a page's own files and its gallery); `elsewhere` is
  * about other pages, or about how a photo shows, not whether. A test holds this to every file load.ts reads, so a new one
  * is placed here before it can make the engine's answer differ from the site's. The face record and the dead-fish
- * screen's list are read once the face rule is on main.
+ * screen's list are read once the face rule is on main. Another page's own entity file can decide whether a photo shows
+ * too, when the face finder hasn't read it (load.ts): those are copied by their address (`Owners`).
  */
 export const LOADER_FILES = {
   content: ['sources.json', 'one-voice.json', 'image-approvals.json', 'picture-hashes.json'],
@@ -54,26 +85,37 @@ export const LOADER_FILES = {
  * leaves it one of its own, or when its album (a species' gallery; a breed's own photos after its first, then its
  * gallery: apps/site/src/lib/photo-page.ts albumOf) holds SITE_GALLERY_MIN pictures, in any language. A page the loader
  * drops in every language (no section it may show, or held back by the reader-fit gate) has no answer: it is no page,
- * with or without photos. The loader runs on a copy of those files in the
- * system's temp folder, removed after.
+ * with or without photos. An own photo of a species, plant or guide page that the face finder hasn't read waits wherever
+ * it shows, so the page that owns one of theirs is copied too (`owners`, in the same state as `read`), its entity file
+ * being all the loader reads of it there. The loader runs on a copy of those files in the system's temp folder, removed
+ * after.
  */
-export async function showingPhotos(refs: string[], read: Read): Promise<Map<string, boolean>> {
+export async function showingPhotos(refs: string[], read: Read, owners: Owners): Promise<Map<string, boolean>> {
   const out = new Map<string, boolean>()
   if (!refs.length) return out
   const tmp = await mkdtemp(join(tmpdir(), 'aq-emptied-'))
   try {
     const put = async (path: string) => {
       const s = await read(path)
-      if (s === undefined) return
+      if (s === undefined) return undefined
       await mkdir(dirname(join(tmp, path)), { recursive: true })
       await writeFile(join(tmp, path), s)
+      return s
     }
     for (const kind of ['species', 'plants', 'breeds', 'guides', 'gallery']) await mkdir(join(tmp, 'content', kind), { recursive: true })
     for (const f of LOADER_FILES.content) await put(`content/${f}`)
     for (const f of LOADER_FILES.records) await put(`engine-state/${f}`)
+    const theirs: string[] = []
     for (const ref of refs) {
       const [kind, id] = ref.split('/') as [string, string]
-      for (const f of [`content/${kind}/${id}/entity.json`, ...LANGS.map(l => `content/${kind}/${id}/${l}.json`), `content/gallery/${id}.json`]) await put(f)
+      for (const f of LANGS.map(l => `content/${kind}/${id}/${l}.json`)) await put(f)
+      for (const f of [`content/${kind}/${id}/entity.json`, `content/gallery/${id}.json`]) { const s = await put(f); if (s !== undefined) theirs.push(s) }
+    }
+    const record = await read(`engine-state/${FACES_FILE}`)
+    if (record !== undefined) {
+      const seen = JSON.parse(record) as Record<string, number>
+      const unread = new Set(theirs.flatMap(s => ((JSON.parse(s) as { photos?: { url: string }[] }).photos ?? []).map(p => p.url)).filter(u => !Object.hasOwn(seen, u)))
+      if (unread.size) for (const f of await owners([...unread])) await put(f)
     }
     const album = (photos: unknown[]) => photos.length >= SITE_GALLERY_MIN
     const shows = (ref: string, yes: boolean) => out.set(ref, out.get(ref) === true || yes)
@@ -135,7 +177,7 @@ export async function listEmptied(root: string, at = vnDate(new Date())): Promis
   if (!refs.size) return write([])
   const then: Read = async p => { const r = git('show', `${base}:${p}`); return r.status === 0 ? r.stdout : undefined }
   const now: Read = p => readFile(join(root, p), 'utf8').catch(() => undefined)
-  const [before, after] = [await showingPhotos([...refs], then), await showingPhotos([...refs], now)]
+  const [before, after] = [await showingPhotos([...refs], then, commitOwners(root, base)), await showingPhotos([...refs], now, diskOwners(root))]
   const added: string[] = []
   // Showed a photo then, and is a page with none now: a page the loader drops (no section it may show) isn't one.
   for (const r of [...refs].sort()) if (before.get(r) === true && after.get(r) === false && !Object.hasOwn(list, r) && (await here(r))) added.push(r)

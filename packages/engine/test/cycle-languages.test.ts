@@ -1,3 +1,4 @@
+import { spawnSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import { LANG, OTHER_LANGS, WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
@@ -69,6 +70,23 @@ test('the rewrite part spends on the Vietnamese rewrite and every translation fi
 test("a cycle that changed only UI text still publishes it, or the next would drop it and pay for it again", () => {
   expect(script).toContain('git status --porcelain -- content sources apps/site/src/i18n)" ]; then\n  # Only the engine\'s own records')
   expect(script).toContain('git add content sources engine-state docs/review apps/site/src/i18n')
+})
+
+test("the cycle's own site build for new UI strings says so in one line when it fails, so a run that translated none is never silent", () => {
+  // The chief of staff, 21 Nov 2026: the build fails when the face finder's record is lost or past its limit (load.ts),
+  // and its output goes nowhere. The block, run with pnpm, node and the log stood in for.
+  const from = script.indexOf('  # UI text those pages need that src/i18n lacks')
+  const to = script.indexOf('\n  fi\n', from) + '\n  fi\n'.length
+  expect(from).toBeGreaterThan(-1)
+  const run = (build: number, missing: number) => {
+    const r = spawnSync('bash', ['-c', `set -euo pipefail\nlog() { echo "LOG $*"; }\npnpm() { if [ "$3" = build ]; then return ${build}; fi; echo "RAN $*"; }\nnode() { return ${missing}; }\n${script.slice(from, to)}`], { encoding: 'utf8', env: { PATH: process.env.PATH } })
+    expect(r.status, r.stderr).toBe(0)
+    return r.stdout.trim().split('\n').filter(Boolean)
+  }
+  expect(run(1, 0)).toEqual(["LOG ui strings: the site's build failed, so this run translated no new UI strings"])
+  expect(run(1, 1)).toEqual(["LOG ui strings: the site's build failed, so this run translated no new UI strings"])
+  expect(run(0, 0)).toEqual(['RAN --filter @aq/engine exec tsx scripts/translate-ui.ts /tmp/aq-i18n-missing.json'])
+  expect(run(0, 1)).toEqual([])
 })
 
 test('their UI text goes first in the block, 500 strings a cycle: it decides when a language can go live, and last it was skipped', () => {

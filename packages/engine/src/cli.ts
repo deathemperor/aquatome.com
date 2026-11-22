@@ -48,7 +48,7 @@ import { checkContent } from './content-check'
 import { updatePageDates } from './page-dates'
 import { sweep } from './sweep'
 import { refusedSweep, WAITING } from './refused-sources'
-import { dropFacePhotos, visionFaces } from './faces'
+import { screenNewPhotos, visionFaces } from './faces'
 import { boxPhotos, visionSubjects } from './photo-boxes'
 import { backfillPhotos } from './photo-backfill'
 import { ChromeFetcher } from './fetch'
@@ -119,7 +119,7 @@ import { fetchListing, holdMagazine, readIdeas, readMagazine, refreshIdeas, refr
 import { backfillVideoItems } from './video-items'
 import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytFrames, ytGrab } from './youtube'
 import { checkPagePhotos, EMPTY_CAP, PHOTO_CHECK_SCHEMA, recheckCandidates, type PhotoCheckDeps } from './photo-check'
-import { DEAD_SCREEN_SCHEMA, screenDead } from './dead-screen'
+import { DEAD_SCREEN_SCHEMA, screenDead, type DeadScreenDeps } from './dead-screen'
 import { askAlbums, askSchema, type AskTile } from './album-ask'
 import { GUIDE_PHOTO_SCHEMA, screenGuidePhotos, type GuidePhotoDeps } from './guide-photos'
 import { screenWatermarks, visionText, WATERMARK_SCHEMA } from './watermarks'
@@ -213,6 +213,11 @@ const galleryDeps = (): GalleryDeps => ({
   http, sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date(), faces: visionFaces,
   get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
   look: (file, prompt) => claudeVision<Vet>({ system: 'You pick photos for a fish or plant photo gallery. Reply only with JSON.', prompt, schema: GALLERY_VET, file }),
+})
+/** The dead-fish screen's fetch and look (dead-screen.ts), for its own command and the faces step. */
+const deadScreenDeps = (): DeadScreenDeps => ({
+  get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
+  look: (file, prompt) => claudeVision({ system: 'You look at pictures for an aquarium handbook. Reply only with JSON.', prompt, schema: DEAD_SCREEN_SCHEMA, file, model: process.env.DEAD_SCREEN_MODEL ?? 'sonnet' }),
 })
 const cmd = positionals[0]
 // The command, wherever it stood among the options, is the name its model calls are counted under (ceiling.ts stepFor).
@@ -369,16 +374,26 @@ if (cmd === 'photo-privacy') {
   console.log(`photo-boxes: ${r.boxed} boxed, ${r.none} with no animal found, ${r.left} left for later, ${r.failed.length} failed`)
   for (const f of r.failed.slice(0, 30)) console.log(`failed: ${f}`)
 } else if (cmd === 'faces') {
-  // Drop photos showing people (macOS Vision face detection); each photo is checked once, cached in engine-state.
-  const r = await dropFacePhotos(join(ROOT, 'content'), join(ROOT, 'engine-state/_photo-faces.json'), {
+  // Drop photos showing people (macOS Vision face detection); each photo is checked once, cached in engine-state. Then
+  // the dead-fish screen on the photos it judged now (faces.ts screenNewPhotos), counted under this step's line.
+  const { faces: r, dead, deadFailed, owed } = await screenNewPhotos(join(ROOT, 'content'), join(ROOT, 'engine-state/_photo-faces.json'), {
     get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
-    detect: visionFaces,
+    detect: visionFaces, dead: deadScreenDeps(),
   }, join(ROOT, 'engine-state/_photo-rejected.json'), ROOT)
   console.log(`faces: ${r.checked} checked, ${r.removed.length} removed, ${r.held.length} held for a second look (a page's last photo), ${r.failed.length} failed`)
   for (const x of r.held) console.log(`held for a second look: ${x}`)
   for (const x of r.firstOff) console.log(`off at its first verdict, waiting for a second look: ${x}`)
   for (const x of r.removed) console.log(`removed: ${x}`)
   for (const f of r.failed) console.log(`failed: ${f}`)
+  if (deadFailed) console.log(`dead-screen of new photos: failed (${deadFailed})`)
+  if (dead) {
+    console.log(`dead-screen of new photos: ${dead.sheets} sheets, ${dead.judged} judged, ${dead.dead.length} dead, ${dead.held.length} held for a second look (a page's last photo), ${dead.firstOff.length} off at their first verdict, ${dead.left} left for the photo check, ${dead.failed.length} failed${dead.stopped ? ` (stopped: ${dead.stopped})` : ''}`)
+    for (const x of dead.dead) console.log(`dead: ${x}`)
+    for (const x of dead.held) console.log(`held for a second look: ${x}`)
+    for (const x of dead.firstOff) console.log(`off at its first verdict, waiting for a second look: ${x}`)
+    for (const x of dead.failed.slice(0, 30)) console.log(`failed: ${x}`)
+  }
+  if (owed) console.log(`dead-screen of new photos: ${owed} owed a look, off every public page until judged`)
 } else if (cmd === 'calibrate-marks') {
   if (!values.manifest) throw new Error('calibrate-marks needs a reviewed --manifest in the private image cache')
   const cases = JSON.parse(await readFile(String(values.manifest), 'utf8')) as Parameters<typeof calibrateMarks>[0]
@@ -449,10 +464,7 @@ if (cmd === 'photo-privacy') {
   // photos the photo check never asked about dead fish; --limit a run (default 48), 12 to a model call; --back-check also
   // the videos judged from their thumbnail alone. A dead one leaves every page, for good. Sonnet by default: whether a
   // fish is alive, not which fish it is.
-  const r = await screenDead(ROOT, {
-    get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
-    look: (file, prompt) => claudeVision({ system: 'You look at pictures for an aquarium handbook. Reply only with JSON.', prompt, schema: DEAD_SCREEN_SCHEMA, file, model: process.env.DEAD_SCREEN_MODEL ?? 'sonnet' }),
-  }, { limit: values.limit ? Number(values.limit) : 48, parallel: values.parallel ? Number(values.parallel) : 1, backCheck: !!values['back-check'] })
+  const r = await screenDead(ROOT, deadScreenDeps(), { limit: values.limit ? Number(values.limit) : 48, parallel: values.parallel ? Number(values.parallel) : 1, backCheck: !!values['back-check'] })
   console.log(`dead-screen: ${r.sheets} sheets, ${r.judged} judged, ${r.dead.length} dead, ${r.held.length} held for a second look (a page's last photo), ${r.left} left for later, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of r.dead) console.log(`dead: ${x}`)
   for (const x of r.held) console.log(`held for a second look: ${x}`)

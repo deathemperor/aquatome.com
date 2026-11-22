@@ -24,6 +24,10 @@ import { holdForSecondLook, lastPhotos, looks, pagesShowing, readPassedBefore, r
  * hand and passed, with fish gutted in a bowl three quarters through. So a video is its thumbnail and the frames YouTube
  * publishes from about a quarter, half and three quarters through, two by two on one tile. `frames` marks a verdict that
  * saw them. One from before stays until a `backCheck` run, which looks at each of those once.
+ *
+ * `photos`: these photos alone, in the order given, wherever they stand on a page, and no videos. The faces step passes
+ * the photos it owes a look, so a dead fish new to a page is off it at that run's push, not hours later at the photo
+ * check's first verdict (faces.ts screenNewPhotos; the chief of staff, 21 Nov 2026).
  */
 export type DeadVerdict = { dead: boolean; note: string; frames?: boolean }
 export type DeadScreenDeps = {
@@ -60,19 +64,26 @@ async function pool<T>(items: T[], n: number, f: (x: T) => Promise<void>) {
   await Promise.all(Array.from({ length: Math.max(1, n) }, async () => { while (next < items.length) await f(items[next++]!) }))
 }
 
+/** Photos a photo-check verdict judged for dead fish (it has `logo`): the check asked, so the screen doesn't. */
+export async function askedByCheck(root: string): Promise<Set<string>> {
+  const state = (f: string) => join(root, 'engine-state', f)
+  const asked = new Set<string>()
+  const legacy = (await readJson<Record<string, { logo?: boolean }>>(state('_photo-check.json'))) ?? {}
+  for (const [u, v] of Object.entries(legacy)) if ('logo' in v) asked.add(u)
+  const subjects = (await readJson<Record<string, Record<string, { logo?: boolean }>>>(state('_photo-subjects.json'))) ?? {}
+  for (const [u, by] of Object.entries(subjects)) if (Object.values(by).some(v => 'logo' in v)) asked.add(u)
+  return asked
+}
+
 /** `backCheck`: also the videos judged from their thumbnail alone (the screen's verdicts from before it saw frames). */
-export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: number; parallel?: number; backCheck?: boolean }) {
+export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: number; parallel?: number; backCheck?: boolean; photos?: ReadonlySet<string> }) {
   const content = join(root, 'content')
   const state = (f: string) => join(root, 'engine-state', f)
   const oldCache = (await readJson<Record<string, DeadVerdict>>(state('_dead-screen.json'))) ?? {}
   const cache=Object.fromEntries(Object.entries(oldCache).map(([u,v])=>[u,compactVerdict(v)]))
   const videoRejected = (await readJson<Record<string, string>>(state('_video-rejected.json'))) ?? {}
   const photoRejected = (await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {}
-  const asked = new Set<string>() // photos a photo-check verdict judged for dead fish (it has `logo`)
-  const legacy = (await readJson<Record<string, { logo?: boolean }>>(state('_photo-check.json'))) ?? {}
-  for (const [u, v] of Object.entries(legacy)) if ('logo' in v) asked.add(u)
-  const subjects = (await readJson<Record<string, Record<string, { logo?: boolean }>>>(state('_photo-subjects.json'))) ?? {}
-  for (const [u, by] of Object.entries(subjects)) if (Object.values(by).some(v => 'logo' in v)) asked.add(u)
+  const asked = await askedByCheck(root)
   // `firstOff`: a page's last photo the hold doesn't keep, its first verdict on a photo that never passed the check (last-photo.ts).
   const report = { sheets: 0, judged: 0, dead: [] as string[], held: [] as string[], firstOff: [] as string[], failed: [] as string[], left: 0, stopped: '' }
 
@@ -83,21 +94,24 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
       const file = join(content, kind, id, 'entity.json')
       const e = await readJson<{ photos?: { url: string }[]; videos?: { youtubeId: string }[] }>(file)
-      for (const v of e?.videos ?? []) {
+      for (const v of o.photos ? [] : e?.videos ?? []) {
         const key = `youtube:${v.youtubeId}`
         if (v.youtubeId in videoRejected || (key in cache && !(o.backCheck && !cache[key]!.frames))) continue
         const it = videos.get(key) ?? { key, url: thumbnail(v.youtubeId), files: [], video: v.youtubeId }
         it.files.push(file)
         videos.set(key, it)
       }
-      const main = e?.photos?.[0]?.url
-      if (!main || main in cache || main in photoRejected || asked.has(main)) continue
-      const it = photos.get(main) ?? { key: main, url: main, files: [] }
-      it.files.push(file)
-      photos.set(main, it)
+      const urls = o.photos ? (e?.photos ?? []).map(p => p.url).filter(u => o.photos!.has(u)) : [e?.photos?.[0]?.url]
+      for (const url of urls) {
+        if (!url || url in cache || url in photoRejected || asked.has(url)) continue
+        const it = photos.get(url) ?? { key: url, url, files: [] }
+        it.files.push(file)
+        photos.set(url, it)
+      }
     }
   }
-  const todo = [...videos.values(), ...photos.values()]
+  const order = new Map([...(o.photos ?? [])].map((u, i) => [u, i]))
+  const todo = [...videos.values(), ...[...photos.values()].sort((a, b) => (order.get(a.url) ?? 0) - (order.get(b.url) ?? 0))]
   const batch = todo.slice(0, o.limit)
   report.left = todo.length - batch.length
   const sheets = Array.from({ length: Math.ceil(batch.length / PER_SHEET) }, (_, i) => batch.slice(i * PER_SHEET, (i + 1) * PER_SHEET))
