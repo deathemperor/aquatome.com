@@ -58674,18 +58674,10 @@
  },
  "vi/guides/aquariumcoop-blogs-aquarium-air-pump-with-multiple-tanks": {
   "at": "2026-11-22",
-  "hash": "0dfbd274c4d40172",
+  "hash": "32e18577156bf7bc",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "elsewhere",
-    "part": "P1",
-    "quote": "loại thành dày Schedule 40",
-    "why": "Schedule 40 is a US pipe wall standard; pipe sold in Vietnam is not graded this way.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": [
    "Ziss",
    "Sharpie"

@@ -6,7 +6,7 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Open, no read of its text | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 5140 | 4452 | 668 | 1620 | 39 | 44 | 201 | 46 | 1144 | 349 | 2744 | 446 | 9 | 15 | 0 | 3 | 2 | 4 | 1 |
+| Vietnamese | 5140 | 4452 | 668 | 1619 | 39 | 44 | 201 | 46 | 1144 | 349 | 2744 | 445 | 9 | 15 | 0 | 3 | 2 | 4 | 1 |
 | Indonesian | 1717 | 1574 | 143 | 429 | 27 | 13 | 4 | 6 | 200 | 36 | 74 | 194 | 0 | 2 | 0 | 3 | 2 | 0 | 0 |
 | Thai | 1715 | 1566 | 149 | 404 | 22 | 3 | 5 | 4 | 197 | 41 | 100 | 182 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
 | Malay | 587 | 545 | 42 | 148 | 14 | 3 | 0 | 2 | 74 | 17 | 31 | 55 | 0 | 1 | 0 | 3 | 0 | 0 | 0 |
