@@ -22,6 +22,10 @@ test('difficulty cap, group and pH combine', () => {
   expect(slugs({ difficultyMax: 3, ph: 7 })).toEqual(['ca-neon-xanh', 'ca-galaxy'])
   expect(slugs({ group: 'danios' })).toEqual(['ca-galaxy'])
 })
+// 22 Nov 2026: groups with one name are one option, its value each of them (format.ts groupOptions).
+test('an option that holds two groups shows the fish of both', () => {
+  expect(slugs({ group: 'danios,cichlids' })).toEqual(['ca-dia', 'ca-galaxy'])
+})
 test('empty query returns everything', () => {
   expect(slugs({})).toHaveLength(3)
 })

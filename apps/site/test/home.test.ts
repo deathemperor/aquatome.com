@@ -44,6 +44,13 @@ test("a group's tile takes a photo at least 640 px wide before a smaller one, ev
   expect(groupTiles('vi', soft)[0]!.photo?.url).toBe('https://x/a-0.jpg')
 })
 
+// 22 Nov 2026: the three groups the engine accepts outside its model's list have names, but no home tile while the owner
+// decides whether characoids folds into characins (format.ts OFF_LIST_GROUPS).
+test('the groups outside the model\'s list have no home tile', () => {
+  const c = { species: ['characins', 'characoids', 'cyprinid', 'catfish'].map(group => ({ ...fish(`x-${group}`), group })) } as unknown as Content
+  expect(groupTiles('vi', c).map(t => t.group)).toEqual(['catfish'])
+})
+
 test("a photo the calendar keeps off cards leads no featured fish and no group tile; its page keeps it", () => {
   const avoid = { 'https://x/betta-splendens.jpg': 'a drawing (the chief of staff, 15 Nov)', 'https://x/a-0.jpg': 'a figure plate' }
   const c = { species: [sp('betta-splendens'), sp('rasbora-x'), sp('rasbora-y')] } as unknown as Content

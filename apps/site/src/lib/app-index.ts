@@ -5,7 +5,7 @@ import { breedFigures, speciesOf, type BreedFigures } from './breeds'
 import { photoCredit } from './cite'
 import { curationFor, loopOf, type AppCuration } from './curation'
 import { categoriesIn } from './equipment'
-import { categoryLabel, GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
+import { categoryLabel, GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS, sameNameGroup } from './format'
 import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder, type OffCards } from './home'
 import { resizeOf, sameShape, smallSrc } from './img'
 import { appPath, served, translator, type Lang } from './i18n'
@@ -405,8 +405,9 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   const regionName = regionNames(c.placeNames)
   const taxa = served(lang, '/vi/phan-loai/x/')
   if (served(lang, '/vi/ca/x/')) {
-    // A group the site has no word for (a handful of fish) is "Loài khác", as the app shows it.
-    const groupOf = new Map(everySpecies.map(s => [s.id, s.group in GROUP_LABELS ? s.group : 'other']))
+    // A group the site has no word for (a handful of fish) is "Loài khác", as the app shows it. Groups with one name are
+    // one shelf, under the first of them (characins and characoids, 22 Nov 2026), as they're one option on the site.
+    const groupOf = new Map(everySpecies.map(s => [s.id, s.group in GROUP_LABELS ? sameNameGroup(s.group) : 'other']))
     // The same species the app gets pages of.
     for (const s of appSpecies(lang, c)) {
       const f = toIndexItem(s, traits.get(s.id))

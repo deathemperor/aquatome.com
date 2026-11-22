@@ -2,7 +2,7 @@
 import Browse from '../../layouts/Browse.astro'
 import SpeciesGrid from '../../components/SpeciesGrid.astro'
 import { getContent } from '../../lib/content'
-import { groupLabel } from '../../lib/format'
+import { groupLabel, groupOptions } from '../../lib/format'
 import { creditsFor } from '../../lib/credits'
 import { fishList } from '../../lib/list-data'
 import { PAGE } from '../../scripts/filter-list'
@@ -14,6 +14,8 @@ import { i18n } from '../../lib/i18n'
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
 const groups = [...new Set(c.species.map(s => s.group))].sort()
+// Groups with one name are one option, its value each of them (characins and characoids, 22 Nov 2026; scripts/filter.ts).
+const options = groupOptions(groups)
 // The first page as cards. Every species, with its filter figures and photo, is in the list's data file (lib/list-data.ts),
 // which the script fetches to filter or show more: nothing here grows with the catalogue.
 // Every picture once, in page order (lib/pictures.ts): the man-made fish, then the species (a colour form often has its
@@ -28,7 +30,7 @@ const BREEDS = 10
   <FilterBox id="filter-box" prefix="species" summary={t('Lọc theo bể và nước')}>
     <label>{t('Tên')} <input name="q" type="search" placeholder={t('neon, Corydoras…')} /></label>
     <label>{t('Nhóm')}
-      <select name="group"><option value="">{t('Tất cả')}</option>{groups.map(g => <option value={g}>{t(groupLabel(g))}</option>)}</select>
+      <select name="group"><option value="">{t('Tất cả')}</option>{options.map(gs => <option value={gs.join(',')}>{t(groupLabel(gs[0]!))}</option>)}</select>
     </label>
     <label>{t('Bể dài (cm)')} <input name="tankCm" type="number" inputmode="numeric" min="10" max="400" /></label>
     <label>{t('Nhiệt độ (°C)')} <input name="tempC" type="number" inputmode="numeric" min="5" max="40" /></label>

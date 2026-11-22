@@ -33,7 +33,7 @@ export function nameHas(name: string, text: string): boolean {
   return false
 }
 const named = (i: SpeciesIndexItem, q: SpeciesQuery) =>
-  (!q.group || i.group === q.group) && (!q.text || nameHas(`${i.name} ${i.scientificName}`, q.text))
+  (!q.group || q.group.split(',').includes(i.group)) && (!q.text || nameHas(`${i.name} ${i.scientificName}`, q.text))
 
 /** Species whose figures are all known and all fit the query. */
 export function filterSpecies(items: SpeciesIndexItem[], q: SpeciesQuery): SpeciesIndexItem[] {
