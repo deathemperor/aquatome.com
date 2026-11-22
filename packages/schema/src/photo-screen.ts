@@ -69,8 +69,9 @@ export const UNREAD_FACES_LIMIT = 300
 
 /** The dead-fish screen's record, in engine-state (address → its verdict): every photo it has judged, dead or not. */
 export const DEAD_SCREEN_FILE = '_dead-screen.json'
-/** The photo check's records, in engine-state: its verdicts by address, the old form and the one by subject. */
-export const PHOTO_CHECK_FILES = ['_photo-check.json', '_photo-subjects.json'] as const
+/** The photo check's records, in engine-state: its verdicts by address, the old form, and the one by subject. */
+export const PHOTO_CHECK_FILE = '_photo-check.json'
+export const PHOTO_SUBJECTS_FILE = '_photo-subjects.json'
 /** The second look's records, in engine-state (address → record): a person's `look` is on its photo's record. */
 export const SECOND_LOOK_RECORD = '_photo-second-look.json'
 export type DeadLookRecords = { screen: Record<string, unknown>; check?: Record<string, unknown>; subjects?: Record<string, unknown>; secondLook?: Record<string, unknown> }

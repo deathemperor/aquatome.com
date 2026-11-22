@@ -139,6 +139,19 @@ test("an album photo that another page owns and the face finder hasn't read show
   expect(await showingPhotos(['species/x1'], disk(r), diskOwners(r))).toEqual(new Map([['species/x1', true]]))
 })
 
+test("an album photo that another page owns and no look has judged for a dead fish shows on neither: the page that owns it is read too", async () => {
+  // y owns u, which the face finder has read and no look has judged for a dead fish; x's album shows u and p.
+  const { r, put } = await store({ species: { x: [], y: ['u'] }, albums: { x: ['p', 'u'] } })
+  await put(`engine-state/${schema.FACES_FILE}`, { [url('u')]: 0, [url('p')]: 0 })
+  await put(`engine-state/${schema.DEAD_SCREEN_FILE}`, { [url('p')]: { dead: false } })
+  // x's album loses p, the photo that showed: u waits, so x shows nothing, as the site would.
+  await put('content/gallery/x.json', { id: 'x', photos: [photo('u')], seen: 1, updatedAt: '2026-11-01' })
+  expect(await showingPhotos(['species/x'], disk(r), diskOwners(r))).toEqual(new Map([['species/x', false]]))
+  // Judged by the screen: x shows it.
+  await put(`engine-state/${schema.DEAD_SCREEN_FILE}`, { [url('p')]: { dead: false }, [url('u')]: { dead: false } })
+  expect(await showingPhotos(['species/x'], disk(r), diskOwners(r))).toEqual(new Map([['species/x', true]]))
+})
+
 test("a page emptied by this run's removal and main's together is listed on main as it is now, after the run caught up", async () => {
   const { r, put } = await store({ species: { pair: ['p1'] }, albums: { pair: ['a1'] } })
   const git = (...a: string[]) => execFileSync('git', a, { cwd: r, encoding: 'utf8' })

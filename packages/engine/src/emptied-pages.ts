@@ -2,7 +2,7 @@ import { spawnSync } from 'node:child_process'
 import { access, mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
-import { FACES_FILE, LANGS, loadAll, PHOTO_BOXES_FILE, PHOTO_SCREEN_FILE, vnDate } from '@aq/schema'
+import { DEAD_SCREEN_FILE, deadLooked, FACES_FILE, LANGS, loadAll, PHOTO_BOXES_FILE, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, vnDate } from '@aq/schema'
 
 /**
  * Fish pages our removals left with no photo, first for new photos (the chief of staff, 21 Nov): every page a run's own
@@ -67,12 +67,14 @@ const commitOwners = (root: string, at: string): Owners => async urls => {
  * and `records` (engine-state) are copied for it; `pages` per page (a page's own files and its gallery); `elsewhere` is
  * about other pages, or about how a photo shows, not whether. A test holds this to every file load.ts reads, so a new one
  * is placed here before it can make the engine's answer differ from the site's. The face record and the dead-fish
- * screen's list are read once the face rule is on main. Another page's own entity file can decide whether a photo shows
- * too, when the face finder hasn't read it (load.ts): those are copied by their address (`Owners`).
+ * screen's list are read once the face rule is on main, and the looks for a dead fish (the screen's record, the photo
+ * check's two, the second look's) once the dead-look rule is. Another page's own entity file can decide whether a photo
+ * shows too, when the face finder hasn't read it or no look has judged it for a dead fish (load.ts): those are copied by
+ * their address (`Owners`).
  */
 export const LOADER_FILES = {
   content: ['sources.json', 'one-voice.json', 'image-approvals.json', 'picture-hashes.json'],
-  records: [PHOTO_SCREEN_FILE, '_photo-faces.json', '_photo-dead-owed.json'],
+  records: [PHOTO_SCREEN_FILE, '_photo-faces.json', '_photo-dead-owed.json', DEAD_SCREEN_FILE, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD],
   pages: ['gallery'],
   elsewhere: ['captions', 'cards', 'changelog.json', 'equipment', 'materials', 'page-dates.json', 'products', 'series', 'video-generated.json', 'video-titles', PHOTO_BOXES_FILE],
 } as const
@@ -85,8 +87,9 @@ export const LOADER_FILES = {
  * leaves it one of its own, or when its album (a species' gallery; a breed's own photos after its first, then its
  * gallery: apps/site/src/lib/photo-page.ts albumOf) holds SITE_GALLERY_MIN pictures, in any language. A page the loader
  * drops in every language (no section it may show, or held back by the reader-fit gate) has no answer: it is no page,
- * with or without photos. An own photo of a species, plant or guide page that the face finder hasn't read waits wherever
- * it shows, so the page that owns one of theirs is copied too (`owners`, in the same state as `read`), its entity file
+ * with or without photos. An own photo of a species, plant or guide page that the face finder hasn't read, or of a species
+ * or plant page that no look has judged for a dead fish, waits wherever it shows, so the page that owns one of theirs is
+ * copied too (`owners`, in the same state as `read`), its entity file
  * being all the loader reads of it there. The loader runs on a copy of those files in the system's temp folder, removed
  * after.
  */
@@ -111,12 +114,20 @@ export async function showingPhotos(refs: string[], read: Read, owners: Owners):
       for (const f of LANGS.map(l => `content/${kind}/${id}/${l}.json`)) await put(f)
       for (const f of [`content/${kind}/${id}/entity.json`, `content/gallery/${id}.json`]) { const s = await put(f); if (s !== undefined) theirs.push(s) }
     }
+    const urls = theirs.flatMap(s => ((JSON.parse(s) as { photos?: { url: string }[] }).photos ?? []).map(p => p.url))
+    const waits = new Set<string>()
     const record = await read(`engine-state/${FACES_FILE}`)
     if (record !== undefined) {
       const seen = JSON.parse(record) as Record<string, number>
-      const unread = new Set(theirs.flatMap(s => ((JSON.parse(s) as { photos?: { url: string }[] }).photos ?? []).map(p => p.url)).filter(u => !Object.hasOwn(seen, u)))
-      if (unread.size) for (const f of await owners([...unread])) await put(f)
+      for (const u of urls) if (!Object.hasOwn(seen, u)) waits.add(u)
     }
+    const screen = await read(`engine-state/${DEAD_SCREEN_FILE}`)
+    if (screen !== undefined) {
+      const state = async (f: string) => { const s = await read(`engine-state/${f}`); return s === undefined ? undefined : JSON.parse(s) as Record<string, unknown> }
+      const looked = deadLooked({ screen: JSON.parse(screen) as Record<string, unknown>, check: await state(PHOTO_CHECK_FILE), subjects: await state(PHOTO_SUBJECTS_FILE), secondLook: await state(SECOND_LOOK_RECORD) })
+      for (const u of urls) if (!looked(u)) waits.add(u)
+    }
+    if (waits.size) for (const f of await owners([...waits])) await put(f)
     const album = (photos: unknown[]) => photos.length >= SITE_GALLERY_MIN
     const shows = (ref: string, yes: boolean) => out.set(ref, out.get(ref) === true || yes)
     for (const lang of LANGS) {

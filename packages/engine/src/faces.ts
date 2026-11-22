@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, PHOTO_CHECK_FILES, SECOND_LOOK_RECORD } from '@aq/schema'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD } from '@aq/schema'
 import { screenDead, type DeadScreenDeps } from './dead-screen'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
@@ -125,7 +125,7 @@ async function unjudged(root: string, contentRoot: string): Promise<string[]> {
     }
   }
   const read = async (f: string) => JSON.parse(await readFile(join(root, 'engine-state', f), 'utf8').catch(() => '{}')) as Record<string, unknown>
-  const [screen, check, subjects, secondLook, rejected] = await Promise.all([DEAD_SCREEN_FILE, ...PHOTO_CHECK_FILES, SECOND_LOOK_RECORD, '_photo-rejected.json'].map(read))
+  const [screen, check, subjects, secondLook, rejected] = await Promise.all([DEAD_SCREEN_FILE, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, '_photo-rejected.json'].map(read))
   const looked = deadLooked({ screen: screen!, check, subjects, secondLook })
   return [...shown].filter(u => !looked(u) && !(u in rejected!))
 }

@@ -5,7 +5,7 @@ import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies, THUMB_WIDTH } from './thumb'
-import { awaitsScreen, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, FACES_FILE, PHOTO_CHECK_FILES, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, type PhotoScreenEntry } from './photo-screen'
+import { awaitsScreen, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, FACES_FILE, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, type PhotoScreenEntry } from './photo-screen'
 import { ownerCropApproved, ownerCropCanonical } from './owner-crops'
 import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
 import { HAND_BOXES } from './hand-boxes'
@@ -258,8 +258,12 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   if (screen && !deadScreen && opts.photoScreen === 'required') throw new Error(`${join(dirname(root), 'engine-state', DEAD_SCREEN_FILE)}: the dead-fish screen's record is missing, so no photo can be shown as judged for a dead fish`)
   const unjudged = new Set<string>()
   if (deadScreen) {
-    const [check, subjects] = await Promise.all(PHOTO_CHECK_FILES.map(f => stateRecord<Record<string, unknown>>(root, f)))
-    const looked = deadLooked({ screen: deadScreen, check, subjects, secondLook: await stateRecord<Record<string, unknown>>(root, SECOND_LOOK_RECORD) })
+    const looked = deadLooked({
+      screen: deadScreen,
+      check: await stateRecord<Record<string, unknown>>(root, PHOTO_CHECK_FILE),
+      subjects: await stateRecord<Record<string, unknown>>(root, PHOTO_SUBJECTS_FILE),
+      secondLook: await stateRecord<Record<string, unknown>>(root, SECOND_LOOK_RECORD),
+    })
     for (const kind of ['species', 'plants']) {
       for (const id of await readdir(join(root, kind)).catch(() => [] as string[])) {
         const file = join(root, kind, id, 'entity.json')
