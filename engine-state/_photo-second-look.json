@@ -8160,12 +8160,13 @@
     "off": true
   },
   "https://media.aquatome.com/scotcat/19833709e3e324a5.webp": {
-    "why": "dead: withheld [sha256:4c33105735390b308c7d2284ef84ed02dd7f514e430eab61b9f8fc945ed87acd]",
-    "step": "the chief of staff's look",
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
     "pages": [
       "species/astroblepus-trifasciatus"
     ],
     "at": "2026-11-22",
+    "off": true,
     "look": {
       "said": "agree",
       "by": "the chief of staff",
@@ -8173,12 +8174,13 @@
     }
   },
   "https://media.aquatome.com/scotcat/083f36efecd7b403.webp": {
-    "why": "dead: withheld [sha256:7999d53d23effb0ef7110d01dfc7f46ffa4992a45575f8f483d27d464eb9581f]",
-    "step": "the chief of staff's look",
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
     "pages": [
       "species/astroblepus-trifasciatus"
     ],
     "at": "2026-11-22",
+    "off": true,
     "look": {
       "said": "agree",
       "by": "the chief of staff",
@@ -8199,6 +8201,24 @@
     "step": "the chief of staff's look",
     "pages": [
       "species/parauchenoglanis-altipinnis"
+    ],
+    "at": "2026-11-22",
+    "off": true
+  },
+  "https://media.aquatome.com/scotcat/1b354e2653ab9a17.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/astroblepus-verai"
+    ],
+    "at": "2026-11-22",
+    "off": true
+  },
+  "https://media.aquatome.com/scotcat/711ea44e10a74862.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/astroblepus-trifasciatus"
     ],
     "at": "2026-11-22",
     "off": true
