@@ -1,9 +1,17 @@
 {
   "id": "desmopuntius-hexazona",
   "native": {
-    "input": "45cf869c5381baac",
-    "at": "2026-11-07T16:21:07.852Z",
+    "input": "7840b2ddc3d72b0b",
+    "at": "2026-11-22T19:36:03.501Z",
     "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "They originate from Narathiwat province in South Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
       {
         "code": "SG",
         "status": "native",
@@ -21,19 +29,11 @@
         "ok": true
       },
       {
-        "code": "MY",
+        "code": "SG",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "In the North Selangor peat swamp, Peninsular Malaysia, sympatric fishes include Rasbora cephalotaenia, R. einthovenii, R. kalochroma, Nemacheilus selangoricus, Neohomaloptera johorensis, Kottelatlimia pristes, Mystus bimaculatus, Belontia hasselti, Betta bellica, B. livida, Sphaerichthys osphromenoides, Trichopodus trichopterus, and Luciocephalus pulcher.",
-        "words": "Malaysia",
-        "ok": true
-      },
-      {
-        "code": "TH",
-        "status": "native",
-        "source": "glaser",
-        "quote": "They originate from Narathiwat province in South Thailand.",
-        "words": "Thailand",
+        "source": "bwaquatics",
+        "quote": "Malay Peninsula, Singapore, Sumatra and Borneo.",
+        "words": "Singapore",
         "ok": true
       }
     ],
@@ -62,12 +62,26 @@
         "quote": "Type locality is 'Tuluk and Gunung Sahilan, Sumatra, Indonesia' which appears to correspond to localities within the Kampar River drainage of which the former is now known as Teluk Meranti and is one of many sites on Sumatra where the ancient peat swamp forest has been cleared to make space for oil palm plantations.",
         "country": "ID",
         "ok": true
+      },
+      {
+        "name": "Malay Peninsula",
+        "source": "bwaquatics",
+        "quote": "Malay Peninsula, Singapore, Sumatra and Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "bwaquatics",
+        "quote": "Malay Peninsula, Singapore, Sumatra and Borneo.",
+        "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "MY"
+      ],
       "sourcesOnly": []
     }
   },
@@ -106,12 +120,11 @@
       ]
     ],
     "native": [
+      "TH",
       "SG",
-      "ID",
-      "MY",
-      "TH"
+      "ID"
     ],
     "requests": 12,
-    "at": "2026-11-07T16:21:07.852Z"
+    "at": "2026-11-22T19:36:03.501Z"
   }
 }

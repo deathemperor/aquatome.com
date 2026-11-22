@@ -1,0 +1,117 @@
+{
+  "id": "macrobrachium-lanchesteri",
+  "native": {
+    "input": "812b4b3f8ec74120",
+    "at": "2026-11-22T19:36:03.501Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Whisker shrimp are among the most abundant and widespread shrimp species in Peninsular Malaysia, Thailand and Myanmar, as well as southern China and Java, Indonesia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Whisker shrimp are among the most abundant and widespread shrimp species in Peninsular Malaysia, Thailand and Myanmar, as well as southern China and Java, Indonesia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Whisker shrimp are among the most abundant and widespread shrimp species in Peninsular Malaysia, Thailand and Myanmar, as well as southern China and Java, Indonesia.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Whisker shrimp are among the most abundant and widespread shrimp species in Peninsular Malaysia, Thailand and Myanmar, as well as southern China and Java, Indonesia.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Whisker shrimp are among the most abundant and widespread shrimp species in Peninsular Malaysia, Thailand and Myanmar, as well as southern China and Java, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They are also one of the most common species in Laos.",
+        "words": "Laos",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Java",
+        "source": "aquariumbreeder",
+        "quote": "Whisker shrimp are among the most abundant and widespread shrimp species in Peninsular Malaysia, Thailand and Myanmar, as well as southern China and Java, Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Macrobrachium lanchesteri",
+    "status": "ACCEPTED",
+    "taxonKey": 2224668,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        14
+      ],
+      [
+        "5221e970-757c-43cb-bdd4-2f085bf36ae4",
+        13
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "44bcde48-ac71-46f2-bf73-24fc3c008b6c",
+        3
+      ],
+      [
+        "7a52c058-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "7b84c0a2-f762-11e1-a439-00145eb45e9a",
+        2
+      ]
+    ],
+    "native": [
+      "MY",
+      "TH",
+      "MM",
+      "CN",
+      "ID",
+      "LA"
+    ],
+    "requests": 12,
+    "at": "2026-11-22T19:36:03.501Z"
+  }
+}

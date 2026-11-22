@@ -1,9 +1,17 @@
 {
   "id": "notoglanidium-macrostoma",
   "native": {
-    "input": "4bce685ab508eb03",
-    "at": "2026-11-10T20:57:55.515Z",
+    "input": "0da3a64ed0311ddc",
+    "at": "2026-11-22T19:36:03.501Z",
     "claims": [
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Ogowe River at Ngomo, Gabon",
+        "words": "Gabon",
+        "ok": true
+      },
       {
         "code": "AO",
         "status": "native",
@@ -23,31 +31,25 @@
       {
         "code": "GA",
         "status": "native",
-        "source": "planetcatfish",
-        "quote": "Africa: Chiloango basin in Angola, central basin of the Congo, Loémé basin in Congo, Ogooué basin in Gabon and the basins of the Nyong, Sanaga and Dja in Cameroon.",
+        "source": "scotcat",
+        "quote": "Africa: S. Cameroon, Gabon, and Congo River system. Type locality: Ngomo (Ogôoué) [Gabon].",
         "words": "Gabon",
         "ok": true
       },
       {
         "code": "CM",
         "status": "native",
-        "source": "planetcatfish",
-        "quote": "Africa: Chiloango basin in Angola, central basin of the Congo, Loémé basin in Congo, Ogooué basin in Gabon and the basins of the Nyong, Sanaga and Dja in Cameroon.",
+        "source": "scotcat",
+        "quote": "Africa: S. Cameroon, Gabon, and Congo River system. Type locality: Ngomo (Ogôoué) [Gabon].",
         "words": "Cameroon",
         "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Congo",
+        "name": "Ogowe River",
         "source": "planetcatfish",
-        "quote": "Africa: Chiloango basin in Angola, central basin of the Congo, Loémé basin in Congo, Ogooué basin in Gabon and the basins of the Nyong, Sanaga and Dja in Cameroon.",
-        "ok": true
-      },
-      {
-        "name": "Ogooué",
-        "source": "planetcatfish",
-        "quote": "Africa: Chiloango basin in Angola, central basin of the Congo, Loémé basin in Congo, Ogooué basin in Gabon and the basins of the Nyong, Sanaga and Dja in Cameroon.",
+        "quote": "Type locality: Ogowe River at Ngomo, Gabon",
         "country": "GA",
         "ok": true
       },
@@ -59,10 +61,16 @@
         "ok": true
       },
       {
-        "name": "Loémé",
+        "name": "Congo",
         "source": "planetcatfish",
         "quote": "Africa: Chiloango basin in Angola, central basin of the Congo, Loémé basin in Congo, Ogooué basin in Gabon and the basins of the Nyong, Sanaga and Dja in Cameroon.",
-        "country": "CG",
+        "ok": true
+      },
+      {
+        "name": "Sanaga",
+        "source": "planetcatfish",
+        "quote": "Africa: Chiloango basin in Angola, central basin of the Congo, Loémé basin in Congo, Ogooué basin in Gabon and the basins of the Nyong, Sanaga and Dja in Cameroon.",
+        "country": "CM",
         "ok": true
       },
       {
@@ -73,17 +81,18 @@
         "ok": true
       },
       {
-        "name": "Sanaga",
-        "source": "planetcatfish",
-        "quote": "Africa: Chiloango basin in Angola, central basin of the Congo, Loémé basin in Congo, Ogooué basin in Gabon and the basins of the Nyong, Sanaga and Dja in Cameroon.",
-        "country": "CM",
+        "name": "Congo River",
+        "source": "scotcat",
+        "quote": "Africa: S. Cameroon, Gabon, and Congo River system. Type locality: Ngomo (Ogôoué) [Gabon].",
         "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "CD"
+      ],
       "sourcesOnly": [
         "CG"
       ]

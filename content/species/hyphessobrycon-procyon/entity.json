@@ -10,6 +10,57 @@
     "brazil",
     "rio-aripuana"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Rio Aripuanã",
+        "Rio Madeira"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Rio Aripuanã in the middle basin of the Rio Madeira.",
+          "countries": [],
+          "regions": [
+            "Rio Aripuanã",
+            "Rio Madeira"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8858752,
+      "total": 20,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "BR",
+          20
+        ]
+      ],
+      "cells": [
+        [
+          -60.46875,
+          -8.4375,
+          17
+        ],
+        [
+          -60.46875,
+          -7.03125,
+          1
+        ],
+        [
+          -59.0625,
+          -7.03125,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "ph": [
       {

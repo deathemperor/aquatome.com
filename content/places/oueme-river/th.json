@@ -3,6 +3,12 @@
   "name": "เวเม",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-22T19:27:43.667Z",
+    "why": "\"เวเม\" is only a bare transliteration of Ouémé without the Thai kind word \"แม่น้ำ\", and the usual Thai rendering would be \"แม่น้ำเวเม\" (or \"อูเอเม\")."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

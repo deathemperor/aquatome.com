@@ -18,9 +18,12 @@
         "CO",
         "VE"
       ],
-      "regions": [],
+      "regions": [
+        "Orinoco"
+      ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -31,6 +34,14 @@
             "VE"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "L92, later also given the number L194, is very widespread in the Orinoco drainage of Colombia and Venezuela.",
+          "countries": [],
+          "regions": [
+            "Orinoco"
+          ]
         }
       ]
     },

@@ -23,10 +23,13 @@
       ],
       "regions": [
         "Amazon",
-        "Essequibo"
+        "Essequibo",
+        "Araguaia",
+        "Tocantins"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -36,7 +39,10 @@
             "PE",
             "BR"
           ],
-          "regions": []
+          "regions": [
+            "Amazon",
+            "Essequibo"
+          ]
         },
         {
           "source": "seriouslyfish",
@@ -44,9 +50,15 @@
           "countries": [
             "GY"
           ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Amazon River basin and Araguaia River of the Tocantins basin.",
+          "countries": [],
           "regions": [
-            "Amazon",
-            "Essequibo"
+            "Araguaia",
+            "Tocantins"
           ]
         }
       ]

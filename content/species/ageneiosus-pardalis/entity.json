@@ -14,6 +14,235 @@
     "panama",
     "tuira"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "PA",
+        "VE"
+      ],
+      "regions": [
+        "Lake Maracaibo",
+        "Magdalena",
+        "Cauca",
+        "San Juan",
+        "Tuira"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Río Cauca [Colombia].",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "The species is broadly distributed throughout Atlantic and Pacific slope drainages in Panama, Colombia and Venezuela.",
+          "countries": [
+            "PA",
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Lake Maracaibo basin and the Magdalena, Cauca, San Juan and Tuira River basins.",
+          "countries": [],
+          "regions": [
+            "Lake Maracaibo",
+            "Magdalena",
+            "Cauca",
+            "San Juan",
+            "Tuira"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344515,
+      "total": 9719,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "CO",
+          9697
+        ],
+        [
+          "VE",
+          11
+        ],
+        [
+          "PA",
+          8
+        ],
+        [
+          "BO",
+          2
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          7.03125,
+          7,
+          7
+        ],
+        [
+          -78.75,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          5.625,
+          23,
+          23
+        ],
+        [
+          -77.34375,
+          7.03125,
+          8,
+          8
+        ],
+        [
+          -77.34375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          5.625,
+          13,
+          13
+        ],
+        [
+          -75.9375,
+          7.03125,
+          6904,
+          6904
+        ],
+        [
+          -75.9375,
+          8.4375,
+          1529,
+          1529
+        ],
+        [
+          -75.9375,
+          9.84375,
+          201,
+          201
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          5.625,
+          6,
+          6
+        ],
+        [
+          -74.53125,
+          7.03125,
+          330,
+          330
+        ],
+        [
+          -74.53125,
+          8.4375,
+          592,
+          592
+        ],
+        [
+          -74.53125,
+          9.84375,
+          87,
+          87
+        ],
+        [
+          -73.125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          -68.90625,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

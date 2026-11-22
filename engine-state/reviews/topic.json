@@ -1037,6 +1037,54 @@
       ]
     }
   ],
+  "id/guides/aquatome-cho-ca-an-khi-di-vang-va-khi-mat-dien": [
+    {
+      "at": "2026-11-22T18:39:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "\"nyalakan pompa udara baterai kalau padamnya lama atau ikan megap-megap\" in the opening is a loose generalization; facts give 8+ hours or gasping as triggers, and \"Pakan otomatis ... atau dititipkan\" is fine",
+        "\"Ikan sehat umumnya bisa tahan beberapa hari tanpa makan\" fine; but \"di air yang sedang tidak tersaring\" (unfiltered water) is an added gloss not in the facts for the uneaten-food claim",
+        "\"ikan tropis dan subtropis\" — the fact says temperate fish; subtropical is a changed word",
+        "\"Kalau cuaca panas\" the 'hot weather' claim is fine; \"Pembuatnya menyebut blok bisa memberi makan ikan maksimal 2 minggu tanpa mengotori air\" merges JBL and Tetra claims; 'tanpa mengotori air' is Tetra's only",
+        "\"Pembuat pakan menyebut blok liburan ... Panduan akuarium menyebut cara...\" 'Pesankan ... Panduan akuarium lain' ok; 'Seorang pembuat menyarankan ganti air sebagian dan membersihkan filter sebelum berangkat' ok",
+        "\"Mudik atau Listrik Padam\" and \"Kalau Anda mudik\" are the reader's own name for travel, allowed",
+        "\"Pembuat yang sama menyebut ikan mas\" — the fact says carp, ok; \"mencerna pakan memakai oksigen\" in the FAQ without the warm-months condition is slightly over-generalized",
+        "\"Ikan hias bisa hidup tanpa cahaya\" ok; \"Jangan campur ikan ... ikan bisa saling menyerang\" ok"
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.72,
+        0.9,
+        0.8
+      ]
+    },
+    {
+      "at": "2026-11-22T18:39:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "\"Kalau listrik sudah menyala lagi dalam beberapa jam\": the facts say within a couple of hours, so this stretches the figure.",
+        "\"beri oksigen setiap 4 jam atau lebih cepat\" (FAQ): the facts say every 4 hours for crowded or gasping tanks. \"Atau lebih cepat\" is an addition.",
+        "\"Yang paling penting saat listrik padam adalah oksigen dan suhu\": this priority ranking is not stated in the facts.",
+        "\"kotak obat mingguan\": the facts say only a pill box, not a weekly one.",
+        "\"Blok bisa pecah jadi partikel yang terlalu besar untuk ikan kecil\": the source says the particles are too large for larger fish to eat, so the \"small fish\" wording is a change.",
+        "\"Sebuah panduan akuarium menyarankan pengasuh profesional datang...\": the advice comes from an aquatic vet quoted by Chewy, so it is attributed loosely."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.86,
+        0.9,
+        0.88
+      ]
+    }
+  ],
   "id/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet": [
     {
       "at": "2026-11-08T08:50:23Z",
@@ -1421,6 +1469,36 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "id/guides/aquatome-may-sui-oxy-dung-bao-duong-va-co-ton-dien-khong": [
+    {
+      "at": "2026-11-22T18:42:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-22T18:42:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"sering karena batu aerasi buntu\": the facts say a clogged air stone can stretch or tear the diaphragm. They don't say this is the frequent cause of pumps giving no air.",
+        "\"Bersihkan batu aerasi dan selang secara berkala supaya diafragma tidak rusak\": this is a mild generalisation of the back-pressure fact. The facts don't give a cleaning schedule for air stones or tubing."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.92,
+        0.92,
+        0.9
+      ]
     }
   ],
   "id/guides/aquatome-nuoc-be-ca-bi-xanh-do-tao-xanh-va-cach-xu-ly": [
@@ -3573,6 +3651,51 @@
       ]
     }
   ],
+  "ms/guides/aquatome-cho-ca-an-khi-di-vang-va-khi-mat-dien": [
+    {
+      "at": "2026-11-22T19:12:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "The intro says fry, unhealthy fish and longer trips \"memerlukan pemberi makan automatik atau orang yang datang menjaga\". The facts only say not feeding is unsuitable for them, and that an automatic feeder suits trips longer than a week. They do not say these fish need a feeder or a sitter. This is a small generalisation."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.9,
+        0.92
+      ]
+    },
+    {
+      "at": "2026-11-22T19:12:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.68,
+      "notes": [
+        "\"Jika elektrik pulih dalam beberapa jam, biasanya tidak perlu panik\" - the facts say \"within a couple of hours\"; the guide stretches it to \"a few hours\".",
+        "\"(contohnya dalam bilik berhawa dingin)\" - an air-conditioned room is invented as an example of cold water; the facts do not mention it.",
+        "\"Pembuat pula menyatakan makanan dalam bloknya rendah nutrien dan dipegang dalam bahan pengikat\" - the facts say \"matrix\"; \"binder\" is a shift, a minor one.",
+        "\"Pembuat menyatakan blok boleh memberi makan hingga 2 minggu tanpa mengotorkan air\" - this combines Tetra's claim with JBL's. The FAQ's \"tanpa mengotorkan air\" is only Tetra's claim.",
+        "\"Sebuah panduan menyebut flake atau pelet boleh digunakan\" - the facts say to load the feeder with flakes or pellets, but the claim is given as the guide's own and is contrasted with JBL, whose feeder takes only granules. The table also says \"Ada pemberi makan automatik yang tidak muat makanan tablet\"; this is acceptable.",
+        "\"Penjaga ikan ... Perjalanan lama atau ikan yang memerlukan jagaan rapi\" - the facts do not give this suitability claim for a pet sitter.",
+        "\"Blok makanan cuti ... Ikan yang sudah biasa memakannya\" - this is only partly supported; the facts say to try a block first.",
+        "\"Satu lagi panduan mencadangkan kira-kira seminggu sebelum bertolak\" - this is supported, but \"Seorang pembuat pula tidak bersetuju dengan cara ini\" in the table is acceptable.",
+        "\"Sebuah panduan mencadangkan penyahtoksik ammonia ... Gunakan mengikut label\" - this is supported.",
+        "\"pemutus litar arus baki (jenis yang dikenali di Amerika sebagai GFCI)\" - the guide adds a translation and a place that the facts do not give."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.68,
+        0.6,
+        0.9
+      ]
+    }
+  ],
   "ms/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet": [
     {
       "at": "2026-11-12T20:55:18Z",
@@ -3710,6 +3833,43 @@
         0.8,
         0.72,
         0.8
+      ]
+    }
+  ],
+  "ms/guides/aquatome-chon-ca-khoe-khi-mua-o-cua-hang-dau-hieu-ca-benh-can-tranh-va-cau-hoi-nen-hoi": [
+    {
+      "at": "2026-11-22T19:15:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"terapung kaku\" (floating stiffly) is not in the facts; they only say drifting near the surface.",
+        "\"Ikan yang dibawa pulang dalam keadaan sakit boleh menjangkiti seluruh tangki anda\" is a mild generalisation. The facts only mention the risk of contaminating the tank when you buy a visibly diseased fish."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.82,
+        0.92,
+        0.93
+      ]
+    },
+    {
+      "at": "2026-11-22T19:15:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "\"lihat sama ada ada tanda lain seperti kurang selera makan atau warna pudar\" is a mild extension. The facts list these as betta warning signs but do not say to use them to tell natural silver markings from disease."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.93,
+        0.95
       ]
     }
   ],
@@ -4764,6 +4924,56 @@
       ]
     }
   ],
+  "th/guides/aquatome-cho-ca-an-khi-di-vang-va-khi-mat-dien": [
+    {
+      "at": "2026-11-22T18:47:54Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [
+        "\"ปลาส่วนใหญ่อดอาหารได้หลายวันหรือเป็นสัปดาห์ ตอนไฟดับจึงไม่ควรให้อาหารเลย\" - fine, but the intro line \"เมื่อไฟกลับมาให้วัดแอมโมเนียและไนไตรต์ก่อนกลับมาให้อาหาร\" is a generalisation; the facts' feeding-restart advice is 24 hours or 2 hours with normal conditions, not 'test first'.",
+        "\"ผู้ผลิตรายหนึ่งแนะนำให้ลอยถุงน้ำแข็งก้อนในตู้ถ้าน้ำอุ่นขึ้นเกิน 4–5 °F\" - kept in °F, fine; but \"ลอยน้ำแข็งในตู้หรือเทน้ำเดือดลงตู้ ทำให้อุณหภูมิเปลี่ยนเร็วเกินไป\" lumps boiling water with the ice reason; the facts give no stated reason for the boiling-water rule.",
+        "\"คู่มือการเลี้ยงปลาแหล่งหนึ่งไม่แนะนำบล็อกอาหาร\" and \"ใส่อาหารในเครื่องให้อาหารอัตโนมัติ\" - OK; but \"ทดลองเครื่องให้อาหารอัตโนมัติหรือบล็อกอาหาร ล่วงหน้าหลายวัน เพื่อดูปริมาณอาหารและดูว่าปลายอมกินหรือไม่\" merges the feeder test (days ahead, portion size) with the block trial, and the facts give no 'several days' for blocks.",
+        "\"ผู้ผลิตรายหนึ่งระบุว่าบล็อกอาหารให้อาหารปลาได้นานสุด 2 สัปดาห์\" and \"ผู้ผลิตรายหนึ่งแนะนำให้ใช้ ... ปลาที่ต้องได้อาหารสม่ำเสมอ\" - minor; the guide drops the JBL block capacities, which is fine.",
+        "\"ให้คนดูแลมาที่บ้านก่อนวันเดินทาง\" - the facts say visit before you leave, not specifically the day before.",
+        "\"ผู้ผลิตรายหนึ่งแนะนำให้มีเครื่องสำรองไฟ (UPS) หรือเครื่องปั่นไฟ\" fine; but \"ผู้ผลิตรายหนึ่งแนะนำให้เปลี่ยนน้ำบางส่วนและล้างกรองก่อนออกเดินทาง\" is supported by the JBL source; \"ผู้ผลิตรายนี้ยังระบุว่าปลาคาร์ปใช้ไขมันสะสมได้\" is supported.",
+        "\"ผู้ผลิตอาหารปลารายหนึ่งก็ระบุว่าการให้อาหารตอนไฟดับทำให้ออกซิเจนหมดเร็วขึ้น\" - supported by Hikari. However \"ล้างช่องใบพัดของปั๊มกรอง\" calls the impeller chamber a 'pump' chamber, a small generalisation.",
+        "The closing FAQ line \"อย่าลืมปิดเครื่องให้อาหารอัตโนมัติด้วย\" is supported, but \"ฝากคนดูแล\" being offered as an option for trips over a week (\"ควรใช้เครื่องให้อาหารอัตโนมัติหรือฝากคนดูแล\") goes beyond the facts, which only name the automatic feeder for those trips."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.72,
+        0.72,
+        0.8
+      ]
+    },
+    {
+      "at": "2026-11-22T18:47:54Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [
+        "\"ถ้าจะใช้ ควรเฝ้าดูไม่ให้อุณหภูมิเปลี่ยนเร็วเกินไป\" - advice not in the facts",
+        "\"อาหารที่เหลือจะเน่า\" and \"ทำให้แอมโมเนียในน้ำสูงขึ้น\" in the intro - the university fact says uneaten food adds nitrogen pollution, not rotting or ammonia specifically",
+        "\"ถ้าต้องไปต่างจังหวัด\" - the facts do not mention going out of town, only trips",
+        "\"ตอนไฟดับระบบกรองและปั๊มลมจะหยุดทำงาน\" - an added explanation not in the facts",
+        "\"ให้เปลี่ยนน้ำ 10–30%\" in step 7 / \"ถ้าไฟดับนาน\" - the facts say 'a long outage', which is fine, but 'ผู้ผลิต' for 'น้ำเย็นลงเกิน 3–4 องศา' leaves the unit as degrees without stating F, which is a minor gap",
+        "\"ใส่อาหารแผ่นหรืออาหารเม็ดแบบแปะ (tablet) ไม่ได้\" - garbled: the JBL feeder takes granules only, and flakes and tablets do not fit",
+        "\"พัดลมแบบใช้แบตเตอรี่เป่าที่ผิวน้ำ\" - the facts say only to use a battery-powered fan for evaporative cooling, not to aim it at the surface",
+        "\"ร้านขายปลาแหล่งหนึ่งแนะนำ...\" for LiveAquaria - the shop is called a shop, not a guide, which is acceptable; but \"คู่มือการเลี้ยงปลาสองแหล่งไม่แนะนำ\" credits Chewy as well as Aquarium Co-Op, and Chewy only called the blocks risky"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.7,
+        0.72
+      ]
+    }
+  ],
   "th/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet": [
     {
       "at": "2026-11-08T08:59:52Z",
@@ -5093,6 +5303,48 @@
         0.6,
         0.6,
         0.8
+      ]
+    }
+  ],
+  "th/guides/aquatome-ho-xi-mang-moi-ngam-xa-va-do-ph-truoc-khi-tha-ca": [
+    {
+      "at": "2026-11-22T18:50:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"ถ้าน้ำในถุงกับน้ำในบ่อมีค่า pH ต่างกันมาก ปลาอาจตายได้\" is a broader claim than the facts. They give only the channel catfish fry example, 7.4 versus above 8.0.",
+        "\"น้ำในถุง\" (water in the bag) is slightly off. The facts say \"transport water\" and do not mention a bag."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.95,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "at": "2026-11-22T18:50:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "\"ก่อนปล่อยปลาคาร์ปลงบ่อปูนใหม่\" / \"สำหรับบ่อปลาคาร์ปปูนใหม่\": facts say koi pond; carp is a different term, minor change",
+        "\"ปลาบางชนิดไวต่อค่า pH ที่ต่างกันมาก\": generalisation beyond the channel catfish fry example",
+        "\"ผู้เลี้ยงคนหนึ่งในฟอรัมเคลือบตู้ด้วยน้ำยาเคลือบบ่อปลา\": the facts name Pond Armor, but the guide's wording is fine; however \"แสดงว่าค่า pH แกว่งแรงมาก\" is an invented conclusion, since the keeper's account does not state it",
+        "\"คู่มือเลี้ยงปลาแหล่งที่หนึ่ง\" / \"คู่มือเลี้ยงปลาอีกแหล่งหนึ่ง\" for the 24-48 hour schedule: the facts name sources 3 and 0 as shops, so calling them guides is acceptable, but the guide never states which source gave which figure",
+        "\"คู่มือเลี้ยงปลาที่ใช้น้ำส้มสายชูกลั่นเจือจาง\": the facts say 'diluted white vinegar', and 'กลั่น' (distilled vinegar) is a small unsupported detail",
+        "\"ตรวจหลังปล่อยปลา ... จึงควรวัดค่า pH ของบ่อต่อไปเรื่อย ๆ\": advice to keep testing after stocking is not directly in the facts; the facts only say the pH may need adjusting for some time"
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.6,
+        0.7,
+        0.86
       ]
     }
   ],
@@ -6905,6 +7157,47 @@
       "kept": false
     }
   ],
+  "vi/guides/aquatome-nuoc-be-ca-bi-xanh-tao-xanh": [
+    {
+      "at": "2026-11-22T20:15:54Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"đục tới mức nhìn không thấu\" overstates the fact, which only says visibility can drop sharply within a few days.",
+        "\"Hai nguồn này lệch nhau ở phosphate\" is the guide's own comparison. The facts do not set the two sources' phosphate figures against each other.",
+        "\"Dùng UV thì vẫn phải xử lý đèn, thức ăn và dinh dưỡng song song\" is a mild extrapolation from the keeper's 'band-aid' remark."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.92,
+        0.86,
+        0.92
+      ]
+    },
+    {
+      "at": "2026-11-22T20:15:54Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"tép, ốc hay người\" – the facts list fish, invertebrates and people, so snails are a small addition.",
+        "\"Bể có cá thì phải sủi oxy mạnh khi che tối\" – the facts give large airstones on a strong air pump only for blackout while cycling with fish. A blanket rule for every tank with fish goes a little beyond them.",
+        "\"thêm sủi oxy\" for a dying bloom in a tank – the facts give this advice for ponds, and the guide applies it to tanks.",
+        "\"Với khí hậu nóng và nắng nhiều, nên để ý kỹ chỗ đặt bể\" – this is a general remark with no support in the Vietnam facts."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.86,
+        0.9,
+        0.9
+      ]
+    }
+  ],
   "vi/guides/aquatome-nuoi-ca-rong-arowana-trong-be-kich-thuoc-be-nuoc-thuc-an-va-benh-thuong-gap": [
     {
       "at": "2026-11-08T20:37:05Z",
@@ -7338,6 +7631,47 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/guides/aquatome-vi-sinh-va-men-vi-sinh-cho-ho-ca": [
+    {
+      "at": "2026-11-22T20:09:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "\"Cá thải ra amoniac liên tục\" is a small generality. The facts say fish produce ammonia but not that they do so continuously.",
+        "\"Men tiêu hóa là loại trộn vào thức ăn cho cá, khác với men vi sinh châm vào nước\" is slightly extended. The facts say only that BIO FISH MV, a men tiêu hóa, is mixed into feed. They don't say men vi sinh is dosed into the water."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.93,
+        0.94,
+        0.93
+      ]
+    },
+    {
+      "at": "2026-11-22T20:09:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "\"Những dấu hiệu trên chưa đủ để kết luận là do amoniac. Muốn biết chắc thì phải đo amoniac và nitrit.\" The facts don't say this. It is a generality the guide added.",
+        "\"Với bể lâu năm bị vỡ vi sinh\" treats Merck's \"old tank syndrome\" as the same thing as the Vietnamese \"vỡ vi sinh\". The facts don't link the two.",
+        "\"lọc mút đã chạy thật trong bể có cá ít nhất một tháng\" adds \"có cá\". The facts only say the sponge filter was cycled in real tanks for at least a month.",
+        "\"Chỉ nên lấy từ bể đã chạy ổn mà bạn biết rõ\" is an added recommendation. The facts only warn against media from store tanks.",
+        "\"Châm kháng sinh hoặc hóa chất vào bể đang chạy lọc mà không theo dõi amoniac, nitrit sau đó\" and \"Sau khi dùng thuốc cần đo amoniac và nitrit thường xuyên\" are not stated in the facts. They are inferences."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.8,
+        0.88,
+        0.86
+      ]
     }
   ]
 }

@@ -1,8 +1,13 @@
 {
   "slug": "sao-francisco",
-  "name": "São Francisco",
+  "name": "Sungai São Francisco",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-22T19:31:32.330Z"
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

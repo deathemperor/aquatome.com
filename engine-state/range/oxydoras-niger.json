@@ -1,8 +1,8 @@
 {
   "id": "oxydoras-niger",
   "native": {
-    "input": "504b83efad906fd6",
-    "at": "2026-11-11T02:57:45.598Z",
+    "input": "01d337a718661499",
+    "at": "2026-11-22T19:36:03.501Z",
     "claims": [
       {
         "code": "EC",
@@ -66,12 +66,14 @@
         "name": "Rio São Francisco",
         "source": "seriouslyfish",
         "quote": "It has been recorded from Ecuador, Colombia, Venezuela, Guyana, Peru, Bolivia and Brazil in the Rio São Francisco and Rio Essequibo basins, amongst others.",
+        "country": "BR",
         "ok": true
       },
       {
         "name": "Rio Essequibo",
         "source": "seriouslyfish",
         "quote": "It has been recorded from Ecuador, Colombia, Venezuela, Guyana, Peru, Bolivia and Brazil in the Rio São Francisco and Rio Essequibo basins, amongst others.",
+        "country": "BR",
         "ok": true
       },
       {

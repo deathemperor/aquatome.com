@@ -1511,6 +1511,22 @@
     ],
     "ruled": "a7c2a15c6ddaeb4a"
   },
+  "vi/guides/aquariumbreeder-aquarium-floating-plants-pros-and-cons": {
+    "at": "2026-11-22",
+    "hash": "b752c2dab2709dcc",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Đây là chuyện hay gặp nhất khi trồng cây nổi. Chúng lớn rất nhanh nên sẽ sớm phủ kín cả bể.",
+        "problem": "The page dropped the source's item labels for each pro and con (e.g. 'Fast growth/Overgrowth'), so this first con starts with 'Đây' and the reader can't tell what problem it refers to.",
+        "fix": "Mọc quá nhanh là chuyện hay gặp nhất khi trồng cây nổi. Chúng lớn rất nhanh nên sẽ sớm phủ kín cả bể.",
+        "field": "body"
+      }
+    ],
+    "ruled": "b752c2dab2709dcc"
+  },
   "vi/guides/aquariumbreeder-aquarium-safety-and-checklist": {
     "at": "2026-11-19",
     "hash": "e7b158e63d9b4569",
@@ -1645,6 +1661,38 @@
       }
     ],
     "ruled": "f2f6ef5783493bd8"
+  },
+  "vi/guides/aquariumbreeder-benefits-of-snails-for-a-shrimp-aquarium": {
+    "at": "2026-11-22",
+    "hash": "8ebdc6f822256aee",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Tép có giết ốc không?",
+        "problem": "A new main section comes after the conclusion, so the page seems to end and then start again. In the source this was a sub-question inside the conclusion.",
+        "fix": "Move this section above \"## Kết luận\", or make it a sub-heading under the conclusion.",
+        "rule": "A heading that follows a heading named \"Kết luận\" at the same level.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Không hút nền thì sao? Đúng vậy, khí sẽ tích lại trong nền.",
+        "problem": "\"Đúng vậy\" is a word-for-word copy of the English \"That is right!\" and doesn't work as an answer to an open question in Vietnamese.",
+        "fix": "Không hút nền thì sao? Khí sẽ tích lại trong nền.",
+        "field": "body"
+      }
+    ],
+    "ruled": "8ebdc6f822256aee"
+  },
+  "vi/guides/aquariumbreeder-best-cleaners-for-nano-and-small-aquariums": {
+    "at": "2026-11-22",
+    "hash": "c5cf257a43eb3507",
+    "findings": [],
+    "ruled": "c5cf257a43eb3507"
   },
   "vi/guides/aquariumbreeder-best-corals-for-a-nano-reef-tank": {
     "at": "2026-11-11",
@@ -2198,6 +2246,74 @@
     ],
     "ruled": "48e7162bd9225701"
   },
+  "vi/guides/aquariumbreeder-crystal-red-shrimp-grading-with-pictures": {
+    "at": "2026-11-22",
+    "hash": "caab2ba4ba903cc8",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## Tép Crystal Red hạng SSS (hoặc K14)",
+        "problem": "The grade subsections are at the same heading level as their parent sections. As a result, the same headings (SSS, SS, S) appear twice, once under colour grading and once under pattern grading, and a reader can't tell which section each belongs to.",
+        "fix": "### Tép Crystal Red hạng SSS (hoặc K14)",
+        "rule": "The same heading text appears twice on one page at the same heading level.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Sọc trên bụng không rõ, màu đỏ…",
+        "problem": "This B-grade list item stops mid-sentence.",
+        "fix": "Sọc trên bụng không rõ.",
+        "rule": "A list item that ends with a comma followed by an ellipsis, or with an ellipsis alone.",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Nhưng giữa các mức có rất nhiều cấp chuyển, và màu của tép có lẽ là yếu tố chính quyết định giá và chất lượng.",
+        "problem": "The source's conclusion is cut off after 'the rule ... that'. It never mentions many intermediate grades or says colour mainly decides price, so these closing claims were added.",
+        "field": "body"
+      }
+    ],
+    "ruled": "caab2ba4ba903cc8"
+  },
+  "vi/guides/aquariumbreeder-cycling-your-shrimp-aquarium-fishless": {
+    "at": "2026-11-22",
+    "hash": "e079f5e1399502b3",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "1 giọt mỗi lít (một giọt cho mỗi 4 lít tương đương 2 ppm amoniac)",
+        "problem": "By the page's own conversion, 1 drop per litre is about 8 ppm per dose, which conflicts with the stated 5 ppm target and the 'skip if over 5 ppm' rule.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Chuẩn bị",
+        "problem": "These sub-steps of section 3 (Chuẩn bị, Set bể, the Ngày headings) appear at the same level as the numbered sections, so they look like separate unnumbered sections.",
+        "rule": "An unnumbered heading at the same level that follows numbered headings.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "vì bể nào cũng mỗi khác",
+        "problem": "This garbled phrase mixes 'bể nào cũng khác' and 'mỗi bể mỗi khác'.",
+        "fix": "vì mỗi bể mỗi khác",
+        "field": "body"
+      }
+    ],
+    "ruled": "e079f5e1399502b3"
+  },
   "vi/guides/aquariumbreeder-cyclops-profile-and-culture-guide": {
     "at": "2026-11-05",
     "hash": "9e8cf3d0c4a2bf2e",
@@ -2533,6 +2649,31 @@
     "findings": [],
     "ruled": "c2649431a6f5e840"
   },
+  "vi/guides/aquariumbreeder-everything-about-feeding-dishes-for-shrimp": {
+    "at": "2026-11-22",
+    "hash": "4eb3cad05727c64d",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "ví dụ cho ăn vào thứ Ba và thứ Bảy thay vì nhịn",
+        "problem": "The sample schedule already feeds on Tuesday and Saturday. The fasting days are Wednesday and Sunday, so this example contradicts the table.",
+        "fix": "ví dụ cho ăn vào thứ Tư và Chủ nhật thay vì nhịn",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "thức ăn dạng lá, dạng viên",
+        "problem": "\"Dạng lá\" is an odd word for flake food, and readers could confuse it with the leaves (lá bàng) recommended elsewhere on the page. Vietnamese hobbyists say \"dạng mảnh\" or \"dạng vảy\".",
+        "fix": "thức ăn dạng mảnh, dạng viên",
+        "field": "body"
+      }
+    ],
+    "ruled": "4eb3cad05727c64d"
+  },
   "vi/guides/aquariumbreeder-everything-about-nitrates-in-planted-tanks": {
     "at": "2026-11-17",
     "hash": "de60f98dc19484fc",
@@ -2799,6 +2940,33 @@
     ],
     "ruled": "9b18d855689a0163"
   },
+  "vi/guides/aquariumbreeder-hints-for-survival-your-shrimp": {
+    "at": "2026-11-22",
+    "hash": "4cc74e3fdb2bad5a",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## Mà đó không phải lỗi của bạn!",
+        "problem": "This unnumbered heading sits between Trường hợp 1 and Trường hợp 2, so it looks like a separate case when it actually continues Case 1.",
+        "fix": "Mà đó không phải lỗi của bạn!",
+        "rule": "An unnumbered heading placed between two headings numbered 'Trường hợp N'.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## Lưu ý: kiểm tra thông số nước thường xuyên.",
+        "problem": "This tip is a heading between Trường hợp 8 and 9, so it breaks the numbered list when it belongs inside Case 8.",
+        "fix": "Lưu ý: kiểm tra thông số nước thường xuyên.",
+        "rule": "A heading starting with 'Lưu ý' placed between two headings numbered 'Trường hợp N'.",
+        "field": "body"
+      }
+    ],
+    "ruled": "4cc74e3fdb2bad5a"
+  },
   "vi/guides/aquariumbreeder-holtodrilus-truncates-parasites-in-shrimp-keeping-hobby": {
     "at": "2026-11-16",
     "hash": "f205b36a2f263f27",
@@ -2853,6 +3021,104 @@
     "hash": "09c9576bf0b3b033",
     "findings": [],
     "ruled": "09c9576bf0b3b033"
+  },
+  "vi/guides/aquariumbreeder-how-and-what-to-feed-your-shrimp": {
+    "at": "2026-11-22",
+    "hash": "3baabf2fa20a89b0",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Không có màng sinh học thì thêm 1–2 ngày cho ăn (ví dụ cho ăn cả thứ Ba và thứ Bảy thay vì nhịn).",
+        "problem": "In the sample schedule, Tuesday and Saturday are already feeding days and the fasting days are Wednesday and Sunday, so this example makes no sense.",
+        "fix": "Không có màng sinh học thì thêm 1–2 ngày cho ăn (ví dụ cho ăn cả thứ Tư và Chủ nhật thay vì nhịn).",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Lịch cho ăn mẫu một tuần (bể thủy sinh có 20–30 con tép)",
+        "problem": "The sample schedule for a planted tank has five feeding days, but the opening advice says to try 2–3 days a week in a planted tank with lots of biofilm.",
+        "field": "body"
+      }
+    ],
+    "ruled": "3baabf2fa20a89b0"
+  },
+  "vi/guides/aquariumbreeder-how-density-affects-cherry-shrimp": {
+    "at": "2026-11-22",
+    "hash": "716896024884b5a1",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Tép cái ở D5 nặng hơn 15% so với tép cái nuôi ở D5",
+        "problem": "The line compares group D5 with itself. From the context it should compare D2.5 with D5.",
+        "fix": "Tép cái ở D2.5 nặng hơn 15% so với tép cái nuôi ở D5",
+        "rule": "A list item comparing a density group with the same group label (e.g. 'D5 … so với … D5').",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Tép cái ở D5 nặng hơn 30-35% so với tép cái nuôi ở D10",
+        "problem": "The heavier group should be D2.5, the best-growing group, as in the paired lines. As written it clashes with the other lines.",
+        "fix": "Tép cái ở D2.5 nặng hơn 30-35% so với tép cái nuôi ở D10",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Tép đực ở D5 nặng hơn 15% so với tép đực nuôi ở D10",
+        "problem": "Two lines compare the same pair (D5 against D10) and give different figures, 15% and 25-30%. The first should compare D2.5 with D5.",
+        "fix": "Tép đực ở D2.5 nặng hơn 15% so với tép đực nuôi ở D5",
+        "rule": "Two list items stating the same comparison pair with different percentages.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Tép đực ở D5 nặng hơn 25-30% so với tép đực nuôi ở D10",
+        "problem": "The heavier group should be D2.5 so this line matches the female comparison.",
+        "fix": "Tép đực ở D2.5 nặng hơn 25-30% so với tép đực nuôi ở D10",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "- D5 – 92%,",
+        "problem": "The survival list names D5 twice and leaves out D2.5, so a reader cannot tell which figure belongs to which density.",
+        "fix": "- D2.5 – 92%,",
+        "rule": "A list of density groups in which the same group label appears twice.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "mật độ tốt nhất là 2,5 (3) con trên 1 lít",
+        "problem": "The '(3)' in brackets is unexplained, so the reader cannot tell whether the figure is 2.5 or 3 per litre.",
+        "fix": "mật độ tốt nhất là khoảng 2,5–3 con trên 1 lít",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Journal of Crustacean Biology 37(4). June 201",
+        "problem": "The year in this reference is cut off.",
+        "fix": "Journal of Crustacean Biology 37(4). June 2017",
+        "rule": "A reference line ending in a three-digit year.",
+        "field": "body"
+      }
+    ],
+    "ruled": "716896024884b5a1"
   },
   "vi/guides/aquariumbreeder-how-do-i-know-if-my-shrimp-are-happy": {
     "at": "2026-11-16",
@@ -3788,6 +4054,32 @@
     ],
     "ruled": "1eabd945c9efb4d5"
   },
+  "vi/guides/aquariumbreeder-how-to-remove-snails-from-a-shrimp-tank": {
+    "at": "2026-11-22",
+    "hash": "910811e44765078d",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Thuốc này không hại tép nhưng diệt sạch ốc.",
+        "problem": "The page says flatly that Gastropex is harmless to shrimp, but it also says copper-based medications can wipe out shrimp and that Gastropex contains copper, so readers get two opposite messages.",
+        "fix": "Theo hãng Esha, thuốc này không hại tép nhưng diệt sạch ốc. Tuy vậy, thuốc có chứa đồng nên vẫn phải dùng cẩn thận với tép.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đó cũng là lý do phải chọc lỗ ở bước 6",
+        "problem": "The DIY trap steps are shown as an unnumbered bullet list, so readers cannot find \"bước 6\".",
+        "fix": "Đó cũng là lý do phải chọc lỗ ở phần đầu chai, để oxy lưu thông tốt hơn.",
+        "rule": "Text that refers to \"bước N\" when the nearby list uses bullets instead of numbers.",
+        "field": "body"
+      }
+    ],
+    "ruled": "910811e44765078d"
+  },
   "vi/guides/aquariumbreeder-how-to-remove-staghorn-algae-in-aquariums": {
     "at": "2026-11-18",
     "hash": "055e38ca14c3148b",
@@ -4218,6 +4510,12 @@
     "findings": [],
     "ruled": "d29b32e95d6e4998"
   },
+  "vi/guides/aquariumbreeder-hydra-in-a-shrimp-tank-treatment": {
+    "at": "2026-11-22",
+    "hash": "5dd8a70f545266f8",
+    "findings": [],
+    "ruled": "5dd8a70f545266f8"
+  },
   "vi/guides/aquariumbreeder-importance-of-surface-agitation-in-aquariums": {
     "at": "2026-11-13",
     "hash": "6431fde972d5ae15",
@@ -4481,6 +4779,12 @@
     "findings": [],
     "ruled": "6aca6da910f6aaa4"
   },
+  "vi/guides/aquariumbreeder-malaysian-trumpet-snails-pros-and-cons-for-shrimp-tank": {
+    "at": "2026-11-22",
+    "hash": "b8b8894d64ebd1db",
+    "findings": [],
+    "ruled": "b8b8894d64ebd1db"
+  },
   "vi/guides/aquariumbreeder-medusa-worm-in-a-reef-tank-stay-or-go": {
     "at": "2026-11-16",
     "hash": "59206a976e40960a",
@@ -4547,6 +4851,22 @@
       }
     ],
     "ruled": "39f9e6ef0facd358"
+  },
+  "vi/guides/aquariumbreeder-most-common-shrimp-and-fish-tank-mistakes": {
+    "at": "2026-11-22",
+    "hash": "e259ef52886a148e",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Có những bài riêng tổng hợp cách trị hiệu quả nhất cho Scutariella Japonica, Planaria, Vorticella, Hydra",
+        "problem": "This points readers to the source blog's own articles, which this page doesn't have or link to, so the reader has nowhere to find them.",
+        "fix": "Các bệnh và ký sinh hay gặp ở tép gồm Scutariella Japonica, Planaria, Vorticella, Hydra, Cladogonium ogishimae hoặc Ellobiopsidae, bệnh gỉ sắt, v.v. Mỗi thứ có cách trị riêng.",
+        "field": "body"
+      }
+    ],
+    "ruled": "e259ef52886a148e"
   },
   "vi/guides/aquariumbreeder-most-popular-aquarium-crayfish-species": {
     "at": "2026-11-06",
@@ -5171,6 +5491,12 @@
     "findings": [],
     "ruled": "0b669969e3ea84df"
   },
+  "vi/guides/aquariumbreeder-sand-vs-gravel-vs-bare-bottom-what-is-better-for-shrimp-and-fish": {
+    "at": "2026-11-22",
+    "hash": "ceb0a02345476f3b",
+    "findings": [],
+    "ruled": "ceb0a02345476f3b"
+  },
   "vi/guides/aquariumbreeder-save-the-eggs-from-a-dead-shrimp": {
     "at": "2026-11-22",
     "hash": "170aa0e53853200e",
@@ -5549,6 +5875,30 @@
     ],
     "ruled": "13bc4e6de8c60da7"
   },
+  "vi/guides/aquariumbreeder-starvation-and-survival-the-impact-on-dwarf-shrimp": {
+    "at": "2026-11-22",
+    "hash": "d007d0abc14a4328",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "còn sau hai lần lột xác kế tiếp thì chỉ còn chín ngày,",
+        "problem": "The 9-day figure after two molts is already in the first item and is repeated as a second item, so it reads like a separate stage.",
+        "fix": "- 16 ngày với giai đoạn ấu trùng đầu tiên (vừa mới nở),\n- 9 ngày sau hai lần lột xác kế tiếp.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Ảnh hưởng của việc bỏ đói rồi cho ăn lại lên điện thế ty thể ở ruột giữa của Neocaridina davidi",
+        "problem": "A study's title is left as a stray line under the heading, a fragment rather than a sentence.",
+        "field": "body"
+      }
+    ],
+    "ruled": "d007d0abc14a4328"
+  },
   "vi/guides/aquariumbreeder-submerged-aquarium-plants-as-nitrate-suppressors": {
     "at": "2026-11-04",
     "hash": "80cf7ff07a8f2fb6",
@@ -5647,6 +5997,22 @@
     "hash": "851bf567f7554f3d",
     "findings": [],
     "ruled": "851bf567f7554f3d"
+  },
+  "vi/guides/aquariumbreeder-the-difference-between-neocaridina-and-caridina-shrimp": {
+    "at": "2026-11-22",
+    "hash": "e74b14677bc3308b",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Câu hỏi nhìn bên ngoài thì tép Neocaridina khác Caridina ở đâu cứ bị hỏi đi hỏi lại.",
+        "problem": "\"Câu hỏi... cứ bị hỏi đi hỏi lại\" is clumsy: the question is \"asked\" twice in one sentence.",
+        "fix": "Nhìn bên ngoài thì tép Neocaridina khác Caridina ở đâu là câu hỏi người ta cứ hỏi đi hỏi lại.",
+        "field": "body"
+      }
+    ],
+    "ruled": "e74b14677bc3308b"
   },
   "vi/guides/aquariumbreeder-the-ideal-water-parameters-for-fish-and-shrimp-keeping": {
     "at": "2026-11-16",
@@ -6266,6 +6632,32 @@
       }
     ],
     "ruled": "128ae27d64b511f4"
+  },
+  "vi/guides/aquariumbreeder-what-causes-cloudy-white-aquarium-water": {
+    "at": "2026-11-22",
+    "hash": "23c9ba32a76d19b0",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## 1. Cặn từ nền",
+        "problem": "The numbered cause and remedy items are headings at the same level as their parent sections (\"Nguyên nhân…\", \"Cách trị…\"), so the page shows two 1-2-3 lists in a row as top-level headings and the reader loses track of which section each item belongs to.",
+        "fix": "Make \"1. Cặn từ nền\" … \"3. Vi khuẩn bùng phát\" and \"1. Bảo dưỡng lọc\" … \"5. Thả cá vừa phải…\" subheadings (###) under their sections.",
+        "rule": "Numbered headings at the same level as the unnumbered heading just before them, with the numbering starting over at 1 under the next unnumbered heading.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Rửa sỏi trước khi cho vào bể sẽ trôi hết bụi đất li ti làm đục nước.",
+        "problem": "The sentence's subject doesn't fit its verb: \"rửa sỏi\" can't \"trôi hết\" the dust, so the sentence reads as a word-for-word translation.",
+        "fix": "Rửa sỏi trước khi cho vào bể thì bụi đất li ti làm đục nước sẽ trôi đi hết.",
+        "field": "body"
+      }
+    ],
+    "ruled": "23c9ba32a76d19b0"
   },
   "vi/guides/aquariumbreeder-what-do-crabs-eat": {
     "at": "2026-11-12",
@@ -13330,6 +13722,48 @@
     ],
     "ruled": "9f0a911f4f572c5a"
   },
+  "vi/guides/glaser-en-32-all-the-rest-the-global-ornamental-fish-trade-in-times-of-corona": {
+    "at": "2026-11-22",
+    "hash": "93a2c70df5f40da5",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Những loài cá thường nhập từ Sri Lanka.",
+        "problem": "A photo caption from the source web page was left in the body as a stray line, and there is no photo for it to describe.",
+        "rule": "A short body line with no verb that describes an image (e.g. 'Những loài cá…', 'Bên trái là…') between list items and a heading.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Vận chuyển cá xuất khẩu. Bình thường cá được chở bằng xe tải nhỏ cách nhiệt",
+        "problem": "The leftover photo caption 'Vận chuyển cá xuất khẩu.' is fused into the answer text as if it were a sentence.",
+        "fix": "Bình thường cá xuất khẩu được chở bằng xe tải nhỏ cách nhiệt, nhưng hoàn cảnh hiện nay khó khăn nên phải xoay xở tạm.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Bên trái là một phần trại TRƯỚC khi trời đổi, còn nguyên vẹn. Bên phải là một phần trại SAU một trận giông lớn.",
+        "problem": "This photo caption about left and right images sits in the text of section 3, but the page shows no photo.",
+        "rule": "Body text that mentions 'Bên trái'/'Bên phải' when the page has no matching photo caption.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Trại của một hộ nuôi gia công sau trận giông lớn.",
+        "problem": "A leftover photo caption is left as a stray line after the answer to question 7.",
+        "field": "body"
+      }
+    ],
+    "ruled": "93a2c70df5f40da5"
+  },
   "vi/guides/glaser-en-fisharchive-black-winged-dwarf-hatchets-carnegiella-marthae-and-c-schereri": {
     "at": "2026-11-03",
     "hash": "956dea628b022f60",
@@ -17539,6 +17973,22 @@
     ],
     "ruled": "dad8a952e20605f6"
   },
+  "vi/guides/youtube-0k2KvIXRq70": {
+    "at": "2026-11-22",
+    "hash": "5335f74cd9760a1b",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Sau khi chuyển sang bể riêng 300 lít và được chăm kỹ, sau ba bốn tháng nó lành hẳn",
+        "problem": "The sentence uses \"sau\" twice, so it reads clumsily.",
+        "fix": "Chuyển sang bể riêng 300 lít và chăm kỹ, ba bốn tháng sau nó lành hẳn",
+        "field": "body"
+      }
+    ],
+    "ruled": "5335f74cd9760a1b"
+  },
   "vi/guides/youtube-0kgXMVQ7o0A": {
     "at": "2026-11-13",
     "hash": "580c7af2e6795aa2",
@@ -19521,6 +19971,12 @@
       }
     ],
     "ruled": "bf5f605be891eea3"
+  },
+  "vi/guides/youtube-7mo1UBChWaA": {
+    "at": "2026-11-22",
+    "hash": "d7d1939a7e581e9e",
+    "findings": [],
+    "ruled": "d7d1939a7e581e9e"
   },
   "vi/guides/youtube-7nEatEnYWH8": {
     "at": "2026-11-18",

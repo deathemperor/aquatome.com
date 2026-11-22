@@ -1,0 +1,36 @@
+{
+ "at": "2026-11-22T20:21:07Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Spesimen dalam gambar di halaman ini berasal dari Peru",
+   "why": "Refers to a photo from the source article that this page does not have."
+  }
+ ],
+ "text": {
+  "slug": "dwarf-barracuda-tetra",
+  "name": "Barracuda Tetra",
+  "altNames": [
+   "Dwarf Barracuda Tetra",
+   "Freshwater Barracuda",
+   "Pike Characin"
+  ],
+  "sections": {
+   "quickFacts:glaser": "<p>Acestrorhynchus minimus ialah sejenis barracuda tetra dari Amazonia. Tidak seperti kebanyakan ikan pemangsa, ikan ini kekal kecil dan hanya membesar sekitar 8–10 cm panjang.</p>",
+   "beforeYouBuy:glaser": "<p>Malangnya, spesies ini sangat jarang diimport.</p>",
+   "distribution:glaser": "<p>Barracuda tetra tersebar luas di Amerika Selatan dan ada 14 spesies yang diiktiraf setakat ini. Berdasarkan koleksi saintifik, A. minimus diketahui terdapat di Brazil, Venezuela dan kawasan sempadan Brazil-Colombia. Lokaliti jenisnya ialah Lago Jacaré di Rio Trombetas, Brazil. Spesimen dalam gambar di halaman ini berasal dari Peru, tetapi semua ciri diagnostik spesies ini sepadan.</p>",
+   "aquariumSize:glaser": "<p>Kebanyakan spesies barracuda tetra membesar hingga 20–30 cm dan memerlukan akuarium yang sangat besar. A. minimus hanya membesar sekitar 8–10 cm dan sangat sesuai dipelihara dalam akuarium bersaiz sederhana, mungkin dengan panjang sekitar 120 cm.</p>",
+   "notes:glaser": "<p>Cara paling tepat untuk membezakan A. minimus daripada spesies bertubuh besar yang serupa bentuknya ialah ia hanya mempunyai satu tompok gelap pada pangkal ekor, tetapi tiada tompok di hujung penutup insang.</p>"
+  },
+  "quality": {
+   "score": 0.75,
+   "indexable": true,
+   "bySource": {
+    "glaser": 0.75
+   }
+  }
+ }
+}

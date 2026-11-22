@@ -3,6 +3,12 @@
   "name": "Giang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-22T19:34:05.549Z",
+    "why": "\"Giang\" is the bare Vietnamese name of an unspecified region; Indonesian atlases would typically add a kind word such as \"Provinsi\" or \"Distrik\", and the place is ambiguous, so the bare name is only a moderate fit."
+  },
   "quality": {
     "score": 0.96,
     "indexable": true

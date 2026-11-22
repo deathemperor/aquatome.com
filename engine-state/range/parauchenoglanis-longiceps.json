@@ -1,0 +1,84 @@
+{
+  "id": "parauchenoglanis-longiceps",
+  "native": {
+    "input": "02380e48fa67fd51",
+    "at": "2026-11-22T19:36:03.501Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: Nyong River, central and southern Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "BJ",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "This species is present from the Ouémé River in Benin to the Sanaga River in Cameroon.",
+        "words": "Benin",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Nyong River",
+        "source": "scotcat",
+        "quote": "Africa: Nyong River, central and southern Cameroon.",
+        "country": "CM",
+        "ok": true
+      },
+      {
+        "name": "Ouémé River",
+        "source": "scotcat",
+        "quote": "This species is present from the Ouémé River in Benin to the Sanaga River in Cameroon.",
+        "country": "BJ",
+        "ok": true
+      },
+      {
+        "name": "Sanaga River",
+        "source": "scotcat",
+        "quote": "This species is present from the Ouémé River in Benin to the Sanaga River in Cameroon.",
+        "country": "CM",
+        "ok": true
+      },
+      {
+        "name": "Lower Guinea",
+        "source": "scotcat",
+        "quote": "A Lower Guinea endemic, only known from the Nyong basin in southern Cameroon.",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "BJ"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Parauchenoglanis longiceps",
+    "status": "ACCEPTED",
+    "taxonKey": 2337391,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        6
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ]
+    ],
+    "native": [
+      "CM",
+      "BJ"
+    ],
+    "requests": 11,
+    "at": "2026-11-22T19:36:03.501Z"
+  }
+}

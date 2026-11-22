@@ -9,6 +9,20 @@
       "kept": true
     }
   ],
+  "id/places/abanga-river": [
+    {
+      "at": "2026-11-22T18:36:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Abanga (should be \"Sungai Abanga\"; the generic term \"Sungai\" is missing)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/abuna": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -3796,6 +3810,20 @@
       "kept": true
     }
   ],
+  "id/places/dagua-river": [
+    {
+      "at": "2026-11-22T18:36:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Dagua (should be \"Sungai Dagua\"; the generic term \"Sungai\" is missing)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/daly": [
     {
       "at": "2026-11-08T05:19:46Z",
@@ -5264,6 +5292,18 @@
       "kept": true
     }
   ],
+  "id/places/hawaiian-islands": [
+    {
+      "at": "2026-11-22T18:36:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/he-jiang": [
     {
       "at": "2026-11-08T08:48:27Z",
@@ -5329,6 +5369,18 @@
       "at": "2026-11-11T01:41:42Z",
       "model": "sonnet",
       "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/hong-kong-island": [
+    {
+      "at": "2026-11-22T18:36:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -7471,6 +7523,18 @@
       "at": "2026-11-10T01:37:16Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/lago-manacapuru": [
+    {
+      "at": "2026-11-22T18:36:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -14138,6 +14202,20 @@
       "kept": true
     }
   ],
+  "id/places/rio-chucuri": [
+    {
+      "at": "2026-11-22T18:36:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Chucurí (should be \"Sungai Chucurí\"; the generic term \"Sungai\" is missing)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-cinaruco": [
     {
       "at": "2026-11-08T05:21:29Z",
@@ -18003,6 +18081,18 @@
       "kept": true
     }
   ],
+  "id/places/sumatera": [
+    {
+      "at": "2026-11-22T18:36:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/sunda-islands": [
     {
       "at": "2026-11-14T05:11:44Z",
@@ -20346,6 +20436,18 @@
       "at": "2026-11-08T12:43:55Z",
       "model": "sonnet",
       "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/abanga-river": [
+    {
+      "at": "2026-11-22T19:09:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -24811,6 +24913,18 @@
       "kept": true
     }
   ],
+  "ms/places/dagua-river": [
+    {
+      "at": "2026-11-22T19:09:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/daly": [
     {
       "at": "2026-11-08T12:44:35Z",
@@ -26389,6 +26503,18 @@
       "kept": true
     }
   ],
+  "ms/places/hawaiian-islands": [
+    {
+      "at": "2026-11-22T19:09:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/he-jiang": [
     {
       "at": "2026-11-08T12:44:35Z",
@@ -26510,6 +26636,20 @@
       "score": 0.7,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/hong-kong-island": [
+    {
+      "at": "2026-11-22T19:09:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Pulau Hong Kong: fine."
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -29086,6 +29226,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/lago-manacapuru": [
+    {
+      "at": "2026-11-22T19:09:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Tasik Manacapuru: acceptable."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -35812,6 +35966,20 @@
       "kept": true
     }
   ],
+  "ms/places/rio-chucuri": [
+    {
+      "at": "2026-11-22T19:09:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Sungai Chucurí: accent retained from Spanish; acceptable but Malay would typically be \"Sungai Chucuri\" — minor."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/rio-cinaruco": [
     {
       "at": "2026-11-08T12:45:47Z",
@@ -39948,6 +40116,20 @@
       "kept": true
     }
   ],
+  "ms/places/sumatera": [
+    {
+      "at": "2026-11-22T19:09:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Sumatera: Malaysian atlases usually write \"Sumatera\" (Malay) — fine."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/sunda-islands": [
     {
       "at": "2026-11-14T05:31:12Z",
@@ -42677,6 +42859,20 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/abanga-river": [
+    {
+      "at": "2026-11-22T18:43:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Names are in Thai script; all look acceptable. Minor: อาบังกา, ดากัว, ชูกูรี are plausible transliterations; ทะเลสาบมานากาปูรู fine; สุมาตรา correct."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -46747,6 +46943,20 @@
       "kept": true
     }
   ],
+  "th/places/dagua-river": [
+    {
+      "at": "2026-11-22T18:43:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Names are in Thai script; all look acceptable. Minor: อาบังกา, ดากัว, ชูกูรี are plausible transliterations; ทะเลสาบมานากาปูรู fine; สุมาตรา correct."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/daly": [
     {
       "at": "2026-11-08T05:27:08Z",
@@ -48296,6 +48506,18 @@
       "kept": true
     }
   ],
+  "th/places/hawaiian-islands": [
+    {
+      "at": "2026-11-22T18:43:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/he-jiang": [
     {
       "at": "2026-11-08T08:57:32Z",
@@ -48372,6 +48594,18 @@
       "at": "2026-11-11T01:45:24Z",
       "model": "sonnet",
       "score": 0.82,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/hong-kong-island": [
+    {
+      "at": "2026-11-22T18:43:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -50683,6 +50917,20 @@
       "model": "sonnet",
       "score": 0.74,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/lago-manacapuru": [
+    {
+      "at": "2026-11-22T18:43:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Names are in Thai script; all look acceptable. Minor: อาบังกา, ดากัว, ชูกูรี are plausible transliterations; ทะเลสาบมานากาปูรู fine; สุมาตรา correct."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -57778,6 +58026,20 @@
       "kept": true
     }
   ],
+  "th/places/rio-chucuri": [
+    {
+      "at": "2026-11-22T18:43:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Names are in Thai script; all look acceptable. Minor: อาบังกา, ดากัว, ชูกูรี are plausible transliterations; ทะเลสาบมานากาปูรู fine; สุมาตรา correct."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-cinaruco": [
     {
       "at": "2026-11-08T05:29:24Z",
@@ -61878,6 +62140,20 @@
       "kept": true
     }
   ],
+  "th/places/sumatera": [
+    {
+      "at": "2026-11-22T18:43:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Names are in Thai script; all look acceptable. Minor: อาบังกา, ดากัว, ชูกูรี are plausible transliterations; ทะเลสาบมานากาปูรู fine; สุมาตรา correct."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/sunda-islands": [
     {
       "at": "2026-11-14T05:18:31Z",
@@ -64397,6 +64673,20 @@
       "score": 0.93,
       "notes": [
         "No entry points to the wrong place. Every name is either a form Vietnamese readers use or the source spelling with its generic word in Vietnamese."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/abanga-river": [
+    {
+      "at": "2026-11-22T18:33:20Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.97,
+      "notes": [
+        "All seven names are correct.",
+        "'sông Abanga', 'sông Dagua', 'hồ Manacapuru' and 'sông Chucurí' are the source names with the generic word put into Vietnamese."
       ],
       "attempt": "first",
       "kept": true
@@ -69074,6 +69364,20 @@
       "kept": true
     }
   ],
+  "vi/places/dagua-river": [
+    {
+      "at": "2026-11-22T18:33:20Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.97,
+      "notes": [
+        "All seven names are correct.",
+        "'sông Abanga', 'sông Dagua', 'hồ Manacapuru' and 'sông Chucurí' are the source names with the generic word put into Vietnamese."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/daly": [
     {
       "at": "2026-11-07T20:34:11Z",
@@ -70825,6 +71129,20 @@
       "kept": true
     }
   ],
+  "vi/places/hawaiian-islands": [
+    {
+      "at": "2026-11-22T18:33:20Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.97,
+      "notes": [
+        "All seven names are correct.",
+        "'quần đảo Hawaii', 'đảo Hồng Kông' and 'Sumatra' are the names Vietnamese readers normally use."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/he-jiang": [
     {
       "at": "2026-11-08T08:45:14Z",
@@ -70916,6 +71234,20 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/hong-kong-island": [
+    {
+      "at": "2026-11-22T18:33:21Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.97,
+      "notes": [
+        "All seven names are correct.",
+        "'quần đảo Hawaii', 'đảo Hồng Kông' and 'Sumatra' are the names Vietnamese readers normally use."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -73604,6 +73936,20 @@
       "model": "sonnet",
       "score": 0.96,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/lago-manacapuru": [
+    {
+      "at": "2026-11-22T18:33:21Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.97,
+      "notes": [
+        "All seven names are correct.",
+        "'sông Abanga', 'sông Dagua', 'hồ Manacapuru' and 'sông Chucurí' are the source names with the generic word put into Vietnamese."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -81695,6 +82041,20 @@
       "kept": true
     }
   ],
+  "vi/places/rio-chucuri": [
+    {
+      "at": "2026-11-22T18:33:21Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.97,
+      "notes": [
+        "All seven names are correct.",
+        "'sông Abanga', 'sông Dagua', 'hồ Manacapuru' and 'sông Chucurí' are the source names with the generic word put into Vietnamese."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-cinaruco": [
     {
       "at": "2026-11-07T20:38:46Z",
@@ -86277,6 +86637,20 @@
       "score": 0.95,
       "notes": [
         "\"Đông Nam Sulawesi\" is the standard Vietnamese name for the province Sulawesi Tenggara."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/sumatera": [
+    {
+      "at": "2026-11-22T18:33:21Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.97,
+      "notes": [
+        "All seven names are correct.",
+        "'quần đảo Hawaii', 'đảo Hồng Kông' and 'Sumatra' are the names Vietnamese readers normally use."
       ],
       "attempt": "first",
       "kept": true

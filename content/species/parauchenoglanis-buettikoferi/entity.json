@@ -10,6 +10,40 @@
     "nigeria",
     "niger-delta"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG"
+      ],
+      "regions": [
+        "Warri River",
+        "Niger Delta"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "The holotype of Parauchenoglanis buettikoferi was collected in the Warri River in the Western Niger Delta (Nigeria).",
+          "countries": [
+            "NG"
+          ],
+          "regions": [
+            "Warri River",
+            "Niger Delta"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337389,
+      "total": 0,
+      "fetched": "2026-11-22",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,8 +1,13 @@
 {
   "slug": "tigre",
-  "name": "Tigre",
+  "name": "Sungai Tigre",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.85,
+    "at": "2026-11-22T19:33:40.339Z"
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

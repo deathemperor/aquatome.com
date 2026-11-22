@@ -1,0 +1,48 @@
+{
+  "id": "caridina-parvidentata",
+  "native": {
+    "input": "7762d8319c73022b",
+    "at": "2026-11-22T19:36:03.501Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They are native to the islands of Sulawesi in Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sulawesi",
+        "source": "aquariumbreeder",
+        "quote": "They are native to the islands of Sulawesi in Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Caridina parvidentata",
+    "status": "ACCEPTED",
+    "taxonKey": 6455157,
+    "datasets": [
+      [
+        "5221e970-757c-43cb-bdd4-2f085bf36ae4",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-22T19:36:03.501Z"
+  }
+}

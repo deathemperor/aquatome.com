@@ -10,6 +10,66 @@
     "brazil",
     "rio-tapajos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tapajós",
+        "Rio Juruena",
+        "Rio Juína"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species is so far known only from the Rio Juína and the Rio Juruena, both belonging to the upper Rio Tapajós drainage, Mato Grosso state, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Tapajós",
+            "Rio Juruena",
+            "Rio Juína"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8241770,
+      "total": 29,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "BR",
+          29
+        ]
+      ],
+      "cells": [
+        [
+          -60.46875,
+          -14.0625,
+          22,
+          22
+        ],
+        [
+          -59.0625,
+          -14.0625,
+          6,
+          6
+        ],
+        [
+          -56.25,
+          -14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

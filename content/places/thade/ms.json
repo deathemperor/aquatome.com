@@ -3,6 +3,12 @@
   "name": "Thade",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-22T19:33:33.506Z",
+    "why": "Thade is a Myanmar township/town in Bago Region (Thayarwady district), not a \"region\", and the bare name lacks a Malay kind word, though proper name spelling is kept; an atlas would likely write \"Thade\" or \"Daerah Thade\", so the name is acceptable but the region label is questionable."
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

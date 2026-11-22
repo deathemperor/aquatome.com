@@ -19,10 +19,9 @@
   "range": {
     "native": {
       "countries": [
+        "TH",
         "SG",
-        "ID",
-        "MY",
-        "TH"
+        "ID"
       ],
       "regions": [
         "Borneo",
@@ -32,9 +31,18 @@
       ],
       "sources": [
         "glaser",
-        "seriouslyfish"
+        "seriouslyfish",
+        "bwaquatics"
       ],
       "quotes": [
+        {
+          "source": "glaser",
+          "quote": "They originate from Narathiwat province in South Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
         {
           "source": "seriouslyfish",
           "quote": "Native to parts of southern Borneo, eastern Sumatra, Singapore, and the Malay Peninsula.",
@@ -56,29 +64,13 @@
           "regions": [
             "Kampar River"
           ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "In the North Selangor peat swamp, Peninsular Malaysia, sympatric fishes include Rasbora cephalotaenia, R. einthovenii, R. kalochroma, Nemacheilus selangoricus, Neohomaloptera johorensis, Kottelatlimia pristes, Mystus bimaculatus, Belontia hasselti, Betta bellica, B. livida, Sphaerichthys osphromenoides, Trichopodus trichopterus, and Luciocephalus pulcher.",
-          "countries": [
-            "MY"
-          ],
-          "regions": []
-        },
-        {
-          "source": "glaser",
-          "quote": "They originate from Narathiwat province in South Thailand.",
-          "countries": [
-            "TH"
-          ],
-          "regions": []
         }
       ]
     },
     "records": {
       "taxonKey": 7918345,
       "total": 15,
-      "fetched": "2026-11-07",
+      "fetched": "2026-11-22",
       "countries": [
         [
           "MY",
@@ -98,13 +90,13 @@
           99.84375,
           2.8125,
           1,
-          1
+          0
         ],
         [
           101.25,
           2.8125,
           3,
-          3
+          0
         ],
         [
           102.65625,
@@ -122,13 +114,13 @@
           102.65625,
           1.40625,
           6,
-          6
+          0
         ],
         [
           109.6875,
           1.40625,
           1,
-          1
+          0
         ]
       ]
     }

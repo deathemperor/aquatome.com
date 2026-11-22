@@ -1,0 +1,77 @@
+{
+  "id": "loricaria-lata",
+  "native": {
+    "input": "4d456f712460c13e",
+    "at": "2026-11-22T19:36:03.501Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It originates from the drainage of the Rio Tocantins, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Brazil, Araguaia River basin.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Tocantins",
+        "source": "glaser",
+        "quote": "It originates from the drainage of the Rio Tocantins, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Araguaia River",
+        "source": "scotcat",
+        "quote": "South America: Brazil, Araguaia River basin.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Tocantins River",
+        "source": "scotcat",
+        "quote": "Between the 1980s and 1990s, the species was recorded for other locations in the Tocantins River basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Loricaria lata",
+    "status": "ACCEPTED",
+    "taxonKey": 5961496,
+    "datasets": [
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-22T19:36:03.501Z"
+  }
+}

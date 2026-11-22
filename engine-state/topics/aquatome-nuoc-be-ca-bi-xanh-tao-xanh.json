@@ -1,0 +1,370 @@
+{
+  "found": true,
+  "species": [
+    "Chlorella",
+    "Ankistrodesmus",
+    "Scenedesmus",
+    "Euglena",
+    "Daphnia"
+  ],
+  "sources": [
+    {
+      "url": "https://aqueon.com/articles/green-water----causes-and-cures",
+      "title": "Green Water -- Causes and Cures",
+      "kind": "maker"
+    },
+    {
+      "url": "https://aquariumcoop.com/blogs/faqs/green-water",
+      "title": "How to get rid of green water | Aquarium Co-Op FAQs",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquasabi.de/aquascaping-wiki-en_algae_green-water",
+      "title": "Green water - Aquarium Wiki | Aquasabi - Aquarium Shop",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquariumscience.org/index.php/16-7-aquarium-green-water",
+      "title": "16.7. Aquarium Green Water",
+      "kind": "keeper"
+    },
+    {
+      "url": "https://apifishcare.com/post/green-water-cloudy-water-what-should-i-do-aquarium",
+      "title": "Green Water, Cloudy Water - What Should I Do? | API Fishcare",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.apifishcare.com/product/algaefix",
+      "title": "API ALGAEFIX Algae Control | API Fishcare",
+      "kind": "maker"
+    },
+    {
+      "url": "https://fisheries.tamu.edu/2020/12/02/planktonic-die-off/",
+      "title": "Planktonic Algae Die-off",
+      "kind": "university"
+    },
+    {
+      "url": "https://aquahouse.vn/ho-ca-bi-tao-xanh/",
+      "title": "Hồ cá bị tảo xanh: Nguyên nhân và cách xử lý hiệu quả",
+      "kind": "shop"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Green water is a sudden bloom of free-floating algae (phytoplankton) in the water itself, not algae growing on the glass or decor.",
+      "source": 0,
+      "also": [
+        1
+      ]
+    },
+    {
+      "section": "what",
+      "fact": "Green water is usually harmless to fish, invertebrates and people, but it looks bad and when severe can block light from plants.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Common green-water algae belong to the genera Chlorella, Ankistrodesmus and Scenedesmus; the flagellate Euglena can also be involved.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Seen under a microscope, green water usually holds many types of algae plus infusoria (microscopic animals and bacteria).",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Some phytoplankton is useful: breeders grow infusoria to feed fry.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "The water turns the colour of pea soup.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Visibility can drop sharply within a few days. The algae float freely and do not settle on glass, decor or equipment.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Green water can sometimes look like a whitish haze instead of green.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "In ponds, a dying algae bloom shows as water turning from green to brick-red, brown or black, in streaks or throughout. It may smell foul, and the water can look clearer as dead cells settle.",
+      "source": 6
+    },
+    {
+      "section": "causes",
+      "fact": "Too much light causes green water: a sunny window, a tank light left on too long, or a light that is too strong.",
+      "source": 0,
+      "also": [
+        1,
+        4
+      ]
+    },
+    {
+      "section": "causes",
+      "fact": "Excess nitrate and phosphate feed the bloom. They come from fish food, waste and sometimes tap water, so overfeeding and overstocking add to them.",
+      "source": 0,
+      "also": [
+        4
+      ]
+    },
+    {
+      "section": "causes",
+      "fact": "Ammonia spikes can trigger green water, for example in a tank that has not finished cycling or after a pet sitter overfeeds.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Accidentally double-dosing fertilizer can trigger green water.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Most blooms happen in tanks less than three months old, and green water is very common during cycling, especially with the lights left on.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "In tanks older than three months, likely causes are light that runs too long or is too strong (a few hours of sunlight a day can cause large blooms), phosphate above 0.1 ppm, nitrate above 80 ppm, or no plants. Usually more than one cause is present.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Seasonal warming in spring and summer and strong sunlight can trigger sudden outbreaks.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Aquasabi blames nutrient imbalance in planted tanks and gives these targets: CO2 about 20-30 mg/l, nitrate 10-25 mg/l, potassium 5-10 mg/l, phosphate 0.1-1 mg/l, magnesium above 10 mg/l.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "Test the water for ammonia, nitrite, nitrate and phosphate. If ammonia, nitrite or nitrate is high, change 25% of the water.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "Cut back feeding, put the light on a timer and move the tank away from windows.",
+      "source": 4,
+      "also": [
+        0
+      ]
+    },
+    {
+      "section": "firstAid",
+      "fact": "If a pond's algae bloom is dying, add an aerator to raise dissolved oxygen and lower the risk of fish deaths.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "A UV sterilizer kills green-water algae within two to three days.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Aqueon calls a UV sterilizer the most effective option, usually clearing the water within days, and says it is safe for fish, invertebrates and plants.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Run a UVC unit on its own low-flow pump rather than on the external filter, because high flow shortens the contact time and weakens the effect.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Do not run a UVC unit all the time in a planted tank, as it may break down the chelating agents in some plant fertilizers.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "UV clears green water but leaves the causes in place, so aquariumscience.org calls it a band-aid at best.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquarium Co-Op says to black out the tank (cover it completely) for at least one week, and warns this is hard on plants.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Aqueon describes a blackout as switching the light off and covering the tank with opaque material for a few days, uncovering it briefly each day to feed. If nothing improves within 48 to 72 hours, try another method.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquasabi suggests several large water changes as an alternative to UVC, possibly combined with a blackout, to remove the algae and the pollution from dead algae.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "If there are few or no fish, enough daphnia can eat up the floating algae.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "A diatom filter (using diatomaceous earth) traps algae and fine particles. Aqueon calls these filters old-fashioned and fairly expensive.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "In a new tank, aquariumscience.org advises no water changes, no chemicals and no cleaning. Raise pH to at least 7.0 with baking soda or crushed coral and expect clearing in two to six weeks.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "In an established tank with nitrate above 80 ppm, aquariumscience.org advises one 95% water change, then leaving the tank alone for at least six weeks with pH kept above 7.0.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "If phosphate is the cause, aquariumscience.org advises 80% to 100% water changes.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "While cycling with fish in the tank, aquariumscience.org says to either black out the tank and run large airstones on a strong air pump, or leave the lights on 24 hours a day, with no water changes either way.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "For high phosphate, API suggests its PHOS-ZORB in the filter, plus API STRESS ZYME or QUICK START to add beneficial bacteria.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "API ALGAEFIX dose: 1 ml per 10 gallons (38 L), or 5 ml per 50 gallons (190 L). Repeat every three days until the algae is controlled, then dose once a week. Do not overdose.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Do not use API ALGAEFIX with freshwater crustaceans, including shrimp, crabs and lobsters.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "After treating with API ALGAEFIX, siphon or scrape dead algae out of the aquarium.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Aqueon treats chemicals as a last resort, because they don't fix the cause and their effects on fish, plants and the tank are hard to predict. Before using one, remove activated carbon, keep the water moving and dose by the actual water volume.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "aquariumscience.org advises against algaecides such as API Algaefix, Tetra Algae Control, Flourish Excel, hydrogen peroxide, copper and coagulants. Their effect is temporary, and algae often returns within a week or two.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Aqueon recommends about 8 to 12 hours of light a day for planted tanks and 6 hours or less for unplanted tanks, run on a timer.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Aqueon recommends changing 10% of the water weekly or 25% every two weeks, siphoning out leftover food and waste.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Aquasabi recommends changing about 50% of the water weekly in planted tanks.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Feed only what the fish eat within 2 minutes, once or twice a day.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Test tap water as well as tank water for nitrate and phosphate. If the tap water is high in either, use RO or DI water.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Live plants compete with algae for nutrients, and floating plants such as duckweed and hornwort also shade the deeper water.",
+      "source": 0,
+      "also": [
+        3
+      ]
+    },
+    {
+      "section": "prevention",
+      "fact": "Dose liquid fertilizer by the real water volume, not the tank size: a 20-gallon tank holds about 16 gallons once substrate and decor are in.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "If a new tank is well planted and the plants get enough nutrients, they eventually outcompete the algae.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Blacking out a heavily green tank with fish and poor aeration is a mistake: the algae die, bacteria use up the oxygen, ammonia rises and fish can suffocate.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Big water changes alone don't clear green water, because the algae reproduce so fast.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "A single big water change or a new filter cartridge gives only temporary relief if the cause isn't fixed.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Changing water or cleaning during cycling removes the nutrients the beneficial bacteria need and drags the problem out.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Leaving activated carbon in the filter during a chemical treatment is a mistake.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "In ponds, bacteria use oxygen to break down dead algae, so a dying bloom can strip the oxygen and kill fish.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "In ponds, decomposing algae raise ammonia, which can become toxic un-ionized ammonia in warm months or high-pH water.",
+      "source": 6
+    },
+    {
+      "section": "myths",
+      "fact": "aquariumscience.org rejects the idea that algae-only chemicals are safe, saying algaecides can kill fish and plants and that Tetra Algae Control or API Algaefix have killed tanks even at proper doses.",
+      "source": 3
+    },
+    {
+      "section": "myths",
+      "fact": "aquariumscience.org rejects the idea that hydrogen peroxide is harmless, saying it can burn gills and kill fish.",
+      "source": 3
+    },
+    {
+      "section": "myths",
+      "fact": "aquariumscience.org rejects the idea that large water changes shock fish. It blames deaths during water changes on chlorine (city water) or low oxygen (well water).",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese shops call this 'hồ cá bị tảo xanh' and sell UV aquarium lamps ('đèn UV hồ cá', e.g. Đèn UV Ebang) and air pumps ('máy sủi oxy', e.g. Hailea ACO) for it.",
+      "source": 7
+    },
+    {
+      "section": "other",
+      "fact": "In ponds, algae thrive in sunny conditions with water above 60°F, and die-offs can happen quickly on cloudy days, in cold snaps or after rain.",
+      "source": 6
+    }
+  ]
+}

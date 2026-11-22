@@ -1,0 +1,102 @@
+{
+  "id": "parauchenoglanis-altipinnis",
+  "native": {
+    "input": "a3ef1bf1f0fe5179",
+    "at": "2026-11-22T19:36:03.501Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Ja River at Esamesa, Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "This species is present in parts of Cameroon, Gabon and Congo Brazzaville and has been found in the basins of the Congo (Dja tributary), Nyong, Ogowe and Chiloango Rivers.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "This species is present in parts of Cameroon, Gabon and Congo Brazzaville and has been found in the basins of the Congo (Dja tributary), Nyong, Ogowe and Chiloango Rivers.",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "This species is present in parts of Cameroon, Gabon and Congo Brazzaville and has been found in the basins of the Congo (Dja tributary), Nyong, Ogowe and Chiloango Rivers.",
+        "words": "Congo Brazzaville",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo",
+        "source": "scotcat",
+        "quote": "Africa: Congo, Nyong, Ogowe and Chiloango River basins.",
+        "ok": true
+      },
+      {
+        "name": "Nyong",
+        "source": "scotcat",
+        "quote": "Africa: Congo, Nyong, Ogowe and Chiloango River basins.",
+        "ok": true
+      },
+      {
+        "name": "Ogowe",
+        "source": "scotcat",
+        "quote": "Africa: Congo, Nyong, Ogowe and Chiloango River basins.",
+        "ok": true
+      },
+      {
+        "name": "Chiloango",
+        "source": "scotcat",
+        "quote": "Africa: Congo, Nyong, Ogowe and Chiloango River basins.",
+        "ok": true
+      },
+      {
+        "name": "Ja River",
+        "source": "scotcat",
+        "quote": "Type locality: Ja River at Esamesa, Cameroon.",
+        "country": "CM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parauchenoglanis altipinnis",
+    "status": "ACCEPTED",
+    "taxonKey": 2337408,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        11
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "CM",
+      "GA",
+      "CG"
+    ],
+    "requests": 11,
+    "at": "2026-11-22T19:36:03.501Z"
+  }
+}

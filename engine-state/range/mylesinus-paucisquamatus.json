@@ -1,0 +1,54 @@
+{
+  "id": "mylesinus-paucisquamatus",
+  "native": {
+    "input": "8b82662554473b9a",
+    "at": "2026-11-22T19:36:03.501Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Rio Tocantins",
+        "source": "glaser",
+        "quote": "The animals came from the Rio Tocantins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Mylesinus paucisquamatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2353287,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        14
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        6
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-22T19:36:03.501Z"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "id": "hyphessobrycon-procyon",
+  "native": {
+    "input": "ab14b591210fe34f",
+    "at": "2026-11-22T19:36:03.501Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Rio Aripuanã",
+        "source": "glaser",
+        "quote": "Rio Aripuanã in the middle basin of the Rio Madeira.",
+        "ok": true
+      },
+      {
+        "name": "Rio Madeira",
+        "source": "glaser",
+        "quote": "Rio Aripuanã in the middle basin of the Rio Madeira.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon procyon",
+    "status": "ACCEPTED",
+    "taxonKey": 8858752,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        15
+      ],
+      [
+        "76580702-3151-4791-9ecc-0d50900de47f",
+        4
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-22T19:36:03.501Z"
+  }
+}

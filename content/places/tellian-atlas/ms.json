@@ -3,6 +3,12 @@
   "name": "Atlas Tell",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.35,
+    "at": "2026-11-22T19:33:26.310Z",
+    "why": "\"Atlas Tell\" is a French-derived word order (Atlas Tellien/Tell Atlas) that is not the usual Malay form; Malaysian atlases write \"Banjaran Atlas Tell\" or \"Pergunungan Tellian Atlas\", and it lacks the Malay kind word \"Banjaran\"."
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

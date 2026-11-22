@@ -3,6 +3,12 @@
   "name": "Syria",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.15,
+    "at": "2026-11-22T19:32:53.289Z",
+    "why": "Malay (Malaysia) atlases write the country as \"Syria\" only in English; the Malay name is \"Syria\" in Rumi? Actually the standard Malay form is \"Syria\" (DBP) and also \"Suriah\" is Indonesian, so the name is correct for Malaysia."
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

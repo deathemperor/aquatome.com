@@ -1,8 +1,8 @@
 {
   "id": "sciaenochromis-fryeri",
   "native": {
-    "input": "472876f9b5ebae6d",
-    "at": "2026-11-14T17:19:02.525Z",
+    "input": "ca8c36c151690af2",
+    "at": "2026-11-22T19:36:03.501Z",
     "claims": [],
     "regions": [
       {
@@ -10,6 +10,13 @@
         "source": "seriouslyfish",
         "quote": "Endemic to Lake Malawi.",
         "ok": true
+      },
+      {
+        "name": "Lake Malawi",
+        "source": "glaser",
+        "quote": "Other cichlids of the lake, such as Sciaenochromis fryeri, are not bound to specific biotopes and occur accordingly throughout the lake.",
+        "ok": false,
+        "why": "its name is not in the quote"
       }
     ],
     "disputed": [],

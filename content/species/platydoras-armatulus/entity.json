@@ -26,10 +26,14 @@
         "UY"
       ],
       "regions": [
-        "Paraná"
+        "Paraná",
+        "Orinoco",
+        "Amazon",
+        "Parana-Paraguay"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -44,6 +48,16 @@
           ],
           "regions": [
             "Paraná"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Platydoras armatulus originates from the lower Orinoco, Amazon, and Parana-Paraguay systems.",
+          "countries": [],
+          "regions": [
+            "Orinoco",
+            "Amazon",
+            "Parana-Paraguay"
           ]
         }
       ]

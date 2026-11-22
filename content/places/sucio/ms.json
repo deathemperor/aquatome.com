@@ -3,6 +3,12 @@
   "name": "Sucio",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-22T19:32:35.291Z",
+    "why": "\"Sucio\" is a Spanish proper name kept unchanged, which is acceptable in Malay, but the place is a region in Colombia, which is unclear and may be an incorrect record (Sucio is a river/locality in Chocó, i.e. Río Sucio), and no Malay kind word is given."
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

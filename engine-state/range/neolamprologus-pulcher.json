@@ -1,8 +1,8 @@
 {
   "id": "neolamprologus-pulcher",
   "native": {
-    "input": "761e118b64ab3ffa",
-    "at": "2026-11-11T08:59:40.517Z",
+    "input": "b02b6e59119280e5",
+    "at": "2026-11-22T19:36:03.501Z",
     "claims": [
       {
         "code": "TZ",
@@ -13,11 +13,11 @@
         "ok": true
       },
       {
-        "code": "TZ",
-        "status": "native",
+        "code": "BI",
+        "status": "doubtful",
         "source": "glaser",
-        "quote": "The type locality is Kasanga on the southeastern coast, the place belongs to Tanzania.",
-        "words": "Tanzania",
+        "quote": "The fish commonly known as Neolamprologus brichardi is by no means found only in Burundi, but is distributed in numerous color variants in Lake Tanganyika, which led to several scientific descriptions: Lamprologus savoryi pulcher, L. olivaceus, L. elongatus savoryi, Neolamprologus daffodil, Lamprologus crassus and just L. brichardi.",
+        "words": "Burundi",
         "ok": true
       }
     ],
@@ -26,6 +26,12 @@
         "name": "Lake Tanganyika",
         "source": "seriouslyfish",
         "quote": "Endemic to Lake Tanganyika, mainly in the southern half of the lake, where it replaces N. brichardi, with type locality the town of Kasanga in southwestern Tanzania.",
+        "ok": true
+      },
+      {
+        "name": "Lake Tanganyika",
+        "source": "glaser",
+        "quote": "The fish commonly known as Neolamprologus brichardi is by no means found only in Burundi, but is distributed in numerous color variants in Lake Tanganyika, which led to several scientific descriptions: Lamprologus savoryi pulcher, L. olivaceus, L. elongatus savoryi, Neolamprologus daffodil, Lamprologus crassus and just L. brichardi.",
         "ok": true
       }
     ],

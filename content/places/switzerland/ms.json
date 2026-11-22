@@ -3,6 +3,12 @@
   "name": "Switzerland",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.05,
+    "at": "2026-11-22T19:32:50.814Z",
+    "why": "\"Switzerland\" is the English name; Malay (Malaysia) atlases write the country as \"Switzerland\" rarely, using the Malay form \"Switzerland\" only in English contexts, while the standard Malay name is \"Switzerland\" → \"Switzerland\" is not Malay; the proper Malay form is \"Switzerland\" = \"Switzerland\"... c"
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

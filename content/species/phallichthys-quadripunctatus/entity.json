@@ -9,6 +9,56 @@
     "north-america",
     "costa-rica"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CR"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "A cute dwarf livebearer from Costa Rica, only very rarely on offer.",
+          "countries": [
+            "CR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2349751,
+      "total": 10,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "PA",
+          6
+        ],
+        [
+          "CR",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -84.375,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -82.96875,
+          8.4375,
+          9,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

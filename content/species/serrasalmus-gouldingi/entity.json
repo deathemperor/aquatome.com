@@ -21,10 +21,13 @@
       "regions": [
         "Rio Negro",
         "Casiquiare",
+        "Orinoco",
+        "Amazon",
         "Anavilhanas"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -37,6 +40,15 @@
           "regions": [
             "Rio Negro",
             "Casiquiare"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Serrasalmus gouldingi is widely distributed in the Amazon and Orinoco.",
+          "countries": [],
+          "regions": [
+            "Orinoco",
+            "Amazon"
           ]
         },
         {

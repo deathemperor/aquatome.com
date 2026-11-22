@@ -1,0 +1,102 @@
+{
+  "id": "rhinelepis-strigosa",
+  "native": {
+    "input": "ecb04c8237731745",
+    "at": "2026-11-22T19:36:03.501Z",
+    "claims": [
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Dans le Parana et d’autres rXvières de la province de Corrientes [Argentina].",
+        "words": "Argentina",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Parana",
+        "source": "glaser",
+        "quote": "Scientific doctrine holds that there are two species that occur in quite different river systems of South America: Rhinelepis aspera from the Rio Sao Francisco and R. strigosa from the Rio Parana and Rio Uruguay systems.",
+        "ok": true
+      },
+      {
+        "name": "Rio Uruguay",
+        "source": "glaser",
+        "quote": "Scientific doctrine holds that there are two species that occur in quite different river systems of South America: Rhinelepis aspera from the Rio Sao Francisco and R. strigosa from the Rio Parana and Rio Uruguay systems.",
+        "ok": true
+      },
+      {
+        "name": "Paraná",
+        "source": "scotcat",
+        "quote": "South America: Paraná and Uruguay River basins.",
+        "ok": true
+      },
+      {
+        "name": "Uruguay",
+        "source": "scotcat",
+        "quote": "South America: Paraná and Uruguay River basins.",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR",
+        "PY",
+        "UY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rhinelepis strigosa",
+    "status": "ACCEPTED",
+    "taxonKey": 2339554,
+    "datasets": [
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        11
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        9
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        8
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ],
+      [
+        "f8ba5386-8b91-4976-95bd-692e5d105eae",
+        1
+      ]
+    ],
+    "native": [
+      "AR"
+    ],
+    "requests": 11,
+    "at": "2026-11-22T19:36:03.501Z"
+  }
+}

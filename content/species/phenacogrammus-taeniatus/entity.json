@@ -9,6 +9,45 @@
     "africa",
     "cameroon"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Congo"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Phenacogrammus cf. taeniatus is a relatively small tetra from the Congo, imported for the first time.",
+          "countries": [],
+          "regions": [
+            "Congo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2356214,
+      "total": 1,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "CM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          12.65625,
+          1.40625,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

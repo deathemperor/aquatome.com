@@ -1,8 +1,13 @@
 {
   "slug": "ucayali-river",
-  "name": "Ucayali",
+  "name": "Sungai Ucayali",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.96,
+    "at": "2026-11-22T19:27:14.867Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

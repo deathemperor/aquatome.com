@@ -1,0 +1,74 @@
+{
+  "id": "caridina-cantonensis",
+  "native": {
+    "input": "f6087560ca7b7f63",
+    "at": "2026-11-22T19:36:03.501Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Bee shrimp (Caridina cantonensis) are widespread and abundant in southern China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They can be found on Nan'ao island, in Guangzhou and Yangjiang of Guangdong Province, in Hong Kong and in northern Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Nan'ao island",
+        "source": "aquariumbreeder",
+        "quote": "They can be found on Nan'ao island, in Guangzhou and Yangjiang of Guangdong Province, in Hong Kong and in northern Vietnam.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "HK"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Caridina cantonensis",
+    "status": "ACCEPTED",
+    "taxonKey": 5863061,
+    "datasets": [
+      [
+        "249ee8b0-183e-418e-8db5-ded1afc3a90b",
+        20
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        8
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "7b84c0a2-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "CN",
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-22T19:36:03.501Z"
+  }
+}

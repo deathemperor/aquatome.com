@@ -25,10 +25,10 @@
     "references:aquariumbreeder": "<ul><li>Lukhaup, C., and R. Pekny. “Cherax (Astaconephrops) boesemani, a new species of crayfish (Crustacea: Decapoda: Parastacidae) from the centre of the Vogelkop Peninsula in Irian Jaya (West New Guinea), Indonesia.” Zoologische Mededelingen 82, no. 33 (2008): 331-340.</li><li>Lukhaup, Christian. “Cherax (Astaconephrops) pulcher, a new species of freshwater crayfish (Crustacea, Decapoda, Parastacidae) from the Kepala Burung (Vogelkop) Peninsula, Irian Jaya (West Papua), Indonesia.” ZooKeys 502 (2015): 1.</li><li>Patoka, Jiří. “Crayfish of New Guinea: Current status, exploitation and threats.” Evolution, Habitat and Conservation Strategies. Nova (2020): 43-70.</li><li>Hidayah, Taufiq, MarsonMarson, Muhammad Ali, Ni Komang Suryati, and Dina Muthmainnah. “Fish Diversity and Water Quality of Ayamaru Lake, West Papua.” Sriwijaya Journal of Environment 6, no. 1 (2021): 1-7.</li><li>vanKuijk, Tiedo, Jacobus C. Biesmeijer, Berry B. van der Hoorn, and Piet FM Verdonschot. “Functional traits explain crayfish invasive success in the Netherlands.” Scientific reports 11, no. 1 (2021): 1-12.</li><li>Faulkes Z. 2015. The global trade in crayfish as pets. Crustacean Res 44: 75–92.</li><li>S. Fish and Wildlife Service. 2017. Cherax boesemani (a crayfish, no common name). Ecological Risk Screening Summary. Revised Edition.</li></ul>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "aquariumbreeder": 0.6
+      "aquariumbreeder": 0.85
     }
   }
 }

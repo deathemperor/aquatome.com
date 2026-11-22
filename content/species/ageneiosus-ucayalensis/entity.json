@@ -40,7 +40,7 @@
         "Orinoco",
         "Río Paraná",
         "Río Ucayali",
-        "Pirara River"
+        "Guiana Shield"
       ],
       "sources": [
         "seriouslyfish",
@@ -49,18 +49,9 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Described from the Río Ucayali in Peru but subsequently recorded across a large geographic area.",
-          "countries": [
-            "PE"
-          ],
-          "regions": [
-            "Río Ucayali"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
           "quote": "Records currently exist from Ecuador, Colombia, Peru, Brazil, Venezuela, Guyana and Suriname, and encompass the majority of the rio Amazon drainage plus its tributaries, the Orinoco system, Atlantic river basins of the Guianas and the Río Paraná.",
           "countries": [
+            "PE",
             "EC",
             "CO",
             "BR",
@@ -75,11 +66,19 @@
           ]
         },
         {
-          "source": "scotcat",
-          "quote": "South America: Pirara River, Guyana (Amazon Basin).",
+          "source": "seriouslyfish",
+          "quote": "Described from the Río Ucayali in Peru but subsequently recorded across a large geographic area.",
           "countries": [],
           "regions": [
-            "Pirara River"
+            "Río Ucayali"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Body patterning apparently varies with locality, and fish from black water habitats, particularly on the Guiana Shield, tend to be darker.",
+          "countries": [],
+          "regions": [
+            "Guiana Shield"
           ]
         }
       ]

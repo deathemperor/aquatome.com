@@ -3,6 +3,12 @@
   "name": "Inírida",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-22T19:29:30.546Z",
+    "why": "Inírida is a department/town in Colombia; Indonesian atlases typically write it as \"Inírida\" for the town, but for the region (Departemen Guainía, whose capital is Inírida) the name \"Guainía\" is more fitting, and the Indonesian form lacks a kind word like \"Departemen\"."
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

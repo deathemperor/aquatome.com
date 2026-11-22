@@ -1,0 +1,124 @@
+{
+  "id": "auchenipterichthys-thoracatus",
+  "native": {
+    "input": "cb464c56002d1f74",
+    "at": "2026-11-22T19:36:03.501Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Madeira",
+        "source": "scotcat",
+        "quote": "Auchenipterichthys thoracatus, formerly considered to be widely distributed throughout the Amazon River basin, is found to be restricted to the upper Madeira River basin.",
+        "ok": true
+      },
+      {
+        "name": "Rio Guaporé",
+        "source": "scotcat",
+        "quote": "South America: Upper Madeira River basin. Type locality: Rio Guaporé.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Auchenipterichthys thoracatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344726,
+    "datasets": [
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        28
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        16
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        12
+      ],
+      [
+        "3f6e022f-240e-4288-b655-84d5904d4ca6",
+        7
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        7
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        5
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-22T19:36:03.501Z"
+  }
+}

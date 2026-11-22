@@ -1,0 +1,101 @@
+{
+  "id": "ageneiosus-polystictus",
+  "native": {
+    "input": "b4de79be4d372d59",
+    "at": "2026-11-22T19:36:03.501Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Ageneiosus polystictus is endemic to Brazil, described for the Rio Negro, with occurrences in other blackwater drainages such as the Uatumã, Jaú, Nhamundá (Amazonas state) and Juruti (Pará state) rivers, all in the middle Amazon.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "scotcat",
+        "quote": "Ageneiosus polystictus is endemic to Brazil, described for the Rio Negro, with occurrences in other blackwater drainages such as the Uatumã, Jaú, Nhamundá (Amazonas state) and Juruti (Pará state) rivers, all in the middle Amazon.",
+        "ok": true
+      },
+      {
+        "name": "Branco River",
+        "source": "scotcat",
+        "quote": "South America: Brazil, Negro and lower Branco River basins.",
+        "ok": true
+      },
+      {
+        "name": "Uatumã",
+        "source": "scotcat",
+        "quote": "Ageneiosus polystictus is endemic to Brazil, described for the Rio Negro, with occurrences in other blackwater drainages such as the Uatumã, Jaú, Nhamundá (Amazonas state) and Juruti (Pará state) rivers, all in the middle Amazon.",
+        "ok": true
+      },
+      {
+        "name": "Jaú",
+        "source": "scotcat",
+        "quote": "Ageneiosus polystictus is endemic to Brazil, described for the Rio Negro, with occurrences in other blackwater drainages such as the Uatumã, Jaú, Nhamundá (Amazonas state) and Juruti (Pará state) rivers, all in the middle Amazon.",
+        "ok": true
+      },
+      {
+        "name": "Nhamundá",
+        "source": "scotcat",
+        "quote": "Ageneiosus polystictus is endemic to Brazil, described for the Rio Negro, with occurrences in other blackwater drainages such as the Uatumã, Jaú, Nhamundá (Amazonas state) and Juruti (Pará state) rivers, all in the middle Amazon.",
+        "ok": true
+      },
+      {
+        "name": "Juruti",
+        "source": "scotcat",
+        "quote": "Ageneiosus polystictus is endemic to Brazil, described for the Rio Negro, with occurrences in other blackwater drainages such as the Uatumã, Jaú, Nhamundá (Amazonas state) and Juruti (Pará state) rivers, all in the middle Amazon.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ageneiosus polystictus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344540,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        13
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        12
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        11
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        7
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-22T19:36:03.501Z"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "id": "parauchenoglanis-pantherinus",
+  "native": {
+    "input": "a4fcc947f770c2c3",
+    "at": "2026-11-22T19:36:03.501Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: Ntem River, Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ntem",
+        "source": "scotcat",
+        "quote": "A Lower Guinea endemic, only known from the Ntem basin in southern Cameroon.",
+        "country": "CM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parauchenoglanis pantherinus",
+    "status": "ACCEPTED",
+    "taxonKey": 2337382,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        36
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "CM"
+    ],
+    "requests": 12,
+    "at": "2026-11-22T19:36:03.501Z"
+  }
+}

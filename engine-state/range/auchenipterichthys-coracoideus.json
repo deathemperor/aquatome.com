@@ -1,8 +1,8 @@
 {
   "id": "auchenipterichthys-coracoideus",
   "native": {
-    "input": "c7b28e4565583fa7",
-    "at": "2026-11-06T12:17:30.771Z",
+    "input": "0acd2d3de262ef43",
+    "at": "2026-11-22T19:36:03.501Z",
     "claims": [
       {
         "code": "PE",
@@ -21,27 +21,19 @@
         "ok": true
       },
       {
-        "code": "PE",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Described from Iquitos in northeastern Peru but current knowledge suggests it to be widely-distributed in the upper and central parts of the Peruvian/Brazilian Amazon basin plus the Essequibo drainage in Brazil and Guyana.",
-        "words": "Peru",
-        "ok": true
-      },
-      {
-        "code": "BR",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Described from Iquitos in northeastern Peru but current knowledge suggests it to be widely-distributed in the upper and central parts of the Peruvian/Brazilian Amazon basin plus the Essequibo drainage in Brazil and Guyana.",
-        "words": "Brazil",
-        "ok": true
-      },
-      {
         "code": "GY",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Described from Iquitos in northeastern Peru but current knowledge suggests it to be widely-distributed in the upper and central parts of the Peruvian/Brazilian Amazon basin plus the Essequibo drainage in Brazil and Guyana.",
         "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Iquitos, Peru.",
+        "words": "Peru",
         "ok": true
       }
     ],
@@ -49,13 +41,25 @@
       {
         "name": "Amazon",
         "source": "seriouslyfish",
-        "quote": "Described from Iquitos in northeastern Peru but current knowledge suggests it to be widely-distributed in the upper and central parts of the Peruvian/Brazilian Amazon basin plus the Essequibo drainage in Brazil and Guyana.",
+        "quote": "The midnight catfish, Auchenipterichthys coracoideus, is an auchenipterid catfish from the Peruvian and Brazilian Amazon and the Essequibo drainage.",
         "ok": true
       },
       {
         "name": "Essequibo",
         "source": "seriouslyfish",
-        "quote": "Described from Iquitos in northeastern Peru but current knowledge suggests it to be widely-distributed in the upper and central parts of the Peruvian/Brazilian Amazon basin plus the Essequibo drainage in Brazil and Guyana.",
+        "quote": "The midnight catfish, Auchenipterichthys coracoideus, is an auchenipterid catfish from the Peruvian and Brazilian Amazon and the Essequibo drainage.",
+        "ok": true
+      },
+      {
+        "name": "Araguaia",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin and Araguaia River of the Tocantins basin.",
+        "ok": true
+      },
+      {
+        "name": "Tocantins",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin and Araguaia River of the Tocantins basin.",
         "ok": true
       }
     ],

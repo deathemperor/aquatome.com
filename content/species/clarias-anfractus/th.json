@@ -14,10 +14,10 @@
     "references:planetcatfish": "<p>The Raffles Bulletin of Zoology v. 47 (no. 1), pp18, Figs. 1a, 2a, 3a, 4a.</p>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.75,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.6
+      "planetcatfish": 0.75
     }
   }
 }

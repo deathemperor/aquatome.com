@@ -17,6 +17,172 @@
     "parana",
     "uruguay-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "AR"
+      ],
+      "regions": [
+        "Rio Parana",
+        "Rio Uruguay",
+        "Paraná"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Dans le Parana et d’autres rXvières de la province de Corrientes [Argentina].",
+          "countries": [
+            "AR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Scientific doctrine holds that there are two species that occur in quite different river systems of South America: Rhinelepis aspera from the Rio Sao Francisco and R. strigosa from the Rio Parana and Rio Uruguay systems.",
+          "countries": [],
+          "regions": [
+            "Rio Parana",
+            "Rio Uruguay"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Paraná and Uruguay River basins.",
+          "countries": [],
+          "regions": [
+            "Paraná"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339554,
+      "total": 39,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "BR",
+          25
+        ],
+        [
+          "PY",
+          10
+        ],
+        [
+          "AR",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -60.46875,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -33.75,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -22.5,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          -26.71875,
+          6,
+          0
+        ],
+        [
+          -57.65625,
+          -25.3125,
+          2,
+          0
+        ],
+        [
+          -57.65625,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          -15.46875,
+          2,
+          0
+        ],
+        [
+          -56.25,
+          -30.9375,
+          9,
+          0
+        ],
+        [
+          -54.84375,
+          -28.125,
+          1,
+          0
+        ],
+        [
+          -54.84375,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -25.3125,
+          3,
+          0
+        ],
+        [
+          -53.4375,
+          -23.90625,
+          1,
+          0
+        ],
+        [
+          -52.03125,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          -50.625,
+          -23.90625,
+          1,
+          0
+        ],
+        [
+          -50.625,
+          -22.5,
+          4,
+          0
+        ],
+        [
+          -40.78125,
+          -21.09375,
+          3,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

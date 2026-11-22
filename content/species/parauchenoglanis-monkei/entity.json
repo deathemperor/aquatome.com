@@ -14,6 +14,211 @@
     "democratic-republic-of-the-congo",
     "congo-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BJ",
+        "CM",
+        "CD"
+      ],
+      "regions": [
+        "Ouémé River",
+        "Sanaga River",
+        "Congo River",
+        "Nyong River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Africa: Ouémé River, Benin, to the Sanaga River, Cameroon.",
+          "countries": [
+            "BJ",
+            "CM"
+          ],
+          "regions": [
+            "Ouémé River",
+            "Sanaga River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Also present in the middle Congo River basin in Democratic Republic of the Congo.",
+          "countries": [
+            "CD"
+          ],
+          "regions": [
+            "Congo River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "The species is only known from two localities on the Nyong River.",
+          "countries": [],
+          "regions": [
+            "Nyong River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337394,
+      "total": 99,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "NG",
+          38
+        ],
+        [
+          "BJ",
+          33
+        ],
+        [
+          "CM",
+          24
+        ],
+        [
+          "CD",
+          3
+        ],
+        [
+          "AO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          0,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          1.40625,
+          5.625,
+          19,
+          19
+        ],
+        [
+          1.40625,
+          7.03125,
+          5,
+          3
+        ],
+        [
+          1.40625,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          2.8125,
+          5.625,
+          7,
+          0
+        ],
+        [
+          2.8125,
+          11.25,
+          7,
+          7
+        ],
+        [
+          4.21875,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          5.625,
+          4.21875,
+          15,
+          0
+        ],
+        [
+          5.625,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          7.03125,
+          4.21875,
+          12,
+          0
+        ],
+        [
+          8.4375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          4.21875,
+          8,
+          8
+        ],
+        [
+          8.4375,
+          5.625,
+          3,
+          3
+        ],
+        [
+          9.84375,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          9.84375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          11.25,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          11.25,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          15.46875,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          19.6875,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          19.6875,
+          1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

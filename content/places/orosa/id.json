@@ -3,6 +3,12 @@
   "name": "Orosa",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-22T19:27:01.771Z",
+    "why": "The source describes the río Orosa, a river in Loreto, Peru, so Indonesian would write \"Sungai Orosa\", and bare \"Orosa\" drops the kind word."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

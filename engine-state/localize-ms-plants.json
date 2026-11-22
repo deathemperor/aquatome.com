@@ -3068,5 +3068,93 @@
       "quickFacts:tropica": "3e6adcea166d",
       "notes:tropica": "7081832828f9"
     }
+  },
+  "rotala-wallichii": {
+    "at": "2026-11-22",
+    "from": "2026-10-31",
+    "name": "Rotala wallichii",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 2: \"agak cerewet\" adds \"agak\" (somewhat), which is not in the English \"demanding plant\"; use \"tumbuhan yang cerewet/mencabar\" or drop \"agak\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "9aac205973d9",
+      "maintenance:tropica": "826d8e04291c",
+      "notes:tropica": "4c788cc59c41"
+    }
+  },
+  "sagittaria-subulata": {
+    "at": "2026-11-22",
+    "from": "2026-11-17",
+    "name": "Sagittaria Subulata",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "Item 6: \"Place individual plants 2-4 cm apart\" vs item 7 \"5–7 cm apart\" – source inconsistency retained; fine, but check consistency. Main error: item 10 'ideal foreground plant' translated 'latar depan' (ok) but \"moved into the background\" is rendered 'bahagian belakang' – fine; no change needed.",
+      "Item 7: \"Do not glue them onto driftwood\" rendered 'Jangan lekatkan dengan gam pada kayu hanyut' – acceptable; but 'Pemindahan: ... mencabutnya' for \"Relocation\" is ok.",
+      "Item 9: \"Ia kurang berkemungkinan tumbuh dengan baik\" is awkward; use 'Ia sukar tumbuh dengan baik dalam substrat kerikil atau pasir sahaja'. 'batu kerikil' should be 'kerikil'.",
+      "Item 9: \"Sagittaria sensitif terhadap kekurangan besi\" – English says 'sensitive to low iron'; fine. 'menyerap makanan melalui akar' – use 'menyerap nutrien terutamanya melalui akar'.",
+      "Item 11: \"Malaysian trumpet\" snail: use local name 'siput trumpet Malaysia (Melanoides tuberculata)' for clarity; 'ikan mas koki' should be 'ikan emas (goldfish)'.",
+      "Item 11: \"in an intact pot\" – source is 'closed cup'; 'pasu yang masih tertutup' should be 'cawan/bekas tertutup'. Also 'Sagittaria subulata ... penyepit' should be 'forceps/penyepit' – fine.",
+      "Item 4: 'tumbuhan saka' is acceptable but 'saka' means perennial poorly; use 'tumbuhan saka (perennial)' ; 'Apabila air kering' should be 'apabila air surut/kering'.",
+      "Item 7: 'daun sedia ada mungkin layu' – 'die back' OK; 'Lebih kerap dipotong' is awkward."
+    ],
+    "parts": {
+      "quickFacts:tropica": "b7ff0e78c32e",
+      "quickFacts:aquariumbreeder": "50663f3a5885",
+      "distribution:aquariumbreeder": "af4306880e06",
+      "habitat:aquariumbreeder": "0cd1b2290f12",
+      "aquariumSize:aquariumbreeder": "53bf592ab515",
+      "maintenance:tropica": "4a34a8e17375",
+      "maintenance:aquariumbreeder": "9ddf010f53d6",
+      "waterConditions:aquariumbreeder": "f7280caad253",
+      "equipment:aquariumbreeder": "9e4ec1d09717",
+      "notes:tropica": "eba23cfbb4a0",
+      "notes:aquariumbreeder": "189b70237667"
+    }
+  },
+  "salvinia-auriculata": {
+    "at": "2026-11-22",
+    "from": "2026-11-08",
+    "name": "Salvinia auriculata",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 7: \"baja cecair dalam air\" adds \"cecair\" (liquid), which the English \"fertilizers in the water column\" does not say. Use \"baja dalam turus air\" or \"baja yang dilarutkan dalam air\".",
+      "Item 8: \"akar tunjang\" is the botanical term for a taproot, not the \"rootstock\" of the English. It is a little unnatural here. Use \"batang bawah tanah\" or just \"rizom\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "554d3afc1218",
+      "distribution:aquariumbreeder": "52dded06d4c7",
+      "habitat:aquariumbreeder": "fdc1f89f2a79",
+      "aquariumSize:aquariumbreeder": "05c1e2d0772d",
+      "maintenance:aquariumbreeder": "611997c3a6a8",
+      "waterConditions:aquariumbreeder": "dbe85175d22e",
+      "equipment:aquariumbreeder": "9f93d95d359a",
+      "notes:aquariumbreeder": "79a274fe8cfe"
+    }
+  },
+  "salvinia-minima": {
+    "at": "2026-11-22",
+    "from": "2026-11-11",
+    "name": "Salvinia minima",
+    "confidence": "medium",
+    "score": 0.93,
+    "notes": [
+      "Item 6: \"bahagikan tumbuhan ... dan disinfeksikan\" is awkward; use \"dan nyahjangkitkan/rawat dengan disinfektan\" or \"dan disinfeksi\".",
+      "Item 3: \"mengatasi persaingan\" is a loose rendering of \"outcompete\"; \"mengatasi persaingan tumbuhan air asli\" or \"menewaskan\" reads more naturally."
+    ],
+    "parts": {
+      "quickFacts:tropica": "80039c344aff",
+      "quickFacts:aquariumbreeder": "4b2d572500f9",
+      "distribution:aquariumbreeder": "f69f64b46963",
+      "habitat:aquariumbreeder": "5f817f7b47bd",
+      "aquariumSize:aquariumbreeder": "e0f56a6b4b7b",
+      "maintenance:aquariumbreeder": "acd511749648",
+      "waterConditions:aquariumbreeder": "d24c8ba5ca4f",
+      "notes:tropica": "0272a26d026f",
+      "notes:aquariumbreeder": "243fcddce1a4"
+    }
   }
 }

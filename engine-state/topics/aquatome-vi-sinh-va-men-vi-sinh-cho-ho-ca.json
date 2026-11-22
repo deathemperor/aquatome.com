@@ -1,0 +1,346 @@
+{
+  "found": true,
+  "species": [],
+  "sources": [
+    {
+      "url": "https://aquariumscience.org/index.php/2-8-1-bacteria-in-a-bottle-in-depth",
+      "title": "2.8.1. Bacteria in a Bottle in Depth",
+      "kind": "keeper"
+    },
+    {
+      "url": "https://kb.rspca.org.au/knowledge-base/why-is-water-quality-important-when-setting-up-a-fish-aquarium/",
+      "title": "Why is water quality important when setting up a fish aquarium?",
+      "kind": "other"
+    },
+    {
+      "url": "https://www.merckvetmanual.com/exotic-and-laboratory-animals/aquatic-systems/environmental-diseases-in-aquatic-systems",
+      "title": "Environmental Diseases of Aquatic Animals in Aquatic Systems",
+      "kind": "vet"
+    },
+    {
+      "url": "https://users.cs.duke.edu/~narten/faq/cycling.html",
+      "title": "Beginner: The Nitrification Cycle and New Tank Syndrome",
+      "kind": "keeper"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/huong-dan-su-dung-men-vi-sinh-mai-viet.85554/",
+      "title": "Hướng dẫn sử dụng men vi sinh Mai Việt",
+      "kind": "forum"
+    },
+    {
+      "url": "https://aquahouse.vn/ho-ca-bi-vo-vi-sinh/",
+      "title": "Hồ cá bị vỡ vi sinh phải làm sao? Hướng dẫn xử lý từ A–Z",
+      "kind": "shop"
+    },
+    {
+      "url": "https://cacanhtailoc.com/blogs/tin-tuc/men-vi-sinh-cho-ca",
+      "title": "men vi sinh cho ca",
+      "kind": "shop"
+    },
+    {
+      "url": "https://journals.flvc.org/edis/article/view/119872",
+      "title": "Ammonia in Aquatic Systems",
+      "kind": "university"
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC168074",
+      "title": "Nitrospira-Like Bacteria Associated with Nitrite Oxidation in Freshwater Aquaria",
+      "kind": "paper"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Beneficial (nitrifying) bacteria first turn fish ammonia into nitrite, then turn nitrite into nitrate, which is much less harmful.",
+      "source": 1,
+      "also": [
+        2,
+        3
+      ]
+    },
+    {
+      "section": "what",
+      "fact": "Ammonia-oxidizing and nitrite-oxidizing bacteria both need oxygen and alkalinity to work.",
+      "source": 7
+    },
+    {
+      "section": "what",
+      "fact": "Biological filtration matters most of the three filter types. The main cause of fish deaths in new tanks is a missing or weak biofilter, which lets ammonia build up.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Ammonia is toxic to fish at 0.1 ppm.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Nitrifying bacteria colonise surfaces, especially filter media with a lot of surface area, so they need both oxygen and surface.",
+      "source": 1,
+      "also": [
+        3
+      ]
+    },
+    {
+      "section": "what",
+      "fact": "Nitrifying bacteria grow slowly. Under ideal conditions a colony may need about 15 hours to double.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "A 1998 study of freshwater aquarium biofilms found that Nitrospira-like bacteria did the nitrite oxidation. Nitrobacter was not detected.",
+      "source": 8
+    },
+    {
+      "section": "what",
+      "fact": "In that study, tanks dosed with a commercial product containing Nitrobacter showed no Nitrobacter growth, but large Nitrospira-like populations developed anyway.",
+      "source": 8
+    },
+    {
+      "section": "what",
+      "fact": "A properly conditioned biofilter should break down ammonia as it is released. A new or damaged bacterial bed cannot handle the ammonia load.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "New tank syndrome: ammonia and/or nitrite rise in the first 2–3 weeks because the biofilter's bacteria have not developed yet.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Merck lists signs of ammonia toxicity as lethargy, poor appetite, spinning or convulsive swimming and darkened colour. It can cause catastrophic mortality.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "A tank is cycled when ammonia and nitrite read zero and nitrate is being produced.",
+      "source": 1,
+      "also": [
+        3
+      ]
+    },
+    {
+      "section": "signs",
+      "fact": "The biofilter is maturing when TAN and nitrite peak and then fall, followed by a rise in nitrate.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Overstocking and overfeeding new systems commonly cause ammonia and nitrite spikes.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Antimicrobials and other chemicals can kill biofilter bacteria, which can lead to ammonia or nitrite buildup.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Rinsing filter media in tap water can kill the bacteria because of the chlorine.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Not enough oxygen or alkalinity in the filter bed can make the biofilter take longer to establish.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "A new or damaged bacterial bed may not cope with the ammonia released when chloramine-treated water is dechlorinated. A chloramine dechlorinator that also binds the ammonia helps prevent this.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Higher pH and temperature raise the share of toxic un-ionized ammonia. pH has more influence than temperature.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "When ammonia is high, change at least 50% of the water at once and check whether the source water contains ammonia or chloramine.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "Stop feeding or cut it back a lot until the ammonia problem is fixed.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "If TAN is above 5 mg/L and pH is below 7, move the fish to a clean system matched for temperature and pH. Do not let the pH rise suddenly, which would turn the ammonia into toxic NH3.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "A water change corrects nitrite quickly. Raising chloride also helps because it competes with nitrite at the gills. Merck gives residual salt of 1–3 ppt in freshwater as a lasting approach.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "To raise salinity by 1 ppt, multiply the system volume in gallons by 3.8 to get grams of salt (Merck).",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "In old tank syndrome, Merck advises aggressive water changes plus an ammonia-neutralising product, then rebuilding the biofilter over about 6 weeks.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Prevention options for new tank syndrome include commercial nitrifying bacteria, feeding the bacteria with fish food or ammonium chloride before stocking, and adding fish slowly.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Use a water conditioner on tap water to neutralise chlorine and chloramine before it goes into the tank.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Cycling a new tank usually takes four to six weeks. Marine tanks take about twice as long.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Merck says a new biofilter typically takes about 6 weeks to become fully established.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "UF/IFAS says a new biofilter needs six to eight weeks to build up enough bacteria to bring ammonia and nitrite down effectively.",
+      "source": 7
+    },
+    {
+      "section": "steps",
+      "fact": "Cycling usually takes about 2 to 6 weeks, and longer in water below 70°F.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "During the first six weeks, test ammonia and nitrite every two to three days. Once the filter is established, test every one to two weeks.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Merck advises monitoring TAN and nitrite daily in a new system and doing frequent water changes until the biofilter matures.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "In a new tank, change 10–25% of the water every two to three days and clean the gravel. Once the tank is established, change 10–25% weekly.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "To seed a new tank, move a foam or floss insert from an established tank's filter into the new filter.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "You can also put a cup or more of gravel from an established undergravel filter into a mesh bag in the new filter, or spread it over the new tank's gravel.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Another seeding method is to run a box, sponge or corner filter on an established tank for about a week, then move it to the new tank.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "In the aquariumscience.org author's tests, compost, brown sludge from an established filter and garden soil cut cycling to about 8–12 days. Bottled products and untreated controls took about 26–46 days.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "The same author found that adding a little phosphate at the start shortened cycling. Without it, most treatments took about 12 days longer.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Add fish gradually rather than all at once, so the bacteria can keep up.",
+      "source": 1,
+      "also": [
+        3
+      ]
+    },
+    {
+      "section": "prevention",
+      "fact": "In an uncycled tank, start with only one or two hardy fish, avoid overfeeding, and add no more fish until the tank has cycled.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Rinse the filter in a bucket of tank water when it clogs or monthly, whichever comes first. Never rinse it in tap water, and don't over-clean it.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Don't seed a new tank with media from store tanks, which may carry pathogens.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Bottled bacteria products work only if they are fresh and well handled (for example, not overheated). They carry no freshness date, so their age is unknown.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Garden-store soil mixes are sterilised and do not help seed a tank.",
+      "source": 0
+    },
+    {
+      "section": "myths",
+      "fact": "Claims that bottled bacteria let you add fish at once or avoid new tank syndrome were not supported by the aquariumscience.org author's tests. There, bottled products cycled no faster than adding nothing.",
+      "source": 0
+    },
+    {
+      "section": "myths",
+      "fact": "In the Scagnelli et al. (2022) study as summarised by aquariumscience.org, API Quick Start, Imagitarium Biological Booster, Seachem Stability and Fluval Cycle did not differ from untreated controls.",
+      "source": 0
+    },
+    {
+      "section": "myths",
+      "fact": "In the same summary, only Tetra SafeStart Plus had an effect: ammonia fell from 1 ppm to 0.29 ppm over 14 days. The aquariumscience.org author estimates a full cycle would still take roughly 20–30 days.",
+      "source": 0
+    },
+    {
+      "section": "myths",
+      "fact": "The aquariumscience.org author says Seachem's own published data showed Stability taking 32 days to cycle.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "The aquariumscience.org author argues that a sealed bottle can hold only small numbers of nitrifying bacteria, because other bacteria in the mixed culture use up its oxygen.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "The Scagnelli study authors reportedly thought temperature-controlled transport and storage is likely needed for bottled bacteria to survive.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "The aquariumscience.org author says established live sponge filters, cycled in real tanks for at least a month, are the only 'instant start' product with merit.",
+      "source": 0
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese keepers call bacteria products 'men vi sinh' and new tank syndrome 'hội chứng hồ mới'. They also use 'men tiêu hóa' (digestive probiotic) and 'kháng sinh' (antibiotics).",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Mai Việt (Maiviệtbio) sells BIOnAQUA-MV, a men vi sinh for aquariums, and BIO FISH MV, a men tiêu hóa mixed into feed, in Vietnam.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "In Vietnam, 'vỡ vi sinh' is the term for a crash of the filter bacteria. It goes with cloudy, smelly water, rising NH3/NO2 and fish gasping or refusing food.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "Men vi sinh sold in Vietnam usually comes as a powder (dạng bột) or a liquid (dạng nước). It is also sold under names such as 'men vi sinh tổng hợp'.",
+      "source": 6
+    }
+  ]
+}

@@ -1,8 +1,13 @@
 {
   "slug": "thu-bon",
-  "name": "Thu Bon",
+  "name": "Sungai Thu Bon",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-22T19:33:36.444Z"
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

@@ -3,6 +3,12 @@
   "name": "ควันซา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-22T19:27:32.505Z",
+    "why": "The Thai transliteration ควันซา is phonetically plausible, but it lacks the kind word for the region (จังหวัด), and Thai atlases usually write the name as กวันซา."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

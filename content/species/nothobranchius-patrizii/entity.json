@@ -10,6 +10,70 @@
     "kenya",
     "somalia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "KE",
+        "SO"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The occurrence includes Kenya and Somalia.",
+          "countries": [
+            "KE",
+            "SO"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348641,
+      "total": 6,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "SO",
+          5
+        ],
+        [
+          "JP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          40.78125,
+          0,
+          1,
+          1
+        ],
+        [
+          42.1875,
+          0,
+          1,
+          1
+        ],
+        [
+          43.59375,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          136.40625,
+          36.5625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

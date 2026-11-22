@@ -23,11 +23,11 @@
         "EC"
       ],
       "regions": [
-        "Amazon",
         "Orinoco",
-        "Rio Putumayo",
-        "Rio Purus",
-        "Río Ucayali"
+        "Amazon",
+        "Putumayo",
+        "Purus",
+        "Ucayali"
       ],
       "sources": [
         "sprucepets",
@@ -42,9 +42,7 @@
             "BR",
             "PE"
           ],
-          "regions": [
-            "Amazon"
-          ]
+          "regions": []
         },
         {
           "source": "seriouslyfish",
@@ -53,7 +51,7 @@
             "EC"
           ],
           "regions": [
-            "Río Ucayali"
+            "Ucayali"
           ]
         },
         {
@@ -61,7 +59,8 @@
           "quote": "Neon tetras originated from the clear water and blackwater streams and tributaries in the Orinoco and Amazon river basins in Brazil, Columbia, and Peru.",
           "countries": [],
           "regions": [
-            "Orinoco"
+            "Orinoco",
+            "Amazon"
           ]
         },
         {
@@ -69,7 +68,7 @@
           "quote": "Here P. innesi is known from the lower rio Putumayo (aka Içá) and some small streams flowing into the rio Solimões downstream of Leticia.",
           "countries": [],
           "regions": [
-            "Rio Putumayo"
+            "Putumayo"
           ]
         },
         {
@@ -77,7 +76,7 @@
           "quote": "The second cluster of populations occur several hundred kilometers to the east in the area around Codajás in Amazonas state, Brazil, plus the rio Purus, a tributary of the Amazon with its mouth located downstream of Codajás.",
           "countries": [],
           "regions": [
-            "Rio Purus"
+            "Purus"
           ]
         }
       ]

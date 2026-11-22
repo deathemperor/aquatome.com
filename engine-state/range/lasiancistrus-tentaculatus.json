@@ -1,8 +1,8 @@
 {
   "id": "lasiancistrus-tentaculatus",
   "native": {
-    "input": "c5dcccc9086a1b13",
-    "at": "2026-11-09T12:58:06.259Z",
+    "input": "e84153be4d355884",
+    "at": "2026-11-22T19:36:03.501Z",
     "claims": [
       {
         "code": "CO",
@@ -19,9 +19,32 @@
         "quote": "Lasiancistrus tentaculatus (L092, L194) is a suckermouth catfish from Colombia and Venezuela that lives among driftwood snags in rivers.",
         "words": "Venezuela",
         "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "L92, later also given the number L194, is very widespread in the Orinoco drainage of Colombia and Venezuela.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "L92, later also given the number L194, is very widespread in the Orinoco drainage of Colombia and Venezuela.",
+        "words": "Venezuela",
+        "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "L92, later also given the number L194, is very widespread in the Orinoco drainage of Colombia and Venezuela.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

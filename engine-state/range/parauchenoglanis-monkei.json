@@ -1,0 +1,126 @@
+{
+  "id": "parauchenoglanis-monkei",
+  "native": {
+    "input": "c9694e723cef7141",
+    "at": "2026-11-22T19:36:03.501Z",
+    "claims": [
+      {
+        "code": "BJ",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: Ouémé River, Benin, to the Sanaga River, Cameroon.",
+        "words": "Benin",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: Ouémé River, Benin, to the Sanaga River, Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Also present in the middle Congo River basin in Democratic Republic of the Congo.",
+        "words": "Democratic Republic of the Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ouémé River",
+        "source": "scotcat",
+        "quote": "Africa: Ouémé River, Benin, to the Sanaga River, Cameroon.",
+        "country": "BJ",
+        "ok": true
+      },
+      {
+        "name": "Sanaga River",
+        "source": "scotcat",
+        "quote": "Africa: Ouémé River, Benin, to the Sanaga River, Cameroon.",
+        "country": "CM",
+        "ok": true
+      },
+      {
+        "name": "Congo River",
+        "source": "scotcat",
+        "quote": "Also present in the middle Congo River basin in Democratic Republic of the Congo.",
+        "country": "CD",
+        "ok": true
+      },
+      {
+        "name": "Nyong River",
+        "source": "scotcat",
+        "quote": "The species is only known from two localities on the Nyong River.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parauchenoglanis monkei",
+    "status": "ACCEPTED",
+    "taxonKey": 2337394,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        41
+      ],
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        13
+      ],
+      [
+        "8e912d78-6259-44e3-8f58-debb3081a15f",
+        13
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        11
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        10
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "2ba30ed2-6f82-480c-a892-4c8749508324",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "d2724ca9-8ccd-416e-9837-7aee75f67422",
+        1
+      ],
+      [
+        "fba36b75-451a-40e3-af18-297f151bcc91",
+        1
+      ]
+    ],
+    "native": [
+      "BJ",
+      "CM",
+      "CD"
+    ],
+    "requests": 12,
+    "at": "2026-11-22T19:36:03.501Z"
+  }
+}

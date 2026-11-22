@@ -849,13 +849,10 @@
     "back": false
   },
   "botia-dario": {
-    "hash": "d128f96c57cad824971a305b3c2d5350db393c530f1e047ba2dd441ef229e1f4",
-    "at": "2026-11-20T17:23:50.779Z",
-    "sonnet": 0.5,
-    "back": false,
-    "held": [
-      "Item 12: \"Tarian ini bisa berlangsung\" – 'Tarian ini' is added wording but harmless; however the 'Botia appears to be the basal... lineage' paragraph drops \"rather then being grouped\" nuance okay. Main issue: \"Pertunjukan seperti ini\" for \"Such displays\" is awkward; use \"Perilaku menunjukkan diri seperti ini\"."
-    ]
+    "hash": "505f3a41b870e08b5fc617edf5e659e0ffe034d6808af80255a4c79c9944f589",
+    "at": "2026-11-22T19:16:29.172Z",
+    "sonnet": 0.55,
+    "back": false
   },
   "botia-histrionica": {
     "hash": "b3b773f0672c28ac50d9c4a0fa88d8fcfb188efdc665af5e68e2e701e34b0cae",
@@ -1027,6 +1024,12 @@
   "carassius-auratus": {
     "hash": "afb77d4fdf7ad3685ec20026dc1e45a14d973a30f621c1b7e6af899b62110fc2",
     "at": "2026-11-18T00:30:52.098Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "caridina-cantonensis": {
+    "hash": "754f1c304e57d90c500e2a8b844235997c8ed5420d303f6b723b022c926a6743",
+    "at": "2026-11-22T19:16:15.376Z",
     "sonnet": 0.7,
     "back": false
   },
@@ -1453,9 +1456,70 @@
     "sonnet": 0.55,
     "back": false
   },
+  "crossocheilus-latius": {
+    "hash": "014168ebc3371a28da22ba00b70239be5f0f9efe84eb500c17de5c3b857a6e13",
+    "at": "2026-11-22T19:16:52.054Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "crossocheilus-nigriloba": {
+    "hash": "9da041a7bc8e8d72136a47e7ed7337094fd38b6ff3d4e86155069af56652373a",
+    "at": "2026-11-22T19:16:57.994Z",
+    "sonnet": 0.5,
+    "back": false
+  },
+  "cryptoheros-cutteri": {
+    "hash": "004e4a3055619a2185e4c64dac444d659bb785377d8b16ad7ceacb6f0c9516bc",
+    "at": "2026-11-22T19:17:06.839Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "ctenochromis-polli": {
+    "hash": "654439532c9cd7fff7e819fb69c4e5362f85a6afd880e9e7e625e584f4891d26",
+    "at": "2026-11-22T19:17:17.959Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "ctenopharyngodon-idella": {
+    "hash": "aa6700dc20006fd0cc008bfb8107515a48418fc13efd7ab54aef7f55deb36760",
+    "at": "2026-11-22T19:17:29.439Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "cyclocheilichthys-heteronema": {
+    "hash": "0ca7166c8a40e89e1039188bb6614fc26dd8b999fec369ad6371720641a4afe7",
+    "at": "2026-11-22T19:17:40.237Z",
+    "sonnet": 0.55,
+    "back": false
+  },
   "cyclocheilichthys-janthochir": {
     "hash": "8d60f0b9b0e08caf67e86a8cd41e87963aefbbc7fe31ea377de78c81bc390a39",
     "at": "2026-11-21T06:58:34.517Z",
+    "sonnet": 0.55,
+    "back": false
+  },
+  "cyclocheilichthys-lagleri": {
+    "hash": "0b7e9752a0ab3b9a53ad441c8a1497090da9be006b3ebaa64d6dc078890f8ddd",
+    "at": "2026-11-22T19:17:52.478Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "cyprichromis-leptosoma": {
+    "hash": "eaf2f997210c91573c98f66e7136cbb50e0ad7e3bd136e43f63045912a31279d",
+    "at": "2026-11-22T19:17:58.848Z",
+    "sonnet": 0.5,
+    "back": false
+  },
+  "cyprinodon-julimes": {
+    "hash": "5dd4582d2c405b747b7e8aab44a158586da32b1798b3090182d34ec93b6956c7",
+    "at": "2026-11-22T19:18:20.874Z",
+    "sonnet": 0.8,
+    "opus": 0.93,
+    "back": true
+  },
+  "cyrtocara-moorii": {
+    "hash": "fc035d484df89309d9032bdde41bff8d22cdf2098c9e963152c88b517d46cf6b",
+    "at": "2026-11-22T19:18:34.587Z",
     "sonnet": 0.55,
     "back": false
   },
@@ -1465,10 +1529,26 @@
     "sonnet": 0.6,
     "back": false
   },
+  "danio-albolineatus": {
+    "hash": "e6ecead972f0e4bccc5b4c74c8d56c04f256971ab3cd2480191de512790b1e74",
+    "at": "2026-11-22T19:18:46.581Z",
+    "sonnet": 0.55,
+    "back": false,
+    "held": [
+      "Item 21: 'Spawning ... adding small amounts of cool water' — fine, but 'The adults ... best removed after a couple of days' is OK; however 'one or more smaller ... containers ... half-filled' fine. Real issue: 'Incubation 24 and 36 hours' fine. Main error: item 12 drops the 'Pearl danios tolerate colder temperatures' fine, but 'Temperature 18 to 24 °C' conflicts nothing. Real fix: item 21 'filter…"
+    ]
+  },
   "danio-feegradei": {
     "hash": "f5c2caef7c844a80551b66831e31fcfddf74fdf650056be5d1b407df7803a373",
     "at": "2026-11-20T06:51:50.684Z",
     "sonnet": 0.85,
+    "opus": 0.85,
+    "back": true
+  },
+  "danio-tinwini": {
+    "hash": "12fd9da5a1b8ae795d6d2f4c9d19c85dc16bf2614d315a9fc6ce52f2717fd7a6",
+    "at": "2026-11-22T19:19:24.882Z",
+    "sonnet": 0.9,
     "opus": 0.85,
     "back": true
   },
@@ -1478,6 +1558,12 @@
     "sonnet": 0.93,
     "opus": 0.9,
     "back": true
+  },
+  "desmopuntius-rhomboocellatus": {
+    "hash": "c9e5d4bbd1ecfac3a5f54501fd6ae0ab56a6b40b79166e4facd6bf2097eb1e14",
+    "at": "2026-11-22T19:16:39.918Z",
+    "sonnet": 0.6,
+    "back": false
   },
   "devario-chrysotaeniatus": {
     "hash": "15dee50668df115afb2c82dce352b8408373cd50c4d70e40ad59287ae026e23b",

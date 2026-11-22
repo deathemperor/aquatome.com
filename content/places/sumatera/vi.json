@@ -1,10 +1,13 @@
 {
   "slug": "sumatera",
-  "name": "Sumatera",
-  "altNames": [],
+  "name": "Sumatra",
+  "altNames": [
+    "Sumatera"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

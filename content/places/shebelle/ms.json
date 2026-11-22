@@ -3,6 +3,12 @@
   "name": "Shebelle",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-22T19:31:59.210Z",
+    "why": "Malay atlases write Somali regions with \"Wilayah\" (e.g. Wilayah Shabeellaha Dhexe/Hoose), and bare \"Shebelle\" omits the kind word and uses a non-standard spelling."
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

@@ -3,6 +3,12 @@
   "name": "Sweden",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.2,
+    "at": "2026-11-22T19:32:47.738Z",
+    "why": "Malay in Malaysia writes the country as \"Sweden\" in English, but the standard Malay name is \"Sweden\" in DBP usage too; however, atlases commonly give \"Sweden\" as is, so this is acceptable."
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

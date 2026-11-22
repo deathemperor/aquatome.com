@@ -1,6 +1,6 @@
 {
   "slug": "hawaiian-islands",
-  "name": "quần đảo Hawaiian",
+  "name": "quần đảo Hawaii",
   "altNames": [
     "Hawaiian Islands"
   ],
@@ -8,5 +8,6 @@
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

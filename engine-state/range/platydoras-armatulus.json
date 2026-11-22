@@ -1,8 +1,8 @@
 {
   "id": "platydoras-armatulus",
   "native": {
-    "input": "f76c0d0ef435c6d9",
-    "at": "2026-11-12T21:02:28.514Z",
+    "input": "3213f7bf4e3ac522",
+    "at": "2026-11-22T19:36:03.501Z",
     "claims": [
       {
         "code": "AR",
@@ -58,6 +58,24 @@
         "quote": "Found in the Paraná and Paraguay basins in Argentina, Bolivia, Brazil and Paraguay, and the Catalog of Fishes also lists Uruguay.",
         "ok": false,
         "why": "a country"
+      },
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "Platydoras armatulus originates from the lower Orinoco, Amazon, and Parana-Paraguay systems.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "Platydoras armatulus originates from the lower Orinoco, Amazon, and Parana-Paraguay systems.",
+        "ok": true
+      },
+      {
+        "name": "Parana-Paraguay",
+        "source": "glaser",
+        "quote": "Platydoras armatulus originates from the lower Orinoco, Amazon, and Parana-Paraguay systems.",
+        "ok": true
       }
     ],
     "disputed": [],

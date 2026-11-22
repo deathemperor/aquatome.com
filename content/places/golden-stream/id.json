@@ -3,6 +3,12 @@
   "name": "Golden Stream",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-22T19:28:53.980Z",
+    "why": "Golden Stream is a Belizean place name (a village in Toledo District); Indonesian atlases would keep the proper name, but the entry lacks a kind word, and as a region/village \"Golden Stream\" is a plausible unchanged form, though uncertain."
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

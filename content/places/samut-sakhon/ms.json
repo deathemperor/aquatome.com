@@ -3,6 +3,12 @@
   "name": "Samut Sakhon",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-22T19:31:17.123Z",
+    "why": "Samut Sakhon is a Thai province, and Malay atlases usually write it as \"Wilayah Samut Sakhon\" or \"Provinsi Samut Sakhon\", so the bare name leaves out the kind word."
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

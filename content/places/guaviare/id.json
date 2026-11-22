@@ -1,8 +1,13 @@
 {
   "slug": "guaviare",
-  "name": "Guaviare",
+  "name": "Departemen Guaviare (for the river: Sungai Guaviare)",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-22T19:29:06.352Z"
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

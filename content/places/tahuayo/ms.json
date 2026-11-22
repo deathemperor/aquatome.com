@@ -3,6 +3,12 @@
   "name": "Tahuayo",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-22T19:32:56.562Z",
+    "why": "Tahuayo is a Peruvian place name (Tahuayo River/district in Loreto), and the bare name omits the Malay kind word, which an atlas in Malaysia would add, e.g. \"Wilayah\" or \"Daerah\" for a region/district."
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

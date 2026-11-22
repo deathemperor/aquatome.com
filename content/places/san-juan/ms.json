@@ -3,6 +3,12 @@
   "name": "San Juan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-22T19:31:17.588Z",
+    "why": "\"San Juan\" is an acceptable Malay spelling for the proper name, but the source sentences refer to the San Juan River basin in Colombia, not a Nicaraguan region, and an atlas would write \"Lembangan Sungai San Juan\" for it."
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

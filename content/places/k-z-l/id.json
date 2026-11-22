@@ -3,6 +3,12 @@
   "name": "Kızıl",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.2,
+    "at": "2026-11-22T19:29:58.716Z",
+    "why": "\"Kızıl\" is a shortened form of the river Kızılırmak, and it lacks the Indonesian kind word \"Sungai\"."
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

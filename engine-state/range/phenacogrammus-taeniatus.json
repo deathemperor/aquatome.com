@@ -1,0 +1,38 @@
+{
+  "id": "phenacogrammus-taeniatus",
+  "native": {
+    "input": "87b6a5afc3a33e5d",
+    "at": "2026-11-22T19:36:03.501Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Congo",
+        "source": "glaser",
+        "quote": "Phenacogrammus cf. taeniatus is a relatively small tetra from the Congo, imported for the first time.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CM"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Phenacogrammus taeniatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2356214,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-22T19:36:03.501Z"
+  }
+}

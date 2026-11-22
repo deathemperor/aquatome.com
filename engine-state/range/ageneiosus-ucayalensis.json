@@ -1,14 +1,14 @@
 {
   "id": "ageneiosus-ucayalensis",
   "native": {
-    "input": "32c977f1b61525a3",
-    "at": "2026-11-22T12:48:24.036Z",
+    "input": "e3815db2126e6da3",
+    "at": "2026-11-22T19:36:03.501Z",
     "claims": [
       {
         "code": "PE",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Described from the Río Ucayali in Peru but subsequently recorded across a large geographic area.",
+        "quote": "Records currently exist from Ecuador, Colombia, Peru, Brazil, Venezuela, Guyana and Suriname, and encompass the majority of the rio Amazon drainage plus its tributaries, the Orinoco system, Atlantic river basins of the Guianas and the Río Paraná.",
         "words": "Peru",
         "ok": true
       },
@@ -61,11 +61,11 @@
         "ok": true
       },
       {
-        "code": "GY",
+        "code": "PE",
         "status": "native",
         "source": "scotcat",
-        "quote": "South America: Pirara River, Guyana (Amazon Basin).",
-        "words": "Guyana",
+        "quote": "South America: Amazon and Orinoco River basins; Guianas, and upper Paraná River basin. Type locality: un lac, près de l'Ucayale, et qui communiquait avec cette rivière [Peru].",
+        "words": "Peru",
         "ok": true
       }
     ],
@@ -96,17 +96,19 @@
         "ok": true
       },
       {
-        "name": "Pirara River",
-        "source": "scotcat",
-        "quote": "South America: Pirara River, Guyana (Amazon Basin).",
-        "country": "GY",
+        "name": "Guiana Shield",
+        "source": "seriouslyfish",
+        "quote": "Body patterning apparently varies with locality, and fish from black water habitats, particularly on the Guiana Shield, tend to be darker.",
         "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "GF",
+        "PY"
+      ],
       "sourcesOnly": []
     }
   },

@@ -1,0 +1,101 @@
+{
+  "id": "parauchenoglanis-ngamensis",
+  "native": {
+    "input": "29bc003cbb5176c8",
+    "at": "2026-11-22T19:36:03.501Z",
+    "claims": [
+      {
+        "code": "BW",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Etymology: Parauchenoglanis: para-, near, referring to similarity and/or close relationship with Auchenoglanis. ngamensis: -ensis, suffix denoting place: Lake Ngami district, Botswana, type locality.",
+        "words": "Botswana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Okavango",
+        "source": "scotcat",
+        "quote": "Parauchenoglanis ngamensis is currently distributed across the Okavango and the upper Zambezi, Kwanza, and Kasai (sub)basins of southern Africa.",
+        "ok": true
+      },
+      {
+        "name": "Zambezi",
+        "source": "scotcat",
+        "quote": "Parauchenoglanis ngamensis is currently distributed across the Okavango and the upper Zambezi, Kwanza, and Kasai (sub)basins of southern Africa.",
+        "ok": true
+      },
+      {
+        "name": "Kasai",
+        "source": "scotcat",
+        "quote": "Parauchenoglanis ngamensis is currently distributed across the Okavango and the upper Zambezi, Kwanza, and Kasai (sub)basins of southern Africa.",
+        "ok": true
+      },
+      {
+        "name": "Kwanza",
+        "source": "scotcat",
+        "quote": "Parauchenoglanis ngamensis is currently distributed across the Okavango and the upper Zambezi, Kwanza, and Kasai (sub)basins of southern Africa.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ZM",
+        "AO",
+        "CD"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parauchenoglanis ngamensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2337387,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        151
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        42
+      ],
+      [
+        "a27fb5d2-9a22-45eb-a672-f073e0455642",
+        34
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        7
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        6
+      ],
+      [
+        "77929c0a-7506-4b2d-a49d-10fc3312d50d",
+        5
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "1b18bab9-abdb-41b4-83c8-368ca2e6d391",
+        1
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ]
+    ],
+    "native": [
+      "BW"
+    ],
+    "requests": 11,
+    "at": "2026-11-22T19:36:03.501Z"
+  }
+}

@@ -16,9 +16,12 @@
       "countries": [
         "BR"
       ],
-      "regions": [],
+      "regions": [
+        "Amazon"
+      ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -28,6 +31,14 @@
             "BR"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "It was not until 1987 that they were rediscovered in the lower Amazon and subsequently found in several more Amazon tributaries in this region.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
         }
       ]
     },

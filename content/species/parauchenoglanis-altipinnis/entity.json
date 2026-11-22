@@ -14,6 +14,104 @@
     "republic-of-the-congo",
     "chiloango"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM",
+        "GA",
+        "CG"
+      ],
+      "regions": [
+        "Congo",
+        "Nyong",
+        "Ogowe",
+        "Chiloango",
+        "Ja River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Ja River at Esamesa, Cameroon.",
+          "countries": [
+            "CM"
+          ],
+          "regions": [
+            "Ja River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "This species is present in parts of Cameroon, Gabon and Congo Brazzaville and has been found in the basins of the Congo (Dja tributary), Nyong, Ogowe and Chiloango Rivers.",
+          "countries": [
+            "GA",
+            "CG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Africa: Congo, Nyong, Ogowe and Chiloango River basins.",
+          "countries": [],
+          "regions": [
+            "Congo",
+            "Nyong",
+            "Ogowe",
+            "Chiloango"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337408,
+      "total": 12,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "CM",
+          11
+        ],
+        [
+          "GQ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          9.84375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          9.84375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          11.25,
+          2.8125,
+          6,
+          6
+        ],
+        [
+          12.65625,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          12.65625,
+          2.8125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

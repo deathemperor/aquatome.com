@@ -1,15 +1,37 @@
 {
   "id": "myloplus-torquatus",
   "native": {
-    "input": "0f59a8ef3253d1f8",
-    "at": "2026-11-19T00:50:56.943Z",
-    "claims": [],
-    "regions": [],
+    "input": "c4d2e2a1b69dbc02",
+    "at": "2026-11-22T19:36:03.501Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The fish described here came from Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "Myloplus torquatus is widely distributed in tropical South America and is found in the basins of both the Amazon and Orinoco rivers.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "Myloplus torquatus is widely distributed in tropical South America and is found in the basins of both the Amazon and Orinoco rivers.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
       "pagesOnly": [
-        "VE"
+        "BR"
       ],
       "sourcesOnly": []
     }
@@ -60,10 +82,6 @@
         2
       ],
       [
-        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
-        2
-      ],
-      [
         "4d749d70-e2e1-11dd-8102-b8a03c50a862",
         1
       ],
@@ -88,8 +106,10 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-19T00:50:56.943Z"
+    "native": [
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-22T19:36:03.501Z"
   }
 }

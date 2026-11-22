@@ -1,8 +1,8 @@
 {
   "id": "nannacara-taenia",
   "native": {
-    "input": "0b3602432f9d041f",
-    "at": "2026-11-10T15:58:17.469Z",
+    "input": "cf834c58503e0ca4",
+    "at": "2026-11-22T19:36:03.501Z",
     "claims": [
       {
         "code": "BR",
@@ -13,7 +13,14 @@
         "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "It was not until 1987 that they were rediscovered in the lower Amazon and subsequently found in several more Amazon tributaries in this region.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

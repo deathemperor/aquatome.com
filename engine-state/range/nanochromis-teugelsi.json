@@ -1,0 +1,36 @@
+{
+  "id": "nanochromis-teugelsi",
+  "native": {
+    "input": "e8e651daeedc8b90",
+    "at": "2026-11-22T19:36:03.501Z",
+    "claims": [
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Congo.",
+        "words": "Congo",
+        "ok": false,
+        "why": "no sentence"
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CD"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nanochromis teugelsi",
+    "status": "ACCEPTED",
+    "taxonKey": 2372705,
+    "datasets": [],
+    "native": [],
+    "requests": 2,
+    "at": "2026-11-22T19:36:03.501Z"
+  }
+}
