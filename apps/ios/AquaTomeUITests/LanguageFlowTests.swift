@@ -317,9 +317,11 @@ final class LanguageFlowTests: XCTestCase {
   }
 
   /// "Ngôn ngữ" set from its menu in the open sheet: the item whose name starts so ("Theo máy" has the phone's language
-  /// under it).
+  /// under it). The row is scrolled clear of the sheet's foot first, not only until it reads as hittable: at the largest
+  /// text, after Malay, one swipe left it at 812.7 under a list that ends at 812, hittable to XCUITest, so the tap landed
+  /// at 843 below the list and no menu opened (main's nightly run, 22 Nov).
   private func pickInSheet(_ app: XCUIApplication, _ name: String) {
-    tap(app, "language")
+    scrolledTo(app, "language").tap()
     let item = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", name)).firstMatch
     XCTAssertTrue(item.waitForExistence(timeout: 5), "no \(name) in the menu")
     item.tap()
