@@ -29,7 +29,7 @@ import { logReviews, type Review } from './review-log'
 import { holdForSecondLook } from './last-photo'
 import { linkedPhotos, mayTake, pickSourcePhotos, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
 import { snapshotHash, writeSnapshot } from './snapshot'
-import { ARCHIVE_POLITE, ArchiveRefused } from './archive'
+import { ARCHIVE_POLITE, archiveStops } from './archive'
 import { SOURCES, sourceById, type SourceConfig } from './sources'
 import { BROWSER_GONE, attemptsAfter, errorKind, loadState, moveToArchive, needsFetch, noteBlock, saveState, setSourceBlock, sourceBlockedSince, sourcesOnArchive, type UrlState } from './state'
 import { findVideos, readVideoRejected } from './videos'
@@ -250,7 +250,7 @@ const outranked = (sections: Section[] | undefined, source: SourceId, url: strin
  * Wikimedia's leaves the page unmarked, to be read again once the rest ends (wikimedia-rest.ts).
  */
 export async function soft<T>(what: string, f: () => Promise<T>, fallback: T): Promise<T> {
-  try { return await f() } catch (e) { if (e instanceof ArchiveRefused || e instanceof WikimediaRefused) throw e; console.warn(`${what} skipped: ${(e as Error).message}`); return fallback }
+  try { return await f() } catch (e) { if (archiveStops(e) || e instanceof WikimediaRefused) throw e; console.warn(`${what} skipped: ${(e as Error).message}`); return fallback }
 }
 
 /**
@@ -503,7 +503,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       if (onArchive && found.length) await mkdir(join(root, 'engine-state'), { recursive: true }).then(() => writeFile(indexFile, `${JSON.stringify(found)}\n`))
     } catch (e) {
       if (e instanceof ChallengeError) { await block(); continue }
-      if (e instanceof ArchiveRefused) { report.errors.push(`${id}: not read: ${e.message}`); continue }
+      if (archiveStops(e)) { report.errors.push(`${id}: not read: ${e.message}`); continue }
       const lastIndex = onArchive ? JSON.parse(await readFile(indexFile, 'utf8').catch(() => 'null')) as typeof found | null : null
       // No index yet: the pages already read are still there to read again.
       const kept = lastIndex?.length || !onArchive ? lastIndex : Object.keys(await loadState(root, id)).map(url => ({ url }))
@@ -532,7 +532,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       try {
         searched = await soft(`${id}: thin species search`, () => searchThin(src, thinNow.thin, new Set(deeper.values()), thinNow.families, u => links(u), searchCache, deps.now()), new Map<string, number>())
       } catch (e) {
-        if (!(e instanceof ArchiveRefused)) throw e
+        if (!archiveStops(e)) throw e
         report.errors.push(`${id}: not read: ${e.message}`)
         continue
       }
@@ -605,7 +605,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
         })
       } catch (e) {
         // Nothing is wrong with the page, so nothing is marked on it, and the source waits with the archive.
-        if (e instanceof ArchiveRefused) { report.errors.push(`${id}: not read: ${e.message}`); break }
+        if (archiveStops(e)) { report.errors.push(`${id}: not read: ${e.message}`); break }
         // Wikimedia resting: the page waits, unmarked and with its attempts, and the source goes on.
         if (e instanceof WikimediaRefused) { report.errors.push(`${url}: waits for Wikimedia: ${e.message}`); continue }
         const message = (e as Error).message

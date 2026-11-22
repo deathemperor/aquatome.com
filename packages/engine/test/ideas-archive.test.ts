@@ -512,7 +512,7 @@ test("the Archive's requests are the Mac's ledger's, written before each is made
 test('one magazine step at a time on the Mac: another one running fails, naming it; of two starting at once, one runs', async () => {
   const port = await new Promise<number>(ok => { const s = createServer(); s.listen(0, '127.0.0.1', () => { const { port } = s.address() as AddressInfo; s.close(() => ok(port)) }) })
   const release = await holdMagazine(port)
-  await expect(holdMagazine(port)).rejects.toThrow(`another magazine step is running (it holds 127.0.0.1:${port})`)
+  await expect(holdMagazine(port)).rejects.toThrow(`another magazine step is running, or something else holds 127.0.0.1:${port}`)
   await release()
   // Two steps starting at the same moment, as two taking over one dead step's lock could (Codex, 21 Nov 2026): one runs. A
   // step that died holds nothing: the Mac frees its lock (mac-lock.test.ts).

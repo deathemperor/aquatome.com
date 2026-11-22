@@ -36,20 +36,16 @@ export function tryLock(port: number): Promise<Release | undefined> {
 
 /**
  * The lock, waiting its turn. A wait past `noteMs` is said once in `log`; past `waitMs` it fails (LockBusy), naming the port.
+ * The wait is counted in tries, never read off the clock (Codex, 22 Nov 2026: a clock set back would stretch it).
  */
 export async function macLock(port: number, o: { waitMs?: number; noteMs?: number; log?: (line: string) => void } = {}): Promise<Release> {
   const { waitMs = LOCK_WAIT_MS, noteMs = LOCK_NOTE_MS, log = console.log } = o
-  const start = Date.now()
-  let noted = false
-  for (;;) {
+  const s = (tries: number) => Math.round((tries * LOCK_POLL_MS) / 1000)
+  for (let tries = 0; ; tries++) {
     const release = await tryLock(port)
     if (release) return release
-    const waited = Date.now() - start
-    if (waited >= waitMs) throw new LockBusy(`the lock on ${LOCK_HOST}:${port} was held by another process for ${Math.round(waited / 1000)} s: nothing was asked, and this is no refusal`)
-    if (!noted && waited >= noteMs) {
-      noted = true
-      log(`waiting for the lock on ${LOCK_HOST}:${port}: another process has held it ${Math.round(waited / 1000)} s; nothing is asked without it, and at ${Math.round(waitMs / 1000)} s this stops`)
-    }
+    if (tries * LOCK_POLL_MS >= waitMs) throw new LockBusy(`the lock on ${LOCK_HOST}:${port} was held by another process for ${s(tries)} s: nothing was asked, and this is no refusal`)
+    if (tries === Math.ceil(noteMs / LOCK_POLL_MS)) log(`waiting for the lock on ${LOCK_HOST}:${port}: another process has held it ${s(tries)} s; nothing is asked without it, and at ${Math.round(waitMs / 1000)} s this stops`)
     await new Promise(r => setTimeout(r, LOCK_POLL_MS))
   }
 }

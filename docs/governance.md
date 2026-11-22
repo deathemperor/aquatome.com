@@ -1029,8 +1029,14 @@ The layers above still check the result.
     just began. Both locks are held on 127.0.0.1 alone, only the CLI names their ports, and every test names a free port of
     its own; a lock held by anything else is waited for, said in the log once at 2 minutes, and at 10 the run asks the
     Archive nothing more, which is no refusal: no rest is written, and nothing is asked without the lock (the chief of
-    staff, 22 Nov 2026). A rest another job writes while a request waits its pace or the lock stops it, and a rest ends only on the Archive's own answer, never on a redirect (one to no address is
-    no copy of a page, and from the index, no answer) nor a 403, and only the rest that request came after. A 403 from
+    staff, 22 Nov 2026). That wait is counted in tries, never read off the clock, and a lock not had stops the source as a
+    refusal does: no page is marked, none loses an attempt, and a page waits rather than losing its pictures. A reader's
+    allowance is read again under the lock, so two calls waiting on one reader never both go; the rest is written whole
+    (to a file beside it, then moved into place), and the look before the lock passes over a rest it can't read, which
+    the look under it reads again; what a reader runs before a request (its pace, its count) never asks the Archive
+    (Codex, 22 Nov 2026). A rest another job writes while a request waits its pace or the lock stops it, and a rest ends
+    only on the Archive's own answer, never on a redirect (one to no address is no copy of a page, and from the index, no
+    answer) nor a 403, and only the rest that request came after, the lock still held. A 403 from
     the Archive's index is a refusal, as a 429; on one page's copy it is no copy of that page, but on a second page's in
     the same run it is a refusal, the reader shut out (the owner's rule on refusals; the chief of staff, 21 Nov 2026).
     The log names both pages. GitHub's ideas step takes what the Mac made of each magazine idea at every run. During a

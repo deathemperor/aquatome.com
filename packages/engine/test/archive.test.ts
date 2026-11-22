@@ -1,12 +1,13 @@
-import { existsSync, mkdtempSync, readFileSync } from 'node:fs'
+import { existsSync, mkdtempSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { createServer } from 'node:http'
+import { createRequire, syncBuiltinESMExports } from 'node:module'
 import { createServer as createNetServer, type AddressInfo } from 'node:net'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test, vi } from 'vitest'
 import { ARCHIVE_POLITE, ARCHIVE_REST_MAX_MS, ARCHIVE_REST_MS, ArchiveFetcher, ArchiveRefused, AsksSpent, errorGot, MAX_HOPS, noCopy } from '../src/archive'
 import { discover } from '../src/discover'
-import { LockBusy, macLock } from '../src/mac-lock'
+import { LockBusy, macLock, tryLock } from '../src/mac-lock'
 import { sourceById } from '../src/sources'
 
 const restFile = () => join(mkdtempSync(join(tmpdir(), 'archive-rest-')), 'rest.json')
@@ -430,6 +431,92 @@ test("an answer that ends a wait is taken in before another reader on the Mac se
   // The other job sent only once the answer had ended the old wait, and the wait it began, 12 hours from a clean start, stands.
   expect(oldWait).toEqual([false])
   expect(JSON.parse(readFileSync(file, 'utf8'))).toMatchObject({ until: new Date(t.clock + ARCHIVE_REST_MS).toISOString(), waitMs: ARCHIVE_REST_MS })
+})
+
+// Codex's read of the lock, 22 Nov 2026.
+test("a refusal the lock's holder gets stops the request waiting for the lock: it is never counted, nor sent", async () => {
+  const file = restFile()
+  const lock = await freePort().then(port => () => macLock(port))
+  let answer!: () => void, out!: () => void
+  const gate = new Promise<void>(ok => { answer = ok }), isOut = new Promise<void>(ok => { out = ok })
+  const holder = new ArchiveFetcher({ lock, restFile: file, fetch: async () => { out(); await gate; return capture(429, '') }, now: () => new Date(start), sleep: async () => {}, ua: 'test' })
+  const counted: string[] = []
+  let sent = 0
+  const waiter = new ArchiveFetcher({ lock, restFile: file, fetch: async () => { sent++; return capture(200, '<title>ok</title>') }, now: () => new Date(start), sleep: async () => {}, ua: 'test' }).capped(5, async () => { counted.push('counted') })
+  const refused = holder.get(article).catch((e: unknown) => e)
+  await isOut
+  // The holder's request is out; the other one has passed its first look at the rest and waits for the lock.
+  const waiting = waiter.get(article).catch((e: unknown) => e)
+  await pause(300)
+  answer()
+  expect(await refused).toBeInstanceOf(ArchiveRefused)
+  expect(await waiting).toBeInstanceOf(ArchiveRefused)
+  expect(counted).toEqual([])
+  expect(sent).toBe(0)
+})
+
+test('the lock is still held when an answer clears the wait it came after', async () => {
+  const file = restFile()
+  const port = await freePort()
+  const { t, f } = refusals(file)
+  await expect(f.get(article)).rejects.toBeInstanceOf(ArchiveRefused)
+  t.clock = start + ARCHIVE_REST_MS
+  // At the clearing itself: could another process take the lock then?
+  const fsp = createRequire(import.meta.url)('node:fs/promises') as { rm: (...a: unknown[]) => Promise<void> }
+  const rm0 = fsp.rm
+  const free: boolean[] = []
+  fsp.rm = async (...a: unknown[]) => {
+    if (a[0] === file) { const r = await tryLock(port); free.push(!!r); await r?.() }
+    return rm0(...a)
+  }
+  syncBuiltinESMExports()
+  try {
+    const after = new ArchiveFetcher({ lock: () => macLock(port), restFile: file, fetch: async () => capture(200, '<title>ok</title>'), now: () => new Date(t.clock), sleep: async () => {}, ua: 'test' })
+    await after.get(article)
+  } finally {
+    fsp.rm = rm0
+    syncBuiltinESMExports()
+  }
+  expect(free).toEqual([false])
+  expect(existsSync(file)).toBe(false)
+})
+
+test("a rest file another job is writing: the first look passes over it, and the look under the lock stops the request", async () => {
+  const file = restFile()
+  const port = await freePort()
+  // Another job holds the lock, its refusal half written (as an older engine wrote it).
+  const theirs = (await tryLock(port))!
+  writeFileSync(file, '{"until":"2026-11-1')
+  let sent = 0
+  const f = new ArchiveFetcher({ lock: () => macLock(port), restFile: file, fetch: async () => { sent++; return capture(200, '<title>ok</title>') }, now: () => new Date(start), sleep: async () => {}, ua: 'test' })
+  const reading = f.get(article).catch((e: unknown) => e)
+  await pause(300)
+  writeFileSync(file, `${JSON.stringify({ until: new Date(start + ARCHIVE_REST_MS).toISOString(), waitMs: ARCHIVE_REST_MS })}\n`)
+  await theirs()
+  expect(await reading).toBeInstanceOf(ArchiveRefused)
+  expect(sent).toBe(0)
+})
+
+test('a refusal is written whole: no reader finds it half written, and nothing is left beside it', async () => {
+  const file = restFile()
+  const { f } = refusals(file)
+  await expect(f.get(article)).rejects.toBeInstanceOf(ArchiveRefused)
+  expect(JSON.parse(readFileSync(file, 'utf8'))).toMatchObject({ until: new Date(start + ARCHIVE_REST_MS).toISOString() })
+  expect(readdirSync(join(file, '..'))).toEqual(['rest.json'])
+})
+
+test('two calls waiting on one reader allowed one request: one goes, the other finds the requests spent', async () => {
+  const port = await freePort()
+  const theirs = (await tryLock(port))!
+  let sent = 0
+  const one = new ArchiveFetcher({ lock: () => macLock(port), restFile: restFile(), fetch: async () => { sent++; return capture(200, '<title>ok</title>') }, now: () => new Date(start), sleep: async () => {}, ua: 'test' }).capped(1)
+  const both = Promise.allSettled([one.get(article), one.get(article)])
+  await pause(300)
+  await theirs()
+  const r = await both
+  expect(sent).toBe(1)
+  expect(r.map(x => x.status).sort()).toEqual(['fulfilled', 'rejected'])
+  expect((r.find(x => x.status === 'rejected') as PromiseRejectedResult).reason).toBeInstanceOf(AsksSpent)
 })
 
 // The chief of staff, 22 Nov 2026: something not ours holding the port is never the Archive refusing.

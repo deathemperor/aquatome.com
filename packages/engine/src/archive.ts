@@ -1,4 +1,4 @@
-import { mkdir, readFile, rm, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, rename, rm, writeFile } from 'node:fs/promises'
 import { dirname } from 'node:path'
 import { parse } from 'node-html-parser'
 import { LockBusy, type Release } from './mac-lock'
@@ -51,6 +51,13 @@ type Fetch = (url: string, init?: { headers?: Record<string, string>; signal?: A
 const REDIRECTS = new Set([301, 302, 303, 307, 308])
 export const MAX_HOPS = 5
 
+/**
+ * What stops a step reading through the Archive, with nothing wrong with the page it was on, so the page waits rather than
+ * being marked, losing an attempt or losing its pictures: the Archive's refusal, and the Mac's lock on it held elsewhere
+ * past its wait (Codex, 22 Nov 2026).
+ */
+export const archiveStops = (e: unknown): e is Error => e instanceof ArchiveRefused || e instanceof LockBusy
+
 /** A capped reader has made the requests it was allowed (ArchiveFetcher.capped): none was made, and it is no refusal. */
 export class AsksSpent extends Error {
   constructor(readonly cap: number) { super(`the ${cap} requests allowed of the archive here are spent`) }
@@ -70,9 +77,12 @@ export class ArchiveFetcher {
   /** Requests this reader has made: each try counts, a retry after a network failure and each redirect followed too. */
   asked = 0
   private cap = Number.POSITIVE_INFINITY
-  /** Called before each request is made, after the cap and the rest let it: where a capped reader's requests are kept. */
+  /**
+   * Called before each request is made, after the cap and the rest let it: where a capped reader's requests are kept. It
+   * runs under the Mac's lock, so it never reads the Archive itself: that read would wait on the lock its own call holds.
+   */
   private onAsk?: () => Promise<void>
-  /** Called before each request, before the rest is read again: a capped reader's own pace. */
+  /** Called before each request, before the rest is read again: a capped reader's own pace. Nor does it read the Archive. */
   private pace?: () => Promise<void>
   /** The pages whose copy the Archive answered with a 403 in this run: shared by the capped readers made from this one. */
   private forbidden = new Set<string>()
@@ -111,7 +121,10 @@ export class ArchiveFetcher {
     const at = this.d.now().toISOString()
     const until = new Date(this.d.now().getTime() + waitMs).toISOString()
     await mkdir(dirname(this.d.restFile), { recursive: true })
-    await writeFile(this.d.restFile, `${JSON.stringify({ until, waitMs, got, at } satisfies Rest)}\n`)
+    // Written whole or not at all (Codex, 22 Nov 2026): a reader never finds it half written.
+    const tmp = `${this.d.restFile}.${process.pid}.tmp`
+    await writeFile(tmp, `${JSON.stringify({ until, waitMs, got, at } satisfies Rest)}\n`)
+    await rename(tmp, this.d.restFile)
     console.log(`archive: counted as refused at ${at}, it got ${got}: no request before ${until}`)
     return new ArchiveRefused(until)
   }
@@ -125,7 +138,9 @@ export class ArchiveFetcher {
    */
   private async call(url: string) {
     const resting = async () => JSON.parse(await readFile(this.d.restFile, 'utf8').catch(() => 'null')) as Rest | null
-    let rest = await resting()
+    // A first look, before the lock: one it can't read (another job's, mid-write, as an older engine wrote it) is left to the
+    // look under the lock, the one that counts (Codex, 22 Nov 2026).
+    let rest = await resting().catch(() => null)
     if (rest && this.d.now().getTime() < new Date(rest.until).getTime()) throw new ArchiveRefused(rest.until)
     let at = url
     for (let attempt = 0, hops = 0; ; attempt++) {
@@ -138,6 +153,8 @@ export class ArchiveFetcher {
       })
       let failed = false
       try {
+        // The cap again, under the lock (Codex, 22 Nov 2026): two calls on one reader may both have passed it while waiting.
+        if (this.asked >= this.cap) throw new AsksSpent(this.cap)
         // Read again just before the request (Codex, 21 Nov 2026): another job on this Mac may have been refused while this
         // one waited its pace or the lock, or had the one answer that ends a wait.
         const now = await resting()

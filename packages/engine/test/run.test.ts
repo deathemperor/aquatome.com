@@ -6,6 +6,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import sharp from 'sharp'
 import { ArchiveRefused } from '../src/archive'
+import { LockBusy } from '../src/mac-lock'
 import { LlmError } from '../src/claude'
 import { ChallengeError } from '../src/fetch'
 import { runEngine, soft } from '../src/run'
@@ -201,6 +202,20 @@ test('the archive refusing this Mac: the source stops, no page is marked, and th
   const r = await runEngine({ ...d, archive }, { sources: ['planetcatfish', 'seriouslyfish'] })
   expect(asked).toBe(1)
   expect(r.errors.join('\n')).toMatch(/planetcatfish: not read: the archive refused this Mac: no request before 2026-11-10T12:00:00.000Z/)
+  expect(r.perSource.seriouslyfish).toMatchObject({ processed: 1 })
+  expect(JSON.parse(await readFile(join(root, 'engine-state/planetcatfish.json'), 'utf8').catch(() => '{}'))).toEqual({})
+})
+
+test("the Mac's lock on the archive held elsewhere: the source stops as on a refusal, no page is marked, and none loses an attempt", async () => {
+  const root = await fresh()
+  const { d } = deps(root)
+  const pages = [9, 10].map(n => `https://www.planetcatfish.com/common/species.php?species_id=${n}`)
+  let asked = 0
+  const busy = 'the lock on 127.0.0.1:1 was held by another process for 600 s: nothing was asked, and this is no refusal'
+  const archive = { ...d.fetcher, text: async () => `${pages.join('\n')}\n`, get: async () => { asked++; throw new LockBusy(busy) } }
+  const r = await runEngine({ ...d, archive }, { sources: ['planetcatfish', 'seriouslyfish'] })
+  expect(asked).toBe(1)
+  expect(r.errors).toContain(`planetcatfish: not read: ${busy}`)
   expect(r.perSource.seriouslyfish).toMatchObject({ processed: 1 })
   expect(JSON.parse(await readFile(join(root, 'engine-state/planetcatfish.json'), 'utf8').catch(() => '{}'))).toEqual({})
 })

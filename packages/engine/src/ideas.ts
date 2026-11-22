@@ -138,7 +138,7 @@ function mirror(m: MagazineState, l: MagazineLedger) {
  */
 export async function holdMagazine(port: number): Promise<Release> {
   const release = await tryLock(port)
-  if (!release) throw new Error(`another magazine step is running (it holds 127.0.0.1:${port})`)
+  if (!release) throw new Error(`another magazine step is running, or something else holds 127.0.0.1:${port}`)
   return release
 }
 /** The magazine's newest read: GitHub's ideas are made again when it is newer than the one they were made from. */

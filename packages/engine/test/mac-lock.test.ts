@@ -5,7 +5,7 @@ import { connect, createServer, type AddressInfo } from 'node:net'
 import { networkInterfaces } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
 import { ARCHIVE_LOCK_PORT, LockBusy, MAGAZINE_LOCK_PORT, macLock, tryLock } from '../src/mac-lock'
 
 /** A port no one holds, for a test's own lock: never the Mac's, which a cycle may hold. */
@@ -77,6 +77,36 @@ test('2. no test takes the live lock: only the CLI names its ports, and every te
   // This file names them only to look for them.
   expect(naming(here)).toEqual(['mac-lock.test.ts'])
   expect(naming(join(here, '../src')).sort()).toEqual(['cli.ts', 'mac-lock.ts'])
+})
+
+test("the CLI's wiring: its one Archive reader takes the Mac's lock, and the magazine step holds its own from before its listing to after its guide", () => {
+  const cli = readFileSync(fileURLToPath(new URL('../src/cli.ts', import.meta.url)), 'utf8')
+  // The reader's factory, the one place the engine makes one (cycle-archive.test.ts).
+  expect(cli).toMatch(/const archiveReader = \(\) => new ArchiveFetcher\(\{[^\n]*\block: \(\) => macLock\(ARCHIVE_LOCK_PORT\b/)
+  const step = cli.slice(cli.indexOf("} else if (cmd === 'magazine') {"), cli.indexOf("} else if (cmd === 'topic') {"))
+  const at = (s: string) => { const i = step.indexOf(s); expect(i, s).toBeGreaterThan(-1); return i }
+  const taken = at('await holdMagazine(MAGAZINE_LOCK_PORT)')
+  const listing = at('await refreshMagazine('), guide = at('await writeMagazine('), given = at('} finally {\n    await release()')
+  expect(taken).toBeLessThan(listing)
+  expect(listing).toBeLessThan(guide)
+  expect(guide).toBeLessThan(given)
+  expect(step.match(/release\(\)/g)).toHaveLength(1)
+})
+
+test('the wait is counted in tries, never read off the clock: a clock set back an hour at every look still stops at its time', async () => {
+  const port = await freePort()
+  const other = createServer()
+  await new Promise<void>(ok => other.listen({ port, host: '127.0.0.1' }, ok))
+  let clock = Date.now()
+  const now = vi.spyOn(Date, 'now').mockImplementation(() => (clock -= 3_600_000))
+  try {
+    const t0 = performance.now()
+    await expect(macLock(port, { waitMs: 500, log: () => {} })).rejects.toBeInstanceOf(LockBusy)
+    expect(performance.now() - t0).toBeLessThan(3000)
+  } finally {
+    now.mockRestore()
+    await new Promise(ok => other.close(ok))
+  }
 })
 
 test('3. a holder not ours: the reader waits, says so once in the log, then fails naming the port, which is no refusal', async () => {
