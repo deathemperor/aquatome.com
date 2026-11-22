@@ -66,3 +66,47 @@ export const FACES_FILE = '_photo-faces.json'
  * deploy, a lost record must (the chief of staff's ruling, 21 Nov).
  */
 export const UNREAD_FACES_LIMIT = 300
+
+/** The dead-fish screen's record, in engine-state (address → its verdict): every photo it has judged, dead or not. */
+export const DEAD_SCREEN_FILE = '_dead-screen.json'
+/** The photo check's records, in engine-state: its verdicts by address, the old form and the one by subject. */
+export const PHOTO_CHECK_FILES = ['_photo-check.json', '_photo-subjects.json'] as const
+/** The second look's records, in engine-state (address → record): a person's `look` is on its photo's record. */
+export const SECOND_LOOK_RECORD = '_photo-second-look.json'
+export type DeadLookRecords = { screen: Record<string, unknown>; check?: Record<string, unknown>; subjects?: Record<string, unknown>; secondLook?: Record<string, unknown> }
+
+const has = (v: unknown, key: string) => !!v && typeof v === 'object' && Object.hasOwn(v, key)
+/** The photos a photo-check verdict judged for a dead fish: one with `logo`, which it has asked with since 5 Nov 2026. */
+export function askedByCheckOf(check: Record<string, unknown> = {}, subjects: Record<string, unknown> = {}): Set<string> {
+  const asked = new Set<string>()
+  for (const [u, v] of Object.entries(check)) if (has(v, 'logo')) asked.add(u)
+  for (const [u, by] of Object.entries(subjects)) if (by && typeof by === 'object' && Object.values(by).some(v => has(v, 'logo'))) asked.add(u)
+  return asked
+}
+
+/**
+ * Whether a look has judged a photo for a dead fish (the chief of staff, 22 Nov 2026): the dead-fish screen's verdict, a
+ * photo-check verdict that asked (`askedByCheckOf`), or a person's look on its second-look record (a clear counts). How
+ * the photo came onto its page doesn't matter: on 22 Nov a pages run begun on the code from before the screen read 111
+ * new photos into the face finder's record, and the screen, which then owed only photos new to that record, never would
+ * have looked at them. One rule for the engine and the build: the faces step's screen owes every own photo of a fish or
+ * plant page this doesn't pass (the engine's faces.ts), and a public build doesn't show one (load.ts), whatever the owed
+ * list says, so a list that is behind can't let one through.
+ */
+export function deadLooked(r: DeadLookRecords): (url: string) => boolean {
+  const asked = askedByCheckOf(r.check, r.subjects)
+  // A person's look as the engine reads one (its last-photo.ts): agree or clear, by someone, on a day.
+  const person = (url: string) => {
+    const l = (r.secondLook?.[url] as { look?: { said?: unknown; by?: unknown; on?: unknown } } | undefined)?.look
+    return !!l && (l.said === 'agree' || l.said === 'clear') && typeof l.by === 'string' && l.by.trim() !== '' && typeof l.on === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(l.on)
+  }
+  return url => Object.hasOwn(r.screen, url) || asked.has(url) || (!!r.secondLook && Object.hasOwn(r.secondLook, url) && person(url))
+}
+/**
+ * More own photos of fish and plant pages than this with no dead-fish look is a lost or damaged record, not a run's new
+ * photos: the site's build fails rather than publish its pages without them (the chief of staff's number for the face
+ * finder's record, 21 Nov, taken for this on 22 Nov). A run leaves none once its faces step has run; on 22 Nov 111 came
+ * from one run; lost photo-check records would leave about 5,200 of the 6,145 (the screen had judged 916). A missing
+ * screen record fails the site's build by itself.
+ */
+export const UNJUDGED_DEAD_LIMIT = 300

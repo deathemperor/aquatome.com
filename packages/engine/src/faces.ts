@@ -4,8 +4,8 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
-import { DEAD_OWED_FILE } from '@aq/schema'
-import { askedByCheck, screenDead, type DeadScreenDeps } from './dead-screen'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, PHOTO_CHECK_FILES, SECOND_LOOK_RECORD } from '@aq/schema'
+import { screenDead, type DeadScreenDeps } from './dead-screen'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { holdForSecondLook, lastPhotos, looks, pagesShowing, readPassedBefore, readSecondLook, waitingEntry } from './last-photo'
@@ -113,32 +113,44 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
 export const NEW_PHOTO_SHEETS = 14
 
 /**
- * What the dead-fish screen still owes, from `owed` (address → the day first owed), in its order: a photo a fish or
- * plant page shows that neither the screen nor the photo check has judged and the never-again list doesn't have.
+ * The own photos of fish and plant pages, in page order, that no look has judged for a dead fish (the schema's
+ * `deadLooked`, the rule the public build hides by) and the never-again list doesn't have (they leave every page anyway).
  */
-async function stillOwed(root: string, contentRoot: string, owed: Record<string, string>): Promise<Record<string, string>> {
-  if (!Object.keys(owed).length) return {}
+async function unjudged(root: string, contentRoot: string): Promise<string[]> {
   const shown = new Set<string>()
   for (const kind of ['species', 'plants']) {
-    for (const id of await readdir(join(contentRoot, kind)).catch(() => [] as string[])) {
+    for (const id of (await readdir(join(contentRoot, kind)).catch(() => [] as string[])).sort()) {
       const e = JSON.parse(await readFile(join(contentRoot, kind, id, 'entity.json'), 'utf8').catch(() => '{}')) as { photos?: { url: string }[] }
       for (const p of e.photos ?? []) shown.add(p.url)
     }
   }
   const read = async (f: string) => JSON.parse(await readFile(join(root, 'engine-state', f), 'utf8').catch(() => '{}')) as Record<string, unknown>
-  const [judged, rejected, asked] = [await read('_dead-screen.json'), await read('_photo-rejected.json'), await askedByCheck(root)]
-  return Object.fromEntries(Object.entries(owed).filter(([u]) => shown.has(u) && !(u in judged) && !(u in rejected) && !asked.has(u)))
+  const [screen, check, subjects, secondLook, rejected] = await Promise.all([DEAD_SCREEN_FILE, ...PHOTO_CHECK_FILES, SECOND_LOOK_RECORD, '_photo-rejected.json'].map(read))
+  const looked = deadLooked({ screen: screen!, check, subjects, secondLook })
+  return [...shown].filter(u => !looked(u) && !(u in rejected!))
+}
+
+/**
+ * What the dead-fish screen owes: every own photo of a fish or plant page that no look has judged, however it came into
+ * the face finder's record (the chief of staff, 22 Nov 2026, after 111 came from a run begun before the screen). Those
+ * owed before come first, in the order they came (address → the day first owed), then the others, dated `today`.
+ */
+async function stillOwed(root: string, contentRoot: string, owed: Record<string, string>, today: string): Promise<Record<string, string>> {
+  const now = await unjudged(root, contentRoot)
+  const open = new Set(now)
+  return { ...Object.fromEntries(Object.entries(owed).filter(([u]) => open.has(u))), ...Object.fromEntries(now.filter(u => !(u in owed)).map(u => [u, today])) }
 }
 
 /**
  * The faces step (cli.ts `faces`, in every pages, sf and photos run before the push): faces first, then the dead-fish
  * screen (dead-screen.ts) on what it owes on species and plant pages: the photos it was owed before, in the order they
- * came, then those new to the face finder in this run, whether or not the face finder could read them. It comes after every write
+ * came, then those new to the face finder in this run, whether or not the face finder could read them, then every other
+ * one no look has judged for a dead fish, however it came onto its page (`stillOwed`). It comes after every write
  * of the face pass, since both rewrite the pages.
  *
  * Each owed photo is on a list (DEAD_OWED_FILE in engine-state), and a public build doesn't show it (the schema's
- * load.ts), until the screen or the photo check has judged it, the never-again list has it or no fish or plant page shows
- * it. One past the sheets, on a sheet that failed or after a stop (the step's daily line in ceilings.json is `faces`)
+ * load.ts), until the screen, the photo check or a person has judged it, the never-again list has it or no fish or plant
+ * page shows it. The build holds the same line by the looks themselves (the schema's `deadLooked`), list or not. One past the sheets, on a sheet that failed or after a stop (the step's daily line in ceilings.json is `faces`)
  * stays on the list for the next run. The list takes the photos new to the face finder before the face pass writes
  * anything, its record of what it has read last: a list that can't be written stops the step with that record as it
  * was, so they are new to it again in the next run, and wait meanwhile (load.ts: an own photo the face finder hasn't
@@ -153,15 +165,16 @@ export async function screenNewPhotos(contentRoot: string, cacheFile: string, d:
   const write = async (x: Record<string, string>) => { await mkdir(join(root, 'engine-state'), { recursive: true }); await writeFile(owedFile, `${JSON.stringify(x, null, 2)}\n`) }
   let enrolled = before
   const faces = await dropFacePhotos(contentRoot, cacheFile, d, rejectedFile, root, async fresh => {
-    enrolled = await stillOwed(root, contentRoot, { ...before, ...Object.fromEntries(fresh.filter(u => !(u in before)).map(u => [u, today])) })
+    // The photos new to the face finder are among them, and come first after those owed before.
+    enrolled = await stillOwed(root, contentRoot, { ...before, ...Object.fromEntries(fresh.filter(u => !(u in before)).map(u => [u, today])) }, today)
     await write(enrolled)
   })
-  const owed = await stillOwed(root, contentRoot, enrolled)
+  const owed = await stillOwed(root, contentRoot, enrolled, today)
   await write(owed)
   if (!Object.keys(owed).length) return { faces, owed: 0 }
   try {
     const dead = await screenDead(root, d.dead, { limit: NEW_PHOTO_SHEETS * 12, photos: new Set(Object.keys(owed)) })
-    const left = await stillOwed(root, contentRoot, owed)
+    const left = await stillOwed(root, contentRoot, owed, today)
     await write(left)
     return { faces, dead, owed: Object.keys(left).length }
   } catch (err) {

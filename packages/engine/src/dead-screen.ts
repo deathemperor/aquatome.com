@@ -1,3 +1,4 @@
+import { askedByCheckOf } from '@aq/schema'
 import { compactVerdict, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
@@ -67,12 +68,7 @@ async function pool<T>(items: T[], n: number, f: (x: T) => Promise<void>) {
 /** Photos a photo-check verdict judged for dead fish (it has `logo`): the check asked, so the screen doesn't. */
 export async function askedByCheck(root: string): Promise<Set<string>> {
   const state = (f: string) => join(root, 'engine-state', f)
-  const asked = new Set<string>()
-  const legacy = (await readJson<Record<string, { logo?: boolean }>>(state('_photo-check.json'))) ?? {}
-  for (const [u, v] of Object.entries(legacy)) if ('logo' in v) asked.add(u)
-  const subjects = (await readJson<Record<string, Record<string, { logo?: boolean }>>>(state('_photo-subjects.json'))) ?? {}
-  for (const [u, by] of Object.entries(subjects)) if (Object.values(by).some(v => 'logo' in v)) asked.add(u)
-  return asked
+  return askedByCheckOf(await readJson<Record<string, unknown>>(state('_photo-check.json')), await readJson<Record<string, unknown>>(state('_photo-subjects.json')))
 }
 
 /** `backCheck`: also the videos judged from their thumbnail alone (the screen's verdicts from before it saw frames). */

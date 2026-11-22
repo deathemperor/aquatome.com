@@ -5,7 +5,7 @@ import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies, THUMB_WIDTH } from './thumb'
-import { awaitsScreen, DEAD_OWED_FILE, FACES_FILE, UNREAD_FACES_LIMIT, type PhotoScreenEntry } from './photo-screen'
+import { awaitsScreen, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, FACES_FILE, PHOTO_CHECK_FILES, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, type PhotoScreenEntry } from './photo-screen'
 import { ownerCropApproved, ownerCropCanonical } from './owner-crops'
 import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
 import { HAND_BOXES } from './hand-boxes'
@@ -250,7 +250,29 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
       if (unread.size > UNREAD_FACES_LIMIT) throw new Error(`${lang}: ${unread.size} own photos of species, plant and guide pages the face finder has never read (${join(dirname(root), 'engine-state', FACES_FILE)}). More than ${UNREAD_FACES_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) reads them.`)
     }
   }
-  const waitsFor = (url: string) => awaitsScreen(url, screen![url]) || (!!owed && Object.hasOwn(owed, url)) || unread.has(url)
+  // And an own photo of a species or plant page that no look has judged for a dead fish (photo-screen.ts deadLooked),
+  // owed or not: the list is the engine's queue, and one that is behind can't let a photo through (the chief of staff,
+  // 22 Nov 2026). With no screen record beside the root (the fixture build, a test's store) none waits for it; the site's
+  // build of the real content needs the record.
+  const deadScreen = screen ? await stateRecord<Record<string, unknown>>(root, DEAD_SCREEN_FILE) : undefined
+  if (screen && !deadScreen && opts.photoScreen === 'required') throw new Error(`${join(dirname(root), 'engine-state', DEAD_SCREEN_FILE)}: the dead-fish screen's record is missing, so no photo can be shown as judged for a dead fish`)
+  const unjudged = new Set<string>()
+  if (deadScreen) {
+    const [check, subjects] = await Promise.all(PHOTO_CHECK_FILES.map(f => stateRecord<Record<string, unknown>>(root, f)))
+    const looked = deadLooked({ screen: deadScreen, check, subjects, secondLook: await stateRecord<Record<string, unknown>>(root, SECOND_LOOK_RECORD) })
+    for (const kind of ['species', 'plants']) {
+      for (const id of await readdir(join(root, kind)).catch(() => [] as string[])) {
+        const file = join(root, kind, id, 'entity.json')
+        if (!(await exists(file))) continue
+        for (const p of (JSON.parse(await readFile(file, 'utf8')) as { photos?: { url: string }[] }).photos ?? []) if (!looked(p.url)) unjudged.add(p.url)
+      }
+    }
+    if (opts.photoScreen === 'required') {
+      console.log(`${lang}: ${unjudged.size} own photos of species and plant pages wait, no look has judged them for a dead fish`)
+      if (unjudged.size > UNJUDGED_DEAD_LIMIT) throw new Error(`${lang}: ${unjudged.size} own photos of species and plant pages that no look has judged for a dead fish (${join(dirname(root), 'engine-state', DEAD_SCREEN_FILE)} and the photo check's records). More than ${UNJUDGED_DEAD_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) screens them.`)
+    }
+  }
+  const waitsFor = (url: string) => awaitsScreen(url, screen![url]) || (!!owed && Object.hasOwn(owed, url)) || unread.has(url) || unjudged.has(url)
   // Every picture a build takes from content asks this: a page's, an album's, a guide's and its video sections', a
   // card's, an equipment guide's. Each one's addresses (its own, its thumb's, its larger copy's) are kept by the answer,
   // for what names a picture by address alone (the calendar: `photoWaits`).

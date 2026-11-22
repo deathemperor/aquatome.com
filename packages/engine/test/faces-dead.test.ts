@@ -22,6 +22,8 @@ async function store() {
   await put('content/species/b/entity.json', { id: 'b', photos: [photo('b-dead')], videos: [] })
   await put('content/species/c/entity.json', { id: 'c', photos: [photo('c-face'), photo('c-live')], videos: [] })
   await put('engine-state/_photo-faces.json', { [m('a-old')]: 0 })
+  // a's head was judged by the screen too, in that earlier run.
+  await put('engine-state/_dead-screen.json', { [m('a-old')]: { dead: false, note: 'live fish in a tank' } })
   return root
 }
 const json = async (root: string, path: string) => JSON.parse(await readFile(join(root, path), 'utf8'))
@@ -70,7 +72,7 @@ test('the faces step screens the photos new to it for dead fish, wherever they s
   const rejected = await json(root, 'engine-state/_photo-rejected.json')
   expect(rejected[m('b-dead')]).toMatch(/^waiting: /)
   expectControlledRejections(Object.fromEntries(Object.entries(rejected).filter(([u]) => u !== m('b-dead'))), { [m('a-dead')]: 'dead', [m('c-face')]: 'people' })
-  expect(Object.keys(await json(root, 'engine-state/_dead-screen.json')).sort()).toEqual([m('a-dead'), m('a-live'), m('b-dead'), m('c-live')])
+  expect(Object.keys(await json(root, 'engine-state/_dead-screen.json')).sort()).toEqual([m('a-dead'), m('a-live'), m('a-old'), m('b-dead'), m('c-live')])
   // Each judged now, none is owed.
   expect(await owed(root)).toEqual([])
 
@@ -159,4 +161,31 @@ test("the list takes the photos new to the face finder before its record does: a
   await run(root, next.d)
   expect(next.sent).toEqual([m('a-dead'), m('a-live'), m('b-dead'), m('c-live')])
   expect(await owed(root)).toEqual([])
+})
+
+test("the screen owes every photo of a fish or plant page that no look has judged, however it came into the face finder's record: one read before the screen, not one the check asked or a person looked at", async () => {
+  // The chief of staff, 22 Nov 2026: a pages run begun on the code from before the screen read 111 new photos into the
+  // face finder's record, and the screen, owing only photos new to that record, never would have looked at them.
+  const root = await mkdtemp(join(tmpdir(), 'faces-dead-'))
+  const put = async (path: string, data: unknown) => { await mkdir(join(root, path, '..'), { recursive: true }); await writeFile(join(root, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await put('content/species/d/entity.json', { id: 'd', photos: [photo('d-read'), photo('d-asked'), photo('d-cleared'), photo('d-read-dead')], videos: [] })
+  await put('content/plants/p/entity.json', { id: 'p', photos: [photo('p-read')] })
+  // A guide's photos are the guides' own looks' (guide-photos.ts), not this screen's.
+  await put('content/guides/g/entity.json', { id: 'g', photos: [photo('g-read')] })
+  // Every one read by the face finder before this run: none is new to it.
+  await put('engine-state/_photo-faces.json', Object.fromEntries(['d-read', 'd-asked', 'd-cleared', 'd-read-dead', 'p-read', 'g-read'].map(n => [m(n), 0])))
+  await put('engine-state/_photo-subjects.json', { [m('d-asked')]: { d: { ok: 'yes', typical: true, note: '', logo: false } } })
+  await put('engine-state/_photo-second-look.json', { [m('d-cleared')]: { why: 'watermark: withheld [sha256:' + '0'.repeat(64) + ']', step: 'the watermark screen', pages: ['species/d'], at: '2026-11-20', look: { said: 'clear', by: 'the chief of staff', on: '2026-11-21' } } })
+  const { d, sent } = deps()
+  const r = await run(root, d)
+  expect(r.faces.checked).toBe(0)
+  expect(sent).toEqual([m('d-read'), m('d-read-dead'), m('p-read')])
+  expect(r.dead).toMatchObject({ judged: 3, left: 0 })
+  // Off at this push, as a new photo's dead verdict is: d keeps its other photos.
+  expect(await urls(root, 'd')).toEqual([m('d-read'), m('d-asked'), m('d-cleared')])
+  expect(await owed(root)).toEqual([])
+  // Judged now: the next run owes none and calls no model.
+  const next = deps()
+  expect(await run(root, next.d)).toEqual({ faces: expect.objectContaining({ checked: 0 }), owed: 0 })
+  expect(next.sent).toEqual([])
 })

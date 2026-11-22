@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test, vi } from 'vitest'
-import { cardShownIn, loadAll, UNREAD_FACES_LIMIT, type Section, type Translation } from '../src/index'
+import { cardShownIn, loadAll, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, type Section, type Translation } from '../src/index'
 import { oneVoice, withLocalNote } from '../src/load'
 
 const root = fileURLToPath(new URL('./fixtures/store', import.meta.url))
@@ -296,6 +296,73 @@ test("a public build shows no new photo the dead-fish screen still owes a look: 
   expect(await shown(true)).toEqual({ own: ['commons/judged', 'commons/owed'], album: ['commons/album-owed', 'commons/album'] })
 })
 
+test("a public build shows no own photo of a species or plant page that no look has judged for a dead fish, owed or not: it waits there, in an album and by address; the site's build counts them, fails past the limit and without the screen's record", async () => {
+  // The chief of staff, 22 Nov 2026: 111 photos from a run begun before the screen reached the face finder's record
+  // unowed, and only a list put them right. The build holds the line by the looks themselves.
+  const { mkdir, rm } = await import('node:fs/promises')
+  const site = await mkdtemp(join(tmpdir(), 'aq-dead-look-'))
+  const store = join(site, 'content')
+  await cp(root, store, { recursive: true })
+  const photo = (name: string) => ({ url: `https://media.test/${name}.webp`, width: 960, height: 640, licence: 'CC BY 4.0', author: 'A', sourceUrl: `https://x/${name}` })
+  const write = (file: string, x: unknown) => writeFile(join(store, file), JSON.stringify(x))
+  const alpha = JSON.parse(await readFile(join(store, 'species', 'alpha', 'entity.json'), 'utf8'))
+  const alphaVi = JSON.parse(await readFile(join(store, 'species', 'alpha', 'vi.json'), 'utf8'))
+  await write('species/alpha/entity.json', { ...alpha, photos: [photo('by-screen'), photo('by-check'), photo('by-person'), photo('by-none')] })
+  await mkdir(join(store, 'plants', 'moss'), { recursive: true })
+  await write('plants/moss/entity.json', { id: 'moss', scientificName: 'Mossus testus', difficulty: 1, light: 'low', co2: 'none', growth: 'slow', placement: ['foreground'], sections: alpha.sections, photos: [photo('plant-none')], productSlots: [], updatedAt: '2026-11-21' })
+  await write('plants/moss/vi.json', { ...alphaVi, slug: 'trang-moss' })
+  await mkdir(join(store, 'gallery'))
+  // An album's own photos aren't this rule's yet: only a page's own copy makes one wait.
+  await write('gallery/alpha.json', { id: 'alpha', seen: 2, updatedAt: '2026-11-21', photos: [photo('by-none'), photo('album')] })
+  const all = ['by-screen', 'by-check', 'by-person', 'by-none', 'plant-none', 'album']
+  const state = (f: string, x: unknown) => writeFile(join(site, 'engine-state', f), JSON.stringify(x))
+  await mkdir(join(site, 'engine-state'))
+  // The watermark screen and the face finder have read every one; nothing is on the owed list.
+  await state('_photo-watermarks.json', Object.fromEntries(all.map(n => [`https://media.test/${n}.webp`, { ocr: [] }])))
+  await state('_photo-faces.json', Object.fromEntries(all.map(n => [`https://media.test/${n}.webp`, 0])))
+  await state('_photo-dead-owed.json', {})
+  // Judged: by the screen, by the photo check (a verdict that asked about dead fish has `logo`), by a person's clear.
+  await state('_dead-screen.json', { 'https://media.test/by-screen.webp': { dead: false } })
+  await state('_photo-subjects.json', { 'https://media.test/by-check.webp': { alpha: { ok: 'yes', logo: false } }, 'https://media.test/by-none.webp': { alpha: { ok: 'yes' } } })
+  await state('_photo-second-look.json', { 'https://media.test/by-person.webp': { why: 'x', step: 'the watermark screen', pages: ['species/alpha'], at: '2026-11-20', look: { said: 'clear', by: 'the chief of staff', on: '2026-11-21' } } })
+  const short = (u: string) => u.replace('https://media.test/', '').replace('.webp', '')
+  const shown = async (publicBuild: boolean) => {
+    const c = await loadAll({ root: store, lang: 'vi', publicBuild })
+    return { fish: c.species.find(x => x.id === 'alpha')!.photos.map(p => short(p.url)), plant: c.plants.find(x => x.id === 'moss')!.photos.map(p => short(p.url)), album: (c.galleries.alpha ?? []).map(p => short(p.url)) }
+  }
+  expect(await shown(true)).toEqual({ fish: ['by-screen', 'by-check', 'by-person'], plant: [], album: ['album'] })
+  // The engine's own reads see every photo.
+  expect(await shown(false)).toEqual({ fish: ['by-screen', 'by-check', 'by-person', 'by-none'], plant: ['plant-none'], album: ['by-none', 'album'] })
+  // By address too, a thumb's and a larger copy's.
+  const c = await loadAll({ root: store, lang: 'vi', publicBuild: true })
+  expect(['by-none', 'by-none-480', 'by-none-large', 'by-screen'].filter(n => c.photoWaits!(`https://media.test/${n}.webp`))).toEqual(['by-none', 'by-none-480', 'by-none-large'])
+  // The site's build says how many wait, and fails past the limit.
+  const said = vi.spyOn(console, 'log').mockImplementation(() => {})
+  try {
+    await loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })
+    expect(said.mock.calls.map(a => String(a[0])).filter(l => l.includes('dead fish'))).toEqual(['vi: 2 own photos of species and plant pages wait, no look has judged them for a dead fish'])
+    const many = Array.from({ length: UNJUDGED_DEAD_LIMIT - 1 }, (_, i) => photo(`many-${i}`))
+    const named = [...all, ...many.map(p => short(p.url))]
+    await state('_photo-watermarks.json', Object.fromEntries(named.map(n => [`https://media.test/${n}.webp`, { ocr: [] }])))
+    await state('_photo-faces.json', Object.fromEntries(named.map(n => [`https://media.test/${n}.webp`, 0])))
+    await write('species/alpha/entity.json', { ...alpha, photos: [photo('by-screen'), photo('by-check'), photo('by-person'), photo('by-none'), ...many] })
+    await expect(loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })).rejects.toThrow(`vi: ${UNJUDGED_DEAD_LIMIT + 1} own photos of species and plant pages that no look has judged for a dead fish`)
+    // At the limit it builds.
+    await write('species/alpha/entity.json', { ...alpha, photos: [photo('by-screen'), photo('by-check'), photo('by-person'), photo('by-none'), ...many.slice(1)] })
+    await loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })
+  } finally {
+    said.mockRestore()
+  }
+  // Judged (a faces step has run): each shows by itself in the next build.
+  await write('species/alpha/entity.json', { ...alpha, photos: [photo('by-screen'), photo('by-check'), photo('by-person'), photo('by-none')] })
+  await state('_dead-screen.json', { 'https://media.test/by-screen.webp': { dead: false }, 'https://media.test/by-none.webp': { dead: false }, 'https://media.test/plant-none.webp': { dead: false } })
+  expect(await shown(true)).toEqual({ fish: ['by-screen', 'by-check', 'by-person', 'by-none'], plant: ['plant-none'], album: ['by-none', 'album'] })
+  // With no screen record beside the real content the site's build fails; a root with none (the fixture build) has no rule.
+  await rm(join(site, 'engine-state', '_dead-screen.json'))
+  await expect(loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })).rejects.toThrow("the dead-fish screen's record is missing")
+  expect((await shown(true)).fish).toEqual(['by-screen', 'by-check', 'by-person', 'by-none'])
+})
+
 test("a public build shows no own photo of a species, plant or guide page the face finder has never read: it waits there, in an album and by address, shows once read, and the site's build counts them and fails past the limit", async () => {
   const { mkdir } = await import('node:fs/promises')
   const site = await mkdtemp(join(tmpdir(), 'aq-unread-'))
@@ -325,6 +392,9 @@ test("a public build shows no own photo of a species, plant or guide page the fa
   const all = ['fish-read', 'fish-unread', 'album', 'plant-unread', 'guide-read', 'guide-unread', 'breed']
   await mkdir(join(site, 'engine-state'))
   await writeFile(join(site, 'engine-state', '_photo-watermarks.json'), JSON.stringify(Object.fromEntries(all.map(n => [`https://media.test/${n}.webp`, { ocr: [] }]))))
+  // And the dead-fish screen has judged every one: only the face finder's record holds them here.
+  const judgedAll = (names: string[]) => writeFile(join(site, 'engine-state', '_dead-screen.json'), JSON.stringify(Object.fromEntries(names.map(n => [`https://media.test/${n}.webp`, { dead: false }]))))
+  await judgedAll(all)
   const facesFile = join(site, 'engine-state', '_photo-faces.json')
   await writeFile(facesFile, JSON.stringify({ 'https://media.test/fish-read.webp': 0, 'https://media.test/guide-read.webp': 0 }))
   const short = (u: string) => u.replace('https://media.test/', '').replace('.webp', '')
@@ -349,6 +419,7 @@ test("a public build shows no own photo of a species, plant or guide page the fa
     const many = Array.from({ length: UNREAD_FACES_LIMIT - 2 }, (_, i) => photo(`many-${i}`))
     await write('species/alpha/entity.json', { ...alpha, photos: [photo('fish-read'), photo('fish-unread'), ...many] })
     await writeFile(join(site, 'engine-state', '_photo-watermarks.json'), JSON.stringify(Object.fromEntries([...all, ...many.map(p => short(p.url))].map(n => [`https://media.test/${n}.webp`, { ocr: [] }]))))
+    await judgedAll([...all, ...many.map(p => short(p.url))])
     await expect(loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })).rejects.toThrow(`vi: ${UNREAD_FACES_LIMIT + 1} own photos of species, plant and guide pages the face finder has never read`)
     expect((await shown(true)).fish).toEqual(['fish-read'])
     // At the limit it builds.
