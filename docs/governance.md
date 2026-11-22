@@ -441,13 +441,19 @@ The layers above still check the result.
           it. A row's words are pinned as on its day (a test): one that widens takes the widening's day, so a page
           rewritten before it isn't marked for the new word.
         - A word counts only in what the rewrite's own commit changed, read from git: the newest commit in which the
-          page's record took the value it has, and the parts of the page that commit changed, as it left them. "Rewritten
-          whole" alone doesn't prove the text changed: on 22 Nov, 4 of the 44 pages then marked had their words in text
-          byte-identical to before (Fable's read), and on one the rewrite's commit didn't touch the page. A part the
-          commit didn't change is never marked, nor is a page whose commit can't be found (no history, a shallow clone).
-          A word the page also has in a part that commit didn't change (a guide's question, a fish page's references or
-          fixed sections) isn't marked either: a mark is the page's, so it would close that part too. Another step that
-          ran in the same commit and changed a part makes it count as changed.
+          page's record took the value it has, and the parts of the page that commit changed, as it left them, but for
+          the units the rewrite's own last step changes on the whole page. "Rewritten whole" alone doesn't prove the text
+          changed: on 22 Nov, 4 of the 44 pages then marked had their words in text byte-identical to before (Fable's
+          read), and on one the rewrite's commit didn't touch the page. The word must be in the same part then and now.
+          A part the commit didn't change is never marked, nor is a page whose commit shows nothing of a rewrite: no
+          history, a commit whose parent the checkout doesn't have (a shallow clone's edge: before 22 Nov's second fix it
+          read as a commit that wrote every record and every page from nothing, and marked 45 pages, not 37), or a page
+          not there before the commit (moved, or first written in it). A word the page also has in a part that commit
+          didn't change (a guide's question, a fish page's references or fixed sections) isn't marked either: a mark is
+          the page's, so it would close that part too. Another step that ran in the same commit and changed a part
+          makes it count as changed, as does a record set back to an earlier value in a commit that changed the page.
+          A marked word is the rewrite's own text either way: on 22 Nov, 35 of the 38 were "không xương sống", which
+          the rewrite wrote in for "tôm, cua, ốc" on the translation review's note, not kept from before.
         - The record is written whole, through a new file of its own beside it (never one already there), and only if it
           was unchanged at the last read before the write: otherwise nothing is written and the step says to run it
           again. A write in the moment between is still lost, so it runs only in the pass's own checkout.

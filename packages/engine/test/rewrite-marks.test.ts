@@ -76,6 +76,8 @@ test('a word is marked only in a part the rewrite commit changed, and only when 
   const fish = { 'care:sf': body, 'diet:sf': '<p>Phần lớn ăn rêu.</p>', 'references:sf': '<li>Loricariid catfishes</li>' }
   expect(slips({ 'care:sf': body }, fish, at, list)).toEqual([])
   expect(slips({ 'care:sf': body, 'diet:sf': fish['diet:sf'] }, fish, at, list)).toEqual(['phần lớn'])
+  // Part by part: a word the rewrite left in one part and a later step put in another isn't the rewrite's (Codex, Fable).
+  expect(slips({ 'care:sf': '<p>Phần lớn cá.</p>', 'diet:sf': '<p>Ăn rêu.</p>' }, { 'care:sf': '<p>Cá khỏe.</p>', 'diet:sf': '<p>Phần lớn ăn rêu.</p>' }, at, list)).toEqual([])
   expect(textParts({ body: 'b', summary: ['s'], faq: [{ q: 'q', a: 'a' }], definition: 'd', sections: { 'x:sf': 'x' } })).toEqual({ body: 'b', 'summary:0': 's', 'faq:0:q': 'q', 'faq:0:a': 'a', definition: 'd', 'x:sf': 'x' })
 })
 
@@ -88,25 +90,45 @@ test('the lookup in git: what the commit that wrote each record changed on its p
   const record = (m: object) => { mkdirSync(join(dir, 'engine-state'), { recursive: true }); writeFileSync(join(dir, 'engine-state/vi-rewrite.json'), JSON.stringify(m, null, 2)) }
   git('init', '-q', '-b', 'main')
   const old = { body: '<p>Phần lớn cá sống ở suối. Dù vậy, cá khỏe.</p>', faq: [{ q: 'Khó không?', a: 'Dễ.' }] }
-  page('landed', old); page('as-was', old); record({})
+  // "units": its question has the word too, and an inch the rewrite's unit step takes out after the model (metricPage).
+  const units = { ...old, faq: [{ q: 'Phần lớn cá dài tối đa 5 cm (≈ 2″).', a: 'Dễ.' }] }
+  page('landed', old); page('as-was', old); page('units', units); record({})
   git('add', '.'); git('commit', '-qm', 'pages')
   const now = { ...old, body: '<p>Phần lớn cá sống ở suối. Cá vẫn khỏe.</p>' }
   page('landed', now) // the rewrite changed the body and kept "phần lớn"; "as-was" came back as it was
-  const state = { 'guides/landed': rec('2026-11-15'), 'guides/as-was': rec('2026-11-15') }
+  page('units', { ...now, faq: [{ q: 'Phần lớn cá dài tối đa 5 cm.', a: 'Dễ.' }] }) // the model saw only the body
+  const state = { 'guides/landed': rec('2026-11-15'), 'guides/as-was': rec('2026-11-15'), 'guides/units': rec('2026-11-15') }
   record(state); git('commit', '-qam', 'rewrite')
   page('landed', { ...now, summary: ['Cá dễ nuôi.'] }); git('commit', '-qam', 'a later step')
   const found = await gitChanged(join(dir, 'content'))({ ...state, 'guides/none': rec('2026-11-15') })
   expect(found.get('guides/landed')).toEqual({ body: now.body })
   expect(found.get('guides/as-was')).toEqual({})
   expect(found.has('guides/none')).toBe(false)
+  // The unit step's change isn't the rewrite's: only the body counts, so the question's word stays for the pass.
+  expect(found.get('guides/units')).toEqual({ body: now.body })
   // The step itself, from git: the page whose rewrite landed is marked, the one that came back as it was isn't.
   const r = await rewriteMarks(join(dir, 'content'), join(dir, 'engine-state/vi-rewrite.json'), { dry: true, opts })
   expect(r.marked).toEqual(['guides/landed'])
   expect([r.unchanged, r.noCommit]).toEqual([1, 0])
   // No history (not a git checkout): nothing is marked.
-  const { root, file } = await setup(state, { landed: now.body, 'as-was': old.body })
+  const { root, file } = await setup(state, { landed: now.body, 'as-was': old.body, units: now.body })
   const none = await rewriteMarks(root, file, { dry: true, opts })
-  expect([none.marked.length, none.noCommit]).toEqual([0, 2])
+  expect([none.marked.length, none.noCommit]).toEqual([0, 3])
+  // A checkout cut short (a shallow clone): a commit whose parent isn't there shows nothing, so nothing is marked. It
+  // read as a commit that wrote every record and every page from nothing: 45 pages marked, not 37 (Codex, Fable, 22 Nov).
+  for (const depth of ['1', '2']) {
+    const cut = mkdtempSync(join(tmpdir(), 'aq-marks-cut-'))
+    execFileSync('git', ['clone', '-q', '--depth', depth, `file://${dir}`, cut], { stdio: 'pipe' })
+    const s = await rewriteMarks(join(cut, 'content'), join(cut, 'engine-state/vi-rewrite.json'), { dry: true, opts })
+    expect([depth, s.marked.length, s.noCommit]).toEqual([depth, 0, 3])
+  }
+  // A page moved with its record, or first written in its record's commit: a page from nothing shows nothing of a rewrite.
+  git('mv', 'content/guides/as-was', 'content/guides/moved')
+  page('fresh', now)
+  const later = { 'guides/moved': rec('2026-11-15'), 'guides/fresh': rec('2026-11-16') }
+  record({ 'guides/landed': state['guides/landed'], 'guides/units': state['guides/units'], ...later })
+  git('add', '.'); git('commit', '-qm', 'moved')
+  expect([...(await gitChanged(join(dir, 'content'))(later)).keys()]).toEqual([])
 })
 
 test('marks what a page kept from a rewrite made with its word listed; the rest stays for --phrases, as its own dry run picks', async () => {
@@ -166,8 +188,9 @@ test('marks what a page kept from a rewrite made with its word listed; the rest 
   // The count is the rewrite's own: with the record as written, --phrases takes up exactly the pages left.
   const real = await rewriteExisting(root, file, { llm: async () => { throw new Error('no model') }, opts, now: () => new Date() }, { limit: Infinity, ...phraseRun('vi'), dry: true })
   expect(ids(real.done)).toEqual(ids(r.dueAfter))
-  expect(r.byRow['phần lớn']).toEqual({ rewrittenWith: 5, stillHave: 2, leftWith: 6 })
-  expect(r.byRow['nửa tá']).toEqual({ rewrittenWith: 4, stillHave: 0, leftWith: 1 })
+  // Every record rewritten with the row counts, the two whose commit shows no rewrite too (Codex, Fable).
+  expect(r.byRow['phần lớn']).toEqual({ rewrittenWith: 7, stillHave: 2, leftWith: 6 })
+  expect(r.byRow['nửa tá']).toEqual({ rewrittenWith: 6, stillHave: 0, leftWith: 1 })
   // A second run marks nothing more.
   const again = await rewriteMarks(root, file, { opts, changed })
   expect(again.marked).toEqual([])

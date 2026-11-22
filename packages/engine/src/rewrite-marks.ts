@@ -3,6 +3,7 @@ import { copyFile, mkdtemp, readFile, rename, rm, writeFile } from 'node:fs/prom
 import { tmpdir } from 'node:os'
 import { basename, dirname, join } from 'node:path'
 import { promisify } from 'node:util'
+import { metricPage } from '@aq/schema'
 import type { Llm } from './claude'
 import { PHRASES, phraseRun, phraseWords, type Phrase } from './phrases'
 import { listedText, REWRITE_KINDS, rewriteExisting, type RewriteState } from './vi-backfill'
@@ -57,43 +58,47 @@ const same = (a: unknown, b: unknown) => JSON.stringify(a) === JSON.stringify(b)
 /**
  * From git, in the checkout the content is in: the newest commit (merges aside) in which each record took the value it
  * has, and what that commit changed on the page. A rewrite writes the page and its record in one commit, so a part it
- * changed is a part the writer's text went into. No history (a shallow clone): an empty map, so nothing is marked.
+ * changed is a part the writer's text went into, but for the units its own last step changes on the whole page
+ * (`metricPage`). Nothing is found, so nothing is marked, where the commit can't show a rewrite: no history; a commit
+ * whose parent the checkout doesn't have (a shallow clone's edge, the first commit); a page not there before the commit
+ * (moved, or first written in it).
  */
 export const gitChanged = (contentRoot: string, stateRel = 'engine-state/vi-rewrite.json'): ChangedParts => async want => {
   const cwd = dirname(contentRoot)
   const git = (...a: string[]) => run('git', a, { cwd, maxBuffer: 512 << 20 }).then(r => r.stdout)
-  const show = (rev: string, path: string) => git('show', `${rev}:./${path}`).then(t => JSON.parse(t) as Record<string, unknown>).catch(() => ({}) as Record<string, unknown>)
+  const show = (rev: string, path: string) => git('show', `${rev}:./${path}`).then(t => JSON.parse(t) as Record<string, unknown>, () => undefined)
   const out = new Map<string, Record<string, string>>()
   const left = new Map(Object.entries(want))
   const commits = (await git('log', '--no-merges', '--format=%H', '--', stateRel).catch(() => '')).split('\n').filter(Boolean)
   for (const c of commits) {
     if (!left.size) break
-    const [after, before] = await Promise.all([show(c, stateRel), show(`${c}^`, stateRel)])
+    const [after, before] = (await Promise.all([show(c, stateRel), show(`${c}^`, stateRel)])).map(x => x ?? {})
     for (const [id, rec] of left) {
       if (!same(after[id], rec) || same(before[id], rec)) continue
       left.delete(id)
       const path = `${basename(contentRoot)}/${id}/vi.json`
       const [now, was] = await Promise.all([show(c, path), show(`${c}^`, path)])
-      const a = textParts(now as Page), b = textParts(was as Page)
-      out.set(id, Object.fromEntries(Object.entries(a).filter(([k, t]) => b[k] !== t)))
+      // Not there before (moved, first written here, or a parent the checkout doesn't have): nothing shows a rewrite.
+      if (!was) continue
+      const a = textParts((now ?? null) as Page | null), b = textParts(was as Page), m = textParts(metricPage(was as Page, 'vi'))
+      out.set(id, Object.fromEntries(Object.entries(a).filter(([k, t]) => b[k] !== t && m[k] !== t)))
     }
   }
   return out
 }
 
 /**
- * A page's marks: each word its rewrite's own text kept, where the page still has it and has it nowhere else. A part the
- * commit didn't change is a part the writer's text never went into (a rewrite that came back as it was, a part not sent),
- * so its words aren't marked; nor is a word also in another part (a guide's question, a fish page's references), which
- * the mark would close too, since a mark is the page's.
+ * A page's marks: each word its rewrite's own text has (kept from before, or written in), where the same part still has
+ * it and the page has it nowhere else. A part the commit didn't change is a part the writer's text never went into (a
+ * rewrite that came back as it was, a part not sent), so its words aren't marked; nor is a word also in another part (a
+ * guide's question, a fish page's references), which the mark would close too, since a mark is the page's.
  */
 export function slips(changed: Record<string, string>, now: Record<string, string>, at: string, list: readonly Phrase[]): string[] {
   const inside = Object.keys(changed).filter(k => k in now)
-  const words = (keys: string[], from: Record<string, string>) => new Set(phraseWords(JSON.stringify(keys.map(k => from[k])), 'vi', [...list]))
-  const kept = new Set(marksFor(JSON.stringify(inside.map(k => changed[k])), at, list))
-  const still = words(inside, now)
-  const outside = words(Object.keys(now).filter(k => !inside.includes(k)), now)
-  return [...kept].filter(w => still.has(w) && !outside.has(w))
+  const words = (texts: string[]) => new Set(phraseWords(JSON.stringify(texts), 'vi', [...list]))
+  const outside = words(Object.keys(now).filter(k => !inside.includes(k)).map(k => now[k]!))
+  const held = inside.map(k => [words([changed[k]!]), words([now[k]!])] as const)
+  return marksFor(JSON.stringify(inside.map(k => changed[k])), at, list).filter(w => !outside.has(w) && held.some(([was, is]) => was.has(w) && is.has(w)))
 }
 
 /** A record the step may mark: no marks yet, no failure (an empty message is one), and every part rewritten and kept. */
@@ -105,10 +110,10 @@ export type MarksReport = {
   skipped: number
   partial: number
   eligible: number
-  /** Of those it may mark: no commit found that wrote the record (no history, a shallow clone); the commit changed no part of the page (the rewrite came back as it was). Neither is marked. */
+  /** Of those it may mark: no commit found that shows the rewrite (no history, a shallow clone's edge, a page not there before it); the commit changed no part of the page (the rewrite came back as it was). Neither is marked. */
   noCommit: number
   unchanged: number
-  /** Per listed row: eligible records rewritten with it in the prompt; of those, the pages marked for its words (the rewrite's own text kept them, and the page has them nowhere else); and the pages `--phrases` still takes up for its words after the step. */
+  /** Per listed row: eligible records rewritten with it in the prompt; of those, the pages marked for its words (the rewrite's own text has them, and the page has them nowhere else); and the pages `--phrases` still takes up for its words after the step. */
   byRow: Record<string, { rewrittenWith: number; stillHave: number; leftWith: number }>
   /** Pages marked, and the marks written. */
   marked: string[]
@@ -143,7 +148,7 @@ async function dueWith(contentRoot: string, state: RewriteState, list: Phrase[],
 }
 
 /**
- * Marks each eligible record for the words its rewrite's own text kept whose row was in the prompt that day (`slips`).
+ * Marks each eligible record for the words its rewrite's own text has whose row was in the prompt that day (`slips`).
  * `dry`: writes nothing in the checkout (the picker's dry runs read a copy in the system's temp folder). Calls no model.
  * The record is written whole (a new file beside it, then renamed), and only if it was unchanged at the last read before
  * the write: a write in the moment between is still lost, so it runs only in the pass's own checkout. A second run marks
@@ -164,14 +169,12 @@ export async function rewriteMarks(contentRoot: string, stateFile: string, o: { 
     if (!eligible(e)) { partial++; continue }
     ok++
     if (!may[id]) continue
+    for (const p of list) if (listedBy(p.say, e.at)) byRow[p.say]!.rewrittenWith++
     const c = changed.get(id)
     if (!c) { noCommit++; continue }
     if (!Object.keys(c).length) { unchanged++; continue }
     const m = slips(c, textParts(await json<Page>(join(contentRoot, id, 'vi.json')).catch(() => null)), e.at, list)
-    for (const p of list) if (listedBy(p.say, e.at)) {
-      byRow[p.say]!.rewrittenWith++
-      if (phraseWords(JSON.stringify(m), 'vi', [p]).length) byRow[p.say]!.stillHave++
-    }
+    for (const p of list) if (listedBy(p.say, e.at) && phraseWords(JSON.stringify(m), 'vi', [p]).length) byRow[p.say]!.stillHave++
     if (!m.length) continue
     next[id] = { ...e, phrases: m }
     marked.push(id)
