@@ -5,12 +5,12 @@ Written by `pnpm engine gallery` (2026-11-22). Targets: packages/engine/src/gall
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
-| shop | 60 | 131 | 81 | 24 | 37 | 199 |
+| shop | 60 | 131 | 81 | 24 | 36 | 200 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 879 | 32 | 9 | 28 | 892 |
-| rest | 20 | 1934 | 81 | 0 | 119 | 1896 |
+| covered | 30 | 890 | 32 | 9 | 27 | 904 |
+| rest | 20 | 1938 | 81 | 0 | 120 | 1899 |
 
-## Short of target: every source read (803)
+## Short of target: every source read (805)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -135,7 +135,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/mikrogeophagus-ramirezi | staple | 28 | 100 |
 | breeds/balloon-molly | shop | 2 | 60 |
 | species/anentome-helena | shop | 14 | 60 |
-| plants/anubias-barteri | shop | 14 | 60 |
+| plants/anubias-barteri | shop | 0 | 60 |
 | breeds/flowerhorn-cichlid | shop | 21 | 60 |
 | species/gymnocorymbus-ternetzi | shop | 50 | 60 |
 | plants/blyxa-japonica | shop | 12 | 60 |
@@ -304,6 +304,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hyphessobrycon-rosaceus | shop | 4 | 60 |
 | species/carinotetraodon-travancoricus | shop | 11 | 60 |
 | species/pterygoplichthys-joselimaianus | shop | 3 | 60 |
+| plants/ranunculus-inundatus | shop | 57 | 60 |
 | species/sewellia-lineolata | shop | 3 | 60 |
 | plants/rotala-macrandra | shop | 2 | 60 |
 | species/sewellia-breviventralis | shop | 0 | 60 |
@@ -312,12 +313,12 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/pseudomugil-gertrudae | shop | 10 | 60 |
 | species/atyopsis-moluccensis | shop | 6 | 60 |
 | species/vittina-waigiensis | shop | 5 | 60 |
-| species/clarias-batrachus | shop | 22 | 60 |
+| species/clarias-batrachus | shop | 21 | 60 |
 | species/cyrtocara-moorii | shop | 5 | 60 |
-| species/amatitlania-nigrofasciata | shop | 51 | 60 |
+| species/amatitlania-nigrofasciata | shop | 50 | 60 |
 | species/andinoacara-rivulatus | shop | 19 | 60 |
 | species/herichthys-carpintis | shop | 18 | 60 |
-| species/monopterus-albus | shop | 28 | 60 |
+| species/monopterus-albus | shop | 27 | 60 |
 | species/mastacembelus-erythrotaenia | shop | 6 | 60 |
 | species/macrognathus-siamensis | shop | 5 | 60 |
 | species/mastacembelus-armatus | shop | 19 | 60 |
@@ -326,8 +327,8 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/botia-kubotai | shop | 2 | 60 |
 | species/yasuhikotakia-modesta | shop | 2 | 60 |
 | species/parambassis-ranga | shop | 2 | 60 |
-| species/scatophagus-argus | shop | 41 | 60 |
-| species/piaractus-brachypomus | shop | 42 | 60 |
+| species/scatophagus-argus | shop | 36 | 60 |
+| species/piaractus-brachypomus | shop | 41 | 60 |
 | species/aphyocharax-anisitsi | shop | 1 | 60 |
 | species/nematobrycon-lacortei | shop | 0 | 60 |
 | species/moenkhausia-sanctaefilomenae | shop | 8 | 60 |
@@ -341,7 +342,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/pelvicachromis-pulcher | popular | 9 | 40 |
 | species/thorichthys-meeki | popular | 14 | 40 |
 | species/heros-severus | popular | 8 | 40 |
-| species/rocio-octofasciata | popular | 37 | 40 |
+| species/rocio-octofasciata | popular | 36 | 40 |
 | species/channa-barca | popular | 0 | 40 |
 | species/channa-bleheri | popular | 1 | 40 |
 | species/channa-micropeltes | popular | 14 | 40 |
@@ -370,6 +371,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/aphanotorulus-unicolor | covered | 0 | 30 |
 | species/axelrodia-riesei | covered | 1 | 30 |
 | species/betta-foerschi | covered | 0 | 30 |
+| species/betta-imbellis | covered | 3 | 30 |
 | species/betta-raja | covered | 0 | 30 |
 | species/betta-siamorientalis | covered | 0 | 30 |
 | species/betta-simorum | covered | 0 | 30 |
@@ -428,6 +430,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/trichogaster-chuna | covered | 10 | 30 |
 | species/xyliphius-lepturus | covered | 0 | 30 |
 | species/acanthicus-adonis | covered | 1 | 30 |
+| species/acanthopsoides-robertsi | covered | 0 | 30 |
 | species/acarichthys-heckelii | covered | 0 | 30 |
 | species/acentronichthys-leptos | covered | 0 | 30 |
 | species/acestridium-dichromum | covered | 1 | 30 |
@@ -485,7 +488,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/bagrichthys-macracanthus | covered | 0 | 30 |
 | species/bagrichthys-obscurus | covered | 0 | 30 |
 | species/bangana-behri | covered | 2 | 30 |
-| species/barbodes-semifasciolatus | covered | 29 | 30 |
+| species/barbodes-semifasciolatus | covered | 28 | 30 |
 | species/barboides-gracilis | covered | 0 | 30 |
 | species/barilius-ardens | covered | 0 | 30 |
 | species/barilius-bakeri | covered | 1 | 30 |
@@ -511,7 +514,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/betta-hendra | covered | 0 | 30 |
 | species/betta-hipposideros | covered | 2 | 30 |
 | species/betta-ideii | covered | 0 | 30 |
-| species/betta-imbellis | covered | 3 | 30 |
 | species/betta-kuehnei | covered | 17 | 30 |
 | species/betta-livida | covered | 0 | 30 |
 | species/betta-macrostoma | covered | 0 | 30 |
@@ -630,7 +632,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/denticetopsis-praecox | covered | 0 | 30 |
 | species/desmopuntius-hexazona | covered | 4 | 30 |
 | species/desmopuntius-pentazona | covered | 3 | 30 |
-| species/desmopuntius-rhomboocellatus | covered | 3 | 30 |
+| species/desmopuntius-rhomboocellatus | covered | 0 | 30 |
 | species/devario-assamensis | covered | 1 | 30 |
 | species/devario-auropurpureus | covered | 0 | 30 |
 | species/devario-maetaengensis | covered | 1 | 30 |

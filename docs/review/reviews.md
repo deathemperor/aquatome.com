@@ -9,15 +9,15 @@ under `<lang>/<path>`.
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
 | video-guide | 1103 | 782 (vi 782) | 782 |
-| translation | 2397 | 357 (vi 357) | 357 |
+| translation | 2433 | 360 (vi 360) | 360 |
 | vi-rewrite | 431 | 43 (vi 43) | 43 |
 | reader-rewrite | 51 | 0 | 0 |
 | title | 27 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
 | topic | 142 | 9 (id 1, ms 1, th 6, vi 1) | 9 |
-| product | 31 | 2 (vi 2) | 2 |
-| product-reviews | 24 | 0 | 0 |
-| summary | 2824 | 168 (vi 168) | 168 |
+| product | 32 | 2 (vi 2) | 2 |
+| product-reviews | 25 | 0 | 0 |
+| summary | 2832 | 169 (vi 169) | 169 |
 | localize | 2958 | 845 (id 357, ms 73, th 415) | 845 |
 | glossary | 40 | 0 | 0 |
 | places | 7776 | 4727 (id 1631, ms 1623, th 1374, vi 99) | 1452 |
@@ -126,15 +126,15 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-357 of 2397 pages under the bar.
+360 of 2433 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 337 | 962 |
-| Says what the source doesn't (invented, added) | 301 | 575 |
-| Wording: unnatural, literal, stiff or chatty | 262 | 475 |
-| Meaning changed or wrong | 220 | 326 |
-| Hobby terms and names | 178 | 240 |
+| Other | 340 | 969 |
+| Says what the source doesn't (invented, added) | 303 | 578 |
+| Wording: unnatural, literal, stiff or chatty | 265 | 478 |
+| Meaning changed or wrong | 221 | 327 |
+| Hobby terms and names | 180 | 242 |
 | Leaves out what the source says | 118 | 160 |
 | Text left in another language | 116 | 143 |
 | States as certain what the source hedges, or what garbled captions only hint at | 96 | 112 |
@@ -392,7 +392,7 @@ under `<lang>/<path>`.
 
 ## product: product pages, against their research
 
-2 of 31 pages under the bar.
+2 of 32 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -432,19 +432,19 @@ under `<lang>/<path>`.
 
 ## product-reviews: product pages' review summaries (the code's checks: 1 pass, 0 fail)
 
-0 of 24 pages under the bar.
+0 of 25 pages under the bar.
 
 ## summary: species' quick summaries (the numbers and claims check: 1 pass, 0 fail)
 
-168 of 2824 pages under the bar.
+169 of 2832 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Says what the source doesn't (invented, added) | 85 | 102 |
-| States as certain what the source hedges, or what garbled captions only hint at | 65 | 73 |
-| Other | 57 | 65 |
+| Says what the source doesn't (invented, added) | 86 | 105 |
+| States as certain what the source hedges, or what garbled captions only hint at | 63 | 70 |
+| Other | 59 | 68 |
 | Leaves out what the source says | 15 | 16 |
-| Meaning changed or wrong | 13 | 14 |
+| Meaning changed or wrong | 14 | 15 |
 | A number, unit, dose or price | 12 | 13 |
 | Wording: unnatural, literal, stiff or chatty | 2 | 2 |
 | Off the title's topic | 1 | 1 |
@@ -465,9 +465,9 @@ under `<lang>/<path>`.
 
 ### Other
 
+- Second mistake, "nên xem cả đốm dưới vây lưng lẫn đốm trong dải dọc thân": the page gives no such identification advice. It says the two-spot lot looks identical to Ae. sp. "Jenaro Herrera", so checking both spots would not settle the spec… — vi/species/aequidens-superomaculatum, 0.00
 - "Đừng để nước đứng; nên tạo dòng chảy": the page only says the species lives in fast-flowing streams and rivers. It gives no aquarium advice about water flow, so this fix is advice the page doesn't give. It also conflicts with the summary'… — vi/species/amblyceps-arunachalense, 0.00
 - "nên cần cho ăn đúng loại mồi giun": the page only says that in the tank they "thích" (prefer) worms such as frozen bloodworm and white worms. It does not say that feeding must be exactly worms, or that their frantic feeding is the reason.… — vi/species/amblyceps-tenuispinis, 0.00
-- "hợp với người thích cá lạ và chịu tự tìm hiểu thêm" says who the species suits. The page doesn't state or imply this. — vi/species/ammoglanis-multidentatus, 0.00
 
 ### Leaves out what the source says
 

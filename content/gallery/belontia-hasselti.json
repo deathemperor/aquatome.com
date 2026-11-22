@@ -48,8 +48,7 @@
       "caption": "Cá combtail Java non màu cam trong hộp nhựa nhỏ",
       "best": true,
       "kind": "juvenile",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/663901019.webp",
@@ -62,50 +61,7 @@
       "caption": "Cá combtail Java trong môi trường tự nhiên, nền lá rụng",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/172923039.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/172923039-480.webp",
-      "width": 1024,
-      "height": 701,
-      "licence": "CC BY-NC-SA",
-      "author": "Aiman Azmi",
-      "sourceUrl": "https://www.inaturalist.org/photos/172923039",
-      "caption": "Cá combtail Java ánh xanh lam trên lưới vàng",
-      "best": true,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/354326512.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/354326512-480.webp",
-      "width": 1024,
-      "height": 758,
-      "licence": "CC BY-NC",
-      "author": "Ahsan al hidayat",
-      "sourceUrl": "https://www.inaturalist.org/photos/354326512",
-      "caption": "Cá combtail Java non màu vàng trong bể chụp nhỏ",
-      "best": true,
-      "kind": "juvenile",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/664172351.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/664172351-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "I'm a Conservationist",
-      "sourceUrl": "https://www.inaturalist.org/photos/664172351",
-      "caption": "Cá combtail Java bơi trên nền lá khô dưới nước, ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/350101566.webp",
@@ -118,36 +74,33 @@
       "caption": "Cá combtail Java màu đỏ nâu trong hộp chụp ảnh nhỏ",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/606133488.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/606133488-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/354326512.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/354326512-480.webp",
       "width": 1024,
-      "height": 576,
-      "licence": "CC BY-NC",
-      "author": "piyapong",
-      "sourceUrl": "https://www.inaturalist.org/photos/606133488",
-      "caption": "Cá combtail Java non có đốm đen bên hông trong bể",
-      "best": true,
-      "kind": "juvenile",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/424448299.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/424448299-480.webp",
-      "width": 1024,
-      "height": 576,
+      "height": 758,
       "licence": "CC BY-NC",
       "author": "Ahsan al hidayat",
-      "sourceUrl": "https://www.inaturalist.org/photos/424448299",
-      "caption": "Cá combtail Java trưởng thành trong bể có đá đỏ và gỗ",
+      "sourceUrl": "https://www.inaturalist.org/photos/354326512",
+      "caption": "Cá combtail Java non màu vàng trong bể chụp nhỏ",
       "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "kind": "juvenile",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/664172351.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/664172351-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "I'm a Conservationist",
+      "sourceUrl": "https://www.inaturalist.org/photos/664172351",
+      "caption": "Cá combtail Java bơi trên nền lá khô dưới nước, ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/644025692.webp",
@@ -160,8 +113,33 @@
       "caption": "Cá combtail Java có đốm đen, nền tối, ảnh rõ nét",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/606133488.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/606133488-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY-NC",
+      "author": "piyapong",
+      "sourceUrl": "https://www.inaturalist.org/photos/606133488",
+      "caption": "Cá combtail Java non có đốm đen bên hông trong bể",
+      "best": true,
+      "kind": "juvenile",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/424448299.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/424448299-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY-NC",
+      "author": "Ahsan al hidayat",
+      "sourceUrl": "https://www.inaturalist.org/photos/424448299",
+      "caption": "Cá combtail Java trưởng thành trong bể có đá đỏ và gỗ",
+      "best": true,
+      "kind": "other",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/410167151.webp",
@@ -174,8 +152,7 @@
       "caption": "Cá combtail Java bơi trong hộp trong suốt nhỏ",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     }
   ],
   "seen": 86,

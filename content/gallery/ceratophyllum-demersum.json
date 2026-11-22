@@ -134,6 +134,22 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/tropica/84f4d74977befc35.webp",
+      "thumb": "https://media.aquatome.com/tropica/84f4d74977befc35-480.webp",
+      "width": 1200,
+      "height": 750,
+      "large": {
+        "url": "https://media.aquatome.com/tropica/84f4d74977befc35-large.webp",
+        "width": 1493,
+        "height": 933
+      },
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Ceratophyllumdemersum(021APOR)/4434",
+      "source": "tropica",
+      "kind": "submersed"
+    },
+    {
       "url": "https://media.aquatome.com/commons/d2848a550a002309.webp",
       "thumb": "https://media.aquatome.com/commons/d2848a550a002309-480.webp",
       "width": 1200,
@@ -290,20 +306,116 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/tropica/84f4d74977befc35.webp",
-      "thumb": "https://media.aquatome.com/tropica/84f4d74977befc35-480.webp",
+      "url": "https://media.aquatome.com/commons/21590cf933433137.webp",
+      "thumb": "https://media.aquatome.com/commons/21590cf933433137-480.webp",
       "width": 1200,
-      "height": 750,
-      "large": {
-        "url": "https://media.aquatome.com/tropica/84f4d74977befc35-large.webp",
-        "width": 1493,
-        "height": 933
-      },
-      "licence": "dùng với sự cho phép",
-      "author": "Tropica",
-      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Ceratophyllumdemersum(021APOR)/4434",
-      "source": "tropica",
-      "kind": "submersed"
+      "height": 900,
+      "licence": "CC BY-SA 4.0",
+      "author": "Stefan.lefnaer",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ceratophyllum_demersum_s._str._sl8.jpg",
+      "caption": "Rong đuôi chó mọc trên bãi sỏi ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/5a164ad5c926332f.webp",
+      "thumb": "https://media.aquatome.com/commons/5a164ad5c926332f-480.webp",
+      "width": 1200,
+      "height": 1738,
+      "licence": "CC BY-SA 4.0",
+      "author": "Stefan.lefnaer",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ceratophyllum_demersum_s._str._sl50.jpg",
+      "caption": "Hoa đực và quả non ở nách lá Rong đuôi chó",
+      "best": true,
+      "kind": "flower",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/1750f52c9b7e9ceb.webp",
+      "thumb": "https://media.aquatome.com/commons/1750f52c9b7e9ceb-480.webp",
+      "width": 1200,
+      "height": 1507,
+      "licence": "CC BY-SA 4.0",
+      "author": "Stefan.lefnaer",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ceratophyllum_demersum_s._str._sl64.jpg",
+      "caption": "Cụm hoa nhỏ của Rong đuôi chó nở ở đốt thân",
+      "best": true,
+      "kind": "flower",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/16f91b943b11d17c.webp",
+      "thumb": "https://media.aquatome.com/commons/16f91b943b11d17c-480.webp",
+      "width": 1200,
+      "height": 1724,
+      "licence": "CC BY-SA 4.0",
+      "author": "Stefan.lefnaer",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ceratophyllum_demersum_s._str._sl52.jpg",
+      "caption": "Quả hồng và cụm hoa trên thân Rong đuôi chó",
+      "best": false,
+      "kind": "flower",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/bba87812c1042a56.webp",
+      "thumb": "https://media.aquatome.com/commons/bba87812c1042a56-480.webp",
+      "width": 1200,
+      "height": 1228,
+      "licence": "CC BY-SA 4.0",
+      "author": "Stefan.lefnaer",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ceratophyllum_demersum_s._str._sl51.jpg",
+      "caption": "Quả có gai nhọn trên thân Rong đuôi chó",
+      "best": false,
+      "kind": "detail",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/486216826044cbaf.webp",
+      "thumb": "https://media.aquatome.com/commons/486216826044cbaf-480.webp",
+      "width": 1200,
+      "height": 1248,
+      "licence": "CC BY-SA 4.0",
+      "author": "Stefan.lefnaer",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ceratophyllum_demersum_s._str._sl65.jpg",
+      "caption": "Hoa đực Rong đuôi chó nở cận cảnh",
+      "best": false,
+      "kind": "flower",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/25d3df65bfe82ad1.webp",
+      "thumb": "https://media.aquatome.com/commons/25d3df65bfe82ad1-480.webp",
+      "width": 1200,
+      "height": 2365,
+      "licence": "CC BY-SA 4.0",
+      "author": "Stefan.lefnaer",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ceratophyllum_demersum_s._str._sl61.jpg",
+      "caption": "Quả Rong đuôi chó cận cảnh giữa các lá kim",
+      "best": false,
+      "kind": "detail",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b5b573edfa908501.webp",
+      "thumb": "https://media.aquatome.com/commons/b5b573edfa908501-480.webp",
+      "width": 1200,
+      "height": 1254,
+      "licence": "CC BY-SA 4.0",
+      "author": "Stefan.lefnaer",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ceratophyllum_demersum_s._str._sl63.jpg",
+      "caption": "Quả Rong đuôi chó có gai giữa lá mảnh",
+      "best": false,
+      "kind": "detail",
+      "setup": false,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/56a3195a6e9fff29.webp",
@@ -342,15 +454,18 @@
       "kind": "emersed"
     },
     {
-      "url": "https://media.aquatome.com/tropica/299ee1d7658d0d57.webp",
-      "thumb": "https://media.aquatome.com/tropica/299ee1d7658d0d57-480.webp",
+      "url": "https://media.aquatome.com/commons/9f18b04241b8519e.webp",
+      "thumb": "https://media.aquatome.com/commons/9f18b04241b8519e-480.webp",
       "width": 1200,
-      "height": 1200,
-      "licence": "dùng với sự cho phép",
-      "author": "Tropica",
-      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Ceratophyllumdemersum(021APOR)/4434",
-      "source": "tropica",
-      "kind": "other"
+      "height": 1163,
+      "licence": "CC BY-SA 4.0",
+      "author": "Stefan.lefnaer",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ceratophyllum_demersum_s._str._sl66.jpg",
+      "caption": "Hoa đực Rong đuôi chó cận cảnh với bao phấn",
+      "best": false,
+      "kind": "flower",
+      "setup": true,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/52b3191f1eadd40b.webp",
@@ -365,7 +480,7 @@
       "kind": "habitat"
     }
   ],
-  "seen": 100,
-  "updatedAt": "2026-11-10",
-  "builtAt": "2026-11-02"
+  "seen": 120,
+  "updatedAt": "2026-11-22",
+  "builtAt": "2026-11-22"
 }

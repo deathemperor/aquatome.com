@@ -227,7 +227,12 @@
       "author": "Aiman Azmi",
       "sourceUrl": "https://www.inaturalist.org/photos/350170727",
       "caption": "Cá barb Banks sống trong hộp nhỏ, thân vàng ánh có vằn đen",
-      "setup": true
+      "setup": true,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/350170727-large.webp",
+        "width": 1200,
+        "height": 1600
+      }
     }
   ],
   "videos": [],
