@@ -1,0 +1,218 @@
+{
+  "id": "apistogramma-allpahuayo",
+  "scientificName": "Apistogramma allpahuayo",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Apistogramma",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "peru",
+    "rio-nanay"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Rio Nanay"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "For a long time this beautiful dwarf cichlid from the basin of the Rio Nanay in Peru sailed under the name \"cf. juruensis\" or \"sp. Black Chin\".",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Rio Nanay"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8290133,
+      "total": 13,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "PE",
+          13
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          10,
+          10
+        ],
+        [
+          -73.125,
+          -4.21875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-allpahuayo-2/",
+      "html": "<p>Males grow to about 7 cm, females to about 4 cm. These are very beautiful, easy-care dwarf cichlids.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-allpahuayo-2/",
+      "html": "<p>For a long time this beautiful dwarf cichlid from the basin of the Rio Nanay in Peru sailed under the name \"cf. juruensis\" or \"sp. Black Chin\". Only the scientific description of the species in 2012 put an end to the confusion.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-allpahuayo-2/",
+      "html": "<p>The species name refers to the type locality, small streams flowing into the Quebrada Allpahuayo in the Reserva Nacional Allpahuayo Mishana. Apistogramma allpahuayo is a black water inhabitant.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-allpahuayo-2/",
+      "html": "<p>Like all Apistogramma species, they should preferably be offered germ-poor water. Apistogramma allpahuayo shows its most beautiful colors in soft, sour water. The temperature can be between 24 and 28°C.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-allpahuayo-2/",
+      "html": "<p>Offer sandy soil and aquariums furnished with plenty of structure.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-allpahuayo-2/",
+      "html": "<p>In nature a large part of the food of Apistogramma species consists of decaying plant parts (dead leaves etc.). The fish do not digest the plants (they cannot do that), but the numerous microorganisms living in the \"compost\". In the aquarium you must therefore be careful not to feed too fat, the digestive system of these fish is set up for high fiber food. Wrong feeding (e.g. too much worm food) makes Apistogramma inevitably ill.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-allpahuayo-2/",
+      "html": "<p>Males grow to about 7 cm, females to about 4 cm.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-allpahuayo-2/",
+      "html": "<p>Great similarity exists to A. juruensis and A. cacatuoides. From both species Apistogramma allpahuayo can be distinguished by the pitch black chin area, which is only rarely not well visible in very few mood situations.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/ba18578f00319f4a.webp",
+      "thumb": "https://media.aquatome.com/glaser/ba18578f00319f4a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-allpahuayo-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0a08189cee057620.webp",
+      "thumb": "https://media.aquatome.com/glaser/0a08189cee057620-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-allpahuayo-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/16eb879b0b812f92.webp",
+      "thumb": "https://media.aquatome.com/glaser/16eb879b0b812f92-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-allpahuayo-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "3YgiNK4VoaM",
+      "title": "Apistogramma allpahuayo (Black Chin) stock 8/15/13 by Apisto_Lism",
+      "durationSec": 38,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "nAFR17-f4xc",
+      "title": "Apistogramma allpahuayo tank",
+      "durationSec": 34,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "MrifABZkGAM",
+      "title": "Apistogramma allpahuayo guarding fry",
+      "durationSec": 44,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "WFcudNx0ozc",
+      "title": "Apistogramma allpahuayo",
+      "durationSec": 40,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá cichlid lùn"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền thủy sinh",
+        "lá bàng khô"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid lùn",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

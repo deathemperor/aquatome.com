@@ -272,7 +272,19 @@ final class LoveEcologyModel {
   /// `-lamp-drag-holds` in a debug build: a drag's pause and lift send nothing, so its words ("Ngừng kéo để gửi…") stay
   /// for the Design Lead's screenshot of a drag (a test's finger lifts before it can take one).
   private static let dragHolds = ProcessInfo.processInfo.arguments.contains("-lamp-drag-holds")
+  /// `-lamp-gap-held` with `-test-gates` in a debug build: a send after another waits past the gap until the test opens
+  /// `lamp-gap`, so a flow can leave the app while one waits however slow its own taps (on 21 Nov GitHub's Mac took 11 s
+  /// between two, past the first's three seconds and the gap).
+  private static let gapHeld = ProcessInfo.processInfo.arguments.contains("-lamp-gap-held")
   #endif
+
+  /// When the one waiting may go: `due`, or a second from now while `-lamp-gap-held` holds it (debug builds).
+  private static func dueHeld(_ due: ContinuousClock.Instant) -> ContinuousClock.Instant {
+    #if DEBUG
+    if gapHeld, LampRadio.lastEnded != nil, !TestGate.isOpen("lamp-gap") { return .now.advanced(by: .seconds(1)) }
+    #endif
+    return due
+  }
   private static let key = "loveEcology.sent"
 
   private(set) var line: Line {
@@ -514,7 +526,7 @@ final class LoveEcologyModel {
   private func next() {
     gap?.cancel()
     guard !held, onAir == nil, let q = waiting else { return }
-    let due = Self.pacer.due(moved: .now, lifted: true, lastEnded: LampRadio.lastEnded)
+    let due = Self.dueHeld(Self.pacer.due(moved: .now, lifted: true, lastEnded: LampRadio.lastEnded))
     if due <= .now { return broadcast(q) }
     gap = Task { [weak self] in
       try? await Task.sleep(until: due, clock: .continuous)
@@ -641,29 +653,29 @@ extension LoveEcologyModel {
 
   static func words(_ line: Line) -> String {
     switch line {
-    case .never: return String(localized: "Chưa gửi lệnh nào từ máy này")
-    case .moving(let s): return String(localized: "Ngừng kéo để gửi \(Self.subject(s.choice)), \(s.level)%")
+    case .never: return String(localized: "Chưa gửi lệnh nào từ máy này", bundle: .app)
+    case .moving(let s): return String(localized: "Ngừng kéo để gửi \(Self.subject(s.choice)), \(s.level)%", bundle: .app)
     case .going(let s, _):
-      return s.isRecording ? String(localized: "Đang gửi \(Self.subject(s.choice))…")
-        : String(localized: "Đang gửi \(Self.subject(s.choice)), \(s.level)%…")
+      return s.isRecording ? String(localized: "Đang gửi \(Self.subject(s.choice))…", bundle: .app)
+        : String(localized: "Đang gửi \(Self.subject(s.choice)), \(s.level)%…", bundle: .app)
     case .sent(let t):
       let what = Self.subject(t.send.choice), at = Self.clock(t.at)
-      guard t.send.isRecording else { return String(localized: "Đã gửi \(what), \(t.send.level)% lúc \(at).") }
+      guard t.send.isRecording else { return String(localized: "Đã gửi \(what), \(t.send.level)% lúc \(at).", bundle: .app) }
       // A trial's line asks for ten seconds before the next tap, so the owner's eyes judge one command at a time.
       let trial = if case .recording(let id) = t.send.choice, id.hasPrefix("trial-") { " Đợi 10 giây rồi bấm tiếp." } else { "" }
-      return String(localized: "Đã gửi \(what) lúc \(at).") + trial
+      return String(localized: "Đã gửi \(what) lúc \(at).", bundle: .app) + trial
     case .last(let t):
       let what = Self.subject(t.send.choice), at = Self.day(t.at)
-      return t.send.isRecording ? String(localized: "Lần cuối máy này gửi: \(what) · \(at)")
-        : String(localized: "Lần cuối máy này gửi: \(what), \(t.send.level)% · \(at)")
+      return t.send.isRecording ? String(localized: "Lần cuối máy này gửi: \(what) · \(at)", bundle: .app)
+        : String(localized: "Lần cuối máy này gửi: \(what), \(t.send.level)% · \(at)", bundle: .app)
     case .cut(let s):
-      return s.isRecording ? String(localized: "Gửi \(Self.subject(s.choice)) bị ngắt vì bạn rời ứng dụng.")
-        : String(localized: "Gửi \(Self.subject(s.choice)), \(s.level)% bị ngắt vì bạn rời ứng dụng.")
-    case .problem(.off): return String(localized: "Bật Bluetooth để gửi lệnh tới đèn.")
-    case .problem(.refused): return String(localized: "AquaTome chưa được dùng Bluetooth. Bật trong Cài đặt → AquaTome → Bluetooth.")
-    case .problem(.unsupported): return String(localized: "Máy này không có Bluetooth.")
-    case .problem(.failed): return String(localized: "Không gửi được lệnh tới đèn. Thử lại.")
-    case .problem(.cut): return String(localized: "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn.")
+      return s.isRecording ? String(localized: "Gửi \(Self.subject(s.choice)) bị ngắt vì bạn rời ứng dụng.", bundle: .app)
+        : String(localized: "Gửi \(Self.subject(s.choice)), \(s.level)% bị ngắt vì bạn rời ứng dụng.", bundle: .app)
+    case .problem(.off): return String(localized: "Bật Bluetooth để gửi lệnh tới đèn.", bundle: .app)
+    case .problem(.refused): return String(localized: "AquaTome chưa được dùng Bluetooth. Bật trong Cài đặt → AquaTome → Bluetooth.", bundle: .app)
+    case .problem(.unsupported): return String(localized: "Máy này không có Bluetooth.", bundle: .app)
+    case .problem(.failed): return String(localized: "Không gửi được lệnh tới đèn. Thử lại.", bundle: .app)
+    case .problem(.cut): return String(localized: "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn.", bundle: .app)
     }
   }
 
@@ -718,7 +730,7 @@ extension LoveEcologyModel {
   private static func subject(_ choice: Choice) -> String {
     switch choice {
     case .recording(let id), .swatch(let id): "“\(name(id))”"
-    case .wheel: String(localized: "màu tự chọn")
+    case .wheel: String(localized: "màu tự chọn", bundle: .app)
     }
   }
 
@@ -732,23 +744,23 @@ extension LoveEcologyModel {
   private static func day(_ at: Date) -> String {
     let calendar = Calendar.current
     if calendar.isDateInToday(at) { return clock(at) }
-    if calendar.isDateInYesterday(at) { return String(localized: "hôm qua \(clock(at))") }
+    if calendar.isDateInYesterday(at) { return String(localized: "hôm qua \(clock(at))", bundle: .app) }
     let d = calendar.dateComponents([.day, .month], from: at)
     return String(format: "%02d/%02d ", d.day ?? 0, d.month ?? 0) + clock(at)
   }
 
   static func name(_ id: String) -> String {
     switch id {
-    case "on": String(localized: "Bật")
-    case "off": String(localized: "Tắt")
-    case "white": String(localized: "Trắng")
-    case "red": String(localized: "Đỏ")
-    case "orange": String(localized: "Cam")
-    case "yellow": String(localized: "Vàng")
-    case "green": String(localized: "Xanh lá")
-    case "cyan": String(localized: "Xanh lơ")
-    case "blue": String(localized: "Xanh dương")
-    case "magenta": String(localized: "Hồng tím")
+    case "on": String(localized: "Bật", bundle: .app)
+    case "off": String(localized: "Tắt", bundle: .app)
+    case "white": String(localized: "Trắng", bundle: .app)
+    case "red": String(localized: "Đỏ", bundle: .app)
+    case "orange": String(localized: "Cam", bundle: .app)
+    case "yellow": String(localized: "Vàng", bundle: .app)
+    case "green": String(localized: "Xanh lá", bundle: .app)
+    case "cyan": String(localized: "Xanh lơ", bundle: .app)
+    case "blue": String(localized: "Xanh dương", bundle: .app)
+    case "magenta": String(localized: "Hồng tím", bundle: .app)
     // The owner's trial row, not translated.
     case "trial-off": "Tắt (tự tạo 1)"
     case "trial-on": "Bật (tự tạo 1)"
@@ -770,7 +782,8 @@ struct LoveEcologyCard: View {
   @ScaledMetric(relativeTo: .caption) private var dot: CGFloat = 32
   /// Five swatches a row at the default size and four from XL, so no name wraps below the accessibility sizes.
   @ScaledMetric(relativeTo: .caption) private var cell: CGFloat = 66
-  @State private var lamp = LoveEcologyModel()
+  /// The app's (AquaTomeApp), above what a language picked draws again: one on air ends at its time across a switch.
+  @Environment(LoveEcologyModel.self) private var lamp
   @State private var wheel = false
 
   /// The owner's account alone.
@@ -813,14 +826,14 @@ struct LoveEcologyCard: View {
             .accessibilityIdentifier("lamp-\(c.id)")
           }
           Button { wheel = true } label: {
-            swatch(String(localized: "Khác"), spinning: false) { OtherWell(colour: lamp.kept.wheel?.colour, ring: ring) }
+            swatch(String(localized: "Khác", bundle: .app), spinning: false) { OtherWell(colour: lamp.kept.wheel?.colour, ring: ring) }
           }
           .buttonStyle(.plain)
           .disabled(master.sending)
           .opacity(master.sending ? 0.4 : 1)
           .accessibilityIdentifier("lamp-other")
         }
-        ChannelSlider(id: "lamp-level", title: String(localized: "Độ sáng"), swatch: nil, value: lamp.level, range: 1...100) {
+        ChannelSlider(id: "lamp-level", title: String(localized: "Độ sáng", bundle: .app), swatch: nil, value: lamp.level, range: 1...100) {
           lamp.slide(to: $0)
         } onLift: { lamp.lift() }
         .disabled(master.sending)

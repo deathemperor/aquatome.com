@@ -10,6 +10,99 @@
     "suriname",
     "sipaliwini"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "SR",
+        "GY"
+      ],
+      "regions": [
+        "Sipaliwini River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Sipaliwini, Suriname.",
+          "countries": [
+            "SR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Also listed for Guyana Waters, Coastal Rivers of Guyanas, Suriname Coastal Rivers and Corintijns.",
+          "countries": [
+            "GY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Sipaliwini River basin, Suriname.",
+          "countries": [],
+          "regions": [
+            "Sipaliwini River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344114,
+      "total": 56,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "GF",
+          43
+        ],
+        [
+          "SR",
+          13
+        ]
+      ],
+      "cells": [
+        [
+          -57.65625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          2.8125,
+          17,
+          2
+        ],
+        [
+          -54.84375,
+          4.21875,
+          29,
+          5
+        ],
+        [
+          -53.4375,
+          2.8125,
+          4,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

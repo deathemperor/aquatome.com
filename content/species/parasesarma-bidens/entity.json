@@ -140,6 +140,31 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/316ee3e4332a34f9.webp",
+      "width": 960,
+      "height": 611,
+      "licence": "CC BY-SA 3.0",
+      "author": "Marrabbio2",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Perisesarma_bidens_(cropped).jpg",
+      "caption": "Perisesarma bidens nel mio acquario",
+      "thumb": "https://media.aquatome.com/commons/316ee3e4332a34f9-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/316ee3e4332a34f9-large.webp",
+        "width": 1159,
+        "height": 738
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/2ca3c926b71a71aa.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 3.0",
+      "author": "RockStarRei",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Red_Claw_Crab.jpg",
+      "caption": "This is a picture of a red claw crab in a home aquarium.",
+      "thumb": "https://media.aquatome.com/commons/2ca3c926b71a71aa-480.webp"
+    },
+    {
       "url": "https://media.aquatome.com/commons/b209144be4fb25b5.webp",
       "width": 842,
       "height": 692,
@@ -158,26 +183,6 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parasesarma_bidens_25696063.jpg",
       "caption": "Red Clawed Crab (Parasesarma bidens)",
       "thumb": "https://media.aquatome.com/commons/9b219a9f205d1321-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/316ee3e4332a34f9.webp",
-      "width": 960,
-      "height": 611,
-      "licence": "CC BY-SA 3.0",
-      "author": "Marrabbio2",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Perisesarma_bidens_(cropped).jpg",
-      "caption": "Perisesarma bidens nel mio acquario",
-      "thumb": "https://media.aquatome.com/commons/316ee3e4332a34f9-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/2ca3c926b71a71aa.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY-SA 3.0",
-      "author": "RockStarRei",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Red_Claw_Crab.jpg",
-      "caption": "This is a picture of a red claw crab in a home aquarium.",
-      "thumb": "https://media.aquatome.com/commons/2ca3c926b71a71aa-480.webp"
     }
   ],
   "videos": [],
@@ -210,5 +215,278 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21"
+  "updatedAt": "2026-11-21",
+  "range": {
+    "records": {
+      "taxonKey": 9694287,
+      "total": 238,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "TW",
+          141
+        ],
+        [
+          "JP",
+          48
+        ],
+        [
+          "PH",
+          15
+        ],
+        [
+          "KR",
+          10
+        ],
+        [
+          "CN",
+          7
+        ],
+        [
+          "HK",
+          6
+        ],
+        [
+          "IN",
+          4
+        ],
+        [
+          "WS",
+          2
+        ],
+        [
+          "ES",
+          1
+        ],
+        [
+          "ID",
+          1
+        ],
+        [
+          "KE",
+          1
+        ],
+        [
+          "MG",
+          1
+        ],
+        [
+          "TZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -172.96875,
+          -14.0625,
+          2
+        ],
+        [
+          -1.40625,
+          39.375,
+          1
+        ],
+        [
+          37.96875,
+          -7.03125,
+          1
+        ],
+        [
+          39.375,
+          -4.21875,
+          1
+        ],
+        [
+          46.40625,
+          -19.6875,
+          1
+        ],
+        [
+          78.75,
+          8.4375,
+          1
+        ],
+        [
+          78.75,
+          9.84375,
+          1
+        ],
+        [
+          80.15625,
+          22.5,
+          1
+        ],
+        [
+          85.78125,
+          19.6875,
+          1
+        ],
+        [
+          109.6875,
+          18.28125,
+          3
+        ],
+        [
+          111.09375,
+          18.28125,
+          1
+        ],
+        [
+          112.5,
+          21.09375,
+          1
+        ],
+        [
+          113.90625,
+          21.09375,
+          4
+        ],
+        [
+          113.90625,
+          22.5,
+          2
+        ],
+        [
+          116.71875,
+          23.90625,
+          1
+        ],
+        [
+          118.125,
+          25.3125,
+          1
+        ],
+        [
+          119.53125,
+          5.625,
+          1
+        ],
+        [
+          119.53125,
+          11.25,
+          1
+        ],
+        [
+          119.53125,
+          12.65625,
+          1
+        ],
+        [
+          119.53125,
+          14.0625,
+          1
+        ],
+        [
+          119.53125,
+          21.09375,
+          2
+        ],
+        [
+          119.53125,
+          22.5,
+          63
+        ],
+        [
+          119.53125,
+          23.90625,
+          54
+        ],
+        [
+          120.9375,
+          -2.8125,
+          1
+        ],
+        [
+          120.9375,
+          7.03125,
+          1
+        ],
+        [
+          120.9375,
+          14.0625,
+          1
+        ],
+        [
+          120.9375,
+          23.90625,
+          22
+        ],
+        [
+          122.34375,
+          9.84375,
+          5
+        ],
+        [
+          122.34375,
+          14.0625,
+          2
+        ],
+        [
+          123.75,
+          23.90625,
+          3
+        ],
+        [
+          125.15625,
+          5.625,
+          2
+        ],
+        [
+          125.15625,
+          32.34375,
+          10
+        ],
+        [
+          126.5625,
+          25.3125,
+          5
+        ],
+        [
+          127.96875,
+          25.3125,
+          4
+        ],
+        [
+          129.375,
+          30.9375,
+          2
+        ],
+        [
+          129.375,
+          32.34375,
+          9
+        ],
+        [
+          132.1875,
+          32.34375,
+          2
+        ],
+        [
+          135,
+          32.34375,
+          16
+        ],
+        [
+          135,
+          33.75,
+          3
+        ],
+        [
+          136.40625,
+          36.5625,
+          2
+        ],
+        [
+          139.21875,
+          35.15625,
+          2
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "aquariumbreeder",
+    "quote": "Water type: slightly brackish (SG 1.005)"
+  }
 }

@@ -1,0 +1,35 @@
+{
+  "id": "astroblepus-nettoferreirai",
+  "native": {
+    "input": "5eafc692ae94bb97",
+    "at": "2026-11-21T13:11:30.372Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Colombia, Department of Santander, Quebrada NN. Sailan sidewalk. Municipality Belleza.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astroblepus nettoferreirai",
+    "status": "ACCEPTED",
+    "taxonKey": 9350474,
+    "datasets": [],
+    "native": [
+      "CO"
+    ],
+    "requests": 2,
+    "at": "2026-11-21T13:11:30.372Z"
+  }
+}

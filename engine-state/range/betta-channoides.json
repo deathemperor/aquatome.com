@@ -1,9 +1,17 @@
 {
   "id": "betta-channoides",
   "native": {
-    "input": "a09046c786e1df34",
-    "at": "2026-11-18T00:54:56.623Z",
+    "input": "31a6929d5d84ec8a",
+    "at": "2026-11-22T00:38:58.151Z",
     "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The snakehead betta, Betta channoides, is a small mouthbrooding labyrinth fish from the Mahakam basin in East Kalimantan, Indonesian Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      },
       {
         "code": "ID",
         "status": "native",

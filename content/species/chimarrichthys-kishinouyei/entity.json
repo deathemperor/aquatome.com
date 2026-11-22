@@ -9,13 +9,88 @@
     "asia",
     "china",
     "min-jiang",
-    "nepal"
+    "nepal",
+    "jinshajiang"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NP",
+        "CN"
+      ],
+      "regions": [
+        "Min-Jiang River",
+        "Yangtze River",
+        "Jinshajiang"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Nepal and China.",
+          "countries": [
+            "NP",
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Upper Min-Jiang River, Yangtze River basin.",
+          "countries": [],
+          "regions": [
+            "Min-Jiang River",
+            "Yangtze River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: Jinshajiang (upper Yangtze River basin).",
+          "countries": [],
+          "regions": [
+            "Jinshajiang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 10689408,
+      "total": 0,
+      "fetched": "2026-11-21",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 14.8
+      },
+      {
+        "source": "scotcat",
+        "value": 15
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -27,10 +102,22 @@
       "html": "<p>Scientific name: Chimarrichthys kishinouyei (Kimura, 1934). Synonyms: Coraglanis kishinouyei, Euchiloglanis kishinouyei, Exostoma kishinouyei. Family Sisoridae. Size: 148 mm SL. IUCN Red List: Not Evaluated.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/chimarrichthys_kishinouyei.htm",
+      "html": "<ul><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1410",
       "html": "<p>Asia: Nepal and China. Upper Min-Jiang River, Yangtze River basin. Type locality: Yingxiu, Dujiangyan City [formerly Kwan-hsien, Szechwan Province], Sichuan Province, China.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/chimarrichthys_kishinouyei.htm",
+      "html": "<p>Asia: Jinshajiang (upper Yangtze River basin). Type locality: Kwan-hsien, Szechwan Province, China.</p>"
     },
     {
       "key": "habitat",
@@ -45,14 +132,53 @@
       "html": "<p>Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/chimarrichthys_kishinouyei.htm",
+      "html": "<p>The holotype is at the Laboratory of Biological Department of the Shanghai Science Institute, Shanghai. Dorsal spines (total): 1; dorsal soft rays (total): 5; anal spines: 1; anal soft rays: 4–5.</p><p>Euchiloglanis kishinouyei differs from E. longibarbatus by having a pointed maxillary barbel, not elongated as a thread, with the tip reaching only to the gill opening (vs. maxillary barbel elongated as a thread, with tip reaching posteriorly beyond gill opening). It differs from E. davidi, E. longibarbatus and E. longus by lacking indentations in the premaxillary tooth band (vs. with indentations). It differs from E. davidi by having the length of the pectoral fin equal to 75.5–89.6% (vs. 90.5–117.1%) of the distance between insertions of pectoral and pelvic fins, and further differs from E. davidi and E. longus by having the distance between insertion of pelvic fin and origin of anus equal to 81.5–97.5% (vs. 100.0–125.0 and 108.9–140.6% respectively) of the distance between insertions of pectoral and pelvic fins. It differs from E. dorsoarcus and E. phongthoensis by having the anus located midway between the pelvic-fin insertion and the anal-fin origin (vs. the distance from the anus to pelvic-fin insertion equal to about 50% of the distance from the anus to the anal-fin origin).</p><p>This species resembles Pareuchiloglanis myzostoma Norman (Ann. Mag. Nat. Hist., (9), XI, p. 562, 1923) from Yunnan (described at the time as Euchiloglanis myzostoma) but differs from it in having the teeth band of the upper jaw produced backwardly at the side, a deeper body, or the position of the dorsal fin.</p><p>Etymology: the genus name Chimarrichthys comes from cheimárrous, torrent, referring to the occurrence of C. davidi in a swift-flowing (perhaps intermittent) stream in eastern Tibet; ichthýs, fish [genus often given as Euchiloglanis Regan 1907, an unneeded replacement name for Chimarrichthys, not preoccupied by Cheimarrichthys Haast 1874 in fishes]. The specific name kishinouyei honours the late Kamakichi Kishinouye (1867–1929), fisheries biologist, Tokyo Imperial University, who led the party that collected the holotype (and died of a sudden illness shortly after its capture).</p><p>Remarks: now reverted to the genus name Chimarrichthys (Euchiloglanis was erected by Regan in 1907 as a replacement name). This name is validated in Eschmeyer's Catalog of Fishes, but the old name (junior synonym) still shows up in some online sources.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1410",
       "html": "<p>Journal of the Shanghai Science Institute Section 3, v. 1, pp 178, Pl. 6.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/chimarrichthys_kishinouyei.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Kimura, Shigeru: Description of the fishes collected from the Yangtzekiang, China, by late Dr. K. Kishinouye and his party in 1927-1929 (From \"Contributions to the biological studies of fishes in China\": No I.) The Department of Biology, Shanghai Science Institute, Shanghai. 1933.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p><p>Zhou, W., X. Li and A.W. Thomson, 2011. Two new species of the Glyptosternine catfish genus Euchiloglanis (Teleostei: Sisoridae) from southwest China with redescriptions of E. davidi and E. kishinouyei. Zootaxa 2871:1-18.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/812e251cca4dd042.webp",
+      "thumb": "https://media.aquatome.com/scotcat/812e251cca4dd042-480.webp",
+      "width": 500,
+      "height": 279,
+      "licence": "dùng với sự cho phép",
+      "author": "Freshwater Fishes of China in Coloured Illustrations / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/chimarrichthys_kishinouyei.htm",
+      "caption": "Chimarrichthys kishinouyei",
+      "source": "scotcat"
+    }
+  ],
   "videos": [],
-  "productSlots": [],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc bể cá nước chảy mạnh"
+      ]
+    }
+  ],
   "updatedAt": "2026-11-21"
 }

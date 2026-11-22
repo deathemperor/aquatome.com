@@ -991,12 +991,14 @@
     "genus": "Altolamprologus",
     "matchType": "EXACT"
   },
+  "Amano females": null,
   "Amano khi": null,
   "Amano kho": null,
   "Amano quanh": null,
   "Amano sau": null,
   "Amano shrimp": null,
   "Amano thay": null,
+  "Amano thu": null,
   "Amaralia hypsiura": {
     "canonicalName": "Amaralia hypsiura",
     "order": "Siluriformes",
@@ -1042,6 +1044,7 @@
   },
   "Amazon frogbit": null,
   "Amazonbium laevigatum": null,
+  "Amazonenstrom bei": null,
   "Amazonia trong": null,
   "Amazonie occidentale": null,
   "Ambassis miops": {
@@ -1079,6 +1082,14 @@
     "order": "Cypriniformes",
     "family": "Cobitidae",
     "genus": "Ambastaia",
+    "matchType": "EXACT"
+  },
+  "Amblyceps apangi": {
+    "canonicalName": "Amblyceps apangi",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Amblycipitidae",
+    "genus": "Amblyceps",
     "matchType": "EXACT"
   },
   "Amblyceps arunachalense": {
@@ -2153,6 +2164,14 @@
     "genus": "Aphyosemion",
     "matchType": "EXACT"
   },
+  "Aphyosemion calliurum": {
+    "canonicalName": "Aphyosemion calliurum",
+    "phylum": "Chordata",
+    "order": "Cyprinodontiformes",
+    "family": "Nothobranchiidae",
+    "genus": "Aphyosemion",
+    "matchType": "EXACT"
+  },
   "Aphyosemion campomaanense": {
     "canonicalName": "Aphyosemion campomaanense",
     "order": "Cyprinodontiformes",
@@ -2303,6 +2322,14 @@
   },
   "Apistogramma alacrina": {
     "canonicalName": "Apistogramma alacrina",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Apistogramma",
+    "matchType": "EXACT"
+  },
+  "Apistogramma allpahuayo": {
+    "canonicalName": "Apistogramma allpahuayo",
+    "phylum": "Chordata",
     "order": "Perciformes",
     "family": "Cichlidae",
     "genus": "Apistogramma",
@@ -2837,6 +2864,14 @@
     "genus": "Astroblepus",
     "matchType": "EXACT"
   },
+  "Arges taczanowskii": {
+    "canonicalName": "Astroblepus taczanowskii",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Astroblepidae",
+    "genus": "Astroblepus",
+    "matchType": "EXACT"
+  },
   "Argonectes longiceps": {
     "canonicalName": "Argonectes longiceps",
     "order": "Characiformes",
@@ -3138,6 +3173,62 @@
     "genus": "Astroblepus",
     "matchType": "EXACT"
   },
+  "Astroblepus mojicai": {
+    "canonicalName": "Astroblepus mojicai",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Astroblepidae",
+    "genus": "Astroblepus",
+    "matchType": "EXACT"
+  },
+  "Astroblepus nettoferreirai": {
+    "canonicalName": "Astroblepus nettoferreirai",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Astroblepidae",
+    "genus": "Astroblepus",
+    "matchType": "EXACT"
+  },
+  "Astroblepus putumayoensis": {
+    "canonicalName": "Astroblepus putumayoensis",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Astroblepidae",
+    "genus": "Astroblepus",
+    "matchType": "EXACT"
+  },
+  "Astroblepus quispei": {
+    "canonicalName": "Astroblepus quispei",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Astroblepidae",
+    "genus": "Astroblepus",
+    "matchType": "EXACT"
+  },
+  "Astroblepus rosei": {
+    "canonicalName": "Astroblepus rosei",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Astroblepidae",
+    "genus": "Astroblepus",
+    "matchType": "EXACT"
+  },
+  "Astroblepus taczanowskii": {
+    "canonicalName": "Astroblepus taczanowskii",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Astroblepidae",
+    "genus": "Astroblepus",
+    "matchType": "EXACT"
+  },
+  "Astroblepus verai": {
+    "canonicalName": "Astroblepus verai",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Astroblepidae",
+    "genus": "Astroblepus",
+    "matchType": "EXACT"
+  },
   "Astrodoras asterifrons": {
     "canonicalName": "Astrodoras asterifrons",
     "order": "Siluriformes",
@@ -3335,6 +3426,15 @@
     "genus": "Atya",
     "matchType": "EXACT"
   },
+  "Atya moluccensis": {
+    "canonicalName": "Atyopsis moluccensis",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Atyidae",
+    "genus": "Atyopsis",
+    "matchType": "EXACT"
+  },
   "Atyoida pilipes": {
     "canonicalName": "Atyoida pilipes",
     "order": "Decapoda",
@@ -3349,8 +3449,25 @@
     "genus": "Atyopsis",
     "matchType": "EXACT"
   },
+  "Atyopsis spinipes": {
+    "canonicalName": "Atyopsis spinipes",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Atyidae",
+    "genus": "Atyopsis",
+    "matchType": "EXACT"
+  },
   "Auchenipterichthys coracoideus": {
     "canonicalName": "Auchenipterichthys coracoideus",
+    "order": "Siluriformes",
+    "family": "Auchenipteridae",
+    "genus": "Auchenipterichthys",
+    "matchType": "EXACT"
+  },
+  "Auchenipterichthys dantei": {
+    "canonicalName": "Auchenipterichthys punctatus",
+    "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Auchenipteridae",
     "genus": "Auchenipterichthys",
@@ -3396,6 +3513,14 @@
     "order": "Siluriformes",
     "family": "Auchenipteridae",
     "genus": "Auchenipterus",
+    "matchType": "EXACT"
+  },
+  "Auchenipterus punctatus": {
+    "canonicalName": "Auchenipterichthys punctatus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Auchenipteridae",
+    "genus": "Auchenipterichthys",
     "matchType": "EXACT"
   },
   "Auchenipterus trachycorystes": {
@@ -4057,6 +4182,7 @@
     "genus": "Centromochlus",
     "matchType": "EXACT"
   },
+  "Balss coi": null,
   "Bangana behri": {
     "canonicalName": "Bangana behri",
     "order": "Cypriniformes",
@@ -4645,6 +4771,14 @@
     "genus": "Dormitator",
     "matchType": "EXACT"
   },
+  "Batasio affinis": {
+    "canonicalName": "Batasio affinis",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Bagridae",
+    "genus": "Batasio",
+    "matchType": "EXACT"
+  },
   "Batasio batasio": {
     "canonicalName": "Batasio batasio",
     "order": "Siluriformes",
@@ -4652,6 +4786,7 @@
     "genus": "Batasio",
     "matchType": "EXACT"
   },
+  "Batasio comprises": null,
   "Batasio convexirostrum": {
     "canonicalName": "Batasio convexirostrum",
     "order": "Siluriformes",
@@ -5629,6 +5764,7 @@
     "genus": "Brachyrhamdia",
     "matchType": "EXACT"
   },
+  "Brachyrhamdia includes": null,
   "Brachyrhamdia marthae": {
     "canonicalName": "Brachyrhamdia marthae",
     "order": "Siluriformes",
@@ -6436,6 +6572,7 @@
     "genus": "Caridina",
     "matchType": "EXACT"
   },
+  "Caridina shrimplets": null,
   "Caridina trifasciata": {
     "canonicalName": "Caridina trifasciata",
     "order": "Decapoda",
@@ -6731,6 +6868,14 @@
     "genus": "Cephalosilurus",
     "matchType": "EXACT"
   },
+  "Cephalosilurus nigricaudus": {
+    "canonicalName": "Cephalosilurus nigricaudus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Pseudopimelodidae",
+    "genus": "Cephalosilurus",
+    "matchType": "EXACT"
+  },
   "Ceratogarra cambodgiensis": null,
   "Ceratogarra fasciacauda": null,
   "Cerekang shares": null,
@@ -6803,6 +6948,14 @@
   },
   "Chaetostoma formosae": {
     "canonicalName": "Chaetostoma formosae",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Chaetostoma",
+    "matchType": "EXACT"
+  },
+  "Chaetostoma joropo": {
+    "canonicalName": "Chaetostoma joropo",
+    "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Loricariidae",
     "genus": "Chaetostoma",
@@ -7234,6 +7387,14 @@
   },
   "Characinen des": null,
   "Characiniden der": null,
+  "Characodon audax": {
+    "canonicalName": "Characodon audax",
+    "phylum": "Chordata",
+    "order": "Cyprinodontiformes",
+    "family": "Goodeidae",
+    "genus": "Characodon",
+    "matchType": "EXACT"
+  },
   "Charax condei": {
     "canonicalName": "Charax condei",
     "order": "Characiformes",
@@ -7456,6 +7617,14 @@
     "order": "Siluriformes",
     "family": "Mochokidae",
     "genus": "Chiloglanis",
+    "matchType": "EXACT"
+  },
+  "Chimarrichthys kishinouyei": {
+    "canonicalName": "Chimarrichthys kishinouyei",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Sisoridae",
+    "genus": "Chimarrichthys",
     "matchType": "EXACT"
   },
   "Chindango saulosi": {
@@ -8165,6 +8334,14 @@
     "genus": "Clupisoma",
     "matchType": "EXACT"
   },
+  "Clupisoma montanum": {
+    "canonicalName": "Clupisoma montana",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Schilbeidae",
+    "genus": "Clupisoma",
+    "matchType": "FUZZY"
+  },
   "Clupisoma nujiangense": {
     "canonicalName": "Clupisoma nujiangense",
     "order": "Siluriformes",
@@ -8521,6 +8698,14 @@
     "genus": "Copella",
     "matchType": "EXACT"
   },
+  "Coraglanis kishinouyei": {
+    "canonicalName": "Euchiloglanis kishinouyei",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Sisoridae",
+    "genus": "Euchiloglanis",
+    "matchType": "EXACT"
+  },
   "Coreius guichenoti": {
     "canonicalName": "Coreius guichenoti",
     "order": "Cypriniformes",
@@ -8814,6 +8999,14 @@
   "Corydoras etc": null,
   "Corydoras evelynae": {
     "canonicalName": "Corydoras evelynae",
+    "order": "Siluriformes",
+    "family": "Callichthyidae",
+    "genus": "Corydoras",
+    "matchType": "EXACT"
+  },
+  "Corydoras eversi": {
+    "canonicalName": "Corydoras eversi",
+    "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Callichthyidae",
     "genus": "Corydoras",
@@ -9332,6 +9525,14 @@
     "genus": "Corydoras",
     "matchType": "EXACT"
   },
+  "Corydoras undulatus": {
+    "canonicalName": "Corydoras undulatus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Callichthyidae",
+    "genus": "Corydoras",
+    "matchType": "EXACT"
+  },
   "Corydoras venezuelae": {
     "canonicalName": "Corydoras aeneus",
     "phylum": "Chordata",
@@ -9504,6 +9705,14 @@
     "genus": "Crenicichla",
     "matchType": "EXACT"
   },
+  "Crenicichla jegui": {
+    "canonicalName": "Crenicichla jegui",
+    "phylum": "Chordata",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Crenicichla",
+    "matchType": "EXACT"
+  },
   "Crenicichla lepidota": {
     "canonicalName": "Crenicichla lepidota",
     "order": "Perciformes",
@@ -9586,6 +9795,14 @@
     "order": "Characiformes",
     "family": "Crenuchidae",
     "genus": "Crenuchus",
+    "matchType": "EXACT"
+  },
+  "Creteuchiloglanis macropterus": {
+    "canonicalName": "Creteuchiloglanis macropterus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Sisoridae",
+    "genus": "Creteuchiloglanis",
     "matchType": "EXACT"
   },
   "Crossocheilus atrilimes": {
@@ -10050,6 +10267,15 @@
     "matchType": "EXACT"
   },
   "Cuatro nueva": null,
+  "Cuatro nuevas": null,
+  "Curculionichthys sabaji": {
+    "canonicalName": "Curculionichthys sabaji",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Curculionichthys",
+    "matchType": "EXACT"
+  },
   "Curimata vittata": {
     "canonicalName": "Curimata vittata",
     "order": "Characiformes",
@@ -10059,6 +10285,14 @@
   },
   "Curimatopsis evelynae": {
     "canonicalName": "Curimatopsis evelynae",
+    "order": "Characiformes",
+    "family": "Curimatidae",
+    "genus": "Curimatopsis",
+    "matchType": "EXACT"
+  },
+  "Curimatopsis macrolepis": {
+    "canonicalName": "Curimatopsis macrolepis",
+    "phylum": "Chordata",
     "order": "Characiformes",
     "family": "Curimatidae",
     "genus": "Curimatopsis",
@@ -10539,6 +10773,14 @@
     "order": "Polypodiales",
     "family": "Davalliaceae",
     "genus": "Davallia",
+    "matchType": "EXACT"
+  },
+  "Dawkinsia apsara": {
+    "canonicalName": "Dawkinsia apsara",
+    "phylum": "Chordata",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Dawkinsia",
     "matchType": "EXACT"
   },
   "Dawkinsia arulius": {
@@ -12016,6 +12258,14 @@
     "genus": "Euchilichthys",
     "matchType": "EXACT"
   },
+  "Euchiloglanis kishinouyei": {
+    "canonicalName": "Euchiloglanis kishinouyei",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Sisoridae",
+    "genus": "Euchiloglanis",
+    "matchType": "EXACT"
+  },
   "Eugnathichthys eetveldii": {
     "canonicalName": "Eugnathichthys eetveldii",
     "phylum": "Chordata",
@@ -12135,6 +12385,14 @@
     "order": "Characiformes",
     "family": "Characidae",
     "genus": "Exodon",
+    "matchType": "EXACT"
+  },
+  "Exostoma kishinouyei": {
+    "canonicalName": "Euchiloglanis kishinouyei",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Sisoridae",
+    "genus": "Euchiloglanis",
     "matchType": "EXACT"
   },
   "Exostoma labiatum": {
@@ -12353,6 +12611,14 @@
     "genus": "Fossorochromis",
     "matchType": "EXACT"
   },
+  "Franciscodoras marmoratus": {
+    "canonicalName": "Franciscodoras marmoratus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Doradidae",
+    "genus": "Franciscodoras",
+    "matchType": "EXACT"
+  },
   "Franz von": null,
   "Friedrich von": null,
   "Fujian provinces": null,
@@ -12440,6 +12706,14 @@
   },
   "Gagata gagata": {
     "canonicalName": "Gagata gagata",
+    "order": "Siluriformes",
+    "family": "Sisoridae",
+    "genus": "Gagata",
+    "matchType": "EXACT"
+  },
+  "Gagata typus": {
+    "canonicalName": "Gagata gagata",
+    "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Sisoridae",
     "genus": "Gagata",
@@ -13286,6 +13560,14 @@
     "genus": "Glyptothorax",
     "matchType": "EXACT"
   },
+  "Glyptothorax exodon": {
+    "canonicalName": "Glyptothorax exodon",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Sisoridae",
+    "genus": "Glyptothorax",
+    "matchType": "EXACT"
+  },
   "Glyptothorax fokiensis": {
     "canonicalName": "Glyptothorax fokiensis",
     "order": "Siluriformes",
@@ -13302,6 +13584,14 @@
   },
   "Glyptothorax hainanensis": {
     "canonicalName": "Glyptothorax hainanensis",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Sisoridae",
+    "genus": "Glyptothorax",
+    "matchType": "EXACT"
+  },
+  "Glyptothorax indicus": {
+    "canonicalName": "Glyptothorax indicus",
     "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Sisoridae",
@@ -13346,6 +13636,14 @@
   },
   "Glyptothorax quadriocellatus": {
     "canonicalName": "Glyptothorax quadriocellatus",
+    "order": "Siluriformes",
+    "family": "Sisoridae",
+    "genus": "Glyptothorax",
+    "matchType": "EXACT"
+  },
+  "Glyptothorax schmidti": {
+    "canonicalName": "Glyptothorax schmidti",
+    "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Sisoridae",
     "genus": "Glyptothorax",
@@ -13493,6 +13791,7 @@
   "Guangdong provinces": null,
   "Guangxi has": null,
   "Guangxi provinces": null,
+  "Guaviare drainages": null,
   "Guianacara dacrya": {
     "canonicalName": "Guianacara dacrya",
     "phylum": "Chordata",
@@ -13529,6 +13828,7 @@
     "matchType": "EXACT"
   },
   "Guyane fran": null,
+  "Guyane thu": null,
   "Gymnallabes typus": {
     "canonicalName": "Gymnallabes typus",
     "order": "Siluriformes",
@@ -13783,6 +14083,14 @@
     "genus": "Epiplatys",
     "matchType": "EXACT"
   },
+  "Haplochilus calliurus": {
+    "canonicalName": "Aphyosemion calliurum",
+    "phylum": "Chordata",
+    "order": "Cyprinodontiformes",
+    "family": "Nothobranchiidae",
+    "genus": "Aphyosemion",
+    "matchType": "EXACT"
+  },
   "Haplochilus sarasinorum": {
     "canonicalName": "Oryzias sarasinorum",
     "order": "Beloniformes",
@@ -13861,6 +14169,7 @@
     "genus": "Hara",
     "matchType": "EXACT"
   },
+  "Hara pusillus": null,
   "Hara spinulosus": {
     "canonicalName": "Hara spinulus",
     "order": "Siluriformes",
@@ -13919,6 +14228,14 @@
     "family": "Characidae",
     "genus": "Hasemania",
     "matchType": "EXACT"
+  },
+  "Hasemania hansseni": {
+    "canonicalName": "Hasemania hanseni",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Hasemania",
+    "matchType": "FUZZY"
   },
   "Hasemania nana": {
     "canonicalName": "Hasemania nana",
@@ -14251,6 +14568,14 @@
   },
   "Hemichromis lifalili": {
     "canonicalName": "Hemichromis lifalili",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Hemichromis",
+    "matchType": "EXACT"
+  },
+  "Hemichromis stellifer": {
+    "canonicalName": "Hemichromis stellifer",
+    "phylum": "Chordata",
     "order": "Perciformes",
     "family": "Cichlidae",
     "genus": "Hemichromis",
@@ -14954,6 +15279,15 @@
     "genus": "Odontostilbe",
     "matchType": "EXACT"
   },
+  "Holtodrilus truncates": {
+    "canonicalName": "Holtodrilus truncatus",
+    "phylum": "Annelida",
+    "class": "Clitellata",
+    "order": "Branchiobdellida",
+    "family": "Branchiobdellidae",
+    "genus": "Holtodrilus",
+    "matchType": "FUZZY"
+  },
   "Holtodrilus truncatus": {
     "canonicalName": "Holtodrilus truncatus",
     "phylum": "Annelida",
@@ -15076,6 +15410,14 @@
     "genus": "Hopliancistrus",
     "matchType": "EXACT"
   },
+  "Hopliancistrus xikrin": {
+    "canonicalName": "Hopliancistrus xikrin",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Hopliancistrus",
+    "matchType": "EXACT"
+  },
   "Hoplias macrophthalmus": {
     "canonicalName": "Hoplias macrophthalmus",
     "order": "Characiformes",
@@ -15130,6 +15472,7 @@
   "Hoplisoma polystictum": null,
   "Hoplisoma schwartzi": null,
   "Hoplisoma simile": null,
+  "Hoplisoma similis": null,
   "Hoplisoma sipaliwini": null,
   "Hoplisoma sterbai": null,
   "Hoplisoma trilineatum": null,
@@ -15682,6 +16025,14 @@
   },
   "Hyphessobrycon metae": {
     "canonicalName": "Hyphessobrycon metae",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Hyphessobrycon",
+    "matchType": "EXACT"
+  },
+  "Hyphessobrycon moniliger": {
+    "canonicalName": "Hyphessobrycon moniliger",
+    "phylum": "Chordata",
     "order": "Characiformes",
     "family": "Characidae",
     "genus": "Hyphessobrycon",
@@ -16556,6 +16907,7 @@
     "genus": "Isochrysis",
     "matchType": "EXACT"
   },
+  "Isochrysis survived": null,
   "Isorineloricaria acuarius": {
     "canonicalName": "Isorineloricaria acuarius",
     "order": "Siluriformes",
@@ -16693,11 +17045,20 @@
   "Kalimantan provinces": null,
   "Kalimantan tengah": null,
   "Kallada drainages": null,
+  "Kalyptodoras bahiensis": {
+    "canonicalName": "Kalyptodoras bahiensis",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Doradidae",
+    "genus": "Kalyptodoras",
+    "matchType": "EXACT"
+  },
   "Kampffisch von": null,
   "Kampffische von": null,
   "Kamphol ghi": null,
   "Kanchanaburi provinces": null,
   "Kani magur": null,
+  "Kanoko ngh": null,
   "Kaoping drainages": null,
   "Kapuas mainstream": null,
   "Kapuas tributaries": null,
@@ -16982,6 +17343,7 @@
   "Kullander described": null,
   "Kumba relies": null,
   "Kutubu rainbowfish": null,
+  "Kyataphisa nenga": null,
   "Labeo angra": {
     "canonicalName": "Labeo angra",
     "order": "Cypriniformes",
@@ -17398,6 +17760,7 @@
     "genus": "Lasiancistrus",
     "matchType": "EXACT"
   },
+  "Lasiancistrus has": null,
   "Lasiancistrus heteracanthus": {
     "canonicalName": "Lasiancistrus heteracanthus",
     "phylum": "Chordata",
@@ -17940,6 +18303,14 @@
     "matchType": "EXACT"
   },
   "Leporinus originates": null,
+  "Leporinus ortomaculatus": {
+    "canonicalName": "Leporinus ortomaculatus",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Anostomidae",
+    "genus": "Leporinus",
+    "matchType": "EXACT"
+  },
   "Leporinus reticulatus": {
     "canonicalName": "Leporinus reticulatus",
     "order": "Characiformes",
@@ -18425,6 +18796,15 @@
     "genus": "Lithodoras",
     "matchType": "EXACT"
   },
+  "Litopenaeus vannamei": {
+    "canonicalName": "Penaeus vannamei",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Penaeidae",
+    "genus": "Penaeus",
+    "matchType": "EXACT"
+  },
   "Livebearer has": null,
   "Lobelia brasiliensis": {
     "canonicalName": "Lobelia brasiliensis",
@@ -18493,6 +18873,7 @@
   },
   "Lophiobagrus described": null,
   "Lophiosilurus fowleri": null,
+  "Lophiosilurus nigricauda": null,
   "Loricaria lentiginosa": {
     "canonicalName": "Loricaria lentiginosa",
     "order": "Siluriformes",
@@ -18784,6 +19165,15 @@
     "genus": "Lysmata",
     "matchType": "EXACT"
   },
+  "Lysmata seticaudata": {
+    "canonicalName": "Lysmata seticaudata",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Lysmatidae",
+    "genus": "Lysmata",
+    "matchType": "EXACT"
+  },
   "Lysmata wurdemanni": {
     "canonicalName": "Lysmata wurdemanni",
     "order": "Decapoda",
@@ -18879,6 +19269,15 @@
   },
   "Macrobrachium scabriculum": {
     "canonicalName": "Macrobrachium scabriculum",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Palaemonidae",
+    "genus": "Macrobrachium",
+    "matchType": "EXACT"
+  },
+  "Macrobrachium tenellum": {
+    "canonicalName": "Macrobrachium tenellum",
     "phylum": "Arthropoda",
     "class": "Malacostraca",
     "order": "Decapoda",
@@ -19288,6 +19687,7 @@
   "Medaka ricefish": null,
   "Mededeelingen der": null,
   "Meere gefangene": null,
+  "Megalamphodus became": null,
   "Megalamphodus bentosi": null,
   "Megalamphodus eques": {
     "canonicalName": "Hyphessobrycon eques",
@@ -19418,12 +19818,21 @@
     "genus": "Pseudotropheus",
     "matchType": "EXACT"
   },
+  "Melanochromis has": null,
   "Melanochromis johanni": {
     "canonicalName": "Pseudotropheus johannii",
     "order": "Perciformes",
     "family": "Cichlidae",
     "genus": "Pseudotropheus",
     "matchType": "EXACT"
+  },
+  "Melanochromis johannii": {
+    "canonicalName": "Pseudotropheus johannii",
+    "phylum": "Chordata",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Pseudotropheus",
+    "matchType": "FUZZY"
   },
   "Melanochromis lepidiadaptes": {
     "canonicalName": "Melanochromis lepidiadaptes",
@@ -20328,8 +20737,24 @@
     "genus": "Moenkhausia",
     "matchType": "EXACT"
   },
+  "Moenkhausia nigromarginata": {
+    "canonicalName": "Moenkhausia nigromarginata",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Moenkhausia",
+    "matchType": "EXACT"
+  },
   "Moenkhausia oligolepis": {
     "canonicalName": "Moenkhausia oligolepis",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Moenkhausia",
+    "matchType": "EXACT"
+  },
+  "Moenkhausia phaeonota": {
+    "canonicalName": "Moenkhausia phaeonota",
+    "phylum": "Chordata",
     "order": "Characiformes",
     "family": "Characidae",
     "genus": "Moenkhausia",
@@ -20504,6 +20929,14 @@
     "matchType": "EXACT"
   },
   "Myitmaka thu": null,
+  "Mylesinus paucisquamatus": {
+    "canonicalName": "Mylesinus paucisquamatus",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Serrasalmidae",
+    "genus": "Mylesinus",
+    "matchType": "EXACT"
+  },
   "Mylesinus schomburgkii": {
     "canonicalName": "Mylesinus schomburgkii",
     "order": "Characiformes",
@@ -20872,6 +21305,14 @@
     "genus": "Nandus",
     "matchType": "EXACT"
   },
+  "Nangra assamensis": {
+    "canonicalName": "Nangra assamensis",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Sisoridae",
+    "genus": "Nangra",
+    "matchType": "EXACT"
+  },
   "Nannacara adoketa": {
     "canonicalName": "Nannacara adoketa",
     "order": "Perciformes",
@@ -21095,6 +21536,33 @@
     "order": "Perciformes",
     "family": "Cichlidae",
     "genus": "Nanochromis",
+    "matchType": "EXACT"
+  },
+  "Nassarius distortus": {
+    "canonicalName": "Nassarius distortus",
+    "phylum": "Mollusca",
+    "class": "Gastropoda",
+    "order": "Neogastropoda",
+    "family": "Nassariidae",
+    "genus": "Nassarius",
+    "matchType": "EXACT"
+  },
+  "Nassarius obsoletus": {
+    "canonicalName": "Ilyanassa obsoleta",
+    "phylum": "Mollusca",
+    "class": "Gastropoda",
+    "order": "Neogastropoda",
+    "family": "Nassariidae",
+    "genus": "Ilyanassa",
+    "matchType": "EXACT"
+  },
+  "Nassarius reticulatus": {
+    "canonicalName": "Tritia reticulata",
+    "phylum": "Mollusca",
+    "class": "Gastropoda",
+    "order": "Neogastropoda",
+    "family": "Nassariidae",
+    "genus": "Tritia",
     "matchType": "EXACT"
   },
   "Natri clorua": null,
@@ -22266,6 +22734,14 @@
     "genus": "Oligancistrus",
     "matchType": "EXACT"
   },
+  "Oligolepis acutipennis": {
+    "canonicalName": "Oligolepis acutipennis",
+    "phylum": "Chordata",
+    "order": "Perciformes",
+    "family": "Gobiidae",
+    "genus": "Oligolepis",
+    "matchType": "EXACT"
+  },
   "Oligosarcus jenynsii": {
     "canonicalName": "Oligosarcus jenynsii",
     "order": "Characiformes",
@@ -22292,6 +22768,14 @@
     "order": "Siluriformes",
     "family": "Olyridae",
     "genus": "Olyra",
+    "matchType": "EXACT"
+  },
+  "Olyra laticeps": {
+    "canonicalName": "Amblyceps laticeps",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Amblycipitidae",
+    "genus": "Amblyceps",
     "matchType": "EXACT"
   },
   "Olyra longicaudata": {
@@ -22721,6 +23205,7 @@
   "Orinoco colour": null,
   "Orinoco drainages": null,
   "Orinoco eartheater": null,
+  "Orinoco has": null,
   "Orinoco including": null,
   "Orinoco lies": null,
   "Orinoco mainstream": null,
@@ -22868,6 +23353,7 @@
     "genus": "Oscura",
     "matchType": "EXACT"
   },
+  "Osphromenus exodon": null,
   "Osphronemus exodon": {
     "canonicalName": "Osphronemus exodon",
     "order": "Perciformes",
@@ -23662,6 +24148,14 @@
     "genus": "Pantanodon",
     "matchType": "EXACT"
   },
+  "Pao abei": {
+    "canonicalName": "Pao abei",
+    "phylum": "Chordata",
+    "order": "Tetraodontiformes",
+    "family": "Tetraodontidae",
+    "genus": "Pao",
+    "matchType": "EXACT"
+  },
   "Pao baileyi": {
     "canonicalName": "Pao baileyi",
     "order": "Tetraodontiformes",
@@ -24147,6 +24641,15 @@
     "genus": "Paratrygon",
     "matchType": "EXACT"
   },
+  "Paratya australiensis": {
+    "canonicalName": "Paratya australiensis",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Atyidae",
+    "genus": "Paratya",
+    "matchType": "EXACT"
+  },
   "Parauchenipterus fisheri": {
     "canonicalName": "Trachelyopterus fisheri",
     "order": "Siluriformes",
@@ -24235,6 +24738,22 @@
     "genus": "Paretroplus",
     "matchType": "EXACT"
   },
+  "Pareuchiloglanis macropterus": {
+    "canonicalName": "Creteuchiloglanis macropterus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Sisoridae",
+    "genus": "Creteuchiloglanis",
+    "matchType": "EXACT"
+  },
+  "Pareuchiloglanis rhabdura": {
+    "canonicalName": "Pareuchiloglanis rhabdurus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Sisoridae",
+    "genus": "Pareuchiloglanis",
+    "matchType": "FUZZY"
+  },
   "Pareutropius buffei": {
     "canonicalName": "Pareutropius buffei",
     "order": "Siluriformes",
@@ -24272,6 +24791,14 @@
   },
   "Parkinsoni pha": null,
   "Parnahyba und": null,
+  "Parodon affinis": {
+    "canonicalName": "Apareiodon affinis",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Parodontidae",
+    "genus": "Apareiodon",
+    "matchType": "EXACT"
+  },
   "Parodon guyanensis": {
     "canonicalName": "Parodon guyanensis",
     "order": "Characiformes",
@@ -24323,6 +24850,14 @@
   },
   "Parosphromenus filamentosus": {
     "canonicalName": "Parosphromenus filamentosus",
+    "order": "Perciformes",
+    "family": "Osphronemidae",
+    "genus": "Parosphromenus",
+    "matchType": "EXACT"
+  },
+  "Parosphromenus gunawani": {
+    "canonicalName": "Parosphromenus gunawani",
+    "phylum": "Chordata",
     "order": "Perciformes",
     "family": "Osphronemidae",
     "genus": "Parosphromenus",
@@ -25319,6 +25854,14 @@
     "genus": "Brachyrhamdia",
     "matchType": "EXACT"
   },
+  "Pimelodina flavipinnis": {
+    "canonicalName": "Pimelodina flavipinnis",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Pimelodidae",
+    "genus": "Pimelodina",
+    "matchType": "EXACT"
+  },
   "Pimelodus batasio": {
     "canonicalName": "Batasio batasio",
     "order": "Siluriformes",
@@ -25348,6 +25891,14 @@
     "matchType": "EXACT"
   },
   "Pimelodus clade": null,
+  "Pimelodus gagata": {
+    "canonicalName": "Gagata gagata",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Sisoridae",
+    "genus": "Gagata",
+    "matchType": "EXACT"
+  },
   "Pimelodus genidens": {
     "canonicalName": "Genidens genidens",
     "phylum": "Chordata",
@@ -25368,6 +25919,14 @@
     "order": "Siluriformes",
     "family": "Pimelodidae",
     "genus": "Pimelodus",
+    "matchType": "EXACT"
+  },
+  "Pimelodus nangra": {
+    "canonicalName": "Nangra nangra",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Sisoridae",
+    "genus": "Nangra",
     "matchType": "EXACT"
   },
   "Pimelodus ornatus": {
@@ -25495,6 +26054,14 @@
     "matchType": "EXACT"
   },
   "Platy leopard": null,
+  "Platycephalus indicus": {
+    "canonicalName": "Platycephalus indicus",
+    "phylum": "Chordata",
+    "order": "Scorpaeniformes",
+    "family": "Platycephalidae",
+    "genus": "Platycephalus",
+    "matchType": "EXACT"
+  },
   "Platydoras armatulus": {
     "canonicalName": "Platydoras armatulus",
     "order": "Siluriformes",
@@ -25691,6 +26258,14 @@
   },
   "Poecilia caucana": {
     "canonicalName": "Poecilia caucana",
+    "phylum": "Chordata",
+    "order": "Cyprinodontiformes",
+    "family": "Poeciliidae",
+    "genus": "Poecilia",
+    "matchType": "EXACT"
+  },
+  "Poecilia formosa": {
+    "canonicalName": "Poecilia formosa",
     "phylum": "Chordata",
     "order": "Cyprinodontiformes",
     "family": "Poeciliidae",
@@ -25920,6 +26495,15 @@
   },
   "Pomacea diffusa": {
     "canonicalName": "Pomacea diffusa",
+    "order": "Architaenioglossa",
+    "family": "Ampullariidae",
+    "genus": "Pomacea",
+    "matchType": "EXACT"
+  },
+  "Pomacea insularum": {
+    "canonicalName": "Pomacea maculata",
+    "phylum": "Mollusca",
+    "class": "Gastropoda",
     "order": "Architaenioglossa",
     "family": "Ampullariidae",
     "genus": "Pomacea",
@@ -26572,6 +27156,22 @@
     "genus": "Pseudeutropius",
     "matchType": "EXACT"
   },
+  "Pseudexostoma brachysoma": {
+    "canonicalName": "Pseudexostoma brachysoma",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Sisoridae",
+    "genus": "Pseudexostoma",
+    "matchType": "EXACT"
+  },
+  "Pseudexostoma yunnanense": {
+    "canonicalName": "Pseudexostoma yunnanense",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Sisoridae",
+    "genus": "Pseudexostoma",
+    "matchType": "EXACT"
+  },
   "Pseudobagarius filifer": {
     "canonicalName": "Pseudobagarius filifer",
     "order": "Siluriformes",
@@ -26823,6 +27423,14 @@
     "genus": "Pseudolithoxus",
     "matchType": "EXACT"
   },
+  "Pseudolithoxus kelsorum": {
+    "canonicalName": "Pseudolithoxus kelsorum",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Pseudolithoxus",
+    "matchType": "EXACT"
+  },
   "Pseudolithoxus nicoi": {
     "canonicalName": "Pseudolithoxus nicoi",
     "order": "Siluriformes",
@@ -26894,6 +27502,14 @@
     "family": "Pseudomugilidae",
     "genus": "Pseudomugil",
     "matchType": "FUZZY"
+  },
+  "Pseudomugil tenellus": {
+    "canonicalName": "Pseudomugil tenellus",
+    "phylum": "Chordata",
+    "order": "Atheriniformes",
+    "family": "Pseudomugilidae",
+    "genus": "Pseudomugil",
+    "matchType": "EXACT"
   },
   "Pseudomystus breviceps": {
     "canonicalName": "Pseudomystus breviceps",
@@ -27932,6 +28548,8 @@
   "Quen thu": null,
   "Quy chu": null,
   "Rachovii originates": null,
+  "Rachow described": null,
+  "Rachow has": null,
   "Raiamas guttatus": {
     "canonicalName": "Raiamas guttatus",
     "order": "Cypriniformes",
@@ -28976,6 +29594,15 @@
     "matchType": "EXACT"
   },
   "Rotala hra": null,
+  "Rotala indica": {
+    "canonicalName": "Rotala indica",
+    "phylum": "Tracheophyta",
+    "class": "Magnoliopsida",
+    "order": "Myrtales",
+    "family": "Lythraceae",
+    "genus": "Rotala",
+    "matchType": "EXACT"
+  },
   "Rotala macrandra": {
     "canonicalName": "Rotala macrandra",
     "order": "Myrtales",
@@ -29004,6 +29631,7 @@
     "genus": "Rotala",
     "matchType": "EXACT"
   },
+  "Rottweiler trong": null,
   "Rubricatochromis bimaculatus": null,
   "Rubricatochromis guttatus": null,
   "Rudbeckia hirta": {
@@ -29635,6 +30263,7 @@
     "matchType": "EXACT"
   },
   "Schmerlen der": null,
+  "Schouteden thu": null,
   "Schultz thu": null,
   "Schwetzochromis stormsi": {
     "canonicalName": "Orthochromis stormsi",
@@ -29818,6 +30447,14 @@
   },
   "Semaprochilodus insignis": {
     "canonicalName": "Semaprochilodus insignis",
+    "order": "Characiformes",
+    "family": "Prochilodontidae",
+    "genus": "Semaprochilodus",
+    "matchType": "EXACT"
+  },
+  "Semaprochilodus kneri": {
+    "canonicalName": "Semaprochilodus kneri",
+    "phylum": "Chordata",
     "order": "Characiformes",
     "family": "Prochilodontidae",
     "genus": "Semaprochilodus",
@@ -30045,6 +30682,15 @@
     "family": "Enterobacteriaceae",
     "genus": "Serratia",
     "matchType": "EXACT"
+  },
+  "Sesarma moeschi": {
+    "canonicalName": "Manarma moeschii",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Sesarmidae",
+    "genus": "Manarma",
+    "matchType": "FUZZY"
   },
   "Sesarmops intermedium": {
     "canonicalName": "Orisarma intermedium",
@@ -30339,6 +30985,7 @@
     "genus": "Skiffia",
     "matchType": "EXACT"
   },
+  "Smiley faces": null,
   "Smilosicyopus has": null,
   "Smilosicyopus leprurus": {
     "canonicalName": "Smilosicyopus leprurus",
@@ -31562,6 +32209,7 @@
   "Tanganyika humphead": null,
   "Tanganyika including": null,
   "Tanganyika ngo": null,
+  "Tanganyika thu": null,
   "Tanganyikan tankmates": null,
   "Tanganyikan tilapia": null,
   "Tanichthys albonubes": {
@@ -31941,6 +32589,15 @@
   "The kuhli": null,
   "The modesta": null,
   "The robertsi": null,
+  "Thelohania contejani": {
+    "canonicalName": "Thelohania contejeani",
+    "phylum": "Microsporidia",
+    "class": "Microsporea",
+    "order": "Meiodihaplophasida",
+    "family": "Thelohaniidae",
+    "genus": "Thelohania",
+    "matchType": "FUZZY"
+  },
   "Thelypteris dentata": {
     "canonicalName": "Christella dentata",
     "order": "Polypodiales",
@@ -32089,6 +32746,14 @@
   "Tocantins states": null,
   "Tocantins traded": null,
   "Tolerates temperatures": null,
+  "Tometes kranponhah": {
+    "canonicalName": "Tometes kranponhah",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Serrasalmidae",
+    "genus": "Tometes",
+    "matchType": "EXACT"
+  },
   "Tometes makue": {
     "canonicalName": "Tometes makue",
     "order": "Characiformes",
@@ -32624,6 +33289,7 @@
   "Trong nghi": null,
   "Trong nhi": null,
   "Trong paludarium": null,
+  "Trong tanin": null,
   "Trong thi": null,
   "Tropheops macrophthalmus": {
     "canonicalName": "Tropheops macrophthalmus",
@@ -33077,6 +33743,7 @@
     "matchType": "EXACT"
   },
   "Vogt described": null,
+  "Volz owed": null,
   "Wallaceochromis humilis": {
     "canonicalName": "Pelvicachromis humilis",
     "order": "Perciformes",

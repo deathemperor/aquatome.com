@@ -17,15 +17,16 @@
       ],
       "regions": [
         "Western Ghats",
-        "Lake Vembanad",
         "Periyar",
+        "Chalakkudy",
         "Pamba",
-        "Chalakkudy"
+        "Lake Vembanad"
       ],
       "sources": [
         "aquariumbreeder",
         "aquariumcoop",
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -43,10 +44,10 @@
           "quote": "It is mainly distributed in the Chalakkudy, Pamba, Periyar, Kabani, Bharathapuzha, Vamanapuram and Muvattupuzha rivers, Lake Vembanad and the kole wetlands of Thrissur, Kallar stream and Neyyar wildlife sanctuary of south Kerala.",
           "countries": [],
           "regions": [
-            "Lake Vembanad",
             "Periyar",
+            "Chalakkudy",
             "Pamba",
-            "Chalakkudy"
+            "Lake Vembanad"
           ]
         }
       ]
@@ -585,17 +586,6 @@
       "source": "aquariumcoop"
     },
     {
-      "url": "https://media.aquatome.com/aquariumcoop/98781a0d3fbbbbab.webp",
-      "thumb": "https://media.aquatome.com/aquariumcoop/98781a0d3fbbbbab-480.webp",
-      "width": 1000,
-      "height": 594,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Co-op",
-      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
-      "caption": "pea puffer looking at a bloodworm",
-      "source": "aquariumcoop"
-    },
-    {
       "url": "https://media.aquatome.com/sprucepets/b1f8530301131505.webp",
       "thumb": "https://media.aquatome.com/sprucepets/b1f8530301131505-480.webp",
       "width": 1200,
@@ -630,6 +620,17 @@
       "author": "Parazelsus",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carinotetraodon_travancoricus_by_Parazelsus_(cropped).jpg",
       "caption": "Carinotetraodon travancoricus in an aquarium displaying its iridescent patches. The image has been cropped from its original dimensions."
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/98781a0d3fbbbbab.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/98781a0d3fbbbbab-480.webp",
+      "width": 1000,
+      "height": 594,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
+      "caption": "pea puffer looking at a bloodworm",
+      "source": "aquariumcoop"
     },
     {
       "url": "https://media.aquatome.com/glaser/3596854375640367.webp",

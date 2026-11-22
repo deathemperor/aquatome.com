@@ -1,7 +1,34 @@
 {
   "id": "protopterus-aethiopicus-congicus",
-  "photos": [],
-  "seen": 3,
-  "updatedAt": "2026-11-17",
-  "builtAt": "2026-11-17"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/342222708.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/342222708-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "César María Aguilar Gómez",
+      "sourceUrl": "https://www.inaturalist.org/photos/342222708",
+      "caption": "Cá phổi cẩm thạch bơi trong vũng bùn giữa rễ cây",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/342222709.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/342222709-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "César María Aguilar Gómez",
+      "sourceUrl": "https://www.inaturalist.org/photos/342222709",
+      "caption": "Cá phổi cẩm thạch sống trong bùn ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    }
+  ],
+  "seen": 23,
+  "updatedAt": "2026-11-21",
+  "builtAt": "2026-11-21"
 }

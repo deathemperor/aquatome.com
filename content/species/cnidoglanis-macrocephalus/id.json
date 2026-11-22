@@ -19,10 +19,10 @@
     "references:planetcatfish": "<p>Histoire naturelle des poissons v. 15, pp 428, Pl. 449.</p>"
   },
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.7
+      "planetcatfish": 0.8
     }
   }
 }

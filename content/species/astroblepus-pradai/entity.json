@@ -10,6 +10,52 @@
     "colombia",
     "santander"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9371931,
+      "total": 3,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "CO",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -71,19 +117,7 @@
       "html": "<p>Ardila Rodriguez, C.A., 2015. Astroblepus verai sp. nov -- A. pradai, A. curitiensis y A. onzagaensis. Cuatro nuevas especies del Departamento de Santander - Colombia. Barranquilla, Departamento del Atlántico 7:1-20. Froese, R. and D. Pauly. Editors. 2023. FishBase. www.fishbase.org. Ochoa LE, Melo BF, García-Melo JE, Maldonado-Ocampo JA, Souza CS, Albornoz-Garzón JG, Conde-Saldaña CC, Villa-Navarro F, Ortega-Lara A, Oliveira C. Species delimitation reveals an underestimated diversity of Andean catfishes of the family Astroblepidae (Teleostei: Siluriformes). Neotrop Ichthyol. 2020; 18(4). The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/1d21e0cccb95d24e.webp",
-      "thumb": "https://media.aquatome.com/scotcat/1d21e0cccb95d24e-480.webp",
-      "width": 500,
-      "height": 207,
-      "licence": "dùng với sự cho phép",
-      "author": "Ochoa LE., et al 2020 / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_pradai.htm",
-      "caption": "Astroblepus pradai",
-      "source": "scotcat"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {

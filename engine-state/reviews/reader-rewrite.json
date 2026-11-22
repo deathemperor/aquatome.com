@@ -439,6 +439,21 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-1F7-mRplxeo#body": [
+    {
+      "at": "2026-11-21T13:25:32Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "BEFORE: \"thay hoặc giặt cái mới vào\" (replace, or wash the new one) is awkward; AFTER \"giặt sạch, hoặc thay cái mới vào\" reads as wash the old one or replace it. This is a reasonable fix, but the meaning shifts slightly.",
+        "\"cắm điện cho bơm chạy lại\" is a minor wording change with the same meaning."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-1MBa4r8jhFs#body": [
     {
       "at": "2026-11-08T11:26:39Z",
@@ -695,6 +710,21 @@
       "score": 0.88,
       "notes": [
         "\"dẫn đường ống ra ngoài, để các bộ phận của lọc nằm hết bên ngoài bể\" slightly elaborates BEFORE's \"đưa các bộ phận của lọc ra khỏi bể\"; adds the pipes-routed-out detail and \"nằm hết\" (entirely), a minor nuance shift."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-IJuCTdkIrOA#body": [
+    {
+      "at": "2026-11-22T00:45:35Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"thay bằng một tấm chắn\" became \"gắn một tấm chắn\": the idea of swapping the lid for a guard is slightly weaker, but the meaning is mostly kept.",
+        "\"lọc bông sủi\" became \"lọc mút\": the same sponge-filter type under a different hobby name, so acceptable."
       ],
       "attempt": "first",
       "kept": true
@@ -1297,6 +1327,21 @@
       "notes": [
         "\"còn phần dưới nước thì sau này xếp thêm lũa, đá\": BEFORE gives a reason (\"vì ... vẫn bố trí lũa, đá\"). AFTER turns it into a contrast and adds \"sau này\" (later), a slight shift in nuance.",
         "\"nối lên vách\": \"vách\" is added in step 1. BEFORE only says \"nối lên\". It is a small addition but consistent with the context."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-yTK42TWeN0M#body": [
+    {
+      "at": "2026-11-22T00:46:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "Minor: 'miệng chai' changed to 'đầu cổ chai' (slight shift but same location).",
+        "'chỉ vừa đủ' became 'vừa đủ' (tiny loss of emphasis)."
       ],
       "attempt": "first",
       "kept": true

@@ -1000,8 +1000,12 @@ final class LightFlowTests: XCTestCase {
     expect(app, "lamp-status", contains: "Đã gửi “Trắng”, \(level) lúc", timeout: 15)
     XCTAssertEqual(element(app, "lamp-sent").label, "white@\(level.dropLast())")
     app.terminate()
-    // The light's gap made 8 s (`-lamp-gap`), so green still waits when the app leaves the front on a slow Mac.
-    app = launch("-fake-accounts", "on", "-fake-owner", "ui-apple", "-lamp-gap", "8", reset: false)
+    // The light's gap made 8 s (`-lamp-gap`), and held past it until the test opens it (`-lamp-gap-held`): green still
+    // waits when the app leaves the front, however slow the taps. On 21 Nov GitHub's Mac took 11 and 13 s from red's tap
+    // to green's, past red's three seconds and the gap, so green had gone in full and the card rightly said so.
+    let gates = LampGates()
+    app = launch("-fake-accounts", "on", "-fake-owner", "ui-apple", "-lamp-gap", "8", "-lamp-gap-held", "-test-gates", gates.path,
+                 reset: false)
     expect(app, "lamp-status", contains: "Lần cuối máy này gửi: “Trắng”, \(level) · ", timeout: 20)
     expect(app, "lamp-level", value: level)
     let under = gap(app, "lamp-level", "lamp-trial-off")
@@ -1012,10 +1016,18 @@ final class LightFlowTests: XCTestCase {
     leaveAndComeBack(app)
     expect(app, "lamp-status", contains: "Gửi “Xanh lá”, \(level) bị ngắt vì bạn rời ứng dụng.")
     XCTAssertEqual(gap(app, "lamp-level", "lamp-trial-off"), under, accuracy: 0.5, "Gửi lại moved the trial row")
+    // Red alone went: green hadn't gone when the app left (held, or still in its gap on a quick run; a hold that didn't
+    // hold fails here on a slow one, never passes). The hold let go, and past the gap (8 s from red's end, a second's look
+    // at the gate) green still doesn't go: leaving dropped it, not the hold.
+    let n = level.dropLast()
+    XCTAssertEqual(element(app, "lamp-sent").label, "red@\(n)", "green went before the app left: the flow proves nothing")
+    gates.open("lamp-gap")
+    let more = expectation(for: NSPredicate(format: "label != %@", "red@\(n)"), evaluatedWith: element(app, "lamp-sent"))
+    more.isInverted = true
+    XCTAssertEqual(XCTWaiter.wait(for: [more], timeout: 12), .completed, "green went after the app left: \(element(app, "lamp-sent").label)")
     tap(app, "lamp-again")
     expect(app, "lamp-status", contains: "Đã gửi “Xanh lá”, \(level) lúc", timeout: 15)
-    let sent = element(app, "lamp-sent").label
-    XCTAssertTrue(sent.hasPrefix("red@") && sent.hasSuffix("green@\(level.dropLast())"), sent)
+    XCTAssertEqual(element(app, "lamp-sent").label, "red@\(n) green@\(n)")
   }
 
   /// Khác's wheel: a drag on it sends once, when the finger lifts, its colour at the slider's level. VoiceOver reads it as
@@ -1456,5 +1468,20 @@ final class LightFlowTests: XCTestCase {
     if XCTWaiter.wait(for: [expectation(for: p, evaluatedWith: e)], timeout: timeout) != .completed, !p.evaluate(with: e) {
       XCTFail("\(id): expected \(what), got “\(e.exists ? e.label : "(missing)")”\(e.exists ? " (value “\(e.value.map { "\($0)" } ?? "")”)" : "")", file: file, line: line)
     }
+  }
+}
+
+/// The app's waits this flow moves on itself (`TestGate`), as the fish-ID flows' `Gates`: a folder of its own, where
+/// opening one writes its file. This flow's own copy: to the flow lists a helper in a flow's file is that class's alone
+/// (flow_lists.py), so one shared by several flows needs a file and a row of its own, which come with the sign-out
+/// change, whose flows hold gates too. Kept here (21 Nov) so this change and language step one, which shares the fish-ID
+/// flows' own, merge in either order.
+private struct LampGates {
+  let path = FileManager.default.temporaryDirectory.appending(path: "gates-\(UUID().uuidString)").path
+
+  init() { try? FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true) }
+
+  func open(_ name: String) {
+    XCTAssertTrue(FileManager.default.createFile(atPath: (path as NSString).appendingPathComponent(name), contents: Data()), "gate \(name) not opened")
   }
 }

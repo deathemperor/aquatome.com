@@ -181,7 +181,7 @@ final class WeekAquaModel {
       guard hits.count == wanted.count else {
         isConnecting = false
         let n = wanted.count - hits.count
-        notice = Notice(text: String(localized: "Không thấy \(n) đèn của nhóm quanh đây. Bật các đèn, lại gần rồi thử lại."), isError: true)
+        notice = Notice(text: String(localized: "Không thấy \(n) đèn của nhóm quanh đây. Bật các đèn, lại gần rồi thử lại.", bundle: .app), isError: true)
         return
       }
       await link(wanted.compactMap { hits[$0] }, mine)
@@ -217,7 +217,7 @@ final class WeekAquaModel {
       chosen = []
       tanks?.metWeekAqua(lights.compactMap(Self.key))
       if let sent = lastSent, !edited { fill(sent) }
-      notice = Notice(text: String(localized: "Đã kết nối \(lights.count) đèn Week Aqua."))
+      notice = Notice(text: String(localized: "Đã kết nối \(lights.count) đèn Week Aqua.", bundle: .app))
     } catch {
       links.forEach { $0.disconnect() }
       guard mine == attempt else { return }
@@ -248,7 +248,7 @@ final class WeekAquaModel {
 
   private func letGo(after l: FoundLight) {
     dropGroup()
-    notice = Notice(text: String(localized: "Mất kết nối với \(Self.name(l)). Kết nối lại cả nhóm đèn."), isError: true)
+    notice = Notice(text: String(localized: "Mất kết nối với \(Self.name(l)). Kết nối lại cả nhóm đèn.", bundle: .app), isError: true)
   }
 
   private func dropGroup() {
@@ -336,7 +336,7 @@ final class WeekAquaModel {
     } catch WeekAquaError.notSent(let m) {
       missed = m
     } catch {
-      notice = Notice(text: String(localized: "Không gửi được lệnh tới đèn. Lại gần đèn rồi thử lại."), isError: true)
+      notice = Notice(text: String(localized: "Không gửi được lệnh tới đèn. Lại gần đèn rồi thử lại.", bundle: .app), isError: true)
       return
     }
     // Kept only for the lights that took the whole write.
@@ -352,15 +352,15 @@ final class WeekAquaModel {
       if droppedWhileWriting != nil {
         // The group is let go now, with this notice in place of the lost connection's: it says what the others got.
         dropGroup()
-        notice = Notice(text: String(localized: "Mất kết nối với \(names) khi đang ghi: các đèn còn lại đã nhận đủ. Kết nối lại cả nhóm rồi ghi lại."),
+        notice = Notice(text: String(localized: "Mất kết nối với \(names) khi đang ghi: các đèn còn lại đã nhận đủ. Kết nối lại cả nhóm rồi ghi lại.", bundle: .app),
                         isError: true)
       } else {
-        notice = Notice(text: String(localized: "Không gửi hết được tới \(names). Lại gần đèn rồi ghi lại."), isError: true)
+        notice = Notice(text: String(localized: "Không gửi hết được tới \(names). Lại gần đèn rồi ghi lại.", bundle: .app), isError: true)
       }
     } else if clockOnly {
-      notice = Notice(text: String(localized: "Đã chỉnh giờ \(lights.count) đèn theo máy này, cùng màu và hẹn giờ đã gửi lần cuối."))
+      notice = Notice(text: String(localized: "Đã chỉnh giờ \(lights.count) đèn theo máy này, cùng màu và hẹn giờ đã gửi lần cuối.", bundle: .app))
     } else {
-      notice = Notice(text: String(localized: "Đã ghi vào \(lights.count) đèn: bật \(s.timer.on.description), tắt \(s.timer.off.description)."))
+      notice = Notice(text: String(localized: "Đã ghi vào \(lights.count) đèn: bật \(s.timer.on.description), tắt \(s.timer.off.description).", bundle: .app))
     }
   }
 
@@ -391,29 +391,29 @@ final class WeekAquaModel {
 
   /// "Green 50% · bật 02:50, tắt 02:40"; a colour set by hand is "Màu riêng".
   static func label(_ s: WeekAquaSent) -> String {
-    let colour = s.preset.flatMap(WeekAquaPreset.named).map { presetName($0.id) } ?? String(localized: "Màu riêng")
+    let colour = s.preset.flatMap(WeekAquaPreset.named).map { presetName($0.id) } ?? String(localized: "Màu riêng", bundle: .app)
     let bright = s.brightness.map { " \($0)%" } ?? ""
-    return "\(colour)\(bright) · " + String(localized: "bật \(s.on), tắt \(s.off)")
+    return "\(colour)\(bright) · " + String(localized: "bật \(s.on), tắt \(s.off)", bundle: .app)
   }
 
-  /// When something was sent, in the phone's words ("3 thg 11, 21:35").
+  /// When something was sent, in the app's words ("3 thg 11, 21:35").
   static func day(_ timestamp: String) -> String {
     guard let ms = Timestamp.millis(timestamp) else { return "" }
-    return Date(timeIntervalSince1970: Double(ms) / 1000).formatted(date: .abbreviated, time: .shortened)
+    return Date(timeIntervalSince1970: Double(ms) / 1000).formatted(Date.FormatStyle(date: .abbreviated, time: .shortened, locale: .app))
   }
 
   static func describe(_ error: Error) -> String {
     switch error {
     case BluetoothError.unauthorized:
-      String(localized: "AquaTome chưa được dùng Bluetooth. Bật trong Cài đặt → AquaTome → Bluetooth.")
+      String(localized: "AquaTome chưa được dùng Bluetooth. Bật trong Cài đặt → AquaTome → Bluetooth.", bundle: .app)
     case BluetoothError.poweredOff:
-      String(localized: "Bluetooth đang tắt. Bật Bluetooth rồi thử lại.")
+      String(localized: "Bluetooth đang tắt. Bật Bluetooth rồi thử lại.", bundle: .app)
     case BluetoothError.unsupported:
-      String(localized: "Máy này không có Bluetooth.")
+      String(localized: "Máy này không có Bluetooth.", bundle: .app)
     case BluetoothError.notSupported, WeekAquaError.notSupported:
-      String(localized: "Đèn này chưa được hỗ trợ: AquaTome chỉ ghi vào đèn Week Aqua mã 5746.")
+      String(localized: "Đèn này chưa được hỗ trợ: AquaTome chỉ ghi vào đèn Week Aqua mã 5746.", bundle: .app)
     default:
-      String(localized: "Không kết nối được. Lại gần đèn, đóng ứng dụng WEEK AQUA trên các máy khác rồi thử lại.")
+      String(localized: "Không kết nối được. Lại gần đèn, đóng ứng dụng WEEK AQUA trên các máy khác rồi thử lại.", bundle: .app)
     }
   }
 }

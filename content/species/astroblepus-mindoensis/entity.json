@@ -9,6 +9,64 @@
     "south-america",
     "ecuador"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "EC"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Pacific coastal drainages (Ecuador).",
+          "countries": [
+            "EC"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342122,
+      "total": 7,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "EC",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          -80.15625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -80.15625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -80.15625,
+          0,
+          2,
+          2
+        ],
+        [
+          -78.75,
+          0,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -64,30 +122,7 @@
       "html": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Chugá-Puetate KP, Peñaranda-Valla M, Escobar-Camacho D, Valdiviezo-Rivera J, Rivadeneira JF (2026) Cryptic diversity in Astroblepus (Siluriformes: Astroblepidae): Integrative taxonomy reveals evolutionary complexity in the Esmeraldas River Basin, Ecuador. PLoS One 21(4): e0343879.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2026. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 5/2026 ).</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/2669e622230985af.webp",
-      "thumb": "https://media.aquatome.com/scotcat/2669e622230985af-480.webp",
-      "width": 500,
-      "height": 187,
-      "licence": "dùng với sự cho phép",
-      "author": "Juan Francisco Rivadeneira / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_mindoensis.htm",
-      "caption": "Astroblepus mindoensis: From Alambi River",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/63ee6184ee713b95.webp",
-      "thumb": "https://media.aquatome.com/scotcat/63ee6184ee713b95-480.webp",
-      "width": 500,
-      "height": 175,
-      "licence": "dùng với sự cho phép",
-      "author": "Juan Francisco Rivadeneira / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_mindoensis.htm",
-      "caption": "Astroblepus mindoensis: From Mindo River",
-      "source": "scotcat"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {

@@ -1,0 +1,26 @@
+{
+  "slug": "ca-lau-kieng-loricaria-lata",
+  "name": "Cá lau kiếng Loricaria lata",
+  "altNames": [],
+  "sections": {
+    "quickFacts:glaser": "<p>Giống Loricaria có những loài cá lau kiếng đuôi roi cỡ lớn, ấp trứng bằng miệng. Trong số đó chỉ có L. simillima, loài phân bố rất rộng, thỉnh thoảng có bán. Các loài còn lại (17 loài đã được công nhận, thêm vài loài khoa học chưa định danh) đều thuộc hàng cực hiếm. Mới đây đã nhập được L. lata từ Brazil. Loài này dài 20–25 cm.</p>",
+    "distribution:glaser": "<p>Loài này sống ở lưu vực sông Rio Tocantins, Brazil.</p>",
+    "behaviour:glaser": "<p>Chúng sống hiền với nhau nhưng hơi nhát. Khi bị động, chúng tìm cách trốn xuống nền.</p>",
+    "equipment:glaser": "<p>Vì vậy nuôi loài này thì nền cát sẽ có ích. Lúc đó nhìn gần, cá có thể trông như bị bệnh đốm trắng (Ichthyophthirius), nhưng thật ra chúng hoàn toàn khỏe.</p>",
+    "dimorphism:glaser": "<p>Cũng như nhiều loài cá lau kiếng ấp trứng bằng miệng khác, loài này có nhiều kiểu màu. Ngay trong một quần thể, các con đã mang hoa văn khác hẳn nhau. Có con gần như đen tuyền, có con khá sáng màu với các sọc đen, và có đủ mọi dạng ở giữa. Cá cũng có thể đổi màu tùy tâm trạng.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-22"
+  }
+}

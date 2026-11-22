@@ -2025,6 +2025,53 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/astroblepidae/astroblepus_quispei.htm": {
+    "entityIds": [
+      "species/astroblepus-quispei"
+    ],
+    "updatedAt": "2026-11-21T12:08:50.602Z",
+    "hash": "dd0874129d59cb75658c4c97558435a0d8d041e0c1475b2339b05e99670131e5",
+    "processedHash": "dd0874129d59cb75658c4c97558435a0d8d041e0c1475b2339b05e99670131e5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_rosei.htm": {
+    "entityIds": [
+      "species/astroblepus-rosei"
+    ],
+    "updatedAt": "2026-11-21T17:56:10.103Z",
+    "hash": "f39a0464ef0b7e4255b6f81387ec6d668d2bfb8e8f3cb9e1e16dfd1c4651daec",
+    "processedHash": "f39a0464ef0b7e4255b6f81387ec6d668d2bfb8e8f3cb9e1e16dfd1c4651daec",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_sabalo.htm": {
+    "entityIds": [
+      "species/astroblepus-sabalo"
+    ],
+    "updatedAt": "2026-11-21T17:59:36.127Z",
+    "hash": "c5d1230343ff43d84b8c9a50305a9ebe046ec25a2e85b4e29700084d9d6a6f03",
+    "processedHash": "c5d1230343ff43d84b8c9a50305a9ebe046ec25a2e85b4e29700084d9d6a6f03",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_sp.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-11-21T18:03:08.699Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "page.goto: Timeout 45000ms exceeded.\nCall log:\n  - navigating to \"https://www.scotcat.com/astroblepidae/astroblepus_sp.htm\", waiting until \"domcontentloaded\"\n"
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_taczanowskii.htm": {
+    "entityIds": [
+      "species/astroblepus-taczanowskii"
+    ],
+    "updatedAt": "2026-11-21T18:03:59.105Z",
+    "hash": "d47ae918a751b06190949c307b8c6993496ca622ff87c656b7852fd4bb30bcd3",
+    "processedHash": "d47ae918a751b06190949c307b8c6993496ca622ff87c656b7852fd4bb30bcd3",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/auchenipteridae/ageneiosus_lineatus.htm": {
     "entityIds": [
       "species/ageneiosus-lineatus"
@@ -2042,6 +2089,16 @@
     "updatedAt": "2026-10-31T19:33:09.192Z",
     "hash": "ebc2cf45b9776851e5e903ffc785b3e1f67744d011c12cfabc4e8249d444014f",
     "processedHash": "ebc2cf45b9776851e5e903ffc785b3e1f67744d011c12cfabc4e8249d444014f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenipteridae/auchenipterichthys_punctatus.htm": {
+    "entityIds": [
+      "species/auchenipterichthys-punctatus"
+    ],
+    "updatedAt": "2026-11-21T11:48:09.527Z",
+    "hash": "677160468fa2dca74626983806fddfebabeae179601bb3c2a03a84ba2636ba34",
+    "processedHash": "677160468fa2dca74626983806fddfebabeae179601bb3c2a03a84ba2636ba34",
     "status": "processed",
     "attempts": 0
   },
@@ -2182,6 +2239,16 @@
     "updatedAt": "2026-11-11T02:45:17.462Z",
     "hash": "0550c61d9287036eb3729d92e4c9a4ddcd0e736e5faefeea033b99e07a2b2ca0",
     "processedHash": "0550c61d9287036eb3729d92e4c9a4ddcd0e736e5faefeea033b99e07a2b2ca0",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenipteridae/tympanopleura_cryptica.htm": {
+    "entityIds": [
+      "species/tympanopleura-cryptica"
+    ],
+    "updatedAt": "2026-11-21T17:54:24.836Z",
+    "hash": "9192bfc9b1d66e891d45840b4061ef03b46dd6c48d7df70d150c62e4af983fb0",
+    "processedHash": "9192bfc9b1d66e891d45840b4061ef03b46dd6c48d7df70d150c62e4af983fb0",
     "status": "processed",
     "attempts": 0
   },
@@ -2585,6 +2652,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/doradidae/lithodoras_dorsalis.htm": {
+    "entityIds": [
+      "species/lithodoras-dorsalis"
+    ],
+    "updatedAt": "2026-11-21T17:46:10.130Z",
+    "hash": "9405e5273f42a23bb471016eec34a916a8b60868fe22b384d8df79c44e70bbef",
+    "processedHash": "9405e5273f42a23bb471016eec34a916a8b60868fe22b384d8df79c44e70bbef",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/doradidae/orinocodoras_eigenmanni.htm": {
     "entityIds": [
       "species/orinocodoras-eigenmanni"
@@ -2662,6 +2739,16 @@
     "updatedAt": "2026-11-02T18:12:07.220Z",
     "hash": "e7bf311c5afc938d22ca5023dce9a1094fb1f8bcda808829fdc0c39bd2a8b069",
     "processedHash": "e7bf311c5afc938d22ca5023dce9a1094fb1f8bcda808829fdc0c39bd2a8b069",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/heptapteridae/heptapterus_mustelinus.htm": {
+    "entityIds": [
+      "species/heptapterus-mustelinus"
+    ],
+    "updatedAt": "2026-11-21T12:01:23.962Z",
+    "hash": "015545c3c925abd9c15d7d6ad363ad1a635fa2340231f7bb803a6d06c22cf9fa",
+    "processedHash": "015545c3c925abd9c15d7d6ad363ad1a635fa2340231f7bb803a6d06c22cf9fa",
     "status": "processed",
     "attempts": 0
   },
@@ -2805,6 +2892,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/chaetostoma_joropo.htm": {
+    "entityIds": [
+      "species/chaetostoma-joropo"
+    ],
+    "updatedAt": "2026-11-21T11:50:44.028Z",
+    "hash": "0188b4c8e8a60dbd045bd6165c571e2a831c42e21d5783626fff016fc3711976",
+    "processedHash": "0188b4c8e8a60dbd045bd6165c571e2a831c42e21d5783626fff016fc3711976",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/chaetostoma_leucomelas.htm": {
     "entityIds": [
       "species/chaetostoma-leucomelas"
@@ -2942,6 +3039,16 @@
     "updatedAt": "2026-11-15T17:51:02.713Z",
     "hash": "07841d6250adc6157a7bbf1331dcb0de7765f64d5a1c7428466c69dcca3caffe",
     "processedHash": "07841d6250adc6157a7bbf1331dcb0de7765f64d5a1c7428466c69dcca3caffe",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/hopliancistrus_xikrin.htm": {
+    "entityIds": [
+      "species/hopliancistrus-xikrin"
+    ],
+    "updatedAt": "2026-11-21T12:03:32.132Z",
+    "hash": "31a2bcc09d8fe0e9ecacb94775071b12f9c45cff09070b1c7d03d9f7dab4356b",
+    "processedHash": "31a2bcc09d8fe0e9ecacb94775071b12f9c45cff09070b1c7d03d9f7dab4356b",
     "status": "processed",
     "attempts": 0
   },
@@ -3463,6 +3570,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/pseudolithoxus_kelsorum.htm": {
+    "entityIds": [
+      "species/pseudolithoxus-kelsorum"
+    ],
+    "updatedAt": "2026-11-21T17:51:18.142Z",
+    "hash": "37f2b85be17dde819ac5acc8e53011cd020e1ffc20bc6e75d698d451211ee079",
+    "processedHash": "37f2b85be17dde819ac5acc8e53011cd020e1ffc20bc6e75d698d451211ee079",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/pseudolithoxus_tigris.htm": {
     "entityIds": [
       "species/pseudolithoxus-tigris"
@@ -3763,6 +3880,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/pimelodidae/pimelodina_flavipinnis.htm": {
+    "entityIds": [
+      "species/pimelodina-flavipinnis"
+    ],
+    "updatedAt": "2026-11-21T17:49:22.822Z",
+    "hash": "d3d7f40475f5297bf0e2b3f4423e852d2e186cadc832f6cdc801a0886fbf8971",
+    "processedHash": "d3d7f40475f5297bf0e2b3f4423e852d2e186cadc832f6cdc801a0886fbf8971",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/pimelodidae/platystomatichthys_sturio.htm": {
     "entityIds": [
       "species/platystomatichthys-sturio"
@@ -3903,6 +4030,26 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/sisoridae/chimarrichthys_kishinouyei.htm": {
+    "entityIds": [
+      "species/chimarrichthys-kishinouyei"
+    ],
+    "updatedAt": "2026-11-21T11:53:07.692Z",
+    "hash": "70d7cb3b3a5abc109514eacef8a5c40de3b57d887a385727fadc72bbe6f8f060",
+    "processedHash": "70d7cb3b3a5abc109514eacef8a5c40de3b57d887a385727fadc72bbe6f8f060",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/sisoridae/creteuchiloglanis_macropterus.htm": {
+    "entityIds": [
+      "species/creteuchiloglanis-macropterus"
+    ],
+    "updatedAt": "2026-11-21T11:54:29.844Z",
+    "hash": "de0b2ebba185cca6b8f6f84aff3480d69809edcc1907cf84528947f0ea30b0fb",
+    "processedHash": "de0b2ebba185cca6b8f6f84aff3480d69809edcc1907cf84528947f0ea30b0fb",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/sisoridae/erethistes_pusillus.htm": {
     "entityIds": [
       "species/erethistes-pusillus"
@@ -3933,6 +4080,36 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/sisoridae/gagata_gagata.htm": {
+    "entityIds": [
+      "species/gagata-gagata"
+    ],
+    "updatedAt": "2026-11-21T11:56:15.400Z",
+    "hash": "bc5048fc62766ab27dd008a6600a4509027176b64d0335151d64237345f3c9d2",
+    "processedHash": "bc5048fc62766ab27dd008a6600a4509027176b64d0335151d64237345f3c9d2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/sisoridae/glyptothorax_schmidti.htm": {
+    "entityIds": [
+      "species/glyptothorax-schmidti"
+    ],
+    "updatedAt": "2026-11-21T11:58:48.469Z",
+    "hash": "46ab0c0ae7081efd3ea0bdb9dec99ae2a102505ff9ee85f7971818da41ccdaa7",
+    "processedHash": "46ab0c0ae7081efd3ea0bdb9dec99ae2a102505ff9ee85f7971818da41ccdaa7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/sisoridae/nangra_assamensis.htm": {
+    "entityIds": [
+      "species/nangra-assamensis"
+    ],
+    "updatedAt": "2026-11-21T12:05:07.749Z",
+    "hash": "bdff0e876169411afcc1e95401ff16b8d94c120cb44cf7cceebef6c063a217b9",
+    "processedHash": "bdff0e876169411afcc1e95401ff16b8d94c120cb44cf7cceebef6c063a217b9",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/sisoridae/pseudecheneis_sulcata.htm": {
     "entityIds": [
       "species/pseudecheneis-sulcata"
@@ -3940,6 +4117,16 @@
     "updatedAt": "2026-11-15T08:50:20.654Z",
     "hash": "08a881d2c1695d78462ef27a2180b79c2e46694386993bad1734845ac23fb53b",
     "processedHash": "08a881d2c1695d78462ef27a2180b79c2e46694386993bad1734845ac23fb53b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/sisoridae/pseudexostoma_brachysoma.htm": {
+    "entityIds": [
+      "species/pseudexostoma-brachysoma"
+    ],
+    "updatedAt": "2026-11-21T12:07:42.595Z",
+    "hash": "1968eabfc0f3f9709ab09f71bbf96e1b748a307a67a5c0ce7f550c1593726888",
+    "processedHash": "1968eabfc0f3f9709ab09f71bbf96e1b748a307a67a5c0ce7f550c1593726888",
     "status": "processed",
     "attempts": 0
   },

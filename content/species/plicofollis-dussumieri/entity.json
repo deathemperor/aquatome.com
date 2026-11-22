@@ -20,41 +20,27 @@
   "range": {
     "native": {
       "countries": [
-        "MZ",
-        "MG",
-        "LK",
-        "IN",
-        "BD",
-        "MM"
+        "IN"
       ],
-      "regions": [
-        "Sumatra"
-      ],
+      "regions": [],
       "sources": [
-        "scotcat"
+        "planetcatfish"
       ],
       "quotes": [
         {
-          "source": "scotcat",
-          "quote": "Indo-west Pacific: Mozambique and Madagascar to Sri Lanka, the east coast of India, Bangladesh, Myanmar to Sumatra.",
+          "source": "planetcatfish",
+          "quote": "Plicofollis dussumieri (Valenciennes in Cuvier & Valenciennes, 1840). Type locality: Malabar, India. Size: 620 mm SL. IUCN Red List status: Least Concern.",
           "countries": [
-            "MZ",
-            "MG",
-            "LK",
-            "IN",
-            "BD",
-            "MM"
+            "IN"
           ],
-          "regions": [
-            "Sumatra"
-          ]
+          "regions": []
         }
       ]
     },
     "records": {
       "taxonKey": 2345125,
       "total": 2191,
-      "fetched": "2026-11-19",
+      "fetched": "2026-11-21",
       "countries": [
         [
           "MZ",
@@ -112,43 +98,43 @@
           32.34375,
           -26.71875,
           4,
-          4
+          0
         ],
         [
           33.75,
           -22.5,
           1,
-          1
+          0
         ],
         [
           35.15625,
           -23.90625,
           2,
-          2
+          0
         ],
         [
           35.15625,
           -22.5,
           25,
-          25
+          0
         ],
         [
           35.15625,
           -19.6875,
           391,
-          391
+          0
         ],
         [
           36.5625,
           -18.28125,
           734,
-          734
+          0
         ],
         [
           37.96875,
           -18.28125,
           994,
-          994
+          0
         ],
         [
           37.96875,
@@ -172,25 +158,25 @@
           46.40625,
           -25.3125,
           1,
-          1
+          0
         ],
         [
           47.8125,
           -21.09375,
           1,
-          1
+          0
         ],
         [
           47.8125,
           -19.6875,
           1,
-          1
+          0
         ],
         [
           47.8125,
           -14.0625,
           2,
-          2
+          0
         ],
         [
           66.09375,
@@ -232,7 +218,7 @@
           78.75,
           5.625,
           1,
-          1
+          0
         ],
         [
           78.75,
@@ -262,13 +248,13 @@
           88.59375,
           21.09375,
           2,
-          2
+          1
         ],
         [
           91.40625,
           21.09375,
           1,
-          1
+          0
         ],
         [
           108.28125,

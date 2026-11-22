@@ -2,9 +2,12 @@
  "queue": [],
  "judged": [
   "File:Hyphessobrycon compressus (Michael Tobler).png",
-  "File:Hyphessobrycon compressus (Marco Endruweit).png"
+  "File:Hyphessobrycon compressus (Marco Endruweit).png",
+  "inat:180706323"
  ],
- "hashes": {},
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/180706323/large.jpg": "2b601161e1c56120"
+ },
  "commons": "2026-11-08",
  "inat": {
   "taxon": 317157,
@@ -17,5 +20,13 @@
  "gbif": {
   "key": 2354655,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 107442624,
+  "done": true
+ },
+ "exhausted": "2026-11-21"
 }

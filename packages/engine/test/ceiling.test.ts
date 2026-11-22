@@ -295,9 +295,9 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     { from: '2026-11-20T00:00:00+07:00', to: '2026-11-20T23:59:00+07:00', whole: true, steps: 574, backstop: 633, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 115, material: 8, ask: 2, ideas: 4, judge: 24, photos: 35, recheck: 25 },
     { from: '2026-11-21T00:00:00+07:00', to: '2026-11-21T16:29:00+07:00', whole: true, steps: 552, backstop: 625, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, magazine: 3, photos: 35, videoCheck: 4, recheck: 25, guideVideos: 30 },
     { from: '2026-11-21T16:30:00+07:00', to: '2026-11-21T23:59:00+07:00', whole: true, steps: 579, backstop: 652, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, magazine: 3, photos: 35, videoCheck: 4, recheck: 25, fishVideos: 12, guideVideos: 34, titles: 6, titlesCheck: 5 },
-    { from: '2026-11-22T00:00:00+07:00', to: '2026-11-22T23:59:00+07:00', whole: true, steps: 552, backstop: 625, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, magazine: 3, photos: 35, videoCheck: 4, recheck: 25, guideVideos: 30 },
-    { from: '2026-11-23T00:00:00+07:00', to: '2026-11-24T23:59:00+07:00', whole: true, steps: 529, backstop: 602, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, magazine: 3, photos: 12, videoCheck: 4, recheck: 25 },
-    { from: '2026-11-25T00:00:00+07:00', to: '2026-12-31T00:00:00+07:00', whole: true, steps: 450, backstop: 523, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, magazine: 3, photos: 12, videoCheck: 4, recheck: 6 },
+    { from: '2026-11-22T00:00:00+07:00', to: '2026-11-22T23:59:00+07:00', whole: true, steps: 557, backstop: 630, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, magazine: 3, photos: 35, videoCheck: 4, recheck: 25, guideVideos: 30, read: 5, pass: 0 },
+    { from: '2026-11-23T00:00:00+07:00', to: '2026-11-24T23:59:00+07:00', whole: true, steps: 579, backstop: 652, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, magazine: 3, photos: 12, videoCheck: 4, recheck: 25, read: 5, pass: 45 },
+    { from: '2026-11-25T00:00:00+07:00', to: '2026-12-31T00:00:00+07:00', whole: true, steps: 455, backstop: 528, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, magazine: 3, photos: 12, videoCheck: 4, recheck: 6, read: 5, pass: 0 },
   ]
   const fresh = await logs({ 'aquatome-cost-hand.jsonl': [] }).then(d => join(d, 'aquatome-cost-hand.jsonl'))
   for (const p of periods) for (const when of [p.from, p.to]) {
@@ -379,7 +379,13 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     // (the chief of staff, 19 Nov 2026).
     expect(cap(when, 'mac', 'writer-evidence')).toBe(p.writer ?? p.small)
     expect(cap(when, 'github', 'writer-evidence')).toBe(p.small)
-    if (p.recheck) expect(t.github.backstop).toBe(180 + p.recheck)
+    if (p.recheck) expect(t.github.backstop).toBe(180 + p.recheck + (p.read ?? 0))
+    // The pass over the open pages no read covers (fit-pass.ts): $45 on the Mac on its two nights' days, 23 and 24 Nov, with
+    // the Mac's backstop $45 higher, and $0 from 22 Nov but for those; the reader-fit read's own line on GitHub, $5 a day from
+    // 22 Nov, with GitHub's backstop $5 higher (the chief of staff, 21 Nov 2026).
+    expect(cap(when, 'mac', 'fit-pass')).toBe(p.pass ?? p.small)
+    expect(cap(when, 'github', 'fit-pass')).toBe(p.small)
+    expect(cap(when, 'github', 'fit')).toBe(p.read ?? p.small)
     // A step that runs on the other machine, or a new one, has the small ceiling, never none.
     expect(cap(when, 'github', 'run')).toBe(p.small)
     expect(cap(when, 'mac', 'anything-new')).toBe(p.small)
@@ -414,7 +420,7 @@ test('ceilings.json: the quota road test has its $1 after the board\'s $33.87 on
 
 // The recheck starts on the second sign-in while the third is out, at about $18 in all: $12 on 18 Nov and $6 on 19 Nov until
 // 13:00, when the third is back; then $25 a day to its last day, 24 Nov, and $6 from 25 Nov. GitHub's backstop is $180 and
-// the recheck's line on top (the chief of staff, 17 Nov 2026).
+// the recheck's line on top (the chief of staff, 17 Nov 2026), and from 22 Nov the reader-fit read's $5 too (21 Nov 2026).
 test('ceilings.json: the recheck\'s line and GitHub\'s backstop, day by day from 18 to 26 Nov', () => {
   const days = [
     { from: '2026-11-18T00:00', to: '2026-11-18T23:59', recheck: 12, backstop: 192 },
@@ -422,11 +428,11 @@ test('ceilings.json: the recheck\'s line and GitHub\'s backstop, day by day from
     { from: '2026-11-19T13:00', to: '2026-11-19T23:59', recheck: 25, backstop: 205 },
     { from: '2026-11-20T00:00', to: '2026-11-20T23:59', recheck: 25, backstop: 205 },
     { from: '2026-11-21T00:00', to: '2026-11-21T23:59', recheck: 25, backstop: 205 },
-    { from: '2026-11-22T00:00', to: '2026-11-22T23:59', recheck: 25, backstop: 205 },
-    { from: '2026-11-23T00:00', to: '2026-11-23T23:59', recheck: 25, backstop: 205 },
-    { from: '2026-11-24T00:00', to: '2026-11-24T23:59', recheck: 25, backstop: 205 },
-    { from: '2026-11-25T00:00', to: '2026-11-25T23:59', recheck: 6, backstop: 186 },
-    { from: '2026-11-26T00:00', to: '2026-11-26T23:59', recheck: 6, backstop: 186 },
+    { from: '2026-11-22T00:00', to: '2026-11-22T23:59', recheck: 25, backstop: 210 },
+    { from: '2026-11-23T00:00', to: '2026-11-23T23:59', recheck: 25, backstop: 210 },
+    { from: '2026-11-24T00:00', to: '2026-11-24T23:59', recheck: 25, backstop: 210 },
+    { from: '2026-11-25T00:00', to: '2026-11-25T23:59', recheck: 6, backstop: 191 },
+    { from: '2026-11-26T00:00', to: '2026-11-26T23:59', recheck: 6, backstop: 191 },
   ]
   for (const d of days) for (const at of [d.from, d.to]) {
     const when = `${at}:00+07:00`

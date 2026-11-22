@@ -34,14 +34,22 @@
     "behaviour:bwaquatics": "<p>Đây là loài cá hiền. Nuôi chung hợp với các loài cá nano hiền khác như cá cườm (Celestial Pearl Danio), cá tam giác hay cá chuột. Tránh thả chung với cá lớn hoặc cá dữ, vì chúng có thể ăn thịt loài này.</p>",
     "dimorphism:bwaquatics": "<p>Con đực có ánh xanh neon đến xanh lục lam dọc nửa thân trên, điểm thêm những mảng đỏ cam, và vây cũng ửng đỏ cam. Con cái màu nhạt hơn. Vây trong đến hơi đỏ.</p>",
     "reproduction:bwaquatics": "<p>Cho loài này đẻ trong bể ở nhà khá khó, nhưng vẫn làm được nếu tách sang bể riêng. Bể đẻ cần nước rất mềm, có tính axit (pH khoảng 5,0) và vài búi len để cá đẻ trứng vào.</p>",
-    "notes:bwaquatics": "<p>Loài cá này không thích nước thay đổi. Muốn chỉnh gì thì chỉnh từ từ.</p>"
+    "notes:bwaquatics": "<p>Loài cá này không thích nước thay đổi. Muốn chỉnh gì thì chỉnh từ từ.</p>",
+    "notes:aquatome": "<p>Loài này được mô tả vào những năm 1970, có lẽ là năm 1976 hoặc 1977. Một người nuôi loài này lâu năm cho rằng chi Sundadanio hiện có khoảng tám loài đã được mô tả, chứ không chỉ có một loài, và các loài này đều sống ở rừng đầm lầy nước đen.</p>",
+    "habitat:aquatome": "<p>Ở những khu rừng đầm lầy nơi chi này sống, nắng thường không chiếu được tới đáy. Nhìn xuống nước có lẽ chỉ thấy được chừng nửa mét, sâu hơn là tối đen.</p>",
+    "beforeYouBuy:aquatome": "<p>Loài này rất hiếm gặp ở tiệm cá hay hội chợ cá cảnh. Một người nuôi loài này lâu năm thấy cá tìm được thì thường đã yếu. Theo người này, nhiều nơi nhập sỉ thả cá vừa về vào nước thường, rồi khi cá phải chống chọi với các loại vi khuẩn thì đa số không qua khỏi. Một người bán sỉ quen của người này thì thả cá từ Indonesia về ngay vào xô nước đen ngâm lá bàng, pH chừng 5, và lứa cá người này lấy từ đó lên tốt.</p>",
+    "aquariumSize:aquatome": "<p>Một người nuôi loài này lâu năm giữ đàn 16–17 con trong bể nano khoảng 30 lít, ít hơn đàn 20–30 con vẫn hay được khuyên. Người này chọn bể nhỏ để ngày nào cũng soi kỹ được vây cá, xem có đốm trắng hay dấu hiệu bệnh gì không. Ở bể lớn thì khó theo dõi sát như vậy.</p>",
+    "maintenance:aquatome": "<p>Một người nuôi loài này lâu năm thấy cá khó nhất là lúc mới về, còn khi đã quen bể thì khá khỏe. Đây là kinh nghiệm của người này:</p><ul><li>Lứa đầu 15–20 con bị thối vây mà người này không để ý, chỉ hai ngày là mất cả đàn.</li><li>Với lứa thứ hai, người này chuẩn bị từ vài tuần trước, ngâm một nắm lớn lá bàng trong xô to cho nước sậm màu. Cá về trong túi nước đen, khoảng 20 lít nước đó được đổ vào bể 30 lít, phần còn lại là nước trong.</li><li>Sau đó người này thay nước từ từ trong khoảng 10–15 ngày, chừng hai tuần thì nước bể mới trong hẳn. Lúc cá chưa quen bể, thay nước dày quá sẽ hại cá.</li><li>Khoảng ba bốn tuần sau khi về, vài con có đốm trắng trên vây và vây bị khuyết. Người này cho thuốc trị vào bể, nước ngả xanh rồi khoảng một ngày sau trong lại. Cá chịu thuốc tốt và vây mọc lại sau ba đến bốn tuần.</li><li>Khi cá đã ổn định, người này thay khoảng 50% nước mỗi tuần, và thấy nhiệt độ lên xuống trong một khoảng nhất định cũng không ảnh hưởng gì. Để bể không nhiễm thêm vi khuẩn, người này cũng không thả thêm cá hay tép mới vào.</li></ul>",
+    "diet:aquatome": "<p>Một người nuôi loài này lâu năm cho cá mới về ăn toàn artemia mới nở, rồi trong vài ngày chuyển dần sang cám viên nhỏ. Người này thấy cá không ăn thức ăn nổi trên mặt nước mà chỉ đớp thức ăn đang trôi ngang qua. Chúng cũng chê đồ cứng, cám phải thật mềm và nhỏ thì mới chịu ăn.</p>",
+    "behaviour:aquatome": "<p>Một người nuôi loài này lâu năm thả chung với tép mà tép vẫn sinh sản được trong bể, vì cá không săn tép con. Người này cũng ít khi thấy cá ngoi lên mặt nước kiếm ăn.</p>"
   },
   "quality": {
     "score": 0.86,
     "indexable": true,
     "bySource": {
       "bwaquatics": 0.9,
-      "seriouslyfish": 0.86
+      "seriouslyfish": 0.86,
+      "aquatome": 0.86
     }
   }
 }

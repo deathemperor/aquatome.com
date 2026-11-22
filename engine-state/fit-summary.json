@@ -1,5 +1,5 @@
 {
- "day": "2026-11-21",
+ "day": "2026-11-22",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 4989,
-   "read": 4296,
-   "wrong": 1585,
+   "pages": 5097,
+   "read": 4439,
+   "wrong": 1616,
    "pct": 37,
-   "held": 584
+   "held": 616
   },
   "id": {
-   "pages": 1680,
-   "read": 1530,
-   "wrong": 426,
-   "pct": 28,
-   "held": 173
+   "pages": 1708,
+   "read": 1565,
+   "wrong": 429,
+   "pct": 27,
+   "held": 175
   },
   "th": {
-   "pages": 1668,
-   "read": 1504,
-   "wrong": 395,
+   "pages": 1706,
+   "read": 1557,
+   "wrong": 404,
    "pct": 26,
-   "held": 152
+   "held": 160
   },
   "ms": {
-   "pages": 532,
-   "read": 490,
-   "wrong": 140,
-   "pct": 29,
-   "held": 94
+   "pages": 578,
+   "read": 537,
+   "wrong": 148,
+   "pct": 28,
+   "held": 102
   }
  },
  "labels": {
@@ -59,42 +59,37 @@
  "sample": [
   {
    "lang": "vi",
-   "path": "/vi/ca/ca-hemibagrus-microphthalmus/",
-   "url": "https://aquatome.com/ca/ca-hemibagrus-microphthalmus/",
-   "title": "Cá Hemibagrus microphthalmus",
-   "wrong": [
-    {
-     "check": "words",
-     "quote": "Nhiều khả năng"
-    },
-    {
-     "check": "words",
-     "quote": "giữ lãnh thổ"
-    },
-    {
-     "check": "words",
-     "quote": "ghi nhận"
-    }
-   ]
+   "path": "/vi/ca/ca-nheo-guitar-nho/",
+   "url": "https://aquatome.com/ca/ca-nheo-guitar-nho/",
+   "title": "Cá nheo guitar nhỏ",
+   "wrong": []
+  },
+  {
+   "lang": "id",
+   "path": "/id/peralatan/test-nuoc/",
+   "url": "https://aquatome.com/id/peralatan/test-nuoc/",
+   "title": "Test kit air",
+   "wrong": []
   },
   {
    "lang": "vi",
-   "path": "/vi/ca/ca-oto-peppermint/",
-   "url": "https://aquatome.com/ca/ca-oto-peppermint/",
-   "title": "Cá oto peppermint",
+   "path": "/vi/huong-dan/xu-ly-reu-toc-o-be-thuy-sinh-ha-lan-moi-set/",
+   "url": "https://aquatome.com/huong-dan/xu-ly-reu-toc-o-be-thuy-sinh-ha-lan-moi-set/",
+   "title": "Xử lý rêu tóc ở bể thủy sinh Hà Lan mới set",
    "wrong": [
     {
      "check": "source",
-     "quote": "Lô cá nhập từ Venezuela hiện nay rất ổn định và không gặp vấn đề gì."
+     "quote": "Bể Hà Lan 60 cm này trồng toàn các loại cây cắt cắm phổ biến."
+    },
+    {
+     "check": "source",
+     "quote": "Bể 60 cm này chỉ dùng hai đèn giá rẻ."
+    },
+    {
+     "check": "words",
+     "quote": "Một cách tự nhiên"
     }
    ]
-  },
-  {
-   "lang": "th",
-   "path": "/th/fish/corydoras-paleatus/",
-   "url": "https://aquatome.com/th/fish/corydoras-paleatus/",
-   "title": "แพะพริกไทย",
-   "wrong": []
   }
  ]
 }

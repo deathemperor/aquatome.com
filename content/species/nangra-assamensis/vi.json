@@ -1,19 +1,27 @@
 {
   "slug": "ca-nangra-assamensis",
   "name": "Cá Nangra assamensis",
-  "altNames": [],
+  "altNames": [
+    "Cá Nangra Koshi",
+    "Koshi Nangra"
+  ],
   "sections": {
     "quickFacts:planetcatfish": "<p>Nangra assamensis Sen &amp; Biswas, 1994. Họ Sisoridae. Cá dài tối đa 92 mm SL (chiều dài chuẩn, đo từ mõm tới gốc đuôi). Tình trạng IUCN: Ít quan ngại (đánh giá lần gần nhất năm 2009).</p><p>Nơi thu mẫu định danh: sông Brahmaputra ở Neematighat, cách Jorhat (Assam, Ấn Độ) 14 km.</p>",
     "distribution:planetcatfish": "<p>Châu Á: Ấn Độ. Loài này có ở các sông vùng đông bắc Ấn Độ (Padma, Jamuna, Brahmaputra), ở sông Hằng và các sông vùng Bengal, kể cả Tây Bengal.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: chưa có tài liệu nào ghi lại.</p>",
-    "references:planetcatfish": "<p>Records of the Zoological Survey of India v. 94 (nos 2-4), pp 441, Fig 1; Pl. 1.</p>"
+    "references:planetcatfish": "<p>Records of the Zoological Survey of India v. 94 (nos 2-4), pp 441, Fig 1; Pl. 1.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: Koshi Nangra</li></ul>",
+    "distribution:scotcat": "<p>Châu Á: sông Hằng và sông Brahmaputra ở Ấn Độ. Nơi thu mẫu chuẩn là sông Brahmaputra tại Neematighat, cách Jorhat (Assam, Ấn Độ) 14 km. Loài này cũng có ở Nepal.</p>",
+    "maintenance:scotcat": "<p>Bể nên có nắp kính đậy khít, vì loài này hay bơi vọt mạnh từ nền lên mặt nước.</p><p>Lọc phải tốt. Nên dùng lọc trong có dòng chảy khá mạnh, gắn thêm đầu sủi để nước chảy xiết và giàu oxy. Muốn nuôi Nangra assamensis sống khỏe được lâu thì nước phải như vậy.</p><p>Nền sỏi tròn, hạt mịn, xen đá to nhỏ và vài khóm cây thấp lá cứng sẽ giúp con sisorid nhỏ này thấy yên tâm hơn phần nào.</p>",
+    "diet:scotcat": "<p>Cho ăn không khó lắm. Loài này chịu ăn các loại thức ăn đông lạnh quen thuộc như bo bo và trùng huyết.</p>",
+    "notes:scotcat": "<p>Mô tả: Vây lưng có tổng cộng 1 gai và 6 tia mềm. Số đốt sống là 35–37. Vây lưng có 6 tia phân nhánh. Gai vây lưng và gai vây ngực kéo dài thành sợi. Vây hậu môn có 4–5 tia đơn và 7–9 tia phân nhánh. Mõm nhô hẳn ra trước. Đầu, thân và cuống đuôi hơi thon dài hơn các loài khác cùng chi.</p><p>Từ nguyên: Tên chi Nangra trùng với tên loài của Pimelodus nangra. Chữ nangra có lẽ là tên người Bengal dọc sông Kosi ở Ấn Độ gọi loài cá này. Tên loài assamensis ghép từ Assam (Ấn Độ), nơi thu mẫu chuẩn, với hậu tố -ensis chỉ nơi chốn.</p><p>Giống các loài khác trong họ Sisoridae, Nangra có bộ phận bám ở mặt bụng. Bộ phận này là những nếp da nhìn thấy được bằng mắt.</p><p>Danh sách đỏ IUCN: xếp hạng Ít quan tâm (IUCN 2010), nhưng đánh giá này cần cập nhật. Loài này có ở các sông lớn thuộc lưu vực sông Hằng và Brahmaputra, và hiện chưa thấy mối đe dọa đáng kể nào.</p>"
   },
   "quality": {
-    "score": 0.93,
-    "indexable": false,
+    "score": 0.82,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.93
-    },
-    "reason": "thin"
+      "planetcatfish": 0.93,
+      "scotcat": 0.82
+    }
   }
 }

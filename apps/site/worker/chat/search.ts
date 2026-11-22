@@ -23,12 +23,15 @@ const thai = typeof Intl.Segmenter === 'function' ? new Intl.Segmenter('th', { g
 const split = (s: string) => s.split(' ').flatMap(w => (thai && THAI.test(w) ? [...thai.segment(w)].filter(x => x.isWordLike).map(x => x.segment) : [w]))
 const words = (s: string) => split(fold(s)).filter(w => w.length > 1 || /\d/.test(w))
 
+/** A glossary term's link phrases, which find it as its other names do ("sống theo đàn", Cá đàn). A tool's words don't. */
+const phrases = (item: Item) => (item.kind === 'glossary' ? item.words ?? [] : [])
+
 /** How well an item answers the query: 0 for not at all. */
 export function score(item: Item, query: string): number {
   const q = fold(query)
   if (!q) return 0
   const own = fold(item.name)
-  const others = [...(item.aka ?? []), ...(item.sub && item.kind !== 'video' ? [item.sub] : [])].map(fold)
+  const others = [...(item.aka ?? []), ...phrases(item), ...(item.sub && item.kind !== 'video' ? [item.sub] : [])].map(fold)
   const names = [own, ...others]
   // Named exactly that, then alike past a leading "cá", then beginning with it; at each, its own name before its others.
   const by = (best: number, match: (n: string) => boolean) => (match(own) ? best : others.some(match) ? best - 5 : 0)
@@ -60,7 +63,7 @@ function termIn(item: Item, query: string, names: string[]): boolean {
   if (item.kind !== 'glossary') return false
   const q = ` ${fold(query)} `
   const words = split(fold(query))
-  return [item.name, ...(item.aka ?? [])].map(fold).some(n => {
+  return [item.name, ...(item.aka ?? []), ...phrases(item)].map(fold).some(n => {
     // Thai writes no spaces between words, so a Thai name with no space can still be several words: it never matches by its start.
     const said = n.length > 2 && (q.includes(` ${n} `) || (!n.includes(' ') && !THAI.test(n) && words.some(w => w.length > 3 && n.startsWith(w))))
     return said && names.filter(x => x.includes(` ${n} `)).length <= RARE_NAME

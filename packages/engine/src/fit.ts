@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
-import { readFile, writeFile } from 'node:fs/promises'
+import { readFile, rename, rm, writeFile } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
 import { LANGS, retiredTo, type Lang } from '@aq/schema'
@@ -9,6 +9,7 @@ import { LlmError, type Llm } from './claude'
 import { mentions, PRODUCTS } from './market'
 import { LANG_NAME, type Page, type PageKind } from './pages'
 import { PHRASES, phraseQuotes } from './phrases'
+import { piece } from './pieces'
 import { label, norm, readable, render, RETRACTED } from './reader'
 import { CONVERTED_LITRES, sourceGives } from './round'
 import { sentences } from './sentences'
@@ -71,6 +72,11 @@ export type FitEntry = {
   checklist?: number
   /** The day a held page's mend of this text didn't let it out (gate.ts `MEND_AGAIN_DAYS`). */
   mendTried?: string
+  /**
+   * Read by the pass over the open pages no read covered (fit-pass.ts): harm it finds holds the page in every language, a
+   * kit holds none (gate.ts). The gate's read of a changed text has no mark.
+   */
+  pass?: boolean
 }
 /**
  * 2: `kit` added, a check guides read before it lack, so they're read again. 3: `harm` added, after a video guide told
@@ -799,17 +805,35 @@ export const fitDue = (pages: Page[], state: FitState) => pages.filter(p => {
 })
 
 /** Reads the pages due, a few at a time, saving as it goes. Stops, with what it has, when the accounts are out of their limit. */
-export async function runFit(pages: Page[], statePath: string, d: { llm: Llm; model?: string; jobs?: number; limit?: number; now?: () => Date; root?: string }) {
+/**
+ * `given`: read the pages as given, in their order, due or not (the pass's, fit-pass.ts, which chose them); `mark`: what each
+ * record it writes carries besides; `until`: while it holds, another page is started (the pass's hours: a run admitted at
+ * 06:59 starts none after 07:00, #1775's reader). The records are saved whole or not at all: a write that fails leaves the
+ * last saved file as it was, and two saves at once can't mix (the gate after it reads that file, #1775's reader).
+ */
+export async function runFit(pages: Page[], statePath: string, d: { llm: Llm; model?: string; jobs?: number; limit?: number; now?: () => Date; root?: string; given?: boolean; mark?: Pick<FitEntry, 'pass'>; until?: () => boolean }) {
   const state: FitState = JSON.parse(await readFile(statePath, 'utf8').catch(() => '{}'))
-  const due = fitOrder(fitDue(pages, state)).slice(0, d.limit ?? Infinity)
+  const due = (d.given ? pages : fitOrder(fitDue(pages, state))).slice(0, d.limit ?? Infinity)
   const report = { read: 0, failed: [] as string[], stopped: undefined as string | undefined, left: 0 }
-  const save = () => writeFile(statePath, `${JSON.stringify(Object.fromEntries(Object.entries(state).sort(([a], [b]) => a.localeCompare(b))), null, 1)}\n`)
+  let saves = 0
+  const save = async () => {
+    const tmp = `${statePath}.${process.pid}.${++saves}.tmp`
+    try {
+      await writeFile(tmp, `${JSON.stringify(Object.fromEntries(Object.entries(state).sort(([a], [b]) => a.localeCompare(b))), null, 1)}\n`)
+      await rename(tmp, statePath)
+    } catch (e) {
+      await rm(tmp, { force: true }).catch(() => {}) // the save's own error is the one to see; a copy left is ignored (.gitignore)
+      throw e
+    }
+  }
   let next = 0
   await Promise.all(Array.from({ length: d.jobs ?? 2 }, async () => {
     while (next < due.length && !report.stopped) {
+      if (d.until && !d.until()) { report.stopped = 'past its hours'; break }
       const p = due[next++]!
       try {
-        state[fitKey(p)] = await readFit(d.llm, p, d.model, (d.now ?? (() => new Date()))(), d.root ? await fitSource(d.root, p) : undefined)
+        // Each page is a piece of the step: started only when what's left of its day's line covers a read (pieces.ts).
+        state[fitKey(p)] = { ...(await piece(fitKey(p), async () => readFit(d.llm, p, d.model, (d.now ?? (() => new Date()))(), d.root ? await fitSource(d.root, p) : undefined))), ...d.mark }
         if (++report.read % 10 === 0) await save()
       } catch (e) {
         if (e instanceof LlmError && /limit|rejected|no account/i.test(e.message)) report.stopped = e.message.slice(0, 200)

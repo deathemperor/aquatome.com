@@ -10,21 +10,20 @@
     "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực sông La Plata, sông Uruguay và các sông đổ ra biển ở miền nam Brazil.</p>",
     "waterConditions:planetcatfish": "<ul><li>pH: 6,0–8,0</li><li>Nhiệt độ: 18–24 °C</li><li>dH: 6–10</li></ul>",
     "reproduction:planetcatfish": "<p>Chưa có tài liệu nào nói về sinh sản của loài này. Cũng chưa ai báo cáo đã cho chúng đẻ.</p>",
-    "notes:planetcatfish": "<p>Deprá và cộng sự (2022) mô tả lại giống Heptapterus với những đặc điểm chung sau: (1) vây mỡ dính liền với vây đuôi trên một đoạn dài, (2) vây đuôi không chẻ đôi, (3) có vạch và sọc sẫm màu ở phần lưng thân, (4) có 5–6 cặp xương sườn, (5) thân thon dài với chiều dài đầu bằng 16,1–24,9%, (6) mép miệng kéo về phía sau một đoạn ngắn, (7) tấm răng hàm trên không có hoặc chỉ có một phần nhô nhỏ về phía sau bên, (8) vây bụng mọc sau đường thẳng đứng kẻ qua gốc vây lưng và vây hậu môn mọc sau đường thẳng đứng kẻ qua điểm bắt đầu vây mỡ, (9) vây hậu môn có 10–23 tia, (10) vây hậu môn và vây đuôi tách rời nhau, (11) hai lỗ cảm giác trên ổ mắt số 6 (s6) dính liền hoặc nằm sát nhau.</p><p>Kích thước SL ở đây không khớp với Fishbase, nơi ghi 9 cm TL cho cùng loài này. Nhưng con số trên trang này đã được kiểm chứng.</p>",
-    "references:planetcatfish": "<p>Voyage dans l'Amérique méridionale, pp Pl. 2 (figs. 1-4).</p>"
+    "references:planetcatfish": "<p>Voyage dans l'Amérique méridionale, pp Pl. 2 (figs. 1-4).</p>",
+    "quickFacts:scotcat": "<p>Tính đến năm 2010, chi này có chín loài. Trước đây cả chín loài đều được xếp vào họ Pimelodidae. Họ: Heptapteridae. Kích thước: 9 cm. Nhiệt độ: 18–24°C. pH: 6,5–7,2.</p><p>Mô tả: thân cá dài và thon, đầu dẹt. Mặt trên của đầu có một lớp da dày phủ kín. Mấu chẩm ngắn, không chạm tới tấm xương trước vây lưng. Thóp hẹp và thường kéo dài tới gốc chẩm, có loài bị ngắt quãng ở sau mắt, có loài không. Vây lưng và vây ngực không có gai. Da thường trơn, không vảy, và cá có ba cặp râu.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông La Plata, sông Uruguay và các sông ven biển ở miền nam Brazil. Nơi thu mẫu chuẩn: Rio de la Plata.</p>",
+    "habitat:scotcat": "<p>Có một báo cáo về H. armillatus ngoài tự nhiên. Theo báo cáo này, loài này có vẻ ưa nền cát lẫn sỏi ở chỗ nước chảy khá xiết. Nó cũng có ở những đoạn nước chảy chậm của cùng con suối, nơi không có cây thủy sinh.</p>",
+    "maintenance:scotcat": "<p>Chi này ít khi được nuôi trong bể. Có một báo cáo cho biết H. leptos từng được nuôi trên nền mềm, đèn để dịu, vì loài này khá nhát và hay lẩn trốn.</p>",
+    "diet:scotcat": "<p>Cá ăn được hầu hết thức ăn chế biến sẵn, nhưng thích đồ tươi sống hơn.</p>",
+    "references:scotcat": "<p>Burgess, W.E. 1989 An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p>"
   },
   "quality": {
     "score": 0.88,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.88
-    },
-    "reason": "thin"
-  },
-  "held": {
-    "checks": [
-      "source"
-    ],
-    "at": "2026-11-21"
+      "planetcatfish": 0.88,
+      "scotcat": 0.93
+    }
   }
 }

@@ -173,3 +173,20 @@ private final class Phone: Sendable {
   await paths.settled()
   #expect(paths.kept == [guide] && phone.savedForm == nil)
 }
+
+/// What the reader keeps in one language stays with it: another's lists start empty, and say the first one has some.
+@Test @MainActor func whatsKeptInOneLanguageStaysWithItAndIsSaidInAnother() async {
+  let phone = Phone()
+  _ = await keptUnderVi(phone)
+  let th = HandbookPaths(lang: "th", cache: phone.cache(nil), defaults: phone.defaults)
+  th.use(HandbookIndex(lang: "th", items: [.init(kind: .fish, contentId: "paracheirodon-innesi", name: "ปลานีออน", path: "/th/fish/neon/")]))
+  #expect(th.keptItems.isEmpty && th.saved(nil).isEmpty)
+  let langs = ["vi", "id", "th", "ms"]
+  let fromThai = HandbookPaths.elsewhere(than: "th", languages: langs, defaults: phone.defaults)
+  #expect(fromThai.kept && fromThai.saved)
+  let fromVi = HandbookPaths.elsewhere(than: "vi", languages: langs, defaults: phone.defaults)
+  #expect(!fromVi.kept && !fromVi.saved)
+  // Back in Vietnamese, all of it as it was.
+  let vi = phone.launch(phone.cache(nil), index(atRoot: false))
+  #expect(vi.keptItems.map(\.path) == [guide] && vi.saved(nil).map(\.path) == [guide])
+}

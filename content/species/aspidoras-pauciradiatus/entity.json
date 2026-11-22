@@ -17,30 +17,26 @@
         "BR"
       ],
       "regions": [
-        "Araguaia",
-        "Rio Negro"
+        "Araguaia"
       ],
       "sources": [
-        "seriouslyfish",
-        "glaser"
+        "seriouslyfish"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Type locality is 'Rio Araquaia near Aruana, 14°58'S, 51°04'W, Goias State, Brazil', and this species appears restricted to the upper Araguaia basin.",
+          "quote": "Aspidoras pauciradiatus is a small armoured catfish that appears restricted to the upper Araguaia basin in Goiás state, Brazil.",
           "countries": [
             "BR"
           ],
-          "regions": [
-            "Araguaia"
-          ]
+          "regions": []
         },
         {
-          "source": "glaser",
-          "quote": "The species originates from the Rio Negro basin.",
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Rio Araquaia near Aruana, 14°58'S, 51°04'W, Goias State, Brazil', and this species appears restricted to the upper Araguaia basin.",
           "countries": [],
           "regions": [
-            "Rio Negro"
+            "Araguaia"
           ]
         }
       ]

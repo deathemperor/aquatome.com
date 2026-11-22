@@ -32,21 +32,8 @@
           "countries": [
             "ID"
           ],
-          "regions": []
-        },
-        {
-          "source": "bwaquatics",
-          "quote": "Boraras merah is a tiny nano rasbora endemic to southern Borneo, Indonesia.",
-          "countries": [],
           "regions": [
-            "Borneo"
-          ]
-        },
-        {
-          "source": "bwaquatics",
-          "quote": "It was first collected in the Jelai Bila basin near Sukamara, Central Kalimantan; \"merah\" is the local word for red.",
-          "countries": [],
-          "regions": [
+            "Borneo",
             "Jelai Bila"
           ]
         }
@@ -296,6 +283,12 @@
       "html": "<p>Physical characteristics: tiny, slender rasbora with a red to orange body, an oval dark blotch on the side (not a full stripe as in B. brigittae) and a dark spot at the tail base.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/boraras-merah-2/",
+      "html": "<p>The species is a very close relative to Boraras brigittae and, at least in some populations, the females of B. merah look like B. brigittae and only the males have a typical B. merah pattern. Cross-breeding experiments also show that both varieties are extremely close to each other in a genetic sense. In the population imported now, however, both sexes seem to be represented and both look like B. merah.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/boraras-merah",
@@ -365,6 +358,26 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/boraras-merah",
       "caption": "This species is sometimes confused with B. brigittae (see 'notes').",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e6c449c31243d9f9.webp",
+      "thumb": "https://media.aquatome.com/glaser/e6c449c31243d9f9-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/boraras-merah-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/67cdf153c93c555b.webp",
+      "thumb": "https://media.aquatome.com/glaser/67cdf153c93c555b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/boraras-merah-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -415,5 +428,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-19"
+  "updatedAt": "2026-11-21"
 }

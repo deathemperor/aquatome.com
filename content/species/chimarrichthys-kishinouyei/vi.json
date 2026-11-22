@@ -7,14 +7,18 @@
     "distribution:planetcatfish": "<p>Châu Á: Nepal và Trung Quốc. Loài này sống ở thượng nguồn sông Mân Giang, thuộc lưu vực sông Dương Tử. Nơi thu mẫu mô tả loài: Yingxiu, thành phố Đô Giang Yển [trước đây là Kwan-hsien, tỉnh Szechwan], tỉnh Tứ Xuyên, Trung Quốc.</p>",
     "habitat:planetcatfish": "<p>Loài này sống ở những vũng nước trong suối, nơi đáy là đá và sỏi.</p>",
     "reproduction:planetcatfish": "<p>Chưa có thông tin. Đến nay chưa có báo cáo nào về chuyện loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Journal of the Shanghai Science Institute Section 3, v. 1, pp 178, Pl. 6.</p>"
+    "references:planetcatfish": "<p>Journal of the Shanghai Science Institute Section 3, v. 1, pp 178, Pl. 6.</p>",
+    "quickFacts:scotcat": "<ul><li>Sách Đỏ IUCN: Chưa đánh giá</li></ul>",
+    "distribution:scotcat": "<p>Châu Á: sông Kim Sa (Jinshajiang), thuộc thượng lưu sông Dương Tử. Nơi thu mẫu chuẩn: Kwan-hsien, tỉnh Tứ Xuyên, Trung Quốc.</p>",
+    "notes:scotcat": "<p>Mẫu chuẩn (holotype) hiện lưu ở Phòng thí nghiệm Khoa Sinh học, Viện Khoa học Thượng Hải, Thượng Hải. Vây lưng có tổng cộng 1 gai và 5 tia mềm. Vây hậu môn có 1 gai và 4–5 tia mềm.</p><p>Euchiloglanis kishinouyei khác E. longibarbatus ở râu hàm trên. Râu hàm trên của loài này nhọn, không dài như sợi chỉ, và đầu râu chỉ chạm tới khe mang. Ở E. longibarbatus, râu hàm trên dài như sợi chỉ và đầu râu vượt quá khe mang về phía sau. So với E. davidi, E. longibarbatus và E. longus, loài này không có khía lõm trên dải răng xương tiền hàm, còn ba loài kia thì có. Vây ngực của nó dài bằng 75,5–89,6% khoảng cách từ gốc vây ngực tới gốc vây bụng, trong khi ở E. davidi con số này là 90,5–117,1%. Nó còn khác E. davidi và E. longus ở khoảng cách từ gốc vây bụng tới hậu môn. Ở loài này, khoảng cách đó bằng 81,5–97,5% khoảng cách từ gốc vây ngực tới gốc vây bụng, so với 100,0–125,0% ở E. davidi và 108,9–140,6% ở E. longus. Với E. dorsoarcus và E. phongthoensis, điểm khác là hậu môn của loài này nằm ở khoảng giữa gốc vây bụng và gốc vây hậu môn. Ở hai loài kia, khoảng cách từ hậu môn tới gốc vây bụng chỉ bằng khoảng 50% khoảng cách từ hậu môn tới gốc vây hậu môn.</p><p>Loài này trông giống Pareuchiloglanis myzostoma Norman (Ann. Mag. Nat. Hist., (9), XI, p. 562, 1923) ở Vân Nam, hồi đó được mô tả với tên Euchiloglanis myzostoma. Điểm khác là dải răng hàm trên kéo dài về phía sau ở hai bên, thân cao hơn, hoặc vị trí vây lưng khác.</p><p>Từ nguyên: tên giống Chimarrichthys ghép từ cheimárrous (dòng nước xiết) và ichthýs (cá). Tên này đặt theo nơi sống của C. davidi, một con suối chảy xiết ở miền đông Tây Tạng, có lẽ không có nước quanh năm. Giống này hay được ghi là Euchiloglanis Regan 1907, nhưng đó là một tên thay thế không cần thiết cho Chimarrichthys, vì Chimarrichthys không trùng với tên Cheimarrichthys Haast 1874 đã có ở cá. Tên loài kishinouyei đặt để tưởng nhớ Kamakichi Kishinouye (1867–1929), nhà sinh học thủy sản ở Đại học Hoàng gia Tokyo. Ông là người dẫn đoàn thu mẫu chuẩn và mất vì một cơn bệnh đột ngột ngay sau khi bắt được mẫu.</p><p>Ghi chú: loài này nay đã quay về tên giống Chimarrichthys (Euchiloglanis là tên thay thế do Regan đặt năm 1907). Eschmeyer's Catalog of Fishes công nhận tên này, nhưng tên cũ (tên đồng nghĩa muộn) vẫn còn gặp trên một số trang mạng.</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Kimura, Shigeru: Description of the fishes collected from the Yangtzekiang, China, by late Dr. K. Kishinouye and his party in 1927-1929 (From \"Contributions to the biological studies of fishes in China\": No I.) The Department of Biology, Shanghai Science Institute, Shanghai. 1933.</p><p>The ETYFish Project Fish Name Etymology Database.</p><p>Zhou, W., X. Li and A.W. Thomson, 2011. Two new species of the Glyptosternine catfish genus Euchiloglanis (Teleostei: Sisoridae) from southwest China with redescriptions of E. davidi and E. kishinouyei. Zootaxa 2871:1-18.</p>"
   },
   "quality": {
     "score": 0.9,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.9
-    },
-    "reason": "thin"
+      "planetcatfish": 0.9,
+      "scotcat": 0.93
+    }
   }
 }

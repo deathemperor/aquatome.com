@@ -1,13 +1,17 @@
 {
   "id": "betta-cracens",
-  "summary": "Hợp với người muốn nuôi riêng một bể yên tĩnh, ánh sáng yếu, có lá khô và chỗ râm. Cần bể đáy 80 cm (80 × 30 cm, khoảng 72 lít), nước axit pH 5,5–6,5, rất mềm 0–5 dGH, nhiệt độ 22–27 °C; độ khó 6/8 (khó). Điểm cần tính trước là mua đúng loài, vì phần lớn cá bán dưới tên này thực ra là B. pugnax, B. raja hoặc loài gần khác.",
+  "summary": "Cá betta cracens (Betta cracens) hợp với người đã có kinh nghiệm, thích nuôi riêng cá mê cung ấp trứng bằng miệng, độ khó 6/8. Cần bể dài tối thiểu 80 cm (đáy 80 × 30 cm, khoảng 72 lít), nước 22–27 °C, pH 5,5–6,5, 0–5 dGH, ánh sáng yếu, lọc bông sủi khí nhẹ, có lá khô và chỗ trốn. Khó nhất là mua đúng loài, vì cá bán dưới tên này phần lớn là B. pugnax, B. raja hoặc loài gần khác, và phải đậy bể thật kín vì cá nhảy giỏi.",
   "mistakes": [
-    "Thả chung bể cộng đồng thông thường thì cá bị doạ và giành mất thức ăn; nuôi riêng hoặc chung với loài thật hiền như cá họ chép cỡ nhỏ, cá chạch.",
-    "Để bể hở hoặc đổ nước đầy tới miệng thì cá nhảy mất; đậy kín và chừa khoảng không khí ẩm phía trên mặt nước.",
-    "Thay nhiều nước một lúc khi nuôi cá bột; thay ít mà đều đặn."
+    "Để bể hở hoặc đổ nước đầy tới miệng: cá nhảy rất giỏi và cần lớp không khí ẩm phía trên mặt nước, nên đậy thật kín và chừa khoảng trống.",
+    "Thả chung với cá lớn hoặc hiếu động: chúng sẽ làm cá sợ và giành hết thức ăn, nên nuôi riêng hoặc chung với loài thật hiền.",
+    "Cho ăn quá tay: Betta dễ béo phì, nên cho ăn vừa phải và thường xuyên đổi sang thức ăn sống hoặc đông lạnh cỡ nhỏ như Daphnia, Artemia, trùng huyết."
   ],
   "speciesUpdatedAt": "2026-11-01",
-  "generatedAt": "2026-11-09T17:03:20.007Z",
-  "review": "approved",
-  "writtenFrom": "b63f6118c03ffe16"
+  "writtenFrom": "b9bf21148d58b1d3",
+  "generatedAt": "2026-11-21T22:55:44.882Z",
+  "review": "pending",
+  "problems": [
+    "\"ánh sáng yếu\" is listed as a requirement (\"Cần ... ánh sáng yếu\"), but the page only hedges: \"có vẻ hợp nhất với ánh sáng khá yếu\" (seems to suit fairly weak light). The hedge became a certainty.",
+    "\"Betta dễ béo phì\" drops the page's hedge \"có vẻ đặc biệt dễ béo phì\" (seem especially prone to obesity), so a caution is stated as a fact."
+  ]
 }

@@ -54,19 +54,6 @@
       "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/115271654.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/115271654-480.webp",
-      "width": 1024,
-      "height": 664,
-      "licence": "CC BY",
-      "author": "Zac Peterson",
-      "sourceUrl": "https://www.inaturalist.org/photos/115271654",
-      "caption": "Ốc Strombus alatus trên bãi cát ẩm ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/197702360.webp",
       "thumb": "https://media.aquatome.com/inaturalist/197702360-480.webp",
       "width": 1024,
@@ -219,6 +206,20 @@
       "unchecked": true
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/489305443.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/489305443-480.webp",
+      "width": 1024,
+      "height": 690,
+      "licence": "CC BY-SA",
+      "author": "Rafael Rosa",
+      "sourceUrl": "https://www.inaturalist.org/photos/489305443",
+      "caption": "Ốc fighting conch trưởng thành trên bãi cát ven biển",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/110207507.webp",
       "thumb": "https://media.aquatome.com/inaturalist/110207507-480.webp",
       "width": 1024,
@@ -271,7 +272,7 @@
       "setup": false
     }
   ],
-  "seen": 540,
+  "seen": 640,
   "updatedAt": "2026-11-21",
   "builtAt": "2026-11-21"
 }

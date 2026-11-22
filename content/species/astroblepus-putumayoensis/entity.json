@@ -10,6 +10,38 @@
     "colombia",
     "putumayo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Mocoa River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Colombia, Department of Putumayo, Rumiyaco River, tributary of the Mocoa River.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Mocoa River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9468282,
+      "total": 0,
+      "fetched": "2026-11-21",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -71,19 +103,7 @@
       "html": "<p>Ardila Rodríguez, Carlos A.; Five New Species of Astroblepus Fish for Colombian Andes. Universidad Metropolitana, Barranquilla, Colombia. Vol. 1, Núm. 27 (2015). Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 12/2019 ). The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/368c748697fa4119.webp",
-      "thumb": "https://media.aquatome.com/scotcat/368c748697fa4119-480.webp",
-      "width": 500,
-      "height": 258,
-      "licence": "dùng với sự cho phép",
-      "author": "Carlos A. Ardila Rodriguez / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_putumayoensis.htm",
-      "caption": "Astroblepus putumayoensis",
-      "source": "scotcat"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {

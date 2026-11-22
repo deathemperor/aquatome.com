@@ -26,18 +26,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/13203074.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/13203074-480.webp",
-      "width": 1024,
-      "height": 1001,
-      "licence": "CC0",
-      "author": "Brady Reed",
-      "sourceUrl": "https://www.inaturalist.org/photos/13203074",
-      "caption": "Tôm hùm đất lùn con trong suốt, màu nhạt",
-      "best": false,
-      "kind": "juvenile"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/7107944.webp",
       "thumb": "https://media.aquatome.com/inaturalist/7107944-480.webp",
       "width": 1024,
@@ -96,6 +84,18 @@
       "caption": "Tôm hùm đất lùn trưởng thành màu nâu sẫm, càng giơ lên",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/13203074.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/13203074-480.webp",
+      "width": 1024,
+      "height": 1001,
+      "licence": "CC0",
+      "author": "Brady Reed",
+      "sourceUrl": "https://www.inaturalist.org/photos/13203074",
+      "caption": "Tôm hùm đất lùn con trong suốt, màu nhạt",
+      "best": false,
+      "kind": "juvenile"
     }
   ],
   "seen": 24,

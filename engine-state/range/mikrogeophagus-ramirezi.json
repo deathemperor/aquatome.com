@@ -1,8 +1,8 @@
 {
   "id": "mikrogeophagus-ramirezi",
   "native": {
-    "input": "7ba82bccec65b75b",
-    "at": "2026-11-09T23:57:44.132Z",
+    "input": "b4d53834d3e27246",
+    "at": "2026-11-21T19:07:52.042Z",
     "claims": [
       {
         "code": "VE",
@@ -27,6 +27,22 @@
         "quote": "The majority of literature suggests that this species is restricted to the Venezuelan and Colombian llanos of the Río Orinoco drainage, although one of the specimens in the images is said to have been collected in the rio Purus, Brazil, an Amazon tributary located some distance from that watershed.",
         "words": "Brazil",
         "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The original home of the blue ram is in the hot Llanos in the Orinoco basin of Colombia and Venezuela.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The original home of the blue ram is in the hot Llanos in the Orinoco basin of Colombia and Venezuela.",
+        "words": "Venezuela",
+        "ok": true
       }
     ],
     "regions": [
@@ -34,6 +50,12 @@
         "name": "Orinoco",
         "source": "seriouslyfish",
         "quote": "The ram, Mikrogeophagus ramirezi, is a dwarf cichlid from the llanos of the Rio Orinoco drainage in Venezuela and Colombia.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "The original home of the blue ram is in the hot Llanos in the Orinoco basin of Colombia and Venezuela.",
         "ok": true
       }
     ],

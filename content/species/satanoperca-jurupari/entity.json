@@ -27,16 +27,12 @@
         "BO",
         "PE",
         "EC",
-        "CO",
-        "GF"
+        "CO"
       ],
       "regions": [
         "Amazon",
-        "Rio Tocantins",
         "Rio Negro",
-        "Purus",
-        "Ucayali",
-        "Rio Araguari"
+        "Araguari"
       ],
       "sources": [
         "glaser",
@@ -44,46 +40,33 @@
       ],
       "quotes": [
         {
-          "source": "glaser",
-          "quote": "Rio Tocantins, Brazil.",
-          "countries": [
-            "BR"
-          ],
-          "regions": [
-            "Rio Tocantins"
-          ]
-        },
-        {
           "source": "seriouslyfish",
           "quote": "Recorded throughout much of the Amazon river basin in Brazil, Bolivia, Peru, Ecuador, and Colombia (and possibly the Orinoco watershed in Colombia and Venezuela; see 'Notes'), but genetic research suggests that downstream of the rio Madeira it may be restricted to the Amazon main channel and lower reaches of affluents, while upstream it occurs in the Amazon/Solimões and throughout other tributary systems including the rios Negro, Purus, Japurá, Juruá, Putomayo, Javary, Napo, Marañón, Huallaga, and Ucayali.",
           "countries": [
+            "BR",
             "BO",
             "PE",
             "EC",
             "CO"
           ],
           "regions": [
-            "Amazon",
-            "Purus",
-            "Ucayali"
+            "Amazon"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The type locality of S. jurupari is the mouth of the Rio Negro into the Amazon (below Manaus).",
+          "countries": [],
+          "regions": [
+            "Rio Negro"
           ]
         },
         {
           "source": "seriouslyfish",
           "quote": "It has also been recorded in smaller coastal river drainages north of the Amazon's mouth, such as the rio Araguari in Amapá state, northeastern Brazil, and several watersheds in French Guiana, but these populations display certain morphological differences when compared with Amazonian fish and are possibly distinct (see 'Notes').",
-          "countries": [
-            "GF"
-          ],
-          "regions": [
-            "Rio Araguari"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Type locality is 'Mouth of Rio Negro in Amazon River, Brazil'.",
           "countries": [],
           "regions": [
-            "Rio Negro"
+            "Araguari"
           ]
         }
       ]
@@ -91,7 +74,7 @@
     "records": {
       "taxonKey": 5208447,
       "total": 1397,
-      "fetched": "2026-11-14",
+      "fetched": "2026-11-21",
       "countries": [
         [
           "BR",
@@ -871,13 +854,13 @@
           -54.84375,
           2.8125,
           1,
-          1
+          0
         ],
         [
           -54.84375,
           5.625,
           1,
-          1
+          0
         ],
         [
           -53.4375,
@@ -919,19 +902,19 @@
           -53.4375,
           1.40625,
           3,
-          3
+          2
         ],
         [
           -53.4375,
           2.8125,
           29,
-          29
+          2
         ],
         [
           -53.4375,
           4.21875,
           34,
-          34
+          0
         ],
         [
           -52.03125,
@@ -979,7 +962,7 @@
           -52.03125,
           2.8125,
           5,
-          5
+          4
         ],
         [
           -50.625,

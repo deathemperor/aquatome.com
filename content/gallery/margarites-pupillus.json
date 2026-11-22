@@ -86,18 +86,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/413731838.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/413731838-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "giantcicada",
-      "sourceUrl": "https://www.inaturalist.org/photos/413731838",
-      "caption": "Ốc margarita vỏ sọc bò trên cát ướt",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/65980489.webp",
       "thumb": "https://media.aquatome.com/inaturalist/65980489-480.webp",
       "width": 1024,
@@ -287,6 +275,18 @@
       "sourceUrl": "https://www.inaturalist.org/photos/22031071",
       "caption": "Ốc margarita vỏ ánh xà cừ, râu duỗi ra trên đá",
       "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/413731838.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/413731838-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "giantcicada",
+      "sourceUrl": "https://www.inaturalist.org/photos/413731838",
+      "caption": "Ốc margarita vỏ sọc bò trên cát ướt",
+      "best": true,
       "kind": "habitat"
     }
   ],

@@ -1,10 +1,13 @@
 {
   "slug": "andes",
-  "name": "Andes",
-  "altNames": [],
+  "name": "dãy Andes",
+  "altNames": [
+    "Andes"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

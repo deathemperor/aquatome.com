@@ -8,13 +8,136 @@
   "places": [
     "asia",
     "india",
-    "brahmaputra"
+    "brahmaputra",
+    "nepal",
+    "koshi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "NP"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Ganges",
+        "Padma",
+        "Jamuna"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Brahmaputra River at Neematighat, 14 kilometres from Jorhat, Assam, India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Brahmaputra"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Also occurs in Nepal.",
+          "countries": [
+            "NP"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Found in North Eastern India waters (Padma, Jamuna, Brahmaputra), the Ganges and Bengal waters including West Bengal.",
+          "countries": [],
+          "regions": [
+            "Ganges",
+            "Padma",
+            "Jamuna"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341143,
+      "total": 10,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "IN",
+          4
+        ],
+        [
+          "BD",
+          3
+        ],
+        [
+          "NP",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          82.96875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          84.375,
+          25.3125,
+          3,
+          3
+        ],
+        [
+          85.78125,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          87.1875,
+          22.5,
+          1,
+          1
+        ],
+        [
+          90,
+          22.5,
+          3,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 9.2
+      },
+      {
+        "source": "scotcat",
+        "value": 9
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -26,16 +149,46 @@
       "html": "<p>Nangra assamensis Sen &amp; Biswas, 1994. Family Sisoridae. Maximum size 92 mm SL. IUCN status: Least Concern (last assessed 2009).</p><p>Type locality: Brahmaputra River at Neematighat, 14 kilometres from Jorhat, Assam, India.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/nangra_assamensis.htm",
+      "html": "<ul><li>Common name: Koshi Nangra</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1415",
       "html": "<p>Asia: India. Found in North Eastern India waters (Padma, Jamuna, Brahmaputra), the Ganges and Bengal waters including West Bengal.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/nangra_assamensis.htm",
+      "html": "<p>Asia: Ganges and Brahmaputra Rivers in India. Type locality: Brahmaputra R. at Neematighat, 14 km from Jorhat, Assam, India. Also occurs in Nepal.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/nangra_assamensis.htm",
+      "html": "<p>An aquarium having a tight fitting cover glass is best, as they do have a tendency to regularly swim vigorously from the substrate to the surface of the water.</p><p>It is essential that good filtration is provided; an internal power filter with quite a good flow of water, and an air diffuser fitted, is recommended in order to provide turbulent and well oxygenated water, which is a must if one wants to keep Nangra assamensis alive and healthy for any length of time.</p><p>A substrate of fine rounded gravel interspersed with stones and rocks and a few clumps of short hard-leafed plants would go some way in making this small sisorid feel secure.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/nangra_assamensis.htm",
+      "html": "<p>Feeding is not too problematic, as it takes well to the usual frozen foods such as daphnia and bloodworms.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1415",
       "html": "<p>Breeding: unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/nangra_assamensis.htm",
+      "html": "<p>Description: Dorsal spines (total): 1; dorsal soft rays (total): 6; vertebrae: 35–37. Dorsal fin with 6 branched rays; dorsal and pectoral-fin spines with filamentous extensions. Anal fin with 4–5 simple rays, 7–9 branched rays. Snout strongly projecting. Head, body and caudal peduncle slightly more elongate than other congeners.</p><p>Etymology: The genus name Nangra is tautonymous with Pimelodus nangra, presumably a local Bengali name for this fish along the Kosi River in India. The specific name assamensis: -ensis, suffix denoting place: Assam, India, type locality.</p><p>Like other members of the Sisorid family, Nangra possess an adhesive apparatus in the form of visible pleats of skin on their ventral surfaces.</p><p>IUCN Red List: assessed as Least Concern (IUCN 2010), but needs updating. It is known from larger rivers in the Ganges and Brahmaputra drainages and has no significant known threats.</p>"
     },
     {
       "key": "references",
@@ -46,17 +199,69 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/ead1d054cea77527.webp",
-      "width": 960,
-      "height": 1359,
-      "licence": "CC0",
-      "author": "California Academy of Sciences (Roberts, Tyson R.)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nangra_assamensis_Sen_%26_Biswas,_1994_473276290.jpg",
-      "caption": "Nangra assamensis Sen & Biswas, 1994 473276290",
-      "thumb": "https://media.aquatome.com/commons/ead1d054cea77527-480.webp"
+      "url": "https://media.aquatome.com/scotcat/eead5b007a434926.webp",
+      "thumb": "https://media.aquatome.com/scotcat/eead5b007a434926-480.webp",
+      "width": 500,
+      "height": 316,
+      "licence": "dùng với sự cho phép",
+      "author": "Beta Mahatvaraj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/nangra_assamensis.htm",
+      "caption": "Nangra assamensis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/8df138a0771edea1.webp",
+      "thumb": "https://media.aquatome.com/scotcat/8df138a0771edea1-480.webp",
+      "width": 500,
+      "height": 280,
+      "licence": "dùng với sự cho phép",
+      "author": "Steven Grant / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/nangra_assamensis.htm",
+      "caption": "Nangra assamensis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/de55da553c196a55.webp",
+      "thumb": "https://media.aquatome.com/scotcat/de55da553c196a55-480.webp",
+      "width": 500,
+      "height": 284,
+      "licence": "dùng với sự cho phép",
+      "author": "Andrew Rao / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/nangra_assamensis.htm",
+      "caption": "Nangra assamensis",
+      "source": "scotcat"
     }
   ],
-  "videos": [],
-  "productSlots": [],
+  "videos": [
+    {
+      "youtubeId": "m85s4vva0_k",
+      "title": "Nangra assamensis from Northern west bengal, India",
+      "durationSec": 5,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thác bể cá",
+        "máy sục khí",
+        "lọc trong bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "bo bo đông lạnh",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi tròn mịn bể cá"
+      ]
+    }
+  ],
   "updatedAt": "2026-11-21"
 }

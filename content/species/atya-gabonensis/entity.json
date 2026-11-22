@@ -151,17 +151,12 @@
       "author": "Lord Yoult",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Atya.PNG",
       "caption": "Atya gabonensis, the Cameroun Fan Shrimp or Vampire Shrimp",
-      "thumb": "https://media.aquatome.com/commons/0f4df61e48db8053-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/ccaea62a2ba45281.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY-SA 3.0",
-      "author": "Citron",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Atya_gabonensis.JPG",
-      "caption": "Atya gabonensis",
-      "thumb": "https://media.aquatome.com/commons/ccaea62a2ba45281-480.webp"
+      "thumb": "https://media.aquatome.com/commons/0f4df61e48db8053-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/0f4df61e48db8053-large.webp",
+        "width": 1229,
+        "height": 922
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/b9dcb16abf582017.webp",
@@ -182,6 +177,16 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blaue_Monsterf%C3%A4chergarnele.jpg",
       "caption": "Atya gabonensis",
       "thumb": "https://media.aquatome.com/commons/e62ce34f882aad99-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/ccaea62a2ba45281.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 3.0",
+      "author": "Citron",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Atya_gabonensis.JPG",
+      "caption": "Atya gabonensis",
+      "thumb": "https://media.aquatome.com/commons/ccaea62a2ba45281-480.webp"
     }
   ],
   "videos": [],
@@ -216,5 +221,119 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21"
+  "updatedAt": "2026-11-21",
+  "range": {
+    "native": {
+      "countries": [
+        "GA"
+      ],
+      "regions": [
+        "Cross River"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Common in West Africa and first reported in Gabon.",
+          "countries": [
+            "GA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "They inhabit mangrove environments, in available boles, crevices and root masses of the Cross River system.",
+          "countries": [],
+          "regions": [
+            "Cross River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2223031,
+      "total": 24,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "BR",
+          19
+        ],
+        [
+          "GH",
+          2
+        ],
+        [
+          "BJ",
+          1
+        ],
+        [
+          "GA",
+          1
+        ],
+        [
+          "LR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -43.59375,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -43.59375,
+          -4.21875,
+          6,
+          0
+        ],
+        [
+          -42.1875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -37.96875,
+          -9.84375,
+          11,
+          0
+        ],
+        [
+          -11.25,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -2.8125,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          0,
+          5.625,
+          1,
+          0
+        ],
+        [
+          1.40625,
+          5.625,
+          1,
+          0
+        ],
+        [
+          11.25,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  }
 }

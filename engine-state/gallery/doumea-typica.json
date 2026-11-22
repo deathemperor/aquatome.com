@@ -2,7 +2,11 @@
  "queue": [],
  "judged": [
   "File:Cameroon2011 7 (1) (6857661498).jpg",
-  "gbif:1265258123:eea5712e254be3e7"
+  "gbif:1265258123:eea5712e254be3e7",
+  "inat:92403043",
+  "inat:92403058",
+  "inat:184367120",
+  "inat:184367147"
  ],
  "hashes": {},
  "inat": {
@@ -17,5 +21,13 @@
  "gbif": {
   "key": 2340797,
   "next": null
- }
+ },
+ "inatNc": {
+  "after": 109394048,
+  "done": true
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-21"
 }

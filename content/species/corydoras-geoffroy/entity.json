@@ -137,6 +137,12 @@
       "html": "<p>South America: coastal rivers of Suriname and French Guiana. Type locality: Suriname, district Brokopondo, Suriname River system, Marchall Creek, east of the road Paranam-Afobaka, 1.5 km north of Marchall village.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-geoffroy-4/",
+      "html": "<p>Corydoras geoffroy comes from the Guyana countries Suriname and French Guyana, from where there are no ornamental fish exports. The species, described as early as 1803, could therefore only be made available to the hobby by adventurous traveling aquarists. Since 2018, Corydoras specialists have been successfully engaged in breeding these unusual animals.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_geoffroy.htm",
@@ -147,12 +153,6 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_geoffroy.htm",
       "html": "<p>A good quality flake food and tablet food for adults with sporadic feedings of frozen or live food will keep your Corydoras in good health.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-geoffroy-2/",
-      "html": "<p>For a very long time this species of Corydoras, the type species of the entire genus, was a myth. It is still a top rarity among the corys.</p><p>The breeder Kurt Jülich succeeded in breeding it from wild-collected specimens. The youngsters of this offspring are still rather drab in colour, so pictures of adult fish were supplied by Ernst-Otto von Drachenfels and Jürgen Glaser.</p>"
     },
     {
       "key": "notes",
@@ -273,5 +273,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-19"
+  "updatedAt": "2026-11-21"
 }

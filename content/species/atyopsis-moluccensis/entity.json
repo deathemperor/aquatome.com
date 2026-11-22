@@ -6,7 +6,12 @@
   "genus": "Atyopsis",
   "group": "shrimp",
   "places": [
-    "asia"
+    "asia",
+    "indonesia",
+    "sulawesi",
+    "philippines",
+    "sri-lanka",
+    "thailand"
   ],
   "range": {
     "records": {
@@ -110,6 +115,52 @@
       {
         "source": "glaser",
         "value": 9
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 10
+      }
+    ],
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 3
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6,
+          "max": 6
+        }
       }
     ]
   },
@@ -121,10 +172,58 @@
       "html": "<p>Atyopsis moluccensis, the Moluccan mountain rock shrimp, is a fan shrimp from Southeast Asia that grows to approx. 9 cm. It is completely harmless to even small fish.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bamboo-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Scientific name: Atyopsis moluccensis</li><li>Minimum tank: 40 litres</li><li>Breeding: very difficult</li><li>KH: 2–6 (below 11)</li><li>TDS: 150–200 (100–300)</li><li>Nitrate: less than 20 ppm</li><li>Diet: detritivore / omnivore</li><li>Temperament: peaceful</li><li>Colours: brown, red, green, creamy white and blue</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bamboo-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The homeland of this species is Indonesia (Bali, Kalimantan, Sulawesi, Sumatera), Philippines, Sri Lanka, and Thailand.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bamboo-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Underwater observations revealed that Bamboo shrimp prefer relatively high water velocity and a coarse substrate (boulder, cobbles, etc.). They cling to the underside of underwater rock projections in the most torrential portions of the rivers, often in the full force of the current.</p><p>In nature, it is their preferred microhabitat and it is an important factor affecting shrimp abundances in the tropical rain-forest streams. They mostly select 20–40 cm depth with relatively high water velocity (20–60 centimeter per second), at the same time avoiding stream margins (i.e. 0–10% bank distance).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bamboo-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Bamboo shrimp require a rather larger tank due to their unique feeding behavior. In order to keep them, you need to have at least a medium-sized aquarium of 60 to 80 cm in length. 40 litres is the absolute minimum tank size you can keep one Bamboo shrimp in (only if you have a suitably sized pump in there to push the water around sufficiently). Anything smaller and you will have food problems and the shrimp will not be too comfortable either.</p><p>Unfortunately, only a relatively long aquarium can create a sufficiently uniform flow and volume of water. Therefore, this species of shrimp is completely unsuitable for Nano-tanks.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bamboo-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The tank should be well cycled and rich with microorganisms. Do not forget that they need careful acclimation as all shrimp.</p><p>In general, they do not have special requirements except one – water current. It is absolutely vital for their feeding and survival. That is why you will have to provide a moderate water current for Bamboo shrimp to feed in. For example, a Matten Filter (or any other similar) can be a great choice for that.</p><p>Bamboo shrimp do best when kept in a planted tank. They benefit from plants, rocks, and wood not only for hiding but because of the organic particles and surface area that they provide along with the microflora and fauna that will live on them.</p><p>Bamboo shrimp prefer to sit on driftwood, roots, sturdy stem plants, or rocks in the stream from which they filter their food. Therefore, provide them with a good perch near the current.</p><p>Bamboo shrimp do not molt as often as other dwarf shrimp species do. Right before and after molting, they stop eating and hide until their new exoskeleton becomes hard enough. They do not eat the old exoskeleton, but it will be a good meal for other shrimp. Because of its size and hardness, it can take them 2-3 days to consume it. Adult Bamboo shrimp molt roughly every four to eight weeks.</p><p>Once you put them in your tank, use the lid. Bamboo shrimp can escape when they are stressed or because they are interested to see if there is another \"pond\" around.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bamboo-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>They prefer to live in moderate to medium-hard water at temperatures around 22 to 28°C. However, it is better to have 24-25°C. The water should be clean, but at the same time contain enough suspended solids to filter off. Therefore, such aquarium should not be kept clinically clean because they need some mulch and detritus in the water to filter and feed.</p><p>Experienced Bamboo keepers also advise to whirl the water up from time to time so that the particles can be caught by the fans of the shrimp.</p><p>Care must be taken when carrying out partial water changes, as Bamboo Shrimp, like all shrimp species, are sensitive to fluctuating water temperatures. Try to ensure that the new (dechlorinated) water closely matches the temperature of the tank water.</p><p>Keep in mind that Bamboo Shrimp need high oxygen water. Unfortunately, people usually forget about it.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bamboo-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>If the filter flow is not strong enough or simply too clean, it is strongly advisable to use an additional flow pump in your tank. The device should be designed so that the shrimp can be in the middle of the current.</p><p>You do not need the secondary pump to be big and expensive, it only needs to keep a current running around the tank all the time.</p>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/atyopsis-moluccensis-2/",
       "html": "<p>The animals do not only eat the floating material they fish out of the water, but also finely grated dry food, food tablets and frozen cyclops.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bamboo-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>According to direct underwater observations and gut content analyses, Bamboo shrimp is a detritivore. It means that they feed mainly on drifting detrital particles by filtering from the water column with the cheliped setae. They trap small (micro) organisms, organic detritus, and algae in these fans and transfer them to the mouth. Unlike many other types of shrimp species, Bamboo shrimp do not usually exhibit omnivorous feeding habits.</p><p>In the aquarium, Bamboo shrimp cannot eat things like shrimp pellets. It is absolutely mandatory to give them powdered food to thrive. As filter feeders, they primarily need smaller food particles that remain suspended in the water for as long as possible. You can supply them with pond plankton, micro-worms, finely ground food flakes, crushed food tablets, spirulina powder and so on.</p><p>Oak or almond leaves can greatly benefit Bamboo shrimps. Although, unlike dwarf shrimps, they do not use these leaves directly as a source of food, the substances released by these leaves improve the water quality and make it easier for the shrimp to molt.</p><p>It is also preferable to feed them a complete food or just rotate different powdered foods. If you do not have any specialized shrimp food, you can also use food for fish fry such as Sera Micron (or Golden Pearls in the 5-50 micron size, Hikari's First Bites, etc). It contains a lot of necessary ingredients and, more importantly, it drifts in the water.</p><p>If your Bamboo shrimp live in a community tank with fish, you need to be cautious during feeding time. They are not afraid of small fish. However, if the food particles are large enough, your fish can try to grab them from the fans and even bite them by chance. Therefore, it is important to introduce food at night. Otherwise, there is a chance that they will not get enough to eat.</p><p>Target feeding with a syringe can sometimes be easier. Uncontrolled spreading of powdered food in the tank can cause overfeeding.</p><p>Some shrimp breeders also advise keeping a few Amano shrimp in the tank with Bamboo shrimp. Amano females release planktonic larvae into the water column, which Bamboo shrimp will happily consume as they float by in the stream. A ratio of about 9 female Amano shrimp seems to keep 3 adult Bamboo shrimp from picking the floor in a clean tank. However, Bamboo shrimp will not eat newly hatched Neocaridina and Caridina shrimplets, which are significantly bigger than Amano larvae.</p>"
     },
     {
       "key": "behaviour",
@@ -133,53 +232,98 @@
       "html": "<p>Among the numerous shrimp species that have gained a firm foothold in the hobby are two larger species of fan shrimp, Atyopsis moluccensis from Southeast Asia and Atya gabonensis, the Gabon giant fan shrimp from West Africa (approx. 14 cm). They are completely harmless to even small fish, as they only fish small food particles out of the water with their claws, which have been transformed into fans.</p><p>For food acquisition, the shrimp sit down in the current and open their hand fans. This looks a bit like they are positioning radar antennas. As an adaptation to the strong currents in the natural habitat, the end limbs of the rear three pairs of walking legs are re-shaped into pointed spines, with which the shrimp still find a firm hold even in tiny cracks in the rock.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bamboo-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Despite their impressive size, Bamboo shrimp are very peaceful and quiet. They are gentle giants which do not care about anything but the flow. They can be easily kept with other dwarf shrimp, snails, or non-aggressive fish. It is fun to watch how they bulldoze their way past other shrimp, plants, rocks and climb over each other to get a better feeding spot.</p><p>With their squat body, short rostrum, and strong legs, Bamboo shrimp are rather plump and cumbersome compared to the graceful dwarf shrimp. In moving water, they spread their chelae (feather-like front legs – fans) in a filter-feeding attitude. These bristle compartments are unfolded like an umbrella, kept in the flow until enough suspended matter gets stuck in the fan. In order not to be carried away by the current, they cling to stones or roots. In still water, they remain motionless in most cases and usually do not sweep the substrate for food as some Atyids do. Nobody has ever observed them making burrows of any kind.</p><p>In some cases, Bamboo shrimp can feed on detrital particles by picking up from substrates, scraping with their fans. If they do this regularly, it is a sign that there is not enough current or food in the current, and this should be resolved.</p><p>If there are adequate flow conditions in the aquarium, Bamboo shrimp usually sit in a small group on the streamed edge of larger stones, roots, or other hard substrates in order to filter food particles.</p><p>Bamboo shrimp often can be very shy, especially in the beginning. At first, they do not eat or move much. However, after they have settled in, they become bolder and infinitely calm creatures day by day.</p><p>Because they are filter feeders and rarely move when they have a comfortable spot, they can even have algae growing on their exoskeletons. It is completely harmless to them.</p><p>Bamboo shrimp can be kept by themselves. However, they prefer to live in groups. Although they do not interact between themselves a lot, the group makes them more comfortable and less stressed. They tend to be a little more active at night.</p><p>They are peaceful animals that feel comfortable in a group of three or four individuals. You can combine them with snails (Ramshorn snails, Nerite snails, Malaysian Trumpet snails, Japanese trapdoor snails, White Wizard Snails, Mystery snails, freshwater clams, etc.), virtually all other freshwater shrimp which share the same water requirements (for example, Cherry shrimp, Snowball shrimp, Caridina cf. babaulti, Ghost shrimp, Amano shrimp, Vampire shrimp, Blue tiger shrimp, Blue Velvet shrimp, Malawa shrimp, Red Nose shrimp, Tangerine Tiger shrimp, Bee shrimp, etc.), and small non-aggressive fish (providing that they have cover to hide in after molting).</p><p>It is not a good idea to keep them with big fish or crabs because despite their size they are absolutely harmless and relatively defenseless. Bamboo shrimp do not crossbreed with any other species. Snails can suffer from shell attrition whilst the pH is under 7.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/atyopsis-moluccensis-2/",
       "html": "<p>Atyopsis moluccensis is enormously variable in color: there are beige, green and brown animals within one import, and they can have a dorsal stripe, a diamond pattern or white spots. All color variants have the characteristic stripes on the side of the carapace. The males can be recognized by the thickened first pair of walking legs.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bamboo-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Unlike other ornamented dwarf shrimp, it is very easy to differentiate males and females once they are about 4 cm long.</p><ul><li>Size: the body size of males is larger than females.</li><li>The first pair of legs: males have a significantly larger first pair of legs compared to females. Females have all sets of walking legs about the same size as one another. The forelegs of older males are extremely strong and carry a distinct claw at the top. Females have slimmer legs.</li><li>Sexual openings: carefully turn the shrimp onto its back. Females have small openings (gonopores) at the base of the third pair of legs, while in males the gonopores are at the fifth pair.</li></ul>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/atyopsis-moluccensis-2/",
       "html": "<p>Usually these shrimps are not bred, because the larvae develop only in seawater and breeding is connected with some expenditure. Since the adult shrimps are popular food in their countries of origin, the comparatively few animals needed for aquaristic purposes are available inexpensively as wild-collected specimens.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bamboo-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Bamboo shrimp are easy to keep but close to impossible to breed. The same as Amano shrimp, their larvae need brackish water in order to survive. They will not develop in freshwater. The eggs hatch to larvae, which go through several development stages before they convert to shrimplets.</p><p>In nature, the larvae are swept by water flow into lagoons where they develop and then young shrimp have to migrate back upstream to freshwater. Adult Bamboo shrimp will not tolerate salt in the aquarium themselves, which makes transferring and acclimatizing the larvae into brackish conditions even more difficult and risky. In addition, Bamboo shrimp do not molt very often (that is when they are ready to mate), so even getting a berried female is really difficult.</p><p>Artificial production of postlarvae has been attempted by several different techniques. However, the main problems found were the variability in the number of larval stages, length of the developmental period, food, environmental requirements, and morphological changes of larvae during their lifecycle. For these reasons almost all Bamboo shrimp are wild-caught. There have been rumors that some breeders managed to breed them in captivity, but it is really hard to find any proof.</p><p>According to some German reports, to get berried Bamboo shrimp it is better to have a male to female ratio of 1:1. Beginning with a 4 cm size, females are capable of carrying eggs. The female carries up to 2000 very small eggs under its abdomen for 30-40 days. At some point, eggs turn brown (from orange), which is a sign of proper development.</p><p>They then hatch into tiny, floating larvae (less than 1 mm) that need brackish water for their development. The larvae can live in freshwater for 2-3 days maximum, then they die, so they should quickly be transferred to brackish water. Some sources report that you need 33–34 grams of salt per litre, basically the same as for Amano shrimp.</p><p>The miniscule size of the larvae means that an appropriately sized sponge medium must be used on the sponge filter in the brackish growing tank. The larvae do not produce a lot of bio-load, but because of feeding the nitrate level will rise.</p><p>The larvae take about 90 days to metamorphose. Due to their tiny size, the larvae need food that is no more than 5 microns in size. Small amounts of green marine water are suggested as a first food. Golden Pearls may work too, in the 5-50 micron range.</p><p>After 70 days, the larvae start to metamorphose into shrimplets, and from that day you can start lowering salinity to 15-20 ppt. Once they complete their metamorphosis they start swimming only forward (larvae swim in all directions), which means they are ready to go into the main aquarium. However, there should not be any sudden changes from brackish water to freshwater. The salinity must be lowered gradually. Next, it takes about 70 more days to become an adult.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bamboo-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>In 1849, De Haan wrote the original description of Atya moluccensis. In 1925, Bouvier E.L. was the first biologist who recognized that Atyopsis moluccensis was different from all of the other species of Atya. Only 2 species are known in the genus Atyopsis: Atyopsis moluccensis and Atyopsis spinipes.</p><p>Atyopsis spinipes is usually called a dwarf bamboo (fan) shrimp or Soldier brush shrimp. It is practically similar to Bamboo shrimp and can be easily confused. It can grow up to 6-8 cm maximum, and its fans are much smaller than those of Bamboo shrimp compared to body size.</p><p>Bamboo shrimp can grow up to 8-10 cm and live over 6 years if kept in a suitable environment. One of their unique features is that they have four pairs of fans (instead of claws) which they use to capture and filter the micro-particles of food in the water and take them to the mouth.</p><p>They come in a variety of colours including all shades of brown (most common), red, green, creamy white, blue. In addition, they have a large creamy yellow-brown (reddish-brown or light to dark brown) stripe down their back. This back stripe is particularly pronounced in younger shrimp, weaker in older specimens, but never completely disappears. Some shrimp also have dark side stripes. The patterns are effective camouflage, which is why many shrimp keepers \"lose\" these giants in their tanks. Larger specimens tend to be a little darker than smaller ones.</p><p>Bamboo shrimp can change colours, in line with breeding seasons, throughout the year. Their colour range (for example, from tan to dark brown) is quite noticeable, and they can change their coloring within a few seconds. Because there are many different colour types within the huge distribution area, it was initially thought that there were also different species. The correct classification into a single species took place only in recent years.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/2e67c7c659d91e58.webp",
+      "thumb": "https://media.aquatome.com/commons/2e67c7c659d91e58-480.webp",
       "width": 960,
       "height": 720,
-      "licence": "CC BY-SA 2.5",
-      "author": "Faucon",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bambooshrimpdriftwd.JPG",
-      "caption": "A bamboo shrimp, Atyopsis moluccensis, filter-feeding on a piece of driftwood in my aquarium.",
-      "thumb": "https://media.aquatome.com/commons/2e67c7c659d91e58-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/2e67c7c659d91e58-large.webp",
         "width": 1601,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 2.5",
+      "author": "Faucon",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bambooshrimpdriftwd.JPG",
+      "caption": "A bamboo shrimp, Atyopsis moluccensis, filter-feeding on a piece of driftwood in my aquarium."
     },
     {
       "url": "https://media.aquatome.com/commons/00c81bec9ca7d2ee.webp",
+      "thumb": "https://media.aquatome.com/commons/00c81bec9ca7d2ee-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "Kacper Aleksander",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bamboo_shrimp.jpg",
-      "caption": "Bamboo shrimp (Atyopsis moluccensis)",
-      "thumb": "https://media.aquatome.com/commons/00c81bec9ca7d2ee-480.webp"
+      "caption": "Bamboo shrimp (Atyopsis moluccensis)"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/cacb7c85d5f2b890.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/cacb7c85d5f2b890-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/bamboo-shrimp-detailed-guide-care-diet-and-breeding/",
+      "caption": "Bamboo fan shrimp atyopsis moluccensis",
+      "source": "aquariumbreeder"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/f3607eeb92210cb8.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/f3607eeb92210cb8-480.webp",
+      "width": 792,
+      "height": 430,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/bamboo-shrimp-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
     },
     {
       "url": "https://media.aquatome.com/commons/4712899f243feaa1.webp",
+      "thumb": "https://media.aquatome.com/commons/4712899f243feaa1-480.webp",
       "width": 960,
       "height": 603,
       "licence": "CC0",
       "author": "5snake5",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Atyopsis_moluccensis_-_Molukken-F%C3%A4chergarnele.jpg",
-      "caption": "Die Aufsicht auf zwei Molukken-Fächergarnelen (Atyopsis moluccensis), im Aquarium.",
-      "thumb": "https://media.aquatome.com/commons/4712899f243feaa1-480.webp"
+      "caption": "Die Aufsicht auf zwei Molukken-Fächergarnelen (Atyopsis moluccensis), im Aquarium."
     }
   ],
   "videos": [
@@ -230,5 +374,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-21"
 }

@@ -1,0 +1,130 @@
+{
+  "id": "leporinus-ortomaculatus",
+  "native": {
+    "input": "605e889aaf26e3f5",
+    "at": "2026-11-22T00:38:58.151Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "So far Leporinus ortomaculatus is known from the Rio Surumu, Roraima, Brazil and from the rivers Rio Caroni, Rio Caura and Orinoco to the Delta Amacuro in Venezuela.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "So far Leporinus ortomaculatus is known from the Rio Surumu, Roraima, Brazil and from the rivers Rio Caroni, Rio Caura and Orinoco to the Delta Amacuro in Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "So far Leporinus ortomaculatus is known from the Rio Surumu, Roraima, Brazil and from the rivers Rio Caroni, Rio Caura and Orinoco to the Delta Amacuro in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Rio Caroni",
+        "source": "glaser",
+        "quote": "So far Leporinus ortomaculatus is known from the Rio Surumu, Roraima, Brazil and from the rivers Rio Caroni, Rio Caura and Orinoco to the Delta Amacuro in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Rio Caura",
+        "source": "glaser",
+        "quote": "So far Leporinus ortomaculatus is known from the Rio Surumu, Roraima, Brazil and from the rivers Rio Caroni, Rio Caura and Orinoco to the Delta Amacuro in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Rio Surumu",
+        "source": "glaser",
+        "quote": "So far Leporinus ortomaculatus is known from the Rio Surumu, Roraima, Brazil and from the rivers Rio Caroni, Rio Caura and Orinoco to the Delta Amacuro in Venezuela.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Leporinus ortomaculatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2355426,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        28
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        28
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        10
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        8
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        7
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        4
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-22T00:38:58.151Z"
+  }
+}

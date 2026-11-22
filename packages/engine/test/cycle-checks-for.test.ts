@@ -63,7 +63,8 @@ STUB
     echo "CODESHA $(cat ../../../../code-sha)"
     [ -n "$(find "${home}/.cache/aquatome/full-suite-passed" -mmin -5 2>/dev/null)" ] && echo "STAMP fresh" || echo "STAMP old"
     [ -n "$(find "${home}/.cache/aquatome/full-suite-passed.taken" -mmin -5 2>/dev/null)" ] && echo "TAKEN fresh" || echo "TAKEN old"
-    echo "ASKED $(sort -u "${home}/asked" 2>/dev/null | tr '\\n' ' ')"`
+    echo "ASKED $(sort -u "${home}/asked" 2>/dev/null | tr '\\n' ' ')"
+    echo "CALLS $(cat "${home}/calls" 2>/dev/null || echo 0)"`
   const r = spawnSync('bash', ['-c', script], { encoding: 'utf8' })
   expect(r.stderr).not.toMatch(/fatal|syntax error|unbound/i)
   const code = r.stdout.match(/^CODESHA (\w+)$/m)?.[1] ?? ''
@@ -73,6 +74,8 @@ STUB
     step: r.stdout.match(/^VERIFY (.*)$/m)?.[1] ?? '',
     code,
     asked: r.stdout.match(/^ASKED (.*)$/m)?.[1]?.trim().split(' ').filter(Boolean) ?? [],
+    // How many times GitHub's unit job was asked, all commits together.
+    calls: Number(r.stdout.match(/^CALLS (\d+)$/m)?.[1] ?? -1),
     stamp: r.stdout.includes('STAMP fresh'),
     taken: r.stdout.includes('TAKEN fresh'),
   }
@@ -129,8 +132,14 @@ test('a merge with main: its code is main\'s newest, which GitHub is asked about
 }, slow(120_000))
 
 test('a unit job still running is waited on, up to its limit: green in time is the short path, still running is the whole suite', () => {
-  const late = decide({ unit: ['pending', 'pending', 'success'], stamp: 2 })
-  expect(late.step).toBe(CONTENT)
+  // Its limit is far past the work: the clock starts before the script's git calls, and on a loaded Mac three answers took
+  // over the 3 s the others have, so it gave up on the second "still running" (a whole plain run, 21 Nov 2026, 02:49). The
+  // third answer ends the wait at once, so it never waits it out.
+  const late = decide({ unit: ['pending', 'pending', 'success'], stamp: 2, env: { UNIT_WAIT_SECONDS: '30' } })
+  expect([late.step, late.why]).toEqual([CONTENT, `the content's checks: its code is main's ${late.code.slice(0, 9)}, whose unit tests passed on GitHub`])
+  // The wait ended on the third answer, not on its limit: asked three times, the answer that passed the last (the chief of
+  // staff, 21 Nov 2026: with 30 s, a wait that runs out can't hide behind the longer limit).
+  expect(late.calls).toBe(3)
   expect(late.out).toMatch(/LOG GitHub's unit tests on \w{9}, the code this run publishes on, are still running: waiting up to 0 min/)
   const never = decide({ unit: ['pending'], stamp: 2, env: { UNIT_POLL_SECONDS: '1', UNIT_WAIT_SECONDS: '2' } })
   expect(never.step).toBe(FULL)

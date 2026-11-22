@@ -89,6 +89,62 @@
       "setup": false
     },
     {
+      "url": "https://media.aquatome.com/gbif/5918610712-e0071ffb3d2db9e4.webp",
+      "thumb": "https://media.aquatome.com/gbif/5918610712-e0071ffb3d2db9e4-480.webp",
+      "width": 800,
+      "height": 585,
+      "licence": "CC0 1.0",
+      "author": "David Tempelman",
+      "sourceUrl": "https://www.gbif.org/occurrence/5918610712",
+      "caption": "Cá bitterling đực ánh xanh tím, bụng đỏ cam, trong khay chụp",
+      "best": true,
+      "kind": "male",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/gbif/6150400616-6b59b9a9551e56e9.webp",
+      "thumb": "https://media.aquatome.com/gbif/6150400616-6b59b9a9551e56e9-480.webp",
+      "width": 800,
+      "height": 570,
+      "licence": "CC0 1.0",
+      "author": "David Tempelman",
+      "sourceUrl": "https://www.gbif.org/occurrence/6150400616",
+      "caption": "Cá bitterling châu Âu ánh tím trong khay trắng",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/gbif/5918610712-7fcc0079a9d58115.webp",
+      "thumb": "https://media.aquatome.com/gbif/5918610712-7fcc0079a9d58115-480.webp",
+      "width": 800,
+      "height": 565,
+      "licence": "CC0 1.0",
+      "author": "David Tempelman",
+      "sourceUrl": "https://www.gbif.org/occurrence/5918610712",
+      "caption": "Cá bitterling châu Âu màu sẫm trong khay trắng",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/gbif/4956411873-aaae49463447b139.webp",
+      "thumb": "https://media.aquatome.com/gbif/4956411873-aaae49463447b139-480.webp",
+      "width": 750,
+      "height": 1000,
+      "licence": "CC0 1.0",
+      "author": "Jan van der Broek",
+      "sourceUrl": "https://www.gbif.org/occurrence/4956411873",
+      "caption": "Hai cá bitterling trong bể chụp nhỏ bên thước đo",
+      "best": false,
+      "kind": "group",
+      "setup": true,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/688711707.webp",
       "thumb": "https://media.aquatome.com/inaturalist/688711707-480.webp",
       "width": 1024,
@@ -206,7 +262,7 @@
       "setup": false
     }
   ],
-  "seen": 145,
-  "updatedAt": "2026-11-14",
-  "builtAt": "2026-11-14"
+  "seen": 157,
+  "updatedAt": "2026-11-21",
+  "builtAt": "2026-11-21"
 }

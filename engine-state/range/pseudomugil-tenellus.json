@@ -1,8 +1,8 @@
 {
   "id": "pseudomugil-tenellus",
   "native": {
-    "input": "9679fd353c37d1d5",
-    "at": "2026-11-13T11:20:11.221Z",
+    "input": "26714e8b6bbeeaba",
+    "at": "2026-11-21T13:11:30.372Z",
     "claims": [
       {
         "code": "AU",
@@ -27,6 +27,22 @@
         "quote": "It also occurs on the Aru Islands, Maluku province, Indonesia, and in the Bensbach River, Papua New Guinea, and may be more widely distributed in southern New Guinea.",
         "words": "Papua New Guinea",
         "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Northern Australia (Northern Territory and Cape York) and southern Papua New Guinea.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Northern Australia (Northern Territory and Cape York) and southern Papua New Guinea.",
+        "words": "Papua New Guinea",
+        "ok": true
       }
     ],
     "regions": [
@@ -41,12 +57,6 @@
         "name": "Cape York Peninsula",
         "source": "seriouslyfish",
         "quote": "To the east its range extends as far as the Cape York Peninsula with Queensland populations including the Coleman, Edward, Jardine, Lockhart, and Watson river systems, plus the Jacky Jacky and Scrubby creeks.",
-        "ok": true
-      },
-      {
-        "name": "Daly",
-        "source": "seriouslyfish",
-        "quote": "Additional records from the Northern Territory include the Alligator, Blyth, Daly, Finniss, Howard, Liverpool, and Mary river drainages.",
         "ok": true
       },
       {
@@ -67,6 +77,13 @@
         "name": "New Guinea",
         "source": "seriouslyfish",
         "quote": "It also occurs on the Aru Islands, Maluku province, Indonesia, and in the Bensbach River, Papua New Guinea, and may be more widely distributed in southern New Guinea.",
+        "ok": true
+      },
+      {
+        "name": "Cape York",
+        "source": "bwaquatics",
+        "quote": "Northern Australia (Northern Territory and Cape York) and southern Papua New Guinea.",
+        "country": "AU",
         "ok": true
       }
     ],

@@ -7,14 +7,18 @@
     "distribution:planetcatfish": "<p>Châu Á: loài này mới chỉ thấy ở trung và hạ lưu sông Nujiang (=Salween), Trung Quốc.</p>",
     "notes:planetcatfish": "<p>Nhận dạng: loài này có rãnh sau môi liền một dải, khe mang không lan xuống bụng. Cả hai hàm đều có răng dị hình, tức là có nhiều kiểu răng khác nhau. Răng hàng ngoài hình xẻng, mọc thưa thành một hoặc hai hàng, còn răng bên trong hình nón và mọc nhiều. Ở hàm trên, các mảng răng tách rời nhau. Vây ngực có 16–18 tia phân nhánh.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: chưa có báo cáo nào về việc loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Acta Zootaxonomica Sinica v. 4 (no. 1), pp78 [English p. 81], Fig. 3.</p>"
+    "references:planetcatfish": "<p>Acta Zootaxonomica Sinica v. 4 (no. 1), pp78 [English p. 81], Fig. 3.</p>",
+    "quickFacts:scotcat": "<ul><li>Danh sách đỏ IUCN: Thiếu dữ liệu. Loài này chỉ có ở một lưu vực sông, và ở đó có vẻ cũng không nhiều. Chưa rõ các mối đe dọa có ảnh hưởng đáng kể tới nó hay không, và cũng chưa biết số lượng đang tăng hay giảm (IUCN 2023).</li></ul>",
+    "distribution:scotcat": "<p>Châu Á: lưu vực sông Salween, Trung Quốc. Nơi thu mẫu chuẩn là một con suối trên đồi đổ vào sông Nộ (Nu), gần Laowo, huyện Vân Long, Vân Nam, Trung Quốc.</p>",
+    "notes:scotcat": "<p>Vây lưng có tổng cộng 5 tia mềm, vây hậu môn có 3-4 tia mềm. Loài này khác Pseudexostoma yunnanense ở mấy điểm sau. Mép sau môi dưới có 3 khía, khía giữa nông hơn hai khía bên, còn ở P. yunnanense thì các khía sâu bằng nhau. Hai thùy nhỏ ở giữa môi dưới dài hơn các thùy bên, trong khi ở P. yunnanense chúng dài bằng nhau. Vây bụng i, 3-4 (so với i, 5). Gốc vây mỡ dài hơn, bằng 36,1-46,0% SL (so với 28,8-39,8). Cuống đuôi thon hơn, chiều cao bằng 4,2-6,9% SL và bằng 20-33,7% chiều dài cuống đuôi (so với 6,4-8,3 và 32,6-42,7). Dải răng hàm trên có 16-18 răng (so với 18-22), chia làm 2 mảng tách rời, còn ở P. yunnanense hai mảng nối với nhau một phần.</p><p>So với P. longipterus, loài này có vây ngực ngắn hơn, bằng 24,9-29,8% SL (so với 30,1-31,3). Vây bụng của nó bằng 16,1-22,9% SL (so với 23,1-24,3), vây đuôi bằng 13,6-17,9% SL (so với 18-19,6). Mắt cũng nhỏ hơn, với đường kính bằng 5,8-7,8% HL (so với 8,2-10). Khoảng cách giữa hai mắt hẹp hơn, bằng 19,7-24,7% HL (so với 25,5-30,8).</p><p>Từ nguyên: tên loài brachysoma ghép từ brachýs (ngắn) và sõma (thân). Lúc đầu loài này được đề xuất là một phân loài của P. yunnanense, có thân ngắn hơn.</p>",
+    "references:scotcat": "<ul><li>Alfred W. Thomson &amp; Lawrence M. Page; 30 October 2006. Genera of the Asian Catfish Families Sisoridae and Erethistidae (Teleostei: Siluriformes) (Zootaxa 1345).</li><li>Jiang, W.-S. 2023. Pseudexostoma brachysoma. The IUCN Red List of Threatened Species 2023.</li><li>The ETYFish Project Fish Name Etymology Database.</li><li>Zhou, W., X. Li and Y. Yang, 2008. A review of the catfish genus Pseudecheneis (Siluriformes: Sisoridae) from China, with the description of four new species from Yunnan. Raffles Bull. Zool. 56(1):107-124.</li></ul>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
-    },
-    "reason": "thin"
+      "planetcatfish": 0.8,
+      "scotcat": 0.95
+    }
   }
 }

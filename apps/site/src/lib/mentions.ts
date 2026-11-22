@@ -1,4 +1,4 @@
-import { fitsCard, isNonCommercial, linkTerms, stillShown, THUMB_WIDTH, thumbOf, unmarked, type Content, type LinkTarget, type Localized, type GuideEntity, type Photo, type PlantEntity, type SpeciesEntity, type BreedEntity } from '@aq/schema'
+import { fitsCard, heldPhrase, isNonCommercial, linkTerms, stillShown, THUMB_WIDTH, thumbOf, unmarked, type Content, type LinkTarget, type Localized, type GuideEntity, type Photo, type PlantEntity, type SpeciesEntity, type BreedEntity } from '@aq/schema'
 import { categoriesIn } from './equipment'
 import { GROUP_LABELS } from './format'
 import { taxonHref } from './taxa-places'
@@ -72,7 +72,8 @@ export function linkTargets(c: Content): LinkTarget[] {
   }
   out.push(...taxa.values())
   // Glossary before equipment: "CO2" explains the term rather than selling the kit.
-  for (const g of c.glossary) out.push({ key: `glossary:${g.id}`, href: `/vi/thuat-ngu/${g.t.slug}/`, names: [g.t.name, ...g.t.altNames, ...(g.t.linkNames ?? [])], cls: 'gl', ...(g.t.definition ? { tip: { term: g.t.name, text: g.t.definition } } : {}) })
+  // A phrase held until the chief of staff rules (glossary-held.ts) isn't linked; it stays the term's.
+  for (const g of c.glossary) out.push({ key: `glossary:${g.id}`, href: `/vi/thuat-ngu/${g.t.slug}/`, names: [g.t.name, ...g.t.altNames, ...(g.t.linkNames ?? [])].filter(n => !heldPhrase(g.id, n)), cls: 'gl', ...(g.t.definition ? { tip: { term: g.t.name, text: g.t.definition } } : {}) })
   const groups = new Set(c.species.map(s => s.group))
   for (const [g, names] of Object.entries(GROUP_TERMS)) if (groups.has(g) && GROUP_LABELS[g]) out.push({ key: `group:${g}`, href: `/vi/nhom/${g}/`, names })
   // Continents and countries have pages; a region or river links to the country it lies in.

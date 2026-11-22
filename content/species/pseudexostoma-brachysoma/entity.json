@@ -10,11 +10,99 @@
     "china",
     "salween"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Nujiang",
+        "Salween"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: known only from the middle and lower Nujiang (=Salween) basin, China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Nujiang"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: Salween drainage, China.",
+          "countries": [],
+          "regions": [
+            "Salween"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341241,
+      "total": 26,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "CN",
+          26
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          25.3125,
+          9,
+          9
+        ],
+        [
+          98.4375,
+          26.71875,
+          15,
+          15
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 15
+      },
+      {
+        "source": "scotcat",
+        "value": 15
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -26,10 +114,22 @@
       "html": "<p>Scientific name: Pseudexostoma brachysoma Chu, 1979. Family: Sisoridae. Size: 153 mm (6\") SL. IUCN Red List: Not Evaluated.</p><p>Type locality: hill stream running into the Nu River, near Laowo, Yunlong Xian [now Lushi County, Nujiang Prefecture], Yunnan Province, China.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/pseudexostoma_brachysoma.htm",
+      "html": "<ul><li>IUCN Red List: Data Deficient. The species is restricted to a single river basin where it appears to be uncommon; it is unclear whether threats significantly affect it, and the population trend is unknown (IUCN 2023).</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=140",
       "html": "<p>Asia: known only from the middle and lower Nujiang (=Salween) basin, China.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/pseudexostoma_brachysoma.htm",
+      "html": "<p>Asia: Salween drainage, China. Type locality: hill stream running into the Nu River, near Laowo, Yunlong Xian, Yunnan, China.</p>"
     },
     {
       "key": "reproduction",
@@ -44,14 +144,53 @@
       "html": "<p>Identification: continuous post-labial groove, gill openings not extending onto the venter, heterodont dentition (different types of teeth) in both jaws. The outer teeth are shovel-shaped and sparsely arranged in one or two rows whilst the inner teeth are conical and numerous. The tooth patches are separated in the upper jaw. 16–18 branched pectoral rays.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/pseudexostoma_brachysoma.htm",
+      "html": "<p>Dorsal soft rays (total): 5; anal soft rays: 3-4. This species is distinguished from Pseudexostoma yunnanense by: posterior margin of lower lip with 3 notches, the middle one shallower than the lateral ones (vs. same depth); the 2 smaller median lobes of the lower lip longer than the lateral lobes (vs. the same length); pelvic fin i, 3-4 (vs. i, 5); base of adipose fin longer, 36.1-46.0% SL (vs. 28.8-39.8); caudal peduncle more slender, depth 4.2-6.9% SL, 20-33.7% in length of caudal peduncle (vs. 6.4-8.3 and 32.6-42.7); premaxillary tooth band with 16-18 teeth (vs. 18-22), divided into 2 and isolated (vs. partially connected).</p><p>It differs from P. longipterus in having a shorter pectoral fin, 24.9-29.8% SL (vs. 30.1-31.3), pelvic fin 16.1-22.9% SL (23.1-24.3), and caudal fin 13.6-17.9% SL (vs. 18-19.6); smaller eyes and a narrower interorbital width, eye diameter 5.8-7.8% HL (vs. 8.2-10), interorbital width 19.7-24.7% HL (vs. 25.5-30.8).</p><p>Etymology: the specific name brachysoma comes from brachýs, short, and sõma, body; it was proposed as a subspecies of P. yunnanense with a shorter body.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=140",
       "html": "<p>Acta Zootaxonomica Sinica v. 4 (no. 1), pp78 [English p. 81], Fig. 3.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/pseudexostoma_brachysoma.htm",
+      "html": "<ul><li>Alfred W. Thomson &amp; Lawrence M. Page; 30 October 2006. Genera of the Asian Catfish Families Sisoridae and Erethistidae (Teleostei: Siluriformes) (Zootaxa 1345).</li><li>Jiang, W.-S. 2023. Pseudexostoma brachysoma. The IUCN Red List of Threatened Species 2023.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li><li>Zhou, W., X. Li and Y. Yang, 2008. A review of the catfish genus Pseudecheneis (Siluriformes: Sisoridae) from China, with the description of four new species from Yunnan. Raffles Bull. Zool. 56(1):107-124.</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/e251d842ec7a21ac.webp",
+      "thumb": "https://media.aquatome.com/scotcat/e251d842ec7a21ac-480.webp",
+      "width": 500,
+      "height": 231,
+      "licence": "dùng với sự cho phép",
+      "author": "Zhou Hang / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/pseudexostoma_brachysoma.htm",
+      "caption": "Pseudexostoma brachysoma",
+      "source": "scotcat"
+    }
+  ],
   "videos": [],
-  "productSlots": [],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc bể cá"
+      ]
+    }
+  ],
   "updatedAt": "2026-11-21"
 }

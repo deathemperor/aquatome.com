@@ -1,13 +1,16 @@
 {
   "id": "badis-kyar",
-  "summary": "Cá badis kyar (Badis kyar) hợp người thích một loài hiếm, thân mảnh, lớn tới 6 cm, và định nuôi riêng. Bể từ 60 cm (60 × 30 cm, khoảng 54 lít), nền cát hoặc sỏi, nhiều đá và chỗ ẩn, dòng chảy mạnh hơn phần lớn Badis khác. Nước 15–25 °C, pH 7–9, độ cứng 1–5 dGH, độ khó 4/8. Cần để ý nhất là các con đực có thể hung dữ với nhau, và cá có thể hơi kén ăn, có thể không chịu ăn thức ăn khô.",
+  "summary": "Cá badis kyar (Badis kyar) hợp với người muốn nuôi riêng một loài badid nhỏ, độ khó 4/8 (mức vừa). Cần bể dài từ 60 cm (đáy 60 × 30 cm, khoảng 54 lít), nước 15–25 °C, pH 7–9, độ cứng 1–5 dGH, nhiều đá, sỏi cuội, chỗ ẩn và dòng chảy mạnh hơn các loài Badis khác. Cá trưởng thành 6 cm. Khó nhất là cá có thể không chịu ăn thức ăn khô và các con đực hay đánh nhau trong bể nhỏ.",
   "mistakes": [
-    "Thả chung với loài Badis khác thì chúng có thể lai với nhau, nên nuôi riêng loài này.",
-    "Cho ăn trùng huyết hoặc trùng chỉ khiến cá dễ béo và dễ bệnh, nên bỏ hẳn và cho ăn Artemia hoặc Daphnia sống hay đông lạnh.",
-    "Nuôi nhiều con đực trong bể nhỏ thì chúng đánh nhau dữ, nên chỉ nuôi một cặp, hoặc một đực với vài con cái."
+    "Nuôi nhiều con đực trong bể nhỏ thì chúng đánh nhau dữ; chỉ nên thả một cặp, hoặc một đực với vài cái.",
+    "Chỉ cho ăn thức ăn khô thì cá có thể bỏ ăn; nên cho ăn đều thức ăn sống hoặc đông lạnh cỡ nhỏ như Artemia, Daphnia.",
+    "Cho ăn trùng huyết hoặc trùng chỉ khiến cá dễ béo phì và dễ bệnh; nên bỏ hẳn hai loại này khỏi thực đơn."
   ],
   "speciesUpdatedAt": "2026-10-31",
-  "generatedAt": "2026-11-09T11:15:45.454Z",
-  "review": "approved",
-  "writtenFrom": "ca9ad7d6f2037ef0"
+  "writtenFrom": "ddfcf7aedaace01e",
+  "generatedAt": "2026-11-21T19:26:35.828Z",
+  "review": "pending",
+  "problems": [
+    "\"dòng chảy mạnh hơn các loài Badis khác\": the page says the flow should be stronger than for \"phần lớn các loài Badis khác\" (most other Badis), and only \"đôi chút\" (slightly) stronger. The summary drops that hedge and implies all other Badis species."
+  ]
 }

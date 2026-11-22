@@ -1,7 +1,34 @@
 {
   "id": "acrossocheilus-iridescens",
-  "photos": [],
-  "seen": 0,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/469859119.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/469859119-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "observe-syz",
+      "sourceUrl": "https://www.inaturalist.org/photos/469859119",
+      "caption": "Cá Acrossocheilus iridescens với sọc đen trên thân trong bể nuôi",
+      "best": true,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/995310.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/995310-480.webp",
+      "width": 931,
+      "height": 628,
+      "licence": "CC BY-NC",
+      "author": "Mike",
+      "sourceUrl": "https://www.inaturalist.org/photos/995310",
+      "caption": "Cá Acrossocheilus iridescens bơi trong suối nước nông",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    }
+  ],
+  "seen": 3,
+  "updatedAt": "2026-11-21",
+  "builtAt": "2026-11-21"
 }

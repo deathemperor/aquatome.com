@@ -280,6 +280,12 @@
     "sonnet": 0.6,
     "back": false
   },
+  "ancistrus-leucostictus": {
+    "hash": "02159f081703f1728bd8c41e92655100ee77186ddcf91d90101b10158fda9680",
+    "at": "2026-11-22T00:22:31.767Z",
+    "sonnet": 0.7,
+    "back": false
+  },
   "ancistrus-ranunculus": {
     "hash": "39f986b3d85118228f85c00be4dcf986e8bc80741900e5c633f654686c19d967",
     "at": "2026-11-19T07:36:30.853Z",
@@ -317,6 +323,12 @@
     "sonnet": 0.9,
     "opus": 0.85,
     "back": true
+  },
+  "apistogramma-allpahuayo": {
+    "hash": "1cc0002b0fe639e981a06d646aeeef2313f7c9855e3b0c667cb8739ba45a64ea",
+    "at": "2026-11-22T00:22:43.821Z",
+    "sonnet": 0.6,
+    "back": false
   },
   "apistogramma-barlowi": {
     "hash": "20843465b17d23b9c79630d00bc76e48fea6d63c3a746b8726b374d6247b7b65",
@@ -458,6 +470,19 @@
     "at": "2026-11-19T12:40:07.758Z",
     "sonnet": 0.95,
     "opus": 0.9,
+    "back": true
+  },
+  "astroblepus-ardiladuartei": {
+    "hash": "27e371860594673f25a7dfb36b0efa9eddd489905d5fafe3abcab6a750713a1b",
+    "at": "2026-11-22T00:22:55.545Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "astroblepus-cacharas": {
+    "hash": "019481b56d7bf8e89a986a758b4d0e6f2af8d9a0630aa070a4a7532870590bdc",
+    "at": "2026-11-22T00:23:21.222Z",
+    "sonnet": 0.8,
+    "opus": 0.88,
     "back": true
   },
   "astronotus-ocellatus": {
@@ -894,10 +919,9 @@
     "back": false
   },
   "brachygobius-doriae": {
-    "hash": "7ac54061ce84a9a00cef02e6bba3f3e4aec217466333a056d3d347e9ced14a5e",
-    "at": "2026-11-20T17:27:11.909Z",
-    "sonnet": 0.93,
-    "opus": 0.7,
+    "hash": "3cc45d537f06d97b13fc8af905820216da7c1eabcd9b4516d6804c8f5b0fdac2",
+    "at": "2026-11-21T18:44:49.381Z",
+    "sonnet": 0.6,
     "back": false
   },
   "brachygobius-kabiliensis": {
@@ -1083,11 +1107,116 @@
     "opus": 0.95,
     "back": true
   },
+  "chaetostoma-fischeri": {
+    "hash": "338f67879e019a6336ac0a91c2c9965e01175aa8ce4226958dc76d3ea599c07f",
+    "at": "2026-11-21T12:58:30.910Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "chaetostoma-leucomelas": {
+    "hash": "51005a0cef17ea255509a91809c0ab44d36316d54c339e25bdb21e4168779cdf",
+    "at": "2026-11-21T12:58:57.566Z",
+    "sonnet": 0.8,
+    "opus": 0.9,
+    "back": true
+  },
+  "chaetostoma-marginatum": {
+    "hash": "283275130fae5138d425af7d5ccba778631cabf367e49ec8d01cfe0a9ce4b647",
+    "at": "2026-11-21T12:59:08.375Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "champsochromis-caeruleus": {
+    "hash": "520c4833a457cd2aed2d0a7c0c762b63c640b52137230f8a26a2f4a7d3fff2ec",
+    "at": "2026-11-21T12:59:41.184Z",
+    "sonnet": 0.85,
+    "opus": 0.9,
+    "back": true
+  },
+  "champsochromis-spilorhynchus": {
+    "hash": "682db47aa999aad9c0e871be80757d332432a498a8fe4cbf11713f46b8479cc4",
+    "at": "2026-11-21T12:59:54.507Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "channa-argus": {
+    "hash": "f9b22bca8a3fe1f55e494d34b29cd2c9e035619183b4f39165741a751267f718",
+    "at": "2026-11-21T13:00:06.806Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "channa-baramensis": {
+    "hash": "960de14a379128d41391253c029e3278584ad19ef134f591ef5e933a2b97cd5a",
+    "at": "2026-11-21T13:00:15.248Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "channa-burmanica": {
+    "hash": "87729e67cc2de47ab343ee579c1cd517ea18f00faf61a84de970e0f95bd894cb",
+    "at": "2026-11-21T13:00:26.969Z",
+    "sonnet": 0.55,
+    "back": false
+  },
+  "channa-gachua": {
+    "hash": "58072c54dbbea2f6849e2ef7d2d28bb3bf4f60f3f162aec719c4bcedbc487a8c",
+    "at": "2026-11-21T13:00:39.694Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "channa-marulioides": {
+    "hash": "5fd94d9fbef1d6f93c72388bacd9c31b208e1ef0f246e007a796ff66c298c797",
+    "at": "2026-11-21T13:00:53.484Z",
+    "sonnet": 0.72,
+    "back": false
+  },
   "channa-melasoma": {
     "hash": "86914b50cfd400d5bb4b4552c981c9391877403d64f846d3798325fcdad1ce5e",
     "at": "2026-11-20T01:35:22.971Z",
     "sonnet": 0.6,
     "back": false
+  },
+  "channa-orientalis": {
+    "hash": "dae178cdc141fe6255371595d4245b698793e28d81b8a6631a584e5b6b6726b0",
+    "at": "2026-11-21T13:01:06.844Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 11: 'Channa gachua (non Hamilton, 1822)' is kept as in the source. This is fine, and the added gloss '(sisik di bawah dagu)' for gular scales is an addition, though harmless."
+    ]
+  },
+  "characidium-fasciatum": {
+    "hash": "e71d7679a630680a24f1b15806ac88a0baadf78eb36bfca9ca512921ddd1b549",
+    "at": "2026-11-21T13:01:18.737Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "chela-cachius": {
+    "hash": "39e58078679b8fbf97bedff8cd7d9e50cec4ff6b196bc091cc18bf608520ee76",
+    "at": "2026-11-21T13:01:31.260Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "cherax-boesemani": {
+    "hash": "31d2ef5d57d1627c7df4636975598bc62e120dbd387a528d435d2cb058c8ef58",
+    "at": "2026-11-21T18:46:46.886Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "cherax-quadricarinatus": {
+    "hash": "53ba67d1edff04040aaee1184178e4eff62808e7f1653ae7d9e930704ca01393",
+    "at": "2026-11-21T18:47:34.068Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": true
+  },
+  "cherax-tenuimanus": {
+    "hash": "fcae96adc321e53d38daede246651e634233f4ed8a791527b8a9079e7c33ef64",
+    "at": "2026-11-21T18:47:50.157Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 12 Description: 'ada duri pada telsonnya' ok; 'Kini varian biru elektrik dibudidayakan' ok. Item 6 'mortality' -> 'terjadi kematian' ok."
+    ]
   },
   "chitala-blanci": {
     "hash": "a12e1b53fbf41d167a6fe6ca948179caeff964a4f9fe364002a5648def58cf81",
@@ -1095,11 +1224,127 @@
     "sonnet": 0.7,
     "back": false
   },
+  "chonerhinos-naritus": {
+    "hash": "2469e99a3f33dbd74d34514cf0f361379307eb0bfd02d4957049a0591ebf0857",
+    "at": "2026-11-21T18:48:04.136Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Items 1/5: Original gives sg of 1.005 (specific gravity); fine. But item 1 'butuh garam laut' lacks the 'marine salt' qualification; use 'garam akuarium laut'."
+    ]
+  },
+  "chromidotilapia-guntheri": {
+    "hash": "1dd863f52f6ab0187607908d8ae04a7a1b3900a55cd03d3191c665a99106b008",
+    "at": "2026-11-21T18:48:34.106Z",
+    "sonnet": 0.95,
+    "opus": 0.93,
+    "back": true
+  },
+  "cichla-monoculus": {
+    "hash": "29c4103e10ca68584c5e7d1d6a09bdf96435187cbe3ed3e4e30ca3c741366b43",
+    "at": "2026-11-21T18:49:04.446Z",
+    "sonnet": 0.92,
+    "opus": 0.92,
+    "back": true
+  },
+  "cichlasoma-trimaculatum": {
+    "hash": "459595ee4d5c5e209426f1f7975e5c3ddab4ebf8a0e7a0e9a0360752176e1c65",
+    "at": "2026-11-21T18:49:37.609Z",
+    "sonnet": 0.9,
+    "opus": 0.7,
+    "back": false
+  },
   "ciliopagurus-strigatus": {
     "hash": "44d545723020b12436dce980e611fcf82eb5f97334384af690e73b0adf138670",
     "at": "2026-11-20T06:51:12.807Z",
     "sonnet": 0.6,
     "back": false
+  },
+  "cincelichthys-pearsei": {
+    "hash": "a0d37a7edfe348a2c9ba9fc1703cd4ef28cdc57a15124e64822fbdafb79b540e",
+    "at": "2026-11-21T18:49:48.324Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "citharinus-citharus": {
+    "hash": "07f390216882e801c64ee61926631c1f7020626504195ac92b90c26a5d0c08b9",
+    "at": "2026-11-21T18:49:59.198Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "clarias-anfractus": {
+    "hash": "1dc195622f58316ada29d08cd479384efa04e60f3944d55551bef667d78332e0",
+    "at": "2026-11-21T18:50:09.786Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "clarias-buettikoferi": {
+    "hash": "6e806c7a521f80414fd95ecf63c79e3ffed725b44ad1190a26ac0813352672e1",
+    "at": "2026-11-22T00:23:43.922Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "clarias-camerunensis": {
+    "hash": "8d682f8c843c42f52e8391bd392e58a042064b1a8f9e595d97ed29c531360b79",
+    "at": "2026-11-22T00:24:10.099Z",
+    "sonnet": 0.95,
+    "opus": 0.9,
+    "back": true
+  },
+  "clarias-meladerma": {
+    "hash": "4037d44c2e35bd84141dfd375e8d565e749c28fce56710b814e42259d0671712",
+    "at": "2026-11-22T00:24:18.834Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "clavularia-viridis": {
+    "hash": "48b6a11ba297097aed3598d127c151cfea0a5e920703e318a0f43c2ac9e3f97f",
+    "at": "2026-11-22T00:24:32.773Z",
+    "sonnet": 0.7,
+    "back": false,
+    "held": [
+      "Item 6: \"Penambahan kalsium dan suplemen mineral lain sangat penting\" is fine, but \"Jangan overdosis\" is left as an English loanword; use \"Jangan memberi dosis berlebih\"."
+    ]
+  },
+  "cnidoglanis-macrocephalus": {
+    "hash": "66316a467a999372b296a5d63a095b6a9d579b811724024ad172bce841228987",
+    "at": "2026-11-22T00:24:59.233Z",
+    "sonnet": 0.8,
+    "opus": 0.8,
+    "back": true
+  },
+  "copadichromis-azureus": {
+    "hash": "647c341b4fb2a2b2849799f8a077702582d613d1b1917f59086b6e6742df03ae",
+    "at": "2026-11-22T00:25:10.772Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "copadichromis-borleyi": {
+    "hash": "f94020495e4f005e3a00054653294eea8a30e7a2b95b029e2b1a54db93c78ef4",
+    "at": "2026-11-22T00:25:23.793Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "copadichromis-chrysonotus": {
+    "hash": "cbbc3da534595370ca4d6ad76b1efbff4c56542b6318bad6042ef1f7d2b8c009",
+    "at": "2026-11-22T00:25:57.302Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": true
+  },
+  "copella-carsevennensis": {
+    "hash": "cfd8a5af6bab8c74d81be70baf0e9c0d0416174c0a81b46ae6aaae7e12466ece",
+    "at": "2026-11-22T00:26:25.605Z",
+    "sonnet": 0.95,
+    "opus": 0.85,
+    "back": true
+  },
+  "copella-eigenmanni": {
+    "hash": "fb58fe96678ff213b0ab6faf4a995a67c1771dfef48a18e252f7074fcf504e62",
+    "at": "2026-11-22T00:27:03.817Z",
+    "sonnet": 0.9,
+    "opus": 0.86,
+    "back": true
   },
   "copella-nattereri": {
     "hash": "b66479a5d4460cfa36f6be06a330953d60f7643866b53edc587d936a7fea846f",
@@ -1149,6 +1394,13 @@
     "at": "2026-11-20T06:51:50.684Z",
     "sonnet": 0.85,
     "opus": 0.85,
+    "back": true
+  },
+  "dawkinsia-assimilis": {
+    "hash": "84d1d31110c8c34032e407721c1f5b4901be3e63c5b15689b0199945cc9c7008",
+    "at": "2026-11-21T18:45:28.394Z",
+    "sonnet": 0.93,
+    "opus": 0.9,
     "back": true
   },
   "devario-chrysotaeniatus": {
@@ -1319,6 +1571,19 @@
     "sonnet": 0.6,
     "back": false
   },
+  "geosesarma-dennerle": {
+    "hash": "a685c8b9548e638a2b25d18431f45281d0f425e7e24919f0a8649ae64ed576e7",
+    "at": "2026-11-21T18:45:42.150Z",
+    "sonnet": 0.72,
+    "back": false
+  },
+  "glyptothorax-schmidti": {
+    "hash": "c5f828935da3b21e2f82444ace47cc0f88b9bdbc0a303a59ca055d0ce23b0d99",
+    "at": "2026-11-21T18:46:04.129Z",
+    "sonnet": 0.8,
+    "opus": 0.96,
+    "back": true
+  },
   "gymnothorax-polyuranodon": {
     "hash": "1a3f6ab005382ac94819acb54a94ccf243cac210403151d8af0f6bca132c20a4",
     "at": "2026-11-18T05:44:14.288Z",
@@ -1409,6 +1674,13 @@
       "#14: the English 'TDS: 18 to 179 ppm' is kept correctly, no change needed."
     ]
   },
+  "microphis-brachyurus": {
+    "hash": "32d08b5186d101960499dd421110a1bb541726c8965d0d8d86c81b74ce64e101",
+    "at": "2026-11-21T18:46:32.583Z",
+    "sonnet": 0.75,
+    "opus": 0.85,
+    "back": true
+  },
   "mikrogeophagus-ramirezi": {
     "hash": "08f12294cad7ba729bc3be9017777a19c219869d8a950c50de6b728b5e097e32",
     "at": "2026-11-18T00:30:22.448Z",
@@ -1465,6 +1737,12 @@
     "sonnet": 0.6,
     "back": false
   },
+  "parosphromenus-anjunganensis": {
+    "hash": "6022b003bb8b976f1c8c973736cfdf5d6986afe92cfe28ecde0dccefe4172b99",
+    "at": "2026-11-21T12:58:02.890Z",
+    "sonnet": 0.6,
+    "back": false
+  },
   "parosphromenus-filamentosus": {
     "hash": "f11d18df428974562f550db844f6328e640367f09ca7f455bf40059453939faa",
     "at": "2026-11-20T11:41:18.521Z",
@@ -1481,6 +1759,12 @@
     "hash": "5b515427ea92a270b8f70b5c56546e5070a90f786dd59743a15da1576597e3da",
     "at": "2026-11-18T05:44:51.647Z",
     "sonnet": 0.45,
+    "back": false
+  },
+  "ptychognathus-barbatus": {
+    "hash": "9054f676e6c24ae6a3e4411d7cd40418fdc6a3b57e19f1a12dc7ec5ac7f2eac1",
+    "at": "2026-11-22T00:23:33.522Z",
+    "sonnet": 0.72,
     "back": false
   },
   "puntigrus-tetrazona": {
@@ -1519,6 +1803,12 @@
     "hash": "e92072c82159989d007bf478a74c2e6e343491ae24ade2614cfaa92fdc49d7be",
     "at": "2026-11-21T06:59:00.143Z",
     "sonnet": 0.55,
+    "back": false
+  },
+  "stiphodon-ornatus": {
+    "hash": "a8117e6e2de9f571cd2f953884421642305c3d24bccdaccacbc796a11a953ec1",
+    "at": "2026-11-21T12:58:18.231Z",
+    "sonnet": 0.6,
     "back": false
   },
   "trichogaster-lalius": {

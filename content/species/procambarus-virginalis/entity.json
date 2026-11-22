@@ -1,0 +1,439 @@
+{
+  "id": "procambarus-virginalis",
+  "scientificName": "Procambarus virginalis",
+  "order": "Decapoda",
+  "family": "Cambaridae",
+  "genus": "Procambarus",
+  "group": "other",
+  "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 9442269,
+      "total": 111,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "DE",
+          39
+        ],
+        [
+          "BE",
+          29
+        ],
+        [
+          "AT",
+          12
+        ],
+        [
+          "UA",
+          11
+        ],
+        [
+          "PL",
+          7
+        ],
+        [
+          "MG",
+          3
+        ],
+        [
+          "CZ",
+          2
+        ],
+        [
+          "JP",
+          2
+        ],
+        [
+          "CA",
+          1
+        ],
+        [
+          "FR",
+          1
+        ],
+        [
+          "HR",
+          1
+        ],
+        [
+          "IT",
+          1
+        ],
+        [
+          "RO",
+          1
+        ],
+        [
+          "RU",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -80.15625,
+          42.1875,
+          1
+        ],
+        [
+          2.8125,
+          50.625,
+          9
+        ],
+        [
+          4.21875,
+          49.21875,
+          1
+        ],
+        [
+          4.21875,
+          50.625,
+          19
+        ],
+        [
+          5.625,
+          47.8125,
+          1
+        ],
+        [
+          5.625,
+          50.625,
+          4
+        ],
+        [
+          7.03125,
+          47.8125,
+          2
+        ],
+        [
+          8.4375,
+          37.96875,
+          1
+        ],
+        [
+          8.4375,
+          47.8125,
+          1
+        ],
+        [
+          8.4375,
+          49.21875,
+          12
+        ],
+        [
+          8.4375,
+          50.625,
+          2
+        ],
+        [
+          8.4375,
+          52.03125,
+          1
+        ],
+        [
+          9.84375,
+          52.03125,
+          1
+        ],
+        [
+          11.25,
+          49.21875,
+          1
+        ],
+        [
+          11.25,
+          50.625,
+          1
+        ],
+        [
+          12.65625,
+          52.03125,
+          14
+        ],
+        [
+          15.46875,
+          47.8125,
+          12
+        ],
+        [
+          15.46875,
+          49.21875,
+          2
+        ],
+        [
+          16.875,
+          45,
+          1
+        ],
+        [
+          19.6875,
+          52.03125,
+          3
+        ],
+        [
+          21.09375,
+          46.40625,
+          1
+        ],
+        [
+          22.5,
+          50.625,
+          4
+        ],
+        [
+          23.90625,
+          47.8125,
+          1
+        ],
+        [
+          23.90625,
+          49.21875,
+          2
+        ],
+        [
+          30.9375,
+          47.8125,
+          1
+        ],
+        [
+          35.15625,
+          49.21875,
+          3
+        ],
+        [
+          36.5625,
+          43.59375,
+          1
+        ],
+        [
+          36.5625,
+          47.8125,
+          1
+        ],
+        [
+          36.5625,
+          49.21875,
+          3
+        ],
+        [
+          46.40625,
+          -21.09375,
+          1
+        ],
+        [
+          47.8125,
+          -19.6875,
+          2
+        ],
+        [
+          132.1875,
+          33.75,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 18,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 3,
+          "max": 18
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 12
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 2,
+          "max": 3
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marmorkrebs-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Common names: Marbled crayfish, Marmorkrebs, Self-cloning crayfish</li><li>Scientific name: not established yet; two main versions: Procambarus fallax virginalis and Procambarus virginalis sp. nov.</li><li>Tank size (optimal): 90 litres</li><li>Keeping: easy; breeding: easy</li><li>Optimal GH: 3–18; optimal KH: 3–15</li><li>Optimal TDS: 150–300 (100–500)</li><li>Nitrate: less than 40 ppm</li><li>Diet: detritivore / omnivore</li><li>Temperament: conditionally peaceful / slightly aggressive</li><li>Colour: highly variable, from tan to dark olive-brown</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marmorkrebs-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The Marbled crayfish has become one of the potentially most dangerous nonindigenous crayfish species spreading in European countries and elsewhere. It has been recorded in the wild in several European countries, including Croatia, Germany, Hungary, Italy, the Netherlands, the Czech Republic, Slovakia, Sweden, and Ukraine.</p><p>Due to its invasion potential, it has been included, together with four other invasive crayfish of North American origin, in the list of 37 Invasive Alien Species of European Union Concern (EU Regulation No. 1143/2014; Commission Implementing Regulation No. 2016/1141).</p><p>NEVER release Marbled crayfish into the wild. Check your state laws before purchasing. This is a restricted (banned) species in some US states and European countries.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marmorkrebs-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The native geographical distribution of this form, if at all present in the wild, is still unknown. Before about 25 years ago, the species simply did not exist. It was first described in the German aquarium trade in the late 1990s and became widely distributed under the German name \"Marmorkrebs\".</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marmorkrebs-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Keeping Marbled crayfish is easy. They are very hardy and can live in a wide range of water parameters. They do best at pH 7.0–8.0, although they have also been found in pools, rivers, lakes, swamps and drainage ditches with pH from 6.0 to 9.0. They have a high nitrate tolerance; for example, they were found in a lake with high TDS and nitrate (20 ppm). They have a lower salinity tolerance than other crayfish species.</p><p>Optimum temperatures for growth are 18–25°C. Growth is not drastically reduced until the temperature falls below 15°C or rises above 30°C. At 25°C, their length and total weight increased by 17.5 mm and 1700 mg over 150 days, whereas at 15°C they increased by 7 mm and 100 mg over the same period.</p><p><strong>Extreme temperatures.</strong> They survive temperatures below 6°C for 6 months and tolerate temperatures below 2°C for at least one week. Survival at 3°C for three months and above 30°C for many weeks was also confirmed experimentally, although mortality increases and reproduction stops. They are active and eat above 10°C, become less active as the water cools and stop eating below 10°C. Most hide in shelters below 5°C. Below 2°C some come out and lie motionless on the bottom like dead animals. Above 4°C they become more active again. Larger crayfish are more tolerant of very low temperatures.</p><p><strong>Temperature and moults.</strong> Growth in crustaceans is discontinuous, with successive moults. Temperature is the most important environmental factor influencing growth because it directly affects metabolic rate. They can sometimes moult even below 10°C. Higher temperatures shorten the moult cycle and lead to faster growth, but only within a suitable range. Adults moult only 2–3 times a year and may lose some colour afterwards; this is normal and the bright colour returns in 7–10 days. They can regenerate lost appendages within 1 to 2 moults. Cuttlebone, blanched kale or eggshell can be added to supplement calcium for exoskeleton formation.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marmorkrebs-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>They are not picky about filtration, but sponge filters or Matten filters are recommended, as for shrimp.</p><p>Like other crayfish, they need crevices or hiding places for protection and healthy growth, so add rocks, driftwood, PVC tubes and so on. This is crucial when housing multiple crayfish in the same tank, because shelters play a significant role in fights: large Marbled crayfish usually defeat small opponents but are frequently beaten by small opponents that own a shelter. More than 2 hours of residency in a shelter is sufficient for small owners to defeat large intruders. Shelter quality also matters: small owners of low-quality shelters were frequently beaten by large owners with shelters of the same or better quality. They prefer big, long PVC pipes with multiple entrances.</p><p>Despite their hardiness, it is better to acclimate them.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marmorkrebs-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>They are omnivores and use a wide range of food sources. According to scientific studies and the experience of many aquarists, detritus and algae are the most important food sources. They also feed on plants, so they will eat live plants in the tank; only floating plants are relatively safe.</p><p>They have a very good appetite for vegetables such as cucumbers, zucchinis, spinach and cabbages. They are not vegetarians: once or twice a week they need organic food. They enjoy blackworms, earthworms, brine shrimp and snails.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marmorkrebs-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Marbled crayfish are very destructive, so keeping them in a planted tank can be a challenge.</li><li>They can cause water turbidity by disturbing fine sediment particles while burrowing for shelter or searching for food.</li><li>They are very good escape artists. Cover the tank as much as possible and keep the water level slightly below the surface.</li><li>They are not as peaceful as people think. It is not recommended to keep them with fish and shrimp, unless you are ready to lose a few.</li><li>They are territorial and very competitive, and can behave aggressively towards anybody on their territory.</li></ul><p>They can spend much of their time hiding. Activity peaks shortly before lights off and continues for several minutes; a shorter and less intense burst occurs at the beginning of the light phase. In one experiment, when Marmorkrebs and Louisiana red swamp crayfish were put in the same tank, fights between them began significantly faster than between two Marmorkrebs, and Marbled crayfish initiated fights more often.</p><p>They can be aggressive to their young.</p><p><strong>Tankmates.</strong> The idea that they are peaceful with fish and shrimp is a myth. They are opportunistic feeders: if they can catch a shrimp or small fish, it will be eaten. If kept in a community tank: do not keep them with bottom-dwelling fish or fish with big, flowing fins, give them organic food from time to time, and do not let them go hungry. Do not keep them with cichlids and pufferfish. In most cases healthy dwarf shrimp are too fast for them, but do not keep them with bamboo shrimp, which stay motionless when feeding and are easy targets. They are active predators of freshwater snails and are not compatible with any snails, such as Nerite, Rabbit or Mystery snails.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marmorkrebs-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Breeding is super easy because they do not even have to mate. Due to its asexual mode of reproduction, even a single Marbled crayfish can overpopulate a home aquarium in a short time.</p><p>They take 5 to 7 months (depending on temperature) to mature. Typical size at maturity is about 3.5 cm. Female fecundity increases with body size; broods even for very small females usually exceed 45 eggs and may reach up to 700. Under laboratory conditions, the maximum observed fecundity per female reached 647 juveniles (on average 420).</p><p>Eggs are incubated for 22 to 42 days. Interclutch periods vary between 50 and 85 days. They start reproducing when the water temperature reaches 15.8°C. They can reproduce approximately every 3 months (up to 7–8 reproduction cycles during a lifespan of 2 to 3 years); one female can have up to 1500 young per year.</p><p>In crossbreeding experiments, Marbled crayfish females and Procambarus fallax males showed typical courtship behaviour and mating. However, the offspring were exclusively female and showed only the genetics of the marbled crayfish mother, in agreement with the notion that the male did not contribute to the genome and the progeny is the product of asexual reproduction.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marmorkrebs-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>In 2003, Gerhard Scholtz confirmed that an unidentified crayfish in Germany was reproducing parthenogenetically (without males) in an aquarium. This was the first record of a parthenogenetic decapod crustacean.</p><p>Using morphological characters and molecular markers, scientists identified the sexually reproducing slough crayfish Procambarus fallax from Florida as the closest relative and suggested the provisional name Procambarus fallax forma virginalis. However, the International Code of Zoological Nomenclature (ICZN, 1999) excludes \"forma\" for names published after 1960 (Article 15.2), so the provisional name was considered \"unavailable\". Because of different fitness traits, reproductive incompatibility and substantial genetic differences, some biologists suggested using a new scientific name, Procambarus virginalis sp. nov., for the time being.</p><p>Nobody knows exactly how this species originated; it could have been a hybridization between Procambarus fallax and another species of the genus Procambarus. Biologists use male pleopods and gonopods to identify crayfish species, which is impossible with the Marbled crayfish, as they are all females.</p><p>The Marmorkrebs is a medium-sized crayfish. The marbled colouration of the carapace is particularly prominent in aquarium stocks and often less pronounced in wild animals. The colour greatly depends on the diet. The basic colour is usually dark brown to olive but can vary from tan to reddish-brown or blue, and even green. Although the crayfish are genetically identical, they show a surprisingly broad range of colouration, growth, lifespan, reproduction, behaviour and fluctuating asymmetry of sense organs even when reared under identical conditions.</p><p>They can live up to 2–3 years. In adulthood, they grow to 7–12 cm or even more.</p><p>Colour can be altered through diet: carp feed (carotenoid-free) gives darker grey, greyish brown and light grey colour; discus feed (carotenoid-rich) gives dark blue colour. Different levels of astaxanthin and protein in feed significantly affect carapace colouration, growth rate and maturation.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/54e64aa53794f9c3.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "Public domain",
+      "author": "Zfaulkes at English Wikipedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Procambarus_fallax_forma_virginalis.jpg",
+      "caption": "Adult Marmorkrebs (marbled crayfish).",
+      "thumb": "https://media.aquatome.com/commons/54e64aa53794f9c3-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/54e64aa53794f9c3-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/6fc4ece2515577fb.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "Lorenz Seebauer",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marmorkrebs_im_Singliser_See.jpg",
+      "caption": "Invasiver Marmorkrebs im Singliser See",
+      "thumb": "https://media.aquatome.com/commons/6fc4ece2515577fb-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/49f4c3bcdf7c0df1.webp",
+      "width": 960,
+      "height": 664,
+      "licence": "CC BY-SA 4.0",
+      "author": "Adam Opioła",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Procamburus_sp._a1.jpg",
+      "caption": "Procamburus sp.",
+      "thumb": "https://media.aquatome.com/commons/49f4c3bcdf7c0df1-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/3715a082d71e5a22.webp",
+      "width": 960,
+      "height": 661,
+      "licence": "CC BY-SA 2.5",
+      "author": "André Karwath aka Aka",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Procambarus_sp._(aka).jpg",
+      "caption": "This image shows a crayfish of the genus Procambarus.",
+      "thumb": "https://media.aquatome.com/commons/3715a082d71e5a22-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "UZighWTSIUY",
+      "title": "Self-cloning marbled crayfish is digging in the sand",
+      "durationSec": 68,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "J4LVs8yVLS4",
+      "title": "Self-Cloning Marble Crayfish | All About",
+      "durationSec": 265,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ci1xKylTV9E",
+      "title": "Self Cloning Marbled Crayfish",
+      "durationSec": 17,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "LlrhuZ4IMCQ",
+      "title": "Self-Cloning Crayfish (Marmorkrebs) - Info and Care Guide",
+      "durationSec": 321,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể nuôi tôm hùm đất 90 lít",
+        "bể thủy sinh 90 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bọt biển",
+        "lọc matten"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn tôm hùm đất",
+        "thức ăn chìm cho tôm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

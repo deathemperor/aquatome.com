@@ -24,13 +24,14 @@
       "regions": [
         "East Alligator",
         "Cape York Peninsula",
-        "Daly",
         "Aru Islands",
         "Bensbach River",
-        "New Guinea"
+        "New Guinea",
+        "Cape York"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "bwaquatics"
       ],
       "quotes": [
         {
@@ -65,11 +66,11 @@
           ]
         },
         {
-          "source": "seriouslyfish",
-          "quote": "Additional records from the Northern Territory include the Alligator, Blyth, Daly, Finniss, Howard, Liverpool, and Mary river drainages.",
+          "source": "bwaquatics",
+          "quote": "Northern Australia (Northern Territory and Cape York) and southern Papua New Guinea.",
           "countries": [],
           "regions": [
-            "Daly"
+            "Cape York"
           ]
         }
       ]

@@ -7,7 +7,11 @@
   "group": "tetras",
   "places": [
     "south-america",
-    "peru"
+    "peru",
+    "brazil",
+    "rio-trombetas",
+    "venezuela",
+    "colombia"
   ],
   "range": {
     "native": {
@@ -379,7 +383,13 @@
     "sizeCm": [
       {
         "source": "glaser",
-        "value": 8
+        "value": 10
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "glaser",
+        "value": 120
       }
     ]
   },
@@ -387,36 +397,82 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus_cf_minimus_en/",
-      "html": "<p>The barracuda tetras (Acestrorhynchus) from South America are beautiful predators, which are much sought for among specialized aquarists with large tanks. Several of the approximately 14 species accepted currently become 20 to 40 cm long, but there do exist also small species in the genus that become never larger than 10 cm.</p><p>Origin: Peru. Available size: 6-8 cm.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus-cf-minimus-2/",
+      "html": "<p>Acestrorhynchus minimus is a barracuda tetra from Amazonia. Unlike most predatory fishes, it stays small, growing to only about 8-10 cm in length.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus-cf-minimus-2/",
+      "html": "<p>Unfortunately the species is imported only very rarely.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus-cf-minimus-2/",
+      "html": "<p>Barracuda tetras are widely distributed in South America with 14 currently recognized species. From scientific collections A. minimus is known from Brazil, Venezuela and the Brazilian-Colombian border area. Its type locality is the Lago Jacaré at the Rio Trombetas in Brazil. The specimens illustrated on the page are from Peru, but all diagnostic characteristics of the species fit.</p>"
     },
     {
       "key": "aquariumSize",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus_cf_minimus_en/",
-      "html": "<p>A. minimus becomes only 6-8 cm long and so the species fits very well in a 200 litre tank. On the other hand the tank should not be much smaller, as barracuda tetras are active hunters and thus need some space.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus-cf-minimus-2/",
+      "html": "<p>Most barracuda tetra species grow to 20-30 cm and need very large aquariums. A. minimus grows to only about 8-10 cm and can be accommodated excellently in medium-sized aquariums of perhaps 120 cm edge length.</p>"
     },
     {
-      "key": "diet",
+      "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus_cf_minimus_en/",
-      "html": "<p>They should be fed with small feeder fish.</p>"
-    },
-    {
-      "key": "behaviour",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus_cf_minimus_en/",
-      "html": "<p>Acestrorhynchus are comparably peaceful predators and should be kept in schools.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus-cf-minimus-2/",
+      "html": "<p>From morphologically similar, large-bodied species, A. minimus can be most reliably distinguished by the fact that it has only a dark spot on the root of the tail, but not at the end of the gill cover.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/b45e10fbff43d47b.webp",
+      "thumb": "https://media.aquatome.com/glaser/b45e10fbff43d47b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus-cf-minimus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7871131c5e74e695.webp",
+      "thumb": "https://media.aquatome.com/glaser/7871131c5e74e695-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus-cf-minimus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ec656d07a0546607.webp",
+      "thumb": "https://media.aquatome.com/glaser/ec656d07a0546607-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus-cf-minimus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/af12950aea58ee96.webp",
+      "thumb": "https://media.aquatome.com/glaser/af12950aea58ee96-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus-cf-minimus-2/",
+      "source": "glaser"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 200 lít",
-        "bể cá kính 120cm"
+        "bể cá 120cm"
       ]
     },
     {
@@ -432,5 +488,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-21"
 }

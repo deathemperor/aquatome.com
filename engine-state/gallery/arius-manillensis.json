@@ -39,5 +39,13 @@
  "gbif": {
   "key": 2345237,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 0,
+  "done": true
+ },
+ "exhausted": "2026-11-21"
 }

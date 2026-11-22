@@ -16,4 +16,16 @@ enum TestGate {
     #endif
     try await Task.sleep(for: time)
   }
+
+  /// Whether the test has opened `name` (with `-test-gates DIR`, debug builds: DIR/NAME is there). Without gates, and in
+  /// release builds, it is open.
+  static func isOpen(_ name: String) -> Bool {
+    #if DEBUG
+    let args = ProcessInfo.processInfo.arguments
+    if let i = args.firstIndex(of: "-test-gates"), i + 1 < args.count {
+      return FileManager.default.fileExists(atPath: URL(fileURLWithPath: args[i + 1]).appending(path: name).path)
+    }
+    #endif
+    return true
+  }
 }

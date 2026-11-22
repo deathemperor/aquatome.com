@@ -1,0 +1,12 @@
+---
+url: https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorius-variatus-hotel-taninul-and-code-1243/
+title: Xiphophorius variatus "Hotel Taninul" and "Code 1243" - Aquarium Glaser GmbH
+fetchedAt: 2026-11-21T18:58:20.933Z
+hash: b70c3d40678227a3cd56b13a0626782ac2b7038e3347d507343d5fccc4d67903
+---
+
+We have already introduced several wild strains of Xiphophorus variatus, which rightly bears its scientific species name (variatus = variable).
+Now we have again two new variants on offer, both are German bred ones, descended from wild populations. The first is a pretty speckled fish discovered and brought back on a scientific collecting trip in Mexico. It comes from the area around Hotel Taninul (Carretera Km. 15, 79250, Tampico, Valles, 79250 Cd Valles, S.L.P., Mexico). Located in a natural park, “Set inside the Huasteca, a 740-acre ecological preserve, this rural resort hotel surrounded by tropical forest is 17 km from the town of Tamuín and 19 km from the center of Ciudad Valles.” (quoted from the hotel’s promotional website). Near the hotel grounds flows a nameless sulfurous brook and from it came the said X. variatus. Other fish species living in the brook were Poecilopsis gracilis, Astyanax mexicanus, Poecilia formosa and unspecified aquatic turtles.
+The second form was found by the same expedition along road 85 in a drainage near Mante towards Victora (11 km north of Mante at km 105). There is no publication on this so far, this information was passed on orally. Therefore, so far there is only the provisional designation “1243” made in the field notes. This Platy is rather interesting than beautiful, because one looks for color with him in vain. Interesting are the strong melanophores in the front half of the body and the dark reticulation in the middle of the rear, which gives the impression of a longitudinal band. This variety will hardly be able to establish in the hobby, here is probably an unique buying opportunity for specialized friends of livebearers, while “Hotel Taninul” will certainly find its friends, especially since the males with increasing age develop increasingly strong yellow tones in the fins and back, as the breeder told us.
+For our customers: “Hotel Taminul” has code 443095, “1243” code 443093 on our stocklist. There are limited quantities of both varieties available. Please note that we only supply to wholesalers.
+Text & Photos: Frank Schäfer

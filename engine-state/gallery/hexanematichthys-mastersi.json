@@ -2,7 +2,9 @@
  "queue": [],
  "judged": [
   "gbif:1456256895:3a077b19d4e9a5d4",
-  "gbif:1456256895:7ee8d42471afa4f7"
+  "gbif:1456256895:7ee8d42471afa4f7",
+  "inat:726952954",
+  "inat:726952953"
  ],
  "hashes": {},
  "inat": {
@@ -17,5 +19,9 @@
  "gbif": {
   "key": 2344940,
   "next": null
+ },
+ "inatNc": {
+  "after": 396396718,
+  "done": true
  }
 }

@@ -1226,6 +1226,41 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-0k2KvIXRq70": [
+    {
+      "at": "2026-11-21T23:50:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.75,
+      "notes": [
+        "\"Thấy một con bị rượt liên tục thì nên chuyển nó sang bể khác\": the video never gives this as advice. The creator only admits his own mistake. Remove the sentence, or hedge it as something the creator's own story only implies.",
+        "\"Cá lau kiếng có nên thả vào bể nhỏ để dọn rêu không?\": the video never mentions algae or a small tank in this context. It only says the common pleco gets huge and isn't the worker fish people think. Reword the question to match, e.g. \"Cá lau kiếng có phải cá dọn bể không?\", and drop \"bể nhỏ\" and \"rêu\".",
+        "\"Đây là chuyện người mới hay gặp\": the video doesn't say this is common among beginners. It only describes keepers who struggle to keep fish alive. Remove the sentence or soften it.",
+        "\"Khỏe là để bù cho sai sót của người nuôi, không phải để bỏ bê cá\": this is the writer's own moralising line. The video only says it doesn't condone treating the fish that way. Cut it or fold it into the existing caveat."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T23:50:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.6,
+      "notes": [
+        "\"Nó cũng không phải con cá dọn bể như nhiều người tưởng\" (pleco section): the video only says it isn't the worker fish \"you think\". Drop \"nhiều người\" and just say it isn't a tank-cleaning fish.",
+        "\"không phải con cá dọn bể như nhiều người nghĩ\" (pleco FAQ answer): same problem. Remove \"nhiều người nghĩ\" and just say it isn't a tank-cleaning fish.",
+        "\"nhiều người mua betta về nuôi đại trong đủ thứ vật chứa mà cá vẫn sống\": this turns one speaker's remark into what many people do. The video only says that someone who bought a betta before watching probably still did fine. Rewrite it as \"nếu mua betta về nuôi đại thì nhiều khả năng cá vẫn sống\".",
+        "\"Đây là loài hiếu động bậc nhất\": this is the creator's personal view (\"most active fish I've ever seen\"), stated as fact. Hedge it, e.g. \"có thể là loài hiếu động nhất\", or just say they are very active.",
+        "\"loài này hay chui xuống cát và rất dễ bị quên\" and the summary line \"Cá chạch kuhli hay vùi mình dưới cát\": the video gives one kuhli that was buried and forgotten, not a habit of the species. Remove the generalisation and say that one kuhli was forgotten in the sand.",
+        "\"Bài học ở đây là…\": the bare \"ở đây\" reads like a translation. Reword, e.g. \"Bài học rút ra là…\".",
+        "\"Cá lau kiếng thường khỏe nhất danh sách\" (summary bullet): the video only says it \"might be\" the most bulletproof. Change \"thường\" to \"có lẽ\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-0kgXMVQ7o0A": [
     {
       "at": "2026-11-16T12:00:56Z",
@@ -3497,6 +3532,40 @@
       ],
       "attempt": "recheck",
       "kept": true
+    }
+  ],
+  "vi/guides/youtube-4Hz6rlx-lo0": [
+    {
+      "at": "2026-11-21T23:47:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.7,
+      "notes": [
+        "\"Có những bầy Oscar nuôi từ nhỏ, từng gây chuyện với cá khác, mà vẫn sống yên với cá khủng long\" presents one keeper's own Oscars as if many Oscar groups behave this way. Rewrite it as one case, e.g. \"Oscar nuôi từ nhỏ có thể vẫn sống yên với cá khủng long\", with the hedge kept.",
+        "\"có thể cho ăn thức ăn chìm cho dễ\" gives a reason the video doesn't state. The creator only says he likes feeding sinking food. Remove \"cho dễ\" and write it as a personal preference (\"nếu thích thì\").",
+        "\"giờ ăn bể thường đục và bẩn\" adds \"đục\" (cloudy water), which the video doesn't say. It only says the area gets messy because the fish stir up leftover crumbs and poop. Change it to \"khá bừa bộn\" and drop \"đục\".",
+        "\"bể phải đủ cao và đủ thoáng\" adds \"đủ thoáng\" (open or airy), which the video doesn't say. It only says the fish need room to swim up and down. Remove \"đủ thoáng\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T23:47:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.6,
+      "notes": [
+        "\"Nước máy và nhiệt độ phòng của hầu hết người nuôi đều nằm trong khoảng này\": the video says only that almost everyone's pH and temperature fall in these ranges. Tap water and room temperature are not mentioned. Rewrite it as pH and temperature, or drop the sentence.",
+        "\"bơi lừ đừ dưới đáy\": the video calls these fish extremely active and says they need room to swim in every direction. Remove \"lừ đừ\" and say they are very active.",
+        "\"Người mới hay thấy cá con ngoài tiệm rồi mua về thả bể nhỏ, sau đó mới biết là không đủ chỗ\": this habit of newcomers is invented. The video only warns against putting them in a small tank with the plan to upgrade later. Remove the sentence or make it a hedged warning.",
+        "\"Cá khủng long ăn chậm\": the video never says they eat slowly. It says they play with the food, push it around, then suck it in, and sometimes go for it aggressively. Replace \"ăn chậm\" with that description.",
+        "\"Hút sạch đáy thường xuyên thì đỡ hơn nhiều\": the video gives no such result. It only says the fish stir up leftover food and poop if the poop has not been removed from the tank. Remove the claim that vacuuming makes it much better.",
+        "\"Dễ kiếm nhất là cá senegal\": the video says senegal is the most common type, not the easiest to find. Say \"phổ biến nhất\" or drop the claim about availability."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/guides/youtube-4LpldhD2JHU": [
@@ -5855,6 +5924,41 @@
       ],
       "attempt": "recheck",
       "kept": true
+    }
+  ],
+  "vi/guides/youtube-7mo1UBChWaA": [
+    {
+      "at": "2026-11-21T23:53:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.65,
+      "notes": [
+        "\"Gần như không ai kể chuyện nuôi nó hiền lành, mà toàn là trải nghiệm tệ hại kéo dài nhiều năm\": this makes one keeper's own experience (he has never heard a good story, and his fish gave him years of misery) sound like what many keepers report. Rewrite it as a hedged point: the species has a reputation for being very aggressive, and some keepers have had bad experiences.",
+        "\"nên cân nhắc kỹ trước khi mua dù nó trông rất đẹp\": the transcript gives no such advice. It only says the fish is mean and that this is a shame. Remove the advice and keep only the statement that the fish is really aggressive.",
+        "\"Không nuôi hai con cá xiêm đực chung một bể\": the transcript says only 'other bettas' and does not mention males. Remove \"đực\" and write \"không nuôi cá xiêm với cá xiêm khác\".",
+        "\"Cá la hán lớn rất to\" (the same phrase appears in the FAQ): this is awkward, repetitive wording. Rewrite it as \"cá la hán đạt kích thước rất lớn\" or similar."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T23:53:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.7,
+      "notes": [
+        "\"sau một thời gian dài sống chung yên ổn\" (oscar and silver arowana): the video only says things were great \"for a while\" and then weren't. Change it to \"một thời gian\" and drop \"dài\".",
+        "\"kiểu gì cũng đánh\" (betta with gourami, in the body and in the FAQ): the video says only \"you're asking for a fight\". Hedge it, e.g. \"rất dễ đánh nhau\".",
+        "\"đây là lựa chọn an toàn\" and \"Ốc là lựa chọn an toàn\" (betta with snails, in the body and in the FAQ): the video says only that bettas \"pretty much leave them alone\". Drop \"an toàn\" and keep \"thường để yên\".",
+        "\"Cá rồng Úc: con rồng khó chịu nhất\" (heading): this is a superlative, and the video says only that it has a reputation as \"one of the nastiest\". Change the heading to \"một trong những loài dữ nhất\" or a neutral wording.",
+        "\"coi như cài lại thứ bậc trong bể\" (peacock and haps redecorating): the video says only that redecorating \"resets things\" and gets the fish to focus on their new surroundings. Remove the claim about the pecking order.",
+        "\"Set một bể peacock và haps\": English left in the text. Use \"Lập một bể\" or \"Nuôi một bể\".",
+        "\"Đừng hỏi bể 80 lít thả được mấy con cá xiêm đực, câu trả lời là một\": the video doesn't give a number, and the phrasing reads like a translation. Rewrite as \"không nuôi hai cá xiêm đực chung bể\" and drop the answer \"một\"."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/guides/youtube-7nEatEnYWH8": [
@@ -21733,6 +21837,41 @@
       "notes": [
         "\"Bố cục càng đơn giản càng dễ trồng\": the video gives no such claim or advice. It only calls the hardscape relatively simple. Remove the sentence.",
         "\"khi chụp ảnh hay quay phim thì màu kém thật\": this states the creator's opinion that the ADA-type lights are \"not so realistic\" as a flat fact. Hedge it, e.g. \"màu có thể kém chân thực hơn\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-Shhe4SNvXpY": [
+    {
+      "at": "2026-11-21T11:46:47Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.85,
+      "notes": [
+        "\"đáy rộng và sâu hơn bể thường\": the video says rays stay on the bottom and grow out, not up, so they need a bigger footprint. Change \"sâu\" to something like \"đáy rộng hơn\" so it doesn't read as a deeper tank."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T11:46:47Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.6,
+      "notes": [
+        "\"Khó nhất khi nuôi loài này là chọn cá nuôi chung\": the video never says this is the hardest part of keeping oscars. Remove the claim or soften it.",
+        "\"Con nào nhỏ vừa miệng oscar thì sớm muộn cũng bị nuốt\": \"sớm muộn\" is stronger than the video, which says most algae-eating fish can be swallowed whole and that small clown loaches must not fit in the mouth. Change it to \"có thể bị nuốt\".",
+        "\"Rồng bạc, cá két, cá đô la bạc và cá severum khá hiền\" (summary): the video never calls the arowana gentle. It only says the writer has had no problems with oscars. Take the arowana out of the \"hiền\" list or reword it.",
+        "\"cá bơi tầng trên, tầng giữa\" (heading for silver dollars): the video gives no swimming level for silver dollars. Remove \"tầng giữa\" or the whole heading label.",
+        "\"Nó có thân dẹt\" (severum): the video only says the severum's shape resembles the discus. \"Thân dẹt\" is an added detail, so remove it.",
+        "\"Nhưng nuôi chung với oscar thì vẫn ổn\" (green terror): this is the creator's own experience (never had a problem), written as a firm fact. Hedge it, e.g. \"có thể nuôi chung, nhưng vẫn phải để mắt\".",
+        "\"Theo dõi bể sát sao, nhất là thời gian đầu\" and \"Chuẩn bị sẵn phương án tách cá\": the video only says to watch closely and be ready to react if things go wrong. Remove \"nhất là thời gian đầu\" and the separating-fish step.",
+        "\"chúng có thể đẻ ra cả mấy trăm con\" (Jack Dempsey): this is one anecdote (about 300 fish from one breeding pair) written as a general fact. Remove it or make it a hedged example.",
+        "\"lớn rồi thì nó hiền và lười, khá giống oscar\" (giant gourami): the video limits this with \"in our experience\". Add a hedge such as \"có thể\" without naming the creator.",
+        "\"Cá đuối nước ngọt và cá tai tượng là cá khủng, không dành cho người mới hay bể nhỏ\" (summary): the video says only stingrays are not for beginners. For the giant gourami it says only that it needs a massive tank. Separate the two claims."
       ],
       "attempt": "first",
       "kept": false
@@ -38922,6 +39061,38 @@
         "\"Có cần lót vải dưới bạt hồ không? Nên có.\" and the other FAQs repeat earlier material as 'Nên có' firm advice; the video only explains what the fabric does, so drop the 'nên có' wording. Also the first FAQ on small ponds duplicates the size section and is padding.",
         "\"Bơm hút nước từ hồ vào và đẩy lên hộp lọc thác, nước chảy ngược xuống hồ qua thác\" and \"Silicone lòi ra thì lau đi\" / \"Lỗi này do đặt hộp hút thấp quá ... Một lỗi hay gặp\": 'hay gặp' presents one person's mistake as common; hedge to 'một lỗi có thể gặp'.",
         "\"Dọn sạch khu làm việc\" lists tools such as thước thủy, 'tấm ván thẳng' and 'xịt sơn', and the intro 'Có thêm cả một lỗi hay gặp'; also 'Một bộ kit làm hồ thường có sẵn gần đủ phần kỹ thuật' generalises about kits. Hedge to what the video says: this particular kit had everything except rocks, plants and seam tape."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-qMgSEhoBfPM": [
+    {
+      "at": "2026-11-21T11:43:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.85,
+      "notes": [
+        "Summary bullet \"nên chỉ nuôi chung với cichlid Nam Mỹ và Trung Mỹ\": this is stated as a firm rule. The video's usual advice is to keep the Oscar as the only fish. It says to stick to South and Central American cichlids only if you really must have tank mates. Hedge it, e.g. \"nếu buộc phải nuôi chung thì nên chọn…\".",
+        "\"Thay nước và vệ sinh bể đều đặn thì cá khỏe lâu dài\" and \"Lười thay nước, vệ sinh bể\": the video only says to keep up with maintenance and doesn't mention water changes. Change \"thay nước\" to the general \"bảo trì, vệ sinh bể\", and drop the \"cá khỏe lâu dài\" promise."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T11:43:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.6,
+      "notes": [
+        "\"Tốt nhất là để cá Oscar làm nhân vật chính trong bể\": the video only says the creator usually recommends this. Hedge it, e.g. \"Một cách là để cá Oscar làm nhân vật chính trong bể\", and drop \"tốt nhất\".",
+        "\"Có thể nói cá Oscar là loài gần với chó mèo nhất trong các loài cá cảnh\": this is the creator's \"in my opinion\". Hedge it as one keeper's view, e.g. \"Có người thấy…\", or remove it, and don't state it as fact.",
+        "\"cichlid Nam Mỹ và Trung Mỹ cỡ lớn\" (bullet list and FAQ): the video never says tank mates must be large. Remove \"cỡ lớn\" and keep just South and Central American cichlids.",
+        "\"Cá Oscar ít khi gây sự với cá khác trong bể. Thường thì ngược lại, chính các loài kia mới hay bắt nạt Oscar\": this is only the creator's own experience (\"we've never really had a problem\"). Hedge it as that, e.g. \"có người nuôi chung thấy…\", and don't state it as a general fact.",
+        "\"giữ nước sạch là việc lớn nhất khi nuôi loài này\": the video says it is \"one of the biggest things\". Change it to \"một trong những việc quan trọng nhất\" or similar.",
+        "\"Trong bể, khi đã có cám tốt và tôm, cá Oscar thường không ăn rau\": this is the creator's experience (\"my experience is that most Oscars don't\"). Hedge it, e.g. \"theo kinh nghiệm thì nhiều con không ăn rau\"."
       ],
       "attempt": "first",
       "kept": false

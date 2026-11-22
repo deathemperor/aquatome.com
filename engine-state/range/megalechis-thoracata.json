@@ -1,20 +1,61 @@
 {
   "id": "megalechis-thoracata",
   "native": {
-    "input": "81f825d54daa6635",
-    "at": "2026-11-10T07:58:31.896Z",
-    "claims": [],
-    "regions": [],
+    "input": "da959024b016d100",
+    "at": "2026-11-21T13:11:30.372Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon, Orinoco and upper Paraguay River basins, as well as coastal rivers of the Guianas and northern Brazil, including Trinidad rivers and Maranhão waters (Itapicurú).",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Mana River, French Guiana.",
+        "words": "French Guiana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon, Orinoco and upper Paraguay River basins, as well as coastal rivers of the Guianas and northern Brazil, including Trinidad rivers and Maranhão waters (Itapicurú).",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon, Orinoco and upper Paraguay River basins, as well as coastal rivers of the Guianas and northern Brazil, including Trinidad rivers and Maranhão waters (Itapicurú).",
+        "ok": true
+      },
+      {
+        "name": "Paraguay River",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon, Orinoco and upper Paraguay River basins, as well as coastal rivers of the Guianas and northern Brazil, including Trinidad rivers and Maranhão waters (Itapicurú).",
+        "ok": true
+      },
+      {
+        "name": "Mana River",
+        "source": "planetcatfish",
+        "quote": "Type locality: Mana River, French Guiana.",
+        "country": "GF",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
       "pagesOnly": [
         "AR",
         "BO",
-        "BR",
         "CO",
         "EC",
-        "GF",
         "GY",
         "PY",
         "PE",
@@ -183,8 +224,11 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-10T07:58:31.896Z"
+    "native": [
+      "BR",
+      "GF"
+    ],
+    "requests": 13,
+    "at": "2026-11-21T13:11:30.372Z"
   }
 }

@@ -19,6 +19,7 @@
         "Rio Negro"
       ],
       "sources": [
+        "bwaquatics",
         "seriouslyfish"
       ],
       "quotes": [
@@ -182,21 +183,9 @@
     },
     {
       "key": "waterConditions",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/adolfos-cory-corydoras-adolfoi",
-      "html": "<p>pH: currently kept at 6 to 7, but they can adapt to a variety of pH (wild range 4.0 to 7.0). Temperature: 22–26°C.</p>"
-    },
-    {
-      "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-adolfoi",
       "html": "<p>Temperature: 20–26°C</p><p>pH: 4.0–7.0, though wild fish may do best towards the middle and lower ends of this range.</p><p>Hardness: 1–5 dGH; notes for wild fish as per pH.</p>"
-    },
-    {
-      "key": "diet",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/adolfos-cory-corydoras-adolfoi",
-      "html": "<p>Currently feeding on blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "diet",

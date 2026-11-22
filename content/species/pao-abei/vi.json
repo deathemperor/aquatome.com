@@ -1,0 +1,27 @@
+{
+  "slug": "ca-noc-pao-abei",
+  "name": "Cá nóc Pao abei",
+  "altNames": [
+    "Cá nóc mắt giả",
+    "Eyespot puffer"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Pao abei được mô tả khoa học năm 1998, theo mẫu thu ở sông Mekong thuộc Lào.</p>",
+    "habitat:glaser": "<p>Ở Đông Nam Á có một nhóm cá nóc nước ngọt mà các loài trong nhóm cực kỳ khó phân biệt với nhau. Người ta gọi chúng là cá nóc mắt giả (Eyespot-Puffers), hay nhóm Pao leiurus. Chúng sống ở suối và sông, có loài sống cả ở ao và hồ, nhưng lúc nào cũng là nước ngọt hoàn toàn.</p>",
+    "notes:glaser": "<p>Pao abei là một trong những loài khó hiểu nhất của nhóm. Mẫu ngâm bảo quản có màu rất sẫm, gần như đen, điểm những đốm vàng hoặc cam li ti. Cá mới bắt trong ảnh nhà cung cấp ở Thái Lan gửi sang cũng trông đúng như vậy. Thế nhưng về bể nuôi, cũng những con cá đó lại trông rất khác. Cá nóc nước ngọt khó định loài là ở chỗ này: chúng đổi màu được rất nhanh và đổi rất mạnh. Thêm nữa, hoa văn mỗi con lại hơi khác nhau. Đặc điểm giải phẫu ổn định để định loài thì có rất ít, và chúng chủ yếu trùng nhau giữa các loài. Vì thế, chưa chắc lứa cá mới nhập về, dài 7-10 cm, có đúng là Pao abei hay không. Dù là loài nào thì đây vẫn là những con cá đẹp và thú vị.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-22"
+  }
+}

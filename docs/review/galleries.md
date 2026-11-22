@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-21). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
 | shop | 60 | 131 | 81 | 24 | 37 | 199 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 833 | 32 | 9 | 28 | 846 |
-| rest | 20 | 1912 | 81 | 0 | 117 | 1876 |
+| covered | 30 | 871 | 32 | 9 | 28 | 884 |
+| rest | 20 | 1926 | 81 | 0 | 120 | 1887 |
 
-## Short of target: every source read (713)
+## Short of target: every source read (785)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -35,19 +35,86 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/neolamprologus-pulcher | covered | 3 | 30 |
 | species/amphilius-lujani | rest | 0 | 20 |
 | species/amphilius-zairensis | rest | 0 | 20 |
+| species/ariopsis-guatemalensis | rest | 0 | 20 |
 | species/arius-latiscutatus | covered | 0 | 30 |
+| species/arius-leptonotacanthus | rest | 0 | 20 |
+| species/arius-subrostratus | rest | 0 | 20 |
+| species/arius-venosus | rest | 0 | 20 |
+| species/aspistor-luniscutis | rest | 0 | 20 |
+| species/aspredo-aspredo | rest | 0 | 20 |
+| species/cathorops-arenatus | rest | 0 | 20 |
+| species/congoglanis-alula | rest | 0 | 20 |
+| species/corydoras-lacrimostigmata | rest | 0 | 20 |
+| species/cyclocheilos-enoplos | rest | 0 | 20 |
+| species/danio-flagrans | rest | 0 | 20 |
+| species/eirmotus-insignis | rest | 0 | 20 |
+| species/garra-nambulica | rest | 0 | 20 |
+| species/gastromyzon-aeroides | rest | 0 | 20 |
+| species/hoplomyzon-papillatus | rest | 0 | 20 |
+| species/hoplomyzon-sexpapilostoma | rest | 0 | 20 |
+| species/hyphessobrycon-acaciae | rest | 0 | 20 |
+| species/labiobarbus-fasciatus | rest | 0 | 20 |
+| species/lepidocephalichthys-zeppelini | rest | 0 | 20 |
+| species/liobagrus-chengduensis | rest | 0 | 20 |
+| species/neoarius-pectoralis | rest | 0 | 20 |
+| species/pangasius-conchophilus | rest | 0 | 20 |
+| species/peckoltia-bachi | rest | 0 | 20 |
 | species/polypterus-retropinnis | covered | 0 | 30 |
+| species/pseudacanthicus-major | rest | 0 | 20 |
+| species/pseudobagarius-filifer | rest | 0 | 20 |
+| species/pseudobunocephalus-bifidus | rest | 0 | 20 |
+| species/puntigrus-navjotsodhii | rest | 0 | 20 |
+| species/sciades-parkeri | rest | 0 | 20 |
+| species/serrasalmus-gouldingi | rest | 0 | 20 |
+| species/sinibotia-superciliaris | rest | 0 | 20 |
+| species/synodontis-pleurops | rest | 0 | 20 |
+| species/xyliphius-barbatus | rest | 0 | 20 |
+| species/zaireichthys-conspicuus | rest | 0 | 20 |
+| species/zaireichthys-pallidus | rest | 0 | 20 |
+| species/amphiarius-phrygiatus | rest | 0 | 20 |
+| species/arius-africanus | rest | 0 | 20 |
+| species/arius-manillensis | rest | 0 | 20 |
+| species/arius-oetik | rest | 0 | 20 |
+| species/aspredinichthys-tibicen | rest | 0 | 20 |
+| species/astroblepus-ardiladuartei | rest | 0 | 20 |
+| species/astroblepus-bellezaensis | rest | 0 | 20 |
+| species/astroblepus-cacharas | rest | 0 | 20 |
+| species/astroblepus-caquetae | rest | 0 | 20 |
+| species/astroblepus-eigenmanni | rest | 0 | 20 |
+| species/astroblepus-fissidens | rest | 0 | 20 |
+| species/astroblepus-grixalvii | rest | 0 | 20 |
+| species/astroblepus-huallagaensis | rest | 0 | 20 |
+| species/astroblepus-latidens | rest | 0 | 20 |
+| species/astroblepus-mojicai | rest | 0 | 20 |
+| species/astroblepus-nettoferreirai | rest | 0 | 20 |
+| species/astroblepus-onzagaensis | rest | 0 | 20 |
+| species/astroblepus-pradai | rest | 0 | 20 |
+| species/astroblepus-quispei | rest | 0 | 20 |
+| species/bagre-bagre | rest | 0 | 20 |
+| species/bagre-panamensis | rest | 0 | 20 |
+| species/bagre-pinnimaculatus | rest | 0 | 20 |
+| species/bagrus-bajad | rest | 0 | 20 |
+| species/bunocephalus-chamaizelus | rest | 0 | 20 |
+| species/cathorops-dasycephalus | rest | 0 | 20 |
+| species/cathorops-fuerthii | rest | 0 | 20 |
+| species/cryptarius-daugueti | rest | 0 | 20 |
 | species/diplomystes-nahuelbutaensis | covered | 0 | 30 |
+| species/doumea-angolensis | rest | 0 | 20 |
+| species/doumea-chappuisi | rest | 0 | 20 |
+| species/doumea-typica | rest | 0 | 20 |
+| species/euchilichthys-guentheri | rest | 0 | 20 |
+| species/gogo-brevibarbis | rest | 0 | 20 |
+| species/gogo-ornatus | rest | 0 | 20 |
 | species/hyphessobrycon-heterorhabdus | covered | 0 | 30 |
 | species/hypostomus-isbrueckeri | covered | 0 | 30 |
 | species/leporinus-arcus | covered | 0 | 30 |
 | species/mochokus-niloticus | covered | 0 | 30 |
 | species/paracheirodon-innesi | staple | 21 | 100 |
-| species/paracheirodon-axelrodi | staple | 30 | 100 |
+| species/paracheirodon-axelrodi | staple | 29 | 100 |
 | species/trigonostigma-heteromorpha | staple | 26 | 100 |
 | species/symphysodon-aequifasciatus | staple | 63 | 100 |
 | species/puntius-titteya | staple | 14 | 100 |
-| species/danio-rerio | staple | 44 | 100 |
+| species/danio-rerio | staple | 43 | 100 |
 | species/mikrogeophagus-ramirezi | staple | 28 | 100 |
 | breeds/balloon-molly | shop | 2 | 60 |
 | species/anentome-helena | shop | 14 | 60 |
@@ -105,7 +172,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/cyperus-helferi | shop | 1 | 60 |
 | species/garra-flavatra | shop | 8 | 60 |
 | plants/aponogeton-madagascariensis | shop | 1 | 60 |
-| plants/riccardia-chamedryfolia | shop | 59 | 60 |
+| plants/riccardia-chamedryfolia | shop | 56 | 60 |
 | species/synodontis-petricola | shop | 2 | 60 |
 | species/peckoltia-compta | shop | 3 | 60 |
 | plants/monosolenium-tenerum | shop | 3 | 60 |
@@ -265,7 +332,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/datnioides-pulcher | popular | 2 | 40 |
 | species/pangasianodon-hypophthalmus | popular | 30 | 40 |
 | species/dichotomyctere-nigroviridis | popular | 12 | 40 |
-| species/pomacea-diffusa | popular | 16 | 40 |
+| species/pomacea-diffusa | popular | 15 | 40 |
 | breeds/electric-blue-ram | covered | 1 | 30 |
 | breeds/blue-diamond-discus | covered | 1 | 30 |
 | breeds/glofish | covered | 12 | 30 |
@@ -307,6 +374,8 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-splendens | covered | 4 | 30 |
 | species/denticetopsis-seducta | covered | 0 | 30 |
 | species/dianema-urostriatum | covered | 0 | 30 |
+| species/erethistes-pusillus | covered | 1 | 30 |
+| species/farlowella-amazonum | covered | 0 | 30 |
 | species/farlowella-platorynchus | covered | 0 | 30 |
 | species/hisonotus-notatus | covered | 0 | 30 |
 | species/hoplosternum-punctatum | covered | 0 | 30 |
@@ -567,7 +636,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/enteromius-jae | covered | 1 | 30 |
 | species/entomocorus-benjamini | covered | 0 | 30 |
 | species/epiplatys-dageti | covered | 0 | 30 |
-| species/erethistes-pusillus | covered | 1 | 30 |
 | species/eretmodus-cyanostictus | covered | 0 | 30 |
 | species/ernstichthys-megistus | covered | 0 | 30 |
 | species/erythrinus-erythrinus | covered | 0 | 30 |
@@ -575,7 +643,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/etroplus-maculatus | covered | 24 | 30 |
 | species/exodon-paradoxus | covered | 3 | 30 |
 | species/exostoma-labiatum | covered | 0 | 30 |
-| species/farlowella-amazonum | covered | 0 | 30 |
 | species/farlowella-oxyrryncha | covered | 0 | 30 |
 | species/farlowella-vittata | covered | 1 | 30 |
 | species/gagata-cenia | covered | 0 | 30 |
@@ -729,3 +796,8 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/rineloricaria-eigenmanni | covered | 0 | 30 |
 | species/rita-kuturnee | covered | 0 | 30 |
 | species/serrasalmus-brandtii | covered | 3 | 30 |
+| species/astroblepus-mindoensis | rest | 1 | 20 |
+| species/eutropiichthys-vacha | rest | 1 | 20 |
+| species/hyphessobrycon-compressus | rest | 1 | 20 |
+| species/sciades-couma | rest | 2 | 20 |
+| species/sciades-paucus | rest | 2 | 20 |

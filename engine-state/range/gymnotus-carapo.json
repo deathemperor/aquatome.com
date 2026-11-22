@@ -1,8 +1,8 @@
 {
   "id": "gymnotus-carapo",
   "native": {
-    "input": "1292618006272af5",
-    "at": "2026-11-08T13:58:00.601Z",
+    "input": "449ccc5f18e2ffe6",
+    "at": "2026-11-21T13:11:30.372Z",
     "claims": [
       {
         "code": "MX",
@@ -114,6 +114,14 @@
         "source": "seriouslyfish",
         "quote": "It has been recorded in Mexico, Guatemala, Venezuela, Suriname, French Guiana, Guyana, Trinidad and Tobago, Ecuador, Peru, Brazil, Bolivia, Paraguay, Uruguay and Argentina.",
         "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The specimens from Venezuela belong to the subspecies Gymnotus carapo septentrionalis.",
+        "words": "Venezuela",
         "ok": true
       }
     ],

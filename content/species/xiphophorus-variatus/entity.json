@@ -20,12 +20,13 @@
       ],
       "regions": [],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Originally endemic to the Atlantic slope of Mexico but introduced or feral populations now exist in several other countries, including Costa Rica, Colombia, the USA, Hawaii, Singapore and Hong Kong.",
+          "quote": "The variable platy, Xiphophorus variatus, is a livebearer native to the Atlantic slope of Mexico, with feral populations in several other countries.",
           "countries": [
             "MX"
           ],
@@ -442,6 +443,12 @@
       "html": "<p>Originally endemic to the Atlantic slope of Mexico but introduced or feral populations now exist in several other countries, including Costa Rica, Colombia, the USA, Hawaii, Singapore and Hong Kong. Wild fish are rare in the hobby these days, with the vast majority of the ones on sale being mass-produced in the Far East and Eastern Europe.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorius-variatus-hotel-taninul-and-code-1243/",
+      "html": "<p>Two wild-derived forms of Xiphophorus variatus are described here, both German-bred descendants of wild populations collected on a scientific expedition in Mexico.</p><ul><li><strong>\"Hotel Taninul\"</strong>: from a nameless sulfurous brook near the Hotel Taninul (Carretera Km. 15, near Ciudad Valles, San Luis Potosí), in a natural park of tropical forest about 17 km from Tamuín and 19 km from the centre of Ciudad Valles. Other fish living in the brook were Poecilopsis gracilis, Astyanax mexicanus, Poecilia formosa and unspecified aquatic turtles.</li><li><strong>\"1243\"</strong>: found by the same expedition along road 85 in a drainage near Mante towards Victoria (11 km north of Mante at km 105). There is no publication on this form so far; the information was passed on orally, so only the provisional designation \"1243\" from the field notes exists.</li></ul>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-variatus",
@@ -473,12 +480,6 @@
     },
     {
       "key": "behaviour",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-variatus-puente-escalanar/",
-      "html": "<p>They are lively, very healthy animals, whose behaviour has remained very original. When they are worried, they join together to form a swarm, which is very rarely observed among the domesticated strains that have been around for a hundred years.</p>"
-    },
-    {
-      "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-variatus",
       "html": "<p>A good fish for the general community aquarium being both peaceful and hardy.</p><p>When males and females are to be housed in the same tank, there should be more females to spread out the attention of the males which can be relentless. Batches of fry will be continual.</p>"
@@ -486,8 +487,8 @@
     {
       "key": "dimorphism",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-variatus-puente-escalanar/",
-      "html": "<p>A special characteristic is the sickle-shaped tail-root spot, which all specimens, males and females, show. Males have two basic coloration types: specimens with tiger stripes on the flanks of the front body, and specimens that are dotted there. Dominant males of the tigered variety become quince-yellow, while the dotted ones show much blue shimmer in the front body. Particularly beautiful are the sky-blue scales that some males of the tigered form show along the middle of the front body.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorius-variatus-hotel-taninul-and-code-1243/",
+      "html": "<p>In the \"Hotel Taninul\" form, males develop increasingly strong yellow tones in the fins and back with increasing age, according to the breeder.</p>"
     },
     {
       "key": "dimorphism",
@@ -508,6 +509,12 @@
       "html": "<p>Another massively popular aquarium fish, with dozens of selectively bred varieties available. Some of these are produced by crossbreeding with X. helleri or X. maculatus. Unfortunately many commercially bred platies are not very hardy due to inbreeding and over-production and are prone to disease and premature death.</p><p>The wild X. variatus can be distinguished from X. maculatus by its slimmer, more elongated body shape and slightly longer dorsal fin. This last feature has been seized upon by many breeders with some stunning high-finned varieties available. The wild form is sometimes seen in the hobby and is a very pretty fish indeed. If wild fish are obtained care must be taken to avoid crossbreeding with domestic forms.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorius-variatus-hotel-taninul-and-code-1243/",
+      "html": "<p>The \"Hotel Taninul\" form is a pretty speckled fish. The \"1243\" platy is rather interesting than beautiful, as one looks for colour in it in vain. Of interest are the strong melanophores in the front half of the body and the dark reticulation in the middle of the rear, which gives the impression of a longitudinal band. This variety will hardly be able to establish itself in the hobby, but it is a rare opportunity for specialised livebearer keepers.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-variatus",
@@ -517,38 +524,38 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/ddcf2af852da1e4f.webp",
+      "thumb": "https://media.aquatome.com/commons/ddcf2af852da1e4f-480.webp",
       "width": 960,
       "height": 960,
-      "licence": "CC0",
-      "author": "Adrian Torres B.",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_variatus_331363362.jpg",
-      "caption": "Variable Platyfish (Xiphophorus variatus)",
-      "thumb": "https://media.aquatome.com/commons/ddcf2af852da1e4f-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/ddcf2af852da1e4f-large.webp",
         "width": 1200,
         "height": 1200
-      }
+      },
+      "licence": "CC0",
+      "author": "Adrian Torres B.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_variatus_331363362.jpg",
+      "caption": "Variable Platyfish (Xiphophorus variatus)"
     },
     {
       "url": "https://media.aquatome.com/commons/ec136950b16b7b78.webp",
+      "thumb": "https://media.aquatome.com/commons/ec136950b16b7b78-480.webp",
       "width": 960,
       "height": 566,
       "licence": "CC BY-SA 3.0",
       "author": "Marrabbio2",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xipho_variatus_maschio.jpg",
-      "caption": "Variatus platy (Xiphophorus variatus), male specimen.",
-      "thumb": "https://media.aquatome.com/commons/ec136950b16b7b78-480.webp"
+      "caption": "Variatus platy (Xiphophorus variatus), male specimen."
     },
     {
       "url": "https://media.aquatome.com/commons/874244fb6189d029.webp",
+      "thumb": "https://media.aquatome.com/commons/874244fb6189d029-480.webp",
       "width": 800,
       "height": 600,
       "licence": "CC BY 2.0 de",
       "author": "Dunkelfalke at German Wikipedia",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Papagaienplaty.jpg",
-      "caption": "Papagaienplaty Zuchtform",
-      "thumb": "https://media.aquatome.com/commons/874244fb6189d029-480.webp"
+      "caption": "Papagaienplaty Zuchtform"
     }
   ],
   "videos": [
@@ -599,5 +606,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-21"
 }

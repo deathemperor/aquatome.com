@@ -1,0 +1,377 @@
+{
+  "found": true,
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Brown algae in aquariums are diatoms: a brown coating that can cover the substrate.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Diatoms do not disturb or harm fish.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Diatom shells are made of silicate.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Green water is a sudden bloom of suspended algae (phytoplankton) that multiplies in the water column rather than on surfaces.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Green water is usually harmless to fish, invertebrates and people, but it is unsightly and can block light to plants.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Green algae come in many types: some are soft and easy to remove, others are hard and tenacious, and they grow on glass, decorations and gravel.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Rub some of the brown coating between your fingers: a rough feel means diatoms, while smear algae stay greasy.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Smear algae are harder to remove than diatoms.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Diatoms often appear in newly set up aquariums.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "With green water, clear water suddenly turns bright green and the tank becomes hard to see through.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Blue-green algae look like a heavy, dark green film or slime. They are cyanobacteria, not algae.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Left unchecked, blue-green algae (cyanobacteria) can smother live plants and harm fish.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Silicic acid (silicate) causes diatoms, and their shells can form when silicate is above 0.8 mg/l.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Tap water high in silicate feeds diatoms.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Green water blooms are caused by high nitrate and phosphate combined with too much light.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Excess light behind green water includes sunny windows, leaving the light on too long, or a light that is too strong.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Nitrate and phosphate that fuel green water come from overfeeding, too many fish for the tank or filter, and nutrient-rich tap water.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Skipped water changes let water quality slowly decline. Nutrients are invisible, so problems often go unnoticed until a bloom appears.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Phosphates that fuel algae can come from tap water, some fish foods and some marine salt mixes.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Green water needs bright light, while some diatoms grow well in low light.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Warm water lets algae multiply faster.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Aging bulbs shift in wavelength, and many algae favour blue (actinic) light.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Low aeration lets debris settle, which can feed algae.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Ammonia in a cycled tank points to a bigger problem than algae, such as overstocking, overfeeding or a dead fish.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "For green water, turn off the light and cover the tank with opaque material for a few days, uncovering it briefly each day to feed. If nothing improves in 48 to 72 hours, try another method.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "Blacking out the tank for several days can clear green water, but it harms live plants and may cause ammonia and nitrite spikes as the bloom dies.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "New-tank diatoms usually die off on their own once the tank has cycled.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "JBL suggests putting a bag of JBL SilicatEx Rapid in the filter to remove silicic acid, after which diatoms recede and disappear.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Aqueon suggests Kent Marine Organic Adsorption Resin or Reef Carbon in the filter against diatoms.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Plecostomus, otocinclus and nerite snails can be added to control brown algae (diatoms).",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Aqueon calls a UV sterilizer the most effective cure for green water. Water typically clears within days, and the page says UV is safe for fish, invertebrates and plants.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Leave a UV sterilizer on the aquarium for 7 to 10 days to remove all algae cells, and do partial water changes every few days to prevent ammonia and nitrite buildup.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "UV sterilizers work best on green water. The page says they do not deal with other forms of algae.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Diatom filters trap suspended algae on a layer of diatomaceous earth. They clog quickly, so check and recharge them often at first.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Chemical algaecides and coagulants can clear green water but can spike ammonia and nitrite, and some coagulants harm fish gills.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "If you use a chemical algae treatment, remove activated carbon, keep the water circulating, and dose by the real (net) water volume.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "API ALGAEFIX dose: 1 ml per 10 gallons (5 ml per 50 gallons), repeated every three days until the algae is controlled, then once a week. Do not overdose.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "API ALGAEFIX (freshwater) must not be used with freshwater crustaceans, including shrimp, crabs and lobsters.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "After API ALGAEFIX treatment, siphon or scrape the dead algae out of the aquarium.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Phosphates can be removed with water changes or phosphate-adsorbing filter media.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Lowering the temperature a couple of degrees, within the range the fish can take, can slow algae growth.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Blue-green algae (cyanobacteria) can be siphoned out but often return quickly. Antibiotics can work but may upset the aquarium's balance.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Snails and algae-eating fish help control many forms of green algae.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Fish suggested for filamentous algae include Siamese algae eaters, mollies, redtail and rainbow sharks, goldfish, bristlenose and clown plecos and otocinclus, with Amano shrimp, dwarf shrimp and nerite snails among the invertebrates.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "If tap water tests high in silicate, keep a silicate remover running permanently in the filter.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "If tap water has a lot of silicate, set the tank up with reverse osmosis or deionised water.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep the tank out of direct sun, use a background or shades, and put the light on a timer.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Planted tanks need about 8 to 12 hours of light a day, and tanks without plants about 6 hours or less.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Change 10% of the water weekly or 25% every two weeks, siphoning out uneaten food and waste.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Test tank and tap water regularly for nitrate and phosphate, and make sure replacement water contains none.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Feed only what the fish eat within 2 minutes, once or twice a day.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Live plants compete with algae for nutrients, and floating plants such as duckweed and hornwort also shade the water.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Dose liquid plant fertilizer sparingly, especially without CO2 or with few plants, and dose by the actual water volume rather than the tank size.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Change activated carbon or chemical filter media every 4 to 6 weeks.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Add airstones or powerheads to improve circulation and oxygen.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Some experts recommend replacing fluorescent bulbs yearly and VHO lamps twice a year.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Counting on a water change or a new filter cartridge alone gives green water only temporary relief, and tap water can bring the nutrients back.",
+      "source": 2,
+      "also": [
+        1
+      ]
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using an algaecide without fixing the root cause lets the problem return and grow worse.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Changing everything at once makes it impossible to tell which change worked. Make small changes one at a time.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Assuming a tank gets little light because it did in winter: summer sun angles can add hours of direct light.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Malaysian trumpet snails and ramshorn snails are poor choices as algae eaters because they can overrun a tank.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "Aqueon says it is wrong to think all phytoplankton are harmful: reef keepers feed it to corals, and breeders grow infusoria for fry.",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "Laura Muha (TFH) does not recommend algaecides: although most are technically 'fish safe', any additive puts some osmotic stress on fish.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese shop pages call these algae 'tảo nâu' (brown) and 'tảo xanh' (green).",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese shop sells UV lamps for brown algae, including Ebang UV lamps, and names Otto fish (cá Otto), pencilfish (cá bút chì), Nerita snails (ốc Nerita) and apple snails (ốc táo) as algae eaters.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "Grazing cichlids from Lake Tanganyika and Lake Malawi eat a large share of diatoms in the wild.",
+      "source": 0
+    }
+  ],
+  "species": [
+    "Otocinclus spp.",
+    "Ancistrus spp.",
+    "Crossocheilus siamensis",
+    "Caridina multidentata",
+    "Neritina spp."
+  ],
+  "sources": [
+    {
+      "url": "https://jbl.de/en/blog/detail/416/getting-rid-of-diatoms-no-problem-at-all?country=dk",
+      "title": "Getting rid of diatoms - no problem at all",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.aqueon.com/articles/prevention-and-control-of-nuisance-algae",
+      "title": "Prevention and Control of Nuisance Algae",
+      "kind": "maker"
+    },
+    {
+      "url": "https://aqueon.com/articles/green-water----causes-and-cures",
+      "title": "Green Water -- Causes and Cures",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.tfhmagazine.com/articles/freshwater/algae-part-2-getting-rid-of-the-stuff-the-skeptical-fishkeeper",
+      "title": "The Skeptical Fishkeeper: Algae, Part 2: Getting Rid of the Stuff",
+      "kind": "magazine"
+    },
+    {
+      "url": "https://www.apifishcare.com/product/algaefix",
+      "title": "API ALGAEFIX Algae Control | API Fishcare",
+      "kind": "maker"
+    },
+    {
+      "url": "https://aquahouse.vn/be-ca-bi-tao-nau/",
+      "title": "Nguyên nhân bể cá bị tảo nâu và cách xử lý triệt để an toàn",
+      "kind": "shop"
+    }
+  ]
+}

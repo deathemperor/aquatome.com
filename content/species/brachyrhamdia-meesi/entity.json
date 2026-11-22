@@ -23,33 +23,28 @@
         "Río Madre de Dios"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Brachyrhamdia meesi is a small heptapterid catfish described from near Belém, at the mouth of the Amazon in Brazil.",
+          "quote": "Type locality is 'near Belem, Brazil', i.e., the city of Belém near the mouth of the Amazon River in Pará state.",
           "countries": [
             "BR"
           ],
-          "regions": []
+          "regions": [
+            "Amazon"
+          ]
         },
         {
           "source": "seriouslyfish",
-          "quote": "Its precise distribution is unclear, with one record from the Río Madre de Dios basin in Peru.",
+          "quote": "Its precise distribution is unclear, however, with one record pertaining to the Río Madre de Dios basin, several thousand kilometres from Belém in southeastern Perú.",
           "countries": [
             "PE"
           ],
           "regions": [
             "Río Madre de Dios"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Type locality is 'near Belem, Brazil', i.e., the city of Belém near the mouth of the Amazon River in Pará state.",
-          "countries": [],
-          "regions": [
-            "Amazon"
           ]
         }
       ]

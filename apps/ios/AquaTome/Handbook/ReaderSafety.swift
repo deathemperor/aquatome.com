@@ -129,13 +129,13 @@ private struct ReaderActions: ViewModifier {
 
   func body(content: Content) -> some View {
     content
-      .confirmationDialog(reporting?.kind == "photo" ? String(localized: "Báo cáo ảnh này?") : String(localized: "Báo cáo bình luận này?"),
+      .confirmationDialog(reporting?.kind == "photo" ? String(localized: "Báo cáo ảnh này?", bundle: .app) : String(localized: "Báo cáo bình luận này?", bundle: .app),
                           isPresented: shown($reporting), titleVisibility: .visible, presenting: reporting) { item in
         ForEach(Self.reasons.indices, id: \.self) { i in Button(Self.reasons[i].0) { send(item, Self.reasons[i].1) } }
       } message: { _ in
         Text("Nội dung này sẽ ẩn trên máy này ngay, và AquaTome xem lại trong vòng 24 giờ.")
       }
-      .confirmationDialog(String(localized: "Chặn \(blocking?.name ?? "")?"), isPresented: shown($blocking), titleVisibility: .visible, presenting: blocking) { item in
+      .confirmationDialog(String(localized: "Chặn \(blocking?.name ?? "")?", bundle: .app), isPresented: shown($blocking), titleVisibility: .visible, presenting: blocking) { item in
         Button("Chặn", role: .destructive) {
           handbook.safety.block(item)
           done()
@@ -170,11 +170,11 @@ private struct ReaderActions: ViewModifier {
         // photo's viewer, as the thanks closes, or a page's last photo would take its viewer and the thanks with it.
         handbook.safety.reported(item, hide: !inViewer)
         sent = true
-        said = String(localized: "Đã gửi báo cáo. Cảm ơn bạn.")
+        said = String(localized: "Đã gửi báo cáo. Cảm ơn bạn.", bundle: .app)
       case .refused("rate")?:
-        said = String(localized: "Hôm nay bạn đã báo cáo nhiều lần. Hãy thử lại vào ngày mai.")
+        said = String(localized: "Hôm nay bạn đã báo cáo nhiều lần. Hãy thử lại vào ngày mai.", bundle: .app)
       default:
-        said = String(localized: "Không gửi được báo cáo, vui lòng thử lại.")
+        said = String(localized: "Không gửi được báo cáo, vui lòng thử lại.", bundle: .app)
       }
     }
   }

@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto'
+import { readFileSync } from 'node:fs'
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -39,6 +40,9 @@ async function site() {
   await term('tanin', 'Tannins', { name: 'Tanin', altNames: ['nước trà'], definition: 'Chất từ lá và gỗ làm nước ngả vàng.' })
   return r
 }
+
+// Tanin's own length in its notes (glossary-asks.json), or the 400 a term without one is held to.
+const TANIN_STOP: number = (JSON.parse(readFileSync(new URL('../src/glossary-asks.json', import.meta.url), 'utf8')).tanin?.length?.words) ?? 400
 
 const written = { definition: 'Gỗ đã ngâm lâu trong nước, dùng trang trí bể.', altNames: ['gỗ lũa', 'Lũa', 'nước trà', 'driftwood', 'cây lũa', 'gỗ trôi dạt', 'gỗ lũ'], body: '<h3>Nên làm gì</h3><p>Ngâm lũa mới 1–2 tuần.</p><script>x</script>', related: ['tanin', 'ph', 'lua', 'nope'] }
 
@@ -866,7 +870,9 @@ test('a sentence the whole entry\'s final read stops after the rewording keeps i
 
 // The chief of staff, 15 Nov 2026: dry food and Artemia each paid about $3 of reads to stop on a word count.
 test('the length is counted before any paid read: an entry past its stop is trimmed first, and one still past it is never read', async () => {
-  const long = `<p>Tanin làm nước vàng. ${'nước '.repeat(470)}</p>`, short = `<p>Tanin làm nước vàng. ${'nước '.repeat(300)}</p>`
+  // Tanin's own length in the notes, 400 when it has none: the entry runs 14 words past its stop (15% over), then 100 under it.
+  const stop = TANIN_STOP, past = Math.round(stop * 1.15) + 14
+  const long = `<p>Tanin làm nước vàng. ${'nước '.repeat(past - 4)}</p>`, short = `<p>Tanin làm nước vàng. ${'nước '.repeat(stop - 100)}</p>`
   const run = async (bodies: string[], at?: string, o: { fromDraft?: boolean } = {}) => {
     const root = at ?? await site()
     const calls: ('write' | 'read')[] = [], asked: string[] = []
@@ -883,18 +889,18 @@ test('the length is counted before any paid read: an entry past its stop is trim
   const one = await run([long, short])
   expect(one.r).toMatchObject({ id: 'tanin', score: 1 })
   expect(one.calls.slice(0, 3)).toEqual(['write', 'write', 'read'])
-  expect(one.asked[1]).toContain('- The entry is 474 words: hold it to about 400, and leave what is left out to the pages that use the term.')
+  expect(one.asked[1]).toContain(`- The entry is ${past} words: hold it to about ${stop}, and leave what is left out to the pages that use the term.`)
   // A writer that never gets under its stop: no read at all; the run stops on its length and keeps the draft, unread.
   const never = await run([long])
   expect(never.calls).not.toContain('read')
-  expect(never.r).toMatchObject({ id: 'tanin', skipped: 'stopped by 1 note', notes: ['The entry is 474 words: hold it to about 400, and leave what is left out to the pages that use the term.'] })
+  expect(never.r).toMatchObject({ id: 'tanin', skipped: 'stopped by 1 note', notes: [`The entry is ${past} words: hold it to about ${stop}, and leave what is left out to the pages that use the term.`] })
   expect(JSON.parse(await readFile(join(never.root, 'engine-state/glossary/tanin.draft.json'), 'utf8'))).toMatchObject({ unread: true })
   // Run from that kept draft: trimmed before it is read too (frozen food, 15 Nov 2026: 731 words of 500, read first).
   const kept = await run([short], never.root, { fromDraft: true })
   expect(kept.calls.slice(0, 2)).toEqual(['write', 'read'])
   expect(kept.r).toMatchObject({ id: 'tanin', score: 1 })
   // A read draft in its length outranks an unread one, though two of its sentences are stopped: it is the one kept.
-  const stopped = `<p>Tanin làm nước vàng. Tanin làm cá chết. Tanin làm cây chết. ${'nước '.repeat(300)}</p>`
+  const stopped = `<p>Tanin làm nước vàng. Tanin làm cá chết. Tanin làm cây chết. ${'nước '.repeat(stop - 100)}</p>`
   const both = await run([long, long, stopped])
   expect(both.r).toMatchObject({ id: 'tanin', skipped: 'stopped by 2 notes' })
   const d = JSON.parse(await readFile(join(both.root, 'engine-state/glossary/tanin.draft.json'), 'utf8'))
@@ -924,7 +930,8 @@ test('the entry as reworded is counted against the term\'s own length', async ()
 test('the entry as reworded is held to its length: a rewording that would run it past goes back, and the entry is saved as written', async () => {
   const root = await site()
   const before = await readFile(join(root, 'content/glossary/tanin/vi.json'), 'utf8')
-  const body = `<p>Tanin làm nước vàng. Nước ${'nước '.repeat(389)}</p>`
+  // Six words under Tanin's own length; the rewording adds 71 and would run it past.
+  const body = `<p>Tanin làm nước vàng. Nước ${'nước '.repeat(TANIN_STOP - 11)}</p>`
   const longer = `Tanin làm nước ngả vàng ${'nhạt '.repeat(70)}.`
   let rewordings = 0
   const llm: Llm = async ({ prompt, system }) => {

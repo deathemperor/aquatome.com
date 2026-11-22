@@ -6,8 +6,9 @@ import { handle, type Env } from '../index'
 import { appPage, appSection, summariseApp } from '../admin/app'
 import { paged, tablePage, type Action, type Block, type FormField, type Section } from '../admin/blocks'
 import { chatReportsPage, chatReportsSection } from '../admin/chat-reports'
-import { scoreboardPage, scoreboardSection, summariseScoreboard } from '../admin/scoreboard'
-import { todayJson, todayPage, PAGE_GROUPS, type OwnerAct } from '../admin/today'
+import { scoreboardPage, scoreboardSection, summariseScoreboard, weekByDay } from '../admin/scoreboard'
+import { ICON, isFailed } from '../admin/shell'
+import { NEEDS_SHOWN, smallBars, todayJson, todayPage, PAGE_GROUPS, type OwnerAct } from '../admin/today'
 import { CHANGE_COLUMN, changelogPage, changelogSection } from '../daily/changelog'
 import { dashboardJson } from '../owner-api'
 import { commentsPage, commentsSection, cursorOf, EXPIRED, GONE, type CommentItem, type CommentsBlock, type CommentsData, type CommentState } from '../admin/comments'
@@ -405,81 +406,151 @@ test('the overview before version 2: its to-dos, areas and last days each open a
   expect(j.log.entries.filter(e => e.section).length).toBeGreaterThan(2)
 })
 
+// Design's second read, 21 Nov: in dark the faults' red (#ff8a80) and a wait's rust (#ff9b7f) read as one coral at 8 px, so a
+// wait on the owner looked like a fault. Dark's red now reads apart from rust, and as text on the card (a fall's figure).
+test("in dark, the first screen's red reads apart from rust, and as text on the card", () => {
+  const css = String(todayPage(S.TODAY)).match(/<style>([\s\S]*?)<\/style>/)![1]!
+  const dark = css.slice(css.indexOf('@media (prefers-color-scheme:dark)'))
+  const tok = (name: string) => dark.match(new RegExp(`--${name}:(#[0-9a-f]{6})`))![1]!
+  const lum = (h: string) => {
+    const [r, g, b] = [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16) / 255).map(c => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4))
+    return 0.2126 * r! + 0.7152 * g! + 0.0722 * b!
+  }
+  const ratio = (a: string, b: string) => { const [x, y] = [lum(a), lum(b)].sort((m, n) => n - m); return (x! + 0.05) / (y! + 0.05) }
+  expect(ratio(tok('red'), tok('rust'))).toBeGreaterThanOrEqual(1.4)
+  expect(ratio(tok('red'), tok('plate'))).toBeGreaterThanOrEqual(4.5)
+  // The red is the first screen's alone: a fault's dot, a fall's figure, a zero day's tick.
+  expect(css.match(/var\(--red\)/g)).toHaveLength(3)
+})
+
 /** Where a need, a line or a tile leads on the web: its section's page (at its anchor), or its address. */
 const placeHref = (p: { section?: string; anchor?: string; url?: string }) => p.url ?? `/_ab/${p.section}/${p.anchor ? `#${p.anchor}` : ''}`
-test('the web overview draws what the app gets: the tiles, what needs you (or the all clear and your last action), the costs and every page', () => {
-  for (const t of [S.TODAY, S.CALM, S.SPENDING, { ...S.TODAY, beacon: F }, { ...S.CALM, tz: 'America/New_York' }]) {
+// Design's answers of 18 Nov: the web takes the app's first screen (board2, 14 Nov; the app's OwnerOverview), its cards in
+// the same order, words and figures, in the web's own frame and colours; two columns on a desktop; "Every page" stays.
+test('the web first screen is the app\'s five cards, from what the app gets: Needs you, New pages, Readers beside Shipped, the cost; then every page', () => {
+  let boardForm = 0
+  for (const t of [S.TODAY, S.CALM, S.SPENDING, { ...S.TODAY, beacon: F }, { ...S.CALM, tz: 'America/New_York' }, { ...S.TODAY, changes: F }]) {
     const j = todayJson(t)
     const page = dom(todayPage(t))
-    // A tile: its label, figure, and the line under it; one with small columns says its change there instead, on one line.
-    expect(page.querySelectorAll('dl.tiles4 > .kpi').map(k => [txt(k.querySelector('dt')), txt(k.querySelector('dd.v')), txt(k.querySelector('dd.sub')), txt(k.querySelector('.delta'))]))
-      .toEqual(j.tiles.map(x => [x.label, x.value, x.bars && x.delta ? '' : norm(x.sub), norm(x.delta?.text ?? '')]))
-    // What needs you: one row each, the whole row its link; the thing, the pages it's on, and the button's words.
-    expect(page.querySelectorAll('ul.todo > li').map(li => [txt(li.querySelector('b')), txt(li.querySelector('.sub')), txt(li.querySelector('.act')), li.querySelector('a')!.getAttribute('href')]))
-      .toEqual(j.needs.map(x => [x.text, norm(x.sub ?? ''), x.label, placeHref(x)]))
-    // The heading's count is the tile's.
-    expect(txt(page.querySelector('#needs .badge'))).toBe(j.needs.length ? j.tiles[0]!.value : '')
+    const tile = (k: string) => j.tiles.find(x => x.key === k)!
+    expect(page.querySelectorAll('.first-screen section.card').map(c => c.getAttribute('aria-labelledby'))).toEqual(['needs', ...(j.publishing ? ['content'] : []), 'readers', 'shipped', 'cost'])
+    // Needs you: its name and how many; three rows, the rest under "N more"; each row its whole link, its line and its pages.
+    const needs = page.querySelector('section.needs')!
+    expect(txt(needs.querySelector('h2'))).toBe(norm(`${tile('needs').label}${j.needs.length ? ` · ${j.needs.length}` : ''}`))
+    // The web's order and tones (the Design Lead, 20 Nov): a browser check waits on the owner (rust), faults first.
+    const toned = j.needs.map(x => (x.kind === 'engine' && / browser check$/.test(x.text) ? { ...x, tone: 'wait' as const } : x))
+    const web = [...toned.filter(x => x.tone === 'bad'), ...toned.filter(x => x.tone !== 'bad')]
+    expect(needs.querySelectorAll('.nrows > li').map(li => [txt(li.querySelector('b')), txt(li.querySelector('.sub')), li.querySelector('a')!.getAttribute('href'), li.getAttribute('class')]))
+      .toEqual(web.map(x => [x.text, norm(x.sub ?? ''), placeHref(x), x.tone]))
+    expect(needs.querySelectorAll(':scope > .nrows > li')).toHaveLength(Math.min(NEEDS_SHOWN, j.needs.length))
+    expect(txt(needs.querySelector('details.more > summary'))).toBe(j.needs.length > NEEDS_SHOWN ? `${j.needs.length - NEEDS_SHOWN} more` : '')
     // All clear: said so, then the owner's last decision in words, its page and when, as the app shows it.
-    const last = page.querySelector('p.last')
+    const last = needs.querySelector('p.last')
+    expect(txt(needs.querySelector('p.clear'))).toBe(j.needs.length ? '' : j.needsEmpty)
     if (j.needs.length || !j.lastAction) expect(last).toBeNull()
     else {
       expect(txt(last)).toBe(norm(`${j.lastAction.text} · ${j.lastAction.when}`))
       expect(last!.querySelector('a')!.getAttribute('href')).toBe(`/_ab/${j.lastAction.section}/`)
       expect(last!.querySelector('time')!.getAttribute('datetime')).toBe(j.lastAction.at)
     }
-    expect(page.querySelectorAll('#costs ~ ul.lines > li, section[aria-labelledby="costs"] ul.lines > li').slice(0, j.costs.lines.length).map(li => txt(li.querySelector('.fig')))).toEqual(j.costs.lines.map(l => l.value))
+    // Pages written (the Design Lead, 20 Nov: every page written, held ones too, until the board's "live" on Fri 27): the
+    // kinds' totals added up and today's, then each kind as the board names and orders them, its total and today's; the
+    // card opens its page.
+    const content = page.querySelector('section.card[aria-labelledby="content"]')
+    if (j.publishing) {
+      const totals = j.publishing.kinds.map(k => Number(k.total.replace(/,/g, '')))
+      expect(content!.querySelector('h2 a')!.text).toBe('Content · pages written')
+      expect(txt(content!.querySelector('.top .fig'))).toBe(totals.reduce((a, b) => a + b, 0).toLocaleString('en-US'))
+      expect(txt(content!.querySelector('.top'))).toMatch(/^[\d,]+ written( [+−-]?\d+ today)?$/)
+      const board = [['fish', 'Species'], ['videoGuide', 'Video guides'], ['guide', 'Guides'], ['plant', 'Plants']] as const
+      const rows = board.filter(([key]) => j.publishing!.kinds.some(k => k.key === key))
+      expect(rows.length).toBe(j.publishing.kinds.length)
+      expect(content!.querySelectorAll('.kinds .k').map(txt).slice(0, rows.length)).toEqual(rows.map(([, name]) => name))
+      expect(content!.querySelectorAll('.kinds .n').map(txt)).toEqual(rows.map(([key]) => j.publishing!.kinds.find(k => k.key === key)!.total))
+      expect(content!.querySelector('h2 a')!.getAttribute('href')).toBe('/_ab/noi-dung/')
+    } else expect(content).toBeNull()
+    // Readers: this week's, and its change against last week's readers by now, in the board's words ("+100% vs 7 by now
+    // last week", the Design Lead, 20 Nov); with none by now last week, the plain change; without the beacon, why not.
+    const readers = page.querySelector('section.card[aria-labelledby="readers"]')!
+    const rf = j.answers.figures?.find(f => f.label === 'Readers')
+    const before = rf ? weekByDay(t.now, t.beacon as never, t.countingFrom).lastSoFar?.readers : undefined
+    const change = rf?.delta && before ? rf.delta.text.replace('the same point last week', `${before.toLocaleString('en-US')} by now last week`) : rf?.delta?.text
+    expect(txt(readers.querySelector('.fig'))).toBe(rf?.value ?? tile('answers').value)
+    expect(txt(readers.querySelector('.line'))).toBe(norm(rf ? `this week${change ? ` · ${change}` : ''}` : tile('answers').sub))
+    if (before) {
+      boardForm++
+      expect(readers.querySelector('.line')!.text).toMatch(/^this week · [+−±][\d,]+% vs [\d,]+ by now last week$/)
+    }
+    // Its page; with the beacon failed, the scoreboard's, which has the error, as Needs you's row.
+    expect(readers.querySelector('h2 a')!.getAttribute('href')).toBe(isFailed(t.beacon) ? '/_ab/thanh-cong/' : '/_ab/doc-gia/')
+    // Shipped: the count, by where in the board's name and words ("Shipped, 24 h", "site 32 · app 9 · engine 38"), and the
+    // newest change in its words; the app's tile keeps its own ("32 site · 9 app · 38 engine").
+    const shipped = page.querySelector('section.card[aria-labelledby="shipped"]')!
+    const areas = (['site', 'app', 'engine'] as const).map(x => [x, j.shipped.lines.filter(l => l.area === x).length] as const).filter(([, k]) => k)
+    expect([txt(shipped.querySelector('h2')), txt(shipped.querySelector('.fig')), txt(shipped.querySelector('.line')), txt(shipped.querySelector('.newest'))])
+      .toEqual(['Shipped, 24 h', tile('shipped').value, norm(tile('shipped').tone !== 'bad' && areas.length ? areas.map(([x, k]) => `${x} ${k}`).join(' · ') : tile('shipped').sub), norm(j.shipped.lines[0]?.text ?? '')])
+    expect(shipped.querySelector('h2 a')!.getAttribute('href')).toBe('/_ab/thay-doi/')
+    // The cost: one row, opening the keys' page.
+    const cost = page.querySelector('section.cost h2 a')!
+    expect(txt(cost)).toBe(norm(`${tile('cost').label} ${tile('cost').value} ${tile('cost').sub}`))
+    expect(cost.getAttribute('href')).toBe(`/_ab/${j.costs.keys.section}/`)
     expect(page.querySelectorAll('section[aria-labelledby="pages"] section').map(g => [txt(g.querySelector('h3')), g.querySelectorAll('a').map(a => [a.getAttribute('href'), ...a.querySelectorAll('span').map(txt)])]))
       .toEqual(j.pages.map(g => [g.name, g.pages.map(p => [`/_ab/${p.key}/`, p.name, norm(p.figure.text)])]))
   }
+  expect(boardForm).toBeGreaterThan(0)
   expect(dom(todayPage(S.CALM)).querySelector('p.last')!.text).toBe('You hid a comment on Ikan neon (Indonesian) · Wed 4 Nov, 8:00')
 })
 
-test('what needs you is one card: each row its kind\'s icon (the triangle only for a fault), the pages it\'s on, and a button filled to review, outlined to fix', () => {
-  // The Design Lead (2026-11-08): a peach alert card a row made routine reviews look like outages.
-  const page = dom(todayPage(S.TODAY))
-  expect(page.querySelectorAll('ul.todo')).toHaveLength(1)
-  expect(page.querySelectorAll('ul.todo > li').map(li => [txt(li.querySelector('b')), li.getAttribute('class'), li.querySelector('.ic')!.getAttribute('data-i'), li.querySelector('.sub')?.text ?? ''])).toEqual([
-    ['Fish ID and chat are down', 'bad', 'alert', 'Every key resting, the first until Wed 4 Nov, 16:30.'],
-    ['2Hr Aquarist needs a browser check', 'bad', 'alert', '2Hr Aquarist since Wed 4 Nov, 5:00'],
-    ['No new video guides', 'bad', 'alert', 'Since Tue 27 Oct, 3:17'],
-    ['5 comments held for review', 'wait', 'comment', 'Cá neon vua · Cá betta (cá xiêm)'],
-    ['2 reader photos to approve', 'wait', 'photo', 'Cá betta (cá xiêm) · Betta halfmoon'],
+test('what needs you is one card: a dot in each need\'s tone, faults first, the triangle for any, a green tick when all clear', () => {
+  const html = todayPage(S.TODAY)
+  const needs = dom(html).querySelector('section.needs')!
+  expect(needs.getAttribute('class')).toBe('card needs bad')
+  expect(needs.querySelectorAll('.nrows > li').map(li => [txt(li.querySelector('b')), li.getAttribute('class'), li.querySelector('.sub')?.text ?? ''])).toEqual([
+    ['Fish ID and chat are down', 'bad', 'Every key resting, the first until Wed 4 Nov, 16:30.'],
+    ['No new video guides', 'bad', 'Since Tue 27 Oct, 3:17'],
+    // A browser check waits on the owner's hand: rust, after the faults (the Design Lead, 20 Nov). The app's data is as it was.
+    ['2Hr Aquarist needs a browser check', 'wait', '2Hr Aquarist since Wed 4 Nov, 5:00'],
+    ['5 comments held for review', 'wait', 'Cá neon vua · Cá betta (cá xiêm)'],
+    ['2 reader photos to approve', 'wait', 'Cá betta (cá xiêm) · Betta halfmoon'],
   ])
-  // Each row is one link, with the chevron a phone shows in place of the button.
-  for (const li of parse(todayPage(S.TODAY)).querySelectorAll('ul.todo > li')) expect([li.querySelectorAll('a').length, li.querySelectorAll('svg.chev').length]).toEqual([1, 1])
-  // The spend near its cap waits, with its own icon; a held comment's pages past three say how many more; pages this build doesn't have aren't named.
-  expect(dom(todayPage(S.SPENDING)).querySelector('ul.todo > li .ic')!.getAttribute('data-i')).toBe('coin')
+  // Each row is one link, with its dot and its chevron; the drawn parts only the eye reads.
+  for (const li of parse(html).querySelectorAll('section.needs .nrows > li')) expect([li.querySelectorAll('a').length, li.querySelectorAll('.dot').length, li.querySelectorAll('svg.chev').length]).toEqual([1, 1, 1])
+  const svg = (h: string) => parse(h).querySelector('svg')!.toString()
+  expect(svg(parse(html).querySelector('section.needs h2')!.innerHTML)).toBe(svg(ICON.alert))
+  // Nothing waits: a green tick and no count.
+  const calm = parse(todayPage(S.CALM)).querySelector('section.needs')!
+  expect(calm.getAttribute('class')).toBe('card needs good')
+  expect(svg(calm.querySelector('h2')!.innerHTML)).toBe(svg(ICON.check))
+  expect(txt(calm.querySelector('h2'))).toBe('Needs you')
+  // The spend near its cap waits; a held comment's pages past three say how many more; pages this build doesn't have aren't named.
+  expect(dom(todayPage(S.SPENDING)).querySelector('section.needs .nrows > li')!.getAttribute('class')).toBe('wait')
   const many = { ...S.TODAY, heldPages: ['species:paracheirodon-axelrodi', 'species:betta-splendens', 'id:species:paracheirodon-innesi', 'species:paracheirodon-innesi', 'guide:gone'] }
   expect(todayJson(many).needs.find(x => x.kind === 'comments')!.sub).toBe('Cá neon vua · Cá betta (cá xiêm) · Ikan neon (Indonesian) · 1 more')
   expect(todayJson({ ...S.TODAY, heldPages: ['guide:gone'] }).needs.find(x => x.kind === 'comments')).not.toHaveProperty('sub')
   expect(todayJson({ ...S.TODAY, heldPages: F }).needs.find(x => x.kind === 'comments')).not.toHaveProperty('sub')
 })
 
-test('readers who found an answer: one card, the week\'s figure once, the days found an answer only (readers and shop clicks on a tap), then readers, sessions and shop clicks', () => {
+test('a kind\'s seven small bars: the latest in the chart green, a zero a tick (red on a day that\'s over, grey on the day still open), a day not counted dotted', () => {
+  const bars = (html: string) => parse(html).querySelectorAll('i').map(i => [i.getAttribute('class') ?? '', i.getAttribute('style') ?? ''])
+  expect(bars(smallBars([2, null, 0, 4, 8, 0, 3], 6))).toEqual([['', '--h:25%'], ['none', ''], ['zero', ''], ['', '--h:50%'], ['', '--h:100%'], ['zero', ''], ['on', '--h:38%']])
+  expect(bars(smallBars([5, 0], 1))).toEqual([['', '--h:100%'], ['zero open', '']])
+  // A day with a tiny count still shows a bar; none counted at all is never a division by zero.
+  expect(bars(smallBars([200, 1]))).toEqual([['', '--h:100%'], ['on', '--h:8%']])
+  expect(bars(smallBars([null, null]))).toEqual([['none', ''], ['none', '']])
+  expect(parse(smallBars([1])).querySelector('.sb')!.getAttribute('aria-hidden')).toBe('true')
+})
+
+test('the answers the app gets: the week\'s figure, the days found an answer only (readers and shop clicks in a day\'s words), then readers, sessions and shop clicks', () => {
   const j = todayJson(S.TODAY)
-  const card = dom(todayPage(S.TODAY)).querySelector('section[aria-labelledby="answers"]')!
-  // The drawn parts too (the page's dom() leaves out what only the eye reads).
-  const drawn = parse(todayPage(S.TODAY)).querySelector('section[aria-labelledby="answers"]')!
-  // The figure once in the card: its top line, "13 this week · +8% vs the same point last week".
-  expect(card.querySelectorAll('.acard')).toHaveLength(1)
-  expect(txt(card.querySelector('.acard .top'))).toBe(norm(`${j.answers.figure!.value} this week ${j.answers.figure!.delta!.text}`))
-  expect(card.querySelectorAll('dd.v').map(txt)).toEqual(j.answers.figures!.map(f => f.value))
-  // Under the chart, as drawn: "169", then "readers +2%" on one line; what it's against is there for a screen reader.
-  expect(card.querySelectorAll('.kpi dt').map(txt)).toEqual(j.answers.figures!.map(f => `${f.label.toLowerCase()} ${f.delta!.text.split(' ')[0]}`))
-  expect(drawn.querySelectorAll('.kpi dt').map(txt)).toEqual(j.answers.figures!.map(f => norm(`${f.label.toLowerCase()} ${f.delta!.text}`)))
-  // The chart: found an answer only, a day's name under each of the week's bars, no axis, no totals, no key.
   const chart = j.answers.chart as Extract<Block, { kind: 'chart' }>
   expect(chart.series.map(x => x.label)).toEqual(['Found an answer'])
   expect(chart).not.toHaveProperty('whole')
-  expect(drawn.querySelectorAll('.xax span').map(txt)).toEqual(['Mon', 'Tue', 'Today', 'Thu', 'Fri', 'Sat', 'Sun'])
-  expect(drawn.querySelectorAll('.yax span, .readout, .legend')).toHaveLength(0)
-  expect(drawn.querySelectorAll('.cols li').map(li => li.getAttribute('data-x'))).toEqual(chart.readouts.map(r => r.detail))
   expect(chart.readouts[1]!.detail).toMatch(/^Tue 3 Nov · \d+ readers · \d+ shop clicks?$/)
-  // The tile's small columns: all seven days, today lighter, and its change on one line.
+  expect(j.answers.figures!.map(f => f.label)).toEqual(['Readers', 'Sessions', 'Shop clicks'])
+  // The tile's small columns: all seven days, and its change on one line.
   const tile = j.tiles.find(x => x.key === 'answers')!
   expect(tile.bars!.values).toHaveLength(7)
   expect(tile.delta!.text).toMatch(/^[−+±]\d+% vs last week$/)
-  expect(parse(todayPage(S.TODAY)).querySelectorAll('dl.tiles4 .spark rect.today')).toHaveLength(1)
 })
 
 test('the sample\'s readers agree: the week has at least each of its days\' readers, its days are the last three days\' and the scoreboard\'s, and every page says the card\'s week', () => {

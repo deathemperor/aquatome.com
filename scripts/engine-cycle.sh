@@ -452,6 +452,15 @@ fi
 if part photos; then
   pnpm engine units-mend --first vi/guides/youtube-mGmIvhtIM9k || log "units-mend: failed"
 fi
+# The pass over the open pages no read covers (fit-pass.ts; the chief of staff, 21 Nov 2026): on its two nights alone
+# (fit-pass.json: 00:00 to 07:00 Vietnam time, so the 02:10 and 05:10 starts), FIT_PASS_LIMIT pages a start, on the Mac's
+# second sign-in, which this week's runs have left (CLAUDE_FIRST_ACCOUNT=2: the first if it runs out), on its own line in
+# ceilings.json ("fit-pass"). It reads and records only: the gate next holds a page whose read found harm, in every
+# language, and a kit it finds holds none. In the photos part alone, as the units mend: the Mac's parts overlap, and two
+# clones would read the same pages.
+if part photos; then
+  CLAUDE_FIRST_ACCOUNT=2 pnpm engine fit-pass --limit "${FIT_PASS_LIMIT:-300}" || log "fit-pass: failed"
+fi
 # Last of the steps that write pages: what this run changed is read against the reader-fit checklist (gate.ts). A new page
 # that fails is held, a live page that got worse keeps its committed text, a page built on a foreign shop's kit is held,
 # and a held page that now passes is let out. A page it can't read stays as readers have it; only a crash stops the run,

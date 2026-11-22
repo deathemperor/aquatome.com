@@ -1,4 +1,39 @@
 {
+  "https://images.unsplash.com/photo-1676826086983-79d8d2d8cd4f?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8NHx8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": {
+    "why": "rejected: withheld [sha256:293931fadc1ce44ccb7244f825f3d2b64d2ed630e90a094ff2904fd7300e905b]",
+    "step": "the chief of staff's look",
+    "pages": [
+      "breeds/blue-velvet-shrimp"
+    ],
+    "at": "2026-11-21",
+    "look": {
+      "said": "clear",
+      "by": "the chief of staff",
+      "on": "2026-11-21"
+    }
+  },
+  "https://images.unsplash.com/photo-1676826127537-3523045b0cd4?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8M3x8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": {
+    "why": "rejected: withheld [sha256:293931fadc1ce44ccb7244f825f3d2b64d2ed630e90a094ff2904fd7300e905b]",
+    "step": "the chief of staff's look",
+    "pages": [
+      "breeds/blue-velvet-shrimp"
+    ],
+    "at": "2026-11-21",
+    "look": {
+      "said": "clear",
+      "by": "the chief of staff",
+      "on": "2026-11-21"
+    }
+  },
+  "https://media.aquatome.com/aquariumbreeder/35d02c69751c2c1c.webp": {
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
+    "step": "the chief of staff's look",
+    "pages": [
+      "guides/aquariumbreeder-how-to-tell-if-a-crayfish-is-male-or-female"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
   "https://media.aquatome.com/aquariumbreeder/a731834d47b98c83.webp": {
     "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
@@ -7,6 +42,14 @@
     ],
     "at": "2026-11-21",
     "off": true
+  },
+  "https://media.aquatome.com/bwaquatics/619ffde0fd6ab169.webp": {
+    "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/pseudomugil-tenellus"
+    ],
+    "at": "2026-11-21"
   },
   "https://media.aquatome.com/commons/23ebe7c95deeba42.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
@@ -20,6 +63,28 @@
       "by": "the chief of staff",
       "on": "2026-11-14"
     }
+  },
+  "https://media.aquatome.com/commons/2565d9b8830b7996.webp": {
+    "why": "rejected: withheld [sha256:293931fadc1ce44ccb7244f825f3d2b64d2ed630e90a094ff2904fd7300e905b]",
+    "step": "the chief of staff's look",
+    "pages": [
+      "breeds/red-tailed-golden-arowana"
+    ],
+    "at": "2026-11-21",
+    "look": {
+      "said": "clear",
+      "by": "the chief of staff",
+      "on": "2026-11-21"
+    }
+  },
+  "https://media.aquatome.com/commons/429e627041e5ee64.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/lymnaea-stagnalis"
+    ],
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/commons/43b20aaabc461c3b.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
@@ -47,6 +112,58 @@
       "on": "2026-11-14"
     }
   },
+  "https://media.aquatome.com/commons/7bbd97c4e3a162c6.webp": {
+    "why": "rejected: withheld [sha256:293931fadc1ce44ccb7244f825f3d2b64d2ed630e90a094ff2904fd7300e905b]",
+    "step": "the chief of staff's look",
+    "pages": [
+      "breeds/ryukin-goldfish"
+    ],
+    "at": "2026-11-21",
+    "look": {
+      "said": "clear",
+      "by": "the chief of staff",
+      "on": "2026-11-21"
+    }
+  },
+  "https://media.aquatome.com/commons/88cca61b0df474a7.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/lymnaea-stagnalis"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
+  "https://media.aquatome.com/commons/8ddc20899d042531.webp": {
+    "why": "rejected: withheld [sha256:293931fadc1ce44ccb7244f825f3d2b64d2ed630e90a094ff2904fd7300e905b]",
+    "step": "the chief of staff's look",
+    "pages": [
+      "breeds/albino-oscar"
+    ],
+    "at": "2026-11-21",
+    "look": {
+      "said": "clear",
+      "by": "the chief of staff",
+      "on": "2026-11-21"
+    }
+  },
+  "https://media.aquatome.com/commons/9ff5045948aedae3.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/lymnaea-stagnalis"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
+  "https://media.aquatome.com/commons/a91ecbbee935caa2.webp": {
+    "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/heptapterus-mustelinus"
+    ],
+    "at": "2026-11-21"
+  },
   "https://media.aquatome.com/commons/baa6f945cdbed569.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
     "step": "the photo check",
@@ -60,6 +177,36 @@
       "on": "2026-11-14"
     }
   },
+  "https://media.aquatome.com/commons/c114ce20e8a9722e.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/lymnaea-stagnalis"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
+  "https://media.aquatome.com/commons/c116b39ef3658eb2.webp": {
+    "why": "rejected: withheld [sha256:293931fadc1ce44ccb7244f825f3d2b64d2ed630e90a094ff2904fd7300e905b]",
+    "step": "the chief of staff's look",
+    "pages": [
+      "breeds/halfmoon-betta"
+    ],
+    "at": "2026-11-21",
+    "look": {
+      "said": "clear",
+      "by": "the chief of staff",
+      "on": "2026-11-21"
+    }
+  },
+  "https://media.aquatome.com/commons/d2153f6599ab4c7f.webp": {
+    "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/heptapterus-mustelinus"
+    ],
+    "at": "2026-11-21"
+  },
   "https://media.aquatome.com/commons/d3e7b7f2236d3353.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
     "step": "the photo check",
@@ -72,6 +219,15 @@
       "by": "the chief of staff",
       "on": "2026-11-14"
     }
+  },
+  "https://media.aquatome.com/commons/ead1d054cea77527.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/nangra-assamensis"
+    ],
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/commons/f994a48481d1a32f.webp": {
     "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
@@ -107,6 +263,15 @@
       "by": "the chief of staff",
       "on": "2026-11-21"
     }
+  },
+  "https://media.aquatome.com/gbif/4034583722-ca12c466cdba6a77.webp": {
+    "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
+    "step": "the photo check",
+    "pages": [
+      "species/sandelia-bainsii"
+    ],
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/glaser/0051c3d6b54ab92e.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -7089,6 +7254,69 @@
     ],
     "at": "2026-11-15"
   },
+  "https://media.aquatome.com/inaturalist/12202793.webp": {
+    "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
+    "step": "the photo check",
+    "pages": [
+      "species/hexanematichthys-sagor"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
+  "https://media.aquatome.com/inaturalist/151730269.webp": {
+    "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
+    "step": "the photo check",
+    "pages": [
+      "species/bagre-pinnimaculatus"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
+  "https://media.aquatome.com/inaturalist/28384257.webp": {
+    "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
+    "step": "the photo check",
+    "pages": [
+      "species/strophidon-sathete"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
+  "https://media.aquatome.com/inaturalist/28384263.webp": {
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
+    "step": "the photo check",
+    "pages": [
+      "species/strophidon-sathete"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
+  "https://media.aquatome.com/inaturalist/28384278.webp": {
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
+    "step": "the photo check",
+    "pages": [
+      "species/strophidon-sathete"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
+  "https://media.aquatome.com/inaturalist/306793453.webp": {
+    "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
+    "step": "the photo check",
+    "pages": [
+      "species/strophidon-sathete"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
+  "https://media.aquatome.com/inaturalist/431845588.webp": {
+    "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
+    "step": "the photo check",
+    "pages": [
+      "species/netuma-bilineata"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
   "https://media.aquatome.com/inaturalist/467466174.webp": {
     "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
     "step": "the watermark screen",
@@ -7106,6 +7334,15 @@
     "at": "2026-11-21",
     "off": true
   },
+  "https://media.aquatome.com/inaturalist/546830588.webp": {
+    "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
+    "step": "the photo check",
+    "pages": [
+      "species/pangasius-macronema"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
   "https://media.aquatome.com/inaturalist/547360386.webp": {
     "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
     "step": "the photo check",
@@ -7113,6 +7350,41 @@
       "species/polypterus-retropinnis"
     ],
     "at": "2026-11-20",
+    "off": true
+  },
+  "https://media.aquatome.com/inaturalist/569405786.webp": {
+    "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/eutropiichthys-vacha"
+    ],
+    "at": "2026-11-21"
+  },
+  "https://media.aquatome.com/inaturalist/589258911.webp": {
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
+    "step": "the photo check",
+    "pages": [
+      "species/plicofollis-nella"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
+  "https://media.aquatome.com/inaturalist/726952954.webp": {
+    "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
+    "step": "the photo check",
+    "pages": [
+      "species/hexanematichthys-mastersi"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
+  "https://media.aquatome.com/panitvong/inat-700223436.webp": {
+    "why": "people: withheld [sha256:fe1951430f27bd2ee89ef49e03dd4fd34717759e2b9f2ccdafc7fb62a9adca63]",
+    "step": "the photo check",
+    "pages": [
+      "species/lymnaea-stagnalis"
+    ],
+    "at": "2026-11-21",
     "off": true
   },
   "https://media.aquatome.com/scotcat/011537a418211e90.webp": {
@@ -7151,6 +7423,14 @@
     "at": "2026-11-21",
     "off": true
   },
+  "https://media.aquatome.com/scotcat/1436c34cf7d73205.webp": {
+    "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/astroblepus-sabalo"
+    ],
+    "at": "2026-11-21"
+  },
   "https://media.aquatome.com/scotcat/15db785e1fccf91b.webp": {
     "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
@@ -7179,10 +7459,19 @@
     "off": true
   },
   "https://media.aquatome.com/scotcat/18cad38bd5d1b4d0.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/astroblepus-huallagaensis"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
+  "https://media.aquatome.com/scotcat/1d21e0cccb95d24e.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/astroblepus-pradai"
     ],
     "at": "2026-11-21",
     "off": true
@@ -7203,6 +7492,15 @@
       "species/amblyceps-serratum"
     ],
     "at": "2026-11-21"
+  },
+  "https://media.aquatome.com/scotcat/2669e622230985af.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/astroblepus-mindoensis"
+    ],
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/272a4581e87c4430.webp": {
     "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
@@ -7229,6 +7527,15 @@
       "species/bunocephalus-amaurus"
     ],
     "at": "2026-11-19"
+  },
+  "https://media.aquatome.com/scotcat/368c748697fa4119.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/astroblepus-putumayoensis"
+    ],
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/3d5effaef0851b63.webp": {
     "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
@@ -7290,20 +7597,20 @@
     "at": "2026-11-21",
     "off": true
   },
-  "https://media.aquatome.com/scotcat/5c05b98d3200f362.webp": {
-    "why": "dead: withheld [sha256:531bebed563b5535edd913ef3bb8c69b4fd70a03bb9748a1a1fa0841c28b995d]",
-    "step": "the photo check",
-    "pages": [
-      "species/astroblepus-grixalvii"
-    ],
-    "at": "2026-11-21",
-    "off": true
-  },
   "https://media.aquatome.com/scotcat/5c1c2c44e80b7d1a.webp": {
     "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/amphilius-frieli"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
+  "https://media.aquatome.com/scotcat/63ee6184ee713b95.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/astroblepus-mindoensis"
     ],
     "at": "2026-11-21",
     "off": true
@@ -7344,6 +7651,15 @@
     "at": "2026-11-21",
     "off": true
   },
+  "https://media.aquatome.com/scotcat/6f6a8e7b41a46b5b.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/astroblepus-quispei"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
   "https://media.aquatome.com/scotcat/74d87d5b18b18b97.webp": {
     "why": "watermark: withheld [sha256:403d47e9a93e47f363d02d31aad3a0d276f44b9c5da270d8c9bc5101ea4fd65a]",
     "step": "the watermark screen",
@@ -7359,6 +7675,15 @@
       "species/astroblepus-caquetae"
     ],
     "at": "2026-11-20",
+    "off": true
+  },
+  "https://media.aquatome.com/scotcat/7fdbba6b47ff93e2.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/astroblepus-nettoferreirai"
+    ],
+    "at": "2026-11-21",
     "off": true
   },
   "https://media.aquatome.com/scotcat/80a79f80f1e56e28.webp": {
@@ -7424,7 +7749,7 @@
     "off": true
   },
   "https://media.aquatome.com/scotcat/98a1cee426ed5f82.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/astroblepus-huallagaensis"
@@ -7493,11 +7818,11 @@
     ],
     "at": "2026-11-15"
   },
-  "https://media.aquatome.com/scotcat/bc63afb4c600838d.webp": {
-    "why": "dead: withheld [sha256:531bebed563b5535edd913ef3bb8c69b4fd70a03bb9748a1a1fa0841c28b995d]",
+  "https://media.aquatome.com/scotcat/b5c07c498230985a.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
     "step": "the photo check",
     "pages": [
-      "species/astroblepus-grixalvii"
+      "species/astroblepus-onzagaensis"
     ],
     "at": "2026-11-21",
     "off": true
@@ -7556,6 +7881,15 @@
     "at": "2026-11-21",
     "off": true
   },
+  "https://media.aquatome.com/scotcat/df88474797f5c867.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/astroblepus-mojicai"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
   "https://media.aquatome.com/scotcat/df9c59dd4246381e.webp": {
     "why": "watermark: withheld [sha256:19ec490da7c9b39f357cad6cc56d86f22e3e1c9183ea605cc70b6682425754b9]",
     "step": "the watermark screen",
@@ -7564,14 +7898,13 @@
     ],
     "at": "2026-11-19"
   },
-  "https://media.aquatome.com/scotcat/e0ab171a4f9d8a7a.webp": {
-    "why": "dead: withheld [sha256:531bebed563b5535edd913ef3bb8c69b4fd70a03bb9748a1a1fa0841c28b995d]",
+  "https://media.aquatome.com/scotcat/e251d842ec7a21ac.webp": {
+    "why": "watermark: withheld [sha256:90061b212d5f349f3d8b1713894167fa92948908b8976c67da7ab04b19cad63b]",
     "step": "the photo check",
     "pages": [
-      "species/astroblepus-grixalvii"
+      "species/pseudexostoma-brachysoma"
     ],
-    "at": "2026-11-21",
-    "off": true
+    "at": "2026-11-21"
   },
   "https://media.aquatome.com/scotcat/e2cbcf021d362ff3.webp": {
     "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
@@ -7591,6 +7924,14 @@
     "at": "2026-11-20",
     "off": true
   },
+  "https://media.aquatome.com/scotcat/eaefaa58325a7e85.webp": {
+    "why": "watermark: withheld [sha256:19ec490da7c9b39f357cad6cc56d86f22e3e1c9183ea605cc70b6682425754b9]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/astroblepus-taczanowskii"
+    ],
+    "at": "2026-11-21"
+  },
   "https://media.aquatome.com/scotcat/f11255b93f407c00.webp": {
     "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
@@ -7601,7 +7942,7 @@
     "off": true
   },
   "https://media.aquatome.com/scotcat/f306ea9220b8ca5a.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/astroblepus-fissidens"
@@ -7618,7 +7959,7 @@
     "at": "2026-11-15"
   },
   "https://media.aquatome.com/scotcat/f7590029396b0372.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/astroblepus-latidens"
@@ -7635,6 +7976,14 @@
     "at": "2026-11-21",
     "off": true
   },
+  "https://media.aquatome.com/scotcat/fd60866e0574b8d1.webp": {
+    "why": "watermark: withheld [sha256:19ec490da7c9b39f357cad6cc56d86f22e3e1c9183ea605cc70b6682425754b9]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/astroblepus-taczanowskii"
+    ],
+    "at": "2026-11-21"
+  },
   "https://media.aquatome.com/seriouslyfish/0c824d6e385e47d6.webp": {
     "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
     "step": "the watermark screen",
@@ -7642,6 +7991,15 @@
       "species/macrochirichthys-macrochirus"
     ],
     "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/seriouslyfish/2ac5744249975384.webp": {
+    "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
+    "step": "the chief of staff's look",
+    "pages": [
+      "guides/seriouslyfish-articles-phallusy-or-foe-the-myth-of-the-candiru"
+    ],
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/seriouslyfish/38b89a1ede1e5f7b.webp": {
     "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
@@ -7687,33 +8045,6 @@
     "step": "the chief of staff's look",
     "pages": [
       "species/hyphessobrycon-auca"
-    ],
-    "at": "2026-11-21",
-    "off": true
-  },
-  "https://media.aquatome.com/seriouslyfish/2ac5744249975384.webp": {
-    "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
-    "step": "the chief of staff's look",
-    "pages": [
-      "guides/seriouslyfish-articles-phallusy-or-foe-the-myth-of-the-candiru"
-    ],
-    "at": "2026-11-21",
-    "off": true
-  },
-  "https://media.aquatome.com/aquariumbreeder/35d02c69751c2c1c.webp": {
-    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
-    "step": "the chief of staff's look",
-    "pages": [
-      "guides/aquariumbreeder-how-to-tell-if-a-crayfish-is-male-or-female"
-    ],
-    "at": "2026-11-21",
-    "off": true
-  },
-  "https://media.aquatome.com/sprucepets/2921b4241b4d4ac5.webp": {
-    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
-    "step": "the chief of staff's look",
-    "pages": [
-      "guides/sprucepets-what-fish-species-are-coldwater-1380965"
     ],
     "at": "2026-11-21",
     "off": true
@@ -7766,28 +8097,13 @@
     ],
     "at": "2026-11-16"
   },
-  "https://media.aquatome.com/bwaquatics/619ffde0fd6ab169.webp": {
-    "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
-    "step": "the watermark screen",
+  "https://media.aquatome.com/sprucepets/2921b4241b4d4ac5.webp": {
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
+    "step": "the chief of staff's look",
     "pages": [
-      "species/pseudomugil-tenellus"
+      "guides/sprucepets-what-fish-species-are-coldwater-1380965"
     ],
-    "at": "2026-11-21"
-  },
-  "https://media.aquatome.com/commons/a91ecbbee935caa2.webp": {
-    "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/heptapterus-mustelinus"
-    ],
-    "at": "2026-11-21"
-  },
-  "https://media.aquatome.com/commons/d2153f6599ab4c7f.webp": {
-    "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/heptapterus-mustelinus"
-    ],
-    "at": "2026-11-21"
+    "at": "2026-11-21",
+    "off": true
   }
 }

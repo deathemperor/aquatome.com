@@ -62,18 +62,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/58258221.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/58258221-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "Leonel Roget",
-      "sourceUrl": "https://www.inaturalist.org/photos/58258221",
-      "caption": "Cá cichlid Maya bơi trên đáy sỏi ở suối nước trong",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/commons/a305b53d861b7213.webp",
       "thumb": "https://media.aquatome.com/commons/a305b53d861b7213-480.webp",
       "width": 1200,
@@ -110,30 +98,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/58258233.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/58258233-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "Leonel Roget",
-      "sourceUrl": "https://www.inaturalist.org/photos/58258233",
-      "caption": "Cá cichlid Maya có sọc vằn trên nền sỏi nước trong",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/59172916.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/59172916-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-SA",
-      "author": "Juan Cruzado Cortés",
-      "sourceUrl": "https://www.inaturalist.org/photos/59172916",
-      "caption": "Cá cichlid Maya bơi trong nước đục vàng ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/commons/128ea0e714d8dfa4.webp",
       "thumb": "https://media.aquatome.com/commons/128ea0e714d8dfa4-480.webp",
       "width": 1200,
@@ -144,18 +108,6 @@
       "caption": "Nhóm cá cichlid Maya nhỏ trong vùng nước có cây thủy sinh",
       "best": false,
       "kind": "group"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/38612365.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/38612365-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC0",
-      "author": "Jade Fortnash",
-      "sourceUrl": "https://www.inaturalist.org/photos/38612365",
-      "caption": "Cá cichlid Maya màu xanh lục bơi giữa cỏ nước",
-      "best": false,
-      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/40055565.webp",
@@ -239,6 +191,54 @@
       "sourceUrl": "https://www.inaturalist.org/photos/40054775",
       "caption": "Cá cichlid Maya bơi trên đá trong cenote nước trong",
       "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/58258233.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/58258233-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Leonel Roget",
+      "sourceUrl": "https://www.inaturalist.org/photos/58258233",
+      "caption": "Cá cichlid Maya có sọc vằn trên nền sỏi nước trong",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/59172916.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/59172916-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA",
+      "author": "Juan Cruzado Cortés",
+      "sourceUrl": "https://www.inaturalist.org/photos/59172916",
+      "caption": "Cá cichlid Maya bơi trong nước đục vàng ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/38612365.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/38612365-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "Jade Fortnash",
+      "sourceUrl": "https://www.inaturalist.org/photos/38612365",
+      "caption": "Cá cichlid Maya màu xanh lục bơi giữa cỏ nước",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/58258221.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/58258221-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Leonel Roget",
+      "sourceUrl": "https://www.inaturalist.org/photos/58258221",
+      "caption": "Cá cichlid Maya bơi trên đáy sỏi ở suối nước trong",
+      "best": false,
       "kind": "habitat"
     }
   ],

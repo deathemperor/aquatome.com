@@ -19,7 +19,8 @@
   "gbif:1456139969:d6c86db68c9acfc8",
   "gbif:1456139969:c8b7db22d3599360",
   "gbif:1456343525:60a77efd443abedf",
-  "gbif:1456451127:e769b5cbecaa260d"
+  "gbif:1456451127:e769b5cbecaa260d",
+  "inat:96215263"
  ],
  "hashes": {},
  "inat": {
@@ -34,5 +35,13 @@
  "gbif": {
   "key": 2345147,
   "next": null
- }
+ },
+ "inatNc": {
+  "after": 60184917,
+  "done": true
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-21"
 }

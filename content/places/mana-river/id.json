@@ -1,8 +1,13 @@
 {
   "slug": "mana-river",
-  "name": "Mana",
+  "name": "Sungai Mana",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-21T18:55:09.816Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

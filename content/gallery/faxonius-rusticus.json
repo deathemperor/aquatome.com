@@ -50,18 +50,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/89374716.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/89374716-480.webp",
-      "width": 983,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Brodie Cass Talbott",
-      "sourceUrl": "https://www.inaturalist.org/photos/89374716",
-      "caption": "Tôm càng đỏ gỉ màu vàng nhạt dưới nước trên nền cát",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/commons/17adf6b49f8d29fb.webp",
       "thumb": "https://media.aquatome.com/commons/17adf6b49f8d29fb-480.webp",
       "width": 1181,
@@ -74,18 +62,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/1863233.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/1863233-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Trevor Edmonson",
-      "sourceUrl": "https://www.inaturalist.org/photos/1863233",
-      "caption": "Tôm càng đỏ gỉ màu nâu đỏ trên nền sỏi đá",
-      "best": false,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/4797676.webp",
       "thumb": "https://media.aquatome.com/inaturalist/4797676-480.webp",
       "width": 1024,
@@ -94,30 +70,6 @@
       "author": "Kristof Zyskowski",
       "sourceUrl": "https://www.inaturalist.org/photos/4797676",
       "caption": "Tôm càng đỏ gỉ trên tảng đá ven suối",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/69363320.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/69363320-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC0",
-      "author": "Heather C.",
-      "sourceUrl": "https://www.inaturalist.org/photos/69363320",
-      "caption": "Tôm càng đỏ gỉ nhỏ bò trên nền đá ven nước",
-      "best": false,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/33660861.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/33660861-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Steven Joyner",
-      "sourceUrl": "https://www.inaturalist.org/photos/33660861",
-      "caption": "Tôm càng đỏ gỉ càng xanh trên nền cát ven sông",
       "best": false,
       "kind": "habitat"
     },
@@ -134,16 +86,18 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/25380174.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/25380174-480.webp",
-      "width": 768,
-      "height": 1024,
+      "url": "https://media.aquatome.com/inaturalist/91507400.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/91507400-480.webp",
+      "width": 1024,
+      "height": 970,
       "licence": "CC BY",
-      "author": "bg1159",
-      "sourceUrl": "https://www.inaturalist.org/photos/25380174",
-      "caption": "Cận cảnh mai tôm càng đỏ gỉ với đốm màu gỉ",
-      "best": false,
-      "kind": "other"
+      "author": "Itamar Shifrin",
+      "sourceUrl": "https://www.inaturalist.org/photos/91507400",
+      "caption": "Tôm càng đỏ gỉ trong khay thủy tinh trên nền sỏi",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/28814433.webp",
@@ -218,6 +172,44 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/89374716.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/89374716-480.webp",
+      "width": 983,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Brodie Cass Talbott",
+      "sourceUrl": "https://www.inaturalist.org/photos/89374716",
+      "caption": "Tôm càng đỏ gỉ màu vàng nhạt dưới nước trên nền cát",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/92320280.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/92320280-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Patrick Jackson",
+      "sourceUrl": "https://www.inaturalist.org/photos/92320280",
+      "caption": "Tôm càng đỏ gỉ nhỏ bò trên tảng đá ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/92320301.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/92320301-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Patrick Jackson",
+      "sourceUrl": "https://www.inaturalist.org/photos/92320301",
+      "caption": "Tôm càng đỏ gỉ bám trên đá ướt ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/commons/4126c59e63ce2bf7.webp",
       "thumb": "https://media.aquatome.com/commons/4126c59e63ce2bf7-480.webp",
       "width": 1024,
@@ -240,9 +232,33 @@
       "caption": "Tôm càng đỏ gỉ cận cảnh với càng lớn trên nền bùn",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/33660861.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/33660861-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Steven Joyner",
+      "sourceUrl": "https://www.inaturalist.org/photos/33660861",
+      "caption": "Tôm càng đỏ gỉ càng xanh trên nền cát ven sông",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/25380174.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/25380174-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "bg1159",
+      "sourceUrl": "https://www.inaturalist.org/photos/25380174",
+      "caption": "Cận cảnh mai tôm càng đỏ gỉ với đốm màu gỉ",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 71,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 91,
+  "updatedAt": "2026-11-21",
+  "builtAt": "2026-11-21"
 }

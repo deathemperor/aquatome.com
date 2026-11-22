@@ -10,6 +10,53 @@
     "colombia",
     "narino"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Telembí River",
+        "River Peje"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Colombia, Department of Nariño.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Tributary of the Telembí River, municipality of Barbacoas.",
+          "countries": [],
+          "regions": [
+            "Telembí River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "River Peje, tributary Nambi.",
+          "countries": [],
+          "regions": [
+            "River Peje"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9611632,
+      "total": 0,
+      "fetched": "2026-11-21",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -77,19 +124,7 @@
       "html": "<p>Ardila Rodríguez, Carlos A.; Five New Species of Astroblepus Fish for Colombian Andes. Universidad Metropolitana, Barranquilla, Colombia. Vol. 1, Núm. 27 (2015). Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 12/2019 ).</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/df88474797f5c867.webp",
-      "thumb": "https://media.aquatome.com/scotcat/df88474797f5c867-480.webp",
-      "width": 500,
-      "height": 192,
-      "licence": "dùng với sự cho phép",
-      "author": "Carlos A. Ardila Rodriguez / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_mojicai.htm",
-      "caption": "Astroblepus mojicai",
-      "source": "scotcat"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {

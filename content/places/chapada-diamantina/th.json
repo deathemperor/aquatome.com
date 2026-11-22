@@ -3,6 +3,12 @@
   "name": "ชาปาดาดีอามันตีนา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-21T18:58:15.630Z",
+    "why": "Transliteration \"ชาปาดาดีอามันตีนา\" garbles Diamantina (should be ดีอามันตินา, with \"ชาปาดา\" fine) and lacks a Thai kind word like เทือกเขา/ที่ราบสูง, so it's only roughly right."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

@@ -1,0 +1,87 @@
+{
+  "id": "youtube-0k2KvIXRq70",
+  "kind": "discovery",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=0k2KvIXRq70",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "astronotus-ocellatus",
+    "betta-splendens",
+    "carassius-auratus",
+    "poecilia-reticulata",
+    "amphilophus-labiatus",
+    "neocaridina-davidi"
+  ],
+  "updatedAt": "2026-11-21",
+  "video": {
+    "youtubeId": "0k2KvIXRq70",
+    "title": "I Dare You To Try To Kill These Fish!",
+    "channel": "KGTropicals",
+    "channelUrl": "https://www.youtube.com/channel/UCyyGJeKITfR7Y5cq2zX4-oQ",
+    "durationSec": 1088,
+    "publishedAt": "2023-12-10",
+    "chapters": [],
+    "series": {
+      "id": "PLbk3wN8TF_D2lA1BX4k_44WWkMx1vfpk7",
+      "position": 5
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/0k2KvIXRq70/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Hypostomus plecostomus",
+      "Danio sp.",
+      "Astronotus ocellatus",
+      "Betta splendens",
+      "Carassius auratus",
+      "Pangio kuhlii",
+      "Epalzeorhynchos frenatum",
+      "Poecilia reticulata",
+      "Amphilophus labiatus",
+      "Planorbella sp.",
+      "Neocaridina davidi"
+    ],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "thung",
+        "brand": "Seachem",
+        "model": "Tidal",
+        "t": 0
+      },
+      {
+        "category": "loc",
+        "brand": "Sicce",
+        "model": "Shark ADV",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Guard",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Complete",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Dark Water",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Betta Guard",
+        "t": 0
+      }
+    ]
+  }
+}
