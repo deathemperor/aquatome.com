@@ -6,7 +6,10 @@
   "File:Clupisoma garua.jpg",
   "File:FMIB 46680 Pesudeutropius Garua.jpeg",
   "File:Pseudotropius garua Day 109.jpg",
-  "inat:312503492"
+  "inat:312503492",
+  "inat:545265515",
+  "inat:564045135",
+  "inat:564045154"
  ],
  "hashes": {},
  "commons": "2026-11-07",
@@ -21,5 +24,9 @@
  "gbif": {
   "key": 2341694,
   "next": null
+ },
+ "inatNc": {
+  "after": 312408113,
+  "done": true
  }
 }

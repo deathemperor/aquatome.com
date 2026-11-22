@@ -92,20 +92,6 @@
       "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/29009678.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/29009678-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Julien Renoult",
-      "sourceUrl": "https://www.inaturalist.org/photos/29009678",
-      "caption": "Cá bắn nước vảy to bơi trên nền sỏi trong tự nhiên",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/48548500.webp",
       "thumb": "https://media.aquatome.com/inaturalist/48548500-480.webp",
       "width": 1024,
@@ -116,8 +102,7 @@
       "caption": "Cá bắn nước vảy to nhỏ bơi trong nước đục",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/48548504.webp",
@@ -130,8 +115,7 @@
       "caption": "Cá bắn nước vảy to bơi nghiêng trong nước nâu",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/89685016.webp",
@@ -144,22 +128,7 @@
       "caption": "Cá bắn nước vảy to trên đáy cát gợn sóng",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/154136398.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/154136398-480.webp",
-      "width": 1024,
-      "height": 963,
-      "licence": "CC BY",
-      "author": "Tim",
-      "sourceUrl": "https://www.inaturalist.org/photos/154136398",
-      "caption": "Cá bắn nước vảy to bơi trong nước xanh",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/157460698.webp",
@@ -172,8 +141,7 @@
       "caption": "Cá bắn nước vảy to với các đốm đen bơi trên nền cát",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/158140724.webp",
@@ -186,8 +154,7 @@
       "caption": "Cá bắn nước vảy to bơi nghiêng trong nước xanh",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/199055963.webp",
@@ -200,8 +167,7 @@
       "caption": "Cá bắn nước vảy to bơi trong nước vàng đục",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/158140723.webp",
@@ -289,8 +255,7 @@
       "caption": "Cá bắn nước vảy to trên nền cát cam",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/200429219.webp",
@@ -303,8 +268,7 @@
       "caption": "Cá bắn nước vảy to ánh hồng bơi trong nước xám",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/14213696.webp",
@@ -316,6 +280,32 @@
       "sourceUrl": "https://www.inaturalist.org/photos/14213696",
       "caption": "Cá bắn nước vảy to bơi trong nước suối trong tự nhiên",
       "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/29009678.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/29009678-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Julien Renoult",
+      "sourceUrl": "https://www.inaturalist.org/photos/29009678",
+      "caption": "Cá bắn nước vảy to bơi trên nền sỏi trong tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/154136398.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/154136398-480.webp",
+      "width": 1024,
+      "height": 963,
+      "licence": "CC BY",
+      "author": "Tim",
+      "sourceUrl": "https://www.inaturalist.org/photos/154136398",
+      "caption": "Cá bắn nước vảy to bơi trong nước xanh",
+      "best": false,
       "kind": "habitat",
       "setup": false
     }

@@ -48,22 +48,7 @@
       "caption": "Cá lóc Bangka nhỏ màu nâu đỏ trong bể ảnh nhỏ",
       "best": true,
       "kind": "juvenile",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/611860667.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/611860667-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-NC",
-      "author": "khalebyordan",
-      "sourceUrl": "https://www.inaturalist.org/photos/611860667",
-      "caption": "Cá lóc Bangka trong suối nước đen giữa lá khô",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/69546364.webp",
@@ -76,8 +61,7 @@
       "caption": "Cá lóc Bangka bên cạnh thước đo trong bể chụp ảnh",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/201735524.webp",
@@ -90,8 +74,7 @@
       "caption": "Cá lóc Bangka màu nâu vàng trong hộp trong suốt",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/404071770.webp",
@@ -104,8 +87,7 @@
       "caption": "Cá lóc Bangka trong hộp nhựa trong suốt",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/404071809.webp",
@@ -118,64 +100,7 @@
       "caption": "Cá lóc Bangka trưởng thành trong hộp nhựa trong suốt",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/619179905.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/619179905-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC-SA",
-      "author": "Aiman Azmi",
-      "sourceUrl": "https://www.inaturalist.org/photos/619179905",
-      "caption": "Cá lóc Bangka con có sọc ngang trong hộp chụp ảnh",
-      "best": false,
-      "kind": "juvenile",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/65478484.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/65478484-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Ganjar Cahyadi",
-      "sourceUrl": "https://www.inaturalist.org/photos/65478484",
-      "caption": "Cá lóc Bangka trong thau nước màu xanh",
-      "best": false,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/65478486.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/65478486-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Ganjar Cahyadi",
-      "sourceUrl": "https://www.inaturalist.org/photos/65478486",
-      "caption": "Cá lóc Bangka chụp gần trong thau xanh",
-      "best": false,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/65478488.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/65478488-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Ganjar Cahyadi",
-      "sourceUrl": "https://www.inaturalist.org/photos/65478488",
-      "caption": "Cá lóc Bangka bơi trong thau nước xanh",
-      "best": false,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/254959588.webp",
@@ -188,8 +113,7 @@
       "caption": "Cá lóc Bangka đốm nâu trong hộp nước hổ phách",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/254959611.webp",
@@ -202,8 +126,72 @@
       "caption": "Cá lóc Bangka bơi trong hộp nước màu hổ phách",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/611860667.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/611860667-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "khalebyordan",
+      "sourceUrl": "https://www.inaturalist.org/photos/611860667",
+      "caption": "Cá lóc Bangka trong suối nước đen giữa lá khô",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/619179905.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/619179905-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC-SA",
+      "author": "Aiman Azmi",
+      "sourceUrl": "https://www.inaturalist.org/photos/619179905",
+      "caption": "Cá lóc Bangka con có sọc ngang trong hộp chụp ảnh",
+      "best": false,
+      "kind": "juvenile",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/65478484.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/65478484-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Ganjar Cahyadi",
+      "sourceUrl": "https://www.inaturalist.org/photos/65478484",
+      "caption": "Cá lóc Bangka trong thau nước màu xanh",
+      "best": false,
+      "kind": "other",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/65478486.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/65478486-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Ganjar Cahyadi",
+      "sourceUrl": "https://www.inaturalist.org/photos/65478486",
+      "caption": "Cá lóc Bangka chụp gần trong thau xanh",
+      "best": false,
+      "kind": "other",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/65478488.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/65478488-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Ganjar Cahyadi",
+      "sourceUrl": "https://www.inaturalist.org/photos/65478488",
+      "caption": "Cá lóc Bangka bơi trong thau nước xanh",
+      "best": false,
+      "kind": "other",
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/glaser/29fded5429ab3f60.webp",

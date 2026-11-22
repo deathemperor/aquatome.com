@@ -50,18 +50,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/97e9f20eea277e5a.webp",
-      "thumb": "https://media.aquatome.com/commons/97e9f20eea277e5a-480.webp",
-      "width": 1200,
-      "height": 893,
-      "licence": "CC BY-SA 3.0",
-      "author": "Peter van der Sluijs",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_krab_the_eriocheir_sinensis.JPG",
-      "caption": "Cua len Trung Quốc bò trên nền đá lát ngoài trời",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/221896098.webp",
       "thumb": "https://media.aquatome.com/inaturalist/221896098-480.webp",
       "width": 1016,
@@ -72,8 +60,7 @@
       "caption": "Cua len Trung Quốc sống giữa đá và cỏ ven bờ",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/221896105.webp",
@@ -86,8 +73,19 @@
       "caption": "Cua len Trung Quốc bò trên bờ sỏi đá",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/commons/97e9f20eea277e5a.webp",
+      "thumb": "https://media.aquatome.com/commons/97e9f20eea277e5a-480.webp",
+      "width": 1200,
+      "height": 893,
+      "licence": "CC BY-SA 3.0",
+      "author": "Peter van der Sluijs",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_krab_the_eriocheir_sinensis.JPG",
+      "caption": "Cua len Trung Quốc bò trên nền đá lát ngoài trời",
+      "best": false,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/79305987d7c0fc1c.webp",

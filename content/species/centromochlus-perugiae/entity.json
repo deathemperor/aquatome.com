@@ -379,7 +379,12 @@
       "author": "Rhianna Wren",
       "sourceUrl": "https://www.inaturalist.org/photos/256414867",
       "caption": "Hai cá da trơn dầu đốm vân trong bể ảnh nhỏ",
-      "setup": true
+      "setup": true,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/256414867-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     }
   ],
   "videos": [

@@ -67,48 +67,6 @@
       "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/34137263.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/34137263-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-SA",
-      "author": "Emanuele Santarelli",
-      "sourceUrl": "https://www.inaturalist.org/photos/34137263",
-      "caption": "Cá mặt trời bơi giữa rong trong nước trong",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/35812909.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/35812909-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-SA",
-      "author": "Alie / C.A. Kratzer",
-      "sourceUrl": "https://www.inaturalist.org/photos/35812909",
-      "caption": "Cá mặt trời nhỏ trên nền đáy sông",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/41825781.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/41825781-480.webp",
-      "width": 1024,
-      "height": 682,
-      "licence": "CC BY",
-      "author": "Sandy Wolkenberg",
-      "sourceUrl": "https://www.inaturalist.org/photos/41825781",
-      "caption": "Cá mặt trời bơi gần mặt nước trong tự nhiên",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/8921767.webp",
       "thumb": "https://media.aquatome.com/inaturalist/8921767-480.webp",
       "width": 1024,
@@ -184,8 +142,7 @@
       "caption": "Cá mặt trời màu vàng cam trong bể kính",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/8755494.webp",
@@ -211,8 +168,7 @@
       "caption": "Cá mặt trời thân vàng cam đốm trong bể",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/8755493.webp",
@@ -267,6 +223,19 @@
       "setup": false
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/34137263.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/34137263-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "Emanuele Santarelli",
+      "sourceUrl": "https://www.inaturalist.org/photos/34137263",
+      "caption": "Cá mặt trời bơi giữa rong trong nước trong",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/3021872.webp",
       "thumb": "https://media.aquatome.com/inaturalist/3021872-480.webp",
       "width": 1024,
@@ -277,6 +246,19 @@
       "caption": "Cá mặt trời nhỏ bơi dưới nước gần thảm thực vật",
       "best": false,
       "kind": "juvenile",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/35812909.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/35812909-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "Alie / C.A. Kratzer",
+      "sourceUrl": "https://www.inaturalist.org/photos/35812909",
+      "caption": "Cá mặt trời nhỏ trên nền đáy sông",
+      "best": false,
+      "kind": "habitat",
       "setup": false
     },
     {
@@ -291,6 +273,19 @@
       "best": false,
       "kind": "juvenile",
       "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/41825781.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/41825781-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY",
+      "author": "Sandy Wolkenberg",
+      "sourceUrl": "https://www.inaturalist.org/photos/41825781",
+      "caption": "Cá mặt trời bơi gần mặt nước trong tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/28649396.webp",

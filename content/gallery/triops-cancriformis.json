@@ -75,56 +75,42 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/135056817.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/135056817-480.webp",
-      "width": 768,
-      "height": 1024,
+      "url": "https://media.aquatome.com/inaturalist/334318717.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/334318717-480.webp",
+      "width": 1024,
+      "height": 768,
       "licence": "CC BY",
-      "author": "Вера",
-      "sourceUrl": "https://www.inaturalist.org/photos/135056817",
-      "caption": "Tôm nòng nọc bơi trong vũng nước đục ngoài tự nhiên",
-      "best": false,
-      "kind": "habitat",
+      "author": "Milan Chytrý",
+      "sourceUrl": "https://www.inaturalist.org/photos/334318717",
+      "caption": "Triops còn nhỏ bơi trong nước có rêu",
+      "best": true,
+      "kind": "juvenile",
       "setup": false,
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/136057878.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/136057878-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/517485867.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/517485867-480.webp",
       "width": 1024,
       "height": 683,
-      "licence": "CC0",
-      "author": "Sashko",
-      "sourceUrl": "https://www.inaturalist.org/photos/136057878",
-      "caption": "Tôm nòng nọc trên nền cát ướt ngoài tự nhiên",
-      "best": false,
+      "licence": "CC BY",
+      "author": "Валерия Ковалева",
+      "sourceUrl": "https://www.inaturalist.org/photos/517485867",
+      "caption": "Triops trong vũng nước bùn nông ngoài tự nhiên",
+      "best": true,
       "kind": "habitat",
       "setup": false,
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/308994039.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/308994039-480.webp",
-      "width": 1024,
-      "height": 790,
-      "licence": "CC0",
-      "author": "Татьяна Горбушина",
-      "sourceUrl": "https://www.inaturalist.org/photos/308994039",
-      "caption": "Triops với phần thân phân đốt lộ ra trên bùn ướt",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/308994048.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/308994048-480.webp",
-      "width": 1024,
-      "height": 765,
-      "licence": "CC0",
-      "author": "Татьяна Горбушина",
-      "sourceUrl": "https://www.inaturalist.org/photos/308994048",
-      "caption": "Triops trên bùn ẩm cạnh cây non ngoài tự nhiên",
+      "url": "https://media.aquatome.com/inaturalist/432008979.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/432008979-480.webp",
+      "width": 916,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Oleksandr Shynder",
+      "sourceUrl": "https://www.inaturalist.org/photos/432008979",
+      "caption": "Triops trong vũng nước bùn ngoài tự nhiên",
       "best": false,
       "kind": "habitat",
       "setup": false,
@@ -153,8 +139,7 @@
       "caption": "Hai con Triops cùng bơi trong khay trắng",
       "best": true,
       "kind": "pair",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/136057895.webp",
@@ -195,6 +180,20 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/342976549.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/342976549-480.webp",
+      "width": 1024,
+      "height": 686,
+      "licence": "CC BY-SA",
+      "author": "Matteo Negro",
+      "sourceUrl": "https://www.inaturalist.org/photos/342976549",
+      "caption": "Triops nhìn từ trên trong khay nước nông",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/4c84c5fb653d2603.webp",
       "thumb": "https://media.aquatome.com/commons/4c84c5fb653d2603-480.webp",
       "width": 1200,
@@ -229,8 +228,7 @@
       "caption": "Triops đơn lẻ trong khay trắng, đuôi dài",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/commons/4f023d34d2734c17.webp",
@@ -245,6 +243,19 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/135056817.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/135056817-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Вера",
+      "sourceUrl": "https://www.inaturalist.org/photos/135056817",
+      "caption": "Tôm nòng nọc bơi trong vũng nước đục ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/commons/2edc740447ec2550.webp",
       "thumb": "https://media.aquatome.com/commons/2edc740447ec2550-480.webp",
       "width": 1200,
@@ -255,6 +266,19 @@
       "caption": "Tôm nòng nọc Triops màu hồng đỏ nhìn nghiêng trong bể",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/136057878.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/136057878-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC0",
+      "author": "Sashko",
+      "sourceUrl": "https://www.inaturalist.org/photos/136057878",
+      "caption": "Tôm nòng nọc trên nền cát ướt ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/7eab23c83c73cd72.webp",
@@ -269,7 +293,7 @@
       "kind": "other"
     }
   ],
-  "seen": 65,
-  "updatedAt": "2026-11-16",
-  "builtAt": "2026-11-16"
+  "seen": 85,
+  "updatedAt": "2026-11-22",
+  "builtAt": "2026-11-22"
 }

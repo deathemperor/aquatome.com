@@ -6,9 +6,9 @@ Written by `pnpm engine gallery` (2026-11-22). Targets: packages/engine/src/gall
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
 | shop | 60 | 131 | 81 | 24 | 36 | 200 |
-| popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 899 | 32 | 9 | 27 | 913 |
-| rest | 20 | 1948 | 81 | 0 | 121 | 1908 |
+| popular | 40 | 21 | 0 | 0 | 1 | 20 |
+| covered | 30 | 905 | 32 | 9 | 27 | 919 |
+| rest | 20 | 1953 | 81 | 0 | 120 | 1914 |
 
 ## Short of target: every source read (809)
 
@@ -232,7 +232,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/trichopsis-vittata | shop | 11 | 60 |
 | species/boraras-urophthalmoides | shop | 1 | 60 |
 | plants/taxiphyllum-alternans | shop | 6 | 60 |
-| plants/fissidens-fontanus | shop | 20 | 60 |
+| plants/fissidens-fontanus | shop | 19 | 60 |
 | species/poecilia-sphenops | shop | 17 | 60 |
 | plants/cryptocoryne-beckettii | shop | 1 | 60 |
 | species/corydoras-panda | shop | 13 | 60 |
@@ -369,6 +369,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/akysis-portellus | covered | 0 | 30 |
 | species/amblydoras-nauticus | covered | 0 | 30 |
 | species/aphanotorulus-unicolor | covered | 0 | 30 |
+| species/asterophysus-batrachus | covered | 1 | 30 |
 | species/axelrodia-riesei | covered | 1 | 30 |
 | species/betta-foerschi | covered | 0 | 30 |
 | species/betta-imbellis | covered | 3 | 30 |
@@ -392,6 +393,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-septentrionalis | covered | 0 | 30 |
 | species/corydoras-splendens | covered | 4 | 30 |
 | species/denticetopsis-seducta | covered | 0 | 30 |
+| species/desmopuntius-hexazona | covered | 4 | 30 |
 | species/desmopuntius-rhomboocellatus | covered | 0 | 30 |
 | species/dianema-urostriatum | covered | 0 | 30 |
 | species/erethistes-pusillus | covered | 1 | 30 |
@@ -478,7 +480,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/ariopsis-seemanni | covered | 0 | 30 |
 | species/aspidoras-pauciradiatus | covered | 4 | 30 |
 | species/aspidoras-taurus | covered | 3 | 30 |
-| species/asterophysus-batrachus | covered | 1 | 30 |
 | species/astyanax-leopoldi | covered | 0 | 30 |
 | species/atractosteus-tristoechus | covered | 2 | 30 |
 | species/auchenipterus-nigripinnis | covered | 1 | 30 |
@@ -632,7 +633,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/dekeyseria-scaphirhyncha | covered | 0 | 30 |
 | species/denticetopsis-macilenta | covered | 0 | 30 |
 | species/denticetopsis-praecox | covered | 0 | 30 |
-| species/desmopuntius-hexazona | covered | 4 | 30 |
 | species/desmopuntius-pentazona | covered | 3 | 30 |
 | species/devario-assamensis | covered | 1 | 30 |
 | species/devario-auropurpureus | covered | 0 | 30 |

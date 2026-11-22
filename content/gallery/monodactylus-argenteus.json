@@ -258,76 +258,6 @@
       "caption": "Cá mono bạc bơi trong bể nuôi, vây có viền vàng"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/338086053.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/338086053-480.webp",
-      "width": 1024,
-      "height": 888,
-      "licence": "CC0",
-      "author": "Jean-Paul Boerekamps",
-      "sourceUrl": "https://www.inaturalist.org/photos/338086053",
-      "caption": "Đàn cá mono bạc vây vàng trong nước xanh ngoài tự nhiên",
-      "best": true,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/338087674.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/338087674-480.webp",
-      "width": 1024,
-      "height": 885,
-      "licence": "CC0",
-      "author": "Jean-Paul Boerekamps",
-      "sourceUrl": "https://www.inaturalist.org/photos/338087674",
-      "caption": "Cá mono bạc cận cảnh với vây lưng vàng trong tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/345866625.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/345866625-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Tom Heijnen",
-      "sourceUrl": "https://www.inaturalist.org/photos/345866625",
-      "caption": "Ba con cá mono bạc bơi trên nền cát ở vùng nước nông",
-      "best": true,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/345871600.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/345871600-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Tom Heijnen",
-      "sourceUrl": "https://www.inaturalist.org/photos/345871600",
-      "caption": "Đàn cá mono bạc đông đúc trên nền cát nước nông",
-      "best": false,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/338074968.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/338074968-480.webp",
-      "width": 1024,
-      "height": 756,
-      "licence": "CC0",
-      "author": "Jean-Paul Boerekamps",
-      "sourceUrl": "https://www.inaturalist.org/photos/338074968",
-      "caption": "Cá mono bạc bơi gần rạn san hô ngoài tự nhiên",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/281619524.webp",
       "thumb": "https://media.aquatome.com/inaturalist/281619524-480.webp",
       "width": 1024,
@@ -387,6 +317,19 @@
       "caption": "Cá mono bạc bơi trong nước đục, vây có viền vàng",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/345866625.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/345866625-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Tom Heijnen",
+      "sourceUrl": "https://www.inaturalist.org/photos/345866625",
+      "caption": "Ba con cá mono bạc bơi trên nền cát ở vùng nước nông",
+      "best": true,
+      "kind": "group",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/259806352.webp",
@@ -586,6 +529,19 @@
       "caption": "Đàn cá mono bạc vây vàng bơi ngoài tự nhiên"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/345871600.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/345871600-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Tom Heijnen",
+      "sourceUrl": "https://www.inaturalist.org/photos/345871600",
+      "caption": "Đàn cá mono bạc đông đúc trên nền cát nước nông",
+      "best": false,
+      "kind": "group",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/258026104.webp",
       "thumb": "https://media.aquatome.com/inaturalist/258026104-480.webp",
       "width": 1024,
@@ -687,6 +643,19 @@
       "author": "Lisa_James",
       "sourceUrl": "https://www.inaturalist.org/photos/620831808",
       "caption": "Đàn cá mono bạc nhỏ bơi trên nền đáy cát ngoài tự nhiên"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/338074968.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/338074968-480.webp",
+      "width": 1024,
+      "height": 756,
+      "licence": "CC0",
+      "author": "Jean-Paul Boerekamps",
+      "sourceUrl": "https://www.inaturalist.org/photos/338074968",
+      "caption": "Cá mono bạc bơi gần rạn san hô ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 357,

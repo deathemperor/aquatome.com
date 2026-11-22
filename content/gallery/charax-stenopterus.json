@@ -2,6 +2,19 @@
   "id": "charax-stenopterus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/70817766.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/70817766-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Francisco González Táboas",
+      "sourceUrl": "https://www.inaturalist.org/photos/70817766",
+      "caption": "Cá tetra cướp cầu vồng bơi trong bể ảnh nhỏ ngoài trời",
+      "best": true,
+      "kind": "other",
+      "setup": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/312918873.webp",
       "thumb": "https://media.aquatome.com/inaturalist/312918873-480.webp",
       "width": 1024,
@@ -12,8 +25,7 @@
       "caption": "Hai cá tetra cướp cầu vồng bơi trên nền đáy tự nhiên",
       "best": true,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/272037155.webp",
@@ -26,22 +38,7 @@
       "caption": "Cá tetra cướp cầu vồng bơi dưới nước ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/70817766.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/70817766-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Francisco González Táboas",
-      "sourceUrl": "https://www.inaturalist.org/photos/70817766",
-      "caption": "Cá tetra cướp cầu vồng bơi trong bể ảnh nhỏ ngoài trời",
-      "best": true,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": false
     }
   ],
   "seen": 12,

@@ -661,23 +661,6 @@
       "kind": "flower"
     },
     {
-      "url": "https://media.aquatome.com/tropica/a3843d0629132d65.webp",
-      "thumb": "https://media.aquatome.com/tropica/a3843d0629132d65-480.webp",
-      "width": 1200,
-      "height": 800,
-      "large": {
-        "url": "https://media.aquatome.com/tropica/a3843d0629132d65-large.webp",
-        "width": 1800,
-        "height": 1200
-      },
-      "licence": "dùng với sự cho phép",
-      "author": "Tropica",
-      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Mayacafluviatilis(140BDT)/19792",
-      "source": "tropica",
-      "kind": "submersed",
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/109053182.webp",
       "thumb": "https://media.aquatome.com/inaturalist/109053182-480.webp",
       "width": 983,
@@ -795,6 +778,22 @@
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Mayacafluviatilis(140BDT)/19792",
       "source": "tropica",
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/a3843d0629132d65.webp",
+      "thumb": "https://media.aquatome.com/tropica/a3843d0629132d65-480.webp",
+      "width": 1200,
+      "height": 800,
+      "large": {
+        "url": "https://media.aquatome.com/tropica/a3843d0629132d65-large.webp",
+        "width": 1800,
+        "height": 1200
+      },
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Mayacafluviatilis(140BDT)/19792",
+      "source": "tropica",
+      "kind": "submersed"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/439254855.webp",

@@ -9,7 +9,7 @@ under `<lang>/<path>`.
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
 | video-guide | 1103 | 782 (vi 782) | 782 |
-| translation | 2469 | 361 (vi 361) | 361 |
+| translation | 2492 | 361 (vi 361) | 361 |
 | vi-rewrite | 431 | 43 (vi 43) | 43 |
 | reader-rewrite | 51 | 0 | 0 |
 | title | 27 | 0 | 0 |
@@ -18,9 +18,9 @@ under `<lang>/<path>`.
 | product | 33 | 2 (vi 2) | 2 |
 | product-reviews | 26 | 0 | 0 |
 | summary | 2832 | 169 (vi 169) | 169 |
-| localize | 2958 | 845 (id 357, ms 73, th 415) | 845 |
+| localize | 2970 | 833 (id 355, ms 71, th 407) | 833 |
 | glossary | 40 | 0 | 0 |
-| places | 7776 | 4727 (id 1631, ms 1623, th 1374, vi 99) | 1452 |
+| places | 7832 | 4769 (id 1645, ms 1637, th 1388, vi 99) | 1474 |
 | equipment | 5 | 0 | 0 |
 | planting | 32 | 0 | 0 |
 | species | 30 | 0 | 0 |
@@ -126,7 +126,7 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-361 of 2469 pages under the bar.
+361 of 2492 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -506,21 +506,21 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-845 of 2958 pages under the bar.
+833 of 2970 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 761 | 2065 |
-| Wording: unnatural, literal, stiff or chatty | 695 | 1375 |
-| Says what the source doesn't (invented, added) | 474 | 672 |
-| A number, unit, dose or price | 459 | 583 |
-| Meaning changed or wrong | 456 | 685 |
-| Hobby terms and names | 417 | 555 |
-| Text left in another language | 288 | 369 |
-| Leaves out what the source says | 233 | 274 |
-| Repeats itself (intro, summary, steps and FAQ) | 227 | 249 |
-| States as certain what the source hedges, or what garbled captions only hint at | 182 | 206 |
-| Copied from the transcript or source | 18 | 18 |
+| Other | 748 | 2038 |
+| Wording: unnatural, literal, stiff or chatty | 680 | 1334 |
+| Says what the source doesn't (invented, added) | 467 | 662 |
+| Meaning changed or wrong | 452 | 678 |
+| A number, unit, dose or price | 448 | 571 |
+| Hobby terms and names | 412 | 550 |
+| Text left in another language | 283 | 363 |
+| Leaves out what the source says | 232 | 274 |
+| Repeats itself (intro, summary, steps and FAQ) | 219 | 239 |
+| States as certain what the source hedges, or what garbled captions only hint at | 179 | 201 |
+| Copied from the transcript or source | 19 | 19 |
 | Off the title's topic | 2 | 2 |
 
 ### Other
@@ -541,17 +541,17 @@ under `<lang>/<path>`.
 - Item 4: 'millimetre-sized' became 'bersaiz beberapa milimeter'. This adds 'beberapa' (a few), which isn't in the source. Use 'bersaiz milimeter'. — ms/plants/micranthemum-callitrichoides, 0.20
 - Item 2: 'lakukan perawatan akuarium dengan hati-hati' is fine, but the item adds/omits content relative to the item 3 source (e.g. 'tách thành từng cụm' and 'phủ kín' are not in the English); confirm the correct source. — id/plants/littorella-uniflora, 0.30
 
-### A number, unit, dose or price
-
-- Item 4: 'minimal 40 liter' is fine, but 'Fairy moss' is rendered as 'Azolla' throughout while the common name stays elsewhere. Keep the term consistent. — id/plants/azolla, 0.20
-- Item 6: '5 gallons (about 19 litres)' is fine, but item 7: '45 × 30 cm' is original metric; no issue.  — th/species/betta-persephone, 0.30
-- Item 1: '0.8 in standard length (about 1 in total length)' was converted to 'ประมาณ 2 ซม. (…2.5 ซม.)'. 0.8 in is about 2 cm and 1 in is about 2.5 cm, so this is fine. No fix needed there. — th/species/danio-margaritatus, 0.30
-
 ### Meaning changed or wrong
 
 - Item 7: 'Air payau ... bersalinitas rendah (>8,4 g/l)' keeps the English's odd '>' sign. Verify against the original (probably <8.4 g/l) rather than copying a likely error. — id/plants/azolla, 0.20
 - Item 2: the English source is actually Vietnamese, not English. The translation is faithful to it, but flag the source-language mismatch to the pipeline owner. Fix the source text if this is an error. — id/plants/microsorum-pteropus-narrow, 0.30
 - Item 3: 'silver sharks' rendered as 'ปลาหางไหม้' — wrong fish. Silver shark (Balantiocheilos melanopterus) is ปลากระพงเงิน/ปลาตะเพียนเงิน/'ปลาฉลามเงิน'; ปลาหางไหม้ is a different species. Change it. — th/species/clarias-insolitus, 0.30
+
+### A number, unit, dose or price
+
+- Item 4: 'minimal 40 liter' is fine, but 'Fairy moss' is rendered as 'Azolla' throughout while the common name stays elsewhere. Keep the term consistent. — id/plants/azolla, 0.20
+- Item 6: '5 gallons (about 19 litres)' is fine, but item 7: '45 × 30 cm' is original metric; no issue.  — th/species/betta-persephone, 0.30
+- Item 1: '0.8 in standard length (about 1 in total length)' was converted to 'ประมาณ 2 ซม. (…2.5 ซม.)'. 0.8 in is about 2 cm and 1 in is about 2.5 cm, so this is fine. No fix needed there. — th/species/danio-margaritatus, 0.30
 
 ### Hobby terms and names
 
@@ -587,7 +587,7 @@ under `<lang>/<path>`.
 
 - Item 8: Thai adds a translator's note '(หมายเหตุ: ข้อมูลส่วนนี้ขัดกับ...21–24 °C)'. This fact is not in the source, so remove it. Also, 'ชอบอุณหภูมิค่อนข้างสูง' copies the source's contradictory statement; keep it faithful but without the … — th/species/corydoras-loxozonus, 0.40
 - Item 31: the English text is truncated ('known as sneakers,' / 'for months,'); the Indonesian copies the truncation and leaves unfinished sentences. Flag or complete them. — id/species/xiphophorus-hellerii, 0.50
-- Item 6: English says about 72 litres for 80 × 30 cm base; Thai copies 72 ลิตร, which is fine, so no change needed there. Skip. — th/species/corydoras-melini, 0.55
+- Item 1: the English mixes Channa cf. barca and C. stewartii; the Thai copies this faithfully, no change. — th/species/channa-stewartii, 0.55
 
 ### Off the title's topic
 
@@ -600,12 +600,12 @@ under `<lang>/<path>`.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-4727 of 7776 pages under the bar.
+4769 of 7832 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 1295 | 1391 |
-| Leaves out what the source says | 85 | 85 |
+| Other | 1316 | 1413 |
+| Leaves out what the source says | 90 | 90 |
 | Meaning changed or wrong | 75 | 75 |
 | Wording: unnatural, literal, stiff or chatty | 27 | 27 |
 | Hobby terms and names | 12 | 12 |
@@ -621,9 +621,9 @@ under `<lang>/<path>`.
 
 ### Leaves out what the source says
 
-- The source labels with Vietnamese text are not Malay; the target outputs given are mostly fine except missing 'Sungai' for river entries — ms/places/cachira-river, 0.30
-- 'เจ้าพระยา' for 'chao-praya': the region/river type is missing and the form is incomplete; 'แม่น้ำเจ้าพระยา' is standard. — th/places/chao-praya, 0.30
-- The source labels with Vietnamese text are not Malay; the target outputs given are mostly fine except missing 'Sungai' for river entries — ms/places/chapada-diamantina, 0.30
+- Ouémé, Pirara, Sanaga, Ucayali: the output drops 'Sungai', so river names are incomplete — ms/places/oueme-river, 0.10
+- Ouémé, Pirara, Sanaga, Ucayali: the output drops 'Sungai', so river names are incomplete — ms/places/pirara-river, 0.10
+- Ouémé, Pirara, Sanaga, Ucayali: the output drops 'Sungai', so river names are incomplete — ms/places/sanaga-river, 0.10
 
 ### Meaning changed or wrong
 
