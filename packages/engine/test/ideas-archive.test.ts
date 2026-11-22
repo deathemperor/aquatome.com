@@ -197,6 +197,21 @@ test('the listing through the Archive is tried once a day at most, its week over
   expect(next.asked.length).toBeGreaterThan(0)
 })
 
+test("a listing the Archive stopped before anything was asked of it keeps the day's try: the Mac's lock held elsewhere", async () => {
+  const root = await site()
+  const asked: string[] = []
+  const busy = new LockBusy('the lock on 127.0.0.1:1 was held 600 s, at every try, by one process or more: nothing was asked, and this is no refusal')
+  const held = new ArchiveFetcher({ lock: async () => { throw busy }, fetch: async u => { asked.push(u); return holding(u) }, now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'AquaTome test', restFile: await restFile() })
+  const r = await refreshMagazine(root, macOf(root, nowhere, held))
+  expect(asked).toEqual([])
+  expect(r.failed).toEqual([`practicalfishkeeping: ${busy.message.slice(0, 120)}, its last titles kept`])
+  expect((await ledger(root)).tried).toBeUndefined()
+  // Later that day, the lock free: it is tried (Codex, 22 Nov 2026: the day's try was spent with nothing asked).
+  const a = await archive(holding, '2026-11-21T09:00:00Z')
+  await refreshMagazine(root, macOf(root, nowhere, a.reader, '2026-11-21T09:00:00Z'))
+  expect(a.asked.length).toBeGreaterThan(0)
+})
+
 test(`the magazine's listing asks the Archive at most ${ARCHIVE_LISTING_WEEK} times in seven days, the daily try included, counted as each ask is made`, async () => {
   // Every copy of the sitemap a browser check: each day's try searches older copies until the week's asks are spent.
   const root = await site()
@@ -536,9 +551,9 @@ test('a magazine port held by something not ours: the step waits, says so once, 
   await new Promise(ok => other.close(ok))
   expect(e).toBeInstanceOf(LockBusy)
   expect(e).not.toBeInstanceOf(ArchiveRefused)
-  expect((e as Error).message).toMatch(new RegExp(`^another magazine step is running, or something else holds the lock: the lock on 127\\.0\\.0\\.1:${port} was held by another process for \\d+ s: nothing was asked, and this is no refusal$`))
+  expect((e as Error).message).toMatch(new RegExp(`^another magazine step is running, or something else holds the lock: the lock on 127\\.0\\.0\\.1:${port} was held \\d+ s, at every try, by one process or more: nothing was asked, and this is no refusal$`))
   expect(said).toHaveLength(1)
-  expect(said[0]).toMatch(new RegExp(`^waiting for the lock on 127\\.0\\.0\\.1:${port}: another process has held it \\d+ s`))
+  expect(said[0]).toMatch(new RegExp(`^waiting for the lock on 127\\.0\\.0\\.1:${port}: held \\d+ s, at every try, by one process or more; `))
   await (await holdMagazine(port))()
 })
 

@@ -1,13 +1,13 @@
-import { existsSync, mkdtempSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { createServer } from 'node:http'
 import { createRequire, syncBuiltinESMExports } from 'node:module'
 import { createServer as createNetServer, type AddressInfo } from 'node:net'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test, vi } from 'vitest'
-import { ARCHIVE_POLITE, ARCHIVE_REST_MAX_MS, ARCHIVE_REST_MS, ArchiveFetcher, ArchiveRefused, AsksSpent, errorGot, MAX_HOPS, noCopy } from '../src/archive'
+import { ARCHIVE_POLITE, ARCHIVE_REST_MAX_MS, ARCHIVE_REST_MS, ArchiveFetcher, ArchiveRefused, archiveStops, AsksSpent, errorGot, MAX_HOPS, noCopy, RestUnreadable } from '../src/archive'
 import { discover } from '../src/discover'
-import { LockBusy, macLock, tryLock } from '../src/mac-lock'
+import { LockBusy, macLock, tryLock, type Release } from '../src/mac-lock'
 import { sourceById } from '../src/sources'
 
 const restFile = () => join(mkdtempSync(join(tmpdir(), 'archive-rest-')), 'rest.json')
@@ -389,6 +389,9 @@ test("an answer after the wait ends only that wait: a new one another job's refu
 /** A port no one holds, for a test's own lock: never the Mac's, which a cycle may hold. */
 const freePort = () => new Promise<number>(ok => { const s = createNetServer(); s.listen(0, '127.0.0.1', () => { const { port } = s.address() as AddressInfo; s.close(() => ok(port)) }) })
 const pause = (ms: number) => new Promise(r => setTimeout(r, ms))
+/** A lock that counts the calls come to it, and a wait for that count: a call shown to be at the lock, never a pause. */
+const counting = (lock: () => Promise<Release>) => { const c = { at: 0, lock: () => { c.at++; return lock() } }; return c }
+const until = async (ok: () => boolean) => { for (let i = 0; !ok(); i++) { if (i >= 1000) throw new Error('never came'); await pause(10) } }
 /** Whether the rest file holds a wait not yet over, at the clock's time. */
 const restingNow = (file: string, clock: number) => { try { return clock < new Date((JSON.parse(readFileSync(file, 'utf8')) as { until: string }).until).getTime() } catch { return false } }
 
@@ -436,7 +439,8 @@ test("an answer that ends a wait is taken in before another reader on the Mac se
 // Codex's read of the lock, 22 Nov 2026.
 test("a refusal the lock's holder gets stops the request waiting for the lock: it is never counted, nor sent", async () => {
   const file = restFile()
-  const lock = await freePort().then(port => () => macLock(port))
+  const c = await freePort().then(port => counting(() => macLock(port)))
+  const lock = c.lock
   let answer!: () => void, out!: () => void
   const gate = new Promise<void>(ok => { answer = ok }), isOut = new Promise<void>(ok => { out = ok })
   const holder = new ArchiveFetcher({ lock, restFile: file, fetch: async () => { out(); await gate; return capture(429, '') }, now: () => new Date(start), sleep: async () => {}, ua: 'test' })
@@ -447,7 +451,7 @@ test("a refusal the lock's holder gets stops the request waiting for the lock: i
   await isOut
   // The holder's request is out; the other one has passed its first look at the rest and waits for the lock.
   const waiting = waiter.get(article).catch((e: unknown) => e)
-  await pause(300)
+  await until(() => c.at === 2)
   answer()
   expect(await refused).toBeInstanceOf(ArchiveRefused)
   expect(await waiting).toBeInstanceOf(ArchiveRefused)
@@ -488,9 +492,10 @@ test("a rest file another job is writing: the first look passes over it, and the
   const theirs = (await tryLock(port))!
   writeFileSync(file, '{"until":"2026-11-1')
   let sent = 0
-  const f = new ArchiveFetcher({ lock: () => macLock(port), restFile: file, fetch: async () => { sent++; return capture(200, '<title>ok</title>') }, now: () => new Date(start), sleep: async () => {}, ua: 'test' })
+  const c = counting(() => macLock(port))
+  const f = new ArchiveFetcher({ lock: c.lock, restFile: file, fetch: async () => { sent++; return capture(200, '<title>ok</title>') }, now: () => new Date(start), sleep: async () => {}, ua: 'test' })
   const reading = f.get(article).catch((e: unknown) => e)
-  await pause(300)
+  await until(() => c.at === 1)
   writeFileSync(file, `${JSON.stringify({ until: new Date(start + ARCHIVE_REST_MS).toISOString(), waitMs: ARCHIVE_REST_MS })}\n`)
   await theirs()
   expect(await reading).toBeInstanceOf(ArchiveRefused)
@@ -522,14 +527,56 @@ test('two calls waiting on one reader allowed one request: one goes, the other f
   const port = await freePort()
   const theirs = (await tryLock(port))!
   let sent = 0
-  const one = new ArchiveFetcher({ lock: () => macLock(port), restFile: restFile(), fetch: async () => { sent++; return capture(200, '<title>ok</title>') }, now: () => new Date(start), sleep: async () => {}, ua: 'test' }).capped(1)
+  const c = counting(() => macLock(port))
+  const one = new ArchiveFetcher({ lock: c.lock, restFile: restFile(), fetch: async () => { sent++; return capture(200, '<title>ok</title>') }, now: () => new Date(start), sleep: async () => {}, ua: 'test' }).capped(1)
   const both = Promise.allSettled([one.get(article), one.get(article)])
-  await pause(300)
+  await until(() => c.at === 2)
   await theirs()
   const r = await both
   expect(sent).toBe(1)
   expect(r.map(x => x.status).sort()).toEqual(['fulfilled', 'rejected'])
   expect((r.find(x => x.status === 'rejected') as PromiseRejectedResult).reason).toBeInstanceOf(AsksSpent)
+})
+
+test('two calls on one reader wait on a holder: once one gives up on it, the other, having the lock after, asks nothing', async () => {
+  const port = await freePort()
+  const theirs = (await tryLock(port))!
+  let sent = 0
+  // The first to come gives up when told to, as at the end of its wait; the second waits on, and has the lock once the
+  // holder lets go.
+  let came = 0, giveUp!: () => void
+  const gaveUp = new Promise<void>(ok => { giveUp = ok })
+  const lock = async () => {
+    if (++came === 1) { await gaveUp; throw new LockBusy(`the lock on 127.0.0.1:${port} was held 600 s, at every try, by one process or more: nothing was asked, and this is no refusal`) }
+    return macLock(port, { waitMs: 30_000, noteMs: 60_000, log: () => {} })
+  }
+  const f = new ArchiveFetcher({ lock, restFile: restFile(), fetch: async () => { sent++; return capture(200, '<title>ok</title>') }, now: () => new Date(start), sleep: async () => {}, ua: 'test' })
+  const first = f.get(article).catch((e: unknown) => e)
+  await until(() => came === 1)
+  const second = f.capped(5).get(article).catch((e: unknown) => e)
+  await until(() => came === 2)
+  giveUp()
+  expect(await first).toBeInstanceOf(LockBusy)
+  await theirs()
+  const e = await second
+  expect(e).toBeInstanceOf(LockBusy)
+  expect((e as Error).message).toMatch(/; nothing more is asked of the archive in this run$/)
+  expect(sent).toBe(0)
+})
+
+test("a rest on file that can't be read under the lock stops the request, as no refusal, and names no path", async () => {
+  const file = restFile()
+  // Not a file the reader can read: not missing, so it isn't "no rest" (Codex, 22 Nov 2026: a read error taken as one sent
+  // during another job's refusal).
+  mkdirSync(file)
+  let sent = 0
+  const f = new ArchiveFetcher({ lock: free, restFile: file, fetch: async () => { sent++; return capture(200, '<title>ok</title>') }, now: () => new Date(start), sleep: async () => {}, ua: 'test' })
+  const e = await f.get(article).catch((x: unknown) => x)
+  expect(e).toBeInstanceOf(RestUnreadable)
+  expect(e).not.toBeInstanceOf(ArchiveRefused)
+  expect(archiveStops(e)).toBe(true)
+  expect((e as Error).message).toBe("the archive's rest on this Mac can't be read (EISDIR): nothing was asked, and this is no refusal")
+  expect(sent).toBe(0)
 })
 
 // The chief of staff, 22 Nov 2026: something not ours holding the port is never the Archive refusing.
@@ -540,7 +587,8 @@ test('a lock held by something not ours: the reader waits and says so, asks noth
   const file = restFile()
   const said: string[] = []
   let asked = 0
-  const f = new ArchiveFetcher({ lock: () => macLock(port, { waitMs: 500, noteMs: 150, log: l => said.push(l) }), restFile: file, fetch: async () => { asked++; return capture(200, '<title>ok</title>') }, now: () => new Date(start), sleep: async () => {}, ua: 'test' })
+  const c = counting(() => macLock(port, { waitMs: 500, noteMs: 150, log: l => said.push(l) }))
+  const f = new ArchiveFetcher({ lock: c.lock, restFile: file, fetch: async () => { asked++; return capture(200, '<title>ok</title>') }, now: () => new Date(start), sleep: async () => {}, ua: 'test' })
   const e = await f.get(article).catch((x: unknown) => x)
   expect(e).toBeInstanceOf(LockBusy)
   expect(e).not.toBeInstanceOf(ArchiveRefused)
@@ -548,10 +596,10 @@ test('a lock held by something not ours: the reader waits and says so, asks noth
   expect(said).toHaveLength(1)
   expect(asked).toBe(0)
   expect(existsSync(file)).toBe(false)
-  // The rest of the run, a capped reader too, asks nothing, and at once rather than waiting again.
-  const t0 = Date.now()
+  // The rest of the run, a capped reader too, asks nothing, and at once rather than waiting again: the lock isn't come to
+  // again (Codex, 22 Nov 2026: a time limit here a busy Mac could fail).
   await expect(f.capped(5).get(article)).rejects.toThrow(/; nothing more is asked of the archive in this run$/)
-  expect(Date.now() - t0).toBeLessThan(150)
+  expect(c.at).toBe(1)
   expect(asked).toBe(0)
   expect(existsSync(file)).toBe(false)
   await new Promise(ok => other.close(ok))

@@ -6,7 +6,7 @@ import { networkInterfaces } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test, vi } from 'vitest'
-import { ARCHIVE_LOCK_PORT, LockBusy, MAGAZINE_LOCK_PORT, macLock, tryLock } from '../src/mac-lock'
+import { ARCHIVE_LOCK_PORT, LOCK_NOTE_MS, LOCK_WAIT_MS, LockBusy, MAGAZINE_LOCK_PORT, macLock, tryLock } from '../src/mac-lock'
 
 /** A port no one holds, for a test's own lock: never the Mac's, which a cycle may hold. */
 const freePort = () => new Promise<number>(ok => { const s = createServer(); s.listen(0, '127.0.0.1', () => { const { port } = s.address() as AddressInfo; s.close(() => ok(port)) }) })
@@ -94,6 +94,9 @@ test("the CLI's wiring: its one Archive reader takes the Mac's lock, and the mag
   expect(listing).toBeLessThan(guide)
   expect(guide).toBeLessThan(given)
   expect(step.match(/release\(\)/g)).toHaveLength(1)
+  // Both locks wait as long as the Mac's rule says, and say so when it says: the CLI sets neither (Codex, 22 Nov 2026).
+  expect([LOCK_NOTE_MS, LOCK_WAIT_MS]).toEqual([2 * 60_000, 10 * 60_000])
+  expect(cli).not.toMatch(/\b(?:waitMs|noteMs)\b/)
 })
 
 test('the wait is counted in tries, never read off the clock: a clock set back an hour at every look still stops at its time', async () => {
@@ -117,11 +120,14 @@ test('3. a holder not ours: the reader waits, says so once in the log, then fail
   // Something else on the Mac on that port: not a lock of ours.
   const other = createServer()
   await new Promise<void>(ok => other.listen({ port, host: '127.0.0.1' }, ok))
-  const said: string[] = []
-  const e = await macLock(port, { waitMs: 600, noteMs: 200, log: l => said.push(l) }).catch((x: unknown) => x)
+  const said: string[] = [], saidAt: number[] = []
+  const t0 = Date.now()
+  const e = await macLock(port, { waitMs: 600, noteMs: 200, log: l => { said.push(l); saidAt.push(Date.now() - t0) } }).catch((x: unknown) => x)
   expect(e).toBeInstanceOf(LockBusy)
-  expect((e as Error).message).toMatch(new RegExp(`^the lock on 127\\.0\\.0\\.1:${port} was held by another process for \\d+ s: nothing was asked, and this is no refusal$`))
+  // Never before its time (Codex, 22 Nov 2026), however slow the Mac: a slow one only says it later.
+  expect(saidAt[0]).toBeGreaterThanOrEqual(200)
+  expect((e as Error).message).toMatch(new RegExp(`^the lock on 127\\.0\\.0\\.1:${port} was held \\d+ s, at every try, by one process or more: nothing was asked, and this is no refusal$`))
   expect(said).toHaveLength(1)
-  expect(said[0]).toMatch(new RegExp(`^waiting for the lock on 127\\.0\\.0\\.1:${port}: another process has held it \\d+ s; nothing is asked without it, and at 1 s this stops$`))
+  expect(said[0]).toMatch(new RegExp(`^waiting for the lock on 127\\.0\\.0\\.1:${port}: held \\d+ s, at every try, by one process or more; nothing is asked without it, and at 1 s this stops$`))
   await new Promise(ok => other.close(ok))
 })

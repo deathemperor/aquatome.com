@@ -200,7 +200,7 @@ test('the archive refusing a picture stops the page, which waits and keeps its p
 test("the Mac's lock on the archive held elsewhere stops the page as a refusal does: it waits and keeps its pictures", async () => {
   const media = { urlFor: (k: string) => `https://media.test/${k}`, put: async () => { throw new Error('nothing to store') } }
   const picked = [{ src: 'https://x.test/a.jpg', alt: '' }]
-  const busy = new LockBusy('the lock on 127.0.0.1:1 was held by another process for 600 s: nothing was asked, and this is no refusal')
+  const busy = new LockBusy('the lock on 127.0.0.1:1 was held 600 s, at every try, by one process or more: nothing was asked, and this is no refusal')
   await expect(storeSourcePhotos('planetcatfish', 'PlanetCatfish', 'https://x.test/p', picked, { bytes: async () => { throw busy }, media }, [])).rejects.toBe(busy)
   const asked: string[] = []
   const html = [1, 2].map(n => `<a href="/photo${n}.htm"><img src="/thumb${n}.jpg"></a>`).join('')

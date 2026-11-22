@@ -52,11 +52,19 @@ const REDIRECTS = new Set([301, 302, 303, 307, 308])
 export const MAX_HOPS = 5
 
 /**
- * What stops a step reading through the Archive, with nothing wrong with the page it was on, so the page waits rather than
- * being marked, losing an attempt or losing its pictures: the Archive's refusal, and the Mac's lock on it held elsewhere
- * past its wait (Codex, 22 Nov 2026).
+ * The Archive's rest on file couldn't be read under the lock (Codex, 22 Nov 2026: a read error taken as no rest would send
+ * during another job's refusal): nothing was asked, and it is no refusal. `code`: the file system's, never the path.
  */
-export const archiveStops = (e: unknown): e is Error => e instanceof ArchiveRefused || e instanceof LockBusy
+export class RestUnreadable extends Error {
+  constructor(readonly code: string) { super(`the archive's rest on this Mac can't be read (${code}): nothing was asked, and this is no refusal`) }
+}
+
+/**
+ * What stops a step reading through the Archive, with nothing wrong with the page it was on, so the page waits rather than
+ * being marked, losing an attempt or losing its pictures: the Archive's refusal, the Mac's lock on it held elsewhere past
+ * its wait, and the rest on file unreadable (Codex, 22 Nov 2026).
+ */
+export const archiveStops = (e: unknown): e is Error => e instanceof ArchiveRefused || e instanceof LockBusy || e instanceof RestUnreadable
 
 /** A capped reader has made the requests it was allowed (ArchiveFetcher.capped): none was made, and it is no refusal. */
 export class AsksSpent extends Error {
@@ -137,7 +145,8 @@ export class ArchiveFetcher {
    * staff, 21 Nov 2026); its pace and the minute's wait after a failure are outside it. `at`: the address that answered.
    */
   private async call(url: string) {
-    const resting = async () => JSON.parse(await readFile(this.d.restFile, 'utf8').catch(() => 'null')) as Rest | null
+    // No file is no rest; any other failure to read it is no answer either way (Codex, 22 Nov 2026).
+    const resting = async () => JSON.parse(await readFile(this.d.restFile, 'utf8').catch((e: NodeJS.ErrnoException) => { if (e.code === 'ENOENT') return 'null'; throw e })) as Rest | null
     // A first look, before the lock: one it can't read (another job's, mid-write, as an older engine wrote it) is left to the
     // look under the lock, the one that counts (Codex, 22 Nov 2026).
     let rest = await resting().catch(() => null)
@@ -153,11 +162,14 @@ export class ArchiveFetcher {
       })
       let failed = false
       try {
+        // The run's busy lock again (Codex, 22 Nov 2026): another call on this reader may have given up on it while this one
+        // waited, and then this one had it.
+        if (this.busy.why) throw new LockBusy(`${this.busy.why}; nothing more is asked of the archive in this run`)
         // The cap again, under the lock (Codex, 22 Nov 2026): two calls on one reader may both have passed it while waiting.
         if (this.asked >= this.cap) throw new AsksSpent(this.cap)
         // Read again just before the request (Codex, 21 Nov 2026): another job on this Mac may have been refused while this
         // one waited its pace or the lock, or had the one answer that ends a wait.
-        const now = await resting()
+        const now = await resting().catch((e: unknown) => { throw new RestUnreadable((e as NodeJS.ErrnoException).code ?? (e as Error).name) })
         if (now && this.d.now().getTime() < new Date(now.until).getTime()) throw new ArchiveRefused(now.until)
         rest = now
         await this.onAsk?.()
@@ -197,7 +209,8 @@ export class ArchiveFetcher {
           if (rest) {
             console.log(`archive: answered after the wait, at ${this.d.now().toISOString()}, with HTTP ${r.status}: reading carries on`)
             // Only the wait this request was the one after (Codex, 21 Nov 2026): another job refused meanwhile wrote a new one.
-            if ((await resting())?.until === rest.until) await rm(this.d.restFile, { force: true })
+            // One it can't read now is left as it is: the answer stands, and the wait ends on its own.
+            if ((await resting().catch(() => null))?.until === rest.until) await rm(this.d.restFile, { force: true })
             rest = null
           }
           return { r, at }

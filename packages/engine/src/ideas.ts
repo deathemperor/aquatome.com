@@ -1,7 +1,7 @@
 import { mkdir, readdir, readFile, rename, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { slugify, type GuideEntity, type SourceId } from '@aq/schema'
-import { ARCHIVE_POLITE, ArchiveRefused, AsksSpent, cdxQuery, noCopy, type ArchiveReader } from './archive'
+import { ARCHIVE_POLITE, ArchiveRefused, archiveStops, AsksSpent, cdxQuery, noCopy, type ArchiveReader } from './archive'
 import { vnDay } from './ceiling'
 import { LlmError, type Llm } from './claude'
 import { byHand, cycleOnlyHosts, refused } from './cycle-only'
@@ -366,6 +366,8 @@ const listedReport = (): Listed => ({ failed: [], needsHuman: [], blocked: [], l
 async function listSite(root: string, s: IdeaSource, before: Post[] | undefined, get: (url: string) => Promise<string>, d: { sleep: (ms: number) => Promise<void>; now: () => Date }, o: { force?: boolean; retryBlocked?: boolean }, report: Listed, archive?: { ledger: MagazineLedger; file: string; reader: ArchiveReader }): Promise<Post[] | undefined> {
   const since = await sourceBlockedSince(root, s.id)
   if (since && !o.retryBlocked && !archive) { report.blocked.push(s.id); return undefined }
+  let reader: ArchiveReader | undefined
+  let untried: (() => Promise<void>) | undefined
   try {
     let listed: Post[] | undefined
     if (!since || o.retryBlocked) {
@@ -380,7 +382,6 @@ async function listSite(root: string, s: IdeaSource, before: Post[] | undefined,
     }
     // Through the Archive: once a day at most, `force` or not, by a reader capped at what's left of the week's requests,
     // each written down before it is made.
-    let reader: ArchiveReader | undefined
     if (!listed) {
       const { ledger: l, file } = archive!
       const tried = l.tried?.[s.id]
@@ -388,6 +389,9 @@ async function listSite(root: string, s: IdeaSource, before: Post[] | undefined,
       if (asksLeft(l, 'listing', d.now()) <= 0) throw new Error(`the week's ${ARCHIVE_LISTING_WEEK} requests to the archive are spent`)
       ;(l.tried ??= {})[s.id] = d.now().toISOString()
       await saveLedger(file, l)
+      // The day's try given back when the Archive stopped the read before anything was asked of it: a rest on file, the
+      // Mac's lock held elsewhere (Codex, 22 Nov 2026).
+      untried = async () => { if (tried) l.tried![s.id] = tried; else delete l.tried![s.id]; if (!Object.keys(l.tried!).length) delete l.tried; await saveLedger(file, l) }
       reader = magazineReader(archive!.reader, l, file, 'listing', d.now, d.sleep)
     }
     const { kept, dropped, titles } = dropPosts(listed ?? await archivedListing(s, reader!), s.drop ?? [])
@@ -401,6 +405,7 @@ async function listSite(root: string, s: IdeaSource, before: Post[] | undefined,
     if (since) await setSourceBlock(root, s.id, undefined)
     return kept
   } catch (err) {
+    if (untried && reader?.asked === 0 && archiveStops(err)) await untried()
     report.failed.push(`${s.id}: ${(err as Error).message.slice(0, 120)}, its last titles kept`)
     return undefined
   }

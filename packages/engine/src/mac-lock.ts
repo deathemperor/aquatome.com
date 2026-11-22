@@ -19,7 +19,7 @@ const LOCK_POLL_MS = 250
 
 export type Release = () => Promise<void>
 
-/** The lock was held by another process, ours or not, longer than a reader waits: nothing was asked, and it is no refusal. */
+/** The lock was held, by one process or more, ours or not, longer than a reader waits: nothing was asked, and it is no refusal. */
 export class LockBusy extends Error {}
 
 /** The lock if no process holds it now, else none. Its holder never keeps a run from ending. */
@@ -44,8 +44,8 @@ export async function macLock(port: number, o: { waitMs?: number; noteMs?: numbe
   for (let tries = 0; ; tries++) {
     const release = await tryLock(port)
     if (release) return release
-    if (tries * LOCK_POLL_MS >= waitMs) throw new LockBusy(`the lock on ${LOCK_HOST}:${port} was held by another process for ${s(tries)} s: nothing was asked, and this is no refusal`)
-    if (tries === Math.ceil(noteMs / LOCK_POLL_MS)) log(`waiting for the lock on ${LOCK_HOST}:${port}: another process has held it ${s(tries)} s; nothing is asked without it, and at ${Math.round(waitMs / 1000)} s this stops`)
+    if (tries * LOCK_POLL_MS >= waitMs) throw new LockBusy(`the lock on ${LOCK_HOST}:${port} was held ${s(tries)} s, at every try, by one process or more: nothing was asked, and this is no refusal`)
+    if (tries === Math.ceil(noteMs / LOCK_POLL_MS)) log(`waiting for the lock on ${LOCK_HOST}:${port}: held ${s(tries)} s, at every try, by one process or more; nothing is asked without it, and at ${Math.round(waitMs / 1000)} s this stops`)
     await new Promise(r => setTimeout(r, LOCK_POLL_MS))
   }
 }
