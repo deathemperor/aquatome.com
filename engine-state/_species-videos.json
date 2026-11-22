@@ -4527,10 +4527,12 @@
     "reason": "General topic on water changes and plant chemistry, not one species"
   },
   "Sg6IxODpfdg": {
-    "at": "2026-11-07",
+    "at": "2026-11-22",
     "title": "BLUE AURA SHRIMP (Species Spotlight)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "sHg_xHC75Ok": {
     "at": "2026-11-07",
@@ -4541,10 +4543,15 @@
     "reason": "unboxing, several species"
   },
   "sHJLeZ1fRFM": {
-    "at": "2026-11-07",
+    "at": "2026-11-22",
     "title": "Cambarellus  patzcuarensis \"orange\"  CPO",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Cambarellus patzcuarensis",
+    "page": "species/cambarellus-patzcuarensis",
+    "done": "low",
+    "score": 0.62,
+    "reason": "behaviour: 'bể nano cỡ 40 lít' – the video says about 10 gallons or 30 liters, so the figure is wrong; reproduction: 'khoảng 2–3 tuần... thì trên mẹ đã có ấu trùng' conflicts with the page's 'Trứng thường nở sau 3–4 tuần'. NEW doesn't say it differs from the page or how"
   },
   "sHlDsn7v7Hw": {
     "at": "2026-11-18",
@@ -4571,10 +4578,12 @@
     "reason": "fish room"
   },
   "SNFJ3-9YNH0": {
-    "at": "2026-11-07",
+    "at": "2026-11-22",
     "title": "This Corydoras Doesn’t Look Real… Meet CW217",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "sntTQ-e6GgE": {
     "at": "2026-11-07",

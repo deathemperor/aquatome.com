@@ -776,6 +776,45 @@
       "kept": false
     }
   ],
+  "vi/species/cambarellus-patzcuarensis#sHJLeZ1fRFM": [
+    {
+      "at": "2026-11-22T23:44:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.6,
+      "notes": [
+        "Size: \"thường chỉ dài 2–3 cm\" differs from the page (3–4 cm on the card, 4–5 cm elsewhere), but NEW doesn't say it differs from the page.",
+        "\"Một người nuôi loài này lâu năm thấy chúng thường chỉ dài 2–3 cm\" frames a plain size statement as keeper experience. It sounds odd and clumsy.",
+        "\"Thấy một bộ vỏ rỗng trong bể là tôm vừa lột, không phải tôm tế\" is wrong. The real phrase \"không phải tôm chết\" is an addition: the video only says a shell means the crayfish molted.",
+        "The maintenance molting paragraph repeats the page: its molting section already covers the soft new shell and growth by molting.",
+        "The reproduction paragraph on mating (male flips the female, places sperm) repeats what the page already says, and adds only gonopod detail.",
+        "\"Một người nuôi... thấy thời gian ngắn hơn 3–4 tuần\" does say the video differs from the page. But the video speaks as a general statement, not clearly as one keeper's experience. The 20–30 young reduced to half or a third is also presented as the keeper's own observation, though the video states it generally.",
+        "\"Tôm hùm đất không cố ăn tép ngay mà tìm cách giao phối với tép. Tép bị làm bị thương nặng\" is awkward, translation-like Vietnamese.",
+        "\"Ốc nerite (Vittina, Neritina)\" and \"ốc Physa\" are the writer's own readings of the garbled video words (\"vitina\", \"fusa\"). The names are uncertain."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-22T23:44:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.62,
+      "notes": [
+        "behaviour: 'bể nano cỡ 40 lít' – the video says about 10 gallons or 30 liters, so the figure is wrong",
+        "reproduction: 'khoảng 2–3 tuần... thì trên mẹ đã có ấu trùng' conflicts with the page's 'Trứng thường nở sau 3–4 tuần'. NEW doesn't say it differs from the page or how",
+        "reproduction: 'Tôm bố mẹ ăn thịt con' – the page already says adults eat the young and gives the same hiding-place advice, so it repeats the page",
+        "reproduction: 'Thường chúng sẽ giao phối ngay sau đó' turns the speaker's own 'I guarantee' trick into a general rule",
+        "behaviour: 'Nuôi đông tôm hùm đất chung với nhiều tép... thì dễ hỏng' – the video says it's hard only when there are too many of both. The shrimp-damage claim is softened but 'dễ hỏng' is stronger than the video",
+        "maintenance: the molting content (soft body, hardening) partly overlaps the page's existing 'Lột xác' paragraph, and 'tôm bơm nước vào thân cho to ra' is worded like a translation",
+        "dimorphism: 'Có con có sọc, có con không... Sọc không cho biết đực hay cái' – this is fine, but the 'Càng' item keeps the video's 'chelae' mix-up in a loose way"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/caridina-babaulti": [
     {
       "at": "2026-11-17T23:53:05Z",
