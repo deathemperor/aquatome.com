@@ -1,5 +1,5 @@
 import { expectControlledRejections } from './photo-privacy-assertions'
-import { chmod, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { chmod, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
@@ -141,5 +141,22 @@ test('a new photo neither the face finder nor the screen could read stays owed; 
   const next = deps()
   await run(root, next.d)
   expect(next.sent).toEqual([])
+  expect(await owed(root)).toEqual([])
+})
+
+test("the list takes the photos new to the face finder before its record does: a list that can't be written stops the step with the record and the pages as they were, and the next run screens them", async () => {
+  const root = await store()
+  // A folder stands where the list goes: nothing can be written there.
+  await mkdir(join(root, 'engine-state/_photo-dead-owed.json'))
+  const first = deps()
+  await expect(run(root, first.d)).rejects.toThrow()
+  expect(await json(root, 'engine-state/_photo-faces.json')).toEqual({ [m('a-old')]: 0 })
+  expect(await urls(root, 'c')).toEqual([m('c-face'), m('c-live')])
+  expect(first.sent).toEqual([])
+  // Written again: the photos are new to the face finder, so the screen is sent each one.
+  await rm(join(root, 'engine-state/_photo-dead-owed.json'), { recursive: true })
+  const next = deps()
+  await run(root, next.d)
+  expect(next.sent).toEqual([m('a-dead'), m('a-live'), m('b-dead'), m('c-live')])
   expect(await owed(root)).toEqual([])
 })

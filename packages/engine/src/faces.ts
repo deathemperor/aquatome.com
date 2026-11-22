@@ -30,9 +30,9 @@ export async function visionFaces(files: string[]): Promise<number[]> {
  * and any photo with a human face is dropped from its page, as is any photo the owner rejected by hand (`rejectedFile`:
  * URL → reason; hands, product packshots, English-text banners), and so is a video section's photo the owner rejected.
  * Runs each cycle, so a re-picked photo never publishes. `root`: where engine-state is, for the second look
- * (last-photo.ts).
+ * (last-photo.ts). `enrol` is given the photos new to it before it writes anything, and a throw from it stops the pass.
  */
-export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: FaceDeps, rejectedFile?: string, root = join(contentRoot, '..')): Promise<{ checked: number; fresh: string[]; screened: string[]; removed: string[]; held: string[]; firstOff: string[]; failed: string[] }> {
+export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: FaceDeps, rejectedFile?: string, root = join(contentRoot, '..'), enrol?: (fresh: string[]) => Promise<void>): Promise<{ checked: number; fresh: string[]; screened: string[]; removed: string[]; held: string[]; firstOff: string[]; failed: string[] }> {
   const cache: Record<string, number> = JSON.parse(await readFile(cacheFile, 'utf8').catch(() => '{}'))
   const rejected: Record<string, string> = rejectedFile ? JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) : {}
   const pages: { file: string; e: { photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } } }[] = []
@@ -44,6 +44,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
     }
   }
   const todo = [...new Set(pages.flatMap(p => (p.e.photos ?? []).map(x => x.url)))].filter(u => !(u in cache) && !(u in rejected))
+  await enrol?.(todo)
   const failed: string[] = []
   // Screened in this run: its verdict is the photo's first from this step.
   const screened = new Set<string>()
@@ -138,17 +139,24 @@ async function stillOwed(root: string, contentRoot: string, owed: Record<string,
  * Each owed photo is on a list (DEAD_OWED_FILE in engine-state), and a public build doesn't show it (the schema's
  * load.ts), until the screen or the photo check has judged it, the never-again list has it or no fish or plant page shows
  * it. One past the sheets, on a sheet that failed or after a stop (the step's daily line in ceilings.json is `faces`)
- * stays on the list for the next run. The list is written before the screen runs, so a screen that fails leaves it in
- * force; the screen failing leaves the face pass as written (the chief of staff, 21 Nov 2026: the screen sees every new
- * photo before it can show).
+ * stays on the list for the next run. The list takes the photos new to the face finder before the face pass writes
+ * anything, its record of what it has read last: a list that can't be written stops the step with that record as it
+ * was, so they are new to it again in the next run, and wait meanwhile (load.ts: an own photo the face finder hasn't
+ * read). The list is written again before the screen runs, so a screen that fails leaves it in force; the screen
+ * failing leaves the face pass as written (the chief of staff, 21 Nov 2026: the screen sees every new photo before it
+ * can show).
  */
 export async function screenNewPhotos(contentRoot: string, cacheFile: string, d: FaceDeps & { dead: DeadScreenDeps }, rejectedFile?: string, root = join(contentRoot, '..')): Promise<{ faces: Awaited<ReturnType<typeof dropFacePhotos>>; dead?: Awaited<ReturnType<typeof screenDead>>; deadFailed?: string; owed: number }> {
   const owedFile = join(root, 'engine-state', DEAD_OWED_FILE)
   const before = JSON.parse(await readFile(owedFile, 'utf8').catch(() => '{}')) as Record<string, string>
-  const faces = await dropFacePhotos(contentRoot, cacheFile, d, rejectedFile, root)
   const today = new Date().toISOString().slice(0, 10)
   const write = async (x: Record<string, string>) => { await mkdir(join(root, 'engine-state'), { recursive: true }); await writeFile(owedFile, `${JSON.stringify(x, null, 2)}\n`) }
-  const owed = await stillOwed(root, contentRoot, { ...before, ...Object.fromEntries(faces.fresh.filter(u => !(u in before)).map(u => [u, today])) })
+  let enrolled = before
+  const faces = await dropFacePhotos(contentRoot, cacheFile, d, rejectedFile, root, async fresh => {
+    enrolled = await stillOwed(root, contentRoot, { ...before, ...Object.fromEntries(fresh.filter(u => !(u in before)).map(u => [u, today])) })
+    await write(enrolled)
+  })
+  const owed = await stillOwed(root, contentRoot, enrolled)
   await write(owed)
   if (!Object.keys(owed).length) return { faces, owed: 0 }
   try {
