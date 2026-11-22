@@ -1112,6 +1112,21 @@ test("the live-food guide's Indonesian and Malay survey lines hold", () => {
 // read of these words lets it out, so this holds the words and not the hold (test/fixtures/live-food-1122-ms.json).
 test("the live-food guide's Malay copy says its betta keeper's tips come from a forum", () => handFixesHold('live-food-1122-ms.json', '', 'ms'))
 
+// The Writing Lead's dose answers of 22 Nov 2026 (the chief of staff): Aquarium Breeder means the US gallon, as these four
+// guides convert it everywhere else, so each of their doses is per 3,8 lít, the staghorn guide's spot dose too, so one page
+// never gives a gallon as 3,8 lít in one line and 4 lít in the next; the algae guide's whole-tank figures take the comma a
+// Vietnamese decimal takes. The Malay live-food copy says "alahan", the Malaysian word, in its five places. Each body is
+// bodyFixed (the Malay FAQ faqFixed too), so no run takes a line back (test/fixtures/doses-1122.json, -ms.json).
+test("the Writing Lead's dose lines of 22 Nov hold: Aquarium Breeder's gallon as 3,8 lít, and the Malay allergy word", () => {
+  handFixesHold('doses-1122.json', '')
+  handFixesHold('doses-1122-ms.json', '', 'ms')
+  const guide = (id: string, lang = 'vi') => JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/guides/${id}/${lang}.json`, import.meta.url)), 'utf8')) as Translation
+  for (const id of ['black-beard-algae', 'staghorn-algae-in-aquariums', 'hair-algae-in-aquariums'].map(s => `aquariumbreeder-how-to-remove-${s}`).concat('aquariumbreeder-rust-disease-in-a-shrimp-tank-treatment')) {
+    expect(guide(id).body, id).not.toMatch(/ml cho mỗi 4(?:,5)? lít/u)
+  }
+  expect(JSON.stringify(guide('aquatome-cac-loai-thuc-an-cho-ca-thuc-an-song-trun-chi-trung-huyet-artemia-bobo', 'ms'))).not.toMatch(/alergi/iu)
+})
+
 // The Writing Lead's yes or no of 20 Nov 2026 on what that change left as it was, each checked against the saved source
 // or the video's transcript: three of the shop's photo captions out of the egg scatterers' body and the fourth moved to
 // the paragraph it belongs to; the keeper's own hedge on why the Endlers tank still needs water changes, and the snails
