@@ -28,6 +28,8 @@ content/plants/*/*.json merge=entity
 content/places/*/*.json merge=entity
 engine-state/_topic-check.json merge=jsonmap
 engine-state/_reader.json merge=jsonmap
+# The style rewrite's record, a page to its record: the marks step's commit and a rewrite run meet in it (rewrite-marks.ts).
+engine-state/vi-rewrite.json merge=jsonmap
 engine-state/_priority-emptied.json merge=jsonmap
 engine-state/_depth-search.json merge=jsonmap
 engine-state/_product-reviews.json merge=jsonmap

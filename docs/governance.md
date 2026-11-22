@@ -426,7 +426,10 @@ The layers above still check the result.
       - Found 2026-11-16: 544 of the 758 pages it had rewritten still had a listed phrase, and every run took them all up
         again, each part a write and a review.
       - **The records from before the marks get theirs once**, from `pnpm engine rewrite-marks` (`rewrite-marks.ts`, no
-        model call; the chief of staff's option of 20 Nov), run on the chief of staff's word. A page gets a mark for a
+        model call; the chief of staff's option of 20 Nov), run on the chief of staff's word: in a checkout of main right
+        after a rewrite run lands, as one commit merged before the next run (the chief of staff, 22 Nov). The record
+        merges page by page (`.gitattributes`, `scripts/merge-json-map.mjs`), so a run's push that meets that commit
+        keeps both. A page gets a mark for a
         word it still has only when the word's row was in the rewrite's prompt the day the page was rewritten: 61 rows
         from 8 Nov, four from 12 Nov, from the list's history in git.
         - The record's day is UTC and a row's is Vietnam's, so only a later day than the row's counts. A page rewritten

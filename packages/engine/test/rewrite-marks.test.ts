@@ -1,6 +1,9 @@
+import { execFileSync } from 'node:child_process'
+import { copyFileSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
 import { mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { PHRASES, phraseRun } from '../src/phrases'
 import { LISTED_ON, listedBy, marksFor, rewriteMarks, sentText, writeReport } from '../src/rewrite-marks'
@@ -122,4 +125,25 @@ test('the record is written whole, and not at all if it changed during the run; 
   const out = join(root, '..', 'report.json')
   await writeReport(out, r)
   expect(JSON.parse(await readFile(out, 'utf8')).marked).toEqual(['guides/slip'])
+})
+
+// The marks are one commit on main between two rewrite runs (the chief of staff, 22 Nov). Should a run's push meet it,
+// the record merges page by page, as the engine's other keyed records do: here the commit marks the last page and the
+// run adds the next, the two neighbouring lines a merge as text can't take apart.
+test('the record merges page by page, so the marks and a rewrite run that met keep both', () => {
+  const ROOT = fileURLToPath(new URL('../../../', import.meta.url))
+  const dir = mkdtempSync(join(tmpdir(), 'aq-marks-merge-'))
+  const git = (...a: string[]) => execFileSync('git', ['-c', 'user.name=t', '-c', 'user.email=t@example.com', ...a], { cwd: dir, stdio: 'pipe' })
+  const file = join(dir, 'engine-state', 'vi-rewrite.json')
+  const write = (m: object) => writeFileSync(file, `${JSON.stringify(m, null, 2)}\n`)
+  git('init', '-q', '-b', 'main')
+  git('config', 'merge.jsonmap.driver', `node ${join(ROOT, 'scripts/merge-json-map.mjs')} %O %A %B`)
+  copyFileSync(join(ROOT, '.gitattributes'), join(dir, '.gitattributes'))
+  mkdirSync(join(dir, 'engine-state'))
+  const a = rec('2026-11-02'), b = rec('2026-11-15')
+  write({ 'species/a': a, 'species/b': b }); git('add', '.'); git('commit', '-qm', 'base')
+  git('checkout', '-qb', 'marks'); write({ 'species/a': a, 'species/b': { ...b, phrases: ['phần lớn'] } }); git('commit', '-qam', 'marks')
+  git('checkout', '-q', 'main'); write({ 'species/a': a, 'species/b': b, 'species/c': rec('2026-11-22') }); git('commit', '-qam', 'rewrite run')
+  git('merge', '-q', '--no-edit', 'marks')
+  expect(JSON.parse(readFileSync(file, 'utf8'))).toEqual({ 'species/a': a, 'species/b': { ...b, phrases: ['phần lớn'] }, 'species/c': rec('2026-11-22') })
 })
