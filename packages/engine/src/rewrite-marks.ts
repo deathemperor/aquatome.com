@@ -1,4 +1,4 @@
-import { mkdtemp, readFile, rename, rm, writeFile } from 'node:fs/promises'
+import { copyFile, mkdtemp, readFile, rename, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import type { Llm } from './claude'
@@ -7,9 +7,9 @@ import { listedText, REWRITE_KINDS, rewriteExisting, type RewriteState } from '.
 import type { RewriteOpts } from './vi-rewrite'
 
 /**
- * The style rewrite's marks for the pages it did before it kept them (#1717, 20 Nov 2026), once: no record had any, so
- * the first `rewrite-vi --phrases` would take up again every page that still has a listed word, 544 on 16 Nov, each part
- * a write and a review. The chief of staff's option (b), 20 Nov: a page is marked for a word only when the word's row was
+ * The style rewrite's marks for the pages it rewrote without keeping them: the daily queue keeps none, and no record
+ * from before #1717 (20 Nov 2026) has any, so `rewrite-vi --phrases` would take up again every page that still has a
+ * listed word, 544 on 16 Nov, each part a write and a review. The pass writes them as its first step (`phrasesPass`). The chief of staff's option (b), 20 Nov: a page is marked for a word only when the word's row was
  * in the rewrite's prompt the day the page was rewritten. The rest is left for one paid pass, on the chief of staff's yes.
  *
  * The Vietnamese day each row reached the style rewrite's prompt (VI_STYLE, vi-rewrite.ts), from git: 61 rows on 8 Nov
@@ -137,4 +137,21 @@ export async function rewriteMarks(contentRoot: string, stateFile: string, o: { 
     await rename(tmp, stateFile)
   }
   return { records: Object.keys(state).length, skipped, partial, eligible: ok, byRow, marked, marks, dueBefore, dueAfter, afterRecorded, afterNever: dueAfter.length - afterRecorded, parts: dueAfter.reduce((n, x) => n + partsOf(x), 0) }
+}
+
+/**
+ * The pass (`rewrite-vi --phrases`): its first step writes the marks, so no one has to remember them and no days between
+ * a hand run and the pass refill the list (the chief of staff, 22 Nov). `dry`: the marks go in a copy in the system's
+ * temp folder, and the rewrite's dry run reads that copy, so it lists what the pass would take up and writes nothing.
+ */
+export async function phrasesPass(contentRoot: string, stateFile: string, d: Parameters<typeof rewriteExisting>[2], o: Omit<Parameters<typeof rewriteExisting>[3], 'match' | 'listed'>) {
+  const dir = o.dry ? await mkdtemp(join(tmpdir(), 'aq-pass-')) : undefined
+  const file = dir ? join(dir, 'vi-rewrite.json') : stateFile
+  try {
+    if (dir) await copyFile(stateFile, file)
+    const marks = await rewriteMarks(contentRoot, file, { opts: d.opts })
+    return { marks, run: await rewriteExisting(contentRoot, file, d, { ...o, ...phraseRun('vi') }) }
+  } finally {
+    if (dir) await rm(dir, { recursive: true, force: true })
+  }
 }

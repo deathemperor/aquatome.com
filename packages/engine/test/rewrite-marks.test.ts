@@ -6,7 +6,7 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { PHRASES, phraseRun } from '../src/phrases'
-import { LISTED_ON, listedBy, marksFor, rewriteMarks, sentText, writeReport } from '../src/rewrite-marks'
+import { LISTED_ON, listedBy, marksFor, phrasesPass, rewriteMarks, sentText, writeReport } from '../src/rewrite-marks'
 import { rewriteExisting, type RewriteState } from '../src/vi-backfill'
 
 const put = async (root: string, path: string, v: unknown) => { await mkdir(join(root, path, '..'), { recursive: true }); await writeFile(join(root, path), JSON.stringify(v)) }
@@ -127,9 +127,37 @@ test('the record is written whole, and not at all if it changed during the run; 
   expect(JSON.parse(await readFile(out, 'utf8')).marked).toEqual(['guides/slip'])
 })
 
-// The marks are one commit on main between two rewrite runs (the chief of staff, 22 Nov). Should a run's push meet it,
-// the record merges page by page, as the engine's other keyed records do: here the commit marks the last page and the
-// run adds the next, the two neighbouring lines a merge as text can't take apart.
+// The chief of staff, 22 Nov: the pass writes the marks as its first step, so the slips the daily queue left since the
+// last pass are marked before any page goes to a model, and no one has to run the step by hand days ahead.
+test('the pass writes the marks before its first page, so it takes up only what they leave; its dry run writes nothing', async () => {
+  const { root, file } = await setup({ 'guides/slip': rec('2026-11-15'), 'guides/before': rec('2026-11-02') }, {
+    slip: '<p>Phần lớn cá sống ở suối.</p>', // rewritten whole with the list: a slip, marked
+    before: '<p>Phần lớn cá sống ở suối.</p>', // before the list: the pass takes it up
+    never: '<p>Nhìn chung cá dễ nuôi.</p>', // never rewritten: the pass takes it up
+  })
+  const none = { llm: async () => { throw new Error('a dry run calls no model') }, opts, now: () => new Date() }
+  const ids = (xs: string[]) => xs.map(x => x.split(' ')[0]).sort()
+  // Without the marks, --phrases takes the slip up again.
+  expect(ids((await rewriteExisting(root, file, none, { limit: Infinity, ...phraseRun('vi'), dry: true })).done)).toEqual(['guides/before', 'guides/never', 'guides/slip'])
+  const before = await readFile(file, 'utf8')
+  const dry = await phrasesPass(root, file, none, { limit: Infinity, dry: true })
+  expect(await readFile(file, 'utf8')).toBe(before)
+  expect(dry.marks.marked).toEqual(['guides/slip'])
+  expect(ids(dry.run.done)).toEqual(['guides/before', 'guides/never'])
+  // A pass: when its first page goes to the model, the record already has the slip's mark.
+  const seen: unknown[] = []
+  const llm = async () => { seen.push(JSON.parse(await readFile(file, 'utf8'))['guides/slip'].phrases); throw new Error('stand-in') }
+  const r = await phrasesPass(root, file, { llm, opts, now: () => new Date() }, { limit: 1 })
+  expect(r.marks.marked).toEqual(['guides/slip'])
+  expect(seen.length).toBeGreaterThan(0)
+  expect(seen).toEqual(seen.map(() => ['phần lớn']))
+  expect(r.run.failed.map(x => x.split(':')[0])).toEqual(['guides/before'])
+  expect(JSON.parse(await readFile(file, 'utf8'))['guides/slip'].phrases).toEqual(['phần lớn'])
+})
+
+// The marks go to main in the pass's commit (the chief of staff, 22 Nov). Should a daily run's push meet it, the record
+// merges page by page, as the engine's other keyed records do: here the pass marks the last page and the run adds the
+// next, the two neighbouring lines a merge as text can't take apart.
 test('the record merges page by page, so the marks and a rewrite run that met keep both', () => {
   const ROOT = fileURLToPath(new URL('../../../', import.meta.url))
   const dir = mkdtempSync(join(tmpdir(), 'aq-marks-merge-'))
