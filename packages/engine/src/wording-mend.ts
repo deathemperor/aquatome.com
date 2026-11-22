@@ -1,10 +1,10 @@
 import { lstat, mkdir, readdir, readFile, realpath, rm, writeFile } from 'node:fs/promises'
 import { basename, dirname, join, resolve, sep } from 'node:path'
 import type { Llm } from './claude'
-import { hedged, hedgesAsk, hedgesLost, HEDGES_SCHEMA, type HedgePair } from './hedges'
-import { inline, words } from './mend'
+import { HEDGE_VI, hedgesAsk, hedgesLost, HEDGES_SCHEMA, type HedgePair } from './hedges'
+import { inline } from './mend'
 import { piece, PieceAdmissionError } from './pieces'
-import { pattern, PHRASES, ticCount, type Phrase } from './phrases'
+import { pattern, PHRASES, TIC_AT, ticKinds, type Phrase } from './phrases'
 import { plain, sentences, splice, type Piece } from './sentences'
 
 /**
@@ -13,18 +13,21 @@ import { plain, sentences, splice, type Piece } from './sentences'
  * of staff's trial). Every other sentence stays as it was, and so does every sentence the lane can't mend safely.
  * - The swap: a model only picks, for each listed text in a sentence, one of its entry's words (`swap`) or none. Code
  *   puts the pick in the text's place, so the rest of the sentence stays word for word by construction; a pick that
- *   isn't on the list is none. A text right after a negation ("chưa được ghi nhận ở") isn't offered.
+ *   isn't on the list is none. A text in a clause with a negation ("không phải lựa chọn lý tưởng") isn't offered, nor
+ *   one a key gives no words (a longer key where the words would read wrong: "dành phần lớn thời gian").
  * - The recast: a sentence the swap left (no word fits, or its change was refused) is written again by a model, freely,
- *   with no listed word, and kept only with its figures as they were and a hedge kept as a hedge.
- * - How sure and how many never change: the entries in SURE are swapped like for like, never cut, and a sentence
- *   with one of them goes to the recast only when its words read as a hedge (hedges.ts: "phần lớn"), so a recast that
- *   drops it is refused; no code holds the others' certainty ("gần như không", "nhiều khả năng").
+ *   with no listed word, but only a plain one: no hedge, no figure or number word, no word of how many or how sure
+ *   (COUNTED), no tag or entity, no listed word outside the lane, one sentence. Its new text is held to the same: one
+ *   that brings any of them in is refused. The others are left for the editors.
+ * - How sure and how many never change: the entries in SURE are swapped like for like, never cut, and never recast.
  *   "Đa số" and "hầu hết" are no swap for "phần lớn": the repeat check counts the three as one word (phrases.ts TICS).
  * - Each change a reviewer reads, before and after, and each is kept or refused on its own: one refused sentence
  *   doesn't refuse its part (the fit rewrite's mend kept 19 of 47 parts on 15 Nov for that).
- * - A page gains at most CAP of any one word the lane puts in ("thường", "nhưng", "đa số"), which the repeat check
- *   doesn't count, and no listed word, and no tic (phrases.ts ticCount).
- * - Titles, headings, FAQ questions and parts a person fixed are left. Held pages are left, and the glossary.
+ * - A page gains at most CAP of any one word the swap puts in ("thường", "nhưng"), which the repeat check doesn't
+ *   count, and no listed word; and a change that puts back a word of a kind the page repeats (phrases.ts TICS, counted
+ *   over the whole page, fixed parts too), or leaves a stacked "nên", is refused.
+ * - Titles, headings, table headers, a guide's references, FAQ questions and parts a person fixed are left. Held pages
+ *   are left, and the glossary.
  * - Each page is taken up once for each mark (a text with its entry's words, or the recast's version), so a page comes
  *   back only when the list or its words change (as `rewrite-vi --phrases` marks it, #1717).
  * It writes only under `out`, a folder outside the repository: the pages it changed, its marks and a report for each
@@ -34,12 +37,15 @@ import { plain, sentences, splice, type Piece } from './sentences'
 
 const KINDS = ['species', 'plants', 'guides', 'breeds'] as const
 /** Entries whose words say how sure or how many: swapped like for like, never cut, recast only when they read as a hedge. */
-export const SURE: ReadonlySet<string> = new Set(['phần lớn', 'nhìn chung', 'gần như không', 'nhiều khả năng', 'ghi nhận'])
+export const SURE: ReadonlySet<string> = new Set(['phần lớn', 'nhìn chung', 'gần như không', 'nhiều khả năng'])
+/** Entries whose words aren't offered at a sentence's start, where they would leave a fragment ("Là do cá thiếu oxy."). */
+const MID_ONLY: ReadonlySet<string> = new Set(['lý do là'])
 /** What a page may gain of any one word the lane puts in. */
 export const CAP = 3
 /** The recast's version, in each recast mark: a new prompt brings its pages back. */
 export const RECAST_V = 1
-const NEGATION = /(?:^|[^\p{L}\p{N}])(?:không|chưa|chẳng|chả|đừng)\s*$/iu
+/** A negation earlier in the text's clause (since its last comma, colon or semicolon). */
+const NEGATED = /(?<![\p{L}\p{N}])(?:không|chưa|chẳng|chả|đừng)(?![\p{L}\p{N}])[^,;:]*$/iu
 
 export const LANE: readonly Phrase[] = (PHRASES.vi ?? []).filter(p => p.swap)
 
@@ -51,8 +57,16 @@ export type Hit = { say: string; key?: string; from: string; start: number; end:
 
 /** A hit's mark: what takes a page up once. */
 export const markOf = (h: Hit) => (h.key && h.options.length ? `${h.say}: ${h.key} → ${h.options.map(o => o || '(bỏ)').join(' | ')}` : `${h.say}: ${h.from.toLowerCase()} → ${unrecast(h.say) ? '(none)' : `recast ${RECAST_V}`}`)
-/** An entry the recast may not take: it says how sure or how many, and its words don't read as a hedge. */
-export const unrecast = (say: string) => SURE.has(say) && !hedged(say)
+/** An entry the recast may not take: it says how sure or how many. */
+export const unrecast = (say: string) => SURE.has(say)
+/**
+ * What a recast may neither meet nor bring in: a hedge (hedges.ts), a figure, a number word, a word of how many or how
+ * sure that no hedge check reads ("một số", "gần như", "dường như", "tất cả", "luôn"), a tag or an entity.
+ */
+const COUNTED = /(?<![\p{L}\p{N}])(?:một|hai|ba|bốn|năm|sáu|bảy|tám|chín|mười|mươi|trăm|nghìn|ngàn|triệu|tá|nửa|đôi|vài|mấy|một số|nhiều|ít|gần như|hầu như|hiếm khi|ít khi|có vẻ|dường như|tất cả|mọi|luôn|luôn luôn|không bao giờ|chắc chắn|chắc|khoảng|chừng|tầm|ít nhất|tối đa|tối thiểu|hơn|nhất)(?![\p{L}\p{N}])/iu
+export const counted = (html: string) => { const t = plain(html); return HEDGE_VI.test(t) || COUNTED.test(t) || /\d/.test(t) || /[<&]/.test(html) }
+/** A sentence with a full stop inside it: the splitter may have joined two. */
+const twoSentences = (html: string) => /[.!?…]["'»”’)]*\s+\S/u.test(plain(html).trim())
 
 /** Each listed text of the lane's entries in a sentence's HTML, outside its tags, in order: a table's longest key first. */
 export function hitsIn(html: string, lane: readonly Phrase[] = LANE): Hit[] {
@@ -68,12 +82,13 @@ export function hitsIn(html: string, lane: readonly Phrase[] = LANE): Hit[] {
       for (const k of keys) for (const m of seg.text.matchAll(keyRe(k))) {
         const s = seg.at + m.index!, e = s + m[0].length
         if (taken(s, e)) continue
-        const negated = NEGATION.test(before(seg, m.index!))
-        out.push({ say: p.say, key: k, from: m[0], start: s, end: e, options: negated ? [] : p.swap![k]!, negated })
+        const head = before(seg, m.index!)
+        const negated = NEGATED.test(head)
+        out.push({ say: p.say, key: k, from: m[0], start: s, end: e, options: negated || (MID_ONLY.has(p.say) && !head.trim()) ? [] : p.swap![k]!, negated })
       }
       for (const m of seg.text.matchAll(new RegExp(pattern(p, 'vi'), 'giu'))) {
         const s = seg.at + m.index!, e = s + m[0].length
-        if (!taken(s, e)) out.push({ say: p.say, from: m[0], start: s, end: e, options: [], negated: NEGATION.test(before(seg, m.index!)) })
+        if (!taken(s, e)) out.push({ say: p.say, from: m[0], start: s, end: e, options: [], negated: NEGATED.test(before(seg, m.index!)) })
       }
     }
   }
@@ -142,13 +157,18 @@ export async function partsOf(dir: string, vi: Vi): Promise<Part[]> {
   ]
 }
 
-/** Which sentences (from 0) of a part sit in a heading. */
+/** Which sentences (from 0) of a part sit in a heading or a table's header, or under a references heading, to its end. */
 const headings = (pieces: Piece[]) => {
   const out = new Set<number>()
-  let n = 0, inHead = false
+  let n = 0, inHead = false, refs = false
   for (const p of pieces) {
-    if (p.sentence) { if (inHead) out.add(n); n++; continue }
-    for (const t of p.html.match(/<\/?h[1-6]\b/gi) ?? []) inHead = !t.startsWith('</')
+    if (p.sentence) {
+      if (inHead && /tham khảo|nguồn/iu.test(plain(p.html))) refs = true
+      if (inHead || refs) out.add(n)
+      n++
+      continue
+    }
+    for (const t of p.html.match(/<\/?(?:h[1-6]|th)\b/gi) ?? []) inHead = !t.startsWith('</')
   }
   return out
 }
@@ -171,7 +191,7 @@ const PICK = `You edit Vietnamese for an aquarium handbook read by hobbyists in 
 const PICK_SCHEMA = { type: 'object', required: ['picks'], properties: { picks: { type: 'array', items: { type: 'object', required: ['s', 'h', 'pick'], properties: { s: { type: 'number' }, h: { type: 'number' }, pick: { type: 'number' } } } } } }
 const REVIEW = `You check edits to sentences of a Vietnamese aquarium handbook, read by hobbyists in Vietnam. For each numbered pair, BEFORE is the sentence as it was and AFTER as it was edited, to take out words keepers rarely write. ok is true only when AFTER says everything BEFORE said and nothing more: every fact, figure, name, example and caution, advice as strong, and exactly as sure and as many (a "most" isn't an "all", a "may" isn't an "is"); and AFTER reads as natural Vietnamese a keeper would write, as well as BEFORE or better. Otherwise ok is false, with why in one line.`
 const REVIEW_SCHEMA = { type: 'object', required: ['verdicts', 'hedges'], properties: { verdicts: { type: 'array', items: { type: 'object', required: ['s', 'ok'], properties: { s: { type: 'number' }, ok: { type: 'boolean' }, why: { type: 'string' } } } }, hedges: HEDGES_SCHEMA } }
-const RECAST = `You edit Vietnamese for an aquarium handbook read by hobbyists in Vietnam. Each numbered sentence below has listed words (in «»), words Vietnamese keepers rarely write, each with a hint of what keepers write instead. Write each sentence again as a keeper would write it, without the listed words: the same facts, figures, names, examples and cautions, advice as strong, as sure and as many, nothing added. Keep its <strong> and <em>. Only that sentence: the ones around it are shown to read it in place, and stay as they are.`
+const RECAST = `You edit Vietnamese for an aquarium handbook read by hobbyists in Vietnam. Each numbered sentence below has listed words (in «»), words Vietnamese keepers rarely write, each with a hint of what keepers write instead. Write each sentence again as a keeper would write it, without the listed words: the same facts, names, examples and cautions, advice as strong, nothing added, and no number or word of how many, how often or how sure that it didn't have. Only that sentence: the ones around it are shown to read it in place, and stay as they are.`
 const RECAST_SCHEMA = { type: 'object', required: ['sentences'], properties: { sentences: { type: 'array', items: { type: 'object', required: ['s', 'vi'], properties: { s: { type: 'number' }, vi: { type: 'string' } } } } } }
 
 const shown = (f: Flagged) => {
@@ -181,8 +201,6 @@ const shown = (f: Flagged) => {
 }
 const context = (f: Flagged) => [f.before && `  (trước: ${plain(f.before)})`, f.after && `  (sau: ${plain(f.after)})`].filter(Boolean).join('\n')
 
-/** Each figure in a text, sorted: a recast keeps them all. */
-const figures = (s: string) => words(s).filter(w => /^[.,-]?\d/.test(w)).sort().join(' ')
 /** How many times each word the lane may put in stands in a text. */
 const LANE_WORDS = [...new Set(LANE.flatMap(p => Object.values(p.swap ?? {}).flat()).filter(Boolean))]
 const uses = (text: string, w: string) => [...plain(text).matchAll(keyRe(w))].length
@@ -190,42 +208,54 @@ const uses = (text: string, w: string) => [...plain(text).matchAll(keyRe(w))].le
 const listed = (s: string) => (PHRASES.vi ?? []).flatMap(p => [...plain(s).matchAll(new RegExp(pattern(p, 'vi'), 'giu'))].map(() => p.say)).sort()
 const within = (a: string[], b: string[]) => { const left = [...b]; return a.every(x => { const i = left.indexOf(x); if (i < 0) return false; left.splice(i, 1); return true }) }
 
+/** Why the recast may not take a sentence the swap left, or nothing when it may. */
+const recastWhy = (f: Flagged): string | undefined => {
+  const outside = listed(f.html).filter(x => !LANE.some(p => p.say === x))
+  return f.hits.some(h => unrecast(h.say)) ? 'it says how sure or how many, and no word fit in place'
+    : counted(f.html) ? 'it has a hedge, a figure, a word of how many or how sure, or a tag: only a swap may change it'
+    : outside.length ? `it has a listed word only its source can fix: ${outside.join(', ')}`
+    : twoSentences(f.html) ? 'it may be two sentences'
+    : undefined
+}
+
 export type Step = 'swap' | 'recast'
 /** A sentence's outcome, for the report and the editors' blind read. */
 export type Outcome = { page: string; field: string; n: number; says: string[]; step: Step; before: string; after?: string; kept: boolean; why?: string }
-export type WordingReport = { at: string; dry?: true; pages: string[]; failed: string[]; stopped?: string; outcomes: Outcome[]; left: { page: string; field: string; n: number; says: string[]; why: string }[]; byEntry: Record<string, { sentences: number; swapped: number; recast: number; refused: number; left: number }> }
+export type WordingReport = { at: string; dry?: true; pages: string[]; failed: string[]; stopped?: string; outcomes: Outcome[]; left: { page: string; field: string; n: number; says: string[]; why: string }[]; byEntry: Record<string, { sentences: number; offered: number; recastable: number; swapped: number; recast: number; refused: number; left: number }> }
 type State = Record<string, { at: string; marks: string[] }>
 
 /** One page's listed sentences mended: its changes by part (field → sentence → new HTML), and each sentence's outcome. */
-export async function mendPage(llm: Llm, page: string, parts: readonly Part[], o: { models?: { pick?: string; review?: string; recast?: string } } = {}): Promise<{ changes: Map<string, Map<number, string>>; outcomes: Outcome[]; left: WordingReport['left'] }> {
+export async function mendPage(llm: Llm, page: string, parts: readonly Part[], o: { models?: { pick?: string; review?: string; recast?: string }; rest?: string } = {}): Promise<{ changes: Map<string, Map<number, string>>; outcomes: Outcome[]; left: WordingReport['left'] }> {
   const all = flagged(parts)
   const outcomes: Outcome[] = [], left: WordingReport['left'] = []
   const changes = new Map<string, Map<number, string>>()
-  const before = parts.map(p => p.text).join('\n')
   const added = new Map<string, number>()
-  let tics = ticCount(plain(before), 'vi')
   const says = (f: Flagged) => [...new Set(f.hits.map(h => h.say))]
-  /** A page part's text with one more change in, to count its tics. */
+  /** Each tic kind's uses over the whole page (its other parts too), with one more change in. */
   const ticsWith = (f: Flagged, now: string) => {
     const trial = new Map([...changes].map(([k, v]) => [k, new Map(v)]))
     trial.set(f.field, (trial.get(f.field) ?? new Map()).set(f.n, now))
-    return ticCount(plain(pageWith(parts, trial)), 'vi')
+    return ticKinds(`${plain(pageWith(parts, trial))}\n${plain(o.rest ?? '')}`, 'vi')
   }
   /**
    * Code's checks on one changed sentence, against the page as changed so far: it has fewer listed words and none it
-   * didn't have (a recast none of the ones it was sent for), and the page gains no tic and no more than CAP of a word.
+   * didn't have (a recast none of the ones it was sent for); the page gains no more than CAP of a word; and it puts
+   * back no word of a kind the page repeats for each it took out (phrases.ts TICS), nor keeps a stacked "nên".
    */
-  const guard = (f: Flagged, now: string, step: Step): string | undefined => {
+  const guard = (f: Flagged, now: string, step: Step, out: readonly string[]): string | undefined => {
     const was = listed(f.html), is = listed(now)
     if (!within(is, was) || is.length >= was.length) return `it keeps or adds a listed word: ${is.join(', ') || '(none)'}`
     if (step === 'recast' && is.some(x => says(f).includes(x))) return `it keeps a listed word it was written again for: ${is.join(', ')}`
     for (const w of LANE_WORDS) { const n = uses(now, w) - uses(f.html, w); if (n > 0 && (added.get(w) ?? 0) + n > CAP) return `the page would gain more than ${CAP} of "${w}"` }
-    if (ticsWith(f, now) > tics) return 'it adds to a word the page already repeats'
+    const page = ticsWith(f, now), s0 = ticKinds(plain(f.html), 'vi'), s1 = ticKinds(plain(now), 'vi'), took = ticKinds(out.join(' '), 'vi')
+    const stacked = page.length - 1
+    for (const [k, n] of page.entries()) {
+      if (k === stacked ? s1[k]! > 0 : s1[k]! > s0[k]! - took[k]! && n >= TIC_AT) return 'it puts back a word the page already repeats'
+    }
     return undefined
   }
   const take = (f: Flagged, now: string) => {
     for (const w of LANE_WORDS) { const n = uses(now, w) - uses(f.html, w); if (n > 0) added.set(w, (added.get(w) ?? 0) + n) }
-    tics = ticsWith(f, now)
     changes.set(f.field, (changes.get(f.field) ?? new Map()).set(f.n, now))
   }
 
@@ -243,7 +273,7 @@ export async function mendPage(llm: Llm, page: string, parts: readonly Part[], o
       })
       if (!picks.length) return
       const now = applied(f.html, picks)
-      const why = guard(f, now, 'swap')
+      const why = guard(f, now, 'swap', picks.map(p => p.hit.from))
       if (why) { outcomes.push({ page, field: f.field, n: f.n, says: says(f), step: 'swap', before: f.html, after: now, kept: false, why }); return }
       tries.push({ f, now })
     })
@@ -252,17 +282,18 @@ export async function mendPage(llm: Llm, page: string, parts: readonly Part[], o
       for (const [i, { f, now }] of tries.entries()) {
         const why = v[i]
         // The cap again: a sentence kept before it may have used its room.
-        const no = why ?? guard(f, now, 'swap')
+        const no = why ?? guard(f, now, 'swap', f.hits.filter(h => h.options.length).map(h => h.from))
         if (!no) { take(f, now); done.add(f) }
         outcomes.push({ page, field: f.field, n: f.n, says: says(f), step: 'swap', before: f.html, after: now, kept: !no, ...(no ? { why: no } : {}) })
       }
     }
   }
-  // The recast: what the swap left, unless it says how sure or how many in words no hedge check reads.
+  // The recast: what the swap left, if it is a plain sentence (COUNTED); the rest is left for the editors.
   const recast: Flagged[] = []
   for (const f of all) {
     if (done.has(f)) continue
-    if (f.hits.some(h => unrecast(h.say))) { left.push({ page, field: f.field, n: f.n, says: says(f), why: 'it says how sure or how many, and no word fit in place' }); continue }
+    const why = recastWhy(f)
+    if (why) { left.push({ page, field: f.field, n: f.n, says: says(f), why }); continue }
     recast.push(f)
   }
   if (recast.length) {
@@ -271,20 +302,21 @@ export async function mendPage(llm: Llm, page: string, parts: readonly Part[], o
     const w = await llm<{ sentences: { s: number; vi: string }[] }>({ system: 'You edit Vietnamese for an aquarium handbook. Reply only with JSON.', prompt, schema: RECAST_SCHEMA, model: o.models?.recast ?? 'opus' })
     const tries: { f: Flagged; now: string }[] = []
     recast.forEach((f, s) => {
-      const now = inline(w.sentences?.find(x => Number(x.s) === s + 1)?.vi ?? '')
+      const given = (w.sentences?.find(x => Number(x.s) === s + 1)?.vi ?? '').normalize('NFC')
+      const now = inline(given)
       const no = (why: string) => outcomes.push({ page, field: f.field, n: f.n, says: says(f), step: 'recast', before: f.html, ...(now ? { after: now } : {}), kept: false, why })
       if (!now) return no('the writer gave no sentence')
       if (now === f.html) return no('the writer gave it back as it was')
-      if (figures(now) !== figures(f.html)) return no(`its figures changed: ${figures(f.html) || '(none)'} → ${figures(now) || '(none)'}`)
-      if (hedged(plain(f.html)) && !hedged(plain(now))) return no('it lost its hedge')
-      const why = guard(f, now, 'recast')
+      if (counted(given) || counted(now)) return no('it brought in a hedge, a figure, a word of how many or how sure, or a tag')
+      if (twoSentences(now)) return no('it became two sentences')
+      const why = guard(f, now, 'recast', f.hits.map(h => h.from))
       if (why) return no(why)
       tries.push({ f, now })
     })
     if (tries.length) {
       const v = await review(llm, tries, o.models?.review)
       for (const [i, { f, now }] of tries.entries()) {
-        const why = v[i] ?? guard(f, now, 'recast')
+        const why = v[i] ?? guard(f, now, 'recast', f.hits.map(h => h.from))
         if (!why) take(f, now)
         outcomes.push({ page, field: f.field, n: f.n, says: says(f), step: 'recast', before: f.html, after: now, kept: !why, ...(why ? { why } : {}) })
       }
@@ -324,7 +356,12 @@ export function withChanges(vi: Vi, parts: readonly Part[], changes: ReadonlyMap
   return out
 }
 
-type Candidate = { key: string; dir: string; vi: Vi; parts: Part[]; marks: string[]; sentences: Flagged[] }
+type Candidate = { key: string; dir: string; vi: Vi; parts: Part[]; marks: string[]; sentences: Flagged[]; rest?: string }
+/** A page's text outside the parts the lane may change (fixed parts, FAQ questions): its repeats count too. */
+const restOf = (vi: Vi, parts: readonly Part[]) => {
+  const mine = new Set(parts.map(p => p.text))
+  return [...Object.values(vi.sections ?? {}), vi.body ?? '', ...(vi.summary ?? []), ...(vi.faq ?? []).flatMap(f => [f.q, f.a])].filter(t => t && !mine.has(t)).join('\n')
+}
 
 /** Every page the lane may take up, with its listed sentences and their marks. */
 export async function candidates(contentRoot: string): Promise<Candidate[]> {
@@ -337,7 +374,7 @@ export async function candidates(contentRoot: string): Promise<Candidate[]> {
       if (!vi || vi.held) continue
       const parts = await partsOf(dir, vi)
       const fl = flagged(parts)
-      if (fl.length) out.push({ key: `${kind}/${id}`, dir, vi, parts, sentences: fl, marks: [...new Set(fl.flatMap(f => f.hits.map(markOf)))] })
+      if (fl.length) out.push({ key: `${kind}/${id}`, dir, vi, parts, sentences: fl, marks: [...new Set(fl.flatMap(f => f.hits.map(markOf)))], rest: restOf(vi, parts) })
     }
   }
   return out
@@ -372,8 +409,14 @@ export function pick(cands: readonly Candidate[], state: State, o: { limit: numb
  * kept change counts for an entry only if the sentence lost one of its words; one that kept them all leaves it.
  */
 const sumEntry = (r: WordingReport, cands: readonly Candidate[]) => {
-  for (const p of LANE) r.byEntry[p.say] = { sentences: 0, swapped: 0, recast: 0, refused: 0, left: 0 }
-  for (const c of cands) for (const f of c.sentences) for (const s of new Set(f.hits.map(h => h.say))) r.byEntry[s]!.sentences++
+  for (const p of LANE) r.byEntry[p.say] = { sentences: 0, offered: 0, recastable: 0, swapped: 0, recast: 0, refused: 0, left: 0 }
+  for (const c of cands) for (const f of c.sentences) for (const s of new Set(f.hits.map(h => h.say))) {
+    const e = r.byEntry[s]!
+    e.sentences++
+    // What the lane may do with it before any model: a word offered in place, or a recast if the swap leaves it.
+    if (f.hits.some(h => h.say === s && h.options.length)) e.offered++
+    if (!recastWhy(f)) e.recastable++
+  }
   const end = new Map<string, { says: string[]; as: 'swapped' | 'recast' | 'refused' | 'left'; before?: string; after?: string }>()
   for (const x of r.outcomes) end.set(`${x.page} ${x.field} ${x.n}`, { says: x.says, as: x.kept ? (x.step === 'swap' ? 'swapped' : 'recast') : 'refused', before: x.before, after: x.after })
   for (const x of r.left) end.set(`${x.page} ${x.field} ${x.n}`, { says: x.says, as: 'left' })
@@ -415,7 +458,7 @@ export async function wordingMend(root: string, d: { llm: Llm; now: () => Date }
   if (!o.dry) {
     for (const c of chosen) {
       try {
-        const r = await piece(c.key, () => mendPage(d.llm, c.key, c.parts, o), { now: d.now })
+        const r = await piece(c.key, () => mendPage(d.llm, c.key, c.parts, { ...(o.models ? { models: o.models } : {}), rest: c.rest ?? '' }), { now: d.now })
         report.outcomes.push(...r.outcomes); report.left.push(...r.left)
         // The page as this run left it: a draft from an earlier run that this one changed nothing in goes.
         const changed = [...r.changes.values()].some(m => m.size)
