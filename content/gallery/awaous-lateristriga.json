@@ -12,8 +12,7 @@
       "caption": "Cá bống Awaous lateristriga sống dưới nước trên nền đáy sông",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/632802791.webp",
@@ -26,8 +25,7 @@
       "caption": "Cá bống Awaous lateristriga có đốm nâu trong bể kính",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/717893734.webp",
@@ -40,22 +38,7 @@
       "caption": "Cá bống Awaous lateristriga trên nền cát sỏi ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/688745331.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/688745331-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-NC",
-      "author": "H.Grenier",
-      "sourceUrl": "https://www.inaturalist.org/photos/688745331",
-      "caption": "Cá bống Awaous lateristriga màu vàng nhạt nhìn nghiêng",
-      "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/717893730.webp",
@@ -68,8 +51,20 @@
       "caption": "Cá bống Awaous lateristriga nằm trên nền cát sỏi, thấy rõ đầu",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/688745331.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/688745331-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "H.Grenier",
+      "sourceUrl": "https://www.inaturalist.org/photos/688745331",
+      "caption": "Cá bống Awaous lateristriga màu vàng nhạt nhìn nghiêng",
+      "best": true,
+      "kind": "other",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/254039974.webp",
@@ -82,36 +77,7 @@
       "caption": "Ba con cá bống Awaous lateristriga trong khay trắng",
       "best": false,
       "kind": "group",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/254491557.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/254491557-480.webp",
-      "width": 1024,
-      "height": 498,
-      "licence": "CC BY-NC",
-      "author": "coralga",
-      "sourceUrl": "https://www.inaturalist.org/photos/254491557",
-      "caption": "Cá bống Awaous lateristriga nhìn từ trên xuống trong khay",
-      "best": false,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/361556752.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/361556752-480.webp",
-      "width": 1024,
-      "height": 680,
-      "licence": "CC BY-NC",
-      "author": "Gina Walsh",
-      "sourceUrl": "https://www.inaturalist.org/photos/361556752",
-      "caption": "Cá bống Awaous lateristriga cạnh thước đo trên đĩa trắng",
-      "best": false,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/472751946.webp",
@@ -124,22 +90,7 @@
       "caption": "Cá bống Awaous lateristriga nhìn nghiêng trong bể nhỏ cạnh thước",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/472751979.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/472751979-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Gina Walsh",
-      "sourceUrl": "https://www.inaturalist.org/photos/472751979",
-      "caption": "Cá bống Awaous lateristriga trong hộp kính nhỏ cạnh thước",
-      "best": false,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     }
   ],
   "seen": 42,

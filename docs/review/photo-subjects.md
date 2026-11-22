@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-22), most-read pages first. Rules: docs/governance.md, "Photos".
-20214 verdicts. Shows it: 12489; its habitat (asked again): 3; something else: 548; not a photo of it: 381; dead or as food: 955; a person in it: 274; a logo on it: 288; can't tell: 3626.
+20285 verdicts. Shows it: 12532; its habitat (asked again): 3; something else: 551; not a photo of it: 382; dead or as food: 959; a person in it: 277; a logo on it: 291; can't tell: 3643.
 
 ## Left with no photo (185)
 
@@ -191,7 +191,7 @@ Written by `pnpm engine check-photos` (2026-11-22), most-read pages first. Rules
 - species/xenotilapia-sima
 - species/xiurenbagrus-gigas
 
-## Can't tell: still shown (3626)
+## Can't tell: still shown (3643)
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -815,12 +815,20 @@ Written by `pnpm engine check-photos` (2026-11-22), most-read pages first. Rules
 | plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/54214377.webp) | subject unsure |
 | plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/55541028.webp) | subject unsure |
 | plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/56017821.webp) | subject unsure |
+| plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/57266423.webp) | subject unsure |
+| plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/57281103.webp) | subject unsure |
+| plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/57281635.webp) | subject unsure |
+| plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/57492764.webp) | subject unsure |
+| plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/57492770.webp) | subject unsure |
+| plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/58179705.webp) | subject unsure |
 | plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/630110.webp) | subject unsure |
 | plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/630111.webp) | subject unsure |
 | plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/6860110.webp) | subject unsure |
+| plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/68670255.webp) | subject unsure |
 | plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/9683243.webp) | subject unsure |
 | species/phractocephalus-hemioliopterus | [photo](https://media.aquatome.com/commons/433609dc89c8a1b3.webp) | subject unsure |
 | species/phractocephalus-hemioliopterus | [photo](https://media.aquatome.com/inaturalist/250985358.webp) | subject unsure |
+| species/phractocephalus-hemioliopterus | [photo](https://media.aquatome.com/inaturalist/265275120.webp) | subject unsure |
 | plants/vesicularia-montagnei | [photo](https://media.aquatome.com/tropica/0e85c22d8ff9500a.webp) | subject unsure |
 | species/hyphessobrycon-sweglesi | [photo](https://media.aquatome.com/commons/f0191fe49b0301ff.webp) | subject unsure |
 | plants/micranthemum-callitrichoides | [photo](https://media.aquatome.com/commons/fb645fc661ecb3ba.webp) | subject unsure |
@@ -2201,6 +2209,7 @@ Written by `pnpm engine check-photos` (2026-11-22), most-read pages first. Rules
 | species/atyoida-pilipes | [photo](https://media.aquatome.com/inaturalist/332308581.webp) | subject unsure |
 | species/auchenipterichthys-coracoideus | [photo](https://media.aquatome.com/seriouslyfish/057c961ef2ba5263.webp) | subject unsure |
 | species/auchenipterichthys-coracoideus | [photo](https://media.aquatome.com/seriouslyfish/d90c9e48cef5a775.webp) | subject unsure |
+| species/aulonocara-hansbaenschi | [photo](https://media.aquatome.com/inaturalist/198663470.webp) | subject unsure; logo |
 | species/aulonocara-stuartgranti | [photo](https://media.aquatome.com/commons/7d54421d99e5ca65.webp) | subject unsure |
 | species/aulonocara-stuartgranti | [photo](https://media.aquatome.com/commons/b4e9a40d1c0092c2.webp) | subject unsure |
 | species/aulonocara-stuartgranti | [photo](https://media.aquatome.com/commons/f7004f757d7c2757.webp) | subject unsure |
@@ -2209,6 +2218,9 @@ Written by `pnpm engine check-photos` (2026-11-22), most-read pages first. Rules
 | species/austruca-annulipes | [photo](https://media.aquatome.com/inaturalist/394426817.webp) | subject unsure |
 | species/austruca-annulipes | [photo](https://media.aquatome.com/inaturalist/60123748.webp) | subject unsure |
 | species/austruca-annulipes | [photo](https://media.aquatome.com/inaturalist/60123963.webp) | subject unsure |
+| species/awaous-lateristriga | [photo](https://media.aquatome.com/inaturalist/254039974.webp) | subject unsure |
+| species/awaous-lateristriga | [photo](https://media.aquatome.com/inaturalist/472751946.webp) | subject unsure |
+| species/awaous-lateristriga | [photo](https://media.aquatome.com/inaturalist/688745331.webp) | subject unsure |
 | species/babylonia-spirata | [photo](https://media.aquatome.com/aquariumbreeder/2df110c678645210.webp) | subject unsure |
 | species/babylonia-spirata | [photo](https://media.aquatome.com/inaturalist/107436020.webp) | subject unsure |
 | species/babylonia-spirata | [photo](https://media.aquatome.com/inaturalist/125085040.webp) | subject unsure |
@@ -2233,6 +2245,8 @@ Written by `pnpm engine check-photos` (2026-11-22), most-read pages first. Rules
 | species/barbodes-binotatus | [photo](https://media.aquatome.com/inaturalist/52479004.webp) | subject unsure |
 | species/barbodes-binotatus | [photo](https://media.aquatome.com/inaturalist/52479005.webp) | subject unsure |
 | species/barbodes-binotatus | [photo](https://media.aquatome.com/inaturalist/571234948.webp) | subject unsure |
+| species/barbodes-kuchingensis | [photo](https://media.aquatome.com/inaturalist/350152202.webp) | subject unsure |
+| species/barbodes-kuchingensis | [photo](https://media.aquatome.com/inaturalist/350152219.webp) | subject unsure |
 | species/barbonymus-gonionotus | [photo](https://media.aquatome.com/inaturalist/188272507.webp) | subject unsure |
 | species/barbonymus-gonionotus | [photo](https://media.aquatome.com/inaturalist/188272533.webp) | subject unsure |
 | species/barbonymus-gonionotus | [photo](https://media.aquatome.com/inaturalist/253784334.webp) | subject unsure |
@@ -2251,6 +2265,8 @@ Written by `pnpm engine check-photos` (2026-11-22), most-read pages first. Rules
 | species/barbus-barbus | [photo](https://media.aquatome.com/inaturalist/299910129.webp) | subject unsure |
 | species/barbus-barbus | [photo](https://media.aquatome.com/inaturalist/68773983.webp) | subject unsure |
 | species/barbus-barbus | [photo](https://media.aquatome.com/inaturalist/97236242.webp) | subject unsure |
+| species/barilius-bendelisis | [photo](https://media.aquatome.com/inaturalist/552144392.webp) | subject unsure |
+| species/barilius-bendelisis | [photo](https://media.aquatome.com/inaturalist/552144451.webp) | subject unsure |
 | species/barilius-canarensis | [photo](https://media.aquatome.com/commons/d477bd60955aebe8.webp) | subject unsure |
 | species/barilius-gatensis | [photo](https://media.aquatome.com/seriouslyfish/8ef98a06f7204a57.webp) | subject unsure |
 | species/barilius-shacra | [photo](https://media.aquatome.com/seriouslyfish/7275f0dadb314da7.webp) | subject unsure |
@@ -2652,6 +2668,7 @@ Written by `pnpm engine check-photos` (2026-11-22), most-read pages first. Rules
 | species/geophagus-proximus | [photo](https://media.aquatome.com/seriouslyfish/be93ab3b1bc9a961.webp) | subject unsure |
 | species/geophagus-steindachneri | [photo](https://media.aquatome.com/commons/bdd6f1d1dce48a31.webp) | subject unsure |
 | species/geophagus-steindachneri | [photo](https://media.aquatome.com/commons/da05a2683137bee8.webp) | subject unsure |
+| species/girardinus-uninotatus | [photo](https://media.aquatome.com/commons/39767320257c1e0b.webp) | subject unsure |
 | species/glossolepis-dorityi | [photo](https://media.aquatome.com/commons/dfc98df913baeb81.webp) | subject unsure |
 | species/glyptothorax-dorsalis | [photo](https://media.aquatome.com/scotcat/ad279585e3c7f43d.webp) | subject unsure |
 | species/glyptothorax-dorsalis | [photo](https://media.aquatome.com/scotcat/c2faa1caa1013bd4.webp) | subject unsure |
@@ -3822,9 +3839,9 @@ Written by `pnpm engine check-photos` (2026-11-22), most-read pages first. Rules
 | plants/vallisneria-spiralis | [photo](https://media.aquatome.com/tropica/32a5549cfa5b0c5e.webp) | subject unsure |
 | species/crenicichla-marmorata | [photo](https://media.aquatome.com/commons/e8cb82a86126e499.webp) | subject unsure |
 
-## Removed (2389)
+## Removed (2403)
 
-"Something else" records a different subject; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
+"Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -4137,6 +4154,8 @@ Written by `pnpm engine check-photos` (2026-11-22), most-read pages first. Rules
 | species/danio-rerio (a guide photo) | [photo](https://media.aquatome.com/video/XfF2QNpEFPE/p8-lvX3JlcmlvLkpQRw.webp) | subject yes; logo |
 | species/mikrogeophagus-ramirezi (a guide photo) | [photo](https://media.aquatome.com/video/AzntHqOzRXg/p6-JTIyX21hbGUuanBn.webp) | subject other |
 | plants/anubias-barteri | [photo](https://media.aquatome.com/commons/2dd2721ca073d2b8.webp) | subject other |
+| plants/anubias-barteri | [photo](https://media.aquatome.com/commons/79aabd1833a59d0b.webp) | subject other |
+| plants/anubias-barteri | [photo](https://media.aquatome.com/commons/d9d5b88701185c56.webp) | subject other |
 | plants/anubias-barteri | [photo](https://media.aquatome.com/commons/ea489a2bcab6f039.webp) | subject none |
 | plants/anubias-barteri | [photo](https://media.aquatome.com/flickr/9968269326.webp) | subject other |
 | plants/microsorum-pteropus | [photo](https://media.aquatome.com/aquariumcoop/607c050cfb217739.webp) | subject other |
@@ -4389,10 +4408,12 @@ Written by `pnpm engine check-photos` (2026-11-22), most-read pages first. Rules
 | plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/58951929.webp) | subject other |
 | plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/59368548.webp) | subject other |
 | plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/630109.webp) | subject other |
+| species/phractocephalus-hemioliopterus | [photo](https://images.unsplash.com/photo-1759222859619-8db751c63d62?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjJ8fFJlZHRhaWwlMjBjYXRmaXNofGVufDF8fHx8MTc5MzY4MjYwMXww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | subject other |
 | species/phractocephalus-hemioliopterus | [photo](https://media.aquatome.com/commons/2abf15ae3934d927.webp) | subject other |
 | species/phractocephalus-hemioliopterus | [photo](https://media.aquatome.com/commons/9164db4bbee001b5.webp) | subject yes; person |
 | species/phractocephalus-hemioliopterus | [photo](https://media.aquatome.com/commons/c26d6bd3b78a154c.webp) | subject other |
 | species/phractocephalus-hemioliopterus | [photo](https://media.aquatome.com/inaturalist/179491799.webp) | subject yes; logo |
+| species/phractocephalus-hemioliopterus | [photo](https://media.aquatome.com/inaturalist/726559622.webp) | subject yes; person |
 | species/hyphessobrycon-megalopterus (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/3586c40ba11208b3.webp) | subject other |
 | species/hyphessobrycon-megalopterus | [photo](https://media.aquatome.com/commons/547b2dfc17de0718.webp) | subject none |
 | species/hyphessobrycon-megalopterus | [photo](https://media.aquatome.com/commons/ef36174ae100202b.webp) | subject none |
@@ -4404,6 +4425,7 @@ Written by `pnpm engine check-photos` (2026-11-22), most-read pages first. Rules
 | plants/eleocharis-parvula | [photo](https://media.aquatome.com/commons/9fc71787d3cd4530.webp) | subject other |
 | plants/eleocharis-parvula | [photo](https://media.aquatome.com/flickr/21025434875.webp) | subject dead |
 | plants/eleocharis-parvula | [photo](https://media.aquatome.com/flickr/21033000101.webp) | subject other |
+| plants/eleocharis-parvula | [photo](https://media.aquatome.com/tropica/ec82adbf11ce3597.webp) | subject none |
 | plants/eleocharis-parvula (a guide photo) | [photo](https://media.aquatome.com/video/kbXHTTdSWQg/p4-emhhcmtpa2guanBn.webp) | subject dead |
 | species/agamyxis-pectinifrons | [photo](https://media.aquatome.com/commons/389b8952f1d2096d.webp) | subject other |
 | plants/limnobium-laevigatum (a guide photo) | [photo](https://media.aquatome.com/video/qWNzwIvN-94/p5-9Gcm9nYml0LmpwZw.webp) | subject yes; logo |
@@ -5404,6 +5426,8 @@ Written by `pnpm engine check-photos` (2026-11-22), most-read pages first. Rules
 | species/ancistrus-triradiatus | [photo](https://media.aquatome.com/scotcat/fbc442984b42a787.webp) | subject none; person |
 | species/andinoacara-pulcher | [photo](https://media.aquatome.com/commons/6c29712efd5784de.webp) | subject other |
 | species/andinoacara-pulcher | [photo](https://media.aquatome.com/commons/bdf2f946cdc0bfd6.webp) | subject dead; person |
+| species/apareiodon-affinis | [photo](https://media.aquatome.com/glaser/45dfa72d19522c0f.webp) | subject yes; logo |
+| species/apareiodon-affinis | [photo](https://media.aquatome.com/inaturalist/624809822.webp) | subject dead |
 | species/aphanius-dispar | [photo](https://media.aquatome.com/commons/73454451f3834249.webp) | subject none |
 | species/aphanius-fasciatus | [photo](https://media.aquatome.com/seriouslyfish/938694deb9e107c2.webp) | subject none; person |
 | species/aphanius-fasciatus | [photo](https://media.aquatome.com/seriouslyfish/a4c95e15e17164d2.webp) | subject none |
@@ -5438,15 +5462,20 @@ Written by `pnpm engine check-photos` (2026-11-22), most-read pages first. Rules
 | species/auchenipterichthys-coracoideus | [photo](https://media.aquatome.com/seriouslyfish/663997a4490eab94.webp) | subject unsure; person |
 | species/austrolebias-nigripinnis | [photo](https://media.aquatome.com/inaturalist/323683382.webp) | subject yes; person |
 | species/austruca-annulipes | [photo](https://media.aquatome.com/inaturalist/167211665.webp) | subject yes; logo |
+| species/awaous-lateristriga | [photo](https://media.aquatome.com/inaturalist/254491557.webp) | subject dead |
+| species/awaous-lateristriga | [photo](https://media.aquatome.com/inaturalist/361556752.webp) | subject dead |
+| species/awaous-lateristriga | [photo](https://media.aquatome.com/inaturalist/472751979.webp) | subject unsure; person |
 | species/babylonia-spirata | [photo](https://media.aquatome.com/inaturalist/153859968.webp) | subject dead |
 | species/bagarius-bagarius | [photo](https://media.aquatome.com/commons/d9541e4f67808d63.webp) | subject other |
 | species/bagarius-bagarius | [photo](https://media.aquatome.com/scotcat/8a9ebdf027b45f2a.webp) | subject dead; person |
 | species/bagarius-bagarius | [photo](https://media.aquatome.com/seriouslyfish/b0a280ff000528a7.webp) | subject dead; person |
+| species/bagarius-rutilus | [photo](https://media.aquatome.com/inaturalist/109112670.webp) | subject dead |
 | species/bagarius-yarrelli | [photo](https://media.aquatome.com/commons/14af6cdb7730120c.webp) | subject none |
 | species/bagarius-yarrelli | [photo](https://media.aquatome.com/commons/2d84bc335f8f5993.webp) | subject none |
 | species/bagarius-yarrelli | [photo](https://media.aquatome.com/commons/6d09dfffade26258.webp) | subject none |
 | species/balitoropsis-zollingeri | [photo](https://media.aquatome.com/seriouslyfish/d03bf980591e7299.webp) | subject other |
 | species/bangana-ariza | [photo](https://media.aquatome.com/seriouslyfish/f41d869e3da84162.webp) | subject dead; person |
+| species/barbodes-banksi | [photo](https://media.aquatome.com/inaturalist/350170803.webp) | subject yes; person |
 | species/barbonymus-altus | [photo](https://media.aquatome.com/inaturalist/367464285.webp) | subject unsure; logo |
 | species/barbonymus-schwanefeldii | [photo](https://media.aquatome.com/commons/7a99c198fd34875a.webp) | subject other |
 | species/barilius-gatensis | [photo](https://media.aquatome.com/seriouslyfish/8cac69f0efcf4052.webp) | subject yes; person |
@@ -5666,6 +5695,7 @@ Written by `pnpm engine check-photos` (2026-11-22), most-read pages first. Rules
 | species/geosesarma-dennerle | [photo](https://media.aquatome.com/commons/13ed35d7a120f977.webp) | subject other |
 | species/geosesarma-dennerle | [photo](https://media.aquatome.com/commons/810e66e59e459c73.webp) | subject other |
 | species/geosesarma-dennerle | [photo](https://media.aquatome.com/commons/f595f7568e188644.webp) | subject other |
+| species/girardinus-uninotatus | [photo](https://media.aquatome.com/glaser/96b0f72b6ac4c426.webp) | subject yes; logo |
 | species/glyptosternon-reticulatum | [photo](https://media.aquatome.com/commons/5090dc6c83bc2483.webp) | subject none |
 | species/glyptothorax-fuscus | [photo](https://media.aquatome.com/scotcat/e6e71ea43f912c3b.webp) | subject yes; person |
 | species/gobiopterus-chuno | [photo](https://media.aquatome.com/commons/6d3728dddcff2104.webp) | subject other |
@@ -6153,6 +6183,7 @@ Written by `pnpm engine check-photos` (2026-11-22), most-read pages first. Rules
 | species/xenopus-laevis (a guide photo) | [photo](https://media.aquatome.com/video/WVpke0jbuGM/p7-fZnJvZ18tMS5qcGc.webp) | subject other |
 | species/xenotilapia-sima | [photo](https://media.aquatome.com/commons/b8810b9bb39cd426.webp) | subject dead |
 | species/xiphophorus-montezumae | [photo](https://media.aquatome.com/glaser/f320511463669613.webp) | subject yes; logo |
+| species/xiphophorus-signum | [photo](https://media.aquatome.com/glaser/fa38f12275344e49.webp) | subject yes; logo |
 | species/xiphophorus-xiphidium | [photo](https://media.aquatome.com/glaser/8496c01b86429b68.webp) | subject yes; logo |
 | species/xiurenbagrus-gigas | [photo](https://media.aquatome.com/scotcat/2549a788f5c92271.webp) | subject dead |
 | species/xiurenbagrus-gigas | [photo](https://media.aquatome.com/scotcat/a8eec19e5b3c4165.webp) | subject dead |
