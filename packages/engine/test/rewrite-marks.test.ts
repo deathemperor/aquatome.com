@@ -1,4 +1,5 @@
 import { execFileSync } from 'node:child_process'
+import { createHash } from 'node:crypto'
 import { copyFileSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
 import { mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -33,6 +34,14 @@ test('the table holds every row on the list, each on the day it reached the rewr
   expect(says.filter(s => !LISTED_ON[s])).toEqual(ADDED_SINCE)
   expect(Object.values(LISTED_ON).filter(d => d === '2026-11-08')).toHaveLength(61)
   expect(Object.entries(LISTED_ON).filter(([, d]) => d === '2026-11-12').map(([s]) => s).sort()).toEqual(['nửa tá', 'thài lài', 'thủng lỗ đầu', 'trùn chỉ đỏ'])
+})
+
+// The pass marks with each row's words as they are now, against the row's day: a row whose words widened later would
+// mark a page for a word its rewrite never saw. Each row's words are pinned as on its day (from git, none widened since);
+// a widening moves the row's day in the table to the widening's, which leaves the pages before it for the pass.
+test('each dated row matches the words it matched on its day', () => {
+  const rows = (PHRASES.vi ?? []).filter(p => LISTED_ON[p.say]).map(p => `${p.say}\t${LISTED_ON[p.say]}\t${p.find ?? p.say}`).join('\n')
+  expect(createHash('sha256').update(rows).digest('hex').slice(0, 16)).toBe('2d60d9e4189ddab6')
 })
 
 test('a word counts only for a page rewritten on a later day than its row reached the rewrite', () => {
