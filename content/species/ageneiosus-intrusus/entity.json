@@ -1,0 +1,127 @@
+{
+  "id": "ageneiosus-intrusus",
+  "scientificName": "Ageneiosus intrusus",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Ageneiosus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "venezuela",
+    "orinoco"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_intrusus.htm",
+      "html": "<ul><li>Diet: meat based</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_intrusus.htm",
+      "html": "<p>South America: Middle and lower Amazon River and probably the Orinoco River. Type locality: Rio Solimões, Paraná do Rei, Amazonas, Brazil.</p><p>This species is widely distributed in South America, where it is present in the Amazon, Essequibo and Orinoco basins. Therefore, it is assessed as Least Concern (IUCN 2022).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_intrusus.htm",
+      "html": "<p>A large tank would be needed with plenty of swimming space.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_intrusus.htm",
+      "html": "<p>Meat based.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_intrusus.htm",
+      "html": "<p>As per this genus they will be fine as juveniles, but as they mature they become predatory so would need to be kept with fish that are not too small.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_intrusus.htm",
+      "html": "<p>Males possess a genital papilla and when sexually mature have an enlarged and curved extension to the dorsal fin spine. They also grow thickened barbels to grasp the females with. These differences revert back to normal when not in season.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_intrusus.htm",
+      "html": "<p>Ageneiosus intrusus differs from its congeners, except A. pardalis and A. ucayalensis, by having an upper jaw that overhangs the lower jaw by a distance greater than the horizontal eye diameter. It differs from A. pardalis by having a reduced and ossified gas bladder and epaxial musculature that covers the tympanic region; from A. ucayalensis by a robust, rigid and sharp pectoral spine and fewer vertebrae (49 v. 53–55); from A. lineatus by more anal-fin rays (37–46, mode 42 v. 32–38); from A. inermis, A. magoi, A. polystictus and A. vittatus by a deeply forked caudal fin; and from A. apiaka by more gill rakers (15–20 v. 13–16) and usually a dark band on the distal margin of the caudal fin rays. Specimens from the Orinoco River have an elongate premaxilla, but it overhangs the dentary slightly less than in specimens from the Amazon basin.</p><p>Etymology: the genus name Ageneiosus means beardless, referring to the very small maxillary barbels. The epithet intrusus, from Latin, means intruded, referring to the pre-maxilla projecting beyond the dentary, a distinctive character of the species.</p><p>This genus was previously placed in its own family, Ageneiosidae, and some publications still follow this.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_intrusus.htm",
+      "html": "<p>Mesa-Salazar, L. 2022. Ageneiosus intrusus. The IUCN Red List of Threatened Species 2022. Ribeiro, Frank Rapp Py-Daniel, Lúcia Walsh, Stephen 2017/02/01. Taxonomic revision of the South American catfish genus Ageneiosus (Siluriformes: Auchenipteridae) with the description of four new species: taxonomic revision of ageneiosus 90 10.1111/jfb.13246 Journal of Fish Biology.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/ee76275e0ff48054.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ee76275e0ff48054-480.webp",
+      "width": 500,
+      "height": 231,
+      "licence": "dùng với sự cho phép",
+      "author": "Ben Lee / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_intrusus.htm",
+      "caption": "Ageneiosus intrusus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 400 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá săn mồi",
+        "tép đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

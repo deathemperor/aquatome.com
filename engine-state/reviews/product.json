@@ -233,6 +233,45 @@
       "kept": false
     }
   ],
+  "vi/products/chihiros-a-ii": [
+    {
+      "at": "2026-11-22T10:45:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.82,
+      "notes": [
+        "\"Hai shop Việt Nam có nói khác nhau một chút, nhưng cả hai đều cho là đèn nuôi được từ rêu, dương xỉ đến cây cắt cắm\" - the facts do not say both shops agree on that; shop 1 mentions Bucephalandra/Rotala/stem plants at full brightness and moss/ferns when dimmed, so the summary is a loose generalisation.",
+        "\"Shop có bán chân nâng riêng\" - the facts say shops sell riser legs separately; this is fine, but \"Vì vậy không phải mua thêm bộ điều khiển riêng như đời trước\" slightly overstates, though it is supported.",
+        "\"Week Aqua M Series Pro ... giá tương đương\" - the facts say similarly priced, but no A II price is given, so the comparison is only loosely supported.",
+        "\"Cứ theo chiều dài bể mà chọn. Mỗi bản ứng với một cỡ bể\" - the facts support this for most sizes, but \"Mỗi bản\" glosses over 351/361 sharing a variant; the page then handles it correctly.",
+        "\"Chân đi kèm không gắn vừa kính 12 mm\" is stated as a general fact, but it is attributed to Aquasabi support only and about the stock mount; the page drops the attribution.",
+        "\"Aquasabi says it is made for\" is turned into a flat claim (\"Đèn làm cho bể...\", \"Không nên chạy đèn dưới nắp bể\") with no attribution to Aquasabi; this is minor."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-22T10:45:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.7,
+      "notes": [
+        "\"chiều ngang đèn tính cả chân đúng bằng chiều dài bể\" – facts only give widths with legs for 30, 40, 60 cm; \"đúng bằng\" generalizes, and without legs widths are smaller.",
+        "\"bể high-tech (bể châm CO2, đèn mạnh)\" – CO2 injection is not in the facts.",
+        "\"cả hai đều không nhận đèn bị rơi hay vào nước\" – facts say drops/water damage excluded for Quới Decor (1 month); the exclusion for the 6-month shop is not stated (only manufacturer defects only), and the facts' issue lumps them but source is ambiguous.",
+        "\"Cẩn thận lúc thay nước, chăm cây dưới đèn\" – advice not supported by the facts.",
+        "\"Nếu bể của bạn có nắp kín thì nên tìm loại khác\" – recommendation not in facts (though inferred from the lid statement).",
+        "\"giá ngang A II\" for Week Aqua – facts say 'similarly priced', but no A II price is given; acceptable but unverified.",
+        "\"mã 401 có nơi dùng cho cả bản 45 cm\" – fine; \"Hỏi lại shop cho chắc cỡ\" is mild advice.",
+        "\"Muốn đèn cao hơn mặt nước thì shop có bán chân nâng riêng\" – facts say riser legs are sold by shops; 'cao hơn mặt nước' is a slight embellishment.",
+        "\"giá đắt hơn nhiều\" for WRGB II – supported by the facts ('costs far more')."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/chihiros-a2-series": [
     {
       "at": "2026-11-11T04:45:26Z",

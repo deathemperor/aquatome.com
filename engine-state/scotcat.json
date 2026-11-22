@@ -2093,6 +2093,36 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/auchenipteridae/ageneiosus_cf_ucayalensis.htm": {
+    "entityIds": [
+      "species/ageneiosus-ucayalensis"
+    ],
+    "updatedAt": "2026-11-22T09:00:47.731Z",
+    "hash": "6337d57861735eb4556f6520d4daf0c42412c90f986057a04c1aa8fbcb8e1e3f",
+    "processedHash": "6337d57861735eb4556f6520d4daf0c42412c90f986057a04c1aa8fbcb8e1e3f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenipteridae/ageneiosus_inermis.htm": {
+    "entityIds": [
+      "species/ageneiosus-inermis"
+    ],
+    "updatedAt": "2026-11-22T09:02:34.392Z",
+    "hash": "72bffc0b530cbe849d88748c838c07e81f075160b67836dc7bb0ec7b5016f5bb",
+    "processedHash": "72bffc0b530cbe849d88748c838c07e81f075160b67836dc7bb0ec7b5016f5bb",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenipteridae/ageneiosus_intrusus.htm": {
+    "entityIds": [
+      "species/ageneiosus-intrusus"
+    ],
+    "updatedAt": "2026-11-22T09:04:15.998Z",
+    "hash": "8913acfa1f5189b4b96bb3be34ab94b08148f2e597739f1305dfb0b7561738ae",
+    "processedHash": "8913acfa1f5189b4b96bb3be34ab94b08148f2e597739f1305dfb0b7561738ae",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/auchenipteridae/ageneiosus_lineatus.htm": {
     "entityIds": [
       "species/ageneiosus-lineatus"
@@ -2323,14 +2353,72 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_buettikoferi.htm": {
+    "entityIds": [
+      "species/parauchenoglanis-buettikoferi"
+    ],
+    "updatedAt": "2026-11-22T08:47:21.361Z",
+    "hash": "a1edc179baf19ade49e6883e3cfe2560d78757bce7026e70d9d936490559f0ab",
+    "processedHash": "a1edc179baf19ade49e6883e3cfe2560d78757bce7026e70d9d936490559f0ab",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_longiceps.htm": {
+    "entityIds": [
+      "species/parauchenoglanis-longiceps"
+    ],
+    "updatedAt": "2026-11-22T08:48:47.507Z",
+    "hash": "2e50252097a46a22428a1bab58a81aae913e158466787a58797a1acd4be1bab1",
+    "processedHash": "2e50252097a46a22428a1bab58a81aae913e158466787a58797a1acd4be1bab1",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_monkei.htm": {
+    "entityIds": [
+      "species/parauchenoglanis-monkei"
+    ],
+    "updatedAt": "2026-11-22T08:50:40.829Z",
+    "hash": "00fd6dca8b41a56307d9c52ce5b687c2179a205cedc0491ea763a66e7886e763",
+    "processedHash": "00fd6dca8b41a56307d9c52ce5b687c2179a205cedc0491ea763a66e7886e763",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_ngamensis.htm": {
+    "entityIds": [
+      "species/parauchenoglanis-ngamensis"
+    ],
+    "updatedAt": "2026-11-22T08:53:37.282Z",
+    "hash": "5e8b04b7130fbd1820fb8a6f9544484bf79ce9cb45c55c0afae3cdf6e1cec0c9",
+    "processedHash": "5e8b04b7130fbd1820fb8a6f9544484bf79ce9cb45c55c0afae3cdf6e1cec0c9",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_pantherinus.htm": {
+    "entityIds": [
+      "species/parauchenoglanis-pantherinus"
+    ],
+    "updatedAt": "2026-11-22T08:56:38.389Z",
+    "hash": "66db17d325a60264665c7ada5aa786cc73b12595095c5a81a58f6761693aa4e8",
+    "processedHash": "66db17d325a60264665c7ada5aa786cc73b12595095c5a81a58f6761693aa4e8",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_punctatus.htm": {
     "entityIds": [
       "species/parauchenoglanis-punctatus"
     ],
-    "updatedAt": "2026-11-15T17:56:19.366Z",
+    "updatedAt": "2026-11-22T08:58:15.962Z",
     "hash": "dc21ead13498eb7b73fccd9b75e87e964dac57ec8be80e01939d713dae604c79",
     "processedHash": "dc21ead13498eb7b73fccd9b75e87e964dac57ec8be80e01939d713dae604c79",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_stiassnyae.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-11-22T08:59:18.988Z",
+    "hash": "6a5372ba9a70ac44d6e837c2e93a5aa2ac2e5382edd7c4f3ebf09c8eef1f4321",
+    "processedHash": "6a5372ba9a70ac44d6e837c2e93a5aa2ac2e5382edd7c4f3ebf09c8eef1f4321",
+    "status": "skipped",
     "attempts": 0
   },
   "https://www.scotcat.com/bagridae/bagrichthys_hypselopterus.htm": {
@@ -3798,6 +3886,16 @@
     "updatedAt": "2026-11-09T20:56:39.185Z",
     "hash": "308c340cfc8d39583c8120d04c19c733c5a481ed75edf11e59b7041d13b9261d",
     "processedHash": "308c340cfc8d39583c8120d04c19c733c5a481ed75edf11e59b7041d13b9261d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/sturisoma_barbatum.htm": {
+    "entityIds": [
+      "species/sturisoma-barbatum"
+    ],
+    "updatedAt": "2026-11-22T08:43:34.557Z",
+    "hash": "4b27adfc3750533e9007dc351697019f2a39b41b67e85a2dc24a51ffef9f56d9",
+    "processedHash": "4b27adfc3750533e9007dc351697019f2a39b41b67e85a2dc24a51ffef9f56d9",
     "status": "processed",
     "attempts": 0
   },

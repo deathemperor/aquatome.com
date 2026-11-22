@@ -1,0 +1,26 @@
+{
+  "slug": "ca-da-tron-platysilurus-mucosus",
+  "name": "Cá da trơn Platysilurus mucosus",
+  "altNames": [],
+  "sections": {
+    "quickFacts:glaser": "<p>Platysilurus mucosus là một loài cá da trơn săn mồi, chỉ dài 20-30 cm. Điểm đặc biệt của nó là đôi râu hàm rất dài và cái vây đuôi rất lớn. Vây đuôi ở cá con nổi bật hơn ở cá lớn.</p>",
+    "distribution:glaser": "<p>P. mucosus sống ở lưu vực sông Amazon và Orinoco, và loài này có mặt rộng khắp ở đó. Những con được mô tả ở đây có nguồn gốc từ Peru. Cùng chi còn có loài thứ hai là P. malarmo. Loài này chỉ có ở Venezuela và Colombia, và lớn hơn hẳn, khoảng 50 cm.</p>",
+    "maintenance:glaser": "<p>Lúc bắt cá phải hết sức cẩn thận. Vây ngực của nó nhọn như kim, có lẽ còn hơi có độc. Tốt nhất là dồn cá bằng một cái vợt thật lớn so với cá, mắt lưới càng nhỏ càng tốt, rồi múc cá ra bằng cốc, con lớn thì dùng xô. Làm vậy thì cả người lẫn cá đỡ căng thẳng hơn nhiều.</p>",
+    "diet:glaser": "<p>Chúng ăn mọi loại thức ăn thịt lọt miệng, kể cả cá nhỏ và tép!</p>",
+    "behaviour:glaser": "<p>Loài này sống hiền với đồng loại. Nếu thả chung với cá khác thì phải để ý xem P. mucosus có được ăn đủ không. So với các loài cá da trơn săn mồi khác, chúng nhát hơn nhiều.</p>"
+  },
+  "quality": {
+    "score": 0.88,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.88
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-22"
+  }
+}

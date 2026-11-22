@@ -18,7 +18,8 @@
     "guyana",
     "essequibo",
     "suriname",
-    "courantyne"
+    "courantyne",
+    "pirara-river"
   ],
   "range": {
     "native": {
@@ -841,6 +842,13 @@
           "min": 22.5,
           "max": 28
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
       }
     ],
     "ph": [
@@ -848,6 +856,13 @@
         "source": "seriouslyfish",
         "value": {
           "min": 5.5,
+          "max": 7.5
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
           "max": 7.5
         }
       }
@@ -865,6 +880,10 @@
       {
         "source": "seriouslyfish",
         "value": 29
+      },
+      {
+        "source": "scotcat",
+        "value": 12
       }
     ],
     "tankCm": [
@@ -888,10 +907,22 @@
       "html": "<p>The duck catfish, Ageneiosus ucayalensis, is an auchenipterid catfish described from Peru and recorded across the Amazon, Orinoco and Guianas. Body patterning apparently varies with locality, and fish from black water habitats, particularly on the Guiana Shield, tend to be darker. Growing to around 290 mm SL and capable of taking large prey, it is safe only with similarly sized catfishes or large pelagic characins, mostly a combination for public aquaria.</p><ul><li>Max size: 290 mm SL (11 in)</li><li>Aquarium size: 180 × 60 cm (72 × 24 in)</li><li>Temperature: 22.5–28°C (73–82°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 1–20 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_cf_ucayalensis.htm",
+      "html": "<ul><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ageneiosus-ucayalensis",
       "html": "<p>Described from the Río Ucayali in Peru but subsequently recorded across a large geographic area. Records currently exist from Ecuador, Colombia, Peru, Brazil, Venezuela, Guyana and Suriname, and encompass the majority of the rio Amazon drainage plus its tributaries, the Orinoco system, Atlantic river basins of the Guianas and the Río Paraná.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_cf_ucayalensis.htm",
+      "html": "<p>South America: Pirara River, Guyana (Amazon Basin).</p>"
     },
     {
       "key": "habitat",
@@ -912,6 +943,12 @@
       "html": "<p>Likely to prefer dim lighting and access to refuges in the form of driftwood, large rocks or lengths of plastic piping. An enormous filtration system and dedicated regime of water changes will also be required and maintenance of high dissolved oxygen levels should be considered mandatory given the species' natural habitat plus the fact that unlike some relatives it cannot respire atmospheric oxygen.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_cf_ucayalensis.htm",
+      "html": "<p>Although reputed to be of a smaller size, they could still prove to be predatory as per this genus, so would need to be kept with fish that are not too small.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ageneiosus-ucayalensis",
@@ -922,6 +959,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ageneiosus-ucayalensis",
       "html": "<p>Larger Ageneiosus spp. are obligate carnivores by nature feeding on invertebrates and other fishes, and capable of consuming surprisingly large prey. Newly-imported specimens thus often refuse to accept anything but live fishes though most can be weaned onto thawed frozen whitebait, shellfish or similar once they recognise them as edible. Some individuals even learn to accept dried foods such as pellets designed for carnivorous species.</p><p>Like the vast majority of predatory fishes this species should not be fed mammalian/avian meat such as beef heart or chicken, and similarly there is little benefit in the long-term use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_cf_ucayalensis.htm",
+      "html": "<p>Presumably meat based.</p>"
     },
     {
       "key": "behaviour",
@@ -946,6 +989,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ageneiosus-ucayalensis",
       "html": "<p>Apparently this species is polymorphic with body patterning varying significantly depending on locality. Individuals collected from black water habitats tend to be noticeably darker in overall colouration, for example, with this being particularly evident among populations from the Guiana Shield.</p><p>The genus Ageneiosus was at one point classified in the family Ageneiosidae alongside the genus Tetranematichthys, but this was not accepted by all authors. The grouping remains poorly-studied with the last major revision having been conducted by Walsh (1990) in his unpublished dissertation. Following that paper A. ucayalensis can be told apart from congeners by the following combination of characters: caudal fin deeply forked; body significantly elongate and laterally compressed; head flattened with mouth markedly inferior; anal fin very long with 41-50 rays; gill rakers on first arch long with small, toothlike projections.</p><p>The genus, meanwhile, is separated from other auchenipterids by a combination of absence of mental barbels in adults, and the presence of enlarged, tooth-like odontodes formed by outgrowths of the maxillae on the dorsal margin of the maxillary barbels in breeding males. The larger-growing members are often utilised as food fishes in their native countries.</p><p>The family Auchenipteridae is itself distinguished from all other catfishes by the following: body lacking bony plates except on dorsal surface between head and dorsal fin origin which is covered by a row of such plates joined together and clearly visible beneath a thin epidermis; no nasal barbel(s); adipose fin small, occasionally absent; eye covered by adipose tissue and lacking a distinct orbital rim; anterior anal fin rays enlarged and thickened in adult males; maxillary barbel fits in a specialised groove below the eye when drawn towards the body; maxillary barbel directed laterally and dorsally when drawn into said groove.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_cf_ucayalensis.htm",
+      "html": "<p>This genus was previously placed in its own family, Ageneiosidae, and you can still find some publications that follow this line. This specimen was collected in the Pirara River, Guyana (Amazon Basin) on a Donald Taphorn expedition. Similar to Ageneiosus ucayalensis.</p>"
     },
     {
       "key": "references",
@@ -984,5 +1033,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-22"
 }

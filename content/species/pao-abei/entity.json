@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "laos",
-    "mekong"
+    "mekong",
+    "xe-bangfai"
   ],
   "dataCard": {
     "sizeCm": [
@@ -16,29 +17,90 @@
         "source": "glaser",
         "value": 10
       }
+    ],
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
     ]
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-abei/",
+      "html": "<p>Pao abei grows to about 10 cm in length. Regarding water chemistry the animals are undemanding, any tap water is suitable, pH should be between 6 and 8, water temperature around 24°C.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-or-monotrete-abei/",
-      "html": "<p>Pao abei was scientifically described in 1998 from the Mekong river in Laos.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-abei/",
+      "html": "<p>This beautiful and – by Pao standards – peaceful freshwater pufferfish originates from the Mekong River basin in Laos (type locality: the Xe Bangfai River near Ban Geng Sahwang); it is considered endemic (= only occurring there) in the Xe Bangfai.</p>"
     },
     {
-      "key": "habitat",
+      "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-or-monotrete-abei/",
-      "html": "<p>In Southeast Asia a group of freshwater puffers exists that is extremely difficult to tell apart on a specific level. They are called the Eyespot-Puffers or the Pao-leiurus-complex. These puffers live in streams and rivers, some also in ponds and lakes, always in pure freshwater.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-abei/",
+      "html": "<p>While Pao cochinchinensis is a rather aggressive species, which can often only be kept singly in the long run, a permanent group keeping of P. abei is quite possible.</p>"
     },
     {
-      "key": "notes",
+      "key": "dimorphism",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-or-monotrete-abei/",
-      "html": "<p>Pao abei is among the most enigmatic species of the group. Preserved specimens are very dark, almost black, with tiny yellow or orange spots. This was exactly how the freshly collected fish looked on the photos sent by the supplier from Thailand, but the same fish look very different when kept in aquaria. This is the tricky thing with freshwater puffers: they can change their coloration very fast and very drastically. Additionally every individual has a slightly different pattern. There are only very few constant anatomical features that allow a determination, most of them overlap in the different species. So whether the recently imported fish, 7-10 cm in size, really belong to the species Pao abei is uncertain. Anyway, they are beautiful and interesting fish.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-abei/",
+      "html": "<p>In contrast to Pao turgidus, which occurs in the same river, P. abei has a large eye spot (ocellus) below the dorsal fin. In P. turgidus, all spots on the body are the same size. Unfortunately P. abei can only be identified without any doubt if it shows a mood dependent coloration. This coloration occurs during courtship and when the fish is very excited. If the fish is not in this mood, it cannot be distinguished from the “common” Pao cochinchinensis, which also occurs in the Xe Bangfai. That is why there are always doubts about which of the two species one is looking at.</p><p>The external unique point of P. abei is therefore only one of several possible mood-related colorations, which consists of yellow or orange dots on a dark background.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-abei/",
+      "html": "<p>They are substrate spawners, the clutch is guarded by the male until the larvae hatch. The breeding of P. abei has been successful more often.</p>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/bfd412af59b68923.webp",
+      "thumb": "https://media.aquatome.com/glaser/bfd412af59b68923-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-abei/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b961861a20347c42.webp",
+      "thumb": "https://media.aquatome.com/glaser/b961861a20347c42-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-abei/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7190189400f91f80.webp",
+      "thumb": "https://media.aquatome.com/glaser/7190189400f91f80-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-abei/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a589805eddfc85c7.webp",
+      "thumb": "https://media.aquatome.com/glaser/a589805eddfc85c7-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-abei/",
+      "source": "glaser"
+    },
     {
       "url": "https://media.aquatome.com/glaser/4dc57a33e26b4f5b.webp",
       "thumb": "https://media.aquatome.com/glaser/4dc57a33e26b4f5b-480.webp",
@@ -52,16 +114,6 @@
     {
       "url": "https://media.aquatome.com/glaser/8fedc24e8d065075.webp",
       "thumb": "https://media.aquatome.com/glaser/8fedc24e8d065075-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Frank Schäfer / Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-or-monotrete-abei/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/dd2110da6bc00763.webp",
-      "thumb": "https://media.aquatome.com/glaser/dd2110da6bc00763-480.webp",
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
@@ -112,5 +164,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21"
+  "updatedAt": "2026-11-22"
 }

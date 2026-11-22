@@ -107,6 +107,10 @@
       {
         "source": "seriouslyfish",
         "value": 7.5
+      },
+      {
+        "source": "glaser",
+        "value": 9
       }
     ],
     "tankCm": [
@@ -128,6 +132,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/badis-assamensis",
       "html": "<p>Badis assamensis is a badid from the Brahmaputra River basin in Assam state, northeast India, and the largest species in its genus. Like most badids it is poorly documented. Its body patterning is almost identical to that of B. blosyrus, but it grows slightly larger, to 65 to 75 mm, and has a noticeably shorter jaw profile. The neotype was collected from a slow-moving forest stream in the Dibru River drainage, and it is a slow-moving, retiring fish that more boisterous tankmates can outcompete for food.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/badis-assamensis-and-badis-blosyrus/",
+      "html": "<p>Badis assamensis is the largest of all Badis species known so far, reaching a total length of 8-9 cm. Badis blosyrus remains much smaller: the largest specimen measured had a total length (including caudal fin) of 6 cm.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/badis-assamensis-and-badis-blosyrus/",
+      "html": "<p>In the north of India there are two Badis species which are indistinguishable by colour: B. blosyrus and B. assamensis. The only discernible difference is the size of the mouth cleft. It is much larger in B. blosyrus and reaches below the centre of the eye margin, whereas in B. assamensis the mouth opening reaches only just to the anterior margin of the eye.</p><p>Practically always the two species are exported mixed, because they both live in the same region. Whether they are two species at all or only two ecotypes is uncertain. Sorting the animals would require each individual to be examined thoroughly with a strong magnifying glass, which is too labour-intensive to be affordable.</p><p>Since B. assamensis is the largest Badis, imports with jumbo fish are usually referred to as B. assamensis. When buying either species, you always have to expect to get a mix of both. Both species are among the most beautiful Badis.</p>"
     },
     {
       "key": "distribution",
@@ -178,10 +194,22 @@
       "html": "<p>Females are smaller, have duller patterning and a noticeably shorter, rounder-looking body profile than males. Males also develop slightly extended finnage as they mature.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/badis-assamensis-and-badis-blosyrus/",
+      "html": "<p>Females become recognisable by their outwardly curved ventral line when fed vigorously; there are no other sex differences.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/badis-assamensis",
       "html": "<p>Members of this genus are cave spawners that form temporary pair bonds and are not usually too difficult to breed provided the tank is arranged correctly (see 'tank set-up'). Other species are best omitted if you want to raise good numbers of fry although in a mature, well-furnished community a few may survive to adulthood. Either a single pair or a group of adults can be used but if using multiple males be sure to provide each with a cave to defend. Water parameters should be within the values suggested above. Feed the fish with plenty of live and frozen foods and spawning should not present too many problems.</p><p>As they come into breeding condition rival males will become increasingly combative and begin to display courtship behaviour towards females entering their chosen territory. During this process they display some wonderful changes in patterning with the body intensifying in colour. The locking of mouths is also common; the male literally attempting to drag his partner into the cave. A receptive female will enter and spawning takes place with usually 30-100 eggs being laid.</p><p>Post-spawning the female is ejected and the male takes sole responsibility for the eggs and fry, defending the territory against intruders and fanning the brood with his fins. If you wish the other adult fish can be removed at this point although it is not absolutely necessary yet. The eggs usually hatch in 2-3 days but the fry do not become free swimming until they are 6-8 days old and may not leave the vicinity of the cave for another week or so after that. From then the adults (parent male included) may begin to regard them as food and are best transferred to a separate tank. The young fish are quite sedentary for the first few days meaning microworm is the ideal initial food but once they are visibly swimming in the water column Artemia nauplii can be introduced to the diet.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/badis-assamensis-and-badis-blosyrus/",
+      "html": "<p>B. assamensis and B. blosyrus are typical cave breeders, with the male guarding the spawn until the young hatch.</p><p>If you intend to breed them, acquire a larger number of animals, feed them vigorously until the females become recognisable, and then put the breeding pairs together under close scrutiny with a magnifying glass.</p>"
     },
     {
       "key": "notes",
@@ -240,9 +268,64 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/badis-assamensis",
       "caption": "Male specimen with breeding colouration.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e84203b721bd7689.webp",
+      "thumb": "https://media.aquatome.com/glaser/e84203b721bd7689-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/badis-assamensis-and-badis-blosyrus/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5f3e5cc74ccf7c03.webp",
+      "thumb": "https://media.aquatome.com/glaser/5f3e5cc74ccf7c03-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/badis-assamensis-and-badis-blosyrus/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/07ac179cae29b7fa.webp",
+      "thumb": "https://media.aquatome.com/glaser/07ac179cae29b7fa-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/badis-assamensis-and-badis-blosyrus/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "ta3oiny5Ycw",
+      "title": "badis assamensis fry moving tanks",
+      "durationSec": 119,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "F4ktt4_FcRI",
+      "title": "Did the badis assamensis finally spawn?",
+      "durationSec": 47,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "zPzAbFhn8Z8",
+      "title": "badis assamensis fry",
+      "durationSec": 46,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "kHtDMLd3RAs",
+      "title": "Big Badis assamensis F1 in full breeding colors.. young generations are coming soon.",
+      "durationSec": 31,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -273,5 +356,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-22"
 }

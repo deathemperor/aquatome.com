@@ -100,6 +100,13 @@
           "min": 20,
           "max": 28
         }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -108,6 +115,13 @@
         "value": {
           "min": 4,
           "max": 7
+        }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 4.5,
+          "max": 6.5
         }
       }
     ],
@@ -124,6 +138,10 @@
       {
         "source": "seriouslyfish",
         "value": 5.5
+      },
+      {
+        "source": "bwaquatics",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -147,6 +165,12 @@
       "html": "<p>The snakeskin barb, Desmopuntius rhomboocellatus, is a cyprinid endemic to southern Kalimantan, the Indonesian portion of Borneo. It has been recorded from several river systems including the Kapuas, Kepayang and Barito. It most often inhabits peat swamps, black water streams and other still waters with submerged plants and dense riparian vegetation.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus",
+      "html": "<p>From the Desmopuntius genus (banded barbs). IUCN Red List: Least Concern (locally threatened by peat swamp habitat loss). Origin: wild caught. Temperament: peaceful schooling fish. Max size: usually 5 to 6 cm; up to about 9 cm total length.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-rhomboocellatus",
@@ -159,10 +183,22 @@
       "html": "<p>Desmopuntius rhomboocellatus occurs in Kalimantan, the Indonesian part of Borneo.</p>"
     },
     {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus",
+      "html": "<p>Desmopuntius rhomboocellatus is a rarely imported soft-water barb from southern and western Kalimantan, Borneo, recorded from the Kapuas, Kahayan, Barito and Kepayang drainages.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-rhomboocellatus",
       "html": "<p>Most often inhabits peat swamps and associated black water streams as well as other still waters, often in areas with submerged grasses or aquatic plants and dense riparian vegetation.</p><p>The water itself is typically stained brown with humic acids and other chemicals released by decaying organic material, dissolved mineral content is generally negligible and pH as low as 3.0 or 4.0. Substrates are usually littered with fallen leaves, branches and submerged tree roots though in some places aquatic plants from genera such as Cryptocoryne or Barcalaya can be found.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus",
+      "html": "<p>It lives in slow, heavily tannin-stained peat swamp streams under forest canopy with deep leaf litter. Habitat: slow, shaded peat swamp streams with leaf litter.</p>"
     },
     {
       "key": "aquariumSize",
@@ -177,10 +213,28 @@
       "html": "<p>Will thrive in a heavily-planted or forest stream-type set-up, the latter comprising a soft substrate, dim lighting, roots, branches and leaf litter.</p><p>You could also add aquatic plants that can survive under such conditions such as Microsorum, Taxiphyllum, or Cryptocoryne spp. Filtration does not need to be particularly strong as it mostly hails from sluggish waters.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus",
+      "html": "<p>Avoid sudden changes in pH or hardness and give plenty of cover.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-rhomboocellatus",
       "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 4.0–7.0</li><li>Hardness: 1–5 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus",
+      "html": "<p>TDS: under 120 ppm. pH: 4.5 to 6.5. Temperature: 24 to 28°C. Groups kept in stable, mature blackwater show the strongest color.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus",
+      "html": "<p>Leaf litter, botanicals, driftwood and dim light. Gentle current is fine.</p>"
     },
     {
       "key": "diet",
@@ -189,10 +243,22 @@
       "html": "<p>Primarily a micropredator feeding on small insects, worms, crustaceans and other zooplankton in nature. In the aquarium it will accept dried foods of a suitable size but should not be fed these exclusively. Daily meals of small live and frozen fare such as Daphnia, Artemia and suchlike will result in the best colouration and encourage the fish to come into breeding condition.</p>"
     },
     {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus",
+      "html": "<p>Prefers small invertebrates. Live or frozen daphnia, brine shrimp, bloodworms and mosquito larvae, plus micro pellets, soft granules and small flakes.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-rhomboocellatus",
       "html": "<p>An ideal addition to a peaceful community of Southeast Asian fishes with comparably-sized cyprinids, cobitids, and certain anabantoids perhaps constituting the best choices.</p><p>Some of the more commonly-exported species from Borneo include Desmopuntius johorensis, D. hexazona, Brevibora dorsiocellata, Trigonopoma pauciperforatum, Rasbora einthovenii, and various Pangio spp. Avoid boisterous or very vigorous tankmates as they may outcompete it for food.</p><p>It's a schooling species by nature, and ideally should be kept in a group of at least 8-10 specimens. Maintaining it in decent numbers will not only make the fish less skittish but result in a more effective, natural-looking display, plus males will also display their best colours as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus",
+      "html": "<p>Peaceful schooling fish. Keep in groups of 6 to 12 or more; small groups become shy and lose color. Good with Boraras, Sundadanio, small rasboras and peaceful loaches. Avoid fin-nippers and fast, boisterous fish.</p>"
     },
     {
       "key": "dimorphism",
@@ -201,10 +267,22 @@
       "html": "<p>Adult males tend to be slightly smaller, are noticeably slimmer and exhibit more intense colouration than females.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus",
+      "html": "<p>Body shape: deep, compressed barb body. Fins: red-orange fins in adults. Coloration: orange-red to golden body covered in dark rhomboid rings in an irregular, reticulated pattern.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-rhomboocellatus",
       "html": "<p>Possibly unrecorded in aquaria, but recommendations for related species are as follows:</p><p>Like most small cyprinids Desmopuntius spp. are egg-scattering free spawners exhibiting no parental care. When in good condition they will spawn often and in a mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to maximise yield a more controlled approach is required. The adult group can still be conditioned together but a smaller aquarium should also be set up and filled with mature water. This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles. Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water should be of slightly acidic pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced, and spawning should take place the following morning. An alternative is to spawn the fish in a group with half a dozen specimens of each sex being a good number, although a larger aquarium may be necessary.</p><p>In either situation the adults will probably eat the eggs given the chance and should be removed as soon as any are noticed. These should hatch in 24 - 36 hours with the fry free swimming after 3-4 days. They should be fed on an infusoria-grade food for the first few days until large enough to accept microworm, Artemia nauplii, or suchlike.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus",
+      "html": "<p>Egg scatterer with no parental care. Adults eat eggs, so use a separate tank with mesh or marbles on the bottom and fine plants. Eggs hatch in about 24 to 36 hours; feed infusoria first, then baby brine shrimp.</p>"
     },
     {
       "key": "notes",

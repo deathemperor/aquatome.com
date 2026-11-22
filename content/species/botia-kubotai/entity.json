@@ -10,7 +10,8 @@
     "myanmar",
     "ataran",
     "thailand",
-    "tak"
+    "tak",
+    "salween"
   ],
   "range": {
     "native": {
@@ -101,6 +102,10 @@
       {
         "source": "seriouslyfish",
         "value": 15
+      },
+      {
+        "source": "glaser",
+        "value": 10
       }
     ],
     "tankCm": [
@@ -124,6 +129,12 @@
       "html": "<ul><li>Max size: 150 mm SL (6 in)</li><li>Aquarium size: 120 × 45 cm (48 × 18 in)</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–10 dGH</li><li>Difficulty: moderate, because it needs a well-established tank and stable water.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/botia-kubotai-2/",
+      "html": "<p>Some botias, among them B. kubotai, are available only seasonally and for quite a short time per year. This very beautiful species is one of the most social species in the genus and should be kept under all circumstances in groups.</p><p>It becomes around 8-10 cm long; the maximum length reported so far is 13 cm.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/botia-kubotai",
@@ -134,6 +145,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/botia-kubotai",
       "html": "<p>Appears to be endemic to headwaters of the Salween River basin around the border between Myanmar and Thailand.</p><p>The type specimens were collected from the Megathat Chaung (Megathat stream) in the upper Ataran (known as the Kasat in Thai) River basin, Kayin/Karen State, Myanmar and another population was later discovered in the Hanthayaw River (Suriya in Thai), Tak Province, Thailand.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/botia-kubotai-2/",
+      "html": "<p>B. kubotai originates from the Ataran, a tributary of the Salween, in the border region between Burma and Thailand.</p>"
     },
     {
       "key": "habitat",
@@ -172,6 +189,12 @@
       "html": "<p>Not especially aggressive but don't keep it with much smaller fishes as they may be intimidated by its size and sometimes very active behaviour.</p><p>Slow-moving, long-finned species such as ornamental bettas, guppies and many cichlids should also be avoided as trailing fins can be nipped.</p><p>More suitable tankmates include peaceful, open water-dwelling cyprinids, while in larger tanks members of Barilius, Luciosoma, Balantiocheilos and Barbonymus become options.</p><p>In terms of other bottom-dwellers they will do well alongside most other Botia and in very large tanks, Chromobotia macracanthus. Some cobitid and nemacheilid loaches are also possibilities as are members of Epalzeorhynchos, Crossocheilus and Garra and many catfishes.</p><p>As always, thorough research prior to selecting a community of fishes is the best way to avoid problems.</p><p>Botia spp. are gregarious, form complex social hierarchies and should be maintained in groups of at least 5 or 6 specimens, preferably 10 or more.</p><p>When kept singly they can become withdrawn or aggressive towards similarly-shaped fishes, and if only a pair or trio are purchased the dominant individual may stress the other(s) to the extent that they stop feeding.</p><p>That said, they seemingly require regular contact with conspecifics, a fact exemplified by a number of behavioural rituals which have been recorded consistently in aquaria (see 'Notes').</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/botia-kubotai-2/",
+      "html": "<p>This species is one of the most social in the genus and should be kept in groups under all circumstances.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/botia-kubotai",
@@ -202,18 +225,73 @@
       "thumb": "https://media.aquatome.com/commons/e55386fdc0dbbc59-480.webp",
       "width": 1200,
       "height": 800,
-      "licence": "CC BY-SA 3.0",
-      "author": "Lerdsuwa",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Botia_kubotai2.jpg",
-      "caption": "Cá heo chấm bi trưởng thành bơi trên nền sỏi trong bể",
       "large": {
         "url": "https://media.aquatome.com/commons/e55386fdc0dbbc59-large.webp",
         "width": 1801,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Lerdsuwa",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Botia_kubotai2.jpg",
+      "caption": "Cá heo chấm bi trưởng thành bơi trên nền sỏi trong bể"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/80916d643af876e2.webp",
+      "thumb": "https://media.aquatome.com/glaser/80916d643af876e2-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/botia-kubotai-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/69445923de8b8382.webp",
+      "thumb": "https://media.aquatome.com/glaser/69445923de8b8382-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/botia-kubotai-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1d939d75e35862c8.webp",
+      "thumb": "https://media.aquatome.com/glaser/1d939d75e35862c8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/botia-kubotai-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "EqgYfNej63g",
+      "title": "Beautiful group of Botia Kubotai #shorts",
+      "durationSec": 7,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "g8ymD7KXEkQ",
+      "title": "Discus and botia kubotai feeding ✨",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "4VYeBDwoACw",
+      "title": "Harlekiininuoliainen,  Botia kubotai",
+      "durationSec": 30,
+      "lang": "fi"
+    },
+    {
+      "youtubeId": "vB453met5zA",
+      "title": "Introducing Angelicus Botia or Botia Kubotai: Species Sunday",
+      "durationSec": 392,
+      "lang": "en-US"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -243,5 +321,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-22"
 }

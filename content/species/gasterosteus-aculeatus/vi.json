@@ -1,0 +1,30 @@
+{
+  "slug": "ca-gai-ba-gai",
+  "name": "Cá gai ba gai",
+  "altNames": [
+    "Cá stickleback ba gai",
+    "Three-spined stickleback",
+    "Threespine stickleback"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Cá gai ba gai (Gasterosteus aculeatus) là loài cá bản địa thú vị và đẹp nhất để nuôi bể. Tập tính của nó đã được giới khoa học nghiên cứu rất kỹ. Đến nay, cách con đực tán con cái, làm tổ và giao phối vẫn có trong bài học ở trường. Cá gai là sinh vật mẫu trong nghiên cứu về bản năng.</p>",
+    "notes:glaser": "<p>Về phân loại, cá gai ba gai đến nay vẫn chưa được hiểu rõ. Qua nhiều thế kỷ, người ta đã mô tả tới 47 loài cá gai ba gai, nhưng chỉ vài loài còn hợp lệ, số còn lại hầu hết chỉ là tên đồng nghĩa. Xét theo tập tính thì có hai dạng. Dạng nước ngọt sống cố định một chỗ. Dạng di cư thì ở ngoài biển nhiều tháng trong năm và chỉ về nước ngọt để đẻ. Ngoài ra, hình như còn có những quần thể chỉ sống ở biển. Về hình thái, người ta đã nhiều lần thử dựa vào số tấm xương dọc hai bên thân để tách loài. Chẳng hạn, Gasterosteus gymnurus từng được coi là một loài riêng trong thời gian dài vì cuống đuôi không có các tấm xương này. Nhưng các nghiên cứu DNA gần đây không tìm ra khác biệt nào giữa G. gymnurus và G. aculeatus.</p>",
+    "distribution:glaser": "<p>Cá gai ba gai có ở gần như khắp châu Âu, ở nhiều vùng phía bắc châu Á và ở Bắc Mỹ.</p>",
+    "beforeYouBuy:glaser": "<p>Cá bán ra là cá trại ở Đức. Tiếc là ngày nay học sinh lẫn người lớn chủ yếu chỉ biết loài cá này qua phim và sách.</p>"
+  },
+  "quality": {
+    "score": 0.88,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.88
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "elsewhere",
+      "source"
+    ],
+    "at": "2026-11-22"
+  }
+}

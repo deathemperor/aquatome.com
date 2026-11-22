@@ -14,7 +14,8 @@
     "costa-rica",
     "tortuguero",
     "panama",
-    "cricamola"
+    "cricamola",
+    "central-america"
   ],
   "range": {
     "native": {
@@ -615,6 +616,13 @@
           "min": 24,
           "max": 28
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
       }
     ],
     "ph": [
@@ -660,6 +668,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/amatitlania-nigrofasciata",
       "html": "<p>The convict cichlid, Amatitlania nigrofasciata, is a Central American cichlid native from Guatemala to Panama. One of the most ubiquitous fish in the hobby, it is hardy and very easily bred, but aggressive and territorial, becomes violent when breeding and is best kept in a species tank. Pink, long-finned and marbled forms exist, and it has been introduced to several countries including the USA and Australia.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/amatitlania-nigrofasciata-2/",
+      "html": "<p>The convict cichlid Amatitlania nigrofasciata hardly ever disappoints with regard to breeding intentions. Any male and any female (recognizable by the copper-red spots on the belly) almost always form a pair. The natural form is no longer available everywhere and at any time.</p>"
     },
     {
       "key": "distribution",
@@ -710,10 +724,22 @@
       "html": "<p>Males tend to grow larger than females and grow pointed dorsal and anal fins as they mature. Some specimens also develop a nuchal hump. Females have a characteristic dark spot in the dorsal fin and are more brightly coloured when in spawning condition.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/amatitlania-nigrofasciata-2/",
+      "html": "<p>Females are recognizable by the copper-red spots on the belly.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/amatitlania-nigrofasciata",
       "html": "<p>One of the most easily-bred species in the hobby, it's ideal for the newcomer to cichlids and fish breeding in general.</p><p>Pairing is often as easy as dropping a male and a female into a tank together. If this fails buy a group of juveniles and grow them on together. Unless you're using a large tank, be prepared to move the surplus specimens once a pair has formed, as the male in particular will not tolerate other fish in his territory. If space is not an issue, you may find that additional pairs form in other parts of the tank. The tank itself should be set up as suggested above, with plenty of caves and hiding places. Add some clay flowerpots to act as potential spawning sites. Condition the fish on a varied diet and perform large (up to 50%) weekly water changes to encourage them to spawn.</p><p>When ready to spawn, both fish will intensify in colour. The female will select and then clean a spawning site. Following some courtship displays, as many as 300 eggs will be laid. The female takes responsibility for guarding and tending them, while the male patrols the perimeters of the territory, keeping all-comers at bay. For a small fish they are surprisingly aggressive, and will even attack an unwary finger at this point.</p><p>The eggs hatch in 3-4 days and the fry drop to the floor of the cave. They are then moved into a pre-excavated pit in the substrate, where they remain until their yolk sacs are absorbed. Some pairs may move the fry to other pits over the course of the next 4-7 days, after which they become free swimming. Feed them on brineshrimp nauplii from this point, moving them onto crushed flake and cichlid pellets as they grow. They will also graze on algae and detritus they find in the tank. Parental care is excellent and continues for several weeks. The young tend to congregate around the female while the male continues to protect the territory from intruders.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/amatitlania-nigrofasciata-2/",
+      "html": "<p>A tip: the greater the size difference, the less chance of serious quarrels. So choose a large male and a much smaller female.</p><p>After a few days in the fresh aquarium with slightly increased temperatures (26-28°C compared to 22-24°C for normal care) it is usually already so far: the pair cleans a flat stone or a root, one spawns and the keeper enjoys the sight of a caring pair with many, many young.</p>"
     },
     {
       "key": "notes",
@@ -725,17 +751,72 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/719bd7fbb218bc6d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/719bd7fbb218bc6d-480.webp",
       "width": 800,
       "height": 688,
       "licence": "dùng với sự cho phép",
       "author": "Hayath / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/amatitlania-nigrofasciata",
       "caption": "...and another.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/719bd7fbb218bc6d-480.webp"
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/621a4c77b4bd272f.webp",
+      "thumb": "https://media.aquatome.com/glaser/621a4c77b4bd272f-480.webp",
+      "width": 850,
+      "height": 737,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/amatitlania-nigrofasciata-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7b753dd0458561b9.webp",
+      "thumb": "https://media.aquatome.com/glaser/7b753dd0458561b9-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/amatitlania-nigrofasciata-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e1bececd227d5ac3.webp",
+      "thumb": "https://media.aquatome.com/glaser/e1bececd227d5ac3-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/amatitlania-nigrofasciata-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "tampfk1Jgdg",
+      "title": "Amatitlania nigrofasciata siquia \"Rio bagaces\" F1 - with fry",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "honvoVYmpa8",
+      "title": "Convict Cichlid Parents Dig Up Food for Their Babies 🐟",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "E6Pzo_YGXpA",
+      "title": "Convict cichlids in nature: Amatitlania and Neetroplus in Costa Rica!",
+      "durationSec": 425,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "-F25pm0_Rdw",
+      "title": "New Setup:  Amatitlania nigrofasciata Biotope Aquarium ( Central America )",
+      "durationSec": 184,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -765,5 +846,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-22"
 }

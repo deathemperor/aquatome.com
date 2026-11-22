@@ -1112,6 +1112,13 @@
           "min": 22.5,
           "max": 26
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
       }
     ],
     "ph": [
@@ -1119,6 +1126,13 @@
         "source": "seriouslyfish",
         "value": {
           "min": 5.5,
+          "max": 7.5
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
           "max": 7.5
         }
       }
@@ -1136,6 +1150,10 @@
       {
         "source": "seriouslyfish",
         "value": 47
+      },
+      {
+        "source": "scotcat",
+        "value": 50
       }
     ],
     "tankCm": [
@@ -1159,10 +1177,22 @@
       "html": "<p>Max size: 470 mm SL (19 in SL). Aquarium size: 400 × 120 cm (157 × 48 in). Temperature: 22.5–26°C (73–79°F). pH: 5.5–7.5. Hardness: 1–20 dGH.</p><p>The manduba, Ageneiosus inermis, is a large auchenipterid catfish found throughout much of South America east of the Andes. At around 470 mm SL it would need an aquarium in excess of 400 x 120 cm as an adult and is largely unsuitable for private aquaria. An obligate carnivore, it can take surprisingly large prey, and the larger Ageneiosus species are often used as food fishes in their native countries.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_inermis.htm",
+      "html": "<p>Family: Auchenipteridae. Size: 50 cm. Temperature: 22–24°C. pH: 6.5–7.5. This genus was previously placed in its own family, Ageneiosidae, and some publications still follow this line.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ageneiosus-inermis",
       "html": "<p>The type locality is given simply as 'Surinami' (Suriname), but the species appears widely distributed throughout much of South America east of the Andes mountains with records existing from Argentina, Bolivia, Brazil, Colombia, Ecuador, French Guiana, Guyana, Paraguay, Suriname, Venezuela and possibly Uruguay. It therefore occurs in a number of major river systems including the Amazon and many of its tributaries (rios Negro, Madeira, Xingu, Tapajós, etc.) plus the ríos Tocantins, Orinoco, Parnaíba, Uruguay, Paraná and de la Plata.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_inermis.htm",
+      "html": "<p>South America: widely distributed east of the Andes. Type locality: Surínam.</p>"
     },
     {
       "key": "habitat",
@@ -1171,10 +1201,22 @@
       "html": "<p>Given its enormous natural range this species is likely to be something of a habitat generalist, but most records we've seen pertain to the lower sections of river channels and larger tributaries. According to reports from sport fishermen it shows a preference for swiftly-flowing stretches among submerged structures or vegetation.</p>"
     },
     {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_inermis.htm",
+      "html": "<p>Prefers rivers in overgrown backwaters where the current is not too strong.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ageneiosus-inermis",
       "html": "<p>Standard length: 470 mm SL (19 in SL). Aquarium base: 400 × 120 cm (157 × 48 in). Volume: ~5760 litres (~1522 US gal).</p><p>Aquarium base dimensions in excess of 400 × 120 cm (157 × 48 in) would be required for fully-grown adult specimens, meaning this species is largely unsuitable for private aquaria.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_inermis.htm",
+      "html": "<p>A large tank would be needed with plenty of swimming space.</p>"
     },
     {
       "key": "maintenance",
@@ -1195,10 +1237,22 @@
       "html": "<p>Larger Ageneiosus spp. are obligate carnivores by nature feeding on invertebrates and other fishes, and capable of consuming surprisingly large prey. Newly-imported specimens thus often refuse to accept anything but live fishes though most can be weaned onto thawed frozen whitebait, shellfish or similar once they recognise them as edible. Some individuals even learn to accept dried foods such as pellets designed for carnivorous species.</p><p>Like the vast majority of predatory fishes this species should not be fed mammalian/avian meat such as beef heart or chicken, and similarly there is little benefit in the long-term use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_inermis.htm",
+      "html": "<p>Feeds on fish and crustaceans.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ageneiosus-inermis",
       "html": "<p>This species is capable of consuming large prey items and is likely to be safe only alongside similarly-sized catfishes or pelagic characins such as Brycon, Colossoma or Piaractus, a combination only possible in public aquaria in the vast majority of cases.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_inermis.htm",
+      "html": "<p>As juveniles they will be fine, but as they mature they become predatory so would need to be kept with fish that are not too small. Reported to be nocturnal.</p>"
     },
     {
       "key": "dimorphism",
@@ -1207,10 +1261,22 @@
       "html": "<p>Adult males of Ageneiosus spp. all display marked, seasonal, sexual modifications, with the area between head and dorsal fin origin (nuchal region) exhibiting a much more acute angle than in non-breeding individuals. The maxillary barbel also becomes ossified and extended in breeding males with tooth-like odontodes apparent on the dorsal and medial surfaces, while the first branched dorsal fin ray is significantly extended giving the fin an enlarged, curved appearance with sharp odontodes appearing along the anterior margin.</p><p>The anterior portion of the anal fin in sexually-active males also exhibits seasonal modifications with the unbranched and first few branched rays becoming thickened, elongate and fused together, forming a structural support for the intromittent organ which itself becomes displaced in such a way that the genital pore is situated at the tip of the modified rays. The interradial membranes and surrounding inclinator/erector muscles also become enlarged. In adult females, the unbranched and first few branched anal-fin rays are much longer than the other rays.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_inermis.htm",
+      "html": "<p>Exhibits sexual dimorphism, like A. dentatus. The first ray of the dorsal fin is very long and has pointed spines.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ageneiosus-inermis",
       "html": "<p>Unrecorded in aquaria although some brief reports of apparent courtship behaviour in the congener A. marmoratus do exist. What is known is that fertilisation occurs internally via the modified genital papillae in males described above, with the ossified and extended maxillary barbels and dorsal fin ray used to court and physically manipulate females.</p><p>Since a seasonal spawning strategy is adopted in nature, induced by the onset of the rainy season, simulation of such via a period of warmth followed by several large, cool water changes may prove useful in captivity.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_inermis.htm",
+      "html": "<p>During reproduction, the mandibular barbels and dorsal spine of the male change, and a copulatory organ appears at the anterior level of the anal fin. Fertilisation is internal, the female being capable of keeping the spermatozoids inserted in the epithelium of her genital tract.</p>"
     },
     {
       "key": "notes",
@@ -1219,14 +1285,70 @@
       "html": "<p>The genus Ageneiosus was at one point classified in the family Ageneiosidae alongside the genus Tetranematichthys, but this was not accepted by all authors. The grouping remains poorly-studied with the last major revision having been conducted by Walsh (1990) in his unpublished dissertation, in which A. inermis was included under the currently synonymous name A. brevifilis. It can be separated from the majority of the genus (except A. marmoratus) by possession of a truncate caudal fin, and from A. marmoratus by a lack of mottled patterning on the body plus its larger adult size.</p><p>The genus, meanwhile, is separated from other auchenipterids by a combination of absence of mental barbels in adults, and the presence of enlarged, tooth-like odontodes formed by outgrowths of the maxillae on the dorsal margin of the maxillary barbels in breeding males. The larger-growing members are often utilised as food fishes in their native countries.</p><p>The family Auchenipteridae is itself distinguished from all other catfishes by the following: body lacking bony plates except on dorsal surface between head and dorsal fin origin which is covered by a row of such plates joined together and clearly visible beneath a thin epidermis; no nasal barbel(s); adipose fin small, occasionally absent; eye covered by adipose tissue and lacking a distinct orbital rim; anterior anal fin rays enlarged and thickened in adult males; maxillary barbel fits in a specialised groove below the eye when drawn towards the body; maxillary barbel directed laterally and dorsally when drawn into said groove.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_inermis.htm",
+      "html": "<p>Description: anal soft rays 34–40; vertebrae 46–51. Body naked and elongated. Head pointed and depressed at the top. Mouth big and wide. The lateral eyes are situated along the level of the mouth, ensuring vision above and below.</p><p>Its flesh is esteemed for its very fine flavour. Frequently captured with nets, the males are difficult to release from the nets because of the strong dorsal spine bordered with denticles.</p><p>Etymology: the genus name Ageneiosus means beardless, referring to the very small maxillary barbels. The specific name inermis comes from \"pinnis inermibus\", i.e. unarmed fins, an apparent misnomer since this catfish possesses dorsal- and pectoral-fin spines.</p><p>Remarks: Ageneiosus marmoratus is now considered a junior synonym of A. inermis (Ribeiro et al. 2017). IUCN: Least Concern (2023).</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ageneiosus-inermis",
       "html": "<ul><li>Castillo, G. O. and G. Oscar Brull (1989). Ageneiosus magoi una nueva especie de bagre ageneiosido (Teleostei, Siluriformes) para Venezuela y algunas notas sobre su historia natural. Acta Biologica Venezuelica 12(3-4), 72-87</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ribeiro, F. R. V. and L. H. Rapp Py-Daniel (2010). Ageneiosus uranophthalmus, a new species of aucheniperid catfish (Osteichthyes: Siluriformes) from river channels of the central Amazon basin, Brazil. Neotropical Ichthyology 8(1), 97-104</li><li>Schraml, E. (2004). 'Gotta Lotta Bottle'. Today's Fishkeeper, November 2004, 32-34</li><li>Sullivan, J. P., J. G. Lundberg and M. Hardman (2006). A phylogenetic analysis of the major groups of catfishes (Teleostei: Siluriformes) using rag1 and rag2 nuclear gene sequences. Molecular Phylogenetics and Evolution 41(3), 636–662</li><li>Walsh, S. J. (1990). A Systematic Revision of the Neotropical Catfish Family Ageneiosidae (Teleostei: Ostariophysi: Siluriformes). Unpublished Ph.D. Dissertation, University of Florida, Gainesville, 1-363</li></ul>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/87c47a81e6dcfbbe.webp",
+      "width": 960,
+      "height": 1280,
+      "licence": "CC BY 4.0",
+      "author": "Alex Karasoulos",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ageneiosus_inermis_454199238.jpg",
+      "caption": "Manduba (Ageneiosus inermis) in Brazil",
+      "thumb": "https://media.aquatome.com/commons/87c47a81e6dcfbbe-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/5f226b45867604ae.webp",
+      "width": 960,
+      "height": 1280,
+      "licence": "CC BY 4.0",
+      "author": "Alex Karasoulos",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ageneiosus_inermis_454199246.jpg",
+      "caption": "Manduba (Ageneiosus inermis) in Brazil",
+      "thumb": "https://media.aquatome.com/commons/5f226b45867604ae-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/619d495fc41a3d83.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY 4.0",
+      "author": "Ezequiel Racker",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ageneiosus_inermis_456742517.jpg",
+      "caption": "Manduba (Ageneiosus inermis) in Argentina",
+      "thumb": "https://media.aquatome.com/commons/619d495fc41a3d83-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "MqudpDzlEpE",
+      "title": "Ageneiosus inermis female with eggs",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ns0oVZ1rfSc",
+      "title": "Ageneiosus inermis eggs again",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "fTk9yZOlMeE",
+      "title": "MMA : BottleNose Catfish | Monster Fish | Ageneiosus inermis #catfish #monsterfish #monstercatfish",
+      "durationSec": 10,
+      "lang": "en-US"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -1255,5 +1377,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-22"
 }
