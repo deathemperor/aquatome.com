@@ -500,7 +500,20 @@ test("a rest file another job is writing: the first look passes over it, and the
 test('a refusal is written whole: no reader finds it half written, and nothing is left beside it', async () => {
   const file = restFile()
   const { f } = refusals(file)
-  await expect(f.get(article)).rejects.toBeInstanceOf(ArchiveRefused)
+  // Every write the reader makes, by its path: one into the rest file itself could be read half done.
+  const fsp = createRequire(import.meta.url)('node:fs/promises') as { writeFile: (...a: unknown[]) => Promise<void> }
+  const writeFile0 = fsp.writeFile
+  const written: unknown[] = []
+  fsp.writeFile = async (...a: unknown[]) => { written.push(a[0]); return writeFile0(...a) }
+  syncBuiltinESMExports()
+  try {
+    await expect(f.get(article)).rejects.toBeInstanceOf(ArchiveRefused)
+  } finally {
+    fsp.writeFile = writeFile0
+    syncBuiltinESMExports()
+  }
+  expect(written).toHaveLength(1)
+  expect(written).not.toContain(file)
   expect(JSON.parse(readFileSync(file, 'utf8'))).toMatchObject({ until: new Date(start + ARCHIVE_REST_MS).toISOString() })
   expect(readdirSync(join(file, '..'))).toEqual(['rest.json'])
 })
