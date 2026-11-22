@@ -129,6 +129,15 @@ test('the lookup in git: what the commit that wrote each record changed on its p
   record({ 'guides/landed': state['guides/landed'], 'guides/units': state['guides/units'], ...later })
   git('add', '.'); git('commit', '-qm', 'moved')
   expect([...(await gitChanged(join(dir, 'content'))(later)).keys()]).toEqual([])
+  // A page whose earlier version isn't JSON counts as one with none: nothing shown, and the step goes on (Codex).
+  mkdirSync(join(dir, 'content/guides/broken'), { recursive: true })
+  writeFileSync(join(dir, 'content/guides/broken/vi.json'), '{')
+  git('add', '.'); git('commit', '-qm', 'a broken page')
+  page('broken', now)
+  const fix = { 'guides/broken': rec('2026-11-17') }
+  record({ ...JSON.parse(readFileSync(join(dir, 'engine-state/vi-rewrite.json'), 'utf8')), ...fix })
+  git('commit', '-qam', 'its rewrite')
+  expect([...(await gitChanged(join(dir, 'content'))(fix)).keys()]).toEqual([])
 })
 
 test('marks what a page kept from a rewrite made with its word listed; the rest stays for --phrases, as its own dry run picks', async () => {

@@ -66,13 +66,15 @@ const same = (a: unknown, b: unknown) => JSON.stringify(a) === JSON.stringify(b)
 export const gitChanged = (contentRoot: string, stateRel = 'engine-state/vi-rewrite.json'): ChangedParts => async want => {
   const cwd = dirname(contentRoot)
   const git = (...a: string[]) => run('git', a, { cwd, maxBuffer: 512 << 20 }).then(r => r.stdout)
-  const show = (rev: string, path: string) => git('show', `${rev}:./${path}`).then(t => JSON.parse(t) as Record<string, unknown>, () => undefined)
+  // A file not there, or not JSON: none.
+  const show = (rev: string, path: string) => git('show', `${rev}:./${path}`).then(t => JSON.parse(t) as Record<string, unknown>).catch(() => undefined)
   const out = new Map<string, Record<string, string>>()
   const left = new Map(Object.entries(want))
   const commits = (await git('log', '--no-merges', '--format=%H', '--', stateRel).catch(() => '')).split('\n').filter(Boolean)
   for (const c of commits) {
     if (!left.size) break
-    const [after, before] = (await Promise.all([show(c, stateRel), show(`${c}^`, stateRel)])).map(x => x ?? {})
+    const [here, there] = await Promise.all([show(c, stateRel), show(`${c}^`, stateRel)])
+    const after: Record<string, unknown> = here ?? {}, before: Record<string, unknown> = there ?? {}
     for (const [id, rec] of left) {
       if (!same(after[id], rec) || same(before[id], rec)) continue
       left.delete(id)
