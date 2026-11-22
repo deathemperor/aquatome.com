@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { ArchiveRefused } from '../src/archive'
+import { LockBusy } from '../src/mac-lock'
 import { htmlToOutline } from '../src/outline'
 import { linkedPhotos, mayTake, photoKey, pickSourcePhotos, storeSourcePhotos } from '../src/source-photos'
 
@@ -194,6 +195,17 @@ test('the archive refusing a picture stops the page, which waits and keeps its p
   const media = { urlFor: (k: string) => `https://media.test/${k}`, put: async () => { throw new Error('nothing to store') } }
   const picked = [{ src: 'https://x.test/a.jpg', alt: '' }]
   await expect(storeSourcePhotos('planetcatfish', 'PlanetCatfish', 'https://x.test/p', picked, { bytes: async () => { throw new ArchiveRefused('2026-11-10T12:00:00.000Z') }, media }, [])).rejects.toBeInstanceOf(ArchiveRefused)
+})
+
+test("the Mac's lock on the archive held elsewhere stops the page as a refusal does: it waits and keeps its pictures", async () => {
+  const media = { urlFor: (k: string) => `https://media.test/${k}`, put: async () => { throw new Error('nothing to store') } }
+  const picked = [{ src: 'https://x.test/a.jpg', alt: '' }]
+  const busy = new LockBusy('the lock on 127.0.0.1:1 was held 600 s, at every try, by one process or more: nothing was asked, and this is no refusal')
+  await expect(storeSourcePhotos('planetcatfish', 'PlanetCatfish', 'https://x.test/p', picked, { bytes: async () => { throw busy }, media }, [])).rejects.toBe(busy)
+  const asked: string[] = []
+  const html = [1, 2].map(n => `<a href="/photo${n}.htm"><img src="/thumb${n}.jpg"></a>`).join('')
+  await expect(linkedPhotos(html, 'https://source.test/species', /photo\d\.htm$/, async u => { asked.push(u); throw busy })).rejects.toBe(busy)
+  expect(asked).toEqual(['https://source.test/photo1.htm'])
 })
 
 test('a refusal on a linked photo page stops before the next photo page', async () => {

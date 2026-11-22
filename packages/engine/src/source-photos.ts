@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto'
 import sharp from 'sharp'
 import type { Photo, SourceId } from '@aq/schema'
 import { parse } from 'node-html-parser'
-import { ArchiveRefused } from './archive'
+import { archiveStops } from './archive'
 import { dropEmails, type PageImage } from './outline'
 import { creditKind, type CreditKind } from './photo-credit'
 import { ARTWORK } from './photos'
@@ -119,7 +119,7 @@ export async function linkedPhotos(html: string, pageUrl: string, photoPage: Reg
   for (const u of pages) {
     let page: string
     // A page the source answers with an error (the browser's fetcher returns it rather than failing) is a failed request too.
-    try { const r = await get(u); if ((r.status ?? 200) >= 400) throw new Error(`HTTP ${r.status}`); page = r.html } catch (e) { if (e instanceof ArchiveRefused) throw e; console.warn(`photo page skipped ${u}: ${(e as Error).message}`); missed?.push(u); continue }
+    try { const r = await get(u); if ((r.status ?? 200) >= 400) throw new Error(`HTTP ${r.status}`); page = r.html } catch (e) { if (archiveStops(e)) throw e; console.warn(`photo page skipped ${u}: ${(e as Error).message}`); missed?.push(u); continue }
     const img = parse(page).querySelectorAll('img').filter(i => !/\.(gif|png)$|thumbnails\//i.test(i.getAttribute('src') ?? '')).sort((a, b) => Number(b.getAttribute('width') ?? 0) - Number(a.getAttribute('width') ?? 0))[0]
     if (!img?.getAttribute('src')) continue
     // The credit follows the image; the site's own "©2026 SCOTCAT.COM" footer is further down.
@@ -232,7 +232,7 @@ export async function storeSourcePhotos(
       try {
         bytes = await deps.bytes(img.src, pageUrl)
       } catch (e) {
-        if (e instanceof ArchiveRefused) throw e // the page waits for the archive, rather than losing its pictures
+        if (archiveStops(e)) throw e // the page waits for the archive, rather than losing its pictures
         console.warn(`photo skipped ${img.src}: ${(e as Error).message}`) // one unreachable image doesn't fail the page
         continue
       }

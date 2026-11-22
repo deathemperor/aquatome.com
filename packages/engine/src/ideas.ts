@@ -1,13 +1,14 @@
-import { mkdir, readdir, readFile, rename, rm, stat, writeFile } from 'node:fs/promises'
+import { mkdir, readdir, readFile, rename, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { slugify, type GuideEntity, type SourceId } from '@aq/schema'
-import { ARCHIVE_POLITE, ArchiveRefused, AsksSpent, cdxQuery, noCopy, type ArchiveReader } from './archive'
+import { ARCHIVE_POLITE, ArchiveRefused, archiveStops, AsksSpent, cdxQuery, noCopy, type ArchiveReader } from './archive'
 import { vnDay } from './ceiling'
 import { LlmError, type Llm } from './claude'
 import { byHand, cycleOnlyHosts, refused } from './cycle-only'
 import { IDEA_SOURCES, ideaHost, NEVER_RESEARCHED, type Drop, type IdeaSource, type Listing } from './idea-sources'
 import { isMarketplace } from './marketplaces'
 import { htmlToOutline, isChallenge } from './outline'
+import { LockBusy, macLock, type Release } from './mac-lock'
 import { piece } from './pieces'
 import { snapshotHash } from './snapshot'
 import { setSourceBlock, sourceBlockedSince } from './state'
@@ -112,7 +113,9 @@ export type MagazineLedger = Pick<MagazineState, 'asks' | 'tried' | 'waits'> & {
   made?: Record<string, number>
 }
 async function readLedger(file: string, m: MagazineState): Promise<MagazineLedger> {
-  const raw = await readFile(file, 'utf8').catch(() => undefined)
+  // The record's copy only when the ledger is missing: one that can't be read stops the step, rather than a stale copy
+  // counting requests again (Codex, 22 Nov 2026).
+  const raw = await readFile(file, 'utf8').catch((e: NodeJS.ErrnoException) => { if (e.code === 'ENOENT') return undefined; throw e })
   if (raw !== undefined) return JSON.parse(raw) as MagazineLedger
   return { ...(m.asks ? { asks: m.asks } : {}), ...(m.tried ? { tried: m.tried } : {}), ...(m.waits ? { waits: m.waits } : {}) }
 }
@@ -129,41 +132,18 @@ function mirror(m: MagazineState, l: MagazineLedger) {
   if (l.tried) m.tried = l.tried; else delete m.tried
   if (l.waits?.length) m.waits = l.waits; else delete m.waits
 }
-/** A lock older than this is a step that died: none runs so long. */
-const LOCK_STALE_MS = 6 * 3_600_000
-/** How long a step that has taken the lock waits before it reads the lock again, to be sure it is still its own. */
-export const LOCK_SETTLE_MS = 2_000
 /**
- * One magazine step at a time on the Mac, since its ledger is read and then written at each request: a step that finds
- * another running fails, naming it, so the cycle logs it. A lock whose step has died, or older than LOCK_STALE_MS, is
- * taken over. Two steps taking over the same one may each remove it in turn (Codex, 21 Nov 2026), so a step that has taken
- * it reads it again LOCK_SETTLE_MS on, and goes on only if it still holds its own number. The release removes only its own.
+ * One magazine step at a time on the Mac, since its ledger is read and then written at each request. The lock is the Mac's
+ * own (mac-lock.ts), freed when its step ends however it ends, so no step takes over a dead one's (Codex, 21 Nov 2026: two
+ * could take over the same one and both run). A step that finds it held waits its turn, as a reader waits for the
+ * Archive's (the chief of staff, 22 Nov 2026): said once in `log` past 2 minutes, and past 10 it runs nothing (LockBusy,
+ * naming the port), which is no refusal, so the cycle logs it and the next cycle runs it. Its record and the ledger are
+ * read only once it holds the lock (cli.ts), so a step that waited spends nothing the one before it spent.
+ * `port`: the magazine's own on the Mac, which only the CLI names (mac-lock.ts); a test's own.
  */
-export async function holdMagazine(file: string, now: () => Date, pid = process.pid, sleep = (ms: number) => new Promise<void>(res => setTimeout(res, ms))): Promise<() => Promise<void>> {
-  await mkdir(dirname(file), { recursive: true })
-  const mine = async () => Number((await readFile(file, 'utf8').catch(() => '')).trim()) === pid
-  for (let tries = 0; ; tries++) {
-    try {
-      await writeFile(file, `${pid}\n`, { flag: 'wx' })
-      await sleep(LOCK_SETTLE_MS)
-      if (!(await mine())) throw new Error(`another magazine step took the lock at the same time (${file})`)
-      return async () => { if (await mine()) await rm(file, { force: true }) }
-    } catch (e) {
-      if ((e as NodeJS.ErrnoException).code !== 'EEXIST' || tries > 0) throw e
-      const seen = async () => ({ pid: Number((await readFile(file, 'utf8').catch(() => '')).trim()), at: await stat(file).then(x => x.mtimeMs, () => 0) })
-      const was = await seen()
-      const age = now().getTime() - was.at
-      // A lock with no number yet is a step that has just taken it and not yet written its own (Codex, 21 Nov 2026).
-      if (!was.pid && age < LOCK_STALE_MS) throw new Error(`another magazine step is starting (${file})`)
-      if (was.pid && alive(was.pid) && age < LOCK_STALE_MS) throw new Error(`another magazine step is running (pid ${was.pid}, ${file})`)
-      // Still the lock just read, just before it goes (Fable, 21 Nov 2026): another step may have taken it over meanwhile.
-      const is = await seen()
-      if (is.pid !== was.pid || is.at !== was.at) throw new Error(`another magazine step is running (${file})`)
-      await rm(file, { force: true })
-    }
-  }
+export async function holdMagazine(port: number, o: Parameters<typeof macLock>[1] = {}): Promise<Release> {
+  return macLock(port, o).catch((e: unknown) => { throw e instanceof LockBusy ? new LockBusy(`another magazine step is running, or something else holds the lock: ${e.message}`) : e })
 }
-const alive = (pid: number) => { try { process.kill(pid, 0); return true } catch (e) { return (e as NodeJS.ErrnoException).code === 'EPERM' } }
 /** The magazine's newest read: GitHub's ideas are made again when it is newer than the one they were made from. */
 const magazineRead = (m: MagazineState) => Object.values(m.readAt ?? {}).filter((x): x is string => !!x).sort().at(-1)
 
@@ -388,6 +368,8 @@ const listedReport = (): Listed => ({ failed: [], needsHuman: [], blocked: [], l
 async function listSite(root: string, s: IdeaSource, before: Post[] | undefined, get: (url: string) => Promise<string>, d: { sleep: (ms: number) => Promise<void>; now: () => Date }, o: { force?: boolean; retryBlocked?: boolean }, report: Listed, archive?: { ledger: MagazineLedger; file: string; reader: ArchiveReader }): Promise<Post[] | undefined> {
   const since = await sourceBlockedSince(root, s.id)
   if (since && !o.retryBlocked && !archive) { report.blocked.push(s.id); return undefined }
+  let reader: ArchiveReader | undefined
+  let untried: (() => Promise<void>) | undefined
   try {
     let listed: Post[] | undefined
     if (!since || o.retryBlocked) {
@@ -402,7 +384,6 @@ async function listSite(root: string, s: IdeaSource, before: Post[] | undefined,
     }
     // Through the Archive: once a day at most, `force` or not, by a reader capped at what's left of the week's requests,
     // each written down before it is made.
-    let reader: ArchiveReader | undefined
     if (!listed) {
       const { ledger: l, file } = archive!
       const tried = l.tried?.[s.id]
@@ -410,6 +391,9 @@ async function listSite(root: string, s: IdeaSource, before: Post[] | undefined,
       if (asksLeft(l, 'listing', d.now()) <= 0) throw new Error(`the week's ${ARCHIVE_LISTING_WEEK} requests to the archive are spent`)
       ;(l.tried ??= {})[s.id] = d.now().toISOString()
       await saveLedger(file, l)
+      // The day's try given back when the read stopped before anything was asked, and not on a refusal: the Mac's lock
+      // held elsewhere, or a rest it can't read (Codex, 22 Nov 2026). A rest on file spends it, as ever.
+      untried = async () => { if (tried) l.tried![s.id] = tried; else delete l.tried![s.id]; if (!Object.keys(l.tried!).length) delete l.tried; await saveLedger(file, l) }
       reader = magazineReader(archive!.reader, l, file, 'listing', d.now, d.sleep)
     }
     const { kept, dropped, titles } = dropPosts(listed ?? await archivedListing(s, reader!), s.drop ?? [])
@@ -423,6 +407,7 @@ async function listSite(root: string, s: IdeaSource, before: Post[] | undefined,
     if (since) await setSourceBlock(root, s.id, undefined)
     return kept
   } catch (err) {
+    if (untried && reader?.asked === 0 && archiveStops(err) && !(err instanceof ArchiveRefused)) await untried()
     report.failed.push(`${s.id}: ${(err as Error).message.slice(0, 120)}, its last titles kept`)
     return undefined
   }
@@ -546,7 +531,9 @@ const magazineOf = (url: string) => IDEA_SOURCES.find(s => s.magazine && ideaHos
  * holds (refreshMagazine), else its first, read from the Archive's newest good copy (archive.ts get: an archived browser check
  * is no copy). Its text (the outline's: no photo is fetched) is held for this run alone and never written anywhere; `hash`
  * stands for it in the record. `page` undefined: `unread` says why, no copy, or none reached (the day's requests spent,
- * the Archive not answering). A refusal of the Archive's is thrown, so the guide waits for the next run.
+ * the Archive not answering). A refusal of the Archive's is thrown, so the guide waits for the next run, and so are the
+ * Mac's lock on it held elsewhere and a rest it can't read (archiveStops; Codex, 22 Nov 2026: written without its post,
+ * the guide spent the day's one on nothing the Archive said).
  */
 async function magazinePost(idea: Idea, posts: MagazineState['posts'], archive: ArchiveReader): Promise<{ url: string; page?: GivenPage & { hash: string }; unread?: 'no copy' | 'not reached' } | undefined> {
   const mine = idea.posts.filter(isMagazinePost)
@@ -557,7 +544,7 @@ async function magazinePost(idea: Idea, posts: MagazineState['posts'], archive: 
   try {
     got = await archive.get(url)
   } catch (e) {
-    if (e instanceof ArchiveRefused) throw e
+    if (archiveStops(e)) throw e
     console.warn(`magazine: ${url}: ${(e as Error).message.slice(0, 120)}`)
     return { url, unread: !(e instanceof AsksSpent) && noCopy(e) ? 'no copy' : 'not reached' }
   }
@@ -695,6 +682,9 @@ export async function writeMagazine(root: string, d: { research: Llm; llm: Llm; 
         report.waited = l.waits.length
         break
       }
+      // The Mac's lock on the Archive held elsewhere, or its rest unreadable: the guide waits for the next run, the idea as
+      // it was, and it is no day of the Archive's rest (Codex, 22 Nov 2026).
+      if (archiveStops(err)) { report.stopped = err.message; break }
       // It counts, and is not tried again (the reason is kept).
       m.guides[key] = { skipped: `failed: ${clean(err).slice(0, 120)}`, at: d.now().toISOString() }
       await counted()

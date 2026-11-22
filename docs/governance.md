@@ -1020,11 +1020,28 @@ The layers above still check the result.
     (`~/.cache/aquatome/magazine-archive.json`), so a cycle that starts again from main forgets none; the record carries
     a copy. The magazine's own listing, GitHub's shops' listings and its forum step follow redirects by hand, never to a
     copy site such as the Archive, nor from a shop's to the magazine's. One magazine guide a day, counted in the Mac's
-    ledger too, once: one whose record isn't saved stops the step. One magazine step runs at a time (one that takes the
-    lock reads it again 2 s on, and goes on only if it is still its own), on the Mac alone (not on GitHub, and only on
-    macOS). The reader, name, pace (10 s) and rest are the archived sources': a rest another job writes while a request
-    waits its pace stops it, and a rest ends only on the Archive's own answer, never on a redirect (one to no address is
-    no copy of a page, and from the index, no answer) nor a 403, and only the rest that request came after. A 403 from
+    ledger too, once: one whose record isn't saved stops the step. One magazine step runs at a time, by a lock the Mac
+    frees when its step ends however it ends, so no step takes over a dead one's (`127.0.0.1:41232`, `mac-lock.ts`); a
+    step that finds it held waits its turn, and reads its record and the ledger only once it holds it, on the Mac alone (not on GitHub, and only on macOS). The reader, name, pace (10 s) and rest are the archived sources',
+    and each request holds the Mac's one lock on the Archive (`127.0.0.1:41231`) from reading the rest to its answer, the
+    rest written or cleared, in every job and checkout, its pace and the minute's wait after a failure outside it (the
+    chief of staff, 21 Nov 2026): no request goes out past a refusal another just got, and no answer clears a wait another
+    just began. Both locks are held on 127.0.0.1 alone, only the CLI names their ports, and every test names a free port of
+    its own; a lock held by anything else is waited for, said in the log once at 2 minutes, and at 10 the run asks the
+    Archive nothing more (the magazine's: the step runs nothing, and the next cycle's runs it), which is no refusal: no rest is written, and nothing is asked without the lock (the chief of
+    staff, 22 Nov 2026). That wait is counted in tries, never read off the clock, and a lock not had, or a rest on file that
+    can't be read under it or holds no time, stops the source as a refusal does: no page is marked, none loses an
+    attempt, a page waits rather than losing its pictures (one the line-read list read early waits for its own turn, as
+    after any failed read), and the magazine's listing keeps its day's try when the lock, or a rest it can't read, stopped it before
+    anything was asked (a rest on file spends it, as ever). As the magazine's post is
+    read, either makes the day's guide wait for the next run, as a refusal does, with no day of the rest counted. A
+    magazine ledger that can't be read stops the step, rather than the record's copy counting the day's requests again. Once one call gives up on the lock, no other in that run asks, even one that has
+    it after. A reader's allowance is read again under the lock, so two calls waiting on one reader never both go; the rest is written whole
+    (to a file beside it, then moved into place), and the look before the lock passes over a rest it can't read, which
+    the look under it reads again; what a reader runs before a request (its pace, its count) never asks the Archive
+    (Codex, 22 Nov 2026). A rest another job writes while a request waits its pace or the lock stops it, and a rest ends
+    only on the Archive's own answer, never on a redirect (one to no address is no copy of a page, and from the index, no
+    answer) nor a 403, and only the rest that request came after, the lock still held. A 403 from
     the Archive's index is a refusal, as a 429; on one page's copy it is no copy of that page, but on a second page's in
     the same run it is a refusal, the reader shut out (the owner's rule on refusals; the chief of staff, 21 Nov 2026).
     The log names both pages. GitHub's ideas step takes what the Mac made of each magazine idea at every run. During a
