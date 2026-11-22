@@ -1,4 +1,4 @@
-import { mkdir, mkdtemp, readFile, readdir, rm, symlink, writeFile } from 'node:fs/promises'
+import { link, mkdir, mkdtemp, readFile, readdir, rm, symlink, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { afterEach, beforeEach, expect, test } from 'vitest'
@@ -53,7 +53,7 @@ test('the swap words: each holds its entry as the list finds it, none cuts how s
   // None of those is ever recast.
   expect([...SURE].filter(s => !unrecast(s))).toEqual([])
   // The repeat check counts "phần lớn", "hầu hết" and "đa số" as one word: no swap of one for another.
-  expect(Object.values(LANE.find(p => p.say === 'phần lớn')!.swap!).flat()).toEqual(['chủ yếu là', 'thường'])
+  expect(Object.values(LANE.find(p => p.say === 'phần lớn')!.swap!).flat()).toEqual(['chủ yếu là'])
   // Out of the lane: what only the source can fix, and two whose words would change what the page says ("recorded in"
   // isn't "lives in"; "tươi sống" takes in fresh dead food).
   for (const s of ['không xương sống', 'được xem là', 'được cho là', 'ghi nhận', 'thức ăn sống']) expect((PHRASES.vi ?? []).find(p => p.say === s)?.swap, s).toBeUndefined()
@@ -76,7 +76,7 @@ test('a pick goes in its text\'s place, and nothing else of the sentence changes
   expect(hitsIn('Đây không phải lựa chọn lý tưởng cho bể nhỏ.')).toMatchObject([{ say: 'lý tưởng', negated: true, options: [] }])
   expect(hitsIn('Cá không ăn rêu, dù vậy vẫn khỏe.')).toMatchObject([{ say: 'dù vậy', negated: false, options: ['tuy nhiên', 'nhưng'] }])
   // A longer key with no words where they would read wrong; "lý do là" not at a sentence's start.
-  expect(hitsIn('Cá dành phần lớn thời gian trốn trong hang.')).toMatchObject([{ key: 'dành phần lớn thời gian', options: [] }])
+  expect(hitsIn('Cá dành phần lớn thời gian trốn trong hang.')).toMatchObject([{ key: 'phần lớn thời gian', options: [] }])
   expect(hitsIn('Loài này lý tưởng nhất cho bể nhỏ.')).toMatchObject([{ key: 'lý tưởng nhất', options: ['tốt nhất'] }])
   expect(hitsIn('Nước cứng, nên bạn nên thay nước.')).toMatchObject([{ key: 'nên bạn nên', options: [] }])
   expect(hitsIn('Lý do là cá thiếu oxy.')).toMatchObject([{ say: 'lý do là', options: [] }])
@@ -114,7 +114,7 @@ test('a word is counted once per sentence, as what it became: a swap that left i
 })
 
 test('each sentence is kept or refused on its own; a pick off the list is none, and a sentence with a figure is never recast', async () => {
-  const parts = body('Dù vậy, cá vẫn khỏe.', 'Cá rất hung hăng với cá khác.', 'Nhiệt độ lý tưởng là 26 °C.')
+  const parts = body('Dù vậy, cá vẫn khỏe.', 'Cá rất hung hăng với cá khác.', 'Nhiệt độ 26 °C là lý tưởng.')
   const { llm, asked } = model({
     pick: [{ picks: [{ s: 1, h: 1, pick: 2 }, { s: 2, h: 1, pick: 9 }, { s: 3, h: 1, pick: 1 }] }],
     review: [{ verdicts: [{ s: 1, ok: true }, { s: 2, ok: false, why: 'không tự nhiên' }] }, { verdicts: [{ s: 1, ok: true }] }],
@@ -215,7 +215,7 @@ const site = async () => {
   await put('species/a/vi.json', { name: 'A', sections: { 'care:sf': '<p>Dù vậy, cá vẫn khỏe.</p><p>Cá cần chỗ trú ẩn.</p>' } })
   await put('guides/b/vi.json', { name: 'B', body: '<p>Bạn nên thay nước.</p>', held: { checks: ['source'], at: '2026-11-20' } })
   await put('glossary/c/vi.json', { name: 'C', definition: '<p>Bạn nên đọc.</p>' })
-  await put('breeds/d/vi.json', { name: 'D', body: '<p>Cá khỏe.</p>', summary: ['Cá khỏe.'], faq: [{ q: 'Cá ăn gì?', a: 'Khẩu phần ăn gồm tảo.' }] })
+  await put('breeds/d/vi.json', { name: 'D', body: '<p>Cá khỏe.</p>', summary: ['Cá khỏe.'], faq: [{ q: 'Cá có dữ không?', a: 'Cá đực rất hung hăng.' }] })
   return root
 }
 const outside = async () => { const dir = await mkdtemp(join(tmpdir(), 'wording-out-')); roots.push(dir); return dir }
@@ -240,7 +240,7 @@ test('a run writes only under its out folder, takes each page up once for its ma
   expect(asked.map(a => a.kind)).toEqual(['pick', 'review', 'pick', 'review'])
   expect(await files(join(root, 'content'))).toEqual(content)
   expect(JSON.parse(await readFile(join(out, 'content/species/a/vi.json'), 'utf8')).sections['care:sf']).toBe('<p>Nhưng cá vẫn khỏe.</p><p>Cá cần chỗ trốn.</p>')
-  expect(JSON.parse(await readFile(join(out, 'content/breeds/d/vi.json'), 'utf8')).faq[0]).toEqual({ q: 'Cá ăn gì?', a: 'Thức ăn gồm tảo.' })
+  expect(JSON.parse(await readFile(join(out, 'content/breeds/d/vi.json'), 'utf8')).faq[0]).toEqual({ q: 'Cá có dữ không?', a: 'Cá đực rất hung dữ.' })
   const state = JSON.parse(await readFile(join(out, '_wording-mend.json'), 'utf8')) as Record<string, { marks: string[] }>
   expect(state['species/a']!.marks).toEqual(['dù vậy: dù vậy, → tuy nhiên, | nhưng', 'chỗ trú: chỗ trú ẩn → chỗ trốn'])
   expect(r.byEntry['dù vậy']).toEqual({ ...none, swapped: 1 })
@@ -313,4 +313,113 @@ test('the kinds take turns, and the rarest entry gets its sentences first', () =
   expect(pick(cands, { 'species/a': { at: '', marks: cands[0]!.marks } }, { limit: 9 }).map(c => c.key)).toEqual(['species/b', 'plants/c', 'guides/d'])
   // A sentence counts for its entry only if the lane may mend it: "Phần lớn cá…" has no word offered and is never recast.
   expect(pick([page('species/e', 'Phần lớn cá khỏe.'), page('species/f', 'Phần lớn là cá hoang dã.')], {}, { limit: 1, perEntry: 1 }).map(c => c.key)).toEqual(['species/f'])
+})
+
+// The re-reads of 22 Nov (Codex, Fable), one test each.
+test('the swap words offer nothing where they would change or break the sentence', () => {
+  const offers = (html: string) => hitsIn(html).map(h => [h.say, h.key, h.options])
+  expect(offers('Phần lớn thời gian cá nằm yên.')).toEqual([['phần lớn', 'phần lớn thời gian', []]]) // "thường" drops "most of the time"
+  expect(offers('Chia thức ăn thành các khẩu phần ăn.')).toEqual([['khẩu phần', undefined, []]]) // "các thức ăn" loses the portions
+  expect(offers('Cá con chuyển sang giai đoạn <em>bơi tự do</em>.')).toEqual([['bơi tự do', undefined, []]])
+  expect(hitsIn('Không <em>phải là lựa chọn lý tưởng.</em>')).toMatchObject([{ say: 'lý tưởng', negated: true, options: [] }]) // the tag is a space
+  expect(offers('Nhưng dù vậy, cá vẫn khỏe.')).toEqual([['dù vậy', 'nhưng dù vậy', []]]) // not "nhưng nhưng"
+  expect(offers('Đây là lựa chọn lý tưởng cho bể nhỏ.')).toEqual([['lý tưởng', 'lựa chọn lý tưởng', ['lựa chọn rất hợp']]]) // never "tốt nhất", a ranking
+  expect(offers('Càng lý tưởng càng tốt.')).toEqual([['lý tưởng', 'lý tưởng', []]])
+  expect(offers('Một lý do là hoa văn của nó.')).toEqual([['lý do là', 'một lý do là', []]])
+  expect(offers('Bệnh này nhiều khả năng hơn là do nấm.')).toEqual([['nhiều khả năng', 'nhiều khả năng hơn', []]])
+  expect(offers('Chim tìm chỗ trú đông.')).toEqual([['chỗ trú', 'chỗ trú đông', []]])
+  expect(offers('Thì bạn cần bể lớn hơn nhiều.')).toEqual([['bạn nên', 'bạn cần', ['cần']]]) // no cut: "cần" is the need
+  expect(offers('Như vậy bạn nên thay nước.')).toEqual([['bạn nên', 'vậy bạn nên', []]]) // "vậy nên" would be a new tic
+  expect(offers('Cá này nuôi chung bể cộng đồng được.')).toEqual([['bể cộng đồng', 'chung bể cộng đồng', []]])
+  expect(offers('Thả vào bể cộng đồng.')).toEqual([['bể cộng đồng', 'bể cộng đồng', ['bể chung']]])
+})
+
+test('a swap that puts one word twice in a row is refused', async () => {
+  const { llm } = model({ pick: [{ picks: [{ s: 1, h: 1, pick: 1 }] }], recast: [{ sentences: [] }] })
+  const r = await mendPage(llm, 'species/a', body('Thả vào bể cộng đồng chung với cá hiền.'))
+  expect(r.outcomes[0]).toMatchObject({ step: 'swap', kept: false, after: 'Thả vào bể chung chung với cá hiền.', why: 'it puts one word twice in a row' })
+  expect(r.changes.size).toBe(0)
+})
+
+test('a capital only where a sentence starts: not after "spp.", and a letter written as a number', () => {
+  const html = 'Anubias spp. nhiều khả năng sống tốt.'
+  expect(applied(html, [{ hit: hitsIn(html).find(h => h.say === 'nhiều khả năng')!, to: 'chắc' }])).toBe('Anubias spp. chắc sống tốt.')
+  expect(applied('Bạn cần &#273;ổi nước.', [{ hit: at('Bạn cần &#273;ổi nước.', 'Bạn cần'), to: '' }])).toBe('Đổi nước.')
+})
+
+test('a recast keeps how many and its one sentence: "cả", a fraction, a stop with no space after, and its own full stop', async () => {
+  const r0 = await mendPage(model({}).llm, 'species/a', body('Cả đàn giữ lãnh thổ.'))
+  expect(r0.left).toMatchObject([{ why: expect.stringContaining('a figure') }])
+  const { llm } = model({
+    recast: [{ sentences: [{ s: 1, vi: 'Cá đực canh ⅔ cái hang.' }, { s: 2, vi: 'Cá đực đuổi cá lạ!Cá cái trốn.' }, { s: 3, vi: 'Cá đực đuổi cá khác khỏi chỗ của nó' }] }],
+    review: [{ verdicts: [{ s: 1, ok: true }] }],
+  })
+  const r = await mendPage(llm, 'species/a', body('Cá đực giữ lãnh thổ quanh hang.', 'Cá đực giữ lãnh thổ rất dữ.', 'Cá đực giữ lãnh thổ.'))
+  expect(r.outcomes.map(x => [x.n, x.kept, x.why])).toEqual([[0, false, expect.stringContaining('a figure')], [1, false, 'it became two sentences'], [2, true, undefined]])
+  expect(r.changes.get('body')).toEqual(new Map([[2, 'Cá đực đuổi cá khác khỏi chỗ của nó.']]))
+})
+
+test('the repeat check counts only what was picked, and a fixed part with the same words as an editable one', async () => {
+  // Only "hung hăng" picked: "Nhìn chung" stays, so nothing of its kind went out or came back.
+  const { llm } = model({ pick: [{ picks: [{ s: 1, h: 1, pick: 0 }, { s: 1, h: 2, pick: 2 }] }], review: [{ verdicts: [{ s: 1, ok: true }] }] })
+  const r = await mendPage(llm, 'species/a', body('Nói chung cá khỏe.', 'Nói chung cá ăn khỏe.', 'Nhìn chung cá hung hăng.'))
+  expect(r.changes.get('body')).toEqual(new Map([[2, 'Nhìn chung cá dữ.']]))
+  // A fixed part that reads like an editable one is still the page's: "Tuy nhiên" a third time is refused.
+  const root = await mkdtemp(join(tmpdir(), 'wording-root-'))
+  roots.push(root)
+  const dir = join(root, 'content/species/t')
+  await mkdir(dir, { recursive: true })
+  await writeFile(join(dir, 'entity.json'), JSON.stringify({ sections: [{ key: 'care', source: 'sf' }, { key: 'habitat', source: 'sf' }, { key: 'diet', source: 'sf', fixed: true }] }))
+  await writeFile(join(dir, 'vi.json'), JSON.stringify({ name: 'T', sections: { 'care:sf': '<p>Tuy nhiên, cá khỏe.</p>', 'habitat:sf': '<p>Dù vậy, cá ăn ít.</p>', 'diet:sf': '<p>Tuy nhiên, cá khỏe.</p>' } }))
+  const [c] = await candidates(join(root, 'content'))
+  const m = model({ pick: [{ picks: [{ s: 1, h: 1, pick: 1 }] }] })
+  const r2 = await mendPage(m.llm, c!.key, c!.parts, { rest: c!.rest ?? '' })
+  expect(r2.outcomes[0]).toMatchObject({ step: 'swap', kept: false, why: 'it puts back a word the page already repeats' })
+})
+
+test('a references heading is the whole heading: "Tài liệu trích dẫn" is one, "Nguồn gốc" isn\'t', () => {
+  expect(flagged([{ field: 'body', text: '<h3>Tài liệu trích dẫn</h3><p>Dù vậy, cá khỏe.</p>' }])).toEqual([])
+  expect(flagged([{ field: 'body', text: '<h3>Nguồn gốc</h3><p>Dù vậy, cá khỏe.</p>' }]).map(f => plain(f.html))).toEqual(['Dù vậy, cá khỏe.'])
+  expect(flagged([{ field: 'body', text: '<h3>Giá tham khảo</h3><p>Dù vậy, cá rẻ.</p>' }])).toHaveLength(1)
+})
+
+test('the picker counts a sentence for a word only where the lane may reach it', () => {
+  const cand = (key: string, ...ps: string[]) => { const parts = body(...ps); return { key, dir: '', vi: {}, parts, marks: [key], sentences: flagged(parts) } }
+  // "giữ lãnh thổ" has no words in place, so only a recast reaches it, and beside "hung hăng" a kept swap ends the sentence first.
+  const cands = [cand('species/a', 'Cá đực hung hăng và giữ lãnh thổ.'), cand('species/b', 'Cá cái hung hăng và giữ lãnh thổ.'), cand('species/c', 'Cá đực giữ lãnh thổ.')]
+  expect(pick(cands, {}, { limit: 2, perEntry: 1 }).map(c => c.key).sort()).toEqual(['species/a', 'species/c'])
+})
+
+test('the trial never writes through a hard link, and a page whose mark fails leaves no draft', async () => {
+  const root = await site()
+  const out = await outside()
+  const live = join(root, 'content/species/a/vi.json')
+  const before = await readFile(live, 'utf8')
+  await mkdir(join(out, 'content/species/a'), { recursive: true })
+  await link(live, join(out, 'content/species/a/vi.json')) // a draft there already, a hard link to the live page
+  const answers = () => model({ pick: [{ picks: [{ s: 1, h: 1, pick: 2 }, { s: 2, h: 1, pick: 1 }] }], review: [{ verdicts: [{ s: 1, ok: true }, { s: 2, ok: true }] }] }).llm
+  const now = () => new Date('2026-11-23T02:00:00Z')
+  const r = await wordingMend(root, { llm: answers(), now }, { out, limit: 1, pages: ['species/a'] })
+  expect(r.failed).toEqual([])
+  expect(await readFile(live, 'utf8')).toBe(before)
+  expect(JSON.parse(await readFile(join(out, 'content/species/a/vi.json'), 'utf8')).sections['care:sf']).toBe('<p>Nhưng cá vẫn khỏe.</p><p>Cá cần chỗ trốn.</p>')
+  // The marks behind a link: read, never written through, so the page fails, and its new draft goes.
+  const out2 = await outside()
+  await writeFile(join(out2, 'real.json'), '{}')
+  await symlink(join(out2, 'real.json'), join(out2, '_wording-mend.json'))
+  const r2 = await wordingMend(root, { llm: answers(), now }, { out: out2, limit: 1, pages: ['species/a'] })
+  expect(r2.failed).toEqual([expect.stringContaining('species/a')])
+  expect((await readdir(out2, { recursive: true })).filter(f => f.endsWith('vi.json'))).toEqual([])
+})
+
+test('two runs in the same millisecond keep two reports; a page record that is a link to nothing stops the run', async () => {
+  const root = await site()
+  const out = await outside()
+  const now = () => new Date('2026-11-23T02:00:00Z')
+  await wordingMend(root, { llm: model({}).llm, now }, { out, limit: 40, dry: true })
+  await wordingMend(root, { llm: model({}).llm, now }, { out, limit: 40, dry: true })
+  expect((await readdir(out)).filter(f => f.startsWith('dry-run-'))).toHaveLength(2)
+  const dir = join(root, 'content/species/a')
+  await symlink(join(dir, 'gone.json'), join(dir, 'entity.json'))
+  await expect(partsOf(dir, {})).rejects.toThrow('a link to nothing')
 })

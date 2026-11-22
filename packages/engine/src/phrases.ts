@@ -35,32 +35,32 @@ export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
   // the transcripts of Vietnamese planted-tank videos (0.3M words). Each is at least ten times rarer in both than on the
   // site, except where its line says; per million words: site | forum | videos.
   vi: [
-    { say: 'nhiều khả năng', instead: '"chắc là", "có lẽ" (giữ đúng mức chắc chắn của nguồn)', swap: { 'có nhiều khả năng': [], 'nhiều khả năng nhất': [], 'nhiều khả năng là': ['chắc là'], 'nhiều khả năng': ['chắc'] } }, // 473 | 5 | 0
+    { say: 'nhiều khả năng', instead: '"chắc là", "có lẽ" (giữ đúng mức chắc chắn của nguồn)', swap: { 'có nhiều khả năng': [], 'nhiều khả năng nhất': [], 'nhiều khả năng hơn': [], 'nhiều khả năng là': ['chắc là'], 'nhiều khả năng': ['chắc'] } }, // 473 | 5 | 0
     // The owner, 2026-11-11: "Cá thài lài doesn't exist in Vietnamese". 0 in the forum and the videos; the plant's name.
     { say: 'thài lài', find: '(?<!(?:cỏ|rau|cây|hoa|họ)\\s)thài lài(?! tía)', instead: 'tên cá: "cá sặc" cho cá gourami, "cá sặc mật ong", "cá bã trầu" (cây "cỏ thài lài" giữ nguyên)' },
     // The reader check's wording findings on top-card pages (2026-11-08); the sweep writes each the keepers' way (sanitize.ts).
     { say: 'trùn chỉ đỏ', find: 'trùng? chỉ đỏ', instead: '"trùng huyết" (bloodworm, ấu trùng muỗi lắc); "trùn chỉ" là giun Tubifex, con khác' }, // 13 | 0 | 0; "trùng chỉ đỏ" 6 | 0 | 0
     { say: 'nửa tá', instead: '"6 con"' }, // 8 | 0 | 0; "nửa tá loài" (six kinds) stays
     { say: 'thủng lỗ đầu', find: '(?:thủng|lủng) lỗ đầu', instead: '"lủng đầu" (bệnh lủng đầu; 11 lần mỗi triệu chữ trên diễn đàn)' }, // 0.4 | 0 | 0; "lủng lỗ đầu" 0.9 | 0 | 0
-    { say: 'dù vậy', find: '(?:dù|tuy) vậy', instead: '"nhưng", "tuy nhiên"', swap: { 'dù vậy,': ['tuy nhiên,', 'nhưng'], 'tuy vậy,': ['tuy nhiên,', 'nhưng'], 'dù vậy': ['tuy nhiên', 'nhưng'], 'tuy vậy': ['tuy nhiên', 'nhưng'] } }, // dù vậy 568 | 5 | 0, tuy vậy 560 | 3 | 26
-    { say: 'phần lớn', instead: '"thường", "chủ yếu", hoặc bỏ', swap: { 'phần lớn là': ['chủ yếu là'], 'dành phần lớn thời gian': [], 'trong phần lớn thời gian': [], 'phần lớn thời gian': ['thường'] } }, // 1100 | 25 | 15
+    { say: 'dù vậy', find: '(?:dù|tuy) vậy', instead: '"nhưng", "tuy nhiên"', swap: { 'nhưng dù vậy': [], 'nhưng tuy vậy': [], 'dù vậy,': ['tuy nhiên,', 'nhưng'], 'tuy vậy,': ['tuy nhiên,', 'nhưng'], 'dù vậy': ['tuy nhiên', 'nhưng'], 'tuy vậy': ['tuy nhiên', 'nhưng'] } }, // dù vậy 568 | 5 | 0, tuy vậy 560 | 3 | 26
+    { say: 'phần lớn', instead: '"thường", "chủ yếu", hoặc bỏ', swap: { 'phần lớn là': ['chủ yếu là'], 'phần lớn thời gian': [] } }, // 1100 | 25 | 15
     { say: 'nhìn chung', instead: '"thường", hoặc bỏ', swap: { 'nhìn chung,': ['nói chung,'], 'nhìn chung': ['nói chung'] } }, // 167 | 14 | 15
     { say: 'nhờ vậy', find: 'nhờ (?:vậy|đó)', instead: 'để câu sau tự nói; "thế là" chỉ khi đúng là chuyện xảy ra tiếp', swap: {} }, // 169 | 12 | 0
-    { say: 'lý do là', instead: '"vì", "là do"', swap: { 'lý do là vì': ['là vì'], 'lý do là': ['là do', 'vì'] } }, // 153 | 6 | 19
+    { say: 'lý do là', instead: '"vì", "là do"', swap: { 'một lý do là': [], 'những lý do là': [], 'các lý do là': [], 'lý do là vì': ['là vì'], 'lý do là': ['là do', 'vì'] } }, // 153 | 6 | 19
     { say: 'thủ phạm', instead: '"nguyên nhân", "là do"' }, // 70 | 6 | 0
-    { say: 'lý tưởng', instead: '"hợp nhất", "tốt nhất", hoặc nói thẳng con số ("nên giữ 24–26 °C")', swap: { 'là lý tưởng': ['là hợp nhất', 'là tốt nhất'], 'rất lý tưởng': ['rất hợp'], 'lý tưởng nhất': ['tốt nhất'], 'lý tưởng': ['tốt nhất'] } }, // 230 | 34 | 15: seven times the forum's
+    { say: 'lý tưởng', instead: '"hợp nhất", "tốt nhất", hoặc nói thẳng con số ("nên giữ 24–26 °C")', swap: { 'lựa chọn lý tưởng': ['lựa chọn rất hợp'], 'là lý tưởng': ['là rất hợp'], 'rất lý tưởng': ['rất hợp'], 'lý tưởng nhất': ['tốt nhất'], 'lý tưởng': [] } }, // 230 | 34 | 15: seven times the forum's
     { say: 'khuyến nghị', instead: '"nên", "khuyên"' }, // 43 | 0 | 0
     { say: 'bắt buộc phải', instead: '"phải"', swap: { 'bắt buộc phải': ['phải'] } }, // 103 | 7 | 37: three times the videos'
     { say: 'tốt nhất bạn nên', instead: '"nên", "tốt nhất là"' }, // 41 | 3 | 0
     // Five times the forum's and three and a half times the videos': most of the pages say it, in most paragraphs.
-    { say: 'bạn nên', find: 'bạn (?:nên|cần)', instead: '"nên", "cần", hoặc nói thẳng việc cần làm ("Thay 30% nước mỗi tuần")', swap: { 'nên bạn nên': [], 'nên bạn cần': [], 'bạn nên': ['nên'], 'bạn cần': ['cần', ''] } }, // bạn nên 848 | 187 | 240, bạn cần 366 | 51 | 137
+    { say: 'bạn nên', find: 'bạn (?:nên|cần)', instead: '"nên", "cần", hoặc nói thẳng việc cần làm ("Thay 30% nước mỗi tuần")', swap: { 'nên bạn nên': [], 'nên bạn cần': [], 'vậy bạn nên': [], 'thế bạn nên': [], 'bạn nên': ['nên'], 'bạn cần': ['cần'] } }, // bạn nên 848 | 187 | 240, bạn cần 366 | 51 | 137
     { say: 'hung hăng', instead: '"dữ", "hung dữ"', swap: { 'hung hăng': ['hung dữ', 'dữ'] } }, // 189 | 9 | 0
     { say: 'bạn cùng bể', instead: '"cá nuôi chung", "nuôi chung với…"', swap: { 'làm bạn cùng bể': ['nuôi chung'] } }, // 222 | 0 | 0
     { say: 'giới chơi', instead: '"người chơi", hoặc bỏ', swap: { 'trong giới chơi': [], 'giới chơi': ['người chơi'] } }, // 220 | 4 | 0
     { say: 'thị trường cá cảnh', instead: '"tiệm cá", "trên thị trường"', swap: {} }, // 126 | 2 | 0
     { say: 'thức ăn sống', find: '(?:thức ăn|mồi) sống', instead: '"thức ăn tươi sống", "đồ tươi"' }, // 427 | 9 | 0
     { say: 'giữ lãnh thổ', instead: '"hay đuổi cá khác khỏi chỗ của nó", "hay giành chỗ"', swap: {} }, // 124 | 0 | 0
-    { say: 'chỗ trú', instead: '"chỗ trốn"', swap: { 'chỗ trú ẩn': ['chỗ trốn'], 'chỗ trú': ['chỗ trốn'] } }, // 107 | 0 | 0
+    { say: 'chỗ trú', instead: '"chỗ trốn"', swap: { 'chỗ trú đông': [], 'chỗ trú ẩn': ['chỗ trốn'], 'chỗ trú': ['chỗ trốn'] } }, // 107 | 0 | 0
     { say: 'keo siêu dính', instead: '"keo 502"' }, // 5 | 0 | 0; the videos say keo 502 (30)
     // The editors' third round (2026-11-07), each held by the references.
     { say: 'rất nên', instead: '"nên", "tốt nhất là"' }, // 41 | 0 | 0
@@ -77,7 +77,7 @@ export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
     // The editors' fifth round, all four seats (2026-11-07). Site rates by kind, where the word sits.
     // The rewrite turned a page's "lọc mút" into "lọc bọt biển (lọc mút)": guides 142 | 0.7 | 0; lọc mút 15 in the forum.
     { say: 'lọc bọt biển', find: 'lọc (?:bọt biển|mút xốp)', instead: '"lọc mút", "lọc bio" (lọc mút chạy sủi)' },
-    { say: 'bể cộng đồng', find: '(?:bể|cá) cộng đồng', instead: '"nuôi chung", "thả chung với cá hiền"', swap: { 'bể cộng đồng': ['bể nuôi chung'] } }, // species 521, guides 226 | 4 | 15; nuôi chung 86 in the forum
+    { say: 'bể cộng đồng', find: '(?:bể|cá) cộng đồng', instead: '"nuôi chung", "thả chung với cá hiền"', swap: { 'chung bể cộng đồng': [], 'bể cộng đồng': ['bể chung'] } }, // species 521, guides 226 | 4 | 15; nuôi chung 86 in the forum
     { say: 'được xem là', instead: 'nói thẳng ("CO2 coi như bắt buộc", "cây khó giữ lâu"), đừng đổi sang "được coi là"' }, // species 184, guides 44 | 7 | 4
     { say: 'ghi nhận', instead: '"có ở", "gặp ở", "thấy ở" (nguồn nói chưa ai thấy thì giữ ý đó)' }, // species 1021, guides 104 | 12 | 4
     { say: 'viên phân nền', instead: '"phân nhét" ("phân nền" là lớp đất trải đáy bể)' }, // 15 | 0 | 0; phân nhét 19 uses
@@ -85,8 +85,8 @@ export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
     { say: 'máy tạo dòng', instead: '"thổi luồng"' }, // 4.8 | 0 | 0; thổi luồng 14 uses
     { say: 'không xương sống', instead: 'gọi tên con: "tép, ốc"' }, // species 242, guides 176 | 0.7 | 0
     { say: 'cá mê cung', find: '(?:cá|nhóm|họ|loài) mê cung', instead: 'gọi tên con: "cá sặc, cá betta"' }, // mê cung: species 263, guides 37 | 0.7 | 0
-    { say: 'bơi tự do', instead: '"tự bơi được", "bơi được"', swap: { 'ấu trùng bơi tự do': [], 'giai đoạn bơi tự do': [], 'dạng bơi tự do': [], 'bơi tự do': ['tự bơi được'] } }, // species 194, guides 59 | 7 | 0
-    { say: 'khẩu phần', instead: '"thức ăn", "cho ăn…"', swap: { 'khẩu phần ăn': ['thức ăn'] } }, // species 153, guides 117 | 14 | 0
+    { say: 'bơi tự do', instead: '"tự bơi được", "bơi được"', swap: {} }, // species 194, guides 59 | 7 | 0
+    { say: 'khẩu phần', instead: '"thức ăn", "cho ăn…"', swap: {} }, // species 153, guides 117 | 14 | 0
     { say: 'cột nước', instead: '"trong nước"' }, // guides 23 | 0.7 | 0
     { say: 'dưới đèn', instead: '"đèn mạnh thì…", "đèn yếu thì…"' }, // guides 42 | 0 | 4
     { say: 'thành phần thực vật', instead: '"có rau", "có tảo"' }, // species 38 | 0 | 0

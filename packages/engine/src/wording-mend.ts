@@ -1,4 +1,4 @@
-import { lstat, mkdir, readdir, readFile, realpath, rm, writeFile } from 'node:fs/promises'
+import { lstat, mkdir, readdir, readFile, realpath, rename, rm, writeFile } from 'node:fs/promises'
 import { basename, dirname, join, resolve, sep } from 'node:path'
 import type { Llm } from './claude'
 import { HEDGE_VI, hedgesAsk, hedgesLost, HEDGES_SCHEMA, type HedgePair } from './hedges'
@@ -36,7 +36,7 @@ import { plain, sentences, splice, type Piece } from './sentences'
  */
 
 const KINDS = ['species', 'plants', 'guides', 'breeds'] as const
-/** Entries whose words say how sure or how many: swapped like for like, never cut, recast only when they read as a hedge. */
+/** Entries whose words say how sure or how many: swapped like for like, never cut, never recast. */
 export const SURE: ReadonlySet<string> = new Set(['phần lớn', 'nhìn chung', 'gần như không', 'nhiều khả năng'])
 /** Entries whose words aren't offered at a sentence's start, where they would leave a fragment ("Là do cá thiếu oxy."). */
 const MID_ONLY: ReadonlySet<string> = new Set(['lý do là'])
@@ -60,13 +60,20 @@ export const markOf = (h: Hit) => (h.key && h.options.length ? `${h.say}: ${h.ke
 /** An entry the recast may not take: it says how sure or how many. */
 export const unrecast = (say: string) => SURE.has(say)
 /**
- * What a recast may neither meet nor bring in: a hedge (hedges.ts), a figure, a number word, a word of how many or how
- * sure that no hedge check reads ("một số", "gần như", "dường như", "tất cả", "luôn"), a tag or an entity.
+ * What a recast may neither meet nor bring in: a hedge (hedges.ts), a figure (any numeral, ⅔ too), a number word, a
+ * word of how many or how sure that no hedge check reads ("một số", "gần như", "dường như", "tất cả", "luôn", "cả",
+ * "đều", "mỗi", "hiếm", "hoàn toàn", "chỉ"), a tag or an entity.
  */
-const COUNTED = /(?<![\p{L}\p{N}])(?:một|hai|ba|bốn|năm|sáu|bảy|tám|chín|mười|mươi|trăm|nghìn|ngàn|triệu|tá|nửa|đôi|vài|mấy|một số|nhiều|ít|gần như|hầu như|hiếm khi|ít khi|có vẻ|dường như|tất cả|mọi|luôn|luôn luôn|không bao giờ|chắc chắn|chắc|khoảng|chừng|tầm|ít nhất|tối đa|tối thiểu|hơn|nhất)(?![\p{L}\p{N}])/iu
-export const counted = (html: string) => { const t = plain(html); return HEDGE_VI.test(t) || COUNTED.test(t) || /\d/.test(t) || /[<&]/.test(html) }
-/** A sentence with a full stop inside it: the splitter may have joined two. */
-const twoSentences = (html: string) => /[.!?…]["'»”’)]*\s+\S/u.test(plain(html).trim())
+const COUNTED = /(?<![\p{L}\p{N}])(?:một|hai|ba|bốn|năm|sáu|bảy|tám|chín|mười|mươi|trăm|nghìn|ngàn|triệu|tá|nửa|đôi|vài|mấy|một số|nhiều|ít|gần như|hầu như|hiếm khi|hiếm|ít khi|có vẻ|dường như|tất cả|mọi|cả|đều|mỗi|hoàn toàn|toàn bộ|chỉ|luôn|luôn luôn|không bao giờ|chắc chắn|chắc|khoảng|chừng|tầm|ít nhất|tối đa|tối thiểu|hơn|nhất)(?![\p{L}\p{N}])/iu
+export const counted = (html: string) => { const t = plain(html); return HEDGE_VI.test(t) || COUNTED.test(t) || /\p{N}/u.test(t) || /[<&]/.test(html) }
+/** A sentence with a full stop, a question or an exclamation mark anywhere before its end: it may be two. */
+const twoSentences = (html: string) => /[.!?…]/u.test(plain(html).replace(/[.!?…"'»”’)\s]+$/u, ''))
+/** How many words stand twice in a row ("nhưng nhưng", "chung chung"). */
+const doubled = (html: string) => [...plain(html).matchAll(/(?<![\p{L}\p{N}])(\p{L}+)\s+\1(?![\p{L}\p{N}])/giu)].length
+/** The end of a sentence a recast must keep: its full stop and what closes after it. */
+const END = /[.!?…]+["'»”’)]*$/u
+/** An abbreviation's full stop ("spp.", "cf.", an initial): no sentence starts after it. */
+const ABBR = /(?:^|[\s(])(?:spp?|ssp|subsp|var|cf|aff|v\.v|vd|tr|\p{L})\.$/iu
 
 /** Each listed text of the lane's entries in a sentence's HTML, outside its tags, in order: a table's longest key first. */
 export function hitsIn(html: string, lane: readonly Phrase[] = LANE): Hit[] {
@@ -75,7 +82,8 @@ export function hitsIn(html: string, lane: readonly Phrase[] = LANE): Hit[] {
   let at = 0
   for (const t of html.split(/(<[^>]*>)/)) { if (t && !t.startsWith('<')) segs.push({ text: t, at }); at += t.length }
   const taken = (s: number, e: number) => out.some(h => s < h.end && h.start < e)
-  const before = (seg: { text: string; at: number }, i: number) => plain(html.slice(0, seg.at)) + seg.text.slice(0, i)
+  // Tags read as spaces here, so "Không <em>phải" keeps its negation.
+  const before = (seg: { text: string; at: number }, i: number) => plain((html.slice(0, seg.at) + seg.text.slice(0, i)).replace(/<[^>]*>/g, ' '))
   for (const p of lane) {
     const keys = Object.keys(p.swap ?? {}).sort((a, b) => b.length - a.length)
     for (const seg of segs) {
@@ -103,7 +111,14 @@ const capitalFrom = (html: string, i: number) => {
     if (c === '<') inTag = true
     else if (c === '>') inTag = false
     else if (inTag) continue
-    else if (c === '&') { const m = /^&(?:#\d+|#x[\da-f]+|\w+);/i.exec(html.slice(k)); if (m) k += m[0].length - 1 }
+    else if (c === '&') {
+      const m = /^&(?:#(\d+)|#x([\da-f]+)|\w+);/i.exec(html.slice(k))
+      if (!m) continue
+      // A letter written as a number ("&#273;" for "đ") becomes its capital, written out.
+      const ch = m[1] ? String.fromCodePoint(Number(m[1])) : m[2] ? String.fromCodePoint(parseInt(m[2], 16)) : ''
+      if (/\p{L}/u.test(ch)) return html.slice(0, k) + ch.toUpperCase() + html.slice(k + m[0].length)
+      k += m[0].length - 1
+    }
     else if (/\p{L}/u.test(c)) return html.slice(0, k) + c.toUpperCase() + html.slice(k + 1)
   }
   return html
@@ -120,12 +135,13 @@ export function applied(html: string, picks: readonly { hit: Hit; to: string }[]
   let s = html
   for (const { hit, to } of [...picks].sort((a, b) => b.hit.start - a.hit.start)) {
     let head = s.slice(0, hit.start), tail = s.slice(hit.end)
-    const first = /(?:^|[.!?…]["'»”’)]*)\s*$/u.test(plain(head))
-    if (to) { s = head + (first || /^\p{Lu}/u.test(hit.from) ? capital(to) : to) + tail; continue }
+    // A sentence's start, or a text that began with a capital (after "spp.", only that tells a new sentence).
+    const big = (/(?:^|[.!?…]["'»”’)]*)\s*$/u.test(plain(head)) && !ABBR.test(plain(head))) || /^\p{Lu}/u.test(hit.from)
+    if (to) { s = head + (big ? capital(to) : to) + tail; continue }
     const open = /<(strong|em|b|i)>\s*$/.exec(head)
     const close = open && new RegExp(`^\\s*</${open[1]}>`).exec(tail)
     if (open && close) { head = head.slice(0, open.index); tail = tail.slice(close[0].length) }
-    if (first) { s = capitalFrom(head + tail.replace(/^\s+/, ''), head.length); continue }
+    if (big) { s = capitalFrom(head + tail.replace(/^\s+/, ''), head.length); continue }
     s = head.replace(/\s+$/, '') + (/^\s*[,.;:!?…)]/.test(tail) ? '' : ' ') + tail.replace(/^\s+/, '')
   }
   return s
@@ -138,7 +154,8 @@ type Vi = { held?: unknown; bodyFixed?: boolean; faqFixed?: boolean; sections?: 
 /** The parts a person fixed (pages.ts fixedParts), failing closed: a record that is there but can't be read stops the run. */
 async function fixedIn(dir: string): Promise<Set<string>> {
   const raw = await readFile(join(dir, 'entity.json'), 'utf8').catch((e: NodeJS.ErrnoException) => {
-    if (e.code === 'ENOENT') return '{}'
+    // Gone, or a link to nothing (which reads as gone): only the first has no fixed parts.
+    if (e.code === 'ENOENT') return lstat(join(dir, 'entity.json')).then(() => { throw new Error(`${dir}: its record is a link to nothing, so its fixed parts aren't known`) }, () => '{}')
     throw new Error(`${dir}: its record can't be read (${e.code ?? e.message}), so its fixed parts aren't known`)
   })
   const e = JSON.parse(raw) as { sections?: { key: string; source: string; fixed?: boolean }[] }
@@ -157,13 +174,15 @@ export async function partsOf(dir: string, vi: Vi): Promise<Part[]> {
   ]
 }
 
+/** A references heading, the whole of it ("Tài liệu tham khảo", "Nguồn:", "5. Trích dẫn"), not one that has the word ("Nguồn gốc"). */
+const REFS = /^(?:\d+[.)]\s*)?(?:tài liệu tham khảo|tham khảo|nguồn tham khảo|nguồn tài liệu|nguồn|tài liệu trích dẫn|trích dẫn|nguồn trích dẫn)\s*:?$/iu
 /** Which sentences (from 0) of a part sit in a heading or a table's header, or under a references heading, to its end. */
 const headings = (pieces: Piece[]) => {
   const out = new Set<number>()
   let n = 0, inHead = false, refs = false
   for (const p of pieces) {
     if (p.sentence) {
-      if (inHead && /tham khảo|nguồn/iu.test(plain(p.html))) refs = true
+      if (inHead && REFS.test(plain(p.html))) refs = true
       if (inHead || refs) out.add(n)
       n++
       continue
@@ -246,6 +265,7 @@ export async function mendPage(llm: Llm, page: string, parts: readonly Part[], o
     const was = listed(f.html), is = listed(now)
     if (!within(is, was) || is.length >= was.length) return `it keeps or adds a listed word: ${is.join(', ') || '(none)'}`
     if (step === 'recast' && is.some(x => says(f).includes(x))) return `it keeps a listed word it was written again for: ${is.join(', ')}`
+    if (doubled(now) > doubled(f.html)) return 'it puts one word twice in a row'
     for (const w of LANE_WORDS) { const n = uses(now, w) - uses(f.html, w); if (n > 0 && (added.get(w) ?? 0) + n > CAP) return `the page would gain more than ${CAP} of "${w}"` }
     const page = ticsWith(f, now), s0 = ticKinds(plain(f.html), 'vi'), s1 = ticKinds(plain(now), 'vi'), took = ticKinds(out.join(' '), 'vi')
     const stacked = page.length - 1
@@ -265,7 +285,7 @@ export async function mendPage(llm: Llm, page: string, parts: readonly Part[], o
   if (offered.length) {
     const prompt = [PICK, ...offered.map((f, s) => [`[${s + 1}] ${shown(f)}`, context(f), ...f.hits.map((h, i) => h.options.length ? `  (${s + 1}.${i + 1}) «${h.from}»: ${h.options.map((x, k) => `${k + 1} = «${x || '(bỏ đi)'}»`).join(', ')}` : '').filter(Boolean)].filter(Boolean).join('\n'))].join('\n\n')
     const r = await llm<{ picks: { s: number; h: number; pick: number }[] }>({ system: 'You edit Vietnamese for an aquarium handbook. Reply only with JSON.', prompt, schema: PICK_SCHEMA, ...(o.models?.pick ? { model: o.models.pick } : { model: 'sonnet' }) })
-    const tries: { f: Flagged; now: string }[] = []
+    const tries: { f: Flagged; now: string; out: string[] }[] = []
     offered.forEach((f, s) => {
       const picks = f.hits.flatMap((hit, i) => {
         const pick = Number(r.picks?.find(x => Number(x.s) === s + 1 && Number(x.h) === i + 1)?.pick ?? 0)
@@ -273,16 +293,17 @@ export async function mendPage(llm: Llm, page: string, parts: readonly Part[], o
       })
       if (!picks.length) return
       const now = applied(f.html, picks)
-      const why = guard(f, now, 'swap', picks.map(p => p.hit.from))
+      const out = picks.map(p => p.hit.from)
+      const why = guard(f, now, 'swap', out)
       if (why) { outcomes.push({ page, field: f.field, n: f.n, says: says(f), step: 'swap', before: f.html, after: now, kept: false, why }); return }
-      tries.push({ f, now })
+      tries.push({ f, now, out })
     })
     if (tries.length) {
       const v = await review(llm, tries, o.models?.review)
-      for (const [i, { f, now }] of tries.entries()) {
+      for (const [i, { f, now, out }] of tries.entries()) {
         const why = v[i]
-        // The cap again: a sentence kept before it may have used its room.
-        const no = why ?? guard(f, now, 'swap', f.hits.filter(h => h.options.length).map(h => h.from))
+        // The cap again: a sentence kept before it may have used its room. What it took out is what was picked.
+        const no = why ?? guard(f, now, 'swap', out)
         if (!no) { take(f, now); done.add(f) }
         outcomes.push({ page, field: f.field, n: f.n, says: says(f), step: 'swap', before: f.html, after: now, kept: !no, ...(no ? { why: no } : {}) })
       }
@@ -303,7 +324,10 @@ export async function mendPage(llm: Llm, page: string, parts: readonly Part[], o
     const tries: { f: Flagged; now: string }[] = []
     recast.forEach((f, s) => {
       const given = (w.sentences?.find(x => Number(x.s) === s + 1)?.vi ?? '').normalize('NFC')
-      const now = inline(given)
+      // A sentence keeps its end: given without its full stop, it would run into the next.
+      const end = END.exec(plain(f.html))?.[0]
+      const raw = inline(given)
+      const now = raw && end && !END.test(plain(raw)) ? `${raw.trimEnd()}${end}` : raw
       const no = (why: string) => outcomes.push({ page, field: f.field, n: f.n, says: says(f), step: 'recast', before: f.html, ...(now ? { after: now } : {}), kept: false, why })
       if (!now) return no('the writer gave no sentence')
       if (now === f.html) return no('the writer gave it back as it was')
@@ -359,9 +383,17 @@ export function withChanges(vi: Vi, parts: readonly Part[], changes: ReadonlyMap
 type Candidate = { key: string; dir: string; vi: Vi; parts: Part[]; marks: string[]; sentences: Flagged[]; rest?: string }
 /** A page's text outside the parts the lane may change (fixed parts, FAQ questions): its repeats count too. */
 const restOf = (vi: Vi, parts: readonly Part[]) => {
-  const mine = new Set(parts.map(p => p.text))
-  return [...Object.values(vi.sections ?? {}), vi.body ?? '', ...(vi.summary ?? []), ...(vi.faq ?? []).flatMap(f => [f.q, f.a])].filter(t => t && !mine.has(t)).join('\n')
+  const mine = new Set(parts.map(p => p.field))
+  const all: [string, string][] = [...Object.entries(vi.sections ?? {}).map(([k, t]): [string, string] => [`sections.${k}`, t]), ['body', vi.body ?? ''], ...(vi.summary ?? []).map((t, i): [string, string] => [`summary.${i}`, t]), ...(vi.faq ?? []).flatMap((f, i): [string, string][] => [[`faq.${i}.q`, f.q], [`faq.${i}.a`, f.a]])]
+  // By the part, not its text: a fixed part with the same words as one the lane may change still counts.
+  return all.filter(([k, t]) => t && !mine.has(k)).map(([, t]) => t).join('\n')
 }
+
+/**
+ * Whether the lane may reach an entry's word in a sentence before any model: a word of it offered in place, or a recast,
+ * which only a sentence with no word offered in place reaches (a kept swap finishes the sentence).
+ */
+const reachable = (f: Flagged, say: string) => f.hits.some(h => h.say === say && h.options.length) || (!f.hits.some(h => h.options.length) && !recastWhy(f))
 
 /** Every page the lane may take up, with its listed sentences and their marks. */
 export async function candidates(contentRoot: string): Promise<Candidate[]> {
@@ -389,8 +421,8 @@ export function pick(cands: readonly Candidate[], state: State, o: { limit: numb
   if (o.pages?.length) return [...new Set(o.pages)].flatMap(k => cands.filter(c => c.key === k)).slice(0, o.limit)
   const byKind = KINDS.map(k => cands.filter(c => c.key.startsWith(`${k}/`) && c.marks.some(m => !state[c.key]?.marks.includes(m))))
   const due = Array.from({ length: Math.max(0, ...byKind.map(l => l.length)) }, (_, i) => byKind.flatMap(l => (l[i] ? [l[i]!] : []))).flat()
-  // A sentence counts for an entry only if the lane may mend it: a word offered in place, or a recast if the swap leaves it.
-  const count = (c: Candidate, say: string) => c.sentences.filter(f => f.hits.some(h => h.say === say) && (f.hits.some(h => h.say === say && h.options.length) || !recastWhy(f))).length
+  // A sentence counts for an entry only if the lane may reach its word there (`reachable`).
+  const count = (c: Candidate, say: string) => c.sentences.filter(f => f.hits.some(h => h.say === say) && reachable(f, say)).length
   const total = new Map(LANE.map(p => [p.say, due.reduce((n, c) => n + count(c, p.say), 0)]))
   const chosen: Candidate[] = []
   for (const p of [...LANE].sort((a, b) => total.get(a.say)! - total.get(b.say)!)) {
@@ -414,10 +446,9 @@ const sumEntry = (r: WordingReport, cands: readonly Candidate[]) => {
   for (const c of cands) for (const f of c.sentences) for (const s of new Set(f.hits.map(h => h.say))) {
     const e = r.byEntry[s]!
     e.sentences++
-    // What the lane may do with it before any model: a word offered in place, or a recast if the swap leaves it.
-    const offered = f.hits.some(h => h.say === s && h.options.length)
-    if (offered) e.offered++
-    if (offered || !recastWhy(f)) e.mendable++
+    // What the lane may do with it before any model: a word offered in place, or a recast if no swap is offered.
+    if (f.hits.some(h => h.say === s && h.options.length)) e.offered++
+    if (reachable(f, s)) e.mendable++
   }
   const end = new Map<string, { says: string[]; as: 'swapped' | 'recast' | 'refused' | 'left'; before?: string; after?: string }>()
   for (const x of r.outcomes) end.set(`${x.page} ${x.field} ${x.n}`, { says: x.says, as: x.kept ? (x.step === 'swap' ? 'swapped' : 'recast') : 'refused', before: x.before, after: x.after })
@@ -451,7 +482,11 @@ export async function wordingMend(root: string, d: { llm: Llm; now: () => Date }
     if (!inside(await real(dirname(file)), out) || (await lstat(file).catch(() => undefined))?.isSymbolicLink()) throw new Error(`${file} leads outside ${o.out}: nothing written`)
     if (text === undefined) return rm(file, { force: true })
     await mkdir(dirname(file), { recursive: true })
-    await writeFile(file, text, flag ? { flag } : {})
+    if (flag) return writeFile(file, text, { flag })
+    // A new file of its own, renamed in: a file already there (a hard link to a page elsewhere) is replaced, not written through.
+    const tmp = `${file}.tmp-${process.pid}`
+    await writeFile(tmp, text, { flag: 'wx' })
+    await rename(tmp, file).catch(async (e: unknown) => { await rm(tmp, { force: true }); throw e })
   }
   const stateFile = join(out, '_wording-mend.json')
   const state = JSON.parse(await readFile(stateFile, 'utf8').catch(() => '{}')) as State
@@ -464,9 +499,13 @@ export async function wordingMend(root: string, d: { llm: Llm; now: () => Date }
         report.outcomes.push(...r.outcomes); report.left.push(...r.left)
         // The page as this run left it: a draft from an earlier run that this one changed nothing in goes.
         const changed = [...r.changes.values()].some(m => m.size)
-        await put(join(out, 'content', c.key, 'vi.json'), changed ? `${JSON.stringify(withChanges(c.vi, c.parts, r.changes), null, 2)}\n` : undefined)
-        state[c.key] = { at: d.now().toISOString(), marks: [...new Set([...(state[c.key]?.marks ?? []), ...c.marks])] }
-        await put(stateFile, `${JSON.stringify(state, null, 1)}\n`)
+        const draft = join(out, 'content', c.key, 'vi.json')
+        const was = await readFile(draft, 'utf8').catch(() => undefined)
+        await put(draft, changed ? `${JSON.stringify(withChanges(c.vi, c.parts, r.changes), null, 2)}\n` : undefined)
+        const marks = { ...state, [c.key]: { at: d.now().toISOString(), marks: [...new Set([...(state[c.key]?.marks ?? []), ...c.marks])] } }
+        // A page whose mark can't be written failed: its draft goes back to what it was, so no draft stands for it.
+        await put(stateFile, `${JSON.stringify(marks, null, 1)}\n`).catch(async (e: unknown) => { await put(draft, was).catch(() => undefined); throw e })
+        state[c.key] = marks[c.key]!
       } catch (err) {
         const said = err instanceof Error ? err.message : String(err)
         // A page the day's line doesn't admit isn't started, and nothing of it is written or marked (pieces.ts).
@@ -477,6 +516,11 @@ export async function wordingMend(root: string, d: { llm: Llm; now: () => Date }
     }
   }
   sumEntry(report, chosen)
-  await put(join(out, reportName(report)), `${JSON.stringify(report, null, 1)}\n`, 'wx')
+  // Two runs that start in the same millisecond each keep their own report.
+  for (let k = 1; ; k++) {
+    const file = join(out, k === 1 ? reportName(report) : reportName(report).replace(/\.json$/, `-${k}.json`))
+    const done = await put(file, `${JSON.stringify(report, null, 1)}\n`, 'wx').then(() => true, (e: NodeJS.ErrnoException) => { if (e.code === 'EEXIST' && k < 9) return false; throw e })
+    if (done) break
+  }
   return report
 }
