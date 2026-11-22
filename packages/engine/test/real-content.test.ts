@@ -1130,6 +1130,12 @@ test('the ten-tips low-tech guide is held by hand in every language it has', () 
   for (const f of langs) expect((JSON.parse(readFileSync(join(dir, f), 'utf8')) as Translation).held, f).toEqual(hold)
 })
 
+// The Writing Lead's words of 22 Nov 2026 on those five sentences (the chief of staff): the red plants and the cheap
+// lights, the mixed substrate, the algae, the tank with no filter as the keeper's own tanks, and the summary's
+// fertiliser point as his advice to dose sparingly with his routine told as his. The body stays bodyFixed, which keeps its
+// summary too, and the guide stays held by hand (test/fixtures/ten-tips-five-1122.json).
+test("the ten-tips guide's five sentences and its summary's fertiliser point hold in the Writing Lead's words", () => handFixesHold('ten-tips-five-1122.json', ''))
+
 // The Writing Lead's lines of 20 Nov 2026 on eight more video guides, in the house form (the maker's tank is "bể trong
 // bài", what was done is said as done, the maker's own hedge stays), each checked against the video's words: the rest of
 // the list of guides where a step the video took had become advice. Each guide is bodyFixed, and faqFixed where its FAQ
