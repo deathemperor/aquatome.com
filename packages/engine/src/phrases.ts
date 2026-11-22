@@ -6,11 +6,12 @@ import { FISH_NAMES, oldNames, SWAPPED, type FishName, type SwappedName } from '
  * Per language the engine writes: words and turns it writes far more often than that language's hobbyists do, each with
  * what they write instead. Found by comparing the site's text with hobbyists' own writing in that language (forums and
  * blogs, kept out of the repository), and checked by the editors (.claude/skills/editors/SKILL.md);
- * docs/review/phrases.md has the method and each phrase's counts. Three readers:
+ * docs/review/phrases.md has the method and each phrase's counts. Four readers:
  * - the writers' prompts (VI_STYLE for Vietnamese);
  * - the `phrasing` content rule, which lists them (never a held count: a model can still write one, and only a model can
  *   mend it);
- * - the style rewrite, `rewrite-vi --phrases`, through phraseRun: each page once for each listed word it has.
+ * - the style rewrite, `rewrite-vi --phrases`, through phraseRun: each page once for each listed word it has;
+ * - the wording mend (`mend-words`), for the entries with `swap`: each sentence mended in place, or recast.
  * A swap that is right in every sentence goes in sanitize.ts WORDING instead, which the sweep makes on every page.
  */
 export type Phrase = {
@@ -20,6 +21,13 @@ export type Phrase = {
   instead: string
   /** The words on a page: a regular expression's source, matched case-blind (whole words where the language spaces them). Defaults to `say`. */
   find?: string
+  /**
+   * The wording mend's words (wording-mend.ts), the Writing Lead's (22 Nov 2026), until the editors read them: each way
+   * a page writes the entry, lower-cased, as the text it takes out, with what may stand in its place, '' to take it out
+   * alone. An empty table sends the entry's sentences to the mend's recast alone. No table keeps the entry out of the
+   * mend: its fix needs what the lane doesn't see (the animal's name, how sure the source is).
+   */
+  swap?: Readonly<Record<string, readonly string[]>>
 }
 
 export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
@@ -27,39 +35,39 @@ export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
   // the transcripts of Vietnamese planted-tank videos (0.3M words). Each is at least ten times rarer in both than on the
   // site, except where its line says; per million words: site | forum | videos.
   vi: [
-    { say: 'nhiều khả năng', instead: '"chắc là", "có lẽ" (giữ đúng mức chắc chắn của nguồn)' }, // 473 | 5 | 0
+    { say: 'nhiều khả năng', instead: '"chắc là", "có lẽ" (giữ đúng mức chắc chắn của nguồn)', swap: { 'có nhiều khả năng': [], 'rất nhiều khả năng': [], 'khá nhiều khả năng': [], 'nhiều khả năng nhất': [], 'nhiều khả năng hơn': [], 'nhiều khả năng là': ['chắc là'], 'nhiều khả năng': ['chắc'] } }, // 473 | 5 | 0
     // The owner, 2026-11-11: "Cá thài lài doesn't exist in Vietnamese". 0 in the forum and the videos; the plant's name.
     { say: 'thài lài', find: '(?<!(?:cỏ|rau|cây|hoa|họ)\\s)thài lài(?! tía)', instead: 'tên cá: "cá sặc" cho cá gourami, "cá sặc mật ong", "cá bã trầu" (cây "cỏ thài lài" giữ nguyên)' },
     // The reader check's wording findings on top-card pages (2026-11-08); the sweep writes each the keepers' way (sanitize.ts).
     { say: 'trùn chỉ đỏ', find: 'trùng? chỉ đỏ', instead: '"trùng huyết" (bloodworm, ấu trùng muỗi lắc); "trùn chỉ" là giun Tubifex, con khác' }, // 13 | 0 | 0; "trùng chỉ đỏ" 6 | 0 | 0
     { say: 'nửa tá', instead: '"6 con"' }, // 8 | 0 | 0; "nửa tá loài" (six kinds) stays
     { say: 'thủng lỗ đầu', find: '(?:thủng|lủng) lỗ đầu', instead: '"lủng đầu" (bệnh lủng đầu; 11 lần mỗi triệu chữ trên diễn đàn)' }, // 0.4 | 0 | 0; "lủng lỗ đầu" 0.9 | 0 | 0
-    { say: 'dù vậy', find: '(?:dù|tuy) vậy', instead: '"nhưng", "tuy nhiên"' }, // dù vậy 568 | 5 | 0, tuy vậy 560 | 3 | 26
-    { say: 'phần lớn', instead: '"thường", "chủ yếu", hoặc bỏ' }, // 1100 | 25 | 15
-    { say: 'nhìn chung', instead: '"thường", hoặc bỏ' }, // 167 | 14 | 15
-    { say: 'nhờ vậy', find: 'nhờ (?:vậy|đó)', instead: 'để câu sau tự nói; "thế là" chỉ khi đúng là chuyện xảy ra tiếp' }, // 169 | 12 | 0
-    { say: 'lý do là', instead: '"vì", "là do"' }, // 153 | 6 | 19
+    { say: 'dù vậy', find: '(?:dù|tuy) vậy', instead: '"nhưng", "tuy nhiên"', swap: { 'nhưng dù vậy': [], 'nhưng tuy vậy': [], 'dù vậy,': ['tuy nhiên,', 'nhưng'], 'tuy vậy,': ['tuy nhiên,', 'nhưng'], 'dù vậy': ['tuy nhiên', 'nhưng'], 'tuy vậy': ['tuy nhiên', 'nhưng'] } }, // dù vậy 568 | 5 | 0, tuy vậy 560 | 3 | 26
+    { say: 'phần lớn', instead: '"thường", "chủ yếu", hoặc bỏ', swap: { 'phần lớn là': ['chủ yếu là'], 'phần lớn thời gian': [] } }, // 1100 | 25 | 15
+    { say: 'nhìn chung', instead: '"thường", hoặc bỏ', swap: { 'nhìn chung,': ['nói chung,'], 'nhìn chung': ['nói chung'] } }, // 167 | 14 | 15
+    { say: 'nhờ vậy', find: 'nhờ (?:vậy|đó)', instead: 'để câu sau tự nói; "thế là" chỉ khi đúng là chuyện xảy ra tiếp', swap: {} }, // 169 | 12 | 0
+    { say: 'lý do là', instead: '"vì", "là do"', swap: { 'một lý do là': [], 'những lý do là': [], 'các lý do là': [], 'rằng lý do là': [], 'dù lý do là': [], 'lý do là vì': ['là vì'], 'lý do là': ['là do', 'vì'] } }, // 153 | 6 | 19
     { say: 'thủ phạm', instead: '"nguyên nhân", "là do"' }, // 70 | 6 | 0
-    { say: 'lý tưởng', instead: '"hợp nhất", "tốt nhất", hoặc nói thẳng con số ("nên giữ 24–26 °C")' }, // 230 | 34 | 15: seven times the forum's
+    { say: 'lý tưởng', instead: '"hợp nhất", "tốt nhất", hoặc nói thẳng con số ("nên giữ 24–26 °C")', swap: { 'lựa chọn lý tưởng nhất': [], 'lựa chọn lý tưởng hơn': [], 'lựa chọn lý tưởng': ['lựa chọn rất hợp'], 'là lý tưởng': ['là rất hợp'], 'rất lý tưởng': ['rất hợp'], 'lý tưởng nhất': ['tốt nhất'], 'lý tưởng': [] } }, // 230 | 34 | 15: seven times the forum's
     { say: 'khuyến nghị', instead: '"nên", "khuyên"' }, // 43 | 0 | 0
-    { say: 'bắt buộc phải', instead: '"phải"' }, // 103 | 7 | 37: three times the videos'
+    { say: 'bắt buộc phải', instead: '"phải"', swap: { 'bắt buộc phải': ['phải'] } }, // 103 | 7 | 37: three times the videos'
     { say: 'tốt nhất bạn nên', instead: '"nên", "tốt nhất là"' }, // 41 | 3 | 0
     // Five times the forum's and three and a half times the videos': most of the pages say it, in most paragraphs.
-    { say: 'bạn nên', find: 'bạn (?:nên|cần)', instead: '"nên", "cần", hoặc nói thẳng việc cần làm ("Thay 30% nước mỗi tuần")' }, // bạn nên 848 | 187 | 240, bạn cần 366 | 51 | 137
-    { say: 'hung hăng', instead: '"dữ", "hung dữ"' }, // 189 | 9 | 0
-    { say: 'bạn cùng bể', instead: '"cá nuôi chung", "nuôi chung với…"' }, // 222 | 0 | 0
-    { say: 'giới chơi', instead: '"người chơi", hoặc bỏ' }, // 220 | 4 | 0
-    { say: 'thị trường cá cảnh', instead: '"tiệm cá", "trên thị trường"' }, // 126 | 2 | 0
+    { say: 'bạn nên', find: 'bạn (?:nên|cần)', instead: '"nên", "cần", hoặc nói thẳng việc cần làm ("Thay 30% nước mỗi tuần")', swap: { 'nên bạn nên': [], 'nên bạn cần': [], 'của bạn cần': [], 'khiến bạn cần': [], 'vậy bạn nên': [], 'thế bạn nên': [], 'bạn nên': ['nên'], 'bạn cần': ['cần'] } }, // bạn nên 848 | 187 | 240, bạn cần 366 | 51 | 137
+    { say: 'hung hăng', instead: '"dữ", "hung dữ"', swap: { 'sự hung hăng': ['sự hung dữ'], 'hành vi hung hăng': ['hành vi hung dữ'], 'cơn hung hăng': ['cơn hung dữ'], 'mức độ hung hăng': ['mức độ hung dữ'], 'thái độ hung hăng': ['thái độ hung dữ'], 'hung hăng': ['hung dữ', 'dữ'] } }, // 189 | 9 | 0
+    { say: 'bạn cùng bể', instead: '"cá nuôi chung", "nuôi chung với…"', swap: { 'làm bạn cùng bể bị': [], 'làm bạn cùng bể cho': [], 'làm bạn cùng bể': ['nuôi chung'] } }, // 222 | 0 | 0
+    { say: 'giới chơi', instead: '"người chơi", hoặc bỏ', swap: { 'trong giới chơi': [], 'giới chơi': ['người chơi'] } }, // 220 | 4 | 0
+    { say: 'thị trường cá cảnh', instead: '"tiệm cá", "trên thị trường"', swap: {} }, // 126 | 2 | 0
     { say: 'thức ăn sống', find: '(?:thức ăn|mồi) sống', instead: '"thức ăn tươi sống", "đồ tươi"' }, // 427 | 9 | 0
-    { say: 'giữ lãnh thổ', instead: '"hay đuổi cá khác khỏi chỗ của nó", "hay giành chỗ"' }, // 124 | 0 | 0
-    { say: 'chỗ trú', instead: '"chỗ trốn"' }, // 107 | 0 | 0
+    { say: 'giữ lãnh thổ', instead: '"hay đuổi cá khác khỏi chỗ của nó", "hay giành chỗ"', swap: {} }, // 124 | 0 | 0
+    { say: 'chỗ trú', instead: '"chỗ trốn"', swap: { 'chỗ trú đông': [], 'chỗ trú ẩn': ['chỗ trốn'], 'chỗ trú': ['chỗ trốn'] } }, // 107 | 0 | 0
     { say: 'keo siêu dính', instead: '"keo 502"' }, // 5 | 0 | 0; the videos say keo 502 (30)
     // The editors' third round (2026-11-07), each held by the references.
     { say: 'rất nên', instead: '"nên", "tốt nhất là"' }, // 41 | 0 | 0
     { say: 'loricariid', instead: '"cá lau kiếng", "cá tỳ bà", "pleco"' }, // 48 | 0 | 0; tỳ bà 30 and lau kiếng 26 in the forum, pleco 11 in the videos
     { say: 'muối bể cá', instead: '"muối hột"' }, // 4 | 0 | 0; muối hột 63 in the forum
     // "giới chơi" used to point here, and the rewrite took it: guides 295, species 120, video guides 117 | 24 | 7.
-    { say: 'dân chơi', instead: 'thường bỏ được ("gọi là…", "hay nuôi…"); "người chơi" khi cần nói ai' },
+    { say: 'dân chơi', instead: 'thường bỏ được ("gọi là…", "hay nuôi…"); "người chơi" khi cần nói ai', swap: { 'trong dân chơi': [], 'dân chơi': ['người chơi'] } },
     { say: 'được chuộng', instead: '"nhiều người nuôi", "dễ kiếm", hoặc nói thẳng vì sao' }, // 20 | 0 | 0
     // The editors' fourth round.
     // The fifth round found "cây thân đứng" rewritten as "cây có thân" (0 in both references).
@@ -69,7 +77,7 @@ export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
     // The editors' fifth round, all four seats (2026-11-07). Site rates by kind, where the word sits.
     // The rewrite turned a page's "lọc mút" into "lọc bọt biển (lọc mút)": guides 142 | 0.7 | 0; lọc mút 15 in the forum.
     { say: 'lọc bọt biển', find: 'lọc (?:bọt biển|mút xốp)', instead: '"lọc mút", "lọc bio" (lọc mút chạy sủi)' },
-    { say: 'bể cộng đồng', find: '(?:bể|cá) cộng đồng', instead: '"nuôi chung", "thả chung với cá hiền"' }, // species 521, guides 226 | 4 | 15; nuôi chung 86 in the forum
+    { say: 'bể cộng đồng', find: '(?:bể|cá) cộng đồng', instead: '"nuôi chung", "thả chung với cá hiền"', swap: { 'chung bể cộng đồng': [], 'bể cộng đồng': ['bể chung'] } }, // species 521, guides 226 | 4 | 15; nuôi chung 86 in the forum
     { say: 'được xem là', instead: 'nói thẳng ("CO2 coi như bắt buộc", "cây khó giữ lâu"), đừng đổi sang "được coi là"' }, // species 184, guides 44 | 7 | 4
     { say: 'ghi nhận', instead: '"có ở", "gặp ở", "thấy ở" (nguồn nói chưa ai thấy thì giữ ý đó)' }, // species 1021, guides 104 | 12 | 4
     { say: 'viên phân nền', instead: '"phân nhét" ("phân nền" là lớp đất trải đáy bể)' }, // 15 | 0 | 0; phân nhét 19 uses
@@ -77,8 +85,8 @@ export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
     { say: 'máy tạo dòng', instead: '"thổi luồng"' }, // 4.8 | 0 | 0; thổi luồng 14 uses
     { say: 'không xương sống', instead: 'gọi tên con: "tép, ốc"' }, // species 242, guides 176 | 0.7 | 0
     { say: 'cá mê cung', find: '(?:cá|nhóm|họ|loài) mê cung', instead: 'gọi tên con: "cá sặc, cá betta"' }, // mê cung: species 263, guides 37 | 0.7 | 0
-    { say: 'bơi tự do', instead: '"tự bơi được", "bơi được"' }, // species 194, guides 59 | 7 | 0
-    { say: 'khẩu phần', instead: '"thức ăn", "cho ăn…"' }, // species 153, guides 117 | 14 | 0
+    { say: 'bơi tự do', instead: '"tự bơi được", "bơi được"', swap: {} }, // species 194, guides 59 | 7 | 0
+    { say: 'khẩu phần', instead: '"thức ăn", "cho ăn…"', swap: {} }, // species 153, guides 117 | 14 | 0
     { say: 'cột nước', instead: '"trong nước"' }, // guides 23 | 0.7 | 0
     { say: 'dưới đèn', instead: '"đèn mạnh thì…", "đèn yếu thì…"' }, // guides 42 | 0 | 4
     { say: 'thành phần thực vật', instead: '"có rau", "có tảo"' }, // species 38 | 0 | 0
@@ -95,7 +103,7 @@ export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
     { say: 'chỗ bắt đầu', instead: '"để tham khảo"' }, // 1.6 | 0 | 0; tham khảo 192 in the forum
     { say: 'được cho là', instead: 'đúng mức chắc của nguồn: chắc thì nói thẳng, nguồn còn ngờ thì "có lẽ", "nghe nói"' }, // species 147, guides 30 | 3.3 | 0
     // The editors' eleventh round (2026-11-08), each checked here.
-    { say: 'gần như không', instead: '"hầu như không", "ít khi", hoặc nói thẳng' }, // guides 142, species 168 | 4 | 15; hầu như không 18.5, ít khi 27.7 in the forum
+    { say: 'gần như không', instead: '"hầu như không", "ít khi", hoặc nói thẳng', swap: { 'gần như không': ['hầu như không'] } }, // guides 142, species 168 | 4 | 15; hầu như không 18.5, ít khi 27.7 in the forum
     { say: 'việc đầu tiên là', instead: '"đầu tiên là", "trước tiên", hoặc làm việc đó luôn' }, // guides 42 | 0 | 3.7; đầu tiên là 129 in the videos
     { say: 'dây hơi', instead: '"dây oxy"' }, // guides 11 | 0 | 0; dây oxy 7.9 in the forum, 3.7 in the videos
     { say: 'gầy rộc', instead: '"gầy", "gầy đi"' }, // species 14, guides 3.3 | 0 | 0; gầy 37 in the forum
@@ -127,11 +135,11 @@ export const TICS: Partial<Record<WrittenLang, Phrase[]>> = {
 }
 /** Two "nên" a word apart at most: "Thế nên nên mua", "nên bạn nên", "nên không nên". */
 const STACKED: Partial<Record<WrittenLang, RegExp>> = { vi: /(?<![\p{L}])nên(?:\s+\p{L}+)?\s+nên(?![\p{L}])/giu }
-const TIC_AT = 3
+export const TIC_AT = 3
 
 /** Languages written without spaces between words: a phrase matches anywhere, not at word edges. */
 const UNSPACED: readonly string[] = ['th']
-const pattern = (p: Phrase, lang: WrittenLang) => UNSPACED.includes(lang) ? `(?:${p.find ?? p.say})` : `(?<![\\p{L}\\p{N}])(?:${p.find ?? p.say})(?![\\p{L}\\p{N}])`
+export const pattern = (p: Phrase, lang: WrittenLang) => UNSPACED.includes(lang) ? `(?:${p.find ?? p.say})` : `(?<![\\p{L}\\p{N}])(?:${p.find ?? p.say})(?![\\p{L}\\p{N}])`
 const listOf = (lang: WrittenLang, list?: Phrase[]) => list ?? PHRASES[lang] ?? []
 
 /** Each listed phrase a text has, once, with how many times: `"nhiều khả năng" ×3 → chắc là, có lẽ`. */
@@ -160,6 +168,10 @@ export function ticSlips(text: string, lang: WrittenLang): string[] {
   const stacked = STACKED[lang] ? [...text.matchAll(STACKED[lang]!)].map(m => m[0]) : []
   return stacked.length ? [...kinds, `"${stacked[0]}"${stacked.length > 1 ? ` ×${stacked.length}` : ''} → một câu một chữ "nên": "Muốn… thì…", "tốt nhất là"`] : kinds
 }
+
+/** Each tic kind's uses in a text, in TICS's order, then the stacked "nên" (a tic at one). */
+export const ticKinds = (text: string, lang: WrittenLang) =>
+  [...(TICS[lang] ?? []).map(p => occurrences(text, p, lang)), STACKED[lang] ? [...text.matchAll(STACKED[lang]!)].length : 0]
 
 /** How many tics a text has: each kind's uses at TIC_AT or more, and each stacked "nên". */
 export const ticCount = (text: string, lang: WrittenLang) =>
