@@ -179,7 +179,12 @@
       "author": "memo_1",
       "sourceUrl": "https://www.inaturalist.org/photos/460932069",
       "caption": "Cá betta lehi trong hộp nhựa trong cạnh thước đo",
-      "setup": true
+      "setup": true,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/460932069-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

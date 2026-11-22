@@ -67,34 +67,6 @@
       "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/645904160.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/645904160-480.webp",
-      "width": 1024,
-      "height": 668,
-      "licence": "CC BY",
-      "author": "Dean Hester",
-      "sourceUrl": "https://www.inaturalist.org/photos/645904160",
-      "caption": "Cá thái dương lùn banded đực trên nền sỏi đá trong bể",
-      "best": true,
-      "kind": "male",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/645904426.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/645904426-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Dean Hester",
-      "sourceUrl": "https://www.inaturalist.org/photos/645904426",
-      "caption": "Cá thái dương lùn banded bơi trên nền sỏi trong bể",
-      "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/369699971.webp",
       "thumb": "https://media.aquatome.com/inaturalist/369699971-480.webp",
       "width": 1024,
@@ -131,8 +103,7 @@
       "caption": "Ba cá thái dương lùn banded cùng nhau trong hộp chụp ảnh",
       "best": true,
       "kind": "group",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/284361447.webp",
@@ -146,6 +117,19 @@
       "best": true,
       "kind": "other",
       "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/645904160.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/645904160-480.webp",
+      "width": 1024,
+      "height": 668,
+      "licence": "CC BY",
+      "author": "Dean Hester",
+      "sourceUrl": "https://www.inaturalist.org/photos/645904160",
+      "caption": "Cá thái dương lùn banded đực trên nền sỏi đá trong bể",
+      "best": true,
+      "kind": "male",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/334269159.webp",
@@ -174,6 +158,19 @@
       "setup": true
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/645904426.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/645904426-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Dean Hester",
+      "sourceUrl": "https://www.inaturalist.org/photos/645904426",
+      "caption": "Cá thái dương lùn banded bơi trên nền sỏi trong bể",
+      "best": true,
+      "kind": "other",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/616414409.webp",
       "thumb": "https://media.aquatome.com/inaturalist/616414409-480.webp",
       "width": 1024,
@@ -197,22 +194,7 @@
       "caption": "Cá thái dương lùn banded trong hộp nhựa trong ngoài tự nhiên",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/640567210.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/640567210-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "rainbowkitten",
-      "sourceUrl": "https://www.inaturalist.org/photos/640567210",
-      "caption": "Cá thái dương lùn banded trong hộp ảnh chụp ngoài thực địa",
-      "best": false,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/18656569.webp",

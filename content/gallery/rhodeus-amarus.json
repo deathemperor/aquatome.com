@@ -89,48 +89,6 @@
       "setup": false
     },
     {
-      "url": "https://media.aquatome.com/gbif/5918610712-e0071ffb3d2db9e4.webp",
-      "thumb": "https://media.aquatome.com/gbif/5918610712-e0071ffb3d2db9e4-480.webp",
-      "width": 800,
-      "height": 585,
-      "licence": "CC0 1.0",
-      "author": "David Tempelman",
-      "sourceUrl": "https://www.gbif.org/occurrence/5918610712",
-      "caption": "Cá bitterling đực ánh xanh tím, bụng đỏ cam, trong khay chụp",
-      "best": true,
-      "kind": "male",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/gbif/6150400616-6b59b9a9551e56e9.webp",
-      "thumb": "https://media.aquatome.com/gbif/6150400616-6b59b9a9551e56e9-480.webp",
-      "width": 800,
-      "height": 570,
-      "licence": "CC0 1.0",
-      "author": "David Tempelman",
-      "sourceUrl": "https://www.gbif.org/occurrence/6150400616",
-      "caption": "Cá bitterling châu Âu ánh tím trong khay trắng",
-      "best": true,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/gbif/5918610712-7fcc0079a9d58115.webp",
-      "thumb": "https://media.aquatome.com/gbif/5918610712-7fcc0079a9d58115-480.webp",
-      "width": 800,
-      "height": 565,
-      "licence": "CC0 1.0",
-      "author": "David Tempelman",
-      "sourceUrl": "https://www.gbif.org/occurrence/5918610712",
-      "caption": "Cá bitterling châu Âu màu sẫm trong khay trắng",
-      "best": true,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/gbif/4956411873-aaae49463447b139.webp",
       "thumb": "https://media.aquatome.com/gbif/4956411873-aaae49463447b139-480.webp",
       "width": 750,
@@ -141,6 +99,61 @@
       "caption": "Hai cá bitterling trong bể chụp nhỏ bên thước đo",
       "best": false,
       "kind": "group",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/gbif/1958365199-d4a734f2b5f1fbcd.webp",
+      "thumb": "https://media.aquatome.com/gbif/1958365199-d4a734f2b5f1fbcd-480.webp",
+      "width": 800,
+      "height": 534,
+      "licence": "CC BY-SA 4.0",
+      "author": "Adri Clements",
+      "sourceUrl": "https://www.gbif.org/occurrence/1958365199",
+      "caption": "Cá bitterling đực màu sắc rực rỡ bơi cùng các cá khác",
+      "best": true,
+      "kind": "male",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/gbif/2834991976-96f7dc1219f795ad.webp",
+      "thumb": "https://media.aquatome.com/gbif/2834991976-96f7dc1219f795ad-480.webp",
+      "width": 1000,
+      "height": 668,
+      "licence": "CC BY-SA 4.0",
+      "author": "Arthur Baart",
+      "sourceUrl": "https://www.gbif.org/occurrence/2834991976",
+      "caption": "Cá bitterling châu Âu trong hộp ảnh nhỏ, nhìn nghiêng rõ nét",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/gbif/3729958987-e1f379d9f16b6600.webp",
+      "thumb": "https://media.aquatome.com/gbif/3729958987-e1f379d9f16b6600-480.webp",
+      "width": 1000,
+      "height": 750,
+      "licence": "CC BY-SA 4.0",
+      "author": "Robert Top",
+      "sourceUrl": "https://www.gbif.org/occurrence/3729958987",
+      "caption": "Cá bitterling châu Âu trong hộp trong suốt, thân ánh hồng",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/gbif/4460185587-d7440740ec66e8dd.webp",
+      "thumb": "https://media.aquatome.com/gbif/4460185587-d7440740ec66e8dd-480.webp",
+      "width": 1000,
+      "height": 755,
+      "licence": "CC BY-SA 4.0",
+      "author": "Robert Top",
+      "sourceUrl": "https://www.gbif.org/occurrence/4460185587",
+      "caption": "Cá bitterling châu Âu trong hộp trong suốt chụp ngoài trời",
+      "best": false,
+      "kind": "other",
       "setup": true,
       "unchecked": true
     },
@@ -262,7 +275,7 @@
       "setup": false
     }
   ],
-  "seen": 157,
-  "updatedAt": "2026-11-21",
-  "builtAt": "2026-11-21"
+  "seen": 170,
+  "updatedAt": "2026-11-22",
+  "builtAt": "2026-11-22"
 }

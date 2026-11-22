@@ -43,6 +43,34 @@
       "setup": false
     },
     {
+      "url": "https://media.aquatome.com/commons/2649dcdaf415bf40.webp",
+      "thumb": "https://media.aquatome.com/commons/2649dcdaf415bf40-480.webp",
+      "width": 1200,
+      "height": 876,
+      "licence": "CC BY-SA 4.0",
+      "author": "NasserHalaweh",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cyprinidae_Leucaspius_delineatus_2_(cropped).jpg",
+      "caption": "Cá moderlieschen bơi trong bể, thân ánh bạc vàng",
+      "sourceCaption": "Leucaspius delineatus SUNBLEAK. Zoo Frankfurt.",
+      "best": true,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/commons/48ba6217e3cdb019.webp",
+      "thumb": "https://media.aquatome.com/commons/48ba6217e3cdb019-480.webp",
+      "width": 968,
+      "height": 685,
+      "licence": "Public domain",
+      "author": "Karelj",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leucaspius_delineatus_Prague_Vltava_2_(cropped).jpg",
+      "caption": "Cá moderlieschen nhìn nghiêng trên nền tối, thân ánh bạc",
+      "sourceCaption": "Fish Moderlieschen on exhibition Subaqueous Vltava, Prague 2011, Czech Republic",
+      "best": true,
+      "kind": "other",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/commons/887c60093911ca34.webp",
       "thumb": "https://media.aquatome.com/commons/887c60093911ca34-480.webp",
       "width": 1200,
@@ -96,38 +124,7 @@
       "sourceCaption": "Impessionen aus dem Naturkundemuseum NiebüllModerlieschen im Aquarium",
       "best": true,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/2649dcdaf415bf40.webp",
-      "thumb": "https://media.aquatome.com/commons/2649dcdaf415bf40-480.webp",
-      "width": 1200,
-      "height": 876,
-      "licence": "CC BY-SA 4.0",
-      "author": "NasserHalaweh",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cyprinidae_Leucaspius_delineatus_2_(cropped).jpg",
-      "caption": "Cá moderlieschen bơi trong bể, thân ánh bạc vàng",
-      "sourceCaption": "Leucaspius delineatus SUNBLEAK. Zoo Frankfurt.",
-      "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/48ba6217e3cdb019.webp",
-      "thumb": "https://media.aquatome.com/commons/48ba6217e3cdb019-480.webp",
-      "width": 968,
-      "height": 685,
-      "licence": "Public domain",
-      "author": "Karelj",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leucaspius_delineatus_Prague_Vltava_2_(cropped).jpg",
-      "caption": "Cá moderlieschen nhìn nghiêng trên nền tối, thân ánh bạc",
-      "sourceCaption": "Fish Moderlieschen on exhibition Subaqueous Vltava, Prague 2011, Czech Republic",
-      "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/303960046.webp",
@@ -235,20 +232,6 @@
       "setup": true
     },
     {
-      "url": "https://media.aquatome.com/gbif/6342102282-8347b4853ee8e2f0.webp",
-      "thumb": "https://media.aquatome.com/gbif/6342102282-8347b4853ee8e2f0-480.webp",
-      "width": 800,
-      "height": 800,
-      "licence": "CC0 1.0",
-      "author": "Waterdiertjes",
-      "sourceUrl": "https://www.gbif.org/occurrence/6342102282",
-      "caption": "Cá moderlieschen trong hộp nhựa trong để chụp ảnh",
-      "best": false,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/322360063.webp",
       "thumb": "https://media.aquatome.com/inaturalist/322360063-480.webp",
       "width": 1024,
@@ -312,6 +295,19 @@
       "best": true,
       "kind": "habitat",
       "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/gbif/6342102282-8347b4853ee8e2f0.webp",
+      "thumb": "https://media.aquatome.com/gbif/6342102282-8347b4853ee8e2f0-480.webp",
+      "width": 800,
+      "height": 800,
+      "licence": "CC0 1.0",
+      "author": "Waterdiertjes",
+      "sourceUrl": "https://www.gbif.org/occurrence/6342102282",
+      "caption": "Cá moderlieschen trong hộp nhựa trong để chụp ảnh",
+      "best": false,
+      "kind": "other",
+      "setup": true
     }
   ],
   "seen": 140,

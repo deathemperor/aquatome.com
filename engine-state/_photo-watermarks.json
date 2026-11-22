@@ -505906,5 +505906,894 @@
     "ocr": [],
     "watermark": false,
     "kind": "none"
+  },
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/35812909/large.jpeg": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/aquariumbreeder/85579e8adcaa7ec3.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/commons/2b7cfc3f61008638.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/commons/4619bd813334c03c.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 41,
+        "mark": false,
+        "hash": "5956446edede8f91c260547533260085d26fe5ee65586ac40d147654356264cd"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 23,
+        "mark": true,
+        "hash": "429dd5f2ce764b265e82073a458a296d6b22616a7463dfa29df0a595435bc5eb"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top left",
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/commons/4f0315006f103f33.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/commons/6d1f96a2bc94648d.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/commons/7483b698944bfc84.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/commons/84e1ec32110cd679.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/commons/d1ae9e2a43c8988a.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/commons/fc9b51497ff83bdb.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/gbif/1958365199-d4a734f2b5f1fbcd.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/gbif/2834991976-96f7dc1219f795ad.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/gbif/3729958987-e1f379d9f16b6600.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/gbif/4460185587-d7440740ec66e8dd.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/123526.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/123527.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/13598939.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/1531961.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/1803261.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 2,
+        "mark": false,
+        "hash": "d59eced1ded07f84c145592f65bdf854358e009c5cd705f5215bf18697fed103"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 3,
+        "mark": false,
+        "hash": "1e472b39b105d349bcd069c4a711b44a2fffb8e274714bb07ecfff69a9a7f67b"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 3,
+        "mark": false,
+        "hash": "39bb88f40d3aa2b2fe9dea67be27c74765db0ebb3ff3cf8fb779af6319fa2045"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 3,
+        "mark": false,
+        "hash": "d8d1790737d57ac4fe91a2c0a28087c0a97c81f5dc6b19d5e4aec20c08bb95ae"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 3,
+        "mark": false,
+        "hash": "7f0a22117f8fe0172cf9209ff622b64a51aaeda21d58b5b62685a93dbe2dad25"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 3,
+        "mark": false,
+        "hash": "09895de0407bcb0386733daa14bdb5dfa544505530c634334a05a60f161b71fc"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 3,
+        "mark": false,
+        "hash": "983bd614bb5afece5ab3b6023f71147cd7b6bc2314f9d27af7422541c6558389"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 3,
+        "mark": false,
+        "hash": "226f76b55acb49701e06ded1d95165d179458f6fc37f5c6fc760ae30dec1c378"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "bottom left",
+      "bottom centre"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/1835983.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/1835984.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/1835986.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/19081792.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/19081798.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/201735524.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/21005676.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/21025630.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/213925716.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/21581092.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 1,
+        "mark": false,
+        "hash": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 2,
+        "mark": false,
+        "hash": "48449a14a4ff7d79bb7a1b6f3d488eba397c36ef25634c111b49baf362511afc"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 2,
+        "mark": false,
+        "hash": "69f59c273b6e669ac32a6dd5e1b2cb63333d8b004f9696447aee2d422ce63763"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 3,
+        "mark": false,
+        "hash": "ad57366865126e55649ecb23ae1d48887544976efea46a48eb5d85a6eeb4d306"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 3,
+        "mark": false,
+        "hash": "9bdb2af6799204a299c603994b8e400e4b1fd625efdb74066cc869fee42c9df3"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 3,
+        "mark": false,
+        "hash": "2abaca4911e68fa9bfbf3482ee797fd5b9045b841fdff7253557c5fe15de6477"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 3,
+        "mark": false,
+        "hash": "38d66d9692ac590000a91b03a88da1c88d51fab2b78f63171f553ecc551a0c6f"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 2,
+        "mark": false,
+        "hash": "8527a891e224136950ff32ca212b45bc93f69fbb801c3b1ebedac52775f99e61"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "bottom left",
+      "bottom centre",
+      "bottom right"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/221896098.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/221896105.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/23169075.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/24331229.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/24755444.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/254959588.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/254959611.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/26357027.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 2,
+        "mark": false,
+        "hash": "ba805a268b799a38a2a1e5aac38ad5d53982214c74dfb267a446220e79f9c26d"
+      },
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 2,
+        "mark": false,
+        "hash": "3fdba35f04dc8c462986c992bcf875546257113072a909c162f7e470e581e278"
+      },
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 2,
+        "mark": false,
+        "hash": "8527a891e224136950ff32ca212b45bc93f69fbb801c3b1ebedac52775f99e61"
+      },
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 2,
+        "mark": false,
+        "hash": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 2,
+        "mark": false,
+        "hash": "4ec9599fc203d176a301536c2e091a19bc852759b255bd6818810a42c5fed14a"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 2,
+        "mark": false,
+        "hash": "9400f1b21cb527d7fa3d3eabba93557a18ebe7a2ca4e471cfe5e4c5b4ca7f767"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 2,
+        "mark": false,
+        "hash": "a2f1c4973c2d9f3784a81a755cf29d9c7723dc899a30522563bed2b606a10fc8"
+      },
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 4,
+        "mark": false,
+        "hash": "ca71a56f4ccd6687ce7f97287a0d83ad398bccea55ded651b24f63586969439e"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "middle right",
+      "middle centre",
+      "middle left"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/26407123.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/26470567.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/26667264.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/272037155.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/27256720.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/276655940.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/28382342.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 16,
+        "mark": true,
+        "hash": "6b33e1821375aa32809317085f949d2803dc350c2797c3d26efb063f42f95a30"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "bottom right"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/3052562.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/3052563.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/312918873.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/316782295.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 20,
+        "mark": true,
+        "hash": "3ca37febbc2ddf397a630cfd60e4eaf3e0a7d1d47279825bbccc0054824eced2"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/316782302.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 19,
+        "mark": true,
+        "hash": "3ee650d3a4f6318a1c31a1e362bee9fbf10694d66b120d8fbf89b79b4e2ba1fb"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/319612227.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 20,
+        "mark": false,
+        "hash": "e14cbe4a763f1ffc866569d9c61bf297740f52c36980e4fd0eaee42bc6af3477"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top left"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/32015599.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/327156129.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 20,
+        "mark": false,
+        "hash": "e4be63d95cc4faf807cb099887036e38baecbc8d165509eaed00c1726c418f8b"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top left"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/327156296.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 21,
+        "mark": false,
+        "hash": "eb89dd817d165e3e712b006e078dd3f4e4e19a2593c2b07eef0272e71a8afcbb"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "bottom left"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/332802089.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 1,
+        "mark": false,
+        "hash": "8c2574892063f995fdf756bce07f46c1a5193e54cd52837ed91e32008ccf41ac"
+      }
+    ],
+    "locations": [
+      "bottom right"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/33541410.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/337982833.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/337982845.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/338127062.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/338127073.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/338127081.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/33816890.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/339217506.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 20,
+        "mark": true,
+        "hash": "d4f182cfc8d41262c1c425bfbfa7aed4a6890aa2a326c3ae484e5e5987b2b1ba"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top left"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/339388483.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 20,
+        "mark": false,
+        "hash": "4df9756f1bb1a1ef89bcf97676b7bf89dda39796640234ef52a1fdc0edb427b1"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/339388484.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 21,
+        "mark": false,
+        "hash": "13c92e22bbf0ea1d1f25847724a22e9c3f43c086b2ef24a66c3571ddf346bf2f"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top left"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/34137263.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/341793075.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 20,
+        "mark": false,
+        "hash": "b3effa2dcec1c201716ca633889b6f461801d04577f3e16cada96f74c7f73626"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top left"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/35026100.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/35026116.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/404071770.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/404071809.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/4047426.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 11,
+        "mark": true,
+        "hash": "d1884257c720dd4e989b007c0053a1bd04ab96496285db0fee6f72dafa0adb02"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "bottom left"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/4047427.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/41825781.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/421608122.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/421608334.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/42899876.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 1,
+        "mark": false,
+        "hash": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 2,
+        "mark": false,
+        "hash": "f2c115a382c600ed22499dcf02cf738a69775c29b84933151714c790dd1b7286"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 1,
+        "mark": false,
+        "hash": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce"
+      },
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 1,
+        "mark": false,
+        "hash": "0efeb8229b9e78d2efb05c0e3e36c693575b1d47a3d56e487b1ac85454af07bf"
+      }
+    ],
+    "locations": [
+      "middle centre",
+      "middle right"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/435101653.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/43895391.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/43895454.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/449001.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/44906894.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/44906906.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/461927088.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/476651187.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/481362506.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/49048747.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/49986973.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/5029114.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 2,
+        "mark": false,
+        "hash": "b7a56873cd771f2c446d369b649430b65a756ba278ff97ec81bb6f55b2e73569"
+      }
+    ],
+    "locations": [
+      "middle right"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/5903829.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 2,
+        "mark": false,
+        "hash": "9ee3b7c03a22b0ebb8995404573bbdb70305786bb8456f147ad26d463e4aef6c"
+      }
+    ],
+    "locations": [
+      "bottom left"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/5921687.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 11,
+        "mark": false,
+        "hash": "a16c2efb1371568033488e276466b4e38b4e7fda46807cb573c9089471b1f18a"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 19,
+        "mark": false,
+        "hash": "29db64d77ede91d52e4b114cbc1955bebba35f2a8cbab61e3596a37e108c56af"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 2,
+        "mark": false,
+        "hash": "4324733b48d7c547695d9df158a9c9db5f1d906ef15c6c04c616a048b3527f93"
+      },
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 8,
+        "mark": false,
+        "hash": "7f5ef3de95249c22c796c6edd80f578002d2dabb92fd0d80d3e6b022508e3313"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "top centre",
+      "top left",
+      "middle left"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/611860667.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/619179892.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/619179905.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/62117126.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/6221996.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/6221997.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/6371281.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 6,
+        "mark": false,
+        "hash": "75f66a8f2df857f74e65ada992331743c2c1ad12f8e6d0cfd9bbc083a9e76755"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 4,
+        "mark": false,
+        "hash": "61bff133af9440ae8869baf6a97f0de220acd97be4e8947a3d7642039859ee79"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 8,
+        "mark": false,
+        "hash": "e82c73f99cbcde6a2aac92ce6bffe60186df2adcb8d4d755887579895f9b9994"
+      },
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 3,
+        "mark": false,
+        "hash": "f02f3e1d95a11325e3830b3a0cb9411dad7041fb6e73e3b24a9099f46b999332"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "top left",
+      "middle centre",
+      "top right",
+      "middle right"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/6371289.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 6,
+        "mark": false,
+        "hash": "75f66a8f2df857f74e65ada992331743c2c1ad12f8e6d0cfd9bbc083a9e76755"
+      },
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 3,
+        "mark": false,
+        "hash": "7e7d0319d1c351aa52eb663c65131c2d8080a00cae3156cb01c4aa4641200ff5"
+      },
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 8,
+        "mark": false,
+        "hash": "e82c73f99cbcde6a2aac92ce6bffe60186df2adcb8d4d755887579895f9b9994"
+      },
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 3,
+        "mark": false,
+        "hash": "f02f3e1d95a11325e3830b3a0cb9411dad7041fb6e73e3b24a9099f46b999332"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "top left",
+      "middle left",
+      "middle right"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/65478484.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/65478486.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/65478488.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/69546364.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 2,
+        "mark": false,
+        "hash": "4ec9599fc203d176a301536c2e091a19bc852759b255bd6818810a42c5fed14a"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 2,
+        "mark": false,
+        "hash": "9400f1b21cb527d7fa3d3eabba93557a18ebe7a2ca4e471cfe5e4c5b4ca7f767"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 2,
+        "mark": false,
+        "hash": "f5ca38f748a1d6eaf726b8a42fb575c3c71f1864a8143301782de13da2d9202b"
+      }
+    ],
+    "locations": [
+      "bottom left",
+      "bottom centre"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/70817766.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/7111007.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/76615028.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/76615039.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/82685461.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/8485063.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/85142632.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/85142645.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/8710001.webp": {
+    "ocr": []
   }
 }

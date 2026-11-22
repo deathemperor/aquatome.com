@@ -9,14 +9,14 @@ under `<lang>/<path>`.
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
 | video-guide | 1103 | 782 (vi 782) | 782 |
-| translation | 2433 | 360 (vi 360) | 360 |
+| translation | 2469 | 361 (vi 361) | 361 |
 | vi-rewrite | 431 | 43 (vi 43) | 43 |
 | reader-rewrite | 51 | 0 | 0 |
 | title | 27 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
 | topic | 142 | 9 (id 1, ms 1, th 6, vi 1) | 9 |
-| product | 32 | 2 (vi 2) | 2 |
-| product-reviews | 25 | 0 | 0 |
+| product | 33 | 2 (vi 2) | 2 |
+| product-reviews | 26 | 0 | 0 |
 | summary | 2832 | 169 (vi 169) | 169 |
 | localize | 2958 | 845 (id 357, ms 73, th 415) | 845 |
 | glossary | 40 | 0 | 0 |
@@ -126,20 +126,20 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-360 of 2433 pages under the bar.
+361 of 2469 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 340 | 969 |
-| Says what the source doesn't (invented, added) | 303 | 578 |
-| Wording: unnatural, literal, stiff or chatty | 265 | 478 |
+| Other | 341 | 970 |
+| Says what the source doesn't (invented, added) | 304 | 579 |
+| Wording: unnatural, literal, stiff or chatty | 266 | 479 |
 | Meaning changed or wrong | 221 | 327 |
-| Hobby terms and names | 180 | 242 |
+| Hobby terms and names | 181 | 244 |
 | Leaves out what the source says | 118 | 160 |
-| Text left in another language | 116 | 143 |
+| Text left in another language | 117 | 144 |
 | States as certain what the source hedges, or what garbled captions only hint at | 96 | 112 |
 | A number, unit, dose or price | 79 | 102 |
-| Repeats itself (intro, summary, steps and FAQ) | 63 | 74 |
+| Repeats itself (intro, summary, steps and FAQ) | 64 | 75 |
 | Names or points to the video, channel, creator or source | 10 | 11 |
 | Copied from the transcript or source | 3 | 3 |
 | Off the title's topic | 1 | 1 |
@@ -392,7 +392,7 @@ under `<lang>/<path>`.
 
 ## product: product pages, against their research
 
-2 of 32 pages under the bar.
+2 of 33 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -432,7 +432,7 @@ under `<lang>/<path>`.
 
 ## product-reviews: product pages' review summaries (the code's checks: 1 pass, 0 fail)
 
-0 of 25 pages under the bar.
+0 of 26 pages under the bar.
 
 ## summary: species' quick summaries (the numbers and claims check: 1 pass, 0 fail)
 

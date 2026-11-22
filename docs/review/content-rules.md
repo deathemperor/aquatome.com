@@ -5,7 +5,7 @@ the site serves (`packages/engine/src/content-rules.ts`, docs/governance.md). A 
 a rule can fix safely is fixed whenever the engine writes a page, and on every page each cycle before the build
 (`pnpm engine sweep`; the real-content test holds those rules at zero); the rest is listed here, each page once per rule.
 
-Pages checked: 9427 (Vietnamese 5228, Indonesian 1777, Thai 1775, Malay 647). Imperial units
+Pages checked: 9456 (Vietnamese 5257, Indonesian 1777, Thai 1775, Malay 647). Imperial units
 beside a metric figure: feet 1, gallon 22, inch 1, °F 1.
 
 ## Numbered headings broken or miscounted (2)
@@ -146,8 +146,8 @@ Words and turns the engine writes far more often than the language's hobbyists d
 - vi · "bể cộng đồng" → "nuôi chung", "thả chung với cá hiền": 841 pages, 1288 times
 - vi · "gần như không" → "hầu như không", "ít khi", hoặc nói thẳng: 609 pages, 848 times
 - vi · "bạn cùng bể" → "cá nuôi chung", "nuôi chung với…": 559 pages, 743 times
+- vi · "không xương sống" → trong bể (cá nuôi chung, thuốc, đồng, thức ăn cho chúng) gọi tên con: "tép, ốc", thêm "cua", "tôm hùm đất" khi nguồn nói; ngoài tự nhiên (cá ăn gì, trong bụng có gì) gọi tên con nguồn nói ("côn trùng", "giáp xác"), nguồn không nói con nào thì để "động vật không xương sống": 554 pages, 635 times
 - vi · "lý tưởng" → "hợp nhất", "tốt nhất", hoặc nói thẳng con số ("nên giữ 24–26 °C"): 554 pages, 757 times
-- vi · "không xương sống" → trong bể (cá nuôi chung, thuốc, đồng, thức ăn cho chúng) gọi tên con: "tép, ốc", thêm "cua", "tôm hùm đất" khi nguồn nói; ngoài tự nhiên (cá ăn gì, trong bụng có gì) gọi tên con nguồn nói ("côn trùng", "giáp xác"), nguồn không nói con nào thì để "động vật không xương sống": 553 pages, 634 times
 - vi · "giới chơi" → "người chơi", hoặc bỏ: 532 pages, 778 times
 - vi · "nhờ vậy" → để câu sau tự nói; "thế là" chỉ khi đúng là chuyện xảy ra tiếp: 507 pages, 618 times
 - vi · "lý do là" → "vì", "là do": 485 pages, 533 times

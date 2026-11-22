@@ -7,17 +7,17 @@ Written by `pnpm engine gallery` (2026-11-22). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
 | shop | 60 | 131 | 81 | 24 | 36 | 200 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 890 | 32 | 9 | 27 | 904 |
-| rest | 20 | 1938 | 81 | 0 | 120 | 1899 |
+| covered | 30 | 899 | 32 | 9 | 27 | 913 |
+| rest | 20 | 1948 | 81 | 0 | 121 | 1908 |
 
-## Short of target: every source read (806)
+## Short of target: every source read (809)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
 | Page | Tier | Photos | Target |
 | --- | --- | --- | --- |
 | species/betta-mahachaiensis | covered | 9 | 30 |
-| species/ageneiosus-inermis | rest | 0 | 20 |
+| species/ageneiosus-inermis | covered | 0 | 30 |
 | species/amphilius-frieli | rest | 0 | 20 |
 | species/amphilius-kivuensis | rest | 0 | 20 |
 | species/barbodes-dunckeri | covered | 4 | 30 |
@@ -360,9 +360,9 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | breeds/electric-blue-acara | covered | 0 | 30 |
 | breeds/platinum-angelfish | covered | 1 | 30 |
 | breeds/albino-oscar | covered | 7 | 30 |
+| species/ambastaia-sidthimunki | covered | 1 | 30 |
 | species/epiplatys-annulatus | covered | 2 | 30 |
 | species/akysis-vespa | covered | 0 | 30 |
-| species/ambastaia-sidthimunki | covered | 1 | 30 |
 | species/corydoras-fowleri | covered | 1 | 30 |
 | species/acrochordonichthys-rugosus | covered | 0 | 30 |
 | species/aguarunichthys-torosus | covered | 0 | 30 |
@@ -392,6 +392,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-septentrionalis | covered | 0 | 30 |
 | species/corydoras-splendens | covered | 4 | 30 |
 | species/denticetopsis-seducta | covered | 0 | 30 |
+| species/desmopuntius-rhomboocellatus | covered | 0 | 30 |
 | species/dianema-urostriatum | covered | 0 | 30 |
 | species/erethistes-pusillus | covered | 1 | 30 |
 | species/farlowella-amazonum | covered | 0 | 30 |
@@ -440,6 +441,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/acheilognathus-macropterus | covered | 3 | 30 |
 | species/acnodon-normani | covered | 1 | 30 |
 | species/ageneiosus-magoi | covered | 3 | 30 |
+| species/ageneiosus-ucayalensis | covered | 0 | 30 |
 | species/aguarunichthys-tocantinsensis | covered | 0 | 30 |
 | species/akysis-hendricksoni | covered | 0 | 30 |
 | species/akysis-longifilis | covered | 0 | 30 |
@@ -632,7 +634,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/denticetopsis-praecox | covered | 0 | 30 |
 | species/desmopuntius-hexazona | covered | 4 | 30 |
 | species/desmopuntius-pentazona | covered | 3 | 30 |
-| species/desmopuntius-rhomboocellatus | covered | 0 | 30 |
 | species/devario-assamensis | covered | 1 | 30 |
 | species/devario-auropurpureus | covered | 0 | 30 |
 | species/devario-maetaengensis | covered | 1 | 30 |
@@ -817,6 +818,8 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/rita-kuturnee | covered | 0 | 30 |
 | species/serrasalmus-brandtii | covered | 3 | 30 |
 | species/serrasalmus-gouldingi | covered | 0 | 30 |
+| species/synodontis-bastiani | covered | 0 | 30 |
+| species/synodontis-lucipinnis | covered | 1 | 30 |
 | species/astroblepus-mindoensis | rest | 1 | 20 |
 | species/eutropiichthys-vacha | rest | 1 | 20 |
 | species/hyphessobrycon-compressus | rest | 1 | 20 |

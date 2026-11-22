@@ -80,6 +80,19 @@
       "setup": false
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/100841307.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/100841307-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA",
+      "author": "tobyyy",
+      "sourceUrl": "https://www.inaturalist.org/photos/100841307",
+      "caption": "Ốc tháp Malaysia vỏ có đốm nâu đỏ bò trên bùn",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/40065696.webp",
       "thumb": "https://media.aquatome.com/inaturalist/40065696-480.webp",
       "width": 1024,
@@ -91,48 +104,6 @@
       "best": false,
       "kind": "group",
       "setup": false
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/95821316.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/95821316-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Michele Jones",
-      "sourceUrl": "https://www.inaturalist.org/photos/95821316",
-      "caption": "Ốc tháp Malaysia nhỏ trên nền đáy đá sỏi ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/100841307.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/100841307-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-SA",
-      "author": "tobyyy",
-      "sourceUrl": "https://www.inaturalist.org/photos/100841307",
-      "caption": "Ốc tháp Malaysia vỏ có đốm nâu đỏ bò trên bùn",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/103329068.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/103329068-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Cheng-Te Hsu",
-      "sourceUrl": "https://www.inaturalist.org/photos/103329068",
-      "caption": "Ốc tháp Malaysia bò trên đá rêu dưới nước",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/29797366.webp",
@@ -171,6 +142,19 @@
       "caption": "Ốc tháp Malaysia sống bò trên bề mặt, có rêu bám vỏ",
       "best": true,
       "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/95821316.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/95821316-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Michele Jones",
+      "sourceUrl": "https://www.inaturalist.org/photos/95821316",
+      "caption": "Ốc tháp Malaysia nhỏ trên nền đáy đá sỏi ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
       "setup": false
     },
     {
@@ -260,6 +244,19 @@
       "author": "TheMongrelKoi",
       "sourceUrl": "https://www.inaturalist.org/photos/72470726",
       "caption": "Ốc tháp Malaysia màu xanh lục bò trên đá rêu dưới nước",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/103329068.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/103329068-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Cheng-Te Hsu",
+      "sourceUrl": "https://www.inaturalist.org/photos/103329068",
+      "caption": "Ốc tháp Malaysia bò trên đá rêu dưới nước",
       "best": true,
       "kind": "habitat",
       "setup": false

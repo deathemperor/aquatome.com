@@ -182,7 +182,12 @@
       "author": "Hendra",
       "sourceUrl": "https://www.inaturalist.org/photos/401028129",
       "caption": "Cá betta cracens trong hộp ảnh nhỏ có thước đo",
-      "setup": true
+      "setup": true,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/401028129-large.webp",
+        "width": 2048,
+        "height": 1155
+      }
     }
   ],
   "videos": [],

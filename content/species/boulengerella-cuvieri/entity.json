@@ -1005,7 +1005,12 @@
       "author": "Bruno R. Möller",
       "sourceUrl": "https://www.inaturalist.org/photos/379535843",
       "caption": "Cá Boulengerella cuvieri bơi dưới nước trong môi trường tự nhiên",
-      "setup": false
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/379535843-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],
