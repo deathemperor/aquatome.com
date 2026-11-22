@@ -1842,6 +1842,55 @@
       "kept": false
     }
   ],
+  "vi/species/microphis-leiaspis": [
+    {
+      "at": "2026-11-22T20:33:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.8,
+      "notes": [
+        "\"dù đã có nơi bán loài này\" is supported only loosely: the fact names The Wet Spot Tropical Fish, but the page just says it is sold somewhere (fine).",
+        "\"Các nhà nghiên cứu khuyên khách đến những con suối này\" - the facts say researchers recommend a 'leave no trace' approach, and don't say the advice is aimed at visitors (small embellishment).",
+        "\"Cá đủ lớn để đẻ khi dài khoảng 11 cm\" - the facts give length at maturity of about 11 cm, so this is roughly supported.",
+        "\"Hai con bắt cặp sau một màn múa ghép đôi\" - matches the facts (mating dance).",
+        "\"ánh sáng dịu\" - the facts say 'dim'; this is acceptable."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-22T20:33:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.72,
+      "notes": [
+        "\"một loài cá chìa vôi nước ngọt\" - facts say fresh and brackish water, and the page's habitat section says both; calling it simply freshwater is a small generalisation",
+        "\"nhưng đã có tiệm cá chào bán\" - the facts name only one seller (The Wet Spot Tropical Fish), so \"tiệm cá\" is a loose generalisation; this is minor",
+        "\"Thức ăn viên hay thức ăn lá\" - the facts say flakes and pellets; \"thức ăn lá\" is a loose rendering of flakes",
+        "\"Cá lớn có thể dài tới khoảng 19 cm\" - this comes from the data card (adult size 19), so it is supported",
+        "\"Về sau loài này từng nằm trong chi Coelonotus\" - the facts say it was formerly placed in Coelonotus, but the page says \"Về sau\" (later), which reverses the order, since Coelonotus came before the current Microphis",
+        "\"Loài này sống rải rác khắp Tây Thái Bình Dương\" - the facts say widespread, not scattered/patchy; this reverses the meaning",
+        "\"Cá đủ lớn để đẻ khi dài khoảng 11 cm\" - the facts say length at maturity is about 11 cm; this is acceptable",
+        "\"cá chìa vôi\" is the Vietnamese common name used, and the facts give no Vietnamese names; this is an unsupported name"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/myloplus-aylan": [
+    {
+      "at": "2026-11-22T20:30:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.97,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/nannostomus-beckfordi#fK5blxaKV3Y": [
     {
       "at": "2026-11-16T11:43:50Z",
@@ -2596,6 +2645,46 @@
         "[distribution] repeats the page's point that El Tigre is a pure wild strain from El Tigre. The stream and separate-population detail is new.",
         "[diet] \"bo bo\" is already on the page's diet text. The video's \"daphnia\" is rendered as bo bo, which is fine, but that item adds nothing new.",
         "[behaviour] \"hiếu động\" is already on the page, though the comparison with the class K hybrids is new and in the video."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/poecilia-wingei#rPIBlO0OHWA": [
+    {
+      "at": "2026-11-22T20:27:20Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.45,
+      "notes": [
+        "[behaviour] \"Mỗi dòng ăn một kiểu\" is written as a general rule. The video gives one keeper's observations of his own fish.",
+        "[notes] \"Dòng này được nhân ra từ một cặp duy nhất bắt ở Venezuela\" - the video says the strain came from a single pair, but the line is stated flatly as fact.",
+        "[notes] Blue Snake: \"cho đẻ ra con giống bố mẹ\" - the video says they 'breed true' (a loose claim). The Vietnamese wording is awkward.",
+        "[notes] Santa Maria Bleeding Heart: \"lên dòng ở Nhật\" is a hybrid of guppy and Endler per the video. The NEW text omits that this is a guppy hybrid, so the video's point is missing. The page says guppy hybrids exist, which makes this partly redundant.",
+        "[diet] \"Một người nuôi... artemia sống, bo bo hoặc cám mảnh\" - the video says live brine shrimp, daphnia, crushed flakes. \"bo bo\" is daphnia, fine, but 'high quality' and 'pellet with shrimp' are blended. The 'one keeper' framing is then dropped partway: \"Dòng Blonde Scarlet giữ được màu đỏ đậm...\" and \"Với Yellow Tiger...\" are stated as general facts.",
+        "[diet] \"Theo kinh nghiệm của người này, thức ăn nhiều spirulina làm cá lên màu đỏ, cam và xanh\" - the video presents this as general advice, not just one person's experience. The page also already covers diet variety for color.",
+        "[reproduction] \"Cá đẻ nhanh trong bể thủy sinh\" and the water conditions repeat the page's content on breeding ease. \"Rêu Java và rong đuôi chó\" - 'hornwort' is rong đuôi chó, which is fine.",
+        "[reproduction] Breeding nets: the video says to use them to keep strains apart. The NEW text adds \"vẫn quá chật\", which is the page's claim and not the video's. The NEW text also states it as something the keeper does, not as the video says."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-22T20:27:20Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.45,
+      "notes": [
+        "[reproduction] 'tách bằng lưới đẻ' — the video says breeding nets to keep pure strains, but the page says nets/boxes are unsuitable; the text doesn't say it differs from the page.",
+        "[diet] 'Đồ tươi gần với thức ăn ngoài tự nhiên của chúng và kích cá đẻ' — the video says live foods mimic their natural diet and promote breeding; the page already says they eat benthic animals in the wild, so this overlaps.",
+        "[diet] 'Một người nuôi nhiều dòng Endler hay trộn thêm cám krill' — the video's keeper experience is fine as one keeper's, but 'nhiều dòng' is added.",
+        "[diet] 'giun vi sinh... bo bo đông lạnh' — the video says frozen daphnia (not 'bo bo' in the page's sense), and 'bo bo' is already on the page; 'cám mảnh bóp vụn' is fine.",
+        "[diet] 'Thức ăn giàu spirulina giúp cá lên màu đỏ, cam và xanh' and 'cho ăn ít một, 2–3 lần mỗi ngày' are stated as general rules from one keeper's advice; the video states them as its own routine.",
+        "[behaviour] 'Blue Snake thì từ tốn hơn một chút' — fine, but 'Yellow Tiger Saddleback hay bơi sát mặt nước' is stated as a general rule from the video keeper's observation of his own fish.",
+        "[notes] 'Cả dòng này nghe nói đều xuất phát từ một cặp duy nhất' — presented hedged, but 'bắt ở Venezuela' is fine; 'giờ có mặt khắp thế giới' overstates the video's 'popular all over the world'.",
+        "[notes] Santa Maria 'do người Nhật tạo ra, là dòng lai ổn định giữa cá bảy màu và Endler' — the video says 'developed in Japan', a hybrid line; the page's Endler-guppy hybrid content overlaps slightly."
       ],
       "attempt": "first",
       "kept": false

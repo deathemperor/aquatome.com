@@ -153515,5 +153515,686 @@
       "Seachem Flourish Advance"
     ],
     "pass": true
+  },
+  "vi/guides/youtube-_bm-FfvA22k": {
+    "at": "2026-11-22",
+    "hash": "b80d7de7a4a219e6",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Hikari",
+      "San Francisco Bay"
+    ]
+  },
+  "vi/guides/youtube-_WVEz9vg6kk": {
+    "at": "2026-11-22",
+    "hash": "f14fb460d54485da",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "những bể lớn khoảng 908 lít và 1363 lít",
+        "why": "These volumes are 240 and 360 US gallons converted to litres, not tank sizes a keeper in Vietnam would name.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube--PSAFtluTy4": {
+    "at": "2026-11-22",
+    "hash": "3df762c88bd46d9a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-0JOMrzySyl0": {
+    "at": "2026-11-22",
+    "hash": "790aa39917306add",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-1EQVn77sxxs": {
+    "at": "2026-11-22",
+    "hash": "5ddbcba7133dee4e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "một bể khoảng 1363 lít nuôi cá oscar và cá severum",
+        "why": "1363 litres is a converted 360-gallon tank; no keeper in Vietnam sizes a tank this way.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "hai bể khoảng 908 lít nuôi cá ali (peacock, hap)",
+        "why": "908 litres is a converted 240-gallon tank.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Gắn một đoạn ống nhựa PVC khoảng 2 cm vào ống lọc thùng cũ",
+        "why": "A 3/4-inch pipe given in cm; keepers in Vietnam buy pipe by millimetre size.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "đổi sang ống nhỏ hơn, cỡ chừng 1,3 cm",
+        "why": "A 1/2-inch pipe converted to cm rather than a local millimetre pipe size.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "L14",
+        "quote": "Hút trước bằng ống to, khoảng 2 cm",
+        "why": "A converted inch pipe size given in cm.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "CaribSea Eco-Complete African Cichlid",
+      "Fritz Complete"
+    ]
+  },
+  "vi/guides/youtube-44nSVFSAMJY": {
+    "at": "2026-11-22",
+    "hash": "2c05c91094a27bd9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Fritz Complete",
+      "Prime",
+      "Fritz Guard",
+      "API Stress Coat",
+      "FritzZyme 7"
+    ]
+  },
+  "vi/guides/youtube-6x9-X5sC7BI": {
+    "at": "2026-11-22",
+    "hash": "48687546806f016c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "một bể 908 lít, sâu 76 cm",
+        "why": "908 litres and 76 cm are converted from 240 gallons and 30 inches, not sizes a keeper in Vietnam would give.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-6YgGYE7yY58": {
+    "at": "2026-11-22",
+    "hash": "b2a4cf7e7fc17597",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ví dụ dưới đây là một bể lớn nuôi cá lớn.",
+        "why": "Points to the source video's tank, which this page doesn't show or describe.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Python",
+      "Ultra Zero",
+      "Fritz Complete",
+      "Seachem Prime",
+      "Flipper"
+    ]
+  },
+  "vi/guides/youtube-7DhVQXziFGg": {
+    "at": "2026-11-22",
+    "hash": "ddceda8b00e935b5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Fluval",
+      "Eheim",
+      "Marineland",
+      "Aquatop",
+      "Space Echo",
+      "Whale"
+    ]
+  },
+  "vi/guides/youtube-aAn7wvjER7k": {
+    "at": "2026-11-22",
+    "hash": "a8e7232f4ca50933",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Túi cỡ khoảng 4 lít (loại 3,8 lít) chứa vừa gần như mọi cỡ lọc mút.",
+        "why": "3.8 litres is a US one-gallon zip bag size converted from imperial, not a size anyone in Vietnam would name.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Rửa mút bằng nước máy không làm bể sập chu trình (cycle crash).",
+        "why": "\"Sập chu trình\" is a literal calque of \"cycle crash\"; keepers in Vietnam talk about the tank losing its bacteria.",
+        "by": "model",
+        "fix": "sập vi sinh / mất vi sinh"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-b58Dz4vEqWM": {
+    "at": "2026-11-22",
+    "hash": "e7f3521e0e4d4de3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Xtreme",
+      "Hikari",
+      "Northfin"
+    ]
+  },
+  "vi/guides/youtube-cSQyKFBckkc": {
+    "at": "2026-11-22",
+    "hash": "ed3a01f9f75c4162",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-cxFoCdlb8Go": {
+    "at": "2026-11-22",
+    "hash": "e3db7cd0085fbc9e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Một mức dễ nhớ là 3–5 W cho mỗi 3,8 lít nước",
+        "why": "3,8 litres is a converted US gallon; the rule is watts per gallon.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "L2",
+        "quote": "Chọn sưởi theo mức 3–5 W cho mỗi 3,8 lít nước",
+        "why": "3,8 litres is a converted US gallon.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "L8",
+        "quote": "Có thể tính khoảng 3–5 W cho mỗi 3,8 lít nước",
+        "why": "3,8 litres is a converted US gallon.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "để bể không có vùng chết (dead zone)",
+        "why": "Calque of the English 'dead zone'; local keepers say 'góc chết'.",
+        "by": "model",
+        "fix": "góc chết"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-DfA0TkKlYaw": {
+    "at": "2026-11-22",
+    "hash": "baec541a23318cae",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "với một bể khoảng 908 lít",
+        "why": "908 litres is a converted 240-gallon tank size, not one a keeper in Vietnam would say.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-EePi47a9Awg": {
+    "at": "2026-11-22",
+    "hash": "c0395bbe167b4362",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "dose",
+        "part": "P1",
+        "quote": "Với muối hột của Fritz, liều chữa là khoảng 1 muỗng canh cho mỗi 20 lít nước bể",
+        "why": "The dose is given for a foreign brand's aquarium salt that keepers in Vietnam may not be able to buy.",
+        "by": "model",
+        "product": "Fritz"
+      }
+    ],
+    "products": [
+      "Fritz"
+    ],
+    "doses": [
+      {
+        "treatment": "salt",
+        "strength": "",
+        "amount": 1,
+        "amountMax": 0,
+        "unit": "tablespoon",
+        "per": 20,
+        "perUnit": "litre",
+        "use": "ich",
+        "method": "wholeTank",
+        "quote": "khoảng 1 muỗng canh cho mỗi 20 lít nước bể, cho cả bể"
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/guides/youtube-F4nXzlFE7IQ": {
+    "at": "2026-11-22",
+    "hash": "f630ec9cdaa47124",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "một bể 1.363 lít (dài 244 cm, rộng 61 cm, cao 61 cm)",
+        "why": "An 8 × 2 × 2 ft, 360-gallon tank converted to metric; no keeper in Vietnam would give these figures.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "xả vào một thùng rác lớn có bánh xe (khoảng 132 lít)",
+        "why": "132 litres is a 35-gallon bin converted from US units, not a bin size sold in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Khoảng một tuần sau lần vệ sinh tổng và thay bơm mạnh hơn, nước trong hơn hẳn.",
+        "why": "Tells the source video's own cleaning and its result as if the reader knew that tank.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-fAQAFJhm5RA": {
+    "at": "2026-11-22",
+    "hash": "1b99393528b75976",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Fritz Fishless Fuel",
+      "Fritz",
+      "Dr. Tim's",
+      "Quick Start",
+      "API"
+    ]
+  },
+  "vi/guides/youtube-fIpCfTlK5SY": {
+    "at": "2026-11-22",
+    "hash": "77a8353687380f4a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ví dụ, có lần đặt bể 350 lít xuống một chỗ thì thấy sàn ở đó nhún",
+        "why": "Retells the source creator's own past experience with their tank as an anecdote.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "AquaClear"
+    ]
+  },
+  "vi/guides/youtube-fJwx1KcFdnQ": {
+    "at": "2026-11-22",
+    "hash": "093bf1fac8b624ea",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Cá mua lại ở các buổi trao đổi cá, không biết cá từ đâu ra",
+        "why": "Fish swap meets are a club event common abroad, given as if the reader goes to them.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Fritz Zyme 7"
+    ]
+  },
+  "vi/guides/youtube-g8fg1mOJLM8": {
+    "at": "2026-11-22",
+    "hash": "342c4d540ba0432e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "một bể khoảng 908 lít nuôi 60 con ali vàng",
+        "why": "908 litres is a converted 240-gallon tank, a size no keeper in Vietnam would name.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Cichlid Pee Wee",
+      "Xtreme"
+    ]
+  },
+  "vi/guides/youtube-hFkdex-4ASk": {
+    "at": "2026-11-22",
+    "hash": "d9fe397f2aeaf9d0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-IiIV3MXbvQo": {
+    "at": "2026-11-22",
+    "hash": "21e9ef08ad226068",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Fritz"
+    ]
+  },
+  "vi/guides/youtube-jbT-loXhCUw": {
+    "at": "2026-11-22",
+    "hash": "0fb728739b78701d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-KB_2-N6_ha4": {
+    "at": "2026-11-22",
+    "hash": "bf6e6d4cef825b6a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-MH3FO1g2EgA": {
+    "at": "2026-11-22",
+    "hash": "a2e11f3c4961286a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Tiền cọc thêm cho bể cá là chuyện bình thường.",
+        "why": "An extra pet-style deposit for an aquarium is a rental norm abroad (US), presented as the reader's own.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-NEMLDWOAKYY": {
+    "at": "2026-11-22",
+    "hash": "c995846a02cbc96e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Fritz Nature Box"
+    ]
+  },
+  "vi/guides/youtube-oHpwUJd304A": {
+    "at": "2026-11-22",
+    "hash": "9896e7590f1a51f8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Turbo Start",
+      "FX4"
+    ]
+  },
+  "vi/guides/youtube-oTi2e3FQKHE": {
+    "at": "2026-11-22",
+    "hash": "f41559aa68b9b33e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "FX6",
+      "Prime",
+      "Fritz Complete"
+    ]
+  },
+  "vi/guides/youtube-P5DpfUXq2zg": {
+    "at": "2026-11-22",
+    "hash": "72816602abf49dce",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Python"
+    ]
+  },
+  "vi/guides/youtube-RE26Cl-nLik": {
+    "at": "2026-11-22",
+    "hash": "1e3eab5daaa34634",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-TF2YmaJ8PAQ": {
+    "at": "2026-11-22",
+    "hash": "7d14e677dfcf7043",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-tMTqAd2MCKQ": {
+    "at": "2026-11-22",
+    "hash": "dea29764ce99bf27",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Cá chì (pencilfish): rất khỏe và dễ tính.",
+        "why": "Pencilfish are called 'cá bút chì' by Vietnamese keepers; 'cá chì' names a different fish.",
+        "by": "model",
+        "fix": "Cá bút chì (pencilfish)"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-tqgAOTIOaE4": {
+    "at": "2026-11-22",
+    "hash": "43c68b26e0c3712c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P11",
+        "quote": "Bể khoảng 1363 lít nuôi oscar và bichir",
+        "why": "1363 litres is an exact conversion of a 360-gallon tank; no Vietnamese keeper would give this volume.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Matrix",
+      "Seachem",
+      "Fluval"
+    ]
+  },
+  "vi/guides/youtube-vDP_tdTZvxQ": {
+    "at": "2026-11-22",
+    "hash": "ceab5f416d03d74f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "dose",
+        "part": "P1",
+        "quote": "Châm 1 gói Maracyn cho mỗi 40 lít nước.",
+        "why": "An amount per volume of a named commercial medicine.",
+        "by": "model",
+        "product": "Maracyn"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Với bể 300 lít ở trên, cá được trị bằng Maracyn kèm muối hột dành cho bể cá của Fritz.",
+        "why": "Tells the source's own tank story as if the reader knew that tank.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Maracyn",
+      "Maracyn Two",
+      "Fritz"
+    ],
+    "doses": [
+      {
+        "treatment": "maracyn",
+        "strength": "",
+        "amount": 1,
+        "amountMax": 0,
+        "unit": "packet",
+        "per": 40,
+        "perUnit": "litre",
+        "use": "bacteria",
+        "method": "wholeTank",
+        "quote": "Châm 1 gói Maracyn cho mỗi 40 lít nước."
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/guides/youtube-wRtdgZNgMUE": {
+    "at": "2026-11-22",
+    "hash": "28653897793c91f5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Fritz Complete",
+      "Prime"
+    ]
+  },
+  "vi/guides/youtube-x4ODUkeSMNM": {
+    "at": "2026-11-22",
+    "hash": "cfe76276d3b54a5b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Bộ gioăng và co nối loại này giá rẻ, khoảng dưới một đô la mỗi bộ",
+        "why": "Price is given in US dollars, a foreign currency.",
+        "by": "model"
+      },
+      {
+        "check": "shop",
+        "part": "P1",
+        "quote": "ví dụ dây oxy đen của Aquarium Co-op",
+        "why": "Names the source's own foreign shop as where to buy tubing.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở mức đang dùng, mỗi bể ước chừng thay vòng nước khoảng ba đến bốn lần một ngày, chưa đo chính xác",
+        "why": "The source writer's own system and voice, presented as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "CJ Synchra 700",
+      "Aquarium Co-op"
+    ]
+  },
+  "vi/guides/youtube-zIe7JSoJCxo": {
+    "at": "2026-11-22",
+    "hash": "d448909634a56e98",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "bể dài khoảng 240 cm, sâu 90 cm, cao 60 cm (khoảng 1.363 lít)",
+        "why": "1,363 litres is a converted 360-gallon tank volume no keeper in Vietnam would state.",
+        "by": "model"
+      },
+      {
+        "check": "dose",
+        "part": "P1",
+        "quote": "Với bể khoảng 1.363 lít chẳng hạn, có thể đổ nguyên một chai Fritz 7 loại 946 ml.",
+        "why": "Amount per volume of a named commercial bacteria product.",
+        "by": "model",
+        "product": "Fritz 7"
+      }
+    ],
+    "products": [
+      "Fritz Complete",
+      "Fritz 7"
+    ]
+  },
+  "vi/guides/youtube-ZsoasKPIGTs": {
+    "at": "2026-11-22",
+    "hash": "fd8ae454feb2fdc5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "dùng dụng cụ cạo rêu nam châm",
+        "why": "A literal rendering of 'magnetic algae scraper'; keepers in Vietnam call this tool a nam châm lau kính.",
+        "by": "model",
+        "fix": "nam châm lau kính"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/microphis-leiaspis": {
+    "at": "2026-11-22",
+    "hash": "6f11a71f68d3927f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/myloplus-aylan": {
+    "at": "2026-11-22",
+    "hash": "ea6527054bba57f3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
   }
 }

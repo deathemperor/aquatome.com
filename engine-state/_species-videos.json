@@ -4450,10 +4450,15 @@
     "reason": "summer ponds, several species"
   },
   "rPIBlO0OHWA": {
-    "at": "2026-11-07",
+    "at": "2026-11-22",
     "title": "Endler’s Livebearers Feeding Time | RARE Poecilia Wingei Varieties Collection",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Poecilia wingei",
+    "page": "species/poecilia-wingei",
+    "done": "low",
+    "score": 0.45,
+    "reason": "[reproduction] 'tách bằng lưới đẻ' — the video says breeding nets to keep pure strains, but the page says nets/boxes are unsuitable; the text doesn't say it differs from the page.; [diet] 'Đồ tươi gần với thức ăn ngoài tự nhiên của chúng và kích cá đẻ' — the video says live foods mimic their natural diet and promote breeding; the page already says they eat benthic animals in the wild, so this overlaps."
   },
   "rRJNK-qaTE8": {
     "at": "2026-11-07",
@@ -4472,10 +4477,14 @@
     "reason": "general myths"
   },
   "RuKdueNJkhA": {
-    "at": "2026-11-07",
+    "at": "2026-11-22",
     "title": "The Story Behind Myloplus aylan - Blue Hook Silver Dollar",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Myloplus aylan",
+    "page": "species/myloplus-aylan",
+    "done": "new page",
+    "score": 0.97
   },
   "rVZRyYEP5rM": {
     "at": "2026-11-07",
@@ -4492,10 +4501,14 @@
     "kind": "profile"
   },
   "S_TJCcn6DqQ": {
-    "at": "2026-11-07",
+    "at": "2026-11-22",
     "title": "Barhead Pipefish: The Freshwater Relative of the Seahorse",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Microphis leiaspis",
+    "page": "species/microphis-leiaspis",
+    "done": "new page",
+    "score": 0.8
   },
   "s0xWgL-DFFg": {
     "at": "2026-11-07",

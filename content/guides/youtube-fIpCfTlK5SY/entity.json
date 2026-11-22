@@ -1,0 +1,122 @@
+{
+  "id": "youtube-fIpCfTlK5SY",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=fIpCfTlK5SY",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "poecilia-reticulata"
+  ],
+  "updatedAt": "2026-11-22",
+  "video": {
+    "youtubeId": "fIpCfTlK5SY",
+    "title": "Don't make a big deal out of it",
+    "channel": "KGTropicals",
+    "channelUrl": "https://www.youtube.com/channel/UCyyGJeKITfR7Y5cq2zX4-oQ",
+    "durationSec": 1307,
+    "publishedAt": "2025-06-22",
+    "chapters": [],
+    "series": {
+      "id": "PLbk3wN8TF_D0vpChcrJcoLtO8r5TREGVt",
+      "position": 15
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/fIpCfTlK5SY/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Poecilia reticulata",
+      "Aulonocara sp."
+    ],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "treo",
+        "brand": "AquaClear",
+        "t": 464
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "brand": "Fluval",
+        "model": "FX2",
+        "t": 1077
+      },
+      {
+        "category": "suoi",
+        "type": "chinh-nhiet",
+        "brand": "Aqueon",
+        "t": 1077
+      },
+      {
+        "category": "den",
+        "brand": "Aqueon",
+        "t": 1077
+      },
+      {
+        "category": "loc",
+        "type": "treo",
+        "brand": "AquaClear",
+        "model": "AC 110",
+        "t": 1139
+      },
+      {
+        "category": "suoi",
+        "type": "chinh-nhiet",
+        "brand": "CJ",
+        "model": "preset",
+        "t": 1140
+      },
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 1077
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Fritz Guard",
+        "t": 0
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Bắt cá và gỡ đồ trang trí trước khi khiêng",
+        "moments": [
+          {
+            "t": 40,
+            "url": "https://media.aquatome.com/video/fIpCfTlK5SY/at40-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể đã xả bớt nước, chỉ còn lớp nền cát dưới đáy.",
+            "sharpness": 15.9
+          }
+        ]
+      },
+      {
+        "heading": "Châm nước lại",
+        "moments": [
+          {
+            "t": 850,
+            "url": "https://media.aquatome.com/video/fIpCfTlK5SY/at850-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể đã xếp lại đá, sẵn sàng để châm nước.",
+            "sharpness": 127.5
+          },
+          {
+            "t": 870,
+            "url": "https://media.aquatome.com/video/fIpCfTlK5SY/at870-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nước từ ống đổ nhẹ lên đá khi châm lại vào bể.",
+            "sharpness": 470.7,
+            "person": false
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": "youtube-IiIV3MXbvQo",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=IiIV3MXbvQo",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-22",
+  "video": {
+    "youtubeId": "IiIV3MXbvQo",
+    "title": "Master Test Kit Vs  Test Strips, Which Is Better?",
+    "channel": "KGTropicals",
+    "channelUrl": "https://www.youtube.com/channel/UCyyGJeKITfR7Y5cq2zX4-oQ",
+    "durationSec": 421,
+    "publishedAt": "2025-08-17",
+    "chapters": [],
+    "series": {
+      "id": "PLbk3wN8TF_D0vpChcrJcoLtO8r5TREGVt",
+      "position": 16
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/IiIV3MXbvQo/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "test-nuoc",
+        "type": "test",
+        "brand": "Fritz",
+        "model": "Master Test Kit",
+        "t": 31
+      },
+      {
+        "category": "test-nuoc",
+        "type": "test",
+        "brand": "Fritz",
+        "model": "Ammonia Test Strips",
+        "t": 225
+      },
+      {
+        "category": "test-nuoc",
+        "type": "test",
+        "brand": "Fritz",
+        "model": "6-in-1 Test Strips",
+        "t": 246
+      }
+    ],
+    "figures": []
+  }
+}

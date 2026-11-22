@@ -1,0 +1,117 @@
+{
+  "id": "youtube-NEMLDWOAKYY",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=NEMLDWOAKYY",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "neocaridina-davidi",
+    "betta-splendens"
+  ],
+  "updatedAt": "2026-11-22",
+  "video": {
+    "youtubeId": "NEMLDWOAKYY",
+    "title": "She Built The Perfect Tiny Shrimp Sanctuary!",
+    "channel": "KGTropicals",
+    "channelUrl": "https://www.youtube.com/channel/UCyyGJeKITfR7Y5cq2zX4-oQ",
+    "durationSec": 653,
+    "publishedAt": "2023-01-08",
+    "chapters": [],
+    "series": {
+      "id": "PLbk3wN8TF_D0vpChcrJcoLtO8r5TREGVt",
+      "position": 9
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/NEMLDWOAKYY/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Neocaridina davidi",
+      "Taxiphyllum sp.",
+      "Cryptocoryne sp.",
+      "Echinodorus sp.",
+      "Betta splendens"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "brand": "Aquatop",
+        "model": "Venti",
+        "t": 93
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 122
+      },
+      {
+        "category": "loc",
+        "type": "suc-khi",
+        "t": 122
+      },
+      {
+        "category": "phan-nen",
+        "type": "la",
+        "t": 220
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 200
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Nature Box",
+        "t": 251
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Vì sao bể nhỏ hợp nuôi tép hơn nuôi cá xiêm",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/NEMLDWOAKYY/p0-82NDU2NzgwLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/NEMLDWOAKYY/p0-82NDU2NzgwLmpwZw-480.webp",
+          "width": 960,
+          "height": 870,
+          "licence": "CC BY-SA 3.0",
+          "author": "Gourami Watcher",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_splendens_6456780.jpg",
+          "caption": "Cá xiêm xanh bơi trong bể nhỏ có cây thủy sinh, nước gần như đứng yên."
+        }
+      },
+      {
+        "heading": "Chuẩn bị rêu nuôi cấy mô",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/NEMLDWOAKYY/p2-xvd19tb3NzLkpQRw.webp",
+          "thumb": "https://media.aquatome.com/video/NEMLDWOAKYY/p2-xvd19tb3NzLkpQRw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "Public domain",
+          "author": "S.Tanaka",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Willow_moss.JPG",
+          "caption": "Một nhúm rêu đã gỡ ra, đặt trên giấy, sẵn sàng để xé nhỏ."
+        }
+      },
+      {
+        "heading": "Thả tép và chờ bể kín",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/NEMLDWOAKYY/p5-VyZWRsb3JkLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/NEMLDWOAKYY/p5-VyZWRsb3JkLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 2.0",
+          "author": "Emilia Murray from Edinburgh, Scotland",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:New_lens_-D._-_Flickr_-_threefingeredlord.jpg",
+          "caption": "Một con tép đỏ nhỏ bò trên lá cây thủy sinh trong bể."
+        }
+      }
+    ]
+  }
+}

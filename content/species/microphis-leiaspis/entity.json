@@ -1,0 +1,203 @@
+{
+  "id": "microphis-leiaspis",
+  "scientificName": "Microphis leiaspis",
+  "order": "Syngnathiformes",
+  "family": "Syngnathidae",
+  "genus": "Microphis",
+  "group": "other",
+  "places": [
+    "asia",
+    "indonesia",
+    "java",
+    "japan",
+    "kagoshima-prefecture",
+    "philippines",
+    "oceania",
+    "mariana-islands",
+    "papua-new-guinea",
+    "solomon-islands",
+    "new-caledonia",
+    "australia",
+    "wet-tropics"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 21,
+          "max": 24
+        },
+        "ref": 2
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquatome",
+        "value": 19,
+        "ref": 1
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquatome",
+        "value": 6,
+        "ref": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p><em>Microphis leiaspis</em> rất ít khi xuất hiện trong bể của người chơi, dù đã có nơi bán loài này. Đây không phải cá cho người mới. Nó hợp với người tự gây được thức ăn tươi sống.</p><p>Loài này không có giá trị nghề cá. Ở vùng Wet Tropics của Úc, chuyện người ta xếp đá chồng, đắp đập đá và ném đá thia lia làm xáo trộn nơi nó sống. Các nhà nghiên cứu khuyên khách đến những con suối này nên đi qua mà không để lại dấu vết gì.</p>",
+      "refs": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "distribution",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p><em>Microphis leiaspis</em> phân bố rộng ở Tây Thái Bình Dương. Vùng sống của nó trải từ Indonesia sang phía đông tới Philippines và quần đảo Mariana, lên phía bắc tới tỉnh Kagoshima ở miền nam Nhật Bản, xuống phía nam tới New Caledonia. Người ta đã gặp nó ở Indonesia, Nhật Bản, Papua New Guinea, quần đảo Solomon và New Caledonia. Ở Úc, nó sống trong các con suối nước trong thuộc Khu Di sản Thế giới Wet Tropics.</p>",
+      "refs": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "habitat",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này sống cả ở nước ngọt lẫn nước lợ: suối, sông và cửa sông, sâu tới khoảng 5 m. Nó là loài di cư giữa sông và biển (amphidromous), tức là vòng đời của nó nối các con suối nước ngọt với biển. Cá lớn ở trong sông suối chảy chậm, nhưng giai đoạn đầu đời gắn với vùng nước ven biển.</p><p>Nó hay ở đoạn giữa và hạ lưu của những con suối ven biển ngắn và dốc, quanh các bãi sỏi cuội.</p>",
+      "refs": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Chưa nguồn nào công bố chiều dài bể tối thiểu cho loài này. Muốn nuôi lâu dài thì tốt nhất là bể nuôi riêng, hoặc một bể thật yên.</p>",
+      "refs": [
+        2
+      ]
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Nên giữ nước ở 21–24 °C, pH trung tính hoặc hơi chua. Chưa nguồn nào công bố con số pH cụ thể hay độ cứng (dGH) cho loài này.</p><p>Nước ổn định quan trọng hơn chuyện chỉnh thông số cho thật chuẩn, vì cá dễ gặp vấn đề khi nước thay đổi đột ngột. Tránh dòng chảy mạnh, nhưng nước vẫn phải lưu thông nhẹ và đủ oxy.</p><p>Loài này thích bể đã chạy lâu, ánh sáng dịu, trồng cây dày, có rễ cây, lũa và lá khô rải đáy, giống một con suối rừng chảy chậm.</p>",
+      "refs": [
+        2
+      ]
+    },
+    {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Ngoài tự nhiên, nó ăn các động vật không xương sống li ti sống ở đáy. Nó săn mồi sống rất nhỏ như copepod, cyclops, ấu trùng côn trùng và tép nhỏ bằng cú hút mồi rất nhanh.</p><p>Thức ăn viên và thức ăn dạng mảnh thì loài này thường bỏ qua. Cá mới nhập về có thể còn không nhận ra đồ đông lạnh là thức ăn. Lúc đầu phải có đồ tươi sống. Về sau, một số con có thể tập ăn được cyclops đông lạnh hoặc Artemia mới nở.</p>",
+      "refs": [
+        2,
+        3
+      ]
+    },
+    {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Nó bơi chậm rãi, từ tốn, hay lơ lửng một chỗ để soi tìm mồi trên lá, rễ cây và lũa. Vì giành ăn rất kém, nuôi chung với cá năng động như tetra, cầu vồng hay cá chuột thì chúng sẽ ăn hết phần của nó.</p>",
+      "refs": [
+        2
+      ]
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Con đực có túi ấp trứng ở mặt dưới phần đuôi.</p>",
+      "refs": [
+        1
+      ]
+    },
+    {
+      "key": "reproduction",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Ngoài tự nhiên, loài này đẻ trứng thai: con đực mang trứng trong túi ấp dưới đuôi. Cá đủ lớn để đẻ khi dài khoảng 11 cm, và người ta đã gặp con đực đang ấp trứng ở chiều dài chuẩn 11,25 cm.</p><p>Hai con bắt cặp sau một màn múa ghép đôi. Con cái gửi trứng vào túi ấp của con đực, con đực thụ tinh cho trứng, sau đó cá con ra đời đã thành hình đầy đủ. Chưa rõ đoạn mô tả này là quan sát ngoài tự nhiên hay trong bể.</p>",
+      "refs": [
+        1,
+        2
+      ]
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p><em>Microphis leiaspis</em> là một loài cá chìa thuộc họ Syngnathidae, cùng họ với cá ngựa. Tên tiếng Anh của nó là barhead pipefish hoặc bud river pipefish. Pieter Bleeker mô tả loài này năm 1854 và ban đầu xếp nó vào chi <em>Syngnathus</em>. Bài mô tả gốc in trong tập 25 của Verhandelingen van het Bataviaasch Genootschap van Kunsten en Wetenschappen. Mẫu chuẩn lấy ở Jakarta, trên đảo Java (Indonesia), và các mẫu syntype hiện giữ tại RMNH.</p><p>Loài này trước đây từng nằm trong chi <em>Coelonotus</em>. Hiện nay nó được xếp vào chi <em>Microphis</em>, phân họ Nerophinae. Tên chi ghép từ hai chữ Hy Lạp nghĩa là \"nhỏ\" và \"rắn\".</p><p>Thân cá rất dài, mảnh và gần như tròn, trông giống con lươn, kèm một cái mõm dài hình ống. Vây lưng không có gai, chỉ có 53–63 tia mềm, còn phần đuôi có 27–33 vòng. Cái vây lưng nhỏ xíu ấy đập rất nhanh và lo gần hết việc di chuyển của cá. Cá lớn dài tới khoảng 19 cm.</p><p>Trong Sách Đỏ IUCN (2016), loài này xếp ở mức Ít quan tâm. Tuổi thọ của nó thì chưa nguồn nào công bố.</p>",
+      "refs": [
+        0,
+        1,
+        2
+      ]
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "S_TJCcn6DqQ",
+      "title": "Barhead Pipefish: The Freshwater Relative of the Seahorse",
+      "durationSec": 394,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "4rsp_8e451Y",
+      "title": "イッセンヨウジ　Barhead pipefish　Microphis leiaspis",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "vY334Mj08Nw",
+      "title": "Meet the Freshwater Pipefish - Microphis leiaspis",
+      "durationSec": 21,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "8tNwHziOABQ",
+      "title": "Wild Barhead pipefish #shorts #台灣野外紀錄 #淡水魚 #無棘腹囊海龍#biotope #freshwaterfish #pipefish #underwater",
+      "durationSec": 14,
+      "lang": "zh"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-22",
+  "refs": [
+    {
+      "url": "https://research.calacademy.org/Research/Ichthyology/Catalog/fishcatget.asp?spid=14865",
+      "title": "Institute for Biodiversity Science and Sustainability"
+    },
+    {
+      "url": "https://www.fishbase.se/summary/Microphis-leiaspis.html",
+      "title": "Microphis leiaspis, Barhead pipefish"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=S_TJCcn6DqQ",
+      "title": "Barhead Pipefish: The Freshwater Relative of the Seahorse"
+    },
+    {
+      "url": "https://researchonline.jcu.edu.au/80768/",
+      "title": "Pebbled places preferred by people and pipefish in a World Heritage protected area"
+    },
+    {
+      "url": "https://www.tagmyfish.com/fish/species/microphis-leiaspis",
+      "title": "Barhead pipefish (Microphis leiaspis) | TMF"
+    }
+  ]
+}

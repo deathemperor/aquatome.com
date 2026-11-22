@@ -1,0 +1,185 @@
+{
+  "id": "youtube-fAQAFJhm5RA",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=fAQAFJhm5RA",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-22",
+  "video": {
+    "youtubeId": "fAQAFJhm5RA",
+    "title": "The MOST IMPORTANT Aquarium Video EVER Made!",
+    "channel": "KGTropicals",
+    "channelUrl": "https://www.youtube.com/channel/UCyyGJeKITfR7Y5cq2zX4-oQ",
+    "durationSec": 1315,
+    "publishedAt": "2021-09-05",
+    "chapters": [],
+    "series": {
+      "id": "PLbk3wN8TF_D1sRJeDnE2vzOgMmR8-hnif",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/fAQAFJhm5RA/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Fishless Fuel",
+        "t": 779
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Fritz-7",
+        "t": 920
+      },
+      {
+        "category": "khac",
+        "brand": "Dr. Tim's",
+        "model": "Dr. Tim's",
+        "t": 920
+      },
+      {
+        "category": "khac",
+        "brand": "API",
+        "model": "Quick Start",
+        "t": 920
+      },
+      {
+        "category": "test-nuoc",
+        "type": "test",
+        "t": 995
+      },
+      {
+        "category": "loc",
+        "type": "treo",
+        "brand": "Seachem",
+        "model": "Tidal",
+        "t": 0
+      },
+      {
+        "category": "loc",
+        "brand": "Sicce",
+        "model": "Shark ADV",
+        "t": 0
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Amoniac trong bể từ đâu ra",
+        "moments": [
+          {
+            "t": 10,
+            "url": "https://media.aquatome.com/video/fAQAFJhm5RA/at10-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hình minh họa cá nhỏ bơi trong hộp kính kín có cây và đá.",
+            "sharpness": 935,
+            "person": false
+          },
+          {
+            "t": 230,
+            "url": "https://media.aquatome.com/video/fAQAFJhm5RA/at230-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá nhỏ bơi giữa cây thủy sinh trong bể.",
+            "sharpness": 613.5,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Chu trình nitơ là gì",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/fAQAFJhm5RA/p1-Z2VuQ3ljbGUucG5n.webp",
+          "thumb": "https://media.aquatome.com/video/fAQAFJhm5RA/p1-Z2VuQ3ljbGUucG5n-480.webp",
+          "width": 960,
+          "height": 619,
+          "licence": "CC BY 2.5",
+          "author": "w:pl:Wikipedysta:Lukas3",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium-NitrogenCycle.png",
+          "caption": "Sơ đồ chu trình nitơ trong bể: amoniac thành nitrit rồi nitrat, cây hấp thụ."
+        }
+      },
+      {
+        "heading": "Kiểm soát nitrat thế nào",
+        "moments": [
+          {
+            "t": 490,
+            "url": "https://media.aquatome.com/video/fAQAFJhm5RA/at490-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây thật xanh tốt trong bể, hấp thụ nitrat.",
+            "sharpness": 23.7
+          }
+        ]
+      },
+      {
+        "heading": "Vì sao chạy bể không một tháng là sai",
+        "moments": [
+          {
+            "t": 710,
+            "url": "https://media.aquatome.com/video/fAQAFJhm5RA/at710-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh nhiều cây xanh rậm rạp với cá bơi giữa các tán lá.",
+            "sharpness": 254.9,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/fAQAFJhm5RA/p3-cnlfdGFua3MucG5n.webp",
+          "thumb": "https://media.aquatome.com/video/fAQAFJhm5RA/p3-cnlfdGFua3MucG5n-480.webp",
+          "width": 960,
+          "height": 722,
+          "licence": "Public domain",
+          "author": "USFWS",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dale_Hollow_NFH_fry_tanks.png",
+          "caption": "Bể trống không cá, đáy bám chút cặn, chẳng có gì để vi sinh phát triển."
+        }
+      },
+      {
+        "heading": "Dùng vi sinh đóng chai cho đúng",
+        "moments": [
+          {
+            "t": 880,
+            "url": "https://media.aquatome.com/video/fAQAFJhm5RA/at880-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai vi sinh sống được đổ vào bể có các vi khuẩn hoạt hình.",
+            "sharpness": 1347.7,
+            "person": false
+          },
+          {
+            "t": 930,
+            "url": "https://media.aquatome.com/video/fAQAFJhm5RA/at930-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ba loại vi sinh đóng chai đặt cạnh nhau trong bể hoạt hình.",
+            "sharpness": 2482.6,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Cá đang ngáp ở bể mới thì cứu thế nào",
+        "moments": [
+          {
+            "t": 1170,
+            "url": "https://media.aquatome.com/video/fAQAFJhm5RA/at1170-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá nhỏ bơi giữa các bụi cây thủy sinh xanh tốt trong bể.",
+            "sharpness": 49.3
+          }
+        ]
+      }
+    ]
+  }
+}
