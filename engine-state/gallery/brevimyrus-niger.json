@@ -1,6 +1,12 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:332919147",
+  "inat:469854052",
+  "inat:600464683",
+  "inat:600467087",
+  "inat:600467102"
+ ],
  "hashes": {
   "https://media.aquatome.com/glaser/a6007cce4c11a971.webp": "4361530f0b8f075e"
  },
@@ -16,5 +22,9 @@
  "gbif": {
   "key": 5787994,
   "next": null
+ },
+ "inatNc": {
+  "after": 331053082,
+  "done": true
  }
 }

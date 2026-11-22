@@ -132,8 +132,7 @@
       "caption": "Cá flagfish Florida trong bể thủy sinh nhiều cây",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/556571572.webp",
@@ -160,18 +159,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/206869370.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/206869370-480.webp",
-      "width": 1024,
-      "height": 641,
-      "licence": "CC BY",
-      "author": "Zakqary Roy",
-      "sourceUrl": "https://www.inaturalist.org/photos/206869370",
-      "caption": "Cá flagfish Florida trong hộp nhựa trong suốt",
-      "best": false,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/603500344.webp",
       "thumb": "https://media.aquatome.com/inaturalist/603500344-480.webp",
       "width": 1024,
@@ -192,6 +179,18 @@
       "author": "Tom Field",
       "sourceUrl": "https://www.inaturalist.org/photos/603500442",
       "caption": "Cá flagfish Florida có chấm đen bên thân",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/206869370.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/206869370-480.webp",
+      "width": 1024,
+      "height": 641,
+      "licence": "CC BY",
+      "author": "Zakqary Roy",
+      "sourceUrl": "https://www.inaturalist.org/photos/206869370",
+      "caption": "Cá flagfish Florida trong hộp nhựa trong suốt",
       "best": false,
       "kind": "other"
     }

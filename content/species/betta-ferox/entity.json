@@ -117,7 +117,19 @@
       "html": "<p>A very small number of fully grown German-bred specimens of this very rare Betta species were received.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/533367616.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/533367616-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Yingyod Lapwong",
+      "sourceUrl": "https://www.inaturalist.org/photos/533367616",
+      "caption": "Cá betta ferox đực có vệt xanh dưới mang trong bể nhỏ",
+      "setup": true
+    }
+  ],
   "videos": [
     {
       "youtubeId": "W9_TgHbe6WM",

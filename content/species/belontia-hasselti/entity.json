@@ -293,7 +293,12 @@
       "author": "I'm a Conservationist",
       "sourceUrl": "https://www.inaturalist.org/photos/664172351",
       "caption": "Cá combtail Java bơi trên nền lá khô dưới nước, ngoài tự nhiên",
-      "setup": false
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/664172351-large.webp",
+        "width": 1440,
+        "height": 1080
+      }
     }
   ],
   "videos": [

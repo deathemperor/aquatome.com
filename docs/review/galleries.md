@@ -10,7 +10,7 @@ Written by `pnpm engine gallery` (2026-11-22). Targets: packages/engine/src/gall
 | covered | 30 | 890 | 32 | 9 | 27 | 904 |
 | rest | 20 | 1938 | 81 | 0 | 120 | 1899 |
 
-## Short of target: every source read (805)
+## Short of target: every source read (806)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -660,7 +660,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/ernstichthys-megistus | covered | 0 | 30 |
 | species/erythrinus-erythrinus | covered | 0 | 30 |
 | species/etroplus-canarensis | covered | 0 | 30 |
-| species/etroplus-maculatus | covered | 24 | 30 |
+| species/etroplus-maculatus | covered | 22 | 30 |
 | species/exodon-paradoxus | covered | 3 | 30 |
 | species/exostoma-labiatum | covered | 0 | 30 |
 | species/farlowella-oxyrryncha | covered | 0 | 30 |
@@ -801,6 +801,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/nematogenys-inermis | covered | 1 | 30 |
 | species/neolebias-ansorgii | covered | 10 | 30 |
 | species/netuma-thalassina | covered | 0 | 30 |
+| species/notoglanidium-macrostoma | covered | 0 | 30 |
 | species/orthochromis-stormsi | covered | 0 | 30 |
 | species/oryzias-celebensis | covered | 0 | 30 |
 | species/otothyris-travassosi | covered | 0 | 30 |

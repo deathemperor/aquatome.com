@@ -26,18 +26,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/3fb17bc24b141738.webp",
-      "thumb": "https://media.aquatome.com/commons/3fb17bc24b141738-480.webp",
-      "width": 983,
-      "height": 735,
-      "licence": "CC BY 2.0",
-      "author": "Carnat Joel",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cambarellus_patzcuarensis_sp._Orange_1_-_2013.jpg",
-      "caption": "Tôm càng lùn Mexico màu cam đỏ, càng lớn, trong bể thủy sinh",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/flickr/53587535196.webp",
       "thumb": "https://media.aquatome.com/flickr/53587535196-480.webp",
       "width": 1024,
@@ -48,8 +36,7 @@
       "caption": "Tôm càng lùn cam có sọc trên nền sỏi",
       "best": false,
       "kind": "form",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/f17fb1d4ef7f6ec1.webp",
@@ -85,6 +72,18 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cambarellus_patzcuarensis14.JPG",
       "caption": "Tôm càng lùn Mexico màu đỏ cam trên nền sỏi trong bể",
       "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/3fb17bc24b141738.webp",
+      "thumb": "https://media.aquatome.com/commons/3fb17bc24b141738-480.webp",
+      "width": 983,
+      "height": 735,
+      "licence": "CC BY 2.0",
+      "author": "Carnat Joel",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cambarellus_patzcuarensis_sp._Orange_1_-_2013.jpg",
+      "caption": "Tôm càng lùn Mexico màu cam đỏ, càng lớn, trong bể thủy sinh",
+      "best": true,
       "kind": "other"
     }
   ],

@@ -14,6 +14,19 @@
       "kind": "female"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/346355843.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/346355843-480.webp",
+      "width": 1024,
+      "height": 801,
+      "licence": "CC BY",
+      "author": "Alan Prather",
+      "sourceUrl": "https://www.inaturalist.org/photos/346355843",
+      "caption": "Cá molly vây buồm bơi gần mặt nước ở môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/commons/115a23b2b151bcce.webp",
       "thumb": "https://media.aquatome.com/commons/115a23b2b151bcce-480.webp",
       "width": 1200,
@@ -47,48 +60,6 @@
       "author": "Kelsey Low",
       "sourceUrl": "https://www.inaturalist.org/photos/493171857",
       "caption": "Cá molly vây buồm đực đuôi xanh lam ánh kim ngoài tự nhiên"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/349914611.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/349914611-480.webp",
-      "width": 1024,
-      "height": 682,
-      "licence": "CC0",
-      "author": "Evelyn Lazzaretti 🏳️‍⚧️",
-      "sourceUrl": "https://www.inaturalist.org/photos/349914611",
-      "caption": "Đàn cá molly vây buồm bơi trong vùng nước nông tự nhiên",
-      "best": true,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/346355843.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/346355843-480.webp",
-      "width": 1024,
-      "height": 801,
-      "licence": "CC BY",
-      "author": "Alan Prather",
-      "sourceUrl": "https://www.inaturalist.org/photos/346355843",
-      "caption": "Cá molly vây buồm bơi gần mặt nước ở môi trường tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/346355825.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/346355825-480.webp",
-      "width": 963,
-      "height": 912,
-      "licence": "CC BY",
-      "author": "Alan Prather",
-      "sourceUrl": "https://www.inaturalist.org/photos/346355825",
-      "caption": "Cá molly vây buồm đốm trong vùng nước nông ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/185418555.webp",
@@ -298,6 +269,19 @@
       "caption": "Cá molly vây buồm nhìn từ phía trước gần mặt nước",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/346355825.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/346355825-480.webp",
+      "width": 963,
+      "height": 912,
+      "licence": "CC BY",
+      "author": "Alan Prather",
+      "sourceUrl": "https://www.inaturalist.org/photos/346355825",
+      "caption": "Cá molly vây buồm đốm trong vùng nước nông ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/92e1ad1afb3a314a.webp",

@@ -50,6 +50,19 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/360137039.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/360137039-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "B. Phalan",
+      "sourceUrl": "https://www.inaturalist.org/photos/360137039",
+      "caption": "Cá vược công có sọc đen bơi trong nước đục ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/commons/1f42fa7c3a0503dc.webp",
       "thumb": "https://media.aquatome.com/commons/1f42fa7c3a0503dc-480.webp",
       "width": 852,
@@ -134,74 +147,16 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/341991208.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/341991208-480.webp",
-      "width": 1024,
-      "height": 513,
-      "licence": "CC0",
-      "author": "Whaldener Endo",
-      "sourceUrl": "https://www.inaturalist.org/photos/341991208",
-      "caption": "Cá vược công con có sọc đen trong khay chụp ảnh",
-      "best": true,
-      "kind": "juvenile",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/246167441.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/246167441-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-SA",
-      "author": "Jacob Malcom",
-      "sourceUrl": "https://www.inaturalist.org/photos/246167441",
-      "caption": "Cá vược công bơi giữa cỏ thủy sinh trong môi trường tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/360137039.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/360137039-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "B. Phalan",
-      "sourceUrl": "https://www.inaturalist.org/photos/360137039",
-      "caption": "Cá vược công có sọc đen bơi trong nước đục ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/409131685.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/409131685-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "Jade Fortnash",
-      "sourceUrl": "https://www.inaturalist.org/photos/409131685",
-      "caption": "Cá vược công có vằn sọc bơi trong nước nông",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/436289818.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/436289818-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/197655678.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/197655678-480.webp",
       "width": 1024,
       "height": 768,
       "licence": "CC BY",
       "author": "David Garza",
-      "sourceUrl": "https://www.inaturalist.org/photos/436289818",
-      "caption": "Cá vược công bơi trong nước xanh ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "sourceUrl": "https://www.inaturalist.org/photos/197655678",
+      "caption": "Cá vược công có sọc đen bơi trên nền cát",
+      "best": false,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/443558263.webp",
@@ -216,18 +171,6 @@
       "kind": "habitat",
       "setup": false,
       "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/197655678.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/197655678-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "David Garza",
-      "sourceUrl": "https://www.inaturalist.org/photos/197655678",
-      "caption": "Cá vược công có sọc đen bơi trên nền cát",
-      "best": false,
-      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/239421727.webp",
@@ -256,6 +199,19 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/409131685.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/409131685-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Jade Fortnash",
+      "sourceUrl": "https://www.inaturalist.org/photos/409131685",
+      "caption": "Cá vược công có vằn sọc bơi trong nước nông",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/commons/ec38cf78e57aa851.webp",
       "thumb": "https://media.aquatome.com/commons/ec38cf78e57aa851-480.webp",
       "width": 1200,
@@ -278,6 +234,19 @@
       "caption": "Hai cá vược công bơi cùng nhau trong bể",
       "best": true,
       "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/341991208.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/341991208-480.webp",
+      "width": 1024,
+      "height": 513,
+      "licence": "CC0",
+      "author": "Whaldener Endo",
+      "sourceUrl": "https://www.inaturalist.org/photos/341991208",
+      "caption": "Cá vược công con có sọc đen trong khay chụp ảnh",
+      "best": true,
+      "kind": "juvenile",
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/65592566.webp",
@@ -350,6 +319,32 @@
       "caption": "Cá vược công sọc xanh bơi trong nước tự nhiên",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/246167441.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/246167441-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-SA",
+      "author": "Jacob Malcom",
+      "sourceUrl": "https://www.inaturalist.org/photos/246167441",
+      "caption": "Cá vược công bơi giữa cỏ thủy sinh trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/436289818.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/436289818-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "David Garza",
+      "sourceUrl": "https://www.inaturalist.org/photos/436289818",
+      "caption": "Cá vược công bơi trong nước xanh ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/65592069.webp",

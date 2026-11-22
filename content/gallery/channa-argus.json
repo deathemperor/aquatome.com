@@ -134,28 +134,60 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/170462077.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/170462077-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/265472044.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/265472044-480.webp",
       "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Вячеслав Юсупов",
-      "sourceUrl": "https://www.inaturalist.org/photos/170462077",
-      "caption": "Cá lóc Amur còn sống trên mặt đường, thấy rõ hoa văn",
-      "best": false,
-      "kind": "other"
+      "height": 671,
+      "licence": "CC BY-SA",
+      "author": "Zinogre",
+      "sourceUrl": "https://www.inaturalist.org/photos/265472044",
+      "caption": "Cá lóc Amur bơi gần cành cây trong nước tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/207783405.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/207783405-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/264695551.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/264695551-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Zakqary Roy",
+      "sourceUrl": "https://www.inaturalist.org/photos/264695551",
+      "caption": "Cá lóc Amur vằn nâu cạnh thước đo trong hộp ảnh",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/293845519.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/293845519-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "Crystal Butler",
+      "sourceUrl": "https://www.inaturalist.org/photos/293845519",
+      "caption": "Cá lóc Amur trong vùng nước nông tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/207772329.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/207772329-480.webp",
       "width": 1024,
       "height": 768,
       "licence": "CC BY",
       "author": "Mila C.",
-      "sourceUrl": "https://www.inaturalist.org/photos/207783405",
-      "caption": "Cá lóc Amur bơi trong ao có bèo",
+      "sourceUrl": "https://www.inaturalist.org/photos/207772329",
+      "caption": "Cá lóc Amur bơi trong nước ao có bèo",
       "best": false,
-      "kind": "habitat"
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/f382981d142b4e5c.webp",
@@ -240,9 +272,21 @@
       "caption": "Cá lóc Amur trong nước đục ngoài tự nhiên",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/207783405.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/207783405-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Mila C.",
+      "sourceUrl": "https://www.inaturalist.org/photos/207783405",
+      "caption": "Cá lóc Amur bơi trong ao có bèo",
+      "best": false,
+      "kind": "habitat"
     }
   ],
-  "seen": 78,
-  "updatedAt": "2026-11-08",
-  "builtAt": "2026-11-08"
+  "seen": 98,
+  "updatedAt": "2026-11-22",
+  "builtAt": "2026-11-22"
 }
