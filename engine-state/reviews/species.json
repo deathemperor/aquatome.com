@@ -332,6 +332,43 @@
       "kept": false
     }
   ],
+  "vi/plants/taxiphyllum-barbieri#QyaJCTK6ByA": [
+    {
+      "at": "2026-11-21T23:59:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.5,
+      "notes": [
+        "[maintenance] The light paragraph (dark green and sparse under low light, brighter green and denser under high light) is said in the video, but the page doesn't have it, so it is OK. However, it omits the algae risk the video links to high light, which is minor.",
+        "[waterConditions] \"Một người nuôi loài này thấy rêu chịu nóng được tới khoảng 30°C\" presents the video's general statement (tolerates up to 30°C) as one keeper's experience. The video states it as a fact, so the attribution is wrong.",
+        "[waterConditions] The page already says rêu sống được trong khoảng 15–32°C, so the 30°C tolerance is largely redundant with the page. It is not a new fact, and it does not say how the video differs (30 vs 32).",
+        "[waterConditions] \"mọc chậm đi một chút\" at high temperature is supported by the video (slightly slows growth), and the page doesn't say it, so it is OK.",
+        "[waterConditions] The video's ideal temperature of 20–24°C differs slightly from the page's 21–24°C. The text does not point out this difference as the instructions ask.",
+        "[maintenance] The text puts a general growth-and-colour fact under maintenance without any note on where the video differs from the page. The page says ánh sáng yếu đến trung bình and CO2 thấp, and the video says it grows in both low and high light. This is not stated."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T23:59:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.77,
+      "notes": [
+        "\"nhưng chúng không hút dinh dưỡng cho cây\": the video does say this, but the page already has the rhizoid and \"hút dinh dưỡng qua lá và thân\" content, so it is largely repeated.",
+        "\"Rêu chịu được nước nóng tới khoảng 30°C\": the page already gives 15–32°C. The video's 30°C differs from that, and NEW doesn't say it differs.",
+        "\"rêu hại cũng dễ bám lên hơn nhiều\": the page's problems section already ties algae to \"đèn quá mạnh\", so this partly repeats it.",
+        "\"Một người nuôi lâu năm\": the video speaker never calls himself a long-time keeper. He only says he uses the moss in his livebearer breeding tanks.",
+        "\"hay trải rêu java\": the video says he uses it for hiding places, not that he spreads it across the tank. The page already covers fry hiding places in breeding tanks.",
+        "\"trùng cỏ (infusoria)\": \"trùng cỏ\" is an awkward rendering of infusoria and may refer to a different organism, so it reads like a translation.",
+        "\"cá bột, và tép cũng ăn\": the video only says infusoria are food for shrimp. The page already has biofilm as first food, so the overlap is partial."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/plants/vesicularia-montagnei#N4pRrMjmgZ8": [
     {
       "at": "2026-11-19T23:44:22Z",
@@ -1168,6 +1205,46 @@
         "[behaviour] \"Có thể nuôi chung với cá Denison... vì ngoài tự nhiên hai loài này sống cùng nhau\": the page's habitat section already lists Puntius denisonii as occurring in the same area. The claim is partly redundant. The video's own reasoning is only that they are found together in the wild.",
         "[behaviour] \"bể 450 lít dài khoảng 1,8 m\": the video gives 125 gallons (about 470 L) and 6 feet (about 1.8 m). 450 L is a slightly off conversion.",
         "[notes] Putting the grow-out observation under [notes] is an odd heading choice. The slow growth and missing adult colour and filaments are one keeper's single-tank experience. They are worded as one keeper's, so this is acceptable."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/doryichthys-boaja#QWU4gaLGNJo": [
+    {
+      "at": "2026-11-21T23:58:23Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.62,
+      "notes": [
+        "[habitat] 'Cũng có ghi chép gặp loài này ở cửa sông' goes against the page, which says the fish lives only in freshwater and is never found in brackish water. NEW never says it differs from the page or how.",
+        "[maintenance] 'Chỉ thả cá vào bể đã chạy lâu… đừng thả vào bể mới set hôm qua' turns the presenter's 'I would' into a flat rule. It should be written as one keeper's experience.",
+        "[diet] 'Nên gây sẵn artemia trước khi mang cá về' is the presenter's personal advice stated as a general rule, with no one keeper credited.",
+        "[behaviour] 'Tốt nhất là nuôi riêng một loài' is stated as a fact. In the video it is the presenter's preference.",
+        "[reproduction] 'cho loài này đẻ là một việc khó nhưng đáng làm' stretches the video's 'more complex breeding project that will help the hobby'. It is also the presenter's recommendation, not a stated fact.",
+        "[behaviour] 'Chúng chỉ cần ăn hết mồi trước khi cá chìa vôi kịp đớp là đủ để nó đói dài' is clumsy and reads as a translation. 'Chúng' is unclear here, since the video says other fish can eat everything first.",
+        "[behaviour] 'vài loài cá thật nhỏ' is vague and drops the video's examples (rasboras, lamp-eyed killifish).",
+        "[notes] 'Xem cách nó đớp mồi hay cách nó sinh sản là thấy ngay hai loài gần nhau' sounds stiff and translated. The video's point is only that the link to seahorses becomes clearer."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T23:58:23Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.5,
+      "notes": [
+        "\"Cá bán ngoài tiệm thường chỉ dài 7–10 cm\": the video says three- or four-inch specimens (about 7.5–10 cm) as an example, not a general rule, and it is hedged.",
+        "\"Một người nuôi loài này cho biết có ghi chép gặp nó cả ở cửa sông\": the video presents estuary records as a fact, not as one keeper's report. The \"không cho muối\" advice is the presenter's opinion, so the attribution is awkward and misattributed.",
+        "\"nước trên 27 °C\" / \"24 °C\": the video says above 80°F and around 75°F. Converting is fine, but it is stated more precisely than the video.",
+        "\"Cá con mới nở dài khoảng 1,5 cm\": the video says 0.6 inches, which is about 1.5 cm. This is acceptable.",
+        "\"bể dài khoảng 120 cm\": the video says it would look for a 4 foot tank, which is the presenter's own advice, but NEW states it as a rule.",
+        "\"Một bầy tép đỏ trong bể cũng có lẽ là thức ăn tốt cho chúng\": this is in [behaviour] and duplicates the diet idea. The video says a cherry shrimp colony would probably be a good idea, so it is hedged, but the sentence reads awkwardly.",
+        "\"Nhiệt độ 24–26 °C\": the video says 75–78°F, which is about 24–26 °C. This is fine.",
+        "\"cá chuột lùn\", \"rasbora\", \"cá killi mắt đèn\": these are mistranslations of the video's garbled auto-translation (dwarf corridors, rasps, lamp-eyed keels). The video text is unclear, and \"cá chuột lùn\" is a plain translation. The page also already says the species is freshwater only (habitat), which partly overlaps with the habitat note."
       ],
       "attempt": "first",
       "kept": false
@@ -2907,6 +2984,42 @@
         "[diet] \"có thể tập cho ăn cám viên cỡ nhỏ hoặc thức ăn dạng mảnh\": the video does say micro pellets or flakes. But the page already says fish may get used to dry food, so this is partly redundant.",
         "[behaviour] \"Cá bơi rất năng động\": the video says this, but the page lacks it. \"thấy đàn từ sáu con trở lên là được\" contradicts the page's 20-30 fish and turns the video's 'at least six' into one keeper's view without saying how it differs from the page.",
         "[behaviour] \"Người này thả chúng chung với tép trong bể nano\": this is the video maker's own experience, and it is given in a stilted third-person way ('Người này') that reads as a translation."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/sundadanio-axelrodi#qW6vuki1OM8": [
+    {
+      "at": "2026-11-21T23:56:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.86,
+      "notes": [
+        "[diet] \"rồi trong vài ngày chuyển dần sang cám viên nhỏ\": the video says Nano Grand, or no flakes if flakes don't work. \"Cám viên nhỏ\" is a loose rendering. The advice to start new fish on live food is also close to what the page's diet section already says.",
+        "[notes] The claim of about eight species in the genus contradicts the page's \"monotype\" wording. The text only attributes it to one keeper and doesn't say plainly that the video differs from the page.",
+        "[aquariumSize] \"ít hơn đàn 20–30 con vẫn hay được khuyên\" is a comparison with the page, not something the video says. It is mild and accurate.",
+        "Style: \"người này\" is repeated many times in [maintenance], which reads stiff and translated. A hobbyist would vary the phrasing."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T23:56:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.55,
+      "notes": [
+        "[notes] 'Theo một người nuôi loài này lâu năm' is attached to the species-description facts (seven more species by 2011), which are scientific facts, not keeper experience; also the page already says species described as Rasbora axelrodi and that Sundadanio was split in 2011, and the page calls it monotypic, which conflicts with the video's ~8 species and is not flagged as a difference.",
+        "[notes] 'Sundadanio rubellus' – the video says 'rubellos' only as another species the keeper holds; naming it is shaky. 'Các loài trong chi đều sống ở rừng đầm lầy nước đen' is mostly fine.",
+        "[habitat] 'pH dao động quanh 4,5–5,5' and 'tối' duplicate page content (pH down to 4.0, dark water, canopy); the page already has this.",
+        "[beforeYouBuy] 'Nên tìm nguồn nhận cá về là thả ngay vào nước đen' is written as a general rule, but it is one wholesaler friend's practice; 'cá được giữ như vậy lên khỏe hơn hẳn' overgeneralises. The video says the friend does this, not that it's a rule.",
+        "[beforeYouBuy] 'Cá bán ra thường đã yếu' and 'thường chết' state as fact what the video's speaker says from their own experience.",
+        "[aquariumSize] The page says 30 L or more is better for stable parameters; the 16–17 fish in 30 L is fine as one keeper, but the video differs from the page's 20–30 recommendation and the difference is not stated.",
+        "[maintenance] 'Những ngày đầu không thay nước nhiều' and 'nhiệt độ có lên xuống... không sao' are loosely derived; the 'one-keeper' framing is dropped for 'Cá khó nhất lúc mới về… khá khỏe' stated as a rule. Also says keeper used 'thuốc' on 'cả bể' – video says added to the aquarium, fine. Wording 'nước xanh lè lên' is slightly colloquial.",
+        "[behaviour] 'nuôi chung với tép rất an toàn' stated as a rule although it is one keeper's observation; also repeats itself in two sentences."
       ],
       "attempt": "first",
       "kept": false

@@ -74922,6 +74922,14 @@
   ],
   "mendTried": "2026-11-16"
  },
+ "vi/guides/youtube-0k2KvIXRq70": {
+  "at": "2026-11-22",
+  "hash": "1b8846caada82cfb",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/guides/youtube-0kgXMVQ7o0A": {
   "at": "2026-11-16",
   "hash": "3bd13bc2503d31a7",
@@ -76915,6 +76923,25 @@
    "Xima RGB",
    "LOL",
    "J.I.M LED"
+  ]
+ },
+ "vi/guides/youtube-4Hz6rlx-lo0": {
+  "at": "2026-11-22",
+  "hash": "0fb2cd7610c483aa",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "một bể dài 240 cm, sâu 90 cm, cao 60 cm",
+    "why": "'Sâu' here is a calque of English 'deep' meaning front-to-back; Vietnamese keepers call that side the width.",
+    "by": "model",
+    "fix": "dài 240 cm, rộng 90 cm, cao 60 cm"
+   }
+  ],
+  "products": [
+   "Hikari Massivore"
   ]
  },
  "vi/guides/youtube-4lG_4wSx_bQ": {
@@ -78924,6 +78951,23 @@
     "why": "Calque of 'twin wall'; Vietnamese buyers call it hollow polycarbonate sheet.",
     "by": "model",
     "fix": "tấm poly rỗng ruột / tấm lấy sáng polycarbonate rỗng"
+   }
+  ],
+  "products": []
+ },
+ "vi/guides/youtube-7mo1UBChWaA": {
+  "at": "2026-11-22",
+  "hash": "d4531c640dfc1b45",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "Cá hỏa tiễn (gar)",
+    "why": "Keepers in Vietnam call gar 'cá sấu hỏa tiễn', not just 'cá hỏa tiễn'.",
+    "by": "model",
+    "fix": "Cá sấu hỏa tiễn"
    }
   ],
   "products": []
@@ -96354,7 +96398,7 @@
    "Wonder Shells",
    "Seachem Equilibrium"
   ],
-  "mendTried": "2026-11-19"
+  "mendTried": "2026-11-22"
  },
  "vi/guides/youtube-nvA3c_8w77I": {
   "at": "2026-11-08",
@@ -111066,18 +111110,18 @@
   "products": []
  },
  "vi/plants/taxiphyllum-barbieri": {
-  "at": "2026-11-19",
-  "hash": "7e8f893f560489eb",
+  "at": "2026-11-22",
+  "hash": "b4d01a5c9508968f",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "words",
-    "part": "P12",
+    "part": "P14",
     "quote": "CO2 cao và đồng đều cực kỳ nguy hiểm cho tép",
-    "why": "Mistranslation: 'đồng đều' means 'uniform'; the source meant copper, as the next clause about fertiliser containing copper shows.",
+    "why": "Mistranslation: 'đồng đều' (even/uniform) where the source meant copper, as the next clause about fertilisers containing copper shows.",
     "by": "model",
-    "fix": "CO2 cao và kim loại đồng"
+    "fix": "CO2 cao và đồng (kim loại) cực kỳ nguy hiểm cho tép"
    }
   ],
   "products": []
@@ -145193,23 +145237,23 @@
   "products": []
  },
  "vi/species/sundadanio-axelrodi": {
-  "at": "2026-11-19",
-  "hash": "32250962460b5a27",
+  "at": "2026-11-22",
+  "hash": "3a19d34a3b27c6d5",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "elsewhere",
-    "part": "P9",
+    "part": "P13",
     "quote": "gỗ dẻ gai (beech) hoặc gỗ sồi (oak) thông thường vẫn dùng an toàn",
-    "why": "Beech and oak wood come from European trees, and keepers in Vietnam don't gather or buy them.",
+    "why": "Beech and oak wood are European trees keepers in Vietnam don't buy or gather.",
     "by": "model"
    },
    {
     "check": "elsewhere",
-    "part": "P9",
+    "part": "P13",
     "quote": "Lá dẻ gai (beech), lá sồi (oak) hay lá bàng (Ketapang) đều dùng được",
-    "why": "Beech and oak leaves are from European trees that keepers in Vietnam don't have. Only lá bàng is local.",
+    "why": "Beech and oak leaves are not available to or used by keepers in Vietnam.",
     "by": "model"
    }
   ],

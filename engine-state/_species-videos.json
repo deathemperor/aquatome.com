@@ -4305,10 +4305,14 @@
     "reason": "two-species comparison"
   },
   "qW6vuki1OM8": {
-    "at": "2026-11-07",
+    "at": "2026-11-21",
     "title": "Sundadanio axelrodi",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Sundadanio axelrodi",
+    "page": "species/sundadanio-axelrodi",
+    "done": "added",
+    "score": 0.86
   },
   "QW8QzMILr0w": {
     "at": "2026-11-07",
@@ -4319,10 +4323,15 @@
     "reason": "science on guppies generally"
   },
   "QWU4gaLGNJo": {
-    "at": "2026-11-07",
+    "at": "2026-11-21",
     "title": "Long-Snouted Pipefish: The Largest Freshwater Pipefish",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Doryichthys boaja",
+    "page": "species/doryichthys-boaja",
+    "done": "low",
+    "score": 0.62,
+    "reason": "[habitat] 'Cũng có ghi chép gặp loài này ở cửa sông' goes against the page, which says the fish lives only in freshwater and is never found in brackish water. NEW never says it differs from the page or how.; [maintenance] 'Chỉ thả cá vào bể đã chạy lâu… đừng thả vào bể mới set hôm qua' turns the presenter's 'I would' into a flat rule. It should be written as one keeper's experience."
   },
   "qxH8rU51Wjw": {
     "at": "2026-11-18",
@@ -4333,10 +4342,14 @@
     "reason": "tank setup"
   },
   "QyaJCTK6ByA": {
-    "at": "2026-11-07",
+    "at": "2026-11-21",
     "title": "Java Moss \"Taxiphyllum barbieri\" (Perfect Plant for Fish Breeding, Shrimps or Aquascaping)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Taxiphyllum barbieri",
+    "page": "plants/taxiphyllum-barbieri",
+    "done": "added",
+    "score": 0.77
   },
   "R-1rQYWF_qY": {
     "at": "2026-11-07",
@@ -4479,6 +4492,14 @@
     "kind": "other",
     "done": "skipped",
     "reason": "15 species"
+  },
+  "S1gyPFtcPAU": {
+    "at": "2026-11-21",
+    "title": "Aquatic Plants Are In A Chemical War! Why Water Changes Clean Far More Than Fish Waste & Ammonia",
+    "channel": "FISHTORY",
+    "kind": "other",
+    "done": "skipped",
+    "reason": "General topic on water changes and plant chemistry, not one species"
   },
   "Sg6IxODpfdg": {
     "at": "2026-11-07",
