@@ -10,6 +10,70 @@
     "brazil",
     "rio-xingu"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Rio Xingu"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Curculionichthys sabaji originates from the drainage of the Rio Xingu.",
+          "countries": [],
+          "regions": [
+            "Rio Xingu"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9113449,
+      "total": 19,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "BR",
+          19
+        ]
+      ],
+      "cells": [
+        [
+          -56.25,
+          -9.84375,
+          7
+        ],
+        [
+          -56.25,
+          -8.4375,
+          2
+        ],
+        [
+          -56.25,
+          -5.625,
+          1
+        ],
+        [
+          -56.25,
+          -4.21875,
+          6
+        ],
+        [
+          -54.84375,
+          -9.84375,
+          1
+        ],
+        [
+          -53.4375,
+          -14.0625,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

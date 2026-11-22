@@ -9,6 +9,108 @@
     "africa",
     "nigeria"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It lives in larger shoals near the surface in rivers in western Africa; the specimens described here come from Nigeria.",
+          "countries": [
+            "NG"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2413676,
+      "total": 37,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "BJ",
+          20
+        ],
+        [
+          "NG",
+          16
+        ],
+        [
+          "CM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          0,
+          9.84375,
+          2,
+          0
+        ],
+        [
+          1.40625,
+          5.625,
+          14,
+          0
+        ],
+        [
+          1.40625,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          2.8125,
+          5.625,
+          6,
+          6
+        ],
+        [
+          2.8125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          2.8125,
+          11.25,
+          4,
+          0
+        ],
+        [
+          4.21875,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          5.625,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          7.03125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

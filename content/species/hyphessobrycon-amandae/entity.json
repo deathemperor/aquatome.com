@@ -17,11 +17,13 @@
       ],
       "regions": [
         "Araguaia",
-        "Tocantins"
+        "Tocantins",
+        "Rio das Mortes"
       ],
       "sources": [
         "seriouslyfish",
-        "aquariumcoop"
+        "aquariumcoop",
+        "bwaquatics"
       ],
       "quotes": [
         {
@@ -40,6 +42,14 @@
           "countries": [],
           "regions": [
             "Tocantins"
+          ]
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Hyphessobrycon amandae was described in 1987 from the Rio das Mortes in Mato Grosso, part of the Araguaia basin in central Brazil, and named for Amanda Bleher, mother of collector Heiko Bleher.",
+          "countries": [],
+          "regions": [
+            "Rio das Mortes"
           ]
         }
       ]

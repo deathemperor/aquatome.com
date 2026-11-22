@@ -23,12 +23,12 @@
   "range": {
     "native": {
       "countries": [
-        "PE",
         "BO",
         "BR",
         "CO",
         "EC",
         "GY",
+        "PE",
         "VE",
         "PY",
         "AR"
@@ -39,17 +39,10 @@
         "Paraguay-Paraná"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
-        {
-          "source": "seriouslyfish",
-          "quote": "Described from 'Xeberos', Peru, which presumably refers to modern-day Jeberos district, Alto Amazonas Province, Loreto region in northeastern (Amazonian) Peru.",
-          "countries": [
-            "PE"
-          ],
-          "regions": []
-        },
         {
           "source": "seriouslyfish",
           "quote": "As currently recognised though it has an enormous natural range, occurring throughout much of the Amazon and Orinoco river basins in Bolivia, Brazil, Colombia, Ecuador, Guyana, Peru and Venezuela plus the Paraguay-Paraná system in southern Brazil, Paraguay and Argentina.",
@@ -59,6 +52,7 @@
             "CO",
             "EC",
             "GY",
+            "PE",
             "VE",
             "PY",
             "AR"

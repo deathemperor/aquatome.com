@@ -8,7 +8,7 @@
   ],
   "sections": {
     "quickFacts:glaser": "<p>Xenopus tropicalis (hay được gọi là Silurana tropicalis) khác hẳn Xenopus laevis. Loài này chỉ lớn khoảng 4 cm (X. laevis lớn tới 15 cm) và có mắt nhỏ hơn. Nó là loài nhiệt đới, không bao giờ sống nổi qua mùa đông châu Âu. Nuôi loài này đơn giản.</p>",
-    "beforeYouBuy:glaser": "<p>Ếch móng vuốt loài Xenopus laevis chắc là sắp bị cấm buôn bán, vì người ta đã phát hiện một quần thể tự sinh sản ở Pháp. Khí hậu đang ấm lên, nên có mối lo loài này sẽ thành loài xâm lấn ở châu Âu. Muốn ngăn chuyện đó thì phải cấm buôn bán nó.</p><p>Một số dòng Xenopus laevis có nguồn gốc Nam Phi, thậm chí chịu được nhiệt độ dưới 0 °C trong thời gian ngắn. Còn X. tropicalis thì có cả ếch bắt ngoài tự nhiên ở Nigeria, ếch cho đẻ ở EU và ếch từ Đông Nam Á. Loài nhỏ này rất hợp để nuôi chung với cá, nên ở các trại cho đẻ để bán chơi bể, nó đã gần như thay chỗ người họ hàng lớn hơn. X. laevis chủ yếu được nuôi đẻ làm động vật thí nghiệm cho nghiên cứu y học, và ếch từ những nơi này đôi khi cũng lọt ra thị trường thú cưng.</p><p>Thỉnh thoảng cũng có Xenopus muelleri cho đẻ trong bể, một loài nhỏ, khoảng 6 cm. Đây là loài nhiệt đới nên vẫn được phép bán.</p>",
+    "beforeYouBuy:glaser": "<p>Muốn ngăn chuyện đó thì phải cấm buôn bán nó.</p><p>Một số dòng Xenopus laevis có nguồn gốc Nam Phi, thậm chí chịu được nhiệt độ dưới 0 °C trong thời gian ngắn. Còn X. tropicalis thì có cả ếch bắt ngoài tự nhiên ở Nigeria, ếch cho đẻ ở EU và ếch từ Đông Nam Á. Loài nhỏ này rất hợp để nuôi chung với cá, nên ở các trại cho đẻ để bán chơi bể, nó đã gần như thay chỗ người họ hàng lớn hơn. X. laevis chủ yếu được nuôi đẻ làm động vật thí nghiệm cho nghiên cứu y học, và ếch từ những nơi này đôi khi cũng lọt ra thị trường thú cưng.</p><p>Thỉnh thoảng cũng có Xenopus muelleri cho đẻ trong bể, một loài nhỏ, khoảng 6 cm. Đây là loài nhiệt đới nên vẫn được phép bán.</p>",
     "distribution:glaser": "<p>Ếch bắt ngoài tự nhiên được nhập từ Nigeria.</p>",
     "diet:glaser": "<p>Thức ăn cho cá cảnh loại nào nó cũng ăn và ăn đều hợp, từ thức ăn khô, đông lạnh cho tới đồ tươi sống.</p>",
     "behaviour:glaser": "<p>Loài này hiền, nhưng thứ gì lọt miệng là nó cũng cố nuốt. Vì vậy cá nuôi chung với X. tropicalis phải dài từ 3 cm trở lên.</p>",
@@ -23,7 +23,8 @@
   },
   "held": {
     "checks": [
-      "elsewhere"
+      "elsewhere",
+      "source"
     ],
     "at": "2026-11-22"
   }

@@ -9,6 +9,52 @@
     "north-america",
     "cuba"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CU"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species originates from Cuba.",
+          "countries": [
+            "CU"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2350352,
+      "total": 11,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "CU",
+          11
+        ]
+      ],
+      "cells": [
+        [
+          -84.375,
+          21.09375,
+          3,
+          3
+        ],
+        [
+          -84.375,
+          22.5,
+          8,
+          8
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

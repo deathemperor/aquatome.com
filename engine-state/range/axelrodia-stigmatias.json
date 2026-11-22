@@ -1,8 +1,8 @@
 {
   "id": "axelrodia-stigmatias",
   "native": {
-    "input": "0f9f52b063f7ce08",
-    "at": "2026-11-06T12:17:30.771Z",
+    "input": "c0d765bf02858834",
+    "at": "2026-11-22T12:48:24.036Z",
     "claims": [
       {
         "code": "BR",
@@ -23,28 +23,31 @@
     ],
     "regions": [
       {
-        "name": "Amazon",
+        "name": "Madeira",
         "source": "seriouslyfish",
         "quote": "Native to the western Amazon region with confirmed records existing from the rio Madeira and lago Manacapuru complex off the rio Solimões (Amazon) main channel, upstream from Manaus, in Brazil plus the Río Ucayali in Peru.",
+        "country": "BR",
         "ok": true
       },
       {
-        "name": "Rio Madeira",
+        "name": "Solimões",
         "source": "seriouslyfish",
         "quote": "Native to the western Amazon region with confirmed records existing from the rio Madeira and lago Manacapuru complex off the rio Solimões (Amazon) main channel, upstream from Manaus, in Brazil plus the Río Ucayali in Peru.",
+        "country": "BR",
         "ok": true
       },
       {
-        "name": "Rio Solimões",
-        "source": "seriouslyfish",
-        "quote": "Native to the western Amazon region with confirmed records existing from the rio Madeira and lago Manacapuru complex off the rio Solimões (Amazon) main channel, upstream from Manaus, in Brazil plus the Río Ucayali in Peru.",
-        "ok": true
-      },
-      {
-        "name": "Río Ucayali",
+        "name": "Ucayali",
         "source": "seriouslyfish",
         "quote": "Native to the western Amazon region with confirmed records existing from the rio Madeira and lago Manacapuru complex off the rio Solimões (Amazon) main channel, upstream from Manaus, in Brazil plus the Río Ucayali in Peru.",
         "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Lago Manacapuru",
+        "source": "seriouslyfish",
+        "quote": "Native to the western Amazon region with confirmed records existing from the rio Madeira and lago Manacapuru complex off the rio Solimões (Amazon) main channel, upstream from Manaus, in Brazil plus the Río Ucayali in Peru.",
+        "country": "BR",
         "ok": true
       }
     ],
@@ -52,7 +55,8 @@
     "outranked": [],
     "origin": {
       "pagesOnly": [
-        "CO"
+        "CO",
+        "VE"
       ],
       "sourcesOnly": []
     }

@@ -20,12 +20,14 @@
       ],
       "regions": [
         "Mae Klong",
-        "Ataran"
+        "Ataran",
+        "Chao Phraya"
       ],
       "sources": [
         "seriouslyfish",
         "aquariumcoop",
-        "glaser"
+        "glaser",
+        "aquariumbreeder"
       ],
       "quotes": [
         {
@@ -38,6 +40,14 @@
           "regions": [
             "Mae Klong",
             "Ataran"
+          ]
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "Ambastaia sidthimunki is native to the Mae Klong and Chao Phraya river basins in Thailand, which flow through central and western Thailand.",
+          "countries": [],
+          "regions": [
+            "Chao Phraya"
           ]
         }
       ]

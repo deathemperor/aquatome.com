@@ -18,13 +18,14 @@
       ],
       "regions": [
         "Sumatra",
+        "Musi",
         "Indragiri",
-        "Batang Hari",
-        "Musi"
+        "Batang Hari"
       ],
       "sources": [
         "seriouslyfish",
-        "aquariumcoop"
+        "aquariumcoop",
+        "glaser"
       ],
       "quotes": [
         {
@@ -38,13 +39,20 @@
           ]
         },
         {
+          "source": "glaser",
+          "quote": "P. tetrazona is the only Puntigrus species from Sumatra; the animals used for the species description came from Palembang Province near Lahat, in the Musi River system.",
+          "countries": [],
+          "regions": [
+            "Musi"
+          ]
+        },
+        {
           "source": "seriouslyfish",
           "quote": "Additional records exist from the Indragiri, Batang Hari, and Musi river systems in Riau, Jambi, and South Sumatra provinces, respectively.",
           "countries": [],
           "regions": [
             "Indragiri",
-            "Batang Hari",
-            "Musi"
+            "Batang Hari"
           ]
         }
       ]

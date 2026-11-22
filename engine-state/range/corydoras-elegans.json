@@ -1,8 +1,8 @@
 {
   "id": "corydoras-elegans",
   "native": {
-    "input": "cac6cbfaa0338b39",
-    "at": "2026-11-21T19:07:52.042Z",
+    "input": "75076f6aebf36789",
+    "at": "2026-11-22T12:48:24.036Z",
     "claims": [
       {
         "code": "BR",
@@ -40,7 +40,7 @@
         "code": "PE",
         "status": "native",
         "source": "glaser",
-        "quote": "The species is known from Peru; a Brazilian variant is also currently available.",
+        "quote": "A color variant from the Rio Nanay in Peru stands out above all by yellow-orange tinted fins.",
         "words": "Peru",
         "ok": true
       }
@@ -80,9 +80,10 @@
         "ok": true
       },
       {
-        "name": "Amazon",
-        "source": "planetcatfish",
-        "quote": "South America: Amazon basin, including the Middle Amazon (Solimões), Upper Amazon, Napo, Aguarico, Marañón, Ucayali, Tamaya, Ampiyacu, Nanay, Yavari and Japurá/Caquetá.",
+        "name": "Rio Nanay",
+        "source": "glaser",
+        "quote": "A color variant from the Rio Nanay in Peru stands out above all by yellow-orange tinted fins.",
+        "country": "PE",
         "ok": true
       }
     ],

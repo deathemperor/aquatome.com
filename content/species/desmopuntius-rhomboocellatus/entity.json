@@ -17,14 +17,16 @@
       ],
       "regions": [
         "Borneo",
-        "Kalimantan",
         "Kapuas",
         "Barito",
         "Kahajan",
-        "Kepayang"
+        "Kepayang",
+        "Kahayan"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "bwaquatics",
+        "glaser"
       ],
       "quotes": [
         {
@@ -35,11 +37,18 @@
           ],
           "regions": [
             "Borneo",
-            "Kalimantan",
             "Kapuas",
             "Barito",
             "Kahajan",
             "Kepayang"
+          ]
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Desmopuntius rhomboocellatus is a rarely imported soft-water barb from southern and western Kalimantan, Borneo, recorded from the Kapuas, Kahayan, Barito and Kepayang drainages.",
+          "countries": [],
+          "regions": [
+            "Kahayan"
           ]
         }
       ]

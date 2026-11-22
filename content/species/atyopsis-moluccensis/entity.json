@@ -14,10 +14,45 @@
     "thailand"
   ],
   "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "PH",
+        "LK",
+        "TH"
+      ],
+      "regions": [
+        "Bali",
+        "Kalimantan",
+        "Sulawesi",
+        "Sumatera"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "The homeland of this species is Indonesia (Bali, Kalimantan, Sulawesi, Sumatera), Philippines, Sri Lanka, and Thailand.",
+          "countries": [
+            "ID",
+            "PH",
+            "LK",
+            "TH"
+          ],
+          "regions": [
+            "Bali",
+            "Kalimantan",
+            "Sulawesi",
+            "Sumatera"
+          ]
+        }
+      ]
+    },
     "records": {
       "taxonKey": 5863069,
       "total": 16,
-      "fetched": "2026-11-05",
+      "fetched": "2026-11-22",
       "countries": [
         [
           "MY",
@@ -40,71 +75,85 @@
         [
           97.03125,
           7.03125,
+          1,
           1
         ],
         [
           98.4375,
           2.8125,
+          1,
           1
         ],
         [
           98.4375,
           4.21875,
-          1
+          1,
+          0
         ],
         [
           99.84375,
           8.4375,
+          2,
           2
         ],
         [
           101.25,
           5.625,
-          1
+          1,
+          0
         ],
         [
           101.25,
           11.25,
+          1,
           1
         ],
         [
           102.65625,
           1.40625,
-          1
+          1,
+          0
         ],
         [
           102.65625,
           4.21875,
-          1
+          1,
+          0
         ],
         [
           104.0625,
           1.40625,
-          1
+          1,
+          0
         ],
         [
           105.46875,
           -7.03125,
+          1,
           1
         ],
         [
           109.6875,
           0,
-          2
+          2,
+          0
         ],
         [
           116.71875,
           2.8125,
+          1,
           1
         ],
         [
           120.9375,
           -1.40625,
+          1,
           1
         ],
         [
           123.75,
           11.25,
+          1,
           1
         ]
       ]

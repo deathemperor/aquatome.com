@@ -415,6 +415,10 @@
   "at": "2026-11-20T17:57:15.353Z",
   "hash": "eaf1a10f6d3416bd"
  },
+ "vi/species/acanthopsoides-robertsi": {
+  "at": "2026-11-22T13:06:07.755Z",
+  "hash": "881b4eeabbab4d0f"
+ },
  "vi/species/acantopsis-rungthipae": {
   "at": "2026-11-18T06:21:24.479Z",
   "hash": "42feb638e9a0de00"
@@ -442,6 +446,10 @@
  "vi/species/aequidens-patricki": {
   "at": "2026-11-16T17:49:54.187Z",
   "hash": "6794bcfe87009a82"
+ },
+ "vi/species/aequidens-superomaculatum": {
+  "at": "2026-11-22T13:06:07.755Z",
+  "hash": "eede5138e256759e"
  },
  "vi/species/ageneiosus-magoi": {
   "at": "2026-11-20T12:09:57.448Z",
@@ -474,6 +482,10 @@
  "vi/species/ameiurus-brunneus": {
   "at": "2026-11-20T17:57:15.353Z",
   "hash": "93c0a3cd16dbcfc5"
+ },
+ "vi/species/ameiurus-melas": {
+  "at": "2026-11-22T13:06:07.755Z",
+  "hash": "db29d2fce3832558"
  },
  "vi/species/amia-calva": {
   "at": "2026-11-20T17:57:15.353Z",
@@ -740,8 +752,8 @@
   "hash": "853ef8c52baf3803"
  },
  "vi/species/betta-kuehnei": {
-  "at": "2026-11-22T00:50:27.789Z",
-  "hash": "2fcefed8fa74699e"
+  "at": "2026-11-22T13:06:07.755Z",
+  "hash": "ec7c84f021837075"
  },
  "vi/species/betta-macrostoma": {
   "at": "2026-11-22T00:50:27.789Z",
@@ -955,6 +967,10 @@
   "at": "2026-11-20T07:28:14.872Z",
   "hash": "d6461c7ce29a1928"
  },
+ "vi/species/gasterosteus-aculeatus": {
+  "at": "2026-11-22T13:06:07.755Z",
+  "hash": "a67504f1ea4d95f3"
+ },
  "vi/species/gelasimus-vocans": {
   "at": "2026-11-15T00:39:00.140Z",
   "hash": "30e67b4ff8ccc6b9"
@@ -987,6 +1003,14 @@
   "at": "2026-11-21T13:30:24.305Z",
   "hash": "d2804bcfc9754158"
  },
+ "vi/species/hymenochirus-curtipes": {
+  "at": "2026-11-22T13:06:07.755Z",
+  "hash": "d0861fa91145cbfc"
+ },
+ "vi/species/hyphessobrycon-amandae": {
+  "at": "2026-11-22T13:06:07.755Z",
+  "hash": "ab7ed960b3829859"
+ },
  "vi/species/hyphessobrycon-elachys": {
   "at": "2026-11-19T19:05:28.486Z",
   "hash": "5c11ae26d025f7a4"
@@ -995,9 +1019,17 @@
   "at": "2026-11-21T19:23:22.696Z",
   "hash": "38ca29921b098cee"
  },
+ "vi/species/hyphessobrycon-moniliger": {
+  "at": "2026-11-22T13:06:07.755Z",
+  "hash": "3d52ff9817a7c9a1"
+ },
  "vi/species/hyphessobrycon-pando": {
   "at": "2026-11-16T17:49:54.187Z",
   "hash": "1ed16c5b9e2fbbe8"
+ },
+ "vi/species/hyphessobrycon-procyon": {
+  "at": "2026-11-22T13:06:07.755Z",
+  "hash": "68df5b9447345d43"
  },
  "vi/species/hypostomus-roseopunctatus": {
   "at": "2026-11-14T17:39:12.276Z",
@@ -1155,6 +1187,10 @@
   "at": "2026-11-19T19:05:28.486Z",
   "hash": "e592a3b9921c4b1e"
  },
+ "vi/species/moenkhausia-rubra": {
+  "at": "2026-11-22T13:06:07.755Z",
+  "hash": "c8e7732ea566beb6"
+ },
  "vi/species/moenkhausia-sanctaefilomenae": {
   "at": "2026-11-20T12:09:57.448Z",
   "hash": "78e20f544e6a01ca"
@@ -1295,6 +1331,14 @@
   "at": "2026-11-19T13:06:40.388Z",
   "hash": "fde47f94798f5340"
  },
+ "vi/species/phallichthys-quadripunctatus": {
+  "at": "2026-11-22T13:06:07.755Z",
+  "hash": "e60a18524adcca62"
+ },
+ "vi/species/phenacogrammus-taeniatus": {
+  "at": "2026-11-22T13:06:07.755Z",
+  "hash": "d19cc370772eb0df"
+ },
  "vi/species/phoxinus-phoxinus": {
   "at": "2026-11-18T06:21:24.479Z",
   "hash": "e6960af31ef94e1e"
@@ -1323,9 +1367,17 @@
   "at": "2026-11-20T07:28:14.872Z",
   "hash": "0b72424ff4d1df07"
  },
+ "vi/species/platysilurus-mucosus": {
+  "at": "2026-11-22T13:06:07.755Z",
+  "hash": "b6066c8158856267"
+ },
  "vi/species/poecilia-caucana": {
   "at": "2026-11-17T05:36:30.195Z",
   "hash": "4b72e0805433666a"
+ },
+ "vi/species/poecilia-reticulata": {
+  "at": "2026-11-22T13:06:07.755Z",
+  "hash": "bbbab35c27ae30e2"
  },
  "vi/species/pomacea-bridgesii": {
   "at": "2026-11-22T00:50:27.789Z",
@@ -1394,6 +1446,10 @@
  "vi/species/rhamphichthys-rostratus": {
   "at": "2026-11-21T13:30:24.305Z",
   "hash": "b12d719e355f0e95"
+ },
+ "vi/species/rhinelepis-strigosa": {
+  "at": "2026-11-22T13:06:07.755Z",
+  "hash": "c152740b2acb95d3"
  },
  "vi/species/rhinogobius-flumineus": {
   "at": "2026-11-19T19:05:28.486Z",
@@ -1527,6 +1583,10 @@
   "at": "2026-11-19T01:08:27.953Z",
   "hash": "8277f47a5849dc9d"
  },
+ "vi/species/wertheimeria-maculata": {
+  "at": "2026-11-22T13:06:07.755Z",
+  "hash": "edde9633ab4a6e69"
+ },
  "vi/species/xenopus-laevis": {
   "at": "2026-11-17T00:32:51.111Z",
   "hash": "7317b468f539296b"
@@ -1534,6 +1594,14 @@
  "vi/species/xenopus-muelleri": {
   "at": "2026-11-17T00:32:51.111Z",
   "hash": "6772c1cb7313bd26"
+ },
+ "vi/species/xenopus-tropicalis": {
+  "at": "2026-11-22T13:06:07.755Z",
+  "hash": "d95f1229c51a6dd3"
+ },
+ "vi/species/xiphophorus-nezahualcoyotl": {
+  "at": "2026-11-22T13:06:07.755Z",
+  "hash": "addd8e028ea2cda6"
  },
  "vi/species/xiphophorus-variatus": {
   "at": "2026-11-20T17:57:15.353Z",

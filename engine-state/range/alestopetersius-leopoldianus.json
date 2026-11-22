@@ -1,14 +1,20 @@
 {
   "id": "alestopetersius-leopoldianus",
   "native": {
-    "input": "609ea17dc57fbe81",
-    "at": "2026-11-21T01:22:16.258Z",
+    "input": "a499de94b76f46e8",
+    "at": "2026-11-22T12:48:24.036Z",
     "claims": [],
     "regions": [
       {
         "name": "Lac Mai Ndombe",
         "source": "glaser",
-        "quote": "This tetra was obtained for the first time from Lac Mai Ndombe (formerly known as Lake Leopold).",
+        "quote": "Alestopetersius leopoldianus originates from Lac Mai Ndombe (formerly: Lake Leopold) and the middle Congo.",
+        "ok": true
+      },
+      {
+        "name": "Congo",
+        "source": "glaser",
+        "quote": "Alestopetersius leopoldianus originates from Lac Mai Ndombe (formerly: Lake Leopold) and the middle Congo.",
         "ok": true
       }
     ],

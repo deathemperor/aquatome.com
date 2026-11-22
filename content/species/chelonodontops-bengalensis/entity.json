@@ -10,6 +10,63 @@
     "bangladesh",
     "india"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BD",
+        "IN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Chelonodontops bengalensis was originally found in the sea off Bangladesh, later also off the coast of India.",
+          "countries": [
+            "BD",
+            "IN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 10990107,
+      "total": 8,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "BD",
+          6
+        ],
+        [
+          "IN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          85.78125,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          88.59375,
+          21.09375,
+          6,
+          6
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "glaser",
+    "quote": "For permanent care, a brackish or saltwater aquarium is needed."
+  },
   "dataCard": {
     "sizeCm": [
       {

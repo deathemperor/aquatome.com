@@ -2400,6 +2400,18 @@
       "kept": true
     }
   ],
+  "id/places/canhotinho": [
+    {
+      "at": "2026-11-22T12:19:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/canhotinho-river": [
     {
       "at": "2026-11-17T04:48:41Z",
@@ -2421,6 +2433,20 @@
       "score": 0.3,
       "notes": [
         "sông Cape Fear (Vietnamese)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/cape-ngombo": [
+    {
+      "at": "2026-11-22T12:19:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "mũi Ngombo → source is Vietnamese; Indonesian is Tanjung Ngombo"
       ],
       "attempt": "first",
       "kept": true
@@ -7296,6 +7322,18 @@
       "kept": true
     }
   ],
+  "id/places/kwanza": [
+    {
+      "at": "2026-11-22T12:19:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/kye": [
     {
       "at": "2026-11-08T20:40:33Z",
@@ -9960,6 +9998,20 @@
       "kept": true
     }
   ],
+  "id/places/masinje-rocks": [
+    {
+      "at": "2026-11-22T12:19:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "bãi đá Masinje → Vietnamese; Indonesian Bebatuan Masinje"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/masparro": [
     {
       "at": "2026-11-20T06:29:02Z",
@@ -10856,6 +10908,20 @@
       "score": 0.2,
       "notes": [
         "đảo Muna → Pulau Muna (source is Vietnamese; the result is fine)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/mundau": [
+    {
+      "at": "2026-11-22T12:19:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Mundau → Mundaú inconsistent diacritic"
       ],
       "attempt": "first",
       "kept": true
@@ -12092,6 +12158,18 @@
       "kept": true
     }
   ],
+  "id/places/orosa": [
+    {
+      "at": "2026-11-22T12:19:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/oshun-river": [
     {
       "at": "2026-11-17T17:07:37Z",
@@ -12124,6 +12202,34 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/oueme-river": [
+    {
+      "at": "2026-11-22T12:19:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "sông Ouémé → Vietnamese 'sông'; Indonesian would be Sungai Ouémé"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/oyapoc": [
+    {
+      "at": "2026-11-22T12:19:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Oyapoc → Oyapock is the usual form; inconsistent with source"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -12628,6 +12734,18 @@
       "kept": true
     }
   ],
+  "id/places/pebas": [
+    {
+      "at": "2026-11-22T12:19:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/pegu-bago-yoma": [
     {
       "at": "2026-11-08T05:20:56Z",
@@ -12857,6 +12975,20 @@
       "cli": "2.1.322",
       "score": 0.2,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/pirara-river": [
+    {
+      "at": "2026-11-22T12:19:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "sông Pirara → Vietnamese; Indonesian would be Sungai Pirara"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -16417,6 +16549,18 @@
       "kept": true
     }
   ],
+  "id/places/salgado": [
+    {
+      "at": "2026-11-22T12:19:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/salgado-river": [
     {
       "at": "2026-11-17T04:48:41Z",
@@ -16553,6 +16697,18 @@
       "kept": true
     }
   ],
+  "id/places/san-blas": [
+    {
+      "at": "2026-11-22T12:19:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/san-jorge": [
     {
       "at": "2026-11-08T20:40:33Z",
@@ -16589,6 +16745,20 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/sanaga-river": [
+    {
+      "at": "2026-11-22T12:19:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "sông Sanaga → Vietnamese; Indonesian would be Sungai Sanaga"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -19155,6 +19325,20 @@
       "cli": "2.1.322",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/ucayali-river": [
+    {
+      "at": "2026-11-22T12:19:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "sông Ucayali → Vietnamese; Indonesian would be Sungai Ucayali"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -23331,6 +23515,18 @@
       "kept": true
     }
   ],
+  "ms/places/canhotinho": [
+    {
+      "at": "2026-11-22T12:35:29Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/canhotinho-river": [
     {
       "at": "2026-11-17T05:06:35Z",
@@ -23351,6 +23547,20 @@
       "model": "sonnet",
       "score": 0.4,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/cape-ngombo": [
+    {
+      "at": "2026-11-22T12:35:29Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "mũi Ngombo (Vietnamese, not Malay; the Malay name given in the arrow is fine but the source label is Vietnamese)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -28720,6 +28930,18 @@
       "kept": true
     }
   ],
+  "ms/places/kwanza": [
+    {
+      "at": "2026-11-22T12:35:29Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/kye": [
     {
       "at": "2026-11-09T00:52:34Z",
@@ -31174,6 +31396,21 @@
       "kept": true
     }
   ],
+  "ms/places/masinje-rocks": [
+    {
+      "at": "2026-11-22T12:35:29Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "bãi đá Masinje (Vietnamese, not Malay)",
+        "Masinje: should be something like Batu Karang Masinje, not just Masinje"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/masparro": [
     {
       "at": "2026-11-20T06:50:25Z",
@@ -32001,6 +32238,18 @@
       "notes": [
         "đảo Muna (Vietnamese; Pulau Muna is the Malay form)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/mundau": [
+    {
+      "at": "2026-11-22T12:35:29Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -33234,6 +33483,18 @@
       "kept": true
     }
   ],
+  "ms/places/orosa": [
+    {
+      "at": "2026-11-22T12:35:29Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/oshun-river": [
     {
       "at": "2026-11-17T17:37:28Z",
@@ -33265,6 +33526,33 @@
       "at": "2026-11-08T12:45:46Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/oueme-river": [
+    {
+      "at": "2026-11-22T12:35:29Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "sông Ouémé (Vietnamese; Malay would be Sungai Ouémé)",
+        "Ouémé, Pirara, Sanaga, Ucayali: the output drops 'Sungai', so river names are incomplete"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/oyapoc": [
+    {
+      "at": "2026-11-22T12:35:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -33810,6 +34098,18 @@
       "kept": true
     }
   ],
+  "ms/places/pebas": [
+    {
+      "at": "2026-11-22T12:35:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/pegu-bago-yoma": [
     {
       "at": "2026-11-08T12:45:46Z",
@@ -34102,6 +34402,21 @@
       "cli": "2.1.322",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/pirara-river": [
+    {
+      "at": "2026-11-22T12:35:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "sông Pirara (Vietnamese; Malay would be Sungai Pirara)",
+        "Ouémé, Pirara, Sanaga, Ucayali: the output drops 'Sungai', so river names are incomplete"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -38253,6 +38568,18 @@
       "kept": true
     }
   ],
+  "ms/places/salgado": [
+    {
+      "at": "2026-11-22T12:35:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/salgado-river": [
     {
       "at": "2026-11-17T05:06:36Z",
@@ -38377,6 +38704,18 @@
       "kept": true
     }
   ],
+  "ms/places/san-blas": [
+    {
+      "at": "2026-11-22T12:35:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/san-jorge": [
     {
       "at": "2026-11-09T00:52:35Z",
@@ -38414,6 +38753,21 @@
       "score": 0.8,
       "notes": [
         "\"San Salvador Island\" → \"Pulau San Salvador\" fine"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/sanaga-river": [
+    {
+      "at": "2026-11-22T12:35:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "sông Sanaga (Vietnamese; Malay would be Sungai Sanaga)",
+        "Ouémé, Pirara, Sanaga, Ucayali: the output drops 'Sungai', so river names are incomplete"
       ],
       "attempt": "first",
       "kept": true
@@ -41027,6 +41381,21 @@
       "score": 0.85,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/ucayali-river": [
+    {
+      "at": "2026-11-22T12:35:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "sông Ucayali (Vietnamese; Malay would be Sungai Ucayali)",
+        "Ouémé, Pirara, Sanaga, Ucayali: the output drops 'Sungai', so river names are incomplete"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -44856,6 +45225,20 @@
       "kept": true
     }
   ],
+  "th/places/canhotinho": [
+    {
+      "at": "2026-11-22T12:21:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Canhotinho → คานโยชินโญ (should be กานโยชีนโย / คานฮอชิญู; transliteration is poor)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/canhotinho-river": [
     {
       "at": "2026-11-17T04:51:37Z",
@@ -44873,6 +45256,18 @@
       "at": "2026-11-09T00:10:26Z",
       "model": "sonnet",
       "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/cape-ngombo": [
+    {
+      "at": "2026-11-22T12:21:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -50109,6 +50504,20 @@
       "kept": true
     }
   ],
+  "th/places/kwanza": [
+    {
+      "at": "2026-11-22T12:21:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Kwanza → ควันซา (standard Thai is กวันซา / แม่น้ำกวนซา)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/kye": [
     {
       "at": "2026-11-08T20:47:48Z",
@@ -52890,6 +53299,18 @@
       "kept": true
     }
   ],
+  "th/places/masinje-rocks": [
+    {
+      "at": "2026-11-22T12:21:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/masparro": [
     {
       "at": "2026-11-20T06:39:30Z",
@@ -53852,6 +54273,18 @@
       "notes": [
         "The following names are acceptable: บาฟิง, จอง, โกเลนเต, คูรูพุง, ลินดี, เกาะมูนา, บัลซัส, โรเกล, เซาโจเอา, ภาคตะวันออกเฉียงใต้ของบราซิล, ทาจา, ตรอมเบตัส, อุสซูรี, หมู่เกาะแซนซิบาร์"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/mundau": [
+    {
+      "at": "2026-11-22T12:21:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -55233,6 +55666,18 @@
       "kept": true
     }
   ],
+  "th/places/orosa": [
+    {
+      "at": "2026-11-22T12:21:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/oshun-river": [
     {
       "at": "2026-11-17T17:18:41Z",
@@ -55269,6 +55714,34 @@
       "score": 0.6,
       "notes": [
         "เวเม (Ouémé): doubtful; the usual Thai would be อูเอเม"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/oueme-river": [
+    {
+      "at": "2026-11-22T12:21:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Oueme River → เวเม (incomplete, missing แม่น้ำ; should be เวเมหรือเวเม/อูเอเม)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/oyapoc": [
+    {
+      "at": "2026-11-22T12:21:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Oyapoc → โอยาป็อก (usually โอยาโปก)"
       ],
       "attempt": "first",
       "kept": true
@@ -55786,6 +56259,18 @@
       "kept": true
     }
   ],
+  "th/places/pebas": [
+    {
+      "at": "2026-11-22T12:21:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/pegu-bago-yoma": [
     {
       "at": "2026-11-08T05:28:40Z",
@@ -56037,6 +56522,20 @@
       "cli": "2.1.322",
       "score": 0.9,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/pirara-river": [
+    {
+      "at": "2026-11-22T12:21:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Pirara → ปีรารา (river lacks แม่น้ำ; minor)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -59844,6 +60343,18 @@
       "kept": true
     }
   ],
+  "th/places/salgado": [
+    {
+      "at": "2026-11-22T12:21:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/salgado-river": [
     {
       "at": "2026-11-17T04:51:38Z",
@@ -59974,6 +60485,20 @@
       "kept": true
     }
   ],
+  "th/places/san-blas": [
+    {
+      "at": "2026-11-22T12:21:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "San Blas → ซานบลัส (usually ซานบลาส)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/san-jorge": [
     {
       "at": "2026-11-08T20:47:48Z",
@@ -60010,6 +60535,20 @@
       "model": "sonnet",
       "score": 0.62,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/sanaga-river": [
+    {
+      "at": "2026-11-22T12:21:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Sanaga → ซานากา (river lacks แม่น้ำ; minor)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -62799,6 +63338,20 @@
         0.9,
         0.6
       ]
+    }
+  ],
+  "th/places/ucayali-river": [
+    {
+      "at": "2026-11-22T12:21:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Ucayali → อูกายาลี (river lacks แม่น้ำ; minor)"
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "th/places/uganda": [
@@ -66917,6 +67470,19 @@
       "kept": true
     }
   ],
+  "vi/places/canhotinho": [
+    {
+      "at": "2026-11-22T12:18:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 14 names point to the right places. Each one either keeps the source's spelling or puts the generic word into Vietnamese (sông, mũi, bãi đá)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/canhotinho-river": [
     {
       "at": "2026-11-17T04:48:03Z",
@@ -66937,6 +67503,19 @@
       "score": 0.95,
       "notes": [
         "All 50 names point to the right place. None is a literal word-by-word translation, and none leaves a generic word in another language."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/cape-ngombo": [
+    {
+      "at": "2026-11-22T12:18:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 14 names point to the right places. Each one either keeps the source's spelling or puts the generic word into Vietnamese (sông, mũi, bãi đá)."
       ],
       "attempt": "first",
       "kept": true
@@ -72859,6 +73438,19 @@
       "kept": true
     }
   ],
+  "vi/places/kwanza": [
+    {
+      "at": "2026-11-22T12:18:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 14 names point to the right places. Each one either keeps the source's spelling or puts the generic word into Vietnamese (sông, mũi, bãi đá)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/kye": [
     {
       "at": "2026-11-08T20:36:09Z",
@@ -76081,6 +76673,20 @@
       "kept": true
     }
   ],
+  "vi/places/masinje-rocks": [
+    {
+      "at": "2026-11-22T12:18:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 14 names point to the right places. Each one either keeps the source's spelling or puts the generic word into Vietnamese (sông, mũi, bãi đá).",
+        "\"bãi đá Masinje\" is an acceptable Vietnamese form of \"Masinje Rocks\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/masparro": [
     {
       "at": "2026-11-20T06:21:23Z",
@@ -77151,6 +77757,19 @@
       "notes": [
         "All 18 names point to the right places.",
         "For rivers, islands, the archipelago and the lagoon, the English generic word is correctly replaced with the Vietnamese one (sông, đảo, quần đảo, phá). The source spelling of each proper name is kept, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/mundau": [
+    {
+      "at": "2026-11-22T12:18:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 14 names point to the right places. Each one either keeps the source's spelling or puts the generic word into Vietnamese (sông, mũi, bãi đá)."
       ],
       "attempt": "first",
       "kept": true
@@ -78679,6 +79298,19 @@
       "kept": true
     }
   ],
+  "vi/places/orosa": [
+    {
+      "at": "2026-11-22T12:18:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 14 names point to the right places. Each one either keeps the source's spelling or puts the generic word into Vietnamese (sông, mũi, bãi đá)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/oshima": [
     {
       "at": "2026-11-07T20:37:55Z",
@@ -78728,6 +79360,33 @@
       "model": "sonnet",
       "score": 0.9,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/oueme-river": [
+    {
+      "at": "2026-11-22T12:18:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 14 names point to the right places. Each one either keeps the source's spelling or puts the generic word into Vietnamese (sông, mũi, bãi đá)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/oyapoc": [
+    {
+      "at": "2026-11-22T12:18:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 14 names point to the right places. Each one either keeps the source's spelling or puts the generic word into Vietnamese (sông, mũi, bãi đá).",
+        "\"Oyapoc\" keeps the source's spelling. The more common spelling is \"Oyapock\", but keeping the source's spelling isn't wrong."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -79383,6 +80042,19 @@
       "kept": true
     }
   ],
+  "vi/places/pebas": [
+    {
+      "at": "2026-11-22T12:18:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 14 names point to the right places. Each one either keeps the source's spelling or puts the generic word into Vietnamese (sông, mũi, bãi đá)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/pegu-bago-yoma": [
     {
       "at": "2026-11-07T20:37:55Z",
@@ -79665,6 +80337,19 @@
       "score": 0.95,
       "notes": [
         "No wrong places. All names either keep the source's spelling or put the generic word into Vietnamese (sông, dãy, hồ)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/pirara-river": [
+    {
+      "at": "2026-11-22T12:18:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 14 names point to the right places. Each one either keeps the source's spelling or puts the generic word into Vietnamese (sông, mũi, bãi đá)."
       ],
       "attempt": "first",
       "kept": true
@@ -83792,6 +84477,19 @@
       "kept": true
     }
   ],
+  "vi/places/salgado": [
+    {
+      "at": "2026-11-22T12:18:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 14 names point to the right places. Each one either keeps the source's spelling or puts the generic word into Vietnamese (sông, mũi, bãi đá)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/salgado-river": [
     {
       "at": "2026-11-17T04:48:03Z",
@@ -83982,6 +84680,19 @@
       "kept": true
     }
   ],
+  "vi/places/san-blas": [
+    {
+      "at": "2026-11-22T12:18:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 14 names point to the right places. Each one either keeps the source's spelling or puts the generic word into Vietnamese (sông, mũi, bãi đá)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/san-jorge": [
     {
       "at": "2026-11-08T20:36:09Z",
@@ -84057,6 +84768,19 @@
       "score": 0.96,
       "notes": [
         "Every name refers to the right place. Generic words (river, Río/Rio, Islands, mountain range) are put into Vietnamese as sông, quần đảo and dãy, and the proper names keep the source spelling."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/sanaga-river": [
+    {
+      "at": "2026-11-22T12:18:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 14 names point to the right places. Each one either keeps the source's spelling or puts the generic word into Vietnamese (sông, mũi, bãi đá)."
       ],
       "attempt": "first",
       "kept": true
@@ -87283,6 +88007,19 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/ucayali-river": [
+    {
+      "at": "2026-11-22T12:18:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 14 names point to the right places. Each one either keeps the source's spelling or puts the generic word into Vietnamese (sông, mũi, bãi đá)."
+      ],
       "attempt": "first",
       "kept": true
     }

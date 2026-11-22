@@ -24,10 +24,13 @@
       ],
       "regions": [
         "Amazon",
-        "Río Orinoco"
+        "Orinoco",
+        "Rio Tocantins",
+        "Rio Xingu"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -45,15 +48,32 @@
           "countries": [
             "VE"
           ],
-          "regions": []
+          "regions": [
+            "Orinoco"
+          ]
         },
         {
           "source": "seriouslyfish",
           "quote": "The precise type locality is unknown and given simply as 'Amazon River', although the species has subsequently been recorded throughout much of the Amazon region in Brazil and Peru, plus there exist a handful of records pertaining to the Río Orinoco drainage in Venezuela.",
           "countries": [],
           "regions": [
-            "Amazon",
-            "Río Orinoco"
+            "Amazon"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The L155 come from the Furo Maguari, a tributary of the Rio Tocantins.",
+          "countries": [],
+          "regions": [
+            "Rio Tocantins"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "For one of them, a form from the Rio Xingu, the L-number 155 was assigned.",
+          "countries": [],
+          "regions": [
+            "Rio Xingu"
           ]
         }
       ]

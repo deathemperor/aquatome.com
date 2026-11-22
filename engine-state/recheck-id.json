@@ -1,8 +1,8 @@
 {
   "abramites-hypselonotus": {
-    "hash": "47c7d42020521f764b1b790c086368225bb1da1458a0844749f61c98b1e354e1",
-    "at": "2026-11-18T05:46:18.779Z",
-    "sonnet": 0.7,
+    "hash": "f8f727d66fb5f093f3be4426b1226bf75a92a12b26ad2506150d42485cc6b339",
+    "at": "2026-11-22T12:36:50.187Z",
+    "sonnet": 0.6,
     "back": false
   },
   "acanthocobitis-pavonacea": {
@@ -71,9 +71,9 @@
     "back": true
   },
   "ageneiosus-inermis": {
-    "hash": "4752df94da73aeab98723622a87ed53edcb373e99405c97b56276120126d86d9",
-    "at": "2026-11-18T12:12:41.223Z",
-    "sonnet": 0.7,
+    "hash": "09412a2f51c1f917857a257e9fa6f029d385543fa1d16bd6f90d2cbfadd4d468",
+    "at": "2026-11-22T12:37:02.380Z",
+    "sonnet": 0.6,
     "back": false
   },
   "ageneiosus-marmoratus": {
@@ -281,9 +281,10 @@
     "back": false
   },
   "ancistrus-leucostictus": {
-    "hash": "02159f081703f1728bd8c41e92655100ee77186ddcf91d90101b10158fda9680",
-    "at": "2026-11-22T00:22:31.767Z",
-    "sonnet": 0.7,
+    "hash": "16e020aea2d11b8a383e905bb7efbbf020dd871dd148e9975fdf8450fd5306fd",
+    "at": "2026-11-22T12:37:32.395Z",
+    "sonnet": 0.8,
+    "opus": 0.7,
     "back": false
   },
   "ancistrus-ranunculus": {
@@ -1352,11 +1353,64 @@
     "sonnet": 0.6,
     "back": false
   },
+  "corbicula-fluminea": {
+    "hash": "7946864c35860d7b23e1c9aab525f015805683b6c4838fdc34db59c39ab8a27b",
+    "at": "2026-11-22T12:37:45.309Z",
+    "sonnet": 0.7,
+    "back": false,
+    "held": [
+      "Item 7: 'salinity up to 10–17 ppm' is kept as written, but 10–17 ppm is almost freshwater and is likely a source error (ppt). Keep it unchanged but flag it.",
+      "Item 7: 'dKH' and 'salinitas hingga 10–17 ppm' are kept from the source, but 10–17 ppm is a tiny value. Check the source unit (probably ppt) and fix it."
+    ]
+  },
+  "corydoras-acutus": {
+    "hash": "e06a9418c5b3e171a43b333a90e767189c42f4eb8226d2341e236f77c72d9c68",
+    "at": "2026-11-22T12:37:55.058Z",
+    "sonnet": 0.7,
+    "back": false
+  },
   "corydoras-bifasciatus": {
     "hash": "b36a7e2a3f04063aeaeef63454cbe5154ebc1bbd75bcc3222b5d9819a0b53885",
     "at": "2026-11-17T11:24:15.208Z",
     "sonnet": 0.7,
     "back": false
+  },
+  "corydoras-britskii": {
+    "hash": "e30a569c461de5da8566f840f3effe404d83c79e500257d87369ad4649f85b2f",
+    "at": "2026-11-22T12:38:08.011Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "corydoras-caudimaculatus": {
+    "hash": "5b94943e4d57cb357d791ec869464c65e3b8ad3b65c1da1c285f3d84dd44c5d8",
+    "at": "2026-11-22T12:38:19.938Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "corydoras-davidsandsi": {
+    "hash": "d6f5e10ad7db27ce9b053149e566e0c925812d65f9537391f09e2c3e07e595a3",
+    "at": "2026-11-22T12:38:30.649Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "corydoras-habrosus": {
+    "hash": "1e053d367ec347d555aa06330f1ecfd100f3244b0ea5ff13e5896735d6a7ae59",
+    "at": "2026-11-22T12:38:42.708Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "corydoras-hastatus": {
+    "hash": "686a51c12a6e2b1b00723917c597fb10230d7eb2483ea80050fe319a8f96bae0",
+    "at": "2026-11-22T12:38:55.004Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "corydoras-imitator": {
+    "hash": "90f83daa1c4283ff160667d09164839ef6ab44b7c2fe33af9ab677b09fe0270c",
+    "at": "2026-11-22T12:39:23.984Z",
+    "sonnet": 0.9,
+    "opus": 0.93,
+    "back": true
   },
   "corydoras-paleatus": {
     "hash": "69e392c1e92e997e10b4f1178e72a840e885f175c09ba08301d9b3ac86c1c0e1",
@@ -1370,12 +1424,34 @@
     "sonnet": 0.7,
     "back": false
   },
+  "corydoras-rabauti": {
+    "hash": "653f050a768d0811d1bf2dc9f9e19d3fa9011e077426dacaa97f01a9bb5352e8",
+    "at": "2026-11-22T12:39:59.566Z",
+    "sonnet": 0.92,
+    "opus": 0.85,
+    "back": false,
+    "held": [
+      "#11: 'sedikit beracun' merges the source's two terms, 'toxic or venomous'. Keep both, e.g. 'sedikit toksik atau berbisa'."
+    ]
+  },
   "corydoras-sterbai": {
     "hash": "bd6b33f81ca29f2cc2212b9ad3d5993ab10b540b90098462abf62071d0b5f6b3",
     "at": "2026-11-18T00:31:39.584Z",
     "sonnet": 0.92,
     "opus": 0.9,
     "back": true
+  },
+  "crenuchus-spilurus": {
+    "hash": "ffa5358e5c6d97c5b19e6ec65a56ba042885f7d421ef990f9d7252d9e04cc158",
+    "at": "2026-11-22T12:40:11.530Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "crossocheilus-burmanicus": {
+    "hash": "a7350e43426fcef763e08e53142a1e546a1d382485b2714d062f2c85d4985e93",
+    "at": "2026-11-22T12:40:22.264Z",
+    "sonnet": 0.55,
+    "back": false
   },
   "cyclocheilichthys-janthochir": {
     "hash": "8d60f0b9b0e08caf67e86a8cd41e87963aefbbc7fe31ea377de78c81bc390a39",
@@ -1768,9 +1844,9 @@
     "back": false
   },
   "puntigrus-tetrazona": {
-    "hash": "491974de47db083d86890588b0814d4d7ecdb119e478fbebc19b8814e844c12f",
-    "at": "2026-11-18T00:31:50.963Z",
-    "sonnet": 0.6,
+    "hash": "706bf38a3ec55e7580c99d7af4ad2f0143b56a39385876323d6c48a7ab8163ac",
+    "at": "2026-11-22T12:36:38.698Z",
+    "sonnet": 0.62,
     "back": false
   },
   "rasbora-sarawakensis": {

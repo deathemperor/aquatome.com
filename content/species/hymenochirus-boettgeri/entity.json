@@ -15,10 +15,39 @@
     "cameroon"
   ],
   "range": {
+    "native": {
+      "countries": [
+        "CF",
+        "CD",
+        "NG",
+        "GA",
+        "GQ",
+        "CM"
+      ],
+      "regions": [],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Hymenochirus boettgeri occurs in the Central African Republic, the Democratic Republic of the Congo, Nigeria, Gabon, Equatorial Guinea and Cameroon.",
+          "countries": [
+            "CF",
+            "CD",
+            "NG",
+            "GA",
+            "GQ",
+            "CM"
+          ],
+          "regions": []
+        }
+      ]
+    },
     "records": {
       "taxonKey": 2423973,
-      "total": 43,
-      "fetched": "2026-11-08",
+      "total": 44,
+      "fetched": "2026-11-22",
       "countries": [
         [
           "CM",
@@ -30,7 +59,7 @@
         ],
         [
           "CG",
-          3
+          4
         ],
         [
           "GA",
@@ -45,76 +74,91 @@
         [
           8.4375,
           4.21875,
+          2,
           2
         ],
         [
           9.84375,
           1.40625,
+          4,
           4
         ],
         [
           9.84375,
           2.8125,
+          14,
           14
         ],
         [
           9.84375,
           4.21875,
+          1,
           1
         ],
         [
           11.25,
           -2.8125,
+          1,
           1
         ],
         [
           11.25,
           2.8125,
+          1,
           1
         ],
         [
           12.65625,
           -5.625,
+          1,
           1
         ],
         [
           12.65625,
           -2.8125,
-          4
+          5,
+          1
         ],
         [
           14.0625,
           -5.625,
+          1,
           1
         ],
         [
           14.0625,
           2.8125,
+          1,
           1
         ],
         [
           16.875,
           -1.40625,
+          1,
           1
         ],
         [
           18.28125,
           -1.40625,
+          3,
           3
         ],
         [
           22.5,
           -4.21875,
+          1,
           1
         ],
         [
           28.125,
           0,
+          7,
           7
         ],
         [
           29.53125,
           0,
+          1,
           1
         ]
       ]

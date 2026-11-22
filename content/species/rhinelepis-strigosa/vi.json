@@ -6,8 +6,8 @@
   ],
   "sections": {
     "quickFacts:glaser": "<p>Giống Rhinelepis có hai loài là R. aspera và R. strigosa. Chúng có thể dài hơn 60 cm, thuộc hàng lớn nhất trong các loài cá da trơn có giáp. Vì vậy chúng rất hợp để trưng bày ở sở thú, thủy cung công cộng, và dĩ nhiên cả trong bể nhà của những ai có bể khổng lồ. Màu sắc thì chẳng có gì để khoe, toàn thân chỉ một màu đen xỉn. Nhưng trông chúng đồ sộ, dáng lại kỳ lạ.</p>",
-    "distribution:glaser": "<p>Giới khoa học hiện công nhận hai loài, sống ở những hệ thống sông khá khác nhau của Nam Mỹ. Rhinelepis aspera sống ở sông Rio Sao Francisco, còn R. strigosa sống ở hệ thống sông Rio Parana và Rio Uruguay. Đợt cá nhập gần đây đến từ Paraguay, nên hẳn là Rhinelepis strigosa.</p>",
-    "dimorphism:glaser": "<p>R. aspera và R. strigosa khác nhau ở chỗ R. strigosa có nhiều gai nhỏ (odontode) trên các tấm xương ở thân, còn R. aspera thì không. Trong sáu con nhập về (bốn con dài 16–18 cm, hai con dài 25–30 cm), có con giống strigosa hơn ở điểm này, có con lại giống aspera hơn. Để cho chắc, cả sáu con đều tạm ghi là R. cf. strigosa. Có thể cái gọi là \"khác biệt giữa hai loài\" này rốt cuộc chỉ là khác biệt giữa con đực và con cái.</p>",
+    "distribution:glaser": "<p>Giới khoa học hiện công nhận hai loài, sống ở những hệ thống sông khá khác nhau của Nam Mỹ. Rhinelepis aspera sống ở sông Rio Sao Francisco, còn R. strigosa sống ở hệ thống sông Rio Parana và Rio Uruguay.</p>",
+    "dimorphism:glaser": "<p>R. aspera và R. strigosa khác nhau ở chỗ R. strigosa có nhiều gai nhỏ (odontode) trên các tấm xương ở thân, còn R. aspera thì không. Có thể cái gọi là \"khác biệt giữa hai loài\" này rốt cuộc chỉ là khác biệt giữa con đực và con cái.</p>",
     "notes:glaser": "<p>Các bảo tàng trên thế giới chỉ lưu giữ vài mẫu Rhinelepis, nên đến giờ phân loại chi tiết của nhóm cá này vẫn còn rất ít người nghiên cứu.</p>",
     "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Paraná và sông Uruguay. Nơi thu mẫu chuẩn: Dans le Parana et d’autres rXvières de la province de Corrientes [Argentina].</p>",
     "habitat:scotcat": "<p>Nhóm Rhinelepis chỉ có chín loài. Chúng sống ở các lưu vực Amazon, Paraná, São Francisco và một số con suối nhỏ ven biển ở đông nam Brazil.</p>",
@@ -24,11 +24,5 @@
       "glaser": 0.9,
       "scotcat": 0.85
     }
-  },
-  "held": {
-    "checks": [
-      "source"
-    ],
-    "at": "2026-11-22"
   }
 }

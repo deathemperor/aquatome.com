@@ -1296,6 +1296,36 @@
     "findings": [],
     "ruled": "90b0c697ac86b6fd"
   },
+  "vi/guides/aquariumbreeder-7-tips-for-fish-tank-location": {
+    "at": "2026-11-22",
+    "hash": "c75bca50feaf8fe0",
+    "findings": [],
+    "ruled": "c75bca50feaf8fe0"
+  },
+  "vi/guides/aquariumbreeder-764-2": {
+    "at": "2026-11-22",
+    "hash": "ff05ccb3932dd0bc",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Dạng aragonit thường đẩy pH lên khoảng 8,2, còn dạng canxit thường chỉ đẩy lên khoảng 7,6.",
+        "problem": "The source never gives pH figures for aragonite or calcite. This closing claim and its numbers were added by the page.",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Trong các loại kể trên, cát Estes gom được hết những điểm hay nhất.",
+        "problem": "In the source this is one writer's opinion (\"In my opinion\"), but the page states it as fact.",
+        "fix": "Có thể nói cát Estes gom được hầu hết điểm hay của các loại kể trên.",
+        "field": "body"
+      }
+    ],
+    "ruled": "ff05ccb3932dd0bc"
+  },
   "vi/guides/aquariumbreeder-8-signs-your-shrimp-is-suffering-from-stress": {
     "at": "2026-11-16",
     "hash": "3aa8fb0bc0903a53",
@@ -2402,6 +2432,12 @@
     ],
     "ruled": "4468ab7ceaa2bc3d"
   },
+  "vi/guides/aquariumbreeder-dragonfly-and-damselfly-nymphs-aliens-in-a-shrimp-tank": {
+    "at": "2026-11-22",
+    "hash": "51534c8a5b118375",
+    "findings": [],
+    "ruled": "51534c8a5b118375"
+  },
   "vi/guides/aquariumbreeder-driftwood-in-shrimp-tank": {
     "at": "2026-11-22",
     "hash": "5ceb0296e296965a",
@@ -2468,6 +2504,28 @@
       }
     ],
     "ruled": "8c4c1613a2322bce"
+  },
+  "vi/guides/aquariumbreeder-dwarf-shrimp-external-anatomy": {
+    "at": "2026-11-22",
+    "hash": "ecbb77e64ab39934",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Mặt dưới bụng có 5 cặp chân bơi, gập gọn dưới bụng tép. Mỗi đốt bụng có một cặp.",
+        "problem": "The page gives the abdomen 6 segments and earlier says the last one has no swimmerets, but here it says every segment has a pair, which clashes with both that and the count of 5 pairs.",
+        "fix": "Mặt dưới bụng có 5 cặp chân bơi, gập gọn dưới bụng tép. Năm đốt bụng đầu, mỗi đốt có một cặp.",
+        "field": "body"
+      }
+    ],
+    "ruled": "ecbb77e64ab39934"
+  },
+  "vi/guides/aquariumbreeder-dwarf-shrimp-internal-anatomy": {
+    "at": "2026-11-22",
+    "hash": "ad969dd2bf7c0406",
+    "findings": [],
+    "ruled": "ad969dd2bf7c0406"
   },
   "vi/guides/aquariumbreeder-everything-about-aquarium-activated-carbon": {
     "at": "2026-11-16",
@@ -2822,11 +2880,85 @@
     ],
     "ruled": "e685599a0e443b00"
   },
+  "vi/guides/aquariumbreeder-how-i-drip-acclimate-shrimp-and-why": {
+    "at": "2026-11-22",
+    "hash": "9ce4f111b7903a3d",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Dùng muỗng hay thìa để múc cũng được.",
+        "problem": "\"Muỗng\" and \"thìa\" are the same thing (southern and northern words for spoon), so the pair reads as padding from translating \"scoops or spoons\".",
+        "fix": "Dùng muỗng hay đồ múc để múc cũng được.",
+        "field": "body"
+      }
+    ],
+    "ruled": "9ce4f111b7903a3d"
+  },
+  "vi/guides/aquariumbreeder-how-light-affects-dwarf-shrimp": {
+    "at": "2026-11-22",
+    "hash": "d082a011a6b89184",
+    "findings": [],
+    "ruled": "d082a011a6b89184"
+  },
   "vi/guides/aquariumbreeder-how-long-do-crayfish-live": {
     "at": "2026-11-15",
     "hash": "b94a8dea909c0833",
     "findings": [],
     "ruled": "b94a8dea909c0833"
+  },
+  "vi/guides/aquariumbreeder-how-temperature-affects-sex-ration-of-red-cherry-shrimp": {
+    "at": "2026-11-22",
+    "hash": "a91117fcc7eca8db",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Kết quả thí nghiệm cho thấy tỷ lệ đực/cái giảm khi nhiệt độ cao lên.",
+        "problem": "Says the male/female ratio falls with heat, but the next sentence (\"Nói cách khác\") says warmer water gives more males.",
+        "fix": "Kết quả thí nghiệm cho thấy tỷ lệ cái/đực giảm khi nhiệt độ cao lên.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## Vùng đỏ: mọi tép cái đủ lớn và giao phối ở 32°C đều rụng hết trứng.",
+        "problem": "A full finding sentence is set as a heading, and the section under it is about how fast embryos develop, not the red zone.",
+        "fix": "Ở 32°C (vùng đỏ), mọi tép cái đủ lớn và giao phối đều rụng hết trứng.",
+        "rule": "A heading longer than about 15 words or containing a full stop mid-heading.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "tỷ lệ sống không phụ thuộc vào nhiệt độ. Đáng tiếc là ở nhiệt độ cao hơn, tỷ lệ sống giảm rõ.",
+        "problem": "Says survival doesn't depend on temperature, then that it drops clearly at higher temperature.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nuôi loài tép này ở 21–23°C là hợp",
+        "problem": "The recommended range differs from the later '23–24°C là nhiệt độ tốt nhất', and the page doesn't explain why.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "51 – 50 ở 30°C",
+        "problem": "A female/male percentage split that adds up to 101.",
+        "fix": "50 – 50 ở 30°C",
+        "rule": "Two numbers in an 'X – Y' ratio list item that don't add up to 100.",
+        "field": "body"
+      }
+    ],
+    "ruled": "a91117fcc7eca8db"
   },
   "vi/guides/aquariumbreeder-how-to-anchor-aquarium-plants-pros-and-cons-of-different-methods": {
     "at": "2026-11-16",
@@ -3130,6 +3262,48 @@
       }
     ],
     "ruled": "2d7633a196acef07"
+  },
+  "vi/guides/aquariumbreeder-how-to-do-and-how-often-to-do-water-change-in-shrimp": {
+    "at": "2026-11-22",
+    "hash": "6a97aea068f79925",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## 1. Bút đo TDS",
+        "problem": "The numbered items (1–5 under equipment, 1–6 under water preparation) are headings at the same level as their sections, so the list restarts at 1 under 'Pha nước' and it is hard to tell which step belongs to which section.",
+        "fix": "### 1. Bút đo TDS",
+        "rule": "Numbered headings at the same level as the unnumbered heading above them, with the numbering restarting at 1.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nhiệt độ",
+        "problem": "The 'Temperature' subheading has lost its heading markup and shows up as a stray one-word line inside step 4.",
+        "fix": "### Nhiệt độ",
+        "rule": "A one- or two-word line with no ending punctuation inside the body text, not marked as a heading.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nước pha nên để hơi thấp hơn 150 (Caridina) hoặc 220 (Neo) một chút, còn vì nước trong bể có TDS cao hơn nước mới.",
+        "problem": "'còn vì' is a garbled leftover of 'another reason is'. The sentence reads broken.",
+        "fix": "Thêm một lý do để nước pha hơi thấp hơn 150 (Caridina) hoặc 220 (Neo) một chút: nước trong bể có TDS cao hơn nước mới.",
+        "field": "body"
+      }
+    ],
+    "ruled": "6a97aea068f79925"
+  },
+  "vi/guides/aquariumbreeder-how-to-enhance-shrimp-color": {
+    "at": "2026-11-22",
+    "hash": "ab273853799b5181",
+    "findings": [],
+    "ruled": "ab273853799b5181"
   },
   "vi/guides/aquariumbreeder-how-to-euthanize-your-snails-and-shrimp-humanely": {
     "at": "2026-11-16",
@@ -4997,6 +5171,56 @@
     "findings": [],
     "ruled": "0b669969e3ea84df"
   },
+  "vi/guides/aquariumbreeder-save-the-eggs-from-a-dead-shrimp": {
+    "at": "2026-11-22",
+    "hash": "170aa0e53853200e",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Mẹo: lúc cắt không cần lo mép ống bị xơ, vì:",
+        "problem": "The build section has lost step 1 (cutting the gravel vacuum tube into upper chamber, bottom chamber and bottom piece) and step 2 (drilling the cup). It opens with a tip about cutting that was never described, and it points to steps 1, 2 and 5, which the unnumbered list doesn't have.",
+        "rule": "A cross-reference like \"xem bước N\" on a page whose list has no numbered steps.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Lưu ý: lỡ khoan lỗ thứ hai rộng quá, dây oxy luồn vào bị lỏng thì cũng đừng lo",
+        "problem": "This note talks about a \"second hole\" and a stopper that the page never told the reader to drill, because the cup-drilling step is missing.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Miếng lưới này để làm gì?",
+        "problem": "The step that pushes the bottom chamber 3–4 cm into the upper chamber is missing, so the reader never learns how the parts fit together.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "high",
+        "part": "P1",
+        "quote": "- Cắt bớt khoảng 3 cm của nó cho ống bung ra mạnh hơn, kéo lưới căng hơn.",
+        "problem": "The item introducing the bottom piece is missing, so \"của nó\" points to nothing and the reader can't tell which piece to cut.",
+        "rule": "A list item that starts by referring back with \"của nó\" or \"nó\" and has no lead item before it.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "high",
+        "part": "P1",
+        "quote": "- mút không cọ vào trứng khi không cần.",
+        "problem": "The foam media block step is missing: inserting the foam and keeping it 3–5 mm below the net. What's left is three sentence fragments with no lead-in.",
+        "rule": "A list item that starts with a lowercase letter.",
+        "field": "body"
+      }
+    ],
+    "ruled": "170aa0e53853200e"
+  },
   "vi/guides/aquariumbreeder-science-of-substrate-siphoning-in-aquaria-siphon-or-not": {
     "at": "2026-11-16",
     "hash": "0ca354e48a2e8a61",
@@ -5181,6 +5405,28 @@
     ],
     "ruled": "c2e9ef4725bf13de"
   },
+  "vi/guides/aquariumbreeder-shrimp-disease-scutariella-japonica-treatment": {
+    "at": "2026-11-22",
+    "hash": "906e45af854f2d0b",
+    "findings": [],
+    "ruled": "906e45af854f2d0b"
+  },
+  "vi/guides/aquariumbreeder-shrimp-gender-female-and-male-difference": {
+    "at": "2026-11-22",
+    "hash": "3810af9df13ef3aa",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Trong ảnh, hai con phía trên đều là tôm cái. Con trên cùng không có yên vì trứng đã thụ tinh xong",
+        "problem": "The text describes a photo from the source that this page doesn't have (no captions), so the reader is pointed at a picture that isn't there.",
+        "fix": "Tôm cái không phải lúc nào cũng thấy yên: khi trứng đã thụ tinh và chuyển xuống bụng thì yên biến mất. Con không có yên mà bụng cũng không có trứng thì rõ ràng là tôm đực.",
+        "field": "body"
+      }
+    ],
+    "ruled": "3810af9df13ef3aa"
+  },
   "vi/guides/aquariumbreeder-shrimp-keeping-can-i-remineralize-tap-water": {
     "at": "2026-11-06",
     "hash": "f84cd8447d49b55d",
@@ -5286,6 +5532,22 @@
       }
     ],
     "ruled": "90b939eb14fc92ae"
+  },
+  "vi/guides/aquariumbreeder-some-plants-can-kill-shrimp-myth-or-not": {
+    "at": "2026-11-22",
+    "hash": "13bc4e6de8c60da7",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bài viết về cây hợp nhất cho bể tép hay bể cá thì có rất nhiều.",
+        "problem": "\"cây hợp nhất cho bể tép\" is an awkward word-swap for \"best plants\"; a native reader would say \"những cây hợp với bể tép nhất\" or \"cây tốt nhất cho bể tép\".",
+        "fix": "Bài viết về những loại cây hợp với bể tép, bể cá nhất thì có rất nhiều.",
+        "field": "body"
+      }
+    ],
+    "ruled": "13bc4e6de8c60da7"
   },
   "vi/guides/aquariumbreeder-submerged-aquarium-plants-as-nitrate-suppressors": {
     "at": "2026-11-04",
@@ -5573,6 +5835,22 @@
       }
     ],
     "ruled": "c56861bc6c5c8de7"
+  },
+  "vi/guides/aquariumbreeder-top-5-pros-and-cons-of-having-plants-in-shrimp-aquarium": {
+    "at": "2026-11-22",
+    "hash": "2a53474f204b7f7f",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Vì cây ăn những thứ đó liên tục, không bao giờ nghỉ.",
+        "problem": "This line was a heading in the source and now stands alone as a 'Vì…' clause with no main clause, so it reads as a broken sentence.",
+        "fix": "Bể có cây thì không gặp chuyện này, vì cây ăn những thứ đó liên tục, không bao giờ nghỉ.",
+        "field": "body"
+      }
+    ],
+    "ruled": "2a53474f204b7f7f"
   },
   "vi/guides/aquariumbreeder-top-7-floating-plants-for-beginners": {
     "at": "2026-11-20",
@@ -12336,6 +12614,22 @@
     ],
     "ruled": "f089ab1ed3b3aac8"
   },
+  "vi/guides/glaser-en-10-catfishes-acestridium-dichromum-2": {
+    "at": "2026-11-22",
+    "hash": "9684cfaee3985b17",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Hiện đã có lô Acestridium dichromum từ Venezuela rất khỏe và đã quen nước, nên đây là dịp để thử nuôi lại.",
+        "problem": "This is left over from a wholesaler's stock notice and doesn't say whose stock it is, so readers may think the fish is easy to buy now.",
+        "fix": "Gần đây đã có những lô Acestridium dichromum từ Venezuela về khỏe và quen nước tốt, nên người chơi có kinh nghiệm có thể thử nuôi lại.",
+        "field": "body"
+      }
+    ],
+    "ruled": "9684cfaee3985b17"
+  },
   "vi/guides/glaser-en-10-catfishes-corydoras-crypticus-and-corydoras-cf-crypticus-cw-157": {
     "at": "2026-11-20",
     "hash": "4b832b2bb408963b",
@@ -12422,6 +12716,31 @@
     ],
     "ruled": "8452282e32cd2cf9"
   },
+  "vi/guides/glaser-en-10-catfishes-the-real-corydoras-melini": {
+    "at": "2026-11-22",
+    "hash": "31754c3250879d1a",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Công trình gốc không dễ tìm, nên bức vẽ được in lại ở đây để so sánh.",
+        "problem": "The page promises Rendahl's drawing is reproduced here, but the page has no such drawing.",
+        "fix": "Công trình gốc không dễ tìm, nhưng Rendahl đã vẽ chi tiết con này để làm mẫu so sánh.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Hai loại còn khác nhau ở vài chi tiết màu khác, nhìn ảnh là thấy ngay.",
+        "problem": "The page tells readers to look at the photos, but it has no photos.",
+        "fix": "Hai loại còn khác nhau ở vài chi tiết màu khác.",
+        "field": "body"
+      }
+    ],
+    "ruled": "31754c3250879d1a"
+  },
   "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-beautiful-new-varieties-of-liverbearers-arrived-en": {
     "at": "2026-11-17",
     "hash": "305c57c33f0b7498",
@@ -12456,6 +12775,12 @@
     "hash": "afdb8fbc61f93994",
     "findings": [],
     "ruled": "afdb8fbc61f93994"
+  },
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-guppy-japan-blue-and-japan-red": {
+    "at": "2026-11-22",
+    "hash": "dee60cff7c7cb787",
+    "findings": [],
+    "ruled": "dee60cff7c7cb787"
   },
   "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-limia-special-en": {
     "at": "2026-11-08",
@@ -12850,6 +13175,12 @@
     "hash": "00a00be20c094178",
     "findings": [],
     "ruled": "00a00be20c094178"
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-crenicichla-from-the-rio-xingu": {
+    "at": "2026-11-22",
+    "hash": "17477ef414d5959b",
+    "findings": [],
+    "ruled": "17477ef414d5959b"
   },
   "vi/guides/glaser-en-25-perchlike-fishes-madeira-discus-arrived": {
     "at": "2026-11-18",
@@ -18345,6 +18676,22 @@
       }
     ],
     "ruled": "c14cc77769b73745"
+  },
+  "vi/guides/youtube-4Hz6rlx-lo0": {
+    "at": "2026-11-22",
+    "hash": "85281d127e344854",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L5",
+        "quote": "Nuôi chung được với cá lớn, hiền như Oscar, severum",
+        "problem": "The summary calls Oscars peaceful, but the body only says they are 'không quá dữ' and that keeping them with a bichir is still a risk.",
+        "fix": "Nuôi chung được với cá lớn mà không quá dữ như Oscar, severum, tránh cá nhỏ và cá lớn quá dữ như la hán.",
+        "field": "summary.4"
+      }
+    ],
+    "ruled": "85281d127e344854"
   },
   "vi/guides/youtube-4lG_4wSx_bQ": {
     "at": "2026-11-20",

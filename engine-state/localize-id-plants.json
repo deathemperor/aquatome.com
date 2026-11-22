@@ -2693,8 +2693,8 @@
     ]
   },
   "taxiphyllum-barbieri": {
-    "at": "2026-11-20",
-    "from": "2026-11-19",
+    "at": "2026-11-22",
+    "from": "2026-11-21",
     "name": "Java Moss",
     "confidence": "high",
     "score": 0.85,
@@ -2706,22 +2706,11 @@
       "maintenance:tropica": "4befc7c3a8b4",
       "behaviour:aquariumcoop": "3182b3661432",
       "notes:aquariumcoop": "d3c5728b46a4",
-      "notes:tropica": "a1cf404c400e"
-    },
-    "failed": {
-      "at": "2026-11-20T01:01:11.280Z",
-      "parts": {
-        "quickFacts:aquariumbreeder": "8f8ea319e177",
-        "beforeYouBuy:aquariumbreeder": "ad1fdd4b10fc",
-        "distribution:aquariumbreeder": "495e0cf4a192",
-        "habitat:aquariumbreeder": "48a35ee6ee25",
-        "aquariumSize:aquariumbreeder": "ab50a4f300f5",
-        "maintenance:aquariumbreeder": "2736febdd8f7",
-        "waterConditions:aquariumbreeder": "862aa5dd214a",
-        "equipment:aquariumbreeder": "8bcee5e77aac",
-        "behaviour:aquariumbreeder": "6ee89fdb49cf",
-        "notes:aquariumbreeder": "cf8355fd6b93"
-      }
+      "notes:tropica": "a1cf404c400e",
+      "maintenance:aquatome": "3ead3871d7f1",
+      "waterConditions:aquatome": "e2f626ca7f2e",
+      "behaviour:aquatome": "71fd2966f390",
+      "notes:aquatome": "acd298e8992f"
     }
   },
   "taxiphyllum-sp-flame-moss": {

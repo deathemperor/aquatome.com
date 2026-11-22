@@ -39,17 +39,28 @@
         "Amazon",
         "Orinoco",
         "Río Paraná",
-        "Río Ucayali"
+        "Río Ucayali",
+        "Pirara River"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "scotcat"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
+          "quote": "Described from the Río Ucayali in Peru but subsequently recorded across a large geographic area.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Río Ucayali"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
           "quote": "Records currently exist from Ecuador, Colombia, Peru, Brazil, Venezuela, Guyana and Suriname, and encompass the majority of the rio Amazon drainage plus its tributaries, the Orinoco system, Atlantic river basins of the Guianas and the Río Paraná.",
           "countries": [
-            "PE",
             "EC",
             "CO",
             "BR",
@@ -64,11 +75,11 @@
           ]
         },
         {
-          "source": "seriouslyfish",
-          "quote": "Described from the Río Ucayali in Peru but subsequently recorded across a large geographic area.",
+          "source": "scotcat",
+          "quote": "South America: Pirara River, Guyana (Amazon Basin).",
           "countries": [],
           "regions": [
-            "Río Ucayali"
+            "Pirara River"
           ]
         }
       ]

@@ -17,8 +17,11 @@
         "CM",
         "NG"
       ],
-      "regions": [],
+      "regions": [
+        "Cross River"
+      ],
       "sources": [
+        "glaser",
         "seriouslyfish"
       ],
       "quotes": [
@@ -30,6 +33,14 @@
             "NG"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Only much later it was found out that F. scheeli has only a small distribution area at the lower Cross River in southeastern Nigeria.",
+          "countries": [],
+          "regions": [
+            "Cross River"
+          ]
         }
       ]
     },

@@ -2677,23 +2677,12 @@
     ]
   },
   "taxiphyllum-barbieri": {
-    "at": "2026-11-20",
-    "from": "2026-11-19",
+    "at": "2026-11-22",
+    "from": "2026-11-21",
     "name": "จาวามอส",
     "confidence": "high",
     "score": 0.6,
-    "notes": [
-      "Item 14: 'Clown loach' rendered as 'ปลาหมูอินโด' – wrong; ปลาหมูอินโด is Botia/Syncrossus-type, while Chromobotia macracanthus is usually 'ปลาไต่หินลายเสือ/โบเทีย (clown loach)'. Fix the name.",
-      "Item 14: 'Siamese algae eater' rendered as 'ปลาเล็บมือนาง' – that is Crossocheilus/Garra hobby name misapplied; the standard Thai hobby name is 'ปลาตะเพียนกินตะไคร่/ปลาสยามเอลจี้อีเตอร์'. Check the term.",
-      "Item 14: 'Molly' translated as 'ปลาสอด' – ปลาสอด normally means swordtail/platy-type livebearers; use 'ปลาโมลลี่'. Also 'Green swordtail' as 'ซอร์ดเทลเขียว' is OK but 'ปลาสอดเขียว' is more standard.",
-      "Item 17: 'Algae also increase the survival rate of shrimplets' – the Thai keeps it, but 'ตะไคร่ยังช่วยเพิ่มอัตรารอด' presents a questionable care claim unchanged; fine as source, but 'Oxygenation... aerates' is ok. Check 'ปลาขี้อาย' wording.",
-      "Item 12: 'ก้อนหิน หิน กรวด' – 'stones, rocks' duplicated awkwardly; and 'ไม่ต้องดูแลเป็นพิเศษ' fine. Simplify: 'หินก้อนเล็ก หินก้อนใหญ่'.",
-      "Item 8: 'ก็ตัดแต่งเล็กน้อย' – 'give it a quick trim' is vague; use imperative 'ให้ตัดแต่งเล็กน้อย'.",
-      "Item 10: 'กาวตราช้างที่ปลอดภัยสำหรับตู้ปลา' adds a brand name not in the English ('super glue'); use 'กาวซุปเปอร์กลู' or 'กาวร้อน'.",
-      "Item 6: 'ดินชื้น ... รูปไข่' fine, but 'costae' translated 'เส้นกลางใบ' and 'rhizoids' as 'ไรซอยด์' – consider adding 'ราก-เทียม' explanation for readers.",
-      "Item 15: 'เส้นสีเขียวฟู ๆ' for 'green wisps' is awkward; use 'ปุยสีเขียว'.",
-      "Item 10: 'ตะแกรงตาข่าย' and 'การดูดตะกอน' fine; 'ไม้ลอยน้ำที่โตเต็มที่' awkward."
-    ],
+    "notes": [],
     "parts": {
       "quickFacts:aquariumcoop": "9848f8ed22ca",
       "quickFacts:tropica": "f8681475033f",
@@ -2711,7 +2700,11 @@
       "behaviour:aquariumbreeder": "6ee89fdb49cf",
       "notes:aquariumcoop": "d3c5728b46a4",
       "notes:tropica": "a1cf404c400e",
-      "notes:aquariumbreeder": "cf8355fd6b93"
+      "notes:aquariumbreeder": "cf8355fd6b93",
+      "maintenance:aquatome": "3ead3871d7f1",
+      "waterConditions:aquatome": "e2f626ca7f2e",
+      "behaviour:aquatome": "71fd2966f390",
+      "notes:aquatome": "acd298e8992f"
     }
   },
   "taxiphyllum-sp-flame-moss": {

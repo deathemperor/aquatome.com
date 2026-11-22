@@ -32,27 +32,19 @@
       ],
       "regions": [
         "Rio Morichal",
-        "Guayre River",
-        "Trinidad"
+        "Guayre River"
       ],
       "sources": [
-        "sprucepets",
         "seriouslyfish",
-        "glaser"
+        "glaser",
+        "aquariumbreeder"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The guppy, Poecilia reticulata, is a livebearer native to northeastern South America and the southern Caribbean, including Venezuela and Trinidad.",
-          "countries": [
-            "VE"
-          ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
           "quote": "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles.",
           "countries": [
+            "VE",
             "GY",
             "SR",
             "GF",
@@ -76,14 +68,6 @@
           "countries": [],
           "regions": [
             "Guayre River"
-          ]
-        },
-        {
-          "source": "sprucepets",
-          "quote": "They are named for Robert John Lechmere Guppy who collected these fish on the island of Trinidad in 1866.",
-          "countries": [],
-          "regions": [
-            "Trinidad"
           ]
         }
       ]

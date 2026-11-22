@@ -23,10 +23,12 @@
       ],
       "regions": [
         "Ganges",
-        "Brahmaputra"
+        "Brahmaputra",
+        "Himalayas"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -40,6 +42,14 @@
           "regions": [
             "Ganges",
             "Brahmaputra"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "In India and adjacent countries the species is common in the system of the upper Brahmaputra, i.e. at the foot of the Himalayas.",
+          "countries": [],
+          "regions": [
+            "Himalayas"
           ]
         }
       ]

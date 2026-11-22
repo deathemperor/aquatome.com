@@ -10,6 +10,56 @@
     "colombia",
     "santander"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "río Chucurí"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Departamento de Santander, Quebrada del Medio, afluente del río Chucurí, Vereda Chanchón, Municipio de San Vicente de Chucurí, Colombia, elevation 692 metres.",
+          "countries": [],
+          "regions": [
+            "río Chucurí"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9279297,
+      "total": 5,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "CO",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          5.625,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

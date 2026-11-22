@@ -1,0 +1,42 @@
+{
+  "id": "curculionichthys-sabaji",
+  "native": {
+    "input": "e8ca21650db8c40d",
+    "at": "2026-11-22T12:48:24.036Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Rio Xingu",
+        "source": "glaser",
+        "quote": "Curculionichthys sabaji originates from the drainage of the Rio Xingu.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Curculionichthys sabaji",
+    "status": "ACCEPTED",
+    "taxonKey": 9113449,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        12
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        7
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-22T12:48:24.036Z"
+  }
+}

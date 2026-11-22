@@ -12,6 +12,154 @@
     "venezuela",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Orinoco",
+        "Essequibo"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Middle and lower Amazon River and probably the Orinoco River. Type locality: Rio Solimões, Paraná do Rei, Amazonas, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "This species is widely distributed in South America, where it is present in the Amazon, Essequibo and Orinoco basins.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Orinoco",
+            "Essequibo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9544030,
+      "total": 25,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "BR",
+          20
+        ],
+        [
+          "PE",
+          2
+        ],
+        [
+          "BO",
+          1
+        ],
+        [
+          "EC",
+          1
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -68.90625,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

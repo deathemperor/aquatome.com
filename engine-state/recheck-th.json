@@ -262,8 +262,8 @@
     "back": true
   },
   "ancistrus-leucostictus": {
-    "hash": "56e9c883c347d4ca1786bd18f9ab3d400c28ebb3e329283ed47d5ff204ee9a3c",
-    "at": "2026-11-22T00:27:20.552Z",
+    "hash": "a20546bb45eed30949daac69b5b4b5cbaa258b7486af01810801e7c8c46184dd",
+    "at": "2026-11-22T12:40:39.679Z",
     "sonnet": 0.6,
     "back": false
   },
@@ -1113,6 +1113,19 @@
     "sonnet": 0.6,
     "back": false
   },
+  "centromochlus-perugiae": {
+    "hash": "4dcd2e0b35273f383a9239986806573b7d3625b09ab06ba31b69f3e89cf8456a",
+    "at": "2026-11-22T12:41:34.821Z",
+    "sonnet": 0.9,
+    "opus": 0.88,
+    "back": true
+  },
+  "centromochlus-reticulatus": {
+    "hash": "ba35509cc7cf57ed0849d7712363239055b3e4ab7f0aa29c93f51175228808cc",
+    "at": "2026-11-22T12:41:51.386Z",
+    "sonnet": 0.7,
+    "back": false
+  },
   "cephalocassis-jatia": {
     "hash": "98fda630e67d9b5d868cbe8655794b1a2413bd1af08e371522857935108cb1c8",
     "at": "2026-11-19T00:30:49.272Z",
@@ -1120,11 +1133,70 @@
     "opus": 0.7,
     "back": false
   },
+  "cephalosilurus-fowleri": {
+    "hash": "ebdaad4369e5f9e4814228c2ba26d45dd8fd474b41d59b11bdad9ce6de67efe2",
+    "at": "2026-11-22T12:42:02.789Z",
+    "sonnet": 0.72,
+    "back": false
+  },
   "ceylonthelphusa-kandambyi": {
     "hash": "10f7b9a62e224ea584069b73df7077674b9832b360b4128b8554c96ad9612fa0",
     "at": "2026-11-18T05:47:49.490Z",
     "sonnet": 0.7,
     "back": false
+  },
+  "chaetostoma-fischeri": {
+    "hash": "c9368cf4ca642255ea7729e112c16ca87432b84dc88b252e6d7f26b55fd4d178",
+    "at": "2026-11-22T12:42:15.152Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "chaetostoma-leucomelas": {
+    "hash": "59241c1665110029d5143f83c4ec84317f79a7142acad3542803aa362892c2da",
+    "at": "2026-11-22T12:42:48.601Z",
+    "sonnet": 0.95,
+    "opus": 0.85,
+    "back": true
+  },
+  "chaetostoma-lineopunctatum": {
+    "hash": "ba978d8dc2c9764c0293c337b7e0bf0f307e3853da2d8741a8622a6be859b5d4",
+    "at": "2026-11-22T12:43:03.353Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "champsochromis-caeruleus": {
+    "hash": "dc3b06eacc4a38e45f994b9fd8f14770c19db1d3370fb1c9653a093169e1e478",
+    "at": "2026-11-22T12:43:44.778Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": true
+  },
+  "channa-baramensis": {
+    "hash": "f4cdea29550a78eab8d1d3b397c1961a22579ae06efdb5360be4a009b0f00063",
+    "at": "2026-11-22T12:44:19.259Z",
+    "sonnet": 0.85,
+    "opus": 0.9,
+    "back": true
+  },
+  "channa-diplogramma": {
+    "hash": "69f792b072941ed2fafb9db487fcbb25b994dcb6f3e5b93e1b85d895d1f076cb",
+    "at": "2026-11-22T12:45:03.985Z",
+    "sonnet": 0.88,
+    "opus": 0.85,
+    "back": true
+  },
+  "channa-marulioides": {
+    "hash": "e2a512ea412dc27f6e32c0dbefaccfbbd6804bffe81799887b30ef21483b30bd",
+    "at": "2026-11-22T12:45:23.409Z",
+    "sonnet": 0.55,
+    "back": false
+  },
+  "channa-marulius": {
+    "hash": "28389aa57caeb8682dfce4fa09f51c40536be4009927b1389a57f59fb791a36f",
+    "at": "2026-11-22T12:46:09.508Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": true
   },
   "channa-melanoptera": {
     "hash": "0ed366c4e8c9238e5c0b21680fc439a27a5162a9972bf6dfc788f412bfb6b72c",
@@ -1135,6 +1207,12 @@
       "Sentence 2: 'การรักษาโรคที่ดี' for 'good medical care' is fine, but 'ระดับสถิติ' is awkward; use 'ขนาดที่ใหญ่เป็นสถิติ/ใหญ่เกินปกติ'.",
       "Item 2: \"good medical care\" -> \"ได้รับการรักษาโรคที่ดี\" is okay, but \"considerably longer life time\" is rendered as \"อายุยืนกว่ามาก\" without clarifying it refers to the fish living longer in captivity; fine, but \"โตได้ใหญ่ระดับสถิติ\" is awkward - use \"อาจโตใหญ่จนทำลายสถิติได้\" or \"ใหญ่เป็นพิเศษ\"."
     ]
+  },
+  "channa-stewartii": {
+    "hash": "12ec0e15ac68c4867f8a563f7ac0938710448aa02cbcc4007f5d1d48ec6da533",
+    "at": "2026-11-22T12:46:24.176Z",
+    "sonnet": 0.55,
+    "back": false
   },
   "corydoras-aeneus": {
     "hash": "fe666451ebec0431887efc5f07660fa3d9803c341405b866b2b6a8cb33ca40b8",
@@ -1157,8 +1235,8 @@
     "back": false
   },
   "corydoras-elegans": {
-    "hash": "6268b94a86e7210ea19247e82d2132d50a27ba62c6db4fb2f703de18d3f18f29",
-    "at": "2026-11-21T18:50:48.980Z",
+    "hash": "b7b487987548aaeb1620461b017af46fa5e8350314c2dee44466b087ac21e569",
+    "at": "2026-11-22T12:40:53.912Z",
     "sonnet": 0.6,
     "back": false
   },
@@ -1342,13 +1420,10 @@
     "back": false
   },
   "epiplatys-annulatus": {
-    "hash": "1bd7f528676279a7f73a197b9325dad2e0ecdc782100910184af54d6161b2367",
-    "at": "2026-11-19T12:41:33.217Z",
+    "hash": "6ecf42da12c1ab5ed4292142d4cb0fbef62adbb75b110245d069327da78d7c6f",
+    "at": "2026-11-22T12:41:01.412Z",
     "sonnet": 0.5,
-    "back": false,
-    "held": [
-      "Item 22: 'GH 4 – 8' vs. other sections giving 1–8 dGH is source inconsistency; fine. But 'Fish not prepared for it will die' is rendered OK. No change."
-    ]
+    "back": false
   },
   "epiplatys-chevalieri": {
     "hash": "abfd11499e1365e78162d812030423f03ed2bbd1417f4fc5969d0aecb4e54744",

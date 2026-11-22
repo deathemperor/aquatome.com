@@ -10,6 +10,65 @@
     "united-states",
     "hawaii"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Hawaiian Islands"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Opae Ula Shrimp are indigenous to the Hawaiian Islands and are found in tidal and anchialine pools there.",
+          "countries": [],
+          "regions": [
+            "Hawaiian Islands"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2223082,
+      "total": 20,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "US",
+          20
+        ]
+      ],
+      "cells": [
+        [
+          -157.5,
+          19.6875,
+          2
+        ],
+        [
+          -156.09375,
+          18.28125,
+          7
+        ],
+        [
+          -156.09375,
+          19.6875,
+          3
+        ],
+        [
+          -97.03125,
+          37.96875,
+          8
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "aquariumbreeder",
+    "quote": "The water should be brackish, with a specific gravity of 1.008–1.018 as measured with a refractometer."
+  },
   "dataCard": {
     "tempC": [
       {
