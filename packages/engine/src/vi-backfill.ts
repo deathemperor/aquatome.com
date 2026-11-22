@@ -21,6 +21,8 @@ export const REWRITE_V = 2
 
 const CHUNK = 12_000 // English characters per model call
 const json = async <T>(f: string): Promise<T> => JSON.parse(await readFile(f, 'utf8'))
+/** The text a page's listed words are found in (`--phrases`), fixed parts and all: what its marks are matched against. */
+export const listedText = (vi: Vi) => JSON.stringify([vi.body, vi.sections, vi.definition, vi.summary, vi.faq])
 
 /**
  * Each page's text in groups that are reviewed together: one source's sections (chunked), or one Vietnamese-only field.
@@ -32,7 +34,7 @@ async function jobs(contentRoot: string, kinds: readonly Kind[], match?: RegExp,
     for (const slug of (await readdir(join(contentRoot, kind)).catch(() => [] as string[])).sort()) {
       const dir = join(contentRoot, kind, slug)
       const vi = await json<Vi>(join(dir, 'vi.json')).catch(() => null)
-      const text = vi ? JSON.stringify([vi.body, vi.sections, vi.definition, vi.summary, vi.faq]) : ''
+      const text = vi ? listedText(vi) : ''
       if (!vi || (match && !match.test(text))) continue
       const e = await json<{ source?: string; sections?: { key: string; source: string; html: string; fixed?: boolean }[] }>(join(dir, 'entity.json')).catch(() => ({}) as { source?: string; sections?: undefined })
       const groups: Group[] = []

@@ -425,6 +425,42 @@ The layers above still check the result.
       - A marked word in text written later, such as a new source's section, doesn't bring the page back.
       - Found 2026-11-16: 544 of the 758 pages it had rewritten still had a listed phrase, and every run took them all up
         again, each part a write and a review.
+      - **A page rewritten without its marks gets them from the pass**: `rewrite-vi --phrases` writes them as its first
+        step (`rewrite-marks.ts`, no model call; the chief of staff's option of 20 Nov). The daily queue writes none, and
+        no record from before them has any. The pass's own command writes them, so no one has to remember a hand run
+        days ahead, and the days between can't refill the list (the chief of staff, 22 Nov). `pnpm engine rewrite-marks`
+        counts them and writes nothing but its `--out` report. The record merges page by page (`.gitattributes`, `scripts/merge-json-map.mjs`),
+        so a daily run's push that meets the pass's commit keeps both. A page gets a mark for a
+        word it still has only when the word's row was in the rewrite's prompt the day the page was rewritten: 61 rows
+        from 8 Nov, four from 12 Nov, from the list's history in git.
+        - The record's day is UTC and a row's is Vietnam's, so only a later day than the row's counts. A page rewritten
+          the day its row landed keeps the word for the pass.
+        - Only a page rewritten whole is marked: every part it sent came back rewritten. A page with a part the reviewer
+          refused kept that part's old words, so it's left for the pass, as is a failed rewrite. A record that has
+          marks is left as it is; an empty list is none, as `--phrases` reads it. A row added since is never marked by
+          it. A row's words are pinned as on its day (a test): one that widens takes the widening's day, so a page
+          rewritten before it isn't marked for the new word.
+        - A word counts only in what the rewrite's own commit changed, read from git: the newest commit in which the
+          page's record took the value it has, and the parts of the page that commit changed, as it left them, but for
+          the units the rewrite's own last step changes on the whole page. "Rewritten whole" alone doesn't prove the text
+          changed: on 22 Nov, 4 of the 44 pages then marked had their words in text byte-identical to before (Fable's
+          read), and on one the rewrite's commit didn't touch the page. The word must be in the same part then and now.
+          A part the commit didn't change is never marked, nor is a page whose commit shows nothing of a rewrite: no
+          history, a commit whose parent the checkout doesn't have (a shallow clone's edge: before 22 Nov's second fix it
+          read as a commit that wrote every record and every page from nothing, and marked 45 pages, not 37), or a page
+          not there before the commit (moved, or first written in it). A word the page also has in a part that commit
+          didn't change (a guide's question, a fish page's references or fixed sections) isn't marked either: a mark is
+          the page's, so it would close that part too. Another step that ran in the same commit and changed a part
+          makes it count as changed, as does a record set back to an earlier value in a commit that changed the page.
+          A marked word is the rewrite's own text either way: on 22 Nov, 35 of the 38 were "không xương sống", which
+          the rewrite wrote in for "tôm, cua, ốc" on the translation review's note, not kept from before.
+        - The record is written whole, through a new file of its own beside it (never one already there), and only if it
+          was unchanged at the last read before the write: otherwise nothing is written and the step says to run it
+          again. A write in the moment between is still lost, so it runs only in the pass's own checkout.
+        - The count, and the pass's `--dry-run`, write nothing in the repository but the count's `--out` report. It reports, per row, the pages rewritten whole with it, those
+          that still have it (each such word stays on the page once marked), and the pages `--phrases` would still take
+          up for it. The pages it gives as left are `rewrite-vi --phrases --dry-run`'s own, run on a marked copy in the
+          system's temporary folder. `--out` writes the report only to a file that doesn't exist yet.
   - **An Indonesian or Thai fish page out of search for its score comes back on two fresh reads on two models**
     (`pnpm engine recheck`, `localize-recheck.ts`, in the rewrite part after the other translations; the chief of staff,
     2026-11-16). A kept rewrite is no longer the only way back. The steady Sonnet read of the page's text as it is, then,
