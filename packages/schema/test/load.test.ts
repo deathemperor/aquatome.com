@@ -367,6 +367,42 @@ test("a public build shows no own photo of a species, plant or guide page the fa
   await expect(loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })).rejects.toThrow("the face finder's record is missing")
 })
 
+test("an own photo the face finder has never read waits wherever it shows, whatever its page's translations say: in an album in a language its page has no text in, and its page held back", async () => {
+  const { mkdir } = await import('node:fs/promises')
+  const site = await mkdtemp(join(tmpdir(), 'aq-unread-owner-'))
+  const store = join(site, 'content')
+  await cp(root, store, { recursive: true })
+  const photo = (name: string) => ({ url: `https://media.test/${name}.webp`, width: 960, height: 640, licence: 'CC BY 4.0', author: 'A', sourceUrl: `https://x/${name}` })
+  const write = (file: string, x: unknown) => writeFile(join(store, file), JSON.stringify(x))
+  const alpha = JSON.parse(await readFile(join(store, 'species', 'alpha', 'entity.json'), 'utf8'))
+  const alphaVi = JSON.parse(await readFile(join(store, 'species', 'alpha', 'vi.json'), 'utf8'))
+  // alpha has Vietnamese and Indonesian text. Its album shows a photo each of two other pages' own and one of its own.
+  await write('species/alpha/id.json', { ...alphaVi, slug: 'ikan-alpha' })
+  await mkdir(join(store, 'gallery'))
+  await write('gallery/alpha.json', { id: 'alpha', seen: 3, updatedAt: '2026-11-22', photos: [photo('vi-only'), photo('held'), photo('album')] })
+  // vionly has Vietnamese text only; heldback is held back in Vietnamese, its only language.
+  for (const [id, own, t] of [['vionly', 'vi-only', alphaVi], ['heldback', 'held', { ...alphaVi, held: { checks: ['harm'], at: '2026-11-20' } }]] as const) {
+    await mkdir(join(store, 'species', id), { recursive: true })
+    await write(`species/${id}/entity.json`, { ...alpha, id, scientificName: `Testus ${id}`, photos: [photo(own)] })
+    await write(`species/${id}/vi.json`, { ...t, slug: `ca-${id}` })
+  }
+  const names = ['vi-only', 'held', 'album']
+  await mkdir(join(site, 'engine-state'))
+  await writeFile(join(site, 'engine-state', '_photo-watermarks.json'), JSON.stringify(Object.fromEntries(names.map(n => [`https://media.test/${n}.webp`, { ocr: [] }]))))
+  const facesFile = join(site, 'engine-state', '_photo-faces.json')
+  await writeFile(facesFile, '{}')
+  const short = (u: string) => u.replace('https://media.test/', '').replace('.webp', '')
+  const shown = async (lang: 'vi' | 'id') => {
+    const c = await loadAll({ root: store, lang, publicBuild: true, leaveOutHeld: true })
+    return { album: (c.galleries.alpha ?? []).map(p => short(p.url)), waits: names.filter(n => c.photoWaits!(`https://media.test/${n}.webp`)) }
+  }
+  expect(await shown('id')).toEqual({ album: ['album'], waits: ['vi-only', 'held'] })
+  expect(await shown('vi')).toEqual({ album: ['album'], waits: ['vi-only', 'held'] })
+  // Read: each shows.
+  await writeFile(facesFile, JSON.stringify({ 'https://media.test/vi-only.webp': 0, 'https://media.test/held.webp': 0 }))
+  expect(await shown('id')).toEqual({ album: names, waits: [] })
+})
+
 test('a public build shows no photo the watermark screen still owes a look: it waits, and shows by itself once judged', async () => {
   const { mkdir, rm, utimes } = await import('node:fs/promises')
   const site = await mkdtemp(join(tmpdir(), 'aq-screen-'))
