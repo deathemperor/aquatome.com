@@ -1,5 +1,6 @@
-import { readFileSync, writeFileSync } from 'node:fs'
-import { chmod, mkdir, mkdtemp, readdir, readFile, rm, utimes, writeFile } from 'node:fs/promises'
+import { readFileSync } from 'node:fs'
+import { chmod, mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
+import { createServer, type AddressInfo } from 'node:net'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { slugify } from '@aq/schema'
@@ -7,8 +8,11 @@ import { expect, test } from 'vitest'
 import { ARCHIVE_POLITE, ArchiveFetcher } from '../src/archive'
 import { LlmError, type Llm } from '../src/claude'
 import { cycleOnlyHosts } from '../src/cycle-only'
-import { ARCHIVE_LISTING_WEEK, ARCHIVE_POST_DAY, holdMagazine, ListingRefused, LOCK_SETTLE_MS, MAGAZINE_PER_DAY, readIdeas, readMagazine, refreshIdeas, refreshMagazine, writeIdeas, writeMagazine, type IdeasState, type MagazineState } from '../src/ideas'
+import { ARCHIVE_LISTING_WEEK, ARCHIVE_POST_DAY, holdMagazine, ListingRefused, MAGAZINE_PER_DAY, readIdeas, readMagazine, refreshIdeas, refreshMagazine, writeIdeas, writeMagazine, type IdeasState, type MagazineState } from '../src/ideas'
 import { COPY_WORDS, makeTopic, POST_OTHER_SITES, POST_SHARE, siteOf, topicId } from '../src/topics'
+
+/** A lock no other reader holds (archive.ts, mac-lock.ts). */
+const free = async () => async () => {}
 
 // The owner, 20 Nov 2026: "Pratical fishkeeping: use internet archive" (and 9 Nov: "any site that are often blocked should
 // use the same way"). The chief of staff's order of 21 Nov: the magazine's list, and each day the one post behind that
@@ -44,7 +48,7 @@ const res = (status: number, body: string, date?: string) => ({ ok: status >= 20
 async function archive(answer: (url: string) => ReturnType<typeof res>, now = '2026-11-21T06:00:00Z', file?: string) {
   const asked: string[] = [], slept: number[] = []
   const rest = file ?? await restFile()
-  const reader = new ArchiveFetcher({ fetch: async u => { asked.push(u); return answer(u) }, now: () => new Date(now), sleep: async ms => { slept.push(ms) }, ua: 'AquaTome test', restFile: rest })
+  const reader = new ArchiveFetcher({ lock: free, fetch: async u => { asked.push(u); return answer(u) }, now: () => new Date(now), sleep: async ms => { slept.push(ms) }, ua: 'AquaTome test', restFile: rest })
   return { reader, asked, slept, rest }
 }
 /** Every file under `dir`, with its text. */
@@ -482,7 +486,7 @@ test("the Archive's requests are the Mac's ledger's, written before each is made
   // Each request finds itself counted already, in the ledger, when it goes out.
   const seen: number[] = []
   const a = await archive(u => checks(u))
-  const counted = new ArchiveFetcher({ fetch: async u => { seen.push((await ledger(root)).asks?.['2026-11-21']?.post ?? 0); return checks(u) }, now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'AquaTome test', restFile: a.rest })
+  const counted = new ArchiveFetcher({ lock: free, fetch: async u => { seen.push((await ledger(root)).asks?.['2026-11-21']?.post ?? 0); return checks(u) }, now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'AquaTome test', restFile: a.rest })
   await write(root, researchCiting(0, 3, []), counted)
   expect(seen).toEqual([1, 2, 3, 4, 5, 6])
   // The record carries a copy, for the chief of staff.
@@ -505,46 +509,17 @@ test("the Archive's requests are the Mac's ledger's, written before each is made
   expect((await ledger(rest)).waits).toEqual(['2026-11-21', '2026-11-22'])
 })
 
-test('one magazine step at a time on the Mac: another one running fails, naming it; one that died, or ran past six hours, gives way', async () => {
-  const dir = await mkdtemp(join(tmpdir(), 'magazine-lock-'))
-  const file = join(dir, 'magazine.lock')
-  const now = () => new Date()
-  const quick = async () => {}
-  const release = await holdMagazine(file, now, undefined, quick)
-  await expect(holdMagazine(file, now, 12345, quick)).rejects.toThrow(`another magazine step is running (pid ${process.pid}, ${file})`)
+test('one magazine step at a time on the Mac: another one running fails, naming it; of two starting at once, one runs', async () => {
+  const port = await new Promise<number>(ok => { const s = createServer(); s.listen(0, '127.0.0.1', () => { const { port } = s.address() as AddressInfo; s.close(() => ok(port)) }) })
+  const release = await holdMagazine(port)
+  await expect(holdMagazine(port)).rejects.toThrow(`another magazine step is running (it holds 127.0.0.1:${port})`)
   await release()
-  await (await holdMagazine(file, now, undefined, quick))()
-  // A step that died: its number is no process's now.
-  await writeFile(file, '2147483646\n')
-  await (await holdMagazine(file, now, undefined, quick))()
-  // A step's lock left from more than six hours ago.
-  await writeFile(file, `${process.pid}\n`)
-  const old = new Date(Date.now() - 7 * 3_600_000)
-  await utimes(file, old, old)
-  await (await holdMagazine(file, now, undefined, quick))()
-  // A lock with no number yet: a step that has just taken it (Codex, 21 Nov 2026). Left so for six hours, it gives way.
-  await writeFile(file, '')
-  await expect(holdMagazine(file, now, undefined, quick)).rejects.toThrow(`another magazine step is starting (${file})`)
-  await utimes(file, old, old)
-  await (await holdMagazine(file, now, undefined, quick))()
-  // Two steps taking over the same dead lock (Codex, 21 Nov 2026): the other removes this one's new lock and takes it. This one,
-  // finding its number gone LOCK_SETTLE_MS on, goes no further; and a release removes only its own.
-  await writeFile(file, '2147483646\n')
-  const slept: number[] = []
-  await expect(holdMagazine(file, now, undefined, async ms => { slept.push(ms); await writeFile(file, '2147483645\n') })).rejects.toThrow(`another magazine step took the lock at the same time (${file})`)
-  expect(slept).toEqual([LOCK_SETTLE_MS])
-  await rm(file, { force: true })
-  const release2 = await holdMagazine(file, now, undefined, quick)
-  await writeFile(file, '2147483645\n')
-  await release2()
-  expect(await readFile(file, 'utf8')).toBe('2147483645\n')
-  // A step that read a dead lock, then stalled while another took it over (Fable, 21 Nov 2026): it reads it again just before
-  // removing it, and gives way.
-  await writeFile(file, '2147483646\n')
-  let swapped = false
-  const stalling = () => { if (!swapped) { swapped = true; writeFileSync(file, `${process.ppid}\n`) } return new Date() }
-  await expect(holdMagazine(file, stalling, 12345, quick)).rejects.toThrow(`another magazine step is running (${file})`)
-  expect(await readFile(file, 'utf8')).toBe(`${process.ppid}\n`)
+  // Two steps starting at the same moment, as two taking over one dead step's lock could (Codex, 21 Nov 2026): one runs. A
+  // step that died holds nothing: the Mac frees its lock (mac-lock.test.ts).
+  const both = await Promise.allSettled([holdMagazine(port), holdMagazine(port)])
+  expect(both.map(x => x.status).sort()).toEqual(['fulfilled', 'rejected'])
+  await (both.find(x => x.status === 'fulfilled') as PromiseFulfilledResult<() => Promise<void>>).value()
+  await (await holdMagazine(port))()
 })
 
 test(`a fact research copied out of the post (${COPY_WORDS} words of it in a row, whatever their case or marks) is dropped before anything keeps or reads it, and research keeps no session of the post`, async () => {
@@ -777,7 +752,7 @@ test("a read that passes Vietnam's midnight counts each request on its own day, 
   // 16:59:55 UTC is 23:59:55 in Vietnam; the first answer comes after midnight.
   let clock = Date.parse('2026-11-21T16:59:55Z')
   const asked: string[] = []
-  const reader = new ArchiveFetcher({ restFile: await restFile(), ua: 'test', sleep: async () => {}, now: () => new Date(clock),
+  const reader = new ArchiveFetcher({ lock: free, restFile: await restFile(), ua: 'test', sleep: async () => {}, now: () => new Date(clock),
     fetch: async u => { asked.push(u); clock = Date.parse('2026-11-21T17:00:05Z'); return u.endsWith(`20261121id_/${POST}`) ? to(`/web/20261101090000id_/${POST}`) : u.endsWith(`20261101090000id_/${POST}`) ? res(200, ARTICLE) : res(404, '') } })
   const r = await writeMagazine(root, { research: researchCiting(2, 3, []), llm: writer, now: () => new Date(clock), archive: reader, ledger: ledgerOf(root), sleep: async () => {} })
   expect(asked).toHaveLength(2)
@@ -796,7 +771,7 @@ test("a request whose count is written as Vietnam's midnight passes is counted o
     return new Date(turned ? '2026-11-21T17:00:05Z' : '2026-11-21T16:59:55Z')
   }
   const asked: string[] = []
-  const reader = new ArchiveFetcher({ restFile: await restFile(), ua: 'test', sleep: async () => {}, now: clock, fetch: async u => { asked.push(u); return article()(u) } })
+  const reader = new ArchiveFetcher({ lock: free, restFile: await restFile(), ua: 'test', sleep: async () => {}, now: clock, fetch: async u => { asked.push(u); return article()(u) } })
   await writeMagazine(root, { research: researchCiting(2, 3, []), llm: writer, now: clock, archive: reader, ledger: ledgerOf(root), sleep: async () => {} })
   expect(asked).toHaveLength(1)
   expect((await ledger(root)).asks).toEqual({ '2026-11-21': { post: ARCHIVE_POST_DAY - 1 }, '2026-11-22': { post: 1 } })
@@ -910,7 +885,7 @@ test("the magazine's first request of each kind waits the reader's pace after th
   await writeFile(ideasFile(root), JSON.stringify({ readAt: '2026-11-21T00:00:00Z', posts: {}, ideas: [magazineIdea('Nước bể cá bị đục')] }))
   const events: string[] = []
   const answer = (u: string) => (u.endsWith(`id_/${POST}`) ? article()(u) : holding(u))
-  const a = new ArchiveFetcher({ fetch: async u => { events.push(u.includes('/cdx/') ? 'index' : u.endsWith(`id_/${POST}`) ? 'post' : 'sitemap'); return answer(u) }, now: () => new Date('2026-11-21T06:00:00Z'), sleep: async ms => { events.push(`archive waits ${ms}`) }, ua: 'AquaTome test', restFile: await restFile() })
+  const a = new ArchiveFetcher({ lock: free, fetch: async u => { events.push(u.includes('/cdx/') ? 'index' : u.endsWith(`id_/${POST}`) ? 'post' : 'sitemap'); return answer(u) }, now: () => new Date('2026-11-21T06:00:00Z'), sleep: async ms => { events.push(`archive waits ${ms}`) }, ua: 'AquaTome test', restFile: await restFile() })
   const sleep = async (ms: number) => { events.push(`waits ${ms}`) }
   await refreshMagazine(root, { ...macOf(root, nowhere, a), sleep })
   await writeMagazine(root, { research: researchCiting(1, 3, []), llm: writer, now: () => new Date('2026-11-21T06:00:00Z'), archive: a, ledger: ledgerOf(root), sleep })

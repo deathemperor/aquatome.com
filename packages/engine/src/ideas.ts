@@ -1,4 +1,4 @@
-import { mkdir, readdir, readFile, rename, rm, stat, writeFile } from 'node:fs/promises'
+import { mkdir, readdir, readFile, rename, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { slugify, type GuideEntity, type SourceId } from '@aq/schema'
 import { ARCHIVE_POLITE, ArchiveRefused, AsksSpent, cdxQuery, noCopy, type ArchiveReader } from './archive'
@@ -8,6 +8,7 @@ import { byHand, cycleOnlyHosts, refused } from './cycle-only'
 import { IDEA_SOURCES, ideaHost, NEVER_RESEARCHED, type Drop, type IdeaSource, type Listing } from './idea-sources'
 import { isMarketplace } from './marketplaces'
 import { htmlToOutline, isChallenge } from './outline'
+import { MAGAZINE_LOCK_PORT, tryLock, type Release } from './mac-lock'
 import { piece } from './pieces'
 import { snapshotHash } from './snapshot'
 import { setSourceBlock, sourceBlockedSince } from './state'
@@ -129,41 +130,16 @@ function mirror(m: MagazineState, l: MagazineLedger) {
   if (l.tried) m.tried = l.tried; else delete m.tried
   if (l.waits?.length) m.waits = l.waits; else delete m.waits
 }
-/** A lock older than this is a step that died: none runs so long. */
-const LOCK_STALE_MS = 6 * 3_600_000
-/** How long a step that has taken the lock waits before it reads the lock again, to be sure it is still its own. */
-export const LOCK_SETTLE_MS = 2_000
 /**
  * One magazine step at a time on the Mac, since its ledger is read and then written at each request: a step that finds
- * another running fails, naming it, so the cycle logs it. A lock whose step has died, or older than LOCK_STALE_MS, is
- * taken over. Two steps taking over the same one may each remove it in turn (Codex, 21 Nov 2026), so a step that has taken
- * it reads it again LOCK_SETTLE_MS on, and goes on only if it still holds its own number. The release removes only its own.
+ * another running fails, naming it, so the cycle logs it. The lock is the Mac's own (mac-lock.ts), freed when its step ends
+ * however it ends, so no step takes over a dead one's (Codex, 21 Nov 2026: two could take over the same one and both run).
  */
-export async function holdMagazine(file: string, now: () => Date, pid = process.pid, sleep = (ms: number) => new Promise<void>(res => setTimeout(res, ms))): Promise<() => Promise<void>> {
-  await mkdir(dirname(file), { recursive: true })
-  const mine = async () => Number((await readFile(file, 'utf8').catch(() => '')).trim()) === pid
-  for (let tries = 0; ; tries++) {
-    try {
-      await writeFile(file, `${pid}\n`, { flag: 'wx' })
-      await sleep(LOCK_SETTLE_MS)
-      if (!(await mine())) throw new Error(`another magazine step took the lock at the same time (${file})`)
-      return async () => { if (await mine()) await rm(file, { force: true }) }
-    } catch (e) {
-      if ((e as NodeJS.ErrnoException).code !== 'EEXIST' || tries > 0) throw e
-      const seen = async () => ({ pid: Number((await readFile(file, 'utf8').catch(() => '')).trim()), at: await stat(file).then(x => x.mtimeMs, () => 0) })
-      const was = await seen()
-      const age = now().getTime() - was.at
-      // A lock with no number yet is a step that has just taken it and not yet written its own (Codex, 21 Nov 2026).
-      if (!was.pid && age < LOCK_STALE_MS) throw new Error(`another magazine step is starting (${file})`)
-      if (was.pid && alive(was.pid) && age < LOCK_STALE_MS) throw new Error(`another magazine step is running (pid ${was.pid}, ${file})`)
-      // Still the lock just read, just before it goes (Fable, 21 Nov 2026): another step may have taken it over meanwhile.
-      const is = await seen()
-      if (is.pid !== was.pid || is.at !== was.at) throw new Error(`another magazine step is running (${file})`)
-      await rm(file, { force: true })
-    }
-  }
+export async function holdMagazine(port = MAGAZINE_LOCK_PORT): Promise<Release> {
+  const release = await tryLock(port)
+  if (!release) throw new Error(`another magazine step is running (it holds 127.0.0.1:${port})`)
+  return release
 }
-const alive = (pid: number) => { try { process.kill(pid, 0); return true } catch (e) { return (e as NodeJS.ErrnoException).code === 'EPERM' } }
 /** The magazine's newest read: GitHub's ideas are made again when it is newer than the one they were made from. */
 const magazineRead = (m: MagazineState) => Object.values(m.readAt ?? {}).filter((x): x is string => !!x).sort().at(-1)
 

@@ -1020,10 +1020,13 @@ The layers above still check the result.
     (`~/.cache/aquatome/magazine-archive.json`), so a cycle that starts again from main forgets none; the record carries
     a copy. The magazine's own listing, GitHub's shops' listings and its forum step follow redirects by hand, never to a
     copy site such as the Archive, nor from a shop's to the magazine's. One magazine guide a day, counted in the Mac's
-    ledger too, once: one whose record isn't saved stops the step. One magazine step runs at a time (one that takes the
-    lock reads it again 2 s on, and goes on only if it is still its own), on the Mac alone (not on GitHub, and only on
-    macOS). The reader, name, pace (10 s) and rest are the archived sources': a rest another job writes while a request
-    waits its pace stops it, and a rest ends only on the Archive's own answer, never on a redirect (one to no address is
+    ledger too, once: one whose record isn't saved stops the step. One magazine step runs at a time, by a lock the Mac
+    frees when its step ends however it ends, so no step takes over a dead one's (`127.0.0.1:41232`, `mac-lock.ts`), on
+    the Mac alone (not on GitHub, and only on macOS). The reader, name, pace (10 s) and rest are the archived sources',
+    and each request holds the Mac's one lock on the Archive (`127.0.0.1:41231`) from reading the rest to its answer, the
+    rest written or cleared, in every job and checkout, its pace and the minute's wait after a failure outside it (the
+    chief of staff, 21 Nov 2026): no request goes out past a refusal another just got, and no answer clears a wait another
+    just began. A rest another job writes while a request waits its pace or the lock stops it, and a rest ends only on the Archive's own answer, never on a redirect (one to no address is
     no copy of a page, and from the index, no answer) nor a 403, and only the rest that request came after. A 403 from
     the Archive's index is a refusal, as a 429; on one page's copy it is no copy of that page, but on a second page's in
     the same run it is a refusal, the reader shut out (the owner's rule on refusals; the chief of staff, 21 Nov 2026).

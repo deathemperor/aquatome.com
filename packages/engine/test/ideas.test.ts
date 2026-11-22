@@ -9,6 +9,9 @@ import { cycleOnlyHosts } from '../src/cycle-only'
 import { dropPosts, fetchListing, IDEA_SOURCES, ListingRefused, listingText, listPosts, MAGAZINE_PER_DAY, readIdeas, readMagazine, refreshIdeas, refreshMagazine, writeIdeas, writeMagazine, type IdeasState } from '../src/ideas'
 import { sourceBlockedSince } from '../src/state'
 
+/** A lock no other reader holds (archive.ts, mac-lock.ts). */
+const free = async () => async () => {}
+
 // Shaped like the shops' own sitemaps and WordPress answers: placeholder titles, never the shops' text.
 const sitemap = (urls: [string, string?][]) => `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map(([u, d]) => `<url><loc>${u}</loc>${d ? `<lastmod>${d}T08:00:00+07:00</lastmod>` : ''}</url>`).join('')}</urlset>`
 const AZ = 'https://aquazonefish.vn/blogs/kien-thuc/'
@@ -50,7 +53,7 @@ const deps = (get: (u: string) => Promise<string>, llm: Llm, now = '2026-11-03T0
 /** The engine's Archive reader over an Archive that holds nothing: what the magazine's step is given on the Mac. */
 async function emptyArchive(now = '2026-11-03T00:00:00Z') {
   const restFile = join(await mkdtemp(join(tmpdir(), 'archive-rest-')), 'rest.json')
-  return new ArchiveFetcher({ fetch: async () => new Response('', { status: 404 }), now: () => new Date(now), sleep: async () => {}, ua: 'AquaTome test', restFile })
+  return new ArchiveFetcher({ lock: free, fetch: async () => new Response('', { status: 404 }), now: () => new Date(now), sleep: async () => {}, ua: 'AquaTome test', restFile })
 }
 /**
  * The Mac's magazine step (refreshMagazine) reading the magazine's own sitemap, which answers: its titles go in the
