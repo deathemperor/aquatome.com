@@ -11,12 +11,5 @@
       "aquariumbreeder": 0.6
     }
   },
-  "bodyFixed": true,
-  "held": {
-    "checks": [
-      "dose",
-      "product"
-    ],
-    "at": "2026-11-18"
-  }
+  "bodyFixed": true
 }
