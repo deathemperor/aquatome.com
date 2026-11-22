@@ -1,0 +1,35 @@
+{
+ "at": "2026-11-22T01:04:24Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Ở thời điểm viết, Lithogenes đang nằm trong họ Loricariidae.",
+   "why": "Refers to when the source article was written, the original writer's own time frame."
+  }
+ ],
+ "text": {
+  "slug": "ca-astroblepus-nettoferreirai",
+  "name": "Cá Astroblepus nettoferreirai",
+  "altNames": [],
+  "sections": {
+   "quickFacts:scotcat": "<ul><li>Tên thường gọi: Không có</li><li>Tên đồng nghĩa: Không có</li><li>Sách Đỏ IUCN: Chưa đánh giá</li></ul>",
+   "distribution:scotcat": "<p>Nam Mỹ: Colombia, tỉnh Santander, suối Quebrada NN, vereda Sailan, huyện Belleza.</p>",
+   "habitat:scotcat": "<p>Cá họ Astroblepidae sống ở các suối nước ngọt vùng Andes nhiệt đới, từ Panama xuống Bolivia, ở độ cao khoảng 60 m đến 4.100 m so với mực nước biển. Chúng có ở cả hai sườn núi tại Nam Mỹ và Trung Mỹ: sườn tây với các dòng đổ ra Thái Bình Dương, và sườn đông thuộc lưu vực Amazon.</p>",
+   "maintenance:scotcat": "<p>Họ cá da trơn này không dễ nuôi. Chúng cần bể lớn, có đá và một ít cây hợp với kiểu bể này. Nước phải chảy mạnh và có thêm oxy, bằng cách nối ống sục khí vào dòng nước của máy bơm tạo dòng. Xếp đá sao cho trong bể có một khu nước chảy chậm hơn.</p>",
+   "diet:scotcat": "<p>Thức ăn chính có lẽ là động vật không xương sống, ấu trùng côn trùng, spirulina dạng viên hoặc dạng sệt, thức ăn làm từ tảo và trùng huyết sống. Có thể cho thử thêm ấu trùng muỗi lắc (glassworm) và giun đen (blackworm). Hai loại này thường không nằm lại dưới nền, trừ khi dòng nước cuốn chúng xuống đó.</p>",
+   "notes:scotcat": "<p>Họ Astroblepidae có họ hàng gần với họ cá tỳ bà (Loricariidae). Thậm chí có một giống là Lithogenes Eigenman, 1909 có vẻ nằm giữa hai họ này. Nó có hình dáng của Astroblepidae, nhưng trên thân lại có vài tấm giáp, cùng một số đặc điểm hình thái khác gần với Loricariidae hơn. Ở thời điểm viết, Lithogenes đang nằm trong họ Loricariidae.</p><p>Astroblepus nettoferreirai khác các loài cùng giống ở chỗ có răng nhỏ nằm chìm trong gai vây mỡ.</p><p>Mô tả: Đốt sống: 27. Loài này nhận ra nhờ gai có răng nhỏ nằm trong vây mỡ, 8 tia mềm, xương tiền hàm có 1-2 răng hai mấu và 6-11 răng hình nón ở hàng ngoài, cùng 27 đốt sống.</p><p>Màu sắc: Đầu màu nâu sẫm, mắt đen. Miệng hình đĩa, to (6,7-26,7 mm). Hai bên thân có nền nâu nhạt, rải các đốm nâu sẫm không đều. Đuôi rộng, gốc đuôi có một dải dọc màu nâu sẫm, các tia đuôi cũng cùng màu đó. Các tia đơn đầu tiên cũng có màu như vậy và hơi dài. Bụng nâu nhạt.</p><p>Nguồn gốc tên: Tên loài nettoferreirai đặt để vinh danh André Luiz Netto Ferreira, Universidad de São Paulo, vì những đóng góp \"to lớn\" (theo bản dịch) cho ngư học Nam Mỹ.</p>",
+   "references:scotcat": "<p>Ardila Rodríguez, Carlos A.; Five New Species of Astroblepus Fish for Colombian Andes. Universidad Metropolitana, Barranquilla, Colombia. Vol. 1, Núm. 27 (2015). Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 12/2019 ). The ETYFish Project Fish Name Etymology Database.</p>"
+  },
+  "quality": {
+   "score": 0.7,
+   "indexable": false,
+   "bySource": {
+    "scotcat": 0.7
+   },
+   "reason": "score"
+  }
+ }
+}

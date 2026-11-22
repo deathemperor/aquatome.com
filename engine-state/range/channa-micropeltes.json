@@ -1,8 +1,8 @@
 {
   "id": "channa-micropeltes",
   "native": {
-    "input": "c82ccffe5556e878",
-    "at": "2026-11-05T22:45:18.315Z",
+    "input": "2c812fa7d1b7bec6",
+    "at": "2026-11-22T00:38:58.151Z",
     "claims": [
       {
         "code": "LA",
@@ -77,6 +77,13 @@
         "ok": true
       },
       {
+        "name": "Tonlé Sap",
+        "source": "seriouslyfish",
+        "quote": "This species is widespread throughout much of Southeast Asia, with its range extending southwest from the Mekong River drainage in Laos, Thailand, Cambodia (including the Tonlé Sap system), and Vietnam, to central and southern (peninsular) Thailand, Peninsular Malaysia, Singapore, and the Greater Sunda Islands of Sumatra, Borneo, and Java.",
+        "country": "KH",
+        "ok": true
+      },
+      {
         "name": "Sumatra",
         "source": "seriouslyfish",
         "quote": "This species is widespread throughout much of Southeast Asia, with its range extending southwest from the Mekong River drainage in Laos, Thailand, Cambodia (including the Tonlé Sap system), and Vietnam, to central and southern (peninsular) Thailand, Peninsular Malaysia, Singapore, and the Greater Sunda Islands of Sumatra, Borneo, and Java.",
@@ -97,12 +104,6 @@
       },
       {
         "name": "Bangka",
-        "source": "seriouslyfish",
-        "quote": "It also occurs in a number of smaller archipelagos including Bangka and Belitung (Billiton).",
-        "ok": true
-      },
-      {
-        "name": "Belitung",
         "source": "seriouslyfish",
         "quote": "It also occurs in a number of smaller archipelagos including Bangka and Belitung (Billiton).",
         "ok": true

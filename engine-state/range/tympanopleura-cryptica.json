@@ -1,14 +1,31 @@
 {
   "id": "tympanopleura-cryptica",
   "native": {
-    "input": "d5ec1816b68a1e5b",
-    "at": "2026-11-21T19:07:52.042Z",
-    "claims": [],
+    "input": "707dc8cfe9937905",
+    "at": "2026-11-22T00:38:58.151Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Middle and upper Amazon River basin, State of Amazonas in Brazil and Loreto Region in Peru.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Middle and upper Amazon River basin, State of Amazonas in Brazil and Loreto Region in Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
     "regions": [
       {
         "name": "Amazon",
-        "source": "glaser",
-        "quote": "It occurs in the upper Amazon, where the river is still called the Solimões.",
+        "source": "scotcat",
+        "quote": "South America: Middle and upper Amazon River basin, State of Amazonas in Brazil and Loreto Region in Peru.",
         "ok": true
       },
       {
@@ -16,14 +33,19 @@
         "source": "glaser",
         "quote": "It occurs in the upper Amazon, where the river is still called the Solimões.",
         "ok": true
+      },
+      {
+        "name": "Orosa",
+        "source": "scotcat",
+        "quote": "Type locality: Loreto, río Solimões drainage, río Orosa, mouth of Tonche Cano, about 112 km east of Iquitos, about 3°47'26\"S, 73°14'50\"W, Peru.",
+        "country": "PE",
+        "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [
-        "PE"
-      ],
+      "pagesOnly": [],
       "sourcesOnly": []
     }
   },
@@ -53,8 +75,11 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-21T19:07:52.042Z"
+    "native": [
+      "BR",
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-22T00:38:58.151Z"
   }
 }

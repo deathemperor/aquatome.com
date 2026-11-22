@@ -1,0 +1,90 @@
+{
+  "id": "pomacea-bridgesii",
+  "native": {
+    "input": "6b27afabb3942005",
+    "at": "2026-11-22T00:38:58.151Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They are common in Brazil, Paraguay and Bolivia.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They are common in Brazil, Paraguay and Bolivia.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They are common in Brazil, Paraguay and Bolivia.",
+        "words": "Bolivia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pomacea bridgesii",
+    "status": "ACCEPTED",
+    "taxonKey": 2292581,
+    "datasets": [
+      [
+        "763f9aee-060c-4d71-a538-16c383e53a4d",
+        2
+      ],
+      [
+        "978f2ae7-1c5e-42fc-a61c-d4fabefdf63e",
+        2
+      ],
+      [
+        "005eb8d8-ed94-41be-89cf-e3115a9058e4",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PY",
+      "BO"
+    ],
+    "requests": 13,
+    "at": "2026-11-22T00:38:58.151Z"
+  }
+}

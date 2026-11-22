@@ -1,9 +1,17 @@
 {
   "id": "pseudolithoxus-kelsorum",
   "native": {
-    "input": "8c37c3003d5d1842",
-    "at": "2026-11-21T19:07:52.042Z",
+    "input": "0128f53d547e61d8",
+    "at": "2026-11-22T00:38:58.151Z",
     "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This interesting catfish from Venezuela is offered only very rarely.",
+        "words": "Venezuela",
+        "ok": true
+      },
       {
         "code": "VE",
         "status": "native",
@@ -15,8 +23,8 @@
       {
         "code": "VE",
         "status": "native",
-        "source": "glaser",
-        "quote": "This interesting catfish from Venezuela is offered only very rarely.",
+        "source": "scotcat",
+        "quote": "South America: Venezuela, Amazonas State, Orinoco River drainage.",
         "words": "Venezuela",
         "ok": true
       }
@@ -26,6 +34,13 @@
         "name": "Orinoco",
         "source": "glaser",
         "quote": "It lives in the tributaries of the middle Orinoco in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "South America: Venezuela, Amazonas State, Orinoco River drainage.",
         "country": "VE",
         "ok": true
       }

@@ -2907,5 +2907,89 @@
       "notes:tropica": "1a4ae2b751af",
       "references:aquariumbreeder": "344279637e87"
     }
+  },
+  "ranunculus-inundatus": {
+    "at": "2026-11-22",
+    "from": "2026-10-31",
+    "name": "Ranunculus inundatus",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"Ketinggian: 5–10 cm\" is acceptable, but \"Tinggi\" would be more natural for plant height.",
+      "\"stolon (runner) menegak\": the English says \"vertical runners\"; fine, but \"anak pokok\" for \"new plants\" is slightly loose. Consider \"tumbuhan baharu\".",
+      "\"meninggi tidak teratur\" for \"leggy\" is a bit awkward. Consider \"tumbuh kasar dan panjang berjuntai/kurus\".",
+      "\"umbrellas\" (deeply cut leaves): \"daun berbentuk payung\" is an interpretation; keep it close to the source, e.g. \"daun payung bertoreh dalam\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "9b2a7cffcd20",
+      "maintenance:tropica": "008a501cab23",
+      "notes:tropica": "9cfcf65e9c0e"
+    }
+  },
+  "riccardia-chamedryfolia": {
+    "at": "2026-11-22",
+    "from": "2026-10-31",
+    "name": "Riccardia moss",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"Mudah diikat di mana-mana\" overstates the English \"Versatile attachment: great for rocks and driftwood\"; \"di mana-mana\" (anywhere) is not in the source. Use e.g. \"Pelbagai cara lekatan\".",
+      "\"Adaptable conditions: thrives in varied setups\" is translated as \"pelbagai jenis susunan tangki\". Use \"pelbagai keadaan\" to match the source.",
+      "\"Keperluan cahaya\" and \"sudah lama mantap\" are slightly awkward. \"Keperluan cahaya\" could be \"Keperluan pencahayaan\", and \"nampak matang dan sudah lama mantap\" is redundant."
+    ],
+    "parts": {
+      "quickFacts:tropica": "9075f63dedec",
+      "maintenance:tropica": "a0b5a0ccd948",
+      "notes:tropica": "ce9e0874f121"
+    }
+  },
+  "riccia-fluitans": {
+    "at": "2026-11-22",
+    "from": "2026-11-13",
+    "name": "Riccia",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "e06a3a7b771e",
+      "quickFacts:aquariumbreeder": "ec0d038e5db9",
+      "beforeYouBuy:aquariumbreeder": "3603ce7f9742",
+      "distribution:aquariumbreeder": "d41142d175a2",
+      "habitat:aquariumbreeder": "533f6ad90bb5",
+      "aquariumSize:aquariumbreeder": "fc0afd57b405",
+      "maintenance:tropica": "7101bcab8cdc",
+      "maintenance:aquariumbreeder": "ec07f6d22630",
+      "waterConditions:aquariumbreeder": "4c924e786b5c",
+      "equipment:aquariumbreeder": "229a7977c638",
+      "notes:tropica": "d021ce008122",
+      "notes:aquariumbreeder": "a825ccc8c3f4"
+    }
+  },
+  "rotala-indica": {
+    "at": "2026-11-22",
+    "from": "2026-11-09",
+    "name": "Rotala indica",
+    "confidence": "high",
+    "score": 0.6,
+    "notes": [
+      "Item 3: 'a tank of no less than 40 litres' is fine, but 'liter' should be 'liter' in the Malaysian form: use 'liter' or 'L' consistently. Minor.",
+      "Item 4: 'Change a quarter of the water weekly' was translated as 'Tukar suku daripada air' which is awkward; use 'Tukar satu perempat air setiap minggu'.",
+      "Item 4: 'dechlorinated water' translated as 'air yang telah dibuang klorin'; use 'air yang telah dinyahklorin'.",
+      "Item 4: 'Loss of leaves' translated as 'Daun gugur' is acceptable, but 'Holes in the lower leaves' is fine. 'Anda juga boleh menggoyang atau memberus' - 'stir' should be 'mengacau'.",
+      "Item 7: 'solitary or spike inflorescence as opposed to terminal inflorescence' was rendered 'bunga tunggal atau berjambak' - 'spike' should be 'tangkai/jala', and the table row 'Inflorescence' should be 'Susunan bunga'.",
+      "Item 7: 'Dua pasu atau dua ikat yang masing-masing kira-kira lima batang' changes the meaning slightly; use 'Dua pasu atau ikat, setiap satu kira-kira lima batang'.",
+      "Item 7: 'Malaysian trumpet snails' is rendered 'siput Malaysian trumpet'; use the local name 'siput trumpet Malaysia' or 'siput gondang/siput sundal'.",
+      "Item 7: 'Amano shrimp' as 'udang Amano' is fine, but 'Aquascape' stays as 'aquascape gaya jungle' - leaving 'jungle' in English is acceptable. 'emersed/submersed' left in English; give Malay 'di atas air (emersed)' and 'terendam (submersed)'.",
+      "Item 7: 'Foraging place' translated 'Tempat mencari makan' is fine, but 'Difference between' heading and 'Kesimpulan' heading are OK. The 'Conclusion' content is not a conclusion in the original; keep as is."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "83e5319da386",
+      "distribution:aquariumbreeder": "487ef76503ca",
+      "aquariumSize:aquariumbreeder": "caaaab99d3e6",
+      "maintenance:aquariumbreeder": "5f9020201dcc",
+      "waterConditions:aquariumbreeder": "c1e7c3287dcb",
+      "equipment:aquariumbreeder": "47028e5e5b7d",
+      "notes:aquariumbreeder": "877a3d6e5a10"
+    }
   }
 }

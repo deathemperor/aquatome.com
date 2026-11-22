@@ -13,29 +13,26 @@
   ],
   "range": {
     "native": {
-      "countries": [
-        "BR"
-      ],
+      "countries": [],
       "regions": [
+        "São Francisco",
         "Paraiba do Norte",
         "Piranhas",
-        "Canhotinho River",
-        "Mundau River",
-        "Salgado River",
-        "São Francisco River"
+        "Salgado",
+        "Mundau",
+        "Canhotinho"
       ],
       "sources": [
-        "glaser",
         "scotcat"
       ],
       "quotes": [
         {
-          "source": "glaser",
-          "quote": "Origin: Brazil.",
-          "countries": [
-            "BR"
-          ],
-          "regions": []
+          "source": "scotcat",
+          "quote": "IUCN Red List: Parotocinclus jumbo is distributed in coastal rivers of the Northeast and the lower São Francisco River, being frequent and abundant.",
+          "countries": [],
+          "regions": [
+            "São Francisco"
+          ]
         },
         {
           "source": "scotcat",
@@ -44,17 +41,9 @@
           "regions": [
             "Paraiba do Norte",
             "Piranhas",
-            "Canhotinho River",
-            "Mundau River",
-            "Salgado River"
-          ]
-        },
-        {
-          "source": "scotcat",
-          "quote": "IUCN Red List: Parotocinclus jumbo is distributed in coastal rivers of the Northeast and the lower São Francisco River, being frequent and abundant.",
-          "countries": [],
-          "regions": [
-            "São Francisco River"
+            "Salgado",
+            "Mundau",
+            "Canhotinho"
           ]
         }
       ]
@@ -62,7 +51,7 @@
     "records": {
       "taxonKey": 2340264,
       "total": 56,
-      "fetched": "2026-11-16",
+      "fetched": "2026-11-22",
       "countries": [
         [
           "BR",
@@ -73,67 +62,56 @@
         [
           -40.78125,
           -8.4375,
-          1,
           1
         ],
         [
           -39.375,
           -8.4375,
-          4,
           4
         ],
         [
           -39.375,
           -7.03125,
-          1,
           1
         ],
         [
           -37.96875,
           -9.84375,
-          5,
           5
         ],
         [
           -37.96875,
           -8.4375,
-          6,
           6
         ],
         [
           -37.96875,
           -7.03125,
-          7,
           7
         ],
         [
           -36.5625,
           -9.84375,
-          18,
           18
         ],
         [
           -36.5625,
           -8.4375,
-          11,
           11
         ],
         [
           -36.5625,
           -7.03125,
-          1,
           1
         ],
         [
           -35.15625,
           -8.4375,
-          1,
           1
         ],
         [
           -32.34375,
           -9.84375,
-          1,
           1
         ]
       ]

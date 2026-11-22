@@ -1,8 +1,8 @@
 {
   "id": "thorichthys-meeki",
   "native": {
-    "input": "c82cc57b21ad683b",
-    "at": "2026-11-18T06:03:35.101Z",
+    "input": "bcb7cd1453a3ffdb",
+    "at": "2026-11-22T00:38:58.151Z",
     "claims": [
       {
         "code": "MX",
@@ -29,14 +29,6 @@
         "ok": true
       },
       {
-        "code": "MX",
-        "status": "native",
-        "source": "glaser",
-        "quote": "The Firemouth (Thorichthys meeki, formerly Cichlasoma meeki) originates from Mexico and belongs to the most popular cichlids at all.",
-        "words": "Mexico",
-        "ok": true
-      },
-      {
         "code": "US",
         "status": "introduced",
         "source": "seriouslyfish",
@@ -45,11 +37,19 @@
         "ok": true
       },
       {
-        "code": "PR",
-        "status": "introduced",
-        "source": "seriouslyfish",
-        "quote": "Naturalised populations exist in Hawaii (since 1940), and Puerto Rico (since the late 2000s), plus there are reports from Arizona and Florida states, USA.",
-        "words": "Puerto Rico",
+        "code": "GT",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The Rio Candelaria is a lowland river in Central America. It originates in northern Guatemala and flows through regions there and in southeastern Mexico whose jungle landscapes were almost untouched by man for a long time.",
+        "words": "Guatemala",
+        "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The Rio Candelaria is a lowland river in Central America. It originates in northern Guatemala and flows through regions there and in southeastern Mexico whose jungle landscapes were almost untouched by man for a long time.",
+        "words": "Mexico",
         "ok": true
       }
     ],
@@ -65,6 +65,12 @@
         "name": "Yucatán Peninsula",
         "source": "seriouslyfish",
         "quote": "Its natural range extends eastward from the Río Tonalá system near Coatzacoalcos, on Mexico's Atlantic slope, through the states of Veracruz, Chiapas, Tabasco, around the Yucatán Peninsula, then southward into northern Belize and Guatemala.",
+        "ok": true
+      },
+      {
+        "name": "Rio Candelaria",
+        "source": "glaser",
+        "quote": "The Rio Candelaria is a lowland river in Central America. It originates in northern Guatemala and flows through regions there and in southeastern Mexico whose jungle landscapes were almost untouched by man for a long time.",
         "ok": true
       }
     ],

@@ -1,14 +1,22 @@
 {
   "id": "lithodoras-dorsalis",
   "native": {
-    "input": "be6f6daf0ed4de7d",
-    "at": "2026-11-21T19:07:52.042Z",
+    "input": "0bcb92c20e6ad5f3",
+    "at": "2026-11-22T00:38:58.151Z",
     "claims": [
       {
         "code": "GF",
         "status": "doubtful",
         "source": "glaser",
-        "quote": "There is only one species scientifically described, which has its distribution in South America: L. dorsalis, which inhabits the Amazon basin; in addition, the species was reported from a creek near Cayenne (French Guiana), but the latter occurrence still needs confirmation.",
+        "quote": "The genus Lithodoras belongs to the thorny catfishes (Doradidae). There is only one species scientifically described, which has its distribution in South America: L. dorsalis, which inhabits the Amazon basin; in addition, the species was reported from a creek near Cayenne (French Guiana), but the latter occurrence still needs confirmation.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin and estuary near Cayenne, French Guiana.",
         "words": "French Guiana",
         "ok": true
       }
@@ -16,12 +24,20 @@
     "regions": [
       {
         "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin and estuary near Cayenne, French Guiana.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
         "source": "glaser",
-        "quote": "There is only one species scientifically described, which has its distribution in South America: L. dorsalis, which inhabits the Amazon basin; in addition, the species was reported from a creek near Cayenne (French Guiana), but the latter occurrence still needs confirmation.",
+        "quote": "The genus Lithodoras belongs to the thorny catfishes (Doradidae). There is only one species scientifically described, which has its distribution in South America: L. dorsalis, which inhabits the Amazon basin; in addition, the species was reported from a creek near Cayenne (French Guiana), but the latter occurrence still needs confirmation.",
         "ok": true
       }
     ],
-    "disputed": [],
+    "disputed": [
+      "GF"
+    ],
     "outranked": [],
     "origin": {
       "pagesOnly": [

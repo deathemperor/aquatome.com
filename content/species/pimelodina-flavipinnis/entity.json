@@ -183,10 +183,12 @@
       "regions": [
         "Rio Negro",
         "Rio Madeira",
-        "Orinoco"
+        "Orinoco",
+        "Amazon"
       ],
       "sources": [
-        "glaser"
+        "glaser",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -201,6 +203,14 @@
             "Rio Negro",
             "Rio Madeira",
             "Orinoco"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Amazon and Orinoco River basins. Type locality: Amazonenstrom bei Para [Brazil].",
+          "countries": [],
+          "regions": [
+            "Amazon"
           ]
         }
       ]

@@ -1,0 +1,67 @@
+{
+  "id": "astroblepus-taczanowskii",
+  "native": {
+    "input": "6f15e7fbe514def3",
+    "at": "2026-11-22T00:38:58.151Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Upper Ucayali River basin (Peru).",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Amable Maria, Peruvian Andes.",
+        "words": "Peruvian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ucayali",
+        "source": "scotcat",
+        "quote": "South America: Upper Ucayali River basin (Peru).",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Andes",
+        "source": "scotcat",
+        "quote": "Type locality: Amable Maria, Peruvian Andes.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astroblepus taczanowskii",
+    "status": "ACCEPTED",
+    "taxonKey": 2342130,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-22T00:38:58.151Z"
+  }
+}

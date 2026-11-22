@@ -14,7 +14,9 @@
     "native": {
       "countries": [],
       "regions": [
-        "Lake Malawi"
+        "Lake Malawi",
+        "Masinje Rocks",
+        "Cape Ngombo"
       ],
       "sources": [
         "seriouslyfish"
@@ -26,6 +28,15 @@
           "countries": [],
           "regions": [
             "Lake Malawi"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It is found around Masinje Rocks and Cape Ngombo.",
+          "countries": [],
+          "regions": [
+            "Masinje Rocks",
+            "Cape Ngombo"
           ]
         }
       ]

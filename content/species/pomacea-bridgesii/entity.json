@@ -13,6 +13,118 @@
     "bolivia",
     "beni"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PY",
+        "BO"
+      ],
+      "regions": [],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "They are common in Brazil, Paraguay and Bolivia.",
+          "countries": [
+            "BR",
+            "PY",
+            "BO"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2292581,
+      "total": 11,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "BR",
+          3
+        ],
+        [
+          "GF",
+          3
+        ],
+        [
+          "US",
+          2
+        ],
+        [
+          "CN",
+          1
+        ],
+        [
+          "EC",
+          1
+        ],
+        [
+          "PR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -82.96875,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          -81.5625,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          -78.75,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          16.875,
+          1,
+          0
+        ],
+        [
+          -53.4375,
+          2.8125,
+          3,
+          0
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -35.15625,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          23.90625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

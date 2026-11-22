@@ -2733,6 +2733,18 @@
       "kept": true
     }
   ],
+  "id/places/cayenne": [
+    {
+      "at": "2026-11-22T00:02:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/cayman-islands": [
     {
       "at": "2026-11-06T19:55:55Z",
@@ -8760,6 +8772,18 @@
       "kept": true
     }
   ],
+  "id/places/lua": [
+    {
+      "at": "2026-11-22T00:02:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/lua-river": [
     {
       "at": "2026-11-21T18:09:03Z",
@@ -13839,6 +13863,20 @@
       "kept": true
     }
   ],
+  "id/places/rio-candelaria": [
+    {
+      "at": "2026-11-22T00:02:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "sông Candelaria (Vietnamese 'sông'; Indonesian is 'Sungai Candelaria')"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-capim": [
     {
       "at": "2026-11-10T17:42:34Z",
@@ -14536,6 +14574,20 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-jequetepeque": [
+    {
+      "at": "2026-11-22T00:02:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "sông Jequetepeque (Vietnamese; should be 'Sungai Jequetepeque')"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -15517,6 +15569,20 @@
       "score": 0.45,
       "notes": [
         "Suno (rio-suno): the river is missing \"Sungai\". It should be \"Sungai Suno\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-surumu": [
+    {
+      "at": "2026-11-22T00:02:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "sông Surumu (Vietnamese; should be 'Sungai Surumu')"
       ],
       "attempt": "first",
       "kept": true
@@ -17031,6 +17097,20 @@
       "cli": "2.1.322",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/shari": [
+    {
+      "at": "2026-11-22T00:02:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Shari (Indonesian uses 'Chari')"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -23565,6 +23645,23 @@
       "kept": true
     }
   ],
+  "ms/places/cayenne": [
+    {
+      "at": "2026-11-22T00:20:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.45,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.2,
+        0.45
+      ]
+    }
+  ],
   "ms/places/cayman-islands": [
     {
       "at": "2026-11-06T23:05:38Z",
@@ -29955,6 +30052,23 @@
       "kept": true
     }
   ],
+  "ms/places/lua": [
+    {
+      "at": "2026-11-22T00:20:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.45,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.2,
+        0.45
+      ]
+    }
+  ],
   "ms/places/lua-river": [
     {
       "at": "2026-11-21T18:38:23Z",
@@ -35206,6 +35320,25 @@
       "kept": true
     }
   ],
+  "ms/places/rio-candelaria": [
+    {
+      "at": "2026-11-22T00:20:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.45,
+      "notes": [
+        "Candelaria (river): a Malay atlas would write \"Sungai Candelaria\". The generic word \"Sungai\" is missing."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.2,
+        0.45
+      ]
+    }
+  ],
   "ms/places/rio-canoas": [
     {
       "at": "2026-11-08T03:37:07Z",
@@ -35962,6 +36095,25 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "ms/places/rio-jequetepeque": [
+    {
+      "at": "2026-11-22T00:20:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.45,
+      "notes": [
+        "Jequetepeque (river): a Malay atlas would write \"Sungai Jequetepeque\". The generic word \"Sungai\" is missing."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.2,
+        0.45
+      ]
     }
   ],
   "ms/places/rio-jucurucu": [
@@ -37069,6 +37221,25 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "ms/places/rio-surumu": [
+    {
+      "at": "2026-11-22T00:20:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.45,
+      "notes": [
+        "Surumu (river): a Malay atlas would write \"Sungai Surumu\". The generic word \"Sungai\" is missing."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.2,
+        0.45
+      ]
     }
   ],
   "ms/places/rio-tahuayo": [
@@ -38721,6 +38892,23 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "ms/places/shari": [
+    {
+      "at": "2026-11-22T00:20:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.45,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.2,
+        0.45
+      ]
     }
   ],
   "ms/places/shetrunji": [
@@ -45020,6 +45208,20 @@
       "cli": "2.1.322",
       "score": 0.9,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/cayenne": [
+    {
+      "at": "2026-11-22T00:06:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Cayenne → กาแยน: Thai usage is typically กาแยน or กายเอน; acceptable"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -51457,6 +51659,20 @@
       ]
     }
   ],
+  "th/places/lua": [
+    {
+      "at": "2026-11-22T00:06:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Lua → ลัว: acceptable as transliteration"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/lua-river": [
     {
       "at": "2026-11-21T18:16:41Z",
@@ -56893,6 +57109,20 @@
       "kept": true
     }
   ],
+  "th/places/rio-candelaria": [
+    {
+      "at": "2026-11-22T00:06:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "sông Candelaria → กันเดลาเรีย: the source label has the Vietnamese word \"sông\" (river), which is wrong for a Guatemalan river; the Thai name omits the river word (แม่น้ำ)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-canoas": [
     {
       "at": "2026-11-06T12:36:17Z",
@@ -57639,6 +57869,20 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rio-jequetepeque": [
+    {
+      "at": "2026-11-22T00:06:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "sông Jequetepeque → เคเกเตเปเก: the source label has the Vietnamese word \"sông\", which is wrong for a Peruvian river; the Thai name omits the river word (แม่น้ำ), and the transliteration is approximate (เฆเกเตเปเก is closer)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -58663,6 +58907,20 @@
         0.6,
         0.6
       ]
+    }
+  ],
+  "th/places/rio-surumu": [
+    {
+      "at": "2026-11-22T00:06:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "sông Surumu → ซูรูมู: the source label has the Vietnamese word \"sông\", which is wrong for a Brazilian river; the Thai name omits the river word (แม่น้ำ)"
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "th/places/rio-tahuayo": [
@@ -60327,6 +60585,20 @@
       "score": 0.5,
       "notes": [
         "The Thai names are mostly plausible, but the source labels for several entries are Vietnamese (sông, đảo, bãi đá). This is not a problem with the Thai itself."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/shari": [
+    {
+      "at": "2026-11-22T00:06:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Shari → ชารี: acceptable (Chari river/region is usually ชารี)"
       ],
       "attempt": "first",
       "kept": true
@@ -67027,6 +67299,20 @@
       "score": 0.95,
       "notes": [
         "No wrong places. All names either keep the source's spelling or put the generic word into Vietnamese (sông, dãy, hồ)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/cayenne": [
+    {
+      "at": "2026-11-22T00:01:16Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "None of the names are wrong. Cayenne, Lua and Shari keep the source's spelling, which is acceptable.",
+        "Each river name swaps the generic word 'Rio'/'Río' for the Vietnamese 'sông' and keeps the proper name, which is correct."
       ],
       "attempt": "first",
       "kept": true
@@ -74444,6 +74730,20 @@
       "kept": true
     }
   ],
+  "vi/places/lua": [
+    {
+      "at": "2026-11-22T00:01:16Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "None of the names are wrong. Cayenne, Lua and Shari keep the source's spelling, which is acceptable.",
+        "Each river name swaps the generic word 'Rio'/'Río' for the Vietnamese 'sông' and keeps the proper name, which is correct."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/lua-river": [
     {
       "at": "2026-11-21T18:08:03Z",
@@ -80554,6 +80854,19 @@
       "kept": true
     }
   ],
+  "vi/places/rio-candelaria": [
+    {
+      "at": "2026-11-22T00:01:16Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "Each river name swaps the generic word 'Rio'/'Río' for the Vietnamese 'sông' and keeps the proper name, which is correct."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-canoas": [
     {
       "at": "2026-11-07T20:38:46Z",
@@ -81298,6 +81611,19 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-jequetepeque": [
+    {
+      "at": "2026-11-22T00:01:16Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "Each river name swaps the generic word 'Rio'/'Río' for the Vietnamese 'sông' and keeps the proper name, which is correct."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -82415,6 +82741,19 @@
       "cli": "2.1.322",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-surumu": [
+    {
+      "at": "2026-11-22T00:01:16Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "Each river name swaps the generic word 'Rio'/'Río' for the Vietnamese 'sông' and keeps the proper name, which is correct."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -84373,6 +84712,20 @@
       "score": 0.95,
       "notes": [
         "Nothing is wrong. Every name either keeps the source spelling or keeps the proper name and puts the generic word in Vietnamese: sông (river), đảo (island), bãi đá (rocks)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/shari": [
+    {
+      "at": "2026-11-22T00:01:16Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "None of the names are wrong. Cayenne, Lua and Shari keep the source's spelling, which is acceptable.",
+        "Each river name swaps the generic word 'Rio'/'Río' for the Vietnamese 'sông' and keeps the proper name, which is correct."
       ],
       "attempt": "first",
       "kept": true

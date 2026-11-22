@@ -280,6 +280,12 @@
     "sonnet": 0.6,
     "back": false
   },
+  "ancistrus-leucostictus": {
+    "hash": "02159f081703f1728bd8c41e92655100ee77186ddcf91d90101b10158fda9680",
+    "at": "2026-11-22T00:22:31.767Z",
+    "sonnet": 0.7,
+    "back": false
+  },
   "ancistrus-ranunculus": {
     "hash": "39f986b3d85118228f85c00be4dcf986e8bc80741900e5c633f654686c19d967",
     "at": "2026-11-19T07:36:30.853Z",
@@ -317,6 +323,12 @@
     "sonnet": 0.9,
     "opus": 0.85,
     "back": true
+  },
+  "apistogramma-allpahuayo": {
+    "hash": "1cc0002b0fe639e981a06d646aeeef2313f7c9855e3b0c667cb8739ba45a64ea",
+    "at": "2026-11-22T00:22:43.821Z",
+    "sonnet": 0.6,
+    "back": false
   },
   "apistogramma-barlowi": {
     "hash": "20843465b17d23b9c79630d00bc76e48fea6d63c3a746b8726b374d6247b7b65",
@@ -458,6 +470,19 @@
     "at": "2026-11-19T12:40:07.758Z",
     "sonnet": 0.95,
     "opus": 0.9,
+    "back": true
+  },
+  "astroblepus-ardiladuartei": {
+    "hash": "27e371860594673f25a7dfb36b0efa9eddd489905d5fafe3abcab6a750713a1b",
+    "at": "2026-11-22T00:22:55.545Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "astroblepus-cacharas": {
+    "hash": "019481b56d7bf8e89a986a758b4d0e6f2af8d9a0630aa070a4a7532870590bdc",
+    "at": "2026-11-22T00:23:21.222Z",
+    "sonnet": 0.8,
+    "opus": 0.88,
     "back": true
   },
   "astronotus-ocellatus": {
@@ -1253,6 +1278,74 @@
     "sonnet": 0.7,
     "back": false
   },
+  "clarias-buettikoferi": {
+    "hash": "6e806c7a521f80414fd95ecf63c79e3ffed725b44ad1190a26ac0813352672e1",
+    "at": "2026-11-22T00:23:43.922Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "clarias-camerunensis": {
+    "hash": "8d682f8c843c42f52e8391bd392e58a042064b1a8f9e595d97ed29c531360b79",
+    "at": "2026-11-22T00:24:10.099Z",
+    "sonnet": 0.95,
+    "opus": 0.9,
+    "back": true
+  },
+  "clarias-meladerma": {
+    "hash": "4037d44c2e35bd84141dfd375e8d565e749c28fce56710b814e42259d0671712",
+    "at": "2026-11-22T00:24:18.834Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "clavularia-viridis": {
+    "hash": "48b6a11ba297097aed3598d127c151cfea0a5e920703e318a0f43c2ac9e3f97f",
+    "at": "2026-11-22T00:24:32.773Z",
+    "sonnet": 0.7,
+    "back": false,
+    "held": [
+      "Item 6: \"Penambahan kalsium dan suplemen mineral lain sangat penting\" is fine, but \"Jangan overdosis\" is left as an English loanword; use \"Jangan memberi dosis berlebih\"."
+    ]
+  },
+  "cnidoglanis-macrocephalus": {
+    "hash": "66316a467a999372b296a5d63a095b6a9d579b811724024ad172bce841228987",
+    "at": "2026-11-22T00:24:59.233Z",
+    "sonnet": 0.8,
+    "opus": 0.8,
+    "back": true
+  },
+  "copadichromis-azureus": {
+    "hash": "647c341b4fb2a2b2849799f8a077702582d613d1b1917f59086b6e6742df03ae",
+    "at": "2026-11-22T00:25:10.772Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "copadichromis-borleyi": {
+    "hash": "f94020495e4f005e3a00054653294eea8a30e7a2b95b029e2b1a54db93c78ef4",
+    "at": "2026-11-22T00:25:23.793Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "copadichromis-chrysonotus": {
+    "hash": "cbbc3da534595370ca4d6ad76b1efbff4c56542b6318bad6042ef1f7d2b8c009",
+    "at": "2026-11-22T00:25:57.302Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": true
+  },
+  "copella-carsevennensis": {
+    "hash": "cfd8a5af6bab8c74d81be70baf0e9c0d0416174c0a81b46ae6aaae7e12466ece",
+    "at": "2026-11-22T00:26:25.605Z",
+    "sonnet": 0.95,
+    "opus": 0.85,
+    "back": true
+  },
+  "copella-eigenmanni": {
+    "hash": "fb58fe96678ff213b0ab6faf4a995a67c1771dfef48a18e252f7074fcf504e62",
+    "at": "2026-11-22T00:27:03.817Z",
+    "sonnet": 0.9,
+    "opus": 0.86,
+    "back": true
+  },
   "copella-nattereri": {
     "hash": "b66479a5d4460cfa36f6be06a330953d60f7643866b53edc587d936a7fea846f",
     "at": "2026-11-20T01:35:35.857Z",
@@ -1666,6 +1759,12 @@
     "hash": "5b515427ea92a270b8f70b5c56546e5070a90f786dd59743a15da1576597e3da",
     "at": "2026-11-18T05:44:51.647Z",
     "sonnet": 0.45,
+    "back": false
+  },
+  "ptychognathus-barbatus": {
+    "hash": "9054f676e6c24ae6a3e4411d7cd40418fdc6a3b57e19f1a12dc7ec5ac7f2eac1",
+    "at": "2026-11-22T00:23:33.522Z",
+    "sonnet": 0.72,
     "back": false
   },
   "puntigrus-tetrazona": {
