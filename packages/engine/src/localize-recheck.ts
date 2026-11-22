@@ -3,7 +3,7 @@ import { readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { QUALITY_THRESHOLD, type Section } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
-import { review, translatableIn, type TargetLang } from './localize'
+import { review, translatableIn, writeRecord, type TargetLang } from './localize'
 import { piece } from './pieces'
 import { steadyRead } from './quality'
 import { sourceTextHash } from './recheck-score'
@@ -95,7 +95,7 @@ export async function recheckLocalized(root: string, llm: Llm, lang: TargetLang,
     if (latest[id]) {
       latest[id] = { ...latest[id], score }
       state[id] = latest[id]
-      await writeFile(stateFile, `${JSON.stringify(Object.fromEntries(Object.entries(latest).sort()), null, 2)}\n`)
+      await writeRecord(stateFile, `${JSON.stringify(Object.fromEntries(Object.entries(latest).sort()), null, 2)}\n`)
     }
     return undefined
   }
