@@ -7,15 +7,21 @@
     "distribution:glaser": "<p>Loài này sống ở lưu vực sông Rio Tocantins, Brazil.</p>",
     "behaviour:glaser": "<p>Chúng sống hiền với nhau nhưng hơi nhát. Khi bị động, chúng tìm cách trốn xuống nền.</p>",
     "equipment:glaser": "<p>Vì vậy nuôi loài này thì nền cát sẽ có ích. Lúc đó nhìn gần, cá có thể trông như bị bệnh đốm trắng (Ichthyophthirius), nhưng thật ra chúng hoàn toàn khỏe.</p>",
-    "dimorphism:glaser": "<p>Cũng như nhiều loài cá lau kiếng ấp trứng bằng miệng khác, loài này có nhiều kiểu màu. Ngay trong một quần thể, các con đã mang hoa văn khác hẳn nhau. Có con gần như đen tuyền, có con khá sáng màu với các sọc đen, và có đủ mọi dạng ở giữa. Cá cũng có thể đổi màu tùy tâm trạng.</p>"
+    "dimorphism:glaser": "<p>Cũng như nhiều loài cá lau kiếng ấp trứng bằng miệng khác, loài này có nhiều kiểu màu. Ngay trong một quần thể, các con đã mang hoa văn khác hẳn nhau. Có con gần như đen tuyền, có con khá sáng màu với các sọc đen, và có đủ mọi dạng ở giữa. Cá cũng có thể đổi màu tùy tâm trạng.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: Brazil, lưu vực sông Araguaia. Nơi thu mẫu chuẩn: Goyaz, Brazil.</p><p>Loricaria lata là loài đặc hữu của Brazil. Nó được mô tả năm 1889 từ mẫu ở sông Araguaia, bang Goiás. Khoảng những năm 1980 đến 1990, người ta còn bắt gặp loài này ở vài nơi khác trong lưu vực sông Tocantins. Sau đó thì không còn thấy L. lata nữa, dù vùng này đã được lấy mẫu kỹ. Nhưng các quần thể của loài này khó định danh, dễ bị nhầm với những loài khác. Dọc sông Tocantins có nhiều nhà máy thủy điện đang chạy và còn nhiều dự án khác đã lên kế hoạch. Các loài Loricaria khá chịu được ảnh hưởng của đập, nhưng L. lata nhạy với kiểu tác động này đến đâu thì chưa ai biết. Môi trường sông Tocantins đang thay đổi lớn, còn loài này phân bố ra sao trong lưu vực thì chưa chắc chắn. Vì vậy, chưa đủ cơ sở để đánh giá tình trạng bảo tồn của nó, và Loricaria lata được xếp vào nhóm Thiếu dữ liệu (DD) (IUCN 2022).</p>",
+    "maintenance:scotcat": "<p>Loài này không yếu với nước bẩn như L. cataphracta, nhưng khi thả vào bể ở nhà vẫn phải cho cá làm quen nước từ từ.</p>",
+    "diet:scotcat": "<p>Ăn thịt: cho ăn thức ăn viên chìm, cám viên, ấu trùng côn trùng, động vật phù du và tôm. Loài này, và cả giống Loricaria nói chung, cần được cho ăn đa dạng.</p>",
+    "reproduction:scotcat": "<p>Cách sinh sản giống các loài họ hàng gần (đọc thêm Evers, H.-G. &amp; I.Seidel trong tài liệu tham khảo).</p>",
+    "notes:scotcat": "<p>Giống này nhận ra nhờ răng hàm trên dài gấp đôi răng hàm dưới. Môi trên ngắn, mép môi có nhiều râu mảnh. Râu có cái đơn, có cái chẻ đôi, ít khi chẻ ba. Môi dưới có những nhú nhỏ, dọc mép mọc sợi dài. Tia đầu của vây ngực dài hơn các tia khác, còn gai đầu tiên ở thùy trên vây đuôi thì kéo dài ra. Loài này trông rất giống Loricaria cataphracta ở vùng cao nguyên Guyana và Loricaria simillima. Định danh đến loài trong giống này không dễ.</p><p>Nguồn gốc tên: tên loài lata trong tiếng Latin nghĩa là rộng, bản rộng. Có lẽ tên này chỉ thân cá rất dẹt, bề ngang lớn hơn bề cao.</p>",
+    "references:scotcat": "<ul><li>All L-Numbers</li><li>Datz Special: Habitat, Care &amp; Diet.</li><li>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Loricaria lata. The IUCN Red List of Threatened Species 2022.</li><li>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944.</li><li>The ETYFish Project Fish Name Etymology Database.</li></ul>"
   },
   "quality": {
     "score": 0.9,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.9
-    },
-    "reason": "thin"
+      "glaser": 0.9,
+      "scotcat": 0.93
+    }
   },
   "held": {
     "checks": [

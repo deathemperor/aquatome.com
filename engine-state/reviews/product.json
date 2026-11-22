@@ -97,6 +97,40 @@
       "kept": true
     }
   ],
+  "vi/products/aquario-neo-flow": [
+    {
+      "at": "2026-11-22T04:44:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.82,
+      "notes": [
+        "\"có shop báo hết cả bản Normal lẫn Premium\": the facts only say Greendeal and Cửa Hàng Thủy Sinh show it as out of stock. They don't say which versions, so Normal and Premium both being out is unsupported.",
+        "\"bộ ống in out bằng nhựa PETG trong suốt\": the facts say the PETG looks cloudy out of the box and turns clear underwater. Calling it plainly transparent in the intro is a small simplification."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-22T04:44:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.78,
+      "notes": [
+        "\"cắt rồi thì không nối lại được\" - facts only say pipes can be cut shorter; the claim that cut pipes can't be rejoined is invented.",
+        "\"nhựa có thể nứt nếu tháo lắp mạnh tay\" / \"Lúc rút đầu ống hay ráp khớp thì làm nhẹ tay\" - facts say retailers warn of cracking with too much force, but not specifically during disassembly or joint assembly.",
+        "\"Nếu bể đang hay bị váng mặt nước thì nên cân nhắc bản Premium\" - an unsupported recommendation, not stated in the facts.",
+        "\"Nối dây lọc vào ống\" as step 3 and the ordering of steps are not in the facts (minor).",
+        "\"shop ghi là không bảo hành\" - facts say warranty listed as \"Không\"; fine, but \"shop\" attribution is a mild assumption.",
+        "\"Shop còn liệt kê thêm các lọc lắp được như UNS Delta 60/90...\" - facts say 'retailers', ok; but \"nhìn gọn trong bể thủy sinh\" is an unsupported aesthetic claim.",
+        "\"Trên một shop ở châu Âu, bộ này được trung bình khoảng 4.7/5\" - ok; \"Đánh giá trái chiều về chất nhựa\" framing is a mild stretch since the average is 4.7/5 with one critic.",
+        "The Chihiros entry omits the EU price, which is fine; \"Ống làm bằng inox 304, có sẵn lọc váng, nên không trầy hay nứt như nhựa\" for Aqua Thanh Xuân is supported."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/aquario-neo-soil": [
     {
       "at": "2026-11-09T10:46:42Z",

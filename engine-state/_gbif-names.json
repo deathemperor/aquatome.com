@@ -34360,5 +34360,22 @@
     "genus": "Zungaro",
     "matchType": "EXACT"
   },
-  "Zwei neue": null
+  "Zwei neue": null,
+  "Macrobrachium spinipes": {
+    "canonicalName": "Macrobrachium spinipes",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Palaemonidae",
+    "genus": "Macrobrachium",
+    "matchType": "EXACT"
+  },
+  "Parotocinclus bahiensis": {
+    "canonicalName": "Parotocinclus bahiensis",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Parotocinclus",
+    "matchType": "EXACT"
+  }
 }

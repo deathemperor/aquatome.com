@@ -5,13 +5,14 @@
     "Betta imbellis Royal Blue",
     "Cá lia thia imbellis xanh hoàng gia",
     "Royal Blue Betta",
-    "Peaceful Betta",
+    "Peaceful betta",
     "Cá betta hoang dã Imbellis",
     "Cá lia thia trăng khuyết",
     "Crescent betta",
     "Cá lia thia hiền",
     "Cá betta trăng khuyết",
-    "Cá betta lưỡi liềm"
+    "Cá betta lưỡi liềm",
+    "Cá betta hòa bình"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Cá betta imbellis (Betta imbellis) là một loài cá mê cung. Người ta cho rằng loài này có nguồn gốc ở miền nam Thái Lan, bán đảo Malaysia và bắc Sumatra. Ở miền nam Thái Lan, cá được lai tạo chọn lọc qua nhiều thế hệ để tăng độ hung hăng. Giới cá cảnh còn lai nó với B. splendens và các loài cùng chi khác, tạo ra những dạng màu không có trong tự nhiên. Các dạng cá cảnh và những loài Betta khác bị đưa vào tự nhiên đang ảnh hưởng xấu đến tính toàn vẹn di truyền của một số quần thể hoang dã.</p>",
@@ -33,7 +34,9 @@
     "behaviour:bwaquatics": "<p>Con đực rất dữ. Nên nuôi nó một mình, hoặc nuôi chung với cá khác miễn không phải betta đực. Con cái thì nuôi chung nhiều con trong bể thủy sinh nuôi chung được, nếu bể đủ rộng.</p>",
     "waterConditions:bwaquatics": "<ul><li>Nhiệt độ: 24 đến 29°C (trên 26°C cá lên màu đẹp hơn hẳn)</li><li>pH: 4,0 đến 7,0</li></ul>",
     "diet:bwaquatics": "<p>Cá ăn thịt. Chúng ăn giun đen sống, trùng huyết đông lạnh và thức ăn viên.</p>",
-    "reproduction:bwaquatics": "<p>Loài này làm tổ bọt. Con đực xây tổ bọt dưới một chiếc lá nổi hoặc dưới đám cây, đẻ xong thì nó gom trứng đặt vào tổ. Đẻ xong thì vớt con cái ra. Trứng nở sau 24 đến 48 giờ, khoảng 3 ngày sau đó cá bột tự bơi được. Lúc đầu cho cá bột ăn trùng cỏ, sau chuyển sang artemia mới nở. Giữ mặt nước yên cho tổ bọt khỏi vỡ.</p>"
+    "reproduction:bwaquatics": "<p>Loài này làm tổ bọt. Con đực xây tổ bọt dưới một chiếc lá nổi hoặc dưới đám cây, đẻ xong thì nó gom trứng đặt vào tổ. Đẻ xong thì vớt con cái ra. Trứng nở sau 24 đến 48 giờ, khoảng 3 ngày sau đó cá bột tự bơi được. Lúc đầu cho cá bột ăn trùng cỏ, sau chuyển sang artemia mới nở. Giữ mặt nước yên cho tổ bọt khỏi vỡ.</p>",
+    "quickFacts:glaser": "<p>Nhiều người coi Betta imbellis là loài cá chọi hoang dã đẹp nhất. Nói cho đúng thì không có một kiểu Betta imbellis chuẩn nào cả, vì loài này phân bố rộng và mỗi nơi trông hơi khác nhau. Nó là loài chị em với Betta splendens. Hai con của hai loài này mà nhạt hết màu thì không ai phân biệt nổi. Chỉ có một điểm chắc chắn để phân biệt Betta imbellis với B. splendens, đó là màu nắp mang của con đực. Con đực B. imbellis có nắp mang màu xanh lam, còn ở B. splendens thì nắp mang có hai sọc đỏ dọc.</p>",
+    "behaviour:glaser": "<p>Betta imbellis hay được gọi là cá chọi \"hiền\", như để đối lại với B. splendens \"hiếu chiến\". Cách gọi này vô lý. Mọi dạng cá chọi hoang dã đều nuôi chung nhiều con đực được, kể cả B. splendens, miễn là bể đủ rộng và bố trí nhiều vật cản, chỗ trốn. Ngược lại, con đực Betta imbellis khi đã chiếm chỗ cũng có thể lao vào đánh con đực khác khá dữ. Nhưng những vụ như vậy thường chỉ làm rách vây, và vây mau lành. Các dạng hoang dã của B. splendens cũng vậy.</p>"
   },
   "nameFixed": true,
   "redirectFrom": [
@@ -47,7 +50,8 @@
     "indexable": true,
     "bySource": {
       "bwaquatics": 0.85,
-      "seriouslyfish": 0.8
+      "seriouslyfish": 0.8,
+      "glaser": 0.92
     }
   }
 }

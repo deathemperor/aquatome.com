@@ -1,16 +1,20 @@
 {
   "slug": "ca-apisto-diplotaenia",
   "name": "Cá Apisto diplotaenia",
-  "altNames": [],
+  "altNames": [
+    "Double stripe dwarf cichlid"
+  ],
   "sections": {
-    "quickFacts:glaser": "<p>Loài cichlid lùn này thuộc hàng lạ nhất trong chi Apistogramma, một chi rất đông loài. Thân cá rất thon, chạy dọc thân là hai sọc. Trong cả chi Apistogramma chỉ loài này có kiểu sọc đó, nên A. diplotaenia không lẫn vào đâu được.</p>",
-    "behaviour:glaser": "<p>Khi đang làm chủ hoặc nổi dữ, cá đực bắt ngoài tự nhiên gần như mất hẳn hai sọc dọc, thay vào đó là một dải màu vàng cam. Ở Apistogramma diplotaenia, con cái mới là con nắm quyền, và cũng là con đẹp hơn.</p>"
+    "quickFacts:glaser": "<p>Diplotaenia nghĩa là \"hai sọc\". Loài này đến giờ vẫn ít khi thấy trong bể cá. Nó dài tối đa 5 cm, tính cả vây đuôi, nên thuộc nhóm cichlid nhỏ nhất.</p>",
+    "habitat:glaser": "<p>Đây là một loài Apistogramma khá lạ, quê ở vùng nước đen sông Rio Negro. Ngoài tự nhiên, chúng thường sống trên những bãi cát trống và đẻ thành từng bầy lớn.</p>",
+    "reproduction:glaser": "<p>Muốn cho loài này đẻ thì phải chỉnh thông số nước khá công phu. Đẻ được rồi thì mỗi lứa cũng tương đối ít trứng.</p>",
+    "notes:glaser": "<p>Giống mọi loài Apistogramma, loài này có nhiều màu, tức là cá trong cùng một quần thể có thể mang những màu khác nhau. Dạng nhiều người biết nhất của A. diplotaenia là dạng màu xanh, nhưng cũng có những con màu vàng đỏ.</p>"
   },
   "quality": {
-    "score": 0.8,
+    "score": 0.9,
     "indexable": false,
     "bySource": {
-      "glaser": 0.8
+      "glaser": 0.9
     },
     "reason": "thin"
   }

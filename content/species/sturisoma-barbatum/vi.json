@@ -1,0 +1,31 @@
+{
+  "slug": "ca-lau-kieng-sturisoma",
+  "name": "Cá lau kiếng Sturisoma",
+  "altNames": [
+    "Cá chình cầu Paraguay",
+    "Sturgeon catfish",
+    "Royal whiptail"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Cá Sturisoma nhập từ Paraguay về rất đẹp, có con rất lớn. Ở sông Rio Paraguay có hai loài Sturisoma: S. barbatum, do Kner mô tả năm 1853, và S. robustum, do Regan mô tả năm 1904.</p>",
+    "notes:glaser": "<p>Hai loài này khác nhau rất ít. Chỗ khác quan trọng nhất về giải phẫu nằm ở các tấm giáp gáy và tấm giáp phía trước vây lưng. Ở S. barbatum, phần này chủ yếu gồm ba khối xương lớn (thêm hai tấm xương nhỏ hơn). Còn ở S. robustum, nó gồm 17 tấm xương.</p>",
+    "aquariumSize:glaser": "<p>Cá Sturisoma là cá cảnh tuyệt vời. Chúng lớn con nên cần bể rộng tương xứng.</p>",
+    "diet:glaser": "<p>Cho ăn đa dạng, nhưng thức ăn thực vật phải là phần chính.</p>",
+    "dimorphism:glaser": "<p>Vào mùa sinh sản, con đực mọc râu rất đặc trưng nên dễ nhận ra. Ngoài mùa đẻ, phân biệt đực cái cũng không khó.</p>",
+    "reproduction:glaser": "<p>Nuôi có thay đổi nhiệt độ theo mùa thì chúng thường chịu đẻ. Cá thích đẻ trên kính trước của bể. Con đực canh trứng và cá bột mới nở.</p><p>Muốn nuôi cá con thì phải cho chúng ăn phân của cá bố mẹ. Cá con cần vi khuẩn và nấm sống trong ruột (vi sinh vật nội cộng sinh) thì mới tiêu hóa được thức ăn thực vật. Lúc mới nở, chúng phải ăn đồ động vật như ấu trùng Artemia. Nếu bỏ qua bước cho ăn phân bố mẹ thì đến khi chuyển sang thức ăn thực vật, cá con sẽ chết đói dù bụng vẫn căng đầy.</p>"
+  },
+  "quality": {
+    "score": 0.78,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.78
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-22"
+  }
+}

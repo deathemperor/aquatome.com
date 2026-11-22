@@ -8,13 +8,36 @@
   "places": [
     "south-america",
     "brazil",
-    "rio-tocantins"
+    "rio-tocantins",
+    "araguaia"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 25
+      },
+      {
+        "source": "scotcat",
+        "value": 25
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -32,10 +55,28 @@
       "html": "<p>It originates from the drainage of the Rio Tocantins, Brazil.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_lata.htm",
+      "html": "<p>South America: Brazil, Araguaia River basin. Type locality: Goyaz, Brazil.</p><p>Loricaria lata is endemic to Brazil, described in 1889 for the Araguaia River, Goiás state. Between the 1980s and 1990s, the species was recorded for other locations in the Tocantins River basin. After this period, L. lata was no longer recorded, although the area is well sampled. However, there is difficulty in identifying specific populations of this species, which may be confused with other taxa. There are several hydroelectric projects in operation and planned along the Tocantins River. Although Loricaria species are relatively tolerant to the effects of damming, the sensitivity of L. lata to this type of impact is unknown. Considering the extensive environmental changes underway in the Tocantins River and the uncertainties related to the species distribution in the basin, it is not possible to reliably assess its conservation status. Therefore, Loricaria lata was categorised as Data Deficient (DD), (IUCN 2022).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_lata.htm",
+      "html": "<p>Not quite as sensitive to poor water quality as L. cataphracta but still should be acclimatised slowly for the home aquarium.</p>"
+    },
+    {
       "key": "equipment",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/loricaria-lata-2/",
       "html": "<p>A sandy bottom is therefore useful for care, even if the fish then look in close-up as if they had white spot disease (Ichthyophthirius). The animals are perfectly healthy.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_lata.htm",
+      "html": "<p>Carnivore: feed with tablets, pellets, insect larvae, zooplankton and shrimps. A varied diet is important to this species and genus.</p>"
     },
     {
       "key": "behaviour",
@@ -48,9 +89,49 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/loricaria-lata-2/",
       "html": "<p>Like many mouthbrooding loricariids, this species is polychromatic, i.e. within one population there are quite differently marked animals. Some are almost completely black, others rather bright with black bands, and there are all conceivable intermediate stages; depending on mood the animals can also change color.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_lata.htm",
+      "html": "<p>Breeding is similar to that of related species (read more in Evers, H.-G. &amp; I.Seidel in reference).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_lata.htm",
+      "html": "<p>This genus is identified by the teeth of the upper mandible being twice as long as the lower mandible. The upper lip is short, its edge covered by numerous thin, simple, bifurcate or, more rarely, trifurcate barbels. The lower lip has small papillae with long filaments along the edge. The leading ray of the pectoral fins are longer and the upper first spine of the caudal fin is extended. This species is very similar to Loricaria cataphracta from the Guyana highlands and Loricaria simillima. It is not the easiest genus to identify to species.</p><p>Etymology: The specific name lata is Latin for wide or broad, presumably referring to its greatly depressed body, wider than it is high.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_lata.htm",
+      "html": "<ul><li>All L-Numbers</li><li>Datz Special: Habitat, Care &amp; Diet.</li><li>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Loricaria lata. The IUCN Red List of Threatened Species 2022.</li><li>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/35b862b3fd417a5d.webp",
+      "thumb": "https://media.aquatome.com/scotcat/35b862b3fd417a5d-480.webp",
+      "width": 500,
+      "height": 304,
+      "licence": "dùng với sự cho phép",
+      "author": "Ingo Seidel / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_lata.htm",
+      "caption": "Loricaria lata",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/c91aa196b095e0c9.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c91aa196b095e0c9-480.webp",
+      "width": 500,
+      "height": 349,
+      "licence": "dùng với sự cho phép",
+      "author": "Hans-Georg Evers / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_lata.htm",
+      "caption": "Loricaria lata",
+      "source": "scotcat"
+    },
     {
       "url": "https://media.aquatome.com/glaser/59eb0333c9312fb9.webp",
       "thumb": "https://media.aquatome.com/glaser/59eb0333c9312fb9-480.webp",
@@ -80,19 +161,22 @@
       "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/loricaria-lata-2/",
       "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/bf28b6b95e23d0bd.webp",
-      "thumb": "https://media.aquatome.com/glaser/bf28b6b95e23d0bd-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Frank Schäfer / Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/loricaria-lata-2/",
-      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "F7gXrcv2PEk",
+      "title": "Hexenwels Babys Loricaria sp. Rio Atabapo",
+      "durationSec": 293,
+      "lang": "de"
+    },
+    {
+      "youtubeId": "hYd1B_SpjXc",
+      "title": "Amazonas to go Fischvorstellung: Loricaria sp. Rio Atabapo - Zügelstrich Hexenwelse #welse",
+      "durationSec": 1517,
+      "lang": "de"
+    }
+  ],
   "productSlots": [
     {
       "category": "phan-nen",
@@ -114,5 +198,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21"
+  "updatedAt": "2026-11-22"
 }

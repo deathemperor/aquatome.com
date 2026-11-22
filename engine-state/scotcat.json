@@ -2057,10 +2057,11 @@
   },
   "https://www.scotcat.com/astroblepidae/astroblepus_sp.htm": {
     "entityIds": [],
-    "updatedAt": "2026-11-21T18:03:08.699Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Timeout 45000ms exceeded.\nCall log:\n  - navigating to \"https://www.scotcat.com/astroblepidae/astroblepus_sp.htm\", waiting until \"domcontentloaded\"\n"
+    "updatedAt": "2026-11-22T02:47:16.701Z",
+    "hash": "c78d148e53cbe62ec922c056e1f8a118a8a1db8007e803c0544a6514c2f1d840",
+    "processedHash": "c78d148e53cbe62ec922c056e1f8a118a8a1db8007e803c0544a6514c2f1d840",
+    "status": "skipped",
+    "attempts": 0
   },
   "https://www.scotcat.com/astroblepidae/astroblepus_taczanowskii.htm": {
     "entityIds": [
@@ -2069,6 +2070,26 @@
     "updatedAt": "2026-11-21T18:03:59.105Z",
     "hash": "d47ae918a751b06190949c307b8c6993496ca622ff87c656b7852fd4bb30bcd3",
     "processedHash": "d47ae918a751b06190949c307b8c6993496ca622ff87c656b7852fd4bb30bcd3",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_trifasciatus.htm": {
+    "entityIds": [
+      "species/astroblepus-trifasciatus"
+    ],
+    "updatedAt": "2026-11-22T02:54:51.311Z",
+    "hash": "2cc00d29b40e05eac6c0cf3f8d10837f2fcede8f4adfc0252f18166e6537018d",
+    "processedHash": "2cc00d29b40e05eac6c0cf3f8d10837f2fcede8f4adfc0252f18166e6537018d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_verai.htm": {
+    "entityIds": [
+      "species/astroblepus-verai"
+    ],
+    "updatedAt": "2026-11-22T02:58:55.353Z",
+    "hash": "bc421f31baca7ab9d839e6dc46c37f1e7cc1d7191a5d3af603cd2aec854fc481",
+    "processedHash": "bc421f31baca7ab9d839e6dc46c37f1e7cc1d7191a5d3af603cd2aec854fc481",
     "status": "processed",
     "attempts": 0
   },
@@ -2256,7 +2277,7 @@
     "entityIds": [
       "species/auchenoglanis-biscutatus"
     ],
-    "updatedAt": "2026-11-19T05:44:43.714Z",
+    "updatedAt": "2026-11-22T03:01:34.451Z",
     "hash": "b894f7c477c794ea560944c4a844508f60b6377ca3b2ff2f87b21b66a26c8972",
     "processedHash": "b894f7c477c794ea560944c4a844508f60b6377ca3b2ff2f87b21b66a26c8972",
     "status": "processed",
@@ -2269,6 +2290,36 @@
     "updatedAt": "2026-11-06T18:48:05.585Z",
     "hash": "02a8c7970842532f822b2ab3d192b248a735e29372155b2430bd3bae193b6cbe",
     "processedHash": "02a8c7970842532f822b2ab3d192b248a735e29372155b2430bd3bae193b6cbe",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenoglanididae/notoglanidium_macrostoma.htm": {
+    "entityIds": [
+      "species/notoglanidium-macrostoma"
+    ],
+    "updatedAt": "2026-11-22T03:02:26.079Z",
+    "hash": "c91c43a17b40f95f832295d38f45e58496b3ee1396afee83541941c97cc27c35",
+    "processedHash": "c91c43a17b40f95f832295d38f45e58496b3ee1396afee83541941c97cc27c35",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_altipinnis.htm": {
+    "entityIds": [
+      "species/parauchenoglanis-altipinnis"
+    ],
+    "updatedAt": "2026-11-22T03:04:21.323Z",
+    "hash": "a2b6580da408a54849130cd027d5102a5a1043650664b041bac4f4922f63f150",
+    "processedHash": "a2b6580da408a54849130cd027d5102a5a1043650664b041bac4f4922f63f150",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_balayi.htm": {
+    "entityIds": [
+      "species/parauchenoglanis-balayi"
+    ],
+    "updatedAt": "2026-11-22T03:06:39.982Z",
+    "hash": "56afdbcffe649b00dbcd0521647510c6232367e3d49e969e9b599d8beeb5fe52",
+    "processedHash": "56afdbcffe649b00dbcd0521647510c6232367e3d49e969e9b599d8beeb5fe52",
     "status": "processed",
     "attempts": 0
   },
@@ -2709,6 +2760,16 @@
     "updatedAt": "2026-11-10T20:49:44.005Z",
     "hash": "b2e7c121b982001e980f596b974e70458db7d880bf12a85591b1798190c50b76",
     "processedHash": "b2e7c121b982001e980f596b974e70458db7d880bf12a85591b1798190c50b76",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/doradidae/wertheimeria_maculata.htm": {
+    "entityIds": [
+      "species/wertheimeria-maculata"
+    ],
+    "updatedAt": "2026-11-22T02:52:03.073Z",
+    "hash": "557b38065a9112e408b4b8d6b6dd46193f8ff0d351f279f13092a7eb7fae0ed8",
+    "processedHash": "557b38065a9112e408b4b8d6b6dd46193f8ff0d351f279f13092a7eb7fae0ed8",
     "status": "processed",
     "attempts": 0
   },
@@ -3299,6 +3360,16 @@
     "updatedAt": "2026-11-07T01:31:25.457Z",
     "hash": "f1c64c680b28777f2d1fb1bf0e7e3bd10676e761f3438dac5433a5c97da5cf34",
     "processedHash": "f1c64c680b28777f2d1fb1bf0e7e3bd10676e761f3438dac5433a5c97da5cf34",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/loricaria_lata.htm": {
+    "entityIds": [
+      "species/loricaria-lata"
+    ],
+    "updatedAt": "2026-11-22T02:49:54.485Z",
+    "hash": "2d9511034a7c79756d4f3913e2345c385fab212f0590818ee6c78f6f2eeb7da5",
+    "processedHash": "2d9511034a7c79756d4f3913e2345c385fab212f0590818ee6c78f6f2eeb7da5",
     "status": "processed",
     "attempts": 0
   },

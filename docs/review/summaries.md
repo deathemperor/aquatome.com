@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (181)
+# Tóm tắt chờ duyệt (182)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -25,6 +25,17 @@ Aegla platensis là cua nước ngọt nhỏ, trưởng thành 5 cm, hợp với
 
 Kiểm tra:
 - "hợp với người muốn nuôi loài ít gặp": the page never says the species is rare or uncommon in the hobby, so this suitability claim is unsupported.
+
+## Cá Aequidens superomaculatum (Aequidens superomaculatum)
+id: `aequidens-superomaculatum`
+
+Cá Aequidens superomaculatum cỡ khoảng 15 cm, sống kín đáo và hơi nhát. Hồ sơ không có số liệu về bể tối thiểu, nhiệt độ hay pH nên chưa nói được cần bể và nước thế nào. Khó nhất là nhận đúng loài: cá nhập về có lẽ là Ae. superomaculatum nhưng phải nghiên cứu thêm mới chốt được tên, vì trông rất giống Ae. sp. "Jenaro Herrera" và Ae. diadema.
+
+- Đừng tin chắc tên loài khi mua: cá nhập về chỉ có lẽ là Ae. superomaculatum, nên coi tên là chưa chốt và tìm hiểu thêm.
+- Đừng chỉ nhìn một đốm bên để nhận loài: lô mới có hai đốm bên, nên xem cả đốm dưới vây lưng lẫn đốm trong dải dọc thân.
+
+Kiểm tra:
+- Second mistake, "nên xem cả đốm dưới vây lưng lẫn đốm trong dải dọc thân": the page gives no such identification advice. It says the two-spot lot looks identical to Ae. sp. "Jenaro Herrera", so checking both spots would not settle the species. This is a fix the page does not give, and it presents the spots as a way to identify the species.
 
 ## Cá trê Amblyceps arunachalense (Amblyceps arunachalense)
 id: `amblyceps-arunachalense`
@@ -314,19 +325,6 @@ Benitochromis nigrodorsalis là cichlid Tây Phi hiếm, dài khoảng 12 cm, nu
 Kiểm tra:
 - The mistake says "Đừng chuẩn bị hang đẻ như với Pelvicachromis" and the fix says "theo dõi cả đôi chứ đừng chỉ nhìn hang". The page gives no advice about caves or about watching the pair. It only says Pelvicachromis spawn in caves and Benitochromis are mouthbrooders. The summary turns that contrast into care advice the page doesn't give.
 
-## Cá betta cracens (Betta cracens)
-id: `betta-cracens`
-
-Cá betta cracens (Betta cracens) hợp với người đã có kinh nghiệm, thích nuôi riêng cá mê cung ấp trứng bằng miệng, độ khó 6/8. Cần bể dài tối thiểu 80 cm (đáy 80 × 30 cm, khoảng 72 lít), nước 22–27 °C, pH 5,5–6,5, 0–5 dGH, ánh sáng yếu, lọc bông sủi khí nhẹ, có lá khô và chỗ trốn. Khó nhất là mua đúng loài, vì cá bán dưới tên này phần lớn là B. pugnax, B. raja hoặc loài gần khác, và phải đậy bể thật kín vì cá nhảy giỏi.
-
-- Để bể hở hoặc đổ nước đầy tới miệng: cá nhảy rất giỏi và cần lớp không khí ẩm phía trên mặt nước, nên đậy thật kín và chừa khoảng trống.
-- Thả chung với cá lớn hoặc hiếu động: chúng sẽ làm cá sợ và giành hết thức ăn, nên nuôi riêng hoặc chung với loài thật hiền.
-- Cho ăn quá tay: Betta dễ béo phì, nên cho ăn vừa phải và thường xuyên đổi sang thức ăn sống hoặc đông lạnh cỡ nhỏ như Daphnia, Artemia, trùng huyết.
-
-Kiểm tra:
-- "ánh sáng yếu" is listed as a requirement ("Cần ... ánh sáng yếu"), but the page only hedges: "có vẻ hợp nhất với ánh sáng khá yếu" (seems to suit fairly weak light). The hedge became a certainty.
-- "Betta dễ béo phì" drops the page's hedge "có vẻ đặc biệt dễ béo phì" (seem especially prone to obesity), so a caution is stated as a fact.
-
 ## Cá betta gladiator (Betta gladiator)
 id: `betta-gladiator`
 
@@ -341,19 +339,6 @@ Kiểm tra:
 - "đực nhốt chung hay đánh nhau" and "chúng đánh nhau suốt và có thể giết nhau": the page says only "nghe nói đánh nhau suốt" (reportedly fight constantly), and the summary drops that hedge.
 - "Điểm khó nhất là tính hung dữ": the page frames aggression as a reputation ("nổi tiếng", "Nếu loài này dữ đúng như lời đồn"), and the summary states it as established fact.
 
-## Cá betta Kuehne (Betta kuehnei)
-id: `betta-kuehnei`
-
-Cá betta Kuehne (Betta kuehnei) dài 6 cm, hợp người muốn nuôi một cặp hoặc nhóm nhỏ, nuôi riêng hoặc chung với loài thật hiền, độ khó 4/8. Cần bể từ 60 × 30 cm (khoảng 54 lít), nước 21–25 °C, pH 6–7,5, độ cứng 0–5 dGH, ánh sáng yếu, lọc nhẹ và nhiều góc râm. Điểm khó nhất là chọn bạn cùng bể vì loài này không hợp bể cộng đồng thông thường, cộng thêm việc phải đậy kín bể và không cho ăn quá tay.
-
-- Thả chung vào bể cộng đồng thông thường thì cá bị cá lớn hoặc hiếu động dọa và giành hết phần ăn; nên nuôi riêng hoặc chỉ nuôi với loài thật hiền.
-- Để bể hở hoặc đổ nước đầy tới miệng thì cá dễ nhảy ra ngoài; nên đậy bể thật kín và chừa lớp không khí ẩm phía trên mặt nước cho cá ngoi lên thở.
-- Cho ăn quá tay làm cá dễ béo phì; nên cho ăn vừa phải và thường xuyên đổi sang thức ăn sống hoặc đông lạnh cỡ nhỏ như bo bo, Artemia, trùng huyết.
-
-Kiểm tra:
-- "thì cá bị cá lớn hoặc hiếu động dọa và giành hết phần ăn": the page says only "nhiều khả năng sẽ làm nó sợ và giành hết phần ăn" (likely), but the summary states it as certain.
-- "Cho ăn quá tay làm cá dễ béo phì": the page hedges ("các loài Betta có vẻ rất dễ bị béo phì", it seems), but the summary states it as fact. The fix also ties "thường xuyên đổi sang thức ăn sống hoặc đông lạnh" to overfeeding. The page gives frequent live or frozen food for colour and condition, not as a remedy for overfeeding.
-
 ## Cá betta lehi (Betta lehi)
 id: `betta-lehi`
 
@@ -366,18 +351,6 @@ Cá betta lehi (Betta lehi) hợp với người thích bể ánh sáng dịu, n
 Kiểm tra:
 - "cá lớn hoặc hiếu động sẽ bắt nạt và tranh hết phần ăn": the page hedges with "nhiều khả năng sẽ bắt nạt" (likely to bully). The summary states it as a certainty.
 - "Betta dễ béo phì": the page says "có vẻ đặc biệt dễ bị béo phì" (seem especially prone to obesity). The summary drops the hedge.
-
-## Cá betta pulchra (Betta pulchra)
-id: `betta-pulchra`
-
-Cá betta pulchra (Betta pulchra) hợp với người muốn nuôi một cặp hoặc nhóm nhỏ trong bể riêng, độ khó 4/8 (mức vừa). Cần bể dài tối thiểu 80 cm (đáy 80 × 30 cm, khoảng 72 lít), nước 22–27 °C, pH 3,5–6,5, độ cứng 0–5 dGH, lọc mút sủi khí chạy nhẹ, có lũa, lá khô và ánh sáng dịu. Cá trưởng thành dài 6 cm, không hợp bể cộng đồng thông thường, nên điểm khó nhất là chọn bạn cùng bể đủ hiền hoặc nuôi riêng.
-
-- Thả chung vào bể cộng đồng thông thường thì cá bị cá lớn hoặc bơi hăng làm sợ và giành hết thức ăn; nên nuôi riêng hoặc chung với loài thật hiền.
-- Đậy nắp không kín hoặc đổ nước đầy tới miệng bể thì cá nhảy ra ngoài và thiếu lớp không khí ẩm để thở; nên đậy kín và chừa khoảng trống phía trên mặt nước.
-- Cho ăn quá nhiều vì Betta dễ béo phì; nên cho ăn vừa phải, xen thức ăn sống hoặc đông lạnh cỡ nhỏ như Daphnia, Artemia, trùng huyết.
-
-Kiểm tra:
-- "Cần bể dài tối thiểu 80 cm (…) có lũa, lá khô và ánh sáng dịu": the page treats driftwood and leaf litter as optional ("Bạn có thể…", leaves make the tank "trông tự nhiên hơn"). It also hedges the light ("có vẻ sống khỏe nhất dưới ánh sáng khá dịu"). The summary presents all of these as requirements.
 
 ## Cá betta Siamorientalis (Betta siamorientalis)
 id: `betta-siamorientalis`
@@ -812,6 +785,20 @@ Cá badis đỏ (Dario dario) hợp với người muốn một bể nano nuôi 
 Kiểm tra:
 - Mistake 3, "Nhốt nhiều con đực trong bể chật sẽ có đánh nhau": the page hedges with "các con đực có thể rất hung hăng với nhau, nhất là trong không gian chật". The summary turns that "may" into a certainty ("sẽ có đánh nhau").
 - The summary's "con đực thì hung hăng với nhau khi bể chật" also states as fact what the page says only as a possibility ("có thể rất hung hăng").
+
+## Cá trích nước ngọt Denticeps (Denticeps clupeoides)
+id: `denticeps-clupeoides`
+
+Cá trích nước ngọt Denticeps (Denticeps clupeoides) hợp với người muốn nuôi đàn cá nhỏ bơi suốt ngày, dài tối đa 15 cm. Loài này cần nhiều oxy và thích dòng chảy mạnh, còn thông số hóa học của nước chỉ là chuyện phụ. Chỉ nên nuôi chung với cá thật sự hiền. Khó nhất là cá yếu khi vận chuyển và chưa ai báo lại chuyện cho đẻ.
+
+- Nuôi trong nước tĩnh, ít oxy: cá cần nhiều oxy và thích dòng chảy mạnh, nên tạo dòng chảy mạnh cho chúng.
+- Nuôi chung với cá hung hăng: loài này hiền, chỉ nên ghép với những loài cá thật sự hiền.
+- Chờ cá ăn dưới đáy: Denticeps không thích xuống đáy kiếm ăn, nên cho thức ăn ở tầng trên, nơi chúng bơi.
+
+Kiểm tra:
+- Mistake 3 fix: "nên cho thức ăn ở tầng trên, nơi chúng bơi" is advice the page doesn't give. The page only says Denticeps doesn't like to forage on the bottom. It says nothing about feeding in the upper water layer.
+- "Khó nhất là cá yếu khi vận chuyển" drops the page's hedge. The page says "hơi yếu khi vận chuyển" (somewhat weak), so the summary overstates it.
+- "hợp với người muốn nuôi đàn cá nhỏ" is weakly supported. The page mentions schools only for the wild and gives no advice on keeping a group in a tank.
 
 ## Cá Denticetopsis praecox (Denticetopsis praecox)
 id: `denticetopsis-praecox`
@@ -1268,6 +1255,17 @@ Kiểm tra:
 - "Đừng cho ăn kiểu thả mồi chìm một lần rồi bỏ đi... hãy cho mồi như ấu trùng muỗi lắc": the page gives no feeding-method advice. It only says what the fish eats in the wild, and it never says to offer live food in a current. This is invented advice.
 - "Đừng bỏ bể trống không chỗ trú, vì cá hay quanh quẩn dưới lọc mút; hãy thêm cây, lũa và hang": the page only describes one tank that had plants, wood and caves. It does not say hiding places are needed, and staying under the sponge filter does not support that reason. The fix is invented advice.
 
+## Cá Mayaheros beani (Mayaheros beani)
+id: `mayaheros-beani`
+
+Cá Mayaheros beani hợp với người có chỗ đặt bể lớn, vì cá trưởng thành tới 30 cm. Hồ sơ không nêu bể tối thiểu hay thông số nước cụ thể. Ngoài tự nhiên cá sống từ nước lợ cửa sông tới thượng nguồn, độ khoáng và pH chênh nhau nhiều. Điểm khó nhất là kích thước lớn, nên đừng chọn bể theo cỡ cá lúc mua.
+
+- Mua cá nhỏ rồi nuôi bể nhỏ: cá trưởng thành tới 30 cm, nên chuẩn bị bể lớn ngay từ đầu.
+- Nghĩ cá còn bé thì chưa đẻ: cá chưa lớn hết đã đủ lớn để đẻ, nên tính trước chuyện tách cặp hoặc xử lý cá con nếu nuôi chung đực cái.
+
+Kiểm tra:
+- In the second mistake, "nên tính trước chuyện tách cặp hoặc xử lý cá con nếu nuôi chung đực cái" is advice the page does not give. The page only says that fish of about 6 cm can already breed. It says nothing about separating pairs or dealing with fry.
+
 ## Cá Maylandia elegans Likoma (Maylandia elegans)
 id: `maylandia-elegans`
 
@@ -1342,15 +1340,15 @@ Kiểm tra:
 ## Cá hồng phát Myleus torquatus (Myloplus torquatus)
 id: `myloplus-torquatus`
 
-Cá hồng phát Myleus torquatus lớn tới 25 cm, hợp với người thích cá thân bạc, vây vàng và dải đen rộng viền vây đuôi. Hồ sơ không ghi thông số nước hay bể tối thiểu, nên cần tự tìm thêm trước khi nuôi. Điểm khó nhất là giai đoạn cá con: cá trôi lờ đờ, giả lá chết, dễ làm người nuôi tưởng cá bệnh.
+Cá hồng phát Myloplus torquatus lớn tới 25 cm, hợp với người đã có bể đủ rộng và muốn nuôi loài thuộc nhóm cá đô la bạc có viền đen ở vây đuôi rất dễ nhận. Hồ sơ không nêu nhiệt độ, pH, độ cứng hay dung tích bể tối thiểu, nên cần tìm thêm trước khi mua. Điểm cần cân nhắc nhất là cá con nhìn khác hẳn cá trưởng thành, dễ nhầm loài khi mua cá nhỏ.
 
-- Thấy cá con sẫm màu nằm trôi lờ đờ rồi vội chữa bệnh: đây là tập tính bình thường, cứ theo dõi, đừng can thiệp vội.
-- Nuôi lẻ một con khi cá đã lớn hơn một chút và nhạt màu: lúc này cá bơi nhiều và kết đàn, nên cân nhắc nuôi theo nhóm.
+- Mua cá con chỉ dựa vào hình dáng: cá nhỏ trông khác hẳn cá lớn, nên hỏi rõ tên khoa học Myloplus torquatus và chờ cá lớn để đối chiếu viền đen ở vây đuôi.
+- Đoán giới tính khi cá còn quá nhỏ: đợi cá lớn thêm rồi mới xem vây hậu môn và vây lưng, con đực có vây hậu môn lớn hơn, vây lưng rộng và tù hơn.
 
 Kiểm tra:
-- Mistake 1, "vội chữa bệnh ... cứ theo dõi, đừng can thiệp vội": the page only says keepers may panic and that the behaviour is normal. It says nothing about treating disease or about watching without intervening, so this fix is invented advice. The same applies to "tưởng cá bệnh" in the summary, because the page says "hoảng", not that the fish look sick.
-- Mistake 2, "Nuôi lẻ một con ... nên cân nhắc nuôi theo nhóm": the page only says fish of 3–4 cm swim a lot and school together. It never advises keeping a group or calls keeping a single fish a mistake, so this advice is not on the page.
-- Summary, "hợp với người thích cá thân bạc, vây vàng...": the page never says who the species suits. The summary builds this from appearance alone, which is an unsupported claim.
+- "hợp với người đã có bể đủ rộng": the page and card say nothing about tank size or who the fish suits. Only the 25 cm adult size is given, so this suitability claim is not supported.
+- "nên hỏi rõ tên khoa học Myloplus torquatus và chờ cá lớn để đối chiếu viền đen ở vây đuôi": the page gives no advice to ask sellers for the scientific name or to wait for the fish to grow before buying. It only says juveniles look very different, so this fix is invented.
+- "dễ nhầm loài khi mua cá nhỏ": the page says juveniles look different but does not say buyers confuse species. This risk is the summary's own addition.
 
 ## Cá Mystacoleucus chilopterus (Mystacoleucus chilopterus)
 id: `mystacoleucus-chilopterus`
@@ -1632,6 +1630,20 @@ Cá bảy màu đốm đuôi (Phalloceros caudimaculatus) hợp người muốn 
 Kiểm tra:
 - "thì con cái bị đuổi dai": the page says males "có thể đuổi theo con cái khá dai" (only a possibility). The summary states it as a certainty, which drops the hedge.
 - "Nuôi số đực bằng hoặc nhiều hơn số cái": the page only advises more females than males. It doesn't say what happens with equal numbers.
+
+## Cá tetra Congo Phenacogrammus taeniatus (Phenacogrammus taeniatus)
+id: `phenacogrammus-taeniatus`
+
+Cá tetra Congo Phenacogrammus taeniatus trưởng thành 6 cm, sống thành đàn lớn, ánh bạc, bơi ở vùng nước thoáng. Hồ sơ không nêu nhiệt độ, pH hay bể tối thiểu, nên cần hỏi thêm trước khi chuẩn bị bể. Khó nhất là khó chắc con mình mua đúng loài, vì nhiều loài về tiệm dưới tên tự đặt và giá khá đắt.
+
+- Nuôi lẻ một hai con: loài này sống thành đàn lớn, nên nuôi theo đàn.
+- Thấy sọc đen mờ rồi cho là cá bệnh: sọc đổi đậm nhạt theo tâm trạng cá, nên theo dõi thêm chứ đừng vội xử lý.
+- Tin tên trên nhãn khi mua: nhiều loài tetra Congo bán dưới tên tự đặt, nên hỏi rõ nguồn gốc cá trước khi mua.
+
+Kiểm tra:
+- "nên hỏi rõ nguồn gốc cá trước khi mua": the page gives no advice to ask about the fish's origin. It only says many are sold under self-given names, so this fix is invented.
+- "nên theo dõi thêm chứ đừng vội xử lý" and "cho là cá bệnh": the page says nothing about disease or about watching and not treating. It only says the stripe changes with mood, so this advice goes beyond the page.
+- "nên hỏi thêm trước khi chuẩn bị bể": the page gives no such advice. It is an invented recommendation.
 
 ## Cá hồng bụng đỏ (Piaractus brachypomus)
 id: `piaractus-brachypomus`

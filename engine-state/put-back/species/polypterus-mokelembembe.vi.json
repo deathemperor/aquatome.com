@@ -1,0 +1,38 @@
+{
+ "at": "2026-11-22T05:06:13Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Mấy con nhỏ trong ảnh dài khoảng 5 cm.",
+   "why": "Refers to a photo the page does not have, carried over from the original article."
+  }
+ ],
+ "text": {
+  "slug": "ca-khung-long-mokelembembe",
+  "name": "Cá khủng long mokelembembe",
+  "altNames": [
+   "Cá khủng long rừng",
+   "Jungle bichir"
+  ],
+  "sections": {
+   "quickFacts:glaser": "<p>Cá khủng long (bichir) là loài hay được gọi là \"hóa thạch sống\". Người ta từng đào được những hóa thạch 60 triệu năm tuổi mà vẫn xếp được vào các loài còn sống hôm nay. Giống này chỉ có 16 loài đã biết, loài nào cũng đến từ châu Phi.</p><p>Polypterus mokelembembe là loài tìm ra sau cùng và cũng là loài nhỏ nhất trong giống. Đến năm 2006 nó mới được mô tả thành loài riêng. Trước đó người ta nhầm nó với P. retropinnis, còn ngoài tiệm thì hay gọi nó là P. lowei. Loài này dài tới khoảng 25 cm.</p>",
+   "habitat:glaser": "<p>Polypterus mokelembembe sống ở những con suối nước đen nhỏ hơn thuộc vùng Congo.</p>",
+   "distribution:glaser": "<p>Vùng Congo, châu Phi.</p>",
+   "behaviour:glaser": "<p>Trong bể, Polypterus mokelembembe rất hiền với mọi con nuôi chung, miễn là con đó không đủ nhỏ để thành mồi. Loài này không thích đèn sáng chói.</p>",
+   "diet:glaser": "<p>Chúng ăn đủ loại thức ăn đông lạnh và đồ tươi cỡ lớn, miễn là thức ăn từ động vật. Con đã quen bể cũng chịu ăn cám viên.</p>",
+   "dimorphism:glaser": "<p>Giống mọi loài Polypterus khác, con đực và con cái dễ phân biệt nhờ hình dạng vây hậu môn. Vây này ở con đực lớn gấp hơn hai lần con cái.</p>",
+   "reproduction:glaser": "<p>Lúc ghép đôi, con đực xòe vây hậu môn ra như cái bát. Nó bơi sát bên con cái và dùng vây đang xòe ôm lấy vùng vây hậu môn của con cái. Trứng con cái thả ra trôi tự do trong nước, nhờ thế mà được thụ tinh. Cá khủng long không giữ trứng hay chăm con. Cá bột có mang ngoài nên trông rất giống ấu trùng sa giông. P. mokelembembe dù còn bé xíu cũng đã mang màu đặc trưng của loài. Mấy con nhỏ trong ảnh dài khoảng 5 cm.</p>",
+   "notes:glaser": "<p>Polypterus: tiếng Hy Lạp cổ, nghĩa là \"nhiều vây\", vì loài này có rất nhiều vây lưng nhỏ tách rời nhau. mokelembembe: tên một sinh vật huyền thoại trông giống khủng long ở Congo, kiểu như quái vật Nessie ở hồ Loch Ness. Người ta chọn tên này để nhắc rằng cá khủng long là nhóm rất cổ, đã có từ thời khủng long. retropinnis: tiếng Latin, nghĩa là \"có vây hướng về phía sau\".</p>"
+  },
+  "quality": {
+   "score": 0.92,
+   "indexable": true,
+   "bySource": {
+    "glaser": 0.92
+   }
+  }
+ }
+}

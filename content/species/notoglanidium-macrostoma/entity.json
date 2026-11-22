@@ -14,7 +14,8 @@
     "gabon",
     "ogooue",
     "cameroon",
-    "sanaga"
+    "sanaga",
+    "democratic-republic-of-the-congo"
   ],
   "range": {
     "native": {
@@ -268,6 +269,13 @@
           "min": 22,
           "max": 27
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
       }
     ],
     "ph": [
@@ -277,11 +285,22 @@
           "min": 6.4,
           "max": 8
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
+        "value": 24
+      },
+      {
+        "source": "scotcat",
         "value": 24
       }
     ]
@@ -298,6 +317,24 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=102",
       "html": "<p>Africa: Chiloango basin in Angola, central basin of the Congo, Loémé basin in Congo, Ogooué basin in Gabon and the basins of the Nyong, Sanaga and Dja in Cameroon.</p><p>IUCN Red List category: Least Concern (last assessed 2009).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/notoglanidium_macrostoma.htm",
+      "html": "<p>Africa: S. Cameroon, Gabon, and Congo River system. Type locality: Ngomo (Ogôoué) [Gabon].</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/notoglanidium_macrostoma.htm",
+      "html": "<p>This species is the smaller of three from the same African genus of C. Teugels, Risch, De Vos &amp; Thys, 1991. The other two are Anaspidoglanis akiri (Risch 1987) and Anaspidoglanis boutchangai (Thys van den Audenaerde 1965). It was a member of the African-Asian Bagridae family until 1991, when Mo split it up and constructed a new family, Claroteidae, which is closely related to the Bagrids.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/notoglanidium_macrostoma.htm",
+      "html": "<p>Tank mates could include the larger African characins such as the Congo Tetra (Phenacogrammus interruptus) and the larger American characins such as the Distichodus genus. Larger barbs like the Tinfoil Barb (Barbus schwanefeldi) could be a good choice. Alternatively, it can be housed in a cichlid community as long as it is not a Rift Valley set-up, as the higher pH may prove a bit too high over a long period. Try to keep fewer bottom dwellers with it.</p>"
     },
     {
       "key": "waterConditions",
@@ -324,6 +361,12 @@
       "html": "<p>Tends to be territorial and, with its predatory nature, is not suited for the general community tank. Fares much better in an African concept tank with other robust fish. Not suitable with small fish.</p><p>Provide enough tank space and hiding places if more than one individual is kept in the same tank. Ideal tankmates include riverine Synodontis, large African tetras (such as Brycinus or Alestes spp.), African barbs such as Barbus camptacanthus, riverine African cichlids such as Pelvicachromis, and African labyrinth fishes (Ctenopoma). Its territorial nature means it should not be kept with too many bottom-dwelling fish.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/notoglanidium_macrostoma.htm",
+      "html": "<p>This African bagrid is a night time predator, so tank mates would need to be at least over 7 cm to escape its clutches. It is quite territorial and needs its own hiding place, such as a rock/slate shelter, so it can rest during the day.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=102",
@@ -336,14 +379,51 @@
       "html": "<p>This species has been accidentally spawned in the aquarium, and as such the spawning trigger is unknown. The fish nests in shelter (e.g. under rocks), and the parents (especially the male) exhibit brood care. The fry are free-swimming in approximately two weeks. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/notoglanidium_macrostoma.htm",
+      "html": "<p>Etymology: The genus name Notoglanidium: otos, back, presumably referring to the \"rather long\" dorsal fin of N. walkeri; glanidium, diminutive of glanis, sheatfish (Silurus glanis), now used as a general term for catfish. The specific name macrostoma: from the Greek makros, meaning long, and stoma, meaning mouth, in reference to the size of the mouth.</p><p>This species has been put into a new genus, Notoglanidium, from the former Anaspidoglanis.</p><p>IUCN Red List: the species is widespread or without major threats throughout the Central Africa assessment region and is assessed as Least Concern, but needs updating (IUCN 2010).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=102",
       "html": "<p>Bulletin du Muséum National d'Histoire Naturelle (Série 1) v. 15 (no. 2), pp 67</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/notoglanidium_macrostoma.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Moelants, T. 2010. Notoglanidium macrostoma. The IUCN Red List of Threatened Species 2010. ScotCat Factsheet no. 092. Feb. 2004. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "RlWy1RDagKQ",
+      "title": "DWARF GIRAFFE CATFISH (notoglanidium-macrostoma)",
+      "durationSec": 368,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "5C33Qb6AdmQ",
+      "title": "DWARF GIRAFFE CATFISH | Notoglanidium macrostoma",
+      "durationSec": 141,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "5S_kA_f70-c",
+      "title": "Pygmy Giraffe Catfish Update, Sandy the Ball Python Move, and FROGS 🐸",
+      "durationSec": 237,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "xqsvEW1F-Sc",
+      "title": "Dwarf giraffe catfish feeding 2",
+      "durationSec": 52,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -366,5 +446,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-22"
 }
