@@ -1091,6 +1091,15 @@ test("the Writing Lead's words hold on the four guides the night of 19 Nov cut",
 // eleven reads found phrases it read worse than main (22 Nov); the writers get the rule instead, with the gallon rule.
 test("the gang valve guide's pipe is said as the two pipe sizes", () => handFixesHold('pipe-range-1121.json', ''))
 
+// The Writing Lead's words of 22 Nov 2026 on the same line (the chief of staff): the gate held the guide for the pipe's wall
+// grade by its US name, which pipe here isn't sold by. The grade's name goes and "loại thành dày", what it is there for,
+// stays, with no wall figure worked out from it. The body stays bodyFixed (test/fixtures/gang-valve-wall-1122.json).
+test("the gang valve guide's pipe says its thick wall without the US grade's name", () => {
+  handFixesHold('gang-valve-wall-1122.json', '')
+  const vi = JSON.parse(readFileSync(fileURLToPath(new URL('../../../content/guides/aquariumcoop-blogs-aquarium-air-pump-with-multiple-tanks/vi.json', import.meta.url)), 'utf8')) as Translation
+  expect(JSON.stringify(vi)).not.toMatch(/schedule\s*\d/iu)
+})
+
 // The chief of staff's yes of 21 Nov 2026 on the live-food guide's Indonesian and Malay copies: the bloodworm survey said
 // in the Writing Lead's fix of 20 Nov, the Thai page's form (an informal 2018 survey of 445 respondents, 34% known or
 // suspected, the median of four years), and the Malay FAQ's allergy line no more than the English. Each copy's body is
