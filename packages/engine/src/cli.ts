@@ -92,7 +92,7 @@ import { videoStills } from './video-stills'
 import { frameSheet } from './frame-sheet'
 import { searchCommons } from './photos'
 import { REWRITE_KINDS, rewriteExisting } from './vi-backfill'
-import { wordingMend } from './wording-mend'
+import { reportName, wordingMend } from './wording-mend'
 import { VI_WRITE } from './vi-rewrite'
 import { addOwnerPicks, discoverPlaylists, discoverSingles, QUERIES_BY_LANG } from './video-discovery'
 import { galleries, VET_SCHEMA as GALLERY_VET, type GalleryDeps, type Vet } from './gallery'
@@ -1293,8 +1293,8 @@ if (cmd === 'photo-privacy') {
   await covers({ redo: values.redo, limit: values.limit ? Number(values.limit) : undefined })
 } else if (cmd === 'mend-words') {
   // The wording mend (wording-mend.ts): the listed words with swap words taken off Vietnamese pages one sentence at a
-  // time, swapped in place or recast, each change read. It writes only under --out (the pages it changed, its marks and
-  // report.json) until the editors have read a trial: never content/ or engine-state/.
+  // time, swapped in place or recast, each change read. It writes only under --out, outside the repository (the pages it
+  // changed, its marks and a report for each run) until the editors have read a trial: never content/ or engine-state/.
   // pnpm engine mend-words --out <dir> [--limit N pages] [--per N: each entry's sentences at least] [--pages species/<id>,…] [--dry-run: no model call]
   if (!values.out) throw new Error('usage: pnpm engine mend-words --out <dir> [--limit N] [--per N] [--pages kind/id,…] [--dry-run]')
   const out = resolve(values.out)
@@ -1303,7 +1303,8 @@ if (cmd === 'photo-privacy') {
   console.log(`mend-words${values['dry-run'] ? ' (dry run)' : ''}: ${r.pages.length} pages; ${kept.filter(x => x.step === 'swap').length} sentences swapped, ${kept.filter(x => x.step === 'recast').length} recast, ${r.outcomes.length - kept.length} changes refused${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const [say, e] of Object.entries(r.byEntry)) if (e.sentences) console.log(`  ${say}: ${e.sentences} sentences${values['dry-run'] ? '' : `, ${e.swapped} swapped, ${e.recast} recast, ${e.refused} refused, ${e.left} left`}`)
   for (const x of r.failed) console.log(`failed: ${x}`)
-  console.log(`written under ${out}`)
+  console.log(`written under ${out}: ${reportName(r)}`)
+  if (r.failed.length) process.exitCode = 1
 } else if (cmd === 'rewrite-vi') {
   // Existing Vietnamese rewritten in the site's style, pages out of search for their score first, then worst-read kinds
   // first, each page once, reviewer-gated:

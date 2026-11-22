@@ -1,9 +1,8 @@
-import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { lstat, mkdir, readdir, readFile, realpath, rm, writeFile } from 'node:fs/promises'
+import { basename, dirname, join, resolve, sep } from 'node:path'
 import type { Llm } from './claude'
 import { hedged, hedgesAsk, hedgesLost, HEDGES_SCHEMA, type HedgePair } from './hedges'
 import { inline, words } from './mend'
-import { fixedParts } from './pages'
 import { piece, PieceAdmissionError } from './pieces'
 import { pattern, PHRASES, ticCount, type Phrase } from './phrases'
 import { plain, sentences, splice, type Piece } from './sentences'
@@ -28,8 +27,9 @@ import { plain, sentences, splice, type Piece } from './sentences'
  * - Titles, headings, FAQ questions and parts a person fixed are left. Held pages are left, and the glossary.
  * - Each page is taken up once for each mark (a text with its entry's words, or the recast's version), so a page comes
  *   back only when the list or its words change (as `rewrite-vi --phrases` marks it, #1717).
- * It writes only under `out`: the pages it changed, its marks and its report, never content/ or engine-state/, until
- * the editors' blind read of a trial (the chief of staff, 22 Nov 2026).
+ * It writes only under `out`, a folder outside the repository: the pages it changed, its marks and a report for each
+ * run, never content/ or engine-state/, until the editors' blind read of a trial (the chief of staff, 22 Nov 2026).
+ * Like every hand run, its model calls go in the day's cost log too (ceiling.ts).
  */
 
 const KINDS = ['species', 'plants', 'guides', 'breeds'] as const
@@ -87,7 +87,9 @@ const capitalFrom = (html: string, i: number) => {
     const c = html[k]!
     if (c === '<') inTag = true
     else if (c === '>') inTag = false
-    else if (!inTag && /\p{L}/u.test(c)) return html.slice(0, k) + c.toUpperCase() + html.slice(k + 1)
+    else if (inTag) continue
+    else if (c === '&') { const m = /^&(?:#\d+|#x[\da-f]+|\w+);/i.exec(html.slice(k)); if (m) k += m[0].length - 1 }
+    else if (/\p{L}/u.test(c)) return html.slice(0, k) + c.toUpperCase() + html.slice(k + 1)
   }
   return html
 }
@@ -95,19 +97,21 @@ const capital = (s: string) => (s ? s[0]!.toUpperCase() + s.slice(1) : s)
 
 /**
  * The sentence with each picked hit's text replaced by its pick, and nothing else changed: a pick at the sentence's
- * start, or in place of a capital, starts with a capital; a text taken out at the start leaves the next word a capital,
- * and one taken out inside it leaves one space.
+ * start (or after a full stop inside it), or in place of a capital, starts with a capital; a text taken out there leaves
+ * the next word a capital, and one taken out elsewhere leaves one space. Picks go in from the right, and each touches
+ * only its own text and a <strong> or <em> it empties, so the ones left of it keep their place.
  */
 export function applied(html: string, picks: readonly { hit: Hit; to: string }[]): string {
   let s = html
   for (const { hit, to } of [...picks].sort((a, b) => b.hit.start - a.hit.start)) {
-    const head = s.slice(0, hit.start), tail = s.slice(hit.end)
-    const first = !plain(head).trim()
+    let head = s.slice(0, hit.start), tail = s.slice(hit.end)
+    const first = /(?:^|[.!?…]["'»”’)]*)\s*$/u.test(plain(head))
     if (to) { s = head + (first || /^\p{Lu}/u.test(hit.from) ? capital(to) : to) + tail; continue }
-    // A cut leaves no empty <strong> or <em> behind.
-    const tidy = (x: string) => x.replace(/<(strong|em|b|i)>\s*<\/\1>\s*/g, '')
-    if (first) { s = capitalFrom(tidy(head + tail.replace(/^\s+/, '')), 0); continue }
-    s = tidy(head.replace(/\s+$/, '') + (/^\s*[,.;:!?…)]/.test(tail) ? '' : ' ') + tail.replace(/^\s+/, ''))
+    const open = /<(strong|em|b|i)>\s*$/.exec(head)
+    const close = open && new RegExp(`^\\s*</${open[1]}>`).exec(tail)
+    if (open && close) { head = head.slice(0, open.index); tail = tail.slice(close[0].length) }
+    if (first) { s = capitalFrom(head + tail.replace(/^\s+/, ''), head.length); continue }
+    s = head.replace(/\s+$/, '') + (/^\s*[,.;:!?…)]/.test(tail) ? '' : ' ') + tail.replace(/^\s+/, '')
   }
   return s
 }
@@ -116,9 +120,19 @@ export function applied(html: string, picks: readonly { hit: Hit; to: string }[]
 export type Part = { field: string; text: string }
 type Vi = { held?: unknown; bodyFixed?: boolean; faqFixed?: boolean; sections?: Record<string, string>; body?: string; summary?: string[]; faq?: { q: string; a: string }[] }
 
+/** The parts a person fixed (pages.ts fixedParts), failing closed: a record that is there but can't be read stops the run. */
+async function fixedIn(dir: string): Promise<Set<string>> {
+  const raw = await readFile(join(dir, 'entity.json'), 'utf8').catch((e: NodeJS.ErrnoException) => {
+    if (e.code === 'ENOENT') return '{}'
+    throw new Error(`${dir}: its record can't be read (${e.code ?? e.message}), so its fixed parts aren't known`)
+  })
+  const e = JSON.parse(raw) as { sections?: { key: string; source: string; fixed?: boolean }[] }
+  return new Set((e.sections ?? []).filter(x => x.fixed).map(x => `sections.${x.key}:${x.source}`))
+}
+
 /** The parts of a page the lane may change: no references, no part a person fixed, no FAQ question. */
 export async function partsOf(dir: string, vi: Vi): Promise<Part[]> {
-  const fixed = await fixedParts(dir)
+  const fixed = await fixedIn(dir)
   if (vi.bodyFixed) return vi.faqFixed ? [] : (vi.faq ?? []).map((f, i) => ({ field: `faq.${i}.a`, text: f.a }))
   return [
     ...Object.entries(vi.sections ?? {}).filter(([k]) => !k.startsWith('references') && !fixed.has(`sections.${k}`)).map(([k, text]) => ({ field: `sections.${k}`, text })),
@@ -179,7 +193,7 @@ const within = (a: string[], b: string[]) => { const left = [...b]; return a.eve
 export type Step = 'swap' | 'recast'
 /** A sentence's outcome, for the report and the editors' blind read. */
 export type Outcome = { page: string; field: string; n: number; says: string[]; step: Step; before: string; after?: string; kept: boolean; why?: string }
-export type WordingReport = { pages: string[]; failed: string[]; stopped?: string; outcomes: Outcome[]; left: { page: string; field: string; says: string[]; why: string }[]; byEntry: Record<string, { sentences: number; swapped: number; recast: number; refused: number; left: number }> }
+export type WordingReport = { at: string; dry?: true; pages: string[]; failed: string[]; stopped?: string; outcomes: Outcome[]; left: { page: string; field: string; n: number; says: string[]; why: string }[]; byEntry: Record<string, { sentences: number; swapped: number; recast: number; refused: number; left: number }> }
 type State = Record<string, { at: string; marks: string[] }>
 
 /** One page's listed sentences mended: its changes by part (field → sentence → new HTML), and each sentence's outcome. */
@@ -248,7 +262,7 @@ export async function mendPage(llm: Llm, page: string, parts: readonly Part[], o
   const recast: Flagged[] = []
   for (const f of all) {
     if (done.has(f)) continue
-    if (f.hits.some(h => unrecast(h.say))) { left.push({ page, field: f.field, says: says(f), why: 'it says how sure or how many, and no word fit in place' }); continue }
+    if (f.hits.some(h => unrecast(h.say))) { left.push({ page, field: f.field, n: f.n, says: says(f), why: 'it says how sure or how many, and no word fit in place' }); continue }
     recast.push(f)
   }
   if (recast.length) {
@@ -335,7 +349,7 @@ export async function candidates(contentRoot: string): Promise<Candidate[]> {
  * turns (a fish page, a plant, a guide, a breed), so a trial reads each kind's writing.
  */
 export function pick(cands: readonly Candidate[], state: State, o: { limit: number; perEntry?: number; pages?: readonly string[] }): Candidate[] {
-  if (o.pages?.length) return o.pages.flatMap(k => cands.filter(c => c.key === k))
+  if (o.pages?.length) return [...new Set(o.pages)].flatMap(k => cands.filter(c => c.key === k)).slice(0, o.limit)
   const byKind = KINDS.map(k => cands.filter(c => c.key.startsWith(`${k}/`) && c.marks.some(m => !state[c.key]?.marks.includes(m))))
   const due = Array.from({ length: Math.max(0, ...byKind.map(l => l.length)) }, (_, i) => byKind.flatMap(l => (l[i] ? [l[i]!] : []))).flat()
   const count = (c: Candidate, say: string) => c.sentences.filter(f => f.hits.some(h => h.say === say)).length
@@ -353,34 +367,61 @@ export function pick(cands: readonly Candidate[], state: State, o: { limit: numb
   return chosen
 }
 
+/**
+ * Each entry's sentences, and what each became, once: its sentence's last outcome, or left when the lane left it. A
+ * kept change counts for an entry only if the sentence lost one of its words; one that kept them all leaves it.
+ */
 const sumEntry = (r: WordingReport, cands: readonly Candidate[]) => {
   for (const p of LANE) r.byEntry[p.say] = { sentences: 0, swapped: 0, recast: 0, refused: 0, left: 0 }
   for (const c of cands) for (const f of c.sentences) for (const s of new Set(f.hits.map(h => h.say))) r.byEntry[s]!.sentences++
-  const last = new Map<string, Outcome>()
-  for (const x of r.outcomes) last.set(`${x.page} ${x.field} ${x.n}`, x)
-  for (const x of last.values()) for (const s of x.says) { const e = r.byEntry[s]!; if (x.kept) e[x.step === 'swap' ? 'swapped' : 'recast']++; else e.refused++ }
-  for (const x of r.left) for (const s of x.says) r.byEntry[s]!.left++
+  const end = new Map<string, { says: string[]; as: 'swapped' | 'recast' | 'refused' | 'left'; before?: string; after?: string }>()
+  for (const x of r.outcomes) end.set(`${x.page} ${x.field} ${x.n}`, { says: x.says, as: x.kept ? (x.step === 'swap' ? 'swapped' : 'recast') : 'refused', before: x.before, after: x.after })
+  for (const x of r.left) end.set(`${x.page} ${x.field} ${x.n}`, { says: x.says, as: 'left' })
+  const n = (s: string | undefined, say: string) => listed(s ?? '').filter(x => x === say).length
+  for (const x of end.values()) for (const s of x.says) {
+    const kept = x.as === 'swapped' || x.as === 'recast'
+    r.byEntry[s]![kept && n(x.after, s) >= n(x.before, s) ? 'left' : x.as]++
+  }
+}
+
+/** A run's report file: one for each run, by its start, so a second day's run leaves the first's. */
+export const reportName = (r: Pick<WordingReport, 'at' | 'dry'>) => `${r.dry ? 'dry-run' : 'report'}-${r.at.replace(/[:.]/g, '-')}.json`
+const inside = (dir: string, root: string) => dir === root || dir.startsWith(root + sep)
+/** A path's real place, through links, though its last folders may not exist yet. */
+async function real(path: string): Promise<string> {
+  const abs = resolve(path)
+  try { return await realpath(abs) }
+  catch { const up = dirname(abs); return up === abs ? abs : join(await real(up), basename(abs)) }
 }
 
 /** The run: pages picked, each mended, and everything written under `out` alone. */
 export async function wordingMend(root: string, d: { llm: Llm; now: () => Date }, o: { out: string; limit: number; perEntry?: number; pages?: readonly string[]; dry?: boolean; models?: { pick?: string; review?: string; recast?: string } }): Promise<WordingReport> {
   if (!o.out) throw new Error('the wording mend writes only under --out <dir> until the editors have read a trial')
-  const stateFile = join(o.out, '_wording-mend.json')
+  if (!Number.isInteger(o.limit) || o.limit < 1) throw new Error(`--limit must be a whole number of pages, at least 1: ${o.limit}`)
+  if (o.perEntry !== undefined && (!Number.isInteger(o.perEntry) || o.perEntry < 0)) throw new Error(`--per must be a whole number: ${o.perEntry}`)
+  const out = await real(o.out), repo = await real(root)
+  if (inside(out, repo) || inside(repo, out)) throw new Error(`--out ${o.out} is in the repository or holds it: the trial writes only outside it`)
+  /** A file written under out alone: no folder on its way, nor the file, leads out of it. */
+  const put = async (file: string, text?: string, flag?: string) => {
+    if (!inside(await real(dirname(file)), out) || (await lstat(file).catch(() => undefined))?.isSymbolicLink()) throw new Error(`${file} leads outside ${o.out}: nothing written`)
+    if (text === undefined) return rm(file, { force: true })
+    await mkdir(dirname(file), { recursive: true })
+    await writeFile(file, text, flag ? { flag } : {})
+  }
+  const stateFile = join(out, '_wording-mend.json')
   const state = JSON.parse(await readFile(stateFile, 'utf8').catch(() => '{}')) as State
   const chosen = pick(await candidates(join(root, 'content')), state, o)
-  const report: WordingReport = { pages: chosen.map(c => c.key), failed: [], outcomes: [], left: [], byEntry: {} }
+  const report: WordingReport = { at: d.now().toISOString(), ...(o.dry ? { dry: true as const } : {}), pages: chosen.map(c => c.key), failed: [], outcomes: [], left: [], byEntry: {} }
   if (!o.dry) {
     for (const c of chosen) {
       try {
         const r = await piece(c.key, () => mendPage(d.llm, c.key, c.parts, o), { now: d.now })
         report.outcomes.push(...r.outcomes); report.left.push(...r.left)
-        if ([...r.changes.values()].some(m => m.size)) {
-          await mkdir(join(o.out, 'content', c.key), { recursive: true })
-          await writeFile(join(o.out, 'content', c.key, 'vi.json'), `${JSON.stringify(withChanges(c.vi, c.parts, r.changes), null, 2)}\n`)
-        }
+        // The page as this run left it: a draft from an earlier run that this one changed nothing in goes.
+        const changed = [...r.changes.values()].some(m => m.size)
+        await put(join(out, 'content', c.key, 'vi.json'), changed ? `${JSON.stringify(withChanges(c.vi, c.parts, r.changes), null, 2)}\n` : undefined)
         state[c.key] = { at: d.now().toISOString(), marks: [...new Set([...(state[c.key]?.marks ?? []), ...c.marks])] }
-        await mkdir(o.out, { recursive: true })
-        await writeFile(stateFile, `${JSON.stringify(state, null, 1)}\n`)
+        await put(stateFile, `${JSON.stringify(state, null, 1)}\n`)
       } catch (err) {
         const said = err instanceof Error ? err.message : String(err)
         // A page the day's line doesn't admit isn't started, and nothing of it is written or marked (pieces.ts).
@@ -391,7 +432,6 @@ export async function wordingMend(root: string, d: { llm: Llm; now: () => Date }
     }
   }
   sumEntry(report, chosen)
-  await mkdir(o.out, { recursive: true })
-  await writeFile(join(o.out, o.dry ? 'dry-run.json' : 'report.json'), `${JSON.stringify(report, null, 1)}\n`)
+  await put(join(out, reportName(report)), `${JSON.stringify(report, null, 1)}\n`, 'wx')
   return report
 }

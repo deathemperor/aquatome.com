@@ -1,10 +1,10 @@
-import { mkdir, mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, readdir, rm, symlink, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { afterEach, beforeEach, expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
 import { pattern, PHRASES } from '../src/phrases'
-import { applied, CAP, flagged, hitsIn, LANE, markOf, mendPage, partsOf, pick, SURE, unrecast, wordingMend, type Part } from '../src/wording-mend'
+import { applied, CAP, candidates, flagged, hitsIn, LANE, markOf, mendPage, partsOf, pick, reportName, SURE, unrecast, wordingMend, type Part } from '../src/wording-mend'
 
 const roots: string[] = []
 let log = ''
@@ -73,6 +73,32 @@ test('a pick goes in its text\'s place, and nothing else of the sentence changes
   expect(hitsIn('Cho cá ăn mồi sống.')).toMatchObject([{ say: 'thức ăn sống', options: [] }])
   // Inside a tag's attribute it isn't text.
   expect(hitsIn('<a title="dù vậy">Xem</a> thêm.')).toEqual([])
+})
+
+test('a cut takes only its text: two in one sentence, one after a full stop inside it, one before an entity', () => {
+  const cut = (html: string) => applied(html, hitsIn(html).filter(h => h.options.includes('')).map(hit => ({ hit, to: '' })))
+  expect(cut('<em></em> Bạn nên thay nước, nhờ vậy, cá khỏe.')).toBe('<em></em> Thay nước, cá khỏe.')
+  expect(cut('Nhờ vậy,&nbsp;cá khỏe.')).toBe('&nbsp;Cá khỏe.')
+  expect(cut('<strong>Cách xử lý.</strong> Bạn cần cẩn thận và nhấc cây ra thật chậm.')).toBe('<strong>Cách xử lý.</strong> Cẩn thận và nhấc cây ra thật chậm.')
+  expect(cut('Nên nuôi chung với Hara spp. Bạn nên tìm hiểu kỹ trước.')).toBe('Nên nuôi chung với Hara spp. Tìm hiểu kỹ trước.')
+  expect(cut('<strong>Bạn nên</strong> thay nước.')).toBe('Thay nước.')
+})
+
+test('a word is counted once per sentence, as what it became: a swap that left it is no swap for it', async () => {
+  const { llm } = model({
+    pick: [{ picks: [{ s: 1, h: 1, pick: 2 }, { s: 1, h: 2, pick: 0 }] }],
+    review: [{ verdicts: [{ s: 1, ok: true }] }],
+  })
+  const parts = body('Dù vậy, cá hung hăng.')
+  const r = await mendPage(llm, 'species/a', parts)
+  expect(r.changes.get('body')).toEqual(new Map([[0, 'Nhưng cá hung hăng.']]))
+  const root = await site()
+  const out = await outside()
+  await writeFile(join(root, 'content', 'species', 'a', 'vi.json'), JSON.stringify({ name: 'A', body: '<p>Dù vậy, cá hung hăng.</p>' }))
+  const m = model({ pick: [{ picks: [{ s: 1, h: 1, pick: 2 }, { s: 1, h: 2, pick: 0 }] }], review: [{ verdicts: [{ s: 1, ok: true }] }], recast: [{ sentences: [] }] })
+  const run = await wordingMend(root, { llm: m.llm, now: () => new Date('2026-11-23T02:00:00Z') }, { out, limit: 1, pages: ['species/a'] })
+  expect(run.byEntry['dù vậy']).toEqual({ sentences: 1, swapped: 1, recast: 0, refused: 0, left: 0 })
+  expect(run.byEntry['hung hăng']).toEqual({ sentences: 1, swapped: 0, recast: 0, refused: 0, left: 1 })
 })
 
 test('each sentence is kept or refused on its own; a pick off the list is none, and a recast that changes a figure is refused', async () => {
@@ -152,17 +178,18 @@ const site = async () => {
   await put('breeds/d/vi.json', { name: 'D', body: '<p>Cá khỏe.</p>', summary: ['Cá khỏe.'], faq: [{ q: 'Cá ăn gì?', a: 'Khẩu phần ăn gồm tảo.' }] })
   return root
 }
+const outside = async () => { const dir = await mkdtemp(join(tmpdir(), 'wording-out-')); roots.push(dir); return dir }
 const files = async (dir: string) => Object.fromEntries(await Promise.all((await readdir(dir, { recursive: true })).filter(f => f.endsWith('.json')).sort().map(async f => [f, await readFile(join(dir, f), 'utf8')])))
 
 test('a run writes only under its out folder, takes each page up once for its marks, and a dry run calls no model', async () => {
   const root = await site()
-  const out = join(root, 'trial')
+  const out = await outside()
   const content = await files(join(root, 'content'))
   const dry = model({})
   const d0 = await wordingMend(root, { llm: dry.llm, now: () => new Date('2026-11-23T02:00:00Z') }, { out, limit: 40, dry: true })
   expect(dry.asked).toEqual([])
   expect(d0.pages).toEqual(['species/a', 'breeds/d'])
-  expect(Object.keys(await files(out))).toEqual(['dry-run.json'])
+  expect(Object.keys(await files(out))).toEqual([reportName(d0)])
 
   const { llm, asked } = model({
     pick: [{ picks: [{ s: 1, h: 1, pick: 2 }, { s: 2, h: 1, pick: 1 }] }, { picks: [{ s: 1, h: 1, pick: 1 }] }],
@@ -190,12 +217,44 @@ test('a run writes only under its out folder, takes each page up once for its ma
 
 test('a page whose model fails is neither written nor marked, and the run stops', async () => {
   const root = await site()
-  const out = join(root, 'trial')
+  const out = await outside()
   const { llm } = model({})
   const r = await wordingMend(root, { llm, now: () => new Date() }, { out, limit: 40 })
   expect(r.failed).toEqual([expect.stringContaining('species/a: no pick answer left')])
   expect(r.stopped).toContain('species/a failed')
-  expect(Object.keys(await files(out))).toEqual(['report.json'])
+  expect(Object.keys(await files(out))).toEqual([reportName(r)])
+})
+
+test('a run never writes into the repository: not with its out folder in it, nor through a link to a page', async () => {
+  const root = await site()
+  const live = await files(join(root, 'content'))
+  const d = { llm: model({}).llm, now: () => new Date('2026-11-23T02:00:00Z') }
+  await expect(wordingMend(root, d, { out: root, limit: 40 })).rejects.toThrow(/repository/)
+  await expect(wordingMend(root, d, { out: join(root, 'trial'), limit: 40 })).rejects.toThrow(/repository/)
+  const out = await outside()
+  await mkdir(join(out, 'content', 'species'), { recursive: true })
+  await symlink(join(root, 'content', 'species', 'a'), join(out, 'content', 'species', 'a'))
+  const { llm } = model({ pick: [{ picks: [{ s: 1, h: 1, pick: 2 }, { s: 2, h: 1, pick: 1 }] }], review: [{ verdicts: [{ s: 1, ok: true }, { s: 2, ok: true }] }] })
+  const r = await wordingMend(root, { llm, now: d.now }, { out, limit: 1 })
+  expect(r.failed).toEqual([expect.stringContaining('outside')])
+  expect(await files(join(root, 'content'))).toEqual(live)
+})
+
+test('a malformed limit fails before a page is read, and each run keeps its own report', async () => {
+  const root = await site()
+  const out = await outside()
+  const d = (at: string) => ({ llm: model({}).llm, now: () => new Date(at) })
+  await expect(wordingMend(root, d('2026-11-23T02:00:00Z'), { out, limit: Number('nope') })).rejects.toThrow(/limit/)
+  const a = await wordingMend(root, d('2026-11-23T02:00:00Z'), { out, limit: 40, dry: true })
+  const b = await wordingMend(root, d('2026-11-24T02:00:00Z'), { out, limit: 40, dry: true })
+  expect(Object.keys(await files(out)).sort()).toEqual([reportName(a), reportName(b)].sort())
+  expect(reportName(a)).not.toBe(reportName(b))
+})
+
+test('a fixed part whose page record can\'t be read is never offered: the run stops before any model call', async () => {
+  const root = await site()
+  await mkdir(join(root, 'content', 'species', 'a', 'entity.json')) // a folder: reading it fails, and not for a missing file
+  await expect(candidates(join(root, 'content'))).rejects.toThrow()
 })
 
 test('a mark names the words a text may take, so a change to them brings the page back', () => {
