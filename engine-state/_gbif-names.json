@@ -26463,6 +26463,22 @@
     "genus": "Polypterus",
     "matchType": "EXACT"
   },
+  "Polypterus endlicheri": {
+    "canonicalName": "Polypterus endlicherii",
+    "phylum": "Chordata",
+    "order": "Polypteriformes",
+    "family": "Polypteridae",
+    "genus": "Polypterus",
+    "matchType": "FUZZY"
+  },
+  "Polypterus lapradei": {
+    "canonicalName": "Polypterus bichir",
+    "phylum": "Chordata",
+    "order": "Polypteriformes",
+    "family": "Polypteridae",
+    "genus": "Polypterus",
+    "matchType": "EXACT"
+  },
   "Polypterus senegalus": {
     "canonicalName": "Polypterus senegalus",
     "order": "Polypteriformes",

@@ -1,7 +1,7 @@
 import { piece } from './pieces'
-import { createHash } from 'node:crypto'
+import { createHash, randomUUID } from 'node:crypto'
 import { readFileSync } from 'node:fs'
-import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readdir, readFile, rename, rm, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { metricPage, nameKey, POPULAR, QUALITY_THRESHOLD, slugify, STAPLE_SPECIES, TranslationSchema, type Section, type SourceId, type Translation } from '@aq/schema'
 import { OTHER_LANGS, type WrittenOtherLang } from '@aq/schema/langs'
@@ -183,6 +183,24 @@ export async function translatableIn(root: string): Promise<(source: string) => 
  * (plants: localize-<lang>-plants.json) keeps each page's name confidence and the source date it was made from. Pages
  * already done are skipped unless redo.
  */
+/**
+ * The translator's record, written whole or not at all: a copy beside it, then a rename. One read while it's written (the
+ * recheck reads it to put a page back, localize-recheck.ts) gets the last record or the new one, never half of one, and a
+ * write that fails part way leaves the last record as it was (the chief of staff, 22 Nov 2026: a read of a record written
+ * in place caught it half-written in #1822's run, and the page was skipped). A copy left by a run killed between the write
+ * and the rename is ignored (.gitignore); each write has its own, so two at once don't take each other's.
+ */
+export async function writeRecord(file: string, text: string) {
+  const tmp = `${file}.${process.pid}-${randomUUID().slice(0, 8)}.tmp`
+  try {
+    await writeFile(tmp, text)
+    await rename(tmp, file)
+  } catch (e) {
+    await rm(tmp, { force: true }).catch(() => {}) // the write's own error is the one to see
+    throw e
+  }
+}
+
 export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, ids: string[], o: { redo?: boolean; model?: string; now?: () => Date; english?: (sci: string) => Promise<string>; /** Stop after this many pages made. */ limit?: number; kind?: 'species' | 'plants' } = {}) {
   const kind = o.kind ?? 'species'
   const dir = join(root, 'content', kind)
@@ -203,7 +221,7 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
   const translatable = await translatableIn(root)
   const save = async () => {
     await mkdir(join(root, 'engine-state'), { recursive: true })
-    await writeFile(stateFile, `${JSON.stringify(Object.fromEntries(Object.entries(state).sort()), null, 2)}\n`)
+    await writeRecord(stateFile, `${JSON.stringify(Object.fromEntries(Object.entries(state).sort()), null, 2)}\n`)
   }
   const report = { done: [] as string[], skipped: [] as string[], failed: [] as string[], stopped: '' }
   for (const id of ids) {

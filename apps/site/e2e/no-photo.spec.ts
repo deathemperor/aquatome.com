@@ -29,7 +29,9 @@ test('the fish list\'s script draws "no photo yet" on a fish with no photo, and 
 // A fish with no photo at all: the list's data file gives it none, and its page's Article names no image (the fish's
 // first photo, pages/ca/[slug].astro). The list alone isn't enough: a tile takes only a photo that fits a card, and on
 // 13 November the first 44 fish without one had a photo on their page (the first, ca-betta-unimaculata, a dealer's photo
-// cropped to 1000 × 691). Of the first 150, ten pages at a time; a page that doesn't answer, or has no Article, isn't one.
+// cropped to 1000 × 691). Nor is an Article with no image: a page whose only photo is non-commercial shows it and names
+// none, sharing the logo (gallery.ts shareImage, 17 Nov), as the splitfin's did on 22 Nov, so the page must show no photo
+// of its own either. Of the first 150, ten pages at a time; a page that doesn't answer, or has no Article, isn't one.
 const SEARCHED = 150
 const LD = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g
 async function photoless(request: import('@playwright/test').APIRequestContext) {
@@ -38,8 +40,9 @@ async function photoless(request: import('@playwright/test').APIRequestContext) 
     const bare = await Promise.all(items.slice(at, at + 10).map(async item => {
       const res = await request.get(`${LIST}${item.slug}/`)
       if (!res.ok()) return false
-      const article = [...(await res.text()).matchAll(LD)].map(m => JSON.parse(m[1]!) as { '@type'?: string; image?: unknown }).find(d => d['@type'] === 'Article')
-      return !!article && article.image === undefined
+      const html = await res.text()
+      const article = [...html.matchAll(LD)].map(m => JSON.parse(m[1]!) as { '@type'?: string; image?: unknown }).find(d => d['@type'] === 'Article')
+      return !!article && article.image === undefined && !html.includes('id="anh"')
     }))
     if (bare.includes(true)) return items[at + bare.indexOf(true)]
   }
