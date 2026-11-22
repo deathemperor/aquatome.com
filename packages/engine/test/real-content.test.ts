@@ -1136,6 +1136,18 @@ test("the Writing Lead's dose lines of 22 Nov hold: Aquarium Breeder's gallon as
   expect(JSON.stringify(guide('aquatome-cac-loai-thuc-an-cho-ca-thuc-an-song-trun-chi-trung-huyet-artemia-bobo', 'ms'))).not.toMatch(/alergi/iu)
 })
 
+// The Writing Lead's answer of 22 Nov 2026 on the two held algae guides (the chief of staff): products the market table
+// has as not sold here, or doesn't list, go. The black beard guide names Flourish Excel alone for liquid carbon, its Tetra
+// Algizit section goes whole with its tablet dose and JBL Algol, and the sections after it move up a number. The staghorn
+// guide's EasyCarbo, AlgaeFIX and Razor Freshwater parts go whole, each from its heading to the next. Both bodies stay
+// bodyFixed and both stay held until the gate's read of the new text lets them out (test/fixtures/held-guides-1122.json).
+test("the Writing Lead's cuts of 22 Nov hold on the black beard and staghorn guides", () => {
+  handFixesHold('held-guides-1122.json', '')
+  const body = (s: string) => (JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/guides/aquariumbreeder-how-to-remove-${s}/vi.json`, import.meta.url)), 'utf8')) as Translation).body
+  for (const s of ['black-beard-algae', 'staghorn-algae-in-aquariums']) expect(body(s), s).not.toMatch(/Easy ?-?Carbo|Easy[ -]Life|Algizit|Algol|AlgaeFix|Razor|Brightwell/iu)
+  expect([...body('black-beard-algae').matchAll(/<h3>(\d+)\. /gu)].map(m => Number(m[1]))).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+})
+
 // The Writing Lead's yes or no of 20 Nov 2026 on what that change left as it was, each checked against the saved source
 // or the video's transcript: three of the shop's photo captions out of the egg scatterers' body and the fourth moved to
 // the paragraph it belongs to; the keeper's own hedge on why the Endlers tank still needs water changes, and the snails
