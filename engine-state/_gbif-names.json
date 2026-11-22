@@ -529,6 +529,14 @@
     "genus": "Andinoacara",
     "matchType": "EXACT"
   },
+  "Aequidens superomaculatum": {
+    "canonicalName": "Aequidens superomaculatum",
+    "phylum": "Chordata",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Aequidens",
+    "matchType": "EXACT"
+  },
   "Aequidens tetramerus": {
     "canonicalName": "Aequidens tetramerus",
     "order": "Perciformes",
@@ -1518,6 +1526,22 @@
     "order": "Siluriformes",
     "family": "Doradidae",
     "genus": "Amblydoras",
+    "matchType": "EXACT"
+  },
+  "Anaspidoglanis akiri": {
+    "canonicalName": "Notoglanidium akiri",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Claroteidae",
+    "genus": "Notoglanidium",
+    "matchType": "EXACT"
+  },
+  "Anaspidoglanis boutchangai": {
+    "canonicalName": "Notoglanidium boutchangai",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Claroteidae",
+    "genus": "Notoglanidium",
     "matchType": "EXACT"
   },
   "Anatolichthys anatoliae": {
@@ -3057,6 +3081,14 @@
     "genus": "Astacopsis",
     "matchType": "EXACT"
   },
+  "Astatheros macracanthus": {
+    "canonicalName": "Astatheros macracanthus",
+    "phylum": "Chordata",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Astatheros",
+    "matchType": "EXACT"
+  },
   "Astatotilapia burtoni": {
     "canonicalName": "Astatotilapia burtoni",
     "order": "Perciformes",
@@ -3215,6 +3247,14 @@
   },
   "Astroblepus taczanowskii": {
     "canonicalName": "Astroblepus taczanowskii",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Astroblepidae",
+    "genus": "Astroblepus",
+    "matchType": "EXACT"
+  },
+  "Astroblepus trifasciatus": {
+    "canonicalName": "Astroblepus trifasciatus",
     "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Astroblepidae",
@@ -3529,6 +3569,14 @@
     "order": "Siluriformes",
     "family": "Auchenipteridae",
     "genus": "Trachycorystes",
+    "matchType": "EXACT"
+  },
+  "Auchenoglanis altipinnis": {
+    "canonicalName": "Parauchenoglanis altipinnis",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Claroteidae",
+    "genus": "Parauchenoglanis",
     "matchType": "EXACT"
   },
   "Auchenoglanis biscutatus": {
@@ -4566,6 +4614,14 @@
     "matchType": "FUZZY"
   },
   "Barbus schuberti": null,
+  "Barbus schwanefeldi": {
+    "canonicalName": "Barbonymus schwanenfeldii",
+    "phylum": "Chordata",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Barbonymus",
+    "matchType": "EXACT"
+  },
   "Barbus semifasciolatus": {
     "canonicalName": "Barbodes semifasciolatus",
     "order": "Cypriniformes",
@@ -7743,6 +7799,7 @@
     "matchType": "EXACT"
   },
   "Chonlatee jaturonrusmee": null,
+  "Christobal empties": null,
   "Chromaphyosemion bivittatum": null,
   "Chromidotilapia finleyi": {
     "canonicalName": "Benitochromis finleyi",
@@ -7918,6 +7975,14 @@
     "family": "Cichlidae",
     "genus": "Cichlasoma",
     "matchType": "EXACT"
+  },
+  "Cichlasoma macracanthus": {
+    "canonicalName": "Astatheros macracanthus",
+    "phylum": "Chordata",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Astatheros",
+    "matchType": "FUZZY"
   },
   "Cichlasoma meeki": null,
   "Cichlasoma nicaraguense": {
@@ -11659,6 +11724,7 @@
     "matchType": "FUZZY"
   },
   "Eigenmann described": null,
+  "Eigenmann describes": null,
   "Eigenmann trong": null,
   "Eigenmannia trilineata": {
     "canonicalName": "Eigenmannia trilineata",
@@ -17131,6 +17197,7 @@
   "Khi tranh": null,
   "Khi treo": null,
   "Khi trong": null,
+  "Khi tuy": null,
   "Khi xem": null,
   "Khi xoay": null,
   "Khi xong": null,
@@ -19276,6 +19343,15 @@
     "genus": "Macrobrachium",
     "matchType": "EXACT"
   },
+  "Macrobrachium spinipes": {
+    "canonicalName": "Macrobrachium spinipes",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Palaemonidae",
+    "genus": "Macrobrachium",
+    "matchType": "EXACT"
+  },
   "Macrobrachium tenellum": {
     "canonicalName": "Macrobrachium tenellum",
     "phylum": "Arthropoda",
@@ -19464,6 +19540,7 @@
   "Malaysia localities": null,
   "Malaysia regurgitated": null,
   "Malaysia symaptric": null,
+  "Malaysia trong": null,
   "Malpulutta kretseri": {
     "canonicalName": "Malpulutta kretseri",
     "order": "Perciformes",
@@ -19634,6 +19711,14 @@
   },
   "Matano kho": null,
   "Mavaca drainages": null,
+  "Mayaheros beani": {
+    "canonicalName": "Mayaheros beani",
+    "phylum": "Chordata",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Mayaheros",
+    "matchType": "EXACT"
+  },
   "Mayaheros urophthalmus": {
     "canonicalName": "Mayaheros urophthalmus",
     "order": "Perciformes",
@@ -21023,6 +21108,14 @@
     "genus": "Myloplus",
     "matchType": "EXACT"
   },
+  "Myloplus torquatus": {
+    "canonicalName": "Myloplus torquatus",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Serrasalmidae",
+    "genus": "Myloplus",
+    "matchType": "EXACT"
+  },
   "Mylossoma aureum": {
     "canonicalName": "Mylossoma aureum",
     "order": "Characiformes",
@@ -21531,6 +21624,14 @@
     "genus": "Congochromis",
     "matchType": "EXACT"
   },
+  "Nanochromis teugelsi": {
+    "canonicalName": "Nanochromis teugelsi",
+    "phylum": "Chordata",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Nanochromis",
+    "matchType": "EXACT"
+  },
   "Nanochromis transvestitus": {
     "canonicalName": "Nanochromis transvestitus",
     "order": "Perciformes",
@@ -21939,6 +22040,7 @@
     "genus": "Sciades",
     "matchType": "EXACT"
   },
+  "Neocaridina cao": null,
   "Neocaridina chung": null,
   "Neocaridina davidi": {
     "canonicalName": "Neocaridina davidi",
@@ -24657,6 +24759,22 @@
     "genus": "Trachelyopterus",
     "matchType": "EXACT"
   },
+  "Parauchenoglanis altipinnis": {
+    "canonicalName": "Parauchenoglanis altipinnis",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Claroteidae",
+    "genus": "Parauchenoglanis",
+    "matchType": "EXACT"
+  },
+  "Parauchenoglanis balayi": {
+    "canonicalName": "Parauchenoglanis balayi",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Claroteidae",
+    "genus": "Parauchenoglanis",
+    "matchType": "EXACT"
+  },
   "Parauchenoglanis punctatus": {
     "canonicalName": "Parauchenoglanis punctatus",
     "order": "Siluriformes",
@@ -24947,6 +25065,14 @@
     "order": "Perciformes",
     "family": "Osphronemidae",
     "genus": "Parosphromenus",
+    "matchType": "EXACT"
+  },
+  "Parotocinclus bahiensis": {
+    "canonicalName": "Parotocinclus bahiensis",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Parotocinclus",
     "matchType": "EXACT"
   },
   "Parotocinclus combines": null,
@@ -25620,6 +25746,14 @@
   },
   "Phenacogrammus interruptus": {
     "canonicalName": "Phenacogrammus interruptus",
+    "order": "Characiformes",
+    "family": "Alestidae",
+    "genus": "Phenacogrammus",
+    "matchType": "EXACT"
+  },
+  "Phenacogrammus taeniatus": {
+    "canonicalName": "Phenacogrammus taeniatus",
+    "phylum": "Chordata",
     "order": "Characiformes",
     "family": "Alestidae",
     "genus": "Phenacogrammus",
@@ -30873,6 +31007,15 @@
     "genus": "Silonia",
     "matchType": "EXACT"
   },
+  "Silurana tropicalis": {
+    "canonicalName": "Xenopus tropicalis",
+    "phylum": "Chordata",
+    "class": "Amphibia",
+    "order": "Anura",
+    "family": "Pipidae",
+    "genus": "Xenopus",
+    "matchType": "EXACT"
+  },
   "Silurichthys hasseltii": {
     "canonicalName": "Silurichthys hasseltii",
     "order": "Siluriformes",
@@ -33816,6 +33959,7 @@
   "Walstad khuy": null,
   "Wanam has": null,
   "Wanam rainbowfish": null,
+  "Wertheimeria honours": null,
   "Wertheimeria maculata": {
     "canonicalName": "Wertheimeria maculata",
     "order": "Siluriformes",
@@ -34360,22 +34504,5 @@
     "genus": "Zungaro",
     "matchType": "EXACT"
   },
-  "Zwei neue": null,
-  "Macrobrachium spinipes": {
-    "canonicalName": "Macrobrachium spinipes",
-    "phylum": "Arthropoda",
-    "class": "Malacostraca",
-    "order": "Decapoda",
-    "family": "Palaemonidae",
-    "genus": "Macrobrachium",
-    "matchType": "EXACT"
-  },
-  "Parotocinclus bahiensis": {
-    "canonicalName": "Parotocinclus bahiensis",
-    "phylum": "Chordata",
-    "order": "Siluriformes",
-    "family": "Loricariidae",
-    "genus": "Parotocinclus",
-    "matchType": "EXACT"
-  }
+  "Zwei neue": null
 }
