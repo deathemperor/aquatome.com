@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { filterSpecies, keepBreed, unsureSpecies, type SpeciesIndexItem } from '../src/scripts/filter'
+import { filterSpecies, keepBreed, optionFor, unsureSpecies, type SpeciesIndexItem } from '../src/scripts/filter'
 
 const items: SpeciesIndexItem[] = [
   { slug: 'ca-neon-xanh', name: 'Cá neon xanh', scientificName: 'Paracheirodon innesi', group: 'tetras', difficulty: 2, tempC: { min: 20, max: 26 }, ph: { min: 5, max: 7 }, tankCm: 60 },
@@ -25,6 +25,14 @@ test('difficulty cap, group and pH combine', () => {
 // 22 Nov 2026: groups with one name are one option, its value each of them (format.ts groupOptions).
 test('an option that holds two groups shows the fish of both', () => {
   expect(slugs({ group: 'danios,cichlids' })).toEqual(['ca-dia', 'ca-galaxy'])
+})
+test("an address with one of an option's groups takes that option", () => {
+  const options = ['', 'catfish', 'characins,characoids', 'cyprinid']
+  expect(optionFor(options, 'characoids')).toBe('characins,characoids')
+  expect(optionFor(options, 'characins')).toBe('characins,characoids')
+  expect(optionFor(options, 'characins,characoids')).toBe('characins,characoids')
+  expect(optionFor(options, 'catfish')).toBe('catfish')
+  expect(optionFor(options, 'plecos')).toBe('plecos') // none holds it: as it is
 })
 test('empty query returns everything', () => {
   expect(slugs({})).toHaveLength(3)

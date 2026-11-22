@@ -32,6 +32,15 @@ export function nameHas(name: string, text: string): boolean {
   for (let at = h.indexOf(n); at !== -1; at = h.indexOf(n, at + 1)) if (at === 0 || !/[a-z0-9]/.test(h[at - 1]!)) return true
   return false
 }
+/**
+ * A select's value for an address's: the option that is it, else the option that holds it among several (groups with one
+ * name are one option, "characins,characoids": lib/format.ts groupOptions), else the value as it is. An address from before
+ * two groups were one option (?group=characins) then shows that option, its chip reads its name, and the next filter keeps
+ * it (Codex's read, 22 Nov 2026).
+ */
+export function optionFor(options: string[], value: string): string {
+  return options.includes(value) ? value : options.find(o => o.split(',').includes(value)) ?? value
+}
 const named = (i: SpeciesIndexItem, q: SpeciesQuery) =>
   (!q.group || q.group.split(',').includes(i.group)) && (!q.text || nameHas(`${i.name} ${i.scientificName}`, q.text))
 

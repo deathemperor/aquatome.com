@@ -140,6 +140,24 @@ test('makeSpecies: a species GBIF\'s backbone lacks, researched with its video a
   await expect(readFile(join(r2, 'content/species/nanosphronemus-gemma/entity.json'), 'utf8')).rejects.toThrow()
 })
 
+// 22 Nov 2026: a new page in a word on neither group table goes where its order puts it (gbif.ts newPageGroup), and a page
+// on file keeps its group when it's written again, as merge.ts keeps it (Codex's read).
+test("makeSpecies: a new page in a group word the engine doesn't know takes its order's group; written again, a page keeps its group", async () => {
+  const r = await root()
+  let group = 'gouramis'
+  const research: Llm = async <T,>() => ({ ...facts, group }) as T
+  const llm: Llm = async <T,>(a: { schema: object }) => ('score' in (a.schema as { properties: object }).properties
+    ? { score: 0.95, notes: [] }
+    : { sections: [{ key: 'reproduction', html: '<p>Cá đực xây tổ bọt.</p>', facts: ['f2'] }] }) as T
+  const make = () => makeSpecies(r, { research, llm, http: gbif, now: () => new Date('2026-11-22T00:00:00Z') }, { name: 'Nanosphronemus gemma', videos: [video(false)] })
+  const onFile = async () => (JSON.parse(await readFile(join(r, 'content/species/nanosphronemus-gemma/entity.json'), 'utf8')) as { group: string }).group
+  await make()
+  expect(await onFile()).toBe('labyrinth') // Anabantiformes: one group has it
+  group = 'other'
+  await make()
+  expect(await onFile()).toBe('labyrinth')
+})
+
 test('makeSpecies: a Vietnamese page\'s name with another kind\'s word is no name of it; the page takes its plain scientific form, listed for the Writing Lead', async () => {
   const r = await root()
   const research: Llm = async <T,>() => ({ ...facts, viNames: [{ name: 'Cá rô Huế', source: 4 }], enNames: [...facts.enNames, { name: 'Cá rô Huế', source: 4 }] }) as T

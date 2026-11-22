@@ -194,16 +194,15 @@ test("a page's group as its order allows: kept where it fits, the order's one gr
 })
 
 // 22 Nov 2026: a model had filed pages under three words outside its list since 30 Oct, and a word on neither group table
-// would have held a cycle's whole work at its checks. A new page goes where its order puts it; a page on file keeps its own.
-test("a page written in a word on neither group table: a new one where its order puts it, one on file where it is", () => {
+// would have held a cycle's whole work at its checks.
+test("a new page in a word on neither group table goes where its order puts it", () => {
   expect(newPageGroup('plecos', 'Siluriformes')).toBe('catfish') // the order's one group
   expect(newPageGroup('pufferfish', 'Tetraodontiformes')).toBe('other') // no group has it
   expect(newPageGroup('piranhas', 'Characiformes')).toBe('other') // three groups share it
   expect(newPageGroup('pufferfish', undefined)).toBe('other') // no order to place it by
-  expect(newPageGroup('piranhas', 'Characiformes', 'characins')).toBe('characins') // on file: it stays
-  // A word on the tables is pageGroup's, on file or not.
+  // A word on the tables is pageGroup's.
   expect(newPageGroup('characins', 'Characiformes')).toBe('characins')
-  expect(newPageGroup('loaches', 'Siluriformes', 'loaches')).toBe('catfish')
+  expect(newPageGroup('loaches', 'Siluriformes')).toBe('catfish')
   expect(newPageGroup('snails', 'Architaenioglossa')).toBe('snails')
   expect(newPageGroup('loaches', undefined)).toBe('loaches')
 })
