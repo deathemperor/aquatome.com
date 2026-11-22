@@ -991,6 +991,7 @@
     "genus": "Altolamprologus",
     "matchType": "EXACT"
   },
+  "Amano females": null,
   "Amano khi": null,
   "Amano kho": null,
   "Amano quanh": null,
@@ -3425,6 +3426,15 @@
     "genus": "Atya",
     "matchType": "EXACT"
   },
+  "Atya moluccensis": {
+    "canonicalName": "Atyopsis moluccensis",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Atyidae",
+    "genus": "Atyopsis",
+    "matchType": "EXACT"
+  },
   "Atyoida pilipes": {
     "canonicalName": "Atyoida pilipes",
     "order": "Decapoda",
@@ -3434,6 +3444,15 @@
   },
   "Atyopsis moluccensis": {
     "canonicalName": "Atyopsis moluccensis",
+    "order": "Decapoda",
+    "family": "Atyidae",
+    "genus": "Atyopsis",
+    "matchType": "EXACT"
+  },
+  "Atyopsis spinipes": {
+    "canonicalName": "Atyopsis spinipes",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
     "order": "Decapoda",
     "family": "Atyidae",
     "genus": "Atyopsis",
@@ -4163,6 +4182,7 @@
     "genus": "Centromochlus",
     "matchType": "EXACT"
   },
+  "Balss coi": null,
   "Bangana behri": {
     "canonicalName": "Bangana behri",
     "order": "Cypriniformes",
@@ -6552,6 +6572,7 @@
     "genus": "Caridina",
     "matchType": "EXACT"
   },
+  "Caridina shrimplets": null,
   "Caridina trifasciata": {
     "canonicalName": "Caridina trifasciata",
     "order": "Decapoda",
@@ -8983,6 +9004,14 @@
     "genus": "Corydoras",
     "matchType": "EXACT"
   },
+  "Corydoras eversi": {
+    "canonicalName": "Corydoras eversi",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Callichthyidae",
+    "genus": "Corydoras",
+    "matchType": "EXACT"
+  },
   "Corydoras flaveolus": {
     "canonicalName": "Corydoras flaveolus",
     "order": "Siluriformes",
@@ -9496,6 +9525,14 @@
     "genus": "Corydoras",
     "matchType": "EXACT"
   },
+  "Corydoras undulatus": {
+    "canonicalName": "Corydoras undulatus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Callichthyidae",
+    "genus": "Corydoras",
+    "matchType": "EXACT"
+  },
   "Corydoras venezuelae": {
     "canonicalName": "Corydoras aeneus",
     "phylum": "Chordata",
@@ -9663,6 +9700,14 @@
   "Crenicichla has": null,
   "Crenicichla inpa": {
     "canonicalName": "Crenicichla inpa",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Crenicichla",
+    "matchType": "EXACT"
+  },
+  "Crenicichla jegui": {
+    "canonicalName": "Crenicichla jegui",
+    "phylum": "Chordata",
     "order": "Perciformes",
     "family": "Cichlidae",
     "genus": "Crenicichla",
@@ -10223,6 +10268,14 @@
   },
   "Cuatro nueva": null,
   "Cuatro nuevas": null,
+  "Curculionichthys sabaji": {
+    "canonicalName": "Curculionichthys sabaji",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Curculionichthys",
+    "matchType": "EXACT"
+  },
   "Curimata vittata": {
     "canonicalName": "Curimata vittata",
     "order": "Characiformes",
@@ -12558,6 +12611,14 @@
     "genus": "Fossorochromis",
     "matchType": "EXACT"
   },
+  "Franciscodoras marmoratus": {
+    "canonicalName": "Franciscodoras marmoratus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Doradidae",
+    "genus": "Franciscodoras",
+    "matchType": "EXACT"
+  },
   "Franz von": null,
   "Friedrich von": null,
   "Fujian provinces": null,
@@ -14167,6 +14228,14 @@
     "family": "Characidae",
     "genus": "Hasemania",
     "matchType": "EXACT"
+  },
+  "Hasemania hansseni": {
+    "canonicalName": "Hasemania hanseni",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Hasemania",
+    "matchType": "FUZZY"
   },
   "Hasemania nana": {
     "canonicalName": "Hasemania nana",
@@ -15961,6 +16030,14 @@
     "genus": "Hyphessobrycon",
     "matchType": "EXACT"
   },
+  "Hyphessobrycon moniliger": {
+    "canonicalName": "Hyphessobrycon moniliger",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Hyphessobrycon",
+    "matchType": "EXACT"
+  },
   "Hyphessobrycon negodagua": {
     "canonicalName": "Hyphessobrycon negodagua",
     "phylum": "Chordata",
@@ -16968,6 +17045,14 @@
   "Kalimantan provinces": null,
   "Kalimantan tengah": null,
   "Kallada drainages": null,
+  "Kalyptodoras bahiensis": {
+    "canonicalName": "Kalyptodoras bahiensis",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Doradidae",
+    "genus": "Kalyptodoras",
+    "matchType": "EXACT"
+  },
   "Kampffisch von": null,
   "Kampffische von": null,
   "Kamphol ghi": null,
@@ -19080,6 +19165,15 @@
     "genus": "Lysmata",
     "matchType": "EXACT"
   },
+  "Lysmata seticaudata": {
+    "canonicalName": "Lysmata seticaudata",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Lysmatidae",
+    "genus": "Lysmata",
+    "matchType": "EXACT"
+  },
   "Lysmata wurdemanni": {
     "canonicalName": "Lysmata wurdemanni",
     "order": "Decapoda",
@@ -19175,6 +19269,15 @@
   },
   "Macrobrachium scabriculum": {
     "canonicalName": "Macrobrachium scabriculum",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Palaemonidae",
+    "genus": "Macrobrachium",
+    "matchType": "EXACT"
+  },
+  "Macrobrachium tenellum": {
+    "canonicalName": "Macrobrachium tenellum",
     "phylum": "Arthropoda",
     "class": "Malacostraca",
     "order": "Decapoda",
@@ -20634,8 +20737,24 @@
     "genus": "Moenkhausia",
     "matchType": "EXACT"
   },
+  "Moenkhausia nigromarginata": {
+    "canonicalName": "Moenkhausia nigromarginata",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Moenkhausia",
+    "matchType": "EXACT"
+  },
   "Moenkhausia oligolepis": {
     "canonicalName": "Moenkhausia oligolepis",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Moenkhausia",
+    "matchType": "EXACT"
+  },
+  "Moenkhausia phaeonota": {
+    "canonicalName": "Moenkhausia phaeonota",
+    "phylum": "Chordata",
     "order": "Characiformes",
     "family": "Characidae",
     "genus": "Moenkhausia",
@@ -20810,6 +20929,14 @@
     "matchType": "EXACT"
   },
   "Myitmaka thu": null,
+  "Mylesinus paucisquamatus": {
+    "canonicalName": "Mylesinus paucisquamatus",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Serrasalmidae",
+    "genus": "Mylesinus",
+    "matchType": "EXACT"
+  },
   "Mylesinus schomburgkii": {
     "canonicalName": "Mylesinus schomburgkii",
     "order": "Characiformes",
@@ -24021,6 +24148,14 @@
     "genus": "Pantanodon",
     "matchType": "EXACT"
   },
+  "Pao abei": {
+    "canonicalName": "Pao abei",
+    "phylum": "Chordata",
+    "order": "Tetraodontiformes",
+    "family": "Tetraodontidae",
+    "genus": "Pao",
+    "matchType": "EXACT"
+  },
   "Pao baileyi": {
     "canonicalName": "Pao baileyi",
     "order": "Tetraodontiformes",
@@ -24506,6 +24641,15 @@
     "genus": "Paratrygon",
     "matchType": "EXACT"
   },
+  "Paratya australiensis": {
+    "canonicalName": "Paratya australiensis",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Atyidae",
+    "genus": "Paratya",
+    "matchType": "EXACT"
+  },
   "Parauchenipterus fisheri": {
     "canonicalName": "Trachelyopterus fisheri",
     "order": "Siluriformes",
@@ -24647,6 +24791,14 @@
   },
   "Parkinsoni pha": null,
   "Parnahyba und": null,
+  "Parodon affinis": {
+    "canonicalName": "Apareiodon affinis",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Parodontidae",
+    "genus": "Apareiodon",
+    "matchType": "EXACT"
+  },
   "Parodon guyanensis": {
     "canonicalName": "Parodon guyanensis",
     "order": "Characiformes",
@@ -30833,6 +30985,7 @@
     "genus": "Skiffia",
     "matchType": "EXACT"
   },
+  "Smiley faces": null,
   "Smilosicyopus has": null,
   "Smilosicyopus leprurus": {
     "canonicalName": "Smilosicyopus leprurus",
@@ -32593,6 +32746,14 @@
   "Tocantins states": null,
   "Tocantins traded": null,
   "Tolerates temperatures": null,
+  "Tometes kranponhah": {
+    "canonicalName": "Tometes kranponhah",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Serrasalmidae",
+    "genus": "Tometes",
+    "matchType": "EXACT"
+  },
   "Tometes makue": {
     "canonicalName": "Tometes makue",
     "order": "Characiformes",

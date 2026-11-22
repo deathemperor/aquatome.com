@@ -986,6 +986,16 @@
     ],
     "mentions": 4
   },
+  "lysmata-boggessi": {
+    "name": "Lysmata boggessi",
+    "mentionedIn": [
+      "guides/aquariumbreeder-how-to-enhance-shrimp-color",
+      "guides/aquariumbreeder-invertebrates-best-reef-safe-clean-up-crew",
+      "species/lysmata-wurdemanni",
+      "species/micromussa-lordhowensis"
+    ],
+    "mentions": 4
+  },
   "trachemys-scripta": {
     "name": "Trachemys scripta",
     "mentionedIn": [
@@ -1381,15 +1391,6 @@
       "guides/aquariumbreeder-importance-of-surface-agitation-in-aquariums",
       "guides/aquariumcoop-blogs-aquarium-freshwater-dwarf-shrimp",
       "guides/seriouslyfish-articles-new-shrimp-from-hong-kong-and-southern-china"
-    ],
-    "mentions": 3
-  },
-  "lysmata-boggessi": {
-    "name": "Lysmata boggessi",
-    "mentionedIn": [
-      "guides/aquariumbreeder-invertebrates-best-reef-safe-clean-up-crew",
-      "species/lysmata-wurdemanni",
-      "species/micromussa-lordhowensis"
     ],
     "mentions": 3
   },
@@ -3595,6 +3596,13 @@
     ],
     "mentions": 1
   },
+  "lysmata-seticaudata": {
+    "name": "Lysmata seticaudata",
+    "mentionedIn": [
+      "guides/aquariumbreeder-how-density-affects-cherry-shrimp"
+    ],
+    "mentions": 1
+  },
   "achaeus-japonicus": {
     "name": "Achaeus japonicus",
     "mentionedIn": [
@@ -3613,6 +3621,13 @@
     "name": "Isochrysis galbana",
     "mentionedIn": [
       "guides/aquariumbreeder-how-to-culture-phytoplankton"
+    ],
+    "mentions": 1
+  },
+  "macrobrachium-tenellum": {
+    "name": "Macrobrachium tenellum",
+    "mentionedIn": [
+      "guides/aquariumbreeder-how-to-enhance-shrimp-color"
     ],
     "mentions": 1
   },
@@ -3746,6 +3761,13 @@
     "name": "Lockhartia oerstedii",
     "mentionedIn": [
       "guides/aquariumbreeder-paludarium-plants"
+    ],
+    "mentions": 1
+  },
+  "paratya-australiensis": {
+    "name": "Paratya australiensis",
+    "mentionedIn": [
+      "guides/aquariumbreeder-pesticides-and-shrimp-plants-quarantine"
     ],
     "mentions": 1
   },
@@ -5492,6 +5514,13 @@
     "name": "Astroblepus acostai",
     "mentionedIn": [
       "species/astroblepus-itae"
+    ],
+    "mentions": 1
+  },
+  "atyopsis-spinipes": {
+    "name": "Atyopsis spinipes",
+    "mentionedIn": [
+      "species/atyopsis-moluccensis"
     ],
     "mentions": 1
   },
@@ -8583,6 +8612,20 @@
     "name": "Vittina semiconica",
     "mentionedIn": [
       "species/vittina-turrita"
+    ],
+    "mentions": 1
+  },
+  "franciscodoras-marmoratus": {
+    "name": "Franciscodoras marmoratus",
+    "mentionedIn": [
+      "species/wertheimeria-maculata"
+    ],
+    "mentions": 1
+  },
+  "kalyptodoras-bahiensis": {
+    "name": "Kalyptodoras bahiensis",
+    "mentionedIn": [
+      "species/wertheimeria-maculata"
     ],
     "mentions": 1
   },
