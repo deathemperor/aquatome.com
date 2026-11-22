@@ -143,6 +143,12 @@ publish_kept "$PART"
 pnpm engine redo-unread || log "redo-unread: failed"
 if part pages; then
   pnpm engine run --max-minutes "${ENGINE_MAX_MINUTES:-300}" ${ENGINE_ARGS:---except seriouslyfish}
+  # Practical Fishkeeping through the Internet Archive, right after the three sources read through it and under the same
+  # rest, which is this Mac's: its titles a week apart (once a day while it has none), then the day's one guide on its ideas,
+  # given its post, at most 6 requests a day and 9 a week for its list (ideas.ts refreshMagazine, writeMagazine; the chief
+  # of staff, 21 Nov 2026). Not in a targeted run. Elsewhere only the sf part's Seriously Fish may ask the Archive, after a
+  # browser check on two runs in a week (run.ts), on this Mac too; GitHub never does (cycle-archive.test.ts).
+  if [ -z "${ENGINE_ARGS:-}" ]; then pnpm engine magazine || log "magazine: failed"; fi
   # Plants' other scientific names (sources' "previously named …", GBIF, a few hobby names): linked, checked, searched.
   pnpm engine plant-synonyms || log "plant-synonyms: failed"
   # Fish's older scientific names from GBIF (fish-synonyms.ts), 300 a cycle, each asked once: Commons files some fish under them.
@@ -348,7 +354,7 @@ if part rewrite; then
   # leads for breed and guide research (forum.ts).
   pnpm engine forum --limit "${FORUM_LIMIT:-10}" --pages 3 || log "forum: failed"
   # Vietnamese shops' blogs, read for ideas a week apart (their posts' titles, never their text): the topics the
-  # handbook has no guide on, most asked first (ideas.ts).
+  # handbook has no guide on, most asked first (ideas.ts), with the magazine's titles the Mac reads (engine magazine).
   pnpm engine ideas || log "ideas: failed"
   # Where each species lives in the wild (range.ts): the countries and regions its sources name, each country with the
   # source's sentence (engine-state/range/), RANGE_LIMIT model calls a cycle for species whose sources' text is new or
@@ -397,8 +403,9 @@ if part rewrite; then
   else
     log "fit-rewrite: skipped, the cycle has run $(( SECONDS / 60 )) min"
   fi
-  # AquaTome's own guides on the most asked ideas, IDEAS_PER_DAY a day, last: each is a full research run (up to ~25
-  # min), so only with an hour and a half left of the job's 355 minutes (a rewrite job has taken 266).
+  # AquaTome's own guides on the shops' most asked ideas, IDEAS_PER_DAY a day, last (the magazine's are the Mac's): each is
+  # a full research run (up to ~25 min), so only with an hour and a half left of the job's 355 minutes (a rewrite job has
+  # taken 266).
   if [ "$SECONDS" -lt $(( ${IDEAS_BEFORE_MINUTES:-260} * 60 )) ]; then
     pnpm engine write-ideas --limit "${IDEAS_PER_DAY:-2}" || log "write-ideas: failed"
   else
@@ -447,6 +454,15 @@ fi
 # verdicts that can differ.
 if part photos; then
   pnpm engine units-mend --first vi/guides/youtube-mGmIvhtIM9k || log "units-mend: failed"
+fi
+# The pass over the open pages no read covers (fit-pass.ts; the chief of staff, 21 Nov 2026): on its two nights alone
+# (fit-pass.json: 00:00 to 07:00 Vietnam time, so the 02:10 and 05:10 starts), FIT_PASS_LIMIT pages a start, on the Mac's
+# second sign-in, which this week's runs have left (CLAUDE_FIRST_ACCOUNT=2: the first if it runs out), on its own line in
+# ceilings.json ("fit-pass"). It reads and records only: the gate next holds a page whose read found harm, in every
+# language, and a kit it finds holds none. In the photos part alone, as the units mend: the Mac's parts overlap, and two
+# clones would read the same pages.
+if part photos; then
+  CLAUDE_FIRST_ACCOUNT=2 pnpm engine fit-pass --limit "${FIT_PASS_LIMIT:-300}" || log "fit-pass: failed"
 fi
 # Last of the steps that write pages: what this run changed is read against the reader-fit checklist (gate.ts). A new page
 # that fails is held, a live page that got worse keeps its committed text, a page built on a foreign shop's kit is held,

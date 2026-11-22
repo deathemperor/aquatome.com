@@ -4360,10 +4360,13 @@
     "reason": "expedition"
   },
   "r0dgL36Ccvw": {
-    "at": "2026-11-07",
+    "at": "2026-11-22",
     "title": "The Rainbow Nano Danio: Gold Ring Danios  |(Brachydanio tinwini) Care Guide & Background Info",
     "channel": "FISHTORY",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Brachydanio tinwini",
+    "done": "skipped",
+    "reason": "no page, and GBIF has no species of that name"
   },
   "r2EEVAFDSmY": {
     "at": "2026-11-07",
@@ -4374,16 +4377,23 @@
     "reason": "fish room tour"
   },
   "R2WBeiemNjY": {
-    "at": "2026-11-07",
+    "at": "2026-11-22",
     "title": "Red Rili Shrimp (Neocaridina davidi var) Freshwater Shrimp Aquarium Shrimp Profile & Care Guide",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Neocaridina davidi",
+    "page": "species/neocaridina-davidi",
+    "done": "low",
+    "score": 0.68,
+    "reason": "\"thân thường trong mờ với đốm hoặc sọc nâu\": the page's distribution section already says wild shrimp are translucent with brown blotches, so this repeats it.; \"Tép rili không có ngoài tự nhiên. Đây là dòng màu người ta chọn lọc từ tép cherry\": the page already lists rili as a colour strain of the cherry shrimp. The overlap is partial, and it adds little beyond the page."
   },
   "R85C4mP4bOc": {
-    "at": "2026-11-07",
+    "at": "2026-11-22",
     "title": "PLATY FISH BREEDING (All You Need to Know)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "rA2AM8wvzvk": {
     "at": "2026-11-18",

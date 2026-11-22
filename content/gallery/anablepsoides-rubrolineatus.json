@@ -36,8 +36,7 @@
       "caption": "Cá rivulus sọc đỏ đực màu vàng cam nền đen",
       "best": true,
       "kind": "male",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/631210586.webp",
@@ -50,8 +49,7 @@
       "caption": "Cặp cá rivulus đực và cái thân cam vây vàng, nền đen",
       "best": true,
       "kind": "pair",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/68030160.webp",
@@ -64,8 +62,7 @@
       "caption": "Cá rivulus sọc đỏ vàng cam bơi trong bể kính",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/291881916.webp",
@@ -78,36 +75,7 @@
       "caption": "Cá rivulus sọc đỏ đực vây đuôi xòe, nền đen",
       "best": true,
       "kind": "male",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/325294549.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/325294549-480.webp",
-      "width": 815,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "ellaguedouar",
-      "sourceUrl": "https://www.inaturalist.org/photos/325294549",
-      "caption": "Cá rivulus sọc đỏ đực bơi trước tấm lưới ô vuông",
-      "best": false,
-      "kind": "male",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/127308793.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/127308793-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Esteban Diego Koch",
-      "sourceUrl": "https://www.inaturalist.org/photos/127308793",
-      "caption": "Cá rivulus sọc đỏ ngoài tự nhiên trên nền cát",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/66455126.webp",
@@ -120,8 +88,7 @@
       "caption": "Cá rivulus sọc đỏ trong bể trồng cây",
       "best": false,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/68030176.webp",
@@ -134,8 +101,7 @@
       "caption": "Cá rivulus sọc đỏ đuôi vàng trong bể kính",
       "best": false,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/339109921.webp",
@@ -148,8 +114,20 @@
       "caption": "Cá rivulus sọc đỏ cạnh thước đo",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/127308793.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/127308793-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Esteban Diego Koch",
+      "sourceUrl": "https://www.inaturalist.org/photos/127308793",
+      "caption": "Cá rivulus sọc đỏ ngoài tự nhiên trên nền cát",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 27,

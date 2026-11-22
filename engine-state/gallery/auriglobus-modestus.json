@@ -2,7 +2,9 @@
  "queue": [],
  "judged": [
   "File:Auriglobus modestus.jpg",
-  "File:Xenopterus modestus - 1700-1880 - Print - Iconographia Zoologica - Special Collections University of Amsterdam - UBA01 IZ15500009 (cropped)2.jpg"
+  "File:Xenopterus modestus - 1700-1880 - Print - Iconographia Zoologica - Special Collections University of Amsterdam - UBA01 IZ15500009 (cropped)2.jpg",
+  "inat:466781737",
+  "inat:482068932"
  ],
  "hashes": {},
  "commons": "2026-11-06",
@@ -17,5 +19,9 @@
  "gbif": {
   "key": 2407788,
   "next": null
+ },
+ "inatNc": {
+  "after": 412111251,
+  "done": true
  }
 }

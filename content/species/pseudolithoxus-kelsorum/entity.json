@@ -243,15 +243,22 @@
         "Orinoco"
       ],
       "sources": [
-        "glaser"
+        "glaser",
+        "scotcat"
       ],
       "quotes": [
         {
           "source": "glaser",
-          "quote": "It lives in the tributaries of the middle Orinoco in Venezuela.",
+          "quote": "This interesting catfish from Venezuela is offered only very rarely.",
           "countries": [
             "VE"
           ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "It lives in the tributaries of the middle Orinoco in Venezuela.",
+          "countries": [],
           "regions": [
             "Orinoco"
           ]

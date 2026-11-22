@@ -10,6 +10,65 @@
     "peru",
     "ucayali"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Ucayali",
+        "Andes"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Upper Ucayali River basin (Peru).",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Ucayali"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Amable Maria, Peruvian Andes.",
+          "countries": [],
+          "regions": [
+            "Andes"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342130,
+      "total": 2,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "PE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -11.25,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

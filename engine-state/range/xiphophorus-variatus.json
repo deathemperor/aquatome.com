@@ -1,14 +1,14 @@
 {
   "id": "xiphophorus-variatus",
   "native": {
-    "input": "6fc736b649d7e873",
-    "at": "2026-11-21T01:22:16.258Z",
+    "input": "623dc4c4aeb791da",
+    "at": "2026-11-22T00:38:58.151Z",
     "claims": [
       {
         "code": "MX",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Originally endemic to the Atlantic slope of Mexico but introduced or feral populations now exist in several other countries, including Costa Rica, Colombia, the USA, Hawaii, Singapore and Hong Kong.",
+        "quote": "The variable platy, Xiphophorus variatus, is a livebearer native to the Atlantic slope of Mexico, with feral populations in several other countries.",
         "words": "Mexico",
         "ok": true
       },
@@ -33,7 +33,7 @@
         "status": "introduced",
         "source": "seriouslyfish",
         "quote": "Originally endemic to the Atlantic slope of Mexico but introduced or feral populations now exist in several other countries, including Costa Rica, Colombia, the USA, Hawaii, Singapore and Hong Kong.",
-        "words": "USA",
+        "words": "the USA",
         "ok": true
       },
       {
@@ -45,11 +45,19 @@
         "ok": true
       },
       {
-        "code": "HK",
-        "status": "introduced",
+        "code": "MX",
+        "status": "native",
         "source": "seriouslyfish",
         "quote": "Originally endemic to the Atlantic slope of Mexico but introduced or feral populations now exist in several other countries, including Costa Rica, Colombia, the USA, Hawaii, Singapore and Hong Kong.",
-        "words": "Hong Kong",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Two wild-derived forms of Xiphophorus variatus are described here, both German-bred descendants of wild populations collected on a scientific expedition in Mexico.",
+        "words": "Mexico",
         "ok": true
       }
     ],

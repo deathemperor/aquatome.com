@@ -4,6 +4,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { nameStep } from '../src/ceiling'
 import { LlmError, type Llm } from '../src/claude'
+import { writeRecord } from '../src/localize'
 import { doseOrHarm, recheckLocalized, type Cleared } from '../src/localize-recheck'
 import { sourceTextHash } from '../src/recheck-score'
 import { logReviews, readReviews } from '../src/review-log'
@@ -182,11 +183,13 @@ test("the translator's record written while a page is read is kept as it is then
   const { root } = await site()
   const stateFile = join(root, 'engine-state/localize-th.json')
   const base = fake({ sonnet: PASS, opus: OPUS })
-  // The translator writes its record (another page, and this one's notes) while Opus reads.
+  // The translator writes its record (another page, and this one's notes) while Opus reads, as it writes it (writeRecord).
+  // Both reads here are near the bar, so each is read twice more at once (quality.ts steadyRead): two writes side by side,
+  // which in place left a read half a record on a loaded runner (#1822's run of 22 Nov).
   const meanwhile = (async (a: { prompt: string; model?: string }) => {
     if (a.model === 'opus') {
       const s = JSON.parse(await readFile(stateFile, 'utf8'))
-      await writeFile(stateFile, JSON.stringify({ ...s, a: { ...s.a, notes: ['Item 1: "อาหาร" reads well.'] }, z: { at: '2026-11-18', score: 0.8 } }))
+      await writeRecord(stateFile, JSON.stringify({ ...s, a: { ...s.a, notes: ['Item 1: "อาหาร" reads well.'] }, z: { at: '2026-11-18', score: 0.8 } }))
     }
     return base.llm(a as never)
   }) as unknown as Llm

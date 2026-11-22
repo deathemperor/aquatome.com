@@ -196,7 +196,12 @@
       "author": "observe-syz",
       "sourceUrl": "https://www.inaturalist.org/photos/469859119",
       "caption": "Cá Acrossocheilus iridescens với sọc đen trên thân trong bể nuôi",
-      "setup": false
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/469859119-large.webp",
+        "width": 1799,
+        "height": 1200
+      }
     }
   ],
   "videos": [],
