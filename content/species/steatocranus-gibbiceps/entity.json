@@ -10,6 +10,45 @@
     "democratic-republic-of-the-congo",
     "congo"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 2371076,
+      "total": 9,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "CD",
+          5
+        ],
+        [
+          "CG",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          12.65625,
+          -7.03125,
+          1
+        ],
+        [
+          12.65625,
+          -5.625,
+          3
+        ],
+        [
+          14.0625,
+          -5.625,
+          3
+        ],
+        [
+          14.0625,
+          -4.21875,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

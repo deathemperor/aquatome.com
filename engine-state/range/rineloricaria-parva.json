@@ -1,37 +1,13 @@
 {
   "id": "rineloricaria-parva",
   "native": {
-    "input": "289c36edf5611e7e",
-    "at": "2026-11-14T11:07:07.888Z",
+    "input": "071a3c32ff2eeee8",
+    "at": "2026-11-22T06:56:55.617Z",
     "claims": [
       {
         "code": "BR",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Rineloricaria parva is a whiptail catfish from Brazil, Paraguay and Argentina, found among leaf litter over sandy substrates.",
-        "words": "Brazil",
-        "ok": true
-      },
-      {
-        "code": "PY",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Rineloricaria parva is a whiptail catfish from Brazil, Paraguay and Argentina, found among leaf litter over sandy substrates.",
-        "words": "Paraguay",
-        "ok": true
-      },
-      {
-        "code": "AR",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Rineloricaria parva is a whiptail catfish from Brazil, Paraguay and Argentina, found among leaf litter over sandy substrates.",
-        "words": "Argentina",
-        "ok": true
-      },
-      {
-        "code": "BR",
-        "status": "native",
-        "source": "seriouslyfish",
         "quote": "Brazil, Paraguay and Argentina.",
         "words": "Brazil",
         "ok": true
@@ -50,10 +26,26 @@
         "source": "seriouslyfish",
         "quote": "Brazil, Paraguay and Argentina.",
         "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Paraguay.",
+        "words": "Paraguay",
+        "ok": false,
+        "why": "no sentence"
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraguay River",
+        "source": "glaser",
+        "quote": "Whiptail catfishes destined for export are mostly collected from the Paraguay River not far from the capital Asunción, where R. aurata, R. lanceolata and R. parva can be expected.",
         "ok": true
       }
     ],
-    "regions": [],
     "disputed": [],
     "outranked": [],
     "origin": {

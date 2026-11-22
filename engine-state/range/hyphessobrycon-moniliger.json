@@ -1,0 +1,72 @@
+{
+  "id": "hyphessobrycon-moniliger",
+  "native": {
+    "input": "aa846c54a3f72107",
+    "at": "2026-11-22T06:56:55.617Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Rio Tocantins",
+        "source": "glaser",
+        "quote": "It was scientifically described in 2002 based on specimens from the Rio Tocantins drainage.",
+        "ok": true
+      },
+      {
+        "name": "Rio Tapajós",
+        "source": "glaser",
+        "quote": "In the meantime it has also been reported from the Rio Tapajós drainage.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon moniliger",
+    "status": "ACCEPTED",
+    "taxonKey": 2354607,
+    "datasets": [
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        24
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        24
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        16
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        9
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-22T06:56:55.617Z"
+  }
+}

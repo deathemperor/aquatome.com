@@ -2991,5 +2991,85 @@
       "equipment:aquariumbreeder": "47028e5e5b7d",
       "notes:aquariumbreeder": "877a3d6e5a10"
     }
+  },
+  "rotala-indica-bonsai": {
+    "at": "2026-11-22",
+    "from": "2026-10-31",
+    "name": "Rotala indica 'Bonsai'",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "Item 1: 'di dalam tangki' is acceptable but 'akuarium' is the more natural term for a planted tank; 'tangki' could be changed to 'akuarium'.",
+      "Item 2: 'trim' is left in English; use 'pangkas' (or 'trim' in brackets after it).",
+      "Item 3: 'tumbuh secara sederhana' is awkward; use 'berkadar tumbesaran sederhana'.",
+      "Item 3: 'paling sesuai digambarkan sebagai' misreads 'is best described as'; use 'paling tepat digambarkan sebagai'."
+    ],
+    "parts": {
+      "quickFacts:tropica": "3ce8b49bed3b",
+      "maintenance:tropica": "81c2c06bd332",
+      "notes:tropica": "cff6e8fcbdcd"
+    }
+  },
+  "rotala-macrandra": {
+    "at": "2026-11-22",
+    "from": "2026-10-31",
+    "name": "Rotala macrandra",
+    "confidence": "high",
+    "score": 0.93,
+    "notes": [
+      "#5: \"Ikut jadual pembajaan lean yang tetap dan membekalkan makro- dan mikronutrien\" is grammatically awkward; use \"yang membekalkan\" or rephrase as \"Ikut jadual pembajaan lean yang tetap, yang membekalkan...\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "ca71bbc48f6d",
+      "quickFacts:tropica": "e9bacf3fb89b",
+      "distribution:aquariumbreeder": "6438b7e930ed",
+      "aquariumSize:aquariumbreeder": "28e41aa4c104",
+      "maintenance:aquariumbreeder": "240f8b28b2be",
+      "maintenance:tropica": "2d80a7ed4b87",
+      "waterConditions:aquariumbreeder": "1f9aaf9476a1",
+      "equipment:aquariumbreeder": "c5bf038bd41c",
+      "notes:aquariumbreeder": "2b84f6108b07",
+      "notes:tropica": "d3832ab44065"
+    }
+  },
+  "rotala-rotundifolia": {
+    "at": "2026-11-22",
+    "from": "2026-10-31",
+    "name": "Rotala Rotundifolia",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "Item 8, tankmates: the bracket \"(kedua-duanya ikan cichlid)\" after \"Texas cichlid dan red devil\" is not in the English. Delete it. It is also misleading, because Frontosa and Jack Dempsey are cichlids too.",
+      "Item 9: \"meleret\" for \"hanging\" means creeping or trailing along the ground. Use a word for drooping or cascading growth, such as \"menjuntai\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "4bc8f72cab5c",
+      "quickFacts:tropica": "b922bdde6745",
+      "aquariumSize:aquariumbreeder": "4214111533f4",
+      "maintenance:aquariumbreeder": "c58142492c9e",
+      "maintenance:tropica": "0392ebed80aa",
+      "waterConditions:aquariumbreeder": "1bd11144def6",
+      "equipment:aquariumbreeder": "f47c4b498c16",
+      "notes:aquariumbreeder": "0391457f3398",
+      "notes:tropica": "6b6564dea7f0"
+    }
+  },
+  "rotala-rotundifolia-h-ra": {
+    "at": "2026-11-22",
+    "from": "2026-10-31",
+    "name": "Rotala H'ra",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "\"Tumbuhan akuatik daripada kultur tisu\": 'Aquarium plant' is rendered as 'akuatik'; 'tumbuhan akuarium' is closer to the source.",
+      "\"tumbesarannya condong ke bawah\": 'overhanging' is better rendered as 'menjuntai'; 'condong ke bawah' (leaning downward) is imprecise. Also use the standard spelling 'tumbesaran' consistently or 'pertumbuhan'.",
+      "\"kusyen oren ... di bahagian tengah tangki\": 'mid-ground' is better as 'bahagian tengah (midground)'; 'kusyen' is awkward, so use 'hamparan' or 'rumpun padat'.",
+      "\"karpet oren yang luar biasa di bahagian hadapan\": 'unusual' is better as 'tidak lazim'; add 'latar depan' for foreground.",
+      "\"baja yang mencukupi\": 'good fertilization' means 'pembajaan yang baik'."
+    ],
+    "parts": {
+      "quickFacts:tropica": "3e6adcea166d",
+      "notes:tropica": "7081832828f9"
+    }
   }
 }

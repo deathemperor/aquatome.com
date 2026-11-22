@@ -1,8 +1,8 @@
 {
   "id": "sundadanio-axelrodi",
   "native": {
-    "input": "ab11ac9c4aa79c65",
-    "at": "2026-11-20T01:55:49.831Z",
+    "input": "eb31f5720072a16d",
+    "at": "2026-11-22T06:56:55.617Z",
     "claims": [
       {
         "code": "ID",
@@ -32,20 +32,6 @@
     "regions": [
       {
         "name": "Borneo",
-        "source": "bwaquatics",
-        "quote": "It occurs in the ancient peat swamp forests of Borneo, Bangka and Sumatra, Indonesia.",
-        "country": "ID",
-        "ok": true
-      },
-      {
-        "name": "Sumatra",
-        "source": "bwaquatics",
-        "quote": "It occurs in the ancient peat swamp forests of Borneo, Bangka and Sumatra, Indonesia.",
-        "country": "ID",
-        "ok": true
-      },
-      {
-        "name": "Borneo",
         "source": "seriouslyfish",
         "quote": "Supposedly native to the Greater Sunda Islands of Borneo and Sumatra as well as the Riau Archipelago and Bangka Island off the east coast of Sumatra, but the only collection/locality details available refer to Bornean populations.",
         "ok": true
@@ -66,6 +52,19 @@
         "name": "Bangka",
         "source": "seriouslyfish",
         "quote": "Supposedly native to the Greater Sunda Islands of Borneo and Sumatra as well as the Riau Archipelago and Bangka Island off the east coast of Sumatra, but the only collection/locality details available refer to Bornean populations.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "bwaquatics",
+        "quote": "It occurs in the ancient peat swamp forests of Borneo, Bangka and Sumatra, Indonesia.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "bwaquatics",
+        "quote": "It occurs in the ancient peat swamp forests of Borneo, Bangka and Sumatra, Indonesia.",
+        "country": "ID",
         "ok": true
       }
     ],

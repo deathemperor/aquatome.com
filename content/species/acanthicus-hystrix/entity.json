@@ -24,36 +24,42 @@
       ],
       "regions": [
         "Amazon",
-        "Río Orinoco"
+        "Orinoco",
+        "Rio Tocantins",
+        "Rio Xingu"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The lyre tail pleco, Acanthicus hystrix, is a very large loricariid catfish from the Amazon region of Brazil and Peru.",
+          "quote": "The precise type locality is unknown and given simply as 'Amazon River', although the species has subsequently been recorded throughout much of the Amazon region in Brazil and Peru, plus there exist a handful of records pertaining to the Río Orinoco drainage in Venezuela.",
           "countries": [
             "BR",
-            "PE"
-          ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "A handful of records come from the Orinoco in Venezuela.",
-          "countries": [
+            "PE",
             "VE"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "The precise type locality is unknown and given simply as 'Amazon River', although the species has subsequently been recorded throughout much of the Amazon region in Brazil and Peru, plus there exist a handful of records pertaining to the Río Orinoco drainage in Venezuela.",
-          "countries": [],
           "regions": [
             "Amazon",
-            "Río Orinoco"
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The L155 come from the Furo Maguari, a tributary of the Rio Tocantins.",
+          "countries": [],
+          "regions": [
+            "Rio Tocantins"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "For one of them, a form from the Rio Xingu, the L-number 155 was assigned.",
+          "countries": [],
+          "regions": [
+            "Rio Xingu"
           ]
         }
       ]

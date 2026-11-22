@@ -198,5 +198,65 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-22"
+  "updatedAt": "2026-11-22",
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tocantins"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It originates from the drainage of the Rio Tocantins, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Tocantins"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961496,
+      "total": 7,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "BR",
+          6
+        ],
+        [
+          "PY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -59.0625,
+          -25.3125,
+          1,
+          0
+        ],
+        [
+          -52.03125,
+          -16.875,
+          5,
+          5
+        ],
+        [
+          -49.21875,
+          -14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  }
 }

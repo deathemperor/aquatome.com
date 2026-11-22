@@ -10,6 +10,52 @@
     "brazil",
     "xingu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The Rio Xingu is a clear water tributary of the Amazon in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9456228,
+      "total": 116,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "BR",
+          116
+        ]
+      ],
+      "cells": [
+        [
+          -53.4375,
+          -4.21875,
+          25,
+          25
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          91,
+          91
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

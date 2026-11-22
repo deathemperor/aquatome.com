@@ -1,0 +1,41 @@
+{
+  "id": "xiphophorus-signum",
+  "native": {
+    "input": "524ec073bf6b7858",
+    "at": "2026-11-22T06:56:55.617Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Xiphophorus signum",
+    "status": "ACCEPTED",
+    "taxonKey": 2350155,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "805bbcde-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "4ec633b0-8b1f-405e-86cf-7f782a3ced53",
+        2
+      ],
+      [
+        "727b83c1-e8a7-4dd9-a9a2-4c4a9ea9636c",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-22T06:56:55.617Z"
+  }
+}

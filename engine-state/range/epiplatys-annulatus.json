@@ -1,8 +1,8 @@
 {
   "id": "epiplatys-annulatus",
   "native": {
-    "input": "de678c0bf12c34ce",
-    "at": "2026-11-16T17:28:41.839Z",
+    "input": "2abd635d224dee2c",
+    "at": "2026-11-22T06:56:55.617Z",
     "claims": [
       {
         "code": "GN",
@@ -50,6 +50,30 @@
         "source": "aquariumbreeder",
         "quote": "They are recorded in three of West Africa's ichthyological provinces – Guinea, Liberia and Sierra Leone – where the hot and wet seasons are very pronounced.",
         "words": "Sierra Leone",
+        "ok": true
+      },
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "The Clown Killifish, also called the Banded or Rocket Panchax, lives in coastal swamps, sluggish streams and small rivers from southern Guinea and Sierra Leone to northwestern Liberia around Monrovia.",
+        "words": "Guinea",
+        "ok": true
+      },
+      {
+        "code": "SL",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "The Clown Killifish, also called the Banded or Rocket Panchax, lives in coastal swamps, sluggish streams and small rivers from southern Guinea and Sierra Leone to northwestern Liberia around Monrovia.",
+        "words": "Sierra Leone",
+        "ok": true
+      },
+      {
+        "code": "LR",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "The Clown Killifish, also called the Banded or Rocket Panchax, lives in coastal swamps, sluggish streams and small rivers from southern Guinea and Sierra Leone to northwestern Liberia around Monrovia.",
+        "words": "Liberia",
         "ok": true
       }
     ],

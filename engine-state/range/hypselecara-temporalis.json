@@ -1,8 +1,8 @@
 {
   "id": "hypselecara-temporalis",
   "native": {
-    "input": "ac90d43903315d43",
-    "at": "2026-11-09T05:57:45.266Z",
+    "input": "41466e255d6feefa",
+    "at": "2026-11-22T06:56:55.617Z",
     "claims": [
       {
         "code": "PE",
@@ -66,7 +66,9 @@
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "GF"
+      ],
       "sourcesOnly": []
     }
   },

@@ -49,12 +49,6 @@
     },
     {
       "key": "distribution",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/wertheimeria-maculata-2/",
-      "html": "<p>The species is endemic and occurs exclusively in the Jequitinhonha and Pardo rivers in Brazil. The area of occurrence covers more than twice the area of Switzerland, and W. maculata is not considered endangered.</p>"
-    },
-    {
-      "key": "distribution",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/doradidae/wertheimeria_maculata.htm",
       "html": "<p>South America: Jequitinhonha River basin, Brazil. Type locality: Rio Jequitinhonha [Brazil].</p><p>Wertheimeria maculata is endemic to the Jequitinhonha and Pardo rivers in eastern Brazil.</p>"
@@ -233,5 +227,75 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-22"
+  "updatedAt": "2026-11-22",
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Jequitinhonha",
+        "Pardo"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species is endemic and occurs exclusively in the Jequitinhonha and Pardo rivers in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Jequitinhonha",
+            "Pardo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344005,
+      "total": 46,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "BR",
+          46
+        ]
+      ],
+      "cells": [
+        [
+          -43.59375,
+          -18.28125,
+          11,
+          11
+        ],
+        [
+          -43.59375,
+          -16.875,
+          19,
+          19
+        ],
+        [
+          -42.1875,
+          -16.875,
+          11,
+          11
+        ],
+        [
+          -40.78125,
+          -16.875,
+          4,
+          4
+        ],
+        [
+          -40.78125,
+          -15.46875,
+          1,
+          1
+        ]
+      ]
+    }
+  }
 }

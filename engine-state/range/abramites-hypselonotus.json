@@ -1,8 +1,8 @@
 {
   "id": "abramites-hypselonotus",
   "native": {
-    "input": "aeb1d6221da41a88",
-    "at": "2026-11-09T23:57:44.132Z",
+    "input": "0303b4ceb253b353",
+    "at": "2026-11-22T06:56:55.617Z",
     "claims": [
       {
         "code": "PE",
@@ -74,6 +74,22 @@
         "source": "seriouslyfish",
         "quote": "As currently recognised though it has an enormous natural range, occurring throughout much of the Amazon and Orinoco river basins in Bolivia, Brazil, Colombia, Ecuador, Guyana, Peru and Venezuela plus the Paraguay-Paraná system in southern Brazil, Paraguay and Argentina.",
         "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "In the extremely widespread Abramites hypselonotus – it exists practically in the whole of South America east of the Andes, from Argentina to Venezuela – the stripes start directly behind the head.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "In the extremely widespread Abramites hypselonotus – it exists practically in the whole of South America east of the Andes, from Argentina to Venezuela – the stripes start directly behind the head.",
+        "words": "Venezuela",
         "ok": true
       }
     ],

@@ -1,19 +1,35 @@
 {
   "id": "moenkhausia-phaeonota",
   "native": {
-    "input": "ac76c85e5c68b9ad",
-    "at": "2026-11-10T12:58:20.267Z",
+    "input": "9f1e9d1e4f6ca142",
+    "at": "2026-11-22T06:56:55.617Z",
     "claims": [
       {
         "code": "BR",
         "status": "native",
         "source": "glaser",
-        "quote": "This small (about 4 cm) species of tetra originates from the Mato Grosso region in Brazil.",
+        "quote": "This small (about 4 cm) species of tetra originates from the upper Rio Tapajós basin in the Mato Grosso state in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Upper Rio Tapajós basin, Mato Grosso state, Brazil.",
         "words": "Brazil",
         "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Rio Tapajós",
+        "source": "glaser",
+        "quote": "This small (about 4 cm) species of tetra originates from the upper Rio Tapajós basin in the Mato Grosso state in Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

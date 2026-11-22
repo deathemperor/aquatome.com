@@ -1,33 +1,9 @@
 {
   "id": "acanthicus-hystrix",
   "native": {
-    "input": "917f56932ecbe610",
-    "at": "2026-11-05T22:45:18.315Z",
+    "input": "ad09c49f5797293b",
+    "at": "2026-11-22T06:56:55.617Z",
     "claims": [
-      {
-        "code": "BR",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The lyre tail pleco, Acanthicus hystrix, is a very large loricariid catfish from the Amazon region of Brazil and Peru.",
-        "words": "Brazil",
-        "ok": true
-      },
-      {
-        "code": "PE",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The lyre tail pleco, Acanthicus hystrix, is a very large loricariid catfish from the Amazon region of Brazil and Peru.",
-        "words": "Peru",
-        "ok": true
-      },
-      {
-        "code": "VE",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "A handful of records come from the Orinoco in Venezuela.",
-        "words": "Venezuela",
-        "ok": true
-      },
       {
         "code": "BR",
         "status": "native",
@@ -61,10 +37,22 @@
         "ok": true
       },
       {
-        "name": "Río Orinoco",
+        "name": "Orinoco",
         "source": "seriouslyfish",
         "quote": "The precise type locality is unknown and given simply as 'Amazon River', although the species has subsequently been recorded throughout much of the Amazon region in Brazil and Peru, plus there exist a handful of records pertaining to the Río Orinoco drainage in Venezuela.",
         "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Rio Tocantins",
+        "source": "glaser",
+        "quote": "The L155 come from the Furo Maguari, a tributary of the Rio Tocantins.",
+        "ok": true
+      },
+      {
+        "name": "Rio Xingu",
+        "source": "glaser",
+        "quote": "For one of them, a form from the Rio Xingu, the L-number 155 was assigned.",
         "ok": true
       }
     ],

@@ -1,8 +1,8 @@
 {
   "id": "corydoras-geoffroy",
   "native": {
-    "input": "def6afc1ebddb184",
-    "at": "2026-11-19T07:58:14.453Z",
+    "input": "02ea166655fefbfb",
+    "at": "2026-11-22T06:56:55.617Z",
     "claims": [
       {
         "code": "SR",
@@ -19,6 +19,23 @@
         "quote": "South America: coastal rivers of Suriname and French Guiana.",
         "words": "French Guiana",
         "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Corydoras geoffroy comes from the Guyana countries Suriname and French Guyana, from where there are no ornamental fish exports.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Corydoras geoffroy comes from the Guyana countries Suriname and French Guyana, from where there are no ornamental fish exports.",
+        "words": "French Guyana",
+        "ok": false,
+        "why": "\"French Guyana\" is not GF"
       }
     ],
     "regions": [

@@ -11,6 +11,50 @@
     "brazil",
     "araguaia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Araguaia"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Corydoras eversi lives in the Araguaia drainage (Brazil) and became known as C 65.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Araguaia"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8945223,
+      "total": 5,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "BR",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -52.03125,
+          -16.875,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

@@ -1,8 +1,8 @@
 {
   "id": "serrasalmus-gouldingi",
   "native": {
-    "input": "79f79bd2b7caf10b",
-    "at": "2026-11-15T00:17:46.244Z",
+    "input": "fae58b0dbaacfe05",
+    "at": "2026-11-22T06:56:55.617Z",
     "claims": [
       {
         "code": "BR",
@@ -23,8 +23,8 @@
       {
         "code": "BR",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "This species is widely distributed within the rio Negro drainage in northern Brazil, from above its confluence with the Casiquiare watershed at least as far south as the Archipelago das Anavilhanas in the lower Negro basin, and possibly to its mouth.",
+        "source": "glaser",
+        "quote": "The terra typica is Anavilhanas, Río Negro, Brazil.",
         "words": "Brazil",
         "ok": true
       }
@@ -49,6 +49,24 @@
         "source": "seriouslyfish",
         "quote": "This species is widely distributed within the rio Negro drainage in northern Brazil, from above its confluence with the Casiquiare watershed at least as far south as the Archipelago das Anavilhanas in the lower Negro basin, and possibly to its mouth.",
         "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "Serrasalmus gouldingi is widely distributed in the Amazon and Orinoco.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "Serrasalmus gouldingi is widely distributed in the Amazon and Orinoco.",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "This widespread species also occurs in the Rio Negro, an area intensively collected for the aquarium hobby, yet it was not scientifically described until 1992 and almost never appears in the hobby.",
         "ok": true
       }
     ],

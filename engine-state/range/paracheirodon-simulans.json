@@ -1,8 +1,8 @@
 {
   "id": "paracheirodon-simulans",
   "native": {
-    "input": "c8cc4c5ff9b9ccb9",
-    "at": "2026-11-20T01:55:49.831Z",
+    "input": "b030fdb10ba4460a",
+    "at": "2026-11-22T06:56:55.617Z",
     "claims": [
       {
         "code": "BR",
@@ -56,7 +56,7 @@
         "code": "BR",
         "status": "native",
         "source": "glaser",
-        "quote": "They originate from Brazil and Colombia.",
+        "quote": "They originate from Colombia and Brazil.",
         "words": "Brazil",
         "ok": true
       },
@@ -64,7 +64,7 @@
         "code": "CO",
         "status": "native",
         "source": "glaser",
-        "quote": "They originate from Brazil and Colombia.",
+        "quote": "They originate from Colombia and Brazil.",
         "words": "Colombia",
         "ok": true
       },
@@ -107,16 +107,15 @@
         "ok": true
       },
       {
-        "name": "rio Negro",
+        "name": "Rio Negro",
         "source": "seriouslyfish",
-        "quote": "Known from the middle-to-upper rio Negro drainage, Brazil upstream of the mouth of its principal tributary the rio Branco, plus the Río Orinoco system in the border region of Venezuela and Colombia, between San Fernando de Atabapo and the mouth of the Río Meta.",
-        "country": "BR",
+        "quote": "The green neon tetra, Paracheirodon simulans, is a small characid from the rio Negro and Orinoco drainages of Brazil, Colombia and Venezuela.",
         "ok": true
       },
       {
-        "name": "Río Orinoco",
+        "name": "Orinoco",
         "source": "seriouslyfish",
-        "quote": "Known from the middle-to-upper rio Negro drainage, Brazil upstream of the mouth of its principal tributary the rio Branco, plus the Río Orinoco system in the border region of Venezuela and Colombia, between San Fernando de Atabapo and the mouth of the Río Meta.",
+        "quote": "The green neon tetra, Paracheirodon simulans, is a small characid from the rio Negro and Orinoco drainages of Brazil, Colombia and Venezuela.",
         "ok": true
       }
     ],

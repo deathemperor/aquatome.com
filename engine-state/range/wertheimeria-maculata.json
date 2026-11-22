@@ -1,0 +1,79 @@
+{
+  "id": "wertheimeria-maculata",
+  "native": {
+    "input": "2fc657bfb846f1a4",
+    "at": "2026-11-22T06:56:55.617Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is endemic and occurs exclusively in the Jequitinhonha and Pardo rivers in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Jequitinhonha",
+        "source": "glaser",
+        "quote": "The species is endemic and occurs exclusively in the Jequitinhonha and Pardo rivers in Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Pardo",
+        "source": "glaser",
+        "quote": "The species is endemic and occurs exclusively in the Jequitinhonha and Pardo rivers in Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Wertheimeria maculata",
+    "status": "ACCEPTED",
+    "taxonKey": 2344005,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        12
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        12
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        9
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        6
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-22T06:56:55.617Z"
+  }
+}

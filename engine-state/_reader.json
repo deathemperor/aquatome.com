@@ -2168,6 +2168,33 @@
     ],
     "ruled": "48e7162bd9225701"
   },
+  "vi/guides/aquariumbreeder-crystal-red-shrimp-grading-with-pictures": {
+    "at": "2026-11-22",
+    "hash": "caab2ba4ba903cc8",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## Tép Crystal Red hạng SSS (hoặc K14)",
+        "problem": "The grade headings are at the same level as the section headings, so the colour-grade and pattern-grade sections end up with identical, sibling headings (SSS, SS, S twice each). A reader can't tell the two systems apart.",
+        "fix": "Make the grade headings subheadings (###) under 'Hệ phân hạng màu C-SSS và K0-14' and 'Phân hạng hoa văn', or label them, e.g. 'Hoa văn hạng SSS (hoặc K14)'.",
+        "rule": "The same heading text appears twice on one page.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Sọc trên bụng không rõ, màu đỏ…",
+        "problem": "This list item stops mid-sentence, so the description of red colour in B-grade is missing.",
+        "fix": "Sọc trên bụng không rõ.",
+        "rule": "A list item that ends with an ellipsis or with no final punctuation.",
+        "field": "body"
+      }
+    ],
+    "ruled": "caab2ba4ba903cc8"
+  },
   "vi/guides/aquariumbreeder-cyclops-profile-and-culture-guide": {
     "at": "2026-11-05",
     "hash": "9e8cf3d0c4a2bf2e",
@@ -2468,6 +2495,79 @@
       }
     ],
     "ruled": "8c4c1613a2322bce"
+  },
+  "vi/guides/aquariumbreeder-dwarf-shrimp-and-molting-problems-the-white-ring-of-death": {
+    "at": "2026-11-22",
+    "hash": "ee6884e92863189c",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Sắt\n| 13 mg\n| 18 mg\n| 1,60 mg",
+        "problem": "The mineral rows are mixed up: 13 mg of iron per 100 g of cucumber, 38 mg of manganese in zucchini and 0.079 mg of magnesium in cucumber are not real values. The rows for copper, iron, magnesium and manganese have been shifted against each other.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Có con trông như hầu như không cử động nổi chân hay miệng.",
+        "problem": "\"trông như\" and \"hầu như\" are two hedges stacked together, which reads awkwardly.",
+        "fix": "Có con trông như không cử động nổi chân hay miệng.",
+        "rule": "Flag \"trông như hầu như\" or two hedges side by side in one clause.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Tép, GH và pH",
+        "problem": "The heading promises pH, but the section only covers GH, calcium and magnesium.",
+        "fix": "## Tép, GH và magiê",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Tôm cảnh và các vấn đề lột xác",
+        "problem": "The title says \"tôm cảnh\" but the whole body says \"tép\" for the same dwarf shrimp, so the term is inconsistent.",
+        "fix": "Tép cảnh và trục trặc khi lột xác",
+        "field": "body"
+      }
+    ],
+    "ruled": "ee6884e92863189c"
+  },
+  "vi/guides/aquariumbreeder-dwarf-shrimp-external-anatomy": {
+    "at": "2026-11-22",
+    "hash": "ecbb77e64ab39934",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Mặt dưới bụng có 5 cặp chân bơi, gập gọn dưới bụng tép. Mỗi đốt bụng có một cặp.",
+        "problem": "The Abdomen section says every segment except the last has a pair of swimmerets (5 pairs for 6 segments), but here it says every abdominal segment has a pair.",
+        "fix": "Mặt dưới bụng có 5 cặp chân bơi, gập gọn dưới bụng tép, mỗi đốt bụng một cặp, trừ đốt thứ sáu.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Có hình minh họa riêng cho từng chỗ thì vẫn chưa đủ. Đôi khi phải nhìn cả con tép mới hiểu rõ.",
+        "problem": "This is left over from the source's remarks about its own illustrations, and the page has no picture or diagram of the whole shrimp.",
+        "field": "body"
+      }
+    ],
+    "ruled": "ecbb77e64ab39934"
+  },
+  "vi/guides/aquariumbreeder-dwarf-shrimp-internal-anatomy": {
+    "at": "2026-11-22",
+    "hash": "ad969dd2bf7c0406",
+    "findings": [],
+    "ruled": "ad969dd2bf7c0406"
   },
   "vi/guides/aquariumbreeder-everything-about-aquarium-activated-carbon": {
     "at": "2026-11-16",
@@ -2796,6 +2896,70 @@
     "findings": [],
     "ruled": "09c9576bf0b3b033"
   },
+  "vi/guides/aquariumbreeder-how-density-affects-cherry-shrimp": {
+    "at": "2026-11-22",
+    "hash": "716896024884b5a1",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Tép cái ở D5 nặng hơn 15% so với tép cái nuôi ở D5",
+        "problem": "This compares the D5 group with itself, so the figure means nothing. From the text above it, the heavier group should be D2.5.",
+        "fix": "Tép cái ở D2.5 nặng hơn 15% so với tép cái nuôi ở D5",
+        "rule": "A list item that compares a group label with the same label (\"ở X … so với … ở X\").",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Tép đực ở D5 nặng hơn 15% so với tép đực nuôi ở D10",
+        "problem": "The next item gives a different figure (25–30%) for the same D5 vs D10 comparison. The first one should probably be D2.5 vs D5.",
+        "fix": "Tép đực ở D2.5 nặng hơn 15% so với tép đực nuôi ở D5",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Tép cái ở D5 nặng hơn 30-35% so với tép cái nuôi ở D10",
+        "problem": "The text above says D2.5 grew best, so this item probably means D2.5 against D10. As written, it doesn't fit the rest of the comparison.",
+        "fix": "Tép cái ở D2.5 nặng hơn 30-35% so với tép cái nuôi ở D10",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "- D5 – 92%,\n- D5 – 93%,",
+        "problem": "D5 appears twice and D2.5 is missing from the survival rates. One of these should be D2.5.",
+        "fix": "- D2.5 – 92%,\n- D5 – 93%,",
+        "rule": "A list in which the same group label appears twice.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Journal of Crustacean Biology 37(4). June 201",
+        "problem": "The year in the reference is cut off.",
+        "fix": "Journal of Crustacean Biology 37(4). June 2017",
+        "rule": "A reference line that ends in a 3-digit year.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "mật độ tốt nhất là 2,5 (3) con trên 1 lít",
+        "problem": "The unexplained \"(3)\" in brackets makes a reader stumble.",
+        "fix": "mật độ tốt nhất là khoảng 2,5–3 con trên 1 lít",
+        "field": "body"
+      }
+    ],
+    "ruled": "716896024884b5a1"
+  },
   "vi/guides/aquariumbreeder-how-do-i-know-if-my-shrimp-are-happy": {
     "at": "2026-11-16",
     "hash": "e685599a0e443b00",
@@ -2821,6 +2985,12 @@
       }
     ],
     "ruled": "e685599a0e443b00"
+  },
+  "vi/guides/aquariumbreeder-how-light-affects-dwarf-shrimp": {
+    "at": "2026-11-22",
+    "hash": "d082a011a6b89184",
+    "findings": [],
+    "ruled": "d082a011a6b89184"
   },
   "vi/guides/aquariumbreeder-how-long-do-crayfish-live": {
     "at": "2026-11-15",
@@ -3130,6 +3300,22 @@
       }
     ],
     "ruled": "2d7633a196acef07"
+  },
+  "vi/guides/aquariumbreeder-how-to-enhance-shrimp-color": {
+    "at": "2026-11-22",
+    "hash": "ab273853799b5181",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Màu là một trong những tiêu chí quan trọng nhất để đánh giá tôm cảnh",
+        "problem": "Dwarf shrimp are called 'tôm' throughout but 'tép red cherry' elsewhere. The Vietnamese hobby term for dwarf shrimp is 'tép' or 'tép cảnh', so the page is inconsistent.",
+        "fix": "Màu là một trong những tiêu chí quan trọng nhất để đánh giá tép cảnh",
+        "field": "body"
+      }
+    ],
+    "ruled": "ab273853799b5181"
   },
   "vi/guides/aquariumbreeder-how-to-euthanize-your-snails-and-shrimp-humanely": {
     "at": "2026-11-16",
@@ -4593,6 +4779,22 @@
     ],
     "ruled": "3b49ac04c10321a7"
   },
+  "vi/guides/aquariumbreeder-pesticides-and-shrimp-plants-quarantine": {
+    "at": "2026-11-22",
+    "hash": "4b733bd1f925f432",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Lúc lúc nằm nghiêng, chân quạt qua lại lộn xộn.",
+        "problem": "\"Lúc lúc\" is an unnatural rendering of \"occasional\"; a native reader would say \"thỉnh thoảng\".",
+        "fix": "Thỉnh thoảng nằm nghiêng, chân quạt qua lại lộn xộn.",
+        "field": "body"
+      }
+    ],
+    "ruled": "4b733bd1f925f432"
+  },
   "vi/guides/aquariumbreeder-phosphates-in-freshwater-tanks": {
     "at": "2026-11-14",
     "hash": "301a3a0bde14ffad",
@@ -4997,6 +5199,57 @@
     "findings": [],
     "ruled": "0b669969e3ea84df"
   },
+  "vi/guides/aquariumbreeder-save-the-eggs-from-a-dead-shrimp": {
+    "at": "2026-11-22",
+    "hash": "170aa0e53853200e",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Mẹo: lúc cắt không cần lo mép ống bị xơ, vì:",
+        "problem": "The building section opens with a tip about cutting, but steps 1 and 2 are missing: cutting the gravel vacuum tube into the upper chamber, bottom chamber and bottom piece, and drilling the cup. The later references to 'bước 1', 'bước 2' and 'bước 5' point to steps that aren't on the page.",
+        "rule": "A cross-reference like '(xem bước N)' on a page whose steps have no numbers, or fewer than N steps.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Lưu ý: lỡ khoan lỗ thứ hai rộng quá, dây oxy luồn vào bị lỏng thì cũng đừng lo",
+        "problem": "This note talks about 'the second hole' and the stopper being drilled out, but the cup-drilling step it belongs to is missing, so the reader can't tell which holes are meant.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Miếng lưới này để làm gì?",
+        "problem": "The step for pushing the bottom chamber into the upper chamber (3–4 cm deep, net end first) is missing, so the explanation of the net follows on from the wrong step.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cắt bớt khoảng 3 cm của nó cho ống bung ra mạnh hơn, kéo lưới căng hơn.",
+        "problem": "The sub-steps for the bottom piece have lost their parent step, so 'của nó' (of it) has nothing to refer to and the reader can't tell which piece to cut.",
+        "fix": "- Đoạn ống dưới cùng. Đây là đoạn trứng sẽ nằm lên trên. Cắt bớt khoảng 3 cm của nó cho ống bung ra mạnh hơn, kéo lưới căng hơn.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "high",
+        "part": "P1",
+        "quote": "- mút không cọ vào trứng khi không cần.",
+        "problem": "The foam block step is missing: putting a foam piece into the bottom piece and keeping it 3–5 mm below the net. What's left is a list of reasons with no instruction before it, and 'Không làm bước này' refers to a step that isn't there.",
+        "fix": "- Khối mút lọc. Lấy một miếng mút to hơn đường kính đoạn ống dưới cùng một chút, bóp lại rồi nhét vào đoạn đó. Mút không được chạm vào lưới, để cách đáy lưới khoảng 3–5 mm, để:",
+        "rule": "A list whose items begin with a lowercase letter right after a list item or paragraph that does not end with a colon.",
+        "field": "body"
+      }
+    ],
+    "ruled": "170aa0e53853200e"
+  },
   "vi/guides/aquariumbreeder-science-of-substrate-siphoning-in-aquaria-siphon-or-not": {
     "at": "2026-11-16",
     "hash": "0ca354e48a2e8a61",
@@ -5385,6 +5638,40 @@
     "hash": "851bf567f7554f3d",
     "findings": [],
     "ruled": "851bf567f7554f3d"
+  },
+  "vi/guides/aquariumbreeder-the-difference-between-neocaridina-and-caridina-shrimp": {
+    "at": "2026-11-22",
+    "hash": "e74b14677bc3308b",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Đến năm 1966, Cai Yixiong mới tách hẳn loài này ra trong công trình \"A revision of the genus Neocaridina\".",
+        "problem": "The page dates Cai's revision to 1966, but the next paragraph cites the same work as Cai (1996). The revision is from 1996.",
+        "fix": "Đến năm 1996, Cai Yixiong mới tách hẳn chi này ra trong công trình \"A revision of the genus Neocaridina\".",
+        "rule": "An author cited with two different years in the same page.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Tuy nhiên, theo phân loại học hiện đại, các nhà sinh học coi chúng là cùng một loài.",
+        "problem": "Here the page says modern biologists treat C. davidi and C. denticulata as one species, but later it says N. davidi is a separate species.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## (1) Nhánh trong của chân hàm thứ nhất không có mấu lồi ở mép ngoài phía đầu xa",
+        "problem": "The numbered points (1)–(3) are sub-items of \"Chi tiết về các điểm khác nhau…\" but are set at the same heading level as it, so they read as separate main sections.",
+        "rule": "Headings starting with (1), (2), (3) at the same level as the heading just before them.",
+        "field": "body"
+      }
+    ],
+    "ruled": "e74b14677bc3308b"
   },
   "vi/guides/aquariumbreeder-the-ideal-water-parameters-for-fish-and-shrimp-keeping": {
     "at": "2026-11-16",
@@ -12457,6 +12744,12 @@
     "findings": [],
     "ruled": "afdb8fbc61f93994"
   },
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-guppy-japan-blue-and-japan-red": {
+    "at": "2026-11-22",
+    "hash": "dee60cff7c7cb787",
+    "findings": [],
+    "ruled": "dee60cff7c7cb787"
+  },
   "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-limia-special-en": {
     "at": "2026-11-08",
     "hash": "082ffeb6b33401b8",
@@ -12851,6 +13144,12 @@
     "findings": [],
     "ruled": "00a00be20c094178"
   },
+  "vi/guides/glaser-en-25-perchlike-fishes-crenicichla-from-the-rio-xingu": {
+    "at": "2026-11-22",
+    "hash": "17477ef414d5959b",
+    "findings": [],
+    "ruled": "17477ef414d5959b"
+  },
   "vi/guides/glaser-en-25-perchlike-fishes-madeira-discus-arrived": {
     "at": "2026-11-18",
     "hash": "343b27a4129473d3",
@@ -12998,6 +13297,31 @@
       }
     ],
     "ruled": "9f0a911f4f572c5a"
+  },
+  "vi/guides/glaser-en-32-all-the-rest-the-global-ornamental-fish-trade-in-times-of-corona": {
+    "at": "2026-11-22",
+    "hash": "93a2c70df5f40da5",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Những loài cá thường nhập từ Sri Lanka.",
+        "problem": "This is a leftover photo caption sitting alone in the body text after the company data list. With no photo next to it, it reads as a broken fragment.",
+        "rule": "A short line in the body with no verb, placed right after a list and matching a source image caption.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bên trái là một phần trại TRƯỚC khi trời đổi, còn nguyên vẹn. Bên phải là một phần trại SAU một trận giông lớn.",
+        "problem": "This photo caption describes left and right images that aren't on the page. It sits in the middle of the section about prices, so it confuses the reader.",
+        "rule": "Body text mentioning 'Bên trái'/'Bên phải' with no image next to it.",
+        "field": "body"
+      }
+    ],
+    "ruled": "93a2c70df5f40da5"
   },
   "vi/guides/glaser-en-fisharchive-black-winged-dwarf-hatchets-carnegiella-marthae-and-c-schereri": {
     "at": "2026-11-03",
@@ -17208,6 +17532,22 @@
     ],
     "ruled": "dad8a952e20605f6"
   },
+  "vi/guides/youtube-0k2KvIXRq70": {
+    "at": "2026-11-22",
+    "hash": "5335f74cd9760a1b",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Sau khi chuyển sang bể riêng 300 lít và được chăm kỹ, sau ba bốn tháng nó lành hẳn",
+        "problem": "The sentence uses \"sau\" twice and has a passive \"được chăm\", so it reads clumsily.",
+        "fix": "Chuyển sang bể riêng 300 lít và chăm kỹ, ba bốn tháng sau nó lành hẳn",
+        "field": "body"
+      }
+    ],
+    "ruled": "5335f74cd9760a1b"
+  },
   "vi/guides/youtube-0kgXMVQ7o0A": {
     "at": "2026-11-13",
     "hash": "580c7af2e6795aa2",
@@ -18346,6 +18686,22 @@
     ],
     "ruled": "c14cc77769b73745"
   },
+  "vi/guides/youtube-4Hz6rlx-lo0": {
+    "at": "2026-11-22",
+    "hash": "85281d127e344854",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L5",
+        "quote": "Nuôi chung được với cá lớn, hiền như Oscar, severum",
+        "problem": "The summary calls Oscar 'hiền' (peaceful), but the body only calls it 'không quá dữ' and warns that keeping it with bichirs is still a risk.",
+        "fix": "Nuôi chung được với cichlid lớn không quá dữ như Oscar, severum (Oscar vẫn có rủi ro), tránh cá nhỏ và cá lớn quá dữ như la hán.",
+        "field": "summary.4"
+      }
+    ],
+    "ruled": "85281d127e344854"
+  },
   "vi/guides/youtube-4lG_4wSx_bQ": {
     "at": "2026-11-20",
     "hash": "e18f64bf904bd6ad",
@@ -19174,6 +19530,40 @@
       }
     ],
     "ruled": "bf5f605be891eea3"
+  },
+  "vi/guides/youtube-7mo1UBChWaA": {
+    "at": "2026-11-22",
+    "hash": "d7d1939a7e581e9e",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Phần lớn thời gian, nó sống được với cá cộng đồng hiền.",
+        "problem": "'Cá cộng đồng' is a word-for-word translation of 'community fish' and readers would stumble on it; 'phần lớn' is also on the site's overused-words list.",
+        "fix": "Thường thì nó vẫn sống được với cá hiền nuôi chung.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Dù vậy vẫn không có gì chắc chắn.",
+        "problem": "'Dù vậy' is on the site's overused-words list, and the sentence reads like a translation.",
+        "fix": "Nhưng chuyện này không có gì chắc chắn.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Vì vậy người cho cá ông tiên đẻ thường để riêng cặp bố mẹ trong một bể.",
+        "problem": "'Người cho đẻ' is on the site's overused-words list; hobbyists would say 'người ép đẻ' or 'trại'.",
+        "fix": "Vì vậy người ép cá ông tiên đẻ thường để riêng cặp bố mẹ trong một bể.",
+        "field": "body"
+      }
+    ],
+    "ruled": "d7d1939a7e581e9e"
   },
   "vi/guides/youtube-7nEatEnYWH8": {
     "at": "2026-11-18",
@@ -20220,6 +20610,59 @@
     "hash": "bf4b0f86dfa07f7a",
     "findings": [],
     "ruled": "bf4b0f86dfa07f7a"
+  },
+  "vi/guides/youtube-AqBogTwt6c4": {
+    "at": "2026-11-22",
+    "hash": "8aabfbcbdf9214ba",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "còn bể 7.600 lít có bơm nhỏ đẩy nước về bể 700",
+        "problem": "\"Bể 700\" is a leftover gallon figure (700 gal ≈ 2,600 L) and matches no tank on the page.",
+        "fix": "còn bể 7.600 lít có bơm nhỏ đẩy nước về bể 2.600 lít",
+        "rule": "A tank referred to as \"bể N\" where N matches none of the tank volumes in litres given on the page.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "cần khoảng 150 lít hạt, hiện mới có khoảng 100 lít và còn thiếu khoảng 60 lít",
+        "problem": "The sums don't add up: 150 minus 100 leaves 50 litres short, not 60.",
+        "fix": "cần khoảng 150 lít hạt, hiện mới có khoảng 100 lít và còn thiếu khoảng 50 lít",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Một con Oscar dài khoảng 30 cm, dày 5 cm, cao 10 cm là khoảng 244 cm khối, tức chừng 960 g",
+        "problem": "30 × 5 × 10 cm is about 1,500 cm³ (≈96 cubic inches, which gives 960 g at 10 g per cubic inch), not 244 cm³.",
+        "fix": "Một con Oscar dài khoảng 30 cm, dày 5 cm, cao 10 cm là khoảng 1.570 cm khối (96 inch khối), tức chừng 960 g",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "high",
+        "part": "P1",
+        "quote": "cho bể nuôi 4–6 con Oscar. Về lý thuyết thì gần như đủ",
+        "problem": "The page's own figure of 3 L of submerged media per Oscar means 6 L covers only about 2 Oscars, so 6 L is far too little for 4–6 Oscars, not \"almost enough\".",
+        "fix": "cho bể nuôi 4–6 con Oscar. Theo phép tính này thì còn thiếu xa, 6 lít chỉ đủ cho khoảng 2 con",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "vi sinh và vi sinh vật ở đó sống yên được hết vòng đời",
+        "problem": "\"Vi sinh và vi sinh vật\" says the same thing twice.",
+        "fix": "vi sinh ở đó sống yên được hết vòng đời",
+        "field": "body"
+      }
+    ],
+    "ruled": "8aabfbcbdf9214ba"
   },
   "vi/guides/youtube-Arh2r7FXkdc": {
     "at": "2026-11-19",
@@ -23546,6 +23989,22 @@
       }
     ],
     "ruled": "dfae2a05c78b7f85"
+  },
+  "vi/guides/youtube-gM57cI_-AG4": {
+    "at": "2026-11-22",
+    "hash": "af32f2702f3f1898",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể lớn hơn thì thả thêm chai, việc này đơn giản.",
+        "problem": "The tacked-on clause 'việc này đơn giản' is a translated aside and reads unnaturally in Vietnamese.",
+        "fix": "Bể lớn hơn thì cứ thả thêm chai.",
+        "field": "body"
+      }
+    ],
+    "ruled": "af32f2702f3f1898"
   },
   "vi/guides/youtube-GMAu_upVyVw": {
     "at": "2026-11-21",
@@ -30216,6 +30675,33 @@
     ],
     "ruled": "455ce9992f03ad34"
   },
+  "vi/guides/youtube-qcPe_f-GETA": {
+    "at": "2026-11-22",
+    "hash": "e48ac879f167f3ce",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "L13",
+        "quote": "Bơm 5.700 lít/giờ là khoảng bao nhiêu lít?",
+        "problem": "The FAQ asks what 5,700 L/h is in litres, and the answer just repeats the same figure, so it is a pointless leftover of a gallon conversion.",
+        "fix": "Bơm 5.700 lít/giờ có đủ cho sump này không?",
+        "rule": "an FAQ question asking to convert a unit into the same unit",
+        "field": "faq.3.q"
+      },
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "L5",
+        "quote": "5.700 lít/giờ ở cột áp bằng 0 (khoảng 5.700 lít/giờ)",
+        "problem": "The figure repeats itself as its own conversion in parentheses.",
+        "fix": "5.700 lít/giờ ở cột áp bằng 0",
+        "rule": "a figure followed by the identical figure and unit in parentheses",
+        "field": "summary.4"
+      }
+    ],
+    "ruled": "e48ac879f167f3ce"
+  },
   "vi/guides/youtube-QGAAwEDXVRg": {
     "at": "2026-11-11",
     "hash": "231eece25677a408",
@@ -31054,6 +31540,31 @@
     "hash": "28b89de5dc2f1aab",
     "findings": [],
     "ruled": "28b89de5dc2f1aab"
+  },
+  "vi/guides/youtube-rX-M8H1iGvM": {
+    "at": "2026-11-22",
+    "hash": "e2f28c3a83ca92be",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L1",
+        "quote": "sump là lựa chọn bắt buộc vì nó chứa được khối lượng vật liệu lọc vi sinh lớn",
+        "problem": "The summary calls a sump mandatory, while the body only says it is the safe choice for a tank this size.",
+        "fix": "Với bể khoảng 1.420 lít, sump là cách chắc ăn vì nó chứa được rất nhiều vật liệu lọc vi sinh.",
+        "field": "summary.0"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Chuyện này không lớn vì hầu như không mấy khi phải làm vậy.",
+        "problem": "\"hầu như không\" and \"mấy khi\" both mean rarely, so together they read awkwardly.",
+        "fix": "Chuyện này không đáng ngại vì ít khi phải làm vậy.",
+        "field": "body"
+      }
+    ],
+    "ruled": "e2f28c3a83ca92be"
   },
   "vi/guides/youtube-rXQS95MHmTk": {
     "at": "2026-11-04",

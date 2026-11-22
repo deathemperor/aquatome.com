@@ -1,8 +1,8 @@
 {
   "id": "pimelodus-ornatus",
   "native": {
-    "input": "67a019fb7d768183",
-    "at": "2026-11-12T21:02:28.514Z",
+    "input": "790937a6a11f1471",
+    "at": "2026-11-22T06:56:55.617Z",
     "claims": [
       {
         "code": "CO",
@@ -34,22 +34,6 @@
         "source": "seriouslyfish",
         "quote": "The ornate pim, Pimelodus ornatus, is a pimelodid catfish recorded in major river systems from Colombia and Venezuela south to Paraguay and Argentina.",
         "words": "Argentina",
-        "ok": true
-      },
-      {
-        "code": "CO",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "It has been recorded in various major river systems in Colombia, Venezuela, Guyana, Suriname, French Guiana, Ecuador, Peru, Brazil, Paraguay and Argentina.",
-        "words": "Colombia",
-        "ok": true
-      },
-      {
-        "code": "VE",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "It has been recorded in various major river systems in Colombia, Venezuela, Guyana, Suriname, French Guiana, Ecuador, Peru, Brazil, Paraguay and Argentina.",
-        "words": "Venezuela",
         "ok": true
       },
       {
@@ -98,22 +82,6 @@
         "source": "seriouslyfish",
         "quote": "It has been recorded in various major river systems in Colombia, Venezuela, Guyana, Suriname, French Guiana, Ecuador, Peru, Brazil, Paraguay and Argentina.",
         "words": "Brazil",
-        "ok": true
-      },
-      {
-        "code": "PY",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "It has been recorded in various major river systems in Colombia, Venezuela, Guyana, Suriname, French Guiana, Ecuador, Peru, Brazil, Paraguay and Argentina.",
-        "words": "Paraguay",
-        "ok": true
-      },
-      {
-        "code": "AR",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "It has been recorded in various major river systems in Colombia, Venezuela, Guyana, Suriname, French Guiana, Ecuador, Peru, Brazil, Paraguay and Argentina.",
-        "words": "Argentina",
         "ok": true
       }
     ],

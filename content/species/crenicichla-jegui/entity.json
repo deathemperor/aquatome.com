@@ -10,6 +10,60 @@
     "brazil",
     "rio-tocantins"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Rio Tocantins"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The fish lives very hidden in the Rio Tocantins drainage and was therefore discovered only when the Tucuri dam was built.",
+          "countries": [],
+          "regions": [
+            "Rio Tocantins"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370936,
+      "total": 4,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "BR",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -61.875,
+          -8.4375,
+          1
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          1
+        ],
+        [
+          -50.625,
+          -5.625,
+          1
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

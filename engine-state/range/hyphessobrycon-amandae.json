@@ -1,8 +1,8 @@
 {
   "id": "hyphessobrycon-amandae",
   "native": {
-    "input": "00184de0d0598e52",
-    "at": "2026-11-09T20:43:02.940Z",
+    "input": "0deea2834ffc1142",
+    "at": "2026-11-22T06:56:55.617Z",
     "claims": [
       {
         "code": "BR",
@@ -19,6 +19,22 @@
         "quote": "Hyphessobrycon amandae is a common tetra found in Brazil.",
         "words": "Brazil",
         "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Hyphessobrycon amandae was described in 1987 from the Rio das Mortes in Mato Grosso, part of the Araguaia basin in central Brazil, and named for Amanda Bleher, mother of collector Heiko Bleher.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The das Mortes is a principal tributary of the Araguaia, itself the major affluent of the rio Tocantins in central Brazil, although the full range of H. amandae within the Araguaia system is unclear.",
+        "words": "Brazil",
+        "ok": true
       }
     ],
     "regions": [
@@ -26,6 +42,13 @@
         "name": "Araguaia",
         "source": "seriouslyfish",
         "quote": "The ember tetra, Hyphessobrycon amandae, is a tiny characid from the rio das Mortes, a tributary of the Araguaia in Mato Grosso, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio das Mortes",
+        "source": "bwaquatics",
+        "quote": "Hyphessobrycon amandae was described in 1987 from the Rio das Mortes in Mato Grosso, part of the Araguaia basin in central Brazil, and named for Amanda Bleher, mother of collector Heiko Bleher.",
         "country": "BR",
         "ok": true
       },
@@ -40,6 +63,12 @@
         "name": "Araguaia",
         "source": "sprucepets",
         "quote": "The Ember Tetra originates from the Araguaia River Basin in South America.",
+        "ok": true
+      },
+      {
+        "name": "Araguaia",
+        "source": "bwaquatics",
+        "quote": "Slow, vegetated waters of the Araguaia basin.",
         "ok": true
       }
     ],

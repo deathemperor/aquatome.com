@@ -36,10 +36,7 @@
           "countries": [
             "ID"
           ],
-          "regions": [
-            "Borneo",
-            "Sumatra"
-          ]
+          "regions": []
         },
         {
           "source": "seriouslyfish",
@@ -54,6 +51,8 @@
           "quote": "Supposedly native to the Greater Sunda Islands of Borneo and Sumatra as well as the Riau Archipelago and Bangka Island off the east coast of Sumatra, but the only collection/locality details available refer to Bornean populations.",
           "countries": [],
           "regions": [
+            "Borneo",
+            "Sumatra",
             "Riau Archipelago",
             "Bangka"
           ]

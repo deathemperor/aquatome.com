@@ -262,8 +262,8 @@
     "back": true
   },
   "ancistrus-leucostictus": {
-    "hash": "56e9c883c347d4ca1786bd18f9ab3d400c28ebb3e329283ed47d5ff204ee9a3c",
-    "at": "2026-11-22T00:27:20.552Z",
+    "hash": "a20546bb45eed30949daac69b5b4b5cbaa258b7486af01810801e7c8c46184dd",
+    "at": "2026-11-22T06:49:19.303Z",
     "sonnet": 0.6,
     "back": false
   },
@@ -527,6 +527,38 @@
     "at": "2026-11-22T00:28:15.498Z",
     "sonnet": 0.6,
     "back": false
+  },
+  "astroblepus-fissidens": {
+    "hash": "65a00072dea08603c27212656896bdbb63c02b619e4d9a82b38a7b6607b419ab",
+    "at": "2026-11-22T06:49:33.151Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "astroblepus-grixalvii": {
+    "hash": "899c952a83d79e0f5db8df99c48c0e5d12acebb944d4fec8158aa6e3ee130895",
+    "at": "2026-11-22T06:49:45.744Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "astroblepus-homodon": {
+    "hash": "49db340c63eb39308d3ae3f60c63720ac4ae1c796b10dc154977658266276953",
+    "at": "2026-11-22T06:49:58.103Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "astroblepus-itae": {
+    "hash": "d4cc76440159db926716c83633d3b13abcb785a2f664ca56c3099336806c8951",
+    "at": "2026-11-22T06:50:37.278Z",
+    "sonnet": 0.85,
+    "opus": 0.85,
+    "back": true
+  },
+  "astroblepus-latidens": {
+    "hash": "6f235f165ffeda6a1f17908f44b420fdce754c98bf507f63a0c2a6b8497bb847",
+    "at": "2026-11-22T06:51:15.817Z",
+    "sonnet": 0.88,
+    "opus": 0.85,
+    "back": true
   },
   "astyanax-bimaculatus": {
     "hash": "de986c21f9411ac741fd8167d877be80e42cccabdb1232feb0aab9dc8b773f61",
@@ -1107,10 +1139,28 @@
     "sonnet": 0.7,
     "back": false
   },
+  "catoprion-mento": {
+    "hash": "9deb38f27b4fccf74a9fbd500228b2ccadcf507eb06c7c75d195fbd0bd32ce23",
+    "at": "2026-11-22T06:53:10.258Z",
+    "sonnet": 0.6,
+    "back": false
+  },
   "centrodoras-brachiatus": {
     "hash": "2ff3b96c9e761cb86fbf636aeda94e26646b34dbad9d912423ec0858c604801c",
     "at": "2026-11-21T01:08:14.671Z",
     "sonnet": 0.6,
+    "back": false
+  },
+  "centromochlus-perugiae": {
+    "hash": "4dcd2e0b35273f383a9239986806573b7d3625b09ab06ba31b69f3e89cf8456a",
+    "at": "2026-11-22T06:53:24.585Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "centromochlus-reticulatus": {
+    "hash": "ba35509cc7cf57ed0849d7712363239055b3e4ab7f0aa29c93f51175228808cc",
+    "at": "2026-11-22T06:53:42.268Z",
+    "sonnet": 0.65,
     "back": false
   },
   "cephalocassis-jatia": {
@@ -1120,9 +1170,34 @@
     "opus": 0.7,
     "back": false
   },
+  "cephalosilurus-fowleri": {
+    "hash": "ebdaad4369e5f9e4814228c2ba26d45dd8fd474b41d59b11bdad9ce6de67efe2",
+    "at": "2026-11-22T06:53:53.672Z",
+    "sonnet": 0.7,
+    "back": false
+  },
   "ceylonthelphusa-kandambyi": {
     "hash": "10f7b9a62e224ea584069b73df7077674b9832b360b4128b8554c96ad9612fa0",
     "at": "2026-11-18T05:47:49.490Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "chaetostoma-fischeri": {
+    "hash": "c9368cf4ca642255ea7729e112c16ca87432b84dc88b252e6d7f26b55fd4d178",
+    "at": "2026-11-22T06:54:05.535Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "chaetostoma-leucomelas": {
+    "hash": "59241c1665110029d5143f83c4ec84317f79a7142acad3542803aa362892c2da",
+    "at": "2026-11-22T06:54:40.920Z",
+    "sonnet": 0.92,
+    "opus": 0.85,
+    "back": true
+  },
+  "chaetostoma-lineopunctatum": {
+    "hash": "ba978d8dc2c9764c0293c337b7e0bf0f307e3853da2d8741a8622a6be859b5d4",
+    "at": "2026-11-22T06:54:56.461Z",
     "sonnet": 0.7,
     "back": false
   },
@@ -1157,10 +1232,11 @@
     "back": false
   },
   "corydoras-elegans": {
-    "hash": "6268b94a86e7210ea19247e82d2132d50a27ba62c6db4fb2f703de18d3f18f29",
-    "at": "2026-11-21T18:50:48.980Z",
-    "sonnet": 0.6,
-    "back": false
+    "hash": "68b64e5774628f1047b0390aa7e69149b2b868ab11c7fcfe0e1c55543f950dfe",
+    "at": "2026-11-22T06:52:05.140Z",
+    "sonnet": 0.9,
+    "opus": 0.8,
+    "back": true
   },
   "corydoras-panda": {
     "hash": "0b11a10e08d059b653603a9d53df2d38701dbc30258247bc965015cfabcacd98",
@@ -1400,6 +1476,13 @@
     "at": "2026-11-21T18:51:57.497Z",
     "sonnet": 0.7,
     "back": false
+  },
+  "garra-cambodgiensis": {
+    "hash": "0545e1d84fa683cb82ea419d769b741528a06fb5620a2a1d48cbc5bda2a164fb",
+    "at": "2026-11-22T06:52:54.070Z",
+    "sonnet": 0.88,
+    "opus": 0.8,
+    "back": true
   },
   "garra-flavatra": {
     "hash": "b281983a36322abb10759cd4717d2ce94a6ac385990c5e58534f5d5dfc284685",

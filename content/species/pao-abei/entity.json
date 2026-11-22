@@ -10,6 +10,90 @@
     "laos",
     "mekong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA"
+      ],
+      "regions": [
+        "Mekong"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Pao abei was scientifically described in 1998 from the Mekong river in Laos.",
+          "countries": [
+            "LA"
+          ],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7755805,
+      "total": 11,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "TH",
+          9
+        ],
+        [
+          "LA",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          18.28125,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          16.875,
+          3,
+          0
+        ],
+        [
+          104.0625,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          15.46875,
+          3,
+          0
+        ],
+        [
+          105.46875,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

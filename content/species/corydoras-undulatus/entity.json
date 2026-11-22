@@ -9,6 +9,86 @@
     "south-america",
     "paraguay"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PY"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Corydoras undulatus comes from Paraguay and grows 5-6 cm long.",
+          "countries": [
+            "PY"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342728,
+      "total": 14,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "BR",
+          8
+        ],
+        [
+          "PY",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          -59.0625,
+          -25.3125,
+          4,
+          4
+        ],
+        [
+          -57.65625,
+          -25.3125,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -30.9375,
+          3,
+          0
+        ],
+        [
+          -56.25,
+          -29.53125,
+          1,
+          0
+        ],
+        [
+          -54.84375,
+          -30.9375,
+          1,
+          0
+        ],
+        [
+          -54.84375,
+          -28.125,
+          1,
+          0
+        ],
+        [
+          -52.03125,
+          -30.9375,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

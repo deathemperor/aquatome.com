@@ -19,20 +19,31 @@
         "PY",
         "AR"
       ],
-      "regions": [],
+      "regions": [
+        "Paraguay River"
+      ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Rineloricaria parva is a whiptail catfish from Brazil, Paraguay and Argentina, found among leaf litter over sandy substrates.",
+          "quote": "Brazil, Paraguay and Argentina.",
           "countries": [
             "BR",
             "PY",
             "AR"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Whiptail catfishes destined for export are mostly collected from the Paraguay River not far from the capital Asunción, where R. aurata, R. lanceolata and R. parva can be expected.",
+          "countries": [],
+          "regions": [
+            "Paraguay River"
+          ]
         }
       ]
     },

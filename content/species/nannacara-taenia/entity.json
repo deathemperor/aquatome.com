@@ -16,18 +16,29 @@
       "countries": [
         "BR"
       ],
-      "regions": [],
+      "regions": [
+        "Amazon"
+      ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Known only from the area around Belém in the state of Pará, Brazil.",
+          "quote": "The striped dwarf cichlid, Nannacara taenia, is known only from the area around Belém in Pará state, Brazil.",
           "countries": [
             "BR"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "It was not until 1987 that they were rediscovered in the lower Amazon and subsequently found in several more Amazon tributaries in this region.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
         }
       ]
     },

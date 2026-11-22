@@ -12,28 +12,28 @@
   ],
   "range": {
     "native": {
-      "countries": [
-        "VE"
+      "countries": [],
+      "regions": [
+        "Orinoco"
       ],
-      "regions": [],
       "sources": [
         "glaser"
       ],
       "quotes": [
         {
           "source": "glaser",
-          "quote": "A rare dwarf cichlid from Venezuela.",
-          "countries": [
-            "VE"
-          ],
-          "regions": []
+          "quote": "In 1989 a second species of the genus, B. dicentrarchus, was described from the Orinoco basin.",
+          "countries": [],
+          "regions": [
+            "Orinoco"
+          ]
         }
       ]
     },
     "records": {
       "taxonKey": 2370393,
       "total": 94,
-      "fetched": "2026-11-10",
+      "fetched": "2026-11-22",
       "countries": [
         [
           "VE",
@@ -48,37 +48,31 @@
         [
           -68.90625,
           4.21875,
-          1,
           1
         ],
         [
           -68.90625,
           5.625,
-          34,
-          33
+          34
         ],
         [
           -67.5,
           2.8125,
-          12,
           12
         ],
         [
           -67.5,
           4.21875,
-          1,
           1
         ],
         [
           -67.5,
           5.625,
-          45,
-          43
+          45
         ],
         [
           -66.09375,
           7.03125,
-          1,
           1
         ]
       ]

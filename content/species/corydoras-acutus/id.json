@@ -18,10 +18,10 @@
     "references:seriouslyfish": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Cope, E. D. (1872). On the fishes of the Ambyiacu River. Proceedings of the Academy of Natural Sciences of Philadelphia v. 23, 250-294</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li></ul>"
   },
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.7
+      "seriouslyfish": 0.8
     }
   }
 }

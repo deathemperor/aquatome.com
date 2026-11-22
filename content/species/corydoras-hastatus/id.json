@@ -26,11 +26,11 @@
     "references:seriouslyfish": "<ul><li>Eigenmann, C. H. and R. S. Eigenmann (1888). Preliminary notes on South American Nematognathi. I. Proceedings of the California Academy of Sciences (Series 2) v. 1 (pt 2), 119-172</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Nijssen, H. and I. J. H. Isbrücker (1980). A review of the genus Corydoras Lacépède, 1803 (Pisces, Siluriformes, Callichthyidae). Bijdragen tot de Dierkunde 50(1), 190-220</li><li>Eigenmann, C. H., W. L. McAtee and D. P. Ward (1907). On further collections of fishes from Paraguay. Annals of the Carnegie Museum 4(2), 110-157</li><li>Alexandrou, M. A., C. Oliveira, M. Maillard, R. A. R. McGill, J. Newton, S. Creer, and M. I. Taylor (2011). Competition and phylogeny determine community structure in Müllerian co-mimics. Nature 469, 84-89</li><li>Lasso, C. A., V. Castelló, T. Canales-Tilve and J. Cabot-Nieves (2001). Contribución al conocimiento de la ictiofauna del Río Paraguá, cuenca del Río Itenzen o Guaporé, Amazonía Boliviana. Memoria de la Fundación La Salle de Ciencias Naturales 59(152), 89-103</li><li>Insaurralde, M., M. Barreto, and A. Frutos (2012). Comunidad de especies de peces en ríos interiores del Paraguay. Compendio de Ciencias Veterinarias 2(2), 16-21</li></ul>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.9,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.6,
-      "seriouslyfish": 0.6
+      "glaser": 0.9,
+      "seriouslyfish": 0.9
     }
   }
 }
