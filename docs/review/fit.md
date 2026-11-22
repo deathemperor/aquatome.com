@@ -6,10 +6,10 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Open, no read of its text | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 5140 | 4449 | 671 | 1624 | 40 | 44 | 201 | 46 | 1151 | 350 | 2742 | 447 | 9 | 15 | 0 | 3 | 5 | 4 | 1 |
-| Indonesian | 1700 | 1557 | 143 | 427 | 27 | 13 | 4 | 6 | 199 | 37 | 73 | 194 | 0 | 2 | 0 | 3 | 2 | 0 | 0 |
-| Thai | 1698 | 1546 | 152 | 401 | 22 | 3 | 5 | 4 | 194 | 41 | 100 | 182 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
-| Malay | 575 | 534 | 41 | 147 | 14 | 3 | 0 | 2 | 74 | 17 | 30 | 54 | 0 | 1 | 0 | 3 | 0 | 0 | 0 |
+| Vietnamese | 5140 | 4455 | 665 | 1622 | 39 | 44 | 201 | 46 | 1145 | 349 | 2746 | 447 | 9 | 15 | 0 | 3 | 5 | 4 | 1 |
+| Indonesian | 1717 | 1574 | 143 | 429 | 27 | 13 | 4 | 6 | 200 | 36 | 74 | 194 | 0 | 2 | 0 | 3 | 2 | 0 | 0 |
+| Thai | 1715 | 1566 | 149 | 404 | 22 | 3 | 5 | 4 | 197 | 41 | 100 | 182 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
+| Malay | 587 | 546 | 41 | 148 | 14 | 3 | 0 | 2 | 74 | 17 | 31 | 55 | 0 | 1 | 0 | 3 | 0 | 0 | 0 |
 
 Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 13 of 162, Indonesian 2 of 64, Thai 2 of 59, Malay 1 of 33.
 
@@ -103,9 +103,9 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - twinstar: 11
 - aquaclear: 10
 - ge silicone 1: 10
-- jbl: 10
 - tetramin: 10
 - instant ocean: 9
+- jbl: 9
 - reef roids: 9
 - repashy soilent green: 9
 - weld-on 4: 9
