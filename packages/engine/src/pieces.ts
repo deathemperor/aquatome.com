@@ -104,7 +104,7 @@ export async function piece<T>(name: string, fn: () => Promise<T>, o: { now?: ()
 /** CLI steps whose items check admission and record their complete cost. Both backfill commands share the worker. */
 export const WRAPPED: Record<string, string> = {
   traits: 'traits.ts', range: 'range.ts', 'check-photos': 'photo-check.ts', 'check-photos-videos': 'photo-check.ts', 'guide-photos': 'guide-photos.ts', watermarks: 'watermarks.ts',
-  'write-ideas': 'ideas.ts', summaries: 'summaries.ts', 'rewrite-vi': 'vi-backfill.ts', 'fit-rewrite': 'fit-rewrite.ts',
+  'write-ideas': 'ideas.ts', magazine: 'ideas.ts', summaries: 'summaries.ts', 'rewrite-vi': 'vi-backfill.ts', 'fit-rewrite': 'fit-rewrite.ts',
   localize: 'localize.ts', 'localize-guides': 'topics.ts', reader: 'reader.ts', run: 'run.ts', videos: 'youtube.ts',
   gallery: 'gallery.ts', 'album-ask': 'album-ask.ts', 'review-backfill': 'review-backfill.ts', 'review-backfill-97': 'review-backfill.ts', material: 'materials.ts',
   'judge-places': 'place-judge.ts', 'frame-sheet': 'frame-sheet.ts', recheck: 'localize-recheck.ts',

@@ -1,8 +1,10 @@
 import { mkdtempSync, readFileSync } from 'node:fs'
+import { createServer } from 'node:http'
+import type { AddressInfo } from 'node:net'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test, vi } from 'vitest'
-import { ARCHIVE_POLITE, ARCHIVE_REST_MAX_MS, ARCHIVE_REST_MS, ArchiveFetcher, ArchiveRefused, errorGot } from '../src/archive'
+import { ARCHIVE_POLITE, ARCHIVE_REST_MAX_MS, ARCHIVE_REST_MS, ArchiveFetcher, ArchiveRefused, AsksSpent, errorGot, MAX_HOPS, noCopy } from '../src/archive'
 import { discover } from '../src/discover'
 import { sourceById } from '../src/sources'
 
@@ -35,7 +37,8 @@ test('pages come from the latest archived copy and keep the source address; an a
     a: res(200, '<html><head><title>PlanetCatfish.com - Hoplisoma adolfoi</title></head><body>…</body></html>'),
     b: res(200, '<html><head><title>Just a moment...</title></head><body></body></html>'),
   }
-  const f = new ArchiveFetcher({ restFile: restFile(), fetch: async u => { calls.push(u); return u.endsWith('species_id=1') ? pages.a! : pages.b! }, now: () => new Date('2026-10-30T10:00:00Z'), sleep: async () => {}, ua: 'test' })
+  // The index holds no older copy (an index that is down is not "no copy": below).
+  const f = new ArchiveFetcher({ restFile: restFile(), fetch: async u => { calls.push(u); return u.includes('/cdx/') ? res(200, '', 'text/plain') : u.endsWith('species_id=1') ? pages.a! : pages.b! }, now: () => new Date('2026-10-30T10:00:00Z'), sleep: async () => {}, ua: 'test' })
   const r = await f.get('https://www.planetcatfish.com/common/species.php?species_id=1')
   expect(calls[0]).toBe('https://web.archive.org/web/20261030id_/https://www.planetcatfish.com/common/species.php?species_id=1')
   expect(r).toMatchObject({ status: 200, finalUrl: 'https://www.planetcatfish.com/common/species.php?species_id=1' })
@@ -112,6 +115,90 @@ function refusals(file = restFile()) {
   return { t, make, f: make() }
 }
 
+test('a capped reader makes its requests and no more: past them it stops before asking, which is no refusal, so no rest follows', async () => {
+  const calls: string[] = []
+  const file = restFile()
+  const checks = (u: string) => (u.includes('/cdx/') ? res(200, '20250101000000\n20250201000000\n20250301000000\n20250401000000\n') : res(200, '<html><head><title>Just a moment...</title></head><body></body></html>'))
+  const f = new ArchiveFetcher({ restFile: file, fetch: async u => { calls.push(u); return checks(u) }, now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'test' })
+  const three = f.capped(3)
+  // The newest copy, the index, one older copy: the next older one is not asked for.
+  await expect(three.get('https://www.example.org/post/')).rejects.toBeInstanceOf(AsksSpent)
+  expect(calls).toHaveLength(3)
+  expect(three.asked).toBe(3)
+  await expect(three.text('https://web.archive.org/cdx/search/cdx?url=example.org*')).rejects.toBeInstanceOf(AsksSpent)
+  expect(calls).toHaveLength(3)
+  expect(() => readFileSync(file, 'utf8')).toThrow()
+  // A reader with none left asks nothing; the reader it was made from keeps no count of its own.
+  const none = f.capped(0)
+  await expect(none.get('https://www.example.org/post/')).rejects.toBeInstanceOf(AsksSpent)
+  expect(calls).toHaveLength(3)
+  expect(f.asked).toBe(0)
+})
+
+// Codex's read of 21 Nov 2026: an automatic follow of the Archive's redirect sent two requests for one counted.
+test("the Archive's redirects are followed one by one, each a request counted against the cap and noted before it is made; one off the Archive is no copy", async () => {
+  const calls: { url: string; redirect?: string }[] = []
+  const notes: number[] = []
+  const at = (to: string) => capture(302, '', { location: to })
+  const answers: Record<string, ReturnType<typeof capture>> = {
+    [`https://web.archive.org/web/20261121id_/${article}`]: at(`/web/20251017040955id_/${article}`),
+    [`https://web.archive.org/web/20251017040955id_/${article}`]: capture(200, '<title>Best temperature</title>', { 'memento-datetime': 'Fri, 17 Oct 2025 04:09:55 GMT' }),
+  }
+  const f = new ArchiveFetcher({ restFile: restFile(), fetch: async (u, init) => { calls.push({ url: u, redirect: init?.redirect }); return answers[u] ?? capture(404, '') }, now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'test' })
+  const two = f.capped(2, async () => { notes.push(calls.length) })
+  expect(await two.get(article)).toMatchObject({ finalUrl: article, capturedAt: '2025-10-17T04:09:55.000Z' })
+  expect(calls).toEqual([{ url: `https://web.archive.org/web/20261121id_/${article}`, redirect: 'manual' }, { url: `https://web.archive.org/web/20251017040955id_/${article}`, redirect: 'manual' }])
+  expect(two.asked).toBe(2)
+  // Each noted before its request went out.
+  expect(notes).toEqual([0, 1])
+  // One request allowed: the redirect is the second, and is not made.
+  calls.length = 0
+  await expect(f.capped(1).get(article)).rejects.toBeInstanceOf(AsksSpent)
+  expect(calls).toHaveLength(1)
+  // A redirect to the site itself, which the engine may read only through the Archive: not followed, no copy.
+  calls.length = 0
+  answers[`https://web.archive.org/web/20261121id_/${article}`] = at(article)
+  await expect(f.get(article)).rejects.toThrow(/^no archived copy \(the archive points off itself, to www\.2hraquarist\.com\)$/)
+  expect(calls.map(c => c.url)).toEqual([`https://web.archive.org/web/20261121id_/${article}`])
+  // A loop: no copy after MAX_HOPS redirects.
+  calls.length = 0
+  const loop = new ArchiveFetcher({ restFile: restFile(), fetch: async u => { calls.push({ url: u }); return at(u) }, now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'test' })
+  await expect(loop.text('https://web.archive.org/cdx/search/cdx?url=x')).rejects.toThrow(`no archived copy (more than ${MAX_HOPS} redirects)`)
+  expect(calls).toHaveLength(MAX_HOPS + 1)
+  // A 429 on a redirect's request is a refusal, as on any.
+  const { t, f: r } = refusals()
+  let first = true
+  t.answer = () => (first ? ((first = false), at('/web/2025id_/x')) : capture(429, ''))
+  await expect(r.get(article)).rejects.toBeInstanceOf(ArchiveRefused)
+  expect(t.asked).toBe(2)
+})
+
+// The chief of staff, 21 Nov 2026: the three archived sites' reading now follows the Archive's redirects by hand, so Node's
+// own fetch must give a 302's status and Location under `redirect: 'manual'`, or their reading breaks at the first cycle.
+// A server on this Mac stands in for the Archive: nothing of the Archive's is asked.
+test("with Node's own fetch, the Archive's 302 is read under `redirect: 'manual'`, its Location followed by hand and counted", async () => {
+  const seen: string[] = []
+  const server = createServer((q, r) => {
+    seen.push(q.url ?? '')
+    if (q.url === `/web/20261121id_/${article}`) { r.writeHead(302, { location: `/web/20251017040955id_/${article}` }); r.end(); return }
+    if (q.url === `/web/20251017040955id_/${article}`) { r.writeHead(200, { 'content-type': 'text/html', 'memento-datetime': 'Fri, 17 Oct 2025 04:09:55 GMT' }); r.end('<title>Best temperature</title>'); return }
+    r.writeHead(404)
+    r.end()
+  })
+  await new Promise<void>(ok => server.listen(0, '127.0.0.1', ok))
+  const local = `http://127.0.0.1:${(server.address() as AddressInfo).port}`
+  try {
+    const f = new ArchiveFetcher({ restFile: restFile(), fetch: (u, init) => fetch(u.replace('https://web.archive.org', local), init), now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'test' })
+    const two = f.capped(2)
+    expect(await two.get(article)).toMatchObject({ finalUrl: article, html: '<title>Best temperature</title>', capturedAt: '2025-10-17T04:09:55.000Z' })
+    expect(two.asked).toBe(2)
+    // Two requests reached the server, one a hop: fetch followed nothing by itself.
+    expect(seen).toEqual([`/web/20261121id_/${article}`, `/web/20251017040955id_/${article}`])
+  } finally {
+    await new Promise(ok => server.close(ok))
+  }
+})
+
 test('a refusal asks nothing more: no retry in the run, and none for 12 hours', async () => {
   const { t, f } = refusals()
   await expect(f.get(article)).rejects.toBeInstanceOf(ArchiveRefused)
@@ -158,6 +245,198 @@ test('the one request after the wait isn\'t refused: reading carries on, and the
   expect(t.asked).toBe(3)
   t.answer = () => capture(429, '')
   await expect(f.get(article)).rejects.toThrow(new RegExp(new Date(t.clock + ARCHIVE_REST_MS).toISOString()))
+})
+
+// Codex's fresh read of 21 Nov 2026: the wait ended on the redirect, so a refusal of the redirect's own request started a
+// fresh 12 hours instead of a day.
+test('after the wait, a redirect ends nothing: refused on its request, the wait doubles; answered, it ends with that answer', async () => {
+  const { t, f } = refusals()
+  await expect(f.get(article)).rejects.toBeInstanceOf(ArchiveRefused)
+  t.clock = start + ARCHIVE_REST_MS
+  let n = 0
+  t.answer = () => (n++ === 0 ? capture(302, '', { location: `/web/20251017040955id_/${article}` }) : capture(429, ''))
+  await expect(f.get(article)).rejects.toThrow(new RegExp(new Date(t.clock + ARCHIVE_REST_MAX_MS).toISOString()))
+  expect(t.asked).toBe(3)
+  t.clock += ARCHIVE_REST_MAX_MS
+  n = 0
+  t.answer = () => (n++ === 0 ? capture(302, '', { location: `/web/20251017040955id_/${article}` }) : capture(200, '<title>ok</title>'))
+  await f.get(article)
+  t.answer = () => capture(429, '')
+  await expect(f.get(article)).rejects.toThrow(new RegExp(new Date(t.clock + ARCHIVE_REST_MS).toISOString()))
+})
+
+// Codex's fresh read of 21 Nov 2026: a job's pace wait comes after the rest was read, and another job on this Mac may be
+// refused in it.
+test('a refusal written while a request waited its turn stops that request', async () => {
+  const file = restFile()
+  const { t, f: other, make } = refusals(file)
+  const f = new ArchiveFetcher({ restFile: file, fetch: async () => { t.asked++; return capture(200, '<title>ok</title>') }, now: () => new Date(t.clock), sleep: async () => {}, ua: 'test' })
+  // Its count is kept just before the request goes, after the rest is read again: a request the rest stops is never counted.
+  const counted: number[] = []
+  const waiting = f.capped(5, async () => { counted.push(1) }, async () => { await expect(other.get(article)).rejects.toBeInstanceOf(ArchiveRefused) })
+  await expect(waiting.get(article)).rejects.toThrow(/no request before 2026-11-10T12:00:00.000Z/)
+  expect(t.asked).toBe(1)
+  expect(waiting.asked).toBe(0)
+  expect(counted).toEqual([])
+  // The wait over, another job's one request is answered while this one waits its pace: refused after, this one starts at
+  // 12 hours, not a day.
+  t.clock = start + ARCHIVE_REST_MS
+  const answered = new ArchiveFetcher({ restFile: file, fetch: async () => capture(200, '<title>ok</title>'), now: () => new Date(t.clock), sleep: async () => {}, ua: 'test' })
+  const late = make().capped(5, undefined, async () => { await answered.get(article) })
+  await expect(late.get(article)).rejects.toThrow(new RegExp(new Date(t.clock + ARCHIVE_REST_MS).toISOString()))
+})
+
+// The chief of staff, 21 Nov 2026, on the owner's rule on refusals: what a 403 from the Archive is.
+test("a 403 from the Archive's index is a refusal: stop, and rest as on a 429", async () => {
+  const { t, f } = refusals()
+  t.answer = () => capture(403, '')
+  await expect(f.text('https://web.archive.org/cdx/search/cdx?url=x')).rejects.toThrow(new RegExp(new Date(start + ARCHIVE_REST_MS).toISOString()))
+  expect(t.asked).toBe(1)
+  await expect(f.get(article)).rejects.toBeInstanceOf(ArchiveRefused)
+  expect(t.asked).toBe(1)
+})
+
+test("a 403 on one page's copy is no copy of that page, and rests nothing", async () => {
+  const file = restFile()
+  const { t, f } = refusals(file)
+  t.answer = () => capture(403, '')
+  await expect(f.get(article)).rejects.toThrow(/^no archived copy \(HTTP 403\)$/)
+  // The same page again in the run: still only that page.
+  await expect(f.get(article)).rejects.toThrow(/^no archived copy \(HTTP 403\)$/)
+  expect(() => readFileSync(file, 'utf8')).toThrow()
+  expect(t.asked).toBe(2)
+})
+
+test('no 403 ends a rest: after one on a page\'s copy, the next refusal doubles the wait', async () => {
+  const { t, f, make } = refusals()
+  await expect(f.get(article)).rejects.toBeInstanceOf(ArchiveRefused)
+  t.clock = start + ARCHIVE_REST_MS
+  t.answer = () => capture(403, '')
+  await expect(make().get(article)).rejects.toThrow(/^no archived copy \(HTTP 403\)$/)
+  t.answer = () => capture(429, '')
+  await expect(make().get(article)).rejects.toThrow(new RegExp(new Date(t.clock + ARCHIVE_REST_MAX_MS).toISOString()))
+})
+
+// Codex's read of 43fc906eab: a redirect with no address passed by the redirects' branch and ended the rest, so the next
+// refusal started a fresh 12 hours.
+test('after the wait, a redirect to no address is no copy and ends nothing: the next refusal doubles the wait', async () => {
+  const file = restFile()
+  const { t, f, make } = refusals(file)
+  await expect(f.get(article)).rejects.toBeInstanceOf(ArchiveRefused)
+  t.clock = start + ARCHIVE_REST_MS
+  t.answer = () => capture(302, '')
+  await expect(make().get(article)).rejects.toThrow(/^no archived copy \(HTTP 302/)
+  expect(JSON.parse(readFileSync(file, 'utf8'))).toMatchObject({ waitMs: ARCHIVE_REST_MS })
+  t.answer = () => capture(429, '')
+  await expect(make().get(article)).rejects.toThrow(new RegExp(new Date(t.clock + ARCHIVE_REST_MAX_MS).toISOString()))
+})
+
+// From the index, a redirect to no address is the index not answering, as its other failures but a 4xx: past a browser
+// check it stops the search, never "no copy".
+test('past a browser check, the index redirecting to no address stops the search: not "no copy"', async () => {
+  const f = new ArchiveFetcher({ restFile: restFile(), fetch: async u => (u.includes('/cdx/') ? capture(302, '') : capture(200, '<html><head><title>Just a moment...</title></head><body></body></html>')), now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'test' })
+  const e = await f.get(article).then(() => undefined, (x: unknown) => x as Error)
+  expect(e?.message).toMatch(/302/)
+  expect(noCopy(e)).toBe(false)
+})
+
+test("a 403 on a second page's copy in the same run is the reader shut out: a refusal, said in the log with both pages", async () => {
+  const log = vi.spyOn(console, 'log').mockImplementation(() => {})
+  try {
+    const { t, f, make } = refusals()
+    t.answer = () => capture(403, '')
+    const other = 'https://www.2hraquarist.com/blogs/hot-topics/other'
+    // The run's readers share what they met: a capped one made from it, as the magazine's are.
+    await expect(f.get(article)).rejects.toThrow(/^no archived copy \(HTTP 403\)$/)
+    await expect(f.capped(5).get(other)).rejects.toThrow(new RegExp(new Date(start + ARCHIVE_REST_MS).toISOString()))
+    expect(log.mock.calls.at(-1)?.[0]).toContain("HTTP 403 on a second page's copy in this run (2hraquarist.com/blogs/hot-topics/other, after 2hraquarist.com/blogs/hot-topics/best-temperature)")
+    // A new run starts with none met.
+    t.clock = start + ARCHIVE_REST_MS
+    t.answer = () => capture(200, '<title>ok</title>')
+    await make().get(article)
+    t.answer = () => capture(403, '')
+    await expect(make().get(other)).rejects.toThrow(/^no archived copy \(HTTP 403\)$/)
+  } finally { log.mockRestore() }
+})
+
+// Codex's fresh read of f4e7985fae: two jobs each sent the one request after a wait; the first refused wrote a new wait, and
+// the second, answered after, took it away.
+test("an answer after the wait ends only that wait: a new one another job's refusal wrote meanwhile stands", async () => {
+  const file = restFile()
+  const { t, f } = refusals(file)
+  await expect(f.get(article)).rejects.toBeInstanceOf(ArchiveRefused)
+  t.clock = start + ARCHIVE_REST_MS
+  let answer!: () => void
+  const held = new Promise<void>(ok => { answer = ok })
+  const slow = new ArchiveFetcher({ restFile: file, fetch: async () => { await held; return capture(200, '<title>ok</title>') }, now: () => new Date(t.clock), sleep: async () => {}, ua: 'test' })
+  const reading = slow.get(article)
+  // The other job's request after the same wait is refused: a day's wait now.
+  await expect(f.get(article)).rejects.toThrow(new RegExp(new Date(t.clock + ARCHIVE_REST_MAX_MS).toISOString()))
+  answer()
+  await reading
+  const asked = t.asked
+  await expect(f.get(article)).rejects.toBeInstanceOf(ArchiveRefused)
+  expect(t.asked).toBe(asked)
+})
+
+// Codex's fresh read of 21 Nov 2026: past a browser check, the requests allowed ran out or one copy failed, and the post
+// was recorded as having no copy.
+test('past a browser check: requests spent stop the search, not "no copy"; an older copy that fails is passed over', async () => {
+  const check = capture(200, '<html><head><title>Just a moment...</title></head></html>')
+  const f = new ArchiveFetcher({ restFile: restFile(), fetch: async () => check, now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'test' })
+  await expect(f.capped(1).get(article)).rejects.toBeInstanceOf(AsksSpent)
+  const calls: string[] = []
+  const g = new ArchiveFetcher({
+    restFile: restFile(),
+    fetch: async u => {
+      calls.push(u)
+      if (u.includes('/cdx/')) return capture(200, '20240101000000\n20250101000000\n')
+      if (u.includes('/web/20250101000000id_/')) return capture(404, '')
+      if (u.includes('/web/20240101000000id_/')) return capture(200, '<title>Best temperature</title>')
+      return check
+    },
+    now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'test',
+  })
+  // And with no date in the answer, the copy's date is its stamp.
+  expect(await g.get(article)).toMatchObject({ html: '<title>Best temperature</title>', capturedAt: '2024-01-01T00:00:00.000Z' })
+  expect(calls).toHaveLength(4)
+  // An older copy the Archive doesn't answer for, twice: that stops it, not "no copy".
+  const h = new ArchiveFetcher({
+    restFile: restFile(),
+    fetch: async u => {
+      if (u.includes('/cdx/')) return capture(200, '20240101000000\n20250101000000\n')
+      if (u.includes('/web/20250101000000id_/')) throw new TypeError('fetch failed')
+      return check
+    },
+    now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'test',
+  })
+  await expect(h.get(article)).rejects.toThrow(/^the archive isn't answering/)
+  // A 403 on an older copy: no copy of this page, and its other older copies aren't asked (Fable, 21 Nov 2026).
+  const asked403: string[] = []
+  const j = new ArchiveFetcher({
+    restFile: restFile(),
+    fetch: async u => { asked403.push(u); return u.includes('/cdx/') ? capture(200, '20240101000000\n20250101000000\n') : u.includes('/web/2026') ? check : capture(403, '') },
+    now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'test',
+  })
+  await expect(j.get(article)).rejects.toThrow(/^no archived copy \(HTTP 403\)$/)
+  expect(asked403.filter(u => /\/web\/20[0-9]{12}id_/.test(u))).toHaveLength(1)
+  // The index itself not answering, or down, stops it too: only its saying it holds nothing (a 4xx) is no copies.
+  for (const [index, said] of [[async () => { throw new TypeError('fetch failed') }, /^the archive isn't answering/], [async () => capture(502, ''), /^HTTP 502 from web\.archive\.org/], [async () => capture(404, ''), /^no archived copy \(the archive holds a browser-check page\)$/]] as const) {
+    const i = new ArchiveFetcher({ restFile: restFile(), fetch: async u => (u.includes('/cdx/') ? index() : check), now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'test' })
+    await expect(i.get(article)).rejects.toThrow(said)
+  }
+})
+
+// Codex's fresh read of 21 Nov 2026: a copy reached through a redirect, with no Memento-Datetime, had no date.
+test("a copy with no date of its own takes the stamp of the address that answered, never today's", async () => {
+  const answers: Record<string, ReturnType<typeof capture>> = {
+    [`https://web.archive.org/web/20261121id_/${article}`]: capture(302, '', { location: `/web/20251017040955id_/${article}` }),
+    [`https://web.archive.org/web/20251017040955id_/${article}`]: capture(200, '<title>Best temperature</title>'),
+  }
+  const f = new ArchiveFetcher({ restFile: restFile(), fetch: async u => answers[u] ?? capture(404, ''), now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'test' })
+  expect((await f.get(article)).capturedAt).toBe('2025-10-17T04:09:55.000Z')
+  answers[`https://web.archive.org/web/20261121id_/${article}`] = capture(200, '<title>Best temperature</title>')
+  expect((await f.get(article)).capturedAt).toBeUndefined()
 })
 
 test('a refused connection is a refusal, with no minute\'s wait and no second try', async () => {
