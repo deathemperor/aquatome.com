@@ -426,26 +426,34 @@ The layers above still check the result.
       - Found 2026-11-16: 544 of the 758 pages it had rewritten still had a listed phrase, and every run took them all up
         again, each part a write and a review.
   - **The wording mend takes listed words off a page one sentence at a time** (`mend-words`, `wording-mend.ts`; the
-    Writing Lead's plan of 16 Nov 2026, built 22 Nov for the chief of staff's trial). It writes only under `--out`,
-    never `content/` or `engine-state/`, until the editors have read a trial.
+    Writing Lead's plan of 16 Nov 2026, built 22 Nov for the chief of staff's trial). It writes only under `--out`, a
+    folder outside the repository, never `content/` or `engine-state/`, until the editors have read a trial. A file whose
+    way leads out of that folder isn't written. Each run's report has its own name. Its model calls go in the day's cost
+    log, as every hand run's do.
     - **The swap:** a model only picks, for each listed text, one of its entry's words (`swap` in `phrases.ts`) or none,
       and code puts the pick in its place, so the rest of the sentence is unchanged by construction. A pick not on the
-      list is none, and a text right after a negation isn't offered.
-    - **The recast:** a sentence the swap left is written again freely, without listed words, and kept only with its
-      figures as they were and a hedge still a hedge.
-    - **How sure and how many never change:** five entries (`SURE`) are swapped like for like and never cut. Their
-      sentences are recast only when the words read as a hedge to `hedges.ts` ("phần lớn"), so a recast that drops it is
-      refused. "Đa số" and "hầu hết" aren't swaps for "phần lớn": the repeat check counts the three as one word.
+      list is none. Nothing is offered in a clause with a negation, nor for a longer key given no words where the words
+      would read wrong ("dành phần lớn thời gian", "trong giới chơi", "nên bạn nên").
+    - **The recast:** a sentence the swap left is written again freely, without listed words, but only a plain one: no
+      hedge, figure, number word, word of how many or how sure, tag, entity, listed word outside the lane, or full stop
+      inside it. A recast that brings any of those in, or makes two sentences, is refused. The rest is left for the
+      editors.
+    - **How sure and how many never change:** four entries (`SURE`) are swapped like for like, never cut and never
+      recast. "Đa số" and "hầu hết" aren't swaps for "phần lớn": the repeat check counts the three as one word.
     - **Each change is read, and kept or refused alone:** one refused sentence doesn't refuse its part, and the rest of
       the page stays as it was.
-    - **Code refuses a change that keeps or adds a listed word or a tic, or gives the page more than three of a word the
-      lane puts in** ("nhưng", "thường"), which the repeat check doesn't count.
-    - **Left alone:** titles, headings, FAQ questions, references, parts a person fixed (`bodyFixed` keeps the summary
-      too), held pages and the glossary. Three entries stay out, since their fix needs the source: "không xương sống",
-      "được xem là", "được cho là".
+    - **Code refuses a change that keeps or adds a listed word, gives the page more than three of a word the swap puts in**
+      ("nhưng", "thường"), **or puts back a word of a kind the page repeats** for each it took out, counted over the whole
+      page, fixed parts too, or keeps a stacked "nên".
+    - **Left alone:** titles, headings, table headers, a guide's references, FAQ questions, parts a person fixed
+      (`bodyFixed` keeps the summary too), held pages and the glossary. A page record that can't be read stops the run
+      before any model call. Five entries stay out: three whose fix needs the source ("không xương sống", "được xem là",
+      "được cho là"), and two whose words would change what a page says ("ghi nhận": recorded in isn't lives in;
+      "thức ăn sống": "tươi sống" takes in fresh dead food).
     - **A page is taken up once for each mark:** a text with its entry's words, or the recast's version. A change to the
-      words brings it back. A page whose model failed is neither written nor marked, and the run stops; a page the day's
-      line can't cover isn't started (`pieces.ts`).
+      words brings it back. A page named with `--pages` is taken up again, once. A page whose model failed is neither
+      written nor marked, and the run stops with a failing exit; a page the day's line can't cover isn't started
+      (`pieces.ts`). Pages are picked so each entry has `--per` sentences the lane may mend.
   - **An Indonesian or Thai fish page out of search for its score comes back on two fresh reads on two models**
     (`pnpm engine recheck`, `localize-recheck.ts`, in the rewrite part after the other translations; the chief of staff,
     2026-11-16). A kept rewrite is no longer the only way back. The steady Sonnet read of the page's text as it is, then,
