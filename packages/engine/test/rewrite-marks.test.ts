@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { PHRASES, phraseRun } from '../src/phrases'
-import { LISTED_ON, listedBy, marksFor, rewriteMarks, writeReport } from '../src/rewrite-marks'
+import { LISTED_ON, listedBy, marksFor, rewriteMarks, sentText, writeReport } from '../src/rewrite-marks'
 import { rewriteExisting, type RewriteState } from '../src/vi-backfill'
 
 const put = async (root: string, path: string, v: unknown) => { await mkdir(join(root, path, '..'), { recursive: true }); await writeFile(join(root, path), JSON.stringify(v)) }
@@ -41,6 +41,15 @@ test('a word counts only for a page rewritten on a later day than its row reache
   // As --phrases matches it: the word as written, lower-cased; a 12 Nov row's word not yet on a page of 12 Nov.
   expect(marksFor('["Phần lớn cá… nửa tá con"]', '2026-11-12', PHRASES.vi!)).toEqual(['phần lớn'])
   expect(marksFor('["Phần lớn cá… nửa tá con"]', '2026-11-13', PHRASES.vi!).sort()).toEqual(['nửa tá', 'phần lớn'])
+})
+
+test('a word counts only in the part the rewrite read', () => {
+  const page = { body: '<p>Phần lớn cá.</p>', definition: 'Dù vậy là…', faq: [{ q: 'Khó không?', a: 'Nhìn chung là dễ.' }] }
+  expect(sentText('guides', page, 'aquariumcoop')).toBe(page.body) // a guide's body, never its questions
+  expect(sentText('guides', page, 'youtube')).toBe('') // a video guide's body went to no rewrite
+  expect(sentText('guides', { ...page, bodyFixed: true }, 'aquariumcoop')).toBe('') // nor a body a person fixed
+  expect(sentText('glossary', page)).toBe(page.definition)
+  expect(sentText('species', page)).toContain('Nhìn chung') // a fish or plant page: all of it, as --phrases reads it
 })
 
 test('marks what a page kept from a rewrite made with its word listed; the rest stays for --phrases, as its own dry run picks', async () => {

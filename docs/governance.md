@@ -433,7 +433,8 @@ The layers above still check the result.
           the day its row landed keeps the word for the pass.
         - Only a page rewritten whole is marked: every part it sent came back rewritten. A page with a part the reviewer
           refused kept that part's old words, so it's left for the pass, as is a failed rewrite. A record that has
-          marks, even none, is left as it is. A row added since is never marked by it.
+          marks is left as it is; an empty list is none, as `--phrases` reads it. A row added since is never marked by
+          it.
         - A word counts only in the part the rewrite read. For a guide, its body: its summary and questions went to no
           rewrite before, and `--phrases` sends them. For a glossary term, its definition. For a fish or plant, all its
           text: its fixed parts and references go to no rewrite, the pass's included. A video guide or a guide whose body
