@@ -254,7 +254,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/micranthemum-callitrichoides | shop | 6 | 60 |
 | species/trigonostigma-hengeli | shop | 4 | 60 |
 | species/boraras-brigittae | shop | 4 | 60 |
-| plants/eleocharis-parvula | shop | 20 | 60 |
+| plants/eleocharis-parvula | shop | 19 | 60 |
 | species/gymnarchus-niloticus | shop | 7 | 60 |
 | species/agamyxis-pectinifrons | shop | 0 | 60 |
 | species/chitala-ornata | shop | 10 | 60 |
@@ -283,8 +283,8 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/tropheus-duboisi | shop | 1 | 60 |
 | species/balantiocheilos-melanopterus | shop | 19 | 60 |
 | plants/hygrophila-pinnatifida | shop | 12 | 60 |
-| plants/juncus-repens | shop | 41 | 60 |
-| species/maylandia-estherae | shop | 21 | 60 |
+| plants/juncus-repens | shop | 38 | 60 |
+| species/maylandia-estherae | shop | 20 | 60 |
 | species/hyphessobrycon-amandae | shop | 5 | 60 |
 | plants/lagenandra-meeboldii | shop | 10 | 60 |
 | species/trigonostigma-espei | shop | 3 | 60 |
@@ -295,7 +295,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/tanichthys-albonubes | shop | 5 | 60 |
 | plants/myriophyllum-mattogrossense | shop | 9 | 60 |
 | species/inpaichthys-kerri | shop | 5 | 60 |
-| plants/nymphoides-hydrophylla | shop | 42 | 60 |
+| plants/nymphoides-hydrophylla | shop | 41 | 60 |
 | species/paracheirodon-simulans | shop | 2 | 60 |
 | plants/phyllanthus-fluitans | shop | 11 | 60 |
 | species/pristella-maxillaris | shop | 3 | 60 |

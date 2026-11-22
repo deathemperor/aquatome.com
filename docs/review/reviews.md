@@ -10,17 +10,17 @@ under `<lang>/<path>`.
 | --- | --- | --- | --- |
 | video-guide | 1103 | 782 (vi 782) | 782 |
 | translation | 2397 | 357 (vi 357) | 357 |
-| vi-rewrite | 425 | 43 (vi 43) | 43 |
-| reader-rewrite | 49 | 0 | 0 |
+| vi-rewrite | 431 | 43 (vi 43) | 43 |
+| reader-rewrite | 51 | 0 | 0 |
 | title | 27 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
 | topic | 142 | 9 (id 1, ms 1, th 6, vi 1) | 9 |
 | product | 31 | 2 (vi 2) | 2 |
 | product-reviews | 24 | 0 | 0 |
 | summary | 2824 | 168 (vi 168) | 168 |
-| localize | 2909 | 842 (id 358, ms 69, th 415) | 842 |
+| localize | 2958 | 845 (id 357, ms 73, th 415) | 845 |
 | glossary | 40 | 0 | 0 |
-| places | 7752 | 4709 (id 1625, ms 1617, th 1368, vi 99) | 1439 |
+| places | 7776 | 4727 (id 1631, ms 1623, th 1374, vi 99) | 1452 |
 | equipment | 5 | 0 | 0 |
 | planting | 32 | 0 | 0 |
 | species | 30 | 0 | 0 |
@@ -222,7 +222,7 @@ under `<lang>/<path>`.
 
 ## vi-rewrite: older Vietnamese rewritten in the site's style
 
-43 of 425 pages under the bar.
+43 of 431 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -304,7 +304,7 @@ under `<lang>/<path>`.
 
 ## reader-rewrite: parts the reader step rewrote with its findings
 
-0 of 49 pages under the bar.
+0 of 51 pages under the bar.
 
 ## title: titles rewritten to promise only what the text has
 
@@ -506,20 +506,20 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-842 of 2909 pages under the bar.
+845 of 2958 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 759 | 2058 |
-| Wording: unnatural, literal, stiff or chatty | 694 | 1369 |
-| Says what the source doesn't (invented, added) | 479 | 675 |
-| A number, unit, dose or price | 462 | 588 |
-| Meaning changed or wrong | 457 | 688 |
-| Hobby terms and names | 415 | 554 |
-| Text left in another language | 280 | 360 |
-| Leaves out what the source says | 235 | 275 |
-| Repeats itself (intro, summary, steps and FAQ) | 226 | 249 |
-| States as certain what the source hedges, or what garbled captions only hint at | 179 | 202 |
+| Other | 761 | 2065 |
+| Wording: unnatural, literal, stiff or chatty | 695 | 1375 |
+| Says what the source doesn't (invented, added) | 474 | 672 |
+| A number, unit, dose or price | 459 | 583 |
+| Meaning changed or wrong | 456 | 685 |
+| Hobby terms and names | 417 | 555 |
+| Text left in another language | 288 | 369 |
+| Leaves out what the source says | 233 | 274 |
+| Repeats itself (intro, summary, steps and FAQ) | 227 | 249 |
+| States as certain what the source hedges, or what garbled captions only hint at | 182 | 206 |
 | Copied from the transcript or source | 18 | 18 |
 | Off the title's topic | 2 | 2 |
 
@@ -600,13 +600,13 @@ under `<lang>/<path>`.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-4709 of 7752 pages under the bar.
+4727 of 7776 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 1288 | 1384 |
-| Leaves out what the source says | 79 | 79 |
-| Meaning changed or wrong | 72 | 72 |
+| Other | 1295 | 1391 |
+| Leaves out what the source says | 85 | 85 |
+| Meaning changed or wrong | 75 | 75 |
 | Wording: unnatural, literal, stiff or chatty | 27 | 27 |
 | Hobby terms and names | 12 | 12 |
 | States as certain what the source hedges, or what garbled captions only hint at | 9 | 9 |

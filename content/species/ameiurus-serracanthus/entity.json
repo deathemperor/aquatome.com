@@ -222,7 +222,12 @@
       "author": "Curtis Hart",
       "sourceUrl": "https://www.inaturalist.org/photos/650575712",
       "caption": "Cá nheo đốm Mỹ bơi dưới nước trong môi trường tự nhiên",
-      "setup": false
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/650575712-large.webp",
+        "width": 1705,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

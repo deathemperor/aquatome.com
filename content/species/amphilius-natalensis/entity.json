@@ -297,7 +297,12 @@
       "author": "Matthew Burnett",
       "sourceUrl": "https://www.inaturalist.org/photos/246514952",
       "caption": "Cá da trơn núi Natal nhìn từ trên xuống trong khay trắng",
-      "setup": true
+      "setup": true,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/246514952-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

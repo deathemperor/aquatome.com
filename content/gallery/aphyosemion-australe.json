@@ -26,6 +26,48 @@
       "kind": "form"
     },
     {
+      "url": "https://media.aquatome.com/flickr/16235005419.webp",
+      "thumb": "https://media.aquatome.com/flickr/16235005419-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY 2.0",
+      "author": "Dornenwolf",
+      "sourceUrl": "https://www.flickr.com/photos/20051036@N00/16235005419",
+      "caption": "Cặp cá killi đực cam và cái nhạt màu trong bể",
+      "best": true,
+      "kind": "pair",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/16119880150.webp",
+      "thumb": "https://media.aquatome.com/flickr/16119880150-480.webp",
+      "width": 1024,
+      "height": 771,
+      "licence": "CC BY 2.0",
+      "author": "Dornenwolf",
+      "sourceUrl": "https://www.flickr.com/photos/20051036@N00/16119880150",
+      "caption": "Cá killi đực màu cam vàng trong bể nuôi nền sỏi",
+      "best": true,
+      "kind": "male",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/15798738524.webp",
+      "thumb": "https://media.aquatome.com/flickr/15798738524-480.webp",
+      "width": 1024,
+      "height": 694,
+      "licence": "CC BY 2.0",
+      "author": "Dornenwolf",
+      "sourceUrl": "https://www.flickr.com/photos/20051036@N00/15798738524",
+      "caption": "Cá killi đực màu cam, vây đuôi đẹp, trong bể nuôi",
+      "best": true,
+      "kind": "male",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/5de183d9b39d7cf4.webp",
       "thumb": "https://media.aquatome.com/commons/5de183d9b39d7cf4-480.webp",
       "width": 825,
@@ -62,7 +104,7 @@
       "kind": "male"
     }
   ],
-  "seen": 7,
-  "updatedAt": "2026-11-04",
-  "builtAt": "2026-11-04"
+  "seen": 10,
+  "updatedAt": "2026-11-22",
+  "builtAt": "2026-11-22"
 }
