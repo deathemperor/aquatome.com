@@ -1199,6 +1199,27 @@ test('a page on the read list is held for harm on its read, not for a kit until 
   expect(await kit(new Set(), 'kit')).toEqual({ checks: ['kit'], at: '2026-11-09' })
 })
 
+// The chief of staff, 21 Nov 2026: the pass over the open pages no read covers (fit-pass.ts) holds a page only for harm,
+// in every language. Its reads are marked; a kit one of them finds stays in the record, and the same read without the mark
+// holds the page as any read does.
+test('a page the pass read is held for harm in every language, and for no kit', async () => {
+  const sweep = async (check: 'kit' | 'harm', pass: boolean) => {
+    const root = await repo()
+    const th = GUIDE.replace('/vi.json', '/th.json')
+    await writeFile(join(root, th), await readFile(join(root, GUIDE), 'utf8'))
+    git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'add', '.'); git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'th')
+    const page = await guidePage(root)
+    await saveState(root, { [fitKey(page)]: { at: '2026-11-23', hash: fitText(page).hash, model: 'opus', checklist: 3, findings: [{ check, part: 'P1', quote: 'Lọc', why: 'x', by: 'model' }], products: [], ...(pass ? { pass: true } : {}) } })
+    const calls: string[] = []
+    await gate(root, { llm: reader(calls), now, handRead: new Set() })
+    expect(calls).toHaveLength(0)
+    return [(await readJson(root, GUIDE)).held, (await readJson(root, th)).held]
+  }
+  expect(await sweep('kit', true)).toEqual([undefined, undefined])
+  expect(await sweep('harm', true)).toEqual([{ checks: ['harm'], at: '2026-11-09' }, { checks: ['harm'], at: '2026-11-09' }])
+  expect((await sweep('kit', false))[0]).toEqual({ checks: ['kit'], at: '2026-11-09' })
+})
+
 // The same for a guide a cycle changed (#1718's reader): a kit its old text carried, or the old text put back with its kit,
 // waits for the chief of staff when the guide is on the list; harm holds it all the same.
 test('a guide on the read list that a cycle changed is held for harm, not for a kit its old text had', async () => {
