@@ -1,5 +1,5 @@
 {
- "day": "2026-11-22",
+ "day": "2026-11-23",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -58,38 +58,35 @@
  },
  "sample": [
   {
+   "lang": "ms",
+   "path": "/ms/tumbuhan/myriophyllum-mattogrossense/",
+   "url": "https://aquatome.com/ms/tumbuhan/myriophyllum-mattogrossense/",
+   "title": "Myriophyllum mattogrossense",
+   "wrong": [
+    {
+     "check": "words",
+     "quote": "sesuai untuk bahagian belakang tangki"
+    }
+   ]
+  },
+  {
    "lang": "vi",
-   "path": "/vi/ca/ca-nheo-guitar-nho/",
-   "url": "https://aquatome.com/ca/ca-nheo-guitar-nho/",
-   "title": "Cá nheo guitar nhỏ",
-   "wrong": []
+   "path": "/vi/huong-dan/top-5-loai-ca-nuoc-ngot-gia-re-rat-dang-tien-cho-nguoi-moi/",
+   "url": "https://aquatome.com/huong-dan/top-5-loai-ca-nuoc-ngot-gia-re-rat-dang-tien-cho-nguoi-moi/",
+   "title": "Top 5 loài cá nước ngọt giá rẻ, rất đáng tiền cho người mới chơi",
+   "wrong": [
+    {
+     "check": "units",
+     "quote": "Cá dài 2,5–3,8 cm và thích bơi đàn."
+    }
+   ]
   },
   {
    "lang": "id",
-   "path": "/id/peralatan/test-nuoc/",
-   "url": "https://aquatome.com/id/peralatan/test-nuoc/",
-   "title": "Test kit air",
+   "path": "/id/ikan/clown-knife/",
+   "url": "https://aquatome.com/id/ikan/clown-knife/",
+   "title": "Clown Knife",
    "wrong": []
-  },
-  {
-   "lang": "vi",
-   "path": "/vi/huong-dan/xu-ly-reu-toc-o-be-thuy-sinh-ha-lan-moi-set/",
-   "url": "https://aquatome.com/huong-dan/xu-ly-reu-toc-o-be-thuy-sinh-ha-lan-moi-set/",
-   "title": "Xử lý rêu tóc ở bể thủy sinh Hà Lan mới set",
-   "wrong": [
-    {
-     "check": "source",
-     "quote": "Bể Hà Lan 60 cm này trồng toàn các loại cây cắt cắm phổ biến."
-    },
-    {
-     "check": "source",
-     "quote": "Bể 60 cm này chỉ dùng hai đèn giá rẻ."
-    },
-    {
-     "check": "words",
-     "quote": "Một cách tự nhiên"
-    }
-   ]
   }
  ]
 }
