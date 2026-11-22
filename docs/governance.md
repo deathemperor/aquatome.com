@@ -425,6 +425,16 @@ The layers above still check the result.
       - A marked word in text written later, such as a new source's section, doesn't bring the page back.
       - Found 2026-11-16: 544 of the 758 pages it had rewritten still had a listed phrase, and every run took them all up
         again, each part a write and a review.
+      - **The records from before the marks get theirs once**, from `pnpm engine rewrite-marks` (`rewrite-marks.ts`, no
+        model call; the chief of staff's option of 20 Nov), run on the chief of staff's word. A page gets a mark for a
+        word it still has only when the word's row was in the rewrite's prompt the day the page was rewritten: 61 rows
+        from 8 Nov, four from 12 Nov, from the list's history in git.
+        - The record's day is UTC and a row's is Vietnam's, so only a later day than the row's counts. A page rewritten
+          the day its row landed keeps the word for the pass.
+        - A failed rewrite and a record that has marks are left as they are. A row added since is never marked by it.
+        - `--dry-run` writes nothing. It reports, per row, the pages rewritten with it, those that still have it (each
+          such word is a writer's slip, and its mark leaves it on the page), and the pages `--phrases` would still take
+          up for it. The pages it gives as left are `rewrite-vi --phrases --dry-run`'s own, run on the marked record.
   - **An Indonesian or Thai fish page out of search for its score comes back on two fresh reads on two models**
     (`pnpm engine recheck`, `localize-recheck.ts`, in the rewrite part after the other translations; the chief of staff,
     2026-11-16). A kept rewrite is no longer the only way back. The steady Sonnet read of the page's text as it is, then,
