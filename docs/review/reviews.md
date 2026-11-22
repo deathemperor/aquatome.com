@@ -8,36 +8,36 @@ under `<lang>/<path>`.
 
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
-| video-guide | 1100 | 780 (vi 780) | 780 |
-| translation | 2361 | 356 (vi 356) | 356 |
+| video-guide | 1103 | 782 (vi 782) | 782 |
+| translation | 2397 | 357 (vi 357) | 357 |
 | vi-rewrite | 425 | 43 (vi 43) | 43 |
 | reader-rewrite | 49 | 0 | 0 |
 | title | 27 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
 | topic | 142 | 9 (id 1, ms 1, th 6, vi 1) | 9 |
-| product | 30 | 2 (vi 2) | 2 |
+| product | 31 | 2 (vi 2) | 2 |
 | product-reviews | 24 | 0 | 0 |
-| summary | 2768 | 160 (vi 160) | 160 |
+| summary | 2824 | 168 (vi 168) | 168 |
 | localize | 2909 | 842 (id 358, ms 69, th 415) | 842 |
 | glossary | 40 | 0 | 0 |
 | places | 7752 | 4709 (id 1625, ms 1617, th 1368, vi 99) | 1439 |
 | equipment | 5 | 0 | 0 |
 | planting | 32 | 0 | 0 |
-| species | 28 | 0 | 0 |
+| species | 30 | 0 | 0 |
 | material | 2 | 0 | 0 |
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
 
-780 of 1100 pages under the bar.
+782 of 1103 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| States as certain what the source hedges, or what garbled captions only hint at | 683 | 1998 |
-| Other | 680 | 1725 |
-| Says what the source doesn't (invented, added) | 562 | 1314 |
-| Wording: unnatural, literal, stiff or chatty | 332 | 469 |
+| States as certain what the source hedges, or what garbled captions only hint at | 685 | 2000 |
+| Other | 682 | 1728 |
+| Says what the source doesn't (invented, added) | 563 | 1316 |
+| Wording: unnatural, literal, stiff or chatty | 333 | 470 |
 | A number, unit, dose or price | 247 | 356 |
-| Repeats itself (intro, summary, steps and FAQ) | 157 | 184 |
+| Repeats itself (intro, summary, steps and FAQ) | 158 | 185 |
 | Meaning changed or wrong | 135 | 154 |
 | Leaves out what the source says | 55 | 57 |
 | Hobby terms and names | 55 | 57 |
@@ -126,16 +126,16 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-356 of 2361 pages under the bar.
+357 of 2397 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 336 | 960 |
-| Says what the source doesn't (invented, added) | 300 | 573 |
-| Wording: unnatural, literal, stiff or chatty | 261 | 473 |
-| Meaning changed or wrong | 219 | 325 |
-| Hobby terms and names | 177 | 239 |
-| Leaves out what the source says | 117 | 158 |
+| Other | 337 | 962 |
+| Says what the source doesn't (invented, added) | 301 | 575 |
+| Wording: unnatural, literal, stiff or chatty | 262 | 475 |
+| Meaning changed or wrong | 220 | 326 |
+| Hobby terms and names | 178 | 240 |
+| Leaves out what the source says | 118 | 160 |
 | Text left in another language | 116 | 143 |
 | States as certain what the source hedges, or what garbled captions only hint at | 96 | 112 |
 | A number, unit, dose or price | 79 | 102 |
@@ -392,7 +392,7 @@ under `<lang>/<path>`.
 
 ## product: product pages, against their research
 
-2 of 30 pages under the bar.
+2 of 31 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -436,15 +436,15 @@ under `<lang>/<path>`.
 
 ## summary: species' quick summaries (the numbers and claims check: 1 pass, 0 fail)
 
-160 of 2768 pages under the bar.
+168 of 2824 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Says what the source doesn't (invented, added) | 81 | 96 |
-| States as certain what the source hedges, or what garbled captions only hint at | 62 | 68 |
-| Other | 52 | 60 |
+| Says what the source doesn't (invented, added) | 85 | 102 |
+| States as certain what the source hedges, or what garbled captions only hint at | 65 | 73 |
+| Other | 57 | 65 |
+| Leaves out what the source says | 15 | 16 |
 | Meaning changed or wrong | 13 | 14 |
-| Leaves out what the source says | 13 | 14 |
 | A number, unit, dose or price | 12 | 13 |
 | Wording: unnatural, literal, stiff or chatty | 2 | 2 |
 | Off the title's topic | 1 | 1 |
@@ -469,17 +469,17 @@ under `<lang>/<path>`.
 - "nên cần cho ăn đúng loại mồi giun": the page only says that in the tank they "thích" (prefer) worms such as frozen bloodworm and white worms. It does not say that feeding must be exactly worms, or that their frantic feeding is the reason.… — vi/species/amblyceps-tenuispinis, 0.00
 - "hợp với người thích cá lạ và chịu tự tìm hiểu thêm" says who the species suits. The page doesn't state or imply this. — vi/species/ammoglanis-multidentatus, 0.00
 
-### Meaning changed or wrong
-
-- "đèn sáng" listed as a mistake and "đèn khá tối" as the fix: the page only says the most popular tanks tend to have fairly dim light. It gives no rule that bright light is wrong, so this is advice the page doesn't give. — vi/species/anabas-testudineus, 0.00
-- Mistake 3, "Dựng đá và bày bể kín chỗ", treats building rock structures as an error. The page only says "Bể không cần dựng đá" and adds that rocks can still be arranged if tank mates live around rocks. "Not needed" has become "a mistake", … — vi/species/buccochromis-lepturus, 0.00
-- The mistake "Để bể trống, ít chỗ núp… nên có đá lớn có gầm cho cá chui và nằm lên" gives aquarium set-up advice. The page only describes wild habitat and behaviour. It never advises how to furnish a tank. The summary also says the page giv… — vi/species/congoglanis-alula, 0.00
-
 ### Leaves out what the source says
 
 - "Cá sống ở các hệ thống nước ngọt Bắc Mỹ": the page says the fish lives "chủ yếu ở các hệ thống nước ngọt" (mainly in freshwater systems). The summary drops the hedge "chủ yếu" and states it as fully freshwater, so a hedge becomes a certai… — vi/species/ariopsis-assimilis, 0.00
 - "dòng chảy mạnh hơn các loài Badis khác": the page says the flow should be stronger than for "phần lớn các loài Badis khác" (most other Badis), and only "đôi chút" (slightly) stronger. The summary drops that hedge and implies all other Bad… — vi/species/badis-kyar, 0.00
 - The page says male black lancers "có thể rất hung hăng giữ lãnh thổ" (can be very aggressive). The summary drops the hedge: "cá đực hung hăng giữ lãnh thổ". — vi/species/bagrichthys-hypselopterus, 0.00
+
+### Meaning changed or wrong
+
+- "đèn sáng" listed as a mistake and "đèn khá tối" as the fix: the page only says the most popular tanks tend to have fairly dim light. It gives no rule that bright light is wrong, so this is advice the page doesn't give. — vi/species/anabas-testudineus, 0.00
+- Mistake 3, "Dựng đá và bày bể kín chỗ", treats building rock structures as an error. The page only says "Bể không cần dựng đá" and adds that rocks can still be arranged if tank mates live around rocks. "Not needed" has become "a mistake", … — vi/species/buccochromis-lepturus, 0.00
+- The mistake "Để bể trống, ít chỗ núp… nên có đá lớn có gầm cho cá chui và nằm lên" gives aquarium set-up advice. The page only describes wild habitat and behaviour. It never advises how to furnish a tank. The summary also says the page giv… — vi/species/congoglanis-alula, 0.00
 
 ### A number, unit, dose or price
 
@@ -671,7 +671,7 @@ under `<lang>/<path>`.
 
 ## species: species pages AquaTome writes from research, and what a species video adds to a page, against their research or video
 
-0 of 28 pages under the bar.
+0 of 30 pages under the bar.
 
 ## material: hobby materials' pages (lũa, đá, nền), against their research
 
