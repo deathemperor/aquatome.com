@@ -8,7 +8,7 @@ import { byHand, cycleOnlyHosts, refused } from './cycle-only'
 import { IDEA_SOURCES, ideaHost, NEVER_RESEARCHED, type Drop, type IdeaSource, type Listing } from './idea-sources'
 import { isMarketplace } from './marketplaces'
 import { htmlToOutline, isChallenge } from './outline'
-import { MAGAZINE_LOCK_PORT, tryLock, type Release } from './mac-lock'
+import { tryLock, type Release } from './mac-lock'
 import { piece } from './pieces'
 import { snapshotHash } from './snapshot'
 import { setSourceBlock, sourceBlockedSince } from './state'
@@ -134,8 +134,9 @@ function mirror(m: MagazineState, l: MagazineLedger) {
  * One magazine step at a time on the Mac, since its ledger is read and then written at each request: a step that finds
  * another running fails, naming it, so the cycle logs it. The lock is the Mac's own (mac-lock.ts), freed when its step ends
  * however it ends, so no step takes over a dead one's (Codex, 21 Nov 2026: two could take over the same one and both run).
+ * `port`: the magazine's own on the Mac, which only the CLI names (mac-lock.ts); a test's own.
  */
-export async function holdMagazine(port = MAGAZINE_LOCK_PORT): Promise<Release> {
+export async function holdMagazine(port: number): Promise<Release> {
   const release = await tryLock(port)
   if (!release) throw new Error(`another magazine step is running (it holds 127.0.0.1:${port})`)
   return release

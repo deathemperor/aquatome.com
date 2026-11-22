@@ -1,7 +1,7 @@
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { dirname } from 'node:path'
 import { parse } from 'node-html-parser'
-import type { Release } from './mac-lock'
+import { LockBusy, type Release } from './mac-lock'
 import { isChallenge } from './outline'
 
 /**
@@ -77,6 +77,11 @@ export class ArchiveFetcher {
   /** The pages whose copy the Archive answered with a 403 in this run: shared by the capped readers made from this one. */
   private forbidden = new Set<string>()
   /**
+   * Why the Mac's lock couldn't be had in this run (LockBusy), shared by the capped readers made from this one: the rest of
+   * the run asks nothing, at once, rather than wait again at each page. No refusal, so no rest is written.
+   */
+  private busy: { why?: string } = {}
+  /**
    * `restFile`: where the wait is kept, outside any checkout, since it's this Mac the archive refuses. `lock`: the Mac's one
    * lock on the Archive (mac-lock.ts), held by each request from its rest check to its answer, by every reader in every
    * checkout, so no request goes out past a refusal another just got, and no answer clears a wait another just began.
@@ -94,6 +99,7 @@ export class ArchiveFetcher {
     r.onAsk = onAsk
     r.pace = pace
     r.forbidden = this.forbidden
+    r.busy = this.busy
     return r
   }
 
@@ -125,7 +131,11 @@ export class ArchiveFetcher {
     for (let attempt = 0, hops = 0; ; attempt++) {
       if (this.asked >= this.cap) throw new AsksSpent(this.cap)
       await this.pace?.()
-      const release = await this.d.lock()
+      if (this.busy.why) throw new LockBusy(`${this.busy.why}; nothing more is asked of the archive in this run`)
+      const release = await this.d.lock().catch((e: unknown) => {
+        if (e instanceof LockBusy) this.busy.why = e.message
+        throw e
+      })
       let failed = false
       try {
         // Read again just before the request (Codex, 21 Nov 2026): another job on this Mac may have been refused while this

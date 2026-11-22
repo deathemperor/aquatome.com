@@ -1026,7 +1026,10 @@ The layers above still check the result.
     and each request holds the Mac's one lock on the Archive (`127.0.0.1:41231`) from reading the rest to its answer, the
     rest written or cleared, in every job and checkout, its pace and the minute's wait after a failure outside it (the
     chief of staff, 21 Nov 2026): no request goes out past a refusal another just got, and no answer clears a wait another
-    just began. A rest another job writes while a request waits its pace or the lock stops it, and a rest ends only on the Archive's own answer, never on a redirect (one to no address is
+    just began. Both locks are held on 127.0.0.1 alone, only the CLI names their ports, and every test names a free port of
+    its own; a lock held by anything else is waited for, said in the log once at 2 minutes, and at 10 the run asks the
+    Archive nothing more, which is no refusal: no rest is written, and nothing is asked without the lock (the chief of
+    staff, 22 Nov 2026). A rest another job writes while a request waits its pace or the lock stops it, and a rest ends only on the Archive's own answer, never on a redirect (one to no address is
     no copy of a page, and from the index, no answer) nor a 403, and only the rest that request came after. A 403 from
     the Archive's index is a refusal, as a 429; on one page's copy it is no copy of that page, but on a second page's in
     the same run it is a refusal, the reader shut out (the owner's rule on refusals; the chief of staff, 21 Nov 2026).

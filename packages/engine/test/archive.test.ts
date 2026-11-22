@@ -6,7 +6,7 @@ import { join } from 'node:path'
 import { expect, test, vi } from 'vitest'
 import { ARCHIVE_POLITE, ARCHIVE_REST_MAX_MS, ARCHIVE_REST_MS, ArchiveFetcher, ArchiveRefused, AsksSpent, errorGot, MAX_HOPS, noCopy } from '../src/archive'
 import { discover } from '../src/discover'
-import { macLock } from '../src/mac-lock'
+import { LockBusy, macLock } from '../src/mac-lock'
 import { sourceById } from '../src/sources'
 
 const restFile = () => join(mkdtempSync(join(tmpdir(), 'archive-rest-')), 'rest.json')
@@ -430,6 +430,31 @@ test("an answer that ends a wait is taken in before another reader on the Mac se
   // The other job sent only once the answer had ended the old wait, and the wait it began, 12 hours from a clean start, stands.
   expect(oldWait).toEqual([false])
   expect(JSON.parse(readFileSync(file, 'utf8'))).toMatchObject({ until: new Date(t.clock + ARCHIVE_REST_MS).toISOString(), waitMs: ARCHIVE_REST_MS })
+})
+
+// The chief of staff, 22 Nov 2026: something not ours holding the port is never the Archive refusing.
+test('a lock held by something not ours: the reader waits and says so, asks nothing, writes no rest, and the run asks nothing more', async () => {
+  const port = await freePort()
+  const other = createNetServer()
+  await new Promise<void>(ok => other.listen({ port, host: '127.0.0.1' }, ok))
+  const file = restFile()
+  const said: string[] = []
+  let asked = 0
+  const f = new ArchiveFetcher({ lock: () => macLock(port, { waitMs: 500, noteMs: 150, log: l => said.push(l) }), restFile: file, fetch: async () => { asked++; return capture(200, '<title>ok</title>') }, now: () => new Date(start), sleep: async () => {}, ua: 'test' })
+  const e = await f.get(article).catch((x: unknown) => x)
+  expect(e).toBeInstanceOf(LockBusy)
+  expect(e).not.toBeInstanceOf(ArchiveRefused)
+  expect((e as Error).message).toContain(`127.0.0.1:${port}`)
+  expect(said).toHaveLength(1)
+  expect(asked).toBe(0)
+  expect(existsSync(file)).toBe(false)
+  // The rest of the run, a capped reader too, asks nothing, and at once rather than waiting again.
+  const t0 = Date.now()
+  await expect(f.capped(5).get(article)).rejects.toThrow(/; nothing more is asked of the archive in this run$/)
+  expect(Date.now() - t0).toBeLessThan(150)
+  expect(asked).toBe(0)
+  expect(existsSync(file)).toBe(false)
+  await new Promise(ok => other.close(ok))
 })
 
 // Codex's fresh read of 21 Nov 2026: past a browser check, the requests allowed ran out or one copy failed, and the post

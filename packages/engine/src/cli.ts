@@ -132,7 +132,7 @@ import { NO_TRACE_SCHEMA, NO_TRACE_MODEL } from './image-transforms'
 import { APPEARANCE_SCHEMA, GENERATED_CHECK_MODEL, GENERATED_CHECK_SCHEMA, REFERENCE_CHECK_SCHEMA } from './image-reference'
 import { MARK_INSPECTION_SCHEMA, markInspectionPrompt, REAL_IMAGE_MODEL, type MarkInspection } from './image-real-checks'
 import { ArchiveFetcher } from './archive'
-import { ARCHIVE_LOCK_PORT, macLock } from './mac-lock'
+import { ARCHIVE_LOCK_PORT, MAGAZINE_LOCK_PORT, macLock } from './mac-lock'
 import { byHand, researchedPage } from './cycle-only'
 import { localizeCards } from './cards-intl'
 import { heroesWithout, localizeGlossary, localizePlaces, localizeSpecies, speciesOrder, TARGETS, type TargetLang } from './localize'
@@ -148,7 +148,7 @@ const UA = 'aquatome-engine/0.1 (https://aquatome.com)'
  * listing and its day's post): one name, one pace, one rest kept outside any checkout, and one lock, for the whole Mac
  * (archive.ts, mac-lock.ts).
  */
-const archiveReader = () => new ArchiveFetcher({ fetch, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)), ua: UA, restFile: join(homedir(), '.cache/aquatome/archive-rest.json'), lock: () => macLock(ARCHIVE_LOCK_PORT) })
+const archiveReader = () => new ArchiveFetcher({ fetch, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)), ua: UA, restFile: join(homedir(), '.cache/aquatome/archive-rest.json'), lock: () => macLock(ARCHIVE_LOCK_PORT, { log: line => console.log(`archive: ${line}`) }) })
 // Every Wikimedia read in this process asks as the engine and rests after a refusal (wikimedia-rest.ts).
 globalThis.fetch = restingFetch(globalThis.fetch, { restFile: join(homedir(), '.cache/aquatome/wikimedia-rest.json'), now: () => new Date(), ua: UA })
 const http = async (url: string) => {
@@ -1307,7 +1307,7 @@ if (cmd === 'photo-privacy') {
   // such step runs at a time: one that finds another running fails, naming it.
   const cache = join(homedir(), '.cache/aquatome')
   const ledger = join(cache, 'magazine-archive.json')
-  const release = await holdMagazine().catch((e: Error) => { console.error(`magazine: ${e.message}`); process.exit(1) })
+  const release = await holdMagazine(MAGAZINE_LOCK_PORT).catch((e: Error) => { console.error(`magazine: ${e.message}`); process.exit(1) })
   const archive = archiveReader()
   const get = fetchListing(fetch, UA)
   try {
