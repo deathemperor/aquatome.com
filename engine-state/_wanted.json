@@ -87,17 +87,6 @@
     ],
     "mentions": 22
   },
-  "caridina-cantonensis": {
-    "name": "Caridina cantonensis",
-    "mentionedIn": [
-      "guides/aquariumbreeder-importance-of-surface-agitation-in-aquariums",
-      "guides/aquariumcoop-blogs-aquarium-soft-water-fish",
-      "guides/youtube--UPryAP14hY",
-      "guides/youtube-3ghYi_liXK0",
-      "guides/youtube-5QIzdnCXP1U"
-    ],
-    "mentions": 18
-  },
   "ficus-pumila": {
     "name": "Ficus pumila",
     "mentionedIn": [
@@ -140,8 +129,7 @@
       "species/akysis-vespa",
       "species/barilius-infrafasciatus"
     ],
-    "mentions": 16,
-    "onSource": "https://www.seriouslyfish.com/species/acanthocobitis-pictilis"
+    "mentions": 16
   },
   "platydoras-costatus": {
     "name": "Platydoras costatus",
@@ -715,6 +703,17 @@
     ],
     "mentions": 5
   },
+  "caridina-pareparensis": {
+    "name": "Caridina pareparensis",
+    "mentionedIn": [
+      "guides/aquariumbreeder-crossbreeding-can-you-mix-different-color-shrimp",
+      "guides/aquariumbreeder-top-5-exotic-and-hardy-aquarium-shrimp",
+      "guides/aquariumbreeder-why-wont-my-shrimp-breed",
+      "species/caridina-pareparensis-parvidentata",
+      "species/caridina-parvidentata"
+    ],
+    "mentions": 5
+  },
   "strobilanthes-alternata": {
     "name": "Strobilanthes alternata",
     "mentionedIn": [
@@ -957,6 +956,16 @@
     ],
     "mentions": 5
   },
+  "palaemon-paludosus": {
+    "name": "Palaemon paludosus",
+    "mentionedIn": [
+      "guides/aquariumbreeder-3-most-hardy-dwarf-shrimp-for-beginners",
+      "guides/aquariumbreeder-how-to-remove-snails-from-a-shrimp-tank",
+      "guides/aquariumbreeder-list-of-freshwater-aquarium-snails-pros-and-cons",
+      "species/macrobrachium-lanchesteri"
+    ],
+    "mentions": 4
+  },
   "ammannia-pedicellata": {
     "name": "Ammannia pedicellata",
     "mentionedIn": [
@@ -985,16 +994,6 @@
       "guides/aquariumbreeder-how-to-tell-if-a-crayfish-is-male-or-female",
       "guides/aquariumbreeder-most-popular-aquarium-crayfish-species",
       "species/procambarus-virginalis"
-    ],
-    "mentions": 4
-  },
-  "caridina-pareparensis": {
-    "name": "Caridina pareparensis",
-    "mentionedIn": [
-      "guides/aquariumbreeder-crossbreeding-can-you-mix-different-color-shrimp",
-      "guides/aquariumbreeder-top-5-exotic-and-hardy-aquarium-shrimp",
-      "guides/aquariumbreeder-why-wont-my-shrimp-breed",
-      "species/caridina-pareparensis-parvidentata"
     ],
     "mentions": 4
   },
@@ -1375,24 +1374,6 @@
       "guides/aquariumbreeder-crossbreeding-can-you-mix-different-color-shrimp",
       "guides/aquariumbreeder-importance-of-surface-agitation-in-aquariums",
       "guides/aquariumbreeder-why-wont-my-shrimp-breed"
-    ],
-    "mentions": 3
-  },
-  "caridina-parvidentata": {
-    "name": "Caridina parvidentata",
-    "mentionedIn": [
-      "guides/aquariumbreeder-crossbreeding-can-you-mix-different-color-shrimp",
-      "guides/aquariumbreeder-top-5-exotic-and-hardy-aquarium-shrimp",
-      "guides/aquariumbreeder-why-wont-my-shrimp-breed"
-    ],
-    "mentions": 3
-  },
-  "caridina-serrata": {
-    "name": "Caridina serrata",
-    "mentionedIn": [
-      "guides/aquariumbreeder-importance-of-surface-agitation-in-aquariums",
-      "guides/aquariumcoop-blogs-aquarium-freshwater-dwarf-shrimp",
-      "guides/seriouslyfish-articles-new-shrimp-from-hong-kong-and-southern-china"
     ],
     "mentions": 3
   },
@@ -1956,6 +1937,16 @@
     ],
     "mentions": 3
   },
+  "pseudoxiphophorus-bimaculatus": {
+    "name": "Pseudoxiphophorus bimaculatus",
+    "mentionedIn": [
+      "species/pseudoxiphophorus-anzuetoi",
+      "species/xenotoca-doadrioi",
+      "species/zoogoneticus-tequila",
+      "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
+    ],
+    "mentions": 4
+  },
   "glyptothorax-quadriocellatus": {
     "name": "Glyptothorax quadriocellatus",
     "mentionedIn": [
@@ -1973,22 +1964,6 @@
       "species/sinibotia-superciliaris"
     ],
     "mentions": 3
-  },
-  "palaemon-paludosus": {
-    "name": "Palaemon paludosus",
-    "mentionedIn": [
-      "guides/aquariumbreeder-3-most-hardy-dwarf-shrimp-for-beginners",
-      "guides/aquariumbreeder-list-of-freshwater-aquarium-snails-pros-and-cons"
-    ],
-    "mentions": 2
-  },
-  "macrobrachium-lanchesteri": {
-    "name": "Macrobrachium lanchesteri",
-    "mentionedIn": [
-      "guides/aquariumbreeder-3-most-hardy-dwarf-shrimp-for-beginners",
-      "guides/aquariumbreeder-top-5-exotic-and-hardy-aquarium-shrimp"
-    ],
-    "mentions": 2
   },
   "anubias-afzelii": {
     "name": "Anubias afzelii",
@@ -2013,6 +1988,15 @@
       "species/stenorhynchus-seticornis"
     ],
     "mentions": 2
+  },
+  "penaeus-vannamei": {
+    "name": "Penaeus vannamei",
+    "mentionedIn": [
+      "guides/aquariumbreeder-co2-in-a-shrimp-tank",
+      "guides/aquariumbreeder-hydra-in-a-shrimp-tank-treatment",
+      "guides/aquariumbreeder-microworms-profile-and-how-to-culture-as-live-food"
+    ],
+    "mentions": 3
   },
   "atyaephyra-desmarestii": {
     "name": "Atyaephyra desmarestii",
@@ -2172,8 +2156,7 @@
       "guides/seriouslyfish-articles-european-killifishes-part-1-the-genus-aphanius-in-spain",
       "species/apricaphanius-iberus"
     ],
-    "mentions": 2,
-    "onSource": "https://www.seriouslyfish.com/species/aphanius-iberus"
+    "mentions": 2
   },
   "aphanius-baeticus": {
     "name": "Aphanius baeticus",
@@ -2181,8 +2164,7 @@
       "guides/seriouslyfish-articles-european-killifishes-part-1-the-genus-aphanius-in-spain",
       "species/apricaphanius-baeticus"
     ],
-    "mentions": 2,
-    "onSource": "https://www.seriouslyfish.com/species/aphanius-baeticus"
+    "mentions": 2
   },
   "badis-laspiophilus": {
     "name": "Badis laspiophilus",
@@ -2206,8 +2188,7 @@
       "guides/seriouslyfish-articles-whaddaya-mean-too-hot",
       "species/paraphanius-mento"
     ],
-    "mentions": 2,
-    "onSource": "https://www.seriouslyfish.com/species/aphanius-mento"
+    "mentions": 2
   },
   "chaetostoma-milesi": {
     "name": "Chaetostoma milesi",
@@ -2560,8 +2541,7 @@
       "species/anatolichthys-sureyanus",
       "species/anatolichthys-transgrediens"
     ],
-    "mentions": 2,
-    "onSource": "https://www.seriouslyfish.com/species/aphanius-anatoliae"
+    "mentions": 2
   },
   "condylactis-gigantea": {
     "name": "Condylactis gigantea",
@@ -3374,15 +3354,6 @@
     ],
     "mentions": 2
   },
-  "pseudoxiphophorus-bimaculatus": {
-    "name": "Pseudoxiphophorus bimaculatus",
-    "mentionedIn": [
-      "species/pseudoxiphophorus-anzuetoi",
-      "species/zoogoneticus-tequila",
-      "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
-    ],
-    "mentions": 3
-  },
   "puntius-kelumi": {
     "name": "Puntius kelumi",
     "mentionedIn": [
@@ -3578,14 +3549,6 @@
       "guides/aquariumbreeder-bristleworms-profile-stay-or-go"
     ],
     "mentions": 1
-  },
-  "penaeus-vannamei": {
-    "name": "Penaeus vannamei",
-    "mentionedIn": [
-      "guides/aquariumbreeder-co2-in-a-shrimp-tank",
-      "guides/aquariumbreeder-microworms-profile-and-how-to-culture-as-live-food"
-    ],
-    "mentions": 2
   },
   "neohelice-granulata": {
     "name": "Neohelice granulata",
@@ -4331,13 +4294,6 @@
   },
   "hemisorubim-platyrhynchos": {
     "name": "Hemisorubim platyrhynchos",
-    "mentionedIn": [
-      "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
-    ],
-    "mentions": 1
-  },
-  "auchenipterichthys-longimanus": {
-    "name": "Auchenipterichthys longimanus",
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
@@ -5379,8 +5335,7 @@
     "mentionedIn": [
       "species/anatolichthys-villwocki"
     ],
-    "mentions": 1,
-    "onSource": "https://www.seriouslyfish.com/species/aphanius-villwocki"
+    "mentions": 1
   },
   "ancharius-griseus": {
     "name": "Ancharius griseus",
@@ -5625,8 +5580,7 @@
     "mentionedIn": [
       "species/barbodes-semifasciolatus"
     ],
-    "mentions": 1,
-    "onSource": "https://www.seriouslyfish.com/species/puntius-snyderi"
+    "mentions": 1
   },
   "barboides-britzi": {
     "name": "Barboides britzi",
@@ -5822,6 +5776,27 @@
     "name": "Caridina kutchi",
     "mentionedIn": [
       "species/caridina-babaulti"
+    ],
+    "mentions": 1
+  },
+  "caridina-celebensis": {
+    "name": "Caridina celebensis",
+    "mentionedIn": [
+      "species/caridina-serratirostris"
+    ],
+    "mentions": 1
+  },
+  "caridina-spongicola": {
+    "name": "Caridina spongicola",
+    "mentionedIn": [
+      "species/caridina-woltereckae"
+    ],
+    "mentions": 1
+  },
+  "caridina-mahalona": {
+    "name": "Caridina mahalona",
+    "mentionedIn": [
+      "species/caridina-woltereckae"
     ],
     "mentions": 1
   },
@@ -6454,8 +6429,7 @@
     "mentionedIn": [
       "species/garra-bicornuta"
     ],
-    "mentions": 1,
-    "onSource": "https://www.seriouslyfish.com/species/nemachilichthys-shimogensis"
+    "mentions": 1
   },
   "garra-micropulvinus": {
     "name": "Garra micropulvinus",

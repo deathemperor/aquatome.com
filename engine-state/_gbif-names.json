@@ -652,6 +652,22 @@
     "genus": "Ageneiosus",
     "matchType": "EXACT"
   },
+  "Ageneiosus militaris": {
+    "canonicalName": "Ageneiosus militaris",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Auchenipteridae",
+    "genus": "Ageneiosus",
+    "matchType": "EXACT"
+  },
+  "Ageneiosus pardalis": {
+    "canonicalName": "Ageneiosus pardalis",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Auchenipteridae",
+    "genus": "Ageneiosus",
+    "matchType": "EXACT"
+  },
   "Ageneiosus ucayalensis": {
     "canonicalName": "Ageneiosus ucayalensis",
     "order": "Siluriformes",
@@ -3531,6 +3547,7 @@
     "genus": "Auchenipterichthys",
     "matchType": "EXACT"
   },
+  "Auchenipterichthys includes": null,
   "Auchenipterichthys longimanus": {
     "canonicalName": "Auchenipterichthys longimanus",
     "order": "Siluriformes",
@@ -3540,6 +3557,14 @@
   },
   "Auchenipterichthys punctatus": {
     "canonicalName": "Auchenipterichthys punctatus",
+    "order": "Siluriformes",
+    "family": "Auchenipteridae",
+    "genus": "Auchenipterichthys",
+    "matchType": "EXACT"
+  },
+  "Auchenipterichthys thoracatus": {
+    "canonicalName": "Auchenipterichthys thoracatus",
+    "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Auchenipteridae",
     "genus": "Auchenipterichthys",
@@ -6616,6 +6641,15 @@
     "genus": "Caridina",
     "matchType": "EXACT"
   },
+  "Caridina celebensis": {
+    "canonicalName": "Caridina celebensis",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Atyidae",
+    "genus": "Caridina",
+    "matchType": "EXACT"
+  },
   "Caridina dennerli": {
     "canonicalName": "Caridina dennerli",
     "order": "Decapoda",
@@ -6641,6 +6675,15 @@
   },
   "Caridina logemanni": {
     "canonicalName": "Caridina logemanni",
+    "order": "Decapoda",
+    "family": "Atyidae",
+    "genus": "Caridina",
+    "matchType": "EXACT"
+  },
+  "Caridina mahalona": {
+    "canonicalName": "Caridina mahalona",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
     "order": "Decapoda",
     "family": "Atyidae",
     "genus": "Caridina",
@@ -6688,7 +6731,25 @@
     "genus": "Caridina",
     "matchType": "EXACT"
   },
+  "Caridina serratirostris": {
+    "canonicalName": "Caridina serratirostris",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Atyidae",
+    "genus": "Caridina",
+    "matchType": "EXACT"
+  },
   "Caridina shrimplets": null,
+  "Caridina spongicola": {
+    "canonicalName": "Caridina spongicola",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Atyidae",
+    "genus": "Caridina",
+    "matchType": "EXACT"
+  },
   "Caridina trifasciata": {
     "canonicalName": "Caridina trifasciata",
     "order": "Decapoda",
@@ -6697,6 +6758,15 @@
     "matchType": "EXACT"
   },
   "Caridina trong": null,
+  "Caridina woltereckae": {
+    "canonicalName": "Caridina woltereckae",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Atyidae",
+    "genus": "Caridina",
+    "matchType": "EXACT"
+  },
   "Carinotetraodon borneensis": {
     "canonicalName": "Carinotetraodon borneensis",
     "order": "Tetraodontiformes",
@@ -11613,6 +11683,14 @@
     "order": "Scleractinia",
     "family": "Dendrophylliidae",
     "genus": "Duncanopsammia",
+    "matchType": "EXACT"
+  },
+  "Duopalatinus goeldii": {
+    "canonicalName": "Platysilurus mucosus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Pimelodidae",
+    "genus": "Platysilurus",
     "matchType": "EXACT"
   },
   "Duopalatinus malarmo": {
@@ -22172,6 +22250,7 @@
   },
   "Neocaridina gracilirostris": null,
   "Neocaridina nhi": null,
+  "Neocaridina serrata": null,
   "Neocaridina trong": null,
   "Neocaridina xanh": null,
   "Neochela dadiburjori": {
@@ -28289,6 +28368,14 @@
     "genus": "Pterygoplichthys",
     "matchType": "EXACT"
   },
+  "Pterygoplichthys parnaibae": {
+    "canonicalName": "Pterygoplichthys parnaibae",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Pterygoplichthys",
+    "matchType": "EXACT"
+  },
   "Pterygoplichthys punctatus": {
     "canonicalName": "Pterygoplichthys punctatus",
     "order": "Siluriformes",
@@ -31728,6 +31815,7 @@
     "genus": "Stiphodon",
     "matchType": "EXACT"
   },
+  "Stiphodon chuy": null,
   "Stiphodon elegans": {
     "canonicalName": "Stiphodon elegans",
     "phylum": "Chordata",
@@ -31763,6 +31851,14 @@
     "family": "Gobiidae",
     "genus": "Stiphodon",
     "matchType": "EXACT"
+  },
+  "Stiphodon percneopterygionus": {
+    "canonicalName": "Stiphodon percnopterygionus",
+    "phylum": "Chordata",
+    "order": "Perciformes",
+    "family": "Gobiidae",
+    "genus": "Stiphodon",
+    "matchType": "FUZZY"
   },
   "Stiphodon percnopterygionus": {
     "canonicalName": "Stiphodon percnopterygionus",
@@ -31912,6 +32008,9 @@
     "genus": "Halopteris",
     "matchType": "EXACT"
   },
+  "Sulawesi atyid": null,
+  "Sulawesi freshwater": null,
+  "Sulawezi garnalen": null,
   "Sundadanio axelrodi": {
     "canonicalName": "Sundadanio axelrodi",
     "order": "Cypriniformes",
@@ -33290,6 +33389,7 @@
     "genus": "Tramitichromis",
     "matchType": "EXACT"
   },
+  "Tranh dinh": null,
   "Trapa natans": {
     "canonicalName": "Trapa natans",
     "phylum": "Tracheophyta",
@@ -34243,6 +34343,14 @@
     "order": "Perciformes",
     "family": "Cichlidae",
     "genus": "Xenotilapia",
+    "matchType": "EXACT"
+  },
+  "Xenotoca doadrioi": {
+    "canonicalName": "Xenotoca doadrioi",
+    "phylum": "Chordata",
+    "order": "Cyprinodontiformes",
+    "family": "Goodeidae",
+    "genus": "Xenotoca",
     "matchType": "EXACT"
   },
   "Xenotoca eiseni": {
