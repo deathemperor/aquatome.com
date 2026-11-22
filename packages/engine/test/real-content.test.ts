@@ -9,7 +9,7 @@ import { englishOf } from '../src/english'
 import { tilapiaUnnamed } from '../src/kind-words'
 import { droppedName, FISH_NAMES, KIND_PASSAGES, oldNames, renamings } from '../src/names'
 import { altKey, NOT_ITS } from '../src/alt-names'
-import { GROUP_ORDERS, MISMATCHED } from '../src/gbif'
+import { GROUP_ORDERS, GROUPS, MISMATCHED } from '../src/gbif'
 import { productOf } from '../src/fit'
 import { loadPages } from '../src/pages'
 import { ENGLISH_PLACE_WORD, kindTwice } from '../src/place-names'
@@ -978,6 +978,18 @@ test('every species page\'s order fits its group', () => {
   const off = readdirSync(root).filter(id => {
     const e = JSON.parse(readFileSync(join(root, id, 'entity.json'), 'utf8')) as { group: string; order: string }
     return GROUP_ORDERS[e.group] !== undefined && !GROUP_ORDERS[e.group]!.includes(e.order)
+  })
+  expect(off.sort()).toEqual([])
+})
+
+// The chief of staff, 22 Nov 2026: a page's group is one the engine accepts (gbif.ts GROUPS), each of which the site names
+// in every served language (apps/site/test/labels.test.ts), so a run whose page has any other fails here before it
+// publishes. Three groups the site had no name for printed "characins: 8 loài, cách nuôi" as a group page's title.
+test('every species page is in a group the engine accepts', () => {
+  const root = fileURLToPath(new URL('../../../content/species', import.meta.url))
+  const off = readdirSync(root).flatMap(id => {
+    const { group } = JSON.parse(readFileSync(join(root, id, 'entity.json'), 'utf8')) as { group: string }
+    return GROUPS.includes(group) ? [] : [`${id}: ${group}`]
   })
   expect(off.sort()).toEqual([])
 })

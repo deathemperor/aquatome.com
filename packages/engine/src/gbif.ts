@@ -72,6 +72,13 @@ export const GROUP_ORDERS: Record<string, string[]> = {
   rainbowfish: ['Atheriniformes'], shrimp: ['Decapoda'],
 }
 /**
+ * Every group the engine accepts on a page: its order table's and the two held by class alone. The site names each one in
+ * every language it serves (apps/site/test/labels.test.ts), and a page whose group is none of them fails before it
+ * publishes (real-content.test.ts): on 22 Nov 2026 the site printed "characins: 8 loài, cách nuôi" as a group page's
+ * title, for three groups this table accepted that the site had no name for.
+ */
+export const GROUPS: readonly string[] = [...new Set([...Object.keys(GROUP_ORDERS), ...Object.keys(GROUP_CLASSES)])].sort()
+/**
  * A page's group as its order allows (the chief of staff, 14 Nov 2026): the group given when its orders include the page's,
  * else the one group that has that order, else "other", which is for an order no single group has. An order shared by
  * several groups (Cypriniformes: barbs, danios, rasboras, loaches) can't place a fish by itself, and a guess would list a
