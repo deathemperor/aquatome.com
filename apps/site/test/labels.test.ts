@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import { OTHER_LANGS } from '@aq/schema/langs'
-import { GROUP_LABELS, groupOptions, sameNameGroup } from '../src/lib/format'
+import { APP_GROUP_LABELS, GROUP_LABELS, groupOptions } from '../src/lib/format'
 
 const read = (path: string) => readFileSync(new URL(path, import.meta.url).pathname, 'utf8')
 
@@ -27,8 +27,10 @@ test('every species group the engine can assign has a name in Vietnamese and in 
 test("every option in the fish list's group filter reads differently, in each served language", () => {
   const options = groupOptions(Object.keys(GROUP_LABELS).sort())
   expect(options).toContainEqual(['characins', 'characoids'])
-  // The app's shelves the same way (app-index.ts): characoids' fish on characins' shelf.
-  expect(['characoids', 'characins', 'tetras', 'cyprinid'].map(sameNameGroup)).toEqual(['characins', 'characins', 'tetras', 'cyprinid'])
+  // The app has words only for the model's list (app-index.ts): the three groups' fish stay under "other" there, and its
+  // "Nhóm cá" row gains no chip, until the owner settles the fold (the chief of staff, 22 Nov 2026).
+  const listed = read('../../../packages/engine/src/prompts/process.md').match(/group: one of ([a-z, ]+)\./)![1]!.split(/,\s*/)
+  expect(Object.keys(APP_GROUP_LABELS).sort()).toEqual([...listed].sort())
   const names = options.map(gs => GROUP_LABELS[gs[0]!]!)
   expect(names.filter((n, i) => names.indexOf(n) !== i)).toEqual([])
   for (const lang of OTHER_LANGS) {
