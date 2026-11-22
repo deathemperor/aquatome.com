@@ -1106,6 +1106,12 @@ test("the live-food guide's Indonesian and Malay survey lines hold", () => {
   expect(facts).not.toContain('445 readers')
 })
 
+// The Writing Lead's words of 22 Nov 2026 on the live-food guide's Malay copy (the chief of staff): the gate's read of
+// 21 Nov found its betta keeper's two tips said as any keeper's, where the Indonesian, which read clean, says a keeper on
+// a forum. Both lines now say so. The body stays bodyFixed, so a redo keeps them, and the page stays held until the gate's
+// read of these words lets it out, so this holds the words and not the hold (test/fixtures/live-food-1122-ms.json).
+test("the live-food guide's Malay copy says its betta keeper's tips come from a forum", () => handFixesHold('live-food-1122-ms.json', '', 'ms'))
+
 // The Writing Lead's yes or no of 20 Nov 2026 on what that change left as it was, each checked against the saved source
 // or the video's transcript: three of the shop's photo captions out of the egg scatterers' body and the fourth moved to
 // the paragraph it belongs to; the keeper's own hedge on why the Endlers tank still needs water changes, and the snails
