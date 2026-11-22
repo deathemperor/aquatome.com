@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
 import { loadAll, PHOTO_BOXES_FILE, retiredTo, SOURCE_IDS, vnDate, type SourceId } from '@aq/schema'
 import { LANGS, type Lang, WRITTEN_LANGS, WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
-import { nameStep, stepFor } from './ceiling'
+import { machine, nameStep, stepFor } from './ceiling'
 import { LlmError, claudeCli, claudeResearch, claudeVision } from './claude'
 import { accountReport, credentialRejected, onNextAccount, rejectedTokens } from './claude-accounts'
 import { makeProduct } from './products'
@@ -116,7 +116,7 @@ import { makeMaterial, MATERIALS } from './materials'
 import { makeGlossaryEntry } from './glossary-entry'
 import { writeLinkCheck } from './glossary-link-check'
 import { CLASSIFICATION_THREAD, FORUM_SECTIONS, readForum } from './forum'
-import { listingText, readIdeas, refreshIdeas, writeIdeas } from './ideas'
+import { fetchListing, holdMagazine, readIdeas, readMagazine, refreshIdeas, refreshMagazine, writeIdeas, writeMagazine } from './ideas'
 import { backfillVideoItems } from './video-items'
 import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytFrames, ytGrab } from './youtube'
 import { checkPagePhotos, EMPTY_CAP, PHOTO_CHECK_SCHEMA, recheckCandidates, type PhotoCheckDeps } from './photo-check'
@@ -133,7 +133,7 @@ import { NO_TRACE_SCHEMA, NO_TRACE_MODEL } from './image-transforms'
 import { APPEARANCE_SCHEMA, GENERATED_CHECK_MODEL, GENERATED_CHECK_SCHEMA, REFERENCE_CHECK_SCHEMA } from './image-reference'
 import { MARK_INSPECTION_SCHEMA, markInspectionPrompt, REAL_IMAGE_MODEL, type MarkInspection } from './image-real-checks'
 import { ArchiveFetcher } from './archive'
-import { researchedPage } from './cycle-only'
+import { byHand, researchedPage } from './cycle-only'
 import { localizeCards } from './cards-intl'
 import { heroesWithout, localizeGlossary, localizePlaces, localizeSpecies, speciesOrder, TARGETS, type TargetLang } from './localize'
 import { RECHECK_LANGS, recheckLocalized } from './localize-recheck'
@@ -143,6 +143,11 @@ import { abNamespace, listReaderWants } from './readers-wanted'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const UA = 'aquatome-engine/0.1 (https://aquatome.com)'
+/**
+ * The one way the engine reads the Internet Archive, for every step that does (the sources read through it, the magazine's
+ * listing and its day's post): one name, one pace, and one rest for the whole Mac, kept outside any checkout (archive.ts).
+ */
+const archiveReader = () => new ArchiveFetcher({ fetch, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)), ua: UA, restFile: join(homedir(), '.cache/aquatome/archive-rest.json') })
 // Every Wikimedia read in this process asks as the engine and rests after a refusal (wikimedia-rest.ts).
 globalThis.fetch = restingFetch(globalThis.fetch, { restFile: join(homedir(), '.cache/aquatome/wikimedia-rest.json'), now: () => new Date(), ua: UA })
 const http = async (url: string) => {
@@ -262,7 +267,7 @@ if (cmd === 'photo-privacy') {
   await fetcher.open()
   try {
     const report = await runEngine(
-      { fetcher, archive: new ArchiveFetcher({ fetch, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)), ua: UA, restFile: join(homedir(), '.cache/aquatome/archive-rest.json') }), llm: claudeCli, http, media: media(), root: ROOT, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)), readersWanted },
+      { fetcher, archive: archiveReader(), llm: claudeCli, http, media: media(), root: ROOT, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)), readersWanted },
       // card-fill: CARD_FILL_LIMIT (engine-cycle.sh) pages a source, 10 by default.
       { sources, limit: values.limit ? Number(values.limit) : cmd === 'card-fill' ? 10 : undefined, maxMinutes: values['max-minutes'] ? Number(values['max-minutes']) : undefined, only: values.only ? new RegExp(values.only) : undefined, retryBlocked: values['retry-blocked'], force: values.force, cardFill: cmd === 'card-fill' },
     )
@@ -1249,7 +1254,8 @@ if (cmd === 'photo-privacy') {
 } else if (cmd === 'forum') {
   // Diễn Đàn Cá Cảnh's guide sections, read for orientation: notes on each thread (translated or original, the original it
   // names, Vietnamese terms), never its text. pnpm engine forum [--limit threads] [--pages list pages] [--match section regex]
-  const get = async (u: string) => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.text() }
+  // Its redirects by hand, never to a copy site: this runs on GitHub, which never asks the Internet Archive (cycle-only.ts).
+  const get = async (u: string) => { const res = await byHand(fetch, UA)(u); if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.text() }
   const sections = values.match ? FORUM_SECTIONS.filter(s => new RegExp(values.match!, 'i').test(s)) : undefined
   const r = await readForum(ROOT, { get, llm: claudeCli, sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date() }, { limit: Number(values.limit ?? 10), pages: Number(values.pages ?? 5), sections, extra: [CLASSIFICATION_THREAD] })
   console.log(`forum: ${r.listed} list pages read, ${r.found} threads found, ${r.read.length} read, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}\n${[...r.read, ...r.failed].join('\n')}`)
@@ -1257,7 +1263,7 @@ if (cmd === 'photo-privacy') {
   // Vietnamese shops' blogs, read for ideas (their posts' titles, never their text), a week apart unless --force: the
   // topics the handbook has no guide on, most asked first, in engine-state/_ideas.json. pnpm engine ideas [--force]
   // [--retry-blocked]: a site that refused us its listing is fetched again only with --retry-blocked.
-  const get = async (u: string) => listingText(await fetch(u, { headers: { 'user-agent': UA }, signal: AbortSignal.timeout(60_000) }))
+  const get = fetchListing(fetch, UA)
   const r = await refreshIdeas(ROOT, { get, llm: claudeCli, sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date() }, { force: values.force, retryBlocked: values['retry-blocked'] })
   const s = await readIdeas(ROOT)
   console.log(r.fresh ? `ideas: read ${s.readAt}, still fresh` : `ideas: ${r.posts} posts, ${r.ideas} new ideas${r.failed.length ? `; failed: ${r.failed.join('; ')}` : ''}`)
@@ -1272,10 +1278,42 @@ if (cmd === 'photo-privacy') {
   if (refused.length) console.log(`ideas: needs-human: ${refused.join(', ')} refused us its listing (a 403 or a 429, or an answer that isn't its listing); its last titles stand and it isn't fetched again. Once the owner has looked: pnpm engine ideas --force --retry-blocked`)
   for (const i of s.ideas.filter(x => !x.guide && !x.skipped).slice(0, 15)) console.log(`${i.sites} sites, ${i.posts.length} posts: ${i.topic} (${i.kind})`)
 } else if (cmd === 'write-ideas') {
-  // AquaTome's own guides on the most asked ideas (engine ideas), researched as pnpm engine topic is: --limit a day (Vietnam's).
+  // AquaTome's own guides on the shops' most asked ideas (engine ideas), researched as pnpm engine topic is: --limit a day
+  // (Vietnam's). The magazine's are the Mac's (engine magazine).
   const r = await writeIdeas(ROOT, { research: claudeResearch, llm: claudeCli, now: () => new Date() }, { perDay: Number(values.limit ?? 2), researchModel: process.env.RESEARCH_MODEL ?? 'opus' })
   console.log(`write-ideas: ${r.written.length} written, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}\n${[...r.written, ...r.skipped, ...r.failed].join('\n')}`)
-  if (r.magazine.length) console.log(`write-ideas: on the magazine's ideas: ${r.magazine.join('; ')}`)
+} else if (cmd === 'magazine') {
+  // Practical Fishkeeping through the Internet Archive, on the Mac alone, whose rest the Archive's is (the chief of staff,
+  // 21 Nov 2026): its titles a week apart (once a day while it has none), then the day's one guide on its ideas, given its
+  // post (ideas.ts refreshMagazine, writeMagazine). pnpm engine magazine [--force] [--retry-blocked]
+  if (machine() !== 'mac' || process.platform !== 'darwin') {
+    console.error("magazine: the Mac's alone: the Internet Archive's rest is the Mac's, so nothing else asks it")
+    process.exit(1)
+  }
+  // Its requests to the Archive are kept beside the Archive's rest, outside any checkout (ideas.ts MagazineLedger), and one
+  // such step runs at a time: one that finds another running fails, naming it.
+  const cache = join(homedir(), '.cache/aquatome')
+  const ledger = join(cache, 'magazine-archive.json')
+  const release = await holdMagazine(join(cache, 'magazine.lock'), () => new Date()).catch((e: Error) => { console.error(`magazine: ${e.message}`); process.exit(1) })
+  const archive = archiveReader()
+  const get = fetchListing(fetch, UA)
+  try {
+    const l = await refreshMagazine(ROOT, { get, archive, ledger, sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date() }, { force: values.force, retryBlocked: values['retry-blocked'] })
+    if (l.fresh.length) console.log(`magazine: ${l.fresh.join(', ')}: read within the week`)
+    for (const [id, x] of Object.entries(l.listed)) console.log(`magazine: ${id}: ${x.kept} posts kept${Object.keys(x.dropped).length ? `; left out: ${Object.entries(x.dropped).map(([rule, n]) => `${rule} ${n}`).join(', ')}` : ''}`)
+    // The owner's count (the chief of staff, 21 Nov 2026): the posts kept from the Archive's copy of the listing, and those its
+    // index holds a good capture of, an upper bound (a capture that is a browser check shows only when that post is read).
+    for (const [id, x] of Object.entries(l.archived)) console.log(`magazine: ${id}: read through the Internet Archive: ${x.listed} posts kept, ${x.held === undefined ? "its index didn't answer" : `${x.held} with a good capture in its index, at most (a capture that is a browser check shows only when that post is read)`}`)
+    if (l.failed.length) console.log(`magazine: failed: ${l.failed.join('; ')}`)
+    if (l.needsHuman.length) console.log(`magazine: needs-human: ${l.needsHuman.join(', ')} refused us its listing; read through the Internet Archive meanwhile`)
+    const w = await writeMagazine(ROOT, { archive, ledger, research: claudeResearch, llm: claudeCli, now: () => new Date() }, { researchModel: process.env.RESEARCH_MODEL ?? 'opus' })
+    console.log(`magazine: ${w.written.length} written, ${w.skipped.length} skipped, ${w.failed.length} failed${w.stopped ? ` (stopped: ${w.stopped})` : ''}\n${[...w.written, ...w.skipped, ...w.failed].join('\n')}`)
+    for (const p of w.posts) console.log(`magazine: the post, read through the Internet Archive: ${p}`)
+    const waits = (await readMagazine(ROOT)).waits?.length ?? 0
+    if (waits) console.log(`magazine: the guide has waited ${waits} day${waits > 1 ? 's' : ''} running for the Internet Archive's rest${waits >= 3 ? ': three or more, for the chief of staff' : ''}`)
+  } finally {
+    await release()
+  }
 } else if (cmd === 'topic') {
   // A guide AquaTome writes itself from web research: pnpm engine topic "<chủ đề tiếng Việt>" --kind disease|care|setup|plantCare|breeding|aquascaping|discovery [--redo]
   // --redo: rewrite the guide from the research already kept (engine-state/topics), no new searching.
@@ -1528,6 +1566,6 @@ if (cmd === 'photo-privacy') {
   const t = await thinSpecies(join(ROOT, 'content'), popularityOrder(await popularFirst(ROOT)))
   printDepth(depthReport(t.pages, t.thin))
 } else {
-  console.log(`usage: pnpm engine run [--sources a,b | --except a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] [--jobs N] [--only id,id] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] [--only id,id] | pnpm engine range [--limit N] [--records N] [--only id,id] | pnpm engine water [--limit N] [--only id,id] | pnpm engine topic-check [--limit N] [--only id,id] | pnpm engine source-kinds [--only id,id] [--dry-run] | pnpm engine review-backfill [--kind ${BACKFILL_KINDS.join(',')}] [--limit N] [--only id,id | --reviewed-before <ISO time>] [--parallel N] | pnpm engine video-hold --class ${HOLD_CLASSES.join('|')} [--clear] | pnpm engine reviews | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo [--rechecked-since <ISO time> [--parallel N]]] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine product-candidates [--limit N] | pnpm engine product-reviews [--limit N] [--only id,id] [--no-new-pages] [--dry-run] | pnpm engine frame-sheet --out <folder> --only <videoId>:<species id>,… [--per N] | pnpm engine video-items [--limit N] | pnpm engine gallery [--sheets N] [--only id] [--shard i/n] | pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill] | pnpm engine unsplash [--limit N] | pnpm engine breed-photos [--limit N] | pnpm engine breed-care [--only id,id] [--limit N] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine topic "<chủ đề>" --kind K [--redo] | pnpm engine species "<Genus species>" [--video id,id] [--redo] | pnpm engine species-videos [--only id,id] [--limit N] [--channels a,b] | pnpm engine ideas [--force] [--retry-blocked] | pnpm engine write-ideas [--limit N a day] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine rewrite-marks [--dry-run] [--out <file>] | pnpm engine thumbs | pnpm engine picture-hashes [--limit N] [--jobs N] | pnpm engine photos [--limit N] [--kind species,plants,guides] [--only id,id] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine fishbase-photos | pnpm engine crypts-photos | pnpm engine tropica-photos [--limit N] | pnpm engine own-photos <list.json> | pnpm engine faces | pnpm engine photo-boxes [--limit N] | pnpm engine watermarks [--limit N] [--parallel N] | pnpm engine check-photos [--limit N] [--fill N] [--parallel N] [--only id] | pnpm engine guide-photos [--limit N] [--parallel N] | pnpm engine audit [--fix] | pnpm engine reader [--limit N] [--rewrites N] [--only lang/kind/id,…] | pnpm engine fit [--limit N] [--jobs N] [--kind guides,species] [--lang id,th] [--only vi/species/<id>,…] [--front] | pnpm engine fit-pass [--limit N] [--jobs N] | pnpm engine fit-rewrite [--limit N] [--only vi/species/<id>,…] [--kind species,guides] [--front] | pnpm engine units-mend [--limit N] [--first lang/kind/id,…] [--dry-run] | pnpm engine source-figures [--limit N] [--first lang/kind/id,…] [--dry-run] | pnpm engine source-figures --record | pnpm engine metric | pnpm engine ungarble [--limit N] | pnpm engine redo-unread | pnpm engine localize --lang ${WRITTEN_OTHER_LANGS.join('|')} [--kind plants] [--only ids | --top N] [--limit N] [--redo] | pnpm engine recheck --lang ${RECHECK_LANGS.join('|')} [--limit N] [--max-minutes M] [--dry-run] | pnpm engine localize-guides --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-breeds --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-glossary --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--redo] | pnpm engine localize-places --lang ${WRITTEN_OTHER_LANGS.join('|')} [--redo] | pnpm engine judge-places [--limit N] [--jobs N] [--only lang/id,…] | pnpm engine localize-captions --lang ${WRITTEN_OTHER_LANGS.join('|')} [--limit N] | pnpm engine wikidata-names --lang ${WRITTEN_OTHER_LANGS.join('|')} | pnpm engine localize-equipment --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only cats] [--redo] | pnpm engine status`)
+  console.log(`usage: pnpm engine run [--sources a,b | --except a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] [--jobs N] [--only id,id] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] [--only id,id] | pnpm engine range [--limit N] [--records N] [--only id,id] | pnpm engine water [--limit N] [--only id,id] | pnpm engine topic-check [--limit N] [--only id,id] | pnpm engine source-kinds [--only id,id] [--dry-run] | pnpm engine review-backfill [--kind ${BACKFILL_KINDS.join(',')}] [--limit N] [--only id,id | --reviewed-before <ISO time>] [--parallel N] | pnpm engine video-hold --class ${HOLD_CLASSES.join('|')} [--clear] | pnpm engine reviews | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo [--rechecked-since <ISO time> [--parallel N]]] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine product-candidates [--limit N] | pnpm engine product-reviews [--limit N] [--only id,id] [--no-new-pages] [--dry-run] | pnpm engine frame-sheet --out <folder> --only <videoId>:<species id>,… [--per N] | pnpm engine video-items [--limit N] | pnpm engine gallery [--sheets N] [--only id] [--shard i/n] | pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill] | pnpm engine unsplash [--limit N] | pnpm engine breed-photos [--limit N] | pnpm engine breed-care [--only id,id] [--limit N] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine topic "<chủ đề>" --kind K [--redo] | pnpm engine species "<Genus species>" [--video id,id] [--redo] | pnpm engine species-videos [--only id,id] [--limit N] [--channels a,b] | pnpm engine ideas [--force] [--retry-blocked] | pnpm engine write-ideas [--limit N a day] | pnpm engine magazine [--force] [--retry-blocked] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine rewrite-marks [--dry-run] [--out <file>] | pnpm engine thumbs | pnpm engine picture-hashes [--limit N] [--jobs N] | pnpm engine photos [--limit N] [--kind species,plants,guides] [--only id,id] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine fishbase-photos | pnpm engine crypts-photos | pnpm engine tropica-photos [--limit N] | pnpm engine own-photos <list.json> | pnpm engine faces | pnpm engine photo-boxes [--limit N] | pnpm engine watermarks [--limit N] [--parallel N] | pnpm engine check-photos [--limit N] [--fill N] [--parallel N] [--only id] | pnpm engine guide-photos [--limit N] [--parallel N] | pnpm engine audit [--fix] | pnpm engine reader [--limit N] [--rewrites N] [--only lang/kind/id,…] | pnpm engine fit [--limit N] [--jobs N] [--kind guides,species] [--lang id,th] [--only vi/species/<id>,…] [--front] | pnpm engine fit-pass [--limit N] [--jobs N] | pnpm engine fit-rewrite [--limit N] [--only vi/species/<id>,…] [--kind species,guides] [--front] | pnpm engine units-mend [--limit N] [--first lang/kind/id,…] [--dry-run] | pnpm engine source-figures [--limit N] [--first lang/kind/id,…] [--dry-run] | pnpm engine source-figures --record | pnpm engine metric | pnpm engine ungarble [--limit N] | pnpm engine redo-unread | pnpm engine localize --lang ${WRITTEN_OTHER_LANGS.join('|')} [--kind plants] [--only ids | --top N] [--limit N] [--redo] | pnpm engine recheck --lang ${RECHECK_LANGS.join('|')} [--limit N] [--max-minutes M] [--dry-run] | pnpm engine localize-guides --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-breeds --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-glossary --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--redo] | pnpm engine localize-places --lang ${WRITTEN_OTHER_LANGS.join('|')} [--redo] | pnpm engine judge-places [--limit N] [--jobs N] [--only lang/id,…] | pnpm engine localize-captions --lang ${WRITTEN_OTHER_LANGS.join('|')} [--limit N] | pnpm engine wikidata-names --lang ${WRITTEN_OTHER_LANGS.join('|')} | pnpm engine localize-equipment --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only cats] [--redo] | pnpm engine status`)
   process.exitCode = 1
 }

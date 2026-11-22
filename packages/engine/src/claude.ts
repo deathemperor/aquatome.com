@@ -43,10 +43,11 @@ export function cliVersion(): string {
 /** The model that wrote most of a call's answer, by the command's report of each model it used. */
 export const answeredBy = (usage: unknown): string | undefined =>
   Object.entries((usage ?? {}) as Record<string, { outputTokens?: number }>).sort(([, a], [, b]) => (b.outputTokens ?? 0) - (a.outputTokens ?? 0))[0]?.[0]
-export type Llm = <T>(args: { system: string; prompt: string; schema: object; model?: string }) => Promise<T>
+/** `unkept`: the call's prompt is kept in no session on disk (`--no-session-persistence`): a page's text no one may keep. */
+export type Llm = <T>(args: { system: string; prompt: string; schema: object; model?: string; unkept?: boolean }) => Promise<T>
 
 type RunOpts = {
-  tools: string; deny?: string[]; cwd: string; model?: string; timeoutMs?: number; privateImage?: boolean
+  tools: string; deny?: string[]; cwd: string; model?: string; timeoutMs?: number; privateImage?: boolean; unkept?: boolean
   /** MCP servers the call may use (a config file), and the tools it is allowed, by name (`--allowedTools`; `tools` otherwise). */
   mcp?: string; allow?: string; effort?: 'low' | 'medium' | 'high'
   /** Streamed (`stream-json`, partial messages): each event as it comes, with the ms since the call began. */
@@ -74,7 +75,7 @@ function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, 
     const allow = opts.allow ?? opts.tools
     const args = ['-p', '--model', modelOf(opts.model), ...(opts.onEvent ? ['--output-format', 'stream-json', '--verbose', '--include-partial-messages'] : ['--output-format', 'json']),
       '--tools', opts.tools, ...(allow ? ['--allowedTools', allow] : []), ...(opts.mcp ? ['--mcp-config', opts.mcp] : []), ...(opts.effort ? ['--effort', opts.effort] : []), ...(opts.deny?.length ? ['--disallowedTools', opts.deny.join(',')] : []),
-      '--setting-sources', '', '--strict-mcp-config', ...(opts.privateImage ? ['--no-session-persistence'] : []), '--system-prompt', system, '--json-schema', JSON.stringify(schema)]
+      '--setting-sources', '', '--strict-mcp-config', ...(opts.privateImage || opts.unkept ? ['--no-session-persistence'] : []), '--system-prompt', system, '--json-schema', JSON.stringify(schema)]
     const started = Date.now()
     const child = spawn('claude', args, { cwd: opts.cwd, stdio: ['pipe', 'pipe', 'pipe'], env: envFor(token) })
     let out = ''
@@ -138,7 +139,7 @@ function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, 
 }
 
 /** Headless Claude Code on the owner's subscription, lean context (no tools, settings, MCP or default system prompt). */
-export const claudeCli: Llm = <T>({ system, prompt, schema, model }: { system: string; prompt: string; schema: object; model?: string }) => run<T>(system, prompt, schema, { tools: '', cwd: noFiles(), model })
+export const claudeCli: Llm = <T>({ system, prompt, schema, model, unkept }: { system: string; prompt: string; schema: object; model?: string; unkept?: boolean }) => run<T>(system, prompt, schema, { tools: '', cwd: noFiles(), model, unkept })
 
 /**
  * Same, with the tools of MCP servers (a config file) and those alone (`allow`, by their mcp__<server>__<tool> names), streamed:
@@ -178,7 +179,7 @@ const ENGINE_ROOT = fileURLToPath(new URL('../../..', import.meta.url))
  * browser check), or a site refused as a source (cycle-only.ts REFUSED_SITES), read again from the engine's own record before every call, so a source marked since is off at once (the
  * chief of staff, 14 Nov 2026, on the owner's rule that nothing goes round a challenge). Slower, so a longer timeout.
  */
-export const researchFor = (root: string): Llm => async <T>({ system, prompt, schema, model }: { system: string; prompt: string; schema: object; model?: string }) =>
-  run<T>(system, prompt, schema, { tools: 'WebSearch,WebFetch', deny: researchDeny(await cycleOnlyHosts(root)), cwd: noFiles(), model, timeoutMs: 25 * 60_000 })
+export const researchFor = (root: string): Llm => async <T>({ system, prompt, schema, model, unkept }: { system: string; prompt: string; schema: object; model?: string; unkept?: boolean }) =>
+  run<T>(system, prompt, schema, { tools: 'WebSearch,WebFetch', deny: researchDeny(await cycleOnlyHosts(root)), cwd: noFiles(), model, timeoutMs: 25 * 60_000, unkept })
 /** Web research, the one every step uses. */
 export const claudeResearch: Llm = researchFor(ENGINE_ROOT)
