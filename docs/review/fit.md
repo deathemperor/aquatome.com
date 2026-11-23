@@ -6,12 +6,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Open, no read of its text | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 5335 | 5190 | 123 | 1933 | 39 | 53 | 228 | 61 | 1358 | 404 | 3162 | 531 | 9 | 24 | 0 | 2 | 15 | 6 | 2 |
+| Vietnamese | 5382 | 5237 | 123 | 1942 | 39 | 53 | 229 | 61 | 1367 | 405 | 3166 | 533 | 9 | 24 | 0 | 2 | 15 | 6 | 2 |
 | Indonesian | 1718 | 1592 | 126 | 436 | 28 | 13 | 4 | 6 | 201 | 38 | 75 | 197 | 0 | 3 | 0 | 5 | 2 | 0 | 0 |
 | Thai | 1716 | 1583 | 133 | 411 | 24 | 3 | 5 | 5 | 197 | 43 | 106 | 187 | 0 | 1 | 0 | 2 | 0 | 0 | 0 |
 | Malay | 598 | 563 | 35 | 150 | 14 | 3 | 0 | 2 | 75 | 18 | 33 | 55 | 0 | 1 | 0 | 3 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 15 of 216, Indonesian 2 of 75, Thai 2 of 70, Malay 1 of 36.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 15 of 217, Indonesian 2 of 75, Thai 2 of 70, Malay 1 of 36.
 
 ## Doses on more than one page
 
@@ -86,12 +86,12 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - ada amazonia aqua soil: 26
 - tropica: 26
 - ada amazonia: 25
-- hikari shrimp cuisine: 24
+- hikari shrimp cuisine: 25
 - fluval stratum: 20
 - seachem fluorite: 18
+- hikari first bites: 16
 - eheim: 15
 - carib sea eco-complete: 14
-- hikari first bites: 14
 - caribsea eco-complete: 13
 - fluval fx6: 13
 - hikari vibra bites: 13
@@ -105,13 +105,13 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - aquaclear: 11
 - fluval plant and shrimp stratum: 11
 - jbl: 11
+- bacter ae: 10
+- fluval bug bites: 10
 - ge silicone 1: 10
 - repashy soilent green: 10
 - tetramin: 10
 - api: 9
-- bacter ae: 9
 - fluval: 9
-- fluval bug bites: 9
 - instant ocean: 9
 - reef roids: 9
 - seachem flourite: 9
