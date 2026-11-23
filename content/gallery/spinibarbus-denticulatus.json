@@ -2,20 +2,6 @@
   "id": "spinibarbus-denticulatus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/695528310.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/695528310-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "satellitewu",
-      "sourceUrl": "https://www.inaturalist.org/photos/695528310",
-      "caption": "Cá măng đá nhỏ trong bể ảnh cạnh thước đo",
-      "best": true,
-      "kind": "juvenile",
-      "setup": true,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/268677545.webp",
       "thumb": "https://media.aquatome.com/inaturalist/268677545-480.webp",
       "width": 1000,
@@ -26,8 +12,7 @@
       "caption": "Cá măng đá bơi gần mặt nước trong ao",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/268677705.webp",
@@ -40,8 +25,7 @@
       "caption": "Cá măng đá nổi gần mặt nước, nhìn nghiêng",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/268677717.webp",
@@ -54,8 +38,20 @@
       "caption": "Cá măng đá nhìn chính diện ở mặt nước",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/695528310.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/695528310-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "satellitewu",
+      "sourceUrl": "https://www.inaturalist.org/photos/695528310",
+      "caption": "Cá măng đá nhỏ trong bể ảnh cạnh thước đo",
+      "best": true,
+      "kind": "juvenile",
+      "setup": true
     }
   ],
   "seen": 8,

@@ -33,7 +33,37 @@
   "File:Hygrophila difformis kz01.jpg",
   "File:Hygrophila difformis kz04.jpg",
   "flickr:17405481425",
-  "flickr:20618552194"
+  "flickr:20618552194",
+  "inat:12758746",
+  "inat:59969093",
+  "inat:183858448",
+  "inat:183858460",
+  "inat:183858481",
+  "inat:191137908",
+  "inat:191137959",
+  "inat:191137984",
+  "inat:274281868",
+  "inat:307342746",
+  "inat:346499617",
+  "inat:346499619",
+  "inat:346499616",
+  "inat:357899849",
+  "inat:371609812",
+  "inat:429256211",
+  "inat:429256270",
+  "inat:429256301",
+  "inat:497430028",
+  "inat:497430075",
+  "inat:498359580",
+  "inat:498359524",
+  "inat:498359585",
+  "inat:593655924",
+  "inat:599447026",
+  "inat:599447025",
+  "inat:608634194",
+  "inat:642022321",
+  "inat:689208681",
+  "inat:689208683"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/049385ba98b3638b.webp": "5ffbffb1b0c6f3da",
@@ -60,7 +90,17 @@
   "https://media.aquatome.com/aquariumbreeder/3a1b2afc9ae31fe7.webp": "bd0d050f15266746",
   "https://media.aquatome.com/tropica/654307e2f97fcd38.webp": "d9191b271f1b3fef",
   "https://media.aquatome.com/tropica/e2fad567d215aa46.webp": "16226a7b72725a10",
-  "https://media.aquatome.com/tropica/4dc42167768230d3.webp": "10f8f0f0f070b074"
+  "https://media.aquatome.com/tropica/4dc42167768230d3.webp": "10f8f0f0f070b074",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/191137908/large.jpeg": "694b6328cdc58ac3",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/191137959/large.jpeg": "215acf8d39323375",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/346499617/large.jpeg": "0886c6464f4f0fdf",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/346499619/large.jpeg": "8f9d8d4e3feda433",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/346499616/large.jpeg": "acb1d10d2a3230b0",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/371609812/large.jpeg": "9bb6c469e4c6f994",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/497430028/large.jpeg": "6d9fb7b3d93b4794",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/497430075/large.jpeg": "e76c663e5f723e96",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/498359585/large.jpeg": "332c8d4f4b2b999f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/599447026/large.jpg": "fac58eb3e3c64767"
  },
  "inat": {
   "taxon": 193613,
@@ -77,6 +117,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 351791953,
+  "done": true
  },
  "exhausted": "2026-11-06"
 }

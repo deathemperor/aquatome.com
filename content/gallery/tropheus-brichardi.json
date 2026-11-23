@@ -2,20 +2,6 @@
   "id": "tropheus-brichardi",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/116837411.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/116837411-480.webp",
-      "width": 1024,
-      "height": 881,
-      "licence": "CC BY-NC",
-      "author": "Hubert Szczygieł",
-      "sourceUrl": "https://www.inaturalist.org/photos/116837411",
-      "caption": "Cá Tropheus brichardi sọc vằn bơi giữa đá trong hồ tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/343451515.webp",
       "thumb": "https://media.aquatome.com/inaturalist/343451515-480.webp",
       "width": 1024,
@@ -26,8 +12,7 @@
       "caption": "Cá Tropheus brichardi sọc vằn bơi giữa đá trong hồ Tanganyika",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/11279409.webp",
@@ -40,8 +25,7 @@
       "caption": "Cá Tropheus brichardi non sọc vằn bơi trên nền cát ở hồ tự nhiên",
       "best": false,
       "kind": "juvenile",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/11280471.webp",
@@ -54,8 +38,7 @@
       "caption": "Hai cá Tropheus brichardi sọc vằn bơi trên đáy đá cát",
       "best": false,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/11279440.webp",
@@ -68,8 +51,7 @@
       "caption": "Cá Tropheus brichardi sọc vằn bơi gần tảng đá trong tự nhiên",
       "best": false,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/63530406.webp",
@@ -82,8 +64,7 @@
       "caption": "Cá Tropheus brichardi vàng cam trong hộp nhựa trong để chụp ảnh",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     }
   ],
   "seen": 26,

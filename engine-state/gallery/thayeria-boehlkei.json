@@ -8,7 +8,9 @@
   "File:03.Thayeria boehlkei.JPG",
   "File:Косая тайерия Гродно.JPG",
   "flickr:31547548236",
-  "flickr:2199564677"
+  "flickr:2199564677",
+  "inat:489457493",
+  "inat:489457476"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/cd40e7262b6811c5.webp": "d1e63d3e9bcbf3ed",
@@ -17,7 +19,8 @@
   "https://media.aquatome.com/commons/93840da215386dbc.webp": "9ade9cf05e9ebcb8",
   "https://media.aquatome.com/commons/66bba50e701e4410.webp": "9cd4bcdadeba7e7e",
   "https://media.aquatome.com/commons/ea4fbcdf3ba0b903.webp": "595c4c2d2f262636",
-  "https://media.aquatome.com/flickr/31547548236.webp": "8e79fcd93d17edd8"
+  "https://media.aquatome.com/flickr/31547548236.webp": "8e79fcd93d17edd8",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/489457476/large.jpeg": "199890eab4b2c848"
  },
  "inat": {
   "taxon": 494746,
@@ -34,6 +37,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 272080749,
+  "done": true
  },
  "exhausted": "2026-10-31"
 }

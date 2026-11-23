@@ -16,7 +16,24 @@
   "File:Coastal Georgia Botanical Gardens, Pickleweed Pontederia cordata.jpg",
   "File:Pera heteranthera.jpg",
   "File:Heteranthera zosterifolia kz03.jpg",
-  "File:Heteranthera zosterifolia- Soriano, Palmar, Dentro de la Cañada de las Pajas al márgen de la Ruta 55 8.jpg"
+  "File:Heteranthera zosterifolia- Soriano, Palmar, Dentro de la Cañada de las Pajas al márgen de la Ruta 55 8.jpg",
+  "inat:15899203",
+  "inat:15899205",
+  "inat:15899206",
+  "inat:34890862",
+  "inat:71511291",
+  "inat:212673702",
+  "inat:327333616",
+  "inat:327333628",
+  "inat:331590886",
+  "inat:331590902",
+  "inat:331590921",
+  "inat:390231917",
+  "inat:390233478",
+  "inat:390233511",
+  "inat:390235018",
+  "inat:390235368",
+  "inat:390235433"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/b6603402a1100676.webp": "1393c43c0125cdc2",
@@ -32,7 +49,17 @@
   "https://media.aquatome.com/aquariumbreeder/faf3666d70af5566.webp": "0cc6462633319948",
   "https://media.aquatome.com/tropica/5bb5054276e16dc8.webp": "60b8e8c8f0f0d470",
   "https://media.aquatome.com/tropica/270b51ac0d264d91.webp": "30f0e8e8e6d2d0b9",
-  "https://media.aquatome.com/tropica/d10abb5152a714af.webp": "a0a0e8fcf4f0f870"
+  "https://media.aquatome.com/tropica/d10abb5152a714af.webp": "a0a0e8fcf4f0f870",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/15899203/large.jpg": "f06ccb5b0f53d3eb",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/15899205/large.jpg": "eecc8b968dcdddd3",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/15899206/large.jpg": "a92891974949e161",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/34890862/large.jpg": "5c3692b1b71b4e14",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/327333616/large.jpeg": "cece88b72d92d672",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/327333628/large.jpeg": "5fdd2d5453976b23",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/331590886/large.jpg": "a5371754db978f26",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/390233511/large.jpg": "22859eda3b1978eb",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/390235018/large.jpg": "229ed73263494fb6",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/390235368/large.jpg": "c38f70cf6b79115a"
  },
  "inat": {
   "taxon": 119893,
@@ -49,6 +76,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 220410281,
+  "done": true
  },
  "exhausted": "2026-11-07"
 }

@@ -134,34 +134,6 @@
       "kind": "male"
     },
     {
-      "url": "https://media.aquatome.com/flickr/44454708352.webp",
-      "thumb": "https://media.aquatome.com/flickr/44454708352-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY 2.0",
-      "author": "gkonst1975",
-      "sourceUrl": "https://www.flickr.com/photos/141321905@N06/44454708352",
-      "caption": "Cặp cá platy variatus vàng cam đuôi đỏ trong bể thủy sinh",
-      "best": true,
-      "kind": "pair",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/flickr/15303170774.webp",
-      "thumb": "https://media.aquatome.com/flickr/15303170774-480.webp",
-      "width": 1024,
-      "height": 739,
-      "licence": "CC BY 2.0",
-      "author": "Dornenwolf",
-      "sourceUrl": "https://www.flickr.com/photos/20051036@N00/15303170774",
-      "caption": "Hai cá platy variatus vàng cam đuôi đỏ giữa cây thủy sinh",
-      "best": true,
-      "kind": "pair",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/558230312.webp",
       "thumb": "https://media.aquatome.com/inaturalist/558230312-480.webp",
       "width": 1024,
@@ -198,6 +170,19 @@
       "kind": "form"
     },
     {
+      "url": "https://media.aquatome.com/flickr/44454708352.webp",
+      "thumb": "https://media.aquatome.com/flickr/44454708352-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY 2.0",
+      "author": "gkonst1975",
+      "sourceUrl": "https://www.flickr.com/photos/141321905@N06/44454708352",
+      "caption": "Cặp cá platy variatus vàng cam đuôi đỏ trong bể thủy sinh",
+      "best": true,
+      "kind": "pair",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/595615956.webp",
       "thumb": "https://media.aquatome.com/inaturalist/595615956-480.webp",
       "width": 768,
@@ -208,6 +193,19 @@
       "caption": "Cá variatus đực đỏ cam, vây lưng và đuôi rực rỡ",
       "best": true,
       "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/15303170774.webp",
+      "thumb": "https://media.aquatome.com/flickr/15303170774-480.webp",
+      "width": 1024,
+      "height": 739,
+      "licence": "CC BY 2.0",
+      "author": "Dornenwolf",
+      "sourceUrl": "https://www.flickr.com/photos/20051036@N00/15303170774",
+      "caption": "Hai cá platy variatus vàng cam đuôi đỏ giữa cây thủy sinh",
+      "best": true,
+      "kind": "pair",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/558230326.webp",

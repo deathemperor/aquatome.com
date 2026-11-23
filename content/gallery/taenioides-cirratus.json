@@ -2,20 +2,6 @@
   "id": "taenioides-cirratus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/365345278.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/365345278-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-NC",
-      "author": "卢江离",
-      "sourceUrl": "https://www.inaturalist.org/photos/365345278",
-      "caption": "Cá bống giun râu trên bùn ven rừng ngập mặn",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/303006053.webp",
       "thumb": "https://media.aquatome.com/inaturalist/303006053-480.webp",
       "width": 1024,
@@ -26,8 +12,20 @@
       "caption": "Cá bống giun râu cận cảnh trong bể, râu quanh miệng",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/365345278.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/365345278-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "卢江离",
+      "sourceUrl": "https://www.inaturalist.org/photos/365345278",
+      "caption": "Cá bống giun râu trên bùn ven rừng ngập mặn",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/450786576.webp",
@@ -40,36 +38,7 @@
       "caption": "Cá bống giun râu màu hồng trong bể nền sỏi",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/475253804.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/475253804-480.webp",
-      "width": 1024,
-      "height": 728,
-      "licence": "CC BY-NC",
-      "author": "wresy",
-      "sourceUrl": "https://www.inaturalist.org/photos/475253804",
-      "caption": "Cá bống giun râu nhạt màu trong hộp nhựa",
-      "best": false,
-      "kind": "group",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/502709944.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/502709944-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "edivid_xie",
-      "sourceUrl": "https://www.inaturalist.org/photos/502709944",
-      "caption": "Cá bống giun râu màu hồng trên nền đá",
-      "best": false,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     }
   ],
   "seen": 15,

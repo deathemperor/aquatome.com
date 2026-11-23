@@ -54,62 +54,6 @@
       "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/618494478.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/618494478-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Bruce Rabelo",
-      "sourceUrl": "https://www.inaturalist.org/photos/618494478",
-      "caption": "Cá piranha ánh xanh bạc trên sàn gỗ cạnh sông",
-      "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/614312038.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/614312038-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Douglas Alencar Gass",
-      "sourceUrl": "https://www.inaturalist.org/photos/614312038",
-      "caption": "Cá piranha đốm nhìn gần đầu và hàm, ven sông",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/614312054.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/614312054-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Douglas Alencar Gass",
-      "sourceUrl": "https://www.inaturalist.org/photos/614312054",
-      "caption": "Cá piranha đốm bắt được, treo bên bờ sông",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/498346922.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/498346922-480.webp",
-      "width": 1024,
-      "height": 931,
-      "licence": "CC BY-NC",
-      "author": "pabloscazzina",
-      "sourceUrl": "https://www.inaturalist.org/photos/498346922",
-      "caption": "Cá piranha bơi trong nước đục ngoài tự nhiên",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/498345193.webp",
       "thumb": "https://media.aquatome.com/inaturalist/498345193-480.webp",
       "width": 1024,
@@ -132,6 +76,19 @@
       "sourceUrl": "https://www.inaturalist.org/photos/498346965",
       "caption": "Cá piranha bơi gần đáy cát dưới nước tự nhiên",
       "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/498346922.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/498346922-480.webp",
+      "width": 1024,
+      "height": 931,
+      "licence": "CC BY-NC",
+      "author": "pabloscazzina",
+      "sourceUrl": "https://www.inaturalist.org/photos/498346922",
+      "caption": "Cá piranha bơi trong nước đục ngoài tự nhiên",
+      "best": false,
       "kind": "habitat",
       "setup": false
     }

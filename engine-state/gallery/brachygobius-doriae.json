@@ -9,7 +9,19 @@
   "File:Bumblebee goby (Brachygobius doriae).jpg",
   "File:Doria-Goldringelgrundel (Tiergarten Nürnberg).jpg",
   "File:Brachygobius doriae 248579947.jpg",
-  "File:Brachygobius doriae 248579954.jpg"
+  "File:Brachygobius doriae 248579954.jpg",
+  "inat:56090607",
+  "inat:64964536",
+  "inat:247537599",
+  "inat:247537614",
+  "inat:358301174",
+  "inat:358301206",
+  "inat:358301224",
+  "inat:601495797",
+  "inat:642742429",
+  "inat:664969357",
+  "inat:664969397",
+  "inat:664969455"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/9a27be470f738d6c.webp": "50c922a1e8c09bb9",
@@ -19,7 +31,10 @@
   "https://media.aquatome.com/inaturalist/248579947.webp": "00006860200b3c00",
   "https://media.aquatome.com/glaser/15fddddc498cd1c7.webp": "d89961c2f8e8f8a6",
   "https://media.aquatome.com/glaser/de115d9fc985a1dd.webp": "880450d0d0d0f87c",
-  "https://media.aquatome.com/glaser/dec9a2f5d76bfc07.webp": "ff3043736079f8fc"
+  "https://media.aquatome.com/glaser/dec9a2f5d76bfc07.webp": "ff3043736079f8fc",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/64964536/large.jpeg": "bb9b9f9f9bb7b783",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/601495797/large.jpg": "920c8fda786467c7",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/642742429/large.jpg": "6e0d25831b0f1f17"
  },
  "inat": {
   "taxon": 187185,
@@ -36,6 +51,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 364259540,
+  "done": true
  },
  "exhausted": "2026-11-07"
 }

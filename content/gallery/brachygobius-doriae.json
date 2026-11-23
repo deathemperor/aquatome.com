@@ -48,9 +48,37 @@
       "caption": "Cá bống ong bơi gần mặt kính trong bể nuôi",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/64964536.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/64964536-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Ary heriyanto",
+      "sourceUrl": "https://www.inaturalist.org/photos/64964536",
+      "caption": "Nhóm cá bống ong trong khay nhỏ màu xanh vàng",
+      "best": true,
+      "kind": "group",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/601495797.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/601495797-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "muangpaisuetrong",
+      "sourceUrl": "https://www.inaturalist.org/photos/601495797",
+      "caption": "Cá bống ong trên đá cuội trong bể nuôi",
+      "best": true,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
     }
   ],
-  "seen": 9,
-  "updatedAt": "2026-11-06",
-  "builtAt": "2026-11-06"
+  "seen": 21,
+  "updatedAt": "2026-11-23",
+  "builtAt": "2026-11-23"
 }

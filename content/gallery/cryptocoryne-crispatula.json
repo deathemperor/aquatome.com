@@ -35,20 +35,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/457405537.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/457405537-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "michaelbenedito",
-      "sourceUrl": "https://www.inaturalist.org/photos/457405537",
-      "caption": "Bụi Cryptocoryne crispatula mọc giữa dòng suối cạn",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/240265125.webp",
       "thumb": "https://media.aquatome.com/inaturalist/240265125-480.webp",
       "width": 768,
@@ -59,22 +45,7 @@
       "caption": "Cụm hoa Cryptocoryne crispatula giữa bụi lá mọc trên cạn",
       "best": true,
       "kind": "flower",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/457405549.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/457405549-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "michaelbenedito",
-      "sourceUrl": "https://www.inaturalist.org/photos/457405549",
-      "caption": "Bụi Cryptocoryne crispatula bám trên đá cạnh dòng nước",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/536163556.webp",
@@ -87,8 +58,7 @@
       "caption": "Thảm Cryptocoryne crispatula phủ dày ở mép suối",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/240265144.webp",
@@ -101,8 +71,7 @@
       "caption": "Bụi Cryptocoryne crispatula mọc dày ngoài tự nhiên",
       "best": false,
       "kind": "emersed",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/240265168.webp",
@@ -115,22 +84,33 @@
       "caption": "Hoa Cryptocoryne crispatula nhô lên giữa các lá dài",
       "best": false,
       "kind": "flower",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/457405563.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/457405563-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/457405537.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/457405537-480.webp",
       "width": 1024,
       "height": 768,
       "licence": "CC BY-NC",
       "author": "michaelbenedito",
-      "sourceUrl": "https://www.inaturalist.org/photos/457405563",
-      "caption": "Hoa xoắn của Cryptocoryne crispatula bên mép nước",
-      "best": false,
-      "kind": "flower",
-      "setup": false,
-      "unchecked": true
+      "sourceUrl": "https://www.inaturalist.org/photos/457405537",
+      "caption": "Bụi Cryptocoryne crispatula mọc giữa dòng suối cạn",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/457405549.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/457405549-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "michaelbenedito",
+      "sourceUrl": "https://www.inaturalist.org/photos/457405549",
+      "caption": "Bụi Cryptocoryne crispatula bám trên đá cạnh dòng nước",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 9,

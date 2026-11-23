@@ -5,12 +5,12 @@ Written by `pnpm engine gallery` (2026-11-23). Targets: packages/engine/src/gall
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
-| shop | 60 | 131 | 81 | 24 | 36 | 200 |
+| shop | 60 | 131 | 81 | 24 | 39 | 197 |
 | popular | 40 | 21 | 0 | 0 | 1 | 20 |
 | covered | 30 | 942 | 32 | 9 | 27 | 956 |
 | rest | 20 | 2010 | 81 | 0 | 126 | 1965 |
 
-## Short of target: every source read (830)
+## Short of target: every source read (827)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -171,55 +171,52 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | breeds/koi-guppy | shop | 0 | 60 |
 | species/corydoras-aeneus | shop | 30 | 60 |
 | breeds/dumbo-ear-guppy | shop | 0 | 60 |
-| species/chromobotia-macracanthus | shop | 23 | 60 |
+| species/chromobotia-macracanthus | shop | 21 | 60 |
 | plants/aegagropila-linnaei | shop | 52 | 60 |
 | breeds/super-red-arowana | shop | 7 | 60 |
-| species/corydoras-paleatus | shop | 40 | 60 |
+| species/corydoras-paleatus | shop | 38 | 60 |
 | plants/cryptocoryne-wendtii | shop | 7 | 60 |
 | breeds/red-tailed-golden-arowana | shop | 7 | 60 |
 | species/corydoras-pygmaeus | shop | 6 | 60 |
-| plants/cryptocoryne-crispatula | shop | 10 | 60 |
+| plants/cryptocoryne-crispatula | shop | 9 | 60 |
 | breeds/crossback-golden-arowana | shop | 0 | 60 |
 | species/corydoras-hastatus | shop | 5 | 60 |
 | breeds/mickey-mouse-platy | shop | 3 | 60 |
 | species/corydoras-similis | shop | 0 | 60 |
+| plants/helanthium-tenellum | shop | 54 | 60 |
 | breeds/butterfly-koi | shop | 6 | 60 |
 | species/corydoras-adolfoi | shop | 1 | 60 |
 | breeds/pigeon-blood-discus | shop | 4 | 60 |
 | species/corydoras-caudimaculatus | shop | 3 | 60 |
 | plants/cyperus-helferi | shop | 1 | 60 |
 | species/garra-flavatra | shop | 8 | 60 |
-| plants/aponogeton-madagascariensis | shop | 1 | 60 |
-| plants/riccardia-chamedryfolia | shop | 56 | 60 |
-| species/synodontis-petricola | shop | 2 | 60 |
+| plants/aponogeton-madagascariensis | shop | 2 | 60 |
+| species/synodontis-petricola | shop | 3 | 60 |
 | species/peckoltia-compta | shop | 3 | 60 |
-| plants/monosolenium-tenerum | shop | 3 | 60 |
-| plants/echinodorus-grisebachii | shop | 7 | 60 |
-| species/caridina-multidentata | shop | 37 | 60 |
-| plants/hygrophila-difformis | shop | 17 | 60 |
+| plants/monosolenium-tenerum | shop | 7 | 60 |
+| plants/echinodorus-grisebachii | shop | 13 | 60 |
+| plants/hygrophila-difformis | shop | 27 | 60 |
 | species/leporacanthicus-joselimai | shop | 1 | 60 |
-| plants/hygrophila-corymbosa | shop | 9 | 60 |
-| species/melanotaenia-lacustris | shop | 4 | 60 |
-| plants/cryptocoryne-spiralis | shop | 6 | 60 |
+| plants/hygrophila-corymbosa | shop | 24 | 60 |
+| species/melanotaenia-lacustris | shop | 5 | 60 |
+| plants/cryptocoryne-spiralis | shop | 10 | 60 |
 | species/melanotaenia-parkinsoni | shop | 4 | 60 |
 | species/alestopetersius-caudalis | shop | 1 | 60 |
 | plants/cryptocoryne-albida | shop | 4 | 60 |
-| species/trichogaster-lalius | shop | 33 | 60 |
-| plants/heteranthera-zosterifolia | shop | 6 | 60 |
+| species/trichogaster-lalius | shop | 41 | 60 |
+| plants/heteranthera-zosterifolia | shop | 16 | 60 |
 | species/hyphessobrycon-elachys | shop | 4 | 60 |
-| species/hyphessobrycon-eques | shop | 5 | 60 |
-| plants/anubias-gracilis | shop | 0 | 60 |
+| species/hyphessobrycon-eques | shop | 15 | 60 |
+| plants/anubias-gracilis | shop | 5 | 60 |
 | species/hyphessobrycon-pulchripinnis | shop | 5 | 60 |
-| species/kryptopterus-vitreolus | shop | 13 | 60 |
-| species/thayeria-boehlkei | shop | 5 | 60 |
-| species/labidochromis-caeruleus | shop | 15 | 60 |
+| species/kryptopterus-vitreolus | shop | 15 | 60 |
+| species/thayeria-boehlkei | shop | 6 | 60 |
+| species/labidochromis-caeruleus | shop | 19 | 60 |
 | plants/ammannia-gracilis | shop | 2 | 60 |
-| plants/pogostemon-stellatus | shop | 13 | 60 |
-| species/notropis-chrosomus | shop | 13 | 60 |
-| species/brachygobius-doriae | shop | 4 | 60 |
-| species/monodactylus-sebae | shop | 8 | 60 |
+| plants/pogostemon-stellatus | shop | 28 | 60 |
+| species/brachygobius-doriae | shop | 7 | 60 |
+| species/monodactylus-sebae | shop | 11 | 60 |
 | species/melanotaenia-praecox | shop | 5 | 60 |
-| plants/ludwigia-glandulosa | shop | 10 | 60 |
 | species/dario-dario | shop | 0 | 60 |
 | plants/limnophila-aromatica | shop | 18 | 60 |
 | plants/utricularia-graminifolia | shop | 12 | 60 |
