@@ -77,6 +77,15 @@
       "on": "2026-11-21"
     }
   },
+  "https://media.aquatome.com/commons/2ede2b687dc68653.webp": {
+    "why": "dead: withheld [sha256:b0fd04bac5cb9103d42d098910d2f2ba12dd7581599cc374b0a1e379fd512b42]",
+    "step": "the photo check",
+    "pages": [
+      "species/guyanancistrus-brevispinis"
+    ],
+    "at": "2026-11-23",
+    "off": true
+  },
   "https://media.aquatome.com/commons/429e627041e5ee64.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
     "step": "the photo check",
@@ -173,6 +182,14 @@
       "by": "the chief of staff",
       "on": "2026-11-21"
     }
+  },
+  "https://media.aquatome.com/commons/909380585e0271f8.webp": {
+    "why": "rejected: withheld [sha256:307a35c16aefcbbde4a31978d7a6b4efa7b79bb76ad3fe22cb84ddfc4e11e8fd]",
+    "step": "the photo check",
+    "pages": [
+      "species/ituglanis-amazonicus"
+    ],
+    "at": "2026-11-23"
   },
   "https://media.aquatome.com/commons/9ff5045948aedae3.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
@@ -7357,6 +7374,15 @@
     "at": "2026-11-22",
     "off": true
   },
+  "https://media.aquatome.com/inaturalist/236296800.webp": {
+    "why": "people: withheld [sha256:4f12f9acb847b645b745ee86b02166ee0066da481d5b493001a5368656d58da6]",
+    "step": "the photo check",
+    "pages": [
+      "species/hemiodus-immaculatus"
+    ],
+    "at": "2026-11-23",
+    "off": true
+  },
   "https://media.aquatome.com/inaturalist/262373086.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -7418,6 +7444,15 @@
     "at": "2026-11-22",
     "off": true
   },
+  "https://media.aquatome.com/inaturalist/360540077.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/hemiodus-orthonops"
+    ],
+    "at": "2026-11-23",
+    "off": true
+  },
   "https://media.aquatome.com/inaturalist/365149146.webp": {
     "why": "dead: withheld [sha256:531bebed563b5535edd913ef3bb8c69b4fd70a03bb9748a1a1fa0841c28b995d]",
     "step": "the photo check",
@@ -7443,6 +7478,15 @@
       "species/serrasalmus-marginatus"
     ],
     "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/inaturalist/529750163.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/hemiodus-orthonops"
+    ],
+    "at": "2026-11-23",
+    "off": true
   },
   "https://media.aquatome.com/inaturalist/530745592.webp": {
     "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
@@ -7540,6 +7584,15 @@
       "species/plicofollis-nella"
     ],
     "at": "2026-11-21",
+    "off": true
+  },
+  "https://media.aquatome.com/inaturalist/597958026.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/hemiodus-orthonops"
+    ],
+    "at": "2026-11-23",
     "off": true
   },
   "https://media.aquatome.com/inaturalist/611437010.webp": {
@@ -8177,6 +8230,15 @@
     "at": "2026-11-21",
     "off": true
   },
+  "https://media.aquatome.com/scotcat/8985eb3669cb182f.webp": {
+    "why": "dead: withheld [sha256:e9435100b3f67144b679ff617b6764a6a466adbf2c7c1a013aca482563607e6a]",
+    "step": "the dead-fish screen",
+    "pages": [
+      "species/pardiglanis-tarabinii"
+    ],
+    "at": "2026-11-23",
+    "off": true
+  },
   "https://media.aquatome.com/scotcat/9476fd9905d2d9c2.webp": {
     "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
@@ -8702,15 +8764,6 @@
       "species/heterobranchus-bidorsalis"
     ],
     "at": "2026-11-22",
-    "off": true
-  },
-  "https://media.aquatome.com/scotcat/8985eb3669cb182f.webp": {
-    "why": "dead: withheld [sha256:e9435100b3f67144b679ff617b6764a6a466adbf2c7c1a013aca482563607e6a]",
-    "step": "the dead-fish screen",
-    "pages": [
-      "species/pardiglanis-tarabinii"
-    ],
-    "at": "2026-11-23",
     "off": true
   },
   "https://upload.wikimedia.org/wikipedia/commons/6/68/Mugilogobius_chulae_National_Museum_of_Nature_and_Science%2C_Tokyo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled": {

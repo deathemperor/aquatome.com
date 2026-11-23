@@ -14,6 +14,19 @@
       "kind": "pair"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/435363688.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/435363688-480.webp",
+      "width": 1024,
+      "height": 560,
+      "licence": "CC BY-NC",
+      "author": "Phil Benstead",
+      "sourceUrl": "https://www.inaturalist.org/photos/435363688",
+      "caption": "Cá lìm kìm Kuekenthal bơi sát mặt nước tối trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/336620637.webp",
       "thumb": "https://media.aquatome.com/inaturalist/336620637-480.webp",
       "width": 683,
@@ -24,8 +37,7 @@
       "caption": "Cá lìm kìm Kuekenthal bơi gần mặt nước trong suối tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/336620651.webp",
@@ -38,22 +50,7 @@
       "caption": "Cá lìm kìm Kuekenthal ánh xanh quẫy nước ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/435363688.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/435363688-480.webp",
-      "width": 1024,
-      "height": 560,
-      "licence": "CC BY-NC",
-      "author": "Phil Benstead",
-      "sourceUrl": "https://www.inaturalist.org/photos/435363688",
-      "caption": "Cá lìm kìm Kuekenthal bơi sát mặt nước tối trong môi trường tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/414066696.webp",
@@ -66,8 +63,7 @@
       "caption": "Cá lìm kìm Kuekenthal trên nền đáy sỏi trong suối",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/glaser/5714c0635c006f1c.webp",

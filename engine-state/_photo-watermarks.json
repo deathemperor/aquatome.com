@@ -9563,6 +9563,9 @@
   "https://media.aquatome.com/2hraquarist/037e0775bf51eb43.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/2hraquarist/044d056a5a18196e.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/2hraquarist/0543b5b1bc78b7a4.webp": {
     "ocr": []
   },
@@ -9579,6 +9582,12 @@
     "ocr": []
   },
   "https://media.aquatome.com/2hraquarist/116e38375b374bc9.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/11c924607cc1f22b.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/13913add01281c4f.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/2hraquarist/14afdb90db843865.webp": {
@@ -9984,6 +9993,37 @@
   "https://media.aquatome.com/2hraquarist/4849d63c7cfbc400.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/2hraquarist/4c0c963ab85c5c09.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 11,
+        "mark": false,
+        "hash": "c0ca1d92a6d39e052c7c9ad6ed64d2775e0898da8bec0ec82907ae61b06b5292"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 3,
+        "mark": false,
+        "hash": "802b906a18591ead8a6dd809b262ace4c65c16e89764c40ae326cfcff811e10c"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 7,
+        "mark": false,
+        "hash": "526f105fee192988c875a10e53205502f581587019106fd32e1777eede83e5bb"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "middle centre",
+      "bottom centre"
+    ]
+  },
   "https://media.aquatome.com/2hraquarist/4c229d3f52b430bc.webp": {
     "ocr": []
   },
@@ -10005,6 +10045,9 @@
     "locations": [
       "bottom right"
     ]
+  },
+  "https://media.aquatome.com/2hraquarist/55d786116369f9f7.webp": {
+    "ocr": []
   },
   "https://media.aquatome.com/2hraquarist/5953592745dba6c1.webp": {
     "ocr": []
@@ -10062,6 +10105,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/2hraquarist/62aa0610bc94050d.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/631e74548d109bee.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/2hraquarist/66858ecbef3d13b7.webp": {
@@ -10160,6 +10206,9 @@
   "https://media.aquatome.com/2hraquarist/839fd63e19ea4a04.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/2hraquarist/8660c1cec1b74154.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/2hraquarist/870a782d09129d51.webp": {
     "ocr": [
       {
@@ -10252,11 +10301,38 @@
   "https://media.aquatome.com/2hraquarist/88dd616a1c33d16e.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/2hraquarist/89ff8c9a51194cf5.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/2hraquarist/8a54f19dbc68c9c7.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/2hraquarist/8a55db5e10341c5c.webp": {
     "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/8c2bad11229341cc.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 7,
+        "mark": false,
+        "hash": "e923489b26d0aa340ecca43b71f6c576a73d446ce88dff5aecd09aecb971faa2"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 9,
+        "mark": false,
+        "hash": "ed315102502d0326df8c16b3fd622f515f18b069af01d8c937f24da786f088cf"
+      }
+    ],
+    "watermark": true,
+    "kind": "caption",
+    "locations": [
+      "middle right",
+      "middle centre"
+    ]
   },
   "https://media.aquatome.com/2hraquarist/8efdbfe5c5963ce1.webp": {
     "ocr": []
@@ -10369,10 +10445,79 @@
   "https://media.aquatome.com/2hraquarist/abb4613531240f04.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/2hraquarist/ac629d16dbc34593.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 8,
+        "mark": false,
+        "hash": "952498caa559a7f930a8e7da33d961181ce10227753625ab02bb189dc74de7c8"
+      },
+      {
+        "c": 0.3,
+        "at": "bottom left",
+        "alnum": 7,
+        "mark": false,
+        "hash": "9ffe7f45cf231bda5ccf4d169c42cd32f405cc8619b42b207821c50cf301a524"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 4,
+        "mark": false,
+        "hash": "6b29151ead577a07257e678c28966332d641ee1ca2eb32440d59d60acdb44b8c"
+      },
+      {
+        "c": 0.3,
+        "at": "bottom left",
+        "alnum": 3,
+        "mark": false,
+        "hash": "29e24703ab18bb333d5ed34cb7c3150549086c2c15babb805c7f805f5ace51f5"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 2,
+        "mark": false,
+        "hash": "61eb65ea11e7e7214d986cf175695e7716b2f8e9ba3eb2a185e9e4a4628c483f"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 2,
+        "mark": false,
+        "hash": "c97550ce8213ef5cf6ed4ba48790c137df3ef6a5da20b48961001a634b6cead2"
+      },
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 8,
+        "mark": false,
+        "hash": "112e86b5fdf079c1da6643ca51632bfd5d75b6232960f7881e9bd4ac15f0cc25"
+      },
+      {
+        "c": 0.3,
+        "at": "bottom left",
+        "alnum": 9,
+        "mark": false,
+        "hash": "3401e6a2abae2a0a7c6286c1274e2d11e948f3da8d4960416511b6606ff960f5"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "middle left",
+      "bottom left"
+    ]
+  },
   "https://media.aquatome.com/2hraquarist/af2069e4eb3ac046.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/2hraquarist/af3ba62f577c1b4a.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/afb6ffb4673ffe71.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/2hraquarist/b2f9d25793c3250d.webp": {
@@ -10589,6 +10734,12 @@
   "https://media.aquatome.com/2hraquarist/df5fdbb89b7067de.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/2hraquarist/df81c9e744487ad4.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/e0fc83c4550211ba.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/2hraquarist/e252ca159964b4f0.webp": {
     "ocr": []
   },
@@ -10674,6 +10825,9 @@
   "https://media.aquatome.com/2hraquarist/ecd9ac8852f565f3.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/2hraquarist/ed8ef037f85b7901.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/2hraquarist/ee8da9c35ccae4fe.webp": {
     "ocr": []
   },
@@ -10699,6 +10853,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/2hraquarist/f7dbd474210aae9c.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/f859c51f06cbf038.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/2hraquarist/f9e34a11bb07dc01.webp": {
@@ -10815,6 +10972,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/aquariumbreeder/01bf6dd6e00772db.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/aquariumbreeder/0256d26790b2371b.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/aquariumbreeder/027e2e51e6191faf.webp": {
@@ -11817,6 +11977,38 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/aquariumbreeder/232fdcd9893d1e75.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 6,
+        "mark": false,
+        "hash": "9f52b0fc0f488bf01067192297d5c912b2989c327b67baaa8dda4c40e835cda7"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 2,
+        "mark": false,
+        "hash": "fa51fd49abf67705d6a35d18218c115ff5633aec1f9ebfdc9d5d4956416f57f6"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 6,
+        "mark": false,
+        "hash": "dbe63bf56b312b9ba5ce88c928857fb1a8683568acbaaf3ab781c0f37f083a03"
+      }
+    ],
+    "watermark": true,
+    "kind": "name",
+    "locations": [
+      "bottom left",
+      "top right",
+      "middle centre"
+    ]
   },
   "https://media.aquatome.com/aquariumbreeder/23addf1c0ed980fb.webp": {
     "ocr": [
@@ -13956,6 +14148,9 @@
   "https://media.aquatome.com/aquariumbreeder/8c5d941b66e1bfec.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/aquariumbreeder/8c7793c9cdb9fbbe.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/aquariumbreeder/8ce0d6b39d9b06df.webp": {
     "ocr": [
       {
@@ -14525,6 +14720,9 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/aquariumbreeder/b1c5726cc9108625.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/aquariumbreeder/b38c2439f275d416.webp": {
     "ocr": []
   },
@@ -14748,6 +14946,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/aquariumbreeder/c40b828771cbb35e.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/aquariumbreeder/c456d20b967523b9.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/aquariumbreeder/c47d8a045ce3d7d1.webp": {
@@ -15085,6 +15286,9 @@
     }
   },
   "https://media.aquatome.com/aquariumbreeder/dcb3edac663c81e1.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/aquariumbreeder/dcfaad40f52871d7.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/aquariumbreeder/ddbda7e2e50e9daf.webp": {
@@ -32162,6 +32366,9 @@
   "https://media.aquatome.com/commons/12b34cda56c27ee9.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/commons/12c1009d85731d30.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/commons/12d60d73b2a3aab9.webp": {
     "ocr": []
   },
@@ -37026,6 +37233,9 @@
   "https://media.aquatome.com/commons/2edc740447ec2550.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/commons/2ede2b687dc68653.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/commons/2ee22b9b3de4c2bf.webp": {
     "ocr": []
   },
@@ -39708,6 +39918,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/commons/425eb2e3bca17796.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/commons/42616460fb1511ae.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/commons/4262492778e80cb7.webp": {
@@ -51156,6 +51369,9 @@
   "https://media.aquatome.com/commons/90918055bd909329.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/commons/909380585e0271f8.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/commons/90b92efbfe0c6927.webp": {
     "ocr": []
   },
@@ -52170,6 +52386,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/commons/985e9c53e3ada97f.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/commons/986417ca6c7f1bc4.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/commons/9871c693308ebb05.webp": {
@@ -57820,6 +58039,9 @@
   "https://media.aquatome.com/commons/b8a8f138a548e04c.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/commons/b8b1847c3a061a55.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/commons/b8b490aebfe56acc.webp": {
     "ocr": []
   },
@@ -61457,6 +61679,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/commons/ceef7dc31d620c3d.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/commons/cf02aae334367655.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/commons/cf2483485b4f22c5.webp": {
@@ -79017,6 +79242,37 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/0a1a3136169b1e7c.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "9fe571ce0675033cfc1de9089b931ba24c1f2a8ee0272af9317d314913626aff"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thayeria-obliqua-4/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/0a20abbf52d86866.webp": {
     "ocr": [
       {
@@ -81533,6 +81789,35 @@
       "bottom centre"
     ]
   },
+  "https://media.aquatome.com/glaser/0c932a6d2885551e.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hoplomyzon-sexpapilostoma-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/0c9aee8108604453.webp": {
     "ocr": [
       {
@@ -81915,6 +82200,44 @@
     "retainedOwnMark": {
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/etroplus-suratensis-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
+  "https://media.aquatome.com/glaser/0d3cac9b733679d9.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "fe856161355d0014d873288cd65eee873b8d47bc3126a6d6c8702742010b9d29"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "44991ba03c391799629d7182831add7470928b1183bceb2d611a1cae1766f071"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/pandaka-rouxi-2/",
       "owner": "source",
       "by": "screen"
     }
@@ -84431,6 +84754,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/107d84c2f7dea4a0.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 51,
+        "mark": false,
+        "hash": "cb7689400146ea8211fff62fa9048f01401c98e613348d1f4aa3253b5cc06ee2"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/vitta-virginea-neritina-virginea-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/1080fa3531f6646d.webp": {
@@ -95016,6 +95370,37 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/1fa41c2619485e11.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/bagrichthys-macracanthus-4/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/1fa4a3c7435b8097.webp": {
     "ocr": [
       {
@@ -95680,6 +96065,37 @@
     "retainedOwnMark": {
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/biotoecus-dicentrarchus-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
+  "https://media.aquatome.com/glaser/206639e26ffe0076.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 19,
+        "mark": false,
+        "hash": "246c82f07bdf50c0ce77cae889071668acb8110fea8241b6551107f4e9282913"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hypomasticus-julii-2/",
       "owner": "source",
       "by": "screen"
     }
@@ -99014,6 +99430,37 @@
     "retainedOwnMark": {
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-geryi-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
+  "https://media.aquatome.com/glaser/2504c0a7c0fc5a6e.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-chromaphyosemion-bivittatum-funge-2/",
       "owner": "source",
       "by": "screen"
     }
@@ -112269,6 +112716,35 @@
       "bottom left"
     ]
   },
+  "https://media.aquatome.com/glaser/35f7a46497af09e8.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 17,
+        "mark": false,
+        "hash": "e268415ca63c5441b2fb2b78cc6f1d5662415feba4117515fedba6afc3e283ea"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-melanotaenia-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/36056b414ad61204.webp": {
     "ocr": [
       {
@@ -115338,6 +115814,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/39d815aa57a15df2.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "c4e83cd8ae9c9eb981382423040e0a0732e06c33fcd2927f5c10ac5f62e8e011"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/vitta-virginea-neritina-virginea-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/39ec03a4f3e9a84b.webp": {
@@ -124330,6 +124837,35 @@
       "bottom right"
     ]
   },
+  "https://media.aquatome.com/glaser/44908d51d9232c23.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "6694a02e448fe53401bccde73a8f26c1c12ab2f7f4370211fcf8f9a838e9dafd"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-leucomelas-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/449687e08e137d6f.webp": {
     "ocr": [
       {
@@ -125994,6 +126530,35 @@
     "retainedOwnMark": {
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/gambusia-hurtadoi-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
+  "https://media.aquatome.com/glaser/468632c96de8e019.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 17,
+        "mark": false,
+        "hash": "08361575d06bbee5f79a8388598287764e272830b3a0ef07c5c04567427b1f9b"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hoplomyzon-sexpapilostoma-2/",
       "owner": "source",
       "by": "screen"
     }
@@ -128253,6 +128818,44 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/499a38cbdd7bcc28.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 4,
+        "mark": false,
+        "hash": "3cf37a8976c6efcc9f9720e5c188472c0e99cbe4ed7356b8c5ed2aac27335255"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thayeria-obliqua-4/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/49b19f9f9b4b299a.webp": {
@@ -132526,6 +133129,37 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/4e55552e713d3285.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "845a706ce6724c4b239fb928937886fc6b8dc9703fe5d690e8bce0382f57788b"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/pandaka-rouxi-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/4e713ea5e66b5e83.webp": {
     "ocr": [
       {
@@ -132991,6 +133625,37 @@
       "top centre",
       "top right"
     ]
+  },
+  "https://media.aquatome.com/glaser/4ee232b6a1eb13af.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "69cf8c9bed3a19896a7e9216b8db271b9130ea17f859d9ac1fe5f5d3a4dd0d50"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/vitta-virginea-neritina-virginea-2/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/4ef2c4b970440f8a.webp": {
     "ocr": [
@@ -139098,6 +139763,37 @@
       "bottom centre"
     ]
   },
+  "https://media.aquatome.com/glaser/565a7df7fff23773.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "146f9fec04f3964c351195f3fb099b84928411d96b486d8fbcfe67d59dd53730"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "69cf8c9bed3a19896a7e9216b8db271b9130ea17f859d9ac1fe5f5d3a4dd0d50"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-einthovenii-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/565f25232af8f640.webp": {
     "ocr": [
       {
@@ -140773,6 +141469,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/5913b5b37377579a.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "e4ef721bad9ed9c3be644470e35b0ae89cd5ca9b7817c59336233defb59e67ad"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-teffeana-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/591ef6ce042f4559.webp": {
@@ -146542,6 +147269,44 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/6100959b87328b16.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 4,
+        "mark": false,
+        "hash": "664e479051d087319655a596b9f46e1a802700ca7cde74b9acc08cd96769055f"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "9f2bc650bb4368d46d3378317211c607087f2c620d94e539db3dfe425c8bac32"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hypomasticus-julii-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/611be0dc30761813.webp": {
     "ocr": [
       {
@@ -148836,6 +149601,37 @@
       "top centre",
       "top right"
     ]
+  },
+  "https://media.aquatome.com/glaser/64acfe323e5115a1.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "1d93d7f106df0bd6dee2caecfb64ea1b821f4d27ce9e1283da6a41eba59e7d38"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "e4f515ee944993c846c891bc7563266ec2cbe6f6e641ce11cd30f74b6429a707"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/26-flatfishes/apionichthys-nattereri-2/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/64b20229fd6edfa0.webp": {
     "ocr": [
@@ -151788,6 +152584,37 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/68799da36d00f7b9.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 17,
+        "mark": false,
+        "hash": "8769328bdbf5f2250df9754b8dfe97cb056ff653da80a6aa7c32c9ce329c13d3"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "750d212636915a545f78da41e8175d3785a2f0f00af65655337c3453a53a7854"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-chromaphyosemion-bivittatum-funge-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/68bd17a1c68d9256.webp": {
     "ocr": [
       {
@@ -152463,6 +153290,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/6addb11cb2dbb28d.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "80e1e1186f3200039425065c19167014ed1001c2b20cc3c4ac1284d539fe3f12"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hypomasticus-julii-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/6ae809222b7f7865.webp": {
@@ -153557,6 +154415,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/6c512fa30ce9a447.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-einthovenii-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/6c57b70f5ab4a349.webp": {
@@ -163459,6 +164348,37 @@
       "by": "return"
     }
   },
+  "https://media.aquatome.com/glaser/795e761a9196218f.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-einthovenii-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/798b60b5ae5533eb.webp": {
     "ocr": [
       {
@@ -163804,6 +164724,44 @@
       "bottom right"
     ]
   },
+  "https://media.aquatome.com/glaser/79eabc75393fd189.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "6c524f2b9c613a71f46e8cacbf58297b461f16016fd2666d191311ad52eb77c3"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "44991ba03c391799629d7182831add7470928b1183bceb2d611a1cae1766f071"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/26-flatfishes/apionichthys-nattereri-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/79efb0857ef50f64.webp": {
     "ocr": [
       {
@@ -163836,6 +164794,37 @@
       "bottom right",
       "top left"
     ]
+  },
+  "https://media.aquatome.com/glaser/79f0bed2707f0490.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "49e8a52ed59e8da641acb3a2bd7fea1669e0864d398afbd7ff303dc135802465"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-chromaphyosemion-bivittatum-funge-2/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/79f1ec13dcd654d9.webp": {
     "ocr": [
@@ -166568,6 +167557,35 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/7db63f5b90502d91.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "87080c3068d7c4e217ee436a991149e47deb36a74b99dd4e7676445518043fa1"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-melanotaenia-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/7db83033f305871b.webp": {
@@ -170281,6 +171299,37 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/82976e5ed524ee58.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "60ea66f380989d2b70f78611716ee14f761f858f074cc382c447fc84ae3c246f"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hypomasticus-julii-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/829ef4746396dc67.webp": {
     "ocr": [
       {
@@ -171593,6 +172642,44 @@
       "top right",
       "bottom right"
     ]
+  },
+  "https://media.aquatome.com/glaser/83bee8a51e440fc1.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 19,
+        "mark": false,
+        "hash": "ab66aa8247000f94a7c71a36411777c1e6e0308716c587d99d020217f357673f"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 10,
+        "mark": false,
+        "hash": "985e23b2b21f061febfff7c4a34419825d7e92464afbef897421811b75856bcd"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 38,
+        "mark": false,
+        "hash": "1d68de178d30422f145e2cec8b121724803a80d6a357999705ed249eebb8dc6f"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/physopyxis-lyra-2/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/83d2a3ba23038121.webp": {
     "ocr": [
@@ -173376,6 +174463,37 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/85ed8f6d9e9594ea.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "d989bb64d1abe47842b83da891c6f1c14c18b58e1bf6908682b166b209a4f547"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/bagrichthys-macracanthus-4/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/85f550dca17ba2d8.webp": {
     "ocr": [
       {
@@ -173414,6 +174532,37 @@
       "top centre",
       "top right"
     ]
+  },
+  "https://media.aquatome.com/glaser/86059d1bbe774fea.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "9aefce441ffab69cb5f43394c0a3c63bc388227abaa1cff7eea673fadf471e3c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "b1705505585885170030260bdf26084ad2c42439c84fdb2c4670dbfef554d0e8"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/tylomelania-towutensis-2/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/863d4450addbaa75.webp": {
     "ocr": [
@@ -178030,6 +179179,35 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/8c766b8e3165ac51.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 16,
+        "mark": false,
+        "hash": "3a9e3e0689e85a86c46fa05b5e609571651b4d260eb29b0c402582b98b3adaa8"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "64dfb6e767ed87d10a6c01a5a39db50cbb85f9c9ff1c43f3cd84dbbf794caf46"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-leucomelas-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/8c902167069b9dff.webp": {
     "ocr": [
       {
@@ -180907,6 +182085,37 @@
       "by": "screen"
     }
   },
+  "https://media.aquatome.com/glaser/90580f7964e23ea1.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "6cc61aab6b529e6abb129be99bb0c876b1fdefd66eae41754387619cb03e1afb"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/physopyxis-lyra-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/9061193471916f68.webp": {
     "ocr": [
       {
@@ -181880,6 +183089,37 @@
       "top centre",
       "top right"
     ]
+  },
+  "https://media.aquatome.com/glaser/91d1293d233f1465.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "ac34a0b0e8d4f822d1c8be108f88f7339f5337635c4f0ec517b0cdb0426df275"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5aa7900c0dd850486d735f1c67be3b713042d0cc8c64de4470fcf2a8d5db5cf4"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-chromaphyosemion-bivittatum-funge-2/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/91e50858c6b4e89e.webp": {
     "ocr": [
@@ -183580,6 +184820,11 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/glaser/93f40be1822e556d.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
   },
   "https://media.aquatome.com/glaser/93f4b0544bbbdb2c.webp": {
     "ocr": [
@@ -189126,6 +190371,42 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/9be55a5dfa47924b.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "44991ba03c391799629d7182831add7470928b1183bceb2d611a1cae1766f071"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-leucomelas-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/9be81cc9e8baf39a.webp": {
@@ -197812,6 +199093,37 @@
       "top centre"
     ]
   },
+  "https://media.aquatome.com/glaser/a6e037a7aab86127.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thayeria-obliqua-4/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/a6e4de70941b9181.webp": {
     "ocr": [
       {
@@ -202200,6 +203512,37 @@
       "by": "screen"
     }
   },
+  "https://media.aquatome.com/glaser/ad401220c30597a7.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "782d6a970ef0b4f70b07fbf710eb433e7c90d63291d38512d741a6d9946c6598"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/26-flatfishes/apionichthys-nattereri-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/ad430ec65fa7c6c3.webp": {
     "ocr": [
       {
@@ -202728,6 +204071,37 @@
       "by": "screen"
     }
   },
+  "https://media.aquatome.com/glaser/adbe84e201cb6341.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "3b8cb56dc0860a78e3e79a6472429431247f4be5c73059f2ff5a6e770b727d7f"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/pandaka-rouxi-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/adef106b5f905732.webp": {
     "ocr": [
       {
@@ -203092,6 +204466,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/ae2b748215430f2e.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "a28ca774128fce08e4266c158d30035a74a4e71310354036b461884e4ab9b268"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/physopyxis-lyra-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/ae314d8c8c880dab.webp": {
@@ -207283,6 +208688,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/b26262376689f9e3.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 16,
+        "mark": false,
+        "hash": "36584e06120d091b1cff5e584ce0b174fa42ca4c881fb34f60d35c46cbb3022e"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 51,
+        "mark": false,
+        "hash": "d3b46cd2a19be8498dc94b70f62b0ef2a4a3ec236b0bcd424d8abfc33bd5aab4"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/tylomelania-towutensis-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/b26f61e1a36cd7d6.webp": {
@@ -211983,6 +213419,37 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/b8485abf79df6113.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "49e8a52ed59e8da641acb3a2bd7fea1669e0864d398afbd7ff303dc135802465"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thayeria-obliqua-4/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/b856ccd4fefa098e.webp": {
     "ocr": [
       {
@@ -212569,6 +214036,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/b916324c78014190.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 16,
+        "mark": false,
+        "hash": "c2f9f6fd2cccc35380abddf6d97fcf2e6e36b04f1b12930583707d086451164b"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "a45bad66c19e7e01396dfde1c2d03967a197a8cb4f2482e178db2d3d184c3a20"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-einthovenii-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/b9257c2310b35930.webp": {
@@ -221599,6 +223097,37 @@
       "bottom right"
     ]
   },
+  "https://media.aquatome.com/glaser/c393741e33e5e8c9.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "0b63a86151432635931ef89e475cbb175814467594a18496d517724cd1e04f02"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "16d3e9d57585aff8a8445aaf6a335089abbf8de7c6ea51df08520c25db068132"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/vitta-virginea-neritina-virginea-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/c3954bec9411ef38.webp": {
     "ocr": [
       {
@@ -224697,6 +226226,37 @@
     "retainedOwnMark": {
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-phaeonota-4/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
+  "https://media.aquatome.com/glaser/c71fd7bba407d79b.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "35f4a93f2b56f4920cd1795073b845d3e6a4516795f182ed48f54c18b0345a06"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-teffeana-2/",
       "owner": "source",
       "by": "screen"
     }
@@ -229367,6 +230927,44 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/cd9cac698b9e52cb.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 17,
+        "mark": false,
+        "hash": "00e4bab2cbccd09b3e5ecbe6daa1e866c5955876ffeacd4f0ac782f57d346e0d"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "2547ca86bf947c8468b9e7358e1c3172ab556adef43bcd765adc38624faa3c58"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "bottom left",
+      "bottom centre",
+      "bottom right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/tylomelania-towutensis-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/cda5ebd8d75f9289.webp": {
     "ocr": [
       {
@@ -230188,6 +231786,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/cf245db201e86b45.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-teffeana-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/cf24e8ab4758df8f.webp": {
@@ -231378,6 +233007,37 @@
     "retainedOwnMark": {
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-micropterus-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
+  "https://media.aquatome.com/glaser/d0be767d2c6d854a.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f68a977b1eecba2c8f9b0e53c7dee5a1c720aaa38e29991f8aab8f30acfc8cc4"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/physopyxis-lyra-2/",
       "owner": "source",
       "by": "screen"
     }
@@ -235678,6 +237338,37 @@
     "retainedOwnMark": {
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-mokelembembe-3/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
+  "https://media.aquatome.com/glaser/d6a970ab673469d1.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/tylomelania-towutensis-2/",
       "owner": "source",
       "by": "screen"
     }
@@ -241128,6 +242819,35 @@
       "by": "screen"
     }
   },
+  "https://media.aquatome.com/glaser/ddac9519539701ef.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "35f4a93f2b56f4920cd1795073b845d3e6a4516795f182ed48f54c18b0345a06"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hoplomyzon-sexpapilostoma-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/ddbd02e514f82cb0.webp": {
     "ocr": [
       {
@@ -241497,6 +243217,35 @@
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina-brevis-2/",
       "owner": "source",
       "by": "return"
+    }
+  },
+  "https://media.aquatome.com/glaser/de0a1fbeccb960ec.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "8814e2eff8b4cdf83cb6efdf700ca86c32106edd256a3a3059e00669cec054e0"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hoplomyzon-sexpapilostoma-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/de0aeae67156ccd7.webp": {
@@ -241958,6 +243707,37 @@
     "retainedOwnMark": {
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/loricaria-lata-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
+  "https://media.aquatome.com/glaser/dea0c5fdcbe7ee47.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/pandaka-rouxi-2/",
       "owner": "source",
       "by": "screen"
     }
@@ -245633,6 +247413,44 @@
       "top left"
     ]
   },
+  "https://media.aquatome.com/glaser/e39b227c838259d5.webp": {
+    "ocr": [
+      {
+        "c": 0.5,
+        "at": "top centre",
+        "alnum": 17,
+        "mark": false,
+        "hash": "f8934db840152cc0e58646e024abc12411b5022c2f2ac0ca91ef85a03a463e43"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 11,
+        "mark": false,
+        "hash": "33828c743e3db0f946b288a32cfb5afc5ceb71db83412006f8a2a5e2170b8296"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 26,
+        "mark": false,
+        "hash": "17bd1ebbe386795ec2995f7fa72eb5599441d40289cf036eb09de263cbaf5b55"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/26-flatfishes/apionichthys-nattereri-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/e39e83d9f8b446a4.webp": {
     "ocr": [
       {
@@ -248250,6 +250068,35 @@
       "bottom centre",
       "bottom right"
     ]
+  },
+  "https://media.aquatome.com/glaser/e6f9f810bdff2c7c.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 19,
+        "mark": false,
+        "hash": "fd807c999f0024db68ea9b1bbbc17a53ca43623121be7d3768fbea641856f0c6"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "e784c5506abab393fbb78830d7dff58d7ca3bdfec1c5b61f9bfbec2796a7d401"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-melanotaenia-2/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/e728d2a92935c151.webp": {
     "ocr": [
@@ -251800,6 +253647,37 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/eba566278e288e0f.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/bagrichthys-macracanthus-4/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/ebb72198327b55ae.webp": {
     "ocr": [
       {
@@ -253365,6 +255243,42 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/ed6b5dfc21fcf023.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 35,
+        "mark": false,
+        "hash": "99b228d2f95a61a25c8354e00b1dce44e1cc827ee3392fe334cada7d4feadaad"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 18,
+        "mark": false,
+        "hash": "c025de4e3556cdac4a3709454afaaabb2fe8507d4d05fcf7d248928c4b7874d8"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-melanotaenia-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/ed73f28ca81d06e4.webp": {
@@ -257981,6 +259895,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/f392b24b8a24b13a.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 15,
+        "mark": false,
+        "hash": "da55ede8d2fce4ca5ebdc1ab5e50fd84d8ac72fd8885ac6304932d29e7a365b2"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "44129db108afabd4f5894482d6b166a6c3160d306724f791764fad5aac201e46"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-teffeana-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/f397986ea1c1fe61.webp": {
@@ -311461,6 +313406,14 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/scotcat/179ba62e47ad5fa4.webp": {
+    "ocr": [],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "bottom right"
+    ]
+  },
   "https://media.aquatome.com/scotcat/17ac719228c78850.webp": {
     "ocr": [],
     "watermark": false,
@@ -312184,6 +314137,22 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/scotcat/203d364aa83779b1.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 16,
+        "mark": true,
+        "hash": "ec6fe99efc7e28b8c00a9abe075338dfc9a1efb71591cd708d1cc00f4310d1a2"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top right"
+    ]
   },
   "https://media.aquatome.com/scotcat/2077e6cb6bca192a.webp": {
     "ocr": [
@@ -313455,6 +315424,11 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/scotcat/320ba8f200b321f6.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
   "https://media.aquatome.com/scotcat/3216fd02896ab6db.webp": {
     "ocr": [],
     "watermark": false,
@@ -313848,6 +315822,11 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/scotcat/37645cf717d71438.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
   "https://media.aquatome.com/scotcat/37701d7d74dc9111.webp": {
     "ocr": [],
     "watermark": false,
@@ -314234,6 +316213,22 @@
     "ocr": [],
     "watermark": false,
     "kind": "none"
+  },
+  "https://media.aquatome.com/scotcat/3ca174029b583464.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 15,
+        "mark": false,
+        "hash": "6c5fa62e7493685fee7da3c0d2dab0f007416106d89d64fcf88db0173110a7b2"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "middle centre"
+    ]
   },
   "https://media.aquatome.com/scotcat/3cbef066491aa899.webp": {
     "ocr": [
@@ -315823,6 +317818,11 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/scotcat/4f0c0f630942d720.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
   },
   "https://media.aquatome.com/scotcat/4f1d236064e77bfd.webp": {
     "ocr": [],
@@ -513184,2005 +515184,5 @@
   },
   "https://upload.wikimedia.org/wikipedia/commons/f/fc/Midorifugu1.JPG": {
     "ocr": []
-  },
-  "https://media.aquatome.com/2hraquarist/044d056a5a18196e.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/2hraquarist/11c924607cc1f22b.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/2hraquarist/13913add01281c4f.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/2hraquarist/4c0c963ab85c5c09.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "middle centre",
-        "alnum": 11,
-        "mark": false,
-        "hash": "c0ca1d92a6d39e052c7c9ad6ed64d2775e0898da8bec0ec82907ae61b06b5292"
-      },
-      {
-        "c": 1,
-        "at": "middle centre",
-        "alnum": 3,
-        "mark": false,
-        "hash": "802b906a18591ead8a6dd809b262ace4c65c16e89764c40ae326cfcff811e10c"
-      },
-      {
-        "c": 1,
-        "at": "bottom centre",
-        "alnum": 7,
-        "mark": false,
-        "hash": "526f105fee192988c875a10e53205502f581587019106fd32e1777eede83e5bb"
-      }
-    ],
-    "watermark": false,
-    "kind": "none",
-    "locations": [
-      "middle centre",
-      "bottom centre"
-    ]
-  },
-  "https://media.aquatome.com/2hraquarist/55d786116369f9f7.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/2hraquarist/631e74548d109bee.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/2hraquarist/8660c1cec1b74154.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/2hraquarist/89ff8c9a51194cf5.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/2hraquarist/8c2bad11229341cc.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "middle right",
-        "alnum": 7,
-        "mark": false,
-        "hash": "e923489b26d0aa340ecca43b71f6c576a73d446ce88dff5aecd09aecb971faa2"
-      },
-      {
-        "c": 1,
-        "at": "bottom centre",
-        "alnum": 9,
-        "mark": false,
-        "hash": "ed315102502d0326df8c16b3fd622f515f18b069af01d8c937f24da786f088cf"
-      }
-    ],
-    "watermark": true,
-    "kind": "caption",
-    "locations": [
-      "middle right",
-      "middle centre"
-    ]
-  },
-  "https://media.aquatome.com/2hraquarist/ac629d16dbc34593.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "middle left",
-        "alnum": 8,
-        "mark": false,
-        "hash": "952498caa559a7f930a8e7da33d961181ce10227753625ab02bb189dc74de7c8"
-      },
-      {
-        "c": 0.3,
-        "at": "bottom left",
-        "alnum": 7,
-        "mark": false,
-        "hash": "9ffe7f45cf231bda5ccf4d169c42cd32f405cc8619b42b207821c50cf301a524"
-      },
-      {
-        "c": 1,
-        "at": "bottom left",
-        "alnum": 4,
-        "mark": false,
-        "hash": "6b29151ead577a07257e678c28966332d641ee1ca2eb32440d59d60acdb44b8c"
-      },
-      {
-        "c": 0.3,
-        "at": "bottom left",
-        "alnum": 3,
-        "mark": false,
-        "hash": "29e24703ab18bb333d5ed34cb7c3150549086c2c15babb805c7f805f5ace51f5"
-      },
-      {
-        "c": 1,
-        "at": "bottom left",
-        "alnum": 2,
-        "mark": false,
-        "hash": "61eb65ea11e7e7214d986cf175695e7716b2f8e9ba3eb2a185e9e4a4628c483f"
-      },
-      {
-        "c": 1,
-        "at": "bottom left",
-        "alnum": 2,
-        "mark": false,
-        "hash": "c97550ce8213ef5cf6ed4ba48790c137df3ef6a5da20b48961001a634b6cead2"
-      },
-      {
-        "c": 1,
-        "at": "middle left",
-        "alnum": 8,
-        "mark": false,
-        "hash": "112e86b5fdf079c1da6643ca51632bfd5d75b6232960f7881e9bd4ac15f0cc25"
-      },
-      {
-        "c": 0.3,
-        "at": "bottom left",
-        "alnum": 9,
-        "mark": false,
-        "hash": "3401e6a2abae2a0a7c6286c1274e2d11e948f3da8d4960416511b6606ff960f5"
-      }
-    ],
-    "watermark": false,
-    "kind": "none",
-    "locations": [
-      "middle left",
-      "bottom left"
-    ]
-  },
-  "https://media.aquatome.com/2hraquarist/afb6ffb4673ffe71.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/2hraquarist/df81c9e744487ad4.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/2hraquarist/e0fc83c4550211ba.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/2hraquarist/ed8ef037f85b7901.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/2hraquarist/f859c51f06cbf038.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/aquariumbreeder/0256d26790b2371b.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/aquariumbreeder/232fdcd9893d1e75.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "bottom left",
-        "alnum": 6,
-        "mark": false,
-        "hash": "9f52b0fc0f488bf01067192297d5c912b2989c327b67baaa8dda4c40e835cda7"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 2,
-        "mark": false,
-        "hash": "fa51fd49abf67705d6a35d18218c115ff5633aec1f9ebfdc9d5d4956416f57f6"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 6,
-        "mark": false,
-        "hash": "dbe63bf56b312b9ba5ce88c928857fb1a8683568acbaaf3ab781c0f37f083a03"
-      }
-    ],
-    "watermark": true,
-    "kind": "name",
-    "locations": [
-      "bottom left",
-      "top right",
-      "middle centre"
-    ]
-  },
-  "https://media.aquatome.com/aquariumbreeder/8c7793c9cdb9fbbe.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/aquariumbreeder/b1c5726cc9108625.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/aquariumbreeder/c456d20b967523b9.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/aquariumbreeder/dcfaad40f52871d7.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/commons/12c1009d85731d30.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/commons/2ede2b687dc68653.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/commons/42616460fb1511ae.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/commons/909380585e0271f8.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/commons/986417ca6c7f1bc4.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/commons/b8b1847c3a061a55.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/commons/cf02aae334367655.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/glaser/0a1a3136169b1e7c.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "9fe571ce0675033cfc1de9089b931ba24c1f2a8ee0272af9317d314913626aff"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thayeria-obliqua-4/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/0c932a6d2885551e.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top centre"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hoplomyzon-sexpapilostoma-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/0d3cac9b733679d9.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "fe856161355d0014d873288cd65eee873b8d47bc3126a6d6c8702742010b9d29"
-      },
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 14,
-        "mark": false,
-        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 39,
-        "mark": false,
-        "hash": "44991ba03c391799629d7182831add7470928b1183bceb2d611a1cae1766f071"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/pandaka-rouxi-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/107d84c2f7dea4a0.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 14,
-        "mark": false,
-        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 51,
-        "mark": false,
-        "hash": "cb7689400146ea8211fff62fa9048f01401c98e613348d1f4aa3253b5cc06ee2"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/vitta-virginea-neritina-virginea-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/1fa41c2619485e11.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/bagrichthys-macracanthus-4/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/206639e26ffe0076.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 19,
-        "mark": false,
-        "hash": "246c82f07bdf50c0ce77cae889071668acb8110fea8241b6551107f4e9282913"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hypomasticus-julii-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/2504c0a7c0fc5a6e.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-chromaphyosemion-bivittatum-funge-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/35f7a46497af09e8.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 17,
-        "mark": false,
-        "hash": "e268415ca63c5441b2fb2b78cc6f1d5662415feba4117515fedba6afc3e283ea"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top centre"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-melanotaenia-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/39d815aa57a15df2.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "c4e83cd8ae9c9eb981382423040e0a0732e06c33fcd2927f5c10ac5f62e8e011"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/vitta-virginea-neritina-virginea-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/44908d51d9232c23.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "6694a02e448fe53401bccde73a8f26c1c12ab2f7f4370211fcf8f9a838e9dafd"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top centre"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-leucomelas-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/468632c96de8e019.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 17,
-        "mark": false,
-        "hash": "08361575d06bbee5f79a8388598287764e272830b3a0ef07c5c04567427b1f9b"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top centre"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hoplomyzon-sexpapilostoma-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/499a38cbdd7bcc28.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 14,
-        "mark": false,
-        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 4,
-        "mark": false,
-        "hash": "3cf37a8976c6efcc9f9720e5c188472c0e99cbe4ed7356b8c5ed2aac27335255"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thayeria-obliqua-4/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/4e55552e713d3285.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "845a706ce6724c4b239fb928937886fc6b8dc9703fe5d690e8bce0382f57788b"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/pandaka-rouxi-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/4ee232b6a1eb13af.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 14,
-        "mark": false,
-        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "69cf8c9bed3a19896a7e9216b8db271b9130ea17f859d9ac1fe5f5d3a4dd0d50"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/vitta-virginea-neritina-virginea-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/565a7df7fff23773.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "146f9fec04f3964c351195f3fb099b84928411d96b486d8fbcfe67d59dd53730"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "69cf8c9bed3a19896a7e9216b8db271b9130ea17f859d9ac1fe5f5d3a4dd0d50"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-einthovenii-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/5913b5b37377579a.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 14,
-        "mark": false,
-        "hash": "e4ef721bad9ed9c3be644470e35b0ae89cd5ca9b7817c59336233defb59e67ad"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-teffeana-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/6100959b87328b16.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 14,
-        "mark": false,
-        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 4,
-        "mark": false,
-        "hash": "664e479051d087319655a596b9f46e1a802700ca7cde74b9acc08cd96769055f"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "9f2bc650bb4368d46d3378317211c607087f2c620d94e539db3dfe425c8bac32"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hypomasticus-julii-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/64acfe323e5115a1.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "1d93d7f106df0bd6dee2caecfb64ea1b821f4d27ce9e1283da6a41eba59e7d38"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "e4f515ee944993c846c891bc7563266ec2cbe6f6e641ce11cd30f74b6429a707"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/26-flatfishes/apionichthys-nattereri-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/68799da36d00f7b9.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 17,
-        "mark": false,
-        "hash": "8769328bdbf5f2250df9754b8dfe97cb056ff653da80a6aa7c32c9ce329c13d3"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "750d212636915a545f78da41e8175d3785a2f0f00af65655337c3453a53a7854"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-chromaphyosemion-bivittatum-funge-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/6addb11cb2dbb28d.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "80e1e1186f3200039425065c19167014ed1001c2b20cc3c4ac1284d539fe3f12"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hypomasticus-julii-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/6c512fa30ce9a447.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 14,
-        "mark": false,
-        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-einthovenii-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/795e761a9196218f.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-einthovenii-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/79eabc75393fd189.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "6c524f2b9c613a71f46e8cacbf58297b461f16016fd2666d191311ad52eb77c3"
-      },
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 14,
-        "mark": false,
-        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 39,
-        "mark": false,
-        "hash": "44991ba03c391799629d7182831add7470928b1183bceb2d611a1cae1766f071"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/26-flatfishes/apionichthys-nattereri-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/79f0bed2707f0490.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "49e8a52ed59e8da641acb3a2bd7fea1669e0864d398afbd7ff303dc135802465"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-chromaphyosemion-bivittatum-funge-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/7db63f5b90502d91.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "87080c3068d7c4e217ee436a991149e47deb36a74b99dd4e7676445518043fa1"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top centre"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-melanotaenia-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/82976e5ed524ee58.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "60ea66f380989d2b70f78611716ee14f761f858f074cc382c447fc84ae3c246f"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hypomasticus-julii-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/83bee8a51e440fc1.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 19,
-        "mark": false,
-        "hash": "ab66aa8247000f94a7c71a36411777c1e6e0308716c587d99d020217f357673f"
-      },
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 10,
-        "mark": false,
-        "hash": "985e23b2b21f061febfff7c4a34419825d7e92464afbef897421811b75856bcd"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 38,
-        "mark": false,
-        "hash": "1d68de178d30422f145e2cec8b121724803a80d6a357999705ed249eebb8dc6f"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/physopyxis-lyra-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/85ed8f6d9e9594ea.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "d989bb64d1abe47842b83da891c6f1c14c18b58e1bf6908682b166b209a4f547"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/bagrichthys-macracanthus-4/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/86059d1bbe774fea.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "9aefce441ffab69cb5f43394c0a3c63bc388227abaa1cff7eea673fadf471e3c"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "b1705505585885170030260bdf26084ad2c42439c84fdb2c4670dbfef554d0e8"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/tylomelania-towutensis-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/8c766b8e3165ac51.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 16,
-        "mark": false,
-        "hash": "3a9e3e0689e85a86c46fa05b5e609571651b4d260eb29b0c402582b98b3adaa8"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "64dfb6e767ed87d10a6c01a5a39db50cbb85f9c9ff1c43f3cd84dbbf794caf46"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top centre"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-leucomelas-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/90580f7964e23ea1.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "6cc61aab6b529e6abb129be99bb0c876b1fdefd66eae41754387619cb03e1afb"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/physopyxis-lyra-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/91d1293d233f1465.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "ac34a0b0e8d4f822d1c8be108f88f7339f5337635c4f0ec517b0cdb0426df275"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5aa7900c0dd850486d735f1c67be3b713042d0cc8c64de4470fcf2a8d5db5cf4"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-chromaphyosemion-bivittatum-funge-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/93f40be1822e556d.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/glaser/9be55a5dfa47924b.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
-      },
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 14,
-        "mark": false,
-        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 39,
-        "mark": false,
-        "hash": "44991ba03c391799629d7182831add7470928b1183bceb2d611a1cae1766f071"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top centre"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-leucomelas-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/a6e037a7aab86127.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thayeria-obliqua-4/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/ad401220c30597a7.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "782d6a970ef0b4f70b07fbf710eb433e7c90d63291d38512d741a6d9946c6598"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/26-flatfishes/apionichthys-nattereri-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/adbe84e201cb6341.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "3b8cb56dc0860a78e3e79a6472429431247f4be5c73059f2ff5a6e770b727d7f"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/pandaka-rouxi-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/ae2b748215430f2e.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "a28ca774128fce08e4266c158d30035a74a4e71310354036b461884e4ab9b268"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/physopyxis-lyra-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/b26262376689f9e3.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 16,
-        "mark": false,
-        "hash": "36584e06120d091b1cff5e584ce0b174fa42ca4c881fb34f60d35c46cbb3022e"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 51,
-        "mark": false,
-        "hash": "d3b46cd2a19be8498dc94b70f62b0ef2a4a3ec236b0bcd424d8abfc33bd5aab4"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/tylomelania-towutensis-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/b8485abf79df6113.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "49e8a52ed59e8da641acb3a2bd7fea1669e0864d398afbd7ff303dc135802465"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thayeria-obliqua-4/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/b916324c78014190.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 16,
-        "mark": false,
-        "hash": "c2f9f6fd2cccc35380abddf6d97fcf2e6e36b04f1b12930583707d086451164b"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "a45bad66c19e7e01396dfde1c2d03967a197a8cb4f2482e178db2d3d184c3a20"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-einthovenii-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/c393741e33e5e8c9.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "0b63a86151432635931ef89e475cbb175814467594a18496d517724cd1e04f02"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "16d3e9d57585aff8a8445aaf6a335089abbf8de7c6ea51df08520c25db068132"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/vitta-virginea-neritina-virginea-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/c71fd7bba407d79b.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "35f4a93f2b56f4920cd1795073b845d3e6a4516795f182ed48f54c18b0345a06"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-teffeana-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/cd9cac698b9e52cb.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "bottom centre",
-        "alnum": 17,
-        "mark": false,
-        "hash": "00e4bab2cbccd09b3e5ecbe6daa1e866c5955876ffeacd4f0ac782f57d346e0d"
-      },
-      {
-        "c": 1,
-        "at": "bottom left",
-        "alnum": 14,
-        "mark": false,
-        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
-      },
-      {
-        "c": 1,
-        "at": "bottom right",
-        "alnum": 39,
-        "mark": false,
-        "hash": "2547ca86bf947c8468b9e7358e1c3172ab556adef43bcd765adc38624faa3c58"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "bottom left",
-      "bottom centre",
-      "bottom right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/tylomelania-towutensis-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/cf245db201e86b45.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-teffeana-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/d0be767d2c6d854a.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "f68a977b1eecba2c8f9b0e53c7dee5a1c720aaa38e29991f8aab8f30acfc8cc4"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/physopyxis-lyra-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/d6a970ab673469d1.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/tylomelania-towutensis-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/ddac9519539701ef.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "35f4a93f2b56f4920cd1795073b845d3e6a4516795f182ed48f54c18b0345a06"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top centre"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hoplomyzon-sexpapilostoma-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/de0a1fbeccb960ec.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 14,
-        "mark": false,
-        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "8814e2eff8b4cdf83cb6efdf700ca86c32106edd256a3a3059e00669cec054e0"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top centre"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hoplomyzon-sexpapilostoma-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/dea0c5fdcbe7ee47.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/pandaka-rouxi-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/e39b227c838259d5.webp": {
-    "ocr": [
-      {
-        "c": 0.5,
-        "at": "top centre",
-        "alnum": 17,
-        "mark": false,
-        "hash": "f8934db840152cc0e58646e024abc12411b5022c2f2ac0ca91ef85a03a463e43"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 11,
-        "mark": false,
-        "hash": "33828c743e3db0f946b288a32cfb5afc5ceb71db83412006f8a2a5e2170b8296"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 26,
-        "mark": false,
-        "hash": "17bd1ebbe386795ec2995f7fa72eb5599441d40289cf036eb09de263cbaf5b55"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/26-flatfishes/apionichthys-nattereri-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/e6f9f810bdff2c7c.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 19,
-        "mark": false,
-        "hash": "fd807c999f0024db68ea9b1bbbc17a53ca43623121be7d3768fbea641856f0c6"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "e784c5506abab393fbb78830d7dff58d7ca3bdfec1c5b61f9bfbec2796a7d401"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top centre"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-melanotaenia-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/eba566278e288e0f.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/bagrichthys-macracanthus-4/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/ed6b5dfc21fcf023.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 35,
-        "mark": false,
-        "hash": "99b228d2f95a61a25c8354e00b1dce44e1cc827ee3392fe334cada7d4feadaad"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 18,
-        "mark": false,
-        "hash": "c025de4e3556cdac4a3709454afaaabb2fe8507d4d05fcf7d248928c4b7874d8"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top centre"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-melanotaenia-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/f392b24b8a24b13a.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 15,
-        "mark": false,
-        "hash": "da55ede8d2fce4ca5ebdc1ab5e50fd84d8ac72fd8885ac6304932d29e7a365b2"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "44129db108afabd4f5894482d6b166a6c3160d306724f791764fad5aac201e46"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-teffeana-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/scotcat/179ba62e47ad5fa4.webp": {
-    "ocr": [],
-    "watermark": true,
-    "kind": "credit",
-    "locations": [
-      "bottom right"
-    ]
-  },
-  "https://media.aquatome.com/scotcat/203d364aa83779b1.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 16,
-        "mark": true,
-        "hash": "ec6fe99efc7e28b8c00a9abe075338dfc9a1efb71591cd708d1cc00f4310d1a2"
-      }
-    ],
-    "watermark": true,
-    "kind": "credit",
-    "locations": [
-      "top right"
-    ]
-  },
-  "https://media.aquatome.com/scotcat/320ba8f200b321f6.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/37645cf717d71438.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/3ca174029b583464.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "middle centre",
-        "alnum": 15,
-        "mark": false,
-        "hash": "6c5fa62e7493685fee7da3c0d2dab0f007416106d89d64fcf88db0173110a7b2"
-      }
-    ],
-    "watermark": true,
-    "kind": "credit",
-    "locations": [
-      "middle centre"
-    ]
-  },
-  "https://media.aquatome.com/scotcat/4f0c0f630942d720.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
   }
 }

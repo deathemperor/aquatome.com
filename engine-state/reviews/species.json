@@ -1562,6 +1562,44 @@
       "kept": true
     }
   ],
+  "vi/species/heterandria-formosa#Tfzdew5HB7o": [
+    {
+      "at": "2026-11-23T02:43:32Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.68,
+      "notes": [
+        "Reproduction: \"Cá mẹ đẻ rải rác ... mỗi ngày hoặc vài ngày một lần, mỗi lần một hai con\" repeats the page's reproduction text, which already says females drop one or two fry a day over several days.",
+        "Notes: \"loài cá nhỏ màu nhạt này bị bỏ quên\" – the video never says the fish is pale or dull. This comes from the page's own conclusion section.",
+        "Notes: \"tập tính bầy đàn thú vị\" – the video says only \"interesting social behaviors\", not shoaling. The page already covers shoaling, so this reads as page content, not the video.",
+        "waterConditions: \"Theo người này, chỉ cần trên 16 °C là ổn\" – in the video the narrator says \"most people these days say to keep them above 60°F\". The new text turns that into one keeper's personal view.",
+        "waterConditions: the temperature and pH lines (\"từ khoảng 18 °C... tới 27 °C\", \"pH tới 8,4–8,5\") are the narrator's general care statements. Framing them as \"một người nuôi lâu năm\" invents a keeper persona.",
+        "reproduction: \"cá sống được 2–3 năm, lâu hơn mức tối đa 1,5 năm\" – the video states 2–3 years as general fact, not as one keeper's experience. The disagreement with the page is only partly made clear.",
+        "Wording: \"làm ngược với cách nuôi nhiều đực ít cái\" and \"cá bơi lượn và múa nhau liên tục\" read slightly like translation. \"múa nhau\" is awkward Vietnamese for \"dance\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-23T02:43:32Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.68,
+      "notes": [
+        "\"Mỗi con cái cho khoảng 30–100 con trong 2–3 năm sống\": the page gives a maximum lifespan of 1.5 years. The note doesn't say the video differs, so the conflict is hidden.",
+        "\"một người nuôi lâu năm lại chọn nuôi 2–3 con cái cho mỗi con đực\": the page says 3–4 males per female. The note doesn't say plainly that the video says the opposite. The word \"lại\" only hints at it.",
+        "\"Một người nuôi loài này lâu năm thấy cá lên màu đẹp… khi pH khoảng 7,0–8,2\": the page already gives pH 7.0–8.0 as ideal. This adds little, and the video presents it as a general recommendation rather than one keeper's experience.",
+        "\"Agassiz cho rằng cá không thể vượt biển mặn hàng nghìn cây số\": the video says only \"over a thousand miles\" of salt water. \"Hàng nghìn cây số\" slightly inflates it.",
+        "\"Bể khoảng 11 lít đã đủ\": the video says \"three gallons\". The page already covers small tanks, so this is a loose conversion that adds a figure.",
+        "\"Trong bể thì nên giữ trên 16 °C\" and \"Từ 18 °C trở lên là cá đẻ đều\": these conflict with the page's 20–26 °C and \"không cần thêm sưởi\". The note doesn't flag the difference.",
+        "\"Theo cách hiểu này, chữ 'formosa' khen cả loài\": this does contradict the page's reading of the name (\"Heterandria\" = different male). But the phrasing is awkward, and it blurs the video's point that the name was given in comparison with other livebearers."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/homaloptera-orthogoniata#PSy6YDg3fug": [
     {
       "at": "2026-11-20T23:44:55Z",
