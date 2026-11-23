@@ -1,0 +1,74 @@
+{
+  "id": "hypostomus-kuarup",
+  "scientificName": "Hypostomus kuarup",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "lNumber": "LDA80",
+  "places": [
+    "south-america",
+    "brazil",
+    "xingu"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1516",
+      "html": "<ul><li>Scientific name: Hypostomus kuarup Zawadzki, Kullander &amp; Lima, 2012</li><li>Common names: LDA080, Culuene Pleco</li><li>Breeding: unreported</li><li>IUCN Red List: Least Concern (last assessed 2018)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1516",
+      "html": "<p>Rio Culuene, Rio Xingu basin, Brazil. Type locality: Rio Xingú basin, rio Culuene (at the former rapids, current area of reservoir Paranatinga 11), Campinãpolis, Mato Grosso, Brazil.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1516",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1516",
+      "html": "<p>Neotropical Ichthyology v. 10 (no. 2), pp 246, Figs. 1-4.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn nuôi cá lau kiếng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
+}

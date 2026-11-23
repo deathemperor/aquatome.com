@@ -6,14 +6,18 @@
     "quickFacts:planetcatfish": "<ul><li><strong>Tên khoa học:</strong> Cetopsidium minutum (Eigenmann, 1912)</li><li><strong>Nơi thu mẫu chuẩn:</strong> thác Amatuk Cataract, Guyana.</li><li><strong>Danh sách Đỏ IUCN:</strong> Ít quan tâm (đánh giá lần cuối năm 2020).</li><li><strong>Nguồn gốc tên gọi:</strong> Tên chi Cetopsidium ghép từ Cetopsis, chi đầu tiên được đặt trong phân họ Cetopsinae, với đuôi \"idium\" nghĩa là nhỏ. Cái tên ám chỉ các loài trong chi có thân tương đối nhỏ.</li></ul>",
     "distribution:planetcatfish": "<p>Nam Mỹ: sông suối ở Guyana và các sông ven biển vùng Guiana. Loài này còn có người chụp được ảnh ở Crique Margot, gần St Laurent du Maroni.</p>",
     "reproduction:planetcatfish": "<p>Chưa có ai cho loài này đẻ trong bể, và cũng chưa có báo cáo nào về chuyện sinh sản của nó.</p>",
-    "references:planetcatfish": "<p>Memoirs of the Carnegie Museum v. 5 (no. 1), pp 211, Pl. 23 (fig. 2).</p>"
+    "references:planetcatfish": "<p>Memoirs of the Carnegie Museum v. 5 (no. 1), pp 211, Pl. 23 (fig. 2).</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: sông Potaro và đoạn giữa sông Essequibo ở Guyana. Nơi thu mẫu chuẩn là thác Amatuk, thuộc British Guiana.</p><p>Cetopsidium minutum có ở lưu vực sông Potaro (tại sông Kuribrong), sông Cuyuni và đoạn giữa sông Essequibo, đều thuộc Guyana. Phạm vi xuất hiện (EOO) của loài là 28.784 km2, còn diện tích cư trú (AOO) là 9.516 km2. Người ta dự đoán loài này còn phân bố rộng hơn những gì đang biết, có lẽ sống ở cả các nhánh sông khác trong lưu vực, nơi có môi trường tương tự. Cần khảo sát và thu mẫu thêm ở nhiều nơi nữa mới biết rõ vùng phân bố thật của nó.</p>",
+    "notes:scotcat": "<p>Mô tả: Vây lưng có tổng cộng 6 tia mềm, vây hậu môn có 23–24 tia mềm, cột sống có 39–40 đốt. Các loài thuộc giống Cetopsidium có vây lưng mang một gai nhỏ đã hóa xương, kèm gai ở vây ngực và vây lưng. Hai đặc điểm này đi cùng nhau thì tách được Cetopsidium khỏi mọi giống khác trong phân họ Cetopsinae. Đường bên của chúng kéo dài qua phần sau gốc vây hậu môn nhưng không tới cuống đuôi, và trong phân họ Cetopsinae cũng chỉ Cetopsidium có kiểu đường bên này. Loài này khác mọi loài Cetopsidium còn lại ở chiều dài vây bụng. Ở loài này, chóp vây bụng vươn ra sau tới tận điểm khởi đầu của vây hậu môn, còn ở các loài kia nó chỉ chạm tới hoặc không tới lỗ huyệt.</p><p>Nguồn gốc tên gọi: Tên loài minutum là tiếng Latin, nghĩa là rất nhỏ. Tên này đặt theo chiều dài của mẫu chuẩn, chỉ 22 mm.</p><p>Danh sách Đỏ IUCN: Ở rìa vùng phân bố, tác động duy nhất người ta thấy là do khai thác vàng trên sông Kuribrong và sông Potaro, nhưng những nơi từng thu được mẫu thì không bị ảnh hưởng. Loài này phân bố tương đối rộng trong lưu vực sông Essequibo, nên các tác động tại chỗ này khó đe dọa nó về lâu dài. Khu vực này vẫn cần theo dõi để nắm được điều kiện môi trường sống thực tế và tình trạng quần thể. IUCN xếp Cetopsidium minutum vào mức Ít quan tâm (LC) vì vùng phân bố của nó và vì chưa thấy mối đe dọa lớn nào. Tuy nhiên, loài này còn ít được biết đến và cũng không phổ biến, nên cần nghiên cứu thêm để chắc rằng số lượng của nó không giảm (IUCN 2022).</p>",
+    "references:scotcat": "<ul><li>Calegari, B.B. 2022. Cetopsidium minutum. The IUCN Red List of Threatened Species 2022.</li><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>The ETYFish Project Fish Name Etymology Database.</li><li>Vari, R. P., C. J. Ferraris Jr. &amp; M. C. C. de Pinna. 2005. The Neotropical whale catfishes (Siluriformes: Cetopsidae: Cetopsinae), a revisionary study. Neotropical Ichthyology 3:127-238.</li></ul>"
   },
   "quality": {
     "score": 0.6,
     "indexable": false,
     "bySource": {
-      "planetcatfish": 0.6
+      "planetcatfish": 0.6,
+      "scotcat": 0.95
     },
-    "reason": "thin"
+    "reason": "score"
   }
 }

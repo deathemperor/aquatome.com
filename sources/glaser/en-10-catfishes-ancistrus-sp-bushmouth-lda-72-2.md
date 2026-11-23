@@ -1,0 +1,12 @@
+---
+url: https://www.aquariumglaser.de/en/10-catfishes/ancistrus-sp-bushmouth-lda-72-2/
+title: Ancistrus sp. Bushmouth LDA 72 - Aquarium Glaser GmbH
+fetchedAt: 2026-11-23T19:20:34.307Z
+hash: e35ad1577d445aa3cb91523e996f79551ef140999b3a060acda5ca232196fb70
+---
+
+Ancistrus species belonged to aquaristics long before one even thought of the term L or LDA number. Unfortunately, the systematics of the group is complex, there have been and still are misidentifications and – this is especially unfortunate – the species can apparently often be crossed, so that aquarium hybrids have been created unintentionally. Such hybrids have no scientific name. The well-known Aquarium Ancistrus is such a hybrid. Aquarists with a deeper scientific interest therefore prefer to breed with defined strains and wild caught specimens. With LDA 72 we succeeded in importing a species from Colombia, in which the males develop particularly impressive nose ornaments and the females are also bearded.
+The Ancistrus species of the area from which our animals must originate have only recently undergone a scientific revision (de Souza et al., 2019). If one follows the identification key in this paper, our imports come to Ancistrus triradiatus, a highly variable species described already in 1918 by Eigenmann. Probably the species name Ancistrus triradiatus hides – so de Souza et al. assume – several species, because the animals look quite different depending on their origin. Therefore in the hobby one should not dissolve the number LDA 72, but keep it until this question is clarified. Typical for LDA 72 of our current import is the following combination of characteristics: a small black spot at the base of the dorsal fin just behind the dorsal fin spine, a regular dot pattern on the fin rays of dorsal and caudal fin, an indistinct honeycomb pattern on the back of the forebody, a light vertical band at the end of the caudal peduncle, a unicolored, unspotted abdomen and a total of three bright dots on the tips of the dorsal and caudal fin even in fully adult animals. Our fish are currently 9-12 cm long.
+For our customers: the fish have code 26480-LDA 072-4 on our stocklist. Please note that we supply exclusively to wholesalers.
+Literature: de Souza, L. S., Taphorn, D. C. & J. W. Armbruster (2019): Review of Ancistrus (Siluriformes: Loricariidae) from the northwestern Guiana Shield, Orinoco Andes, and adjacent basins with description of six new species. Zootaxa 4552: 1-67.
+Text & photos: Frank Schäfer

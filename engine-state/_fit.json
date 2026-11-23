@@ -54474,6 +54474,117 @@
   ],
   "products": []
  },
+ "vi/guides/2hraquarist-blogs-choosing-co2-why-how-to-push-the-limits-of-co2-safely": {
+  "at": "2026-11-23",
+  "hash": "5986ad378185fd24",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Đường cong A: CO2 trong nước càng gần bão hòa thì thoát ra càng nhanh",
+    "why": "Refers to labelled curves from a chart in the source that this page does not have.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "vi/guides/2hraquarist-blogs-choosing-co2-why-monitor-co2-levels": {
+  "at": "2026-11-23",
+  "hash": "6bb68f6921d9e0cd",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/guides/2hraquarist-blogs-choosing-co2-why-the-wrong-way-to-read-the-ph-kh-chart": {
+  "at": "2026-11-23",
+  "hash": "abc1871bd852e85d",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "Lúc chỉnh CO2 thì luôn ở bên bể để xem vật nuôi phản ứng ra sao.",
+    "why": "\"Vật nuôi\" is a calque of English \"livestock\"; keepers in Vietnam say fish and shrimp.",
+    "by": "model",
+    "fix": "cá, tép"
+   }
+  ],
+  "products": [
+   "Aquasoil",
+   "OxyGuard"
+  ]
+ },
+ "vi/guides/2hraquarist-blogs-choosing-co2-why-why-inject-co2": {
+  "at": "2026-11-23",
+  "hash": "86df324ceeee457d",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Với bể trong ảnh, máy Oxyguard đo được 33 ppm CO2.",
+    "why": "Refers to a picture from the original article that the page doesn't have.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Ảnh: Tom Barr.",
+    "why": "Photo credits for pictures that aren't on the page, naming the source's photographer.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Bảng dưới đây dựng lại từ số liệu trong sách của Christel Kasselmann",
+    "why": "Points to a table that the page doesn't have.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Bể châm CO2 này có khoảng 40 ppm CO2.",
+    "why": "Talks about the source's own pictured tank as if the reader could see it.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Bể low-tech (không châm CO2) này đo được 5 ppm CO2 lúc vừa bật đèn.",
+    "why": "Refers to a tank from the source that the reader never sees.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Bể này ở tiệm, thả cá quá đông, đo được 5 ppm CO2.",
+    "why": "Refers to a pictured shop tank from the original article.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Trong bể này, cá neon vua vẫn ăn bình thường dù CO2 lên tới 70 ppm.",
+    "why": "Refers to the source's own tank as if the reader knew it.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Ảnh trên là một trại cây thủy sinh của Dennerle ở Đức.",
+    "why": "Points to a photo that the page doesn't have.",
+    "by": "model"
+   }
+  ],
+  "products": [
+   "Oxyguard"
+  ]
+ },
  "vi/guides/aquariumbreeder-10-questions-to-ask-when-buying-aquarium-crustaceans": {
   "at": "2026-11-13",
   "hash": "dca552ff66a789bc",
@@ -56226,6 +56337,38 @@
   "findings": [],
   "products": []
  },
+ "vi/guides/aquariumbreeder-guide-how-to-breed-shrimp": {
+  "at": "2026-11-23",
+  "hash": "0b368c6582e24cd7",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "Nếu phòng giữ được mức này cả ngày lẫn đêm thì không cần sưởi.",
+    "why": "Assumes a room held at 21–24 °C day and night, a temperate-climate home; in Vietnam rooms usually run warmer and cooling is the issue.",
+    "by": "model"
+   }
+  ],
+  "products": [
+   "Shrimp King Complete",
+   "Shrimp King Mineral",
+   "Bacter AE",
+   "Mineral Junkie",
+   "Hikari Shrimp Cuisine",
+   "ADA Amazonia",
+   "Eco-Complete",
+   "Aqua Aquarium Soil",
+   "Seachem Fluorite",
+   "Fluval Plant and Shrimp Stratum",
+   "Shrimp King Soil",
+   "Prodibio",
+   "Dennerle Scapers Soil",
+   "Langa",
+   "Aqua Help Advanced Soil"
+  ]
+ },
  "vi/guides/aquariumbreeder-guide-to-planted-tank-lighting": {
   "at": "2026-11-18",
   "hash": "6d0f2c8ebc08f556",
@@ -57935,6 +58078,46 @@
    "Flourish Iron"
   ]
  },
+ "vi/guides/aquariumbreeder-how-to-start-shrimp-aquarium-for-beginners": {
+  "at": "2026-11-23",
+  "hash": "af733dde83bb2aba",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "Còn với bể chừng 227 lít, vấn đề phải lâu hơn nhiều mới phát sinh",
+    "why": "227 litres is a converted 60-gallon tank, a size nobody in Vietnam would name.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "lọc này dùng cho bể 80–150 lít, hay 227–303 lít, v.v.",
+    "why": "227–303 litres is a converted 60–80 gallon range from US filter boxes.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "nhiệt độ nước khoảng 20–24 °C, thường để theo nhiệt độ phòng là được",
+    "why": "A room at 20–24 °C reflects a heated home abroad, not a room in Vietnam.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "Đừng đặt bể sát lò sưởi hay cửa sổ",
+    "why": "Assumes a home heated by radiators or a furnace.",
+    "by": "model"
+   }
+  ],
+  "products": [
+   "API QuickStart",
+   "API"
+  ]
+ },
  "vi/guides/aquariumbreeder-how-to-tell-if-a-crab-is-male-or-female": {
   "at": "2026-11-08",
   "hash": "123c37cc318021f1",
@@ -58288,6 +58471,36 @@
   "sourceRead": true,
   "pass": true
  },
+ "vi/guides/aquariumbreeder-make-money-breeding-fish-small-aquarium": {
+  "at": "2026-11-23",
+  "hash": "365f5ca821b793f2",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "price",
+    "part": "P1",
+    "quote": "Muốn làm người bán rẻ nhất cho tiệm định hợp tác thì bán 50 cent một con.",
+    "why": "The price is in US cents, which mean nothing to a seller in Vietnam.",
+    "by": "model"
+   },
+   {
+    "check": "price",
+    "part": "P1",
+    "quote": "tép cherry thường bán được 1 đô một con",
+    "why": "The price is in US dollars, which is not what shrimp sell for in Vietnam.",
+    "by": "model"
+   },
+   {
+    "check": "price",
+    "part": "P1",
+    "quote": "nhưng đó lại là thêm 20–25 đô nữa",
+    "why": "The income is given in US dollars, not Vietnamese đồng.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
  "vi/guides/aquariumbreeder-malaysian-trumpet-snails-pros-and-cons-for-shrimp-tank": {
   "at": "2026-11-22",
   "hash": "e96ee8d4286df00e",
@@ -58467,6 +58680,48 @@
    }
   ],
   "products": []
+ },
+ "vi/guides/aquariumbreeder-nano-shrimp-tank-crash-guide": {
+  "at": "2026-11-23",
+  "hash": "419834df535fa720",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "chỗ dưới cửa gió máy lạnh hoặc cạnh lò sưởi",
+    "why": "A home heater or radiator as a usual place to put a tank fits homes abroad, not homes in Vietnam.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "Nước nóng phản ứng với ống đồng",
+    "why": "Hot water from the tap through copper pipes describes houses abroad, not homes in Vietnam.",
+    "by": "model"
+   },
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "Vòng trắng tử thần",
+    "why": "Calque of the English 'white ring of death'.",
+    "by": "model",
+    "fix": "lột xác lỗi (kẹt vỏ, hở vòng trắng)"
+   },
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "Ở bể breeder 150 lít",
+    "why": "'Breeder' is a US tank model name that keepers in Vietnam don't use.",
+    "by": "model",
+    "fix": "bể 150 lít"
+   }
+  ],
+  "products": [
+   "Seachem Prime",
+   "Bacter AE"
+  ]
  },
  "vi/guides/aquariumbreeder-nassarius-snail-detailed-guide-care-diet-and-breeding": {
   "at": "2026-11-21",
@@ -59437,6 +59692,29 @@
    }
   ],
   "sourceRead": true
+ },
+ "vi/guides/aquariumbreeder-shrimp-tank-weight-and-size-with-examples": {
+  "at": "2026-11-23",
+  "hash": "6b4e27d2721fd798",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "| 41 x 20 x 25",
+    "why": "Tank sides converted from inches (16 x 8 x 10 in, 12 x 6 x 8 in, 24 x 12 x 16 in, etc.), not sizes Vietnamese keepers use.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "| 183 x 61 x 64",
+    "why": "Large tank sides are inch conversions (72 x 24 x 25 in, 48 x 18 x 21 in) rather than local metric tank sizes.",
+    "by": "model"
+   }
+  ],
+  "products": []
  },
  "vi/guides/aquariumbreeder-snail-sleep-a-closer-look-at-their-resting-behavior": {
   "at": "2026-11-22",
@@ -70667,6 +70945,29 @@
   ],
   "products": []
  },
+ "vi/guides/glaser-en-10-catfishes-parotocinclus-bahiensis-and-p-cearensis": {
+  "at": "2026-11-23",
+  "hash": "283bb6f6a7be1031",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Mới đây có hai loài Parotocinclus được nhập về từ vùng Đông Bắc Brazil (Região Nordeste)",
+    "why": "This is the source shop's news about new stock arriving, not a fact for a reader in Vietnam.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Đợt cá mới nhập này nuôi không gặp vấn đề gì.",
+    "why": "Refers to the source shop's own shipment as if the reader knew it.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
  "vi/guides/glaser-en-10-catfishes-the-real-corydoras-melini": {
   "at": "2026-11-22",
   "hash": "925fd871c2d76bfa",
@@ -71381,6 +71682,14 @@
  "vi/guides/glaser-en-25-perchlike-fishes-new-bettas-2-alien-blue-alien-steel-blue-and-alien-green": {
   "at": "2026-11-20",
   "hash": "879b91e04df19a19",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/guides/glaser-en-25-perchlike-fishes-rubricatochromis-a-new-genus-name-for-the-red-jewel-cichlids": {
+  "at": "2026-11-23",
+  "hash": "528f0058278bd4f2",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -118933,6 +119242,14 @@
   "products": [],
   "pass": true
  },
+ "vi/species/akysis-pictus": {
+  "at": "2026-11-23",
+  "hash": "6e6cef22973d48b6",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/species/akysis-portellus": {
   "at": "2026-11-18",
   "hash": "0049a8c3f2e60204",
@@ -119915,8 +120232,8 @@
   "pass": true
  },
  "vi/species/ancistrus-claro": {
-  "at": "2026-11-21",
-  "hash": "7766c8717abc303a",
+  "at": "2026-11-23",
+  "hash": "8ff1a32938d3cb0d",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -120056,13 +120373,12 @@
   "products": []
  },
  "vi/species/ancistrus-triradiatus": {
-  "at": "2026-11-22",
-  "hash": "174c33499af74269",
+  "at": "2026-11-23",
+  "hash": "5f5811b8f160bc66",
   "model": "opus",
   "checklist": 3,
   "findings": [],
-  "products": [],
-  "pass": true
+  "products": []
  },
  "vi/species/ancylomenes-pedersoni": {
   "at": "2026-11-19",
@@ -123632,11 +123948,20 @@
   "pass": true
  },
  "vi/species/baryancistrus-xanthellus": {
-  "at": "2026-11-21",
-  "hash": "b69a134437daa67a",
+  "at": "2026-11-23",
+  "hash": "7e11db1b4f75b30a",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "words",
+    "part": "P22",
+    "quote": "'cá da trơn giáp miệng hút'",
+    "why": "A word-for-word calque of the English 'suckermouth armoured catfish'; keepers in Vietnam don't use this name.",
+    "by": "model",
+    "fix": "cá lau kính"
+   }
+  ],
   "products": []
  },
  "vi/species/batasio-affinis": {
@@ -125741,6 +126066,14 @@
   ],
   "products": []
  },
+ "vi/species/brachyhypopomus-brevirostris": {
+  "at": "2026-11-23",
+  "hash": "e7726614f643b78b",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/species/brachyplatystoma-capapretum": {
   "at": "2026-11-22",
   "hash": "8ca30d6d443299e9",
@@ -126218,8 +126551,8 @@
   "products": []
  },
  "vi/species/bunocephalus-doriae": {
-  "at": "2026-11-19",
-  "hash": "16c7dd007bc6752f",
+  "at": "2026-11-23",
+  "hash": "e49b0d242e6e0324",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -126999,6 +127332,14 @@
   "findings": [],
   "products": []
  },
+ "vi/species/centrodoras-hasemani": {
+  "at": "2026-11-23",
+  "hash": "e1608a53df999f28",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/species/centromochlus-akwe": {
   "at": "2026-11-22",
   "hash": "24fd834fae082423",
@@ -127117,15 +127458,23 @@
   "products": []
  },
  "vi/species/cephalosilurus-apurensis": {
-  "at": "2026-11-07",
-  "hash": "86f1e52c8f84a956",
+  "at": "2026-11-23",
+  "hash": "4e79e89eada9f6a1",
   "model": "opus",
+  "checklist": 3,
   "findings": [
    {
     "check": "source",
-    "part": "P2",
+    "part": "P3",
     "quote": "Loài cá hiếm này lại vừa có thêm vài con nhập về.",
-    "why": "This is the source shop's news about new stock arriving, which means nothing to a reader in Vietnam.",
+    "why": "This is the source shop's stock news. The reader doesn't know that shop.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P3",
+    "quote": "Số lượng về rất ít.",
+    "why": "This is about how many fish the source shop has in stock, not about the fish.",
     "by": "model"
    }
   ],
@@ -127157,7 +127506,7 @@
  },
  "vi/species/cetopsidium-minutum": {
   "at": "2026-11-23",
-  "hash": "678d2f0a0457e711",
+  "hash": "798efdb75272e8b4",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -127181,7 +127530,7 @@
  },
  "vi/species/cetopsis-parma": {
   "at": "2026-11-23",
-  "hash": "335eed8fccfd4835",
+  "hash": "2ac4b44d0deef7bf",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -127189,7 +127538,7 @@
  },
  "vi/species/cetopsis-plumbea": {
   "at": "2026-11-23",
-  "hash": "60646e53ee1a1bc3",
+  "hash": "bca63874df9b0fa1",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -127261,6 +127610,14 @@
  "vi/species/chaetobranchopsis-orbicularis": {
   "at": "2026-11-11",
   "hash": "4ba78a39de423ba5",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/chaetostoma-aburrense": {
+  "at": "2026-11-23",
+  "hash": "8ca700990b3d8bba",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -128022,18 +128379,18 @@
   "products": []
  },
  "vi/species/chlamydogobius-eremius": {
-  "at": "2026-11-07",
-  "hash": "1a5aefa7acc9143c",
+  "at": "2026-11-23",
+  "hash": "906613d2c388b0a8",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "words",
-    "part": "P10",
-    "quote": "giật mình từng cơn",
-    "why": "\"Giật mình\" means to be startled; this is a literal rendering of \"jerking\" in courtship display.",
+    "part": "P17",
+    "quote": "tán tỉnh con cái bơi ngang qua bằng cách giật mình từng cơn",
+    "why": "\"Giật mình\" means startled; this is a literal rendering of jerky display movements.",
     "by": "model",
-    "fix": "rung người từng đợt"
+    "fix": "giật người liên tục"
    }
   ],
   "products": [],
@@ -130736,7 +131093,7 @@
   "products": []
  },
  "vi/species/corydoras-weitzmani": {
-  "at": "2026-11-22",
+  "at": "2026-11-23",
   "hash": "2a03edb24d53967f",
   "model": "opus",
   "checklist": 3,
@@ -130838,7 +131195,7 @@
   "products": []
  },
  "vi/species/craterocephalus-stercusmuscarum": {
-  "at": "2026-11-13",
+  "at": "2026-11-23",
   "hash": "230c1808c1f20eee",
   "model": "opus",
   "checklist": 3,
@@ -130847,17 +131204,16 @@
     "check": "units",
     "part": "P4",
     "quote": "Bể 76 × 30 × 30 cm (khoảng 68 lít) đủ rộng cho một nhóm nhỏ.",
-    "why": "A 30 × 12 × 12 inch tank converted to centimetres; keepers in Vietnam use sizes like 60 or 80 cm.",
-    "by": "model",
-    "fix": "Bể 80 × 30 × 30 cm"
+    "why": "A 30 × 12 × 12 inch tank converted to centimetres; keepers in Vietnam don't size tanks as 76 cm.",
+    "by": "model"
    },
    {
     "check": "words",
     "part": "P10",
     "quote": "giun siêu nhỏ (microworm)",
-    "why": "A dictionary rendering of 'microworm'; keepers in Vietnam call it giun vi sinh.",
+    "why": "Literal translation; keepers in Vietnam call microworms trùn vi sinh.",
     "by": "model",
-    "fix": "giun vi sinh (microworm)"
+    "fix": "trùn vi sinh"
    }
   ],
   "products": []
@@ -131162,7 +131518,7 @@
  },
  "vi/species/crossoloricaria-venezuelae": {
   "at": "2026-11-23",
-  "hash": "fe8dd76765059358",
+  "hash": "23309de33ff27bd2",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -131491,6 +131847,22 @@
   "model": "opus",
   "checklist": 3,
   "findings": [],
+  "products": []
+ },
+ "vi/species/cyphocharax-multilineatus": {
+  "at": "2026-11-23",
+  "hash": "7600a167a8e88cea",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P2",
+    "quote": "Số cá này có nguồn gốc từ Venezuela.",
+    "why": "Refers to the source shop's own batch of imported fish, which the reader has never seen.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "vi/species/cyphotilapia-frontosa": {
@@ -132077,13 +132449,12 @@
   "products": []
  },
  "vi/species/datnioides-polota": {
-  "at": "2026-11-22",
+  "at": "2026-11-23",
   "hash": "3f9d5a7efdb1bea5",
   "model": "opus",
   "checklist": 3,
   "findings": [],
-  "products": [],
-  "pass": true
+  "products": []
  },
  "vi/species/datnioides-pulcher": {
   "at": "2026-11-07",
@@ -132210,7 +132581,7 @@
  },
  "vi/species/denticetopsis-iwokrama": {
   "at": "2026-11-23",
-  "hash": "aab53cbfffb5b2bc",
+  "hash": "8c399ae54a0a7188",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -132234,7 +132605,7 @@
  },
  "vi/species/denticetopsis-sauli": {
   "at": "2026-11-23",
-  "hash": "c7db16c2f011d411",
+  "hash": "051896dd0657b85d",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -133921,6 +134292,14 @@
   "findings": [],
   "products": []
  },
+ "vi/species/farlowella-hahni": {
+  "at": "2026-11-23",
+  "hash": "b6d5d49e48779324",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/species/farlowella-oxyrryncha": {
   "at": "2026-11-13",
   "hash": "87f1ec79397ebb81",
@@ -135266,7 +135645,7 @@
  },
  "vi/species/glyptothorax-cous": {
   "at": "2026-11-23",
-  "hash": "3f2db6977204fcb0",
+  "hash": "a34d295726cb4092",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -135524,7 +135903,7 @@
  },
  "vi/species/guyanancistrus-brevispinis": {
   "at": "2026-11-23",
-  "hash": "88067b97b5850745",
+  "hash": "bf9a780743a9d3c8",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -135970,6 +136349,14 @@
     "by": "model"
    }
   ],
+  "products": []
+ },
+ "vi/species/hassar-wilderi": {
+  "at": "2026-11-23",
+  "hash": "e0c787d8e320201e",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/species/helostoma-temminckii": {
@@ -137503,7 +137890,7 @@
  },
  "vi/species/hopliancistrus-wolverine": {
   "at": "2026-11-23",
-  "hash": "3cea61866b495dca",
+  "hash": "e3b33d4a793dd709",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -137606,6 +137993,14 @@
     "by": "model"
    }
   ],
+  "products": []
+ },
+ "vi/species/hoplocharax-goethei": {
+  "at": "2026-11-23",
+  "hash": "339d335c35c7c607",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/species/hoplomyzon-papillatus": {
@@ -138640,6 +139035,14 @@
   "findings": [],
   "products": []
  },
+ "vi/species/hypostomus-borellii": {
+  "at": "2026-11-23",
+  "hash": "8efe25608b0aed86",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/species/hypostomus-cochliodon": {
   "at": "2026-11-22",
   "hash": "311a3a94d767b72f",
@@ -138691,6 +139094,14 @@
   "findings": [],
   "products": []
  },
+ "vi/species/hypostomus-kuarup": {
+  "at": "2026-11-23",
+  "hash": "1375987f657bb1b5",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/species/hypostomus-luteus": {
   "at": "2026-11-15",
   "hash": "758849bab03df366",
@@ -138735,7 +139146,7 @@
  },
  "vi/species/hypostomus-paranensis": {
   "at": "2026-11-23",
-  "hash": "b7d83a785acb8094",
+  "hash": "24ff43252b799fe0",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -140831,10 +141242,10 @@
   "products": []
  },
  "vi/species/liobagrus-marginatus": {
-  "at": "2026-11-07",
-  "hash": "db922576b450fbce",
+  "at": "2026-11-23",
+  "hash": "a70a1ed7e74920c7",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -143376,6 +143787,14 @@
   "hash": "0c45c3fcb6fbb0f2",
   "model": "opus",
   "checklist": 2,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/mystus-wolffii": {
+  "at": "2026-11-23",
+  "hash": "afd11a5238111933",
+  "model": "opus",
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -148213,10 +148632,10 @@
   "products": []
  },
  "vi/species/pimelodus-pictus": {
-  "at": "2026-11-08",
-  "hash": "691f5977af72c439",
+  "at": "2026-11-23",
+  "hash": "0d2c596b4f85d026",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -149936,6 +150355,14 @@
   "findings": [],
   "products": []
  },
+ "vi/species/pseudomystus-stenogrammus": {
+  "at": "2026-11-23",
+  "hash": "03290f53ca7ffbb2",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/species/pseudomystus-stenomus": {
   "at": "2026-11-09",
   "hash": "847f2287749b02ce",
@@ -149955,6 +150382,14 @@
  "vi/species/pseudopimelodus-bufonius": {
   "at": "2026-11-09",
   "hash": "51372eb124e58694",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/pseudopimelodus-pulcher": {
+  "at": "2026-11-23",
+  "hash": "eb1f36814f40cd20",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -151077,6 +151512,14 @@
   "findings": [],
   "products": []
  },
+ "vi/species/rhadinoloricaria-bahuaja": {
+  "at": "2026-11-23",
+  "hash": "06754b2a96ba90f7",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/species/rhadinoloricaria-macromystax": {
   "at": "2026-11-09",
   "hash": "fa4b1efc4a809567",
@@ -152060,7 +152503,7 @@
   "products": []
  },
  "vi/species/schistura-balteata": {
-  "at": "2026-11-09",
+  "at": "2026-11-23",
   "hash": "143393747be5ae5f",
   "model": "opus",
   "checklist": 3,
@@ -152255,6 +152698,29 @@
   "model": "opus",
   "checklist": 3,
   "findings": [],
+  "products": []
+ },
+ "vi/species/schistura-quasimodo": {
+  "at": "2026-11-23",
+  "hash": "a2dec4c2c1a213fa",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Những con hiện có dài 4–6 cm",
+    "why": "Refers to the source shop's current stock as if the reader knew it.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P3",
+    "quote": "Gần đây, lần đầu tiên có về một loài chạch từ miền bắc Thái Lan",
+    "why": "Shop news about a new arrival in the source's stock.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "vi/species/schistura-robertsi": {
@@ -154700,8 +155166,8 @@
   "products": []
  },
  "vi/species/tetranematichthys-wallacei": {
-  "at": "2026-11-14",
-  "hash": "3d1f5fe34f2bef17",
+  "at": "2026-11-23",
+  "hash": "050067c9f9a14367",
   "model": "opus",
   "checklist": 3,
   "findings": [],

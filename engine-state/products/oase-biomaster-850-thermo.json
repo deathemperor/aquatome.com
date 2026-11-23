@@ -1,0 +1,419 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Recommended aquarium size",
+      "value": "up to 850 l",
+      "source": 0
+    },
+    {
+      "key": "Dimensions (L x W x H)",
+      "value": "240 x 240 x 535 mm",
+      "source": 0
+    },
+    {
+      "key": "Voltage",
+      "value": "230 V / 50 Hz",
+      "source": 0
+    },
+    {
+      "key": "Power consumption",
+      "value": "32 W filter + 400 W heater",
+      "source": 0
+    },
+    {
+      "key": "Heater",
+      "value": "Integrated HeatUp adjustable heater, 400 W",
+      "source": 0
+    },
+    {
+      "key": "Max flow rate",
+      "value": "1,550 l/h",
+      "source": 0
+    },
+    {
+      "key": "Max head height",
+      "value": "2.20 m",
+      "source": 0
+    },
+    {
+      "key": "Filter media volume",
+      "value": "8 l (pre-filter 0.60 l)",
+      "source": 0
+    },
+    {
+      "key": "Hose",
+      "value": "1 x 4 m, 16/22 mm (inner/outer)",
+      "source": 0
+    },
+    {
+      "key": "Power cable length",
+      "value": "1.50 m",
+      "source": 0
+    },
+    {
+      "key": "Net weight",
+      "value": "6.90 kg",
+      "source": 0
+    },
+    {
+      "key": "Filter media supplied",
+      "value": "Hel-X bio media, filter sponges, 45 ppi pre-filter sponge",
+      "source": 0
+    },
+    {
+      "key": "Water type",
+      "value": "Freshwater and saltwater",
+      "source": 0
+    },
+    {
+      "key": "Warranty (manufacturer)",
+      "value": "3 years, plus 1 extra year on request/registration",
+      "source": 0
+    },
+    {
+      "key": "Warranty (Vietnamese shop, non-Thermo 850)",
+      "value": "1 year from receipt; removable parts not covered",
+      "source": 1
+    }
+  ],
+  "variants": [
+    {
+      "name": "BioMaster (Thermo) 250",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "900 L/h",
+          "source": 2
+        },
+        {
+          "key": "Power",
+          "value": "15 W",
+          "source": 2
+        },
+        {
+          "key": "Media volume",
+          "value": "4.4 L",
+          "source": 2
+        },
+        {
+          "key": "Tank size",
+          "value": "< 250 L",
+          "source": 2
+        },
+        {
+          "key": "Dimensions",
+          "value": "24 x 24 x 37 cm",
+          "source": 2
+        }
+      ]
+    },
+    {
+      "name": "BioMaster (Thermo) 350",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "1,100 L/h",
+          "source": 2
+        },
+        {
+          "key": "Power",
+          "value": "18 W",
+          "source": 2
+        },
+        {
+          "key": "Media volume",
+          "value": "5.6 L",
+          "source": 2
+        },
+        {
+          "key": "Tank size",
+          "value": "< 350 L",
+          "source": 2
+        },
+        {
+          "key": "Dimensions",
+          "value": "24 x 24 x 43 cm",
+          "source": 2
+        }
+      ]
+    },
+    {
+      "name": "BioMaster (Thermo) 600",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "1,250 L/h",
+          "source": 2
+        },
+        {
+          "key": "Power",
+          "value": "22 W (Thermo adds a 300 W heater)",
+          "source": 5
+        },
+        {
+          "key": "Media volume",
+          "value": "6.8 L",
+          "source": 2
+        },
+        {
+          "key": "Tank size",
+          "value": "< 600 L",
+          "source": 2
+        },
+        {
+          "key": "Dimensions",
+          "value": "24 x 24 x 48 cm",
+          "source": 2
+        }
+      ]
+    },
+    {
+      "name": "BioMaster (Thermo) 850",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "1,550 L/h",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "32 W + 400 W heater",
+          "source": 0
+        },
+        {
+          "key": "Media volume",
+          "value": "8 L",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "24 x 24 x 53.5 cm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "BioMaster² Thermo 850 (newer generation)",
+      "specs": [
+        {
+          "key": "Max flow rate",
+          "value": "1500 l/h",
+          "source": 4
+        },
+        {
+          "key": "Power",
+          "value": "32 + 400 W",
+          "source": 5
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Tạp Hóa Thủy Sinh",
+      "url": "http://taphoathuysinh.com/loc-thung-oase-biomaster-850-ver2-id1397.html",
+      "vnd": 12000000,
+      "variant": "BioMaster 850 ver2 (non-Thermo, no heater mentioned)",
+      "source": 1
+    },
+    {
+      "shop": "Mỹ Đình Aquarium",
+      "url": "https://mdaqua.com.vn/san-pham/loc-oase-biomaster-850/",
+      "vnd": 10000000,
+      "variant": "BioMaster 850 (non-Thermo, out of stock)",
+      "source": 3
+    },
+    {
+      "shop": "Mỹ Đình Aquarium",
+      "url": "https://mdaqua.com.vn/san-pham/loc-oase-biomaster-thermo-350/",
+      "vnd": 7100000,
+      "variant": "BioMaster Thermo 350",
+      "source": 3
+    }
+  ],
+  "fits": [
+    {
+      "fact": "Oase rates it for aquariums up to 850 litres. A Vietnamese shop rates the same-size non-Thermo 850 for tanks under 800 L.",
+      "source": 0
+    },
+    {
+      "fact": "It works in both freshwater and marine tanks.",
+      "source": 0
+    },
+    {
+      "fact": "The built-in 400 W heater means no heater has to sit inside the tank, which suits large display or planted tanks where you want a clean look.",
+      "source": 0
+    },
+    {
+      "fact": "The Vietnamese-market unit runs on 230 V/50 Hz. US-market units sold through import sites run on 120 V and are not a direct fit for Vietnamese mains power.",
+      "source": 0
+    },
+    {
+      "fact": "The 16/22 mm hose size limits you to matching glassware and adapters.",
+      "source": 0
+    }
+  ],
+  "usage": [
+    {
+      "fact": "A venting button starts the water flow (priming) at first setup and again after each cleaning.",
+      "source": 0
+    },
+    {
+      "fact": "The EasyClean pre-filter module comes out for rinsing without opening the main canister. Water passes through it first, which keeps the main media clean for longer.",
+      "source": 0
+    },
+    {
+      "fact": "A shut-off mechanism and handle safety lock help prevent spills when you disconnect the filter for cleaning.",
+      "source": 0
+    },
+    {
+      "fact": "You can adjust the flow on the filter head or through the adapter set.",
+      "source": 0
+    },
+    {
+      "fact": "Oase's maintenance guide says to check and clean the pre-filter weekly.",
+      "source": 10
+    },
+    {
+      "fact": "Oase advises replacing the main media at least every 3–6 months.",
+      "source": 12
+    },
+    {
+      "fact": "Forum owners rinse the pre-filter every 7–14 days. Those who keep it clean say the main canister only needs servicing every 6–12 months.",
+      "source": 11
+    },
+    {
+      "fact": "The supplied wool and basic media can be swapped for other media if you prefer.",
+      "source": 1
+    }
+  ],
+  "issues": [
+    {
+      "fact": "Noise is the most common complaint. Some owners of the Thermo 600/850 report a loud hum on startup, while others say their units are quiet.",
+      "source": 7
+    },
+    {
+      "fact": "Owners blame humming and burping on trapped air or cavitation at the impeller. Their fixes are cycling the power a few times and gently shaking the unit.",
+      "source": 9
+    },
+    {
+      "fact": "Owners report leaks mostly right after maintenance. One long-term owner keeps a spare inlet/outlet adapter for this reason.",
+      "source": 8
+    },
+    {
+      "fact": "Some users find the real-world flow lower than expected, and one warns against running the filter at reduced flow settings.",
+      "source": 8
+    },
+    {
+      "fact": "Some owners think unit-to-unit quality varies. They also note that Oase updated the design after early complaints.",
+      "source": 7
+    },
+    {
+      "fact": "The newer BioMaster² generation has a redesigned head, a more permeable pre-filter tube, a pre-filter sponge that needs less cleaning, and lower power use.",
+      "source": 13
+    },
+    {
+      "fact": "Oase says the BioMaster² Thermo 850 has about 12% more flow than the original Thermo 850, although its rated max is listed as 1500 l/h.",
+      "source": 4
+    },
+    {
+      "fact": "The Vietnamese shop warranty excludes removable parts, so wear items like the impeller and seals may not be covered locally.",
+      "source": 1
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Oase",
+      "model": "BioMaster 850 (non-Thermo)",
+      "why": "It has the same filter body and flow (1,550 L/h). It is sold locally for about 10–12 million VND, and you can add a HeatUp heater later or use an in-tank heater instead."
+    },
+    {
+      "brand": "Eheim",
+      "model": "Professionel 4+ 350 (2273)",
+      "why": "It is much cheaper at about 6.1 million VND, with a 3-year warranty, but it is only suited to roughly 180–350 L tanks (1,050 L/h, 16 W) and has no heater."
+    },
+    {
+      "brand": "Oase",
+      "model": "BioMaster² Thermo 850",
+      "why": "This newer generation has an improved head and pre-filter, uses less energy, and Oase claims more flow. Check local availability first."
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://oase.vn/san-pham/biomaster-thermo-850/",
+      "title": "BioMaster Thermo 850 – OASE Việt Nam",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "http://taphoathuysinh.com/loc-thung-oase-biomaster-850-ver2-id1397.html",
+      "title": "Lọc thùng OASE BIOMASTER 850 ver2 – Tạp Hóa Thủy Sinh",
+      "kind": "shop"
+    },
+    {
+      "url": "http://taphoathuysinh.com/loc-thung-oase-biomaster-250-350-600-850-id1405.html",
+      "title": "Lọc thùng OASE BIOMASTER 250 350 600 850 – Tạp Hóa Thủy Sinh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://mdaqua.com.vn/san-pham/loc-oase-biomaster-thermo-350/",
+      "title": "Lọc OASE Biomaster Thermo 350 – Mỹ Đình Aquarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.oase.com/en-GB/aquarium/biomaster-thermo-850",
+      "title": "BioMaster² Thermo 850 – OASE",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://www.swelluk.com/oase-biomaster-2-thermo",
+      "title": "Oase BioMaster 2 Thermo – Swell UK",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.premiumbuces.com/en/?p=33800",
+      "title": "Features OASE BioMaster Thermo – Premium Buces",
+      "kind": "shop"
+    },
+    {
+      "url": "https://ukaps.org/forum/threads/oase-biomaster-thermo-external-filter.41568/page-18",
+      "title": "Oase BioMaster Thermo external filter – UKAPS forum",
+      "kind": "forum"
+    },
+    {
+      "url": "https://ukaps.org/forum/threads/oase-biomaster-850-pros-cons.65489/page-2",
+      "title": "Oase BioMaster 850 pros & cons – UKAPS forum",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.ukaps.org/forum/threads/how-noisy-should-a-biomaster-thermo-250-be.67290",
+      "title": "How noisy should a BioMaster Thermo 250 be – UKAPS forum",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.oase.com/en/aquarium/how-to-guides/routine-aquarium-maintenance-care",
+      "title": "Routine aquarium maintenance care – OASE",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://ukaps.org/forum/goto/post?id=751332",
+      "title": "Pre-filter cleaning frequency – UKAPS forum",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.oase.com/en-US/aquarium/how-to-guides/how-to-keep-your-aquarium-clean-a-complete-guide",
+      "title": "How to keep your aquarium clean – OASE",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "http://taphoathuysinh.com/oase-biomaster-filter-2-loc-thung-oase-cao-cap-biomaster-version-2-the-he-2-model-2025-id1572.html",
+      "title": "Oase BioMaster Filter 2 (model 2025) – Tạp Hóa Thủy Sinh",
+      "kind": "shop"
+    },
+    {
+      "url": "http://taphoathuysinh.com/professionel-4-350-2273-id1062.html",
+      "title": "Eheim Professionel 4+ 350 (2273) – Tạp Hóa Thủy Sinh",
+      "kind": "shop"
+    }
+  ]
+}

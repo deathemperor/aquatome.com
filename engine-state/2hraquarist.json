@@ -938,9 +938,9 @@
   },
   "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/fastest-way-to-stabilize-a-new-tank": {
     "entityIds": [],
-    "updatedAt": "2026-11-23T02:11:09.873Z",
+    "updatedAt": "2026-11-23T17:12:38.581Z",
     "status": "error",
-    "attempts": 2,
+    "attempts": 3,
     "error": "no archived copy (HTTP 404)"
   },
   "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/filter-buying-checklist": {
@@ -985,9 +985,9 @@
   },
   "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/how-to-reset-a-tank": {
     "entityIds": [],
-    "updatedAt": "2026-11-23T02:11:22.043Z",
+    "updatedAt": "2026-11-23T17:12:50.390Z",
     "status": "error",
-    "attempts": 2,
+    "attempts": 3,
     "error": "no archived copy (HTTP 404)"
   },
   "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/low-tech-setup-checklist": {
@@ -1145,6 +1145,46 @@
     "updatedAt": "2026-11-23T14:22:02.960Z",
     "hash": "d3392fe97d23390470ad825c372e330d7afe767c1b090a1c892572451c0b5319",
     "processedHash": "d3392fe97d23390470ad825c372e330d7afe767c1b090a1c892572451c0b5319",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/choosing-co2-why/how-to-push-the-limits-of-co2-safely": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-choosing-co2-why-how-to-push-the-limits-of-co2-safely"
+    ],
+    "updatedAt": "2026-11-23T17:13:02.322Z",
+    "hash": "866bdf65b57ee4fe55b99b7d053f0ec463b35181ffca823cb07d1d9c5bb2674c",
+    "processedHash": "866bdf65b57ee4fe55b99b7d053f0ec463b35181ffca823cb07d1d9c5bb2674c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/choosing-co2-why/monitor-co2-levels": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-choosing-co2-why-monitor-co2-levels"
+    ],
+    "updatedAt": "2026-11-23T17:17:59.404Z",
+    "hash": "e114d9a7a4d77e166b45dda892e8c7bb885bfa329e818f92f17b0dacd95f1fb6",
+    "processedHash": "e114d9a7a4d77e166b45dda892e8c7bb885bfa329e818f92f17b0dacd95f1fb6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/choosing-co2-why/the-wrong-way-to-read-the-ph-kh-chart": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-choosing-co2-why-the-wrong-way-to-read-the-ph-kh-chart"
+    ],
+    "updatedAt": "2026-11-23T17:19:39.406Z",
+    "hash": "bb25ce825e09d3a983e3644b52fd15b83dca5a02d09f4eed81d902fe9aae47a7",
+    "processedHash": "bb25ce825e09d3a983e3644b52fd15b83dca5a02d09f4eed81d902fe9aae47a7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/choosing-co2-why/why-inject-co2": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-choosing-co2-why-why-inject-co2"
+    ],
+    "updatedAt": "2026-11-23T17:22:09.435Z",
+    "hash": "289549df22b5ace5d9bd038750700ca13cf246972b1efb89adb96bec9f7402bb",
+    "processedHash": "289549df22b5ace5d9bd038750700ca13cf246972b1efb89adb96bec9f7402bb",
     "status": "processed",
     "attempts": 0
   },

@@ -914,6 +914,39 @@
       "kept": false
     }
   ],
+  "vi/products/oase-biomaster-850-thermo": [
+    {
+      "at": "2026-11-23T19:47:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.82,
+      "notes": [
+        "\"Máy mạnh ở chỗ bỏ được cây sưởi trong bể\" is a mild promotional framing, but the facts support it.",
+        "\"ống lọc thô cho nước qua dễ hơn\" is a paraphrase of \"more permeable pre-filter tube\". It is acceptable.",
+        "\"thân lọc và lưu lượng giống hệt bản Thermo\" overstates the facts. They say \"same filter body and flow\", not \"identical\".",
+        "\"có bán trong nước\" for the non-Thermo 850 is supported by \"sold locally\". The page leaves out the 10–12 million VND price, which is only an omission.",
+        "\"Máy kêu ù lúc khởi động\" is listed in the intro as a common complaint of this model. The facts say only some Thermo 600/850 owners report it and others find the units quiet.",
+        "\"Eheim ... rẻ hơn nhiều\" is supported. The page's statement that the Eheim has \"không có sưởi\" is also supported.",
+        "\"Bể trưng lớn hay bể thủy sinh cần nhìn gọn mắt thì hợp với kiểu này\" is supported."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-23T19:47:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.88,
+      "notes": [
+        "\"tiệm ở Việt Nam không bảo hành các bộ phận tháo rời được\": the facts give this exclusion only for a Vietnamese shop's non-Thermo 850. The page states it as a general rule for the Thermo 850, and the intro and warranty section do the same. It is a small overgeneralization.",
+        "\"Vì vậy, những món hay mòn như cánh quạt và gioăng có thể sẽ không được bảo hành\": the facts support this only as a hedged inference, and only for that shop's non-Thermo warranty. The page does not say that."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/products/oase-filtosmart-100-thermo": [
     {
       "at": "2026-11-17T07:48:40Z",

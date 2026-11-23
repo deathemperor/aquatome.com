@@ -5,14 +5,20 @@
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Crossoloricaria venezuelae (Schultz, 1944)</li><li>Tình trạng trong Sách Đỏ IUCN: Ít quan tâm</li><li>Nguồn gốc tên: Krossoi (tiếng Hy Lạp) là tua, còn lorica, loricare (tiếng Latin) là áo giáp ngực bằng da, tức bộ giáp làm bằng da.</li></ul>",
     "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực hồ Maracaibo. Nơi thu mẫu chuẩn là sông Palmar, ở chỗ cây cầu cách Maracaibo (Venezuela) khoảng 70 km về phía tây nam.</p>",
-    "reproduction:planetcatfish": "<p>Sinh sản: chưa có thông tin. Đến nay chưa có ai báo cáo cho loài này đẻ.</p>"
+    "reproduction:planetcatfish": "<p>Sinh sản: chưa có thông tin. Đến nay chưa có ai báo cáo cho loài này đẻ.</p>",
+    "quickFacts:scotcat": "<p>Họ: Loricariidae. Tên thường gọi: không có. Kích thước: 18 cm. Nhiệt độ: 22–26 °C. pH: 6,0–7,0.</p><p>Tên đồng nghĩa: Loricaria variegata venezuelae.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực hồ Maracaibo (Schultz, 1944). Loài này cũng có ở lưu vực sông Magdalena, Colombia. Nơi lấy mẫu chuẩn: sông Río Palmar, chỗ cây cầu cách Maracaibo khoảng 70 km về phía tây nam [Venezuela].</p>",
+    "maintenance:scotcat": "<p>Bố trí chỗ trốn và trải nền cát, vì loài này thích vùi mình xuống cát.</p>",
+    "diet:scotcat": "<p>Ấu trùng côn trùng.</p>",
+    "notes:scotcat": "<p>Mô tả: Nhìn bề ngoài, giống này khá giống Pseudohemiodon. Điểm khác là Pseudohemiodon có các tấm xương ở mặt bụng, còn bụng Crossoloricaria gần như trơn, chỉ có một hàng tấm nhỏ chạy dọc đường giữa bụng.</p><p>Nguồn gốc tên: Tên loài venezuelae nghĩa là \"của Venezuela\". Tên này chỉ nơi lấy mẫu chuẩn ở lưu vực hồ Maracaibo, đồng thời ghi nhớ \"sự giúp đỡ [dành cho Schultz] khi thu mẫu ở đó năm 1942\".</p><p>Danh sách đỏ IUCN: Loài này được xếp vào mức Ít quan tâm, vì vùng phân bố tương đối rộng và môi trường sống xung quanh còn khá nguyên vẹn. Người ta suy đoán môi trường sống trong vùng phân bố đang xuống cấp và nước ngày càng ô nhiễm. Nhưng các nhánh sông đổ vào hồ vẫn còn nhiều đoạn giữ được tương đối tốt, và có lẽ chừng đó đủ chỗ sống để loài không bị ảnh hưởng xấu. Muốn khẳng định tình trạng của loài (LC) thì vẫn cần nghiên cứu thêm xem các mối đe dọa này tác động thế nào lên C. venezuelae (cần cập nhật, IUCN 2009).</p>",
+    "references:scotcat": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2016. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 10/2016 ).</p><p>The ETYFish Project Fish Name Etymology Database.</p>"
   },
   "quality": {
     "score": 0.9,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.9
-    },
-    "reason": "thin"
+      "planetcatfish": 0.9,
+      "scotcat": 0.9
+    }
   }
 }

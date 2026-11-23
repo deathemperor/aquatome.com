@@ -8,7 +8,11 @@
   "places": [
     "south-america",
     "peru",
-    "madre-de-dios"
+    "madre-de-dios",
+    "vilcanota",
+    "bolivia",
+    "brazil",
+    "madeira"
   ],
   "range": {
     "native": {
@@ -62,7 +66,41 @@
       ]
     }
   },
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 2,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 5.5
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
@@ -71,10 +109,22 @@
       "html": "<p>Wild-collected Corydoras weitzmani from Peru. The species is extremely rare in the trade.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1527",
+      "html": "<ul><li>Scientific name: Hoplisoma weitzmani (Nijssen, 1971)</li><li>Common names: Twosaddle Corydoras; Weitzmans Pansermalle (Denmark)</li><li>Type locality: Río Vilcanota system at Cuzco, 13°32'S, 71°57'W, Cuzco State, Peru.</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_weitzmani_wild_en/",
       "html": "<p>The scientific description of the species in 1971 gave \"Cuzco in Peru\" as type locality. Several expeditions searched the region for this cory, but all failed, and there were doubts that the species existed or that it had gone extinct. The information on the collecting site given to the scientist who described the species was wrong. Corydoras weitzmani originates from the Madre de Dios region, where it was rediscovered in 2004 by ornamental fish collectors.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1527",
+      "html": "<p>South America: Amazon, Middle Amazon (Solimoes), Madeira, Madre de Dios.</p>"
     },
     {
       "key": "waterConditions",
@@ -83,16 +133,58 @@
       "html": "<p>Keeping the species is fairly easy. Former speculation said the fish probably has to be kept at low temperatures, since Cuzco in the Andes lies at an altitude of 3,400 m. This is completely wrong: neither the water chemistry nor the water temperature is of great importance for successful keeping.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1527",
+      "html": "<ul><li>pH: 6.0–8.0</li><li>Temperature: 22–26°C</li><li>Other parameters: dGH 2–25</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1527",
+      "html": "<p>Ideally, and close to mandatory, the substrate should be sand, but rounded gravel is an imperfect alternative. Avoid keeping them over rough-edged (chipped) gravel or sharp sand, as this increases the risk of damage to the fish's barbels when it tries to dig.</p><p>The substrate should be bordered with driftwood and aquatic plants, leaving an open area for them to search for food and swim. The shade provided by overhanging rock work, arching bogwood, and tall or floating plants is all that is required to settle a group of these fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1527",
+      "html": "<p>Will readily accept all prepared foods that reach the bottom of the aquarium, such as tablets, granules and larger flakes. Live (or frozen) foods such as bloodworm, white worm, grindal worm (Enchytraeus), Daphnia and Tubifex are readily accepted and good for conditioning groups of fish for spawning.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_weitzmani_wild_en/",
       "html": "<p>Corydoras weitzmani is a social species that should always be kept in groups. It is a perfect tankmate for a community tank.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1527",
+      "html": "<p>A peaceful, shoaling, community fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1527",
+      "html": "<p>Females grow larger and are more full-bodied, which is best observed from above. Males typically have more pointed rather than rounded fin tips as they mature.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1527",
+      "html": "<p>The female carries eggs in her pelvic fins. There are 17 breeding reports on the site.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_weitzmani_wild_en/",
       "html": "<p>Corydoras: from ancient Greek, meaning \"with helmet and spear\", referring to the strong armor and fin spines. weitzmani: dedication name for the ichthyologist Stanley H. Weitzman.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1527",
+      "html": "<p>Beaufortia v. 19 (no. 250), pp 91, Fig. 1.</p>"
     }
   ],
   "photos": [
@@ -180,5 +272,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-23"
 }

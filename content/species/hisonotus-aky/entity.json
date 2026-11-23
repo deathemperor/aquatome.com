@@ -8,13 +8,42 @@
   "places": [
     "south-america",
     "argentina",
-    "rio-uruguay"
+    "rio-uruguay",
+    "uruguay-river"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 4.5
+      },
+      {
+        "source": "scotcat",
+        "value": 4.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "scotcat",
+        "value": 4
       }
     ]
   },
@@ -26,16 +55,40 @@
       "html": "<ul><li>Scientific name: Hisonotus aky (Azpelicueta, Casciotta, Almirón &amp; Koerber, 2004)</li><li>Common names: Green Oto, Green Hisonotus</li><li>Synonym: Epactionotus aky</li><li>Identification: easily identified by the striking green colouration.</li><li>IUCN Red List: Least Concern (last assessed 2020)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_aky.htm",
+      "html": "<ul><li>Common name: Green Oto</li><li>IUCN Red List: Least Concern (LC), IUCN 2023. Despite the little information available, it has a wide range and no apparent threats.</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1456",
       "html": "<p>South America: endemic to Argentina. La Plata, Uruguay. Type locality: Arroyo Garibaldi, Río Uruguay basin at Misiones, Argentina.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_aky.htm",
+      "html": "<p>South America: Argentina, Yabotí-Guazú basin, Uruguay River system, Misiones. Type locality: Argentina, Misiones, Río Uruguay basin, Arroyo Garibaldi (26º38'46.1\"S, 53º59'55\"W).</p><p>According to Evers et al, they are only found in a small area in the Rio Uruguay drainage in the Fortaleza Creek, close to the city of Paraiso.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_aky.htm",
+      "html": "<p>Said to be a bit more problematic in the aquarium if good water quality is not adhered to. They rest on aquatic vegetation in the aquarium so long leaved plants are recommended. Cooler temperatures and a strong filtration with adequate current will fare better for this species and for this genera overall.</p>"
+    },
+    {
       "key": "diet",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1456",
       "html": "<p>In captivity will eat algae disks, soft leaves of certain stem plants (e.g. Hygrophila polysperma) and shrimp pellets can be offered sparingly.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_aky.htm",
+      "html": "<p>Will feed on flake, algae, tablet foods and algae wafers.</p>"
     },
     {
       "key": "dimorphism",
@@ -50,10 +103,28 @@
       "html": "<p>Has been bred in the aquarium. There is no breeding report.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_aky.htm",
+      "html": "<p>Scatters eggs throughout the aquarium and are not cared for by the parents. This species has been bred by image contributor Paul Dixon.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_aky.htm",
+      "html": "<p>Description: Epactionotus (Hisonotus) aky is diagnosed by the following combination of characters: 1) 21 to 23 lateral plates; 2) light stripes extended from snout tip to supraoccipital level; 3) caudal fin with dark vertical stripes; 4) ventral surface of body completely covered by small platelets; 5) 1-4 feeble serrae on distal portion of pectoral spine posterior margin.</p><p>Hisonotus aky (Azpelicueta, Casciotta, Almirón &amp; Körber, 2004) was originally described in Epactionotus Reis &amp; Schaefer, 1998 because of its supposed possession of three synapomorphies proposed for that genus. However, the examination of type specimens indicates the absence of most diagnostic features for the genus.</p><p>Etymology: The specific name aky (Guaraní) = green.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1456",
       "html": "<p>Verhandlungen der Gesellschaft für Ichthyologie v. 4 (2004), pp 82, Figs. 1-6.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_aky.htm",
+      "html": "<p>Azpellicueta, Casciotta, Almiron, &amp; S. Korber, 2004, A new species of Otothyrini (Siluriformes: Loricariidae: Hypoptopomatinae) from the Río Uruguay basin, Argentina. Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Salvador, G.N. 2023. Hisonotus aky. The IUCN Red List of Threatened Species 2023.</p>"
     }
   ],
   "photos": [

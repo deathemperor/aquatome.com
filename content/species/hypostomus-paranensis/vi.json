@@ -6,14 +6,19 @@
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Hypostomus paranensis Weyenbergh, 1877</li><li>Nguồn gốc tên: tiếng Hy Lạp, hypo = bên dưới + tiếng Hy Lạp, stoma = miệng.</li><li>Danh sách Đỏ IUCN: Ít lo ngại (đánh giá lần cuối năm 2020)</li></ul>",
     "distribution:planetcatfish": "<p>Nam Mỹ: Argentina. La Plata, Paraná, trung lưu Paraná; La Plata, Paraná, trung lưu Paraná, Bermejo; Mar Chiquita, Dulce; Mar Chiquita, Segundo; Mar Chiquita, Primero. Nơi lấy mẫu chuẩn: các hồ dọc sông Paraná gần Santa Fe, Argentina.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: chưa có ai báo cáo cho loài này đẻ.</p>",
-    "references:planetcatfish": "<p>Actas de la Academia Nacional de Ciencias Exactas, Buenos Aires. v. 3 (no. 1), pp 9.</p>"
+    "references:planetcatfish": "<p>Actas de la Academia Nacional de Ciencias Exactas, Buenos Aires. v. 3 (no. 1), pp 9.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: hệ sông Paraná.</p><p>Danh sách Đỏ IUCN: Loài này phân bố rộng ở Argentina và Paraguay, nên được xếp vào mức Ít quan tâm (IUCN 2023).</p>",
+    "maintenance:scotcat": "<p>Giống hầu hết các loài cùng chi, cá này sống tốt trong bể lớn, dù nó thuộc nhóm nhỏ con của chi. Bể cần có lọc tốt. Thông số nước hợp với các loài trong chi này khá khác nhau.</p>",
+    "diet:scotcat": "<p>Cá ăn tạp. Nó thích rau xanh, thức ăn viên nén và đồ đông lạnh.</p>",
+    "notes:scotcat": "<p>Chi Hypostomus có 7 tia mềm ở vây lưng. Các loài Pterygoplichthys trông na ná nhưng có 10 tia mềm ở vây lưng.</p><p>Theo Eschmeyer và cs. (2018), Hypostomus cordovae từng là một loài hợp lệ. Trong khoảng mười năm trở lại, một số nhà phân loại cũng xếp nó làm tên đồng nghĩa của H. paranensis (Ferraris 2007, Martins và cs. 2014 trong Eschmeyer và cs. 2018). Eschmeyer và cs. (2018) thì tách H. paranensis thành một loài riêng, cũng hợp lệ, khác với H. cordovae. Một số cơ sở dữ liệu vẫn theo cách xếp đồng nghĩa (chẳng hạn Froese và Pauly 2018). Vì vậy, thông tin ở trang này dành cho H. paranensis chứ không phải H. cordovae. Từ năm 2020, Eschmeyer và cs. trong Catalog of Fishes xếp H. cordovae làm tên đồng nghĩa của H. paranensis.</p><p>Nguồn gốc tên: Tên loài paranensis là một tính từ, đặt theo nơi loài này sống là lưu vực thượng nguồn sông Paraná.</p>",
+    "references:scotcat": "<p>Brancolini, F., Baigun, C. &amp; Minotti, P. 2023. Hypostomus paranensis. The IUCN Red List of Threatened Species 2023. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org, version. U.S. Fish &amp; Wildlife Service. 2018. Hypostomus cordovae (a catfish, no common name) Ecological Risk Screening Summary. Web Version, 8/31/2018.</p>"
   },
   "quality": {
     "score": 0.85,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
-    },
-    "reason": "thin"
+      "planetcatfish": 0.85,
+      "scotcat": 0.88
+    }
   }
 }

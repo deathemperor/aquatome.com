@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (180)
+# Tóm tắt chờ duyệt (179)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -463,15 +463,6 @@ Loài này nuôi không khó lắm, miễn là giữ nước sạch và không �
 
 Kiểm tra:
 - "Cần bể thủy sinh nhiều cây": the page only says the fish "thích" (like) a planted tank because they hide in it by day. It never says the tank is required, so a preference has become a certainty.
-
-## Cá trê săn mồi Apure (Cephalosilurus apurensis)
-id: `cephalosilurus-apurensis`
-
-Cá trê săn mồi Apure (Cephalosilurus apurensis) là cá da trơn săn mồi cỡ lớn, dài tối đa khoảng 30 cm. Hồ sơ không nêu thông số nước hay bể tối thiểu. Loài này hiếm, mới có vài con nhập về với số lượng rất ít, cá dài 20–25 cm và gần như đã lớn hết cỡ.
-
-
-Kiểm tra:
-- "20–25 cm" is not the card's adult size (30 cm)
 
 ## Cá lóc Channa burmanica (Channa burmanica)
 id: `channa-burmanica`

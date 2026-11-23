@@ -1,0 +1,100 @@
+{
+  "id": "rhadinoloricaria-bahuaja",
+  "scientificName": "Rhadinoloricaria bahuaja",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Rhadinoloricaria",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "madre-de-dios",
+    "bolivia",
+    "rio-grande"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 27,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 16.4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1536",
+      "html": "<ul><li>Scientific name: Rhadinoloricaria bahuaja (Chang &amp; Castro, 1999)</li><li>Synonym: Crossoloricaria bahuaja</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1536",
+      "html": "<p>South America: Madre de Dios basin in Peru, Rio Grande in Bolivia and Rio Manuripe in Pando. Type locality: Río Tambopata, Tambopata Province, Departamento Madre de Dios, Peru.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1536",
+      "html": "<p>Occurs in the main river and major tributaries, always over sandy beaches.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1536",
+      "html": "<p>Stomach contents of fish examined in the wild include larvae of aquatic insects, small seeds and debris.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1536",
+      "html": "<p>Unreported. Male carries the eggs.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1536",
+      "html": "<p>Distinguished from all other species of Crossoloricaria by having more teeth (4–8 premaxillary and 8–11 mandibular teeth), more coalescing plates (17–20), a longer maxillary barbel (68–109% HL) reaching the middle or proximal third of the pectoral fin, more developed barbels of the lower lip (16–27% HL), and a greater interorbital width (16–21% HL). The first ray of the dorsal, pectoral and pelvic fins is produced beyond the branched fin rays.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1536",
+      "html": "<p>Ichthyological Exploration of Freshwaters v. 10 (no. 1) 83 Figs. 1-2</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn bể cá",
+        "nền cát cho cá lau kiếng"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể cá dòng chảy mạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
+}

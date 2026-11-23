@@ -8,13 +8,36 @@
   "places": [
     "asia",
     "india",
-    "mansai-river"
+    "mansai-river",
+    "brahmaputra"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 3.9
+      },
+      {
+        "source": "scotcat",
+        "value": 4
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -26,10 +49,22 @@
       "html": "<p>Erethistoides sicula Ng, 2005, the Cheetah Catfish (family Sisoridae). Size: 39 mm SL. It differs from both E. montana and E. pipri in having a longer caudal peduncle and shorter pectoral spine. The species name comes from the Latin sicula, meaning dagger, in reference to its short pectoral spines. IUCN Red List: Data Deficient (last assessed 2009).</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistoides_sicula.htm",
+      "html": "<p>Family: Sisoridae. Described by Ng, 2005. Size: 4.0 cm. Temperature: 18–24°C. pH: 6.5–7.2.</p><p>Dorsal soft rays (total): 5; anal soft rays: 10–11; vertebrae: 29–31. Erethistoides sicula differs from both E. montana and E. pipri in having a longer caudal peduncle (19.6–22.3% SL vs. 14.4–18.4) and shorter pectoral spine (14.6–28.0% SL vs. 30.7–32.1). It further differs from E. montana in having a dorsally projecting bony splint on the opercle immediately posterior to its articular facet with the hyomandibula (vs. splint absent), and from E. pipri in having a more slender head.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1488",
       "html": "<p>Asia: known from the Mansai River drainage, itself a tributary of the Brahmaputra River in northern West Bengal state in India. Type locality: Schutunga River, tributary of Mansai River, at Ansole, 26°22'24''N, 89°11'17''E, West Bengal, India.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistoides_sicula.htm",
+      "html": "<p>Asia: Known from the Mansai River drainage, itself a tributary of the Brahmaputra River in northern West Bengal state in India.</p>"
     },
     {
       "key": "habitat",
@@ -38,10 +73,34 @@
       "html": "<p>This species lives in wide expanses of moderate flowing, shallow water over sandy substrate.</p>"
     },
     {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistoides_sicula.htm",
+      "html": "<p>The first four thumbnail specimens were collected at Mathabhanga in the Coochbehar District of West Bengal.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistoides_sicula.htm",
+      "html": "<p>A tank with a sandy bottom, rounded stones, pebbles and bogwood with a good water flow, as befits an Asian hillstream setup. Good water quality is a must for this family. Keep the water temperature on the cool side of a tropical aquarium.</p>"
+    },
+    {
       "key": "equipment",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1488",
       "html": "<p>All decor except plants is unnecessary.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistoides_sicula.htm",
+      "html": "<p>Prefers live foods such as bloodworm, grindal worm and daphnia.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistoides_sicula.htm",
+      "html": "<p>Tank mates such as the zebra danio (Brachydanio rerio) and Rasboras of the same small size will make good tankmates.</p>"
     },
     {
       "key": "reproduction",
@@ -50,14 +109,84 @@
       "html": "<p>Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistoides_sicula.htm",
+      "html": "<p>Etymology: Erethistoides, -oides, having the form of Erethistes, \"allied [to that genus] in most respects\" but with a strongly depressed snout and a unique arrangement of serrations along the leading margin of the pectoral-fin spine. The species epithet sicula means 'dagger', referring to the short pectoral-fin spines.</p><p>IUCN Red List: Erethistoides sicula was described from the Brahmaputra River drainage (Mansai River drainage) in West Bengal, India, and is known from only thirteen specimens. Information about its biology and potential threats facing this species is also lacking. It is assessed as Data Deficient, but needs updating (IUCN 2010).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1488",
       "html": "<p>Zootaxa No. 1021, pp 2, Fig. 1, 2a, 4a.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistoides_sicula.htm",
+      "html": "<p>Adrian Taylor: pers.comm. Ng, H. H. 2005 Erethistoides sicula, a new catfish (Teleostei: Erethistidae) from India. Zootaxa 1021:1-12. Ng, H.H. 2010. Erethistoides sicula. The IUCN Red List of Threatened Species 2010. The ETYFish Project. Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/b840aeb4947c6b89.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b840aeb4947c6b89-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Beta Mahatvaraj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistoides_sicula.htm",
+      "caption": "Erethistoides sicula",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b8cffe435ad1c20e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b8cffe435ad1c20e-480.webp",
+      "width": 500,
+      "height": 323,
+      "licence": "dùng với sự cho phép",
+      "author": "Beta Mahatvaraj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistoides_sicula.htm",
+      "caption": "Erethistoides sicula",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/6b7e2ae66e5239aa.webp",
+      "thumb": "https://media.aquatome.com/scotcat/6b7e2ae66e5239aa-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Beta Mahatvaraj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistoides_sicula.htm",
+      "caption": "Erethistoides sicula",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/de4d1e18074b3a5a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/de4d1e18074b3a5a-480.webp",
+      "width": 500,
+      "height": 306,
+      "licence": "dùng với sự cho phép",
+      "author": "Beta Mahatvaraj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistoides_sicula.htm",
+      "caption": "Erethistoides sicula",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "hXZUGyGgo1w",
+      "title": "Erethistoides sicula burrowing in substrate natural behaviour",
+      "durationSec": 10,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "e0I2CArwl8k",
+      "title": "Erethistoides sicula",
+      "durationSec": 21,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "phan-nen",

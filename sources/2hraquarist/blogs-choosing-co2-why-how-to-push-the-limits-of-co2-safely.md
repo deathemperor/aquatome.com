@@ -1,7 +1,7 @@
 ---
 url: https://www.2hraquarist.com/blogs/choosing-co2-why/how-to-push-the-limits-of-co2-safely
 title: Surface agitation in CO2 injected planted tanks - The 2Hr Aquarist
-fetchedAt: 2026-11-23T14:26:20.857Z
+fetchedAt: 2026-11-23T17:13:14.608Z
 capturedAt: 2026-03-12T00:13:49.000Z
 hash: 866bdf65b57ee4fe55b99b7d053f0ec463b35181ffca823cb07d1d9c5bb2674c
 ---

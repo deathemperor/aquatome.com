@@ -9557,6 +9557,29 @@
   "https://live.staticflickr.com/8188/8445099001_6be80bc5c7_b.jpg": {
     "ocr": []
   },
+  "https://media.aquatome.com/2hraquarist/014bbaab2bec9a6f.webp": {
+    "ocr": [
+      {
+        "c": 0.5,
+        "at": "bottom centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "5062d7569ad749e039c3ec458f67e3ec813856c3ca4e9726f55203e54cdcee07"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 19,
+        "mark": false,
+        "hash": "8cc96dc2f168a1a869f4bbec29ae6d88f4b61a0e577db0841cf8853e7809c4ca"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "bottom centre"
+    ]
+  },
   "https://media.aquatome.com/2hraquarist/02fcefa2230223c9.webp": {
     "ocr": [
       {
@@ -9627,6 +9650,58 @@
   },
   "https://media.aquatome.com/2hraquarist/037e0775bf51eb43.webp": {
     "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/04156e1ca09e84d4.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 19,
+        "mark": false,
+        "hash": "6bc52d7afa82df9e23d156606e3b3fac86ff8cc2e1706f1b4f8a3226b152f05a"
+      },
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 2,
+        "mark": false,
+        "hash": "f1534392279bddbf9d43dde8701cb5be14b82f76ec6607bf8d6ad557f60f304e"
+      },
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 18,
+        "mark": false,
+        "hash": "e1a2ab333179aa4278d4c2a087e200e1ee43bdb572f0bbed48f5709e928b21a8"
+      },
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 5,
+        "mark": false,
+        "hash": "fb1acd44962209a65826621210c03c0a72e392169f52c2f208efbf3f272f09a2"
+      },
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 4,
+        "mark": false,
+        "hash": "f9194e73f9e9459e3450ea10a179cdf77aafa695beecd3b9344a98d111622243"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 8,
+        "mark": false,
+        "hash": "369d3d519bba9d59a47d684f194caa71a80b632db993d346154c0ddaf7f5c872"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "middle left",
+      "middle centre"
+    ]
   },
   "https://media.aquatome.com/2hraquarist/044d056a5a18196e.webp": {
     "ocr": []
@@ -9716,7 +9791,43 @@
   "https://media.aquatome.com/2hraquarist/0eeea2db93aa3f5b.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/2hraquarist/0f1c8a3069052347.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 13,
+        "mark": false,
+        "hash": "0d2e92ea249ff2d2bb58c3eba0fce7da7e905a72fbe8e7c91546b402c0d15e14"
+      },
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 9,
+        "mark": false,
+        "hash": "2d834329adc4110460adcfa452ea13dab358edf5ba9b628093e5de2bab359ed1"
+      },
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 13,
+        "mark": false,
+        "hash": "5e8231bec9f7aa0478246de6f1af2a71c92d930572815fc8ed797f893711d6db"
+      }
+    ],
+    "watermark": true,
+    "kind": "caption",
+    "locations": [
+      "middle right"
+    ]
+  },
+  "https://media.aquatome.com/2hraquarist/1125753467b244bb.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/2hraquarist/116e38375b374bc9.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/118ec0ae6501b6b1.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/2hraquarist/11c924607cc1f22b.webp": {
@@ -9745,6 +9856,12 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/2hraquarist/16b332e48b8d1ff4.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/16e2a583bb59929b.webp": {
+    "ocr": []
   },
   "https://media.aquatome.com/2hraquarist/1889492be18c32dc.webp": {
     "ocr": [
@@ -10103,6 +10220,9 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/2hraquarist/2fab81bb4fdb5ff6.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/2hraquarist/2ff2150b8977932c.webp": {
     "ocr": []
   },
@@ -10133,6 +10253,9 @@
     ]
   },
   "https://media.aquatome.com/2hraquarist/33700f48f567fae9.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/33bd2110257c4fa3.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/2hraquarist/361092e22779e132.webp": {
@@ -10256,6 +10379,73 @@
   },
   "https://media.aquatome.com/2hraquarist/3c5ada07b9e57cc7.webp": {
     "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/3d5629b6b106aa32.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 12,
+        "mark": false,
+        "hash": "32f1e99620c345852e95df41f69e0386e466d3a067f8fbe5acc403b056ae29c3"
+      },
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 11,
+        "mark": false,
+        "hash": "f18ea019fb9139db822787ca632fa4172e22bfa5ae435e610eada3311aee5949"
+      },
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 17,
+        "mark": false,
+        "hash": "c1b5bf0ee103760796dc6c2deadebf7f60cfbea379cb0e8d446a7ee1a04da393"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 12,
+        "mark": false,
+        "hash": "fd0efca96d3976871ed486dbf0bcca44d3009ec539d9fec92b144df1bfae3fe0"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "ec2aa9faf2c16db3c6714d377df3b05f53817e8033820be0a041ad691dad1fc5"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 12,
+        "mark": false,
+        "hash": "8b5b42f1253526e6b567d5458d17a145c5474d82f3079866ccfb4fd0ee4077a5"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 20,
+        "mark": false,
+        "hash": "ee01591881359cfc54feaed187219a9ff703e645f7a2febe8a383b0521551660"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 19,
+        "mark": false,
+        "hash": "6bc52d7afa82df9e23d156606e3b3fac86ff8cc2e1706f1b4f8a3226b152f05a"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "middle left",
+      "middle centre",
+      "bottom centre"
+    ]
   },
   "https://media.aquatome.com/2hraquarist/3d9cc7b7e0b561b5.webp": {
     "ocr": []
@@ -10428,6 +10618,64 @@
   "https://media.aquatome.com/2hraquarist/4d40ae69b8b55926.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/2hraquarist/4ef892a162ab8eb9.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 17,
+        "mark": false,
+        "hash": "fddb446fef979eb78f4604e501b2f1bc24664924355f76c35c294d8abbc1638c"
+      },
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 3,
+        "mark": false,
+        "hash": "e6489353932b602d265d253e979292ea4ba2dc3f6618a6510722b74c80abfe4b"
+      },
+      {
+        "c": 0.3,
+        "at": "middle left",
+        "alnum": 6,
+        "mark": false,
+        "hash": "b06c637fe87fddb84a9621846798c8f49595fd4b6b6977256d568a7275bc57d9"
+      },
+      {
+        "c": 0.3,
+        "at": "middle left",
+        "alnum": 9,
+        "mark": false,
+        "hash": "eda7d0564ded6c67b937673c8d7c5a6e9f766ef1541b6430e960b7fda1db5504"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 17,
+        "mark": false,
+        "hash": "dbe5743933b247c0bd2976fa7787873e5b93544dc9599160694cdb57cd2cc061"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 2,
+        "mark": false,
+        "hash": "8db1a2e199a2464612e8cca8094efd9375149b55674e03e7763f957bde5ea3ac"
+      },
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 12,
+        "mark": false,
+        "hash": "1b45da512421741ed201598ecb380182efb56523a1cbc8f8b4a24de7ec676533"
+      }
+    ],
+    "watermark": true,
+    "kind": "caption",
+    "locations": [
+      "top right"
+    ]
+  },
   "https://media.aquatome.com/2hraquarist/4fd74e5c0e678917.webp": {
     "ocr": []
   },
@@ -10572,8 +10820,62 @@
   "https://media.aquatome.com/2hraquarist/62aa0610bc94050d.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/2hraquarist/62e36a291301586e.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 19,
+        "mark": false,
+        "hash": "6bc52d7afa82df9e23d156606e3b3fac86ff8cc2e1706f1b4f8a3226b152f05a"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 2,
+        "mark": false,
+        "hash": "f1534392279bddbf9d43dde8701cb5be14b82f76ec6607bf8d6ad557f60f304e"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 18,
+        "mark": false,
+        "hash": "c52b487266860a76345469fda673bd8e71f7951c8a21042bf084dbd9c233a0f6"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 4,
+        "mark": false,
+        "hash": "438d69b79d430052ef3e0a21ed71f7c582208cd7ac35bcc5da2a89d6dd6aeb07"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "bottom left",
+      "bottom centre"
+    ]
+  },
   "https://media.aquatome.com/2hraquarist/631e74548d109bee.webp": {
     "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/6376f027e428fc84.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 3,
+        "mark": false,
+        "hash": "c0f890f2fd6b058103ded8d296e49ba3b924661210ca87ff190de41dbb91dee0"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "middle right"
+    ]
   },
   "https://media.aquatome.com/2hraquarist/63ada67af7f8e376.webp": {
     "ocr": [
@@ -10661,6 +10963,9 @@
   "https://media.aquatome.com/2hraquarist/6a17fdde0df1129b.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/2hraquarist/6b769eb2ceea1eb0.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/2hraquarist/6bf2c60ea760a7aa.webp": {
     "ocr": []
   },
@@ -10690,6 +10995,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/2hraquarist/70b98b9089390414.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/7209b083be2f191c.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/2hraquarist/73c35a735da9e1c5.webp": {
@@ -11188,14 +11496,65 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/2hraquarist/906d1a59ee3f94e4.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/2hraquarist/9126debce6119221.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/2hraquarist/9826bc4c33a866eb.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/2hraquarist/98cedb7f9802e805.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/2hraquarist/9a447f30a3687ab1.webp": {
     "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/9aff49987188bba9.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 19,
+        "mark": false,
+        "hash": "bee73814ee6f1345333fda2a7768ce149c1c342d9725aeacb7556a3f734361d6"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 3,
+        "mark": false,
+        "hash": "5a96acc64c72c5b2b890cf2855d036cacc054d61a360be4da12c1fa47dc0b480"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 19,
+        "mark": false,
+        "hash": "1e808c61321503efe6366b6ba2abfa4e64577b5538f8ce1d5690c0511be0d774"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 7,
+        "mark": false,
+        "hash": "5938e3a8a88dc1623bdb8a2eb361d67db1061edbb813740eb94bb4b4bae6abcd"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 4,
+        "mark": false,
+        "hash": "e49ec846db7527df7ff483009fe61700e6435072c8c5b551ab08f0a13fc45a07"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "bottom centre",
+      "bottom right"
+    ]
   },
   "https://media.aquatome.com/2hraquarist/9f5810f2ed664a82.webp": {
     "ocr": [
@@ -11372,7 +11731,16 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/2hraquarist/a3edf96a54904c54.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/2hraquarist/a4c1ed2d04abab9b.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/a6ed4c697e822a26.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/a704032a9066e458.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/2hraquarist/a92f8d53e8a8fd7e.webp": {
@@ -11515,6 +11883,9 @@
   "https://media.aquatome.com/2hraquarist/afb6ffb4673ffe71.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/2hraquarist/b14357ace4256ef9.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/2hraquarist/b2f9d25793c3250d.webp": {
     "ocr": []
   },
@@ -11568,6 +11939,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/2hraquarist/b8c19a7eaa28c09b.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/b9bfddda6b45525e.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/2hraquarist/b9e0cbe57fb26d05.webp": {
@@ -11632,6 +12006,50 @@
   },
   "https://media.aquatome.com/2hraquarist/c3598c9cae59ff62.webp": {
     "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/c3b33419259da719.webp": {
+    "ocr": [
+      {
+        "c": 0.3,
+        "at": "top centre",
+        "alnum": 5,
+        "mark": false,
+        "hash": "d236d356b44d206e14f1f9e8615349b0761c4b7f7da47fd2b4f3182ea0bc708e"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 12,
+        "mark": false,
+        "hash": "2eae5e0ea54e808bc3a349e7031ff6866afaacc95b7615a85cb01e8b54ecd0ef"
+      },
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 9,
+        "mark": false,
+        "hash": "05ca28de3e26611da1163f9cf59f607d8d91554337a739f17d255f3df54ffcc3"
+      },
+      {
+        "c": 1,
+        "at": "middle right",
+        "alnum": 11,
+        "mark": false,
+        "hash": "73257600e9ab5f1b7addfc30225d3a54d555da45258f85336cb7b715fbf75638"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 6,
+        "mark": false,
+        "hash": "74e358731e16156f0d72bd481974d9a00beee2e7fe0bb6b57dd89677f255e911"
+      }
+    ],
+    "watermark": true,
+    "kind": "caption",
+    "locations": [
+      "middle right"
+    ]
   },
   "https://media.aquatome.com/2hraquarist/c3d765d27c29f584.webp": {
     "ocr": [
@@ -11845,6 +12263,20 @@
   "https://media.aquatome.com/2hraquarist/cd52587c782b71c2.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/2hraquarist/ce985efc1ac22b41.webp": {
+    "ocr": [
+      {
+        "c": 0.3,
+        "at": "middle centre",
+        "alnum": 4,
+        "mark": false,
+        "hash": "0e50f72143cadc15cf76564e8ea5a99778495742c1e565f5cf318da9a4f11854"
+      }
+    ],
+    "locations": [
+      "middle centre"
+    ]
+  },
   "https://media.aquatome.com/2hraquarist/d01607b6ca74fa4e.webp": {
     "ocr": []
   },
@@ -11888,6 +12320,53 @@
       "bottom left"
     ]
   },
+  "https://media.aquatome.com/2hraquarist/db2e4c11852e4abf.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 19,
+        "mark": false,
+        "hash": "6bc52d7afa82df9e23d156606e3b3fac86ff8cc2e1706f1b4f8a3226b152f05a"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 18,
+        "mark": false,
+        "hash": "22ed0e792b2f4499fa73ab67083b95e435879757ec3c89e6bd2a31faf222409b"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 5,
+        "mark": false,
+        "hash": "3b70d9d5f88194c89ed77b560c1af294f3951e00c4a857941096e7ff73022258"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 8,
+        "mark": false,
+        "hash": "1df30f0c1874591defbf5256660b2774a79c7bb9b7806a0f279d8f3960cb0a3d"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 3,
+        "mark": false,
+        "hash": "37b3b16ebff1eb7c6b8afd17add5c200bde7dfb429d1de56625bcf43b62820b2"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "middle left",
+      "bottom left",
+      "bottom centre",
+      "bottom right"
+    ]
+  },
   "https://media.aquatome.com/2hraquarist/dc958708afc8a0f9.webp": {
     "ocr": []
   },
@@ -11908,6 +12387,73 @@
   },
   "https://media.aquatome.com/2hraquarist/e252ca159964b4f0.webp": {
     "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/e5b1c320e5312903.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 12,
+        "mark": false,
+        "hash": "32f1e99620c345852e95df41f69e0386e466d3a067f8fbe5acc403b056ae29c3"
+      },
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 11,
+        "mark": false,
+        "hash": "f18ea019fb9139db822787ca632fa4172e22bfa5ae435e610eada3311aee5949"
+      },
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 17,
+        "mark": false,
+        "hash": "c1b5bf0ee103760796dc6c2deadebf7f60cfbea379cb0e8d446a7ee1a04da393"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 12,
+        "mark": false,
+        "hash": "fd0efca96d3976871ed486dbf0bcca44d3009ec539d9fec92b144df1bfae3fe0"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "ec2aa9faf2c16db3c6714d377df3b05f53817e8033820be0a041ad691dad1fc5"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 12,
+        "mark": false,
+        "hash": "8b5b42f1253526e6b567d5458d17a145c5474d82f3079866ccfb4fd0ee4077a5"
+      },
+      {
+        "c": 1,
+        "at": "middle centre",
+        "alnum": 20,
+        "mark": false,
+        "hash": "ee01591881359cfc54feaed187219a9ff703e645f7a2febe8a383b0521551660"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 19,
+        "mark": false,
+        "hash": "6bc52d7afa82df9e23d156606e3b3fac86ff8cc2e1706f1b4f8a3226b152f05a"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "middle left",
+      "middle centre",
+      "bottom centre"
+    ]
   },
   "https://media.aquatome.com/2hraquarist/e6525c354b2ebbab.webp": {
     "ocr": [
@@ -12148,6 +12694,20 @@
   },
   "https://media.aquatome.com/2hraquarist/fc8dac237dbebb5d.webp": {
     "ocr": []
+  },
+  "https://media.aquatome.com/2hraquarist/fdca8482fc2c4fea.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 0,
+        "mark": false,
+        "hash": "161660030aa6c9e32470cc1c023dab32dc748d80b0e61882b368cb775d12638e"
+      }
+    ],
+    "locations": [
+      "top right"
+    ]
   },
   "https://media.aquatome.com/2hraquarist/ff14ef006c78f59d.webp": {
     "ocr": []
@@ -13263,6 +13823,9 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/aquariumbreeder/226ebbd7652e3e65.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/aquariumbreeder/232fdcd9893d1e75.webp": {
     "ocr": [
       {
@@ -14245,6 +14808,9 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/aquariumbreeder/4f2af42563c7a349.webp": {
+    "ocr": []
   },
   "https://media.aquatome.com/aquariumbreeder/4f3cb3c521c3c2a4.webp": {
     "ocr": [
@@ -16835,6 +17401,30 @@
   "https://media.aquatome.com/aquariumbreeder/ef00917f605a225d.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/aquariumbreeder/ef1458c43fa5a6b4.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 7,
+        "mark": false,
+        "hash": "82fa6da4cd415265da3c7da3288771581d73bb7f1acfdbdf7a86b50bc93c07dc"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 12,
+        "mark": false,
+        "hash": "8c70e8662cbbbc4bc100cac0c36047ce379bd3eb0464778eae0c2a710e2bb856"
+      }
+    ],
+    "watermark": true,
+    "kind": "caption",
+    "locations": [
+      "top left",
+      "middle right"
+    ]
+  },
   "https://media.aquatome.com/aquariumbreeder/ef73c202d075beff.webp": {
     "ocr": []
   },
@@ -17089,6 +17679,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/aquariumbreeder/f89da6cfadd571b0.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/aquariumbreeder/f8e1ec4cbaf62ed0.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/aquariumbreeder/f98e3bb7f4c5d256.webp": {
@@ -73300,6 +73893,45 @@
       "by": "screen"
     }
   },
+  "https://media.aquatome.com/glaser/00ba2e32c3ca502e.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      },
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 22,
+        "mark": false,
+        "hash": "81627d273987e4108e4c811148a2fb575ffd4d86ccb6130ed5aad572c77af1d1"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right",
+      "middle left"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/parotocinclus-bahiensis-and-p-cearensis/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/00c361a3661b2fbb.webp": {
     "ocr": [
       {
@@ -73891,6 +74523,51 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/0191247c36c9af2b.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 16,
+        "mark": false,
+        "hash": "2a5b5a6699199bb20cbcb9df4cccb598d62c85b1f7da6268cb2dfd4da8231b04"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 35,
+        "mark": false,
+        "hash": "ff55dbd05d3d1cc0bc0d92ec6ee992400a131d4eed77c8f006c299fa032ee838"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 18,
+        "mark": false,
+        "hash": "c025de4e3556cdac4a3709454afaaabb2fe8507d4d05fcf7d248928c4b7874d8"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 22,
+        "mark": false,
+        "hash": "4e8a8a094df4a8242bb4bbbfbe9bd89dccd21b9cdf95509515c8e836820d1f1a"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre",
+      "top right",
+      "top left"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/parotocinclus-bahiensis-and-p-cearensis/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/01952c7eb0f0e806.webp": {
@@ -82526,6 +83203,45 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/0bb31f828af8f18a.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 22,
+        "mark": false,
+        "hash": "81627d273987e4108e4c811148a2fb575ffd4d86ccb6130ed5aad572c77af1d1"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right",
+      "bottom left"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/parotocinclus-bahiensis-and-p-cearensis/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/0bc5c57ebe787fc4.webp": {
     "ocr": [
       {
@@ -82724,6 +83440,44 @@
     "retainedOwnMark": {
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-eremnopyge-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
+  "https://media.aquatome.com/glaser/0be89861c388d31e.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 15,
+        "mark": false,
+        "hash": "09a55ffa22c3a10eaf137be6b0e0b4179dbb3a5eb98195f35a7c50ce58b30be8"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "44991ba03c391799629d7182831add7470928b1183bceb2d611a1cae1766f071"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/brachyhypopomus-brevirostris-2/",
       "owner": "source",
       "by": "screen"
     }
@@ -87890,6 +88644,37 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/122eb5ce6de8ec9d.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/schistura-cf-balteata-4/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/12381890dc9c31c0.webp": {
     "ocr": [
       {
@@ -89079,6 +89864,44 @@
       "bottom centre",
       "bottom right"
     ]
+  },
+  "https://media.aquatome.com/glaser/148897e92ae753c8.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "dcf749f72197c118f0d26c9c62179dead70bbbf5f87f2296bd32a53f100d57fb"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "44991ba03c391799629d7182831add7470928b1183bceb2d611a1cae1766f071"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/craterocephalus-stercusmuscarum-2/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/14a149c9dfda3a83.webp": {
     "ocr": [
@@ -91922,6 +92745,45 @@
       "bottom centre",
       "bottom right"
     ]
+  },
+  "https://media.aquatome.com/glaser/186b58c6b5d46406.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "985d1e3ef8b5814d15fff536fd2fb72ad48163a82dff1278357ea4fdc564f547"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 28,
+        "mark": false,
+        "hash": "5bbbe39d9d185adb860f90ddbc1c2a1bf5fb27fedb1ff980691fc7b76281cc02"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right",
+      "bottom right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/rubricatochromis-a-new-genus-name-for-the-red-jewel-cichlids/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/187f42f188086af7.webp": {
     "ocr": [
@@ -95267,6 +96129,51 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/1d1bc58cc939e630.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 17,
+        "mark": false,
+        "hash": "b9a1469c972b36d852c09445fa123114e2c578fea2a13ad574a639c619a57703"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 21,
+        "mark": false,
+        "hash": "fa6b9420dd956032964fcf3be365dcd420a69f5c8cf487d280d0520837adc681"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 18,
+        "mark": false,
+        "hash": "c025de4e3556cdac4a3709454afaaabb2fe8507d4d05fcf7d248928c4b7874d8"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-sp-bushmouth-lda-72-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/1d1db33eae51fb65.webp": {
     "ocr": [
       {
@@ -98125,6 +99032,37 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/20af0a7516539fa6.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "49e8a52ed59e8da641acb3a2bd7fea1669e0864d398afbd7ff303dc135802465"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "0f4c4afeff5c16a97f28344cae6b2f85bac7e898bbcff84bab38e40bf2eeeda4"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodus-pictus-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/20b0a3692611c240.webp": {
     "ocr": [
       {
@@ -99491,6 +100429,44 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/22af4307f0c3e6ee.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 4,
+        "mark": false,
+        "hash": "52c92238af4c99684f5bd6863fabfcab5df3111945f5faa372e83a4bd31cc879"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 51,
+        "mark": false,
+        "hash": "120562c614a4a5a4b0aee4c8486001b76dcb2254e6b06551980276456f3479b0"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/brachyhypopomus-brevirostris-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/22b4e1cfa1ca2ad3.webp": {
@@ -102918,6 +103894,45 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/26edccf58299a866.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 22,
+        "mark": false,
+        "hash": "843d912eccb779494d53f8980442d5e73fe39f83803eceb3a6eba95328e2de94"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right",
+      "bottom left"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/rubricatochromis-a-new-genus-name-for-the-red-jewel-cichlids/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/26f92aacdc782aff.webp": {
     "ocr": [
       {
@@ -102940,6 +103955,43 @@
     "locations": [
       "middle centre"
     ]
+  },
+  "https://media.aquatome.com/glaser/270448705fef357c.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "84a5354073ab05e97b02e6b38f9251c7d6fdbeaf463970d015efc9e9eb53be37"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "3ad44ddac1478a8bfe2e7b49b9ec4fd691f562634ccaa66f66f6e830ead9415b"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 22,
+        "mark": false,
+        "hash": "4e8a8a094df4a8242bb4bbbfbe9bd89dccd21b9cdf95509515c8e836820d1f1a"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre",
+      "bottom left"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/parotocinclus-bahiensis-and-p-cearensis/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/2714ee01cb19568e.webp": {
     "ocr": [
@@ -106133,6 +107185,35 @@
     "locations": [
       "top centre"
     ]
+  },
+  "https://media.aquatome.com/glaser/2afcdd6e762d7811.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hoplocharax-goethei-4/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/2b01d4a428679a56.webp": {
     "ocr": [
@@ -111710,6 +112791,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/31c085a699d7a7ab.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "8c7a604e048f72bc6b16afe32d1b5fa0f542c6531ae7ef3160e8bfb4fc1f20d0"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "058757dc9c7f358eab6c9140298d25827d95951e3fce57323d01a55435b9d860"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tetranematichthys-wallacei-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/31c88f956e543ead.webp": {
@@ -120110,6 +121222,42 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/3cb8c40023c5092c.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "60c57c03182a1e267842bb55bde6bd4948bfc87bb9bd18f2036e0a9d543d44aa"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 40,
+        "mark": false,
+        "hash": "a726c5c001e0c43963622108925d14a96bae97d4858aa4192e48cc5d49f26d23"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodus-pictus-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/3ccf4dd3e69d470d.webp": {
     "ocr": [
       {
@@ -127101,6 +128249,45 @@
       "by": "screen"
     }
   },
+  "https://media.aquatome.com/glaser/44987d25b87015a9.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 19,
+        "mark": false,
+        "hash": "28fd87b959157098fb112ff8249190d5a681c94309e3dc0cbf956cce69d1b0e0"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "893a5c827cd94fdba0fc4c177e74e7309f689d2624663dcafc4c1a165d99059a"
+      },
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 22,
+        "mark": false,
+        "hash": "81627d273987e4108e4c811148a2fb575ffd4d86ccb6130ed5aad572c77af1d1"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right",
+      "middle left"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/parotocinclus-bahiensis-and-p-cearensis/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/44a69d730fd0b4bb.webp": {
     "ocr": [
       {
@@ -128979,6 +130166,44 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/46db75d4bb79acd5.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "6694a02e448fe53401bccde73a8f26c1c12ab2f7f4370211fcf8f9a838e9dafd"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "44991ba03c391799629d7182831add7470928b1183bceb2d611a1cae1766f071"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tetranematichthys-wallacei-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/46dc9fadb0e3a189.webp": {
@@ -132096,6 +133321,45 @@
     "retainedOwnMark": {
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-c123-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
+  "https://media.aquatome.com/glaser/4ad56aa2c1e5dacb.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "6c317aa5fcddaf5e3aac91bc70b8e5bc5405696a4819a62f14203c9c4f1f9e98"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 22,
+        "mark": false,
+        "hash": "81627d273987e4108e4c811148a2fb575ffd4d86ccb6130ed5aad572c77af1d1"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right",
+      "bottom left"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/parotocinclus-bahiensis-and-p-cearensis/",
       "owner": "source",
       "by": "screen"
     }
@@ -138924,6 +140188,44 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/5261cc84f9ab1c69.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 4,
+        "mark": false,
+        "hash": "52c92238af4c99684f5bd6863fabfcab5df3111945f5faa372e83a4bd31cc879"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "822e3c2b1245e67a8e7691d8e5bbe8c10fae32711aeb5ee03e79fd22285b34e8"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-sp-bushmouth-lda-72-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/5269bab207534222.webp": {
     "ocr": [
       {
@@ -139905,6 +141207,52 @@
       "top centre",
       "top right"
     ]
+  },
+  "https://media.aquatome.com/glaser/53a4bf3a6b2091f5.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 15,
+        "mark": false,
+        "hash": "ee5e3385527f24ed8fc7d4222d1fad96d4e2d2ef56b59810d6af80cd56c84463"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 31,
+        "mark": false,
+        "hash": "3a060bacbc878471d32e1dfbee063686dfaf068b2933588f4d20f6718183c131"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 24,
+        "mark": false,
+        "hash": "0e6a11ad6ec0e209c8478ea95d10d82eecd4ce137927a2061f02c3eb095f0669"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 21,
+        "mark": false,
+        "hash": "e14056f0f513a3872ef620e432fbe95d48e4071750df917363428d3390c3d866"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right",
+      "bottom right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/rubricatochromis-a-new-genus-name-for-the-red-jewel-cichlids/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/53adf737d2e1377a.webp": {
     "ocr": [
@@ -140901,6 +142249,43 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/54ae495dc18e5e5b.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 15,
+        "mark": false,
+        "hash": "eceef963b705a2237d0162cecd76a4072d387b8e0b3edbf67458a462472d7d90"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 22,
+        "mark": false,
+        "hash": "4e8a8a094df4a8242bb4bbbfbe9bd89dccd21b9cdf95509515c8e836820d1f1a"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre",
+      "bottom left"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/parotocinclus-bahiensis-and-p-cearensis/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/54b4dac64c2fb547.webp": {
@@ -152452,6 +153837,51 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/65426228e3d64374.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "b6e788f3d9105a2a7d0032f77a07dbe73a6b49f32006f97471d183be77abd089"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 21,
+        "mark": false,
+        "hash": "fa6b9420dd956032964fcf3be365dcd420a69f5c8cf487d280d0520837adc681"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 18,
+        "mark": false,
+        "hash": "c025de4e3556cdac4a3709454afaaabb2fe8507d4d05fcf7d248928c4b7874d8"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/cyphocharax-multilineatus-4/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/654bf9ddfc2ccc75.webp": {
     "ocr": [
       {
@@ -160369,6 +161799,37 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/7134e366f5d71d97.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "be9dcffd5cf3a916bf23d556717250276f7bb4c27eb2ff11a8bfa4f1d111a254"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/craterocephalus-stercusmuscarum-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/71412751adf28fac.webp": {
     "ocr": [
       {
@@ -167136,6 +168597,43 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/794e8738a6486711.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 17,
+        "mark": false,
+        "hash": "a663bb3962c899cdd52f48f9cb08961a3695feb0b6232dc263f726f967b3ab27"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "ba9c0f72ff2afd79ea8ce7d3426fc3f7ba6a704a7025027b5e713df450a51eec"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 25,
+        "mark": false,
+        "hash": "0187ae5ba10aaad5f0c24343205de80a1d734523a1fc60c8ce651d9073a565c7"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre",
+      "bottom right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/rubricatochromis-a-new-genus-name-for-the-red-jewel-cichlids/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/7954b194b8ec672f.webp": {
     "ocr": [
       {
@@ -173218,6 +174716,59 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/811f8de72dee54b6.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "d2ce0efe943d076b4b17cc4126501e0a435f06aa74dc381ce56a2182fa973c55"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "16734704488a222ba01ccc217b60a7968f6b33b0b7fa4448ddbe5455c3542df2"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 4,
+        "mark": false,
+        "hash": "4e4c5fb9d4f69677cc60340ad6a97c410992d873345fd9af2b2487b7ce08d29d"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 16,
+        "mark": false,
+        "hash": "3edc07e15fead62753355bf8cd9286dbdd5d8c6162d7e16990e153d0412cacb4"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 26,
+        "mark": false,
+        "hash": "eb868e5c23eee8d1ad957ea92417350c8b46b2aa462b5dd3b153d50e41333385"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right",
+      "bottom left"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/rubricatochromis-a-new-genus-name-for-the-red-jewel-cichlids/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/8126d39949dd8689.webp": {
     "ocr": [
       {
@@ -175686,6 +177237,44 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/83e89d7a80f796d0.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "44991ba03c391799629d7182831add7470928b1183bceb2d611a1cae1766f071"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/craterocephalus-stercusmuscarum-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/83e9571c2ace8f64.webp": {
     "ocr": [
       {
@@ -178073,6 +179662,37 @@
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/desmopuntius-pentazona-2/",
       "owner": "source",
       "by": "return"
+    }
+  },
+  "https://media.aquatome.com/glaser/870efd43bb0e928e.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/schistura-cf-quasimodo-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/8719dca2f590c592.webp": {
@@ -182765,6 +184385,37 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/8d309f35da51982f.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "102f1d56d5e2814ba855b5caeb5e219c6f2d599fdd6e71f2cc54d099bfd35b82"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/chlamydogobius-eremius-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/8d364e7fb161d301.webp": {
     "ocr": [
       {
@@ -184965,6 +186616,44 @@
       "by": "screen"
     }
   },
+  "https://media.aquatome.com/glaser/903f9a65a4ab12ee.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "011443bb984b72021c29415a488a4b467091880b482f79e11c9894417aa25046"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 21,
+        "mark": false,
+        "hash": "0af2e2948ed0a9d8eb774d664ea7e109a26e47da47037d6685363fe06a19ab1b"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/schistura-cf-balteata-4/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/903fff444b5e894d.webp": {
     "ocr": [
       {
@@ -187037,6 +188726,52 @@
     "retainedOwnMark": {
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/colisa-lalia-now-trichogaster-fasciata/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
+  "https://media.aquatome.com/glaser/932eaa628f76b24f.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 40,
+        "mark": false,
+        "hash": "9f5c80e5333088771a7a9b6a62404813002f369949438b4616eae865323300cd"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 6,
+        "mark": false,
+        "hash": "c685a2c9bab235ccdd2ab0ea92281a521c8aaf37895493d080070ea00fc7f5d7"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right",
+      "bottom right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/schistura-cf-balteata-4/",
       "owner": "source",
       "by": "screen"
     }
@@ -190291,6 +192026,44 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/9756edeab42bb578.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "e4ef721bad9ed9c3be644470e35b0ae89cd5ca9b7817c59336233defb59e67ad"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 44,
+        "mark": false,
+        "hash": "fb0ab22fe941ee44b9aad0faa3a89f93fe37cdf42a8fad7379aecaa6ca1602eb"
+      },
+      {
+        "c": 0.5,
+        "at": "top right",
+        "alnum": 8,
+        "mark": false,
+        "hash": "30c1f7cd725576b3c2e64c9687d4fef9af442c53df8c4d8fe183d2cf2ffb224f"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/brachyhypopomus-brevirostris-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/975f4220cc72a715.webp": {
     "ocr": [
       {
@@ -190553,6 +192326,37 @@
     "locations": [
       "top left"
     ]
+  },
+  "https://media.aquatome.com/glaser/97c0dfbf2e24f6a7.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "61616e25c721709ccd1a019be9ce6f1f6dc7161cda1d08b63bf7cbd30c80b995"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/datnioides-polota-2/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/97c1613a194d385d.webp": {
     "ocr": [
@@ -191364,6 +193168,37 @@
     "retainedOwnMark": {
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/campylomormyrus-tamandua-bred-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
+  "https://media.aquatome.com/glaser/98e9e67a7a7f9092.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hoplocharax-goethei-4/",
       "owner": "source",
       "by": "screen"
     }
@@ -192285,6 +194120,51 @@
       "top centre",
       "top right"
     ]
+  },
+  "https://media.aquatome.com/glaser/9a43b572e425362a.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "2160f75da2968d7313765f927b50a779815db145c393a6d7b9638f9afa818898"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 21,
+        "mark": false,
+        "hash": "fa6b9420dd956032964fcf3be365dcd420a69f5c8cf487d280d0520837adc681"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 18,
+        "mark": false,
+        "hash": "c025de4e3556cdac4a3709454afaaabb2fe8507d4d05fcf7d248928c4b7874d8"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/cyphocharax-multilineatus-4/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/9a53819f1e87915c.webp": {
     "ocr": [
@@ -193725,6 +195605,59 @@
       "top right",
       "bottom left"
     ]
+  },
+  "https://media.aquatome.com/glaser/9bf45fbd6fe99fa8.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "e057b4f53a2c7a129b77f5d93be3eed44d310f4b23b390efe60a33a31ff4d8d4"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "4bb37b145d2e374358a8facebc87366c954b9ca61bbae823c085d0070bf7434d"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 20,
+        "mark": false,
+        "hash": "67e256b653e8b5943317591374a905939235c76aef88501b77870dd876b54479"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 10,
+        "mark": false,
+        "hash": "f38a83f736d51829bda1611f17dfbb34b55b222b0548a3bf8ea47e54de8c6f00"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right",
+      "bottom right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/rubricatochromis-a-new-genus-name-for-the-red-jewel-cichlids/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/9bff892e7c366938.webp": {
     "ocr": [
@@ -199995,6 +201928,37 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/a3d121b5d4650531.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/cyphocharax-multilineatus-4/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/a3d156727fc525a4.webp": {
     "ocr": [
       {
@@ -200413,6 +202377,52 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/a4594edb5de82732.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "44991ba03c391799629d7182831add7470928b1183bceb2d611a1cae1766f071"
+      },
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 22,
+        "mark": false,
+        "hash": "81627d273987e4108e4c811148a2fb575ffd4d86ccb6130ed5aad572c77af1d1"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right",
+      "middle left"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/parotocinclus-bahiensis-and-p-cearensis/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/a459af0cd99fdc0f.webp": {
@@ -202684,6 +204694,37 @@
       "top centre",
       "top right"
     ]
+  },
+  "https://media.aquatome.com/glaser/a6f4730fb10f6a1e.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/brachyhypopomus-brevirostris-2/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/a6f6a67fbc848119.webp": {
     "ocr": [
@@ -205718,6 +207759,45 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/aacd272f8ab52197.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "9045f12541b78f70abd017991c52ac083931e2be5313e44f57ddb03a130d1cd3"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "326b0ab6fbf241ed2c9f86a8d930b64a03bff8e85fc71166e204d6adef21faf5"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 21,
+        "mark": false,
+        "hash": "d2fb793e7f22cecdd879624331ca15d9b19e4c61c3ee75c708f2df6b679b2333"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right",
+      "bottom right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/rubricatochromis-a-new-genus-name-for-the-red-jewel-cichlids/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/aad1d2089c99d8dc.webp": {
     "ocr": [
       {
@@ -205793,6 +207873,37 @@
     "locations": [
       "top centre"
     ]
+  },
+  "https://media.aquatome.com/glaser/aae1f8fe2b8287f5.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/chlamydogobius-eremius-2/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/aaea4198a39fe956.webp": {
     "ocr": [
@@ -208054,6 +210165,35 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/ae1721614cc96ddb.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hoplocharax-goethei-4/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/ae22d2d120b0d304.webp": {
@@ -212898,6 +215038,45 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/b30f7493aacf9333.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 22,
+        "mark": false,
+        "hash": "843d912eccb779494d53f8980442d5e73fe39f83803eceb3a6eba95328e2de94"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right",
+      "bottom left"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/rubricatochromis-a-new-genus-name-for-the-red-jewel-cichlids/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/b31221ff6bda7486.webp": {
     "ocr": [
       {
@@ -216263,6 +218442,80 @@
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_tecminae_en/",
       "owner": "source",
       "by": "return"
+    }
+  },
+  "https://media.aquatome.com/glaser/b70b43aef9084202.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "ae581c41981f8cf6cac54f010742937a024760a9175aad770b57795ecc784847"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 13,
+        "mark": false,
+        "hash": "f313edf42dc65cc39c79992906b9fd3dcb8723b3461f2dff99934fb6124b2a38"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 10,
+        "mark": false,
+        "hash": "3d2be90700b55769741edbba606670f60f3f41ecd0585a2bb9b9105693bfc17a"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 18,
+        "mark": false,
+        "hash": "c025de4e3556cdac4a3709454afaaabb2fe8507d4d05fcf7d248928c4b7874d8"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 11,
+        "mark": false,
+        "hash": "bc5064e1340dd4329598b346cd87d2595a566c19bdc7ca7e2f658650fa584e26"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 10,
+        "mark": false,
+        "hash": "a58f86f687e488cdb94c7874d927846db38aca5c478558c57af89ea4e71794d6"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 3,
+        "mark": false,
+        "hash": "1e5611b0f5182c165f7631bc4895deb30bed149bd3f58c646eef7c54589147c5"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 16,
+        "mark": false,
+        "hash": "5d2a9c871088653dd148477978aa9eb260e87d68ebcf55076c64d23d7b0f0d6b"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right",
+      "bottom right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/rubricatochromis-a-new-genus-name-for-the-red-jewel-cichlids/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/b7158fb1033b5375.webp": {
@@ -225421,6 +227674,52 @@
       "by": "screen"
     }
   },
+  "https://media.aquatome.com/glaser/c1db1d8e00a53a7a.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "6694a02e448fe53401bccde73a8f26c1c12ab2f7f4370211fcf8f9a838e9dafd"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "44991ba03c391799629d7182831add7470928b1183bceb2d611a1cae1766f071"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 23,
+        "mark": false,
+        "hash": "0db98172906a81c548ff064e28cf82fc4e23eb78b2549e2c7779c5925e92e7f2"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right",
+      "bottom right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/rubricatochromis-a-new-genus-name-for-the-red-jewel-cichlids/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/c1dc34800dfd16e7.webp": {
     "ocr": [
       {
@@ -228309,6 +230608,44 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/c4e0a0f3f0fb457e.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 44,
+        "mark": false,
+        "hash": "f735a17a548eb04247970d65f09152cb98b3ed2babe42c9df7a49c24e5c8a1c5"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 6,
+        "mark": false,
+        "hash": "a5df09c8e49a1c14fc94b41fcabdb0e45bf5f0d53cf6128cdb6331a8083c9464"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/chlamydogobius-eremius-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/c4e0ac15d1344be9.webp": {
     "ocr": [
       {
@@ -228643,6 +230980,43 @@
     "retainedOwnMark": {
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-procyon-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
+  "https://media.aquatome.com/glaser/c5688017a3956804.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 16,
+        "mark": false,
+        "hash": "bf16f6f9bde18d321e6589bc7e178977b58211cbed48a3c86e8dec290a5d2ece"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 51,
+        "mark": false,
+        "hash": "55b075d37db28a6b6b211054fbd34db36843449962145edfab2b3c2bcd8bafc2"
+      },
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 22,
+        "mark": false,
+        "hash": "4e8a8a094df4a8242bb4bbbfbe9bd89dccd21b9cdf95509515c8e836820d1f1a"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre",
+      "middle left"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/parotocinclus-bahiensis-and-p-cearensis/",
       "owner": "source",
       "by": "screen"
     }
@@ -230449,6 +232823,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/c765752ef2980530.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/datnioides-polota-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/c76ec8c353a0a800.webp": {
@@ -236874,6 +239279,68 @@
       "by": "screen"
     }
   },
+  "https://media.aquatome.com/glaser/d0486e1e6ca53b8c.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hoplocharax-goethei-4/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
+  "https://media.aquatome.com/glaser/d04c0f424a6c8e4d.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "4e975a97b3f63ad17d187963adbbc0d7c96ccd2e5b5a2d58b3626b8ba23c691c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/schistura-cf-quasimodo-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/d0556fc30b4631f2.webp": {
     "ocr": [
       {
@@ -238877,6 +241344,58 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/d2f615873275ef94.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "140927f716b41c102d96b6e737946ef6232bbc9263eecc450ae13f327b467c7a"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 4,
+        "mark": false,
+        "hash": "52c92238af4c99684f5bd6863fabfcab5df3111945f5faa372e83a4bd31cc879"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 13,
+        "mark": false,
+        "hash": "1ac977be8f5df418c19c2d5b5fa6270c8063f940923bbc905f7db8388d7a3b11"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 21,
+        "mark": false,
+        "hash": "2f56e6ab7d74bd69acd4403122ae9a69399fba4adc02cf0a5b29d67e086f3c04"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 18,
+        "mark": false,
+        "hash": "c025de4e3556cdac4a3709454afaaabb2fe8507d4d05fcf7d248928c4b7874d8"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/cyphocharax-multilineatus-4/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/d2f9b183b0b97aff.webp": {
     "ocr": [
       {
@@ -239718,6 +242237,37 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/d455ef86c5abb6f9.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "762f2cffb42c765556b70081ac41293a07bf61268cdbf67fc53989eb3a234039"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-sp-bushmouth-lda-72-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/d4578da5dd4045e1.webp": {
     "ocr": [
       {
@@ -239904,6 +242454,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/d4a76141976fefc2.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "c2110a4dfeb932590ff52ddf5a5de1d0e50dd8bcb4b10a4c07efd98a070c27ef"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/craterocephalus-stercusmuscarum-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/d4a78e3acca35cc8.webp": {
@@ -242567,6 +245148,37 @@
       "top centre",
       "top right"
     ]
+  },
+  "https://media.aquatome.com/glaser/d7e75d7e0b0ca140.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "76b78d2f9737e752d7278e9ca8b855098654ce02f3cb93331d8dd6a5525c6686"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/datnioides-polota-2/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/d7eb0455632bfc49.webp": {
     "ocr": [
@@ -246505,6 +249117,35 @@
       "bottom right"
     ]
   },
+  "https://media.aquatome.com/glaser/dcc0a9368e84b5e2.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "dfe46874e64b6de5e4656617be1408f265efe9896c2ae9be6b360ddef719aac7"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "f8627592f5e779a0a00679b2d04df3878137c19bd521534f897390b29691ad78"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodus-pictus-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/dcc63e723ddabb4d.webp": {
     "ocr": [
       {
@@ -249199,6 +251840,45 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/e00751fb0dbd31a2.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 15,
+        "mark": false,
+        "hash": "fcba1e59c653f4324d9f1f84ee3b9f1e364d8a1e4eab701806aeb8de9d61525c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "bc9254d6114efcf53126f6612b5f9cc323031badcfea7e16605729a2c146e7e0"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 23,
+        "mark": false,
+        "hash": "0db98172906a81c548ff064e28cf82fc4e23eb78b2549e2c7779c5925e92e7f2"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right",
+      "bottom right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/rubricatochromis-a-new-genus-name-for-the-red-jewel-cichlids/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/e00ed247656480d3.webp": {
     "ocr": [
       {
@@ -249557,6 +252237,51 @@
       "top centre",
       "top right"
     ]
+  },
+  "https://media.aquatome.com/glaser/e080f6007ae866c7.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 15,
+        "mark": false,
+        "hash": "7dc41db2f65ebf3b20a5129c0c0406e803496dcc4b8fdcdc30d7f9c0ffa369ba"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 21,
+        "mark": false,
+        "hash": "fa6b9420dd956032964fcf3be365dcd420a69f5c8cf487d280d0520837adc681"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 18,
+        "mark": false,
+        "hash": "c025de4e3556cdac4a3709454afaaabb2fe8507d4d05fcf7d248928c4b7874d8"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tetranematichthys-wallacei-2/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/e08134c7b5d629e7.webp": {
     "ocr": [
@@ -250350,6 +253075,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/e1581535cfd9affd.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "35f4a93f2b56f4920cd1795073b845d3e6a4516795f182ed48f54c18b0345a06"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/chlamydogobius-eremius-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/e15cea4e6ed4890e.webp": {
@@ -255673,6 +258429,45 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/e87db1a500e53290.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 16,
+        "mark": false,
+        "hash": "4cde0f6992b7dceba31ef88b863d2c0297d713bca5b666502783d1359b8245c8"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 29,
+        "mark": false,
+        "hash": "a0f370ae3ec36a1cd65a1808979e184da64f0742f29021a3029c78bdf5ca4a78"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 22,
+        "mark": false,
+        "hash": "4e8a8a094df4a8242bb4bbbfbe9bd89dccd21b9cdf95509515c8e836820d1f1a"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right",
+      "bottom left"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/parotocinclus-bahiensis-and-p-cearensis/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/e893fa72b04753aa.webp": {
     "ocr": [
       {
@@ -256488,6 +259283,37 @@
       "top right",
       "bottom right"
     ]
+  },
+  "https://media.aquatome.com/glaser/e977fca5cb67de27.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 15,
+        "mark": false,
+        "hash": "dff86aace4ed90ed42fef81ecaef2031fc558ba5c1a70406460ced13cf15c850"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tetranematichthys-wallacei-2/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/e9919619c09e03bb.webp": {
     "ocr": [
@@ -257742,6 +260568,43 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/eb3ff90297df1c3f.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 16,
+        "mark": false,
+        "hash": "c0c00d975eaba3b21abe04a5383af0229f1f3117848486da02def8c919e301e1"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 36,
+        "mark": false,
+        "hash": "6508524a2110f06584aae20bd30c1b4f363736f8428e55fdae155acf3cf02dea"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 22,
+        "mark": false,
+        "hash": "4e8a8a094df4a8242bb4bbbfbe9bd89dccd21b9cdf95509515c8e836820d1f1a"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre",
+      "bottom left"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/parotocinclus-bahiensis-and-p-cearensis/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/eb59561f4efabf0e.webp": {
@@ -264572,6 +267435,44 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/f39e2d80f0f888b1.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "35f4a93f2b56f4920cd1795073b845d3e6a4516795f182ed48f54c18b0345a06"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "8f37a023f537a24b006fd21a1943a00c275880535524802302811ed7bc6295bb"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/schistura-cf-quasimodo-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/f3a866bf7f7ab65a.webp": {
     "ocr": [
       {
@@ -265610,6 +268511,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/f48fdeca3da846c5.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 17,
+        "mark": false,
+        "hash": "a3b96394e75140309df0860a686c35edd8c1d6d876c1a37414d18a6f086a9c9c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "ad4841bb79ebc44b96cdb132b3a3f3cb48d6477fa05b620f1728b3e448b67536"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/datnioides-polota-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/f4914bc51f9efaf3.webp": {
@@ -267298,6 +270230,52 @@
       "top centre",
       "top right"
     ]
+  },
+  "https://media.aquatome.com/glaser/f6a07e746cf6e002.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 24,
+        "mark": false,
+        "hash": "0e6a11ad6ec0e209c8478ea95d10d82eecd4ce137927a2061f02c3eb095f0669"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 22,
+        "mark": false,
+        "hash": "da6b66a11298a90d52a59f5ce07fde0602fc1d2c693820dd1d4ccd5823206a87"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right",
+      "bottom right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/rubricatochromis-a-new-genus-name-for-the-red-jewel-cichlids/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/f6b195fff514938f.webp": {
     "ocr": [
@@ -270077,6 +273055,44 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/fabe85063d9b0904.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "5ed19e753c3daf686a7caa12b911a82075abd071968b49a35a7f5df093a97508"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 4,
+        "mark": false,
+        "hash": "52c92238af4c99684f5bd6863fabfcab5df3111945f5faa372e83a4bd31cc879"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "e4f515ee944993c846c891bc7563266ec2cbe6f6e641ce11cd30f74b6429a707"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-sp-bushmouth-lda-72-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/fadb74331f3402b9.webp": {
     "ocr": [
       {
@@ -270632,6 +273648,35 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/fba8354c95ea1237.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 15,
+        "mark": false,
+        "hash": "f5891529bef2df3b2c760fb622540e8a541a5199fa1a3ad061373b5d1c17e718"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "60903e3d0a531e9e61f5eccff6b7fd4fbcec9de8980220f7b084a8a27809a813"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodus-pictus-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/fbbf6f759b080a89.webp": {
@@ -271500,6 +274545,52 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/fd01533e9f0cee5b.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 35,
+        "mark": false,
+        "hash": "afe1d3673249128f760db0c894a63496e4124fb6f3d83db3b6e7910898e6d57e"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 18,
+        "mark": false,
+        "hash": "c025de4e3556cdac4a3709454afaaabb2fe8507d4d05fcf7d248928c4b7874d8"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 24,
+        "mark": false,
+        "hash": "925ce99313697c139e7350c5be5e5de58b13a6dad58ae926bb2076e124469447"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right",
+      "bottom right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/rubricatochromis-a-new-genus-name-for-the-red-jewel-cichlids/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/fd0dc31efefd46da.webp": {
     "ocr": [
       {
@@ -272086,6 +275177,37 @@
     "locations": [
       "bottom right"
     ]
+  },
+  "https://media.aquatome.com/glaser/fdaed4bbbd155122.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "b93b6492f53e1112fa214c8b50e281ad67f4992352c4c32a4dd7e1b2f5616e2d"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/schistura-cf-quasimodo-2/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/fdaf4f693be19b5b.webp": {
     "ocr": [
@@ -324178,6 +327300,11 @@
     "watermark": false,
     "kind": "none"
   },
+  "https://media.aquatome.com/scotcat/3c09c9d3d73c93df.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
   "https://media.aquatome.com/scotcat/3ca174029b583464.webp": {
     "ocr": [
       {
@@ -328130,6 +331257,11 @@
     "kind": "none"
   },
   "https://media.aquatome.com/scotcat/6b51013cb835d813.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
+  "https://media.aquatome.com/scotcat/6b7e2ae66e5239aa.webp": {
     "ocr": [],
     "watermark": false,
     "kind": "none"
@@ -334160,6 +337292,11 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/scotcat/b840aeb4947c6b89.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
   "https://media.aquatome.com/scotcat/b8665eb54a4d81e4.webp": {
     "ocr": [],
     "watermark": false,
@@ -334209,6 +337346,11 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/scotcat/b8cffe435ad1c20e.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
   },
   "https://media.aquatome.com/scotcat/b8d6e6ce4b9d2606.webp": {
     "ocr": [],
@@ -337203,6 +340345,11 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/scotcat/de4d1e18074b3a5a.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
   },
   "https://media.aquatome.com/scotcat/de55da553c196a55.webp": {
     "ocr": [],

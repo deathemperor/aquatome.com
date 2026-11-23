@@ -1,0 +1,91 @@
+{
+  "id": "akysis-pictus",
+  "scientificName": "Akysis pictus",
+  "order": "Siluriformes",
+  "family": "Akysidae",
+  "genus": "Akysis",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "myanmar",
+    "tenasserim"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 4.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1530",
+      "html": "<p>Akysis pictus Günther, 1883. Type locality: Tenasserim, Myanmar. Size: 45 mm SL. Etymology: from the Greek a, meaning without, and kystis, meaning bladder, in reference to the lack of a swimbladder.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1530",
+      "html": "<p>Asia: Myanmar (Tenasserim). IUCN Red List category: Data Deficient (last assessed 2010).</p><p>Fishes of the genus Akysis are small species (typically not larger than 50 mm SL) with tuberculate skin and a cryptic colour pattern generally consisting of yellow patches or bands on a brown body. The genus is distributed from the Irrawaddy River drainage in the west, to the Citarum River drainage in the east and south, and the Lancanjiang (upper Mekong) drainage in the north.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1530",
+      "html": "<p>Rocks or driftwood to partially deflect the current and for the fish to hide in. Some vegetation or leaf litter is also ideal.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1530",
+      "html": "<p>Ideal tankmates include balitorine loaches such as Homaloptera, fast-swimming cyprinids such as Danio or Barilius, and smaller mastacembelids.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1530",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1530",
+      "html": "<p>Ng, H. H., 1999 (The Akysis of Myanmar): posterior edge of pectoral spine without serrations. Body with a single dark yellow patch (actually 2 smaller coalescent patches) covering the dorsum from the origin of the adipose fin to the end of the caudal peduncle. Head length 24.4–24.5% SL; length of adipose fin base 22–23.6% SL; interorbital distance 34–39% HL; eye diameter 8–10% HL; length of nasal barbel 54–57% HL.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1530",
+      "html": "<p>Annals and Magazine of Natural History (Series 5) v. 11 (no. 62), pp 138.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 40cm",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thác nhỏ",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát sông thủy sinh",
+        "sỏi nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
+}

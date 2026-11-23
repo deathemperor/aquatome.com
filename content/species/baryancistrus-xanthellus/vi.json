@@ -17,7 +17,12 @@
     "Cá hypancistrus vàng",
     "Cá L81",
     "Gold seam sucker cat",
-    "Cá tỳ bà Golden Nugget"
+    "Cá tỳ bà Golden Nugget",
+    "Cá tỳ bà vàng",
+    "LDA060",
+    "LDA116",
+    "LDA117",
+    "Guldklump-sugemalle"
   ],
   "sections": {
     "distribution:seriouslyfish": "<p>Đây là loài đặc hữu của lưu vực rio Xingu. Chúng sống ở một đoạn dòng chính có tên 'Volta Grande do rio Xingu', nằm giữa thác Belo Monte và cửa sông rio Iriri, thuộc bang Pará, Brazil.</p><p>Trong giới chơi cá, các quần thể ở đoạn sông này mang mã L018 và L085. Iriri là một nhánh lớn của Xingu. B. xanthellus cũng đã được ghi nhận dọc đoạn trung và hạ lưu sông Iriri, và quần thể ở đây mang mã L177.</p>",
@@ -39,14 +44,19 @@
     "behaviour:glaser": "<p>Chúng hay giành chỗ và hay gây gổ. Khi đã dài quá 20 cm, chúng cần bể rộng.</p>",
     "dimorphism:glaser": "<p>Loài này có bốn dạng màu. L18 là Golden Nugget \"chính hiệu\", có đốm khá to và sống ở dòng chính. L81 có đốm nhỏ hơn hẳn, và có vẻ sống chung với L18 ở dòng chính. Đốm to nhất là ở L177, dạng đến từ sông Iriri, một nhánh của sông Xingu. L81n \"New Stardust\" có đốm cỡ như L81, nhưng viền vây lưng rộng hơn nhiều và màu vàng đậm hơn. Nguồn gốc chính xác của nó chưa rõ, chỉ nghe nói là từ sông Xingu. Cỡ đốm, độ rộng viền vây và lượng màu vàng khác nhau khá nhiều giữa các con, nên có con khó xếp vào mã L nào. Khi đã lớn hẳn, cả bốn dạng trông khá giống nhau và đốm nhỏ hơn nhiều so với lúc còn nhỏ.</p>",
     "reproduction:glaser": "<p>Loài này có thể đẻ được trong bể. Chúng là loài đẻ trong hang điển hình. Nhưng vì đòi hỏi điều kiện đặc biệt nên rất hiếm khi cho đẻ thành công.</p>",
-    "notes:glaser": "<p>Baryancistrus L18, L81, L81n và L177 là những con cá rất đẹp, nhiều người muốn có. Tuy nhiên, muốn nuôi khỏe và cho đẻ được trong bể thì phải đáp ứng thật đầy đủ những đòi hỏi rất riêng của chúng.</p>"
+    "notes:glaser": "<p>Baryancistrus L18, L81, L81n và L177 là những con cá rất đẹp, nhiều người muốn có. Tuy nhiên, muốn nuôi khỏe và cho đẻ được trong bể thì phải đáp ứng thật đầy đủ những đòi hỏi rất riêng của chúng.</p>",
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Baryancistrus xanthellus Rapp Py-Daniel, Zuanon &amp; de Oliveira, 2011</li><li>Tên thường gọi: L018, Gold Nugget Pleco, L081, L085, L177, LDA060, LDA116, LDA117</li><li>Sách Đỏ IUCN: Sắp bị đe dọa (đánh giá năm 2018)</li><li>Nguồn gốc tên: tiếng Hy Lạp barys là nặng, agkistron là lưỡi câu, hiểu nôm na là \"Ancistrus nặng\"</li></ul>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: sông Amazon, hạ lưu Amazon, sông Xingu (hạ lưu Xingu và sông Iriri). Nơi thu mẫu để mô tả loài là sông Xingu, gần thác Buraco do Inferno, Senador José Porfirio, bang Pará, Brazil.</p>",
+    "waterConditions:planetcatfish": "<ul><li>pH: 6,4–7,6</li><li>Nhiệt độ: 25–30 °C</li><li>Khác: nước trong, có dòng chảy khá mạnh.</li></ul>",
+    "references:planetcatfish": "<p>Neotropical Ichthyology v. 9 (no. 2), pp 242, Figs. 1-2.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
       "glaser": 0.9,
-      "seriouslyfish": 0.8
+      "seriouslyfish": 0.8,
+      "planetcatfish": 0.9
     }
   }
 }

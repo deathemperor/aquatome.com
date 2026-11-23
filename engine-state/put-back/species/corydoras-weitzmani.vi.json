@@ -1,0 +1,46 @@
+{
+ "at": "2026-11-23T20:06:46Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Đã có 17 báo cáo về việc cho loài này đẻ.",
+   "why": "Refers to the source site's own spawning-report records, which the reader cannot see."
+  }
+ ],
+ "text": {
+  "slug": "ca-chuot-corydoras-weitzmani",
+  "name": "Cá chuột Corydoras weitzmani",
+  "altNames": [
+   "Weitzman's Corydoras",
+   "Cá chuột hai yên",
+   "Twosaddle Corydoras"
+  ],
+  "sections": {
+   "quickFacts:glaser": "<p>Corydoras weitzmani bắt từ tự nhiên ở Peru. Loài này cực kỳ hiếm gặp ngoài tiệm.</p>",
+   "distribution:glaser": "<p>Năm 1971, khi loài này được mô tả khoa học, nơi lấy mẫu chuẩn được ghi là \"Cuzco ở Peru\". Đã có nhiều chuyến thám hiểm vào vùng này tìm con cá chuột này, nhưng chuyến nào cũng về tay trắng. Người ta từng nghi là loài này không có thật, hoặc đã tuyệt chủng. Hóa ra thông tin về nơi bắt mẫu mà nhà khoa học mô tả loài nhận được là sai. Corydoras weitzmani thật ra sống ở vùng Madre de Dios. Năm 2004, những người đi bắt cá cảnh đã tìm lại được nó ở đó.</p>",
+   "behaviour:glaser": "<p>Corydoras weitzmani sống theo đàn, lúc nào cũng nên nuôi thành nhóm. Thả chung với cá hiền thì loài này rất hợp.</p>",
+   "waterConditions:glaser": "<p>Loài này nuôi khá dễ. Cuzco nằm trên dãy Andes, ở độ cao 3.400 m, nên trước đây có người đoán là chắc phải nuôi nó ở nhiệt độ thấp. Đoán vậy là sai hoàn toàn. Muốn nuôi được loài này thì các chỉ số nước lẫn nhiệt độ đều không quan trọng lắm.</p>",
+   "notes:glaser": "<p>Corydoras: gốc tiếng Hy Lạp cổ, nghĩa là \"có mũ sắt và giáo\". Tên này là do lớp giáp cứng và các gai vây chắc của cá. weitzmani: đặt theo tên nhà ngư học Stanley H. Weitzman để vinh danh ông.</p>",
+   "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Hoplisoma weitzmani (Nijssen, 1971)</li><li>Tên thường gọi: Twosaddle Corydoras; Weitzmans Pansermalle (Đan Mạch)</li><li>Nơi thu mẫu chuẩn (type locality): hệ thống sông Río Vilcanota ở Cuzco, 13°32'S, 71°57'W, bang Cuzco, Peru.</li><li>Sách đỏ IUCN: chưa đánh giá</li></ul>",
+   "distribution:planetcatfish": "<p>Nam Mỹ: sông Amazon, trung lưu Amazon (Solimões), sông Madeira, sông Madre de Dios.</p>",
+   "waterConditions:planetcatfish": "<ul><li>pH: 6,0–8,0</li><li>Nhiệt độ: 22–26°C</li><li>Thông số khác: dGH 2–25</li></ul>",
+   "equipment:planetcatfish": "<p>Nền tốt nhất là cát, và gần như phải là cát. Sỏi hạt tròn cũng dùng được nhưng không bằng. Đừng nuôi loài này trên sỏi cạnh sắc (sỏi vỡ) hay cát sắc, vì lúc đào bới cá dễ bị tổn thương râu hơn.</p><p>Quanh khoảng nền nên bày lũa và cây thủy sinh, chừa một khoảng trống cho cá bơi và kiếm ăn. Một đàn cá này chỉ cần bóng râm từ đá nhô ra, lũa cong vòm, cây cao hoặc cây nổi là đủ để yên ổn.</p>",
+   "diet:planetcatfish": "<p>Loài này ăn ngay mọi loại thức ăn chế biến sẵn chìm được xuống đáy, như viên nén, hạt và thức ăn dạng mảnh cỡ lớn. Chúng cũng ăn dễ các loại thức ăn tươi sống (hoặc đông lạnh) như trùng huyết, giun trắng, giun grindal (Enchytraeus), bo bo (Daphnia) và trùn chỉ (Tubifex). Đây cũng là thức ăn tốt để vỗ béo cả đàn trước khi cho đẻ.</p>",
+   "behaviour:planetcatfish": "<p>Cá hiền, sống theo đàn, thả chung với cá hiền khác được.</p>",
+   "dimorphism:planetcatfish": "<p>Con cái to hơn và thân đầy đặn hơn, nhìn từ trên xuống thấy rõ nhất. Con đực càng lớn thì đầu vây thường càng nhọn chứ không tròn.</p>",
+   "reproduction:planetcatfish": "<p>Con cái kẹp trứng giữa hai vây bụng. Đã có 17 báo cáo về việc cho loài này đẻ.</p>",
+   "references:planetcatfish": "<p>Beaufortia v. 19 (no. 250), tr. 91, Hình 1.</p>"
+  },
+  "quality": {
+   "score": 0.9,
+   "indexable": true,
+   "bySource": {
+    "glaser": 0.9,
+    "planetcatfish": 0.93
+   }
+  }
+ }
+}

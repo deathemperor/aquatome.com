@@ -5,14 +5,18 @@
   "sections": {
     "quickFacts:planetcatfish": "<p>Denticetopsis iwokrama Vari, Ferraris &amp; De Pinna, 2005 (họ Cetopsidae). Kích thước: 43 mm SL. Trong Danh sách Đỏ IUCN, loài này xếp hạng Ít quan tâm (lần đánh giá gần nhất năm 2020). Chưa ai ghi lại chuyện cho loài này đẻ.</p>",
     "distribution:planetcatfish": "<p>Nam Mỹ: Guyana, các sông đổ ra biển ở vùng Guiana, sông Essequibo và sông Siparuni. Mẫu chuẩn được thu ở sông Siparuni, đoạn Tumble Creek, thuộc lưu vực sông Essequibo, vùng Essequibo, Guyana.</p>",
-    "references:planetcatfish": "<p>Neotropical Ichthyology v. 3 (no. 2), pp 208, Fig. 47.</p>"
+    "references:planetcatfish": "<p>Neotropical Ichthyology v. 3 (no. 2), pp 208, Fig. 47.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: chưa có</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Siparuni, Guyana. Nơi thu mẫu chuẩn: Guyana. Essequibo: sông Siparuni tại Tumble Down Creek, lưu vực sông Essequibo (4º48'39\"N, 58º51'11\"W).</p><p>Hiện chỉ biết Denticetopsis iwokrama ở nơi thu mẫu chuẩn thuộc lưu vực sông Siparuni và ở hai điểm khác của Guyana: sông Kuyuwini, một nhánh của lưu vực Essequibo, và sông Takutu gần làng Moco-Moco. Phạm vi xuất hiện (EOO) ước tính khoảng 35.041 km2, còn diện tích cư trú (AOO) khoảng 2.936 km2. Tuy nhiên, loài này bị ngờ là phân bố rộng hơn những gì đang biết, có ở cả các nhánh khác của lưu vực, nơi cũng có những con suối nhỏ tương tự. Dù mới gặp ở ít nơi, vùng phân bố chung của nó có vẻ vẫn còn nguyên vẹn và chưa thấy tác động rõ nào lên loài. Vì thế Denticetopsis iwokrama được xếp vào mức Ít quan tâm (Least Concern). Cần khảo sát thêm để thu mẫu ở nhiều nơi hơn, từ đó hiểu rõ hơn về sinh thái, quần thể và vùng phân bố của loài (IUCN 2022).</p>",
+    "notes:scotcat": "<p>Mô tả: Denticetopsis iwokrama giống nhất với D. seducta, loài sống ở vùng giữa và phía tây lưu vực Amazon. Hai loài khác nhau rõ ở số đốt sống đuôi, tổng số đốt sống và kiểu hoa văn trên vây ngực.</p><p>Nguồn gốc tên gọi: Tên loài iwokrama đặt theo dự án rừng nhiệt đới Iwokrama ở Guyana. Mẫu chuẩn được thu trong thời gian dự án này diễn ra.</p>",
+    "references:scotcat": "<ul><li>Calegari, B.B. 2022. Denticetopsis iwokrama. The IUCN Red List of Threatened Species 2022.</li><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>The ETYFish Project Fish Name Etymology Database.</li><li>Vari, R.P., C.J. Ferraris, Jr. and M.C.C. de Pinna 2005 The neotropical whale catfishes (Siluriformes: Cetopsidae: Cetopsinae), a revisionary study. Neotrop. Ichthyol. 3(2):127-238.</li></ul>"
   },
   "quality": {
     "score": 0.9,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.9
-    },
-    "reason": "thin"
+      "planetcatfish": 0.9,
+      "scotcat": 0.92
+    }
   }
 }

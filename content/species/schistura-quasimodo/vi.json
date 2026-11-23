@@ -1,0 +1,27 @@
+{
+  "slug": "ca-chach-quasimodo",
+  "name": "Cá chạch Quasimodo",
+  "altNames": [
+    "Cá chạch suối Quasimodo",
+    "Quasimodo loach"
+  ],
+  "sections": {
+    "notes:glaser": "<p>Một loài chạch ngộ nghĩnh mang cái tên cũng ngộ nghĩnh! Năm 2000, khi mô tả khoa học một loài chạch ở Lào, Kottelat đặt cho nó cái tên này. Quasimodo là anh gù kéo chuông trong cuốn tiểu thuyết nổi tiếng thế giới của Victor Hugo. Con chạch Lào này cũng có một cái bướu, nên mới mang tên đó. Nhưng nó còn một điểm thứ hai cực kỳ hiếm gặp ở chạch. Chạch sống ở đáy và kiếm ăn dưới đáy, vì thế khe miệng thường hướng xuống dưới (miệng dưới). Schistura quasimodo thì khác. Khe miệng của nó gần như nằm ngang (miệng gần cuối mõm).</p><p>Gần đây, lần đầu tiên có về một loài chạch từ miền bắc Thái Lan, miệng cũng nằm hẳn ở đầu mõm. Nó khác Schistura quasimodo ở Lào vì không có bướu, nhưng chuyện này có thể chỉ do tuổi cá. Màu của hai loài cũng khác nhau. S. quasimodo có sọc: cá con có tới 10 sọc, còn cá lớn dài 5–6 cm có 6–8 sọc. Những con mới về thì chỉ một màu trơn. Vì vậy, có lẽ đây là một loài chưa được mô tả khoa học.</p>",
+    "behaviour:glaser": "<p>Chúng sống hòa thuận với nhau, nhưng chưa ai nuôi loài này đủ lâu để có kinh nghiệm.</p>",
+    "quickFacts:glaser": "<p>Những con hiện có dài 4–6 cm, và chắc sẽ còn lớn thêm 1–2 cm nữa.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-24"
+  }
+}

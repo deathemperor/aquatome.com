@@ -6,14 +6,19 @@
     "quickFacts:planetcatfish": "<p>Denticetopsis sauli Ferraris, 1996. Họ Cetopsidae. Kích thước: 21 mm SL (chiều dài chuẩn).</p>",
     "distribution:planetcatfish": "<p>Nam Mỹ: quanh cửa sông Pamoni ở Venezuela. Loài này có ở lưu vực Amazon, trung lưu Amazon (Solimoes), sông Negro, thượng lưu Negro, Casiquiare và Pamoni.</p><p>Nơi thu mẫu chuẩn: một con suối chảy ra từ một dãy morichal (đầm cọ moriche), cách cửa sông Pamoni khoảng 5 km, thuộc bang Amazonas, Venezuela.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: chưa có tài liệu nào nói tới.</p>",
-    "references:planetcatfish": "<p>Proceedings of the California Academy of Sciences v. 49 (no. 6), pp 164, Figs. 3, 11.</p>"
+    "references:planetcatfish": "<p>Proceedings of the California Academy of Sciences v. 49 (no. 6), pp 164, Figs. 3, 11.</p>",
+    "quickFacts:scotcat": "<p>Họ: Cetopsidae. Kích thước: 2,5 cm. Nhiệt độ: 22–28°C. pH: 6,0–7,0.</p><p>Danh sách Đỏ IUCN: Thiếu dữ liệu (Data Deficient). Hiện chưa có đủ thông tin về vùng phân bố, vòng đời và sinh thái để biết loài này có đang gặp mối đe dọa nào không. Vì vậy cần nghiên cứu thêm về nó (IUCN 2019).</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: quanh cửa sông Pamoni, Venezuela. Đến nay người ta mới chỉ biết loài này qua loạt mẫu chuẩn. Nơi thu mẫu chuẩn: Venezuela, bang Amazonas, một dòng suối chảy ra từ một dãy vùng morichal, cách cửa sông Río Pamoni khoảng 5,0 km, 2º48'N, 65º53'W.</p>",
+    "notes:scotcat": "<p>Mô tả: Trong chi, chỉ có D. royeroi là giống loài này. Các loài còn lại khác nó ở chỗ không có cùng lúc những đặc điểm sau: răng dài mọc ở chỗ hai nửa xương răng (dentary) nối nhau, đường bên ngắn, không chạy quá vùng bụng về phía sau, xương lá mía (vomer) không có răng, vây lưng chỉ có 4 tia phân đốt và không có tia gai đầu tiên, mép vây đuôi cắt xiên, và khi các tế bào sắc tố giãn ra thì không thấy tế bào sắc tố sẫm màu hình sao kéo dài theo chiều ngang.</p><p>D. sauli khác D. royeroi ở ba điểm. Thứ nhất là mép sau xương hàm trên: ở D. sauli nó kéo qua mép sau hốc mắt ít nhất một đường kính mắt, còn ở D. royeroi chỉ vượt qua mép sau hốc mắt một chút. Thứ hai là chiều cao thân: 17,1–19,5% SL ở D. sauli, so với 23% SL ở D. royeroi. Thứ ba là màng nối vây đuôi với vây hậu môn: ở D. sauli màng này có khía rõ, còn ở D. royeroi thì không có khía rõ.</p><p>Nguồn gốc tên loài: Tên sauli đặt để vinh danh William G. Saul (sinh năm 1944), quản lý bộ sưu tập của Khoa Ngư học, Academy of Natural Sciences of Philadelphia. Ông đã tham gia thu loạt mẫu chuẩn và là người đưa loài này đến tay người mô tả.</p>",
+    "references:scotcat": "<p>Echevarría, G. 2019. Denticetopsis sauli. The IUCN Red List of Threatened Species 2019.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>The ETYFish Project Fish Name Etymology Database.</p><p>Vari, R.P., C.J. Ferraris, Jr. and M.C.C. de Pinna 2005 The neotropical whale catfishes (Siluriformes: Cetopsidae: Cetopsinae), a revisionary study. Neotrop. Ichthyol. 3(2):127-238.</p>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.72,
     "indexable": false,
     "bySource": {
-      "planetcatfish": 0.9
+      "planetcatfish": 0.9,
+      "scotcat": 0.72
     },
-    "reason": "thin"
+    "reason": "score"
   }
 }

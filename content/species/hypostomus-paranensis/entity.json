@@ -8,13 +8,36 @@
   "places": [
     "south-america",
     "argentina",
-    "parana"
+    "parana",
+    "paraguay"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 18
+      },
+      {
+        "source": "scotcat",
+        "value": 18
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -32,16 +55,46 @@
       "html": "<p>South America: Argentina. La Plata, Paraná, Middle Paraná; La Plata, Paraná, Middle Paraná, Bermejo; Mar Chiquita, Dulce; Mar Chiquita, Segundo; Mar Chiquita, Primero. Type locality: lakes along Río Paraná near Santa Fe, Argentina.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_paranensis.htm",
+      "html": "<p>South America: Paraná River system.</p><p>IUCN Red List: This species is widespread in Argentina and Paraguay. It is therefore assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_paranensis.htm",
+      "html": "<p>As with most of this genus, it will do well in a larger aquarium, although this is one of the smaller species in the genus, and the aquarium should be well filtered. Water parameters can be quite diverse for this genus.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_paranensis.htm",
+      "html": "<p>Omnivore with a liking for green, tablet and frozen foods.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1484",
       "html": "<p>Breeding: Unreported.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_paranensis.htm",
+      "html": "<p>The Hypostomus genus has 7 soft rays in the dorsal fin whereas the similar-looking Pterygoplichthys species have 10 soft dorsal fin rays.</p><p>Hypostomus cordovae was a valid species according to Eschmeyer et al. (2018). Within the last decade it has also been considered by some to be a synonym of H. paranensis (Ferraris 2007, Martins et al. 2014 in Eschmeyer et al. 2018). Eschmeyer et al. (2018) considers H. paranensis to be a separate (and also valid) species from H. cordovae. Some databases still follow the synonymy (i.e. Froese and Pauly 2018) so the information provided here applies to H. paranensis and not to H. cordovae. As of 2020 Eschmeyer et al. in the Catalog of Fishes puts H. cordovae in the synonymy of H. paranensis.</p><p>Etymology: The specific name, paranensis, is an adjective in reference to the occurrence of the species in the upper Rio Paraná basin.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1484",
       "html": "<p>Actas de la Academia Nacional de Ciencias Exactas, Buenos Aires. v. 3 (no. 1), pp 9.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_paranensis.htm",
+      "html": "<p>Brancolini, F., Baigun, C. &amp; Minotti, P. 2023. Hypostomus paranensis. The IUCN Red List of Threatened Species 2023. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org, version. U.S. Fish &amp; Wildlife Service. 2018. Hypostomus cordovae (a catfish, no common name) Ecological Risk Screening Summary. Web Version, 8/31/2018.</p>"
     }
   ],
   "photos": [
@@ -76,6 +129,17 @@
       "author": "Everisto Garcia / ScotCat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_paranensis.htm",
       "caption": "Hypostomus paranensis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/3c09c9d3d73c93df.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3c09c9d3d73c93df-480.webp",
+      "width": 500,
+      "height": 438,
+      "licence": "dùng với sự cho phép",
+      "author": "Everisto Garcia / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_paranensis.htm",
+      "caption": "Hypostomus paranensis: head view",
       "source": "scotcat"
     }
   ],

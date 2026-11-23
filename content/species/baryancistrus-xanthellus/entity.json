@@ -124,6 +124,10 @@
       {
         "source": "glaser",
         "value": 30
+      },
+      {
+        "source": "planetcatfish",
+        "value": 24
       }
     ],
     "tempC": [
@@ -133,6 +137,13 @@
           "min": 27,
           "max": 32
         }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 25,
+          "max": 30
+        }
       }
     ],
     "ph": [
@@ -141,6 +152,13 @@
         "value": {
           "min": 6,
           "max": 8
+        }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.4,
+          "max": 7.6
         }
       }
     ],
@@ -174,6 +192,12 @@
       "html": "<p>Baryancistrus xanthellus was scientifically described only in 2011, although the fish is extremely common in nature, also occurs in shallow water and has been used as a food fish since time immemorial. The season of the Golden Nuggets lasts from the end of May to the end of September.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=153",
+      "html": "<ul><li>Scientific name: Baryancistrus xanthellus Rapp Py-Daniel, Zuanon &amp; de Oliveira, 2011</li><li>Common names: L018, Gold Nugget Pleco, L081, L085, L177, LDA060, LDA116, LDA117</li><li>IUCN Red List: Near Threatened (assessed 2018)</li><li>Etymology: Greek barys = heavy + agkistron = hook, essentially \"Heavy Ancistrus\"</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/baryancistrus-xanthellus",
@@ -184,6 +208,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/baryancistrus-xanthellus-l18-l81-l81n-l177-2/",
       "html": "<p>All Baryancistrus xanthellus come from the Rio Xingu and its tributaries.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=153",
+      "html": "<p>South America: Amazon, Lower Amazon, Xingu (Lower Xingu and Iriri). Type locality: Rio Xingu near the cachoeira Buraco do Inferno, Senador José Porfirio, Pará, Brazil.</p>"
     },
     {
       "key": "habitat",
@@ -220,6 +250,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/baryancistrus-xanthellus-l18-l81-l81n-l177-2/",
       "html": "<p>The Xingu has relatively warm water all year round. The catfish are sensitive to temperatures below 28°C.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=153",
+      "html": "<ul><li>pH: 6.4–7.6</li><li>Temperature: 25–30°C</li><li>Other: clear water with a noticeable current.</li></ul>"
     },
     {
       "key": "diet",
@@ -286,6 +322,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/baryancistrus-xanthellus",
       "html": "<ul><li>Rapp Py-Daniel, L., J. Zuanon, and R. Ribeiro de Oliveira (2011). Two new ornamental loricariid catfishes of Baryancistrus from rio Xingu drainage (Siluriformes: Hypostominae). Neotropical Ichthyology 9(2), 241-252</li><li>Reis, R. E., E. H. L. Pereira, and J. W. Armbruster (2006). Delturinae, a new loricariid catfish subfamily (Teleostei, Siluriformes), with revisions of Delturus and Hemipsilichthys. Zoological Journal of the Linnean Society 147(2), 277-299</li><li>Armbruster, J. W. (2004). Phylogenetic relationships of the suckermouth armoured catfishes (Loricariidae) with emphasis on the Hypostominae and the Ancistrinae. Zoological Journal of the Linnean Society 141, 1-80</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=153",
+      "html": "<p>Neotropical Ichthyology v. 9 (no. 2), pp 242, Figs. 1-2.</p>"
     }
   ],
   "photos": [
@@ -402,5 +444,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21"
+  "updatedAt": "2026-11-23"
 }
