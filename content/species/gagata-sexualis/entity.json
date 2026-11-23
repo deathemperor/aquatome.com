@@ -188,5 +188,131 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-23"
+  "updatedAt": "2026-11-23",
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Padma",
+        "Brahmaputra",
+        "Ganges",
+        "Koel",
+        "Jamuna"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Found in the Padma, Jamuna, Brahmaputra, Koel and Ganges drainages, and in West Bengal (Ichamati River).",
+          "countries": [],
+          "regions": [
+            "Padma",
+            "Brahmaputra",
+            "Ganges",
+            "Koel",
+            "Jamuna"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341168,
+      "total": 15,
+      "fetched": "2026-11-23",
+      "countries": [
+        [
+          "IN",
+          12
+        ],
+        [
+          "NP",
+          2
+        ],
+        [
+          "BD",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          82.96875,
+          26.71875,
+          1,
+          0
+        ],
+        [
+          84.375,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          85.78125,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          87.1875,
+          22.5,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          90,
+          22.5,
+          1,
+          0
+        ],
+        [
+          91.40625,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          92.8125,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          92.8125,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          94.21875,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          94.21875,
+          28.125,
+          1,
+          1
+        ]
+      ]
+    }
+  }
 }

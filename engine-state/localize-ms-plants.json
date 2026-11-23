@@ -3068,5 +3068,91 @@
       "quickFacts:tropica": "3e6adcea166d",
       "notes:tropica": "7081832828f9"
     }
+  },
+  "rotala-wallichii": {
+    "at": "2026-11-23",
+    "from": "2026-10-31",
+    "name": "Rotala wallichii",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 2: \"boleh didapati\" is slightly awkward; prefer \"boleh dicapai\" for \"can be achieved\".",
+      "Item 3: \"bahagian tengah\" is slightly vague for \"midground\"; consider \"latar tengah\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "9aac205973d9",
+      "maintenance:tropica": "826d8e04291c",
+      "notes:tropica": "4c788cc59c41"
+    }
+  },
+  "sagittaria-subulata": {
+    "at": "2026-11-23",
+    "from": "2026-11-17",
+    "name": "Sagittaria subulata",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "#9: \"Ia kurang berkemungkinan tumbuh dengan baik\" is slightly awkward; \"Ia sukar tumbuh dengan baik\" would read more naturally.",
+      "#7: \"Pemindahan\" for \"Relocation\" is a bit vague here, since the point is removing or uprooting the plant. \"Pemindahan/pencabutan\" would be clearer."
+    ],
+    "parts": {
+      "quickFacts:tropica": "b7ff0e78c32e",
+      "quickFacts:aquariumbreeder": "50663f3a5885",
+      "distribution:aquariumbreeder": "af4306880e06",
+      "habitat:aquariumbreeder": "0cd1b2290f12",
+      "aquariumSize:aquariumbreeder": "53bf592ab515",
+      "maintenance:tropica": "4a34a8e17375",
+      "maintenance:aquariumbreeder": "9ddf010f53d6",
+      "waterConditions:aquariumbreeder": "f7280caad253",
+      "equipment:aquariumbreeder": "9e4ec1d09717",
+      "notes:tropica": "eba23cfbb4a0",
+      "notes:aquariumbreeder": "189b70237667"
+    }
+  },
+  "salvinia-auriculata": {
+    "at": "2026-11-23",
+    "from": "2026-11-08",
+    "name": "Salvinia auriculata",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"boleh menggantikan tumbuhan dan haiwan asli\": \"displace\" is better rendered \"menyingkirkan\" or \"menyisihkan\", since \"menggantikan\" is weak.",
+      "\"rawa\" is more Indonesian; \"paya\" is already used, so use \"tanah bencah\" or drop it."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "554d3afc1218",
+      "distribution:aquariumbreeder": "52dded06d4c7",
+      "habitat:aquariumbreeder": "fdc1f89f2a79",
+      "aquariumSize:aquariumbreeder": "05c1e2d0772d",
+      "maintenance:aquariumbreeder": "611997c3a6a8",
+      "waterConditions:aquariumbreeder": "dbe85175d22e",
+      "equipment:aquariumbreeder": "9f93d95d359a",
+      "notes:aquariumbreeder": "79a274fe8cfe"
+    }
+  },
+  "salvinia-minima": {
+    "at": "2026-11-23",
+    "from": "2026-11-11",
+    "name": "Salvinia minima",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"duckweed (kiambang)\": in Malaysia \"kiambang\" usually means Salvinia/water lettuce, not duckweed. Use \"duckweed (Lemna)\" or \"tetambak\", or keep the English term.",
+      "\"negeri-negeri selatan\": this is ambiguous for Malaysian readers. Write \"negeri-negeri di selatan Amerika Syarikat\".",
+      "\"cuci serta nyahkuman\": \"cuci\" (wash) is added. The English only says disinfect, so use \"nyahkuman\".",
+      "\"percabangan berterusan dan pucuk sisi serta pucuk hujung yang terputus\" is awkward. Rephrase as \"percabangan berterusan dan pucuk sisi serta pucuk hujung yang terputus lalu menjadi tumbuhan baharu\", or \"pucuk sisi dan hujung yang terputus\".",
+      "\"secara emersed\": English term left without a Malay equivalent. Use \"secara emers (di luar air)\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "80039c344aff",
+      "quickFacts:aquariumbreeder": "4b2d572500f9",
+      "distribution:aquariumbreeder": "f69f64b46963",
+      "habitat:aquariumbreeder": "5f817f7b47bd",
+      "aquariumSize:aquariumbreeder": "e0f56a6b4b7b",
+      "maintenance:aquariumbreeder": "acd511749648",
+      "waterConditions:aquariumbreeder": "d24c8ba5ca4f",
+      "notes:tropica": "0272a26d026f",
+      "notes:aquariumbreeder": "243fcddce1a4"
+    }
   }
 }

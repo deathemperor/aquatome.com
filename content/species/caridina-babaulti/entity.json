@@ -19,15 +19,28 @@
   ],
   "range": {
     "native": {
-      "countries": [],
+      "countries": [
+        "IN",
+        "IQ"
+      ],
       "regions": [
         "Shetrunji",
         "Saurashtra"
       ],
       "sources": [
+        "aquariumbreeder",
         "aquatome"
       ],
       "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "They can be found from central India to Malaya and in the west to Iraq.",
+          "countries": [
+            "IN",
+            "IQ"
+          ],
+          "regions": []
+        },
         {
           "source": "aquatome",
           "quote": "Các nhà khoa học đã xác nhận nó có ở sông Shetrunji, trên bán đảo Saurashtra thuộc bang Gujarat.",
@@ -41,16 +54,12 @@
     },
     "records": {
       "taxonKey": 5863044,
-      "total": 28,
-      "fetched": "2026-11-18",
+      "total": 16,
+      "fetched": "2026-11-23",
       "countries": [
         [
           "IN",
-          20
-        ],
-        [
-          "TH",
-          7
+          15
         ],
         [
           "NP",
@@ -61,37 +70,26 @@
         [
           70.3125,
           21.09375,
+          2,
           2
         ],
         [
           78.75,
           12.65625,
+          1,
           1
         ],
         [
           82.96875,
           26.71875,
-          1
-        ],
-        [
-          88.59375,
-          25.3125,
-          5
+          1,
+          0
         ],
         [
           90,
           23.90625,
+          12,
           12
-        ],
-        [
-          98.4375,
-          7.03125,
-          6
-        ],
-        [
-          99.84375,
-          7.03125,
-          1
         ]
       ]
     }

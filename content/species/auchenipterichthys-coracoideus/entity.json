@@ -23,10 +23,13 @@
       ],
       "regions": [
         "Amazon",
-        "Essequibo"
+        "Essequibo",
+        "Araguaia River",
+        "Tocantins"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -47,6 +50,15 @@
           "regions": [
             "Amazon",
             "Essequibo"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Amazon River basin and Araguaia River of the Tocantins basin. Type locality: Iquitos, Peru.",
+          "countries": [],
+          "regions": [
+            "Araguaia River",
+            "Tocantins"
           ]
         }
       ]

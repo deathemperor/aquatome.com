@@ -12,6 +12,142 @@
     "french-guiana",
     "sinnamary"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "SR",
+        "GF"
+      ],
+      "regions": [
+        "Corantijn",
+        "Oyapock",
+        "Sinnamary",
+        "Arataye"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "IUCN Red List: this species is relatively widespread across Suriname and French Guiana with an extent of occurrence (EOO) approaching 100,000 km2.",
+          "countries": [
+            "SR",
+            "GF"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: northern coastal rivers of South America: Corantijn, Suriname, Arataye, Sinnamary and Oyapock rivers.",
+          "countries": [],
+          "regions": [
+            "Corantijn",
+            "Oyapock",
+            "Sinnamary",
+            "Arataye"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344576,
+      "total": 39,
+      "fetched": "2026-11-23",
+      "countries": [
+        [
+          "GF",
+          18
+        ],
+        [
+          "SR",
+          16
+        ],
+        [
+          "GY",
+          4
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -60.46875,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          4.21875,
+          5,
+          5
+        ],
+        [
+          -57.65625,
+          5.625,
+          6,
+          5
+        ],
+        [
+          -56.25,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -54.84375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -53.4375,
+          2.8125,
+          9,
+          9
+        ],
+        [
+          -53.4375,
+          4.21875,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -32,15 +32,17 @@
         "CO",
         "VE",
         "GY",
-        "SR"
+        "SR",
+        "EC"
       ],
       "regions": [
-        "Río Orinoco",
+        "Orinoco",
         "Rio Negro",
         "Amazon"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -56,12 +58,20 @@
             "SR"
           ],
           "regions": [
-            "Río Orinoco"
+            "Orinoco"
           ]
         },
         {
+          "source": "glaser",
+          "quote": "The species is widely distributed in South America (Brazil, Ecuador, Bolivia, Colombia, Guyana, Peru and Suriname) and common.",
+          "countries": [
+            "EC"
+          ],
+          "regions": []
+        },
+        {
           "source": "seriouslyfish",
-          "quote": "The majority of fish in the ornamental trade are collected in the rio Negro basin, Brazil.",
+          "quote": "In the rio Negro system it inhabits so-called igapó and igarapé habitats characterised by thick, often overhanging, riparian vegetation and substrates covered in fallen branches, tree roots and leaf litter.",
           "countries": [],
           "regions": [
             "Rio Negro"
@@ -80,7 +90,7 @@
     "records": {
       "taxonKey": 5204610,
       "total": 655,
-      "fetched": "2026-11-07",
+      "fetched": "2026-11-23",
       "countries": [
         [
           "BR",
@@ -130,13 +140,13 @@
           -77.34375,
           -1.40625,
           5,
-          0
+          5
         ],
         [
           -77.34375,
           0,
           4,
-          0
+          4
         ],
         [
           -75.9375,
@@ -166,7 +176,7 @@
           -75.9375,
           -1.40625,
           6,
-          4
+          6
         ],
         [
           -75.9375,

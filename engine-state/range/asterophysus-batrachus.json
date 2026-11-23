@@ -1,8 +1,8 @@
 {
   "id": "asterophysus-batrachus",
   "native": {
-    "input": "96e221899f097a5f",
-    "at": "2026-11-16T00:17:52.050Z",
+    "input": "8c6bb93e16b7ba72",
+    "at": "2026-11-23T01:48:47.136Z",
     "claims": [
       {
         "code": "BR",
@@ -26,6 +26,14 @@
         "source": "glaser",
         "quote": "Origin: Venezuela",
         "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Orinoco and Negro River basins. Type locality: Marabitanos, Brazil.",
+        "words": "Brazil",
         "ok": true
       }
     ],
@@ -57,9 +65,15 @@
         "ok": true
       },
       {
-        "name": "Rio Atabapo",
-        "source": "glaser",
-        "quote": "According to a report by Roland Numrich, who spotted the fish while snorkelling in the Rio Atabapo during an expedition to Venezuela, this catfish lives in rock crevices, from which it emerges with considerable speed to grab its prey, before disappearing again.",
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "South America: Orinoco and Negro River basins. Type locality: Marabitanos, Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Negro River",
+        "source": "scotcat",
+        "quote": "South America: Orinoco and Negro River basins. Type locality: Marabitanos, Brazil.",
         "ok": true
       }
     ],

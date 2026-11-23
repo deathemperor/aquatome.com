@@ -25,10 +25,16 @@
       "quotes": [
         {
           "source": "glaser",
-          "quote": "The species is endemic to Lake Valencia in Venezuela (including some tributary rivers).",
+          "quote": "The species lives endemically in Lake Valencia in Venezuela, so it only occurs there (including some inflows and outflows).",
           "countries": [
             "VE"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Valencia and surrounding waters, Venezuela.",
+          "countries": [],
           "regions": [
             "Lake Valencia"
           ]

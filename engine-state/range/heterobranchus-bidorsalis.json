@@ -1,0 +1,122 @@
+{
+  "id": "heterobranchus-bidorsalis",
+  "native": {
+    "input": "e3f6178a2a376d70",
+    "at": "2026-11-23T01:48:47.136Z",
+    "claims": [
+      {
+        "code": "BF",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: Chad basin, Niger, Upper Volta, Guinea and Senegal.",
+        "words": "Upper Volta",
+        "ok": false,
+        "why": "\"Upper Volta\" is not BF"
+      },
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: Chad basin, Niger, Upper Volta, Guinea and Senegal.",
+        "words": "Guinea",
+        "ok": true
+      },
+      {
+        "code": "SN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: Chad basin, Niger, Upper Volta, Guinea and Senegal.",
+        "words": "Senegal",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Nile",
+        "source": "planetcatfish",
+        "quote": "Africa: Nile.",
+        "ok": true
+      },
+      {
+        "name": "Chad basin",
+        "source": "planetcatfish",
+        "quote": "Africa: Chad basin, Niger, Upper Volta, Guinea and Senegal.",
+        "ok": true
+      },
+      {
+        "name": "Niger",
+        "source": "planetcatfish",
+        "quote": "Africa: Chad basin, Niger, Upper Volta, Guinea and Senegal.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Gambia River",
+        "source": "planetcatfish",
+        "quote": "Also known from the Gambia River.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "EG",
+        "TD",
+        "NE",
+        "BF",
+        "GM"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Heterobranchus bidorsalis",
+    "status": "ACCEPTED",
+    "taxonKey": 5202835,
+    "datasets": [
+      [
+        "d2724ca9-8ccd-416e-9837-7aee75f67422",
+        18
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        14
+      ],
+      [
+        "ed820bdb-4345-4143-a280-4fbffaacd31d",
+        7
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "47f75ea9-ad74-47ab-919a-b8c8d4f1fce3",
+        2
+      ],
+      [
+        "34585f24-1ffe-4744-8734-7d563c918d18",
+        1
+      ],
+      [
+        "3fb7ddd8-07c0-490d-a0f1-32b5dec8d583",
+        1
+      ],
+      [
+        "40a262b4-6627-4011-afbe-159c00ec97e7",
+        1
+      ],
+      [
+        "fba36b75-451a-40e3-af18-297f151bcc91",
+        1
+      ]
+    ],
+    "native": [
+      "GN",
+      "SN"
+    ],
+    "requests": 12,
+    "at": "2026-11-23T01:48:47.136Z"
+  }
+}

@@ -12,9 +12,11 @@
   ],
   "range": {
     "native": {
-      "countries": [],
+      "countries": [
+        "PG"
+      ],
       "regions": [
-        "New Guinea"
+        "Fly River"
       ],
       "sources": [
         "glaser"
@@ -22,10 +24,12 @@
       "quotes": [
         {
           "source": "glaser",
-          "quote": "Cherax peknyi Lukhaup & Herbert, 2008, the zebra lobster, is a colourful freshwater crayfish from New Guinea.",
-          "countries": [],
+          "quote": "Cherax peknyi originates from the Fly River drainage in Papua New Guinea.",
+          "countries": [
+            "PG"
+          ],
           "regions": [
-            "New Guinea"
+            "Fly River"
           ]
         }
       ]
@@ -33,7 +37,7 @@
     "records": {
       "taxonKey": 5789930,
       "total": 0,
-      "fetched": "2026-11-18",
+      "fetched": "2026-11-23",
       "countries": [],
       "cells": []
     }

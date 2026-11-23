@@ -18,10 +18,15 @@
       ],
       "regions": [
         "Rio Xingu",
-        "Rio Tocantins"
+        "Rio Tocantins",
+        "Xingu",
+        "Tocantins",
+        "Madeira",
+        "Tapajós"
       ],
       "sources": [
-        "glaser"
+        "glaser",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -33,6 +38,17 @@
           "regions": [
             "Rio Xingu",
             "Rio Tocantins"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "It is endemic to Brazil and widely distributed in the Xingu, Tocantins, upper Madeira and upper Tapajós river basins.",
+          "countries": [],
+          "regions": [
+            "Xingu",
+            "Tocantins",
+            "Madeira",
+            "Tapajós"
           ]
         }
       ]

@@ -3,6 +3,12 @@
   "name": "ควันซา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-23T01:43:21.370Z",
+    "why": "The name ควันซา transliterates Kwanza, but Thai atlases write the Angolan province as \"จังหวัดกวนซา\" or \"กวันซา\" (Cuanza/Kwanza), and this region entry lacks the kind word (จังหวัด/แคว้น), with ควัน (meaning \"smoke\") a poor rendering of the \"Kwa\" sound."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

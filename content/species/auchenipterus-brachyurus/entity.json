@@ -12,6 +12,137 @@
     "bolivia",
     "rio-madeira"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BO",
+        "PE"
+      ],
+      "regions": [
+        "Amazon",
+        "Rio Ucayali",
+        "Rio Napo",
+        "Rio Madeira"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Western portions of the Amazon River basin including the Rio Ucayali and Rio Napo, and the upper portion of the Rio Madeira in Bolivia.",
+          "countries": [
+            "BO"
+          ],
+          "regions": [
+            "Amazon",
+            "Rio Ucayali",
+            "Rio Napo",
+            "Rio Madeira"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Peruvian Amazon.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344565,
+      "total": 23,
+      "fetched": "2026-11-23",
+      "countries": [
+        [
+          "PE",
+          11
+        ],
+        [
+          "BR",
+          9
+        ],
+        [
+          "CO",
+          2
+        ],
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -68.90625,
+          -11.25,
+          3,
+          0
+        ],
+        [
+          -67.5,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

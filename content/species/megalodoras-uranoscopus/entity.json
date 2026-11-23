@@ -28,12 +28,13 @@
         "GY"
       ],
       "regions": [
+        "Amazon",
         "Essequibo",
-        "Tocantins",
-        "Amazon"
+        "Tocantins"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "planetcatfish"
       ],
       "quotes": [
         {
@@ -48,9 +49,9 @@
             "GY"
           ],
           "regions": [
+            "Amazon",
             "Essequibo",
-            "Tocantins",
-            "Amazon"
+            "Tocantins"
           ]
         }
       ]

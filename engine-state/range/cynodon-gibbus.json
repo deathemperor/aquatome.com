@@ -1,8 +1,8 @@
 {
   "id": "cynodon-gibbus",
   "native": {
-    "input": "9642decdacb59a32",
-    "at": "2026-11-07T13:20:47.766Z",
+    "input": "c7f0aaddc0661017",
+    "at": "2026-11-23T01:48:47.136Z",
     "claims": [
       {
         "code": "PE",
@@ -59,17 +59,15 @@
         "ok": true
       },
       {
-        "name": "Rio Pindaré",
-        "source": "seriouslyfish",
-        "quote": "Three specimens collected in the rio Pindaré, Maranhão state, Brazil represent the only known record of a cynodontid species in northeastern Brazil.",
-        "country": "BR",
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "The species is very widespread in the Amazon and Orinoco.",
         "ok": true
       },
       {
-        "name": "Rio Uatumã",
-        "source": "seriouslyfish",
-        "quote": "It occurs sympatrically with the congener C. septenarius in the rio Uatumã, Brazil and the two also occur in proximity in the rio Branco and rio Trombetas systems.",
-        "country": "BR",
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "The species is very widespread in the Amazon and Orinoco.",
         "ok": true
       }
     ],

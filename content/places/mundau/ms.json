@@ -3,6 +3,12 @@
   "name": "Mundau",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-23T01:41:25.046Z",
+    "why": "\"Mundau\" is the bare proper name, but a Malaysian atlas would normally write the region/river with its kind word, \"Sungai Mundau\", and the source describes it as a river (a tributary flowing near Maceió), not a region."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

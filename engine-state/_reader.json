@@ -1077,6 +1077,50 @@
     ],
     "ruled": "8d8cb869a4ed3157"
   },
+  "vi/guides/2hraquarist-blogs-beginners-planted-tank-101-connecting-hardscape": {
+    "at": "2026-11-23",
+    "hash": "a40a5294a45d3a40",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Keo đông sau vài phút, nên mảnh nào không tự đứng được thì phải giữ chúng áp vào nhau một lúc.",
+        "problem": "The epoxy section first says the putty takes about 10 minutes to set, then later says it sets after a few minutes, so readers get two different setting times.",
+        "fix": "Keo bắt đầu cứng sau vài phút, nên mảnh nào không tự đứng được thì phải giữ chúng áp vào nhau một lúc.",
+        "field": "body"
+      }
+    ],
+    "ruled": "a40a5294a45d3a40"
+  },
+  "vi/guides/2hraquarist-blogs-beginners-planted-tank-101-filter-buying-checklist": {
+    "at": "2026-11-23",
+    "hash": "15b25b9d0d0d79cf",
+    "findings": [],
+    "ruled": "15b25b9d0d0d79cf"
+  },
+  "vi/guides/2hraquarist-blogs-beginners-planted-tank-101-fish-tank-to-planted-tank": {
+    "at": "2026-11-23",
+    "hash": "b78ea3583b584216",
+    "findings": [],
+    "ruled": "b78ea3583b584216"
+  },
+  "vi/guides/2hraquarist-blogs-beginners-planted-tank-101-low-tech-setup-checklist": {
+    "at": "2026-11-23",
+    "hash": "5f1fcdd961cdc121",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cuối cùng, nếu sống ở vùng khí hậu ôn đới mà muốn nuôi cá và cây nhiệt đới thì có thể cần sưởi.",
+        "problem": "The heater/temperature paragraph and the closing paragraph on choosing plants sit under the filter heading, though neither is about filters.",
+        "fix": "Đặt hai đoạn này dưới một tiêu đề riêng, chẳng hạn \"## Sưởi và chọn cây\".",
+        "field": "body"
+      }
+    ],
+    "ruled": "5f1fcdd961cdc121"
+  },
   "vi/guides/aquariumbreeder-10-questions-to-ask-when-buying-aquarium-crustaceans": {
     "at": "2026-11-14",
     "hash": "5296103b90f0a7ca",
@@ -1510,6 +1554,22 @@
       }
     ],
     "ruled": "a7c2a15c6ddaeb4a"
+  },
+  "vi/guides/aquariumbreeder-aquarium-floating-plants-pros-and-cons": {
+    "at": "2026-11-23",
+    "hash": "b752c2dab2709dcc",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Bể cá hay bể tép muốn chạy ổn thì không thể thiếu chúng.",
+        "problem": "The conclusion says no tank can do without floating plants, but earlier the page says some styles, such as Iwagumi, never use them.",
+        "fix": "Với phần lớn bể cá và bể tép, cây nổi giúp bể chạy ổn hơn nhiều.",
+        "field": "body"
+      }
+    ],
+    "ruled": "b752c2dab2709dcc"
   },
   "vi/guides/aquariumbreeder-aquarium-safety-and-checklist": {
     "at": "2026-11-19",
@@ -2799,6 +2859,42 @@
     ],
     "ruled": "9b18d855689a0163"
   },
+  "vi/guides/aquariumbreeder-hints-for-survival-your-shrimp": {
+    "at": "2026-11-23",
+    "hash": "4cc74e3fdb2bad5a",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## Mà đó không phải lỗi của bạn!",
+        "problem": "This unnumbered heading sits between Trường hợp 1 and Trường hợp 2, so it looks like a separate case, but it only continues Trường hợp 1.",
+        "fix": "Bỏ heading, viết thành câu thường trong Trường hợp 1: \"Mà đó không phải lỗi của bạn.\"",
+        "rule": "An unnumbered heading placed between two headings of a numbered 'Trường hợp N' series.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## Lưu ý: kiểm tra thông số nước thường xuyên.",
+        "problem": "This tip is set as its own heading between Trường hợp 8 and Trường hợp 9, but it belongs inside case 8.",
+        "fix": "Lưu ý: kiểm tra thông số nước thường xuyên.",
+        "rule": "A heading starting with 'Lưu ý:' between two numbered 'Trường hợp' headings.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "hạ nhiệt độ nước xuống khoảng 2–3°C",
+        "problem": "'Hạ xuống 2–3°C' reads as cooling the water to 2–3°C, which would kill the tank. The meaning is to lower it by about 2–3°C.",
+        "fix": "hạ nhiệt độ nước đi khoảng 2–3°C",
+        "field": "body"
+      }
+    ],
+    "ruled": "4cc74e3fdb2bad5a"
+  },
   "vi/guides/aquariumbreeder-holtodrilus-truncates-parasites-in-shrimp-keeping-hobby": {
     "at": "2026-11-16",
     "hash": "f205b36a2f263f27",
@@ -2879,6 +2975,12 @@
       }
     ],
     "ruled": "e685599a0e443b00"
+  },
+  "vi/guides/aquariumbreeder-how-frequent-mating-effect-dwarf-shrimp": {
+    "at": "2026-11-23",
+    "hash": "ef95f5c84b05e927",
+    "findings": [],
+    "ruled": "ef95f5c84b05e927"
   },
   "vi/guides/aquariumbreeder-how-i-drip-acclimate-shrimp-and-why": {
     "at": "2026-11-22",
@@ -3788,6 +3890,41 @@
     ],
     "ruled": "1eabd945c9efb4d5"
   },
+  "vi/guides/aquariumbreeder-how-to-remove-snails-from-a-shrimp-tank": {
+    "at": "2026-11-23",
+    "hash": "910811e44765078d",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Đó cũng là lý do phải chọc lỗ ở bước 6, để oxy lưu thông tốt hơn.",
+        "problem": "The DIY trap steps are an unnumbered bullet list, so the reference to 'step 6' points to nothing a reader can find.",
+        "fix": "Đó cũng là lý do phải chọc lỗ nhỏ ở phần đầu chai, để oxy lưu thông tốt hơn.",
+        "rule": "A text that refers to 'bước N' when the steps above are an unnumbered list.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Thuốc này không hại tép nhưng diệt sạch ốc.",
+        "problem": "The page warns that copper-based medications can kill all the shrimp, then calls Gastropex harmless to shrimp while saying it contains copper, and doesn't explain the conflict.",
+        "fix": "Hãng nói thuốc này an toàn cho tép, nhưng thuốc có chứa đồng, nên phải dùng hết sức cẩn thận trong bể tép.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Dùng nước tẩy thường, chọn loại càng ít phụ gia càng tốt.",
+        "problem": "'Nước tẩy' on its own is vague (it can mean any cleaning liquid). The usual Vietnamese word for bleach is 'thuốc tẩy' or 'nước Javel'.",
+        "fix": "Dùng thuốc tẩy (nước Javel) loại thường, càng ít phụ gia càng tốt.",
+        "field": "body"
+      }
+    ],
+    "ruled": "910811e44765078d"
+  },
   "vi/guides/aquariumbreeder-how-to-remove-staghorn-algae-in-aquariums": {
     "at": "2026-11-18",
     "hash": "055e38ca14c3148b",
@@ -4547,6 +4684,31 @@
       }
     ],
     "ruled": "39f9e6ef0facd358"
+  },
+  "vi/guides/aquariumbreeder-most-common-shrimp-and-fish-tank-mistakes": {
+    "at": "2026-11-23",
+    "hash": "e259ef52886a148e",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Có những bài riêng tổng hợp cách trị hiệu quả nhất cho Scutariella Japonica, Planaria, Vorticella, Hydra",
+        "problem": "The sentence points to the source blog's own treatment articles, which this page doesn't have or link to, so a reader will look for them and not find them.",
+        "fix": "Tép cảnh có thể gặp nhiều bệnh và ký sinh như Scutariella Japonica, Planaria, Vorticella, Hydra, Cladogonium ogishimae hoặc Ellobiopsidae, bệnh gỉ sắt, mỗi thứ có cách trị riêng.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "bằng bộ test pH cho bể cá loại đo chuẩn",
+        "problem": "\"loại đo chuẩn\" is an awkward, word-for-word rendering of \"accurate\".",
+        "fix": "bằng bộ test pH đo cho chính xác",
+        "field": "body"
+      }
+    ],
+    "ruled": "e259ef52886a148e"
   },
   "vi/guides/aquariumbreeder-most-popular-aquarium-crayfish-species": {
     "at": "2026-11-06",
@@ -16860,6 +17022,12 @@
     ],
     "ruled": "885d5ea49cfd0812"
   },
+  "vi/guides/youtube-_bm-FfvA22k": {
+    "at": "2026-11-23",
+    "hash": "7837fc7796777324",
+    "findings": [],
+    "ruled": "7837fc7796777324"
+  },
   "vi/guides/youtube-_BR9FrQgEx8": {
     "at": "2026-11-19",
     "hash": "0ccd298a0d36621e",
@@ -17252,6 +17420,12 @@
     "hash": "d9e604d6f7a869e4",
     "findings": [],
     "ruled": "d9e604d6f7a869e4"
+  },
+  "vi/guides/youtube--PSAFtluTy4": {
+    "at": "2026-11-23",
+    "hash": "30b1f3bebd4c7060",
+    "findings": [],
+    "ruled": "30b1f3bebd4c7060"
   },
   "vi/guides/youtube--Rj-jBl65Mc": {
     "at": "2026-11-06",
@@ -19391,6 +19565,21 @@
     ],
     "ruled": "8395cdae30a88f36"
   },
+  "vi/guides/youtube-6YgGYE7yY58": {
+    "at": "2026-11-23",
+    "hash": "a9ac2a277fdca8df",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Ví dụ dưới đây là một bể lớn nuôi cá lớn.",
+        "problem": "Points to an example that isn't on the page, likely left over from the source.",
+        "field": "body"
+      }
+    ],
+    "ruled": "a9ac2a277fdca8df"
+  },
   "vi/guides/youtube-79gKSribYmk": {
     "at": "2026-11-20",
     "hash": "a8ec705ab5d8f448",
@@ -20342,6 +20531,21 @@
       }
     ],
     "ruled": "05bf2d4c8c824057"
+  },
+  "vi/guides/youtube-aAn7wvjER7k": {
+    "at": "2026-11-23",
+    "hash": "c77f17fb22b32ceb",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## Bao lâu thì cần vệ sinh lọc mút",
+        "problem": "The heading promises to say how often to clean the sponge filter, but the section only says when cleaning isn't needed and never gives a frequency.",
+        "field": "body"
+      }
+    ],
+    "ruled": "c77f17fb22b32ceb"
   },
   "vi/guides/youtube-AaUxNrrQxo8": {
     "at": "2026-11-13",
@@ -22227,6 +22431,23 @@
     ],
     "ruled": "4a78bba81ec8dddc"
   },
+  "vi/guides/youtube-DfA0TkKlYaw": {
+    "at": "2026-11-23",
+    "hash": "fd12b7efc6e52521",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Mbuna (yellow lab…)\n| Peacock và hap\n| Kiểu bơi",
+        "problem": "The comparison table is broken: every cell is on its own line, and the header has two cells while the rows have three, so the columns don't line up.",
+        "fix": "| | Mbuna (yellow lab…) | Peacock và hap |\n| Kiểu bơi | Ra vào, luồn lách giữa đá | Bơi nhiều, cần nước trống |\n| Đá | Xếp dày | Có chỗ khám phá và chỗ trốn, nhưng chừa nhiều khoảng trống |",
+        "rule": "A table whose header row has fewer cells than its data rows, or whose cells each sit on a separate line.",
+        "field": "body"
+      }
+    ],
+    "ruled": "fd12b7efc6e52521"
+  },
   "vi/guides/youtube-DIZA-j-p2No": {
     "at": "2026-11-21",
     "hash": "29eb464cdb9faa60",
@@ -22739,6 +22960,12 @@
     "hash": "47489ffae6792f30",
     "findings": [],
     "ruled": "47489ffae6792f30"
+  },
+  "vi/guides/youtube-EePi47a9Awg": {
+    "at": "2026-11-23",
+    "hash": "6f4363840bbf1b5d",
+    "findings": [],
+    "ruled": "6f4363840bbf1b5d"
   },
   "vi/guides/youtube-efVHn6juO-4": {
     "at": "2026-11-19",
@@ -25210,6 +25437,32 @@
     ],
     "ruled": "53503109a7557700"
   },
+  "vi/guides/youtube-IiIV3MXbvQo": {
+    "at": "2026-11-23",
+    "hash": "d2795aba1106b061",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "| Bộ test nhỏ giọt\n| Que thử\n| Cách dùng",
+        "problem": "The comparison table's header row has two cells while the data rows have three, so the column labels sit over the wrong columns.",
+        "fix": "| | Bộ test nhỏ giọt | Que thử |",
+        "rule": "A table whose header row has fewer cells than its data rows.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đi kèm là bốn tờ hướng dẫn nhỏ. Tờ này giúp đọc kết quả",
+        "problem": "The page says there are four instruction sheets, then refers to them in the singular ('Tờ này').",
+        "fix": "Đi kèm là bốn tờ hướng dẫn nhỏ. Mấy tờ này giúp đọc kết quả",
+        "field": "body"
+      }
+    ],
+    "ruled": "d2795aba1106b061"
+  },
   "vi/guides/youtube-Iinv7wWjhzA": {
     "at": "2026-11-09",
     "hash": "d8670a94c2eb3887",
@@ -25790,6 +26043,12 @@
       }
     ],
     "ruled": "aedfbda5107f4813"
+  },
+  "vi/guides/youtube-jbT-loXhCUw": {
+    "at": "2026-11-23",
+    "hash": "94042990bb167f34",
+    "findings": [],
+    "ruled": "94042990bb167f34"
   },
   "vi/guides/youtube-JDp04T7W_QA": {
     "at": "2026-11-19",
@@ -29542,6 +29801,12 @@
       }
     ],
     "ruled": "ad38fd2aa9ab0d58"
+  },
+  "vi/guides/youtube-oHpwUJd304A": {
+    "at": "2026-11-23",
+    "hash": "68eaa371dcfec6e0",
+    "findings": [],
+    "ruled": "68eaa371dcfec6e0"
   },
   "vi/guides/youtube-ohUzvlrSQDs": {
     "at": "2026-11-11",
@@ -33436,6 +33701,22 @@
     ],
     "ruled": "0202ce441937ed54"
   },
+  "vi/guides/youtube-vDP_tdTZvxQ": {
+    "at": "2026-11-23",
+    "hash": "31d5d73efac8496c",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L3",
+        "quote": "Việc đầu tiên khi cá bị thương là thay nước, vệ sinh bể cho nước sạch.",
+        "problem": "The summary makes cleaning the water the first step every time, but the body says to clean first only when the water is dirty and to go straight to medication if the tank is already clean.",
+        "fix": "Cá bị thương mà nước bể đang bẩn thì trước hết thay nước, vệ sinh bể cho nước sạch.",
+        "field": "summary.2"
+      }
+    ],
+    "ruled": "31d5d73efac8496c"
+  },
   "vi/guides/youtube-veeADYG5Eac": {
     "at": "2026-11-20",
     "hash": "418008f86ec4f09d",
@@ -35668,6 +35949,31 @@
       }
     ],
     "ruled": "039e16e7aaf61548"
+  },
+  "vi/guides/youtube-zIe7JSoJCxo": {
+    "at": "2026-11-23",
+    "hash": "8dce41ce5a729eff",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "dài khoảng 240 cm, sâu 90 cm, cao 60 cm (khoảng 1.363 lít)",
+        "problem": "240 × 90 × 60 cm is about 1,296 litres, not 1,363 litres; the litre figure was converted from gallons separately from the rounded dimensions.",
+        "fix": "dài khoảng 240 cm, sâu 90 cm, cao 60 cm (khoảng 1.300 lít)",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "kể cả khi đã dùng thước thủy đo kỹ từng chiếc",
+        "problem": "It is unclear what \"từng chiếc\" refers to, and the later \"độ lệch như vậy\" points back to a tilt the text never describes.",
+        "fix": "kể cả khi đã dùng thước thủy đo kỹ từng góc, bể vẫn có thể lún dần theo thời gian và hơi nghiêng đi",
+        "field": "body"
+      }
+    ],
+    "ruled": "8dce41ce5a729eff"
   },
   "vi/guides/youtube-zikyuEMALJE": {
     "at": "2026-11-20",

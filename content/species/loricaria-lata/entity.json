@@ -11,6 +11,85 @@
     "rio-tocantins",
     "araguaia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tocantins",
+        "Araguaia River",
+        "Tocantins River"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It originates from the drainage of the Rio Tocantins, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Tocantins"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Loricaria lata is endemic to Brazil, described in 1889 for the Araguaia River, Goiás state.",
+          "countries": [],
+          "regions": [
+            "Araguaia River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Between the 1980s and 1990s, the species was recorded for other locations in the Tocantins River basin.",
+          "countries": [],
+          "regions": [
+            "Tocantins River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961496,
+      "total": 7,
+      "fetched": "2026-11-23",
+      "countries": [
+        [
+          "BR",
+          6
+        ],
+        [
+          "PY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -59.0625,
+          -25.3125,
+          1,
+          0
+        ],
+        [
+          -52.03125,
+          -16.875,
+          5,
+          5
+        ],
+        [
+          -49.21875,
+          -14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -12,6 +12,108 @@
     "venezuela",
     "cuyuni"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY",
+        "VE"
+      ],
+      "regions": [
+        "Demerara River",
+        "Essequibo River",
+        "Rupununi River",
+        "Rio Cuyuni"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Auchenipterus demerarae has a wide range of distribution and is known from the Demerara River, Essequibo River and its tributaries, the Rupununi River in Guyana, and the Botanamo River of the Rio Cuyuni system in Venezuela.",
+          "countries": [
+            "GY",
+            "VE"
+          ],
+          "regions": [
+            "Demerara River",
+            "Essequibo River",
+            "Rupununi River",
+            "Rio Cuyuni"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344569,
+      "total": 43,
+      "fetched": "2026-11-23",
+      "countries": [
+        [
+          "GY",
+          35
+        ],
+        [
+          "BR",
+          6
+        ],
+        [
+          "VE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -63.28125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -60.46875,
+          5.625,
+          20,
+          20
+        ],
+        [
+          -59.0625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -59.0625,
+          5.625,
+          7,
+          7
+        ],
+        [
+          -47.8125,
+          -4.21875,
+          6,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

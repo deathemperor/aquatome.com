@@ -1040,9 +1040,9 @@
   "rule": 3
  },
  "vi/species/acanthopsoides-robertsi": {
-  "at": "2026-11-22T13:06:07.755Z",
-  "hash": "cfeee73ce56fdc01",
-  "n": 1,
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "881b4eeabbab4d0f",
+  "n": 2,
   "rule": 3
  },
  "vi/species/acantopsis-rungthipae": {
@@ -1106,9 +1106,9 @@
   "rule": 3
  },
  "vi/species/aequidens-superomaculatum": {
-  "at": "2026-11-22T13:06:07.755Z",
-  "hash": "f441bebfbe042140",
-  "n": 1,
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "eede5138e256759e",
+  "n": 2,
   "rule": 3
  },
  "vi/species/ageneiosus-magoi": {
@@ -1423,6 +1423,12 @@
   "n": 1,
   "rule": 3
  },
+ "vi/species/apricaphanius-saourensis": {
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "42c52d2a3ea37d1f",
+  "n": 1,
+  "rule": 3
+ },
  "vi/species/ariopsis-seemanni": {
   "at": "2026-11-21T13:30:24.305Z",
   "hash": "65b13199d1dbd0ae",
@@ -1522,6 +1528,12 @@
  "vi/species/auchenipterichthys-punctatus": {
   "at": "2026-11-21T13:30:24.305Z",
   "hash": "78b0a3000a8dd7ec",
+  "n": 1,
+  "rule": 3
+ },
+ "vi/species/auchenipterichthys-thoracatus": {
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "5268158e06fd4083",
   "n": 1,
   "rule": 3
  },
@@ -1718,9 +1730,9 @@
   "rule": 3
  },
  "vi/species/betta-macrostoma": {
-  "at": "2026-11-22T00:50:27.789Z",
-  "hash": "8f3cd2dede989fe3",
-  "n": 1,
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "71ecd6fa9baf9096",
+  "n": 2,
   "rule": 3
  },
  "vi/species/betta-mahachaiensis": {
@@ -1736,33 +1748,33 @@
   "rule": 3
  },
  "vi/species/betta-ocellata": {
-  "at": "2026-11-22T00:50:27.789Z",
-  "hash": "031adf5e55878218",
-  "n": 1,
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "9a676d059ef45853",
+  "n": 2,
   "rule": 3
  },
  "vi/species/betta-pallida": {
-  "at": "2026-11-22T00:50:27.789Z",
-  "hash": "e0b305a49708df29",
-  "n": 1,
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "7894b820167414dc",
+  "n": 2,
   "rule": 3
  },
  "vi/species/betta-pallifina": {
-  "at": "2026-11-22T00:50:27.789Z",
-  "hash": "9e0a7a8550c286d9",
-  "n": 1,
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "b7414a8cc3b6eab5",
+  "n": 2,
   "rule": 3
  },
  "vi/species/betta-pardalotos": {
-  "at": "2026-11-22T00:50:27.789Z",
-  "hash": "05ed111eaf36130a",
-  "n": 1,
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "8156af9f924519a8",
+  "n": 2,
   "rule": 3
  },
  "vi/species/betta-patoti": {
-  "at": "2026-11-22T00:50:27.789Z",
-  "hash": "ea27cf2030d93836",
-  "n": 1,
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "553c68c5b38d1271",
+  "n": 2,
   "rule": 3
  },
  "vi/species/betta-picta": {
@@ -1778,9 +1790,9 @@
   "rule": 3
  },
  "vi/species/betta-pulchra": {
-  "at": "2026-11-22T00:50:27.789Z",
-  "hash": "726edfdbd590a99d",
-  "n": 1,
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "4d143a4880ffa892",
+  "n": 2,
   "rule": 3
  },
  "vi/species/betta-raja": {
@@ -1792,6 +1804,42 @@
  "vi/species/betta-renata": {
   "at": "2026-11-22T00:50:27.789Z",
   "hash": "1286e1663db237c4",
+  "n": 1,
+  "rule": 3
+ },
+ "vi/species/betta-rutilans": {
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "fdf97b4689e830dc",
+  "n": 1,
+  "rule": 3
+ },
+ "vi/species/betta-siamorientalis": {
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "afa67e6b3ecdaf5f",
+  "n": 1,
+  "rule": 3
+ },
+ "vi/species/betta-spilotogena": {
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "77924dc38a9ee91b",
+  "n": 1,
+  "rule": 3
+ },
+ "vi/species/betta-stigmosa": {
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "34e57ca7b28dac18",
+  "n": 1,
+  "rule": 3
+ },
+ "vi/species/betta-stiktos": {
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "fbe4d1479701b909",
+  "n": 1,
+  "rule": 3
+ },
+ "vi/species/betta-taeniata": {
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "6700af6a8ffc7f32",
   "n": 1,
   "rule": 3
  },
@@ -2123,9 +2171,9 @@
   "rule": 3
  },
  "vi/species/gasterosteus-aculeatus": {
-  "at": "2026-11-22T13:06:07.755Z",
-  "hash": "3606de3f256fe7ab",
-  "n": 1,
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "a67504f1ea4d95f3",
+  "n": 2,
   "rule": 3
  },
  "vi/species/gelasimus-vocans": {
@@ -2278,6 +2326,12 @@
   "n": 1,
   "rule": 3
  },
+ "vi/species/iguanodectes-purusii": {
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "daeeb9f71456680a",
+  "n": 1,
+  "rule": 3
+ },
  "vi/species/inpaichthys-kerri": {
   "at": "2026-11-20T12:09:57.448Z",
   "hash": "23d011255748bf71",
@@ -2419,6 +2473,12 @@
  "vi/species/macrobrachium-idae": {
   "at": "2026-11-17T05:36:30.195Z",
   "hash": "c9d38471f3c2c44d",
+  "n": 1,
+  "rule": 3
+ },
+ "vi/species/macrobrachium-lanchesteri": {
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "1398d40ef9ffbccd",
   "n": 1,
   "rule": 3
  },
@@ -2741,6 +2801,12 @@
   "n": 1,
   "rule": 3
  },
+ "vi/species/paracheirodon-innesi": {
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "da16389b74e8a52f",
+  "n": 1,
+  "rule": 3
+ },
  "vi/species/paracheirodon-simulans": {
   "at": "2026-11-20T07:28:14.872Z",
   "hash": "b80d2d77b4a9654f",
@@ -2880,9 +2946,9 @@
   "rule": 3
  },
  "vi/species/poecilia-reticulata": {
-  "at": "2026-11-22T13:06:07.755Z",
-  "hash": "9a35bee7c67ce16f",
-  "n": 1,
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "bbbab35c27ae30e2",
+  "n": 2,
   "rule": 3
  },
  "vi/species/pomacea-bridgesii": {
@@ -3307,8 +3373,14 @@
   "rule": 3
  },
  "vi/species/xenopus-tropicalis": {
-  "at": "2026-11-22T13:06:07.755Z",
-  "hash": "6139aeac44359804",
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "d95f1229c51a6dd3",
+  "n": 2,
+  "rule": 3
+ },
+ "vi/species/xenotoca-doadrioi": {
+  "at": "2026-11-23T02:07:19.376Z",
+  "hash": "77c087a59464cbea",
   "n": 1,
   "rule": 3
  },

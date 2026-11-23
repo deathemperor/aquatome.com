@@ -13,6 +13,47 @@
     "trinidad-and-tobago",
     "gulf-of-paria"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Orinoco",
+        "Gulf of Paria"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The Oscar from the Orinoco drainage and the Gulf of Paria in northern South America.",
+          "countries": [],
+          "regions": [
+            "Orinoco",
+            "Gulf of Paria"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11523528,
+      "total": 1,
+      "fetched": "2026-11-23",
+      "countries": [
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          1.40625,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

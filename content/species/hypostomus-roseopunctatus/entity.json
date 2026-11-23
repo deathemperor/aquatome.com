@@ -23,6 +23,7 @@
       ],
       "regions": [
         "Miriñay",
+        "Rio Pelotas",
         "La Plata"
       ],
       "sources": [
@@ -36,7 +37,9 @@
           "countries": [
             "BR"
           ],
-          "regions": []
+          "regions": [
+            "Rio Pelotas"
+          ]
         },
         {
           "source": "planetcatfish",
@@ -48,7 +51,7 @@
         },
         {
           "source": "planetcatfish",
-          "quote": "South America: La Plata system: Uruguay basin. Recorded from the Uruguay, Miriñay and Upper Uruguay (Pelotas) areas.",
+          "quote": "South America: La Plata system: Uruguay basin.",
           "countries": [],
           "regions": [
             "La Plata"

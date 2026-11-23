@@ -1,0 +1,74 @@
+{
+  "id": "cetopsis-oliveirai",
+  "native": {
+    "input": "6dc1cf3c817aaa3e",
+    "at": "2026-11-23T01:48:47.136Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: middle and upper Amazon River basin. Type locality: Rio Solimões north of Ilha da Marchantaria, about 15 km from the mouth of Rio Negro at Manaus, Amazonas, Brazil, elevation about 15 m.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon River basin",
+        "source": "planetcatfish",
+        "quote": "South America: middle and upper Amazon River basin. Type locality: Rio Solimões north of Ilha da Marchantaria, about 15 km from the mouth of Rio Negro at Manaus, Amazonas, Brazil, elevation about 15 m.",
+        "ok": true
+      },
+      {
+        "name": "Rio Solimões",
+        "source": "planetcatfish",
+        "quote": "South America: middle and upper Amazon River basin. Type locality: Rio Solimões north of Ilha da Marchantaria, about 15 km from the mouth of Rio Negro at Manaus, Amazonas, Brazil, elevation about 15 m.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cetopsis oliveirai",
+    "status": "ACCEPTED",
+    "taxonKey": 2338025,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        14
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        13
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        7
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        7
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-23T01:48:47.136Z"
+  }
+}

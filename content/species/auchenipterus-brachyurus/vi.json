@@ -3,20 +3,19 @@
   "name": "Cá Auchenipterus brachyurus",
   "altNames": [],
   "sections": {
-    "quickFacts:scotcat": "<p>Chi Auchenipterus có họ hàng gần và trông giống hai chi Epapterus và Pseudepapterus. Loài này có một dải đen rộng chạy chéo qua giữa thùy trên vây đuôi. Chỉ cần nhìn dải đen này là phân biệt được nó với mọi loài khác, trừ A. nigripinnis.</p>",
-    "beforeYouBuy:scotcat": "<p>Loài này ít khi thấy ngoài tiệm cá.</p>",
+    "quickFacts:scotcat": "<p>Chi Auchenipterus có họ hàng gần và trông giống hai chi Epapterus và Pseudepapterus. Phân biệt với mọi loài khác, trừ A. nigripinnis, nhờ một dải đen rộng chạy chéo qua giữa thùy trên vây đuôi.</p>",
+    "beforeYouBuy:scotcat": "<p>Người chơi cá cảnh không hay gặp loài này.</p>",
     "distribution:scotcat": "<p>Nam Mỹ: phía tây lưu vực sông Amazon, gồm sông Ucayali và sông Napo, cùng thượng nguồn sông Madeira ở Bolivia. Nơi thu mẫu chuẩn: vùng Amazon thuộc Peru.</p>",
-    "behaviour:scotcat": "<p>Đây là loài cá da trơn nuôi chung tốt với cá cỡ vừa. Đừng thả chung với cá nhỏ như tetra nhỏ, vì nó đi săn lúc chạng vạng và sẽ bắt dần từng con trong đêm.</p>",
-    "diet:scotcat": "<p>Loài này ăn được hầu hết các loại thức ăn cho cá cảnh: thức ăn dạng mảnh loại tốt, giun trắng, thức ăn viên nén, thức ăn viên và đồ đông lạnh như trùng huyết. Lúc đầu nên cho ăn sau khi tắt đèn. Đến khi cá quen với giờ cho ăn ban ngày thì rất có thể chúng cũng sẽ ra ăn cùng cá khác.</p>",
+    "behaviour:scotcat": "<p>Đây là loài cá da trơn nuôi chung tốt với cá cỡ vừa. Nhưng đừng tin để nó chung với cá tetra cỡ nhỏ chẳng hạn, vì mấy con này sẽ bị bắt vào ban đêm khi nó đi tuần lúc chạng vạng.</p>",
+    "diet:scotcat": "<p>Loài này ăn được hầu hết thức ăn thường dùng trong bể: thức ăn dạng mảnh loại tốt, giun trắng, thức ăn dạng viên chìm (tablet) và viên (pellet), cùng đồ đông lạnh như trùng huyết. Lúc đầu nên cho ăn khi tắt đèn. Đến lúc chúng quen với giờ cho ăn ban ngày thì rất có thể chúng cũng sẽ ra ăn.</p>",
     "notes:scotcat": "<p>Nguồn gốc tên: tên loài brachyurus nghĩa là đuôi ngắn, ghép từ brachýs (ngắn) và urus, từ chữ ourá (đuôi). Tên này chỉ phần \"thân đuôi\" của nó ngắn hơn so với A. nuchalis.</p><p>Sách đỏ IUCN: Thông tin về loài này còn ít, nhưng nó vẫn được xếp vào mức Ít quan tâm vì phân bố rộng và không gặp mối đe dọa trực tiếp nào (IUCN 2023).</p>",
     "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Ferraris, C.J. Jr., 1999. The South American catfish genus Auchenipterus Valenciennes, 1840 (Ostariophysi: Siluriformes: Auchenipteridae) : monopoly and relationships, with a revisionary study. Zoological Journal. Vol. 126, Part 4, 1999.</p><p>Frederico, R.G. 2023. Auchenipterus brachyurus. The IUCN Red List of Threatened Species 2023.</p><p>Ortega, H. and R.P. Vari, 1986. Annotated checklist of the freshwater fishes of Peru. Smithson. Contrib. Zool. (437):1-25.</p><p>The ETYFish Project Fish Name Etymology Database.</p>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "scotcat": 0.6
-    },
-    "reason": "score"
+      "scotcat": 0.8
+    }
   }
 }

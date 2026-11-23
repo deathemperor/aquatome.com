@@ -147,5 +147,205 @@
     }
   ],
   "productSlots": [],
-  "updatedAt": "2026-11-23"
+  "updatedAt": "2026-11-23",
+  "range": {
+    "native": {
+      "countries": [
+        "GN",
+        "SN"
+      ],
+      "regions": [
+        "Nile",
+        "Chad basin",
+        "Gambia River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: Chad basin, Niger, Upper Volta, Guinea and Senegal.",
+          "countries": [
+            "GN",
+            "SN"
+          ],
+          "regions": [
+            "Chad basin"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: Nile.",
+          "countries": [],
+          "regions": [
+            "Nile"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Also known from the Gambia River.",
+          "countries": [],
+          "regions": [
+            "Gambia River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202835,
+      "total": 48,
+      "fetched": "2026-11-23",
+      "countries": [
+        [
+          "BJ",
+          18
+        ],
+        [
+          "NE",
+          8
+        ],
+        [
+          "NG",
+          7
+        ],
+        [
+          "SD",
+          5
+        ],
+        [
+          "BF",
+          2
+        ],
+        [
+          "EG",
+          2
+        ],
+        [
+          "SN",
+          2
+        ],
+        [
+          "GH",
+          1
+        ],
+        [
+          "ML",
+          1
+        ],
+        [
+          "TD",
+          1
+        ],
+        [
+          "TG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -16.875,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          -4.21875,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          -1.40625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -1.40625,
+          11.25,
+          2,
+          0
+        ],
+        [
+          0,
+          9.84375,
+          7,
+          0
+        ],
+        [
+          0,
+          11.25,
+          5,
+          0
+        ],
+        [
+          1.40625,
+          11.25,
+          7,
+          0
+        ],
+        [
+          1.40625,
+          12.65625,
+          7,
+          0
+        ],
+        [
+          2.8125,
+          5.625,
+          2,
+          0
+        ],
+        [
+          2.8125,
+          11.25,
+          1,
+          0
+        ],
+        [
+          4.21875,
+          12.65625,
+          2,
+          0
+        ],
+        [
+          5.625,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          11.25,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          16.875,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          30.9375,
+          21.09375,
+          2,
+          0
+        ],
+        [
+          32.34375,
+          15.46875,
+          3,
+          0
+        ],
+        [
+          33.75,
+          12.65625,
+          2,
+          0
+        ]
+      ]
+    }
+  }
 }

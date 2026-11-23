@@ -10,6 +10,58 @@
     "indonesia",
     "lake-towuti"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Lake Towuti",
+        "Sulawesi"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Caridina woltereckae is endemic to Lake Towuti, the largest of the five connected lakes of the Malili lake system, Sulawesi, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Lake Towuti",
+            "Sulawesi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 6455143,
+      "total": 32,
+      "fetched": "2026-11-23",
+      "countries": [
+        [
+          "ID",
+          32
+        ]
+      ],
+      "cells": [
+        [
+          120.9375,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          120.9375,
+          -2.8125,
+          28,
+          28
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

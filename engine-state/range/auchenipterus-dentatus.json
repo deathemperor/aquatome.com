@@ -1,0 +1,122 @@
+{
+  "id": "auchenipterus-dentatus",
+  "native": {
+    "input": "f985981a1e4421e8",
+    "at": "2026-11-23T01:48:47.136Z",
+    "claims": [
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "IUCN Red List: this species is relatively widespread across Suriname and French Guiana with an extent of occurrence (EOO) approaching 100,000 km2.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "IUCN Red List: this species is relatively widespread across Suriname and French Guiana with an extent of occurrence (EOO) approaching 100,000 km2.",
+        "words": "French Guiana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Corantijn",
+        "source": "scotcat",
+        "quote": "South America: northern coastal rivers of South America: Corantijn, Suriname, Arataye, Sinnamary and Oyapock rivers.",
+        "ok": true
+      },
+      {
+        "name": "Oyapock",
+        "source": "scotcat",
+        "quote": "South America: northern coastal rivers of South America: Corantijn, Suriname, Arataye, Sinnamary and Oyapock rivers.",
+        "ok": true
+      },
+      {
+        "name": "Sinnamary",
+        "source": "scotcat",
+        "quote": "South America: northern coastal rivers of South America: Corantijn, Suriname, Arataye, Sinnamary and Oyapock rivers.",
+        "ok": true
+      },
+      {
+        "name": "Arataye",
+        "source": "scotcat",
+        "quote": "South America: northern coastal rivers of South America: Corantijn, Suriname, Arataye, Sinnamary and Oyapock rivers.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Auchenipterus dentatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344576,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        10
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        6
+      ],
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        6
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        5
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        3
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "SR",
+      "GF"
+    ],
+    "requests": 11,
+    "at": "2026-11-23T01:48:47.136Z"
+  }
+}

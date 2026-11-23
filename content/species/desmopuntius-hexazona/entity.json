@@ -19,10 +19,10 @@
   "range": {
     "native": {
       "countries": [
+        "TH",
         "SG",
         "ID",
-        "MY",
-        "TH"
+        "MY"
       ],
       "regions": [
         "Borneo",
@@ -32,9 +32,18 @@
       ],
       "sources": [
         "glaser",
-        "seriouslyfish"
+        "seriouslyfish",
+        "bwaquatics"
       ],
       "quotes": [
+        {
+          "source": "glaser",
+          "quote": "They originate from Narathiwat province in South Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
         {
           "source": "seriouslyfish",
           "quote": "Native to parts of southern Borneo, eastern Sumatra, Singapore, and the Malay Peninsula.",
@@ -62,14 +71,6 @@
           "quote": "In the North Selangor peat swamp, Peninsular Malaysia, sympatric fishes include Rasbora cephalotaenia, R. einthovenii, R. kalochroma, Nemacheilus selangoricus, Neohomaloptera johorensis, Kottelatlimia pristes, Mystus bimaculatus, Belontia hasselti, Betta bellica, B. livida, Sphaerichthys osphromenoides, Trichopodus trichopterus, and Luciocephalus pulcher.",
           "countries": [
             "MY"
-          ],
-          "regions": []
-        },
-        {
-          "source": "glaser",
-          "quote": "They originate from Narathiwat province in South Thailand.",
-          "countries": [
-            "TH"
           ],
           "regions": []
         }

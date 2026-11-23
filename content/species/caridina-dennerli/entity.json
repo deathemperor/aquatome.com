@@ -11,21 +11,65 @@
     "lake-matano"
   ],
   "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Lake Matano",
+        "Lake Poso",
+        "Malili",
+        "Sulawesi"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "The cardinal shrimp entered the hobbyists' books in late 2007 and is native to the Sulawesi region of Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Sulawesi"
+          ]
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "It lives in Lake Matano.",
+          "countries": [],
+          "regions": [
+            "Lake Matano"
+          ]
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "Shrimps are caught from several lakes in the region, including Lake Poso and the five-lake Malili system, all of which have similar flora, fauna and water values.",
+          "countries": [],
+          "regions": [
+            "Lake Poso",
+            "Malili"
+          ]
+        }
+      ]
+    },
     "records": {
       "taxonKey": 6454959,
-      "total": 36,
-      "fetched": "2026-11-08",
+      "total": 31,
+      "fetched": "2026-11-23",
       "countries": [
         [
           "ID",
-          36
+          31
         ]
       ],
       "cells": [
         [
           120.9375,
           -2.8125,
-          36
+          31,
+          31
         ]
       ]
     }

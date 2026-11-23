@@ -3,6 +3,12 @@
   "name": "Masinje",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-23T01:41:22.564Z",
+    "why": "\"Masinje\" drops the kind word \"Rocks\" (Malay \"Batu Karang\"/\"Gugusan Batu\"), so it is cut short and does not name the rocks region as a whole."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

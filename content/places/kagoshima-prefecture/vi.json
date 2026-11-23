@@ -1,10 +1,13 @@
 {
   "slug": "kagoshima-prefecture",
-  "name": "Kagoshima Prefecture",
-  "altNames": [],
+  "name": "tỉnh Kagoshima",
+  "altNames": [
+    "Kagoshima Prefecture"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

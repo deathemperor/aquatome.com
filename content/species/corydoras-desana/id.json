@@ -3,25 +3,28 @@
   "name": "Corydoras desana",
   "altNames": [
     "Orca Cory",
+    "Corydoras CW011",
     "Cory Orca",
-    "CW011",
-    "Koridoras desana"
+    "Tukano Longnose"
   ],
   "sections": {
-    "quickFacts:planetcatfish": "<p>Corydoras desana Lima &amp; Sazima, 2017. Nama umum: CW011, Orca Cory, Kopansermalle (Denmark).</p><p>Identifikasi: Corydoras dikenali dari dua baris lempeng pelindung (armour) di sepanjang sisi tubuhnya dan dari jumlah jari-jari sirip punggung yang kurang dari 10. Ikan ini paling sering tertukar dengan genus lain dalam subfamili yang sama, yaitu Brochis, Scleromystax, dan Aspidoras.</p><p>Daftar Merah IUCN: Data Deficient (kurang data; terakhir dinilai tahun 2020).</p>",
+    "quickFacts:planetcatfish": "<p>Corydoras desana Lima &amp; Sazima, 2017. Nama umum: CW011, Orca Cory, Kopansermalle (Denmark).</p><p>Identifikasi: Corydoras dikenali dari dua baris pelat zirah di sepanjang sisi tubuhnya dan dari jumlah jari-jari sirip punggung yang kurang dari 10. Ikan ini paling sering tertukar dengan genus lain dalam subfamili yang sama, yaitu Brochis, Scleromystax, dan Aspidoras.</p><p>Daftar Merah IUCN: Data Deficient (kurang data; terakhir dinilai tahun 2020).</p>",
+    "quickFacts:glaser": "<p>Beberapa spesies Corydoras sangat jarang diimpor dan jumlahnya pun sedikit, sehingga tetap menjadi impian yang belum terwujud bagi para pencinta lele berzirah. Salah satu spesies paling menarik dari kelompok ini adalah \"Tukano Longnose\", nama yang pertama kali diberikan padanya. Kemudian ikan ini mendapat kode CW011, dan akhirnya dideskripsikan secara ilmiah sebagai Corydoras desana.</p>",
+    "beforeYouBuy:glaser": "<p>Di alam, ikan ini sebenarnya tidak langka dalam arti yang sesungguhnya, tetapi hidupnya menyendiri dan sangat pemalu. Akibatnya, dalam waktu yang sama ketika ribuan Corydoras tukano bisa ditangkap, hanya satu atau dua ekor Longnose yang masuk jaring.</p>",
     "distribution:planetcatfish": "<p>Sejauh ini hanya diketahui dari bagian hulu Igarapé Castanha, anak sungai rio Tiquié (Amazon, Amazon Tengah (Solimões), Negro, Negro Hulu, Uaupés, Tiquié). Lokasi tipe: Igarapé Castanha, anak sungai rio Tiquié, desa Santa Rosa, São Gabriel da Cachoeira, Amazonas, Brasil.</p>",
-    "equipment:planetcatfish": "<p>Idealnya substrat berupa pasir, tetapi kerikil yang membulat bisa jadi alternatif walaupun kurang sempurna. Hindari kerikil bersudut tajam (pecahan), karena bisa memperbesar risiko sungut ikan rusak saat ikan mengais dasar. Batasi area substrat dengan kayu (driftwood) dan tanaman air, lalu sisakan area terbuka untuk mencari makan dan berenang. Naungan dari susunan batu yang menjorok, kayu rendam yang melengkung, serta tanaman tinggi atau tanaman apung sudah cukup untuk membuat ikan ini merasa tenang.</p>",
-    "diet:planetcatfish": "<p>Mau menerima semua pakan buatan yang sampai ke dasar akuarium, seperti pakan tablet, granul, dan pakan serpihan berukuran besar. Pakan hidup atau beku seperti cacing darah, cacing putih (white worm), cacing grindal (Enchytraeus), kutu air (Daphnia), dan cacing sutra (Tubifex) juga mudah diterima dan baik untuk mengondisikan kelompok ikan sebelum dipijahkan.</p>",
-    "behaviour:planetcatfish": "<p>Ikan komunitas yang damai dan suka hidup bergerombol.</p>",
-    "dimorphism:planetcatfish": "<p>Betina tumbuh lebih besar dan bertubuh lebih berisi, paling jelas terlihat dari atas. Seiring bertambah dewasa, jantan biasanya memiliki ujung sirip yang lebih runcing, bukan membulat.</p>",
+    "equipment:planetcatfish": "<p>Idealnya substrat berupa pasir, tetapi kerikil yang bulat bisa menjadi alternatif meski kurang sempurna. Hindari kerikil bersudut tajam (pecahan), karena meningkatkan risiko sungut ikan terluka saat ia mengais. Beri batas di sekeliling substrat dengan kayu (driftwood) dan tanaman air, sambil menyisakan area terbuka untuk mencari makan dan berenang. Keteduhan dari susunan batu yang menjorok, kayu yang melengkung, serta tanaman tinggi atau tanaman apung sudah cukup untuk membuat ikan ini tenang.</p>",
+    "diet:planetcatfish": "<p>Mau menerima semua pakan buatan yang sampai ke dasar akuarium, seperti pakan tablet, butiran (granul), dan pakan serpihan yang berukuran besar. Pakan hidup atau beku seperti cacing darah, white worm, grindal worm (Enchytraeus), kutu air (Daphnia), dan cacing sutra (Tubifex) juga mudah diterima, dan bagus untuk mengondisikan kelompok ikan agar siap memijah.</p>",
+    "behaviour:planetcatfish": "<p>Ikan komunitas yang damai dan hidup bergerombol.</p>",
+    "dimorphism:planetcatfish": "<p>Betina tumbuh lebih besar dan tubuhnya lebih berisi, paling mudah terlihat bila diamati dari atas. Saat dewasa, jantan biasanya memiliki ujung sirip yang lebih runcing, bukan membulat.</p>",
     "reproduction:planetcatfish": "<p>Belum dilaporkan. Belum ada laporan pemijahan.</p>",
     "references:planetcatfish": "<p>aqua, International Journal of Ichthyology v. 23 (no. 1), pp 20, Figs. 1-3, 4a.</p>"
   },
   "quality": {
-    "score": 0.85,
+    "score": 0.8,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
+      "planetcatfish": 0.8,
+      "glaser": 0.8
     }
   }
 }
