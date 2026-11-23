@@ -109,17 +109,6 @@
     ],
     "mentions": 17
   },
-  "panaque-nigrolineatus": {
-    "name": "Panaque nigrolineatus",
-    "mentionedIn": [
-      "guides/glaser-en-32-all-the-rest-colombia-a-journey-to-the-habitats-of-our-fishes",
-      "guides/sprucepets-lifespans-of-aquarium-fish-1378340",
-      "guides/youtube-0PC86KyBZmQ",
-      "species/acestrorhynchus-falcirostris",
-      "species/baryancistrus-beggini"
-    ],
-    "mentions": 16
-  },
   "acanthocobitis-pictilis": {
     "name": "Acanthocobitis pictilis",
     "mentionedIn": [
@@ -1379,6 +1368,15 @@
     ],
     "mentions": 3
   },
+  "atyaephyra-desmarestii": {
+    "name": "Atyaephyra desmarestii",
+    "mentionedIn": [
+      "guides/aquariumbreeder-everything-about-feeding-dishes-for-shrimp",
+      "guides/aquariumbreeder-how-and-what-to-feed-your-shrimp",
+      "guides/aquariumbreeder-how-often-and-how-much-to-feed-shrimp"
+    ],
+    "mentions": 3
+  },
   "chlorophytum-comosum": {
     "name": "Chlorophytum comosum",
     "mentionedIn": [
@@ -2024,14 +2022,6 @@
     "mentionedIn": [
       "guides/aquariumbreeder-bristleworms-profile-stay-or-go",
       "species/stenorhynchus-seticornis"
-    ],
-    "mentions": 2
-  },
-  "atyaephyra-desmarestii": {
-    "name": "Atyaephyra desmarestii",
-    "mentionedIn": [
-      "guides/aquariumbreeder-everything-about-feeding-dishes-for-shrimp",
-      "guides/aquariumbreeder-how-and-what-to-feed-your-shrimp"
     ],
     "mentions": 2
   },
@@ -3710,13 +3700,6 @@
     "name": "Theodoxus danubialis",
     "mentionedIn": [
       "guides/aquariumbreeder-how-to-remove-green-spot-algae-in-aquariums"
-    ],
-    "mentions": 1
-  },
-  "sturisomatichthys-panamense": {
-    "name": "Sturisomatichthys panamense",
-    "mentionedIn": [
-      "guides/aquariumbreeder-how-to-remove-staghorn-algae-in-aquariums"
     ],
     "mentions": 1
   },
@@ -5491,6 +5474,13 @@
     "name": "Aspidoras velites",
     "mentionedIn": [
       "species/aspidoras-pauciradiatus"
+    ],
+    "mentions": 1
+  },
+  "aspidoras-rochai": {
+    "name": "Aspidoras rochai",
+    "mentionedIn": [
+      "species/aspidoras-raimundi"
     ],
     "mentions": 1
   },
@@ -8540,6 +8530,13 @@
     "name": "Tachysurus spilotus",
     "mentionedIn": [
       "species/tachysurus-argentivittatus"
+    ],
+    "mentions": 1
+  },
+  "pseudobagrus-crassilabris": {
+    "name": "Pseudobagrus crassilabris",
+    "mentionedIn": [
+      "species/tachysurus-crassilabris"
     ],
     "mentions": 1
   },
