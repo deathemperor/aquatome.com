@@ -1,16 +1,13 @@
 {
   "id": "xenopus-tropicalis",
-  "summary": "Ếch móng vuốt nhiệt đới (Xenopus tropicalis) hợp với người mới nuôi, độ khó 2/8, chỉ lớn khoảng 4 cm nên dễ xếp vào bể chung với cá. Ăn được đủ loại thức ăn cá cảnh, từ khô, đông lạnh tới tươi sống. Điểm khó nhất là bể phải đậy thật kín vì ếch rất giỏi trốn, và cá nuôi chung phải đủ lớn để không lọt miệng ếch.",
+  "summary": "Ếch móng vuốt nhiệt đới (Xenopus tropicalis) hợp với người mới nuôi, độ khó 2/8, và ai muốn nuôi ếch nhỏ chung với cá. Loài này chỉ lớn khoảng 4 cm, ăn đủ loại thức ăn cho cá cảnh từ khô, đông lạnh đến tươi sống. Khó nhất là giữ ếch không trốn khỏi bể, và cá nuôi chung phải đủ lớn vì thứ gì lọt miệng ếch cũng cố nuốt.",
   "mistakes": [
-    "Để bể hở hoặc đậy lỏng: ếch trốn rất tài và bò ra phòng khách thường chết, nên đậy thật kín.",
-    "Thả cá nhỏ chung bể: ếch thấy gì lọt miệng là nuốt, nên chỉ nuôi chung với cá đủ lớn, không lọt miệng ếch.",
-    "Lầm với Xenopus laevis rồi chuẩn bị bể theo loài lớn: X. tropicalis chỉ khoảng 4 cm và là loài nhiệt đới, nên hỏi rõ đúng loài trước khi mua."
+    "Đậy bể không kín: ếch trốn rất tài, nhất là khi áp suất không khí đổi, và ra ngoài thường chết, nên phải đậy thật kín.",
+    "Nuôi chung với cá quá nhỏ: ếch sẽ nuốt, nên chỉ chọn cá đủ lớn, không lọt miệng ếch.",
+    "Nhầm với Xenopus laevis: hai loài khác nhau, X. tropicalis nhỏ hơn nhiều và là loài nhiệt đới, nên đừng áp cách nuôi của loài lớn sang."
   ],
   "speciesUpdatedAt": "2026-11-22",
-  "writtenFrom": "0007d781449aa309",
-  "generatedAt": "2026-11-22T19:55:20.404Z",
-  "review": "pending",
-  "problems": [
-    "The third mistake, \"Lầm với Xenopus laevis rồi chuẩn bị bể theo loài lớn ... nên hỏi rõ đúng loài trước khi mua\", is not on the page. The page only says X. tropicalis differs from X. laevis in size and eyes and is tropical. It never mentions mixing the two up, sizing a tank for the larger species, or asking the seller which species it is. The fix is invented advice."
-  ]
+  "writtenFrom": "1634a92f9ef6b543",
+  "generatedAt": "2026-11-23T14:28:38.229Z",
+  "review": "approved"
 }

@@ -2064,6 +2064,86 @@
       "kept": true
     }
   ],
+  "vi/guides/2hraquarist-blogs-choosing-co2-why-co2-low-light-tank-benefits#2hraquarist": [
+    {
+      "at": "2026-11-23T14:13:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.9,
+      "notes": [
+        "\"một trong những cách set ổn định nhất\" and \"Set như vậy\": \"set\" is English slang left in place. Use \"cách bố trí\" or \"kiểu setup\" (\"cấu hình\").",
+        "\"Kết quả cho thấy khi tăng CO2…\": the English says \"The graph below shows\", and the graph is dropped. Say \"biểu đồ cho thấy\" or \"kết quả thí nghiệm cho thấy\" so the source is clear.",
+        "\"Có bể trồng thảm chỉ với 50 umol PAR\": the English is \"The tank above\", a specific tank shown in a photo. Say \"bể trong ảnh trên\" or \"bể nói trên\".",
+        "\"là vừa đẹp\": a bit colloquial for an encyclopedia. \"là lựa chọn hoàn hảo\" or \"là sự kết hợp lý tưởng\" is closer to \"perfect combination\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/2hraquarist-blogs-choosing-co2-why-co2-system-101#2hraquarist": [
+    {
+      "at": "2026-11-23T14:20:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.9,
+      "notes": [
+        "\"kiểu set ổn định\": \"set\" is slang English; use \"kiểu kết hợp/cách bố trí ổn định\".",
+        "\"cá, tép\" in \"Nếu trong bể đã có cá, tép\" and \"thả cá, tép vào bể\": the source says only \"animals\", so this is slightly narrowed. \"sinh vật\" or \"cá và tép\" would be closer, but it is acceptable.",
+        "\"Tiền nạp CO2 ... không đáng bao nhiêu\": the source figure is missing, so this is fine, but it reads a little vague.",
+        "\"atomizer\" and \"reactor\" are kept in English and glossed once. Use them consistently, e.g. always \"sủi (atomizer) inline\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/2hraquarist-blogs-choosing-co2-why-gasping-fish-and-co2#2hraquarist": [
+    {
+      "at": "2026-11-23T14:22:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.8,
+      "notes": [
+        "\"Let us examine it with the help of the following graph\" became \"Cứ theo dõi CO2 trong bể qua một ngày thì sẽ thấy rõ\", which drops the graph reference and changes the meaning. Say something like \"Hãy xem biểu đồ sau để hiểu rõ hơn\".",
+        "\"The blue line shows the CO2 buildup...\" lost the blue-line/graph reference. Restore \"Đường màu xanh dương cho thấy...\".",
+        "\"CO2 saturation drop off steeply at optimum levels\" was rendered \"chững lại ngay\" (levels off), which is not what the English says. Keep the source meaning or phrase it more faithfully.",
+        "\"low injection rates\" was rendered \"châm CO2 chậm\". Use \"châm CO2 ít/thấp\", because the source is about rate or amount.",
+        "The article's H1 title (\"Gasping fish does not automatically mean that your plants are receiving good CO2 levels\") is not translated. Only a rephrased question heading is present. Keep the title."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.78,
+        0.8,
+        0.8
+      ]
+    }
+  ],
+  "vi/guides/2hraquarist-blogs-choosing-co2-why-how-to-distribute-co2-optimally#2hraquarist": [
+    {
+      "at": "2026-11-23T14:26:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.82,
+      "notes": [
+        "\"Bể nào thường cũng lắp được atomizer inline\" garbles \"we use inline atomisers in most of our setups\". Say it neutrally, e.g. \"phần lớn các bể đều dùng atomizer inline\".",
+        "\"Chẳng hạn một bể 36 lít có thể giấu...\" drops the reference to the tank pictured (\"the 9.5 gallon tank above\"). It reads like a general claim, so say \"bể 36 lít trong ảnh\" or similar.",
+        "\"khoảng 3.800 lít\" for 1000 gallons is acceptable. The English gives an exact conversion, so you could write \"khoảng 3.800 lít\" or round to \"4.000 lít\"; stay consistent with the table's rounding.",
+        "\"Atomizer\", \"reactor\" and \"skimmer\" are left in English. They are common hobby loanwords, but the Vietnamese could give \"bộ khuếch tán/phun sương\" once at first mention.",
+        "\"Sủi\" is used for both the in-tank diffuser and, loosely, the atomizer (\"sủi/atomizer\"). Keep the terms distinct."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.75,
+        0.85,
+        0.82
+      ]
+    }
+  ],
   "vi/guides/aquariumbreeder-10-questions-to-ask-when-buying-aquarium-crustaceans#aquariumbreeder": [
     {
       "at": "2026-11-13T21:32:00Z",

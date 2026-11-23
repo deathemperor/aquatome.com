@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (183)
+# Tóm tắt chờ duyệt (180)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -341,30 +341,6 @@ Cá betta lehi (Betta lehi) hợp với người thích bể ánh sáng dịu, n
 Kiểm tra:
 - "cá lớn hoặc hiếu động sẽ bắt nạt và tranh hết phần ăn": the page hedges with "nhiều khả năng sẽ bắt nạt" (likely to bully). The summary states it as a certainty.
 - "Betta dễ béo phì": the page says "có vẻ đặc biệt dễ bị béo phì" (seem especially prone to obesity). The summary drops the hedge.
-
-## Cá betta Siamorientalis (Betta siamorientalis)
-id: `betta-siamorientalis`
-
-Cá betta Siamorientalis nhỏ, chỉ 3,3 cm, hợp với người đã có chút kinh nghiệm, muốn nuôi riêng một con hoặc một cặp trong bể trồng dày cây, ánh sáng dịu. Bể dài tối thiểu 45 cm (đáy 45 × 30 cm, khoảng 41 lít), nước 22–28 °C, pH 5,5–7,5, độ cứng 1–12 dGH, lọc bọt biển chạy nhẹ. Độ khó 4/8, khó nhất là chọn bạn cùng bể vì loài này không hợp bể cộng đồng thông thường, cộng thêm việc cá nhảy giỏi nên bể phải đậy kín.
-
-- Thả vào bể cộng đồng thông thường thì nhiều khả năng cá bị loài lớn hoặc bơi hăng bắt nạt và giành hết thức ăn; nên nuôi riêng hoặc chung với loài thật hiền.
-- Không đậy bể hoặc đổ nước đầy tới miệng thì cá nhảy ra ngoài; nên đậy kín và chừa khoảng trống để cá ngoi lên lớp không khí ẩm trên mặt nước.
-- Cho ăn quá tay, vì các loài Betta có vẻ đặc biệt dễ béo phì; nên cho ăn vừa phải, xen thức ăn sống hoặc đông lạnh cỡ nhỏ như bo bo, Artemia, trùng huyết.
-
-Kiểm tra:
-- "hợp với người đã có chút kinh nghiệm": neither the page text nor the card says the species suits experienced keepers. Card difficulty 4/8 only means medium (vừa), so this audience claim is not supported.
-
-## Cá betta Stiktos (Betta stiktos)
-id: `betta-stiktos`
-
-Betta stiktos hợp với người muốn nuôi một loài betta hiếm, nhỏ (5 cm), ăn thịt. Nước nên mềm, hơi chua, pH 5–7,5, nhiệt độ 24–29 °C, và nước trên 26 °C thì cá lên màu đẹp hơn hẳn. Khó nhất là con đực rất dữ, nên nuôi một mình hoặc chung với cá khác không phải betta đực.
-
-- Thả hai con đực chung bể là lỗi hay gặp vì đực rất dữ; mỗi bể chỉ nuôi một đực.
-- Thả nhiều con cái vào bể chật; chỉ nuôi nhóm cái trong bể thủy sinh đủ rộng.
-- Để con cái trong bể sau khi đẻ xong; nên vớt con cái ra và giữ mặt nước yên để tổ bọt không vỡ.
-
-Kiểm tra:
-- "là lỗi hay gặp": the page never says that keeping two males together is a common mistake. This frequency claim is invented.
 
 ## Cá betta tussyae (Betta tussyae)
 id: `betta-tussyae`
@@ -2137,18 +2113,6 @@ Cá rô đầu đỏ (Vieja melanura) hợp với người có chỗ đặt bể
 
 Kiểm tra:
 - "Khó nhất là giữ cho hai con sống chung được một bể" turns a breeding-specific remark into the hardest part of keeping the species in general. The page says this is the hardest part of breeding ("Cái khó nhất khi cho loài này sinh sản"). It also says a bonded pair usually lives together fairly calmly.
-
-## Ếch móng vuốt nhiệt đới (Xenopus tropicalis)
-id: `xenopus-tropicalis`
-
-Ếch móng vuốt nhiệt đới (Xenopus tropicalis) hợp với người mới nuôi, độ khó 2/8, chỉ lớn khoảng 4 cm nên dễ xếp vào bể chung với cá. Ăn được đủ loại thức ăn cá cảnh, từ khô, đông lạnh tới tươi sống. Điểm khó nhất là bể phải đậy thật kín vì ếch rất giỏi trốn, và cá nuôi chung phải đủ lớn để không lọt miệng ếch.
-
-- Để bể hở hoặc đậy lỏng: ếch trốn rất tài và bò ra phòng khách thường chết, nên đậy thật kín.
-- Thả cá nhỏ chung bể: ếch thấy gì lọt miệng là nuốt, nên chỉ nuôi chung với cá đủ lớn, không lọt miệng ếch.
-- Lầm với Xenopus laevis rồi chuẩn bị bể theo loài lớn: X. tropicalis chỉ khoảng 4 cm và là loài nhiệt đới, nên hỏi rõ đúng loài trước khi mua.
-
-Kiểm tra:
-- The third mistake, "Lầm với Xenopus laevis rồi chuẩn bị bể theo loài lớn ... nên hỏi rõ đúng loài trước khi mua", is not on the page. The page only says X. tropicalis differs from X. laevis in size and eyes and is tropical. It never mentions mixing the two up, sizing a tank for the larger species, or asking the seller which species it is. The fix is invented advice.
 
 ## Cá da trơn cát đốm (Zaireichthys conspicuus)
 id: `zaireichthys-conspicuus`

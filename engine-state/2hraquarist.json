@@ -1002,9 +1002,9 @@
   },
   "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/nitrate-limitation": {
     "entityIds": [],
-    "updatedAt": "2026-11-22T23:11:01.327Z",
+    "updatedAt": "2026-11-23T14:10:54.320Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "no archived copy (HTTP 404)"
   },
   "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/nutrient-tunnel-vision": {
@@ -1019,16 +1019,16 @@
   },
   "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/planted-tank-fertilizing-101": {
     "entityIds": [],
-    "updatedAt": "2026-11-22T23:17:50.358Z",
+    "updatedAt": "2026-11-23T14:11:06.417Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "no archived copy (HTTP 404)"
   },
   "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/planted-tank-lighting-101": {
     "entityIds": [],
-    "updatedAt": "2026-11-22T23:18:03.233Z",
+    "updatedAt": "2026-11-23T14:11:18.347Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "no archived copy (HTTP 404)"
   },
   "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/prevent-algae-growth": {
@@ -1063,9 +1063,9 @@
   },
   "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/water-change-the-2hr-way": {
     "entityIds": [],
-    "updatedAt": "2026-11-23T02:13:11.901Z",
+    "updatedAt": "2026-11-23T14:11:30.460Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "no archived copy (HTTP 404)"
   },
   "https://www.2hraquarist.com/blogs/campfire/26-nov-stronger-colours": {
@@ -1105,6 +1105,46 @@
     "updatedAt": "2026-11-23T02:23:52.532Z",
     "hash": "f173abfc58606ea8e42d7fb80af38d5d48330a69de2dca62e3bb3910811b96a8",
     "processedHash": "f173abfc58606ea8e42d7fb80af38d5d48330a69de2dca62e3bb3910811b96a8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/choosing-co2-why/co2-low-light-tank-benefits": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-choosing-co2-why-co2-low-light-tank-benefits"
+    ],
+    "updatedAt": "2026-11-23T14:11:46.119Z",
+    "hash": "5f90fd26abbf75a786604e8f6ca89f26335fd8dd1ac8b0675c1fc1fa3f88bd71",
+    "processedHash": "5f90fd26abbf75a786604e8f6ca89f26335fd8dd1ac8b0675c1fc1fa3f88bd71",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/choosing-co2-why/co2-system-101": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-choosing-co2-why-co2-system-101"
+    ],
+    "updatedAt": "2026-11-23T14:13:42.389Z",
+    "hash": "8497dd2b08b0aea852d27f7f3b51b7e4f54c49c2487918053864f34f009ee5db",
+    "processedHash": "8497dd2b08b0aea852d27f7f3b51b7e4f54c49c2487918053864f34f009ee5db",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/choosing-co2-why/gasping-fish-and-co2": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-choosing-co2-why-gasping-fish-and-co2"
+    ],
+    "updatedAt": "2026-11-23T14:20:21.453Z",
+    "hash": "a73a54b80d9cfc1a97bb5406b6c240b4b4214501362758e44153a58908021a3b",
+    "processedHash": "a73a54b80d9cfc1a97bb5406b6c240b4b4214501362758e44153a58908021a3b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/choosing-co2-why/how-to-distribute-co2-optimally": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-choosing-co2-why-how-to-distribute-co2-optimally"
+    ],
+    "updatedAt": "2026-11-23T14:22:02.960Z",
+    "hash": "d3392fe97d23390470ad825c372e330d7afe767c1b090a1c892572451c0b5319",
+    "processedHash": "d3392fe97d23390470ad825c372e330d7afe767c1b090a1c892572451c0b5319",
     "status": "processed",
     "attempts": 0
   },
