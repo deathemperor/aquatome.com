@@ -2366,7 +2366,7 @@ borrow one from a species or plant they mention on the site.
 
 - none
 
-## Only one photo (no pictures inside the text) (1166)
+## Only one photo (no pictures inside the text) (1167)
 
 - species/aborichthys-elongatus — Cá chạch sóc đuôi đỏ
 - species/acanthocobitis-rubidipinnis — Cá chạch Paracanthocobitis rubidipinnis
@@ -3410,6 +3410,7 @@ borrow one from a species or plant they mention on the site.
 - guides/2hraquarist-blogs-aquascaping-ideas-unknown — Bể Diorama đá nhô cao cùng bụi cây nhiều màu – Fernando Ferreira
 - guides/2hraquarist-blogs-aquascaping-ideas-yoyo-prayogi — Bể Diorama rừng, thảm Rotala rotundifolia đỏ – Yoyo Prayogi
 - guides/2hraquarist-blogs-beginners-planted-tank-101-101-growth-plllars — 3 trụ cột giúp cây thủy sinh phát triển: ánh sáng, dinh dưỡng và CO2
+- guides/2hraquarist-blogs-choosing-co2-why-gasping-fish-and-co2 — Cá thở gấp trên mặt nước không có nghĩa là cây thủy sinh đang nhận đủ CO2
 - guides/aquariumbreeder-10-tips-for-rooted-aquarium-plants — 10 mẹo trồng cây thủy sinh ăn rễ
 - guides/aquariumbreeder-7-signs-your-crayfish-is-suffering-from-stress — 7 dấu hiệu cho thấy tôm càng (crayfish) của bạn đang bị căng thẳng
 - guides/aquariumbreeder-7-tips-for-fish-tank-location — 7 lưu ý chọn vị trí đặt bể tép và bể cá

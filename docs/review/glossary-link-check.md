@@ -1,6 +1,6 @@
 # The glossary's link phrases, 2026-11-23
 
-1731 of 34793 linked places flagged, over 142 phrases (no model).
+1731 of 34806 linked places flagged, over 142 phrases (no model).
 
 ## luu-vuc: "lưu vực sông", 782 of 834 flagged
 - name: beside "Amazon", 80 places
@@ -864,8 +864,8 @@ Written often after it, and never in its own entry: "cám viên" 336 times on 25
 - name: beside "Cunene", 1 place
   - species/zaireichthys-rotundiceps | …i chúng. Hiện vẫn còn vài loài chưa được mô tả. ¶ ¶ ¶ ¶ Châu Phi: các [lưu vực] Cunene, Okavango và Zambezi, Pungwe, Buse và Save…
 
-## dong-chay: "dòng nước", 82 of 237 flagged
-Written often after it, and never in its own entry: "dòng nước chảy" 75 times on 65 pages; "dòng nước cuốn" 37 times on 35 pages; "dòng nước mạnh" 24 times on 23 pages; "dòng nước xiết" 22 times on 22 pages; "dòng nước nhẹ" 10 times on 10 pages.
+## dong-chay: "dòng nước", 82 of 239 flagged
+Written often after it, and never in its own entry: "dòng nước chảy" 75 times on 65 pages; "dòng nước cuốn" 37 times on 35 pages; "dòng nước mạnh" 25 times on 24 pages; "dòng nước xiết" 22 times on 22 pages; "dòng nước nhẹ" 10 times on 10 pages.
 - longer: beside "chảy", 47 places
   - species/akysis-maculipinnis | …ừng được xuất khẩu làm cá cảnh. Cá đẻ trứng phía trên nền, ngay trong [dòng nước] chảy, và không chăm con. Cá lớn lại rất ham ăn tr…
   - species/ancistrus-cirrhosus | …istlenose (Ancistrus cirrhosus) có nguồn gốc từ Nam Mỹ, chủ yếu ở các [dòng nước] chảy xiết của lưu vực sông Amazon. Các loài cá da…
@@ -1110,7 +1110,7 @@ Written often after it, and never in its own entry: "tảo bám đáy" 28 times 
   - species/hyphessobrycon-herbertaxelrodi | …hấy trứng, thường là sáng hôm sau. ¶ ¶ Thức ăn đầu tiên cho cá bột là [trùng cỏ] Paramecium hoặc thức ăn khô làm sẵn có hạt đủ nhỏ…
   - species/hyphessobrycon-pulchripinnis | …g, thường là vào sáng hôm sau. ¶ ¶ Thức ăn đầu tiên cho cá bột nên là [trùng cỏ] Paramecium, hoặc thức ăn khô chuyên dụng có hạt đ…
 
-## lua: "lũa", 1 of 1077 flagged
+## lua: "lũa", 1 of 1079 flagged
 - name: beside "Malaysia", 1 place
   - guides/youtube-N3uNPHmKkjc | …bể. Với bể nhỏ thế này có thể giữ bố cục đơn giản, chẳng hạn một khúc [lũa] Malaysia làm điểm chính và đá cuội tròn nhiều cỡ.…
 

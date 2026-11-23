@@ -9,7 +9,7 @@ under `<lang>/<path>`.
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
 | video-guide | 1141 | 806 (vi 806) | 806 |
-| translation | 2629 | 367 (vi 367) | 367 |
+| translation | 2633 | 367 (vi 367) | 367 |
 | vi-rewrite | 439 | 43 (vi 43) | 43 |
 | reader-rewrite | 51 | 0 | 0 |
 | title | 29 | 0 | 0 |
@@ -17,7 +17,7 @@ under `<lang>/<path>`.
 | topic | 142 | 9 (id 1, ms 1, th 6, vi 1) | 9 |
 | product | 35 | 2 (vi 2) | 2 |
 | product-reviews | 27 | 0 | 0 |
-| summary | 2968 | 171 (vi 171) | 171 |
+| summary | 2968 | 168 (vi 168) | 168 |
 | localize | 2986 | 821 (id 351, ms 70, th 400) | 821 |
 | glossary | 40 | 0 | 0 |
 | places | 7931 | 4844 (id 1670, ms 1662, th 1413, vi 99) | 1504 |
@@ -126,7 +126,7 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-367 of 2629 pages under the bar.
+367 of 2633 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -436,11 +436,11 @@ under `<lang>/<path>`.
 
 ## summary: species' quick summaries (the numbers and claims check: 1 pass, 0 fail)
 
-171 of 2968 pages under the bar.
+168 of 2968 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Says what the source doesn't (invented, added) | 88 | 106 |
+| Says what the source doesn't (invented, added) | 85 | 103 |
 | States as certain what the source hedges, or what garbled captions only hint at | 62 | 68 |
 | Other | 56 | 66 |
 | Meaning changed or wrong | 17 | 18 |

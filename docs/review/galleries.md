@@ -172,7 +172,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-aeneus | shop | 30 | 60 |
 | breeds/dumbo-ear-guppy | shop | 0 | 60 |
 | species/chromobotia-macracanthus | shop | 23 | 60 |
-| plants/aegagropila-linnaei | shop | 53 | 60 |
+| plants/aegagropila-linnaei | shop | 52 | 60 |
 | breeds/super-red-arowana | shop | 7 | 60 |
 | species/corydoras-paleatus | shop | 40 | 60 |
 | plants/cryptocoryne-wendtii | shop | 7 | 60 |
@@ -180,7 +180,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-pygmaeus | shop | 6 | 60 |
 | plants/cryptocoryne-crispatula | shop | 10 | 60 |
 | breeds/crossback-golden-arowana | shop | 0 | 60 |
-| species/corydoras-hastatus | shop | 7 | 60 |
+| species/corydoras-hastatus | shop | 5 | 60 |
 | breeds/mickey-mouse-platy | shop | 3 | 60 |
 | species/corydoras-similis | shop | 0 | 60 |
 | breeds/butterfly-koi | shop | 6 | 60 |
