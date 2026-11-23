@@ -325,5 +325,9 @@
     ],
     "requests": 12,
     "at": "2026-11-09T20:43:02.940Z"
+  },
+  "nativeFailed": {
+    "at": "2026-11-23T11:13:24.784Z",
+    "error": "claude failed (1): other"
   }
 }
