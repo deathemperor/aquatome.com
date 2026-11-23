@@ -102,7 +102,19 @@
       "html": "<p>Bulletin of the United States National Museum No. 282, pp 54, Pl. 3 (fig. 2), Pl. 5 (fig. 2).</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/665774684.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/665774684-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "J’z aquatics",
+      "sourceUrl": "https://www.inaturalist.org/photos/665774684",
+      "caption": "Cá madtom Ouachita màu đỏ cam trong hộp ảnh có thước",
+      "setup": true
+    }
+  ],
   "videos": [],
   "productSlots": [],
   "updatedAt": "2026-11-02"

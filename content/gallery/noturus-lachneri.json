@@ -12,8 +12,7 @@
       "caption": "Cá madtom Ouachita thân hồng cam trong hộp ảnh có thước",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/602205897.webp",
@@ -26,8 +25,7 @@
       "caption": "Cá madtom Ouachita có râu rõ trong hộp ảnh có thước",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/665774684.webp",
@@ -40,22 +38,7 @@
       "caption": "Cá madtom Ouachita màu đỏ cam trong hộp ảnh có thước",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/602204100.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/602204100-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Yinan Li",
-      "sourceUrl": "https://www.inaturalist.org/photos/602204100",
-      "caption": "Cá da trơn madtom Ouachita trong hộp ảnh nhỏ cạnh thước",
-      "best": false,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/602204296.webp",
@@ -68,8 +51,20 @@
       "caption": "Cá da trơn madtom Ouachita trong hộp ảnh bên thước đo",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/602204100.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/602204100-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Yinan Li",
+      "sourceUrl": "https://www.inaturalist.org/photos/602204100",
+      "caption": "Cá da trơn madtom Ouachita trong hộp ảnh nhỏ cạnh thước",
+      "best": false,
+      "kind": "other",
+      "setup": true
     }
   ],
   "seen": 12,

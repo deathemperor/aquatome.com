@@ -242,7 +242,12 @@
       "author": "koblmuel",
       "sourceUrl": "https://www.inaturalist.org/photos/180639730",
       "caption": "Cá lamprologus Lemaire trên nền cát gần đá ở hồ tự nhiên",
-      "setup": false
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/180639730-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

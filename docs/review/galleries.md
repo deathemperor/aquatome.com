@@ -7,8 +7,8 @@ Written by `pnpm engine gallery` (2026-11-23). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
 | shop | 60 | 131 | 81 | 24 | 36 | 200 |
 | popular | 40 | 21 | 0 | 0 | 1 | 20 |
-| covered | 30 | 933 | 32 | 9 | 27 | 947 |
-| rest | 20 | 1984 | 81 | 0 | 123 | 1942 |
+| covered | 30 | 942 | 32 | 9 | 27 | 956 |
+| rest | 20 | 2010 | 81 | 0 | 123 | 1968 |
 
 ## Short of target: every source read (829)
 
@@ -127,7 +127,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/astroblepus-rosei | rest | 0 | 20 |
 | species/auchenipterichthys-longimanus | rest | 0 | 20 |
 | species/auchenipterus-ambyiacus | rest | 0 | 20 |
-| species/guyanancistrus-brevispinis | rest | 9 | 20 |
 | species/paracheirodon-innesi | staple | 21 | 100 |
 | species/paracheirodon-axelrodi | staple | 29 | 100 |
 | species/trigonostigma-heteromorpha | staple | 26 | 100 |
@@ -372,7 +371,9 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/akysis-portellus | covered | 0 | 30 |
 | species/amblydoras-nauticus | covered | 0 | 30 |
 | species/aphanotorulus-unicolor | covered | 0 | 30 |
+| species/apistogramma-agassizii | covered | 4 | 30 |
 | species/asterophysus-batrachus | covered | 1 | 30 |
+| species/auchenoglanis-occidentalis | covered | 5 | 30 |
 | species/axelrodia-riesei | covered | 1 | 30 |
 | species/betta-foerschi | covered | 0 | 30 |
 | species/betta-imbellis | covered | 3 | 30 |
@@ -468,7 +469,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/anostomus-anostomus | covered | 2 | 30 |
 | species/anostomus-ternetzi | covered | 0 | 30 |
 | species/aphyosemion-gabunense | covered | 1 | 30 |
-| species/apistogramma-agassizii | covered | 4 | 30 |
 | species/apistogramma-baenschi | covered | 0 | 30 |
 | species/apistogramma-borellii | covered | 19 | 30 |
 | species/apistogramma-cacatuoides | covered | 22 | 30 |
@@ -488,7 +488,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/astyanax-leopoldi | covered | 0 | 30 |
 | species/atractosteus-tristoechus | covered | 2 | 30 |
 | species/auchenipterus-nigripinnis | covered | 1 | 30 |
-| species/auchenoglanis-occidentalis | covered | 5 | 30 |
 | species/axelrodia-stigmatias | covered | 0 | 30 |
 | species/badis-badis | covered | 2 | 30 |
 | species/bagarius-suchus | covered | 0 | 30 |
@@ -841,6 +840,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/astroblepus-mindoensis | rest | 1 | 20 |
 | species/colomesus-tocantinensis | rest | 3 | 20 |
 | species/eutropiichthys-vacha | rest | 1 | 20 |
+| species/guyanancistrus-brevispinis | rest | 7 | 20 |
 | species/hyphessobrycon-compressus | rest | 1 | 20 |
 | species/protopterus-aethiopicus-congicus | rest | 2 | 20 |
 | species/sciades-couma | rest | 2 | 20 |

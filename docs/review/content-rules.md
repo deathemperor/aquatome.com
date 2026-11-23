@@ -5,7 +5,7 @@ the site serves (`packages/engine/src/content-rules.ts`, docs/governance.md). A 
 a rule can fix safely is fixed whenever the engine writes a page, and on every page each cycle before the build
 (`pnpm engine sweep`; the real-content test holds those rules at zero); the rest is listed here, each page once per rule.
 
-Pages checked: 9607 (Vietnamese 5395, Indonesian 1778, Thai 1776, Malay 658). Imperial units
+Pages checked: 9654 (Vietnamese 5442, Indonesian 1778, Thai 1776, Malay 658). Imperial units
 beside a metric figure: feet 1, gallon 22, inch 1, °F 1.
 
 ## Numbered headings broken or miscounted (2)
@@ -75,13 +75,14 @@ Labels such as "Sai lầm 1", "Mẹo 2", "Bước 3" whose numbers neither count
 - [vi · Cá lau kiếng bristlenose](https://aquatome.com/ca/ca-lau-kieng-bristlenose/) — "Trang cũng nêu kích thước bể tối thiểu là 150 lít; bể 75 lít có thể nuôi hai co…"; "Trang lưu ý rằng chúng không thực sự làm sạch bể: chúng ăn tảo trên kính nhưng…"
 - [vi · Bể cá bị nóng mùa hè: cách hạ nhiệt an toàn và giữ bể mát](https://aquatome.com/huong-dan/be-ca-bi-nong-mua-he/) — "Trang này cũng khuyên tăng sủi hoặc tăng dòng chảy mặt nước, nhất là vào ban đê…"
 
-## Text naming a video, a channel or a reviewer (3)
+## Text naming a video, a channel or a reviewer (4)
 
 A page written from videos (a video guide, a product's reviews) whose text names one of its channels or talks about the video or who made it ("trong video", "người review", "theo tác giả"): the page's source list carries that. Listed; a product's review summary never publishes with one (product-reviews.ts).
 
 - [vi · Những nguồn tham khảo hữu ích để học chơi thủy sinh](https://aquatome.com/huong-dan/hoc-choi-thuy-sinh-o-dau-dien-dan-website-cuoc-thi-va-kenh/) — "kênh youtube"
 - [vi · Nuôi và cho cá nhiệt đới sinh sản trong hồ nhỏ ngoài trời](https://aquatome.com/huong-dan/nuoi-va-cho-ca-nhiet-doi-sinh-san-trong-thung-ho-mini-ngoai/) — "anh ấy"
 - [vi · Đèn LED thủy sinh Chihiros C II](https://aquatome.com/san-pham/chihiros-c-ii/) — "người đánh giá"
+- [vi · Lọc thùng Oase BioMaster 350](https://aquatome.com/san-pham/oase-biomaster-350/) — "người đánh giá"
 
 ## A product AquaTome doesn't control, said to be controlled (0)
 
@@ -133,7 +134,7 @@ A Loricariidae fish with an L or LDA number on record whose name in a language g
 
 - none
 
-## Words hobbyists rarely write (3035)
+## Words hobbyists rarely write (3036)
 
 Words and turns the engine writes far more often than the language's hobbyists do, each with what they write instead (packages/engine/src/phrases.ts; docs/review/phrases.md has the counts). The writers' prompts carry the list, and the style rewrite takes the pages that have them up a batch a cycle. Counted, never held: only a model can mend one in its sentence.
 
@@ -145,7 +146,7 @@ Words and turns the engine writes far more often than the language's hobbyists d
 - vi · "thức ăn sống" → "thức ăn tươi sống", "đồ tươi": 940 pages, 1436 times
 - vi · "bể cộng đồng" → "nuôi chung", "thả chung với cá hiền": 839 pages, 1286 times
 - vi · "gần như không" → "hầu như không", "ít khi", hoặc nói thẳng: 613 pages, 854 times
-- vi · "không xương sống" → trong bể (cá nuôi chung, thuốc, đồng, thức ăn cho chúng) gọi tên con: "tép, ốc", thêm "cua", "tôm hùm đất" khi nguồn nói; ngoài tự nhiên (cá ăn gì, trong bụng có gì) gọi tên con nguồn nói ("côn trùng", "giáp xác"), nguồn không nói con nào thì để "động vật không xương sống": 561 pages, 642 times
+- vi · "không xương sống" → trong bể (cá nuôi chung, thuốc, đồng, thức ăn cho chúng) gọi tên con: "tép, ốc", thêm "cua", "tôm hùm đất" khi nguồn nói; ngoài tự nhiên (cá ăn gì, trong bụng có gì) gọi tên con nguồn nói ("côn trùng", "giáp xác"), nguồn không nói con nào thì để "động vật không xương sống": 562 pages, 643 times
 - vi · "bạn cùng bể" → "cá nuôi chung", "nuôi chung với…": 558 pages, 742 times
 - vi · "lý tưởng" → "hợp nhất", "tốt nhất", hoặc nói thẳng con số ("nên giữ 24–26 °C"): 553 pages, 756 times
 - vi · "giới chơi" → "người chơi", hoặc bỏ: 532 pages, 778 times
@@ -211,7 +212,7 @@ Letters only Vietnamese uses, outside the Vietnamese names the site marks as suc
 
 - none
 
-## Imperial figures (7)
+## Imperial figures (8)
 
 A figure in °F, inches, feet, gallons or pounds (`pnpm engine metric` converts fish, plant, breed and guide pages before each build). Imperial figures beside a metric one are counted at the top.
 
@@ -219,6 +220,7 @@ A figure in °F, inches, feet, gallons or pounds (`pnpm engine metric` converts 
 - [vi · Đèn LED thủy sinh Chihiros C II](https://aquatome.com/san-pham/chihiros-c-ii/) — "2–7 gallon"
 - [vi · Lọc thùng Fluval FX6](https://aquatome.com/san-pham/fluval-fx6/) — "1 lb"; "2 lb"
 - [vi · Lọc thùng Oase Biomaster 250](https://aquatome.com/san-pham/oase-biomaster-250/) — "70 gallon Mỹ"
+- [vi · Lọc thùng Oase BioMaster 350](https://aquatome.com/san-pham/oase-biomaster-350/) — "138 gph"; "300 gph"
 - [vi · Lọc thùng Oase BioMaster](https://aquatome.com/san-pham/oase-biomaster/) — "162 GPH"; "40–55 gallon"
 - [vi · Lọc chìm Sicce Shark ADV](https://aquatome.com/san-pham/sicce-shark-adv/) — "10–35 gallon"; "47,5 gallon"; "106 GPH"; and 1 more
 - [vi · Đèn LED thủy sinh Twinstar 30B](https://aquatome.com/san-pham/twinstar-30b/) — "18 inch"

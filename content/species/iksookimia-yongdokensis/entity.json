@@ -209,7 +209,12 @@
       "author": "신승엽",
       "sourceUrl": "https://www.inaturalist.org/photos/751714305",
       "caption": "Cá chạch Yongdok trong hộp chụp ảnh cạnh thước đo",
-      "setup": true
+      "setup": true,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/751714305-large.webp",
+        "width": 1440,
+        "height": 1080
+      }
     }
   ],
   "videos": [],

@@ -9,15 +9,15 @@ under `<lang>/<path>`.
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
 | video-guide | 1141 | 806 (vi 806) | 806 |
-| translation | 2578 | 364 (vi 364) | 364 |
+| translation | 2629 | 367 (vi 367) | 367 |
 | vi-rewrite | 439 | 43 (vi 43) | 43 |
 | reader-rewrite | 51 | 0 | 0 |
-| title | 27 | 0 | 0 |
+| title | 29 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
 | topic | 142 | 9 (id 1, ms 1, th 6, vi 1) | 9 |
-| product | 34 | 2 (vi 2) | 2 |
-| product-reviews | 26 | 0 | 0 |
-| summary | 2932 | 170 (vi 170) | 170 |
+| product | 35 | 2 (vi 2) | 2 |
+| product-reviews | 27 | 0 | 0 |
+| summary | 2968 | 171 (vi 171) | 171 |
 | localize | 2986 | 821 (id 351, ms 70, th 400) | 821 |
 | glossary | 40 | 0 | 0 |
 | places | 7931 | 4844 (id 1670, ms 1662, th 1413, vi 99) | 1504 |
@@ -126,20 +126,20 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-364 of 2578 pages under the bar.
+367 of 2629 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 342 | 972 |
-| Says what the source doesn't (invented, added) | 307 | 585 |
-| Wording: unnatural, literal, stiff or chatty | 268 | 480 |
-| Meaning changed or wrong | 224 | 334 |
+| Other | 345 | 975 |
+| Says what the source doesn't (invented, added) | 309 | 587 |
+| Wording: unnatural, literal, stiff or chatty | 270 | 481 |
+| Meaning changed or wrong | 225 | 335 |
 | Hobby terms and names | 182 | 245 |
-| Leaves out what the source says | 117 | 159 |
+| Leaves out what the source says | 118 | 160 |
 | Text left in another language | 117 | 144 |
 | States as certain what the source hedges, or what garbled captions only hint at | 97 | 113 |
 | A number, unit, dose or price | 80 | 103 |
-| Repeats itself (intro, summary, steps and FAQ) | 66 | 77 |
+| Repeats itself (intro, summary, steps and FAQ) | 67 | 78 |
 | Names or points to the video, channel, creator or source | 10 | 11 |
 | Copied from the transcript or source | 3 | 3 |
 | Off the title's topic | 1 | 1 |
@@ -308,7 +308,7 @@ under `<lang>/<path>`.
 
 ## title: titles rewritten to promise only what the text has
 
-0 of 27 pages under the bar.
+0 of 29 pages under the bar.
 
 ## breed: breed pages, against their research
 
@@ -392,7 +392,7 @@ under `<lang>/<path>`.
 
 ## product: product pages, against their research
 
-2 of 34 pages under the bar.
+2 of 35 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -432,18 +432,18 @@ under `<lang>/<path>`.
 
 ## product-reviews: product pages' review summaries (the code's checks: 1 pass, 0 fail)
 
-0 of 26 pages under the bar.
+0 of 27 pages under the bar.
 
 ## summary: species' quick summaries (the numbers and claims check: 1 pass, 0 fail)
 
-170 of 2932 pages under the bar.
+171 of 2968 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
 | Says what the source doesn't (invented, added) | 88 | 106 |
 | States as certain what the source hedges, or what garbled captions only hint at | 62 | 68 |
 | Other | 56 | 66 |
-| Meaning changed or wrong | 16 | 17 |
+| Meaning changed or wrong | 17 | 18 |
 | Leaves out what the source says | 14 | 15 |
 | A number, unit, dose or price | 12 | 13 |
 | Wording: unnatural, literal, stiff or chatty | 2 | 2 |

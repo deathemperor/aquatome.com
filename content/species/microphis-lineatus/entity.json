@@ -475,7 +475,12 @@
       "author": "MAEL ANDRIEUX",
       "sourceUrl": "https://www.inaturalist.org/photos/708404908",
       "caption": "Cá chìa vôi sông đuôi ngắn bơi trong nước tự nhiên",
-      "setup": false
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/708404908-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

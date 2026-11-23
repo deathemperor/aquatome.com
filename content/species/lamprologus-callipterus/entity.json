@@ -254,7 +254,12 @@
       "author": "Howard",
       "sourceUrl": "https://www.inaturalist.org/photos/12781981",
       "caption": "Cá callipterus đực lớn bơi trong môi trường tự nhiên",
-      "setup": false
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/12781981-large.webp",
+        "width": 1578,
+        "height": 760
+      }
     }
   ],
   "videos": [],

@@ -38,20 +38,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/176360468.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/176360468-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-NC",
-      "author": "Niran Anurakpongsathorn",
-      "sourceUrl": "https://www.inaturalist.org/photos/176360468",
-      "caption": "Cá chép đuôi vàng Lào bơi trên nền cát dưới suối",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/704574098.webp",
       "thumb": "https://media.aquatome.com/inaturalist/704574098-480.webp",
       "width": 1024,
@@ -62,8 +48,20 @@
       "caption": "Cá chép đuôi vàng Lào nhìn nghiêng trên nền cát, nền đen",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/176360468.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/176360468-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Niran Anurakpongsathorn",
+      "sourceUrl": "https://www.inaturalist.org/photos/176360468",
+      "caption": "Cá chép đuôi vàng Lào bơi trên nền cát dưới suối",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 9,

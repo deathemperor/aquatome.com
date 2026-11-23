@@ -1,7 +1,17 @@
 {
  "queue": [],
- "judged": [],
- "hashes": {},
+ "judged": [
+  "inat:611123121",
+  "inat:611123122",
+  "inat:653440257",
+  "inat:673230728",
+  "inat:673882443"
+ ],
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/611123121/large.jpg": "0f3bc30e0fc23394",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/611123122/large.jpg": "02e07e9f67700956",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/673230728/large.jpg": "00001fbef4cf3f00"
+ },
  "commons": "2026-11-09",
  "inat": {
   "taxon": 111713,
@@ -14,5 +24,9 @@
  "gbif": {
   "key": 2377591,
   "next": null
+ },
+ "inatNc": {
+  "after": 368938683,
+  "done": true
  }
 }

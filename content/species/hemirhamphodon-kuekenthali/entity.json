@@ -104,7 +104,12 @@
       "author": "Phil Benstead",
       "sourceUrl": "https://www.inaturalist.org/photos/435363688",
       "caption": "Cá lìm kìm Kuekenthal bơi sát mặt nước tối trong môi trường tự nhiên",
-      "setup": false
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/435363688-large.webp",
+        "width": 2048,
+        "height": 1119
+      }
     }
   ],
   "videos": [],
