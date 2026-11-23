@@ -112,7 +112,12 @@
       "author": "J’z aquatics",
       "sourceUrl": "https://www.inaturalist.org/photos/665774684",
       "caption": "Cá madtom Ouachita màu đỏ cam trong hộp ảnh có thước",
-      "setup": true
+      "setup": true,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/665774684-large.webp",
+        "width": 1200,
+        "height": 1600
+      }
     }
   ],
   "videos": [],

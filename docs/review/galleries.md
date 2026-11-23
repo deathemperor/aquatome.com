@@ -8,9 +8,9 @@ Written by `pnpm engine gallery` (2026-11-23). Targets: packages/engine/src/gall
 | shop | 60 | 131 | 81 | 24 | 36 | 200 |
 | popular | 40 | 21 | 0 | 0 | 1 | 20 |
 | covered | 30 | 942 | 32 | 9 | 27 | 956 |
-| rest | 20 | 2010 | 81 | 0 | 123 | 1968 |
+| rest | 20 | 2010 | 81 | 0 | 125 | 1966 |
 
-## Short of target: every source read (829)
+## Short of target: every source read (830)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -836,6 +836,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/synodontis-bastiani | covered | 0 | 30 |
 | species/synodontis-geledensis | covered | 0 | 30 |
 | species/synodontis-lucipinnis | covered | 1 | 30 |
+| species/trichogaster-labiosa | covered | 4 | 30 |
 | species/ariopsis-assimilis | rest | 14 | 20 |
 | species/astroblepus-mindoensis | rest | 1 | 20 |
 | species/colomesus-tocantinensis | rest | 3 | 20 |

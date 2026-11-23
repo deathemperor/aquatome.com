@@ -587,7 +587,12 @@
       "author": "H.Grenier",
       "sourceUrl": "https://www.inaturalist.org/photos/592314823",
       "caption": "Cá dao châu Phi bơi trong bể kính, thân đốm sáng",
-      "setup": true
+      "setup": true,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/592314823-large.webp",
+        "width": 2048,
+        "height": 1152
+      }
     }
   ],
   "videos": [

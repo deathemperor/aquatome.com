@@ -296,7 +296,12 @@
       "author": "BOILEDIEU",
       "sourceUrl": "https://www.inaturalist.org/photos/495699398",
       "caption": "Cá tetra piabuco bơi giữa rễ cây và lá khô trong bể",
-      "setup": false
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/495699398-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

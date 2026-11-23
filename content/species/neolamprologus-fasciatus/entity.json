@@ -224,7 +224,12 @@
       "author": "Heinrich Human",
       "sourceUrl": "https://www.inaturalist.org/photos/573182811",
       "caption": "Cá sọc vằn trên đá trong hồ tự nhiên",
-      "setup": false
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/573182811-large.webp",
+        "width": 1799,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

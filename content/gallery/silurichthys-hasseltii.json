@@ -1,7 +1,78 @@
 {
   "id": "silurichthys-hasseltii",
-  "photos": [],
-  "seen": 3,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/318224129.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/318224129-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Lumin Ong",
+      "sourceUrl": "https://www.inaturalist.org/photos/318224129",
+      "caption": "Cá da trơn lá Hassel bơi trên nền cát trong tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/520182698.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/520182698-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "sharkdevotee",
+      "sourceUrl": "https://www.inaturalist.org/photos/520182698",
+      "caption": "Cá da trơn lá Hassel màu nhạt trong bể kính",
+      "best": true,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/351002517.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/351002517-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Adam hood",
+      "sourceUrl": "https://www.inaturalist.org/photos/351002517",
+      "caption": "Cá da trơn lá Hassel trong bể kính nhỏ",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/483416375.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/483416375-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY-NC",
+      "author": "Hendra",
+      "sourceUrl": "https://www.inaturalist.org/photos/483416375",
+      "caption": "Cá da trơn lá Hassel trong hộp nhựa bên thước đo",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/483416407.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/483416407-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY-NC",
+      "author": "Hendra",
+      "sourceUrl": "https://www.inaturalist.org/photos/483416407",
+      "caption": "Cá da trơn lá Hassel nhìn nghiêng trong hộp chụp ảnh",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    }
+  ],
+  "seen": 22,
+  "updatedAt": "2026-11-23",
+  "builtAt": "2026-11-23"
 }
