@@ -12,38 +12,7 @@
       "caption": "Cá lau kiếng L41 dưới nước trong môi trường tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/b8d0b96669b4f43a.webp",
-      "thumb": "https://media.aquatome.com/commons/b8d0b96669b4f43a-480.webp",
-      "width": 812,
-      "height": 608,
-      "licence": "CC BY 4.0",
-      "author": "Raphaël Covain",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live-color_photograph_of_Guyanancistus_longispinis_(2)_--_modified_from_Fig._6_in_Fisch-Muller,_Mol_%26_Covain_(2018).png",
-      "caption": "Cá lau kiếng L41 đốm sáng nhìn từ trên xuống trên đá",
-      "sourceCaption": "Live-color photographs of Guyanancistrus longispinis, MHNG 2680.100, French Guiana: Oyapock River at Alikoto (R. Covain)",
-      "best": true,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/c3ccd525c50bd45d.webp",
-      "thumb": "https://media.aquatome.com/commons/c3ccd525c50bd45d-480.webp",
-      "width": 811,
-      "height": 605,
-      "licence": "CC BY 4.0",
-      "author": "Frédéric Melki",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live-color_photograph_of_Guyanancistus_megastictus_--_modified_from_Fig._6_in_Fisch-Muller,_Mol_%26_Covain_(2018).png",
-      "caption": "Cá lau kiếng L41 có đốm trên sỏi ven suối tự nhiên",
-      "sourceCaption": "Live-color photographs of Guyanancistrus megastictus, French Guiana: Maroni River, Mitaraka Mountains, Alama Creek (F. Melki)",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/700525196.webp",
@@ -56,8 +25,7 @@
       "caption": "Cá lau kiếng đốm sáng trên nền cát ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/718901728.webp",
@@ -70,8 +38,7 @@
       "caption": "Cá lau kiếng màu cam vân đẹp, chụp cận cảnh",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/700526810.webp",
@@ -84,22 +51,7 @@
       "caption": "Cá lau kiếng vằn đốm trên đáy cát sông",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/592600367.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/592600367-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Sébastien SANT",
-      "sourceUrl": "https://www.inaturalist.org/photos/592600367",
-      "caption": "Cá lau kiếng bò trên nền đáy ngoài tự nhiên",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/494271295.webp",
@@ -112,8 +64,20 @@
       "caption": "Cá lau kiếng nhìn nghiêng trong bể ảnh nhỏ",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/592600367.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/592600367-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Sébastien SANT",
+      "sourceUrl": "https://www.inaturalist.org/photos/592600367",
+      "caption": "Cá lau kiếng bò trên nền đáy ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/592600599.webp",
@@ -126,8 +90,7 @@
       "caption": "Cá lau kiếng nằm cạnh tảng đá dưới nước",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     }
   ],
   "seen": 36,

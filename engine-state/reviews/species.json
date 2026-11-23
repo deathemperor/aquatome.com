@@ -2271,6 +2271,46 @@
       "kept": false
     }
   ],
+  "vi/species/neocaridina-davidi#tymXrGKqu7E": [
+    {
+      "at": "2026-11-23T05:42:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.6,
+      "notes": [
+        "\"Một người nuôi loài này lâu năm\": the video never says the speaker is a long-time keeper, so this experience is invented.",
+        "aquariumSize 30–40 lít differs from the page's \"từ khoảng 40 lít trở lên\", but NEW does not say the video differs or how.",
+        "waterConditions \"22–26 °C và pH 6,5–7,5\" differs from the page (22–24°C preferred, pH 6,5–8,5), and the difference is not stated.",
+        "\"cá otto\" is an unnatural, guessed name. The transcript only says \"ais\", and the page already uses \"cá otocinclus\".",
+        "\"cá xiêm\" is a guess from the garbled transcript word \"badass\".",
+        "behaviour repeats the page: peaceful small tankmates (rasbora, ốc, otocinclus) and no aggressive fish are already covered there.",
+        "Several waterConditions sentences repeat the page: stable tap water, and cycling the tank before adding shrimp.",
+        "reproduction \"3–4 tuần\" is close to the page's \"khoảng một tháng\" and the page already says the shrimp need no special care, so it adds little."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-23T05:42:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.5,
+      "notes": [
+        "[notes] The 'Màu đỏ ... chọn lọc ... từ dạng gần như trong suốt' and 'từ hồng nhạt tới đỏ đậm' match the video, but the page already says wild shrimp are translucent, so this partly repeats the page.",
+        "[habitat] 'lớp lá mục' is an addition. The video says 'leaf litter' in garbled form, so it is borderline. 'suối nước ngọt' is fine, but the page already covers the origin.",
+        "[maintenance] 'Nền sỏi mịn hoặc cát' is stated in the video, but 'Rêu ... vừa là chỗ kiếm ăn vừa là chỗ trốn' repeats the page's plants, moss and hiding-place content.",
+        "[waterConditions] 'Không dùng thuốc có đồng' comes only from the video description, not from what is said in it. 'giữ nước ổn định là quan trọng nhất' is stated as a rule.",
+        "[waterConditions] The sentence about cycling, ammonia and RO water is in the video, but the page already covers water stability, so this is partly redundant.",
+        "[diet] 'rau chân vịt chần sơ', 'viên tảo' and 'vài ngày cho một lần' come from the video. 'vớt ra sau khi tép ăn xong' is not said in the video, which only says leftover food pollutes the water.",
+        "[behaviour] 'cá xiêm hay các loại tetra cỡ lớn' is supported (the video says 'badass'). But the page already lists compatible tank mates, and the video's advice differs on tetras only in detail, which is not noted.",
+        "[reproduction] 'Một người nuôi loài này thấy chúng sinh sôi nhanh đến bất ngờ' correctly frames one keeper's experience. But 'tăng lên gấp mấy lần' and the stable-water advice partly repeat the page, and the video's 3-4 week egg-carrying time is omitted. The video's pH 6.5–7.5 and 30–40 L tank size, which differ from the page, are not mentioned."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/oliotius-oligolepis#7WuDB1RXfKY": [
     {
       "at": "2026-11-10T06:33:13Z",
