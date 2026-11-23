@@ -4875,10 +4875,13 @@
     "score": 0.95
   },
   "uKyZixINLRU": {
-    "at": "2026-11-07",
+    "at": "2026-11-23",
     "title": "Discover the Mischievous Rosy Loach (Tuberoschistura arakensis/Yunnanilus sp)",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Tuberoschistura arakensis",
+    "done": "skipped",
+    "reason": "no page, and GBIF has no species of that name"
   },
   "uLIFwT9pniE": {
     "at": "2026-11-07",
@@ -4969,16 +4972,23 @@
     "reason": "shop tank tour"
   },
   "UYidJ_lGFmw": {
-    "at": "2026-11-07",
+    "at": "2026-11-23",
     "title": "PEA PUFFER SPECIES PROFILE.",
     "channel": "Daniel Keeping Fish",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "uZU__YFihCo": {
-    "at": "2026-11-07",
+    "at": "2026-11-23",
     "title": "This Corydoras Isn’t What You Think… (Scleromystax barbatus)",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Scleromystax barbatus",
+    "page": "species/scleromystax-barbatus",
+    "done": "low",
+    "score": 0.55,
+    "reason": "[aquariumSize] 'bể dài khoảng 90 cm, từ 150 lít trở lên': the video says a 3-ft tank, about 40 gallons and up. 150 L is an invented conversion, and the 90 cm figure sits oddly beside the page's 120 cm without saying it differs.; [waterConditions] 'Đừng nuôi ở 27 °C trở lên': the video says 80+ °F water, which is about 27 °C. This is a loose conversion, and the rule is not framed as one keeper's advice."
   },
   "V1YIRWvlejc": {
     "at": "2026-11-07",

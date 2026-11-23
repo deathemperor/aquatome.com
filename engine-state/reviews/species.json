@@ -3231,6 +3231,46 @@
       "kept": false
     }
   ],
+  "vi/species/scleromystax-barbatus#uZU__YFihCo": [
+    {
+      "at": "2026-11-23T23:45:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.5,
+      "notes": [
+        "\"Một người nuôi loài này lâu năm\" is used in aquariumSize, waterConditions, behaviour and dimorphism. The speaker says he has never kept this fish before and only just got some, so \"lâu năm\" is invented.",
+        "[dimorphism] \"mọi loài cá chuột mà một người nuôi lâu năm từng gặp\" has the same false long-time-keeper framing.",
+        "[behaviour] \"người này thấy cảnh đó vui mắt chứ không đáng lo\": the video says only that it is fun to watch. \"Không đáng lo\" is added.",
+        "[beforeYouBuy] The price \"dưới 20 đô\" is one US-based remark from the video. The page says the fish is scarce, and NEW doesn't say the video differs from it.",
+        "[habitat] \"bới tìm mồi trong lớp lá đó\": the video says they like to dig around in the leaf litter. It doesn't say they forage for food there.",
+        "[aquariumSize] The video differs from the page's 120 × 45 cm minimum. NEW says its figure is lower but doesn't make the difference plain. \"Tầm 150 lít\" is a conversion the video never gives.",
+        "[maintenance] \"Nền nhám, sắc cạnh thì nên tránh\" is fine. The sand and flow advice partly repeats what the page already says about cool water and fine sand.",
+        "[dimorphism] \"Ngoài bộ râu lông cứng dài trên mặt\" repeats the bristles the page already describes."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-23T23:45:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.55,
+      "notes": [
+        "[aquariumSize] 'bể dài khoảng 90 cm, từ 150 lít trở lên': the video says a 3-ft tank, about 40 gallons and up. 150 L is an invented conversion, and the 90 cm figure sits oddly beside the page's 120 cm without saying it differs.",
+        "[waterConditions] 'Đừng nuôi ở 27 °C trở lên': the video says 80+ °F water, which is about 27 °C. This is a loose conversion, and the rule is not framed as one keeper's advice.",
+        "[waterConditions] 'nước bể cá đĩa quá ấm cho loài này': this is an inference the video does not state. It only says not to keep them with discus.",
+        "[dimorphism] 'Một người nuôi loài này lại thấy con cái nhỏ hơn con đực một chút' contradicts the page, which says females are larger. The text does not say plainly that the video differs from the page. The video gives this as a general fact, not one keeper's view.",
+        "[dimorphism] Omits the bristles on the male's face, the most striking dimorphism point in the video. The kept text on 'vây ngực dài' and 'thân dài hơn' is fine, but 'như cá thời tiền sử' is a loose paraphrase.",
+        "[beforeYouBuy] 'Ở Mỹ': the video never says the US. 'dưới 20 đô' is only 'I think you can get them under $20'. 'cá do người chơi tự cho đẻ trong bể' is stretched from a single breeder giving fish away.",
+        "[habitat] 'nước mát và chảy mạnh' repeats the page, which already says cool water with flow (mát, có dòng chảy). It adds nothing new.",
+        "[behaviour] 'Mỗi con đực chọn riêng một hòn đá... đuổi con đực khác đi' overlaps the page's male territorial aggression. It is not flagged as a difference from the page's 'không thể nuôi chung trong bể nhỏ'."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/sphaerichthys-vaillanti#2RrQVvB-jG0": [
     {
       "at": "2026-11-08T23:57:04Z",

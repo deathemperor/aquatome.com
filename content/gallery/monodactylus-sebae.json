@@ -128,22 +128,7 @@
       "caption": "Hai cá mono châu Phi bơi giữa rạn đá ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/407012588.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/407012588-480.webp",
-      "width": 1024,
-      "height": 770,
-      "licence": "CC BY-NC",
-      "author": "Hubert Lagrange",
-      "sourceUrl": "https://www.inaturalist.org/photos/407012588",
-      "caption": "Cá mono châu Phi bơi giữa cành cây và hàu ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/517641612.webp",
@@ -156,8 +141,20 @@
       "caption": "Cá mono châu Phi bơi gần cọc cầu tàu trong tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/407012588.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/407012588-480.webp",
+      "width": 1024,
+      "height": 770,
+      "licence": "CC BY-NC",
+      "author": "Hubert Lagrange",
+      "sourceUrl": "https://www.inaturalist.org/photos/407012588",
+      "caption": "Cá mono châu Phi bơi giữa cành cây và hàu ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 55,

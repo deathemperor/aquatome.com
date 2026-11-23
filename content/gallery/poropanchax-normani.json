@@ -84,34 +84,6 @@
       "kind": "group"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/361554610.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/361554610-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Gina Walsh",
-      "sourceUrl": "https://www.inaturalist.org/photos/361554610",
-      "caption": "Cặp cá mắt đèn Norman vàng trong bể ảnh nhỏ",
-      "best": true,
-      "kind": "pair",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/354446352.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/354446352-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Gina Walsh",
-      "sourceUrl": "https://www.inaturalist.org/photos/354446352",
-      "caption": "Cá mắt đèn Norman vàng bơi trong bể ảnh nhỏ",
-      "best": true,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/360849411.webp",
       "thumb": "https://media.aquatome.com/inaturalist/360849411-480.webp",
       "width": 1024,
@@ -122,8 +94,7 @@
       "caption": "Cá mắt đèn Norman thân bạc đuôi vàng nhạt chụp nghiêng",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/361551500.webp",
@@ -136,8 +107,33 @@
       "caption": "Đàn cá mắt đèn Norman trong bể kính nhỏ",
       "best": false,
       "kind": "group",
-      "setup": true,
-      "unchecked": true
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/361554610.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/361554610-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Gina Walsh",
+      "sourceUrl": "https://www.inaturalist.org/photos/361554610",
+      "caption": "Cặp cá mắt đèn Norman vàng trong bể ảnh nhỏ",
+      "best": true,
+      "kind": "pair",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/354446352.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/354446352-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Gina Walsh",
+      "sourceUrl": "https://www.inaturalist.org/photos/354446352",
+      "caption": "Cá mắt đèn Norman vàng bơi trong bể ảnh nhỏ",
+      "best": true,
+      "kind": "other",
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/475541098.webp",
@@ -150,8 +146,7 @@
       "caption": "Cá mắt đèn Norman vàng nhỏ trong bể ảnh",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     }
   ],
   "seen": 22,

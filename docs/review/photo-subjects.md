@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-23), most-read pages first. Rules: docs/governance.md, "Photos".
-23839 verdicts. Shows it: 14632; its habitat (asked again): 3; something else: 611; not a photo of it: 388; dead or as food: 1143; a person in it: 347; a logo on it: 376; can't tell: 4388.
+23945 verdicts. Shows it: 14689; its habitat (asked again): 3; something else: 611; not a photo of it: 388; dead or as food: 1146; a person in it: 353; a logo on it: 376; can't tell: 4428.
 
 ## Left with no photo (187)
 
@@ -193,7 +193,7 @@ Written by `pnpm engine check-photos` (2026-11-23), most-read pages first. Rules
 - species/xenotilapia-sima
 - species/xiurenbagrus-gigas
 
-## Can't tell: still shown (4388)
+## Can't tell: still shown (4428)
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -633,18 +633,28 @@ Written by `pnpm engine check-photos` (2026-11-23), most-read pages first. Rules
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/270029604.webp) | subject unsure |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/287551209.webp) | subject unsure |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/287551235.webp) | subject unsure |
+| species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/338748922.webp) | subject unsure |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/345078269.webp) | subject unsure |
+| species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/345681796.webp) | subject unsure |
+| species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/353457145.webp) | subject unsure |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/353457263.webp) | subject unsure |
+| species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/353457309.webp) | subject unsure |
+| species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/353457402.webp) | subject unsure |
+| species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/353457456.webp) | subject unsure |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/360672988.webp) | subject unsure |
+| species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/360673792.webp) | subject unsure |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/369327911.webp) | subject unsure |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/388371569.webp) | subject unsure |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/391296979.webp) | subject unsure |
+| species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/391297004.webp) | subject unsure |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/441398253.webp) | subject unsure |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/460840745.webp) | subject unsure |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/474249690.webp) | subject unsure |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/474249706.webp) | subject unsure |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/474251888.webp) | subject unsure |
+| species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/476156625.webp) | subject unsure |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/483531458.webp) | subject unsure |
+| species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/483531658.webp) | subject unsure |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/487219627.webp) | subject unsure |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/487219803.webp) | subject unsure |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/594456752.webp) | subject unsure |
@@ -749,13 +759,36 @@ Written by `pnpm engine check-photos` (2026-11-23), most-read pages first. Rules
 | plants/ludwigia-repens | [photo](https://media.aquatome.com/tropica/00d2e1e1e2981dcc.webp) | subject unsure |
 | species/monodactylus-sebae | [photo](https://media.aquatome.com/commons/560f8eb61207f5fd.webp) | subject unsure |
 | species/monodactylus-sebae | [photo](https://media.aquatome.com/commons/b5601a44e500ccf7.webp) | subject unsure |
+| species/monodactylus-sebae | [photo](https://media.aquatome.com/inaturalist/407012588.webp) | subject unsure |
 | species/melanotaenia-praecox | [photo](https://media.aquatome.com/aquariumcoop/c61a37ab4bcae461.webp) | subject unsure |
 | plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/commons/d2cd6fcbfc5adc13.webp) | subject unsure |
 | plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/commons/df63d71447a3164f.webp) | subject unsure |
 | plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/flickr/50184495328.webp) | subject unsure |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/103186043.webp) | subject unsure |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/136323442.webp) | subject unsure |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/138876253.webp) | subject unsure |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/139340780.webp) | subject unsure |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/21502888.webp) | subject unsure |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/2172553.webp) | subject unsure |
 | plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/219942095.webp) | subject unsure |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/229599009.webp) | subject unsure |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/230458898.webp) | subject unsure |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/247852213.webp) | subject unsure |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/260040059.webp) | subject unsure |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/260040081.webp) | subject unsure |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/263759093.webp) | subject unsure |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/271073962.webp) | subject unsure |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/271079019.webp) | subject unsure |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/33522521.webp) | subject unsure |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/3870896.webp) | subject unsure |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/4194377.webp) | subject unsure |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/4276978.webp) | subject unsure |
 | plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/497708173.webp) | subject unsure |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/82341172.webp) | subject unsure |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/87538846.webp) | subject unsure |
 | plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/8935602.webp) | subject unsure |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/8942705.webp) | subject unsure |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/99634471.webp) | subject unsure |
 | plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/tropica/477e6d47c3a0a6f1.webp) | subject unsure |
 | species/dario-dario | [photo](https://media.aquatome.com/seriouslyfish/28f5360bfd4a3c2a.webp) | subject unsure |
 | species/dario-dario | [photo](https://media.aquatome.com/seriouslyfish/51339d13f52952c0.webp) | subject unsure |
@@ -764,8 +797,11 @@ Written by `pnpm engine check-photos` (2026-11-23), most-read pages first. Rules
 | plants/limnophila-aromatica | [photo](https://media.aquatome.com/2hraquarist/62aa0610bc94050d.webp) | subject unsure |
 | plants/limnophila-aromatica | [photo](https://media.aquatome.com/commons/1695b2d849ba5326.webp) | subject unsure |
 | plants/limnophila-aromatica | [photo](https://media.aquatome.com/flickr/3453471951.webp) | subject unsure |
+| plants/limnophila-aromatica | [photo](https://media.aquatome.com/inaturalist/103437698.webp) | subject unsure |
 | plants/limnophila-aromatica | [photo](https://media.aquatome.com/inaturalist/186369192.webp) | subject unsure |
 | plants/limnophila-aromatica | [photo](https://media.aquatome.com/inaturalist/259982701.webp) | subject unsure |
+| plants/limnophila-aromatica | [photo](https://media.aquatome.com/inaturalist/339857292.webp) | subject unsure |
+| plants/limnophila-aromatica | [photo](https://media.aquatome.com/inaturalist/470440248.webp) | subject unsure |
 | species/xiphophorus-hellerii | [photo](https://media.aquatome.com/commons/08c22c41f590a036.webp) | subject unsure |
 | species/xiphophorus-hellerii | [photo](https://media.aquatome.com/commons/6e53fcfeb7a1f577.webp) | subject unsure |
 | species/xiphophorus-hellerii | [photo](https://media.aquatome.com/inaturalist/177220108.webp) | subject unsure |
@@ -780,6 +816,9 @@ Written by `pnpm engine check-photos` (2026-11-23), most-read pages first. Rules
 | species/poropanchax-normani | [photo](https://media.aquatome.com/commons/3e52589ec729a533.webp) | subject unsure |
 | species/poropanchax-normani | [photo](https://media.aquatome.com/commons/9cf5f820c1bfd232.webp) | subject unsure |
 | species/poropanchax-normani | [photo](https://media.aquatome.com/commons/a81e5a564c071170.webp) | subject unsure |
+| species/poropanchax-normani | [photo](https://media.aquatome.com/inaturalist/354446352.webp) | subject unsure |
+| species/poropanchax-normani | [photo](https://media.aquatome.com/inaturalist/361554610.webp) | subject unsure |
+| species/poropanchax-normani | [photo](https://media.aquatome.com/inaturalist/475541098.webp) | subject unsure |
 | species/hasemania-nana | [photo](https://media.aquatome.com/commons/2a4b5de304e67272.webp) | subject unsure |
 | plants/glossostigma-elatinoides | [photo](https://media.aquatome.com/inaturalist/106477088.webp) | subject unsure |
 | plants/glossostigma-elatinoides | [photo](https://media.aquatome.com/inaturalist/115991865.webp) | subject unsure |
@@ -3075,6 +3114,7 @@ Written by `pnpm engine check-photos` (2026-11-23), most-read pages first. Rules
 | species/euphyllia-glabrescens | [photo](https://media.aquatome.com/commons/681a904a1b23c3b7.webp) | subject unsure |
 | species/euphyllia-glabrescens | [photo](https://media.aquatome.com/commons/737d226a0922d211.webp) | subject unsure |
 | species/eutropiichthys-vacha | [photo](https://media.aquatome.com/inaturalist/569405786.webp) | subject unsure; logo |
+| species/farlowella-hahni | [photo](https://media.aquatome.com/inaturalist/464156052.webp) | subject unsure |
 | species/faxonius-rusticus | [photo](https://media.aquatome.com/commons/0aa896a0a6bebd0c.webp) | subject unsure |
 | species/faxonius-rusticus | [photo](https://media.aquatome.com/commons/2ae9270c5533debd.webp) | subject unsure |
 | species/faxonius-rusticus | [photo](https://media.aquatome.com/commons/4126c59e63ce2bf7.webp) | subject unsure |
@@ -4586,9 +4626,9 @@ Written by `pnpm engine check-photos` (2026-11-23), most-read pages first. Rules
 | plants/vallisneria-spiralis | [photo](https://media.aquatome.com/tropica/32a5549cfa5b0c5e.webp) | subject unsure |
 | species/crenicichla-marmorata | [photo](https://media.aquatome.com/commons/e8cb82a86126e499.webp) | subject unsure |
 
-## Removed (2795)
+## Removed (2804)
 
-"Something else" records a different subject; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
+"Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -5069,6 +5109,7 @@ Written by `pnpm engine check-photos` (2026-11-23), most-read pages first. Rules
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/289154653.webp) | subject yes; person |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/474251898.webp) | subject other; person |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/474251922.webp) | subject unsure; person |
+| species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/482534851.webp) | subject dead |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/487218535.webp) | subject yes; person |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/487219656.webp) | subject yes; person |
 | plants/egeria-densa | [photo](https://media.aquatome.com/inaturalist/174391650.webp) | subject yes; logo |
@@ -5103,14 +5144,20 @@ Written by `pnpm engine check-photos` (2026-11-23), most-read pages first. Rules
 | species/melanotaenia-praecox | [photo](https://media.aquatome.com/aquariumcoop/433af64f26dd2c4e.webp) | subject none |
 | plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/commons/73812bcf523fca03.webp) | subject none |
 | plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/commons/fef38eb1faa2676f.webp) | subject none |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/144258172.webp) | subject yes; person |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/218188300.webp) | subject yes; person |
 | plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/272588374.webp) | subject unsure; person |
 | plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/272605148.webp) | subject unsure; person |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/41154735.webp) | subject yes; person |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/42470671.webp) | subject yes; person |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/83321889.webp) | subject yes; person |
 | species/dario-dario | [photo](https://media.aquatome.com/commons/ae6db82c859bca17.webp) | subject other |
 | plants/mayaca-fluviatilis | [photo](https://media.aquatome.com/inaturalist/138435645.webp) | subject yes; person |
 | plants/mayaca-fluviatilis | [photo](https://media.aquatome.com/inaturalist/138435665.webp) | subject yes; person |
 | plants/limnophila-aromatica | [photo](https://media.aquatome.com/2hraquarist/23c32762f38f1076.webp) | subject none |
 | plants/limnophila-aromatica | [photo](https://media.aquatome.com/2hraquarist/370f9f563d36df11.webp) | subject none |
 | plants/limnophila-aromatica | [photo](https://media.aquatome.com/2hraquarist/d7a3f5776faeec0a.webp) | subject none |
+| plants/limnophila-aromatica | [photo](https://media.aquatome.com/inaturalist/368377140.webp) | subject yes; person |
 | species/xiphophorus-hellerii | [photo](https://media.aquatome.com/inaturalist/595295480.webp) | subject yes; person |
 | plants/utricularia-graminifolia | [photo](https://media.aquatome.com/tropica/eded4561320177cb.webp) | subject none |
 | plants/glossostigma-elatinoides | [photo](https://media.aquatome.com/commons/090289bd3dc93c3f.webp) | subject none |
@@ -5125,6 +5172,8 @@ Written by `pnpm engine check-photos` (2026-11-23), most-read pages first. Rules
 | plants/marsilea-hirsuta | [photo](https://media.aquatome.com/commons/f2263587189a1c3f.webp) | subject unsure; person |
 | plants/marsilea-hirsuta | [photo](https://media.aquatome.com/tropica/2aaa8edabc45ae9a.webp) | subject none |
 | species/erpetoichthys-calabaricus | [photo](https://media.aquatome.com/commons/667ab15cee54d193.webp) | subject other |
+| species/erpetoichthys-calabaricus | [photo](https://media.aquatome.com/inaturalist/502735696.webp) | subject dead |
+| species/erpetoichthys-calabaricus | [photo](https://media.aquatome.com/inaturalist/502735910.webp) | subject dead |
 | plants/lilaeopsis-brasiliensis | [photo](https://media.aquatome.com/inaturalist/257979017.webp) | subject other |
 | plants/lilaeopsis-brasiliensis | [photo](https://media.aquatome.com/tropica/afb68e56768bc97c.webp) | subject none |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/commons/123991e9c578a3dc.webp) | subject dead |
