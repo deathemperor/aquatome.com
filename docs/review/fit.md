@@ -6,7 +6,7 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Open, no read of its text | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 5413 | 5390 | 1 | 1983 | 39 | 53 | 230 | 61 | 1388 | 417 | 3250 | 543 | 9 | 24 | 0 | 2 | 15 | 6 | 2 |
+| Vietnamese | 5449 | 5426 | 1 | 1998 | 40 | 53 | 232 | 61 | 1393 | 426 | 3269 | 545 | 9 | 24 | 0 | 2 | 15 | 6 | 2 |
 | Indonesian | 1718 | 1718 | 0 | 463 | 29 | 13 | 4 | 6 | 216 | 39 | 79 | 209 | 0 | 3 | 0 | 5 | 2 | 0 | 0 |
 | Thai | 1716 | 1634 | 82 | 427 | 24 | 3 | 5 | 5 | 205 | 44 | 107 | 192 | 0 | 1 | 0 | 3 | 2 | 0 | 0 |
 | Malay | 598 | 563 | 35 | 150 | 14 | 3 | 0 | 2 | 75 | 18 | 33 | 55 | 0 | 1 | 0 | 3 | 0 | 0 | 0 |
@@ -87,27 +87,27 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - ada amazonia aqua soil: 26
 - hikari shrimp cuisine: 26
 - tropica: 26
-- fluval stratum: 21
+- fluval stratum: 22
 - seachem fluorite: 19
+- eheim: 18
 - tropica aquarium soil: 18
-- eheim: 17
+- fluval fx6: 16
 - hikari first bites: 16
 - aquario neo soil: 15
-- fluval fx6: 15
 - carib sea eco-complete: 14
+- hikari: 14
 - caribsea eco-complete: 13
 - hikari vibra bites: 13
+- aquaclear: 12
 - bacter ae: 12
 - easy fry and small fish food: 12
 - fluval plant and shrimp stratum: 12
-- hikari: 12
 - twinstar: 12
 - 1-2-grow: 11
+- api: 11
 - apt fix: 11
-- aquaclear: 11
+- fluval bug bites: 11
 - jbl: 11
-- api: 10
-- fluval bug bites: 10
 - ge silicone 1: 10
 - my chihiros: 10
 - repashy soilent green: 10
