@@ -10,7 +10,10 @@
   "inat:610413515",
   "inat:610413543"
  ],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/scotcat/320ba8f200b321f6.webp": "79d95647e38e5273",
+  "https://media.aquatome.com/scotcat/4f0c0f630942d720.webp": "969303c3c1910504"
+ },
  "inat": {
   "taxon": 616921,
   "pass": "done",
@@ -22,6 +25,9 @@
  "commons": "2026-11-22",
  "gbif": {
   "key": 2340067,
+  "next": null
+ },
+ "openverse": {
   "next": null
  }
 }

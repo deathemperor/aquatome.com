@@ -9,18 +9,18 @@ under `<lang>/<path>`.
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
 | video-guide | 1141 | 806 (vi 806) | 806 |
-| translation | 2545 | 364 (vi 364) | 364 |
-| vi-rewrite | 431 | 43 (vi 43) | 43 |
+| translation | 2578 | 364 (vi 364) | 364 |
+| vi-rewrite | 439 | 43 (vi 43) | 43 |
 | reader-rewrite | 51 | 0 | 0 |
 | title | 27 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
 | topic | 142 | 9 (id 1, ms 1, th 6, vi 1) | 9 |
-| product | 33 | 2 (vi 2) | 2 |
+| product | 34 | 2 (vi 2) | 2 |
 | product-reviews | 26 | 0 | 0 |
-| summary | 2908 | 171 (vi 171) | 171 |
-| localize | 2970 | 833 (id 355, ms 71, th 407) | 833 |
+| summary | 2932 | 170 (vi 170) | 170 |
+| localize | 2986 | 821 (id 351, ms 70, th 400) | 821 |
 | glossary | 40 | 0 | 0 |
-| places | 7832 | 4769 (id 1645, ms 1637, th 1388, vi 99) | 1474 |
+| places | 7931 | 4844 (id 1670, ms 1662, th 1413, vi 99) | 1504 |
 | equipment | 5 | 0 | 0 |
 | planting | 32 | 0 | 0 |
 | species | 32 | 0 | 0 |
@@ -126,20 +126,20 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-364 of 2545 pages under the bar.
+364 of 2578 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 343 | 975 |
+| Other | 342 | 972 |
 | Says what the source doesn't (invented, added) | 307 | 585 |
-| Wording: unnatural, literal, stiff or chatty | 269 | 482 |
-| Meaning changed or wrong | 223 | 332 |
+| Wording: unnatural, literal, stiff or chatty | 268 | 480 |
+| Meaning changed or wrong | 224 | 334 |
 | Hobby terms and names | 182 | 245 |
-| Leaves out what the source says | 118 | 160 |
+| Leaves out what the source says | 117 | 159 |
 | Text left in another language | 117 | 144 |
 | States as certain what the source hedges, or what garbled captions only hint at | 97 | 113 |
 | A number, unit, dose or price | 80 | 103 |
-| Repeats itself (intro, summary, steps and FAQ) | 65 | 76 |
+| Repeats itself (intro, summary, steps and FAQ) | 66 | 77 |
 | Names or points to the video, channel, creator or source | 10 | 11 |
 | Copied from the transcript or source | 3 | 3 |
 | Off the title's topic | 1 | 1 |
@@ -222,7 +222,7 @@ under `<lang>/<path>`.
 
 ## vi-rewrite: older Vietnamese rewritten in the site's style
 
-43 of 431 pages under the bar.
+43 of 439 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -392,7 +392,7 @@ under `<lang>/<path>`.
 
 ## product: product pages, against their research
 
-2 of 33 pages under the bar.
+2 of 34 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -436,13 +436,13 @@ under `<lang>/<path>`.
 
 ## summary: species' quick summaries (the numbers and claims check: 1 pass, 0 fail)
 
-171 of 2908 pages under the bar.
+170 of 2932 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
 | Says what the source doesn't (invented, added) | 88 | 106 |
 | States as certain what the source hedges, or what garbled captions only hint at | 62 | 68 |
-| Other | 57 | 67 |
+| Other | 56 | 66 |
 | Meaning changed or wrong | 16 | 17 |
 | Leaves out what the source says | 14 | 15 |
 | A number, unit, dose or price | 12 | 13 |
@@ -506,20 +506,20 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-833 of 2970 pages under the bar.
+821 of 2986 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 748 | 2038 |
-| Wording: unnatural, literal, stiff or chatty | 680 | 1334 |
-| Says what the source doesn't (invented, added) | 467 | 662 |
-| Meaning changed or wrong | 452 | 678 |
-| A number, unit, dose or price | 448 | 571 |
-| Hobby terms and names | 412 | 550 |
-| Text left in another language | 283 | 363 |
-| Leaves out what the source says | 232 | 274 |
-| Repeats itself (intro, summary, steps and FAQ) | 219 | 239 |
-| States as certain what the source hedges, or what garbled captions only hint at | 179 | 201 |
+| Other | 731 | 1984 |
+| Wording: unnatural, literal, stiff or chatty | 665 | 1303 |
+| Says what the source doesn't (invented, added) | 462 | 658 |
+| Meaning changed or wrong | 446 | 676 |
+| A number, unit, dose or price | 445 | 567 |
+| Hobby terms and names | 401 | 536 |
+| Text left in another language | 283 | 362 |
+| Leaves out what the source says | 232 | 282 |
+| Repeats itself (intro, summary, steps and FAQ) | 213 | 233 |
+| States as certain what the source hedges, or what garbled captions only hint at | 176 | 198 |
 | Copied from the transcript or source | 19 | 19 |
 | Off the title's topic | 2 | 2 |
 
@@ -539,19 +539,19 @@ under `<lang>/<path>`.
 
 - Item 7: 'membuat paku ini mati bagian atasnya' adds 'bagian atasnya'; the English says 'die back'. Use 'mati merana' or 'layu dan mati'. — id/plants/azolla, 0.20
 - Item 4: 'millimetre-sized' became 'bersaiz beberapa milimeter'. This adds 'beberapa' (a few), which isn't in the source. Use 'bersaiz milimeter'. — ms/plants/micranthemum-callitrichoides, 0.20
-- Item 2: 'lakukan perawatan akuarium dengan hati-hati' is fine, but the item adds/omits content relative to the item 3 source (e.g. 'tách thành từng cụm' and 'phủ kín' are not in the English); confirm the correct source. — id/plants/littorella-uniflora, 0.30
+- Item 2: the translation doesn't match the English. It drops 'Described in 2005' and 'Origin: wild caught' is only partly kept. It adds facts that belong to items 3 and 18 (very large, red fins, teal fins with copper coating) — id/species/betta-pallifina, 0.20
 
 ### Meaning changed or wrong
 
 - Item 7: 'Air payau ... bersalinitas rendah (>8,4 g/l)' keeps the English's odd '>' sign. Verify against the original (probably <8.4 g/l) rather than copying a likely error. — id/plants/azolla, 0.20
+- Item 12: the pH is changed from 6.5–7.5 to 5,0–7,5, a wrong number. The English paragraph is also turned into a list — id/species/betta-pallifina, 0.20
 - Item 2: the English source is actually Vietnamese, not English. The translation is faithful to it, but flag the source-language mismatch to the pipeline owner. Fix the source text if this is an error. — id/plants/microsorum-pteropus-narrow, 0.30
-- Item 3: 'silver sharks' rendered as 'ปลาหางไหม้' — wrong fish. Silver shark (Balantiocheilos melanopterus) is ปลากระพงเงิน/ปลาตะเพียนเงิน/'ปลาฉลามเงิน'; ปลาหางไหม้ is a different species. Change it. — th/species/clarias-insolitus, 0.30
 
 ### A number, unit, dose or price
 
 - Item 4: 'minimal 40 liter' is fine, but 'Fairy moss' is rendered as 'Azolla' throughout while the common name stays elsewhere. Keep the term consistent. — id/plants/azolla, 0.20
+- Item 9: omits 'Recommended 1 pair per 40 litres, or 80 litres for breeding'. Also '3+ inches (about 7.5 cm)' becomes 'lebih dari 7,5 cm', which is roughly fine — id/species/betta-pallifina, 0.20
 - Item 6: '5 gallons (about 19 litres)' is fine, but item 7: '45 × 30 cm' is original metric; no issue.  — th/species/betta-persephone, 0.30
-- Item 1: '0.8 in standard length (about 1 in total length)' was converted to 'ประมาณ 2 ซม. (…2.5 ซม.)'. 0.8 in is about 2 cm and 1 in is about 2.5 cm, so this is fine. No fix needed there. — th/species/danio-margaritatus, 0.30
 
 ### Hobby terms and names
 
@@ -568,8 +568,8 @@ under `<lang>/<path>`.
 ### Leaves out what the source says
 
 - Item 4: 'creeps over the bottom' is fine, but 'akarnya akan mati' drops the 'causing root death' cause-and-effect link. Rephrase as 'menyebabkan akar mati'. — ms/plants/micranthemum-callitrichoides, 0.20
+- Item 3: translation missing (left out); the quarantine, species-only tank and beginner advice are all omitted — id/species/betta-pallifina, 0.20
 - Item 4: 'was given to Tropica by Thomas Barr' is changed to 'diperoleh daripada Thomas Barr'. The Tropica link is dropped, so a fact is omitted. Say it was given to Tropica by Thomas Barr from the USA. — ms/plants/eleocharis-pusilla, 0.30
-- Item 1: 'SL (วัดความยาวมาตรฐาน ไม่รวมครีบหาง)' is fine, but the English '5.5"' was dropped correctly; no change needed here. — th/species/clarias-insolitus, 0.30
 
 ### Repeats itself (intro, summary, steps and FAQ)
 
@@ -600,17 +600,17 @@ under `<lang>/<path>`.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-4769 of 7832 pages under the bar.
+4844 of 7931 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 1316 | 1413 |
+| Other | 1343 | 1440 |
 | Leaves out what the source says | 90 | 90 |
-| Meaning changed or wrong | 75 | 75 |
+| Meaning changed or wrong | 78 | 78 |
 | Wording: unnatural, literal, stiff or chatty | 27 | 27 |
 | Hobby terms and names | 12 | 12 |
+| Text left in another language | 9 | 9 |
 | States as certain what the source hedges, or what garbled captions only hint at | 9 | 9 |
-| Text left in another language | 8 | 8 |
 | Repeats itself (intro, summary, steps and FAQ) | 4 | 4 |
 
 ### Other
@@ -643,17 +643,17 @@ under `<lang>/<path>`.
 - Many entries omit the Malay generic term: Malay atlases write 'Sungai Orinoco' etc., but these are given as bare names for rivers (e.g. 'Orinoco', 'Sadong', 'Sambas', 'Tocantins', 'Congo') — missing 'Sungai' — ms/places/rio-orinoco, 0.30
 - Many entries omit the Malay generic term: Malay atlases write 'Sungai Orinoco' etc., but these are given as bare names for rivers (e.g. 'Orinoco', 'Sadong', 'Sambas', 'Tocantins', 'Congo') — missing 'Sungai' — ms/places/river-congo, 0.30
 
+### Text left in another language
+
+- Stanley Pool → Stanley Pool (left in English; Malay atlases write "Kolam Stanley" or use the current name "Malebo Pool"/"Kolam Malebo") — ms/places/stanley-pool, 0.20
+- Red: this is an English word left untranslated. It is not a Malay name, and it is probably a fragment of a longer name such as "Sungai Merah". — ms/places/red, 0.45
+- "Wet Tropics": left in English. A Malay atlas would more likely write "Tropika Basah", so this is probably wrong. — ms/places/wet-tropics, 0.60
+
 ### States as certain what the source hedges, or what garbled captions only hint at
 
 - The task asks for Thai place names, and the Thai names themselves are mostly plausible. But every source name is Vietnamese (e.g. 'hồ Barapani', 'sông Kabini', 'đảo Likoma'), and the labels are also Vietnamese. The mapping is therefore unc… — th/places/barapani-lake, 0.30
 - The task asks for Thai place names, and the Thai names themselves are mostly plausible. But every source name is Vietnamese (e.g. 'hồ Barapani', 'sông Kabini', 'đảo Likoma'), and the labels are also Vietnamese. The mapping is therefore unc… — th/places/kabini-river, 0.30
 - The task asks for Thai place names, and the Thai names themselves are mostly plausible. But every source name is Vietnamese (e.g. 'hồ Barapani', 'sông Kabini', 'đảo Likoma'), and the labels are also Vietnamese. The mapping is therefore unc… — th/places/likoma-island, 0.30
-
-### Text left in another language
-
-- Stanley Pool → Stanley Pool (left in English; Malay atlases write "Kolam Stanley" or use the current name "Malebo Pool"/"Kolam Malebo") — ms/places/stanley-pool, 0.20
-- Red: this is an English word left untranslated. It is not a Malay name, and it is probably a fragment of a longer name such as "Sungai Merah". — ms/places/red, 0.45
-- Hoa Creek → Hoa Creek (the English "Creek" is left untranslated, so it should be Malay, e.g. "Sungai Hoa") — ms/places/hoa-creek, 0.70
 
 ### Repeats itself (intro, summary, steps and FAQ)
 

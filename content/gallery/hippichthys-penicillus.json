@@ -80,6 +80,19 @@
       "setup": false
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/689602732.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/689602732-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "nittan_lover りょう",
+      "sourceUrl": "https://www.inaturalist.org/photos/689602732",
+      "caption": "Cá chìa vôi đuôi cuộn trong bể acrylic nhỏ",
+      "best": false,
+      "kind": "other",
+      "setup": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/487384221.webp",
       "thumb": "https://media.aquatome.com/inaturalist/487384221-480.webp",
       "width": 1024,
@@ -90,8 +103,7 @@
       "caption": "Cá chìa vôi nhìn nghiêng bơi trên đáy cát",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/505672214.webp",
@@ -104,50 +116,7 @@
       "caption": "Cá chìa vôi nằm trên đáy sỏi trong môi trường tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/689602732.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/689602732-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "nittan_lover りょう",
-      "sourceUrl": "https://www.inaturalist.org/photos/689602732",
-      "caption": "Cá chìa vôi đuôi cuộn trong bể acrylic nhỏ",
-      "best": false,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/691261832.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/691261832-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "one_of_tua",
-      "sourceUrl": "https://www.inaturalist.org/photos/691261832",
-      "caption": "Cá chìa vôi nằm đáy hộp nhựa trong ngoài trời",
-      "best": false,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/704457974.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/704457974-480.webp",
-      "width": 1024,
-      "height": 473,
-      "licence": "CC BY-NC",
-      "author": "장재봉",
-      "sourceUrl": "https://www.inaturalist.org/photos/704457974",
-      "caption": "Cá chìa vôi bên thước đo trong khay chụp thực địa",
-      "best": false,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/487382920.webp",
@@ -223,6 +192,19 @@
       "author": "ayegege",
       "sourceUrl": "https://www.inaturalist.org/photos/307242268",
       "caption": "Cá chìa vôi màu nâu cam trong nắp hộp trắng",
+      "best": false,
+      "kind": "other",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/691261832.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/691261832-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "one_of_tua",
+      "sourceUrl": "https://www.inaturalist.org/photos/691261832",
+      "caption": "Cá chìa vôi nằm đáy hộp nhựa trong ngoài trời",
       "best": false,
       "kind": "other",
       "setup": true

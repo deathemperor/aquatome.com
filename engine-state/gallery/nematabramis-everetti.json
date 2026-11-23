@@ -1,7 +1,21 @@
 {
  "queue": [],
- "judged": [],
- "hashes": {},
+ "judged": [
+  "inat:208881386",
+  "inat:479223972",
+  "inat:569984196",
+  "inat:573605605",
+  "inat:612329136",
+  "inat:640013654",
+  "inat:640708070"
+ ],
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/208881386/large.jpg": "774f9f37678f0f6f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/479223972/large.jpg": "7e3c7d0e1c2c1b3f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/573605605/large.jpg": "b7a7630e46fa7a76",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/612329136/large.jpg": "331c07674d1647ad",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/640013654/large.jpg": "2b99ada5e1715b4e"
+ },
  "commons": "2026-11-09",
  "inat": {
   "taxon": 613259,
@@ -14,5 +28,9 @@
  "gbif": {
   "key": 2367362,
   "next": null
+ },
+ "inatNc": {
+  "after": 351130033,
+  "done": true
  }
 }

@@ -14,20 +14,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/171202546.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/171202546-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-NC",
-      "author": "Ad Konings",
-      "sourceUrl": "https://www.inaturalist.org/photos/171202546",
-      "caption": "Cá Lates angustifrons non bơi trên nền đá ở hồ Tanganyika",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/171202717.webp",
       "thumb": "https://media.aquatome.com/inaturalist/171202717-480.webp",
       "width": 1024,
@@ -38,8 +24,7 @@
       "caption": "Cá Lates angustifrons bơi gần đáy đá trong môi trường tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/341483926.webp",
@@ -52,8 +37,20 @@
       "caption": "Cá Lates angustifrons vằn đốm vàng bên các tảng đá",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/171202546.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/171202546-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Ad Konings",
+      "sourceUrl": "https://www.inaturalist.org/photos/171202546",
+      "caption": "Cá Lates angustifrons non bơi trên nền đá ở hồ Tanganyika",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 8,

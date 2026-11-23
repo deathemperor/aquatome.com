@@ -263,7 +263,19 @@
       ]
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/748937802.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/748937802-480.webp",
+      "width": 1024,
+      "height": 726,
+      "licence": "CC BY-NC",
+      "author": "Thomas Menut",
+      "sourceUrl": "https://www.inaturalist.org/photos/748937802",
+      "caption": "Cá Leporinus nijsseni bên đá và rêu dưới suối",
+      "setup": false
+    }
+  ],
   "videos": [
     {
       "youtubeId": "k9cAr4WvhZY",

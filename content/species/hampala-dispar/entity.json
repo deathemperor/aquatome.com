@@ -322,7 +322,12 @@
       "author": "Salawin Thepsupornkul",
       "sourceUrl": "https://www.inaturalist.org/photos/221627983",
       "caption": "Cá hampala đốm bơi trong bể kính",
-      "setup": true
+      "setup": true,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/221627983-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

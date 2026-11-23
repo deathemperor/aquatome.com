@@ -12,8 +12,7 @@
       "caption": "Cá julie vàng bơi giữa đá rêu trong tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/448806886.webp",
@@ -26,8 +25,7 @@
       "caption": "Cá julie vàng bên khe đá dưới hồ Tanganyika",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/586769013.webp",
@@ -40,22 +38,7 @@
       "caption": "Cá julie vàng thân vàng sọc đen cận cảnh dưới nước",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/180641703.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/180641703-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "koblmuel",
-      "sourceUrl": "https://www.inaturalist.org/photos/180641703",
-      "caption": "Cá julie vàng bơi trên nền đá trong tự nhiên",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/447635416.webp",
@@ -68,8 +51,7 @@
       "caption": "Cá julie vàng trên đá giữa cành khô dưới nước",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/448805097.webp",
@@ -82,8 +64,20 @@
       "caption": "Cá julie vàng bên những tảng đá tròn trong hồ",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/180641703.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/180641703-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "koblmuel",
+      "sourceUrl": "https://www.inaturalist.org/photos/180641703",
+      "caption": "Cá julie vàng bơi trên nền đá trong tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 13,

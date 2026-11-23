@@ -539,7 +539,19 @@
       ]
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/415673829.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/415673829-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Tse Chung Yi",
+      "sourceUrl": "https://www.inaturalist.org/photos/415673829",
+      "caption": "Hai con cá Microphis leiaspis có đốm đỏ giữa sỏi",
+      "setup": false
+    }
+  ],
   "videos": [
     {
       "youtubeId": "S_TJCcn6DqQ",

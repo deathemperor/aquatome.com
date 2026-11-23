@@ -12,8 +12,7 @@
       "caption": "Cá Microphis leiaspis đực có đốm đỏ trên nền sỏi",
       "best": true,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/415673829.webp",
@@ -26,22 +25,7 @@
       "caption": "Hai con cá Microphis leiaspis có đốm đỏ giữa sỏi",
       "best": true,
       "kind": "pair",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/546780689.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/546780689-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "abujudy",
-      "sourceUrl": "https://www.inaturalist.org/photos/546780689",
-      "caption": "Cá Microphis leiaspis bơi trên đá trong suối",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/415673851.webp",
@@ -54,36 +38,7 @@
       "caption": "Cá Microphis leiaspis đốm đỏ bơi trên sỏi đáy",
       "best": true,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/546781032.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/546781032-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "abujudy",
-      "sourceUrl": "https://www.inaturalist.org/photos/546781032",
-      "caption": "Cá Microphis leiaspis giữa lá mục dưới đáy suối",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/546781084.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/546781084-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "abujudy",
-      "sourceUrl": "https://www.inaturalist.org/photos/546781084",
-      "caption": "Cá Microphis leiaspis trong suối giữa lá khô và cành",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/255816693.webp",
@@ -96,8 +51,7 @@
       "caption": "Ba con cá Microphis leiaspis trong hộp nhỏ, thân sọc nâu",
       "best": false,
       "kind": "group",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/295490651.webp",
@@ -110,22 +64,7 @@
       "caption": "Cá Microphis leiaspis bơi trên nền sỏi trong suối",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/346621178.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/346621178-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY-NC",
-      "author": "Aquatic Ecosystem Health",
-      "sourceUrl": "https://www.inaturalist.org/photos/346621178",
-      "caption": "Cá Microphis leiaspis trong bể kính nhỏ chụp ảnh",
-      "best": false,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/338424241.webp",
@@ -138,8 +77,7 @@
       "caption": "Cá Microphis leiaspis bơi gần đá trong suối",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/460130038.webp",
@@ -152,8 +90,46 @@
       "caption": "Cá Microphis leiaspis bơi giữa đá cuội dưới nước",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/546780689.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/546780689-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "abujudy",
+      "sourceUrl": "https://www.inaturalist.org/photos/546780689",
+      "caption": "Cá Microphis leiaspis bơi trên đá trong suối",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/546781032.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/546781032-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "abujudy",
+      "sourceUrl": "https://www.inaturalist.org/photos/546781032",
+      "caption": "Cá Microphis leiaspis giữa lá mục dưới đáy suối",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/546781084.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/546781084-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "abujudy",
+      "sourceUrl": "https://www.inaturalist.org/photos/546781084",
+      "caption": "Cá Microphis leiaspis trong suối giữa lá khô và cành",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/546780948.webp",
@@ -166,8 +142,7 @@
       "caption": "Cá Microphis leiaspis dài mảnh trên nền đá suối",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/546781101.webp",
@@ -180,8 +155,7 @@
       "caption": "Cá Microphis leiaspis uốn mình trên lá mục dưới suối",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/622111197.webp",
@@ -194,8 +168,7 @@
       "caption": "Cá Microphis leiaspis cạnh tảng đá phủ rêu trong suối",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     }
   ],
   "seen": 35,

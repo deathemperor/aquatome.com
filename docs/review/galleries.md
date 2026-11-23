@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-23). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
 | shop | 60 | 131 | 81 | 24 | 36 | 200 |
 | popular | 40 | 21 | 0 | 0 | 1 | 20 |
-| covered | 30 | 916 | 32 | 9 | 27 | 930 |
-| rest | 20 | 1979 | 81 | 0 | 120 | 1940 |
+| covered | 30 | 933 | 32 | 9 | 27 | 947 |
+| rest | 20 | 1984 | 81 | 0 | 123 | 1942 |
 
-## Short of target: every source read (823)
+## Short of target: every source read (829)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -51,7 +51,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/garra-nambulica | rest | 0 | 20 |
 | species/gastromyzon-aeroides | rest | 0 | 20 |
 | species/hoplomyzon-papillatus | rest | 0 | 20 |
-| species/hoplomyzon-sexpapilostoma | rest | 0 | 20 |
 | species/hyphessobrycon-acaciae | rest | 0 | 20 |
 | species/labiobarbus-fasciatus | rest | 0 | 20 |
 | species/lepidocephalichthys-zeppelini | rest | 0 | 20 |
@@ -128,6 +127,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/astroblepus-rosei | rest | 0 | 20 |
 | species/auchenipterichthys-longimanus | rest | 0 | 20 |
 | species/auchenipterus-ambyiacus | rest | 0 | 20 |
+| species/guyanancistrus-brevispinis | rest | 9 | 20 |
 | species/paracheirodon-innesi | staple | 21 | 100 |
 | species/paracheirodon-axelrodi | staple | 29 | 100 |
 | species/trigonostigma-heteromorpha | staple | 26 | 100 |
@@ -410,6 +410,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hypostomus-luteus | covered | 0 | 30 |
 | species/hypostomus-roseopunctatus | covered | 0 | 30 |
 | species/kryptopterus-geminus | covered | 0 | 30 |
+| species/lasiancistrus-heteracanthus | covered | 0 | 30 |
 | species/lepthoplosternum-pectorale | covered | 3 | 30 |
 | species/leptodoras-cataniai | covered | 1 | 30 |
 | species/loricaria-simillima | covered | 0 | 30 |
@@ -566,6 +567,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/centromochlus-heckelii | covered | 3 | 30 |
 | species/centromochlus-macracanthus | covered | 0 | 30 |
 | species/cetopsis-coecutiens | covered | 0 | 30 |
+| species/cetopsis-oliveirai | covered | 0 | 30 |
 | species/chaca-bankanensis | covered | 1 | 30 |
 | species/chaca-chaca | covered | 0 | 30 |
 | species/chaetostoma-fischeri | covered | 0 | 30 |
@@ -599,6 +601,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-haraldschultzi | covered | 0 | 30 |
 | species/corydoras-imitator | covered | 8 | 30 |
 | species/corydoras-kanei | covered | 3 | 30 |
+| species/corydoras-leucomelas | covered | 0 | 30 |
 | species/corydoras-longipinnis | covered | 0 | 30 |
 | species/corydoras-loxozonus | covered | 0 | 30 |
 | species/corydoras-melini | covered | 0 | 30 |
@@ -709,9 +712,11 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hemisilurus-moolenburghi | covered | 0 | 30 |
 | species/heros-efasciatus | covered | 13 | 30 |
 | species/herotilapia-multispinosa | covered | 0 | 30 |
+| species/heterobranchus-bidorsalis | covered | 0 | 30 |
 | species/hisonotus-nigricauda | covered | 0 | 30 |
 | species/homaloptera-parclitella | covered | 3 | 30 |
 | species/homalopteroides-tweediei | covered | 0 | 30 |
+| species/hoplomyzon-sexpapilostoma | covered | 0 | 30 |
 | species/hydrocynus-goliath | covered | 7 | 30 |
 | species/hydrolycus-armatus | covered | 1 | 30 |
 | species/hydrolycus-scomberoides | covered | 1 | 30 |
@@ -770,7 +775,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/lamontichthys-llanero | covered | 1 | 30 |
 | species/lampiella-gibbosa | covered | 0 | 30 |
 | species/lamprologus-signatus | covered | 0 | 30 |
-| species/lasiancistrus-heteracanthus | covered | 0 | 30 |
 | species/laubuka-dadiburjori | covered | 1 | 30 |
 | species/laubuka-laubuca | covered | 0 | 30 |
 | species/leiarius-marmoratus | covered | 2 | 30 |
@@ -816,6 +820,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/oryzias-celebensis | covered | 0 | 30 |
 | species/otothyris-travassosi | covered | 0 | 30 |
 | species/parasphaerichthys-ocellatus | covered | 3 | 30 |
+| species/pardiglanis-tarabinii | covered | 0 | 30 |
 | species/parosphromenus-anjunganensis | covered | 1 | 30 |
 | species/parosphromenus-bintan | covered | 0 | 30 |
 | species/pelvicachromis-taeniatus | covered | 11 | 30 |
@@ -830,6 +835,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/serrasalmus-gouldingi | covered | 0 | 30 |
 | species/synodontis-albolineatus | covered | 0 | 30 |
 | species/synodontis-bastiani | covered | 0 | 30 |
+| species/synodontis-geledensis | covered | 0 | 30 |
 | species/synodontis-lucipinnis | covered | 1 | 30 |
 | species/ariopsis-assimilis | rest | 14 | 20 |
 | species/astroblepus-mindoensis | rest | 1 | 20 |

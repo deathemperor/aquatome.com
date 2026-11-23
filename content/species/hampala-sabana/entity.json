@@ -146,7 +146,12 @@
       "author": "Moses J. Michelsohn",
       "sourceUrl": "https://www.inaturalist.org/photos/433265818",
       "caption": "Cá hampala sabana bơi giữa đá ở suối tự nhiên",
-      "setup": false
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/433265818-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],
