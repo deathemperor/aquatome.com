@@ -1,9 +1,9 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-23), most-read pages first. Rules: docs/governance.md, "Photos".
-23312 verdicts. Shows it: 14330; its habitat (asked again): 3; something else: 605; not a photo of it: 388; dead or as food: 1102; a person in it: 328; a logo on it: 370; can't tell: 4270.
+23330 verdicts. Shows it: 14339; its habitat (asked again): 3; something else: 605; not a photo of it: 388; dead or as food: 1102; a person in it: 328; a logo on it: 370; can't tell: 4279.
 
-## Left with no photo (191)
+## Left with no photo (181)
 
 - species/ageneiosus-inermis
 - species/amphilius-frieli
@@ -180,24 +180,14 @@ Written by `pnpm engine check-photos` (2026-11-23), most-read pages first. Rules
 - species/procambarus-milleri
 - species/pseudolais-micronemus
 - species/pterygoplichthys-etentaculatus
-- species/sandelia-bainsii
-- species/satanoperca-rhynchitis
-- species/serrasalmus-serrulatus
-- species/silurichthys-hasseltii
 - species/sperata-aor
 - species/sperata-seenghala
 - species/syncrossus-helodes
-- species/synodontis-acanthomias
 - species/synodontis-lufirae
-- species/synodontis-macrostigma
-- species/synodontis-schall
-- species/synodontis-waterloti
-- species/thayeria-ifati
-- species/variabilichromis-moorii
 - species/xenotilapia-sima
 - species/xiurenbagrus-gigas
 
-## Can't tell: still shown (4270)
+## Can't tell: still shown (4279)
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -3923,8 +3913,17 @@ Written by `pnpm engine check-photos` (2026-11-23), most-read pages first. Rules
 | species/rhinogobius-gigas | [photo](https://media.aquatome.com/inaturalist/259648767.webp) | subject unsure |
 | species/rhinogobius-gigas | [photo](https://media.aquatome.com/inaturalist/560882658.webp) | subject unsure |
 | species/rhinogobius-gigas | [photo](https://media.aquatome.com/inaturalist/560882674.webp) | subject unsure |
+| species/rhinogobius-lanyuensis | [photo](https://media.aquatome.com/inaturalist/356443896.webp) | subject unsure |
+| species/rhinogobius-lanyuensis | [photo](https://media.aquatome.com/inaturalist/356478882.webp) | subject unsure |
+| species/rhinogobius-lanyuensis | [photo](https://media.aquatome.com/inaturalist/356478895.webp) | subject unsure |
+| species/rhinogobius-lanyuensis | [photo](https://media.aquatome.com/inaturalist/356478952.webp) | subject unsure |
+| species/rhinogobius-lanyuensis | [photo](https://media.aquatome.com/inaturalist/356478983.webp) | subject unsure |
+| species/rhinogobius-lanyuensis | [photo](https://media.aquatome.com/inaturalist/356478995.webp) | subject unsure |
 | species/rhinogobius-lanyuensis | [photo](https://media.aquatome.com/inaturalist/416922917.webp) | subject unsure |
 | species/rhinogobius-lanyuensis | [photo](https://media.aquatome.com/inaturalist/432294195.webp) | subject unsure |
+| species/rhinogobius-lanyuensis | [photo](https://media.aquatome.com/inaturalist/463939544.webp) | subject unsure |
+| species/rhinogobius-lanyuensis | [photo](https://media.aquatome.com/inaturalist/463939554.webp) | subject unsure |
+| species/rhinogobius-lanyuensis | [photo](https://media.aquatome.com/inaturalist/463939743.webp) | subject unsure |
 | species/rhinogobius-leavelli | [photo](https://media.aquatome.com/inaturalist/683159811.webp) | subject unsure |
 | species/rhinogobius-mekongianus | [photo](https://media.aquatome.com/seriouslyfish/00a10faf050cac78.webp) | subject unsure |
 | species/rhinogobius-mekongianus | [photo](https://media.aquatome.com/seriouslyfish/e9e752d5a8d8ffaa.webp) | subject unsure |
@@ -4474,7 +4473,7 @@ Written by `pnpm engine check-photos` (2026-11-23), most-read pages first. Rules
 
 ## Removed (2724)
 
-"Something else" records a different subject; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
+"Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
