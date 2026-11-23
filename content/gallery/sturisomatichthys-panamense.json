@@ -2,48 +2,6 @@
   "id": "sturisomatichthys-panamense",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/349528250.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/349528250-480.webp",
-      "width": 1024,
-      "height": 473,
-      "licence": "CC0",
-      "author": "Carlos Ceballos",
-      "sourceUrl": "https://www.inaturalist.org/photos/349528250",
-      "caption": "Cá lau kiếng Sturisoma panamense nhìn nghiêng trên đá phủ rêu",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/349527479.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/349527479-480.webp",
-      "width": 1024,
-      "height": 473,
-      "licence": "CC0",
-      "author": "Carlos Ceballos",
-      "sourceUrl": "https://www.inaturalist.org/photos/349527479",
-      "caption": "Cá lau kiếng Sturisoma panamense nhìn từ trên, thân nâu, vây lưng dựng",
-      "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/618952460.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/618952460-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "Carlos Ceballos",
-      "sourceUrl": "https://www.inaturalist.org/photos/618952460",
-      "caption": "Cá lau kiếng đặt cạnh thước đo, ảnh chụp thực địa",
-      "best": true,
-      "kind": "habitat",
-      "setup": true,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/commons/237e09834b65ecd5.webp",
       "thumb": "https://media.aquatome.com/commons/237e09834b65ecd5-480.webp",
       "width": 1000,
@@ -54,8 +12,7 @@
       "caption": "Cá lau kiếng Sturisoma panamense trong bể nền cát, thân dài, vây lưng cao",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/625497859.webp",
@@ -68,8 +25,7 @@
       "caption": "Cá lau kiếng trong hộp kính nhỏ chụp ngoài thực địa",
       "best": true,
       "kind": "habitat",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     }
   ],
   "seen": 40,

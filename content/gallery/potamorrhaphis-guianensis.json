@@ -12,8 +12,7 @@
       "caption": "Cá kim Amazon bơi giữa rễ cây và lá khô ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/338322243.webp",
@@ -26,8 +25,7 @@
       "caption": "Cá kim Amazon thân dài xanh bạc gần mặt nước ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/343044348.webp",
@@ -40,22 +38,7 @@
       "caption": "Cá kim Amazon bơi cạnh cành cây chìm trong nước",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/56412196.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/56412196-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-NC",
-      "author": "Gabriel Leite",
-      "sourceUrl": "https://www.inaturalist.org/photos/56412196",
-      "caption": "Cá kim Amazon bơi gần mặt nước đục màu nâu",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/343044480.webp",
@@ -68,8 +51,20 @@
       "caption": "Cá kim Amazon thân xanh bơi sát mặt nước trong tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/56412196.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/56412196-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Gabriel Leite",
+      "sourceUrl": "https://www.inaturalist.org/photos/56412196",
+      "caption": "Cá kim Amazon bơi gần mặt nước đục màu nâu",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 18,

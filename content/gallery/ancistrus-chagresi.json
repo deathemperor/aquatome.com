@@ -12,23 +12,7 @@
       "caption": "Cá lau kiếng Ancistrus chagresi trong suối nước nông ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/0b50511348d0540d.webp",
-      "thumb": "https://media.aquatome.com/commons/0b50511348d0540d-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY-SA 3.0",
-      "author": "DENker",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ancistrus_small1.jpg",
-      "caption": "Cá lau kiếng Ancistrus chagresi chấm vàng trong bể nuôi",
-      "sourceCaption": "Ancistrus dolichopterus (young fish)",
-      "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/293940233.webp",
@@ -41,8 +25,7 @@
       "caption": "Cá lau kiếng sẫm màu bám trên đá dưới suối",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/60373479.webp",
@@ -55,8 +38,7 @@
       "caption": "Cá lau kiếng bám thành hộp trong suốt, nhìn từ bên dưới",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     }
   ],
   "seen": 24,

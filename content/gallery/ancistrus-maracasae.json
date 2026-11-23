@@ -12,8 +12,7 @@
       "caption": "Cận cảnh đầu cá lau kiếng đực với râu mũi rậm",
       "best": true,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/340299869.webp",
@@ -26,50 +25,7 @@
       "caption": "Cá lau kiếng nâu bò trên nền sỏi ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/445542509.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/445542509-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Amy Deacon",
-      "sourceUrl": "https://www.inaturalist.org/photos/445542509",
-      "caption": "Cá lau kiếng đực râu mũi rậm trên đá",
-      "best": true,
-      "kind": "male",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/661775567.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/661775567-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Kaveer B",
-      "sourceUrl": "https://www.inaturalist.org/photos/661775567",
-      "caption": "Cá lau kiếng bám trên tảng đá dưới suối tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/511231593.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/511231593-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Amy Deacon",
-      "sourceUrl": "https://www.inaturalist.org/photos/511231593",
-      "caption": "Cá lau kiếng đực với tua râu mũi rậm trong khay chụp ảnh",
-      "best": true,
-      "kind": "male",
-      "setup": true,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/668694310.webp",
@@ -82,8 +38,20 @@
       "caption": "Cá lau kiếng đực râu mũi rậm trong hộp nhựa trong suốt",
       "best": true,
       "kind": "male",
-      "setup": true,
-      "unchecked": true
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/661775567.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/661775567-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Kaveer B",
+      "sourceUrl": "https://www.inaturalist.org/photos/661775567",
+      "caption": "Cá lau kiếng bám trên tảng đá dưới suối tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/381130191.webp",
@@ -96,8 +64,7 @@
       "caption": "Cá lau kiếng trong khay nhựa trong để chụp ảnh",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     }
   ],
   "seen": 28,
