@@ -1,0 +1,76 @@
+{
+  "id": "mugilogobius-chulae",
+  "scientificName": "Mugilogobius chulae",
+  "order": "Perciformes",
+  "family": "Gobiidae",
+  "genus": "Mugilogobius",
+  "group": "gobies",
+  "places": [
+    "asia",
+    "indonesia",
+    "japan",
+    "ryukyu-islands",
+    "taiwan",
+    "philippines",
+    "thailand"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/mugilogobius-chulae-2/",
+      "html": "<p>The species grows only about 4 cm long and lives in brackish water regions and in fresh waters where the tidal influence is noticeable.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/mugilogobius-chulae-2/",
+      "html": "<p>The imported animals come from Indonesia, but the species is widely distributed in the western Pacific region (Ryukyu Islands, Taiwan, Philippines, Thailand).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/mugilogobius-chulae-2/",
+      "html": "<p>In the aquarium one should offer a sea salt addition (3-5 g/l) and pay attention to hard water; the pH value should be over 8 if possible.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/mugilogobius-chulae-2/",
+      "html": "<p>The males constantly bicker harmlessly.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/mugilogobius-chulae-2/",
+      "html": "<p>Under these conditions the fish do very well in the aquarium and also spawn. They are cave breeders, and the male guards the spawn. The larvae are tiny and develop only in pure sea water. They feed on Euplotes and other tiny marine plankton, which can be cultivated, but this is very laborious and therefore rarely practiced.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "muối biển cho bể nước lợ",
+        "cát san hô"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "test pH nước",
+        "tỷ trọng kế nước lợ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
+}

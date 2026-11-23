@@ -17,7 +17,8 @@
     "guinea",
     "senegal",
     "gambia",
-    "gambia-river"
+    "gambia-river",
+    "lake-chad"
   ],
   "dataCard": {
     "tempC": [
@@ -27,12 +28,32 @@
           "min": 22,
           "max": 28
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 25
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 150
+      },
+      {
+        "source": "scotcat",
+        "value": 140
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -44,10 +65,28 @@
       "html": "<ul><li>Scientific name: Heterobranchus bidorsalis Geoffroy St. Hilaire, 1809</li><li>Type locality: Nile River</li><li>IUCN Red List: Least Concern (last assessed 2019)</li><li>Etymology: from the Greek heteros, meaning different, and branchos, meaning fin; in reference to the presence of the two dorsal fins (rayed and adipose).</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/heterobranchus_bidorsalis.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern (IUCN 2020)</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1439",
       "html": "<p>Africa: Nile. Africa: Chad basin, Niger, Upper Volta, Guinea and Senegal. Also known from the Gambia River.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/heterobranchus_bidorsalis.htm",
+      "html": "<p>Africa: Nile, Chad basin, Niger, Upper Volta, Guinea and Senegal. Also known from the Gambia River.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/heterobranchus_bidorsalis.htm",
+      "html": "<p>Grows too large for aquarium keeping and is a predator.</p>"
     },
     {
       "key": "dimorphism",
@@ -66,6 +105,18 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1439",
       "html": "<p>Identification: head oval-shaped to rectangular dorsally; snout broadly rounded; eyes rather laterally placed. Frontal fontanelle long and narrow; occipital fontanelle relatively long and oval shaped. 'Postorbital' bones completely united. Suprabranchial organ well developed. Pectoral spine smooth. Openings of secondary sensory canals with regular geometric pattern. Body and fins occasionally with irregularly placed spots.</p><p>FishBase lists 150 cm TL.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/heterobranchus_bidorsalis.htm",
+      "html": "<p>Dorsal spines (total): 0; dorsal soft rays (total): 40–46; anal soft rays: 49–58; vertebrae: 62–63. Head oval-shaped to rectangular dorsally; snout broadly rounded; eyes rather laterally placed. Frontal fontanelle long and narrow; occipital fontanelle relatively long and oval shaped. 'Postorbital' bones completely united. Suprabranchial organ well developed. Pectoral spine smooth. Openings of secondary sensory canals with regular geometric pattern. Body and fins occasionally with irregularly placed spots.</p><p>Teugels et al. (1990) diagnosed this genus on the presence of a large adipose fin supported by 21–27 extended neural spines. The external morphology of Heterobranchus species is similar to that of Clarias and Dinotopteroides species. The most important difference is the presence of a large adipose fin. Eleven nominal species have been described in this genus and Teugels et al. (1990) recognised four of them as valid: Heterobranchus bidorsalis Geoffroy Saint-Hilaire, 1809 (type species), H. longifilis Valenciennes, 1840, H. isopterus Bleeker, 1863 and H. boulengeri Pellegrin, 1922. The genus is endemic to Africa. Its monophyletic nature was recently confirmed by genetic evidence (Agnèse and Teugels, 2001).</p><p>Etymology: the specific name bidorsalis: bi-, from bis (L.), twice; dorsalis (L.), of the back, referring to the long dorsal fin divided into rayed and adipose portions.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/heterobranchus_bidorsalis.htm",
+      "html": "<p>Baensch, H.A. and R. Riehl 1995 Aquarien Atlas. Band 4. Mergus Verlag GmbH, Verlag für Natur- und Heimtierkunde, Melle, Germany. 864 p. Diouf, K., Azeroual, A., Entsua-Mensah, M., Getahun, A. &amp; Lalèyè, P. 2020. Heterobranchus bidorsalis. The IUCN Red List of Threatened Species 2020. Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (11/2009). Teugels, G.G. and Agnèse, D. 2003 Taxonomy and Phylogeny of Clariidae - an overview. Flemish FWO project G.0388.00 on catfish. In Catfishes (2003) Eds. G.Arratia, B.G. Kapoor, M.Chardon &amp; R.Diogo - 2 vols, pp 487. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [],
@@ -96,5 +147,5 @@
     }
   ],
   "productSlots": [],
-  "updatedAt": "2026-11-22"
+  "updatedAt": "2026-11-23"
 }

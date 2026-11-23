@@ -129,6 +129,10 @@
       {
         "source": "scotcat",
         "value": 3.2
+      },
+      {
+        "source": "glaser",
+        "value": 3
       }
     ]
   },
@@ -140,10 +144,34 @@
       "html": "<ul><li>Described by Taphorn &amp; Marrero, 1990</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hoplomyzon-sexpapilostoma-2/",
+      "html": "<p>Hoplomyzon sexpapilostoma belongs to the banjo catfish family (Aspredinidae), in a group of dwarfish small species (the tribus Hoplomyzontini) divided into four genera: Ernstichthys, Hoplomyzon, Dupouyichthys and Micromyzon. They grow only 2-3 cm long.</p>"
+    },
+    {
       "key": "distribution",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/aspredinidae/hoplomyzon_sexpapilostoma.htm",
       "html": "<p>South America: Orinoco River basin of Venezuela. Type locality: Río Masparro at site of Masparro Dam, Barinas, Venezuela, 8º50'40\"N, 70º06'00\"W.</p><p>Hoplomyzon sexpapilostoma was described from Masparro river at Masparro dam, Barinas state (Taphorn and Marrero 1990). It is widely distributed in Western Andean tributaries of the Orinoco basin, along the piedmont region from the river Ariari (Guaviare drainage) to the Guache river in Portuguesa drainage (Taphorn and Marrero 1990). In Colombia it occurs in rivers Ariari, Caja, Upamena, Cusiana, and Cravo Norte. In Venezuela the species is reported from rivers Torbes, Bumbum, La Yuca, Masparro, Boconó, Guanare, Las Marías and Guache, all in Apure drainage. The species has an elevational distribution ranges from 59-1,406 m above sea level.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hoplomyzon-sexpapilostoma-2/",
+      "html": "<p>So far four Hoplomyzon species are known: two from the surroundings of Lake Maracaibo in Venezuela (H. atrizona and H. intosus), one distributed quite widely in the Amazon and Orinoco (H. papillatus) and one known exclusively from the Orinoco (H. sexpapilostoma). The animals were imported from Colombia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hoplomyzon-sexpapilostoma-2/",
+      "html": "<p>In nature they live buried in fine sand (at least during the day). Most species prefer the deepest channels of medium to large streams, which is why they usually escape both scientific and aquarium fish collectors. Therefore, very little is known about them.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hoplomyzon-sexpapilostoma-2/",
+      "html": "<p>The animals are kept on a bare glass bottom for better control, but in the photo tank they disappeared completely into the sand in a flash with a few strong tail strokes.</p>"
     },
     {
       "key": "diet",
@@ -152,10 +180,28 @@
       "html": "<p>It is presumed to feed on benthic aquatic invertebrates.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hoplomyzon-sexpapilostoma-2/",
+      "html": "<p>They go willingly to live bloodworm as food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hoplomyzon-sexpapilostoma-2/",
+      "html": "<p>They are very peaceful among themselves.</p>"
+    },
+    {
       "key": "notes",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/aspredinidae/hoplomyzon_sexpapilostoma.htm",
       "html": "<p>Etymology: The genus name Hoplomyzon: hoplo-, armed, referring to body “armed with six longitudinal series of bony bucklers”; myzon, to suck, presumably referring to resemblance to Asian (Exostoma) and neotropical (Astroblepus) catfishes (as noted by Myers) that have sucker mouths (a resemblance mainly due to adnate maxillary barbels in Hoplomyzon. The specific name sexpapilostoma: sex, six; papilla, tubercle; stoma, mouth, referring to six buccal papillae (four on upper lip, one at each corner of mouth).</p><p>Remarks: This species is widespread, occurring in some protected/conservation areas and remote regions. The data in biological collections and different regional reports do not suggest a perceptible reduction in the populations of the species. Therefore, it is evaluated as Least Concern (IUCN 2021).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hoplomyzon-sexpapilostoma-2/",
+      "html": "<p>So far little can be reported about the animals. No losses so far.</p>"
     },
     {
       "key": "references",
@@ -164,8 +210,64 @@
       "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Friel, J.P., 2003. Aspredinidae (Banjo catfishes). p. 261-267. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Froese, R. and D. Pauly. Editors. 2022. FishBase. World Wide Web electronic publication. www.fishbase.org, version (10/2022).</p><p>Mojica, J.I., DoNascimiento, C., Taphorn, D.C., Usma, S., Villa-Navarro, F. &amp; Herrera-Collazos, E.E. 2021. Hoplomyzon sexpapilostoma. The IUCN Red List of Threatened Species 2021.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/de0a1fbeccb960ec.webp",
+      "thumb": "https://media.aquatome.com/glaser/de0a1fbeccb960ec-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hoplomyzon-sexpapilostoma-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0c932a6d2885551e.webp",
+      "thumb": "https://media.aquatome.com/glaser/0c932a6d2885551e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hoplomyzon-sexpapilostoma-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ddac9519539701ef.webp",
+      "thumb": "https://media.aquatome.com/glaser/ddac9519539701ef-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hoplomyzon-sexpapilostoma-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/468632c96de8e019.webp",
+      "thumb": "https://media.aquatome.com/glaser/468632c96de8e019-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hoplomyzon-sexpapilostoma-2/",
+      "source": "glaser"
+    }
+  ],
   "videos": [],
-  "productSlots": [],
-  "updatedAt": "2026-11-19"
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn bể cá",
+        "cát silica nuôi cá đáy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "trùng huyết sống"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
 }

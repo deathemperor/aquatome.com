@@ -1,0 +1,78 @@
+{
+  "id": "guyanancistrus-brevispinis",
+  "scientificName": "Guyanancistrus brevispinis",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Guyanancistrus",
+  "group": "catfish",
+  "lNumber": "L41",
+  "places": [
+    "south-america",
+    "suriname",
+    "french-guiana",
+    "guyana"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 14.2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1473",
+      "html": "<ul><li>Scientific name: Guyanancistrus brevispinis (Heitmans, Nijssen &amp; Isbrücker, 1983)</li><li>Common names: L041, Fourgassie-Guyanancistrus (Germany), Kortpigget Vingesugemalle (Denmark), Shortspinned Wing Pleco</li><li>Synonyms: Lasiancistrus brevispinis, Pseudancistrus brevispinis</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1473",
+      "html": "<p>South America: coastal rivers of the Guianas, in Guyana, Suriname and French Guiana, including the Marowijne, Upper Marowijne and Grand Inini. Type locality: Fallawatra River, rapid 5 kilometres southwest of Stondansie Fall, Nickerie District, Suriname.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1473",
+      "html": "<p>There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1473",
+      "html": "<p>Bijdragen tot de Dierkunde v. 53 (no. 1), pp 38, Figs. 4-7.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/2ede2b687dc68653.webp",
+      "width": 809,
+      "height": 606,
+      "licence": "CC BY 4.0",
+      "author": "Raphaël Covain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Guyanancistrus_longispinis.png",
+      "caption": "Live-color photographs of Guyanancistrus longispinis, MHNG 2680.100, French Guiana: Oyapock River at Alikoto (R. Covain)",
+      "thumb": "https://media.aquatome.com/commons/2ede2b687dc68653-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thác bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
+}

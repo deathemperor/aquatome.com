@@ -17,6 +17,28 @@
       {
         "source": "planetcatfish",
         "value": 35
+      },
+      {
+        "source": "scotcat",
+        "value": 35
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -28,16 +50,40 @@
       "html": "<p>Type locality: Laos.</p><p>Size: 350 mm (13.8\") SL.</p><p>IUCN Red List category: Least Concern (last assessed 2011).</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pseudolais_pleurotaenia.htm",
+      "html": "<p>Pseudolais pleurotaenia (Sauvage, 1878). Family: Pangasiidae. Size: 35 cm. Temperature: 22–26°C. pH: 6.5–7.5.</p><p>Description: dorsal spines (total): 1; dorsal soft rays (total): 7; anal soft rays: 39–46. Abdomen with a well-developed median keel extending from throat to origin of anal fin. Dorsal fin advanced in position, with a strongly serrated spine; pectoral spines as long as or slightly longer than dorsal spine, strong, denticulated along their inner edge; pelvic fins small; anal fin low, long; adipose fin very small. Single, oval-shaped patch of teeth on each side of palate; eye large.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1444",
       "html": "<p>Asia: Mekong, Chao Phraya, Meklong and Tapi basins (Thailand and Laos).</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pseudolais_pleurotaenia.htm",
+      "html": "<p>Asia: Mekong, Mae Klong, Tapi and Chao Phraya River basins. Type locality: Laos.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pseudolais_pleurotaenia.htm",
+      "html": "<p>Occurs in large and medium-sized rivers. Found in rapids and in deeper slower reaches. Common in the middle Mekong before the flood season, where it is found in the lower reaches of tributary streams along with most of the cyprinids that would be found in the main stream of the Mekong when the water is clear.</p>"
+    },
+    {
       "key": "equipment",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1444",
       "html": "<p>Needs a large amount of open space for swimming room and some plants to help reduce the nervous nature of the fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pseudolais_pleurotaenia.htm",
+      "html": "<p>Feeds on terrestrial and aquatic insects along with small amounts of plant matter.</p>"
     },
     {
       "key": "dimorphism",
@@ -52,10 +98,22 @@
       "html": "<p>Unreported.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pseudolais_pleurotaenia.htm",
+      "html": "<p>Etymology: the genus name Pseudolais: pseudo-, from pseúdes, false, i.e. although similar to the schilbeid genus Lais (=Laides), such an appearance is false. The specific name pleurotaenia: pleuro-, from pleurá, side; taenia, from tainía, band or ribbon, referring to the narrow black band on the flanks.</p><p>IUCN Red List: this fish is widely distributed throughout its range. Two key threats have been identified: over-fishing and the development of large dams on the Mekong mainstream and major tributaries. Research on harvest and population trends is needed, as well as into the impact of dams on the migratory movement of the species. The species is assessed as Least Concern at present, however it should be reassessed when further data become available and if major dams are confirmed on the mainstream of the Mekong. Needs updating (IUCN 2012).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1444",
       "html": "<p>Bulletin de la Société philomathique de Paris (7th Série) v. 2, pp 235 [3].</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pseudolais_pleurotaenia.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (02/2010). plateen. pers.comm. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf. Vidthayanon, C. 2012. Pseudolais pleurotaenia. The IUCN Red List of Threatened Species 2012.</p>"
     }
   ],
   "photos": [
@@ -101,5 +159,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-22"
+  "updatedAt": "2026-11-23"
 }

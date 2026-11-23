@@ -7,7 +7,10 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "paraguay"
+    "paraguay",
+    "brazil",
+    "rio-cuiaba",
+    "paraguay-river"
   ],
   "range": {
     "records": {
@@ -76,15 +79,43 @@
       {
         "source": "glaser",
         "value": 30
+      },
+      {
+        "source": "planetcatfish",
+        "value": 26.8
       }
     ]
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1464",
+      "html": "<p>Brochiloricaria macrodon (Kner, 1853), family Loricariidae. Synonym: Loricaria macrodon. Size: 26.8 cm SL. IUCN Red List: Least Concern (last assessed 2018). Type locality: Rio Cuiabá, Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1464",
+      "html": "<p>South America: Paraguay River basin. La Plata, Paraná, Paraguay.</p>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brochiloricaria-macrodon/",
       "html": "<p>Brochiloricaria have a completely different mouth structure and feeding habit from Lamontichthys. Like most mouthbrooding whiptail catfish, they are more interested in meaty food than in Aufwuchs.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1464",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1464",
+      "html": "<p>Denkschriften der Kaiserlichen Akademie der Wissenschaften in Wien, Mathematisch-Naturwissenschaftliche Classe. v. 6, pp 79 [15], Pls. 1 (fig. 3a-d), 2 (fig. 1-3).</p>"
     }
   ],
   "photos": [
@@ -151,5 +182,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-18"
+  "updatedAt": "2026-11-23"
 }

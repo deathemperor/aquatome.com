@@ -5,13 +5,18 @@
     "Mouthbrooding whiptail catfish"
   ],
   "sections": {
-    "diet:glaser": "<p>Brochiloricaria có miệng và cách ăn khác hẳn Lamontichthys. Giống đa số cá da trơn đuôi roi ấp trứng bằng miệng, chúng thích đồ ăn thịt hơn là gặm lớp rêu và vi sinh bám trên đá, lũa (Aufwuchs).</p>"
+    "diet:glaser": "<p>Brochiloricaria có miệng và cách ăn khác hẳn Lamontichthys. Giống đa số cá da trơn đuôi roi ấp trứng bằng miệng, chúng thích đồ ăn thịt hơn là gặm lớp rêu và vi sinh bám trên đá, lũa (Aufwuchs).</p>",
+    "quickFacts:planetcatfish": "<p>Brochiloricaria macrodon (Kner, 1853), họ Loricariidae. Tên đồng nghĩa: Loricaria macrodon. Kích thước: 26,8 cm SL (đo từ mõm tới gốc đuôi). Danh sách đỏ IUCN: Ít quan ngại (lần đánh giá gần nhất năm 2018). Mẫu định danh thu ở sông Cuiabá, Brazil.</p>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực sông Paraguay. Có ở La Plata, Paraná và Paraguay.</p>",
+    "reproduction:planetcatfish": "<p>Sinh sản: chưa thấy ai báo cáo cho loài này đẻ.</p>",
+    "references:planetcatfish": "<p>Denkschriften der Kaiserlichen Akademie der Wissenschaften in Wien, Mathematisch-Naturwissenschaftliche Classe. v. 6, pp 79 [15], Pls. 1 (fig. 3a-d), 2 (fig. 1-3).</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": false,
     "bySource": {
-      "glaser": 0.8
+      "glaser": 0.8,
+      "planetcatfish": 0.85
     },
     "reason": "thin"
   }

@@ -12,13 +12,37 @@
     "kenya",
     "ewaso-nyiro",
     "ethiopia",
-    "wabi-shebele"
+    "wabi-shebele",
+    "uebi-shebeli",
+    "lorian-swamps"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 30.7
+      },
+      {
+        "source": "scotcat",
+        "value": 30.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
       }
     ]
   },
@@ -30,10 +54,34 @@
       "html": "<p>Synodontis geledensis Günther, 1896. Type locality: Geledi on the Shebele River, eastern Africa. Maximum size 307 mm (12.1 inches) SL.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/mochokidae/synodontis_geledensis.htm",
+      "html": "<ul><li>Common name: Geledi squeaker</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/mochokidae/synodontis_geledensis.htm",
+      "html": "<p>As far as we know this species has not yet been exported to the hobby.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1432",
       "html": "<p>Africa: Uebi Shebeli (Somalia), Lorian Swamps and Ewaso Nyiro (Uebi Giuba basin, Kenya). Reported from Wabi Shebele in Ethiopia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/mochokidae/synodontis_geledensis.htm",
+      "html": "<p>Africa: Uebi Shebeli, Somalia; Lorian Swamps and Uasso Nyiro (Uebi Giuba basin), Kenya. Also reported from Wabi Shebele in Ethiopia. Type locality: Geledi on the Shebeli.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/mochokidae/synodontis_geledensis.htm",
+      "html": "<p>Uebi Shebeli (Somalia), Lorian Swamps and Ewaso Nyiro (Uebi Giuba basin, Kenya), also reported from Wabi Shebele in Ethiopia.</p><p>IUCN Red List: This species is known from only three or four locations in Kenya and the Wabe Shebele basin, but it is thought to have a far wider range, with an AOO of more than 2,000 if it is assumed that this species is present in the extent of the basin. It is therefore assessed as Least Concern. Threats include dam building on the Genale, and irrigation. If a smaller distribution is found or expected, this species will need to be reassessed (IUCN 2010).</p>"
     },
     {
       "key": "dimorphism",
@@ -54,10 +102,22 @@
       "html": "<p>All species in the genus Synodontis have a hardened head cap with a humeral process behind the gill opening, pointed towards the posterior. The dorsal and pectoral fins have a hardened, serrated first ray. The caudal fin is always forked. There is one pair of maxillary barbels, sometimes with membranes and occasionally branched. The two pairs of mandibular barbels are often branched and can have nodes. The cone-shaped teeth in the upper jaw are short; those in the lower jaw are S-shaped and movable. These fish produce audible sounds when disturbed by rubbing the base of the pectoral spine against the pectoral girdle.</p><p>IUCN Red List: Least Concern (last assessed 2009).</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/mochokidae/synodontis_geledensis.htm",
+      "html": "<p>Description: The maxillary barbels are located on the upper jaw, and two pairs of mandibular barbels are on the lower jaw. The maxillary barbel is straight without any branches, with a broad membrane at the base. It extends about 1¼ the length of the head. The outer pair of mandibular barbels is about twice as long as the inner pair, with long, slender branches with secondary branches. The front edges of the dorsal and pectoral fins are hardened into stiff spines. In S. geledensis, the dorsal spine is 4/5 as long as the head, nearly straight, serrated in front and smooth at the back. The remaining portion of the dorsal fin is made up of seven branching rays. The pectoral spine is as long as the head, and serrated on both sides. The adipose fin is 4 times as long as it is deep and the anal fin contains four unbranched and eight branched rays, and is obtusely pointed in front. The caudal fin is deeply forked. The premaxillary toothpad, located at the very front of the upper jaw, contains several rows of short, chisel-shaped teeth. In S. geledensis, the toothpad forms a short, broad band. On the lower jaw, the teeth of Synodontis are attached to flexible, stalk-like structures and described as \"s-shaped\" or \"hooked\". The number of teeth on the mandible is used to differentiate between species; in S. geledensis, there are about 18 teeth on the mandible.</p><p>Colouration: The fish is brownish on the back and sides, and whitish on the underside.</p><p>Etymology: Named for Geledi on the Shebeli in Somalia, its type locality.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1432",
       "html": "<p>Proceedings of the Zoological Society of London 1896 (pt 1) (art. 2) (for 4 Feb. 1896), pp 220, Fig. 2.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/mochokidae/synodontis_geledensis.htm",
+      "html": "<p>Boulenger, George Albert (1909). Catalogue of the fresh-water fishes of Africa in the British museum (Natural history). London: British Museum. pp. 458–459.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 02/2023 ).</p><p>Getahun, A., Hanssens, M. &amp; Snoeks, J. 2010. Synodontis geledensis. The IUCN Red List of Threatened Species 2010.</p><p>Gosse, J.-P., 1986. Mochokidae. p. 105-152. In J. Daget, J.-P. Gosse and D.F.E. Thys van den Audenaerde (eds.) Check-list of the freshwater fishes of Africa (CLOFFA). ISNB, Brussels, MRAC, Tervuren; and ORSTOM, Paris. Vol. 2.</p><p>Seegers, L., 2008. The catfishes of Africa: A handbook for identification and maintenance. Aqualog Verlag A.C.S. GmbH, Germany. 604 p.</p>"
     }
   ],
   "photos": [],
@@ -77,5 +137,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-22"
+  "updatedAt": "2026-11-23"
 }

@@ -648,6 +648,40 @@
       "kept": false
     }
   ],
+  "vi/products/jbl-aquabasic-plus": [
+    {
+      "at": "2026-11-23T01:44:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.88,
+      "notes": [
+        "\"Lớp trên có thể là sỏi hoặc cát trơ... soil\" is supported; but the intro says the base can sit under \"phân nền dạng soil\" – fine.",
+        "\"Hãng chỉ bán nó cho bể nước ngọt, vì vậy đừng dùng cho bể nước mặn\" – facts say marketed only for freshwater, advice not to use in marine is a mild inference.",
+        "\"Mỗi hộp dùng cho bể khoảng 100 l, ... dùng được hơn 3 năm\" for Florapol – facts say \"3+ year life\", fine.",
+        "\"Dennerle ... phân lót khoáng cùng tầm\" – facts say comparable premium mineral base; fine.",
+        "\"vì vậy có thể phải tìm ở vài nơi\" – small unsupported generalisation beyond sold-out badges on two shop pages.",
+        "\"Lượng phân dùng tùy theo thể tích bể\" – supported by usage fact, but \"hãy so lại với hướng dẫn của chính JBL\" is supported by issues.",
+        "\"vài người đánh giá thấy còn quá sớm... có xứng với giá\" – facts say worth the money; acceptable."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-23T01:44:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.88,
+      "notes": [
+        "\"Hai cách tính này lệch nhau gần gấp đôi\": this is the page's own comparison. The facts only list the figures. 64–100 l against 180 l, and 200 l against 300 l, are not consistently about double.",
+        "\"Lớp lót dày khoảng 2 cm là đủ\": the facts say to make the base layer about 2 cm deep. They don't say that is enough.",
+        "\"Bể đang chạy có thêm vào được không? Lớp này phải rải dưới đáy bể trống...\": this answer is inferred from the facts. It is not stated directly for running tanks."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/products/jbl-e902": [
     {
       "at": "2026-11-17T01:47:09Z",

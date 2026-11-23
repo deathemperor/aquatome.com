@@ -1,9 +1,12 @@
 {
   "id": "heterobranchus-bidorsalis",
-  "summary": "Cá trê Heterobranchus bidorsalis đạt 150 cm khi trưởng thành, nên chỉ nghĩ tới loài này khi chuẩn bị được chỗ nuôi tương xứng với cỡ đó. Thẻ ghi nhiệt độ 22–28 °C; hồ sơ không có số liệu về pH, độ cứng hay bể tối thiểu. Điểm khó nhất là kích thước, còn chuyện sinh sản thì hồ sơ ghi là chưa có báo cáo.",
-  "mistakes": [],
-  "speciesUpdatedAt": "2026-11-22",
-  "writtenFrom": "1ae19da28aced41b",
-  "generatedAt": "2026-11-22T19:50:51.881Z",
+  "summary": "Cá trê Heterobranchus bidorsalis đạt 150 cm, hồ sơ ghi loài này lớn quá cỡ để nuôi trong bể và là cá săn mồi, nên không hợp với người nuôi bể cảnh. Thẻ ghi nước 22–28 °C, pH 6–7,5, nhưng hồ sơ không nêu bể tối thiểu hay độ khó. Điểm khó nhất là kích thước và tính săn mồi.",
+  "mistakes": [
+    "Đừng nuôi chung với cá nhỏ vì đây là cá săn mồi; chọn loài khác nếu bể có cá nhỏ.",
+    "Đừng coi đây là cá bể cảnh cỡ thường vì cá lớn tới 150 cm và hồ sơ ghi là lớn quá cỡ để nuôi trong bể; nên chọn loài nhỏ hơn."
+  ],
+  "speciesUpdatedAt": "2026-11-23",
+  "writtenFrom": "b48120d9c59d11ae",
+  "generatedAt": "2026-11-23T01:50:50.994Z",
   "review": "approved"
 }

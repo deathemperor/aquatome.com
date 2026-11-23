@@ -151,6 +151,10 @@
       {
         "source": "scotcat",
         "value": 42
+      },
+      {
+        "source": "planetcatfish",
+        "value": 42
       }
     ]
   },
@@ -158,8 +162,8 @@
     {
       "key": "quickFacts",
       "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1358",
-      "html": "<ul><li>Scientific name: Cryptarius truncatus (Valenciennes, 1840)</li><li>Type locality: Java, Indonesia.</li><li>Size: 420 mm SL (16.5\")</li><li>IUCN Red List category: Not Evaluated</li></ul>"
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1462",
+      "html": "<ul><li>Scientific name: Tachysurus truncatus (Regan, 1913)</li><li>Synonyms: Leiocassis truncatus, Pseudobagrus truncatus</li><li>Type locality: Kia-tiang-fu, Sze Chuen [Sichuan], China.</li><li>IUCN Red List: Not Evaluated</li></ul>"
     },
     {
       "key": "quickFacts",
@@ -170,8 +174,8 @@
     {
       "key": "distribution",
       "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1358",
-      "html": "<p>Western Central Pacific: estuaries and lower courses of rivers from the Chao Phraya to Sumatra and Java, including the lower Mekong.</p>"
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1462",
+      "html": "<p>South and southeast Asia: Cambodia, Indonesia, Malaysia and Thailand.</p>"
     },
     {
       "key": "distribution",
@@ -192,9 +196,15 @@
       "html": "<p>Feeds on fishes and crustaceans.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1462",
+      "html": "<p>Males have an elongate genital papilla in front of the anal fin.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1358",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1462",
       "html": "<p>Unreported. There is no breeding report.</p>"
     },
     {
@@ -204,10 +214,16 @@
       "html": "<p>The genus Cryptarius can be distinguished by the following exclusive characters: (1) vomer arrow shaped; (2) epioccipital posterior process contacting median crest associated with neural spine of fourth vertebra; (3) anterior part of interopercle very long and pointed; (4) anterior part of metapterygoid contacting quadrate through an indented articulation, most of the remaining part of this bone simply contacting the quadrate; (5) posterior portion of second basibranchial very wide; (6) mesethmoid moderately thick at median portion.</p><p>Etymology: The genus name Cryptarius: kryptos, hidden or secret, i.e., a cryptic Arius, referring to its unique combination of characters having been ignored for such a long time. The specific name truncatus: referring to truncate (or spoon-shaped) snout.</p>"
     },
     {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1462",
+      "html": "<p>Tachysurus can be identified by an extrascapular without a laterosensory canal, and a pterotic with a broad lateral laminar expansion. It is among the most speciose catfish groups in East Asia and its members inhabit habitats ranging from fast-flowing hillstreams to large rivers.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1358",
-      "html": "<p>Histoire naturelle des poissons v. 15, pp 64.</p>"
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1462",
+      "html": "<p>Annals and Magazine of Natural History (Series 8) v. 11 (no. 66), pp 553.</p>"
     },
     {
       "key": "references",
@@ -264,5 +280,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-23"
 }

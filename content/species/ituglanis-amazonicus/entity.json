@@ -1,0 +1,82 @@
+{
+  "id": "ituglanis-amazonicus",
+  "scientificName": "Ituglanis amazonicus",
+  "order": "Siluriformes",
+  "family": "Trichomycteridae",
+  "genus": "Ituglanis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "suriname",
+    "suriname-river"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1468",
+      "html": "<p>Ituglanis amazonicus (Steindachner, 1882). Family Trichomycteridae. Type locality: Cudajas, Brazil. Synonym: Trichomycterus amazonicus. Size: 60 mm (2.4 inches) SL.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1468",
+      "html": "<p>South America: Amazon and Suriname River basins.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1468",
+      "html": "<p>Lives mainly in little forest creeks with notable current and a sandy-rocky substrate.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1468",
+      "html": "<p>It is not known whether it feeds on flesh or blood of living animals or it lives on carrion. Opercle hooks enable it to cling to and to dig little tunnels into its prey's flesh.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1468",
+      "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1468",
+      "html": "<p>Etymology: Greek, itys, ityos = circle + Greek, glanis = a fish that can eat the bait without touching the hook; a cat fish. IUCN Red List: Least Concern (last assessed 2020).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1468",
+      "html": "<p>Anzeiger der Kaiserlichen Akademie der Wissenschaften in Wien, Mathematisch-Naturwissenschaftlichen Klasse v. 19 (no. 19), pp 178.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/909380585e0271f8.webp",
+      "width": 900,
+      "height": 293,
+      "licence": "Public domain",
+      "author": "AnonymousUnknown author",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ituglanis_amazonicus.jpg",
+      "caption": "Ituglanis amazonicus",
+      "thumb": "https://media.aquatome.com/commons/909380585e0271f8-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-23"
+}

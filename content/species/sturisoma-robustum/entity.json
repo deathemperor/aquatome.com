@@ -8,13 +8,39 @@
   "places": [
     "south-america",
     "paraguay",
-    "rio-paraguay"
+    "rio-paraguay",
+    "argentina",
+    "parana",
+    "brazil",
+    "bolivia"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 25
+      },
+      {
+        "source": "scotcat",
+        "value": 25
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -26,10 +52,46 @@
       "html": "<ul><li>Scientific name: Sturisoma robustum (Regan, 1904)</li><li>Common name: Whiptail Pleco</li><li>Type locality: Río Paraguay</li><li>Synonym: Oxyloricaria robustum</li><li>Etymology: German sturio = sturgeon + Greek soma = body; the epithet robustum means strong, robust.</li><li>IUCN Red List: Least Concern (last assessed 2021)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_robustum.htm",
+      "html": "<ul><li>Common name: Paraguay whiptail</li><li>IUCN Red List: Least Concern, based on its widespread distribution (IUCN 2023).</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1424",
       "html": "<p>South America: La Plata River basin (La Plata, Paraná, Paraguay).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_robustum.htm",
+      "html": "<p>South America: La Plata River basin: Argentina, Brazil, Bolivia and Paraguay. Type locality: Rio Paraguay.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_robustum.htm",
+      "html": "<p>The first 5 thumbnail images show a specimen captured in Feb. 2003 in the Paraná River basin in Argentina, in an area with many floating plants and larger plants known locally as \"camalotes\". This species is also well known from the La Plata River basin further to the south.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_robustum.htm",
+      "html": "<p>Happier in an aquarium with a high oxygen content. Large planted aquarium with non-aggressive tank mates. Regular water changes must be adhered to, to keep this animal in good health.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_robustum.htm",
+      "html": "<p>Mostly vegetarian with cucumber, spinach, and algae wafers. Meaty foods such as frozen bloodworms and live foods such as white worms and brine shrimp can be fed sporadically.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_robustum.htm",
+      "html": "<p>Mature males will grow odontodes along the sides of the head and rostrum (snout).</p>"
     },
     {
       "key": "reproduction",
@@ -38,19 +100,60 @@
       "html": "<p>Breeding: unreported. There is no breeding report.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_robustum.htm",
+      "html": "<p>As per this genus, will lay eggs usually on the tank walls and the male will guard and fan the eggs.</p>"
+    },
+    {
       "key": "notes",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1424",
       "html": "<p>Sturisoma and Sturisomatichthys can be difficult to tell apart. Older descriptions of the genera emphasized the length of the snout (elongated in Sturisoma), but this trait is not reliable across species. Recent analyses allow discrimination based on the abdominal plates, fin colors and lateral plates: Sturisoma has its central abdominal plates arranged in three clearly-defined longitudinal series; all fins (except sometimes pectoral fins) lack dark spots; and 20–21 lateral plates in median series. Sturisomatichthys has its central abdominal plates less organized, not arranged in clearly-defined longitudinal series; dark spots usually present on one or more of the dorsal-, pectoral-, pelvic, or anal-fins; and 15–18 lateral plates in median series. Furthermore, to date all Sturisoma are cis-Andean; most (but not all) Sturisomatichthys are trans-Andean.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_robustum.htm",
+      "html": "<p>The work carried out by Covain et al. 2016 confines the genus Sturisoma to east of the Andes (cis-Andean), and the genus Sturisomatichthys to the west of the Andes (trans-Andean). Sturisoma is sometimes not easy to identify to species as there have probably been quite a few aquarium crossings in the past.</p><p>In the latest paper by Cardoso, Y. et al (2023) this species is now considered a junior synonym of Sturisoma barbatum. The study indicates that S. barbatum and S. robustum are part of an intraspecific variation within a single species, with S. barbatum (the valid species) as the senior synonym of S. robustum. Therefore they are the same species.</p><p>Etymology: the specific name robustum is from the Latin robustus = 'robust' or 'strong'.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1424",
       "html": "<p>Transactions of the Zoological Society of London v. 17 (pt 3, no. 1), pp 300, Pl. 19 (fig. 1).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_robustum.htm",
+      "html": "<p>Bishop, Haraldo &amp; Bishop, Noemí de; Paraná, Argentina, pers comm., August 2004. Covain, R., S. Fisch-Muller, C. Oliveira, J.H. Mol, J.I. Montoya-Burgos and S. Dray, 2015. Molecular phylogeny of the highly diversified catfish subfamily Loricariinae (Siluriformes, Loricariidae) reveals incongruences with morphological classification. Mol. Phylogenet. Evol. 94:492-517. Vera-Alcaraz, H.S. 2023. Sturisoma robustum. The IUCN Red List of Threatened Species 2023.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/320ba8f200b321f6.webp",
+      "thumb": "https://media.aquatome.com/scotcat/320ba8f200b321f6-480.webp",
+      "width": 500,
+      "height": 292,
+      "licence": "dùng với sự cho phép",
+      "author": "Haraldo Bishop / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_robustum.htm",
+      "caption": "Sturisoma robustum",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4f0c0f630942d720.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4f0c0f630942d720-480.webp",
+      "width": 500,
+      "height": 262,
+      "licence": "dùng với sự cho phép",
+      "author": "Haraldo Bishop / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_robustum.htm",
+      "caption": "Sturisoma robustum",
+      "source": "scotcat"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "WLF91bRYC-w",
@@ -87,5 +190,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-22"
+  "updatedAt": "2026-11-23"
 }

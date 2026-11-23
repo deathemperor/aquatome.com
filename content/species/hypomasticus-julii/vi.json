@@ -1,0 +1,27 @@
+{
+  "slug": "ca-hypomasticus-julii",
+  "name": "Cá Hypomasticus julii",
+  "altNames": [
+    "Cá Leporinus julii"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Năm 1996, ba nhà ngư học Santos, Jegu và Lima mô tả một loài Leporinus khác thường ở sông Xingu và sông Trombetas, đặt tên là L. julii. Phân chi Hypomasticus thì có từ năm 1929, lập ra cho Leporinus mormyrops. Đến năm 2008, phân chi này được nâng lên thành giống, và 12 loài tách từ giống Leporinus vốn gom rất nhiều loài được chuyển sang đây.</p>",
+    "quickFacts:glaser": "<p>Loài mới này là họ hàng gần của L. pachycheilus, một loài Leporinus có màu sắc thay đổi cực kỳ nhiều. Tên L. julii đặt theo tên Júlio Garavello. Điểm chỉ loài này có là miệng và răng nằm hẳn ở phía dưới đầu. Cá dài tối đa khoảng 20 cm (chiều dài chuẩn, không tính vây đuôi).</p>",
+    "behaviour:glaser": "<p>Trong bể chụp ảnh, hai con cá cư xử như hai con tetra đáy cỡ quá khổ. Chúng nằm dưới đáy và chống người bằng đôi vây bụng khỏe. Có thể đoán ngoài tự nhiên chúng phải bơi mạnh ngược dòng và gặm lớp bám trên đá. Màu nổi bật nhất của loài này là các đốm đỏ đậm ở khóe miệng và vùng vai. Lúc đầu hai con khá thờ ơ với nhau. Nhưng sau một thời gian quen bể, con sẫm màu bắt đầu hăng hái đuổi con nhạt màu ra khỏi khoảng ngay quanh nó. Hai con sau đó được tách ra nuôi riêng, vì Leporinus vốn có tiếng hay gây gổ.</p>",
+    "dimorphism:glaser": "<p>Hai con có màu hơi khác nhau: một con sẫm hơn con kia, và vây mỡ của nó khác màu hẳn. Chưa biết đây có phải là khác biệt giữa con đực và con cái hay không.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-23"
+  }
+}

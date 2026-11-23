@@ -18,6 +18,13 @@
           "min": 18,
           "max": 25
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
       }
     ],
     "ph": [
@@ -27,12 +34,23 @@
           "min": 6,
           "max": 7
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 5.8
+      },
+      {
+        "source": "scotcat",
+        "value": 5
       }
     ]
   },
@@ -42,6 +60,12 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1447",
       "html": "<p>Gagata sexualis Tilak, 1970. Size: 58 mm (2.3 inches) SL. Distinguished by its small size, the presence of 5 dark saddles on the body, an elongate and slender snout, and pronounced sexual dimorphism in the shape of the dorsal fin. IUCN Red List: Least Concern (last assessed 2009).</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/gagata_sexualis.htm",
+      "html": "<p>Family: Sisoridae. Size: 5.0 cm. Temperature: 23–26°C. pH: 6.5–7.2.</p><p>Description: Dorsal spines (total): 1; dorsal soft rays (total): 6; vertebrae: 36–38. Filamentous extension of dorsal-fin spine in males, reaching to adipose-fin base. Mouth located at level of anterior margin of orbit. Snout bluntly rounded in lateral profile without notch anteriorly. Upper jaw toothless; lower jaw with single row of teeth. Anal fin with 4–5 simple rays, 12–14 branched rays, posterior 2 rays very close together.</p><p>Etymology: The specific name sexualis is Latin for sexual; it was the only member of the genus known at the time of description to be sexually dimorphic.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -56,10 +80,28 @@
       "html": "<p>Asia: India. Found in the Padma, Jamuna, Brahmaputra, Koel and Ganges drainages, and in West Bengal (Ichamati River). Type locality: North Koel River at Daltonganj, Chotanagpur, southern Bihar, India.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/gagata_sexualis.htm",
+      "html": "<p>Asia: Ganges and Brahmaputra River basins. Type locality: North Koel River at Daltonganj (Chotanagpur), South Bihar, India.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/gagata_sexualis.htm",
+      "html": "<p>This is a peaceful species which would be better kept in a group of about 6 specimens with plenty of swimming space. Provide good filtration and aeration. Provide a sand substrate with plants as an option.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1447",
       "html": "<p>pH 6.0–7.0. Temperature 18–25°C. Requires well oxygenated water.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/gagata_sexualis.htm",
+      "html": "<p>Live, frozen and tablet foods.</p>"
     },
     {
       "key": "dimorphism",
@@ -80,10 +122,22 @@
       "html": "<p>Etymology: the generic name comes from the local name of the fish (keyakatta). The specific epithet comes from the pronounced sexual dimorphism of this species.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/gagata_sexualis.htm",
+      "html": "<p>IUCN Red List: Although there is little information on the global population and its trend for this species, there is a marked decline in its population in Nepal due to destructive fishing practices. However, it is still a relatively common species in India with no perceptible threats currently, although more research is needed in this area. Therefore Gagata sexualis is assessed as Least Concern at the present, but needs updating (IUCN 2010).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1447",
       "html": "<p>Zoologische Mededelingen (Leiden) v. 44 (no. 14), pp 207, Figs. 1-6.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/gagata_sexualis.htm",
+      "html": "<p>Baensch, H.A. and R. Riehl, 1991. Aquarien atlas. Bd. 3. Melle: Mergus, Verlag für Natur-und Heimtierkunde, Germany. 1104 p. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org, version. Ng, H.H. 2010. Gagata sexualis. The IUCN Red List of Threatened Species 2010. Roberts, T.R. and C.J. Ferraris Jr., 1998. Review of South Asian sisorid catfish genera Gagata and Nangra, with descriptions of a new genus and five new species. Proc. Calif. Acad. Sci. 50(14):315-345. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -111,6 +165,28 @@
     }
   ],
   "videos": [],
-  "productSlots": [],
-  "updatedAt": "2026-11-22"
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát mịn thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy sục khí bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
 }

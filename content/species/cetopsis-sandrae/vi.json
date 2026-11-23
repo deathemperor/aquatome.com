@@ -10,14 +10,18 @@
     "distribution:planetcatfish": "<p>Nam Mỹ: hệ thống sông Tapajós ở Brazil (Amazon, hạ lưu Amazon, Tapajós, thượng nguồn Tapajós, Juruena, Arinos).</p><p>Nơi thu mẫu chuẩn: một con suối không tên ở Nova Mutum, thuộc Fazenda Buriti, cách Fazenda khoảng 1,5 km về phía nam, bang Mato Grosso, Brazil.</p>",
     "reproduction:planetcatfish": "<p>Chưa thấy ai cho loài này đẻ trong bể.</p>",
     "notes:planetcatfish": "<p>Nguồn gốc tên gọi: Cetopsis ghép từ hai chữ Hy Lạp, cetos là cá voi và -opsis là giống, vì con cá trông giống cá voi. Tên loài sandrae đặt theo tên Sandra J. Raredon.</p>",
-    "references:planetcatfish": "<p>Neotropical Ichthyology v. 3 (no. 2), pp 195, 39-40.</p>"
+    "references:planetcatfish": "<p>Neotropical Ichthyology v. 3 (no. 2), pp 195, 39-40.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: sông Arinos, thượng lưu lưu vực sông Tapajós, Brazil. Địa điểm mẫu chuẩn: Brazil. Mato Grosso: Nova Mutum, một con suối (corrego) không tên, Fazenda Buriti, cách Fazenda khoảng 1,5 km về phía nam (13º51'52\"S, 56º11'36\"W).</p><p>Cetopsis sandrae là loài đặc hữu của Brazil. Cho tới nay người ta mới chỉ biết nó ở sông Arinos, vùng thượng nguồn hệ thống sông Tapajós thuộc lưu vực sông Amazon. Ở thượng lưu sông Araguaia cũng có một lần bắt gặp, nhưng chưa được xác nhận. Loài này ít khi gặp, và số lượng cũng không nhiều. Trong vùng có loài này đang có dự kiến xây vài nhà máy thủy điện nhỏ, nhưng hiện chưa thấy mối đe dọa trực tiếp nào tới quần thể của nó. Vì thế Cetopsis sandrae được xếp vào nhóm Ít quan tâm (LC), (IUCN 2022).</p>",
+    "dimorphism:scotcat": "<p>Con đực đủ lớn có sợi tơ ở tia đầu tiên của vây lưng và vây ngực dài hơn hẳn, so với phần tia kéo dài ở con cái và con đực còn non.</p>",
+    "notes:scotcat": "<p>Mô tả: Cetopsis sandrae khác với mọi loài cùng chi ở chỗ có đủ cùng lúc các đặc điểm sau. Nó có mắt, có răng hình nón trên xương lá mía và xương răng. Lỗ mũi sau tròn và nằm tách hẳn với lỗ mũi sau bên kia, khoảng cách giữa hai lỗ lớn hơn chiều rộng của lỗ mũi sau. Vùng vai không có đốm sẫm. Ở gốc vây đuôi có một mảng sắc tố sẫm chia hai thùy, mép sau tròn, mảng này đậm nhạt tùy con. Gốc vây lưng có một đốm sẫm, và phần màng ngay sau tia đầu tiên của vây lưng cũng sẫm màu rõ. Tổng số đốt sống là 40 hoặc 41, hay gặp nhất là 40. Màu sẫm ở lưng và hai bên lưng nhạt dần xuống phía bụng, không có đường ranh rõ. Cuối cùng, ở mặt bụng và hai bên bụng, phần nằm dưới đường ngang kẻ qua mép dưới cuống đuôi, có các đốm sẫm to bằng mắt hoặc to hơn.</p><p>Nguồn gốc tên loài: Tên loài sandrae đặt theo tên Sandra J. Raredon, thuộc Division of Fishes, National Museum of Natural History. Các tác giả mô tả loài đặt tên này để cảm ơn bà đã giúp đỡ họ, nhất là tác giả thứ nhất, suốt nhiều năm trong dự án này và nhiều dự án khác.</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio) 2022. Cetopsis sandrae. The IUCN Red List of Threatened Species 2022.</p><p>Vari, R. P., C. J. Ferraris Jr. &amp; M. C. C. de Pinna. 2005. The Neotropical whale catfishes (Siluriformes: Cetopsidae: Cetopsinae), a revisionary study. Neotropical Ichthyology 3:127-238.</p>"
   },
   "quality": {
     "score": 0.85,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
-    },
-    "reason": "thin"
+      "planetcatfish": 0.85,
+      "scotcat": 0.9
+    }
   }
 }

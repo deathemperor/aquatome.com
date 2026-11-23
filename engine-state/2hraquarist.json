@@ -1000,6 +1000,57 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/nitrate-limitation": {
+    "entityIds": [],
+    "updatedAt": "2026-11-22T23:11:01.327Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "no archived copy (HTTP 404)"
+  },
+  "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/nutrient-tunnel-vision": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-beginners-planted-tank-101-nutrient-tunnel-vision"
+    ],
+    "updatedAt": "2026-11-22T23:11:13.069Z",
+    "hash": "37043190f72cba54c8609db3faa1a8ef7edd6385975f47a383314af07f8773ff",
+    "processedHash": "37043190f72cba54c8609db3faa1a8ef7edd6385975f47a383314af07f8773ff",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/planted-tank-fertilizing-101": {
+    "entityIds": [],
+    "updatedAt": "2026-11-22T23:17:50.358Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "no archived copy (HTTP 404)"
+  },
+  "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/planted-tank-lighting-101": {
+    "entityIds": [],
+    "updatedAt": "2026-11-22T23:18:03.233Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "no archived copy (HTTP 404)"
+  },
+  "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/prevent-algae-growth": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-beginners-planted-tank-101-prevent-algae-growth"
+    ],
+    "updatedAt": "2026-11-22T23:18:15.983Z",
+    "hash": "49b0dc912956336e9b7e76dc41589d8a67b7533ce93be68f3ac463514bb7d538",
+    "processedHash": "49b0dc912956336e9b7e76dc41589d8a67b7533ce93be68f3ac463514bb7d538",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/substrate-101": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-beginners-planted-tank-101-substrate-101"
+    ],
+    "updatedAt": "2026-11-22T23:25:19.248Z",
+    "hash": "6c7a49a76cc19465c01a2ebc8317592dfb18dbb0bdead753206faeba52893807",
+    "processedHash": "6c7a49a76cc19465c01a2ebc8317592dfb18dbb0bdead753206faeba52893807",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-cabomba-furcata": {
     "entityIds": [
       "plants/cabomba-furcata"

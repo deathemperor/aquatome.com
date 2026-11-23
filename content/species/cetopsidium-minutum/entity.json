@@ -1,0 +1,50 @@
+{
+  "id": "cetopsidium-minutum",
+  "scientificName": "Cetopsidium minutum",
+  "order": "Siluriformes",
+  "family": "Cetopsidae",
+  "genus": "Cetopsidium",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "guyana"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 4.9
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1455",
+      "html": "<ul><li><strong>Scientific name:</strong> Cetopsidium minutum (Eigenmann, 1912)</li><li><strong>Type locality:</strong> Amatuk Cataract, Guyana.</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2020).</li><li><strong>Etymology:</strong> The genus name Cetopsidium comes from Cetopsis, the first genus proposed in the Cetopsinae, and \"idium\", meaning diminutive, in reference to the relatively small body sizes of the members of the genus.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1455",
+      "html": "<p>South America: Guyana waters and the coastal rivers of the Guianas. Also photographed at Crique Margot near St Laurent du Maroni.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1455",
+      "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1455",
+      "html": "<p>Memoirs of the Carnegie Museum v. 5 (no. 1), pp 211, Pl. 23 (fig. 2).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-23"
+}

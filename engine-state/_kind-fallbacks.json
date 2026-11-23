@@ -120,22 +120,34 @@
     "at": "2026-11-21"
   },
   "species/cetopsis-oliveirai": {
-    "name": "Cá trê cá voi",
+    "name": "Cá trê voi Cetopsis oliveirai",
     "word": "trê",
     "took": "Cá Cetopsis oliveirai",
-    "at": "2026-11-22"
+    "at": "2026-11-23"
+  },
+  "species/cetopsis-parma": {
+    "name": "Cá trê voi Cetopsis parma",
+    "word": "trê",
+    "took": "Cá Cetopsis parma",
+    "at": "2026-11-23"
   },
   "species/cetopsis-sandrae": {
-    "name": "Cá trê cá voi",
+    "name": "Cá trê voi Cetopsis sandrae",
     "word": "trê",
     "took": "Cá Cetopsis sandrae",
-    "at": "2026-11-22"
+    "at": "2026-11-23"
   },
   "species/cochlefelis-burmanicus": {
     "name": "Cá trê biển Arius burmanicus",
     "word": "trê",
     "took": "Cá Cochlefelis burmanicus",
     "at": "2026-11-17"
+  },
+  "species/cryptarius-truncatus": {
+    "name": "Cá trê Tachysurus truncatus",
+    "word": "trê",
+    "took": "Cá da trơn biển Cryptarius truncatus",
+    "at": "2026-11-23"
   },
   "species/engina-mendicaria": {
     "name": "Ốc ong",
@@ -233,6 +245,12 @@
     "took": "Tôm Palaemon concinnus",
     "at": "2026-11-17"
   },
+  "species/palaemon-paludosus": {
+    "name": "Tép thủy tinh",
+    "word": "tép",
+    "took": "Tôm Palaemon paludosus",
+    "at": "2026-11-23"
+  },
   "species/parauchenoglanis-punctatus": {
     "name": "Cá trê Parauchenoglanis punctatus",
     "word": "trê",
@@ -268,6 +286,18 @@
     "word": "trê",
     "took": "Cá bám đá Brahmaputra",
     "at": "2026-11-15"
+  },
+  "species/pseudobagrus-albomarginatus": {
+    "name": "Cá trê Tachysurus albomarginatus",
+    "word": "trê",
+    "took": "Cá Pseudobagrus albomarginatus",
+    "at": "2026-11-23"
+  },
+  "species/pseudobagrus-gracilis": {
+    "name": "Cá trê Tachysurus gracilis",
+    "word": "trê",
+    "took": "Cá Pseudobagrus gracilis",
+    "at": "2026-11-23"
   },
   "species/pseudocrenilabrus-multicolor-victoriae": {
     "name": "Cá rô phi lùn Ai Cập Victoria",

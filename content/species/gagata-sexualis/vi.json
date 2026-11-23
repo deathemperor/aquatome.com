@@ -10,14 +10,20 @@
     "dimorphism:planetcatfish": "<p>Con đực đủ lớn có vây lưng kéo dài thành một sợi dài.</p>",
     "reproduction:planetcatfish": "<p>Chưa thấy ai cho loài này đẻ trong bể.</p>",
     "notes:planetcatfish": "<p>Nguồn gốc tên: tên giống lấy từ tên địa phương của loài cá này (keyakatta). Tên loài <em>sexualis</em> đặt theo đặc điểm con đực và con cái khác nhau rất rõ.</p>",
-    "references:planetcatfish": "<p>Zoologische Mededelingen (Leiden) v. 44 (no. 14), pp 207, Figs. 1-6.</p>"
+    "references:planetcatfish": "<p>Zoologische Mededelingen (Leiden) v. 44 (no. 14), pp 207, Figs. 1-6.</p>",
+    "quickFacts:scotcat": "<p>Họ: Sisoridae. Kích thước: 5,0 cm. Nhiệt độ: 23–26°C. pH: 6,5–7,2.</p><p>Mô tả: Vây lưng có tổng cộng 1 gai và 6 tia mềm. Cột sống có 36–38 đốt. Ở con đực, gai vây lưng kéo dài thành sợi, chạm tới gốc vây mỡ. Miệng nằm ngang với mép trước của hốc mắt. Nhìn nghiêng, mõm tròn tù và phía trước không có khía. Hàm trên không có răng, còn hàm dưới có một hàng răng. Vây hậu môn có 4–5 tia đơn và 12–14 tia phân nhánh, trong đó 2 tia sau cùng nằm rất sát nhau.</p><p>Nguồn gốc tên: Tên loài sexualis là tiếng Latin, nghĩa là \"thuộc về giới tính\". Lúc loài này được mô tả, nó là loài duy nhất trong giống được biết là con đực và con cái trông khác nhau.</p>",
+    "distribution:scotcat": "<p>Châu Á: lưu vực sông Hằng và sông Brahmaputra. Mẫu chuẩn thu ở sông North Koel, đoạn qua Daltonganj (Chotanagpur), nam Bihar, Ấn Độ.</p>",
+    "maintenance:scotcat": "<p>Loài này hiền. Nuôi theo nhóm khoảng 6 con trong bể có nhiều chỗ bơi thì tốt hơn. Bể cần lọc tốt và sục khí đủ. Trải nền cát, muốn thì trồng thêm cây.</p>",
+    "diet:scotcat": "<p>Ăn đồ tươi sống, thức ăn đông lạnh và thức ăn viên.</p>",
+    "notes:scotcat": "<p>Danh lục đỏ IUCN: Về quần thể của loài này trên toàn cầu và xu hướng tăng giảm của nó thì có ít thông tin. Ở Nepal, số lượng của nó giảm rõ rệt do người ta đánh bắt theo kiểu hủy diệt. Ở Ấn Độ, loài này vẫn khá phổ biến và hiện chưa thấy mối đe dọa nào rõ ràng, nhưng vẫn cần nghiên cứu thêm. Vì thế, hiện nay Gagata sexualis được xếp vào mức Ít quan tâm (Least Concern), nhưng đánh giá này cần cập nhật (IUCN 2010).</p>",
+    "references:scotcat": "<p>Baensch, H.A. and R. Riehl, 1991. Aquarien atlas. Bd. 3. Melle: Mergus, Verlag für Natur-und Heimtierkunde, Germany. 1104 p. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org, version. Ng, H.H. 2010. Gagata sexualis. The IUCN Red List of Threatened Species 2010. Roberts, T.R. and C.J. Ferraris Jr., 1998. Review of South Asian sisorid catfish genera Gagata and Nangra, with descriptions of a new genus and five new species. Proc. Calif. Acad. Sci. 50(14):315-345. The ETYFish Project Fish Name Etymology Database.</p>"
   },
   "quality": {
     "score": 0.93,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.93
-    },
-    "reason": "thin"
+      "planetcatfish": 0.93,
+      "scotcat": 0.93
+    }
   }
 }

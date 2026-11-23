@@ -295,6 +295,10 @@
       {
         "source": "scotcat",
         "value": 3.5
+      },
+      {
+        "source": "glaser",
+        "value": 3
       }
     ],
     "ph": [
@@ -321,6 +325,18 @@
       "html": "<ul><li>IUCN Red List: Least Concern (2023)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/physopyxis-lyra-2/",
+      "html": "<p>This dwarf among the thorny catfishes only grows to about 3 cm in length. It was scientifically described in 1872 but was completely unknown to aquarists until a few years ago. They are droll, very interesting small catfishes, which are also suitable for small and smallest aquariums.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/physopyxis-lyra-2/",
+      "html": "<p>Like many other thorny catfishes, this species is able to make noise. When you catch them with the net, they press loudly and audibly against it, which sounds like a creak. You have to be very careful when catching them: with their sharp and numerous thorns, the small catfish get entangled very easily in the net and are then difficult to get out again unharmed. It is better to catch them with a large, very fine mesh net, but do not lift them out of the water; scoop them out of the net with a small cup or the like. This way you can safely transfer them.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1094",
@@ -331,6 +347,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/doradidae/physopyxis_lyra.htm",
       "html": "<p>South America: Amazon River basin, Peru and Brazil. Type locality: Amazon. Described in more detail in Cope (1872a: 273, pl. 5, figs. 1a–1c), with locality as Ambyiacu River, Ecuador (now Peru).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/physopyxis-lyra-2/",
+      "html": "<p>The specimens offered originate from Peru.</p>"
     },
     {
       "key": "habitat",
@@ -357,6 +379,12 @@
       "html": "<p>Will eat most prepared foods such as sunken flake and tablet foods but has a liking for frozen bloodworm.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/physopyxis-lyra-2/",
+      "html": "<p>Every usual ornamental fish food is eaten.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1094",
@@ -367,6 +395,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/doradidae/physopyxis_lyra.htm",
       "html": "<p>Predominantly nocturnal, and spends most of day time sheltered among submersed root mats or buried in sand.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/physopyxis-lyra-2/",
+      "html": "<p>The small \"Robocop catfish\", as the exporters call them, are by no means sensitive, but since they rarely move, one often notices too late when they are not well. It is therefore advisable to keep a few small and harmless fish, e.g. tetras, with the Physopyxis, which serve as bio-indicators if something should be wrong with the water.</p>"
     },
     {
       "key": "reproduction",
@@ -443,6 +477,36 @@
       "sourceUrl": "https://www.scotcat.com/doradidae/physopyxis_lyra.htm",
       "caption": "Physopyxis lyra",
       "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/83bee8a51e440fc1.webp",
+      "thumb": "https://media.aquatome.com/glaser/83bee8a51e440fc1-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/physopyxis-lyra-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d0be767d2c6d854a.webp",
+      "thumb": "https://media.aquatome.com/glaser/d0be767d2c6d854a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/physopyxis-lyra-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ae2b748215430f2e.webp",
+      "thumb": "https://media.aquatome.com/glaser/ae2b748215430f2e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/physopyxis-lyra-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -476,5 +540,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-23"
 }

@@ -1030,6 +1030,16 @@ Cá trê vundu (Heterobranchus longifilis) chỉ hợp với người chơi th�
 Kiểm tra:
 - "để trống với lớp nền mềm" is stated as a plain instruction. The page hedges it: "có lẽ là hợp nhất" (probably the most suitable). The hedge became a certainty.
 
+## Cá Hoplomyzon sexpapilostoma (Hoplomyzon sexpapilostoma)
+id: `hoplomyzon-sexpapilostoma`
+
+Cá Hoplomyzon sexpapilostoma là cá banjo tí hon, trưởng thành 3,2 cm, sống đàn và hiền với nhau. Ngoài tự nhiên chúng vùi mình trong cát mịn, ít nhất là vào ban ngày. Hồ sơ không có số liệu về nhiệt độ, pH hay bể tối thiểu. Khó nhất là người ta biết rất ít về nhóm cá này, nên chưa rõ yêu cầu về nước và thức ăn ngoài trùng huyết sống.
+
+- Muốn dễ theo dõi cá thì dùng bể đáy kính trần không trải nền, vì trong bể có cát chúng chỉ vài cú quẫy đuôi là chui mất hẳn xuống cát.
+
+Kiểm tra:
+- The "mistakes" entry "Muốn dễ theo dõi cá thì dùng bể đáy kính trần không trải nền" is not advice the page gives. The page only says the fish were kept in a bare-bottom tank "để dễ theo dõi", and that in a photo tank with sand they burrow quickly. It never calls sand a mistake or bare glass the fix, so this is invented advice. The page also says the fish naturally bury in fine sand.
+
 ## Cá chuột Hoplosternum magdalenae (Hoplosternum magdalenae)
 id: `hoplosternum-magdalenae`
 
@@ -1121,18 +1131,6 @@ Hợp với người đã quen cichlid Tanganyika, muốn nuôi một nhóm nh�
 
 Kiểm tra:
 - "Hợp với người đã quen cichlid Tanganyika": the page never says the species suits experienced Tanganyika keepers or needs prior experience. The card rates difficulty 4/8, which is medium. This audience claim is invented.
-
-## Cá lau kiếng mắt đỏ (Lasiancistrus heteracanthus)
-id: `lasiancistrus-heteracanthus`
-
-Cá lau kiếng mắt đỏ (Lasiancistrus heteracanthus) hợp người muốn con cá ăn rêu hiền, khá dễ nuôi, nuôi chung được với cá hiền nếu bể đủ rộng. Cần nước ấm 25–29 °C, pH 6–7,5, cá lớn tới 18 cm nên cần bể rộng. Khó nhất là tìm mua vì loài hiếm, nhập về ít, và con đực lớn hay giành chỗ.
-
-- Để pH tụt xuống dưới 6,5 vì tưởng cá thích nước chua; loài này không cần pH thấp, nên giữ pH ổn định trong khoảng 6,5–7,5.
-- Nuôi trong bể không đủ rộng thì con đực lớn dễ giành chỗ; nên chọn bể đủ rộng.
-- Chỉ cho ăn đồ động vật; đây là loài ăn thực vật, nên cho thức ăn có rau, viên chìm, viên nén và có gỗ mềm trong bể.
-
-Kiểm tra:
-- Mistake 1 says to keep pH "trong khoảng 6,5–7,5". The card range is pH 6–7,5, and the summary itself says 6–7,5. The 6,5 lower bound is a different pH range from the card, and the page only says to avoid dropping below 6,5.
 
 ## Cá cichlid ốc meeli (Lepidiolamprologus meeli)
 id: `lepidiolamprologus-meeli`

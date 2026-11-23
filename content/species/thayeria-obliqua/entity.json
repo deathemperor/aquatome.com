@@ -8,7 +8,9 @@
   "places": [
     "south-america",
     "brazil",
-    "tocantins"
+    "tocantins",
+    "peru",
+    "upper-amazon"
   ],
   "range": {
     "native": {
@@ -315,6 +317,10 @@
       {
         "source": "seriouslyfish",
         "value": 8
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -336,6 +342,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/thayeria-obliqua",
       "html": "<p>The penguin tetra, Thayeria obliqua, is a characin from the central Amazon and Rio Tocantins basins and the Rio Guaporé in Brazil. The type species of the genus, it was the original penguin tetra, though T. boehlkei is now usually sold under that name. In T. obliqua the black caudal stripe tapers upwards and fades before reaching the dorsal fin. It should be kept in a group of at least six.</p><ul><li>pH: not recorded</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thayeria-obliqua-4/",
+      "html": "<p>All penguin tetras grow to 5-6 cm in length and are peaceful schooling fish.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thayeria-obliqua-4/",
+      "html": "<p>Unfortunately the beautiful penguin tetra, Thayeria obliqua, from the upper Amazon is offered only very rarely, in contrast to its cousin T. boehlkei, which can always be found in the trade. In the trade are only offsprings of T. boehlkei; it originates from the Rio Xingu drainage in Brazil. A third species, T. ifati from Guyana is restricted to the Maroni River and is probably extinct in the hobby, while a fourth species, T. tapajonica, was only scientifically described in 2017 and has probably only been maintained in aquaria by accident. T. tapajonica is very similar in color to T. boehlkei and even occurs locally with it.</p>"
     },
     {
       "key": "distribution",
@@ -380,6 +398,12 @@
       "html": "<p>A peaceful species that won't compete well with very boisterous or much larger tankmates. Ideally, keep it with other South American species, such as Hemigrammus or Hyphessobrycon tetras, pencil fish, Apistogramma and other small cichlids, Corydoras and Loricariids. In a more general community it can be combined with smaller rasboras, barbs, Anabantoids and West African dwarf cichlids such as Pelvicachromis species. Always buy a group of at least 6 of these, preferably 10 or more. It's a schooling species by nature, and will fare much better when in the company of its own kind. Any potential for fin-nipping is also limited when it is kept in sufficient numbers as the fish tend to concentrate on squabbling amongst themselves. Like most tetras it actually looks far more effective when maintained like this anyway.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thayeria-obliqua-4/",
+      "html": "<p>All Thayeria species swim obliquely at an angle of about 30° to the water surface. The contrasting black and white pattern, along with the unusual swimming style, breaks up the typical fish outline, making Thayeria better protected from predatory fines.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/thayeria-obliqua",
@@ -409,6 +433,36 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/thayeria-obliqua",
       "caption": "Thayeria obliqua",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b8485abf79df6113.webp",
+      "thumb": "https://media.aquatome.com/glaser/b8485abf79df6113-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thayeria-obliqua-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/499a38cbdd7bcc28.webp",
+      "thumb": "https://media.aquatome.com/glaser/499a38cbdd7bcc28-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thayeria-obliqua-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0a1a3136169b1e7c.webp",
+      "thumb": "https://media.aquatome.com/glaser/0a1a3136169b1e7c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thayeria-obliqua-4/",
+      "source": "glaser"
     }
   ],
   "videos": [],
@@ -441,5 +495,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-23"
 }

@@ -1,0 +1,129 @@
+{
+  "id": "rineloricaria-stewarti",
+  "scientificName": "Rineloricaria stewarti",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Rineloricaria",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "guyana",
+    "suriname",
+    "marowijne",
+    "french-guiana"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1472",
+      "html": "<p>Rineloricaria stewarti (Eigenmann, 1909), Stewart's Whiptail Catfish. Type locality: Chipoo Creek, Ireng River system, Guyana. Size: 100 mm SL. Peaceful and not territorial.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1472",
+      "html": "<p>South America: coastal rivers of the Guianas, including Guyana, Suriname coastal rivers, the Marowijne, Upper Marowijne and Grand Inini.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1472",
+      "html": "<p>Lives in forest creeks where the water is clear and fast moving with medium sunny conditions, shallow depth (10-60 cm) and sandy-rocky substrate, along with Corydoras guianensis, Moenkhausia oligolepis and Phenacogaster cf. megalostictus.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1472",
+      "html": "<ul><li>pH: 6.0 - 8.0</li><li>Temperature: 22-26°C</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1472",
+      "html": "<p>The fish should be provided with half-pipe type refuges, which can also often be used as spawning sites.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1472",
+      "html": "<p>Adaptable omnivores, these fish will eat most foods from cucumber or zucchini slices to frozen bloodworm or dry flake foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1472",
+      "html": "<p>Peaceful and not territorial.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1472",
+      "html": "<p>Males grow short spines on the top of their heads and on the pectoral fins. Like R. cf. platyura, mature males develop some odontodes on each side of the head as well as some odontodes elongated towards the back of the interorbitals.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1472",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1472",
+      "html": "<p>Annals of the Carnegie Museum v. 6 (no. 1), pp 9.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "sỏi cát thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
+}

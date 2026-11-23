@@ -1,0 +1,293 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Official name",
+      "value": "JBL PROFLORA AquaBasis plus. Vietnamese shops often spell it \"Aquabasic Plus\".",
+      "source": 0
+    },
+    {
+      "key": "Item number (2.5 l)",
+      "value": "2021200",
+      "source": 0
+    },
+    {
+      "key": "Product type",
+      "value": "Ready-to-use long-term nutrient soil laid under the main substrate",
+      "source": 0
+    },
+    {
+      "key": "Suitable water type",
+      "value": "All freshwater aquariums",
+      "source": 0
+    },
+    {
+      "key": "Composition",
+      "value": "Plant nutrients including iron; clay components store nutrients and release them when needed",
+      "source": 0
+    },
+    {
+      "key": "Composition (distributor description)",
+      "value": "Contains iron and potassium, mixed with sand and clay",
+      "source": 4
+    },
+    {
+      "key": "Effective lifespan (manufacturer)",
+      "value": "5 years guaranteed",
+      "source": 0
+    },
+    {
+      "key": "Effective lifespan (some VN shops)",
+      "value": "At least 3 years, depending on how densely the tank is planted",
+      "source": 1
+    },
+    {
+      "key": "Origin",
+      "value": "Germany (JBL)",
+      "source": 2
+    },
+    {
+      "key": "Warranty",
+      "value": "None (per shop listing)",
+      "source": 4
+    },
+    {
+      "key": "Water parameters",
+      "value": "The retailer says it may affect pH and hardness",
+      "source": 6
+    }
+  ],
+  "variants": [
+    {
+      "name": "2.5 l bag",
+      "specs": [
+        {
+          "key": "Volume",
+          "value": "2.5 l",
+          "source": 0
+        },
+        {
+          "key": "Recommended tank size",
+          "value": "64–100 l",
+          "source": 2
+        },
+        {
+          "key": "Recommended tank size (another shop's claim)",
+          "value": "90 cm tank, about 180 l",
+          "source": 3
+        }
+      ]
+    },
+    {
+      "name": "5 l bag",
+      "specs": [
+        {
+          "key": "Volume",
+          "value": "5 l",
+          "source": 6
+        },
+        {
+          "key": "Recommended tank size",
+          "value": "Up to 200 l",
+          "source": 2
+        },
+        {
+          "key": "Recommended tank size (another shop's claim)",
+          "value": "120 cm tank, about 300 l",
+          "source": 3
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Bách Khoa Aqua",
+      "url": "https://www.bachkhoaaqua.com/san-pham/cot-nen-jbl-aquabasic-plus-2-5l-5l",
+      "variant": "2.5 l",
+      "vnd": 280000,
+      "source": 1
+    },
+    {
+      "shop": "Bách Khoa Aqua",
+      "url": "https://www.bachkhoaaqua.com/san-pham/cot-nen-jbl-aquabasic-plus-2-5l-5l",
+      "variant": "5 l",
+      "vnd": 470000,
+      "source": 1
+    },
+    {
+      "shop": "Thủy Sinh Tím",
+      "url": "https://thuysinhtim.vn/cot-nen-jbl-aquabasic-plus",
+      "variant": "2.5 l (shown as sold out)",
+      "vnd": 260000,
+      "source": 3
+    },
+    {
+      "shop": "Thủy Sinh Tím",
+      "url": "https://thuysinhtim.vn/cot-nen-jbl-aquabasic-plus",
+      "variant": "5 l (shown as sold out)",
+      "vnd": 440000,
+      "source": 3
+    },
+    {
+      "shop": "Greendeal",
+      "url": "https://www.greendeal.vn/jbl-proflora-aquabasis-plus",
+      "variant": "2.5 l (stock unclear)",
+      "vnd": 270000,
+      "source": 4
+    },
+    {
+      "shop": "Greendeal",
+      "url": "https://www.greendeal.vn/jbl-proflora-aquabasis-plus",
+      "variant": "5 l (stock unclear)",
+      "vnd": 490000,
+      "source": 4
+    },
+    {
+      "shop": "SH Aquarium",
+      "url": "https://shaquarium.com/san-pham/c%E1%BB%91t-n%E1%BB%81n-jbl-aquabasis-plus-5lit.html",
+      "variant": "5 l",
+      "vnd": 525000,
+      "source": 2
+    }
+  ],
+  "fits": [
+    {
+      "fact": "JBL says it works in any freshwater tank and is meant for new setups.",
+      "source": 0
+    },
+    {
+      "fact": "A shop says it is safe for fish and shrimp.",
+      "source": 1
+    },
+    {
+      "fact": "It is not for marine tanks, since it is marketed only for freshwater.",
+      "source": 0
+    },
+    {
+      "fact": "It works under inert gravel or sand, or under aquasoils such as JBL Manado, ADA Amazonia II, Akadama or Contro Soil.",
+      "source": 4
+    },
+    {
+      "fact": "A local blog says plants absorb its micronutrients faster when it is paired with JBL Ferropol 24 liquid fertiliser.",
+      "source": 5
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Spread it on the bare tank bottom first, then cover it with washed substrate.",
+      "source": 0
+    },
+    {
+      "fact": "Make the base layer about 2 cm deep.",
+      "source": 1
+    },
+    {
+      "fact": "Cover it with 4–6 cm of washed 2–3 mm gravel or another substrate.",
+      "source": 4
+    },
+    {
+      "fact": "If the top layer is aquasoil, keep it under about 5 cm.",
+      "source": 3
+    },
+    {
+      "fact": "Always add a top layer. Uncovered base can leak into the water column and harm fish, shrimp and plants.",
+      "source": 3
+    },
+    {
+      "fact": "Mixing in lava rock keeps the base layer airy.",
+      "source": 2
+    },
+    {
+      "fact": "Add water once it is covered and set up the tank as normal. Use the amount suited to your tank volume.",
+      "source": 2
+    },
+    {
+      "fact": "It comes pre-mixed with sand, so it clouds the water less than powder bases like JBL Florapol.",
+      "source": 5
+    }
+  ],
+  "issues": [
+    {
+      "fact": "Shops disagree on how big a tank one bag covers: 64–100 l or about 180 l for the 2.5 l bag, and 200 l or about 300 l for the 5 l bag. Buyers should check this against JBL's own instructions.",
+      "source": 3
+    },
+    {
+      "fact": "Lifespan claims also vary: JBL says 5 years, while some Vietnamese shops say at least 3 years depending on plant density.",
+      "source": 1
+    },
+    {
+      "fact": "Some reviewers said it was too early to tell whether the long-term fertilising effect was worth the money. Ratings were still high, at 4.8/5 from 6 reviews.",
+      "source": 6
+    },
+    {
+      "fact": "Stock looks limited at some Vietnamese shops. Both sizes showed sold-out badges on two shop pages.",
+      "source": 3
+    },
+    {
+      "fact": "The retailer's support team says it can change pH and hardness, so watch water parameters after setup.",
+      "source": 6
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "JBL",
+      "model": "Florapol",
+      "why": "Cheaper JBL base, about 145,000 VND per box for about 100 l, with similar micronutrients and a 3+ year life. It is a fine powder that clouds easily, and plants can run short of nutrients under strong light or with heavy water changes.",
+      "source": 5
+    },
+    {
+      "brand": "JBL",
+      "model": "ProScape / Manado top layer combination",
+      "why": "Not a base by itself: Manado has no nutrients. It is usually layered over AquaBasis plus or Florapol to stabilise water and anchor roots, and it must be rinsed first.",
+      "source": 5
+    },
+    {
+      "brand": "Dennerle",
+      "model": "Deponit Mix Professional",
+      "why": "A comparable premium mineral base from Germany, sold in several sizes (2.4 / 4.8 / 9.6 kg). Dennerle claims it can last up to about 10 years. I couldn't confirm a Vietnamese shop price.",
+      "source": 7
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.jbl.de/en-ca/productsv2/detail/25175686",
+      "title": "JBL PROFLORA AquaBasis plus 2,5l (JBL official)",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://www.bachkhoaaqua.com/san-pham/cot-nen-jbl-aquabasic-plus-2-5l-5l",
+      "title": "Cốt nền JBL Aquabasic Plus 2,5L - 5L – Bách Khoa Aqua",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shaquarium.com/san-pham/c%E1%BB%91t-n%E1%BB%81n-jbl-aquabasis-plus-5lit.html",
+      "title": "Cốt nền JBL AquaBasis Plus 5 lít – SH Aquarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhtim.vn/cot-nen-jbl-aquabasic-plus",
+      "title": "Cốt Nền JBL Aquabasic Plus – Thủy Sinh Tím",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.greendeal.vn/jbl-proflora-aquabasis-plus",
+      "title": "JBL ProFlora - AquaBasis Plus – Greendeal",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhaz.com/gioi-thieu-va-huong-dan-su-dung-dong-san-pham-thuy-sinh-jbl-duc/",
+      "title": "Giới thiệu và hướng dẫn sử dụng dòng sản phẩm thủy sinh JBL Đức – Thuỷ sinh AZ",
+      "kind": "review"
+    },
+    {
+      "url": "https://www.aquasabi.de/JBL-ProFlora-AquaBasis-Plus_1",
+      "title": "JBL ProFlora AquaBasis Plus – Aquasabi",
+      "kind": "shop"
+    },
+    {
+      "url": "https://dennerle.com/en/products/deponit-mix-pro",
+      "title": "Dennerle Deponit Mix Pro (Dennerle official)",
+      "kind": "manufacturer"
+    }
+  ]
+}

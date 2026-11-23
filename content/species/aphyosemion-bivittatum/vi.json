@@ -8,13 +8,18 @@
   "sections": {
     "quickFacts:seriouslyfish": "<p>Cá killi hai sọc (two-banded lyretail), Aphyosemion bivittatum, là một loài cá killi có vẻ chỉ sống ở vùng đồng bằng ven biển dọc biên giới Cameroon và Nigeria. Vùng phân bố của nó gồm cả hai Vườn quốc gia Korup và Cross River. Nơi thu mẫu chuẩn nằm gần một thác nước trên sông Ndian, ở tây nam Cameroon.</p><ul><li>Kích thước tối đa: 50 mm SL</li></ul>",
     "distribution:seriouslyfish": "<p>Nơi thu mẫu chuẩn nằm gần một thác nước trên sông Ndian, ở tây nam Cameroon. Loài này có vẻ chỉ sống ở vùng đồng bằng ven biển hai bên biên giới Cameroon và Nigeria, trong đó có Vườn quốc gia Korup và Vườn quốc gia Cross River.</p>",
-    "notes:seriouslyfish": "<p><strong>Nguồn gốc tên gọi</strong></p><p>Aphyosemion: ghép từ hai chữ Hy Lạp aphúe (ἀφύη) nghĩa là 'cá nhỏ' và semeion (σημεῖον) nghĩa là 'biểu ngữ, lá cờ'. Tên này chỉ vây đuôi \"có hoa văn, thường hình đàn lia\" ở cá đực của các loài trong giống.</p><p>bivittatum: ghép từ tiền tố Latin bi- nghĩa là 'có hai phần' và chữ vittatus nghĩa là 'có sọc'. Tên này chỉ kiểu màu thường gặp ở loài, với hai sọc sẫm chạy dọc thân.</p>"
+    "notes:seriouslyfish": "<p><strong>Nguồn gốc tên gọi</strong></p><p>Aphyosemion: ghép từ hai chữ Hy Lạp aphúe (ἀφύη) nghĩa là 'cá nhỏ' và semeion (σημεῖον) nghĩa là 'biểu ngữ, lá cờ'. Tên này chỉ vây đuôi \"có hoa văn, thường hình đàn lia\" ở cá đực của các loài trong giống.</p><p>bivittatum: ghép từ tiền tố Latin bi- nghĩa là 'có hai phần' và chữ vittatus nghĩa là 'có sọc'. Tên này chỉ kiểu màu thường gặp ở loài, với hai sọc sẫm chạy dọc thân.</p>",
+    "distribution:glaser": "<p>Funge là một con sông ở đông nam Cameroon, thuộc huyện Ndian. Nói đúng hơn thì nó là một cửa sông. Sông dài chưa tới 40 km và nằm trong một hệ đầm lầy ven biển, mà cửa thoát ra biển được biết đến nhiều nhất là Rio del Rey. Rio del Rey lại thông với lưu vực sông Cross, con sông làm biên giới giữa Cameroon và Nigeria. Quần thể cá killi Aphyosemion bivittatum này có nguồn gốc từ vùng đất hoang sơ, đẹp và được quốc tế bảo vệ ấy.</p>",
+    "notes:glaser": "<p>Aphyosemion bivittatum nằm trong một nhóm Aphyosemion có ranh giới rõ ràng. Nhóm này đã có sẵn tên Chromaphyosemion, và người chơi cá killi thích gọi bằng tên đó hơn. Tuy nhiên, các nhà khoa học làm phân loại cá killi cho rằng còn quá sớm để tách riêng vài nhóm ra khỏi chi lớn Aphyosemion khi cả chi chưa được rà soát lại toàn bộ. Vì thế hiện nay Chromaphyosemion chỉ được xếp là một phân chi.</p>",
+    "beforeYouBuy:glaser": "<p>Chromaphyosemion là nhóm cá killi rất hợp cho người mới chơi, vì chúng hoàn toàn thả chung được với các loài cá nhỏ hiền. Chúng sống lâu ngang các loài cá nhỏ khác chứ không phải cá killi sống theo mùa. Thường thì chúng sống được 2–3 năm.</p>",
+    "reproduction:glaser": "<p>Aphyosemion bivittatum đẻ trứng dính lên cây lá nhỏ, rễ cây và những chỗ tương tự. Trứng mất khoảng 14 ngày mới nở. Loài này nổi tiếng háu ăn hơn hẳn, nên đôi khi chúng ăn luôn cả trứng của mình. Chuyện này ít gặp ở cá killi.</p>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.85
+      "seriouslyfish": 0.85,
+      "glaser": 0.93
     }
   }
 }

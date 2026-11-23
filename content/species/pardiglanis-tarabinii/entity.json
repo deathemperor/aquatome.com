@@ -17,6 +17,28 @@
       {
         "source": "planetcatfish",
         "value": 75
+      },
+      {
+        "source": "scotcat",
+        "value": 75
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -28,10 +50,34 @@
       "html": "<p>Scientific name: Pardiglanis tarabinii Poll, Lanza &amp; Romoli Sassi, 1972. Common name: Somalian Giant Catfish. Family: Claroteidae. Synonym: Clarotes tarabinii. Maximum size: 75 cm SL. IUCN Red List: Data Deficient (last assessed 2009).</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/pardiglanis_tarabinii.htm",
+      "html": "<ul><li>Common name: Somalian giant catfish</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/pardiglanis_tarabinii.htm",
+      "html": "<p>Not a catfish for the home aquarium as it is extremely predatory and would need to be fed on live fish. The other criteria is the large size it attains. This catfish is rare so it would probably never be seen in the hobby.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1437",
       "html": "<p>Africa: restricted to the Juba River, Somalia and the Lower Tana River in Kenya. Type locality: Juba River, Gelib, southern Somalia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/pardiglanis_tarabinii.htm",
+      "html": "<p>Africa: Restricted to the Juba River, Somalia and Lower Tana River in Kenya. Type locality: Gelib, fleuve Juba, Somalie méridionale.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/pardiglanis_tarabinii.htm",
+      "html": "<p>Lives in mud at bottom of rivers. Latest (March 2000) male specimen caught in rather shallow water on the sandy bottom of the river, which had a very low water level following a long period of drought (in Kenya). Female (caught later in 2000).</p>"
     },
     {
       "key": "reproduction",
@@ -40,14 +86,26 @@
       "html": "<p>Breeding: unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/pardiglanis_tarabinii.htm",
+      "html": "<p>Very strange looking fish as the head is almost half as long as the body with a very wide head and large mouth with its gape extending to around the eye area.</p><p>Etymology: The specific name tarabinii: In honour of Giovanni Tarabini Castellani (1910–1992), director of the leprosarium at Gelib, Somalia, who provided holotype, which was caught by a local fisherman.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1437",
       "html": "<p>Monitore Zoologico Italiano Suppl. 4 (no. 15), pp 338, Figs. 1-7.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/pardiglanis_tarabinii.htm",
+      "html": "<p>De Vos, L. 2001 Rediscovery of the giant catfish Pardiglanis tarabinii (Siluriformes: Claroteidae). Ichthyol. Explor. Freshwat. 12(3):213-214.</p><p>Seegers, L. 2008 The catfishes of Africa. A handbook for identification and maintenance. Aqualog Verlag A.C.S. GmbH, Germany. 604 p.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [],
   "videos": [],
   "productSlots": [],
-  "updatedAt": "2026-11-22"
+  "updatedAt": "2026-11-23"
 }

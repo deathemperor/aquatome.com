@@ -9,7 +9,8 @@
     "south-america",
     "suriname",
     "suriname-river",
-    "french-guiana"
+    "french-guiana",
+    "guyana"
   ],
   "range": {
     "native": {
@@ -106,6 +107,13 @@
           "min": 23,
           "max": 26
         }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
       }
     ],
     "ph": [
@@ -121,6 +129,10 @@
       {
         "source": "scotcat",
         "value": 7
+      },
+      {
+        "source": "planetcatfish",
+        "value": 7
       }
     ]
   },
@@ -130,6 +142,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_geoffroy.htm",
       "html": "<p>Corydoras geoffroy La Cépède, 1803. Family: Callichthyidae. Size: male 6.5 cm, female 7.0 cm. Temperature: 23–26°C. pH: 6.0–7.2.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1465",
+      "html": "<p>Corydoras geoffroy Lacepède, 1803. Common name: Wolf Cory. Type locality: Marchall Creek, east of road Paranam-Afobaka, 1.5 kilometres north of Marchall Village, District Brokopondo, Suriname. Size: 70 mm SL. Temperature: 22–26°C.</p>"
     },
     {
       "key": "distribution",
@@ -144,10 +162,28 @@
       "html": "<p>Corydoras geoffroy comes from the Guyana countries Suriname and French Guyana, from where there are no ornamental fish exports. The species, described as early as 1803, could therefore only be made available to the hobby by adventurous traveling aquarists. Since 2018, Corydoras specialists have been successfully engaged in breeding these unusual animals.</p>"
     },
     {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1465",
+      "html": "<p>South America: Coastal rivers of Suriname and French Guiana.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_geoffroy.htm",
       "html": "<p>As this is one of the longer snouted species it will be well suited to most community tanks. A well planted tank with a soft substrate such as sand so they can bury their snouts while searching out food. The males can be somewhat aggressive to each other so would need a large tank and hiding places to dilute this trait.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1465",
+      "html": "<p>Temperature: 22–26°C.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1465",
+      "html": "<p>Ideally the substrate should be sand, but rounded gravel is an imperfect alternative. Avoid rough-edged (chipped) gravel, as it increases the risk of damage to the fish's barbels when it digs. The substrate should be bordered with driftwood and aquatic plants, leaving an open area for them to search for food and swim. The shade provided by overhanging rock work, arching bogwood, and tall or floating plants is all that is required to settle these fish.</p>"
     },
     {
       "key": "diet",
@@ -156,10 +192,46 @@
       "html": "<p>A good quality flake food and tablet food for adults with sporadic feedings of frozen or live food will keep your Corydoras in good health.</p>"
     },
     {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1465",
+      "html": "<p>Will readily accept all prepared foods that reach the bottom of the aquarium, such as tablets, granules and larger flakes. Live or frozen foods such as bloodworm, white worm, grindal worm (Enchytraeus), Daphnia and Tubifex are readily accepted and good for conditioning groups of fish for spawning.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1465",
+      "html": "<p>All Corydoras should be kept in groups of at least 6 of the same species. Otherwise compatible with most other reasonably peaceful fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1465",
+      "html": "<p>Females grow larger and are more full-bodied, which is best observed from above. Males typically have more pointed rather than rounded fin tips as they mature.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1465",
+      "html": "<p>Unreported.</p>"
+    },
+    {
       "key": "notes",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_geoffroy.htm",
       "html": "<p>This is the type species of the Corydoras genus. This species also has a third rictal barbel, also found in C. amapaensis, C. septentrionalis and C. simulatus. Lineage: placed in Lineage 1; following the latest update (Dias et al 2024) it has retained the genus name Corydoras. Etymology: the specific name geoffroy honours colleague Étienne Geoffroy Saint-Hilaire (1772–1844), French naturalist. IUCN Red List: classified as Least Concern (LC) (IUCN 2023); there are no known threats to the species as a whole.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1465",
+      "html": "<p>Corydoras are identified by their twin rows of armour plates along the flanks and by having fewer than 10 dorsal fin rays. They are most commonly confused with the other genera in the sub-family, namely Brochis, Scleromystax and Aspidoras. Etymology: Cory = helmet, doras = skin; named to honour Dr. Étienne Geoffroy Saint-Hilaire.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1465",
+      "html": "<p>Histoire naturelle des poissons (Lacepède) v. 5, pp 147, 148.</p>"
     }
   ],
   "photos": [
@@ -274,5 +346,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21"
+  "updatedAt": "2026-11-23"
 }

@@ -11,14 +11,19 @@
     "diet:planetcatfish": "<p>Ngoài tự nhiên, loài này ăn nhện và côn trùng.</p>",
     "reproduction:planetcatfish": "<p>Chưa có thông tin. Đến nay chưa ai báo cáo đã cho loài này đẻ.</p>",
     "notes:planetcatfish": "<p>Nguồn gốc tên: chữ Cetopsis ghép từ tiếng Hy Lạp cetos là cá voi và -opsis là giống như. Cá được đặt tên vậy vì trông giống cá voi.</p>",
-    "references:planetcatfish": "<p>Copeia 1994 (no. 2), pp 383, Figs. 1, 3-4.</p>"
+    "references:planetcatfish": "<p>Copeia 1994 (no. 2), pp 383, Figs. 1, 3-4.</p>",
+    "quickFacts:scotcat": "<p>Họ: Cetopsidae. Kích thước: 3,5 cm. Nhiệt độ: 22–28°C. pH: 6,0–7,0. Tên thường gọi: chưa có. Danh sách Đỏ IUCN: Ít quan tâm (IUCN 2023). Loài này còn ít thông tin, nhưng vùng phân bố của nó rộng và nó không bị đe dọa trực tiếp.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: trung lưu và thượng lưu lưu vực sông Amazon, ở Brazil và Peru. Nơi thu mẫu chuẩn: Brazil, bang Amazonas, sông Rio Solimões phía bắc đảo Ilha da Marchantaria, cách cửa sông Rio Negro ở Manaus khoảng 15 km về phía thượng nguồn, độ sâu khoảng 15 m, tọa độ 3º15'S, 60º00'W.</p>",
+    "dimorphism:scotcat": "<p>Ở nhiều loài khác trong phân họ Cetopsinae, con đực và con cái khác nhau ở độ dài của các sợi vây kéo rất dài trên vây lưng và vây ngực, và ở hình dạng mép vây hậu môn. Cetopsis oliveirai thì không có những khác biệt này giữa đực và cái.</p>",
+    "notes:scotcat": "<p>Cetopsis khác các giống còn lại trong phân họ Cetopsinae ở ba điểm gộp lại: không có gai nhỏ đi kèm vây lưng, vây lưng và vây ngực không có gai, và xương lá mía chỉ có một hàng răng. Loài này dễ phân biệt với mọi loài khác trong Cetopsinae vì nó hoàn toàn không có mắt, trong khi các loài Cetopsinae còn lại đều có mắt ở mức nào đó. Nó còn có sợi ở đầu tia thứ nhất của vây lưng và vây ngực kéo cực dài. Vây lưng dài hơn một nửa SL (chiều dài chuẩn), còn sợi vây ngực kéo về phía sau, vượt quá đường thẳng đứng đi qua giữa gốc vây hậu môn. So với các loài cùng giống Cetopsis, nó còn khác ở tổng số tia vây hậu môn (17 đến 19, các loài kia đều từ 22 trở lên) và số đốt sống đuôi (25 hoặc 26, so với từ 28 trở lên).</p><p>Nguồn gốc tên loài: tên oliveirai đặt theo tên Claudio de Oliveira, thuộc Universidade Estadual Paulista “Júlio de Mesquita Filho”, cơ sở Botucatu (SP). Tên này ghi công ông vì những đóng góp lớn cho hiểu biết về quá trình tiến hóa của cá vùng Tân nhiệt đới.</p>",
+    "references:scotcat": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Frederico, R.G. 2023. Cetopsis oliveirai. The IUCN Red List of Threatened Species 2023.</li><li>Vari, R.P., C.J. Ferraris, Jr. and M.C.C. de Pinna 2005 The neotropical whale catfishes (Siluriformes: Cetopsidae: Cetopsinae), a revisionary study. Neotrop. Ichthyol. 3(2):127-238.</li></ul>"
   },
   "quality": {
     "score": 0.85,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
-    },
-    "reason": "thin"
+      "planetcatfish": 0.85,
+      "scotcat": 0.95
+    }
   }
 }
