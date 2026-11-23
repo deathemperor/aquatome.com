@@ -8,7 +8,7 @@ Written by `pnpm engine gallery` (2026-11-23). Targets: packages/engine/src/gall
 | shop | 60 | 131 | 81 | 24 | 36 | 200 |
 | popular | 40 | 21 | 0 | 0 | 1 | 20 |
 | covered | 30 | 942 | 32 | 9 | 27 | 956 |
-| rest | 20 | 2010 | 81 | 0 | 125 | 1966 |
+| rest | 20 | 2010 | 81 | 0 | 126 | 1965 |
 
 ## Short of target: every source read (830)
 
@@ -171,19 +171,18 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | breeds/koi-guppy | shop | 0 | 60 |
 | species/corydoras-aeneus | shop | 30 | 60 |
 | breeds/dumbo-ear-guppy | shop | 0 | 60 |
-| species/chromobotia-macracanthus | shop | 20 | 60 |
-| plants/aegagropila-linnaei | shop | 34 | 60 |
+| species/chromobotia-macracanthus | shop | 23 | 60 |
+| plants/aegagropila-linnaei | shop | 53 | 60 |
 | breeds/super-red-arowana | shop | 7 | 60 |
-| species/corydoras-paleatus | shop | 26 | 60 |
-| plants/cryptocoryne-wendtii | shop | 5 | 60 |
+| species/corydoras-paleatus | shop | 40 | 60 |
+| plants/cryptocoryne-wendtii | shop | 7 | 60 |
 | breeds/red-tailed-golden-arowana | shop | 7 | 60 |
 | species/corydoras-pygmaeus | shop | 6 | 60 |
-| plants/cryptocoryne-crispatula | shop | 3 | 60 |
+| plants/cryptocoryne-crispatula | shop | 10 | 60 |
 | breeds/crossback-golden-arowana | shop | 0 | 60 |
-| species/corydoras-hastatus | shop | 4 | 60 |
+| species/corydoras-hastatus | shop | 7 | 60 |
 | breeds/mickey-mouse-platy | shop | 3 | 60 |
 | species/corydoras-similis | shop | 0 | 60 |
-| plants/helanthium-tenellum | shop | 20 | 60 |
 | breeds/butterfly-koi | shop | 6 | 60 |
 | species/corydoras-adolfoi | shop | 1 | 60 |
 | breeds/pigeon-blood-discus | shop | 4 | 60 |
@@ -837,6 +836,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/synodontis-geledensis | covered | 0 | 30 |
 | species/synodontis-lucipinnis | covered | 1 | 30 |
 | species/trichogaster-labiosa | covered | 4 | 30 |
+| plants/alternanthera-reineckii-mini | covered | 3 | 30 |
 | species/ariopsis-assimilis | rest | 14 | 20 |
 | species/astroblepus-mindoensis | rest | 1 | 20 |
 | species/colomesus-tocantinensis | rest | 3 | 20 |

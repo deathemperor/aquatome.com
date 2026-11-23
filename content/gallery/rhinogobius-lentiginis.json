@@ -12,22 +12,7 @@
       "caption": "Hai cá bống đốm đen trên đá phủ rêu xanh",
       "best": true,
       "kind": "pair",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/562998355.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/562998355-480.webp",
-      "width": 1024,
-      "height": 624,
-      "licence": "CC BY-NC",
-      "author": "He Ziang",
-      "sourceUrl": "https://www.inaturalist.org/photos/562998355",
-      "caption": "Cá bống Rhinogobius lentiginis trong suối tự nhiên, nền đá đỏ",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/61777919.webp",
@@ -40,8 +25,20 @@
       "caption": "Cá bống Rhinogobius lentiginis đốm đen trên đá rêu trong bể",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/562998355.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/562998355-480.webp",
+      "width": 1024,
+      "height": 624,
+      "licence": "CC BY-NC",
+      "author": "He Ziang",
+      "sourceUrl": "https://www.inaturalist.org/photos/562998355",
+      "caption": "Cá bống Rhinogobius lentiginis trong suối tự nhiên, nền đá đỏ",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/329775391.webp",
@@ -54,8 +51,7 @@
       "caption": "Cá bống vằn nâu đậm đậu trên tảng đá trong nước",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/592573779.webp",
@@ -68,8 +64,7 @@
       "caption": "Cá bống Rhinogobius lentiginis đứng trên đá rêu trong bể thủy sinh",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/709405439.webp",
@@ -82,8 +77,7 @@
       "caption": "Cá bống Rhinogobius lentiginis thân vàng đốm nâu trong khay cạnh thước",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/126853244.webp",
@@ -96,8 +90,7 @@
       "caption": "Cá bống trong hộp nhựa trong ngoài suối, cạnh thước",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/126853274.webp",
@@ -110,8 +103,7 @@
       "caption": "Cá bống trong hộp nhựa trong chụp ngoài suối",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/537005214.webp",
@@ -124,8 +116,7 @@
       "caption": "Cá bống nhìn nghiêng bên cạnh thước đo trong hộp nhỏ",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/709405337.webp",
@@ -138,8 +129,7 @@
       "caption": "Cá bống Rhinogobius lentiginis trong khay chụp cạnh thước đo",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/709405397.webp",
@@ -152,8 +142,7 @@
       "caption": "Cá bống Rhinogobius lentiginis vằn đốm trong khay chụp cạnh thước",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     }
   ],
   "seen": 30,

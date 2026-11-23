@@ -3,14 +3,26 @@
  "judged": [
   "File:Corydoras hastatus.jpg",
   "File:Fish fauna from Río Pilcomayo National Park (5 of 7).png",
-  "File:Fish fauna from Río Pilcomayo National Park (5 of 7) (clipped).png"
+  "File:Fish fauna from Río Pilcomayo National Park (5 of 7) (clipped).png",
+  "inat:311135702",
+  "inat:311136478",
+  "inat:365149077",
+  "inat:604371661",
+  "inat:604866809",
+  "inat:605429189",
+  "inat:676290629",
+  "inat:676290676",
+  "inat:676290750"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/d221af599a6ff9f9.webp": "5aaddbc9fc5c9c2d",
   "https://media.aquatome.com/seriouslyfish/2472e8d9c6cdcfb8.webp": "363639351d0c1bb3",
   "https://media.aquatome.com/glaser/bc71c036b4f04290.webp": "6566240d0c0c2830",
   "https://media.aquatome.com/glaser/fee842ac872657e3.webp": "383c3c3d3727e1e0",
-  "https://media.aquatome.com/glaser/e9e614253ca52a8c.webp": "66c48f0b23836f6f"
+  "https://media.aquatome.com/glaser/e9e614253ca52a8c.webp": "66c48f0b23836f6f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/311135702/large.jpg": "1b323173e71d75ac",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/311136478/large.jpg": "3838782631796101",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/605429189/large.jpg": "c37b3b3f359dc1e4"
  },
  "inat": {
   "taxon": 1560846,
@@ -27,6 +39,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 370201405,
+  "done": true
  },
  "exhausted": "2026-11-06"
 }

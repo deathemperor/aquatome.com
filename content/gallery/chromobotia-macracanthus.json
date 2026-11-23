@@ -6,17 +6,17 @@
       "thumb": "https://media.aquatome.com/inaturalist/319811024-480.webp",
       "width": 1024,
       "height": 768,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/319811024-large.webp",
+        "width": 1600,
+        "height": 1200
+      },
       "licence": "CC BY",
       "author": "Igor Balashov",
       "sourceUrl": "https://www.inaturalist.org/photos/319811024",
       "caption": "Hai cá heo hề trong bể có lũa và sỏi",
       "best": true,
-      "kind": "pair",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/319811024-large.webp",
-        "width": 1600,
-        "height": 1200
-      }
+      "kind": "pair"
     },
     {
       "url": "https://media.aquatome.com/flickr/5110296885.webp",
@@ -45,15 +45,15 @@
       "thumb": "https://media.aquatome.com/commons/8d89111af94c9833-480.webp",
       "width": 1200,
       "height": 800,
-      "licence": "CC BY 2.0",
-      "author": "Vlad Butsky from San Jose, CA, USA",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chromobotia_macracanthus.jpg",
-      "caption": "Cá heo hề thân cam sọc đen trong bể đáy sỏi",
       "large": {
         "url": "https://media.aquatome.com/commons/8d89111af94c9833-large.webp",
         "width": 1800,
         "height": 1200
-      }
+      },
+      "licence": "CC BY 2.0",
+      "author": "Vlad Butsky from San Jose, CA, USA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chromobotia_macracanthus.jpg",
+      "caption": "Cá heo hề thân cam sọc đen trong bể đáy sỏi"
     },
     {
       "url": "https://media.aquatome.com/commons/f5844cf1ed91254f.webp",
@@ -120,15 +120,15 @@
       "thumb": "https://media.aquatome.com/inaturalist/31271818-480.webp",
       "width": 1024,
       "height": 682,
-      "licence": "CC0",
-      "author": "Dennis White",
-      "sourceUrl": "https://www.inaturalist.org/photos/31271818",
-      "caption": "Cá heo hề vây đuôi đỏ rực bơi giữa cây thủy sinh",
       "large": {
         "url": "https://media.aquatome.com/inaturalist/31271818-large.webp",
         "width": 1802,
         "height": 1200
-      }
+      },
+      "licence": "CC0",
+      "author": "Dennis White",
+      "sourceUrl": "https://www.inaturalist.org/photos/31271818",
+      "caption": "Cá heo hề vây đuôi đỏ rực bơi giữa cây thủy sinh"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/323652454.webp",
@@ -177,17 +177,17 @@
       "thumb": "https://media.aquatome.com/inaturalist/339892448-480.webp",
       "width": 768,
       "height": 1024,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/339892448-large.webp",
+        "width": 1200,
+        "height": 1600
+      },
       "licence": "CC BY",
       "author": "Alex Sosnovshchenko",
       "sourceUrl": "https://www.inaturalist.org/photos/339892448",
       "caption": "Cá heo hề bơi trên nền cát trong bể lớn",
       "best": true,
-      "kind": "other",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/339892448-large.webp",
-        "width": 1200,
-        "height": 1600
-      }
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/44ce1b09d25d6c53.webp",
@@ -228,9 +228,51 @@
       "author": "Matthew Inabinett",
       "sourceUrl": "https://www.inaturalist.org/photos/615925277",
       "caption": "Cá heo hề vây đỏ bơi trên nền sỏi vàng"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/365258689.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/365258689-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Ahsan al hidayat",
+      "sourceUrl": "https://www.inaturalist.org/photos/365258689",
+      "caption": "Cá heo hề trưởng thành bơi trong bể kính nhỏ",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/406499090.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/406499090-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Ahsan al hidayat",
+      "sourceUrl": "https://www.inaturalist.org/photos/406499090",
+      "caption": "Cá heo hề bơi ngang trong bể kính nhỏ",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/406499138.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/406499138-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY-NC",
+      "author": "Ahsan al hidayat",
+      "sourceUrl": "https://www.inaturalist.org/photos/406499138",
+      "caption": "Cá heo hề vằn đen cam trong bể kính nhỏ",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
     }
   ],
-  "seen": 44,
-  "updatedAt": "2026-11-06",
-  "builtAt": "2026-11-06"
+  "seen": 50,
+  "updatedAt": "2026-11-23",
+  "builtAt": "2026-11-23"
 }

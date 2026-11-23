@@ -15,7 +15,11 @@
   "File:Cryptocoryne wendtii Tropica-1-veda aquarium-bengaluru-India.jpg",
   "File:Cryptocoryne wendtii Tropica-2-veda aquarium-bengaluru-India.jpg",
   "flickr:7703985106",
-  "flickr:7798755786"
+  "flickr:7798755786",
+  "inat:429256528",
+  "inat:429256543",
+  "inat:429256627",
+  "inat:621258243"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/f734a63a736586c1.webp": "b3e34ace4aa6b20f",
@@ -30,7 +34,9 @@
   "https://media.aquatome.com/tropica/16eb804340bea575.webp": "30b8f8d0f0e0cc60",
   "https://media.aquatome.com/tropica/9860163c142c333a.webp": "50e0b4d8b2e2e061",
   "https://media.aquatome.com/tropica/a4b74a20dcb94560.webp": "40ccece0e8f8f070",
-  "https://media.aquatome.com/flickr/7703985106.webp": "71f23c30d0d3d35b"
+  "https://media.aquatome.com/flickr/7703985106.webp": "71f23c30d0d3d35b",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/429256627/large.jpeg": "e6c9c444ecbcace6",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/621258243/large.jpg": "31c9c0240230b060"
  },
  "inat": {
   "taxon": 161233,
@@ -47,6 +53,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 341287329,
+  "done": true
  },
  "exhausted": "2026-11-06"
 }
