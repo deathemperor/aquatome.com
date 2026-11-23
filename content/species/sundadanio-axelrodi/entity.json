@@ -11,7 +11,8 @@
     "kalimantan",
     "malaysia",
     "sarawak",
-    "borneo"
+    "borneo",
+    "bintan"
   ],
   "range": {
     "native": {
@@ -129,6 +130,13 @@
           "min": 4,
           "max": 6
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 4.5,
+          "max": 4.5
+        }
       }
     ],
     "gh": [
@@ -147,6 +155,10 @@
       },
       {
         "source": "bwaquatics",
+        "value": 2
+      },
+      {
+        "source": "glaser",
         "value": 2
       }
     ],
@@ -177,6 +189,12 @@
       "html": "<p>Sundadanio axelrodi is a miniature cyprinid from Borneo, where it inhabits black water streams and pools associated with forest peat swamps. Originally described as Rasbora axelrodi, it is the only member of its genus. Several colour forms exist depending on locality, normally labelled 'red', 'green' or 'blue', and they are best not mixed. Very peaceful but timid, it does best alone or with similarly sized species, in a group of at least 20-30.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "html": "<p>The tiny dwarfs of the genus Sundadanio were listed in the genus Rasbora until 1999. At that time only one species was known, namely S. axelrodi. Later other species were imported. They were still nameless, but clearly differed in color. Thus, there were blue, green and red Sundadanio. In 2011 the genus was revised and now it includes 8 species.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "aquatome",
       "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
@@ -198,6 +216,12 @@
       "html": "<p>Supposedly native to the Greater Sunda Islands of Borneo and Sumatra as well as the Riau Archipelago and Bangka Island off the east coast of Sumatra, but the only collection/locality details available refer to Bornean populations. Numerous records also exist from the Indonesian provinces of West Kalimantan (Kalimantan Barat), Central Kalimantan (Kalimantan Tengah) and South Kalimantan (Kalimantan Selatan), but the species appears not to occur in the north of the island. It exists in several colour forms depending on locality; fish from the south and east of Sarawak state in Malaysian Borneo are green/blue in colour while those found in the west are red/orange, for example. It would be useful if these variants were labelled with the collection details by hobbyists and scientists alike in order to preserve bloodlines and maintain greater accuracy, although normally they are just labelled with the distinguishing colour, e.g. 'red', 'green' or 'blue'.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "html": "<p>Two blue-colored species can be distinguished only microscopically: S. axelrodi from Bintan and S. gargula from Bangka. Bangka is located off the west coast of Sumatra, Bintan off the coast of Singapore.</p>"
+    },
+    {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
@@ -217,6 +241,12 @@
       "refs": [
         0
       ]
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "html": "<p>In nature they live in very soft, dark colored black water with a very acidic pH (pH around 4.5, no hardness detectable).</p>"
     },
     {
       "key": "aquariumSize",
@@ -327,6 +357,12 @@
       "html": "<p>Males have a neon blue to blue-green sheen along the upper body with red-orange highlights, and show red-orange in the fins. Females are plainer. Fins are clear to reddish.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "html": "<p>Sundadanio males are clearly distinguished from females by their intense black zone in the anal fin.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
@@ -337,6 +373,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
       "html": "<p>This species has not been bred often in the hobby, which is probably down to the fact it does not appreciate fluctuating water conditions, making it difficult to arrange separate spawning/rearing tanks. Reports do exist, however, and the greatest successes have been when the adult fish are maintained alone as a good-sized group in heavily-planted, mature aquaria.</p><p>The pH should ideally be below 6.0 with other parameters within the ranges suggested here, the most important factor being that they remain stable. The simulation of blackwater conditions using leaves and real peat fibre is thought to be highly beneficial due to the microorganisms which proliferate in such set-ups. Bright lighting is best avoided. Feed the fish with plenty of live and frozen foods and they should come into spawning condition, and if the tank contains the requisite balance between cover, water conditions and microfauna, fry should start to appear without further intervention.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "html": "<p>Breeding in normal tap water is not successful; it requires near-natural conditions.</p>"
     },
     {
       "key": "notes",
@@ -358,6 +400,12 @@
       "refs": [
         0
       ]
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "html": "<p>These miniature fish grow to only about 1.5-2 cm in length.</p>"
     },
     {
       "key": "references",
@@ -398,6 +446,36 @@
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
       "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9d950d9c7c3f3ac6.webp",
+      "thumb": "https://media.aquatome.com/glaser/9d950d9c7c3f3ac6-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7c7845071fba671c.webp",
+      "thumb": "https://media.aquatome.com/glaser/7c7845071fba671c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0aaa986a60f91943.webp",
+      "thumb": "https://media.aquatome.com/glaser/0aaa986a60f91943-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -461,7 +539,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21",
+  "updatedAt": "2026-11-23",
   "refs": [
     {
       "url": "https://www.youtube.com/watch?v=qW6vuki1OM8",

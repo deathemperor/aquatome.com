@@ -1,0 +1,52 @@
+{
+  "id": "pseudeutropius-moolenburghae",
+  "scientificName": "Pseudeutropius moolenburghae",
+  "order": "Siluriformes",
+  "family": "Schilbeidae",
+  "genus": "Pseudeutropius",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "sumatra",
+    "borneo"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1505",
+      "html": "<p>Pseudeutropius moolenburghae Weber &amp; de Beaufort, 1913. Family Horabagridae. Size: 100 mm (3.9\") SL. IUCN Red List: Least Concern (last assessed 2018). Etymology: Greek, pseudes = false + Greek, eu = well + keel, in reference to the compressed body of the fish.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1505",
+      "html": "<p>Asia: Sumatra and western Borneo. Type locality: Djambi, Batang Hari River, Sumatra, Indonesia.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1505",
+      "html": "<p>Breeding: unreported.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1505",
+      "html": "<p>Fishes Indo-Australian Archipelago v. 2, pp 249, Fig. 100.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-23"
+}

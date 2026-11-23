@@ -1,0 +1,101 @@
+{
+  "id": "hopliancistrus-wolverine",
+  "scientificName": "Hopliancistrus wolverine",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hopliancistrus",
+  "group": "catfish",
+  "lNumber": "L17",
+  "places": [
+    "south-america",
+    "brazil",
+    "xingu"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 25,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 13
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1490",
+      "html": "<ul><li>Scientific name: Hopliancistrus wolverine Oliveira, Zuanon, Rapp Py-Daniel, Birindelli &amp; Sousa, 2021</li><li>Common names: L017, Wolverine Pleco</li><li>Breeding: unreported</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1490",
+      "html": "<p>South America: Brazil: Rio Xingu, Amazon, Lower Amazon, Xingu. Type locality: Pimental Furo da Crente, Rio Xingu basin, Altamira, Pará, Brazil.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1490",
+      "html": "<p>Male Hopliancistrus develop very stout recurved odontodes at the corners of the snout.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1490",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1490",
+      "html": "<p>The presence of three stout, strongly recurved odontodes in the cheek mass putatively separate Hopliancistrus from all other Ancistrini; however, the actual number of hypertrophied cheek odontodes is 1-16, with 1-5 of those being stout and recurved. The only other ancistrin that develops hypertrophied odontodes just in the corners of the snout is Lasiancistrus, but Lasiancistrus have the odontodes very thin, like long whiskers; also, Lasiancistrus has three rows of plates on the caudal peduncle vs. five in Hopliancistrus.</p><p>The L-number is confused: the L017 originally introduced was L067 (a Pseudancistrus), but this was not realised until much later, by which point L017 had settled on Hopliancistrus. It therefore does not have the snout odontodes or the hint of yellow in the dorsal found with L067. Both fishes have yellow in the caudal.</p><p>Also traded as LDA015.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1490",
+      "html": "<p>PLoS ONE v. 16 (no. 1): e0244894, pp 16, Figs. 1B, 5C, 6A-B, 7C, 10-12.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh 80cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên chìm cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
+}

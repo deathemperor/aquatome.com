@@ -1,0 +1,65 @@
+{
+  "id": "hypostomus-paranensis",
+  "scientificName": "Hypostomus paranensis",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "argentina",
+    "parana"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 18
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1484",
+      "html": "<ul><li>Scientific name: Hypostomus paranensis Weyenbergh, 1877</li><li>Etymology: Greek, hypo = under + Greek, stoma = mouth.</li><li>IUCN Red List: Least Concern (last assessed 2020)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1484",
+      "html": "<p>South America: Argentina. La Plata, Paraná, Middle Paraná; La Plata, Paraná, Middle Paraná, Bermejo; Mar Chiquita, Dulce; Mar Chiquita, Segundo; Mar Chiquita, Primero. Type locality: lakes along Río Paraná near Santa Fe, Argentina.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1484",
+      "html": "<p>Breeding: Unreported.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1484",
+      "html": "<p>Actas de la Academia Nacional de Ciencias Exactas, Buenos Aires. v. 3 (no. 1), pp 9.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn nuôi cá lau kiếng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
+}

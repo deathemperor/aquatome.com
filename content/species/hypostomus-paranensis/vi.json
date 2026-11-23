@@ -1,0 +1,19 @@
+{
+  "slug": "ca-lau-kieng-hypostomus-paranensis",
+  "name": "Cá lau kiếng Hypostomus paranensis",
+  "altNames": [],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Hypostomus paranensis Weyenbergh, 1877</li><li>Nguồn gốc tên: tiếng Hy Lạp, hypo = bên dưới + tiếng Hy Lạp, stoma = miệng.</li><li>Danh sách Đỏ IUCN: Ít lo ngại (đánh giá lần cuối năm 2020)</li></ul>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: Argentina. La Plata, Paraná, trung lưu Paraná; La Plata, Paraná, trung lưu Paraná, Bermejo; Mar Chiquita, Dulce; Mar Chiquita, Segundo; Mar Chiquita, Primero. Nơi lấy mẫu chuẩn: các hồ dọc sông Paraná gần Santa Fe, Argentina.</p>",
+    "reproduction:planetcatfish": "<p>Sinh sản: chưa có ai báo cáo cho loài này đẻ.</p>",
+    "references:planetcatfish": "<p>Actas de la Academia Nacional de Ciencias Exactas, Buenos Aires. v. 3 (no. 1), pp 9.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.85
+    },
+    "reason": "thin"
+  }
+}

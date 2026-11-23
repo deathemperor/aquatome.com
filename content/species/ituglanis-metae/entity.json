@@ -1,0 +1,73 @@
+{
+  "id": "ituglanis-metae",
+  "scientificName": "Ituglanis metae",
+  "order": "Siluriformes",
+  "family": "Trichomycteridae",
+  "genus": "Ituglanis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "meta"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 25,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 7.8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1506",
+      "html": "<p>Ituglanis metae (Eigenmann, 1917). Type locality: Barrigona, Colombia. Size: 78 mm (3.1 in) SL. Temperature: 25–28°C.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1506",
+      "html": "<p>South America: Colombia. Orinoco, Middle Orinoco, Meta.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1506",
+      "html": "<p>In nature, it is not known whether this species feeds on flesh or blood of living animals or it lives on carrion. Opercle hooks enable it to cling to and to dig little tunnels into the flesh of larger fishes, likely the area under the gill cover.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1506",
+      "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1506",
+      "html": "<p>Proceedings of the American Philosophical Society v. 56, pp 694.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "UG66Ks1rAbA",
+      "title": "Ituglanis metae bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 14,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-23"
+}

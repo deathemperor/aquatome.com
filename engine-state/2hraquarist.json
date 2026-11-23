@@ -938,9 +938,9 @@
   },
   "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/fastest-way-to-stabilize-a-new-tank": {
     "entityIds": [],
-    "updatedAt": "2026-11-22T17:16:36.469Z",
+    "updatedAt": "2026-11-23T02:11:09.873Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "no archived copy (HTTP 404)"
   },
   "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/filter-buying-checklist": {
@@ -985,9 +985,9 @@
   },
   "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/how-to-reset-a-tank": {
     "entityIds": [],
-    "updatedAt": "2026-11-22T17:29:11.063Z",
+    "updatedAt": "2026-11-23T02:11:22.043Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "no archived copy (HTTP 404)"
   },
   "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/low-tech-setup-checklist": {
@@ -1048,6 +1048,63 @@
     "updatedAt": "2026-11-22T23:25:19.248Z",
     "hash": "6c7a49a76cc19465c01a2ebc8317592dfb18dbb0bdead753206faeba52893807",
     "processedHash": "6c7a49a76cc19465c01a2ebc8317592dfb18dbb0bdead753206faeba52893807",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/the-real-costs-of-running-chillers-in-tropical-climate": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-beginners-planted-tank-101-the-real-costs-of-running-chillers-in-tropical-climate"
+    ],
+    "updatedAt": "2026-11-23T02:11:35.394Z",
+    "hash": "d4e44c4204142e98af7f260b89c500953af5116ce49f5499da3ff501aab608b6",
+    "processedHash": "d4e44c4204142e98af7f260b89c500953af5116ce49f5499da3ff501aab608b6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/water-change-the-2hr-way": {
+    "entityIds": [],
+    "updatedAt": "2026-11-23T02:13:11.901Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "no archived copy (HTTP 404)"
+  },
+  "https://www.2hraquarist.com/blogs/campfire/26-nov-stronger-colours": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-campfire-26-nov-stronger-colours"
+    ],
+    "updatedAt": "2026-11-23T02:13:23.574Z",
+    "hash": "9a7a8735536f2e24714dfac0aa750213131c1b3541b7b47e4379bf48f01f8d76",
+    "processedHash": "9a7a8735536f2e24714dfac0aa750213131c1b3541b7b47e4379bf48f01f8d76",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/choosing-co2-why/101-hightech-tank": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-choosing-co2-why-101-hightech-tank"
+    ],
+    "updatedAt": "2026-11-23T02:14:59.597Z",
+    "hash": "52261448c522f14b16da0116ca6c69390c1b8fe15360de14001056672b09b735",
+    "processedHash": "52261448c522f14b16da0116ca6c69390c1b8fe15360de14001056672b09b735",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/choosing-co2-why/101-lowtech": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-choosing-co2-why-101-lowtech"
+    ],
+    "updatedAt": "2026-11-23T02:18:13.828Z",
+    "hash": "e90cb3bcce5895890e5d7ff604cf6e50fb89a4dec03a94ae108a5886100bdbe3",
+    "processedHash": "e90cb3bcce5895890e5d7ff604cf6e50fb89a4dec03a94ae108a5886100bdbe3",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/choosing-co2-why/co2-fine-tuning-3-techniques": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-choosing-co2-why-co2-fine-tuning-3-techniques"
+    ],
+    "updatedAt": "2026-11-23T02:23:52.532Z",
+    "hash": "f173abfc58606ea8e42d7fb80af38d5d48330a69de2dca62e3bb3910811b96a8",
+    "processedHash": "f173abfc58606ea8e42d7fb80af38d5d48330a69de2dca62e3bb3910811b96a8",
     "status": "processed",
     "attempts": 0
   },

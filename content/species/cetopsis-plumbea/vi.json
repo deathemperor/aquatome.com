@@ -1,0 +1,21 @@
+{
+  "slug": "ca-cetopsis-plumbea",
+  "name": "Cá Cetopsis plumbea",
+  "altNames": [
+    "Cá da trơn cá voi",
+    "Whale Cat"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Cetopsis plumbea Steindachner, 1882</li><li>Tên thường gọi: Whale Cat</li><li>Nơi thu mẫu chuẩn: Canelos, miền đông Ecuador.</li><li>Nguồn gốc tên: Cetopsis ghép từ tiếng Hy Lạp cetos (cá voi) và -opsis (giống), do con cá trông giống cá voi.</li><li>Danh sách đỏ IUCN: chưa đánh giá.</li></ul>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: thượng nguồn lưu vực sông Amazon.</p>",
+    "reproduction:planetcatfish": "<p>Sinh sản: chưa thấy ai ghi lại việc cho loài này đẻ.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.85
+    },
+    "reason": "thin"
+  }
+}

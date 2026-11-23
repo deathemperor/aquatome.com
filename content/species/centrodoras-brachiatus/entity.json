@@ -154,6 +154,10 @@
       {
         "source": "scotcat",
         "value": 35
+      },
+      {
+        "source": "planetcatfish",
+        "value": 41
       }
     ],
     "tempC": [
@@ -189,10 +193,22 @@
       "html": "<p>Family: Doradidae. Synonym: Doras brachiatus. Maximum size 35 cm. Temperature 22–26°C, pH 6.0–7.5.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1486",
+      "html": "<p>Scientific name: Centrodoras brachiatus (Cope, 1872).</p><p>Synonyms: Doras brachiatus, Rhinodoras amazonum.</p><p>Pronunciation: sen trow door ass - bra key ah tuss.</p><p>Etymology: Greek, kentron = sting + Greek, dora = skin.</p><p>Size: 410 mm SL.</p><p>IUCN Red List category: Not Evaluated.</p>"
+    },
+    {
       "key": "distribution",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/doradidae/centrodoras_brachiatus.htm",
       "html": "<p>South America: Amazon River basin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1486",
+      "html": "<p>South America: Amazon River basin (except Negro River).</p><p>Type locality: Between mouths of Rio Negro, Brazil and Rio Huallaga, Peru.</p>"
     },
     {
       "key": "habitat",
@@ -237,6 +253,12 @@
       "html": "<p>What is striking about them is that they often \"hold their breath\". After strong breathing movements they stop breathing again and again for a longer time (at least you don't see anything of it). This is a behaviour that we have not yet observed in fish (Aquarium Glaser 2019).</p>"
     },
     {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1486",
+      "html": "<p>Breeding: Unreported.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/centrodoras-brachiatus-2/",
@@ -253,6 +275,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/doradidae/centrodoras_brachiatus.htm",
       "html": "<p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf. www.aquariumglaser.de</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1486",
+      "html": "<p>Proceedings of the Academy of Natural Sciences of Philadelphia v. 23, pp 270.</p>"
     }
   ],
   "photos": [
@@ -350,5 +378,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-20"
+  "updatedAt": "2026-11-23"
 }

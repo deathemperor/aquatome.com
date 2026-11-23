@@ -1,0 +1,166 @@
+{
+  "id": "panaque-nigrolineatus",
+  "scientificName": "Panaque nigrolineatus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Panaque",
+  "group": "catfish",
+  "lNumber": "L190",
+  "places": [
+    "south-america",
+    "orinoco",
+    "brazil",
+    "amazon",
+    "venezuela"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 43
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=151",
+      "html": "<p>Panaque nigrolineatus (Peters, 1877). Common names: L190, Royal Pleco. Maximum size 43 cm SL. Type locality: Guárico River at Calabozo, Apure River drainage, Guárico State, Venezuela.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=151",
+      "html": "<p>South America: Orinoco and southern middle and lower Amazon River tributaries.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=151",
+      "html": "<p>Juveniles can be found on submerged wood.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=151",
+      "html": "<p>pH 6.5–7.5. Temperature 22–30°C.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=151",
+      "html": "<p>Bogwood is essential, both for dietary reasons and because it seems to be the Royal Pleco's preferred hide-out, although any suitably sized dark refuge will be used. When larger, Royal Plecos will re-arrange the tank to their own liking; ensure rocks are well secured and cannot be toppled against the glass.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=151",
+      "html": "<p>Classic pleco diet of greens. Can be acclimatized onto most vegetables; tinned peas seem a favourite. The fish also appear to eat bogwood. Some prepared foods should also be offered to supplement this diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=151",
+      "html": "<p>Territorial with conspecifics and other similarly sized catfish, although otherwise peaceful with smaller fish. This fish can be a fussy feeder and only once it is feeding well should it be mixed with large, boisterous fish. Suitable with most community fish; this fish is very secretive, so more active fish are useful to provide something to watch.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=151",
+      "html": "<p>Undocumented, although with most ancistrine plecos the genital papilla of the female is round and blunt, that of the male by comparison is smaller and pointed. It is not known at what size this method of sexing can be used on Royal Plecos.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=151",
+      "html": "<p>No published information exists, but the fish has reportedly been spawned in captivity using some form of tube in a large tank (approx. 125 US gallons). A false dry season of two weeks (low, warm, still water) was used. Then the tank was topped off with cooler rainwater (refilling about 80%). Lots of meaty and veggie foods were offered. The pair spawned within days. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=151",
+      "html": "<p>The genus Panaque is identified by spoon-shaped teeth, noticeably wider at the tip than at the base, and by the lack of a buccal papilla. These fish are imported in all sizes and in a number of colour forms; eye colour varies from bright orange to dull red. Although described from Venezuelan material, the colour forms that have given rise to L027 are from different locations such as the Rio Tocantins, Xingú and Tapajos, Brazil. Juveniles of Brazilian populations appear to have solid rather than barred caudal fin rays, so a juvenile with barred caudal fin rays is from Colombian or Venezuelan stock.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=151",
+      "html": "<p>Monatsberichte der Königlichen Preussischen Akademie der Wissenschaften zu Berlin 1877, pp 471, Unnumbered pl. following p. 556.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/3ee1e3a4dcbb5353.webp",
+      "width": 960,
+      "height": 467,
+      "licence": "CC BY 4.0",
+      "author": "EvanBaldonado",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Royal_pleco_(Panaque_nigrolineatus)_at_the_California_Academy_of_Sciences.jpg",
+      "caption": "Royal pleco (Panaque nigrolineatus) at the California Academy of Sciences. Please attribute to Evan Baldonado // AquariumKids.org",
+      "thumb": "https://media.aquatome.com/commons/3ee1e3a4dcbb5353-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/22c35c35b8ff1a49.webp",
+      "width": 960,
+      "height": 643,
+      "licence": "CC BY-SA 3.0",
+      "author": "Хомелка",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panaque_nigrolineatus_and_Potamotrygon_motoro_in_Tropicarium-Oceanarium_Budapest.jpg",
+      "caption": "Panaque nigrolineatus and Potamotrygon motoro in Tropicarium-Oceanarium Budapest",
+      "thumb": "https://media.aquatome.com/commons/22c35c35b8ff1a49-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/41a75dd945213880.webp",
+      "width": 960,
+      "height": 1280,
+      "licence": "CC BY-SA 4.0",
+      "author": "Ventus55",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:L190.jpg",
+      "caption": "Schwarzlinien-Harnischwels",
+      "thumb": "https://media.aquatome.com/commons/41a75dd945213880-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200 lít",
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên rau cho cá lau kiếng"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
+}

@@ -1,0 +1,51 @@
+{
+  "id": "denticetopsis-sauli",
+  "scientificName": "Denticetopsis sauli",
+  "order": "Siluriformes",
+  "family": "Cetopsidae",
+  "genus": "Denticetopsis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "pamoni"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 2.1
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1483",
+      "html": "<p>Denticetopsis sauli Ferraris, 1996. Family Cetopsidae. Size: 21 mm SL.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1483",
+      "html": "<p>South America: around the mouth of the Pamoni River in Venezuela. Amazon, Middle Amazon (Solimoes), Negro, Upper Negro, Casiquiare, Pamoni.</p><p>Type locality: stream from series of morichales, about 5 kilometers from mouth of Río Pamoni, Estado Amazonas, Venezuela.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1483",
+      "html": "<p>Breeding: unreported.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1483",
+      "html": "<p>Proceedings of the California Academy of Sciences v. 49 (no. 6), pp 164, Figs. 3, 11.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-23"
+}

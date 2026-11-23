@@ -1,0 +1,45 @@
+{
+  "id": "denticetopsis-iwokrama",
+  "scientificName": "Denticetopsis iwokrama",
+  "order": "Siluriformes",
+  "family": "Cetopsidae",
+  "genus": "Denticetopsis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "guyana",
+    "essequibo"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 4.3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1478",
+      "html": "<p>Denticetopsis iwokrama Vari, Ferraris &amp; De Pinna, 2005 (family Cetopsidae). Size: 43 mm (1.7 inches) SL. IUCN Red List category: Least Concern (last assessed 2020). There is no breeding report.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1478",
+      "html": "<p>South America: Guyana, coastal rivers of the Guianas, Essequibo, Siparuni. Type locality: Siparuni River at Tumble Creek, Essequibo River basin, Essequibo, Guyana.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1478",
+      "html": "<p>Neotropical Ichthyology v. 3 (no. 2), pp 208, Fig. 47.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-23"
+}

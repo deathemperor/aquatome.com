@@ -1,0 +1,51 @@
+{
+  "id": "corymbophanes-kaiei",
+  "scientificName": "Corymbophanes kaiei",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Corymbophanes",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "guyana",
+    "potaro"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 6.6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1494",
+      "html": "<p>Corymbophanes kaiei Armbruster &amp; Sabaj Pérez, 2000 (Loricariidae). Size: 66 mm (2.6 inches) SL. IUCN Red List category: Least Concern (last assessed 2007).</p><p>Etymology: from Greek korymbos = summit, cluster of fruit or flowers + phaino = to shine.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1494",
+      "html": "<p>South America: Essequibo River drainage, upper Potaro River basin, Guyana. Type locality: Oung Creek, Chenapou River-Potaro River drainage, Potaro-Siparuni region, Guyana.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1494",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1494",
+      "html": "<p>Copeia 2000 (no. 4), pp 1002, Fig. 3.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-23"
+}

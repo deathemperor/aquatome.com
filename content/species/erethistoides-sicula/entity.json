@@ -1,0 +1,84 @@
+{
+  "id": "erethistoides-sicula",
+  "scientificName": "Erethistoides sicula",
+  "order": "Siluriformes",
+  "family": "Erethistidae",
+  "genus": "Erethistoides",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "mansai-river"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 3.9
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1488",
+      "html": "<p>Erethistoides sicula Ng, 2005, the Cheetah Catfish (family Sisoridae). Size: 39 mm SL. It differs from both E. montana and E. pipri in having a longer caudal peduncle and shorter pectoral spine. The species name comes from the Latin sicula, meaning dagger, in reference to its short pectoral spines. IUCN Red List: Data Deficient (last assessed 2009).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1488",
+      "html": "<p>Asia: known from the Mansai River drainage, itself a tributary of the Brahmaputra River in northern West Bengal state in India. Type locality: Schutunga River, tributary of Mansai River, at Ansole, 26°22'24''N, 89°11'17''E, West Bengal, India.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1488",
+      "html": "<p>This species lives in wide expanses of moderate flowing, shallow water over sandy substrate.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1488",
+      "html": "<p>All decor except plants is unnecessary.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1488",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1488",
+      "html": "<p>Zootaxa No. 1021, pp 2, Fig. 1, 2a, 4a.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền thủy sinh",
+        "cát mịn cho cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc bể thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh cho bể cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
+}

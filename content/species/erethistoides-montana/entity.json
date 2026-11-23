@@ -1,0 +1,51 @@
+{
+  "id": "erethistoides-montana",
+  "scientificName": "Erethistoides montana",
+  "order": "Siluriformes",
+  "family": "Erethistidae",
+  "genus": "Erethistoides",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "brahmaputra"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 3.8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1487",
+      "html": "<p>Erethistoides montana Hora, 1950.</p><p>Type locality: Streamlets near Tangla, Darrang dist., Assam, India.</p><p>Size: 38 mm or 1.5\" SL.</p><p>IUCN Red List category: Data Deficient (last assessed 2009).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1487",
+      "html": "<p>Asia: India: Tripura, Assam and Darjeeling in West Bengal. Indian waters, North Eastern India Waters, Padma, Jamuna, Brahmaputra, Ganges and Meghna drainages.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1487",
+      "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1487",
+      "html": "<p>Records of the Indian Museum (Calcutta) v. 47 (pt 2), pp 191, Pl. 1 (figs. 10-12).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-23"
+}

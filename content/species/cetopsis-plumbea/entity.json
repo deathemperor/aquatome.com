@@ -1,0 +1,44 @@
+{
+  "id": "cetopsis-plumbea",
+  "scientificName": "Cetopsis plumbea",
+  "order": "Siluriformes",
+  "family": "Cetopsidae",
+  "genus": "Cetopsis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "upper-amazon"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 11.8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1491",
+      "html": "<ul><li>Scientific name: Cetopsis plumbea Steindachner, 1882</li><li>Common name: Whale Cat</li><li>Type locality: Canelos, eastern Ecuador.</li><li>Etymology: Cetopsis: from the Greek cetos, meaning whale, and -opsis, meaning likeness; in reference to the whale-like appearance.</li><li>IUCN Red List: Not Evaluated.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1491",
+      "html": "<p>South America: Upper Amazon River basin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1491",
+      "html": "<p>Breeding: Unreported. There is no breeding report.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-23"
+}

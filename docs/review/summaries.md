@@ -1030,16 +1030,6 @@ Cá trê vundu (Heterobranchus longifilis) chỉ hợp với người chơi th�
 Kiểm tra:
 - "để trống với lớp nền mềm" is stated as a plain instruction. The page hedges it: "có lẽ là hợp nhất" (probably the most suitable). The hedge became a certainty.
 
-## Cá Hoplomyzon sexpapilostoma (Hoplomyzon sexpapilostoma)
-id: `hoplomyzon-sexpapilostoma`
-
-Cá Hoplomyzon sexpapilostoma là cá banjo tí hon, trưởng thành 3,2 cm, sống đàn và hiền với nhau. Ngoài tự nhiên chúng vùi mình trong cát mịn, ít nhất là vào ban ngày. Hồ sơ không có số liệu về nhiệt độ, pH hay bể tối thiểu. Khó nhất là người ta biết rất ít về nhóm cá này, nên chưa rõ yêu cầu về nước và thức ăn ngoài trùng huyết sống.
-
-- Muốn dễ theo dõi cá thì dùng bể đáy kính trần không trải nền, vì trong bể có cát chúng chỉ vài cú quẫy đuôi là chui mất hẳn xuống cát.
-
-Kiểm tra:
-- The "mistakes" entry "Muốn dễ theo dõi cá thì dùng bể đáy kính trần không trải nền" is not advice the page gives. The page only says the fish were kept in a bare-bottom tank "để dễ theo dõi", and that in a photo tank with sand they burrow quickly. It never calls sand a mistake or bare glass the fix, so this is invented advice. The page also says the fish naturally bury in fine sand.
-
 ## Cá chuột Hoplosternum magdalenae (Hoplosternum magdalenae)
 id: `hoplosternum-magdalenae`
 
@@ -1986,6 +1976,17 @@ Cá Synodontis cẩm thạch (Synodontis schoutedeni) hợp với người mới
 Kiểm tra:
 - Mistake 1, "Cho ăn nhiều thức ăn khô thì cá dễ sình bụng": the page says the cause of the bloating is unknown ("Chưa ai biết vì sao") and only advises feeding very little dry food. The summary turns that hedge into a stated cause-and-effect. It also contradicts the summary's own line "chưa rõ nguyên nhân".
 - Mistake 1, "xen đồ đông lạnh, đồ tươi sống hoặc rau như đậu Hà Lan bóc vỏ, dưa leo": the page does not offer these foods as a fix for bloating. It only says the fish eats them, so the fix is not stated by the page.
+
+## Cá nheo Synodontis voltae (Synodontis voltae)
+id: `synodontis-voltae`
+
+Hồ sơ cá nheo Synodontis voltae (Synodontis voltae) chỉ cho biết cá dài 14,7 cm, sống ở lưu vực sông Volta, Châu Phi. Hồ sơ không ghi nhiệt độ, pH, độ cứng hay bể tối thiểu, nên chưa đủ căn cứ để nói bể và nước thế nào là hợp. Điểm khó là gai vây cứng, có răng cưa nên khi cầm phải cẩn thận, và chưa có tài liệu nào về việc cho loài này sinh sản.
+
+- Cầm cá không đúng cách thì gai vây sắc đâm vào tay; nên đặt cá nằm trong tay, đầu quay về phía lòng bàn tay, kẹp gai vây lưng giữa ngón giữa và ngón áp út, cho cá nằm ngửa bụng lên.
+- Khi xem giới tính, chỉ kéo nhẹ đuôi xuống cho cột sống cong lại, lúc đó vây bụng dựng lên và lộ lỗ sinh dục.
+
+Kiểm tra:
+- The second mistake, "Khi xem giới tính, chỉ kéo nhẹ đuôi xuống cho cột sống cong lại, lúc đó vây bụng dựng lên và lộ lỗ sinh dục", describes a step of the page's own sexing method, not an error. The page gives no mistake or fix here. The word "chỉ" also suggests that pulling the tail alone is enough. The page says to hold the fish first, belly up with the dorsal spine gripped, and only then pull the tail. It also says the genital opening shows this way only in a healthy fish ("Ở cá khỏe"), and the summary drops that condition.
 
 ## Cá Tatia dunni (Tatia dunni)
 id: `tatia-dunni`

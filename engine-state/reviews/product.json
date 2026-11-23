@@ -803,6 +803,41 @@
       "kept": true
     }
   ],
+  "vi/products/oase-biomaster-350": [
+    {
+      "at": "2026-11-23T04:45:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.82,
+      "notes": [
+        "\"Cả hai bên đều không bảo hành phụ kiện tháo rời\" is supported (both shops exclude detachable parts), so no issue there.",
+        "\"Một số bộ phận phải mở khóa theo đúng thứ tự\" is used as a reason the unit may not suit beginners. The facts give the beginner concern and the unlock order separately, and don't connect them.",
+        "\"Trong một lần đo trên bản Thermo\": the facts only say 'one test' with 300 gph at 5.9 ft head (source 5, the Thermo rating). Linking it to the Thermo is plausible but is inferred.",
+        "\"Nếu đây là bể đầu tiên của bạn thì nên tính trước chuyện này\" is a mild recommendation that goes beyond the facts.",
+        "\"Máy chỉ kèm mút, bông lọc và vật liệu lọc cơ bản\" is mostly supported. \"Bản thường không kèm sưởi\" is supported by 'heater not included'.",
+        "\"Thùng đầy nước trong chưa tới một phút\" and \"bấm khoảng 5–6 lần\" are supported by the test facts. The page does not say which model was tested, and the test is in source 5, which may be the Thermo.",
+        "\"Eheim Classic 2215... đã chạy bền qua nhiều năm\" is a loose paraphrase of 'long-proven'. This is acceptable."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-23T04:45:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.8,
+      "notes": [
+        "\"Rửa sạch màng vi sinh ở cánh quạt ... thì có người đã hết\": the facts say biofilm can make the filter noisier and that some owners fixed the hum with a soft spacer. They do not say anyone cured the hum by cleaning biofilm.",
+        "\"nên rửa sạch chỗ này trước\": cleaning the impeller area first is the page's own advice. The facts only say Oase advises removing and cleaning the impeller.",
+        "\"Ai đặt bể trong phòng ngủ thì nên để ý chuyện này\": the bedroom noise advice is not in the facts. It is a small unsupported generalisation.",
+        "\"số trong tên máy gần đúng với số lít bể tối đa\": this general rule is the page's own inference from the variant list, not a stated fact."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/oase-biomaster-600-thermo": [
     {
       "at": "2026-11-18T19:46:50Z",

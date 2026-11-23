@@ -15,14 +15,19 @@
     "diet:scotcat": "<p>Hàm dưới của chúng có một mảng răng lớn. Đó là dấu hiệu cho thấy chúng có thể gặm lớp sinh vật bám trên bề mặt.</p>",
     "behaviour:scotcat": "<p>Điểm lạ ở loài này là chúng hay \"nín thở\". Sau vài nhịp thở mạnh, chúng lại ngừng thở khá lâu, ít nhất là nhìn vào không thấy mang cử động gì. Chuyện này lặp đi lặp lại nhiều lần. Đây là kiểu hành vi chưa thấy ở loài cá nào khác (Aquarium Glaser 2019).</p>",
     "notes:scotcat": "<p>Từ nguyên: tên loài brachiatus trong tiếng Latin nghĩa là có nhánh như cánh tay. Cái tên này có lẽ nói đến cặp gai vây ngực \"rất lớn\" của chúng.</p>",
-    "references:scotcat": "<p>The ETYFish Project Fish Name Etymology Database. www.aquariumglaser.de</p>"
+    "references:scotcat": "<p>The ETYFish Project Fish Name Etymology Database. www.aquariumglaser.de</p>",
+    "quickFacts:planetcatfish": "<p>Tên khoa học: Centrodoras brachiatus (Cope, 1872).</p><p>Tên đồng nghĩa: Doras brachiatus, Rhinodoras amazonum.</p><p>Cách đọc: sen trow door ass - bra key ah tuss.</p><p>Nguồn gốc tên: kentron trong tiếng Hy Lạp là gai nhọn, dora trong tiếng Hy Lạp là da.</p><p>Kích thước: 410 mm SL (đo từ mõm tới gốc đuôi).</p><p>Sách đỏ IUCN: chưa đánh giá.</p>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực sông Amazon, trừ sông Negro.</p><p>Nơi thu mẫu chuẩn: đoạn sông nằm giữa cửa sông Negro ở Brazil và cửa sông Huallaga ở Peru.</p>",
+    "reproduction:planetcatfish": "<p>Sinh sản: chưa có ghi chép nào về việc loài này đẻ.</p>",
+    "references:planetcatfish": "<p>Proceedings of the Academy of Natural Sciences of Philadelphia v. 23, pp 270.</p>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.85,
     "indexable": true,
     "bySource": {
       "glaser": 0.9,
-      "scotcat": 0.93
+      "scotcat": 0.93,
+      "planetcatfish": 0.85
     }
   }
 }

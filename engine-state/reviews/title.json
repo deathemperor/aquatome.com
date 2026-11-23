@@ -286,6 +286,38 @@
       "kept": true
     }
   ],
+  "vi/guides/aquariumbreeder-everything-about-feeding-dishes-for-shrimp": [
+    {
+      "at": "2026-11-23T05:03:30Z",
+      "model": "opus",
+      "ran": "claude-opus-5-5",
+      "cli": "2.1.329",
+      "score": 0.87,
+      "notes": [
+        "\"nhịn đói được bao lâu\" is backed by the 7-day and 14-day fasting passage, but it pushes a side topic to the front and drops the main 'when to stop / overfeeding' point (\"không cho ăn dư\")",
+        "Other Guide 1's text is almost the same as this page, so \"cho ăn bao nhiêu, mấy lần một tuần\" could title that page just as well",
+        "\"mấy lần một tuần\" fits the text (\"1–5 lần mỗi tuần\") and reads naturally"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquariumbreeder-how-often-and-how-much-to-feed-shrimp": [
+    {
+      "at": "2026-11-23T05:03:46Z",
+      "model": "opus",
+      "ran": "claude-opus-5-5",
+      "cli": "2.1.329",
+      "score": 0.82,
+      "notes": [
+        "Separation is only partial: Other Guide 1 also covers overfeeding checks (\"Thử xem có cho ăn dư không\"), so \"dấu hiệu cho ăn thừa\" doesn't fully set this page apart",
+        "\"lượng, tần suất\" is a bit stiff and textbook-like next to the plain \"bao nhiêu, bao lâu một lần\" that hobbyists use",
+        "Leaves out the page's section on wild diet and food preferences (\"Tép cảnh ăn gì ngoài tự nhiên\"), even though that part helps set it apart"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-0MzfLrSqfXY": [
     {
       "at": "2026-11-09T00:09:28Z",
