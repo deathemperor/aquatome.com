@@ -2,5 +2,9 @@
   "id": "physopyxis-lyra",
   "input": "f91d048401262ade",
   "at": "2026-11-09T13:11:58.456Z",
-  "claims": []
+  "claims": [],
+  "failed": {
+    "at": "2026-11-23T05:12:27.229Z",
+    "error": "claude failed (1): other"
+  }
 }

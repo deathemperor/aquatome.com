@@ -2,5 +2,9 @@
   "id": "schilbe-mandibularis",
   "input": "412c599cc22c7f9b",
   "at": "2026-11-23T01:58:54.614Z",
-  "claims": []
+  "claims": [],
+  "failed": {
+    "at": "2026-11-23T05:12:27.229Z",
+    "error": "claude failed (1): other"
+  }
 }
