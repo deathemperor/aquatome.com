@@ -1,7 +1,92 @@
 {
   "id": "julidochromis-ornatus",
-  "photos": [],
-  "seen": 2,
-  "updatedAt": "2026-11-08",
-  "builtAt": "2026-11-08"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/447627544.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/447627544-480.webp",
+      "width": 1024,
+      "height": 795,
+      "licence": "CC BY-NC",
+      "author": "Friedrich Rosian",
+      "sourceUrl": "https://www.inaturalist.org/photos/447627544",
+      "caption": "Cá julie vàng bơi giữa đá rêu trong tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/448806886.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/448806886-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Friedrich Rosian",
+      "sourceUrl": "https://www.inaturalist.org/photos/448806886",
+      "caption": "Cá julie vàng bên khe đá dưới hồ Tanganyika",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/586769013.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/586769013-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "CC BY-NC-SA",
+      "author": "Hans Hillewaert",
+      "sourceUrl": "https://www.inaturalist.org/photos/586769013",
+      "caption": "Cá julie vàng thân vàng sọc đen cận cảnh dưới nước",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/180641703.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/180641703-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "koblmuel",
+      "sourceUrl": "https://www.inaturalist.org/photos/180641703",
+      "caption": "Cá julie vàng bơi trên nền đá trong tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/447635416.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/447635416-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Friedrich Rosian",
+      "sourceUrl": "https://www.inaturalist.org/photos/447635416",
+      "caption": "Cá julie vàng trên đá giữa cành khô dưới nước",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/448805097.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/448805097-480.webp",
+      "width": 1024,
+      "height": 793,
+      "licence": "CC BY-NC",
+      "author": "Friedrich Rosian",
+      "sourceUrl": "https://www.inaturalist.org/photos/448805097",
+      "caption": "Cá julie vàng bên những tảng đá tròn trong hồ",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    }
+  ],
+  "seen": 13,
+  "updatedAt": "2026-11-23",
+  "builtAt": "2026-11-23"
 }

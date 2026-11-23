@@ -24,22 +24,7 @@
       "caption": "Cá lau kiếng aspidolepis bơi trên đá trong môi trường tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/348885015.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/348885015-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Alexander Travia",
-      "sourceUrl": "https://www.inaturalist.org/photos/348885015",
-      "caption": "Cá lau kiếng aspidolepis đốm nâu trong lưới, ảnh chụp thực địa",
-      "best": true,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/137965769.webp",
@@ -52,8 +37,20 @@
       "caption": "Cá lau kiếng aspidolepis bám trên đá ở suối tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/348885015.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/348885015-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Alexander Travia",
+      "sourceUrl": "https://www.inaturalist.org/photos/348885015",
+      "caption": "Cá lau kiếng aspidolepis đốm nâu trong lưới, ảnh chụp thực địa",
+      "best": true,
+      "kind": "other",
+      "setup": true
     }
   ],
   "seen": 12,

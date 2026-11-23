@@ -5,7 +5,10 @@
   "inat:70328530",
   "inat:416669966",
   "inat:416670075",
-  "inat:416670187"
+  "inat:416670187",
+  "gbif:1265265895:4d0af80fd206d625",
+  "gbif:1265265895:b6c23720a9fa6871",
+  "gbif:1265260445:5c3eb073a7b07cf6"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/699724663125d7fd.webp": "4727474f40c141c0",
@@ -19,5 +22,9 @@
    "agree": 0
   }
  },
- "commons": "2026-11-22"
+ "commons": "2026-11-22",
+ "gbif": {
+  "key": 2344285,
+  "next": null
+ }
 }

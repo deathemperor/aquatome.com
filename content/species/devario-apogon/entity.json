@@ -202,7 +202,12 @@
       "author": "steveshi",
       "sourceUrl": "https://www.inaturalist.org/photos/109291299",
       "caption": "Cá Devario apogon bơi trong bể nuôi, thân có sọc vằn",
-      "setup": false
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/109291299-large.webp",
+        "width": 2048,
+        "height": 1152
+      }
     }
   ],
   "videos": [],

@@ -1,7 +1,22 @@
 {
   "id": "julidochromis-marksmithi",
-  "photos": [],
-  "seen": 1,
-  "updatedAt": "2026-11-13",
-  "builtAt": "2026-11-13"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/116837263.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/116837263-480.webp",
+      "width": 1024,
+      "height": 724,
+      "licence": "CC BY-NC",
+      "author": "Hubert Szczygieł",
+      "sourceUrl": "https://www.inaturalist.org/photos/116837263",
+      "caption": "Cá Julidochromis marksmithi bơi giữa các khe đá trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    }
+  ],
+  "seen": 3,
+  "updatedAt": "2026-11-23",
+  "builtAt": "2026-11-23"
 }

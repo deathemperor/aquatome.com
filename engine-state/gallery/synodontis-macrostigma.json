@@ -3,11 +3,10 @@
  "judged": [
   "inat:163490561",
   "inat:163490571",
-  "inat:163490574"
+  "inat:163490574",
+  "gbif:1265259245:e04e678ee47be2db"
  ],
- "hashes": {
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/163490561/large.jpeg": "09094929a4a27050"
- },
+ "hashes": {},
  "inat": {
   "taxon": 113639,
   "pass": "done",
@@ -16,5 +15,9 @@
    "agree": 126067416
   }
  },
- "commons": "2026-11-22"
+ "commons": "2026-11-22",
+ "gbif": {
+  "key": 2344325,
+  "next": null
+ }
 }

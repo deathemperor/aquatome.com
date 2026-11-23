@@ -1,4 +1,4 @@
-# The glossary's link phrases, 2026-11-22
+# The glossary's link phrases, 2026-11-23
 
 1714 of 34475 linked places flagged, over 142 phrases (no model).
 

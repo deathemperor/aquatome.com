@@ -1,6 +1,6 @@
 # Photo galleries
 
-Written by `pnpm engine gallery` (2026-11-22). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
+Written by `pnpm engine gallery` (2026-11-23). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -10,7 +10,7 @@ Written by `pnpm engine gallery` (2026-11-22). Targets: packages/engine/src/gall
 | covered | 30 | 916 | 32 | 9 | 27 | 930 |
 | rest | 20 | 1979 | 81 | 0 | 120 | 1940 |
 
-## Short of target: every source read (822)
+## Short of target: every source read (823)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -127,6 +127,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/zaireichthys-kunenensis | rest | 0 | 20 |
 | species/astroblepus-rosei | rest | 0 | 20 |
 | species/auchenipterichthys-longimanus | rest | 0 | 20 |
+| species/auchenipterus-ambyiacus | rest | 0 | 20 |
 | species/paracheirodon-innesi | staple | 21 | 100 |
 | species/paracheirodon-axelrodi | staple | 29 | 100 |
 | species/trigonostigma-heteromorpha | staple | 26 | 100 |
@@ -167,9 +168,9 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | breeds/koi-betta | shop | 1 | 60 |
 | breeds/full-red-guppy | shop | 2 | 60 |
 | plants/taxiphyllum-barbieri | shop | 4 | 60 |
-| species/puntigrus-tetrazona | shop | 35 | 60 |
+| species/puntigrus-tetrazona | shop | 32 | 60 |
 | breeds/koi-guppy | shop | 0 | 60 |
-| species/corydoras-aeneus | shop | 34 | 60 |
+| species/corydoras-aeneus | shop | 30 | 60 |
 | breeds/dumbo-ear-guppy | shop | 0 | 60 |
 | species/chromobotia-macracanthus | shop | 20 | 60 |
 | plants/aegagropila-linnaei | shop | 34 | 60 |
@@ -830,11 +831,11 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/synodontis-albolineatus | covered | 0 | 30 |
 | species/synodontis-bastiani | covered | 0 | 30 |
 | species/synodontis-lucipinnis | covered | 1 | 30 |
-| species/ariopsis-assimilis | rest | 15 | 20 |
+| species/ariopsis-assimilis | rest | 14 | 20 |
 | species/astroblepus-mindoensis | rest | 1 | 20 |
 | species/colomesus-tocantinensis | rest | 3 | 20 |
 | species/eutropiichthys-vacha | rest | 1 | 20 |
 | species/hyphessobrycon-compressus | rest | 1 | 20 |
-| species/protopterus-aethiopicus-congicus | rest | 6 | 20 |
+| species/protopterus-aethiopicus-congicus | rest | 2 | 20 |
 | species/sciades-couma | rest | 2 | 20 |
 | species/sciades-paucus | rest | 2 | 20 |

@@ -278,6 +278,14 @@
       "on": "2026-11-14"
     }
   },
+  "https://media.aquatome.com/commons/ffd8189dffc08818.webp": {
+    "why": "rejected: withheld [sha256:7217497dc9eaff0931455c6654c43643d860fe2f4fe36aada6bd862c819f7b58]",
+    "step": "the photo check",
+    "pages": [
+      "species/glyptothorax-cavia"
+    ],
+    "at": "2026-11-22"
+  },
   "https://media.aquatome.com/flickr/5807040632.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
     "step": "the photo check",
@@ -7281,6 +7289,30 @@
     ],
     "at": "2026-11-15"
   },
+  "https://media.aquatome.com/inaturalist/117054693.webp": {
+    "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/lepidiolamprologus-attenuatus"
+    ],
+    "at": "2026-11-23"
+  },
+  "https://media.aquatome.com/inaturalist/117054703.webp": {
+    "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/lepidiolamprologus-attenuatus"
+    ],
+    "at": "2026-11-23"
+  },
+  "https://media.aquatome.com/inaturalist/117054718.webp": {
+    "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/lepidiolamprologus-attenuatus"
+    ],
+    "at": "2026-11-23"
+  },
   "https://media.aquatome.com/inaturalist/12202793.webp": {
     "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
     "step": "the photo check",
@@ -7297,6 +7329,15 @@
       "species/bagre-pinnimaculatus"
     ],
     "at": "2026-11-21",
+    "off": true
+  },
+  "https://media.aquatome.com/inaturalist/163490561.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/synodontis-macrostigma"
+    ],
+    "at": "2026-11-23",
     "off": true
   },
   "https://media.aquatome.com/inaturalist/198663470.webp": {
@@ -7410,6 +7451,15 @@
       "species/hyphessobrycon-heterorhabdus"
     ],
     "at": "2026-11-21",
+    "off": true
+  },
+  "https://media.aquatome.com/inaturalist/542768214.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/gnathonemus-longibarbis"
+    ],
+    "at": "2026-11-23",
     "off": true
   },
   "https://media.aquatome.com/inaturalist/546830588.webp": {
@@ -7543,6 +7593,24 @@
     ],
     "at": "2026-11-22"
   },
+  "https://media.aquatome.com/inaturalist/629598141.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/hassar-orestis"
+    ],
+    "at": "2026-11-23",
+    "off": true
+  },
+  "https://media.aquatome.com/inaturalist/638544770.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/hassar-orestis"
+    ],
+    "at": "2026-11-23",
+    "off": true
+  },
   "https://media.aquatome.com/inaturalist/658889077.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
     "step": "the photo check",
@@ -7550,6 +7618,33 @@
       "species/corynopoma-riisei"
     ],
     "at": "2026-11-22",
+    "off": true
+  },
+  "https://media.aquatome.com/inaturalist/668390022.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/hassar-orestis"
+    ],
+    "at": "2026-11-23",
+    "off": true
+  },
+  "https://media.aquatome.com/inaturalist/684824633.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/hassar-orestis"
+    ],
+    "at": "2026-11-23",
+    "off": true
+  },
+  "https://media.aquatome.com/inaturalist/684824634.webp": {
+    "why": "dead: withheld [sha256:b0fd04bac5cb9103d42d098910d2f2ba12dd7581599cc374b0a1e379fd512b42]",
+    "step": "the photo check",
+    "pages": [
+      "species/hassar-orestis"
+    ],
+    "at": "2026-11-23",
     "off": true
   },
   "https://media.aquatome.com/inaturalist/726952954.webp": {
@@ -8608,13 +8703,5 @@
     ],
     "at": "2026-11-22",
     "off": true
-  },
-  "https://media.aquatome.com/commons/ffd8189dffc08818.webp": {
-    "why": "rejected: withheld [sha256:7217497dc9eaff0931455c6654c43643d860fe2f4fe36aada6bd862c819f7b58]",
-    "step": "the photo check",
-    "pages": [
-      "species/glyptothorax-cavia"
-    ],
-    "at": "2026-11-22"
   }
 }

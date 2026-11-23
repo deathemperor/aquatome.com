@@ -156,7 +156,19 @@
       "fixed": true
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/624237867.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/624237867-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Julien Piolain",
+      "sourceUrl": "https://www.inaturalist.org/photos/624237867",
+      "caption": "Cá hải hồ harreri bơi trên đáy cát ngoài tự nhiên",
+      "setup": false
+    }
+  ],
   "videos": [
     {
       "youtubeId": "iH3NJhu4peo",

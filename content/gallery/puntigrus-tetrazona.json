@@ -272,8 +272,7 @@
       "caption": "Cá tứ vân vàng sọc đen bơi trong bể kính nhỏ",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/542727271.webp",
@@ -286,36 +285,7 @@
       "caption": "Đàn cá tứ vân trong bể chụp nhỏ",
       "best": true,
       "kind": "group",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/467771616.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/467771616-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY-NC",
-      "author": "Hendra",
-      "sourceUrl": "https://www.inaturalist.org/photos/467771616",
-      "caption": "Cá tứ vân trong hộp trong suốt bên cạnh thước đo",
-      "best": true,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/625550368.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/625550368-480.webp",
-      "width": 1024,
-      "height": 808,
-      "licence": "CC BY-NC",
-      "author": "管牧山",
-      "sourceUrl": "https://www.inaturalist.org/photos/625550368",
-      "caption": "Cá tứ vân cạnh thước đo, nhìn nghiêng",
-      "best": true,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/761697799.webp",
@@ -328,8 +298,7 @@
       "caption": "Cá tứ vân bơi trong hộp nhựa trong suốt",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/253217961.webp",
@@ -355,50 +324,7 @@
       "caption": "Cá tứ vân giữa đá và rễ cây ở môi trường tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/538838004.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/538838004-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "nakarinfearless",
-      "sourceUrl": "https://www.inaturalist.org/photos/538838004",
-      "caption": "Cá tứ vân trong đĩa thủy tinh để chụp ảnh",
-      "best": false,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/287818884.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/287818884-480.webp",
-      "width": 1024,
-      "height": 484,
-      "licence": "CC BY-NC",
-      "author": "Hendra",
-      "sourceUrl": "https://www.inaturalist.org/photos/287818884",
-      "caption": "Nhóm cá tứ vân trong bể kính chụp ảnh",
-      "best": false,
-      "kind": "group",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/351719448.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/351719448-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Rafael Abizar",
-      "sourceUrl": "https://www.inaturalist.org/photos/351719448",
-      "caption": "Đàn cá tứ vân trong môi trường sống tự nhiên có đá và cành",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/625550301.webp",
@@ -411,8 +337,33 @@
       "caption": "Cá tứ vân bụng to cạnh thước đo",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/287818884.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/287818884-480.webp",
+      "width": 1024,
+      "height": 484,
+      "licence": "CC BY-NC",
+      "author": "Hendra",
+      "sourceUrl": "https://www.inaturalist.org/photos/287818884",
+      "caption": "Nhóm cá tứ vân trong bể kính chụp ảnh",
+      "best": false,
+      "kind": "group",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/351719448.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/351719448-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Rafael Abizar",
+      "sourceUrl": "https://www.inaturalist.org/photos/351719448",
+      "caption": "Đàn cá tứ vân trong môi trường sống tự nhiên có đá và cành",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/287818902.webp",
@@ -425,8 +376,7 @@
       "caption": "Đàn cá tứ vân bơi trong hộp kính nhỏ",
       "best": false,
       "kind": "group",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     }
   ],
   "seen": 143,
