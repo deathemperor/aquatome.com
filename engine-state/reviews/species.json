@@ -841,6 +841,37 @@
       "kept": false
     }
   ],
+  "vi/species/corydoras-colossus": [
+    {
+      "at": "2026-11-23T20:46:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-23T20:46:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.72,
+      "notes": [
+        "\"Cái tên nói về thân hình to, chắc và bọc giáp\" is fine, but \"nên bắt cá cần cẩn thận\" (handle fish carefully) is care advice not in the facts",
+        "\"Cá chuột cũng cần được cho ăn riêng.\" is not in the facts (feeding separately is invented)",
+        "\"hay sục nền kiếm ăn\" (rooting through substrate) is not in the facts, which only say scavenging omnivore",
+        "\"cá chuột chưa có tên\" (undescribed species) for CW116 and CW117 is not stated in the facts",
+        "\"Đặc điểm này không dùng để phân biệt đực cái được.\" is not in the facts, though it's implied since both sexes have it",
+        "\"bắt năm 2022\" and \"tính đến gốc đuôi\" are fine, but \"cá bố mẹ không chăm trứng\" is presented as the video's expectation, which is acceptable",
+        "\"Sword Corydoras\" and \"False Armatus Corydoras\" are listed as names, but the claim they were adopted \"Sau năm 2023\" is partly inferred",
+        "\"Nó quen nước khá dễ\" is fine, but \"Các nguồn nói khác nhau\" framing is an interpretation, not a stated fact"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/corydoras-duplicareus#jedoN9nxfpc": [
     {
       "at": "2026-11-17T05:44:37Z",
@@ -1633,6 +1664,46 @@
       "kept": true
     }
   ],
+  "vi/species/hyphessobrycon-amandae#UCBItkKpEww": [
+    {
+      "at": "2026-11-23T20:43:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.6,
+      "notes": [
+        "waterConditions: 'pH 5,5–7,5' is already on the page (waterConditions says 'sống được ở pH 5,5–7,5'), and the 20–28 °C range is on the card, so it repeats the page.",
+        "aquariumSize: 'một người nuôi loài này lâu năm' invents a veteran keeper. The video states 30 liters as general fact, not as personal experience.",
+        "waterConditions: 'Một người nuôi giữ loài này ở...' turns the video's general parameters into one keeper's practice. It also doesn't say that GH 1–8 and 30 L differ from the page's GH 1–10 and 41 L.",
+        "diet: 'có thể sinh ra thích một vài món' reads as a translation of 'develop preferences'. It isn't natural Vietnamese.",
+        "diet: 'Một người nuôi thấy cá vẫn ăn cám vảy' presents the video's food list as one keeper's observation. The video doesn't frame it that way.",
+        "diet: 'lăng quăng lẫn trùn chỉ' leaves out the other foods the video names (cyclops, daphnia, artemia), and the list is only partly covered.",
+        "aquariumSize: 'người này nuôi một đàn 10–12 con' puts the video's recommendation in as the keeper's own practice.",
+        "dimorphism: leaves out the video's point that females look much rounder. Only the size difference is given."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-23T20:43:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.72,
+      "notes": [
+        "[diet] \"rồi chỉ thích món đó\" overstates the video. It only says the fish \"can develop preferences for certain foods\".",
+        "[diet] The list \"artemia, cyclops, bo bo… cám vảy\" is already on the PAGE's diet section, so it adds little that is new.",
+        "[diet] The video says flake food is accepted. The PAGE advises avoiding flakes. NEW doesn't say that the video differs.",
+        "[behaviour] \"còn cá để yên cho chúng\" is not stated in the video. It only says the fish can be kept with shrimp. The PAGE says baby shrimp can be eaten, and NEW doesn't note any difference.",
+        "[waterConditions] \"Nước xuống 20 °C hay lên 28 °C\" repeats the 20–28 °C range already on the PAGE card. Only the 24–25 °C optimum and the \"short period\" caveat are new.",
+        "Missing differences from the PAGE: the video gives pH 5.5–7.5 and GH 1–8, and says 30 L is enough. The PAGE gives pH 5–7, GH 1–10 and a 45 cm or 38–41 L tank. NEW doesn't say plainly where the video differs.",
+        "[distribution] \"Rio das Garças\" is hedged with \"có lẽ\", which is acceptable. It is thin, and it is the video's only distribution detail not already on the PAGE.",
+        "[behaviour] The keeper paragraph (\"Một người nuôi thả chung…\") is attributed correctly to one keeper. The sentence about shrimp and snails grazing algae is a small paraphrase."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/hyphessobrycon-eschwartzae#4QNZbyXjZuI": [
     {
       "at": "2026-11-09T05:53:01Z",
@@ -1706,6 +1777,35 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/species/hyphessobrycon-peugeoti": [
+    {
+      "at": "2026-11-23T20:41:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.92,
+      "notes": [
+        "\"một đoạn đường vòng tạm\" – the facts say only a road detour; \"tạm\" (temporary) is added",
+        "\"Ở trại của nhà bán sỉ Đức\" – the facts say Glaser found this, not that it happened at a farm"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-23T20:41:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.9,
+      "notes": [
+        "\"Thả thêm cây nổi là một cách làm tối bể\" is a small inference. The facts only say the video recommends floating plants and that dim light brings out colour.",
+        "\"(chiều dài chuẩn, không tính đuôi)\" adds a gloss on standard length that the facts don't give.",
+        "\"Cỏ và cây bụi nhỏ mọc chắn gần kín dòng chảy\" adds \"gần kín\" (almost completely). The facts only say the grasses and shrubs choked the flow."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/species/hyphessobrycon-vilmae#DY6gcyX2Stk": [

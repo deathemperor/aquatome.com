@@ -428,6 +428,22 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-rSI2wmUFN7k": [
+    {
+      "at": "2026-11-23T20:55:44Z",
+      "model": "opus",
+      "ran": "claude-opus-5-5",
+      "cli": "2.1.329",
+      "score": 0.85,
+      "notes": [
+        "The count of 9 matches the 9 table rows. The wording and subject are otherwise unchanged and read naturally.",
+        "Shrimp (tép cảnh) are probably counted as one of the '9 loài cá', but shrimp aren't fish. The old title had the same problem.",
+        "Male and female betta are one species, so the text has about 8 fish species plus shrimp."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-vl1Lx9iWDYU": [
     {
       "at": "2026-11-08T08:46:16Z",
