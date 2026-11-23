@@ -1,5 +1,5 @@
 {
- "day": "2026-11-23",
+ "day": "2026-11-24",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -59,45 +59,44 @@
  "sample": [
   {
    "lang": "ms",
-   "path": "/ms/tumbuhan/myriophyllum-mattogrossense/",
-   "url": "https://aquatome.com/ms/tumbuhan/myriophyllum-mattogrossense/",
-   "title": "Myriophyllum mattogrossense",
-   "wrong": [
-    {
-     "check": "words",
-     "quote": "sesuai untuk bahagian belakang tangki"
-    }
-   ]
+   "path": "/ms/ikan/akysis-variegatus/",
+   "url": "https://aquatome.com/ms/ikan/akysis-variegatus/",
+   "title": "Akysis variegatus",
+   "wrong": []
   },
   {
    "lang": "vi",
-   "path": "/vi/huong-dan/top-5-loai-ca-nuoc-ngot-gia-re-rat-dang-tien-cho-nguoi-moi/",
-   "url": "https://aquatome.com/huong-dan/top-5-loai-ca-nuoc-ngot-gia-re-rat-dang-tien-cho-nguoi-moi/",
-   "title": "Top 5 loài cá nước ngọt giá rẻ, rất đáng tiền cho người mới chơi",
+   "path": "/vi/huong-dan/7-loai-ca-pho-bien-nen-thu-nuoi-trong-be-20-gallon-75-lit/",
+   "url": "https://aquatome.com/huong-dan/7-loai-ca-pho-bien-nen-thu-nuoi-trong-be-20-gallon-75-lit/",
+   "title": "7 loài cá phổ biến nên thử nuôi trong bể 20 gallon (75 lít)",
    "wrong": [
     {
      "check": "units",
-     "quote": "Cá dài 2,5–3,8 cm và thích bơi đàn."
+     "quote": "gallon"
+    },
+    {
+     "check": "units",
+     "quote": "bể 20 gallon (75 lít)"
+    },
+    {
+     "check": "source",
+     "quote": "Trong ảnh, con đực ở bên trái, con cái ở bên phải."
     }
    ]
   },
   {
    "lang": "vi",
-   "path": "/vi/huong-dan/set-be-loc-tran-nuoi-ca-than-tien-ca-dia-kinh-nghiem-sau-4/",
-   "url": "https://aquatome.com/huong-dan/set-be-loc-tran-nuoi-ca-than-tien-ca-dia-kinh-nghiem-sau-4/",
-   "title": "Set bể lọc tràn dưới nuôi cá thần tiên, cá đĩa với cây dễ tính",
+   "path": "/vi/huong-dan/bon-loai-ca-chuot-mui-dai-hiem-tu-peru-corydoras-sp-melita/",
+   "url": "https://aquatome.com/huong-dan/bon-loai-ca-chuot-mui-dai-hiem-tu-peru-corydoras-sp-melita/",
+   "title": "Bốn loài cá chuột mũi dài hiếm từ Peru: Corydoras sp. “Melita”, “Karina”, “Souza” và “Panduro”",
    "wrong": [
     {
      "check": "source",
-     "quote": "Sau 4 tháng chạy, bể dưới đây có cá khỏe, nước ổn, và người chủ chăm cũng không vất vả."
+     "quote": "Từ Peru có về mẫu của vài loài thuộc hàng hiếm nhất trong các loài cá chuột."
     },
     {
      "check": "source",
-     "quote": "Bể ở đây thì dùng lọc tràn đặt dưới tủ."
-    },
-    {
-     "check": "source",
-     "quote": "Bể làm gần Tết nên mua được bộ lũa đẹp, đặt vào dùng được ngay là khá khó."
+     "quote": "Hiện chưa biết chắc có nhập được bốn loài thú vị này với số lượng nhiều hơn hay không, nhưng người nhập vẫn sẽ thử."
     }
    ]
   }
