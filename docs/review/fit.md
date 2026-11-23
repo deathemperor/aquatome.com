@@ -6,12 +6,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Open, no read of its text | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 5449 | 5426 | 1 | 1998 | 40 | 53 | 232 | 61 | 1393 | 426 | 3269 | 545 | 9 | 24 | 0 | 2 | 15 | 6 | 2 |
+| Vietnamese | 5449 | 5427 | 0 | 1998 | 40 | 53 | 232 | 61 | 1393 | 426 | 3270 | 545 | 9 | 24 | 0 | 2 | 15 | 6 | 2 |
 | Indonesian | 1718 | 1718 | 0 | 463 | 29 | 13 | 4 | 6 | 216 | 39 | 79 | 209 | 0 | 3 | 0 | 5 | 2 | 0 | 0 |
-| Thai | 1716 | 1634 | 82 | 427 | 24 | 3 | 5 | 5 | 205 | 44 | 107 | 192 | 0 | 1 | 0 | 3 | 2 | 0 | 0 |
-| Malay | 598 | 563 | 35 | 150 | 14 | 3 | 0 | 2 | 75 | 18 | 33 | 55 | 0 | 1 | 0 | 3 | 0 | 0 | 0 |
+| Thai | 1716 | 1716 | 0 | 447 | 25 | 3 | 5 | 5 | 213 | 44 | 115 | 203 | 0 | 2 | 0 | 3 | 2 | 0 | 0 |
+| Malay | 598 | 598 | 0 | 163 | 16 | 4 | 0 | 2 | 82 | 19 | 37 | 58 | 0 | 1 | 0 | 3 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 17 of 220, Indonesian 2 of 78, Thai 2 of 73, Malay 1 of 36.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 17 of 220, Indonesian 2 of 78, Thai 2 of 75, Malay 1 of 39.
 
 ## Doses on more than one page
 
@@ -29,26 +29,26 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - epsom salt: water, other: 2.5 ml/l (1 pages); other, wholeTank: 0.25–0.75 ml/l (1 pages); other, bath: 0.264 thìa/l, 0.263 ช้อน/l (2 pages); bacteria, unsaid: 0.263 ml/l (1 pages); other, unsaid: 0.263 ml/l, 0.25 ml/l (3 pages)
 - alum: snails, dip: 3.75–11.25 ml/l, 3.947–11.842 ml/l, 10–15 ml/l (4 pages); snails, bath: 3.947 ml/l (1 pages); disinfecting, dip: 15 ml/l (1 pages)
 - malachite green: fungus, wholeTank: 0.1 mg/l (1 pages); fungus, bath: 0.1 mg/l (3 pages); fungus, spot: 100 mg/l (3 pages)
-- sodium bicarbonate: water, unsaid: 1 g/l, 2 g/l (2 pages); water, other: 1 g/l (2 pages); water, wholeTank: 0.05 g/l, 0.05 ml/l (2 pages)
 - indian almond leaf: water, wholeTank: 0.05 leaf/l, 0.025–0.05 leaf/l (4 pages); water, other: 0.5 leaf/l (1 pages); other, wholeTank: 1 g/l (1 pages)
 - seachem prime: water, other: 0.026 ml/l, 0.025 ml/l, 0.013 ml/l (2 pages); water, unsaid: 0.025 ml/l (2 pages); water, wholeTank: 0.025 ml/l (1 pages)
+- sodium bicarbonate: water, unsaid: 1 g/l, 2 g/l (2 pages); water, other: 1 g/l (1 pages); water, wholeTank: 0.05 g/l, 0.05 ml/l (2 pages)
 - bottled bacteria: other, wholeTank: 0.125 ml/l, 0.063 ml/l, 0.013 ฝา/l, 3.132 ml/l, 1.579 ml/l (1 pages)
 - clove oil: other, bath: 2–4 drop/l, 1.25–2.5 drop/l, 20 drop/l (4 pages)
 - methylene blue: other, wholeTank: 0.421 drop/l (4 pages); parasites, dip: 2.241 ml/l (1 pages)
 - ammonium chloride: other, wholeTank: 1 drop/l, 1.053 drop/l (4 pages)
 - carbon dioxide: plants, wholeTank: 10–30 mg/l, 0.017 bubble per second/l (3 pages); algae, wholeTank: 0.2 ml/l (1 pages)
 - crushed coral: water, other: 0.013 kg/l, 11.842 g/l, 11.25 g/l (4 pages)
-- dechlorinator: water, unsaid: 0.063–0.125 ml/l (1 pages); water, other: 0.033 ml/l, 0.5–1 drop/l (3 pages)
+- dechlorinator: water, unsaid: 0.063–0.125 ml/l (1 pages); water, other: 0.033 ml/l, 0.5–1 drop/l (2 pages); water, wholeTank: 0.5–1 drop/l (1 pages)
 - easy dechlorinator: water, unsaid: 0.026 ml/l, 0.025 ml/l, 0.526 drop/l (1 pages); water, other: 0.025 ml/l (1 pages)
 - erythromycin: cyanobacteria, wholeTank: 5 mg/l, 5.263 mg/l (1 pages); algae, wholeTank: 5 mg/l (1 pages); finRot, wholeTank: 0.026 packet/l (1 pages)
 - fenbendazole 10%: parasites, wholeTank: 0.5–1 mg/l, 0.263 drop/l (3 pages); other, wholeTank: 0.263 drop/l (1 pages)
 - levamisole: parasites, wholeTank: 0.026 packet/l (1 pages); parasites, bath: 50 mg/l (3 pages)
 - maracyn: fungus, wholeTank: 0.026 packet/l (1 pages); quarantine, wholeTank: 0.026 packet/l, 0.025 packet/l (2 pages); bacteria, wholeTank: 0.025 packet/l (1 pages)
+- marine salt: water, wholeTank: 0.5 ml/l, 15 g/l (3 pages); water, unsaid: 7.5 ml/l (1 pages)
 - methylene blue 2,303%: fungus, wholeTank: 0.132 ml/l, 0.043 ml/l (1 pages); parasites, wholeTank: 0.132 ml/l (1 pages); other, wholeTank: 0.132 ml/l (1 pages)
 - water conditioner: water, wholeTank: 0.025 ml/l, 0.063–0.125 ml/l (4 pages)
 - api accu-clear: water, wholeTank: 0.053 ml/l, 0.005 cap/l (3 pages)
 - bleach: disinfecting, dip: 53.333 ml/l, 0.125 litre/l (2 pages); snails, dip: 47.368 ml/l (1 pages)
-- marine salt: water, wholeTank: 0.5 ml/l, 15 g/l (2 pages); water, unsaid: 7.5 ml/l (1 pages)
 - potassium alum: parasites, dip: 15 ml/l (1 pages); snails, bath: 3.947 ml/l (1 pages); disinfecting, dip: 15 ml/l (1 pages)
 - seachem excel: algae, wholeTank: 0.125 ml/l (1 pages); algae, other: 1 cap/l (1 pages); algae, spot: 0.025 cap/l (1 pages)
 - seachem flourish: plants, wholeTank: 0.02 ml/l, 0.022 ml/l, 0.017 ml/l (2 pages)

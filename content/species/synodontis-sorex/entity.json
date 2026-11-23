@@ -267,7 +267,12 @@
       "author": "H.Grenier",
       "sourceUrl": "https://www.inaturalist.org/photos/470513212",
       "caption": "Thân và đuôi cá nheo Synodontis sorex trong bể ảnh",
-      "setup": true
+      "setup": true,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/470513212-large.webp",
+        "width": 2048,
+        "height": 1024
+      }
     }
   ],
   "videos": [],

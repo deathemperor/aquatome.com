@@ -98,9 +98,23 @@
       "caption": "Cỏ lilaeopsis Brazil mọc nhô lên khỏi mặt nước",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/98927763.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/98927763-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Martin Coronel Varela",
+      "sourceUrl": "https://www.inaturalist.org/photos/98927763",
+      "caption": "Cỏ lilaeopsis Brazil mọc ngoài tự nhiên ở vùng nước nông",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
     }
   ],
-  "seen": 10,
-  "updatedAt": "2026-11-10",
-  "builtAt": "2026-10-31"
+  "seen": 13,
+  "updatedAt": "2026-11-23",
+  "builtAt": "2026-11-23"
 }

@@ -5,7 +5,7 @@ the site serves (`packages/engine/src/content-rules.ts`, docs/governance.md). A 
 a rule can fix safely is fixed whenever the engine writes a page, and on every page each cycle before the build
 (`pnpm engine sweep`; the real-content test holds those rules at zero); the rest is listed here, each page once per rule.
 
-Pages checked: 9658 (Vietnamese 5446, Indonesian 1778, Thai 1776, Malay 658). Imperial units
+Pages checked: 9721 (Vietnamese 5509, Indonesian 1778, Thai 1776, Malay 658). Imperial units
 beside a metric figure: feet 1, gallon 22, inch 1, °F 1.
 
 ## Numbered headings broken or miscounted (2)
@@ -75,10 +75,11 @@ Labels such as "Sai lầm 1", "Mẹo 2", "Bước 3" whose numbers neither count
 - [vi · Cá lau kiếng bristlenose](https://aquatome.com/ca/ca-lau-kieng-bristlenose/) — "Trang cũng nêu kích thước bể tối thiểu là 150 lít; bể 75 lít có thể nuôi hai co…"; "Trang lưu ý rằng chúng không thực sự làm sạch bể: chúng ăn tảo trên kính nhưng…"
 - [vi · Bể cá bị nóng mùa hè: cách hạ nhiệt an toàn và giữ bể mát](https://aquatome.com/huong-dan/be-ca-bi-nong-mua-he/) — "Trang này cũng khuyên tăng sủi hoặc tăng dòng chảy mặt nước, nhất là vào ban đê…"
 
-## Text naming a video, a channel or a reviewer (4)
+## Text naming a video, a channel or a reviewer (5)
 
 A page written from videos (a video guide, a product's reviews) whose text names one of its channels or talks about the video or who made it ("trong video", "người review", "theo tác giả"): the page's source list carries that. Listed; a product's review summary never publishes with one (product-reviews.ts).
 
+- [vi · 5 lý do người chơi bỏ nuôi cá cảnh và cách để không bỏ cuộc](https://aquatome.com/huong-dan/5-ly-do-nguoi-choi-bo-nuoi-ca-canh-va-cach-de-khong-bo-cuoc/) — "kênh youtube"
 - [vi · Những nguồn tham khảo hữu ích để học chơi thủy sinh](https://aquatome.com/huong-dan/hoc-choi-thuy-sinh-o-dau-dien-dan-website-cuoc-thi-va-kenh/) — "kênh youtube"
 - [vi · Nuôi và cho cá nhiệt đới sinh sản trong hồ nhỏ ngoài trời](https://aquatome.com/huong-dan/nuoi-va-cho-ca-nhiet-doi-sinh-san-trong-thung-ho-mini-ngoai/) — "anh ấy"
 - [vi · Đèn LED thủy sinh Chihiros C II](https://aquatome.com/san-pham/chihiros-c-ii/) — "người đánh giá"
@@ -134,36 +135,36 @@ A Loricariidae fish with an L or LDA number on record whose name in a language g
 
 - none
 
-## Words hobbyists rarely write (3036)
+## Words hobbyists rarely write (3054)
 
 Words and turns the engine writes far more often than the language's hobbyists do, each with what they write instead (packages/engine/src/phrases.ts; docs/review/phrases.md has the counts). The writers' prompts carry the list, and the style rewrite takes the pages that have them up a batch a cycle. Counted, never held: only a model can mend one in its sentence.
 
-- vi · "dù vậy" → "nhưng", "tuy nhiên": 1676 pages, 3912 times
-- vi · "phần lớn" → "thường", "chủ yếu", hoặc bỏ: 1652 pages, 3702 times
+- vi · "dù vậy" → "nhưng", "tuy nhiên": 1681 pages, 3917 times
+- vi · "phần lớn" → "thường", "chủ yếu", hoặc bỏ: 1656 pages, 3708 times
 - vi · "bạn nên" → "nên", "cần", hoặc nói thẳng việc cần làm ("Thay 30% nước mỗi tuần"): 1590 pages, 3953 times
 - vi · "ghi nhận" → "có ở", "gặp ở", "thấy ở" (nguồn nói chưa ai thấy thì giữ ý đó): 1093 pages, 2123 times
 - vi · "nhiều khả năng" → "chắc là", "có lẽ" (giữ đúng mức chắc chắn của nguồn): 992 pages, 1576 times
-- vi · "thức ăn sống" → "thức ăn tươi sống", "đồ tươi": 940 pages, 1436 times
+- vi · "thức ăn sống" → "thức ăn tươi sống", "đồ tươi": 942 pages, 1442 times
 - vi · "bể cộng đồng" → "nuôi chung", "thả chung với cá hiền": 839 pages, 1286 times
-- vi · "gần như không" → "hầu như không", "ít khi", hoặc nói thẳng: 613 pages, 854 times
+- vi · "gần như không" → "hầu như không", "ít khi", hoặc nói thẳng: 622 pages, 866 times
 - vi · "không xương sống" → trong bể (cá nuôi chung, thuốc, đồng, thức ăn cho chúng) gọi tên con: "tép, ốc", thêm "cua", "tôm hùm đất" khi nguồn nói; ngoài tự nhiên (cá ăn gì, trong bụng có gì) gọi tên con nguồn nói ("côn trùng", "giáp xác"), nguồn không nói con nào thì để "động vật không xương sống": 562 pages, 643 times
 - vi · "bạn cùng bể" → "cá nuôi chung", "nuôi chung với…": 558 pages, 742 times
 - vi · "lý tưởng" → "hợp nhất", "tốt nhất", hoặc nói thẳng con số ("nên giữ 24–26 °C"): 553 pages, 756 times
 - vi · "giới chơi" → "người chơi", hoặc bỏ: 532 pages, 778 times
-- vi · "nhờ vậy" → để câu sau tự nói; "thế là" chỉ khi đúng là chuyện xảy ra tiếp: 507 pages, 618 times
+- vi · "nhờ vậy" → để câu sau tự nói; "thế là" chỉ khi đúng là chuyện xảy ra tiếp: 508 pages, 619 times
 - vi · "lý do là" → "vì", "là do": 485 pages, 533 times
 - vi · "nhìn chung" → "thường", hoặc bỏ: 422 pages, 571 times
 - vi · "hung hăng" → "dữ", "hung dữ": 387 pages, 614 times
 - vi · "dân chơi" → thường bỏ được ("gọi là…", "hay nuôi…"); "người chơi" khi cần nói ai: 371 pages, 486 times
 - vi · "bơi tự do" → "tự bơi được", "bơi được": 334 pages, 394 times
-- vi · "bắt buộc phải" → "phải": 329 pages, 370 times
+- vi · "bắt buộc phải" → "phải": 330 pages, 371 times
 - vi · "khẩu phần" → "thức ăn", "cho ăn…": 329 pages, 408 times
 - vi · "giữ lãnh thổ" → "hay đuổi cá khác khỏi chỗ của nó", "hay giành chỗ": 318 pages, 428 times
 - vi · "thị trường cá cảnh" → "tiệm cá", "trên thị trường": 314 pages, 431 times
 - vi · "được xem là" → nói thẳng ("CO2 coi như bắt buộc", "cây khó giữ lâu"), đừng đổi sang "được coi là": 310 pages, 391 times
 - vi · "chỗ trú" → "chỗ trốn": 300 pages, 355 times
 - vi · "được cho là" → đúng mức chắc của nguồn: chắc thì nói thẳng, nguồn còn ngờ thì "có lẽ", "nghe nói": 255 pages, 312 times
-- vi · "bể trồng cây" → "bể thủy sinh", "đèn thủy sinh": 196 pages, 266 times
+- vi · "bể trồng cây" → "bể thủy sinh", "đèn thủy sinh": 197 pages, 267 times
 - vi · "thủ phạm" → "nguyên nhân", "là do": 169 pages, 199 times
 - vi · "cá mê cung" → gọi tên con: "cá sặc, cá betta": 132 pages, 179 times
 - vi · "loricariid" → "cá lau kiếng", "cá tỳ bà", "pleco": 132 pages, 154 times
@@ -171,7 +172,7 @@ Words and turns the engine writes far more often than the language's hobbyists d
 - vi · "rất nên" → "nên", "tốt nhất là": 126 pages, 140 times
 - vi · "tốt nhất bạn nên" → "nên", "tốt nhất là": 117 pages, 131 times
 - vi · "lọc bọt biển" → "lọc mút", "lọc bio" (lọc mút chạy sủi): 107 pages, 183 times
-- vi · "dưới đèn" → "đèn mạnh thì…", "đèn yếu thì…": 91 pages, 129 times
+- vi · "dưới đèn" → "đèn mạnh thì…", "đèn yếu thì…": 93 pages, 131 times
 - vi · "khuyến nghị" → "nên", "khuyên": 83 pages, 106 times
 - vi · "trưởng thành sinh dục" → "đủ lớn để đẻ", "bắt cặp được": 83 pages, 97 times
 - vi · "thành phần thực vật" → "có rau", "có tảo": 77 pages, 77 times

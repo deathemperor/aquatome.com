@@ -81,22 +81,7 @@
       "caption": "Cryptocoryne spiralis mọc ngoài tự nhiên trên nền bùn đất",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/108683095.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/108683095-480.webp",
-      "width": 512,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Mayuresh Kulkarni",
-      "sourceUrl": "https://www.inaturalist.org/photos/108683095",
-      "caption": "Bụi Cryptocoryne spiralis mọc dày trên cạn, lá dài hẹp",
-      "best": true,
-      "kind": "emersed",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/259054228.webp",
@@ -109,8 +94,7 @@
       "caption": "Cây Cryptocoryne spiralis mọc giữa cỏ nhỏ trên bùn ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/259055038.webp",
@@ -123,8 +107,20 @@
       "caption": "Cryptocoryne spiralis mọc trên bùn ẩm ngoài tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/108683095.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/108683095-480.webp",
+      "width": 512,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Mayuresh Kulkarni",
+      "sourceUrl": "https://www.inaturalist.org/photos/108683095",
+      "caption": "Bụi Cryptocoryne spiralis mọc dày trên cạn, lá dài hẹp",
+      "best": true,
+      "kind": "emersed",
+      "setup": false
     }
   ],
   "seen": 8,

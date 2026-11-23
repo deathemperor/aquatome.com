@@ -22541,6 +22541,58 @@
   "findings": [],
   "products": []
  },
+ "ms/breeds/flowerhorn-cichlid": {
+  "at": "2026-11-23",
+  "hash": "969aed37ea6655f8",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
+ },
+ "ms/breeds/full-red-guppy": {
+  "at": "2026-11-23",
+  "hash": "bfb8b8ff54875d6e",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
+ },
+ "ms/breeds/glofish": {
+  "at": "2026-11-23",
+  "hash": "596db8da08ec2d84",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Helaian penjagaan Petco pula memberi minimum sekitar 20 liter, bergantung pada spesies.",
+    "why": "Cites a US pet shop's care sheet as a source the reader doesn't know.",
+    "by": "model"
+   }
+  ],
+  "products": [],
+  "pass": true
+ },
+ "ms/breeds/halfmoon-betta": {
+  "at": "2026-11-23",
+  "hash": "4ffb4372ece4589f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Laman Aquariadise berhujah supaya tidak membeli rosetail dan halfmoon lain yang bersirip ekstrem.",
+    "why": "Names the website the page drew on, which the reader doesn't know.",
+    "by": "model"
+   }
+  ],
+  "products": [],
+  "pass": true
+ },
  "ms/breeds/koi": {
   "at": "2026-11-09",
   "hash": "98490485ec8f917f",
@@ -22905,8 +22957,8 @@
   "products": []
  },
  "ms/guides/aquatome-ap-trung-artemia-lam-thuc-an-cho-ca-con-cach-lam-tai-nha": {
-  "at": "2026-11-08",
-  "hash": "d7afce8ab3830318",
+  "at": "2026-11-23",
+  "hash": "f88ab0ee3d01e72a",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -22927,18 +22979,6 @@
    {
     "treatment": "salt",
     "strength": "",
-    "amount": 1,
-    "amountMax": 0,
-    "unit": "tablespoon",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "other",
-    "method": "other",
-    "quote": "kira-kira 1 sudu besar garam dapur bagi setiap liter air paip"
-   },
-   {
-    "treatment": "aquarium salt",
-    "strength": "",
     "amount": 2,
     "amountMax": 0,
     "unit": "tablespoon",
@@ -22947,18 +22987,6 @@
     "use": "other",
     "method": "other",
     "quote": "kira-kira 2 liter air dengan 2 sudu besar garam akuarium"
-   },
-   {
-    "treatment": "dechlorinator",
-    "strength": "",
-    "amount": 1,
-    "amountMax": 2,
-    "unit": "drop",
-    "per": 2,
-    "perUnit": "litre",
-    "use": "water",
-    "method": "other",
-    "quote": "menambah 1–2 titis penyahklorin jika air paip mengandungi kloramina"
    },
    {
     "treatment": "salt",
@@ -22973,16 +23001,16 @@
     "quote": "2 sudu teh garam kasar murah dalam 2 liter air paip"
    },
    {
-    "treatment": "sodium bicarbonate",
+    "treatment": "dechlorinator",
     "strength": "",
     "amount": 1,
-    "amountMax": 0,
-    "unit": "g",
-    "per": 1,
+    "amountMax": 2,
+    "unit": "drop",
+    "per": 2,
     "perUnit": "litre",
     "use": "water",
-    "method": "other",
-    "quote": "bahagian lain manual yang sama menyebut sehingga 1 g/l"
+    "method": "wholeTank",
+    "quote": "menambah 1–2 titis penyahklorin jika air paip mengandungi kloramina"
    },
    {
     "treatment": "sodium hydroxide",
@@ -22991,29 +23019,17 @@
     "amountMax": 0,
     "unit": "g",
     "per": 1,
-    "perUnit": "g of eggs",
+    "perUnit": "g eggs",
     "use": "other",
     "method": "bath",
     "quote": "tambah 0.15 g NaOH bagi setiap g telur"
    },
    {
-    "treatment": "sodium thiosulfate",
-    "strength": "0.1%",
-    "amount": 0,
-    "amountMax": 0,
-    "unit": "",
-    "per": 0,
-    "perUnit": "",
-    "use": "other",
-    "method": "dip",
-    "quote": "celupan kurang daripada 1 minit dalam sodium tiosulfat 0.1% (atau HCl 0.1 N)"
-   },
-   {
     "treatment": "sodium hypochlorite",
     "strength": "200ppm",
-    "amount": 0,
+    "amount": 200,
     "amountMax": 0,
-    "unit": "",
+    "unit": "ppm",
     "per": 0,
     "perUnit": "",
     "use": "disinfecting",
@@ -23021,7 +23037,8 @@
     "quote": "merendam telur dalam hipoklorit kira-kira 200 ppm selama 30 minit"
    }
   ],
-  "sourceRead": true
+  "sourceRead": true,
+  "pass": true
  },
  "ms/guides/aquatome-be-ca-bi-hoi-co-mui-tanh-nguyen-nhan-va-cach-xu-ly": {
   "at": "2026-11-22",
@@ -23610,6 +23627,50 @@
   ],
   "sourceRead": true
  },
+ "ms/guides/aquatome-ca-chet-hang-loat-trong-be-lam-gi-ngay-va-tim-nguyen-nhan-the-nao": {
+  "at": "2026-11-23",
+  "hash": "609a1f3723f6de3f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "satu kuart (lebih kurang 0.95 liter) air tangki",
+    "why": "A US quart and its converted 0.95 litre figure are not units a Malaysian keeper uses.",
+    "by": "model"
+   }
+  ],
+  "products": [],
+  "doses": [
+   {
+    "treatment": "salt",
+    "strength": "",
+    "amount": 1,
+    "amountMax": 3,
+    "unit": "ppt",
+    "per": 0,
+    "perUnit": "",
+    "use": "other",
+    "method": "",
+    "quote": "garam pada 1–3 ppt dalam air tawar mengurangkan penyerapan nitrit"
+   },
+   {
+    "treatment": "calcium chloride",
+    "strength": "",
+    "amount": 10,
+    "amountMax": 0,
+    "unit": "mg",
+    "per": 1,
+    "perUnit": "litre",
+    "use": "other",
+    "method": "",
+    "quote": "tambahkan 10 mg/L klorida bagi setiap 1 mg/L nitrit"
+   }
+  ],
+  "sourceRead": true,
+  "pass": true
+ },
  "ms/guides/aquatome-ca-di-phan-trang-benh-trung-roi-hexamita-ca-dia-nguyen-nhan-cach-chua": {
   "at": "2026-11-22",
   "hash": "2a6364371f9018f1",
@@ -23683,13 +23744,32 @@
   "findings": [],
   "products": []
  },
- "ms/guides/aquatome-cac-loai-thuc-an-cho-ca-thuc-an-song-trun-chi-trung-huyet-artemia-bobo": {
-  "at": "2026-11-22",
-  "hash": "699aa2d54e5ad93c",
+ "ms/guides/aquatome-ca-nuoi-chung-va-cach-tranh-ca-danh-nhau": {
+  "at": "2026-11-23",
+  "hash": "0947729231af84a6",
   "model": "opus",
   "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
+ },
+ "ms/guides/aquatome-cac-loai-thuc-an-cho-ca-thuc-an-song-trun-chi-trung-huyet-artemia-bobo": {
+  "at": "2026-11-23",
+  "hash": "708aa58651ffad54",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "kemudian tambah penyahklorin (natrium tiosulfat)",
+    "why": "Dictionary term for water conditioner; Malaysian keepers say anti-klorin.",
+    "by": "model",
+    "fix": "anti-klorin"
+   }
+  ],
+  "products": [],
+  "pass": true
  },
  "ms/guides/aquatome-cach-chon-va-lap-may-loc-cho-be-ca-loc-thung-loc-treo-loc-tran-loc-day": {
   "at": "2026-11-17",
@@ -24073,11 +24153,13 @@
   "sourceRead": true
  },
  "ms/plants/alternanthera-reineckii-mini": {
-  "at": "2026-11-07",
-  "hash": "e064d967bd95b8fa",
+  "at": "2026-11-23",
+  "hash": "03a5ef30fdc8372c",
   "model": "opus",
+  "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "ms/plants/ammannia-crassicaulis": {
   "at": "2026-11-07",
@@ -24129,27 +24211,21 @@
   "products": []
  },
  "ms/plants/anubias-barteri-var-caladiifolia": {
-  "at": "2026-11-07",
-  "hash": "d09ed0e1936c70b8",
+  "at": "2026-11-23",
+  "hash": "6421bf412cd2266f",
   "model": "opus",
+  "checklist": 3,
   "findings": [
    {
     "check": "source",
-    "part": "P2",
+    "part": "P3",
     "quote": "Pokok induk yang besar, ditanam dalam pasu segi empat 9 cm.",
-    "why": "This describes the source nursery's own stock item (its potted mother plant), which the reader has never seen.",
+    "why": "Describes the source nursery's own potted stock as if the reader were buying it.",
     "by": "model"
-   },
-   {
-    "check": "words",
-    "part": "P1",
-    "quote": "purata ketinggian selepas dua bulan dalam tangki",
-    "why": "'Tangki' is a dictionary translation of 'tank'. Hobbyists in Malaysia say 'akuarium' or 'tank'.",
-    "by": "model",
-    "fix": "akuarium"
    }
   ],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "ms/plants/anubias-barteri-var-coffeifolia": {
   "at": "2026-11-07",
@@ -24208,11 +24284,52 @@
   "products": []
  },
  "ms/plants/aponogeton-madagascariensis": {
-  "at": "2026-11-07",
-  "hash": "072798d2ce2e8489",
+  "at": "2026-11-23",
+  "hash": "5ecd42d9f5145b8d",
   "model": "opus",
-  "findings": [],
-  "products": []
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P5",
+    "quote": "biasanya pada musim panas kerana suhu tinggi",
+    "why": "Malaysia has no summer season; this assumes a temperate reader's climate.",
+    "by": "model"
+   }
+  ],
+  "products": [
+   "ADA Amazonia aqua soil",
+   "Carib Sea Eco-Complete",
+   "Seachem Fluorite"
+  ],
+  "doses": [
+   {
+    "treatment": "potassium dihydrogen phosphate",
+    "strength": "",
+    "amount": 1,
+    "amountMax": 0,
+    "unit": "mg",
+    "per": 1,
+    "perUnit": "litre",
+    "use": "plants",
+    "method": "wholeTank",
+    "quote": "1 mg/L kalium dihidrogen fosfat (KH2PO4)"
+   },
+   {
+    "treatment": "potassium nitrate",
+    "strength": "",
+    "amount": 10,
+    "amountMax": 0,
+    "unit": "mg",
+    "per": 1,
+    "perUnit": "litre",
+    "use": "plants",
+    "method": "wholeTank",
+    "quote": "10 mg/L kalium nitrat"
+   }
+  ],
+  "sourceRead": true,
+  "pass": true
  },
  "ms/plants/aponogeton-ulvaceus": {
   "at": "2026-11-09",
@@ -24343,6 +24460,67 @@
   "model": "opus",
   "findings": [],
   "products": []
+ },
+ "ms/plants/bucephalandra-sp": {
+  "at": "2026-11-23",
+  "hash": "228989af1e77e088",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
+ },
+ "ms/plants/bucephalandra-sp-dark-skeleton-king": {
+  "at": "2026-11-23",
+  "hash": "0ab11edfc2b27a2a",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
+ },
+ "ms/plants/bucephalandra-sp-degori": {
+  "at": "2026-11-23",
+  "hash": "aba4744bb3e87274",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Kuantiti: 3 rizom, kira-kira 5–8 cm.",
+    "why": "This is the source shop's product listing, telling the reader how many rhizomes come in its pack.",
+    "by": "model"
+   }
+  ],
+  "products": [],
+  "pass": true
+ },
+ "ms/plants/bucephalandra-sp-mini-melawi": {
+  "at": "2026-11-23",
+  "hash": "f9c3d2ad1901c58d",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "3 rizom yang ditunjukkan dalam foto ialah anggaran kasar saiz yang akan anda terima",
+    "why": "This is the source shop's product listing. It points to a photo that isn't on the page and talks about what the buyer will receive.",
+    "by": "model"
+   }
+  ],
+  "products": [],
+  "pass": true
+ },
+ "ms/plants/bucephalandra-sp-needle-leaf": {
+  "at": "2026-11-23",
+  "hash": "7fcb9f6608efd4a4",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
  },
  "ms/plants/bucephalandra-sp-red": {
   "at": "2026-11-09",
@@ -25850,6 +26028,33 @@
   "findings": [],
   "products": []
  },
+ "ms/species/abbottina-rivularis": {
+  "at": "2026-11-23",
+  "hash": "8c8261a8caa3c0ba",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P5",
+    "quote": "mungkin beberapa batu besar yang kecil",
+    "why": "Literal calque of English 'small boulders', self-contradictory in Malay.",
+    "by": "model",
+    "fix": "beberapa bongkah batu kecil"
+   }
+  ],
+  "products": [],
+  "pass": true
+ },
+ "ms/species/aborichthys-elongatus": {
+  "at": "2026-11-23",
+  "hash": "693281813aad5d23",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
+ },
  "ms/species/abramites-hypselonotus": {
   "at": "2026-11-23",
   "hash": "41812b90028978a7",
@@ -25874,21 +26079,83 @@
   "findings": [],
   "products": []
  },
- "ms/species/acanthodoras-cataphractus": {
-  "at": "2026-11-09",
-  "hash": "f8786a0c45011b4e",
+ "ms/species/acanthocobitis-botia": {
+  "at": "2026-11-23",
+  "hash": "1d3141a8b23bd797",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P10",
+    "quote": "lihat bahagian berkaitan dalam profil spesies tersebut untuk maklumat lanjut",
+    "why": "Points the reader to the source site's profile of another species, which is not on this page.",
+    "by": "model"
+   }
+  ],
+  "products": [],
+  "pass": true
+ },
+ "ms/species/acanthocobitis-pavonacea": {
+  "at": "2026-11-23",
+  "hash": "cd89a0f53d9939d8",
   "model": "opus",
   "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
+ },
+ "ms/species/acanthocobitis-rubidipinnis": {
+  "at": "2026-11-23",
+  "hash": "1c552ce1c5a37710",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P2",
+    "quote": "paling baik dipelihara pada suhu bilik (18–22 °C)",
+    "why": "It assumes rooms sit at 18–22 °C, as in a temperate country, but rooms in Malaysia are much warmer, so 'room temperature' doesn't give this range.",
+    "by": "model"
+   }
+  ],
+  "products": [],
+  "pass": true
+ },
+ "ms/species/acanthocobitis-zonalternans": {
+  "at": "2026-11-23",
+  "hash": "dc65f751b7da11f9",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P10",
+    "quote": "dipasang sebuah penapis span berkuasa pam udara (lihat gambar).",
+    "why": "Points the reader to a photo from the source article that this page doesn't have.",
+    "by": "model"
+   }
+  ],
+  "products": [],
+  "pass": true
+ },
+ "ms/species/acanthodoras-cataphractus": {
+  "at": "2026-11-23",
+  "hash": "107554eb2f7a7f4b",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
  },
  "ms/species/acanthodoras-spinosissimus": {
-  "at": "2026-11-09",
-  "hash": "5f0f5cdb825b14c8",
+  "at": "2026-11-23",
+  "hash": "fd7ff123b2982cf8",
   "model": "opus",
   "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "ms/species/acanthopsoides-molobrion": {
   "at": "2026-11-09",
@@ -25986,12 +26253,13 @@
   "products": []
  },
  "ms/species/acestridium-dichromum": {
-  "at": "2026-11-09",
-  "hash": "4ff3989c3d1f5374",
+  "at": "2026-11-23",
+  "hash": "85326a157afbf9e0",
   "model": "opus",
   "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "ms/species/acestrorhynchus-altus": {
   "at": "2026-11-09",
@@ -26026,12 +26294,13 @@
   "products": []
  },
  "ms/species/acestrorhynchus-falcirostris": {
-  "at": "2026-11-09",
-  "hash": "3c0cb622f876aafb",
+  "at": "2026-11-23",
+  "hash": "adf428d56ce0661c",
   "model": "opus",
   "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "ms/species/acestrorhynchus-heterolepis": {
   "at": "2026-11-19",
@@ -26050,12 +26319,13 @@
   "products": []
  },
  "ms/species/acestrorhynchus-microlepis": {
-  "at": "2026-11-09",
-  "hash": "1fdd7437667a761a",
+  "at": "2026-11-23",
+  "hash": "29fff2455286d655",
   "model": "opus",
   "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "ms/species/acestrorhynchus-minimus": {
   "at": "2026-11-23",
@@ -26512,12 +26782,13 @@
   "products": []
  },
  "ms/species/akysis-vespa": {
-  "at": "2026-11-14",
-  "hash": "130ec4eec277bd6f",
+  "at": "2026-11-23",
+  "hash": "cf108ca665e5f130",
   "model": "opus",
   "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "ms/species/akysis-vespertinus": {
   "at": "2026-11-14",
@@ -29673,23 +29944,20 @@
   "sourceRead": true
  },
  "ms/species/neocaridina-davidi": {
-  "at": "2026-11-07",
-  "hash": "930afc5a35eca42d",
+  "at": "2026-11-23",
+  "hash": "74acc93a11b40297",
   "model": "opus",
-  "findings": [
-   {
-    "check": "elsewhere",
-    "part": "P1",
-    "quote": "paling selesa pada suhu bilik sederhana, iaitu sekitar 22 °C",
-    "why": "A room temperature of 22 °C is assumed, which fits a cooler country, not a Malaysian home.",
-    "by": "model"
-   }
-  ],
+  "checklist": 3,
+  "findings": [],
   "products": [
-   "Easy Shrimp and Snail Shells",
+   "Hikari Shrimp Cuisine",
+   "Xtreme Shrimpee Sinking Sticks",
    "Repashy",
-   "Shrimp Cuisine"
-  ]
+   "Hikari First Bites",
+   "Easy Fry and Small Fish Food",
+   "Bacter AE"
+  ],
+  "pass": true
  },
  "ms/species/oryzias-dancena": {
   "at": "2026-11-17",
@@ -29777,14 +30045,15 @@
   "products": []
  },
  "ms/species/paracheirodon-axelrodi": {
-  "at": "2026-11-09",
-  "hash": "9475db549bbd035b",
+  "at": "2026-11-23",
+  "hash": "903b1031fd446c5b",
   "model": "opus",
   "checklist": 3,
   "findings": [],
   "products": [
    "golden pearl"
-  ]
+  ],
+  "pass": true
  },
  "ms/species/paracheirodon-innesi": {
   "at": "2026-11-23",
@@ -29810,47 +30079,36 @@
   "products": []
  },
  "ms/species/pethia-conchonius": {
-  "at": "2026-11-07",
-  "hash": "0d52d839532ee93e",
+  "at": "2026-11-23",
+  "hash": "ccd842a42aa3abd6",
   "model": "opus",
+  "checklist": 3,
   "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P12",
+    "quote": "ia perlu dipindahkan ke dalam rumah semasa musim sejuk",
+    "why": "Advice about bringing pond fish indoors for winter is for readers in a cold climate; Malaysia has no winter.",
+    "by": "model"
+   },
    {
     "check": "units",
     "part": "P3",
     "quote": "Saiz tangki minimum: kira-kira 110 liter",
-    "why": "110 litres is a converted 30-gallon tank size, not one a Malaysian keeper would give.",
+    "why": "110 litres is a converted 30-gallon tank size, not one a Malaysian keeper would use.",
     "by": "model"
    },
    {
-    "check": "units",
-    "part": "P8",
-    "quote": "Walaupun akuarium kira-kira 75 liter sudah memadai untuk sekumpulan rosy barb, tangki kira-kira 115 liter atau lebih besar",
-    "why": "75 and 115 litres are converted 20- and 30-gallon tank sizes.",
-    "by": "model"
-   },
-   {
-    "check": "units",
-    "part": "P20",
-    "quote": "akuarium kira-kira 75 atau 115 liter adalah ideal",
-    "why": "Converted 20- and 30-gallon tank sizes.",
-    "by": "model"
-   },
-   {
-    "check": "elsewhere",
-    "part": "P12",
-    "quote": "ia perlu dipindahkan ke dalam rumah semasa musim sejuk, terutamanya di kawasan yang mudah mengalami cuaca sejuk",
-    "why": "Malaysia has no winter; this advice is for readers in a temperate country.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P22",
-    "quote": "dan konvensyen itulah yang digunakan buat masa ini",
-    "why": "Refers to the source site's own naming convention, which this page does not follow.",
-    "by": "model"
+    "check": "words",
+    "part": "P14",
+    "quote": "kacang pea",
+    "why": "Half-translated English; Malaysian keepers say kacang pis.",
+    "by": "model",
+    "fix": "kacang pis"
    }
   ],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "ms/species/phenacogrammus-interruptus": {
   "at": "2026-11-21",
@@ -29870,19 +30128,13 @@
   "products": []
  },
  "ms/species/phractocephalus-hemioliopterus": {
-  "at": "2026-11-07",
-  "hash": "a727d53719d0103b",
+  "at": "2026-11-23",
+  "hash": "f210b519ce8665ca",
   "model": "opus",
-  "findings": [
-   {
-    "check": "elsewhere",
-    "part": "P5",
-    "quote": "dahan pokok beech",
-    "why": "Beech branches are a decor item for keepers in temperate Europe; beech doesn't grow in Malaysia.",
-    "by": "model"
-   }
-  ],
-  "products": []
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
  },
  "ms/species/poecilia-latipinna": {
   "at": "2026-11-13",
@@ -29976,6 +30228,30 @@
    "Repashy"
   ]
  },
+ "ms/species/pomacea-diffusa": {
+  "at": "2026-11-23",
+  "hash": "fce4ff87c154c567",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P9",
+    "quote": "Apabila sudah sebesar kacang pea",
+    "why": "Half-English 'kacang pea'; Malay keepers say 'kacang pis'.",
+    "by": "model",
+    "fix": "sebesar kacang pis"
+   }
+  ],
+  "products": [
+   "Easy Shrimp and Snail Shells",
+   "Seachem Equilibrium",
+   "Hikari Crab Cuisine",
+   "Repashy",
+   "Tums"
+  ],
+  "pass": true
+ },
  "ms/species/pterophyllum-altum": {
   "at": "2026-11-12",
   "hash": "ef2c31681ad2d0e4",
@@ -30023,11 +30299,13 @@
   "products": []
  },
  "ms/species/pterygoplichthys-pardalis": {
-  "at": "2026-11-07",
-  "hash": "251e26cd59baf4ea",
+  "at": "2026-11-23",
+  "hash": "9cdbe0efdbf986cf",
   "model": "opus",
+  "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "ms/species/puntigrus-tetrazona": {
   "at": "2026-11-22",
@@ -30164,11 +30442,13 @@
   "products": []
  },
  "ms/species/trichopodus-trichopterus": {
-  "at": "2026-11-07",
-  "hash": "6d25e9d9fb66dbe9",
+  "at": "2026-11-23",
+  "hash": "ea79d364a5aa2c80",
   "model": "opus",
+  "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "ms/species/trigonostigma-heteromorpha": {
   "at": "2026-11-21",
@@ -33361,12 +33641,13 @@
   "products": []
  },
  "th/plants/aegagropila-linnaei": {
-  "at": "2026-11-08",
-  "hash": "aa2356b1f7b337f6",
+  "at": "2026-11-23",
+  "hash": "3f9bbe1e36bb773a",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/plants/alternanthera-bettzickiana": {
   "at": "2026-11-08",
@@ -33598,12 +33879,13 @@
   "sourceRead": true
  },
  "th/plants/aponogeton-ulvaceus": {
-  "at": "2026-11-07",
-  "hash": "3eb0090aab09b1cc",
+  "at": "2026-11-23",
+  "hash": "2fdc8adb0ef4d93e",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/plants/azolla": {
   "at": "2026-11-10",
@@ -34055,23 +34337,40 @@
   "products": []
  },
  "th/plants/cryptocoryne-wendtii": {
-  "at": "2026-11-07",
-  "hash": "6ca0fdde95f8a07a",
+  "at": "2026-11-23",
+  "hash": "59477dc396231c9e",
   "model": "opus",
+  "checklist": 3,
   "findings": [
    {
     "check": "words",
     "part": "P11",
     "quote": "ปลาเสือพ่นน้ำแดง (cherry barb)",
-    "why": "ปลาเสือพ่นน้ำ is the Thai name for the archerfish, so this is a mistranslation of cherry barb.",
+    "why": "ปลาเสือพ่นน้ำ is the archerfish; Thai keepers call the cherry barb by its own name.",
     "by": "model",
     "fix": "ปลาเชอร์รี่บาร์บ"
    },
    {
-    "check": "units",
-    "part": "P7",
-    "quote": "ในสภาพที่เหมาะสมแทบไม่โตเกิน 2.5 ซม. ในสองสามสัปดาห์",
-    "why": "2.5 cm is a converted '1 inch' growth figure, not a number a Thai keeper would give.",
+    "check": "words",
+    "part": "P11",
+    "quote": "กุ้งบัมเบิ้ลบี/กุ้งพัด (bamboo shrimp)",
+    "why": "Bumblebee shrimp is a different shrimp; the bamboo shrimp is called กุ้งพัด.",
+    "by": "model",
+    "fix": "กุ้งพัด"
+   },
+   {
+    "check": "words",
+    "part": "P11",
+    "quote": "ปลาออสก้า",
+    "why": "Thai keepers write the Oscar as ออสการ์.",
+    "by": "model",
+    "fix": "ปลาออสการ์"
+   },
+   {
+    "check": "source",
+    "part": "P8",
+    "quote": "ไม้น้ำจากการเพาะเลี้ยงเนื้อเยื่อในถ้วยปิด",
+    "why": "This is Tropica's description of the cup it sells, not information about the plant.",
     "by": "model"
    }
   ],
@@ -34079,7 +34378,8 @@
    "ADA Amazonia aqua soil",
    "Caribsea Eco-Complete",
    "Seachem Flourite Black Sand"
-  ]
+  ],
+  "pass": true
  },
  "th/plants/cryptocoryne-x-willisii": {
   "at": "2026-11-07",
@@ -34098,16 +34398,16 @@
   "products": []
  },
  "th/plants/dracaena-sanderiana": {
-  "at": "2026-11-12",
-  "hash": "1e83871263608749",
+  "at": "2026-11-23",
+  "hash": "0a73efad4b590c9a",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "units",
-    "part": "P5",
-    "quote": "เติมน้ำให้ต่ำกว่าใบชุดล่างสุดประมาณ 2.5 ซม.",
-    "why": "2.5 cm is a converted 1 inch, a figure a Thai keeper would not choose.",
+    "check": "elsewhere",
+    "part": "P7",
+    "quote": "ในกรณีส่วนใหญ่อุณหภูมิห้องก็เหมาะสม",
+    "why": "Assumes room temperature falls within 16–27 °C, as in a cooler country; rooms in Thailand often sit above 27 °C.",
     "by": "model"
    }
   ],
@@ -34115,7 +34415,8 @@
    "ADA Amazonia aqua soil",
    "Carib Sea Eco-Complete",
    "Seachem Fluorite"
-  ]
+  ],
+  "pass": true
  },
  "th/plants/echinodorus-angustifolia": {
   "at": "2026-11-10",
@@ -34458,12 +34759,15 @@
   "products": []
  },
  "th/plants/hydrocotyle-verticillata": {
-  "at": "2026-11-08",
-  "hash": "84e9d1f6a605a181",
+  "at": "2026-11-23",
+  "hash": "864effce19496217",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [
+   "ADA Amazonia"
+  ],
+  "pass": true
  },
  "th/plants/hygrophila-angustifolia": {
   "at": "2026-11-08",
@@ -34720,12 +35024,15 @@
   "products": []
  },
  "th/plants/lobelia-cardinalis": {
-  "at": "2026-11-08",
-  "hash": "52461a37473ab88b",
+  "at": "2026-11-23",
+  "hash": "2750e48f43c23594",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [
+   "ADA Amazonia"
+  ],
+  "pass": true
  },
  "th/plants/lomariopsis-sp": {
   "at": "2026-11-18",
@@ -41014,20 +41321,13 @@
   "products": []
  },
  "th/species/betta-miniopinna": {
-  "at": "2026-11-14",
-  "hash": "74320b04c79fd9f2",
+  "at": "2026-11-23",
+  "hash": "22b48b8330861837",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "units",
-    "part": "P11",
-    "quote": "แนะนำ 1 คู่ต่อน้ำประมาณ 19 ลิตร",
-    "why": "19 litres is a converted 5-gallon figure, not a volume a keeper in Thailand would use.",
-    "by": "model"
-   }
-  ],
-  "products": []
+  "findings": [],
+  "products": [],
+  "pass": true
  },
  "th/species/betta-ocellata": {
   "at": "2026-11-22",
@@ -41549,12 +41849,13 @@
   "products": []
  },
  "th/species/boraras-urophthalmoides": {
-  "at": "2026-11-08",
-  "hash": "32cead096e1b26be",
+  "at": "2026-11-23",
+  "hash": "ce9da27ef86e510c",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/bostrychus-zonatus": {
   "at": "2026-11-19",
@@ -41644,14 +41945,15 @@
   "products": []
  },
  "th/species/botia-rostrata": {
-  "at": "2026-11-08",
-  "hash": "1139901d64bd2cd6",
+  "at": "2026-11-23",
+  "hash": "42f4a0010b0c1d0c",
   "model": "opus",
   "checklist": 3,
   "findings": [],
   "products": [
    "Panacur"
-  ]
+  ],
+  "pass": true
  },
  "th/species/botia-striata": {
   "at": "2026-11-08",
@@ -41664,18 +41966,19 @@
   ]
  },
  "th/species/botia-udomritthiruji": {
-  "at": "2026-11-08",
-  "hash": "3f0653878514fc1e",
+  "at": "2026-11-23",
+  "hash": "818a1a62c6d5650d",
   "model": "opus",
   "checklist": 3,
   "findings": [],
   "products": [
    "Panacur"
-  ]
+  ],
+  "pass": true
  },
  "th/species/boulengerella-cuvieri": {
-  "at": "2026-11-08",
-  "hash": "fb8202bbbf8a4452",
+  "at": "2026-11-23",
+  "hash": "e5752a924f038292",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -41683,28 +41986,22 @@
     "check": "words",
     "part": "P2",
     "quote": "อาศัยอยู่ในชั้นน้ำกลางแจ้ง (pelagic)",
-    "why": "\"กลางแจ้ง\" means outdoors; a mistranslation of pelagic.",
+    "why": "'กลางแจ้ง' means outdoors, so this is a mistranslation of 'pelagic'; Thai keepers describe it as an open-water or mid-water swimmer.",
     "by": "model",
-    "fix": "อาศัยอยู่ในชั้นน้ำเปิด / กลางน้ำ"
-   },
-   {
-    "check": "words",
-    "part": "P9",
-    "quote": "ปลาแมวในวงศ์ Doradidae",
-    "why": "\"ปลาแมว\" is a literal calque of catfish; Thai keepers don't say it.",
-    "by": "model",
-    "fix": "ปลาหนัง / ปลาแคทฟิช"
+    "fix": "อาศัยอยู่ในน้ำเปิด ว่ายชั้นกลางน้ำถึงผิวน้ำ"
    }
   ],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/boulengerella-lateristriga": {
-  "at": "2026-11-08",
-  "hash": "c36dea592f7ab3d5",
+  "at": "2026-11-23",
+  "hash": "760c769c3ca216ab",
   "model": "opus",
   "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/boulengerella-lucius": {
   "at": "2026-11-21",
@@ -41715,8 +42012,8 @@
   "products": []
  },
  "th/species/boulengerella-maculata": {
-  "at": "2026-11-08",
-  "hash": "566161fda6a61f96",
+  "at": "2026-11-23",
+  "hash": "160f256e6eebdc2b",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -41724,12 +42021,13 @@
     "check": "words",
     "part": "P8",
     "quote": "ความยางมาตรฐาน: 329 mm SL",
-    "why": "Garbled term: 'ความยาง' means rubberiness; standard length is meant.",
+    "why": "\"ความยาง\" (rubberiness) is a garbled rendering of standard length; keepers write ความยาวมาตรฐาน.",
     "by": "model",
     "fix": "ความยาวมาตรฐาน"
    }
   ],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/boulengerochromis-microlepis": {
   "at": "2026-11-08",
@@ -41828,20 +42126,21 @@
   "products": []
  },
  "th/species/brachygobius-mekongensis": {
-  "at": "2026-11-08",
-  "hash": "67d49dd63fcf11b0",
+  "at": "2026-11-23",
+  "hash": "717b7db19bcebb83",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P10",
     "quote": "แม้ภาพประกอบจะจัดให้ตรงกับแต่ละชนิดตามความสอดคล้องกับรูปวิธานของ Inger (1958)",
-    "why": "Refers to the source article's illustrations, which this page does not have.",
+    "why": "Refers to the source's illustrations, which this page does not have.",
     "by": "model"
    }
   ],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/brachygobius-nunus": {
   "at": "2026-11-08",
@@ -41890,9 +42189,10 @@
   "products": []
  },
  "th/species/brachygobius-xanthomelas": {
-  "at": "2026-11-07",
-  "hash": "4d355a71a2b1e791",
+  "at": "2026-11-23",
+  "hash": "b55425196c00161a",
   "model": "opus",
+  "checklist": 3,
   "findings": [
    {
     "check": "source",
@@ -41902,7 +42202,8 @@
     "by": "model"
    }
   ],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/brachygobius-xanthozonus": {
   "at": "2026-11-08",
@@ -41928,20 +42229,22 @@
   "products": []
  },
  "th/species/brachyplatystoma-capapretum": {
-  "at": "2026-11-08",
-  "hash": "d884de37e2b559a0",
+  "at": "2026-11-23",
+  "hash": "ee298d4e02025d94",
   "model": "opus",
   "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/brachyplatystoma-filamentosum": {
-  "at": "2026-11-08",
-  "hash": "c8d66045791e3617",
+  "at": "2026-11-23",
+  "hash": "d791b85ced034dc8",
   "model": "opus",
   "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/brachyplatystoma-juruense": {
   "at": "2026-11-08",
@@ -41968,12 +42271,13 @@
   "products": []
  },
  "th/species/brachyplatystoma-rousseauxii": {
-  "at": "2026-11-08",
-  "hash": "bd8849c6924007db",
+  "at": "2026-11-23",
+  "hash": "75012962f68af4a5",
   "model": "opus",
   "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/brachyplatystoma-tigrinum": {
   "at": "2026-11-08",
@@ -41990,6 +42294,24 @@
   "checklist": 3,
   "findings": [],
   "products": []
+ },
+ "th/species/brachyrhamdia-heteropleura": {
+  "at": "2026-11-23",
+  "hash": "586082bdf505b2c8",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
+ },
+ "th/species/brachyrhamdia-imitator": {
+  "at": "2026-11-23",
+  "hash": "3a5c89922c02f5d9",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
  },
  "th/species/brachyrhamdia-meesi": {
   "at": "2026-11-21",
@@ -42015,6 +42337,33 @@
    }
   ],
   "products": []
+ },
+ "th/species/brachyrhamdia-rambarrani": {
+  "at": "2026-11-23",
+  "hash": "f102043630477259",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P2",
+    "quote": "เป็นปลาแมวในวงศ์ Heptapteridae",
+    "why": "\"ปลาแมว\" is a word-for-word translation of \"catfish\". Thai keepers call these fish แคทฟิช.",
+    "by": "model",
+    "fix": "ปลาแคทฟิช"
+   }
+  ],
+  "products": [],
+  "pass": true
+ },
+ "th/species/brachyrhaphis-roseni": {
+  "at": "2026-11-23",
+  "hash": "11028433a0c3b940",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
  },
  "th/species/breitensteinia-cessator": {
   "at": "2026-11-08",
@@ -42064,6 +42413,15 @@
   ],
   "products": []
  },
+ "th/species/brevimyrus-niger": {
+  "at": "2026-11-23",
+  "hash": "7a303a502f1c4898",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
+ },
  "th/species/brochiloricaria-macrodon": {
   "at": "2026-11-18",
   "hash": "764be3e8c9bb5756",
@@ -42103,6 +42461,23 @@
   "findings": [],
   "products": []
  },
+ "th/species/brotia-pagodula": {
+  "at": "2026-11-23",
+  "hash": "bc95b61966427baf",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P11",
+    "quote": "ควรให้พืชผักอย่างแดนดิไลออน ผักชิกวีด ผักกาดหอมที่ไม่ฉีดพ่นสารเคมี",
+    "why": "Dandelion and chickweed are wild greens a German keeper picks outdoors; they are not readily available to a keeper in Thailand.",
+    "by": "model"
+   }
+  ],
+  "products": [],
+  "pass": true
+ },
  "th/species/brycinus-longipinnis": {
   "at": "2026-11-18",
   "hash": "b34850994893f0a9",
@@ -42120,6 +42495,15 @@
   "products": [
    "liquifry"
   ]
+ },
+ "th/species/brycon-cephalus": {
+  "at": "2026-11-23",
+  "hash": "fc356ba4214d01eb",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
  },
  "th/species/brycon-hilarii": {
   "at": "2026-11-18",
@@ -42145,6 +42529,50 @@
    }
   ],
   "products": []
+ },
+ "th/species/bryconaethiops-boulengeri": {
+  "at": "2026-11-23",
+  "hash": "0855fbb510e907df",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
+ },
+ "th/species/bryconops-caudomaculatus": {
+  "at": "2026-11-23",
+  "hash": "33236583c79244eb",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "ส่วนปลาที่นำเข้ามาตอนนี้มีขนาด 4-5 ซม.",
+    "why": "Refers to the source shop's current imported stock as if the reader knew it.",
+    "by": "model"
+   }
+  ],
+  "products": [],
+  "pass": true
+ },
+ "th/species/buccochromis-lepturus": {
+  "at": "2026-11-23",
+  "hash": "c4d6db891a14975f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
+ },
+ "th/species/buccochromis-nototaenia": {
+  "at": "2026-11-23",
+  "hash": "4d84d5c2214df4cb",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
  },
  "th/species/bujurquina-oenolaemus": {
   "at": "2026-11-16",
@@ -42177,6 +42605,15 @@
   "checklist": 3,
   "findings": [],
   "products": []
+ },
+ "th/species/bunocephalus-colombianus": {
+  "at": "2026-11-23",
+  "hash": "4519133fee423b10",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
  },
  "th/species/bunocephalus-coracoideus": {
   "at": "2026-11-21",
@@ -42295,6 +42732,15 @@
   "findings": [],
   "products": []
  },
+ "th/species/callichthys-serralabium": {
+  "at": "2026-11-23",
+  "hash": "c67aaa483da8e262",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
+ },
  "th/species/callochromis-macrops": {
   "at": "2026-11-13",
   "hash": "4e4c526654a93072",
@@ -42318,6 +42764,19 @@
   "checklist": 3,
   "findings": [],
   "products": []
+ },
+ "th/species/cambarellus-diminutus": {
+  "at": "2026-11-23",
+  "hash": "1bb045be8d9d0c6d",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "Salty Shrimp GH+",
+   "TetraMin",
+   "Hikari Shrimp Cuisine"
+  ],
+  "pass": true
  },
  "th/species/cambarellus-patzcuarensis": {
   "at": "2026-11-16",
@@ -42353,6 +42812,25 @@
    "Salty Shrimp GH/KH+"
   ]
  },
+ "th/species/cambarellus-shufeldtii": {
+  "at": "2026-11-23",
+  "hash": "733d4eb9250263cf",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "harm",
+    "part": "P7",
+    "quote": "ไม่จำเป็นต้องใช้ฮีตเตอร์ อุณหภูมิห้องก็เหมาะกับกุ้งชนิดนี้",
+    "why": "Room temperature in Thailand is usually 28–32 °C, above the 26 °C the page says this crayfish tolerates; the advice assumes a cooler climate abroad and would overheat the animals.",
+    "by": "model"
+   }
+  ],
+  "products": [
+   "Hikari Shrimp Cuisine"
+  ],
+  "pass": true
+ },
  "th/species/cambarellus-texanus": {
   "at": "2026-11-18",
   "hash": "a42ab6577d671e5a",
@@ -42373,13 +42851,40 @@
    "Hikari crustacean food"
   ]
  },
+ "th/species/cambarus-bartonii": {
+  "at": "2026-11-23",
+  "hash": "f2fe27633022273c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P7",
+    "quote": "เหมาะกับตู้แบบ low-tech ที่ไม่ใช้ฮีตเตอร์",
+    "why": "Assumes a cool climate; in Thailand an unheated tank runs about 28–32 °C, far above the 15–20 °C this species needs and near its 33 °C lethal limit.",
+    "by": "model"
+   }
+  ],
+  "products": [],
+  "pass": true
+ },
  "th/species/camposcia-retusa": {
-  "at": "2026-11-14",
-  "hash": "aad21775a54a13d1",
+  "at": "2026-11-23",
+  "hash": "05273faadf7b2cf9",
   "model": "opus",
   "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
+ },
+ "th/species/campylomormyrus-compressirostris": {
+  "at": "2026-11-23",
+  "hash": "8bddc202abadf64a",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
  },
  "th/species/campylomormyrus-tamandua": {
   "at": "2026-11-21",
@@ -42388,6 +42893,15 @@
   "checklist": 3,
   "findings": [],
   "products": []
+ },
+ "th/species/candidia-barbata": {
+  "at": "2026-11-23",
+  "hash": "8211113c97462c8b",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
  },
  "th/species/canthophrys-gongota": {
   "at": "2026-11-22",
@@ -42469,6 +42983,32 @@
   "findings": [],
   "products": []
  },
+ "th/species/caridina-logemanni": {
+  "at": "2026-11-23",
+  "hash": "fae25910beadb8da",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
+ },
+ "th/species/caridina-mariae": {
+  "at": "2026-11-23",
+  "hash": "54afba6373af98b6",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P4",
+    "quote": "ที่อุณหภูมิห้อง (18–22 °C) กุ้งจะกระฉับกระเฉงและขยายพันธุ์ได้มาก",
+    "why": "A room at 18–22 °C describes a cooler country's house; rooms in Thailand are much warmer, above the shrimp's 25 °C limit.",
+    "by": "model"
+   }
+  ],
+  "products": [],
+  "pass": true
+ },
  "th/species/caridina-multidentata": {
   "at": "2026-11-23",
   "hash": "2113aef4a971f817",
@@ -42544,6 +43084,15 @@
   "findings": [],
   "products": []
  },
+ "th/species/carinotetraodon-lorteti": {
+  "at": "2026-11-23",
+  "hash": "7b7f53c116db84d3",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
+ },
  "th/species/carinotetraodon-salivator": {
   "at": "2026-11-22",
   "hash": "96c1224a34ca836e",
@@ -42609,6 +43158,32 @@
   "findings": [],
   "products": []
  },
+ "th/species/carnegiella-marthae": {
+  "at": "2026-11-23",
+  "hash": "269be6bfb929027a",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P8",
+    "quote": "รวมถึงปลาแมววงศ์ Callichthyidae หรือวงศ์ Loricariidae ขนาดเล็ก",
+    "why": "\"ปลาแมว\" is a literal calque of \"catfish\" and is the Thai name of a different fish; keepers say ปลาแพะ/แคทฟิช or ปลาซักเกอร์.",
+    "by": "model",
+    "fix": "ปลาแพะ (Callichthyidae) หรือปลาซักเกอร์/แคทฟิช (Loricariidae)"
+   },
+   {
+    "check": "words",
+    "part": "P7",
+    "quote": "ไรทะเลวัยอ่อน (Artemia nauplii)",
+    "why": "A dictionary rendering of \"Artemia nauplii\"; Thai keepers call it ลูกไรทะเล or ไรทะเลแรกฟัก.",
+    "by": "model",
+    "fix": "ลูกไรทะเลแรกฟัก"
+   }
+  ],
+  "products": [],
+  "pass": true
+ },
  "th/species/carnegiella-myersi": {
   "at": "2026-11-23",
   "hash": "5851c140a2a99d29",
@@ -42667,6 +43242,15 @@
   "findings": [],
   "products": []
  },
+ "th/species/catlocarpio-siamensis": {
+  "at": "2026-11-23",
+  "hash": "dbefa58ae1840ef1",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
+ },
  "th/species/catoprion-mento": {
   "at": "2026-11-23",
   "hash": "2323d47eb2abd0b2",
@@ -42691,6 +43275,15 @@
   ],
   "products": []
  },
+ "th/species/centrochir-crocodili": {
+  "at": "2026-11-23",
+  "hash": "5cf3aa0e7031993e",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
+ },
  "th/species/centrodoras-brachiatus": {
   "at": "2026-11-21",
   "hash": "a83f08bbe8e241e3",
@@ -42698,6 +43291,23 @@
   "checklist": 3,
   "findings": [],
   "products": []
+ },
+ "th/species/centromochlus-heckelii": {
+  "at": "2026-11-23",
+  "hash": "7db91004fb8522f2",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P2",
+    "quote": "Jeremy Basch จาก AmazonTropics.com ผู้เชี่ยวชาญปลาแคทฟิชกลุ่มนี้ ระบุว่า",
+    "why": "Names a foreign shop's person from the original source as if the reader knows him, rather than a scientific authority.",
+    "by": "model"
+   }
+  ],
+  "products": [],
+  "pass": true
  },
  "th/species/centromochlus-macracanthus": {
   "at": "2026-11-23",
@@ -42876,21 +43486,13 @@
   "products": []
  },
  "th/species/chaetostoma-formosae": {
-  "at": "2026-11-09",
-  "hash": "0fe3c751da2c3636",
+  "at": "2026-11-23",
+  "hash": "edb691411b6521b8",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "words",
-    "part": "P1",
-    "quote": "เป็นปลาแมวปากดูดจากลำธารเชิงเขา",
-    "why": "Calque of 'suckermouth catfish'; ปลาแมว is a different (anchovy) fish in Thai, keepers say แคทฟิช/ซัคเกอร์.",
-    "by": "model",
-    "fix": "แคทฟิชปากดูด (ปลาซัคเกอร์/เพลโก)"
-   }
-  ],
-  "products": []
+  "findings": [],
+  "products": [],
+  "pass": true
  },
  "th/species/chaetostoma-leucomelas": {
   "at": "2026-11-09",
@@ -43153,12 +43755,13 @@
   "products": []
  },
  "th/species/channa-maculata": {
-  "at": "2026-11-09",
-  "hash": "e3cedff8d7846103",
+  "at": "2026-11-23",
+  "hash": "00de59fe7dd5d279",
   "model": "opus",
   "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/channa-marulioides": {
   "at": "2026-11-07",
@@ -43753,12 +44356,13 @@
   "products": []
  },
  "th/species/clarias-batrachus": {
-  "at": "2026-11-08",
-  "hash": "514e10f76b7fc243",
+  "at": "2026-11-23",
+  "hash": "11125cd194cf4465",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/clarias-buettikoferi": {
   "at": "2026-11-10",
@@ -44038,12 +44642,22 @@
   "products": []
  },
  "th/species/compsaraia-samueli": {
-  "at": "2026-11-15",
-  "hash": "229abce681dfa0b0",
+  "at": "2026-11-23",
+  "hash": "30252c6eddb96fa6",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
-  "products": []
+  "findings": [
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "ปลาตัวผู้ของ \"ปลาไนฟ์เพลิคาโน\" ชนิดนี้",
+    "why": "\"เพลิคาโน\" is copied from the foreign source's name for the fish, and the page's own title uses เพลิแกน.",
+    "by": "model",
+    "fix": "ปลาไนฟ์เพลิแกน"
+   }
+  ],
+  "products": [],
+  "pass": true
  },
  "th/species/congochromis-dimidiatus": {
   "at": "2026-11-10",
@@ -46063,20 +46677,21 @@
   "products": []
  },
  "th/species/cyclocheilichthys-armatus": {
-  "at": "2026-11-07",
-  "hash": "34b163cffd4aff97",
+  "at": "2026-11-23",
+  "hash": "8280d4b59ff6b60f",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "elsewhere",
     "part": "P11",
     "quote": "วิธีที่ดีที่สุดในการหาปลาชนิดนี้อาจเป็นการคอยติดตามล็อตปลาธรรมชาติที่นำเข้าจากอินโดจีนและหมู่เกาะซุนดาใหญ่",
-    "why": "Telling the reader to watch for imported wild batches assumes a reader abroad, but this fish is native to Thailand.",
+    "why": "Advice to watch for imported shipments is written for a reader abroad; the fish is native to Thai rivers.",
     "by": "model"
    }
   ],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/cyclocheilichthys-heteronema": {
   "at": "2026-11-08",
@@ -46371,20 +46986,13 @@
   "products": []
  },
  "th/species/danio-albolineatus": {
-  "at": "2026-11-08",
-  "hash": "8e8ffb4a77b76ce2",
+  "at": "2026-11-23",
+  "hash": "487664e272320f7d",
   "model": "opus",
-  "checklist": 2,
-  "findings": [
-   {
-    "check": "units",
-    "part": "P1",
-    "quote": "ขนาดตู้ขั้นต่ำ: ประมาณ 75 ลิตร",
-    "why": "75 litres is a converted 20-gallon tank, a size nobody in Thailand would give.",
-    "by": "model"
-   }
-  ],
-  "products": []
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
  },
  "th/species/danio-choprae": {
   "at": "2026-11-14",
@@ -46733,12 +47341,13 @@
   "products": []
  },
  "th/species/datnioides-polota": {
-  "at": "2026-11-08",
-  "hash": "8d35134b124ae3d8",
+  "at": "2026-11-23",
+  "hash": "e83facc88baae602",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/datnioides-pulcher": {
   "at": "2026-11-08",
@@ -46982,12 +47591,13 @@
   "products": []
  },
  "th/species/desmopuntius-johorensis": {
-  "at": "2026-11-08",
-  "hash": "cf13c5219b938189",
+  "at": "2026-11-23",
+  "hash": "f3f2e5f02a55d05c",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/desmopuntius-pentazona": {
   "at": "2026-11-16",
@@ -48625,6 +49235,15 @@
   "findings": [],
   "products": []
  },
+ "th/species/gymnochanda-verae": {
+  "at": "2026-11-23",
+  "hash": "cc607b5d13a28caf",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
+ },
  "th/species/gymnocorymbus-ternetzi": {
   "at": "2026-11-08",
   "hash": "96425aa82bb748cf",
@@ -48640,6 +49259,30 @@
   "checklist": 3,
   "findings": [],
   "products": []
+ },
+ "th/species/gymnothorax-tile": {
+  "at": "2026-11-23",
+  "hash": "fa13e9dc4ea44aeb",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "doses": [
+   {
+    "treatment": "marine salt",
+    "strength": "",
+    "amount": 15,
+    "amountMax": 0,
+    "unit": "g",
+    "per": 1,
+    "perUnit": "litre",
+    "use": "water",
+    "method": "wholeTank",
+    "quote": "ตั้งเป้าไว้ที่ประมาณ 15 กรัม/ลิตร"
+   }
+  ],
+  "sourceRead": true,
+  "pass": true
  },
  "th/species/gyrinocheilus-aymonieri": {
   "at": "2026-11-17",
@@ -48731,12 +49374,13 @@
   "products": []
  },
  "th/species/helostoma-temminckii": {
-  "at": "2026-11-08",
-  "hash": "2341281f2b4d9c19",
+  "at": "2026-11-23",
+  "hash": "9798e220ce7bd86a",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/hemiarius-stormii": {
   "at": "2026-11-18",
@@ -48745,6 +49389,15 @@
   "checklist": 3,
   "findings": [],
   "products": []
+ },
+ "th/species/hemibagrus-planiceps": {
+  "at": "2026-11-23",
+  "hash": "44e856352bb96ade",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
  },
  "th/species/hemibagrus-wyckii": {
   "at": "2026-11-07",
@@ -48925,6 +49578,33 @@
   "checklist": 2,
   "findings": [],
   "products": []
+ },
+ "th/species/homalopterula-gymnogaster": {
+  "at": "2026-11-23",
+  "hash": "e9cd1cbae2ed8779",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
+ },
+ "th/species/homalopterula-ripleyi": {
+  "at": "2026-11-23",
+  "hash": "a79575e2cf6aa65c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
+ },
+ "th/species/hyalobagrus-flavus": {
+  "at": "2026-11-23",
+  "hash": "2aae8f9e724056a4",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
  },
  "th/species/hyalobagrus-leiacanthus": {
   "at": "2026-11-16",
@@ -49323,21 +50003,22 @@
   "products": []
  },
  "th/species/lepidocephalichthys-furcatus": {
-  "at": "2026-11-08",
-  "hash": "838969d636b8ee5d",
+  "at": "2026-11-23",
+  "hash": "3a80cde3a3c3a1e0",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "words",
     "part": "P4",
-    "quote": "แหล่งน้ำบางแห่งอาจกลายเป็นน้ำนิ่งที่มีสาหร่ายขนาดใหญ่ (มาโครไฟต์) เจริญหนาแน่น",
-    "why": "Literal rendering of English 'macrophytes'; these are mostly aquatic plants, not algae, and Thai keepers do not use this term.",
+    "quote": "สาหร่ายขนาดใหญ่ (มาโครไฟต์) เจริญหนาแน่น",
+    "why": "'Macrophytes' are aquatic plants, not large algae; this is a mistranslation a Thai keeper would not use.",
     "by": "model",
     "fix": "พืชน้ำ"
    }
   ],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/lepidocephalichthys-hasselti": {
   "at": "2026-11-09",
@@ -49620,6 +50301,15 @@
   "findings": [],
   "products": []
  },
+ "th/species/mastacembelus-notophthalmus": {
+  "at": "2026-11-23",
+  "hash": "eda9e9da5f02fdf7",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
+ },
  "th/species/mastacembelus-unicolor": {
   "at": "2026-11-18",
   "hash": "d09fcb999b2de5e7",
@@ -49865,11 +50555,13 @@
   "products": []
  },
  "th/species/moenkhausia-sanctaefilomenae": {
-  "at": "2026-11-07",
-  "hash": "2b0130f89b1a2853",
+  "at": "2026-11-23",
+  "hash": "19a9953d17f67b50",
   "model": "opus",
+  "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/monetaria-annulus": {
   "at": "2026-11-08",
@@ -50076,6 +50768,15 @@
   ],
   "sourceRead": true
  },
+ "th/species/nematabramis-borneensis": {
+  "at": "2026-11-23",
+  "hash": "b886889530e6486f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
+ },
  "th/species/nematabramis-everetti": {
   "at": "2026-11-07",
   "hash": "d860f20da7cb569e",
@@ -50125,14 +50826,15 @@
   ]
  },
  "th/species/neohomaloptera-johorensis": {
-  "at": "2026-11-08",
-  "hash": "e18ee890f04cb4f5",
+  "at": "2026-11-23",
+  "hash": "bc070c4c2a79706e",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
   "products": [
    "Repashy \"Soilent Green\""
-  ]
+  ],
+  "pass": true
  },
  "th/species/neopetrolisthes-maculatus": {
   "at": "2026-11-20",
@@ -50237,6 +50939,15 @@
   "checklist": 3,
   "findings": [],
   "products": []
+ },
+ "th/species/nomorhamphus-ebrardtii": {
+  "at": "2026-11-23",
+  "hash": "f5c3bc9aa3e433e1",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
  },
  "th/species/nomorhamphus-liemi": {
   "at": "2026-11-18",
@@ -50404,6 +51115,23 @@
   "checklist": 3,
   "findings": [],
   "products": []
+ },
+ "th/species/oryzias-wolasi": {
+  "at": "2026-11-23",
+  "hash": "00520748998b025c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "ปลาข้าวสารนีออน (Neon Ricefish) ที่จับจากธรรมชาติมีจำหน่ายที่ขนาด 1.5–2 ซม.",
+    "why": "This describes the source wholesaler's own stock on offer as if the reader knew it.",
+    "by": "model"
+   }
+  ],
+  "products": [],
+  "pass": true
  },
  "th/species/oryzias-woworae": {
   "at": "2026-11-18",
@@ -50574,11 +51302,13 @@
   "products": []
  },
  "th/species/pangio-semicincta": {
-  "at": "2026-11-07",
-  "hash": "bd33414c2ce89c25",
+  "at": "2026-11-23",
+  "hash": "5ec607ddd6fa9c00",
   "model": "opus",
+  "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/pangio-shelfordii": {
   "at": "2026-11-08",
@@ -50831,41 +51561,28 @@
   "products": []
  },
  "th/species/pethia-conchonius": {
-  "at": "2026-11-08",
-  "hash": "f87bcff8ddef5b13",
+  "at": "2026-11-23",
+  "hash": "1e14f7ad19044eb0",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "units",
     "part": "P3",
     "quote": "ขนาดตู้ขั้นต่ำ: ประมาณ 110 ลิตร",
-    "why": "110 litres is a converted 30-gallon tank size.",
-    "by": "model"
-   },
-   {
-    "check": "units",
-    "part": "P8",
-    "quote": "แม้ตู้ปลาขนาดประมาณ 75 ลิตรจะเพียงพอสำหรับเลี้ยงปลาโรซี่บาร์บเป็นฝูง แต่ตู้ขนาดประมาณ 115 ลิตรขึ้นไปจะดีกว่า",
-    "why": "75 and 115 litres are converted 20- and 30-gallon tanks.",
-    "by": "model"
-   },
-   {
-    "check": "units",
-    "part": "P20",
-    "quote": "ตู้เพาะพันธุ์ขนาดประมาณ 75–115 ลิตรจะเหมาะที่สุด",
-    "why": "75–115 litres is a converted 20–30 gallon range.",
+    "why": "110 litres is a converted 30-gallon tank size, not one a Thai keeper would state.",
     "by": "model"
    },
    {
     "check": "elsewhere",
     "part": "P12",
     "quote": "ควรย้ายเข้ามาเลี้ยงในร่มช่วงฤดูหนาว โดยเฉพาะในพื้นที่ที่อากาศหนาวเย็น",
-    "why": "Advice to bring pond fish indoors for winter is for a cold-climate reader, not Thailand.",
+    "why": "Bringing pond fish indoors for a cold winter is advice for a temperate-climate reader, not Thailand.",
     "by": "model"
    }
   ],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/phalacronotus-apogon": {
   "at": "2026-11-09",
@@ -50892,57 +51609,30 @@
   "products": []
  },
  "th/species/phractocephalus-hemioliopterus": {
-  "at": "2026-11-07",
-  "hash": "c3573ad43e04ec9b",
+  "at": "2026-11-23",
+  "hash": "1ad5c69d2873b027",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "elsewhere",
     "part": "P5",
-    "quote": "กิ่งไม้บีช",
-    "why": "Beech branches are a European aquarium decor material not available to a keeper in Thailand.",
-    "by": "model"
-   },
-   {
-    "check": "elsewhere",
-    "part": "P7",
-    "quote": "ปลาแลนซ์ (lancefish)",
-    "why": "Lancefish is a frozen feeder sold in the UK and not a food Thai keepers can buy.",
+    "quote": "ใส่ขอนไม้ก้อนใหญ่ กิ่งไม้บีช หรือหินผิวเรียบได้",
+    "why": "Beech branches are a European decoration material not readily available to keepers in Thailand.",
     "by": "model"
    }
   ],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/piaractus-brachypomus": {
-  "at": "2026-11-07",
-  "hash": "aab516f04b82f35c",
+  "at": "2026-11-23",
+  "hash": "9ddf3ab4a754f9cf",
   "model": "opus",
-  "findings": [
-   {
-    "check": "units",
-    "part": "P4",
-    "quote": "อย่างน้อย 300 × 90 × 90 ซม. หรือ 2550 ลิตร",
-    "why": "2550 litres is the conversion of a 10×3×3 ft tank and doesn't match the metric sides (2430 L).",
-    "by": "model"
-   },
-   {
-    "check": "elsewhere",
-    "part": "P5",
-    "quote": "อาจมีขอนไม้หรือกิ่งบีชชิ้นใหญ่",
-    "why": "Beech branches are a European keepers' decoration, not something used or sold in Thailand.",
-    "by": "model"
-   },
-   {
-    "check": "words",
-    "part": "P8",
-    "quote": "ปลาแมวขนาดใหญ่ในกลุ่ม Pimelodid, Doradid และ Loricariid",
-    "why": "'ปลาแมว' is a calque of 'catfish'; Thai keepers don't use it for these fish.",
-    "by": "model",
-    "fix": "ปลาหนัง / ปลาแคทฟิช"
-   }
-  ],
-  "products": []
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "pass": true
  },
  "th/species/plicofollis-argyropleuron": {
   "at": "2026-11-19",
@@ -51293,11 +51983,13 @@
   "products": []
  },
  "th/species/pterygoplichthys-pardalis": {
-  "at": "2026-11-07",
-  "hash": "78fcd69e1a02aa7f",
+  "at": "2026-11-23",
+  "hash": "87da25950796158f",
   "model": "opus",
+  "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/ptychognathus-barbatus": {
   "at": "2026-11-22",
@@ -51395,36 +52087,38 @@
   "products": []
  },
  "th/species/rasbora-caudimaculata": {
-  "at": "2026-11-07",
-  "hash": "88922c79b53ce069",
+  "at": "2026-11-23",
+  "hash": "09fad66c678d4257",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "units",
     "part": "P11",
     "quote": "ขนาด 120 × 30 × 30 ซม./113 ลิตร",
-    "why": "113 litres is a converted 30-gallon tank; the stated sides give only about 108 litres.",
+    "why": "113 litres is a converted 30-gallon figure, not the volume of the given metric sides (about 108 L).",
     "by": "model"
    }
   ],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/rasbora-cephalotaenia": {
-  "at": "2026-11-08",
-  "hash": "42a10eea84dffe08",
+  "at": "2026-11-23",
+  "hash": "6d80e3a04167e1f8",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "elsewhere",
     "part": "P6",
     "quote": "สามารถใช้ไม้บีชหรือไม้โอ๊กได้อย่างปลอดภัยหากตากให้แห้งสนิทและลอกเปลือกออกแล้ว",
-    "why": "Beech and oak wood collected yourself only makes sense for a reader in Europe, where these trees grow; they don't grow in Thailand.",
+    "why": "Suggests collecting beech or oak wood yourself, which only makes sense for a reader in Europe; these trees don't grow wild in Thailand.",
     "by": "model"
    }
   ],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/rasbora-dusonensis": {
   "at": "2026-11-08",
@@ -51435,20 +52129,21 @@
   "products": []
  },
  "th/species/rasbora-einthovenii": {
-  "at": "2026-11-08",
-  "hash": "4e362b2f614835b8",
+  "at": "2026-11-23",
+  "hash": "42b0ce3ecf8b9542",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "elsewhere",
     "part": "P6",
-    "quote": "กิ่งบีชหรือโอ๊กก็ใช้ได้อย่างปลอดภัยหากตากให้แห้งสนิทและลอกเปลือกออกหมด",
-    "why": "Beech and oak branches and leaves are local materials for a European reader, not things a keeper in Thailand can easily collect.",
+    "quote": "ถ้าหาขอนไม้รูปทรงที่ต้องการไม่ได้ กิ่งบีชหรือโอ๊กก็ใช้ได้อย่างปลอดภัยหากตากให้แห้งสนิทและลอกเปลือกออกหมด",
+    "why": "Collecting beech or oak branches assumes a European/North American reader with those trees nearby, not a keeper in Thailand.",
     "by": "model"
    }
   ],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/rasbora-elegans": {
   "at": "2026-11-14",
@@ -51530,12 +52225,13 @@
   "products": []
  },
  "th/species/rasbora-trilineata": {
-  "at": "2026-11-08",
-  "hash": "053b151e2a583ecf",
+  "at": "2026-11-23",
+  "hash": "bcb2f4311d5fb627",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/rasbora-vulcanus": {
   "at": "2026-11-13",
@@ -51629,20 +52325,21 @@
   "products": []
  },
  "th/species/scleropages-jardinii": {
-  "at": "2026-11-08",
-  "hash": "73c7ade1050c2011",
+  "at": "2026-11-23",
+  "hash": "9d4ec18620df68e3",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
-    "check": "source",
-    "part": "P15",
-    "quote": "ปลาวัยอ่อนที่นำเข้ามีขนาดประมาณ 10-12 ซม. และตามที่ผู้จำหน่ายในสิงคโปร์ระบุ",
-    "why": "This is the source importer talking about its own imported stock and its supplier, which the reader doesn't know.",
+    "check": "elsewhere",
+    "part": "P14",
+    "quote": "ฟาร์มปลาในตะวันออกไกลเพาะพันธุ์ได้เป็นจำนวนค่อนข้างมาก",
+    "why": "\"The Far East\" is a European reader's viewpoint; a reader in Thailand lives in that region.",
     "by": "model"
    }
   ],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/sewellia-breviventralis": {
   "at": "2026-11-07",
@@ -51660,28 +52357,30 @@
   "products": []
  },
  "th/species/sewellia-lineolata": {
-  "at": "2026-11-07",
-  "hash": "ea95415991367f62",
+  "at": "2026-11-23",
+  "hash": "945c7120b023dc66",
   "model": "opus",
+  "checklist": 3,
   "findings": [
    {
     "check": "units",
     "part": "P8",
-    "quote": "ในตู้ 76 ลิตรที่ปลูกไม้น้ำหนาแน่น",
-    "why": "76 litres is a converted 20-gallon tank, not a size used in Thailand.",
+    "quote": "ตู้ 76 ลิตร",
+    "why": "76 litres is a converted 20-gallon tank size nobody in Thailand would use.",
     "by": "model"
    },
    {
     "check": "units",
-    "part": "P13",
-    "quote": "ในตู้ 76 ลิตรที่ปลูกไม้น้ำหนาแน่นและใช้กรองฟองน้ำ",
-    "why": "76 litres is a converted 20-gallon tank, not a size used in Thailand.",
+    "part": "P1",
+    "quote": "โตได้ราว 6.4 ซม.",
+    "why": "6.4 cm is a converted 2.5 inches; keepers would write 6.5 cm.",
     "by": "model"
    }
   ],
   "products": [
    "Repashy"
-  ]
+  ],
+  "pass": true
  },
  "th/species/sicyopus-exallisquamulus": {
   "at": "2026-11-10",
@@ -51802,12 +52501,13 @@
   "products": []
  },
  "th/species/stiphodon-maculidorsalis": {
-  "at": "2026-11-10",
-  "hash": "cc92eee0bbcd9e37",
+  "at": "2026-11-23",
+  "hash": "8632b0c9feed4c6f",
   "model": "opus",
   "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/stiphodon-ornatus": {
   "at": "2026-11-21",
@@ -51977,34 +52677,28 @@
   "products": []
  },
  "th/species/tanichthys-albonubes": {
-  "at": "2026-11-08",
-  "hash": "46e1f3dd16a0a5ba",
+  "at": "2026-11-23",
+  "hash": "361b7898bbacda07",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "elsewhere",
-    "part": "P15",
-    "quote": "ในหลายประเทศหรือในบ้านที่เก็บความร้อนได้ดี การเลี้ยงโดยไม่ใช้ฮีตเตอร์ตลอดทั้งปีถือว่าดีที่สุด",
-    "why": "Assumes a temperate home where heating is the question; in Thailand room temperatures exceed this fish's range.",
+    "part": "P14",
+    "quote": "แต่เลี้ยงในตู้ปลาที่ไม่มีฮีตเตอร์ได้สบาย",
+    "why": "Assumes a cool home where an unheated tank stays below 25 °C; in Thailand room temperature is usually higher, so the reader needs to keep the water cool, not do without a heater.",
     "by": "model"
    },
    {
     "check": "elsewhere",
     "part": "P26",
-    "quote": "วางไข่ต่อเนื่องตลอดฤดูผสมพันธุ์ตั้งแต่ฤดูใบไม้ผลิถึงฤดูใบไม้ร่วง",
-    "why": "Spring-to-autumn breeding season reflects a temperate reader's seasons, not Thailand's.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P5",
-    "quote": "แต่ ณ เวลาที่เขียนยังไม่ได้รับการประเมินโดย IUCN",
-    "why": "Refers to the original writer's time of writing, the source's own voice.",
+    "quote": "ตลอดฤดูผสมพันธุ์ตั้งแต่ฤดูใบไม้ผลิถึงฤดูใบไม้ร่วง",
+    "why": "Gives a breeding season by temperate seasons the reader in Thailand does not have.",
     "by": "model"
    }
   ],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/telmatherina-bonti": {
   "at": "2026-11-10",
@@ -52117,12 +52811,13 @@
   "products": []
  },
  "th/species/trichopodus-trichopterus": {
-  "at": "2026-11-08",
-  "hash": "e1c3718f9905faea",
+  "at": "2026-11-23",
+  "hash": "1d229dbca83b675c",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [],
+  "pass": true
  },
  "th/species/trigonopoma-gracile": {
   "at": "2026-11-11",
@@ -52271,23 +52966,16 @@
   "products": []
  },
  "th/species/xiphophorus-hellerii": {
-  "at": "2026-11-08",
-  "hash": "bb193ae25045d4da",
+  "at": "2026-11-23",
+  "hash": "f2b522b3c31531d2",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P4",
     "quote": "ปลาที่มีจำหน่ายเป็นปลาเพาะพันธุ์จากเอเชียตะวันออกเฉียงใต้",
-    "why": "Refers to the source shop's own stock on offer, unknown to the reader.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P7",
-    "quote": "ปลาหางดาบเขียวแบบแปลกนี้มาจากบริเวณรอบเขตอนุรักษ์ Golden Stream ในเบลีซ",
-    "why": "Points at the source's own strain as if the reader knew which fish is meant.",
+    "why": "Describes the source wholesaler's own stock on offer, which the reader doesn't know.",
     "by": "model"
    }
   ],
@@ -52306,11 +52994,11 @@
     "perUnit": "litre",
     "use": "other",
     "method": "wholeTank",
-    "quote": "ใส่เกลือสำหรับตู้ปลา 1–1.5 ช้อนชาต่อน้ำ 4.5 ลิตร"
+    "quote": "เกลือสำหรับตู้ปลา 1–1.5 ช้อนชาต่อน้ำ 4.5 ลิตร (เพื่อช่วยป้องกันโรค ฯลฯ)"
    },
    {
     "treatment": "formalin",
-    "strength": "",
+    "strength": "250ppm",
     "amount": 250,
     "amountMax": 0,
     "unit": "ppm",
@@ -52321,7 +53009,8 @@
     "quote": "แนะนำให้รักษาด้วยการแช่ฟอร์มาลิน 250 ppm นาน 1 ชั่วโมงต่อวัน ติดต่อกันห้าวัน"
    }
   ],
-  "sourceRead": true
+  "sourceRead": true,
+  "pass": true
  },
  "th/species/xiphophorus-maculatus": {
   "at": "2026-11-16",
@@ -52334,23 +53023,31 @@
   ]
  },
  "th/species/yasuhikotakia-modesta": {
-  "at": "2026-11-08",
-  "hash": "23e5438ab51fdeff",
+  "at": "2026-11-23",
+  "hash": "08c6be8b19dd0e5c",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
+   {
+    "check": "source",
+    "part": "P18",
+    "quote": "ณ เวลาที่เขียน ทั้งสองแบบถือเป็น Y. modesta",
+    "why": "Refers to when the source article was written, a time the reader doesn't know.",
+    "by": "model"
+   },
    {
     "check": "words",
     "part": "P8",
-    "quote": "Microsorum pteropus (เฟิร์นใบหอก)",
-    "why": "Thai hobbyists call Java fern เฟิร์นชวา, not this literal coinage.",
+    "quote": "Taxiphyllum barbieri (มอสส์ชวา)",
+    "why": "A dictionary rendering of Java moss; Thai keepers call it จาวามอส.",
     "by": "model",
-    "fix": "เฟิร์นชวา"
+    "fix": "จาวามอส"
    }
   ],
   "products": [
    "Panacur"
-  ]
+  ],
+  "pass": true
  },
  "vi/breeds/albino-oscar": {
   "at": "2026-11-08",
@@ -119908,6 +120605,32 @@
    "Eheim Professionel 4+ 600",
    "Xtender",
    "Fluval FX4"
+  ],
+  "pass": true
+ },
+ "vi/products/oase-biomaster-850-thermo": {
+  "at": "2026-11-23",
+  "hash": "19b2f7a24d875171",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "L14",
+    "quote": "chứa quá ít vi sinh để chạy chu trình (cycle) bể cho đủ",
+    "why": "Calque of English 'cycle the tank'; local keepers say 'chạy vi sinh'.",
+    "by": "model",
+    "fix": "chạy vi sinh cho bể"
+   }
+  ],
+  "products": [
+   "Oase BioMaster 850 Thermo",
+   "Oase BioMaster² Thermo 850",
+   "Oase BioMaster 850",
+   "EasyClean",
+   "HeatUp",
+   "Eheim Professionel 4+ 350 (2273)",
+   "BioHome Ultimate"
   ],
   "pass": true
  },

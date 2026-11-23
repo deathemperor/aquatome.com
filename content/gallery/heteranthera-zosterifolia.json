@@ -84,8 +84,7 @@
       "caption": "Cây lưỡi mác Nam Mỹ nổi trên mặt nước nông",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/327333616.webp",
@@ -98,8 +97,7 @@
       "caption": "Bụi Cây lưỡi mác Nam Mỹ mọc dày trên cạn",
       "best": true,
       "kind": "emersed",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/15899203.webp",
@@ -112,64 +110,7 @@
       "caption": "Hoa Cây lưỡi mác Nam Mỹ màu trắng tím nở trên nền tối",
       "best": true,
       "kind": "flower",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/15899206.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/15899206-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-NC",
-      "author": "Alex Rebelo",
-      "sourceUrl": "https://www.inaturalist.org/photos/15899206",
-      "caption": "Cụm lá Cây lưỡi mác Nam Mỹ mọc ngoài tự nhiên",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/327333628.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/327333628-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "bellymj",
-      "sourceUrl": "https://www.inaturalist.org/photos/327333628",
-      "caption": "Thảm Cây lưỡi mác Nam Mỹ xanh tươi mọc sát nhau",
-      "best": false,
-      "kind": "emersed",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/15899205.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/15899205-480.webp",
-      "width": 920,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Alex Rebelo",
-      "sourceUrl": "https://www.inaturalist.org/photos/15899205",
-      "caption": "Cận cảnh hoa Cây lưỡi mác Nam Mỹ sáu cánh",
-      "best": false,
-      "kind": "flower",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/390233511.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/390233511-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "krg_enviro",
-      "sourceUrl": "https://www.inaturalist.org/photos/390233511",
-      "caption": "Cận cảnh thân và lá Cây lưỡi mác Nam Mỹ",
-      "best": false,
-      "kind": "detail",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/34890862.webp",
@@ -182,8 +123,46 @@
       "caption": "Thảm Cây lưỡi mác Nam Mỹ mọc trên mặt nước",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/327333628.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/327333628-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "bellymj",
+      "sourceUrl": "https://www.inaturalist.org/photos/327333628",
+      "caption": "Thảm Cây lưỡi mác Nam Mỹ xanh tươi mọc sát nhau",
+      "best": false,
+      "kind": "emersed",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/15899205.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/15899205-480.webp",
+      "width": 920,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Alex Rebelo",
+      "sourceUrl": "https://www.inaturalist.org/photos/15899205",
+      "caption": "Cận cảnh hoa Cây lưỡi mác Nam Mỹ sáu cánh",
+      "best": false,
+      "kind": "flower",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/390233511.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/390233511-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "krg_enviro",
+      "sourceUrl": "https://www.inaturalist.org/photos/390233511",
+      "caption": "Cận cảnh thân và lá Cây lưỡi mác Nam Mỹ",
+      "best": false,
+      "kind": "detail",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/390235018.webp",
@@ -196,8 +175,7 @@
       "caption": "Hoa tím nhỏ giữa lá Cây lưỡi mác Nam Mỹ",
       "best": false,
       "kind": "flower",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/390235368.webp",
@@ -210,8 +188,20 @@
       "caption": "Hoa Cây lưỡi mác Nam Mỹ nở giữa tán lá",
       "best": false,
       "kind": "flower",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/15899206.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/15899206-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Alex Rebelo",
+      "sourceUrl": "https://www.inaturalist.org/photos/15899206",
+      "caption": "Cụm lá Cây lưỡi mác Nam Mỹ mọc ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 33,

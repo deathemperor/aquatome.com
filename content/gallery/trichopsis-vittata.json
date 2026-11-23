@@ -132,9 +132,51 @@
       "caption": "Cá bã trầu trong bể kính chụp ngoài trời",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/1467060.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/1467060-480.webp",
+      "width": 1024,
+      "height": 758,
+      "licence": "CC BY-NC",
+      "author": "Martin Grimm",
+      "sourceUrl": "https://www.inaturalist.org/photos/1467060",
+      "caption": "Cá bã trầu đực vây xòe, thân vàng sọc nâu",
+      "best": true,
+      "kind": "male",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/782904.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/782904-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Martin Grimm",
+      "sourceUrl": "https://www.inaturalist.org/photos/782904",
+      "caption": "Cá bã trầu có sọc ngang vàng nâu trên nền tối",
+      "best": true,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/55301497.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/55301497-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY-NC",
+      "author": "Masatoshi Sone",
+      "sourceUrl": "https://www.inaturalist.org/photos/55301497",
+      "caption": "Cá bã trầu bơi giữa thực vật thủy sinh ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
     }
   ],
-  "seen": 36,
-  "updatedAt": "2026-11-06",
-  "builtAt": "2026-11-06"
+  "seen": 56,
+  "updatedAt": "2026-11-23",
+  "builtAt": "2026-11-23"
 }

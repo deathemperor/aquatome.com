@@ -217,7 +217,12 @@
       "author": "Martin Grimm",
       "sourceUrl": "https://www.inaturalist.org/photos/11280471",
       "caption": "Hai cá Tropheus brichardi sọc vằn bơi trên đáy đá cát",
-      "setup": false
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/11280471-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

@@ -106,7 +106,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Con cá cam khỏe, màu đẹp bơi gần đáy bể.",
-            "sharpness": 279.7
+            "sharpness": 279.7,
+            "person": false
           }
         ]
       },
@@ -119,7 +120,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá dọn bể bơi trên lớp sỏi vàng đáy bể.",
-            "sharpness": 347.2
+            "sharpness": 347.2,
+            "person": false
           },
           {
             "t": 250,
@@ -127,7 +129,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đáy bể sỏi có nhiều cá nhỏ đang kiếm ăn.",
-            "sharpness": 267.6
+            "sharpness": 267.6,
+            "person": false
           }
         ],
         "photo": {
@@ -150,7 +153,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể chứa đầy cá mồi màu đỏ bán số lượng lớn.",
-            "sharpness": 495.3
+            "sharpness": 495.3,
+            "person": false
           },
           {
             "t": 460,
@@ -160,17 +164,7 @@
             "caption": "Đàn cá mồi nhỏ được nuôi chen chúc trong các bể bán.",
             "sharpness": 123.4
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/iRwLKZ63H1c/p2-YXF1YXJpdW0uanBn.webp",
-          "thumb": "https://media.aquatome.com/video/iRwLKZ63H1c/p2-YXF1YXJpdW0uanBn-480.webp",
-          "width": 960,
-          "height": 637,
-          "licence": "CC BY 4.0",
-          "author": "Retro Lenses",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_photo_of_an_oscar_fish_(Astronotus_ocellatus)_in_a_aquarium.jpg",
-          "caption": "Cá tai tượng (oscar) màu cam bơi trong bể trồng cây, loài cá lớn hay bị cho ăn cá mồi."
-        }
+        ]
       },
       {
         "heading": "Thức ăn đông lạnh có phải là tốt nhất",
@@ -181,7 +175,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá bơi quanh cây giả trong bể, có thức ăn được thả vào.",
-            "sharpness": 529.5
+            "sharpness": 529.5,
+            "person": false
           },
           {
             "t": 670,
@@ -215,7 +210,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá vằn đen trắng bơi trong bể nền xanh.",
-            "sharpness": 1063.8
+            "sharpness": 1063.8,
+            "person": false
           },
           {
             "t": 950,
@@ -223,7 +219,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nhiều cá trưởng thành bơi dày đặc trong bể nuôi.",
-            "sharpness": 1241.7
+            "sharpness": 1241.7,
+            "person": false
           }
         ],
         "photo": {

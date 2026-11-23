@@ -9,7 +9,10 @@
   "File:FMIB 51706 Erpetoichthys calabaricus Smith Senegambia.jpeg",
   "File:Ropefish (HPIM0551).jpg",
   "File:TBC1D30 unrooted tree B.jpg",
-  "File:Erpetoichthys calabaricus 02.jpg"
+  "File:Erpetoichthys calabaricus 02.jpg",
+  "inat:502735696",
+  "inat:502735794",
+  "inat:502735910"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/560ccf8546892968.webp": "9b3b975b745ca82c",
@@ -17,7 +20,9 @@
   "https://media.aquatome.com/commons/6d4034e2e085bf7d.webp": "fc70296c4494c5a4",
   "https://media.aquatome.com/commons/26708ef33c0f05d3.webp": "79230341d8e43903",
   "https://media.aquatome.com/commons/45345229e0e4d935.webp": "8360b88ca42b2959",
-  "https://media.aquatome.com/commons/fee37f5cf598f7ca.webp": "6068696c71733068"
+  "https://media.aquatome.com/commons/fee37f5cf598f7ca.webp": "6068696c71733068",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/502735696/large.jpeg": "66e07cf4221cccb0",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/502735910/large.jpeg": "886772b88ccb48c9"
  },
  "inat": {
   "taxon": 100381,
@@ -34,6 +39,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 279936986,
+  "done": true
  },
  "exhausted": "2026-11-08"
 }

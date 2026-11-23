@@ -79,20 +79,13 @@
         "heading": "Cho cá nóc Mbu ăn gì",
         "moments": [
           {
-            "t": 155,
-            "url": "https://media.aquatome.com/video/jo5ZBt-V7kk/at155-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh bể nuôi cá nóc có cây xanh và đá lũa.",
-            "sharpness": 872.4
-          },
-          {
             "t": 165,
             "url": "https://media.aquatome.com/video/jo5ZBt-V7kk/at165-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cá nóc Mbu bơi gần đáy bể, cạnh cây thủy sinh và lũa.",
-            "sharpness": 771.5
+            "sharpness": 771.5,
+            "person": false
           }
         ],
         "photo": {
@@ -115,7 +108,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá nóc bơi gần đáy bể, bên cạnh bụi cây thủy sinh.",
-            "sharpness": 1068.7
+            "sharpness": 1068.7,
+            "person": false
           },
           {
             "t": 175,
@@ -123,7 +117,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá nóc Mbu nhìn thẳng ra phía trước, bụng vàng, trong bể trồng cây.",
-            "sharpness": 348.2
+            "sharpness": 348.2,
+            "person": false
           }
         ]
       },
@@ -136,7 +131,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá nóc Mbu bơi gần cây thủy sinh trong hồ.",
-            "sharpness": 787.9
+            "sharpness": 787.9,
+            "person": false
           },
           {
             "t": 390,
@@ -144,7 +140,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá nóc Mbu bơi ngang trong hồ, thân vằn rõ.",
-            "sharpness": 566.5
+            "sharpness": 566.5,
+            "person": false
           }
         ],
         "photo": {
@@ -167,7 +164,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá nóc bơi cạnh bụi cây thủy sinh sống trong bể.",
-            "sharpness": 276.4
+            "sharpness": 276.4,
+            "person": false
           },
           {
             "t": 415,

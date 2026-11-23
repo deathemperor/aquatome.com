@@ -22,7 +22,37 @@
   "File:Sagittaria subulata kz05.jpg",
   "flickr:13618506575",
   "flickr:13618530383",
-  "flickr:3463368871"
+  "flickr:3463368871",
+  "inat:143723389",
+  "inat:231207255",
+  "inat:231207278",
+  "inat:231207556",
+  "inat:403063043",
+  "inat:403063077",
+  "inat:418854855",
+  "inat:420072895",
+  "inat:420074155",
+  "inat:420074355",
+  "inat:422104218",
+  "inat:441212246",
+  "inat:441212708",
+  "inat:441212713",
+  "inat:465421575",
+  "inat:465421570",
+  "inat:465421566",
+  "inat:500913076",
+  "inat:500913080",
+  "inat:500913089",
+  "inat:550853055",
+  "inat:550853085",
+  "inat:550853110",
+  "inat:559771883",
+  "inat:559771880",
+  "inat:559771906",
+  "inat:559771252",
+  "inat:559771327",
+  "inat:559771124",
+  "inat:391514138"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/06e558e5f22ecc3c.webp": "69c98f4cc3364ad3",
@@ -41,7 +71,20 @@
   "https://media.aquatome.com/tropica/e601c40d06e3235c.webp": "3c78d8f0fcec7070",
   "https://media.aquatome.com/tropica/e6c899b94f1af24b.webp": "699b1e8b4ecbc634",
   "https://media.aquatome.com/tropica/f209b267d2fe3b31.webp": "e0e0f8d8d4e0c470",
-  "https://media.aquatome.com/tropica/b2a3f45878762b4b.webp": "3170f4aae8e8f070"
+  "https://media.aquatome.com/tropica/b2a3f45878762b4b.webp": "3170f4aae8e8f070",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/403063043/large.jpg": "7af1db96d4e5606b",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/403063077/large.jpg": "d6342c8c87634b1e",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/422104218/large.jpeg": "60b531604ba85092",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/441212246/large.jpg": "58999e4ed6564cec",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/441212708/large.jpg": "7121e1b093936668",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/465421575/large.jpg": "525dc98dcd329e0c",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/465421570/large.jpg": "92980a89a5167666",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/500913080/large.jpg": "4eb4dc29f2e6f55b",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/500913089/large.jpg": "701369444a703070",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/550853055/large.jpg": "ecce8ec7078d9ed3",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/550853085/large.jpg": "474be9d838b98922",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/550853110/large.jpg": "292a414fce478d38",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/391514138/large.jpeg": "dca40c64ea68d810"
  },
  "inat": {
   "taxon": 69817,
@@ -58,6 +101,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 320528081,
+  "done": true
  },
  "exhausted": "2026-11-08"
 }

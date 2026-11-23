@@ -170,8 +170,7 @@
       "caption": "Mảng Cây Pogostemon stellatus mọc dày ở vùng đồi ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/727785379.webp",
@@ -184,8 +183,7 @@
       "caption": "Bụi Cây Pogostemon stellatus mọc dưới nước, lá ngả vàng",
       "best": true,
       "kind": "submersed",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/696324958.webp",
@@ -198,8 +196,7 @@
       "caption": "Cây Pogostemon stellatus có gié hoa trắng mọc bên đá",
       "best": true,
       "kind": "emersed",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/611135038.webp",
@@ -212,8 +209,7 @@
       "caption": "Cụm hoa Cây Pogostemon stellatus mọc dày trên thân lá vòng",
       "best": true,
       "kind": "flower",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/744705293.webp",
@@ -226,22 +222,7 @@
       "caption": "Bụi Cây Pogostemon stellatus mọc trên cạn với bông hoa",
       "best": true,
       "kind": "emersed",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/729448098.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/729448098-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "laisaiy",
-      "sourceUrl": "https://www.inaturalist.org/photos/729448098",
-      "caption": "Cành Cây Pogostemon stellatus có bông hoa mọc trên cạn",
-      "best": true,
-      "kind": "flower",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/150870069.webp",
@@ -254,8 +235,7 @@
       "caption": "Bụi Cây Pogostemon stellatus ra hoa ngoài tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/729448025.webp",
@@ -268,22 +248,7 @@
       "caption": "Cụm hoa Cây Pogostemon stellatus nhìn gần ngoài tự nhiên",
       "best": false,
       "kind": "flower",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/696325045.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/696325045-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "backyard_botanist",
-      "sourceUrl": "https://www.inaturalist.org/photos/696325045",
-      "caption": "Cận cảnh thân và lá mọc vòng của Cây Pogostemon stellatus",
-      "best": false,
-      "kind": "detail",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/710126049.webp",
@@ -296,22 +261,7 @@
       "caption": "Cây Pogostemon stellatus dạng hoa thị nổi trên mặt nước ngoài tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/696325061.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/696325061-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "backyard_botanist",
-      "sourceUrl": "https://www.inaturalist.org/photos/696325061",
-      "caption": "Cận cảnh gié hoa lông trắng của Cây Pogostemon stellatus",
-      "best": false,
-      "kind": "detail",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/710126087.webp",
@@ -324,8 +274,7 @@
       "caption": "Cây Pogostemon stellatus mọc giữa các cây thủy sinh khác ở ruộng nước",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/744705294.webp",
@@ -338,8 +287,20 @@
       "caption": "Bụi Cây Pogostemon stellatus lớn mọc bên bờ ao",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/696325061.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/696325061-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "backyard_botanist",
+      "sourceUrl": "https://www.inaturalist.org/photos/696325061",
+      "caption": "Cận cảnh gié hoa lông trắng của Cây Pogostemon stellatus",
+      "best": false,
+      "kind": "detail",
+      "setup": false
     }
   ],
   "seen": 60,

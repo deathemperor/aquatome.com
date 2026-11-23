@@ -208,20 +208,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/599447026.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/599447026-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "艸目伊",
-      "sourceUrl": "https://www.inaturalist.org/photos/599447026",
-      "caption": "Cây thủy cúc lá xẻ thùy mọc ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/346499616.webp",
       "thumb": "https://media.aquatome.com/inaturalist/346499616-480.webp",
       "width": 1024,
@@ -232,8 +218,7 @@
       "caption": "Bụi Cây thủy cúc mọc dưới dòng nước nông",
       "best": true,
       "kind": "submersed",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/498359585.webp",
@@ -246,8 +231,7 @@
       "caption": "Ngọn Cây thủy cúc có hoa nhỏ nhô lên trên mặt nước",
       "best": true,
       "kind": "emersed",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/191137908.webp",
@@ -260,8 +244,7 @@
       "caption": "Hoa Cây thủy cúc màu tím nhạt nở ngoài tự nhiên",
       "best": true,
       "kind": "flower",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/497430028.webp",
@@ -274,8 +257,7 @@
       "caption": "Cây thủy cúc lá xẻ xanh tươi ngập nước",
       "best": true,
       "kind": "submersed",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/346499617.webp",
@@ -288,8 +270,7 @@
       "caption": "Lá xẻ thùy của Cây thủy cúc mọc dưới nước",
       "best": false,
       "kind": "submersed",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/371609812.webp",
@@ -302,8 +283,7 @@
       "caption": "Lá Cây thủy cúc mọc nhô lên khỏi mặt nước",
       "best": false,
       "kind": "emersed",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/191137959.webp",
@@ -316,8 +296,7 @@
       "caption": "Hoa tím và lá răng cưa của Cây thủy cúc",
       "best": false,
       "kind": "flower",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/346499619.webp",
@@ -330,8 +309,7 @@
       "caption": "Thân và lá xẻ thùy Cây thủy cúc dưới nước",
       "best": false,
       "kind": "submersed",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/497430075.webp",
@@ -344,8 +322,7 @@
       "caption": "Cụm Cây thủy cúc mọc dưới nước trong suối",
       "best": false,
       "kind": "submersed",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     }
   ],
   "seen": 61,

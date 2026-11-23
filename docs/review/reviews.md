@@ -8,39 +8,39 @@ under `<lang>/<path>`.
 
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
-| video-guide | 1141 | 806 (vi 806) | 806 |
-| translation | 2633 | 367 (vi 367) | 367 |
+| video-guide | 1175 | 826 (vi 826) | 826 |
+| translation | 2663 | 369 (vi 369) | 369 |
 | vi-rewrite | 439 | 43 (vi 43) | 43 |
 | reader-rewrite | 51 | 0 | 0 |
-| title | 29 | 0 | 0 |
+| title | 30 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
 | topic | 142 | 9 (id 1, ms 1, th 6, vi 1) | 9 |
-| product | 35 | 2 (vi 2) | 2 |
-| product-reviews | 27 | 0 | 0 |
-| summary | 2968 | 168 (vi 168) | 168 |
+| product | 36 | 2 (vi 2) | 2 |
+| product-reviews | 28 | 0 | 0 |
+| summary | 2985 | 167 (vi 167) | 167 |
 | localize | 2986 | 821 (id 351, ms 70, th 400) | 821 |
 | glossary | 40 | 0 | 0 |
 | places | 7931 | 4844 (id 1670, ms 1662, th 1413, vi 99) | 1504 |
 | equipment | 5 | 0 | 0 |
 | planting | 32 | 0 | 0 |
-| species | 32 | 0 | 0 |
+| species | 34 | 0 | 0 |
 | material | 2 | 0 | 0 |
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
 
-806 of 1141 pages under the bar.
+826 of 1175 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| States as certain what the source hedges, or what garbled captions only hint at | 704 | 2041 |
-| Other | 702 | 1771 |
-| Says what the source doesn't (invented, added) | 577 | 1339 |
-| Wording: unnatural, literal, stiff or chatty | 340 | 479 |
-| A number, unit, dose or price | 256 | 366 |
+| States as certain what the source hedges, or what garbled captions only hint at | 720 | 2077 |
+| Other | 719 | 1800 |
+| Says what the source doesn't (invented, added) | 588 | 1350 |
+| Wording: unnatural, literal, stiff or chatty | 347 | 487 |
+| A number, unit, dose or price | 262 | 375 |
 | Repeats itself (intro, summary, steps and FAQ) | 160 | 187 |
-| Meaning changed or wrong | 139 | 158 |
+| Meaning changed or wrong | 141 | 161 |
+| Leaves out what the source says | 56 | 58 |
 | Hobby terms and names | 56 | 58 |
-| Leaves out what the source says | 55 | 57 |
 | Names or points to the video, channel, creator or source | 35 | 39 |
 | Copied from the transcript or source | 27 | 29 |
 | Off the title's topic | 27 | 27 |
@@ -88,17 +88,17 @@ under `<lang>/<path>`.
 - "Đèn đang để ở 80%" and "mặt cát sáng gần gấp đôi": the creator said the lights read 80% and the sand is 'doubly light'. Also the bullet "Giảm đèn khoảng 40% vì nền cát sáng màu hắt ánh sáng gấp đôi" is wrong, because the lights were made … — vi/guides/youtube-AZKwyFdqe50, 0.40
 - "Nên dùng nhiều cách cùng lúc, vì mỗi cách đơn lẻ đều có lúc sai": the video says polarized glasses depend on conditions, and that one indicator is usually enough. Remove the claim that every method can be wrong, and the advice to use seve… — vi/guides/youtube-C4W86NMP3CU, 0.40
 
-### Hobby terms and names
-
-- Remove the advice "Hạn chế mở nắp trong thời gian đo" and "Đo kéo dài vài tháng" as instructions. The video gives neither as a step. It only mentions wanting long-term data, and only as the speaker's own plan. — vi/guides/youtube-7l1Ja0NL_UQ, 0.45
-- "Dân chơi gọi hiện tượng này là cây "thở" (pearling)": the "dân chơi gọi" generalisation and the English term "pearling" are not in the video; remove the English and say it neutrally, e.g. the creator describes the plants as "thở". — vi/guides/youtube-H-A6KwMSa9s, 0.50
-- "Bể đẹp tới đâu còn tùy bố cục, và với paludarium thì chuyện này càng quan trọng": reword to hedge and follow the video, a build is only as good as its scape, especially a paludarium. Also "dây nhỏ giọt" for "drip vine" is a clumsy term; u… — vi/guides/youtube-HK0vWQGwNOE, 0.50
-
 ### Leaves out what the source says
 
 - "Lắp từ dưới lên thì hợp lý hơn" / "Thứ tự đó khó theo" and "Nhà sản xuất có làm video hướng dẫn lắp, nên xem qua trước khi bắt tay vào": he said the manual made no sense to him and that he would watch the tutorial, but then dropped the ma… — vi/guides/youtube-JpAXeFEVws8, 0.40
 - "Nên dùng mica thay cho kính vì mica dễ cắt, dễ phay và dễ dán hơn nhiều" (also in FAQ and the summary): the video only says he chose acrylic because it is much easier to machine; no comparison on cutting/gluing and no recommendation. Redu… — vi/guides/youtube-seBch2HWlZs, 0.40
 - Remove "Hiểu sai một lần là mất luôn một mùa sinh sản". The video only says no babies were made because there were no plants. It never says a whole breeding season was lost. — vi/guides/youtube-7l1Ja0NL_UQ, 0.45
+
+### Hobby terms and names
+
+- Remove the advice "Hạn chế mở nắp trong thời gian đo" and "Đo kéo dài vài tháng" as instructions. The video gives neither as a step. It only mentions wanting long-term data, and only as the speaker's own plan. — vi/guides/youtube-7l1Ja0NL_UQ, 0.45
+- "Dân chơi gọi hiện tượng này là cây "thở" (pearling)": the "dân chơi gọi" generalisation and the English term "pearling" are not in the video; remove the English and say it neutrally, e.g. the creator describes the plants as "thở". — vi/guides/youtube-H-A6KwMSa9s, 0.50
+- "Bể đẹp tới đâu còn tùy bố cục, và với paludarium thì chuyện này càng quan trọng": reword to hedge and follow the video, a build is only as good as its scape, especially a paludarium. Also "dây nhỏ giọt" for "drip vine" is a clumsy term; u… — vi/guides/youtube-HK0vWQGwNOE, 0.50
 
 ### Names or points to the video, channel, creator or source
 
@@ -126,19 +126,19 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-367 of 2633 pages under the bar.
+369 of 2663 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 345 | 975 |
+| Other | 347 | 979 |
 | Says what the source doesn't (invented, added) | 309 | 587 |
-| Wording: unnatural, literal, stiff or chatty | 270 | 481 |
-| Meaning changed or wrong | 225 | 335 |
+| Wording: unnatural, literal, stiff or chatty | 272 | 484 |
+| Meaning changed or wrong | 226 | 337 |
 | Hobby terms and names | 182 | 245 |
 | Leaves out what the source says | 118 | 160 |
 | Text left in another language | 117 | 144 |
-| States as certain what the source hedges, or what garbled captions only hint at | 97 | 113 |
-| A number, unit, dose or price | 80 | 103 |
+| States as certain what the source hedges, or what garbled captions only hint at | 98 | 114 |
+| A number, unit, dose or price | 81 | 104 |
 | Repeats itself (intro, summary, steps and FAQ) | 67 | 78 |
 | Names or points to the video, channel, creator or source | 10 | 11 |
 | Copied from the transcript or source | 3 | 3 |
@@ -308,7 +308,7 @@ under `<lang>/<path>`.
 
 ## title: titles rewritten to promise only what the text has
 
-0 of 29 pages under the bar.
+0 of 30 pages under the bar.
 
 ## breed: breed pages, against their research
 
@@ -392,7 +392,7 @@ under `<lang>/<path>`.
 
 ## product: product pages, against their research
 
-2 of 35 pages under the bar.
+2 of 36 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -432,16 +432,16 @@ under `<lang>/<path>`.
 
 ## product-reviews: product pages' review summaries (the code's checks: 1 pass, 0 fail)
 
-0 of 27 pages under the bar.
+0 of 28 pages under the bar.
 
 ## summary: species' quick summaries (the numbers and claims check: 1 pass, 0 fail)
 
-168 of 2968 pages under the bar.
+167 of 2985 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
 | Says what the source doesn't (invented, added) | 85 | 103 |
-| States as certain what the source hedges, or what garbled captions only hint at | 62 | 68 |
+| States as certain what the source hedges, or what garbled captions only hint at | 61 | 67 |
 | Other | 56 | 66 |
 | Meaning changed or wrong | 17 | 18 |
 | Leaves out what the source says | 14 | 15 |
@@ -671,7 +671,7 @@ under `<lang>/<path>`.
 
 ## species: species pages AquaTome writes from research, and what a species video adds to a page, against their research or video
 
-0 of 32 pages under the bar.
+0 of 34 pages under the bar.
 
 ## material: hobby materials' pages (lũa, đá, nền), against their research
 

@@ -139,16 +139,7 @@
       },
       {
         "heading": "Gắn cây lên lũa trước khi cho vào bể",
-        "moments": [
-          {
-            "t": 630,
-            "url": "https://media.aquatome.com/video/csyof9ua98M/at630-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khối lũa đã gắn cây rêu xanh, đặt ngoài bể trước khi thả vào.",
-            "sharpness": 2312.2
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/csyof9ua98M/p3-NfUGxhbnRzLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/csyof9ua98M/p3-NfUGxhbnRzLmpwZw-480.webp",
@@ -161,27 +152,6 @@
         }
       },
       {
-        "heading": "Đặt lũa, rải nền và lắp thiết bị",
-        "moments": [
-          {
-            "t": 680,
-            "url": "https://media.aquatome.com/video/csyof9ua98M/at680-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khối lũa gắn cây đã được đặt vào trong bể.",
-            "sharpness": 786.9
-          },
-          {
-            "t": 720,
-            "url": "https://media.aquatome.com/video/csyof9ua98M/at720-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lắp thiết bị ở thành bể, bên cạnh khối lũa đã vào chỗ.",
-            "sharpness": 329.8
-          }
-        ]
-      },
-      {
         "heading": "Trồng cây cắt cắm",
         "moments": [
           {
@@ -190,15 +160,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh với lũa và cây cắt cắm vừa trồng xong.",
-            "sharpness": 1298
-          },
-          {
-            "t": 880,
-            "url": "https://media.aquatome.com/video/csyof9ua98M/at880-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây cắt cắm quanh lũa trong bể, phía trước có cây xanh nhạt.",
-            "sharpness": 1110.5
+            "sharpness": 1298,
+            "person": false
           }
         ],
         "photo": {
@@ -221,7 +184,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khúc lũa có cây mọc phủ trên thân trong bể mới trồng.",
-            "sharpness": 1058.4
+            "sharpness": 1058.4,
+            "person": false
           },
           {
             "t": 890,
@@ -229,7 +193,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể đã trồng nhiều cây xanh quanh và trên khúc lũa.",
-            "sharpness": 1203.2
+            "sharpness": 1203.2,
+            "person": false
           }
         ]
       },

@@ -5,12 +5,12 @@ Written by `pnpm engine gallery` (2026-11-23). Targets: packages/engine/src/gall
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
-| shop | 60 | 131 | 81 | 24 | 39 | 197 |
+| shop | 60 | 131 | 81 | 24 | 41 | 195 |
 | popular | 40 | 21 | 0 | 0 | 1 | 20 |
-| covered | 30 | 942 | 32 | 9 | 27 | 956 |
-| rest | 20 | 2010 | 81 | 0 | 126 | 1965 |
+| covered | 30 | 964 | 32 | 9 | 27 | 978 |
+| rest | 20 | 2005 | 81 | 0 | 126 | 1960 |
 
-## Short of target: every source read (827)
+## Short of target: every source read (825)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -190,44 +190,42 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-caudimaculatus | shop | 3 | 60 |
 | plants/cyperus-helferi | shop | 1 | 60 |
 | species/garra-flavatra | shop | 8 | 60 |
-| plants/aponogeton-madagascariensis | shop | 2 | 60 |
+| plants/aponogeton-madagascariensis | shop | 1 | 60 |
 | species/synodontis-petricola | shop | 3 | 60 |
 | species/peckoltia-compta | shop | 3 | 60 |
 | plants/monosolenium-tenerum | shop | 7 | 60 |
 | plants/echinodorus-grisebachii | shop | 13 | 60 |
-| plants/hygrophila-difformis | shop | 27 | 60 |
+| plants/hygrophila-difformis | shop | 26 | 60 |
 | species/leporacanthicus-joselimai | shop | 1 | 60 |
-| plants/hygrophila-corymbosa | shop | 24 | 60 |
+| plants/hygrophila-corymbosa | shop | 23 | 60 |
 | species/melanotaenia-lacustris | shop | 5 | 60 |
 | plants/cryptocoryne-spiralis | shop | 10 | 60 |
 | species/melanotaenia-parkinsoni | shop | 4 | 60 |
 | species/alestopetersius-caudalis | shop | 1 | 60 |
 | plants/cryptocoryne-albida | shop | 4 | 60 |
-| species/trichogaster-lalius | shop | 41 | 60 |
+| species/trichogaster-lalius | shop | 38 | 60 |
 | plants/heteranthera-zosterifolia | shop | 16 | 60 |
 | species/hyphessobrycon-elachys | shop | 4 | 60 |
-| species/hyphessobrycon-eques | shop | 15 | 60 |
+| species/hyphessobrycon-eques | shop | 7 | 60 |
 | plants/anubias-gracilis | shop | 5 | 60 |
 | species/hyphessobrycon-pulchripinnis | shop | 5 | 60 |
-| species/kryptopterus-vitreolus | shop | 15 | 60 |
+| species/kryptopterus-vitreolus | shop | 14 | 60 |
 | species/thayeria-boehlkei | shop | 6 | 60 |
 | species/labidochromis-caeruleus | shop | 19 | 60 |
 | plants/ammannia-gracilis | shop | 2 | 60 |
-| plants/pogostemon-stellatus | shop | 28 | 60 |
-| species/brachygobius-doriae | shop | 7 | 60 |
+| plants/pogostemon-stellatus | shop | 24 | 60 |
+| species/brachygobius-doriae | shop | 6 | 60 |
 | species/monodactylus-sebae | shop | 11 | 60 |
 | species/melanotaenia-praecox | shop | 5 | 60 |
 | species/dario-dario | shop | 0 | 60 |
-| plants/limnophila-aromatica | shop | 18 | 60 |
-| plants/utricularia-graminifolia | shop | 12 | 60 |
-| species/poropanchax-normani | shop | 6 | 60 |
+| plants/utricularia-graminifolia | shop | 36 | 60 |
+| species/poropanchax-normani | shop | 11 | 60 |
 | species/hasemania-nana | shop | 1 | 60 |
-| species/gyrinocheilus-aymonieri | shop | 14 | 60 |
-| plants/marsilea-hirsuta | shop | 12 | 60 |
-| plants/sagittaria-subulata | shop | 13 | 60 |
-| species/erpetoichthys-calabaricus | shop | 2 | 60 |
-| plants/lilaeopsis-brasiliensis | shop | 8 | 60 |
-| species/trichopsis-vittata | shop | 11 | 60 |
+| species/gyrinocheilus-aymonieri | shop | 27 | 60 |
+| plants/marsilea-hirsuta | shop | 37 | 60 |
+| plants/sagittaria-subulata | shop | 26 | 60 |
+| species/erpetoichthys-calabaricus | shop | 4 | 60 |
+| plants/lilaeopsis-brasiliensis | shop | 9 | 60 |
 | species/boraras-urophthalmoides | shop | 1 | 60 |
 | plants/taxiphyllum-alternans | shop | 6 | 60 |
 | plants/fissidens-fontanus | shop | 19 | 60 |
@@ -371,6 +369,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/asterophysus-batrachus | covered | 1 | 30 |
 | species/auchenoglanis-occidentalis | covered | 5 | 30 |
 | species/axelrodia-riesei | covered | 1 | 30 |
+| species/baryancistrus-xanthellus | covered | 3 | 30 |
 | species/betta-foerschi | covered | 0 | 30 |
 | species/betta-imbellis | covered | 3 | 30 |
 | species/betta-raja | covered | 0 | 30 |
@@ -498,7 +497,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/barilius-bakeri | covered | 1 | 30 |
 | species/baryancistrus-beggini | covered | 0 | 30 |
 | species/baryancistrus-demantoides | covered | 1 | 30 |
-| species/baryancistrus-xanthellus | covered | 3 | 30 |
 | species/batasio-fasciolatus | covered | 0 | 30 |
 | species/batrochoglanis-raninus | covered | 0 | 30 |
 | species/batrochoglanis-villosus | covered | 0 | 30 |
@@ -684,6 +682,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/geophagus-winemilleri | covered | 0 | 30 |
 | species/gnathochromis-permaxillaris | covered | 1 | 30 |
 | species/gobioides-broussonnetii | covered | 6 | 30 |
+| species/guyanancistrus-brevispinis | covered | 7 | 30 |
 | species/gymnallabes-typus | covered | 0 | 30 |
 | species/gymnocorymbus-bondi | covered | 0 | 30 |
 | species/haludaria-fasciata | covered | 11 | 30 |
@@ -838,7 +837,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/astroblepus-mindoensis | rest | 1 | 20 |
 | species/colomesus-tocantinensis | rest | 3 | 20 |
 | species/eutropiichthys-vacha | rest | 1 | 20 |
-| species/guyanancistrus-brevispinis | rest | 7 | 20 |
 | species/hyphessobrycon-compressus | rest | 1 | 20 |
 | species/protopterus-aethiopicus-congicus | rest | 2 | 20 |
 | species/sciades-couma | rest | 2 | 20 |
