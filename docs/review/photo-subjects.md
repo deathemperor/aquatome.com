@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules: docs/governance.md, "Photos".
-24149 verdicts. Shows it: 14818; its habitat (asked again): 3; something else: 613; not a photo of it: 388; dead or as food: 1146; a person in it: 356; a logo on it: 378; can't tell: 4496.
+24228 verdicts. Shows it: 14848; its habitat (asked again): 3; something else: 614; not a photo of it: 388; dead or as food: 1148; a person in it: 360; a logo on it: 379; can't tell: 4537.
 
 ## Left with no photo (187)
 
@@ -193,7 +193,7 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 - species/xenotilapia-sima
 - species/xiurenbagrus-gigas
 
-## Can't tell: still shown (4496)
+## Can't tell: still shown (4537)
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -930,19 +930,34 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/105143225.webp) | subject unsure |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/11325107.webp) | subject unsure |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/130045210.webp) | subject unsure |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/167542662.webp) | subject unsure |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/43268874.webp) | subject unsure |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/43269247.webp) | subject unsure |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/44851878.webp) | subject unsure |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/45285316.webp) | subject unsure |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/45461816.webp) | subject unsure |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/45462096.webp) | subject unsure |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/46006753.webp) | subject unsure |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/46006946.webp) | subject unsure |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/48478685.webp) | subject unsure |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/526145731.webp) | subject unsure |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/60603702.webp) | subject unsure |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/61520019.webp) | subject unsure |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/654013920.webp) | subject unsure |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/66200894.webp) | subject unsure |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/70769830.webp) | subject unsure |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/85150817.webp) | subject unsure |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/tropica/538eb3aa4a04e7f8.webp) | subject unsure |
 | species/poecilia-sphenops | [photo](https://media.aquatome.com/inaturalist/130535925.webp) | subject unsure |
+| species/poecilia-sphenops | [photo](https://media.aquatome.com/inaturalist/283769167.webp) | subject unsure |
+| species/poecilia-sphenops | [photo](https://media.aquatome.com/inaturalist/283769199.webp) | subject unsure |
+| species/poecilia-sphenops | [photo](https://media.aquatome.com/inaturalist/433790705.webp) | subject unsure |
+| species/poecilia-sphenops | [photo](https://media.aquatome.com/inaturalist/52393494.webp) | subject unsure |
+| species/poecilia-sphenops | [photo](https://media.aquatome.com/inaturalist/547351410.webp) | subject unsure |
+| species/poecilia-sphenops | [photo](https://media.aquatome.com/inaturalist/547351475.webp) | subject unsure |
+| species/poecilia-sphenops | [photo](https://media.aquatome.com/inaturalist/547351500.webp) | subject unsure |
 | species/poecilia-sphenops | [photo](https://media.aquatome.com/inaturalist/611221064.webp) | subject unsure |
+| species/poecilia-sphenops | [photo](https://media.aquatome.com/inaturalist/99990535.webp) | subject unsure |
 | species/cyprinus-rubrofuscus | [photo](https://media.aquatome.com/commons/00b64e596a77e9a4.webp) | subject unsure |
 | species/cyprinus-rubrofuscus | [photo](https://media.aquatome.com/commons/05733f8a5c214bda.webp) | subject unsure |
 | species/cyprinus-rubrofuscus | [photo](https://media.aquatome.com/commons/20abebd5e0dfc35c.webp) | subject unsure |
@@ -969,10 +984,36 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/scleropages-formosus | [photo](https://media.aquatome.com/commons/10f06f09878ccd18.webp) | subject unsure |
 | species/scleropages-formosus | [photo](https://media.aquatome.com/commons/2d07ce91b4a0bfcc.webp) | subject unsure |
 | species/scleropages-formosus | [photo](https://media.aquatome.com/flickr/5100397121.webp) | subject unsure |
+| species/scleropages-formosus | [photo](https://media.aquatome.com/inaturalist/129613602.webp) | subject unsure |
+| species/scleropages-formosus | [photo](https://media.aquatome.com/inaturalist/264540270.webp) | subject unsure |
+| species/scleropages-formosus | [photo](https://media.aquatome.com/inaturalist/28755029.webp) | subject unsure |
 | species/scleropages-formosus | [photo](https://media.aquatome.com/inaturalist/288012739.webp) | subject unsure |
+| species/scleropages-formosus | [photo](https://media.aquatome.com/inaturalist/306100339.webp) | subject unsure |
+| species/scleropages-formosus | [photo](https://media.aquatome.com/inaturalist/306100357.webp) | subject unsure |
+| species/scleropages-formosus | [photo](https://media.aquatome.com/inaturalist/306100379.webp) | subject unsure |
+| species/scleropages-formosus | [photo](https://media.aquatome.com/inaturalist/313100220.webp) | subject unsure |
+| species/scleropages-formosus | [photo](https://media.aquatome.com/inaturalist/315230290.webp) | subject unsure |
+| species/scleropages-formosus | [photo](https://media.aquatome.com/inaturalist/315230301.webp) | subject unsure |
+| species/scleropages-formosus | [photo](https://media.aquatome.com/inaturalist/321343028.webp) | subject unsure |
+| species/scleropages-formosus | [photo](https://media.aquatome.com/inaturalist/329890274.webp) | subject unsure |
+| species/scleropages-formosus | [photo](https://media.aquatome.com/inaturalist/329890287.webp) | subject unsure |
+| species/scleropages-formosus | [photo](https://media.aquatome.com/inaturalist/340268103.webp) | subject unsure |
+| species/scleropages-formosus | [photo](https://media.aquatome.com/inaturalist/412473044.webp) | subject unsure |
+| species/scleropages-formosus | [photo](https://media.aquatome.com/inaturalist/475211248.webp) | subject unsure |
+| species/scleropages-formosus | [photo](https://media.aquatome.com/inaturalist/518036207.webp) | subject unsure |
+| species/scleropages-formosus | [photo](https://media.aquatome.com/inaturalist/534117228.webp) | subject unsure |
+| species/scleropages-formosus | [photo](https://media.aquatome.com/inaturalist/558340551.webp) | subject unsure |
+| species/scleropages-formosus | [photo](https://media.aquatome.com/inaturalist/558340580.webp) | subject unsure |
+| species/scleropages-formosus | [photo](https://media.aquatome.com/inaturalist/561188560.webp) | subject unsure |
 | species/polypterus-senegalus | [photo](https://media.aquatome.com/commons/86d6b262a66bb2af.webp) | subject unsure |
 | species/channa-pulchra | [photo](https://media.aquatome.com/inaturalist/475711151.webp) | subject unsure |
 | species/channa-stewartii | [photo](https://media.aquatome.com/inaturalist/111186483.webp) | subject unsure |
+| plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/168780666.webp) | subject unsure |
+| plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/178435330.webp) | subject unsure |
+| plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/187425229.webp) | subject unsure |
+| plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/187425350.webp) | subject unsure |
+| plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/208137366.webp) | subject unsure |
+| plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/208137442.webp) | subject unsure |
 | plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/227885896.webp) | subject unsure |
 | plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/266221611.webp) | subject unsure |
 | plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/306682766.webp) | subject unsure |
@@ -4694,9 +4735,9 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | plants/vallisneria-spiralis | [photo](https://media.aquatome.com/tropica/32a5549cfa5b0c5e.webp) | subject unsure |
 | species/crenicichla-marmorata | [photo](https://media.aquatome.com/commons/e8cb82a86126e499.webp) | subject unsure |
 
-## Removed (2811)
+## Removed (2819)
 
-"Something else" records a different subject; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
+"Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -5280,6 +5321,11 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/poecilia-sphenops | [photo](https://media.aquatome.com/commons/42ab0d7ad5d41fc5.webp) | subject dead |
 | species/poecilia-sphenops | [photo](https://media.aquatome.com/commons/bc6d7868f4a60995.webp) | subject dead |
 | species/poecilia-sphenops | [photo](https://media.aquatome.com/flickr/6702014271.webp) | subject other; logo |
+| species/poecilia-sphenops | [photo](https://media.aquatome.com/inaturalist/248135579.webp) | subject dead |
+| species/poecilia-sphenops | [photo](https://media.aquatome.com/inaturalist/433790717.webp) | subject yes; person |
+| species/poecilia-sphenops | [photo](https://media.aquatome.com/inaturalist/434209043.webp) | subject yes; person |
+| species/poecilia-sphenops | [photo](https://media.aquatome.com/inaturalist/603187955.webp) | subject yes; person |
+| species/poecilia-sphenops | [photo](https://media.aquatome.com/inaturalist/628978272.webp) | subject unsure; logo |
 | species/cyprinus-rubrofuscus | [photo](https://images.unsplash.com/photo-1750173488630-73e05f092be0?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjZ8fEN5cHJpbnVzJTIwcnVicm9mdXNjdXN8ZW58MXx8fHwxNzkzNDQ4NDYyfDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | subject other |
 | plants/cryptocoryne-beckettii | [photo](https://media.aquatome.com/commons/956c44b16aa5ae88.webp) | subject none |
 | species/corydoras-panda | [photo](https://media.aquatome.com/commons/67e6ecee304f3b17.webp) | subject other |
@@ -5304,12 +5350,15 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/scleropages-formosus | [photo](https://media.aquatome.com/commons/f94f05478fb3c9a6.webp) | subject other |
 | species/scleropages-formosus | [photo](https://media.aquatome.com/commons/fdb933c97d6ae947.webp) | subject other |
 | species/scleropages-formosus | [photo](https://media.aquatome.com/flickr/8445099001.webp) | subject other |
+| species/scleropages-formosus | [photo](https://media.aquatome.com/inaturalist/28755026.webp) | subject other |
 | species/polypterus-senegalus | [photo](https://media.aquatome.com/commons/667ab15cee54d193.webp) | subject other |
 | species/polypterus-senegalus | [photo](https://media.aquatome.com/inaturalist/243650469.webp) | subject dead |
+| species/polypterus-senegalus | [photo](https://media.aquatome.com/inaturalist/595545181.webp) | subject dead |
 | species/channa-stewartii | [photo](https://media.aquatome.com/commons/25337a8fe27ca115.webp) | subject none |
 | species/channa-stewartii | [photo](https://media.aquatome.com/commons/985b7199d988c19c.webp) | subject none |
 | species/channa-stewartii | [photo](https://media.aquatome.com/commons/ba0d7bc1fcaf33b3.webp) | subject none |
 | species/channa-andrao | [photo](https://media.aquatome.com/inaturalist/80516645.webp) | subject yes; logo |
+| plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/217894164.webp) | subject unsure; person; logo |
 | plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/610888905.webp) | subject yes; person |
 | species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/707105250.webp) | subject dead |
 | species/channa-asiatica | [photo](https://media.aquatome.com/seriouslyfish/0e017df20c190878.webp) | subject dead; person |

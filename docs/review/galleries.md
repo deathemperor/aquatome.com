@@ -5,12 +5,12 @@ Written by `pnpm engine gallery` (2026-11-24). Targets: packages/engine/src/gall
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
-| shop | 60 | 131 | 81 | 24 | 44 | 192 |
+| shop | 60 | 131 | 81 | 24 | 47 | 189 |
 | popular | 40 | 21 | 0 | 0 | 1 | 20 |
 | covered | 30 | 964 | 32 | 9 | 27 | 978 |
 | rest | 20 | 2005 | 81 | 0 | 126 | 1960 |
 
-## Short of target: every source read (823)
+## Short of target: every source read (820)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -226,44 +226,41 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/sagittaria-subulata | shop | 26 | 60 |
 | species/erpetoichthys-calabaricus | shop | 2 | 60 |
 | plants/lilaeopsis-brasiliensis | shop | 9 | 60 |
-| species/boraras-urophthalmoides | shop | 13 | 60 |
+| species/boraras-urophthalmoides | shop | 6 | 60 |
 | plants/taxiphyllum-alternans | shop | 9 | 60 |
-| species/poecilia-sphenops | shop | 39 | 60 |
+| species/poecilia-sphenops | shop | 31 | 60 |
 | plants/cryptocoryne-beckettii | shop | 1 | 60 |
 | species/corydoras-panda | shop | 13 | 60 |
 | species/corydoras-sterbai | shop | 14 | 60 |
 | species/scleropages-jardinii | shop | 15 | 60 |
-| species/polypterus-senegalus | shop | 17 | 60 |
+| species/polypterus-senegalus | shop | 16 | 60 |
 | species/channa-pulchra | shop | 2 | 60 |
 | species/channa-stewartii | shop | 1 | 60 |
 | species/channa-andrao | shop | 1 | 60 |
-| species/channa-asiatica | shop | 5 | 60 |
 | species/channa-aurantimaculata | shop | 0 | 60 |
 | species/danio-margaritatus | shop | 9 | 60 |
-| species/atractosteus-spatula | shop | 36 | 60 |
 | species/hyphessobrycon-megalopterus | shop | 4 | 60 |
 | plants/vesicularia-montagnei | shop | 4 | 60 |
 | species/hyphessobrycon-sweglesi | shop | 4 | 60 |
-| plants/micranthemum-callitrichoides | shop | 6 | 60 |
+| plants/micranthemum-callitrichoides | shop | 12 | 60 |
 | species/trigonostigma-hengeli | shop | 4 | 60 |
 | species/boraras-brigittae | shop | 4 | 60 |
-| plants/eleocharis-parvula | shop | 19 | 60 |
-| species/gymnarchus-niloticus | shop | 7 | 60 |
+| plants/eleocharis-parvula | shop | 47 | 60 |
+| species/gymnarchus-niloticus | shop | 8 | 60 |
 | species/agamyxis-pectinifrons | shop | 0 | 60 |
-| species/chitala-ornata | shop | 10 | 60 |
+| species/chitala-ornata | shop | 12 | 60 |
 | species/apteronotus-albifrons | shop | 4 | 60 |
 | species/apteronotus-leptorhynchus | shop | 2 | 60 |
 | species/myxocyprinus-asiaticus | shop | 7 | 60 |
 | species/gnathonemus-petersii | shop | 10 | 60 |
 | species/cyphotilapia-frontosa | shop | 28 | 60 |
-| plants/cryptocoryne-nurii | shop | 3 | 60 |
-| species/garra-rufa | shop | 10 | 60 |
-| plants/cryptocoryne-undulata | shop | 5 | 60 |
-| species/ctenolucius-hujeta | shop | 7 | 60 |
+| plants/cryptocoryne-nurii | shop | 4 | 60 |
+| species/garra-rufa | shop | 13 | 60 |
+| plants/cryptocoryne-undulata | shop | 6 | 60 |
+| species/ctenolucius-hujeta | shop | 14 | 60 |
 | plants/cryptocoryne-usteriana | shop | 5 | 60 |
-| species/astyanax-mexicanus | shop | 19 | 60 |
-| species/iriatherina-werneri | shop | 2 | 60 |
-| species/helostoma-temminckii | shop | 15 | 60 |
+| species/astyanax-mexicanus | shop | 25 | 60 |
+| species/iriatherina-werneri | shop | 3 | 60 |
 | plants/bacopa-salzmannii | shop | 4 | 60 |
 | species/epalzeorhynchos-kalopterus | shop | 2 | 60 |
 | plants/cardamine-lyrata | shop | 3 | 60 |
