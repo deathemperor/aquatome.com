@@ -185,8 +185,7 @@
       "caption": "Hai cá lóc bông bơi trong nước xanh ngoài tự nhiên",
       "best": true,
       "kind": "pair",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/24107006.webp",
@@ -199,8 +198,7 @@
       "caption": "Cá lóc bông con sọc vàng đen trong bể nuôi, cận cảnh đầu",
       "best": true,
       "kind": "juvenile",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/86112234.webp",
@@ -213,36 +211,7 @@
       "caption": "Đàn cá lóc bông con tụ lại trên mặt nước đục",
       "best": true,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/60578105.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/60578105-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-NC",
-      "author": "Michael Barth",
-      "sourceUrl": "https://www.inaturalist.org/photos/60578105",
-      "caption": "Cá lóc bông bơi dưới nước gần gỗ chìm ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/225184881.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/225184881-480.webp",
-      "width": 946,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Alexius",
-      "sourceUrl": "https://www.inaturalist.org/photos/225184881",
-      "caption": "Cá lóc bông có sọc vằn rõ bơi dưới nước",
-      "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/184165190.webp",
@@ -255,50 +224,7 @@
       "caption": "Hai cá lóc bông bơi trong dòng nước xanh",
       "best": true,
       "kind": "pair",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/50708326.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/50708326-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY-NC",
-      "author": "H.T.Cheng",
-      "sourceUrl": "https://www.inaturalist.org/photos/50708326",
-      "caption": "Cá lóc bông con sọc đen vàng trên nền đất ẩm ngoài tự nhiên",
-      "best": true,
-      "kind": "juvenile",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/86112274.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/86112274-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-NC",
-      "author": "Wich’yanan (Jay) Limparungpatthanakij",
-      "sourceUrl": "https://www.inaturalist.org/photos/86112274",
-      "caption": "Đàn cá lóc bông con màu đỏ nổi thành đám ngoài tự nhiên",
-      "best": true,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/133357338.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/133357338-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Patricia",
-      "sourceUrl": "https://www.inaturalist.org/photos/133357338",
-      "caption": "Cá lóc bông bơi gần mặt nước ao xanh",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/252978979.webp",
@@ -311,8 +237,20 @@
       "caption": "Cá lóc bông con bơi gần mặt nước trong ao",
       "best": true,
       "kind": "juvenile",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/86112274.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/86112274-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Wich’yanan (Jay) Limparungpatthanakij",
+      "sourceUrl": "https://www.inaturalist.org/photos/86112274",
+      "caption": "Đàn cá lóc bông con màu đỏ nổi thành đám ngoài tự nhiên",
+      "best": true,
+      "kind": "group",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/252979031.webp",
@@ -325,162 +263,7 @@
       "caption": "Đàn cá lóc bông con bơi gần mặt nước",
       "best": true,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/160063507.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/160063507-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Gavin",
-      "sourceUrl": "https://www.inaturalist.org/photos/160063507",
-      "caption": "Cá lóc bông lớn với vằn loang trong ao có cây thủy sinh",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/264224496.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/264224496-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Ivan Neo",
-      "sourceUrl": "https://www.inaturalist.org/photos/264224496",
-      "caption": "Cá lóc bông con có sọc dọc thân bơi trong nước",
-      "best": true,
-      "kind": "juvenile",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/160063517.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/160063517-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Gavin",
-      "sourceUrl": "https://www.inaturalist.org/photos/160063517",
-      "caption": "Cá lóc bông trưởng thành bơi dưới tán lá trong ao",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/220975187.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/220975187-480.webp",
-      "width": 1024,
-      "height": 684,
-      "licence": "CC BY-NC",
-      "author": "Axl P.",
-      "sourceUrl": "https://www.inaturalist.org/photos/220975187",
-      "caption": "Cá lóc bông lớn bơi trong nước nông cạnh cây thủy sinh",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/220975502.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/220975502-480.webp",
-      "width": 1024,
-      "height": 684,
-      "licence": "CC BY-NC",
-      "author": "Axl P.",
-      "sourceUrl": "https://www.inaturalist.org/photos/220975502",
-      "caption": "Cá lóc bông bơi giữa lá súng trong nước nông",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/225183124.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/225183124-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Alexius",
-      "sourceUrl": "https://www.inaturalist.org/photos/225183124",
-      "caption": "Cá lóc bông sọc đậm nổi trên mặt nước",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/179926487.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/179926487-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Yingyod Lapwong",
-      "sourceUrl": "https://www.inaturalist.org/photos/179926487",
-      "caption": "Đàn cá lóc bông bơi trong nước đục vàng",
-      "best": false,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/169579682.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/169579682-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Minder Singh",
-      "sourceUrl": "https://www.inaturalist.org/photos/169579682",
-      "caption": "Cá lóc bông bơi gần mặt nước giữa rong ngoài tự nhiên",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/24106909.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/24106909-480.webp",
-      "width": 1024,
-      "height": 261,
-      "licence": "CC BY-NC",
-      "author": "H.T.Cheng",
-      "sourceUrl": "https://www.inaturalist.org/photos/24106909",
-      "caption": "Cận cảnh sọc đen trên thân cá lóc bông con",
-      "best": false,
-      "kind": "detail",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/179926494.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/179926494-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Yingyod Lapwong",
-      "sourceUrl": "https://www.inaturalist.org/photos/179926494",
-      "caption": "Ba cá lóc bông bơi gần bờ trong nước đục",
-      "best": false,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/174759627.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/174759627-480.webp",
-      "width": 1024,
-      "height": 681,
-      "licence": "CC BY-NC",
-      "author": "batworker",
-      "sourceUrl": "https://www.inaturalist.org/photos/174759627",
-      "caption": "Cá lóc bông bơi giữa thực vật thủy sinh trong môi trường tự nhiên",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/231105542.webp",
@@ -493,8 +276,189 @@
       "caption": "Đàn cá lóc bông con màu cam bơi trong nước",
       "best": false,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/169579682.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/169579682-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Minder Singh",
+      "sourceUrl": "https://www.inaturalist.org/photos/169579682",
+      "caption": "Cá lóc bông bơi gần mặt nước giữa rong ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/24106909.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/24106909-480.webp",
+      "width": 1024,
+      "height": 261,
+      "licence": "CC BY-NC",
+      "author": "H.T.Cheng",
+      "sourceUrl": "https://www.inaturalist.org/photos/24106909",
+      "caption": "Cận cảnh sọc đen trên thân cá lóc bông con",
+      "best": false,
+      "kind": "detail",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/264224496.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/264224496-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Ivan Neo",
+      "sourceUrl": "https://www.inaturalist.org/photos/264224496",
+      "caption": "Cá lóc bông con có sọc dọc thân bơi trong nước",
+      "best": true,
+      "kind": "juvenile",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/60578105.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/60578105-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Michael Barth",
+      "sourceUrl": "https://www.inaturalist.org/photos/60578105",
+      "caption": "Cá lóc bông bơi dưới nước gần gỗ chìm ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/225184881.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/225184881-480.webp",
+      "width": 946,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Alexius",
+      "sourceUrl": "https://www.inaturalist.org/photos/225184881",
+      "caption": "Cá lóc bông có sọc vằn rõ bơi dưới nước",
+      "best": true,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/133357338.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/133357338-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Patricia",
+      "sourceUrl": "https://www.inaturalist.org/photos/133357338",
+      "caption": "Cá lóc bông bơi gần mặt nước ao xanh",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/160063507.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/160063507-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Gavin",
+      "sourceUrl": "https://www.inaturalist.org/photos/160063507",
+      "caption": "Cá lóc bông lớn với vằn loang trong ao có cây thủy sinh",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/160063517.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/160063517-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Gavin",
+      "sourceUrl": "https://www.inaturalist.org/photos/160063517",
+      "caption": "Cá lóc bông trưởng thành bơi dưới tán lá trong ao",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/220975187.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/220975187-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY-NC",
+      "author": "Axl P.",
+      "sourceUrl": "https://www.inaturalist.org/photos/220975187",
+      "caption": "Cá lóc bông lớn bơi trong nước nông cạnh cây thủy sinh",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/220975502.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/220975502-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY-NC",
+      "author": "Axl P.",
+      "sourceUrl": "https://www.inaturalist.org/photos/220975502",
+      "caption": "Cá lóc bông bơi giữa lá súng trong nước nông",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/225183124.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/225183124-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Alexius",
+      "sourceUrl": "https://www.inaturalist.org/photos/225183124",
+      "caption": "Cá lóc bông sọc đậm nổi trên mặt nước",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/179926487.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/179926487-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Yingyod Lapwong",
+      "sourceUrl": "https://www.inaturalist.org/photos/179926487",
+      "caption": "Đàn cá lóc bông bơi trong nước đục vàng",
+      "best": false,
+      "kind": "group",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/174759627.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/174759627-480.webp",
+      "width": 1024,
+      "height": 681,
+      "licence": "CC BY-NC",
+      "author": "batworker",
+      "sourceUrl": "https://www.inaturalist.org/photos/174759627",
+      "caption": "Cá lóc bông bơi giữa thực vật thủy sinh trong môi trường tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/179926494.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/179926494-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Yingyod Lapwong",
+      "sourceUrl": "https://www.inaturalist.org/photos/179926494",
+      "caption": "Ba cá lóc bông bơi gần bờ trong nước đục",
+      "best": false,
+      "kind": "group",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/216375660.webp",
@@ -507,8 +471,7 @@
       "caption": "Cá lóc bông bơi dọc đáy nước nông trong tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/220975214.webp",
@@ -521,8 +484,7 @@
       "caption": "Cá lóc bông bơi trong suối nông gần cây thủy sinh",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/220975467.webp",
@@ -535,8 +497,7 @@
       "caption": "Cá lóc bông bơi gần lá súng ngoài tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/231136535.webp",
@@ -549,8 +510,7 @@
       "caption": "Cá lóc bông bơi trong nước xanh ngoài tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/243933334.webp",
@@ -563,8 +523,7 @@
       "caption": "Cá lóc bông có vằn bơi gần mặt nước",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     }
   ],
   "seen": 199,

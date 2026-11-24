@@ -1,7 +1,22 @@
 {
   "id": "auchenoglanis-biscutatus",
-  "photos": [],
-  "seen": 3,
-  "updatedAt": "2026-11-19",
-  "builtAt": "2026-11-19"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/629658828.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/629658828-480.webp",
+      "width": 1024,
+      "height": 925,
+      "licence": "CC BY-NC",
+      "author": "Mohamed Salah",
+      "sourceUrl": "https://www.inaturalist.org/photos/629658828",
+      "caption": "Cá nheo môi thịt còn sống vừa câu được trên mặt nước",
+      "best": true,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
+    }
+  ],
+  "seen": 7,
+  "updatedAt": "2026-11-24",
+  "builtAt": "2026-11-24"
 }

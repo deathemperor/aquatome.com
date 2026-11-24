@@ -32,22 +32,7 @@
       "caption": "Cá thủy tinh Ấn Độ đực vây xanh trong bể nền tối",
       "best": true,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/313164966.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/313164966-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Tse Chung Yi",
-      "sourceUrl": "https://www.inaturalist.org/photos/313164966",
-      "caption": "Cá thủy tinh Ấn Độ trong suốt bơi trên nền đá ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/313164924.webp",
@@ -60,8 +45,7 @@
       "caption": "Cá thủy tinh Ấn Độ bơi trong môi trường tự nhiên nước đục",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/314985810.webp",
@@ -74,22 +58,7 @@
       "caption": "Cá thủy tinh Ấn Độ trong suối tự nhiên, thân trong suốt",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/239454752.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/239454752-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-NC",
-      "author": "Wai Hin Arkar Win",
-      "sourceUrl": "https://www.inaturalist.org/photos/239454752",
-      "caption": "Cá thủy tinh Ấn Độ trong khay ảnh cạnh thước đo",
-      "best": false,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/477271081.webp",
@@ -102,8 +71,33 @@
       "caption": "Cá thủy tinh Ấn Độ trong bể thủy sinh có cây",
       "best": false,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/313164966.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/313164966-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Tse Chung Yi",
+      "sourceUrl": "https://www.inaturalist.org/photos/313164966",
+      "caption": "Cá thủy tinh Ấn Độ trong suốt bơi trên nền đá ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/239454752.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/239454752-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Wai Hin Arkar Win",
+      "sourceUrl": "https://www.inaturalist.org/photos/239454752",
+      "caption": "Cá thủy tinh Ấn Độ trong khay ảnh cạnh thước đo",
+      "best": false,
+      "kind": "other",
+      "setup": true
     }
   ],
   "seen": 26,

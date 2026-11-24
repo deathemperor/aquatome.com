@@ -1,7 +1,78 @@
 {
   "id": "acrochordonichthys-rugosus",
-  "photos": [],
-  "seen": 1,
-  "updatedAt": "2026-10-30",
-  "builtAt": "2026-10-30"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/673695351.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/673695351-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Jiayuan Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/673695351",
+      "caption": "Cá trê banjo bơi dưới suối trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/424447287.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/424447287-480.webp",
+      "width": 645,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Ahsan al hidayat",
+      "sourceUrl": "https://www.inaturalist.org/photos/424447287",
+      "caption": "Cá trê banjo nâu sẫm nằm trên nền cát trong bể",
+      "best": true,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/424447344.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/424447344-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY-NC",
+      "author": "Ahsan al hidayat",
+      "sourceUrl": "https://www.inaturalist.org/photos/424447344",
+      "caption": "Cá trê banjo có vằn nâu bò trên nền cát trong bể",
+      "best": true,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/457194900.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/457194900-480.webp",
+      "width": 771,
+      "height": 1024,
+      "licence": "CC BY-NC-SA",
+      "author": "Aiman Azmi",
+      "sourceUrl": "https://www.inaturalist.org/photos/457194900",
+      "caption": "Cá trê banjo màu xanh đen trên lưới thu mẫu",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/457194895.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/457194895-480.webp",
+      "width": 771,
+      "height": 1024,
+      "licence": "CC BY-NC-SA",
+      "author": "Aiman Azmi",
+      "sourceUrl": "https://www.inaturalist.org/photos/457194895",
+      "caption": "Cá trê banjo màu tối trên lưới thu mẫu ngoài suối",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    }
+  ],
+  "seen": 19,
+  "updatedAt": "2026-11-24",
+  "builtAt": "2026-11-24"
 }

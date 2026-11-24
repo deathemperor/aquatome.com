@@ -19,34 +19,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/305322412.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/305322412-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "ferngirltlc",
-      "sourceUrl": "https://www.inaturalist.org/photos/305322412",
-      "caption": "Ba con cá tỳ bà leopard trong chậu xanh",
-      "best": true,
-      "kind": "group",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/250649523.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/250649523-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Ernesto Octavio Guzman Tapia",
-      "sourceUrl": "https://www.inaturalist.org/photos/250649523",
-      "caption": "Cá tỳ bà leopard trong vũng nước cạnh phiến đá",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/51356375.webp",
       "thumb": "https://media.aquatome.com/inaturalist/51356375-480.webp",
       "width": 1024,
@@ -57,8 +29,7 @@
       "caption": "Cá tỳ bà leopard bơi trên lá khô trong bể chụp ảnh",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/352649323.webp",
@@ -71,8 +42,7 @@
       "caption": "Cá tỳ bà leopard thân đốm vàng nâu nằm trên lá trong bể",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/352649330.webp",
@@ -85,36 +55,20 @@
       "caption": "Cá tỳ bà leopard nhìn nghiêng giữa lá khô trong bể chụp",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/587075355.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/587075355-480.webp",
-      "width": 768,
-      "height": 1024,
+      "url": "https://media.aquatome.com/inaturalist/250649523.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/250649523-480.webp",
+      "width": 1024,
+      "height": 768,
       "licence": "CC BY-NC",
-      "author": "Charlie Fox-Whelpton",
-      "sourceUrl": "https://www.inaturalist.org/photos/587075355",
-      "caption": "Cá tỳ bà leopard trong hộp đỏ khi cân đo",
+      "author": "Ernesto Octavio Guzman Tapia",
+      "sourceUrl": "https://www.inaturalist.org/photos/250649523",
+      "caption": "Cá tỳ bà leopard trong vũng nước cạnh phiến đá",
       "best": true,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/617713477.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/617713477-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "asherah29",
-      "sourceUrl": "https://www.inaturalist.org/photos/617713477",
-      "caption": "Cá tỳ bà leopard đốm mạng nằm trên tấm gỗ, chụp ngoài thực địa",
-      "best": true,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 105,

@@ -1,19 +1,8 @@
 {
- "queue": [
-  {
-   "key": "flickr:5807039790",
-   "url": "https://live.staticflickr.com/3423/5807039790_95723a6ffc_b.jpg",
-   "thumb": "https://live.staticflickr.com/3423/5807039790_95723a6ffc_z.jpg",
-   "width": 1024,
-   "height": 594,
-   "licence": "CC BY 2.0",
-   "author": "Charles & Clint",
-   "sourceUrl": "https://www.flickr.com/photos/20087733@N00/5807039790",
-   "openverse": "66e244e2-f03a-44b3-b389-2f55cc062a6d"
-  }
- ],
+ "queue": [],
  "judged": [
-  "File:Acestrorhynchus minimus.jpg"
+  "File:Acestrorhynchus minimus.jpg",
+  "flickr:5807039790"
  ],
  "hashes": {
   "https://media.aquatome.com/glaser/b45e10fbff43d47b.webp": "48420d03a0a41f5e",
@@ -40,5 +29,6 @@
  },
  "openverse": {
   "next": null
- }
+ },
+ "exhausted": "2026-11-24"
 }

@@ -5,12 +5,12 @@ Written by `pnpm engine gallery` (2026-11-24). Targets: packages/engine/src/gall
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
-| shop | 60 | 131 | 81 | 24 | 56 | 180 |
-| popular | 40 | 21 | 0 | 0 | 6 | 15 |
+| shop | 60 | 131 | 81 | 24 | 57 | 179 |
+| popular | 40 | 21 | 0 | 0 | 9 | 12 |
 | covered | 30 | 964 | 32 | 9 | 27 | 978 |
 | rest | 20 | 2005 | 81 | 0 | 126 | 1960 |
 
-## Short of target: every source read (819)
+## Short of target: every source read (834)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -314,18 +314,17 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/nematobrycon-lacortei | shop | 0 | 60 |
 | species/moenkhausia-sanctaefilomenae | shop | 9 | 60 |
 | species/symphysodon-discus | popular | 0 | 40 |
-| species/pterygoplichthys-pardalis | popular | 8 | 40 |
+| species/pterygoplichthys-pardalis | popular | 5 | 40 |
 | species/ancistrus-dolichopterus | popular | 6 | 40 |
 | species/hemigrammus-erythrozonus | popular | 6 | 40 |
 | species/poecilia-wingei | popular | 33 | 40 |
 | species/pelvicachromis-pulcher | popular | 9 | 40 |
 | species/thorichthys-meeki | popular | 23 | 40 |
-| species/heros-severus | popular | 9 | 40 |
+| species/heros-severus | popular | 8 | 40 |
 | species/channa-barca | popular | 0 | 40 |
 | species/channa-bleheri | popular | 1 | 40 |
 | species/datnioides-microlepis | popular | 2 | 40 |
 | species/datnioides-pulcher | popular | 2 | 40 |
-| species/pomacea-diffusa | popular | 15 | 40 |
 | breeds/electric-blue-ram | covered | 1 | 30 |
 | breeds/blue-diamond-discus | covered | 1 | 30 |
 | breeds/glofish | covered | 12 | 30 |
@@ -336,42 +335,48 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | breeds/platinum-angelfish | covered | 1 | 30 |
 | breeds/albino-oscar | covered | 7 | 30 |
 | species/ambastaia-sidthimunki | covered | 1 | 30 |
-| species/epiplatys-annulatus | covered | 2 | 30 |
+| species/epiplatys-annulatus | covered | 3 | 30 |
 | species/akysis-vespa | covered | 0 | 30 |
 | species/corydoras-fowleri | covered | 1 | 30 |
-| species/acrochordonichthys-rugosus | covered | 0 | 30 |
+| species/platystacus-cotylephorus | covered | 4 | 30 |
+| species/sundadanio-axelrodi | covered | 0 | 30 |
+| species/acrochordonichthys-rugosus | covered | 5 | 30 |
 | species/aguarunichthys-torosus | covered | 0 | 30 |
 | species/akysis-portellus | covered | 0 | 30 |
 | species/amblydoras-nauticus | covered | 0 | 30 |
+| species/ancistrus-claro | covered | 2 | 30 |
 | species/aphanotorulus-unicolor | covered | 0 | 30 |
-| species/apistogramma-agassizii | covered | 4 | 30 |
+| species/apistogramma-agassizii | covered | 5 | 30 |
 | species/asterophysus-batrachus | covered | 1 | 30 |
-| species/auchenoglanis-occidentalis | covered | 5 | 30 |
+| species/auchenoglanis-biscutatus | covered | 1 | 30 |
+| species/auchenoglanis-occidentalis | covered | 8 | 30 |
 | species/axelrodia-riesei | covered | 1 | 30 |
 | species/baryancistrus-xanthellus | covered | 3 | 30 |
 | species/betta-foerschi | covered | 0 | 30 |
-| species/betta-imbellis | covered | 3 | 30 |
-| species/betta-raja | covered | 0 | 30 |
-| species/betta-siamorientalis | covered | 0 | 30 |
-| species/betta-simorum | covered | 0 | 30 |
-| species/betta-unimaculata | covered | 1 | 30 |
-| species/boraras-maculatus | covered | 1 | 30 |
+| species/betta-imbellis | covered | 26 | 30 |
+| species/betta-raja | covered | 8 | 30 |
+| species/betta-siamorientalis | covered | 8 | 30 |
+| species/betta-simorum | covered | 3 | 30 |
+| species/betta-unimaculata | covered | 2 | 30 |
+| species/boraras-maculatus | covered | 16 | 30 |
 | species/boraras-merah | covered | 3 | 30 |
 | species/brachyplatystoma-vaillantii | covered | 1 | 30 |
-| species/brevibora-dorsiocellata | covered | 4 | 30 |
+| species/brevibora-dorsiocellata | covered | 6 | 30 |
 | species/brochis-multiradiatus | covered | 3 | 30 |
-| species/colomesus-asellus | covered | 2 | 30 |
-| species/corydoras-arcuatus | covered | 1 | 30 |
+| species/bunocephalus-coracoideus | covered | 2 | 30 |
+| species/centrodoras-brachiatus | covered | 1 | 30 |
+| species/colomesus-asellus | covered | 5 | 30 |
+| species/corydoras-arcuatus | covered | 2 | 30 |
 | species/corydoras-atropersonatus | covered | 0 | 30 |
 | species/corydoras-duplicareus | covered | 0 | 30 |
 | species/corydoras-elegans | covered | 0 | 30 |
 | species/corydoras-eques | covered | 0 | 30 |
+| species/corydoras-geoffroy | covered | 0 | 30 |
 | species/corydoras-habrosus | covered | 8 | 30 |
 | species/corydoras-semiaquilus | covered | 2 | 30 |
-| species/corydoras-septentrionalis | covered | 0 | 30 |
+| species/corydoras-septentrionalis | covered | 1 | 30 |
 | species/corydoras-splendens | covered | 4 | 30 |
 | species/denticetopsis-seducta | covered | 0 | 30 |
-| species/desmopuntius-hexazona | covered | 4 | 30 |
 | species/desmopuntius-rhomboocellatus | covered | 0 | 30 |
 | species/dianema-urostriatum | covered | 0 | 30 |
 | species/erethistes-pusillus | covered | 1 | 30 |
@@ -827,6 +832,16 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/bucephalandra-sp-red-cherry | covered | 0 | 30 |
 | plants/bucephalandra-sp-round-leaf | covered | 0 | 30 |
 | plants/echinodorus-x-barthii | covered | 1 | 30 |
+| species/acestrorhynchus-minimus | rest | 0 | 20 |
+| species/acrochordonichthys-falcifer | rest | 0 | 20 |
+| species/acrochordonichthys-gyrinus | rest | 0 | 20 |
+| species/acrossocheilus-iridescens | rest | 2 | 20 |
+| species/acrossocheilus-monticola | rest | 0 | 20 |
+| species/adontosternarchus-clarkae | rest | 0 | 20 |
+| species/aequidens-patricki | rest | 0 | 20 |
+| species/ageneiosus-militaris | rest | 0 | 20 |
+| species/ageneiosus-pardalis | rest | 0 | 20 |
+| species/ageneiosus-vittatus | rest | 0 | 20 |
 | species/ariopsis-assimilis | rest | 14 | 20 |
 | species/astroblepus-mindoensis | rest | 1 | 20 |
 | species/colomesus-tocantinensis | rest | 3 | 20 |

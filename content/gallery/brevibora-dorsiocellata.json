@@ -12,6 +12,34 @@
       "caption": "Cá thái hồng đốm mắt bơi giữa cây thủy sinh trong bể"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/65474458.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/65474458-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Ganjar Cahyadi",
+      "sourceUrl": "https://www.inaturalist.org/photos/65474458",
+      "caption": "Cá rasbora mắt xanh bơi trong bể nuôi đáy sỏi",
+      "best": true,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/181936819.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/181936819-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Ganjar Cahyadi",
+      "sourceUrl": "https://www.inaturalist.org/photos/181936819",
+      "caption": "Cá rasbora mắt xanh bên hông, mắt đỏ, trong bể đáy sỏi",
+      "best": true,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/glaser/561ef04c25e3e442.webp",
       "thumb": "https://media.aquatome.com/glaser/561ef04c25e3e442-480.webp",
       "width": 850,
@@ -23,27 +51,28 @@
     },
     {
       "url": "https://media.aquatome.com/glaser/db8f06714296850f.webp",
+      "thumb": "https://media.aquatome.com/glaser/db8f06714296850f-480.webp",
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
       "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/brevibora-dorsiocellata/",
       "caption": "451802-brevibora-schwarm",
-      "source": "glaser",
-      "thumb": "https://media.aquatome.com/glaser/db8f06714296850f-480.webp"
+      "source": "glaser"
     },
     {
       "url": "https://media.aquatome.com/glaser/5c0e3d7417bd09d4.webp",
+      "thumb": "https://media.aquatome.com/glaser/5c0e3d7417bd09d4-480.webp",
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
       "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/brevibora-dorsiocellata/",
       "caption": "451802-brevibora1",
-      "source": "glaser",
-      "thumb": "https://media.aquatome.com/glaser/5c0e3d7417bd09d4-480.webp"
+      "source": "glaser"
     }
   ],
-  "seen": 4,
-  "updatedAt": "2026-10-30"
+  "seen": 9,
+  "updatedAt": "2026-11-24",
+  "builtAt": "2026-11-24"
 }

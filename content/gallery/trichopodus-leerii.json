@@ -237,8 +237,7 @@
       "caption": "Cá sặc trân châu đực trong bể nền tối, sỏi",
       "best": true,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/302111910.webp",
@@ -251,36 +250,7 @@
       "caption": "Cá sặc trân châu vây tua dài trong môi trường nước nâu",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/262023881.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/262023881-480.webp",
-      "width": 447,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Akmal Idham",
-      "sourceUrl": "https://www.inaturalist.org/photos/262023881",
-      "caption": "Cá sặc trân châu có vạch đen bơi trong nước",
-      "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/644026713.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/644026713-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-NC",
-      "author": "muangpaisuetrong",
-      "sourceUrl": "https://www.inaturalist.org/photos/644026713",
-      "caption": "Cá sặc trân châu có vây tia dài trong bể nền tối",
-      "best": true,
-      "kind": "male",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/287819803.webp",
@@ -293,8 +263,20 @@
       "caption": "Cá sặc trân châu trưởng thành trong hộp chụp ảnh",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/644026713.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/644026713-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "muangpaisuetrong",
+      "sourceUrl": "https://www.inaturalist.org/photos/644026713",
+      "caption": "Cá sặc trân châu có vây tia dài trong bể nền tối",
+      "best": true,
+      "kind": "male",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/606120989.webp",
@@ -307,8 +289,7 @@
       "caption": "Cá sặc trân châu bơi trong bể có sỏi và cá nhỏ",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/688404873.webp",
@@ -321,8 +302,7 @@
       "caption": "Cá sặc trân châu trưởng thành bơi trong bể ảnh nhỏ",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/410167387.webp",
@@ -335,36 +315,7 @@
       "caption": "Cá sặc trân châu đực trong hộp ảnh, nhìn nghiêng",
       "best": false,
       "kind": "male",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/224952403.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/224952403-480.webp",
-      "width": 1024,
-      "height": 715,
-      "licence": "CC BY-NC-SA",
-      "author": "Aiman Azmi",
-      "sourceUrl": "https://www.inaturalist.org/photos/224952403",
-      "caption": "Cá sặc trân châu ánh xanh bạc trong hộp nhỏ",
-      "best": false,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/298408128.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/298408128-480.webp",
-      "width": 1024,
-      "height": 484,
-      "licence": "CC BY-NC",
-      "author": "Hendra",
-      "sourceUrl": "https://www.inaturalist.org/photos/298408128",
-      "caption": "Cá sặc trân châu nhìn nghiêng trong hộp chụp ảnh",
-      "best": false,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/383353264.webp",
@@ -377,8 +328,7 @@
       "caption": "Cá sặc trân châu trong bể ảnh nhỏ trong suốt",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/398138695.webp",
@@ -391,8 +341,7 @@
       "caption": "Cá sặc trân châu trong hộp nhựa trong có cây cỏ",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/410167478.webp",
@@ -405,8 +354,7 @@
       "caption": "Cá sặc trân châu trong hộp ảnh ngoài trời",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/614184194.webp",
@@ -419,8 +367,46 @@
       "caption": "Cá sặc trân châu trong hộp nhỏ cạnh thước",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/262023881.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/262023881-480.webp",
+      "width": 447,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Akmal Idham",
+      "sourceUrl": "https://www.inaturalist.org/photos/262023881",
+      "caption": "Cá sặc trân châu có vạch đen bơi trong nước",
+      "best": true,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/224952403.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/224952403-480.webp",
+      "width": 1024,
+      "height": 715,
+      "licence": "CC BY-NC-SA",
+      "author": "Aiman Azmi",
+      "sourceUrl": "https://www.inaturalist.org/photos/224952403",
+      "caption": "Cá sặc trân châu ánh xanh bạc trong hộp nhỏ",
+      "best": false,
+      "kind": "other",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/298408128.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/298408128-480.webp",
+      "width": 1024,
+      "height": 484,
+      "licence": "CC BY-NC",
+      "author": "Hendra",
+      "sourceUrl": "https://www.inaturalist.org/photos/298408128",
+      "caption": "Cá sặc trân châu nhìn nghiêng trong hộp chụp ảnh",
+      "best": false,
+      "kind": "other",
+      "setup": true
     }
   ],
   "seen": 95,

@@ -64,8 +64,23 @@
         "height": 800,
         "thumb": "https://media.aquatome.com/bwaquatics/570b57974b4f9f1a-480.webp"
       }
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/517310665.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/517310665-480.webp",
+      "width": 1024,
+      "height": 461,
+      "licence": "CC BY-NC",
+      "author": "Timur Yilmaz",
+      "sourceUrl": "https://www.inaturalist.org/photos/517310665",
+      "caption": "Cá betta unimaculata trong dòng nước nông ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
     }
   ],
-  "seen": 0,
-  "updatedAt": "2026-11-11"
+  "seen": 4,
+  "updatedAt": "2026-11-24",
+  "builtAt": "2026-11-24"
 }

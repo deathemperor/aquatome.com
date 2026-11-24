@@ -179,8 +179,7 @@
       "caption": "Nhiều cá miệng lửa bơi cùng nhau dưới nước",
       "best": true,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/160070226.webp",
@@ -193,8 +192,7 @@
       "caption": "Cá miệng lửa nhìn chính diện, bụng cam, trong môi trường tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/160070218.webp",
@@ -207,8 +205,7 @@
       "caption": "Cá miệng lửa nhìn nghiêng giữa đá dưới nước trong tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/394659410.webp",
@@ -221,50 +218,7 @@
       "caption": "Cá miệng lửa trưởng thành bơi trên nền cát ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/471085780.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/471085780-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Luis Trinchan",
-      "sourceUrl": "https://www.inaturalist.org/photos/471085780",
-      "caption": "Cá miệng lửa đực màu cam vàng trong nước tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/471085757.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/471085757-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Luis Trinchan",
-      "sourceUrl": "https://www.inaturalist.org/photos/471085757",
-      "caption": "Cá miệng lửa thân vàng cam bơi gần đáy sông",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/404934.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/404934-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Callie",
-      "sourceUrl": "https://www.inaturalist.org/photos/404934",
-      "caption": "Cá miệng lửa có sọc ngang bơi trên nền cát",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/171578953.webp",
@@ -277,8 +231,7 @@
       "caption": "Cá miệng lửa bơi gần đá tối trong môi trường tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/394659436.webp",
@@ -291,8 +244,46 @@
       "caption": "Cá miệng lửa có sọc đen ngang thân trên đáy cát",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/471085780.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/471085780-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Luis Trinchan",
+      "sourceUrl": "https://www.inaturalist.org/photos/471085780",
+      "caption": "Cá miệng lửa đực màu cam vàng trong nước tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/471085757.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/471085757-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Luis Trinchan",
+      "sourceUrl": "https://www.inaturalist.org/photos/471085757",
+      "caption": "Cá miệng lửa thân vàng cam bơi gần đáy sông",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/404934.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/404934-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Callie",
+      "sourceUrl": "https://www.inaturalist.org/photos/404934",
+      "caption": "Cá miệng lửa có sọc ngang bơi trên nền cát",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 95,

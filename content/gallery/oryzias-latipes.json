@@ -370,20 +370,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/363147658.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/363147658-480.webp",
-      "width": 1024,
-      "height": 787,
-      "licence": "CC BY-NC",
-      "author": "Amaël Borzée",
-      "sourceUrl": "https://www.inaturalist.org/photos/363147658",
-      "caption": "Cá medaka Nhật bơi gần mặt nước trong ao ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/259494412.webp",
       "thumb": "https://media.aquatome.com/inaturalist/259494412-480.webp",
       "width": 1024,
@@ -394,8 +380,7 @@
       "caption": "Cá medaka nhìn nghiêng rõ nét trong hộp chụp ảnh",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/259496078.webp",
@@ -408,8 +393,7 @@
       "caption": "Cá medaka có vây đuôi vàng trong hộp chụp ảnh",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/260314247.webp",
@@ -422,8 +406,7 @@
       "caption": "Cá medaka trong hộp nhựa trong suốt, mắt xanh",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/394411580.webp",
@@ -436,8 +419,7 @@
       "caption": "Cá medaka Nhật trưởng thành bơi trong khay trong suốt",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/316259047.webp",
@@ -450,8 +432,7 @@
       "caption": "Hai cá medaka bơi cạnh nhau trong khay trắng",
       "best": false,
       "kind": "pair",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/98108162.webp",
@@ -464,8 +445,7 @@
       "caption": "Đàn cá medaka trong hộp nhựa trong suốt ngoài trời",
       "best": false,
       "kind": "group",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/125748049.webp",
@@ -478,8 +458,7 @@
       "caption": "Cá medaka bơi bên đáy sỏi nhỏ, nền sáng",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/98108352.webp",
@@ -492,8 +471,7 @@
       "caption": "Nhiều cá medaka bơi trong hộp nhựa chụp ngoài trời",
       "best": false,
       "kind": "group",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/258955578.webp",
@@ -506,8 +484,7 @@
       "caption": "Cá medaka nhìn nghiêng trong hộp chụp ảnh nhỏ",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/356269656.webp",
@@ -520,8 +497,20 @@
       "caption": "Cá medaka Nhật nhỏ bơi trên khay lưới đen",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/363147658.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/363147658-480.webp",
+      "width": 1024,
+      "height": 787,
+      "licence": "CC BY-NC",
+      "author": "Amaël Borzée",
+      "sourceUrl": "https://www.inaturalist.org/photos/363147658",
+      "caption": "Cá medaka Nhật bơi gần mặt nước trong ao ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 140,

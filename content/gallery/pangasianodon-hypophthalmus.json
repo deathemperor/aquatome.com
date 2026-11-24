@@ -381,8 +381,7 @@
       "caption": "Đàn cá tra nổi lên mặt nước trong ao",
       "best": true,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/50019713.webp",
@@ -395,8 +394,7 @@
       "caption": "Cá tra trưởng thành bơi gần mặt nước đục ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/246085060.webp",
@@ -409,36 +407,7 @@
       "caption": "Đàn cá tra lớn tụ tập gần mặt nước",
       "best": true,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/125147758.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/125147758-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "suntareerushchano",
-      "sourceUrl": "https://www.inaturalist.org/photos/125147758",
-      "caption": "Cá tra lớn bơi trong nước xanh gần cây thủy sinh",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/246085066.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/246085066-480.webp",
-      "width": 746,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "wingwatcher48",
-      "sourceUrl": "https://www.inaturalist.org/photos/246085066",
-      "caption": "Nhiều cá tra thân dài bơi trong nước đục",
-      "best": true,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/127581779.webp",
@@ -451,50 +420,20 @@
       "caption": "Cá tra lớn nhìn từ trên xuống trong nước trong",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/50019662.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/50019662-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "hsiang",
-      "sourceUrl": "https://www.inaturalist.org/photos/50019662",
-      "caption": "Đàn cá tra tụ tập ở mép nước sông",
-      "best": false,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/174943211.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/174943211-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-NC",
-      "author": "Alexey V. Ivanov",
-      "sourceUrl": "https://www.inaturalist.org/photos/174943211",
-      "caption": "Cá tra đớp mồi ở mặt nước chảy xiết",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/127581791.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/127581791-480.webp",
-      "width": 768,
+      "url": "https://media.aquatome.com/inaturalist/246085066.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/246085066-480.webp",
+      "width": 746,
       "height": 1024,
       "licence": "CC BY-NC",
-      "author": "hazreenahussein",
-      "sourceUrl": "https://www.inaturalist.org/photos/127581791",
-      "caption": "Đàn cá tra bơi dưới nước nông",
-      "best": false,
+      "author": "wingwatcher48",
+      "sourceUrl": "https://www.inaturalist.org/photos/246085066",
+      "caption": "Nhiều cá tra thân dài bơi trong nước đục",
+      "best": true,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/215140361.webp",
@@ -507,8 +446,33 @@
       "caption": "Đàn cá tra bơi gần mặt nước đục ở sông",
       "best": false,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/50019662.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/50019662-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "hsiang",
+      "sourceUrl": "https://www.inaturalist.org/photos/50019662",
+      "caption": "Đàn cá tra tụ tập ở mép nước sông",
+      "best": false,
+      "kind": "group",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/127581791.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/127581791-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "hazreenahussein",
+      "sourceUrl": "https://www.inaturalist.org/photos/127581791",
+      "caption": "Đàn cá tra bơi dưới nước nông",
+      "best": false,
+      "kind": "group",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/246085070.webp",
@@ -521,8 +485,33 @@
       "caption": "Đàn cá tra đông đúc tranh nhau thức ăn",
       "best": false,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/125147758.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/125147758-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "suntareerushchano",
+      "sourceUrl": "https://www.inaturalist.org/photos/125147758",
+      "caption": "Cá tra lớn bơi trong nước xanh gần cây thủy sinh",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/174943211.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/174943211-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Alexey V. Ivanov",
+      "sourceUrl": "https://www.inaturalist.org/photos/174943211",
+      "caption": "Cá tra đớp mồi ở mặt nước chảy xiết",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 179,

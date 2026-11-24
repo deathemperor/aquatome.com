@@ -1,6 +1,13 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:296608324",
+  "inat:296608341",
+  "inat:296608395",
+  "inat:456111087",
+  "inat:657711494",
+  "inat:657712025"
+ ],
  "hashes": {
   "https://media.aquatome.com/commons/5155fce2eece5ba6.webp": "bf3ce1b171715322",
   "https://media.aquatome.com/commons/104e4c05cc6f8c11.webp": "599c0e71e4b9888c",
@@ -8,7 +15,9 @@
   "https://media.aquatome.com/scotcat/da9759d25e949e50.webp": "2d8f2bda98c2c228",
   "https://media.aquatome.com/glaser/7b81be861f1cbc5d.webp": "c9e9d28b64f28172",
   "https://media.aquatome.com/glaser/75022c9f7e946d0a.webp": "273e2e3e3e258104",
-  "https://media.aquatome.com/glaser/f65ffd32001e8a19.webp": "11b1990333133508"
+  "https://media.aquatome.com/glaser/f65ffd32001e8a19.webp": "11b1990333133508",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/296608395/large.jpeg": "de393366ece87354",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/657711494/large.jpg": "1c18490d1c0f593c"
  },
  "commons": "2026-11-06",
  "inat": {
@@ -25,5 +34,10 @@
  },
  "openverse": {
   "next": null
- }
+ },
+ "inatNc": {
+  "after": 360448822,
+  "done": true
+ },
+ "exhausted": "2026-11-24"
 }

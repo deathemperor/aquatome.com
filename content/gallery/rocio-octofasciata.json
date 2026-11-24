@@ -444,32 +444,17 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/102294360.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/102294360-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/46000527.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/46000527-480.webp",
       "width": 1024,
-      "height": 768,
+      "height": 577,
       "licence": "CC BY-NC",
-      "author": "JGB",
-      "sourceUrl": "https://www.inaturalist.org/photos/102294360",
-      "caption": "Cá Jack Dempsey nhỏ có vằn sọc trong hộp chụp ảnh",
-      "best": true,
-      "kind": "juvenile",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/41482033.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/41482033-480.webp",
-      "width": 1024,
-      "height": 684,
-      "licence": "CC BY-NC",
-      "author": "Luis Trinchan",
-      "sourceUrl": "https://www.inaturalist.org/photos/41482033",
-      "caption": "Cá Jack Dempsey nhỏ bơi trong nước nông ngoài tự nhiên",
+      "author": "smmcdonald",
+      "sourceUrl": "https://www.inaturalist.org/photos/46000527",
+      "caption": "Cá Jack Dempsey bơi dưới đáy đá trong môi trường tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/1421140.webp",
@@ -482,22 +467,7 @@
       "caption": "Cá Jack Dempsey trưởng thành với các chấm ánh xanh lấp lánh",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/46000527.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/46000527-480.webp",
-      "width": 1024,
-      "height": 577,
-      "licence": "CC BY-NC",
-      "author": "smmcdonald",
-      "sourceUrl": "https://www.inaturalist.org/photos/46000527",
-      "caption": "Cá Jack Dempsey bơi dưới đáy đá trong môi trường tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/94078667.webp",
@@ -510,8 +480,33 @@
       "caption": "Cá Jack Dempsey màu xanh lam ánh kim trong môi trường tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/102294360.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/102294360-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "JGB",
+      "sourceUrl": "https://www.inaturalist.org/photos/102294360",
+      "caption": "Cá Jack Dempsey nhỏ có vằn sọc trong hộp chụp ảnh",
+      "best": true,
+      "kind": "juvenile",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/41482033.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/41482033-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY-NC",
+      "author": "Luis Trinchan",
+      "sourceUrl": "https://www.inaturalist.org/photos/41482033",
+      "caption": "Cá Jack Dempsey nhỏ bơi trong nước nông ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 139,
