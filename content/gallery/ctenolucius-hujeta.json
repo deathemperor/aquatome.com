@@ -84,22 +84,7 @@
       "caption": "Cá măng hujeta bơi trên nền cát ven bờ",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/249957254.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/249957254-480.webp",
-      "width": 992,
-      "height": 364,
-      "licence": "CC BY-NC",
-      "author": "aaronfirestein",
-      "sourceUrl": "https://www.inaturalist.org/photos/249957254",
-      "caption": "Cá măng hujeta bơi trong nước nâu, nhìn nghiêng",
-      "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/152305198.webp",
@@ -112,8 +97,7 @@
       "caption": "Cá măng hujeta bơi gần mặt nước trong tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/670705144.webp",
@@ -126,36 +110,7 @@
       "caption": "Cá măng hujeta thân thon bơi ở vùng nước nông ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/723680392.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/723680392-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-NC",
-      "author": "mgglon",
-      "sourceUrl": "https://www.inaturalist.org/photos/723680392",
-      "caption": "Cá măng hujeta bơi gần mặt nước cạnh thảm thực vật ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/729996210.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/729996210-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-NC",
-      "author": "Matthew Voelker",
-      "sourceUrl": "https://www.inaturalist.org/photos/729996210",
-      "caption": "Cá măng hujeta bơi sát mặt nước đục ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/181903320.webp",
@@ -168,8 +123,46 @@
       "caption": "Cá măng hujeta bơi sát mặt nước đục",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/723680392.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/723680392-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "mgglon",
+      "sourceUrl": "https://www.inaturalist.org/photos/723680392",
+      "caption": "Cá măng hujeta bơi gần mặt nước cạnh thảm thực vật ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/249957254.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/249957254-480.webp",
+      "width": 992,
+      "height": 364,
+      "licence": "CC BY-NC",
+      "author": "aaronfirestein",
+      "sourceUrl": "https://www.inaturalist.org/photos/249957254",
+      "caption": "Cá măng hujeta bơi trong nước nâu, nhìn nghiêng",
+      "best": true,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/729996210.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/729996210-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Matthew Voelker",
+      "sourceUrl": "https://www.inaturalist.org/photos/729996210",
+      "caption": "Cá măng hujeta bơi sát mặt nước đục ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 39,

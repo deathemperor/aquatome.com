@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules: docs/governance.md, "Photos".
-24228 verdicts. Shows it: 14848; its habitat (asked again): 3; something else: 614; not a photo of it: 388; dead or as food: 1148; a person in it: 360; a logo on it: 379; can't tell: 4537.
+24315 verdicts. Shows it: 14874; its habitat (asked again): 3; something else: 615; not a photo of it: 388; dead or as food: 1153; a person in it: 362; a logo on it: 379; can't tell: 4590.
 
 ## Left with no photo (187)
 
@@ -193,7 +193,7 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 - species/xenotilapia-sima
 - species/xiurenbagrus-gigas
 
-## Can't tell: still shown (4537)
+## Can't tell: still shown (4590)
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -898,6 +898,10 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/352332286.webp) | subject unsure |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/371599549.webp) | subject unsure |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/396855740.webp) | subject unsure |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/453979139.webp) | subject unsure |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/453979294.webp) | subject unsure |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/456663869.webp) | subject unsure |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/468953257.webp) | subject unsure |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/543890514.webp) | subject unsure |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/569742325.webp) | subject unsure |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/569742327.webp) | subject unsure |
@@ -1019,8 +1023,45 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/306682766.webp) | subject unsure |
 | plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/32075373.webp) | subject unsure |
 | species/channa-asiatica | [photo](https://media.aquatome.com/commons/940d5c4b49fcb3d8.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/117108889.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/12495505.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/151425456.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/186196136.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/210070615.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/212278233.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/228183578.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/236513792.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/236517590.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/265522268.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/26666729.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/273821434.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/333296921.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/333296937.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/340882610.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/361056718.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/361904998.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/371614984.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/371615411.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/381525793.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/39675839.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/405723553.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/405723568.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/407755781.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/441157011.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/481387340.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/482963095.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/501556038.webp) | subject unsure |
 | species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/504131566.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/505525672.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/571448655.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/582870027.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/610300959.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/610300968.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/610300971.webp) | subject unsure |
 | species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/631236296.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/63185813.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/66665789.webp) | subject unsure |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/69864023.webp) | subject unsure |
 | species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/81679461.webp) | subject unsure |
 | species/channa-aurantimaculata | [photo](https://media.aquatome.com/glaser/922c676206e0cfe2.webp) | subject unsure; logo |
 | species/channa-aurantimaculata | [photo](https://media.aquatome.com/glaser/b7158fb1033b5375.webp) | subject unsure; logo |
@@ -1098,6 +1139,12 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | plants/micranthemum-callitrichoides | [photo](https://media.aquatome.com/flickr/28073865218.webp) | subject unsure |
 | plants/micranthemum-callitrichoides | [photo](https://media.aquatome.com/flickr/40946246435.webp) | subject unsure |
 | plants/micranthemum-callitrichoides | [photo](https://media.aquatome.com/flickr/41226862534.webp) | subject unsure |
+| plants/micranthemum-callitrichoides | [photo](https://media.aquatome.com/inaturalist/328268204.webp) | subject unsure |
+| plants/micranthemum-callitrichoides | [photo](https://media.aquatome.com/inaturalist/328268239.webp) | subject unsure |
+| plants/micranthemum-callitrichoides | [photo](https://media.aquatome.com/inaturalist/328268266.webp) | subject unsure |
+| plants/micranthemum-callitrichoides | [photo](https://media.aquatome.com/inaturalist/336351341.webp) | subject unsure |
+| plants/micranthemum-callitrichoides | [photo](https://media.aquatome.com/inaturalist/336351352.webp) | subject unsure |
+| plants/micranthemum-callitrichoides | [photo](https://media.aquatome.com/inaturalist/336351377.webp) | subject unsure |
 | species/boraras-brigittae | [photo](https://media.aquatome.com/aquariumcoop/32658b3923020409.webp) | subject unsure |
 | plants/eleocharis-parvula | [photo](https://media.aquatome.com/commons/b33bf2187b30d8ae.webp) | subject unsure |
 | plants/eleocharis-parvula | [photo](https://media.aquatome.com/commons/c201f4164e45ecac.webp) | subject unsure |
@@ -1106,6 +1153,7 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/gymnarchus-niloticus | [photo](https://media.aquatome.com/commons/8771eea3195c3784.webp) | subject unsure |
 | species/gymnarchus-niloticus | [photo](https://media.aquatome.com/commons/95ac72e841ecbbfd.webp) | subject unsure |
 | species/gymnarchus-niloticus | [photo](https://media.aquatome.com/commons/fe45718a404011c1.webp) | subject unsure |
+| species/gymnarchus-niloticus | [photo](https://media.aquatome.com/inaturalist/240549173.webp) | subject unsure |
 | species/agamyxis-pectinifrons | [photo](https://media.aquatome.com/scotcat/67612b75b977d677.webp) | subject unsure |
 | plants/limnobium-laevigatum | [photo](https://media.aquatome.com/inaturalist/316053437.webp) | subject unsure |
 | plants/limnobium-laevigatum | [photo](https://media.aquatome.com/inaturalist/441278914.webp) | subject unsure |
@@ -1130,6 +1178,7 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/gnathonemus-petersii | [photo](https://media.aquatome.com/inaturalist/420403716.webp) | subject unsure |
 | plants/cryptocoryne-nurii | [photo](https://media.aquatome.com/cryptspages/nur_B802_x_2494.webp) | subject unsure |
 | plants/cryptocoryne-nurii | [photo](https://media.aquatome.com/cryptspages/nur_B803_x_2502.webp) | subject unsure |
+| plants/cryptocoryne-nurii | [photo](https://media.aquatome.com/inaturalist/522816575.webp) | subject unsure |
 | species/garra-rufa | [photo](https://media.aquatome.com/commons/958c11b6e8411f0b.webp) | subject unsure |
 | species/osphronemus-goramy | [photo](https://media.aquatome.com/commons/bd317ae7633a7eb1.webp) | subject unsure |
 | species/osphronemus-goramy | [photo](https://media.aquatome.com/inaturalist/53544577.webp) | subject unsure |
@@ -1137,9 +1186,13 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | plants/cryptocoryne-undulata | [photo](https://media.aquatome.com/cryptspages/und_x_B195_835.webp) | subject unsure |
 | plants/cryptocoryne-undulata | [photo](https://media.aquatome.com/cryptspages/und_x_B31_206.webp) | subject unsure |
 | plants/cryptocoryne-undulata | [photo](https://media.aquatome.com/inaturalist/323632049.webp) | subject unsure |
+| plants/cryptocoryne-undulata | [photo](https://media.aquatome.com/inaturalist/385514113.webp) | subject unsure |
 | species/ctenolucius-hujeta | [photo](https://media.aquatome.com/commons/ec46a8af327340ea.webp) | subject unsure |
+| species/ctenolucius-hujeta | [photo](https://media.aquatome.com/inaturalist/249957254.webp) | subject unsure |
 | species/ctenolucius-hujeta | [photo](https://media.aquatome.com/inaturalist/341710206.webp) | subject unsure |
 | species/ctenolucius-hujeta | [photo](https://media.aquatome.com/inaturalist/341710565.webp) | subject unsure |
+| species/ctenolucius-hujeta | [photo](https://media.aquatome.com/inaturalist/723680392.webp) | subject unsure |
+| species/ctenolucius-hujeta | [photo](https://media.aquatome.com/inaturalist/729996210.webp) | subject unsure |
 | plants/cryptocoryne-usteriana | [photo](https://media.aquatome.com/inaturalist/255933719.webp) | subject unsure |
 | species/epalzeorhynchos-kalopterus | [photo](https://media.aquatome.com/commons/3842c3b3366920ed.webp) | subject unsure |
 | species/epalzeorhynchos-kalopterus | [photo](https://media.aquatome.com/commons/4978ce7ceab738d2.webp) | subject unsure |
@@ -4735,9 +4788,9 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | plants/vallisneria-spiralis | [photo](https://media.aquatome.com/tropica/32a5549cfa5b0c5e.webp) | subject unsure |
 | species/crenicichla-marmorata | [photo](https://media.aquatome.com/commons/e8cb82a86126e499.webp) | subject unsure |
 
-## Removed (2819)
+## Removed (2827)
 
-"Something else" records a different subject; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
+"Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -5295,6 +5348,11 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/251105703.webp) | subject yes; person |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/371464713.webp) | subject yes; person |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/392528954.webp) | subject other |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/433271108.webp) | subject other |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/456009656.webp) | subject dead; person |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/456009732.webp) | subject dead; person |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/467567631.webp) | subject unsure; person |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/467567654.webp) | subject unsure; person |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/panitvong/inat-179239938.webp) | subject dead |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/panitvong/inat-707077438.webp) | subject dead |
 | species/boraras-urophthalmoides | [photo](https://media.aquatome.com/flickr/14436045529.webp) | subject yes; logo |
@@ -5360,6 +5418,9 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/channa-andrao | [photo](https://media.aquatome.com/inaturalist/80516645.webp) | subject yes; logo |
 | plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/217894164.webp) | subject unsure; person; logo |
 | plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/610888905.webp) | subject yes; person |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/23153152.webp) | subject dead |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/23153165.webp) | subject dead |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/35890303.webp) | subject dead |
 | species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/707105250.webp) | subject dead |
 | species/channa-asiatica | [photo](https://media.aquatome.com/seriouslyfish/0e017df20c190878.webp) | subject dead; person |
 | species/channa-aurantimaculata | [photo](https://media.aquatome.com/commons/43ce07d22a881d54.webp) | subject other |
