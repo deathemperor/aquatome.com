@@ -1,5 +1,5 @@
 {
- "day": "2026-11-24",
+ "day": "2026-11-25",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -58,45 +58,41 @@
  },
  "sample": [
   {
-   "lang": "ms",
-   "path": "/ms/ikan/akysis-variegatus/",
-   "url": "https://aquatome.com/ms/ikan/akysis-variegatus/",
-   "title": "Akysis variegatus",
-   "wrong": []
-  },
-  {
    "lang": "vi",
-   "path": "/vi/huong-dan/7-loai-ca-pho-bien-nen-thu-nuoi-trong-be-20-gallon-75-lit/",
-   "url": "https://aquatome.com/huong-dan/7-loai-ca-pho-bien-nen-thu-nuoi-trong-be-20-gallon-75-lit/",
-   "title": "7 loài cá phổ biến nên thử nuôi trong bể 20 gallon (75 lít)",
+   "path": "/vi/ca/ca-bangana-devdevi/",
+   "url": "https://aquatome.com/ca/ca-bangana-devdevi/",
+   "title": "Cá Bangana devdevi",
    "wrong": [
     {
-     "check": "units",
-     "quote": "gallon"
-    },
-    {
-     "check": "units",
-     "quote": "bể 20 gallon (75 lít)"
-    },
-    {
-     "check": "source",
-     "quote": "Trong ảnh, con đực ở bên trái, con cái ở bên phải."
+     "check": "words",
+     "quote": "ghi nhận"
     }
    ]
   },
   {
    "lang": "vi",
-   "path": "/vi/huong-dan/bon-loai-ca-chuot-mui-dai-hiem-tu-peru-corydoras-sp-melita/",
-   "url": "https://aquatome.com/huong-dan/bon-loai-ca-chuot-mui-dai-hiem-tu-peru-corydoras-sp-melita/",
-   "title": "Bốn loài cá chuột mũi dài hiếm từ Peru: Corydoras sp. “Melita”, “Karina”, “Souza” và “Panduro”",
+   "path": "/vi/ca/ca-tropheus-moorii/",
+   "url": "https://aquatome.com/ca/ca-tropheus-moorii/",
+   "title": "Cá Tropheus moorii",
+   "wrong": []
+  },
+  {
+   "lang": "vi",
+   "path": "/vi/huong-dan/tu-lam-tran-pvc-cho-be-ca-khong-can-khoan-kinh/",
+   "url": "https://aquatome.com/huong-dan/tu-lam-tran-pvc-cho-be-ca-khong-can-khoan-kinh/",
+   "title": "Tự làm tràn PVC cho bể cá, không cần khoan kính",
    "wrong": [
     {
-     "check": "source",
-     "quote": "Từ Peru có về mẫu của vài loài thuộc hàng hiếm nhất trong các loài cá chuột."
+     "check": "price",
+     "quote": "10 USD"
     },
     {
-     "check": "source",
-     "quote": "Hiện chưa biết chắc có nhập được bốn loài thú vị này với số lượng nhiều hơn hay không, nhưng người nhập vẫn sẽ thử."
+     "check": "price",
+     "quote": "15 USD"
+    },
+    {
+     "check": "price",
+     "quote": "chỉ tốn khoảng 10 USD vật tư"
     }
    ]
   }
