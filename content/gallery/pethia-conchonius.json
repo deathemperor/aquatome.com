@@ -82,20 +82,6 @@
       "caption": "Cá ánh kim hồng đực màu đỏ cam bơi trong bể"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/538837879.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/538837879-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "nakarinfearless",
-      "sourceUrl": "https://www.inaturalist.org/photos/538837879",
-      "caption": "Cá rosy barb đực màu cam đỏ trong đĩa petri",
-      "best": true,
-      "kind": "male",
-      "setup": true,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/313153855.webp",
       "thumb": "https://media.aquatome.com/inaturalist/313153855-480.webp",
       "width": 1024,
@@ -106,22 +92,7 @@
       "caption": "Cá rosy barb màu vàng cam bơi gần đá dưới nước",
       "best": true,
       "kind": "form",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/504691418.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/504691418-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Khant Ye Yint ( Lord Khanevyr ov Mandralyx)",
-      "sourceUrl": "https://www.inaturalist.org/photos/504691418",
-      "caption": "Đàn cá rosy barb cái bạc trên nền sỏi",
-      "best": true,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/313153889.webp",
@@ -134,8 +105,7 @@
       "caption": "Cá rosy barb vàng cam giữa cành cây chìm dưới nước",
       "best": true,
       "kind": "form",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/699081505.webp",
@@ -148,8 +118,7 @@
       "caption": "Cá rosy barb dạng vàng trong bể nền sỏi đen",
       "best": true,
       "kind": "form",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/699081580.webp",
@@ -162,36 +131,7 @@
       "caption": "Cá rosy barb dạng vàng bơi trong bể thủy sinh xanh",
       "best": true,
       "kind": "form",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/699081850.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/699081850-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "saltlii_fenglot",
-      "sourceUrl": "https://www.inaturalist.org/photos/699081850",
-      "caption": "Cá rosy barb dạng vàng cam bơi trong bể thủy sinh",
-      "best": false,
-      "kind": "form",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/653614713.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/653614713-480.webp",
-      "width": 1024,
-      "height": 682,
-      "licence": "CC BY-NC",
-      "author": "Hubert Lagrange",
-      "sourceUrl": "https://www.inaturalist.org/photos/653614713",
-      "caption": "Đàn cá rosy barb bơi trên nền cát ngoài tự nhiên",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/550723386.webp",
@@ -204,8 +144,46 @@
       "caption": "Cá rosy barb nhỏ màu vàng ô liu trong cốc thủy tinh",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/504691418.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/504691418-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Khant Ye Yint ( Lord Khanevyr ov Mandralyx)",
+      "sourceUrl": "https://www.inaturalist.org/photos/504691418",
+      "caption": "Đàn cá rosy barb cái bạc trên nền sỏi",
+      "best": true,
+      "kind": "group",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/699081850.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/699081850-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "saltlii_fenglot",
+      "sourceUrl": "https://www.inaturalist.org/photos/699081850",
+      "caption": "Cá rosy barb dạng vàng cam bơi trong bể thủy sinh",
+      "best": false,
+      "kind": "form",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/653614713.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/653614713-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY-NC",
+      "author": "Hubert Lagrange",
+      "sourceUrl": "https://www.inaturalist.org/photos/653614713",
+      "caption": "Đàn cá rosy barb bơi trên nền cát ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 52,

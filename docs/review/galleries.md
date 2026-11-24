@@ -5,12 +5,12 @@ Written by `pnpm engine gallery` (2026-11-24). Targets: packages/engine/src/gall
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
-| shop | 60 | 131 | 81 | 24 | 49 | 187 |
+| shop | 60 | 131 | 81 | 24 | 55 | 181 |
 | popular | 40 | 21 | 0 | 0 | 1 | 20 |
 | covered | 30 | 964 | 32 | 9 | 27 | 978 |
 | rest | 20 | 2005 | 81 | 0 | 126 | 1960 |
 
-## Short of target: every source read (825)
+## Short of target: every source read (826)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -262,56 +262,50 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/astyanax-mexicanus | shop | 25 | 60 |
 | species/iriatherina-werneri | shop | 3 | 60 |
 | species/helostoma-temminckii | shop | 17 | 60 |
-| plants/bacopa-salzmannii | shop | 8 | 60 |
+| plants/bacopa-salzmannii | shop | 6 | 60 |
 | species/epalzeorhynchos-kalopterus | shop | 3 | 60 |
-| plants/cardamine-lyrata | shop | 17 | 60 |
+| plants/cardamine-lyrata | shop | 16 | 60 |
 | species/pseudomugil-furcatus | shop | 5 | 60 |
-| species/amphilophus-labiatus | shop | 30 | 60 |
+| species/amphilophus-labiatus | shop | 20 | 60 |
 | species/epalzeorhynchos-bicolor | shop | 10 | 60 |
-| species/pethia-conchonius | shop | 15 | 60 |
+| species/pethia-conchonius | shop | 14 | 60 |
 | plants/gratiola-viscidula | shop | 33 | 60 |
 | species/synodontis-eupterus | shop | 14 | 60 |
 | species/tropheus-duboisi | shop | 1 | 60 |
 | species/balantiocheilos-melanopterus | shop | 20 | 60 |
 | plants/hygrophila-pinnatifida | shop | 21 | 60 |
-| species/maylandia-estherae | shop | 21 | 60 |
+| species/maylandia-estherae | shop | 20 | 60 |
 | species/hyphessobrycon-amandae | shop | 5 | 60 |
 | plants/lagenandra-meeboldii | shop | 12 | 60 |
-| species/trigonostigma-espei | shop | 6 | 60 |
-| species/microdevario-kubotai | shop | 5 | 60 |
+| species/trigonostigma-espei | shop | 3 | 60 |
+| species/microdevario-kubotai | shop | 4 | 60 |
 | plants/limnophila-hippuridoides | shop | 3 | 60 |
 | species/danio-kyathit | shop | 0 | 60 |
 | species/danio-choprae | shop | 3 | 60 |
-| species/tanichthys-albonubes | shop | 25 | 60 |
+| species/tanichthys-albonubes | shop | 24 | 60 |
 | plants/myriophyllum-mattogrossense | shop | 9 | 60 |
 | species/inpaichthys-kerri | shop | 5 | 60 |
 | species/paracheirodon-simulans | shop | 2 | 60 |
-| plants/phyllanthus-fluitans | shop | 21 | 60 |
+| plants/phyllanthus-fluitans | shop | 19 | 60 |
 | species/pristella-maxillaris | shop | 6 | 60 |
 | species/prionobrama-filigera | shop | 1 | 60 |
 | species/hyphessobrycon-rosaceus | shop | 4 | 60 |
-| species/carinotetraodon-travancoricus | shop | 11 | 60 |
+| species/carinotetraodon-travancoricus | shop | 13 | 60 |
 | species/pterygoplichthys-joselimaianus | shop | 3 | 60 |
-| plants/ranunculus-inundatus | shop | 57 | 60 |
-| species/sewellia-lineolata | shop | 3 | 60 |
-| plants/rotala-macrandra | shop | 2 | 60 |
+| species/sewellia-lineolata | shop | 4 | 60 |
+| plants/rotala-macrandra | shop | 6 | 60 |
 | species/sewellia-breviventralis | shop | 0 | 60 |
 | species/botia-almorhae | shop | 7 | 60 |
 | species/marosatherina-ladigesi | shop | 2 | 60 |
-| species/pseudomugil-gertrudae | shop | 10 | 60 |
-| species/atyopsis-moluccensis | shop | 6 | 60 |
+| species/pseudomugil-gertrudae | shop | 19 | 60 |
+| species/atyopsis-moluccensis | shop | 10 | 60 |
 | species/vittina-waigiensis | shop | 5 | 60 |
-| species/clarias-batrachus | shop | 21 | 60 |
 | species/cyrtocara-moorii | shop | 5 | 60 |
-| species/amatitlania-nigrofasciata | shop | 50 | 60 |
-| species/andinoacara-rivulatus | shop | 19 | 60 |
-| species/herichthys-carpintis | shop | 18 | 60 |
-| species/monopterus-albus | shop | 27 | 60 |
-| species/mastacembelus-erythrotaenia | shop | 6 | 60 |
-| species/macrognathus-siamensis | shop | 5 | 60 |
+| species/andinoacara-rivulatus | shop | 33 | 60 |
+| species/herichthys-carpintis | shop | 40 | 60 |
+| species/mastacembelus-erythrotaenia | shop | 8 | 60 |
+| species/macrognathus-siamensis | shop | 19 | 60 |
 | species/mastacembelus-armatus | shop | 19 | 60 |
-| species/trichopodus-trichopterus | shop | 50 | 60 |
-| species/trichopodus-leerii | shop | 19 | 60 |
 | species/botia-kubotai | shop | 2 | 60 |
 | species/yasuhikotakia-modesta | shop | 2 | 60 |
 | species/parambassis-ranga | shop | 2 | 60 |
@@ -833,6 +827,13 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/synodontis-lucipinnis | covered | 1 | 30 |
 | species/trichogaster-labiosa | covered | 4 | 30 |
 | plants/alternanthera-reineckii-mini | covered | 3 | 30 |
+| plants/bucephalandra-sp | covered | 0 | 30 |
+| plants/bucephalandra-sp-dark-skeleton-king | covered | 0 | 30 |
+| plants/bucephalandra-sp-degori | covered | 0 | 30 |
+| plants/bucephalandra-sp-mini-melawi | covered | 0 | 30 |
+| plants/bucephalandra-sp-red-cherry | covered | 0 | 30 |
+| plants/bucephalandra-sp-round-leaf | covered | 0 | 30 |
+| plants/echinodorus-x-barthii | covered | 1 | 30 |
 | species/ariopsis-assimilis | rest | 14 | 20 |
 | species/astroblepus-mindoensis | rest | 1 | 20 |
 | species/colomesus-tocantinensis | rest | 3 | 20 |

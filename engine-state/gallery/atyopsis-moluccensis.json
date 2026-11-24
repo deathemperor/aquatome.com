@@ -12,7 +12,21 @@
   "File:Atyopsis moluccensis - Molukken-Fächergarnele - subadult (2).jpg",
   "File:Bamboo shrimp.jpg",
   "File:Atyopsis moluccensis.jpg",
-  "flickr:2478608267"
+  "flickr:2478608267",
+  "inat:162614838",
+  "inat:350152715",
+  "inat:350152726",
+  "inat:350152733",
+  "inat:350263100",
+  "inat:350263080",
+  "inat:350263094",
+  "inat:388108813",
+  "inat:388109334",
+  "inat:388109484",
+  "inat:425451995",
+  "inat:523498683",
+  "inat:722750673",
+  "inat:745814707"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/2e67c7c659d91e58.webp": "d083061e2b899122",
@@ -23,7 +37,11 @@
   "https://media.aquatome.com/inaturalist/154549806.webp": "1f1f2562c2c3c460",
   "https://media.aquatome.com/aquariumbreeder/cacb7c85d5f2b890.webp": "362e362d263a63c3",
   "https://media.aquatome.com/aquariumbreeder/f3607eeb92210cb8.webp": "6507b4a607174323",
-  "https://media.aquatome.com/flickr/2478608267.webp": "ce4c050642288400"
+  "https://media.aquatome.com/flickr/2478608267.webp": "ce4c050642288400",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/350263080/large.jpg": "63abe3a36fd3d064",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/388108813/large.jpg": "0720a5b775939329",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/523498683/large.jpg": "f564cc6c66ecc963",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/722750673/large.jpg": "5c4fcff9f96c3e1b"
  },
  "inat": {
   "taxon": 434597,
@@ -40,6 +58,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 405983697,
+  "done": true
  },
  "exhausted": "2026-11-09"
 }

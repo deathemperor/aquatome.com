@@ -11,7 +11,11 @@
   "File:Glyptoperichthys joselimaianus L-001.jpg",
   "File:Glyptoperichthys joselimaianus L-001 a.jpg",
   "File:Pterygoplichthys joselimaianus albino L-001 b.jpg",
-  "File:Pterygoplichthys joselimaianus albino ventral L-001 c.jpg"
+  "File:Pterygoplichthys joselimaianus albino ventral L-001 c.jpg",
+  "inat:358992850",
+  "inat:358992863",
+  "inat:714486728",
+  "inat:714486721"
  ],
  "hashes": {
   "https://media.aquatome.com/scotcat/878be5dab8f513df.webp": "30608100acf43c40",
@@ -35,6 +39,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 390021362,
+  "done": true
  },
  "exhausted": "2026-11-09"
 }

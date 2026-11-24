@@ -155,8 +155,7 @@
       "caption": "Cành Hygrophila pinnatifida mọc trong dòng suối nông",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/432744002.webp",
@@ -169,22 +168,7 @@
       "caption": "Hygrophila pinnatifida mọc ven suối bên bờ đá",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/465879735.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/465879735-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY-NC",
-      "author": "mohammadalimhetar",
-      "sourceUrl": "https://www.inaturalist.org/photos/465879735",
-      "caption": "Thảm Hygrophila pinnatifida mọc trên bờ sỏi",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/84349803.webp",
@@ -197,8 +181,7 @@
       "caption": "Bụi Hygrophila pinnatifida mọc ngoài tự nhiên, có hoa nhỏ",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/608634118.webp",
@@ -211,8 +194,7 @@
       "caption": "Thân lá Hygrophila pinnatifida ngập dưới dòng suối",
       "best": false,
       "kind": "submersed",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/84348872.webp",
@@ -225,8 +207,7 @@
       "caption": "Cận cảnh Hygrophila pinnatifida có hoa tím nhỏ ngoài tự nhiên",
       "best": false,
       "kind": "flower",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/432744056.webp",
@@ -239,8 +220,7 @@
       "caption": "Hygrophila pinnatifida mọc trên bờ đá ven suối",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/608636303.webp",
@@ -253,8 +233,20 @@
       "caption": "Hygrophila pinnatifida mọc ven dòng nước chảy",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/465879735.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/465879735-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY-NC",
+      "author": "mohammadalimhetar",
+      "sourceUrl": "https://www.inaturalist.org/photos/465879735",
+      "caption": "Thảm Hygrophila pinnatifida mọc trên bờ sỏi",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/668760813.webp",
@@ -267,8 +259,7 @@
       "caption": "Thảm Hygrophila pinnatifida xanh mọc ven suối",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     }
   ],
   "seen": 36,

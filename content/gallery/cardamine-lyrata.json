@@ -86,8 +86,7 @@
       "caption": "Cụm hoa trắng Cải nước lyrata giữa thảm lá xanh",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/224997690.webp",
@@ -100,8 +99,7 @@
       "caption": "Hoa trắng của Cải nước lyrata nở trong tự nhiên",
       "best": false,
       "kind": "flower",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/273804328.webp",
@@ -114,8 +112,7 @@
       "caption": "Cành hoa và lá Cải nước lyrata nhìn gần",
       "best": false,
       "kind": "detail",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/273804567.webp",
@@ -128,50 +125,7 @@
       "caption": "Bụi Cải nước lyrata ra hoa ven đá ngoài tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/276665725.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/276665725-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "小铖/Smalltown",
-      "sourceUrl": "https://www.inaturalist.org/photos/276665725",
-      "caption": "Cải nước lyrata mọc cạnh dương xỉ ở môi trường tự nhiên",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/736457158.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/736457158-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Yuxuan Liu",
-      "sourceUrl": "https://www.inaturalist.org/photos/736457158",
-      "caption": "Cụm hoa trắng Cải nước lyrata bên hồ",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/736468295.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/736468295-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Yuxuan Liu",
-      "sourceUrl": "https://www.inaturalist.org/photos/736468295",
-      "caption": "Cải nước lyrata ra hoa ven sông dưới cây cầu",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/736457406.webp",
@@ -209,6 +163,45 @@
       "sourceUrl": "https://www.inaturalist.org/photos/736468294",
       "caption": "Cải nước lyrata nở hoa trắng dày bên bờ nước",
       "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/276665725.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/276665725-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "小铖/Smalltown",
+      "sourceUrl": "https://www.inaturalist.org/photos/276665725",
+      "caption": "Cải nước lyrata mọc cạnh dương xỉ ở môi trường tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/736457158.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/736457158-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Yuxuan Liu",
+      "sourceUrl": "https://www.inaturalist.org/photos/736457158",
+      "caption": "Cụm hoa trắng Cải nước lyrata bên hồ",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/736468295.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/736468295-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Yuxuan Liu",
+      "sourceUrl": "https://www.inaturalist.org/photos/736468295",
+      "caption": "Cải nước lyrata ra hoa ven sông dưới cây cầu",
+      "best": false,
       "kind": "habitat",
       "setup": false
     }
