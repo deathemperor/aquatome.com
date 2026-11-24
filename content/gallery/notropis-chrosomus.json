@@ -407,6 +407,48 @@
       "setup": true
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/507599869.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/507599869-480.webp",
+      "width": 1024,
+      "height": 823,
+      "licence": "CC BY-NC",
+      "author": "eric_kol",
+      "sourceUrl": "https://www.inaturalist.org/photos/507599869",
+      "caption": "Cá rainbow shiner đực đỏ rực trong hộp ảnh ngoài trời",
+      "best": true,
+      "kind": "male",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/512611261.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/512611261-480.webp",
+      "width": 1024,
+      "height": 771,
+      "licence": "CC BY-NC",
+      "author": "padfoot exotics",
+      "sourceUrl": "https://www.inaturalist.org/photos/512611261",
+      "caption": "Hai cá rainbow shiner trong hộp ảnh nhỏ",
+      "best": false,
+      "kind": "pair",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/502256980.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/502256980-480.webp",
+      "width": 1024,
+      "height": 626,
+      "licence": "CC BY-NC",
+      "author": "kingjenna",
+      "sourceUrl": "https://www.inaturalist.org/photos/502256980",
+      "caption": "Cá rainbow shiner bơi trên nền cát sỏi dưới suối",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/65092840.webp",
       "thumb": "https://media.aquatome.com/inaturalist/65092840-480.webp",
       "width": 1024,
@@ -771,7 +813,7 @@
       "setup": true
     }
   ],
-  "seen": 242,
-  "updatedAt": "2026-11-23",
-  "builtAt": "2026-11-23"
+  "seen": 262,
+  "updatedAt": "2026-11-24",
+  "builtAt": "2026-11-24"
 }

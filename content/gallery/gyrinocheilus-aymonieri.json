@@ -156,8 +156,7 @@
       "caption": "Cá nô lệ vàng bơi trên nền đáy có rêu",
       "best": true,
       "kind": "form",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/67465359.webp",
@@ -170,64 +169,7 @@
       "caption": "Cá nô lệ vàng bám trên đá rêu ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/53953056.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/53953056-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "H.T.Cheng",
-      "sourceUrl": "https://www.inaturalist.org/photos/53953056",
-      "caption": "Cá nô lệ vàng nhìn nghiêng, cận cảnh đầu",
-      "best": true,
-      "kind": "form",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/68005184.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/68005184-480.webp",
-      "width": 1024,
-      "height": 760,
-      "licence": "CC BY-NC",
-      "author": "Alan Kwok (King Lun), Ada Tai (Ah Heung) / 阿達蘭 AdAlan",
-      "sourceUrl": "https://www.inaturalist.org/photos/68005184",
-      "caption": "Cá nô lệ vàng bơi trên đá trong hồ",
-      "best": true,
-      "kind": "form",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/253179129.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/253179129-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "刘光裕 Liu Guangyu",
-      "sourceUrl": "https://www.inaturalist.org/photos/253179129",
-      "caption": "Cá nô lệ vàng nhìn từ trên trong thùng",
-      "best": true,
-      "kind": "form",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/499207939.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/499207939-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Ingmar Rondeel",
-      "sourceUrl": "https://www.inaturalist.org/photos/499207939",
-      "caption": "Cá nô lệ vàng bơi gần đáy hồ",
-      "best": true,
-      "kind": "form",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/53953054.webp",
@@ -240,8 +182,7 @@
       "caption": "Cá nô lệ vàng bơi trong nước tối",
       "best": false,
       "kind": "form",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/68005188.webp",
@@ -254,8 +195,7 @@
       "caption": "Cá nô lệ vàng và cá nô lệ thường bên đá",
       "best": false,
       "kind": "pair",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/63789636.webp",
@@ -268,8 +208,7 @@
       "caption": "Cá nô lệ vàng trên tảng đá phủ rêu",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/53971786.webp",
@@ -282,36 +221,7 @@
       "caption": "Cá nô lệ vàng bò trên nền cát",
       "best": false,
       "kind": "form",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/66486572.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/66486572-480.webp",
-      "width": 1024,
-      "height": 756,
-      "licence": "CC BY-NC",
-      "author": "Alan Kwok (King Lun), Ada Tai (Ah Heung) / 阿達蘭 AdAlan",
-      "sourceUrl": "https://www.inaturalist.org/photos/66486572",
-      "caption": "Cá nô lệ vàng trên đá dưới suối",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/53971773.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/53971773-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Tse Chung Yi",
-      "sourceUrl": "https://www.inaturalist.org/photos/53971773",
-      "caption": "Cá nô lệ vàng nhìn chính diện trên sườn dốc",
-      "best": false,
-      "kind": "form",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/68005181.webp",
@@ -324,8 +234,85 @@
       "caption": "Cá nô lệ vàng nhìn từ trên xuống, trên đá",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/53953056.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/53953056-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "H.T.Cheng",
+      "sourceUrl": "https://www.inaturalist.org/photos/53953056",
+      "caption": "Cá nô lệ vàng nhìn nghiêng, cận cảnh đầu",
+      "best": true,
+      "kind": "form",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/499207939.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/499207939-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Ingmar Rondeel",
+      "sourceUrl": "https://www.inaturalist.org/photos/499207939",
+      "caption": "Cá nô lệ vàng bơi gần đáy hồ",
+      "best": true,
+      "kind": "form",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/53971773.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/53971773-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Tse Chung Yi",
+      "sourceUrl": "https://www.inaturalist.org/photos/53971773",
+      "caption": "Cá nô lệ vàng nhìn chính diện trên sườn dốc",
+      "best": false,
+      "kind": "form",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/68005184.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/68005184-480.webp",
+      "width": 1024,
+      "height": 760,
+      "licence": "CC BY-NC",
+      "author": "Alan Kwok (King Lun), Ada Tai (Ah Heung) / 阿達蘭 AdAlan",
+      "sourceUrl": "https://www.inaturalist.org/photos/68005184",
+      "caption": "Cá nô lệ vàng bơi trên đá trong hồ",
+      "best": true,
+      "kind": "form",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/253179129.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/253179129-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "刘光裕 Liu Guangyu",
+      "sourceUrl": "https://www.inaturalist.org/photos/253179129",
+      "caption": "Cá nô lệ vàng nhìn từ trên trong thùng",
+      "best": true,
+      "kind": "form",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/66486572.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/66486572-480.webp",
+      "width": 1024,
+      "height": 756,
+      "licence": "CC BY-NC",
+      "author": "Alan Kwok (King Lun), Ada Tai (Ah Heung) / 阿達蘭 AdAlan",
+      "sourceUrl": "https://www.inaturalist.org/photos/66486572",
+      "caption": "Cá nô lệ vàng trên đá dưới suối",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 75,

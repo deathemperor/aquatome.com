@@ -1,10 +1,30 @@
 {
  "queue": [],
- "judged": [],
- "hashes": {},
+ "judged": [
+  "inat:340543658",
+  "inat:340543688",
+  "inat:340543687"
+ ],
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/340543658/large.jpeg": "3ef069917366ec78",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/340543688/large.jpeg": "d8e0843479fbecd9",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/340543687/large.jpeg": "a49d899b91234369"
+ },
  "commons": "2026-11-23",
  "gbif": {
   "key": 2344084,
   "next": null
+ },
+ "inat": {
+  "taxon": 1315637,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "inatNc": {
+  "after": 193825361,
+  "done": true
  }
 }

@@ -1,16 +1,16 @@
 # Photo galleries
 
-Written by `pnpm engine gallery` (2026-11-23). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
+Written by `pnpm engine gallery` (2026-11-24). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
-| shop | 60 | 131 | 81 | 24 | 41 | 195 |
+| shop | 60 | 131 | 81 | 24 | 44 | 192 |
 | popular | 40 | 21 | 0 | 0 | 1 | 20 |
 | covered | 30 | 964 | 32 | 9 | 27 | 978 |
 | rest | 20 | 2005 | 81 | 0 | 126 | 1960 |
 
-## Short of target: every source read (825)
+## Short of target: every source read (823)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -218,28 +218,25 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/monodactylus-sebae | shop | 11 | 60 |
 | species/melanotaenia-praecox | shop | 5 | 60 |
 | species/dario-dario | shop | 0 | 60 |
-| plants/utricularia-graminifolia | shop | 36 | 60 |
+| plants/utricularia-graminifolia | shop | 34 | 60 |
 | species/poropanchax-normani | shop | 11 | 60 |
 | species/hasemania-nana | shop | 1 | 60 |
 | species/gyrinocheilus-aymonieri | shop | 27 | 60 |
-| plants/marsilea-hirsuta | shop | 37 | 60 |
+| plants/marsilea-hirsuta | shop | 36 | 60 |
 | plants/sagittaria-subulata | shop | 26 | 60 |
-| species/erpetoichthys-calabaricus | shop | 4 | 60 |
+| species/erpetoichthys-calabaricus | shop | 2 | 60 |
 | plants/lilaeopsis-brasiliensis | shop | 9 | 60 |
-| species/boraras-urophthalmoides | shop | 1 | 60 |
-| plants/taxiphyllum-alternans | shop | 6 | 60 |
-| plants/fissidens-fontanus | shop | 19 | 60 |
-| species/poecilia-sphenops | shop | 17 | 60 |
+| species/boraras-urophthalmoides | shop | 13 | 60 |
+| plants/taxiphyllum-alternans | shop | 9 | 60 |
+| species/poecilia-sphenops | shop | 39 | 60 |
 | plants/cryptocoryne-beckettii | shop | 1 | 60 |
 | species/corydoras-panda | shop | 13 | 60 |
 | species/corydoras-sterbai | shop | 14 | 60 |
-| species/scleropages-jardinii | shop | 3 | 60 |
-| species/scleropages-formosus | shop | 36 | 60 |
-| species/polypterus-senegalus | shop | 14 | 60 |
+| species/scleropages-jardinii | shop | 15 | 60 |
+| species/polypterus-senegalus | shop | 17 | 60 |
 | species/channa-pulchra | shop | 2 | 60 |
 | species/channa-stewartii | shop | 1 | 60 |
 | species/channa-andrao | shop | 1 | 60 |
-| plants/bolbitis-heteroclita | shop | 14 | 60 |
 | species/channa-asiatica | shop | 5 | 60 |
 | species/channa-aurantimaculata | shop | 0 | 60 |
 | species/danio-margaritatus | shop | 9 | 60 |
@@ -559,6 +556,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/centrochir-crocodili | covered | 0 | 30 |
 | species/centromochlus-heckelii | covered | 3 | 30 |
 | species/centromochlus-macracanthus | covered | 0 | 30 |
+| species/cephalosilurus-apurensis | covered | 0 | 30 |
 | species/cetopsis-coecutiens | covered | 0 | 30 |
 | species/cetopsis-oliveirai | covered | 0 | 30 |
 | species/chaca-bankanensis | covered | 1 | 30 |

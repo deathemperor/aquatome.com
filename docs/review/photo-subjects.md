@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
-Written by `pnpm engine check-photos` (2026-11-23), most-read pages first. Rules: docs/governance.md, "Photos".
-23945 verdicts. Shows it: 14689; its habitat (asked again): 3; something else: 611; not a photo of it: 388; dead or as food: 1146; a person in it: 353; a logo on it: 376; can't tell: 4428.
+Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules: docs/governance.md, "Photos".
+24041 verdicts. Shows it: 14749; its habitat (asked again): 3; something else: 611; not a photo of it: 388; dead or as food: 1146; a person in it: 354; a logo on it: 376; can't tell: 4463.
 
 ## Left with no photo (187)
 
@@ -193,7 +193,7 @@ Written by `pnpm engine check-photos` (2026-11-23), most-read pages first. Rules
 - species/xenotilapia-sima
 - species/xiurenbagrus-gigas
 
-## Can't tell: still shown (4428)
+## Can't tell: still shown (4463)
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -801,6 +801,8 @@ Written by `pnpm engine check-photos` (2026-11-23), most-read pages first. Rules
 | plants/limnophila-aromatica | [photo](https://media.aquatome.com/inaturalist/186369192.webp) | subject unsure |
 | plants/limnophila-aromatica | [photo](https://media.aquatome.com/inaturalist/259982701.webp) | subject unsure |
 | plants/limnophila-aromatica | [photo](https://media.aquatome.com/inaturalist/339857292.webp) | subject unsure |
+| plants/limnophila-aromatica | [photo](https://media.aquatome.com/inaturalist/340073877.webp) | subject unsure |
+| plants/limnophila-aromatica | [photo](https://media.aquatome.com/inaturalist/464695376.webp) | subject unsure |
 | plants/limnophila-aromatica | [photo](https://media.aquatome.com/inaturalist/470440248.webp) | subject unsure |
 | species/xiphophorus-hellerii | [photo](https://media.aquatome.com/commons/08c22c41f590a036.webp) | subject unsure |
 | species/xiphophorus-hellerii | [photo](https://media.aquatome.com/commons/6e53fcfeb7a1f577.webp) | subject unsure |
@@ -810,8 +812,19 @@ Written by `pnpm engine check-photos` (2026-11-23), most-read pages first. Rules
 | plants/utricularia-graminifolia | [photo](https://media.aquatome.com/commons/6930df1f5d6bc641.webp) | subject unsure |
 | plants/utricularia-graminifolia | [photo](https://media.aquatome.com/commons/ebe1aaad5e48cab1.webp) | subject unsure |
 | plants/utricularia-graminifolia | [photo](https://media.aquatome.com/inaturalist/227624766.webp) | subject unsure |
+| plants/utricularia-graminifolia | [photo](https://media.aquatome.com/inaturalist/233145264.webp) | subject unsure |
+| plants/utricularia-graminifolia | [photo](https://media.aquatome.com/inaturalist/257954638.webp) | subject unsure |
+| plants/utricularia-graminifolia | [photo](https://media.aquatome.com/inaturalist/422167801.webp) | subject unsure |
 | plants/utricularia-graminifolia | [photo](https://media.aquatome.com/inaturalist/50292634.webp) | subject unsure |
+| plants/utricularia-graminifolia | [photo](https://media.aquatome.com/inaturalist/520107643.webp) | subject unsure |
 | plants/utricularia-graminifolia | [photo](https://media.aquatome.com/inaturalist/520939686.webp) | subject unsure |
+| plants/utricularia-graminifolia | [photo](https://media.aquatome.com/inaturalist/529685912.webp) | subject unsure |
+| plants/utricularia-graminifolia | [photo](https://media.aquatome.com/inaturalist/539004568.webp) | subject unsure |
+| plants/utricularia-graminifolia | [photo](https://media.aquatome.com/inaturalist/552825881.webp) | subject unsure |
+| plants/utricularia-graminifolia | [photo](https://media.aquatome.com/inaturalist/580820509.webp) | subject unsure |
+| plants/utricularia-graminifolia | [photo](https://media.aquatome.com/inaturalist/747849855.webp) | subject unsure |
+| plants/utricularia-graminifolia | [photo](https://media.aquatome.com/inaturalist/763774554.webp) | subject unsure |
+| plants/utricularia-graminifolia | [photo](https://media.aquatome.com/inaturalist/763774653.webp) | subject unsure |
 | species/poropanchax-normani | [photo](https://media.aquatome.com/commons/34b932da7a8b9da4.webp) | subject unsure |
 | species/poropanchax-normani | [photo](https://media.aquatome.com/commons/3e52589ec729a533.webp) | subject unsure |
 | species/poropanchax-normani | [photo](https://media.aquatome.com/commons/9cf5f820c1bfd232.webp) | subject unsure |
@@ -840,18 +853,40 @@ Written by `pnpm engine check-photos` (2026-11-23), most-read pages first. Rules
 | plants/glossostigma-elatinoides | [photo](https://media.aquatome.com/inaturalist/59774113.webp) | subject unsure |
 | plants/glossostigma-elatinoides | [photo](https://media.aquatome.com/inaturalist/90887918.webp) | subject unsure |
 | plants/glossostigma-elatinoides | [photo](https://media.aquatome.com/inaturalist/90887924.webp) | subject unsure |
+| species/gyrinocheilus-aymonieri | [photo](https://media.aquatome.com/inaturalist/253179129.webp) | subject unsure |
+| species/gyrinocheilus-aymonieri | [photo](https://media.aquatome.com/inaturalist/66486572.webp) | subject unsure |
+| species/gyrinocheilus-aymonieri | [photo](https://media.aquatome.com/inaturalist/68005184.webp) | subject unsure |
 | plants/marsilea-hirsuta | [photo](https://media.aquatome.com/commons/1308260503c30cac.webp) | subject unsure |
 | plants/marsilea-hirsuta | [photo](https://media.aquatome.com/commons/e0586b414c960cbc.webp) | subject unsure |
 | plants/marsilea-hirsuta | [photo](https://media.aquatome.com/flickr/6260053443.webp) | subject unsure |
+| plants/marsilea-hirsuta | [photo](https://media.aquatome.com/inaturalist/184293382.webp) | subject unsure |
+| plants/marsilea-hirsuta | [photo](https://media.aquatome.com/inaturalist/202646320.webp) | subject unsure |
+| plants/marsilea-hirsuta | [photo](https://media.aquatome.com/inaturalist/230158244.webp) | subject unsure |
+| plants/marsilea-hirsuta | [photo](https://media.aquatome.com/inaturalist/234305917.webp) | subject unsure |
+| plants/marsilea-hirsuta | [photo](https://media.aquatome.com/inaturalist/260703641.webp) | subject unsure |
+| plants/marsilea-hirsuta | [photo](https://media.aquatome.com/inaturalist/265747977.webp) | subject unsure |
 | plants/marsilea-hirsuta | [photo](https://media.aquatome.com/inaturalist/346813172.webp) | subject unsure |
+| plants/marsilea-hirsuta | [photo](https://media.aquatome.com/inaturalist/412141317.webp) | subject unsure |
+| plants/marsilea-hirsuta | [photo](https://media.aquatome.com/inaturalist/412141361.webp) | subject unsure |
+| plants/marsilea-hirsuta | [photo](https://media.aquatome.com/inaturalist/414371884.webp) | subject unsure |
+| plants/marsilea-hirsuta | [photo](https://media.aquatome.com/inaturalist/517221248.webp) | subject unsure |
+| plants/marsilea-hirsuta | [photo](https://media.aquatome.com/inaturalist/517221309.webp) | subject unsure |
+| plants/marsilea-hirsuta | [photo](https://media.aquatome.com/inaturalist/553055260.webp) | subject unsure |
+| plants/marsilea-hirsuta | [photo](https://media.aquatome.com/inaturalist/631710902.webp) | subject unsure |
+| plants/marsilea-hirsuta | [photo](https://media.aquatome.com/inaturalist/631710927.webp) | subject unsure |
+| plants/marsilea-hirsuta | [photo](https://media.aquatome.com/inaturalist/633646355.webp) | subject unsure |
+| plants/marsilea-hirsuta | [photo](https://media.aquatome.com/inaturalist/633646383.webp) | subject unsure |
 | plants/sagittaria-subulata | [photo](https://media.aquatome.com/commons/b16acc6ad306e741.webp) | subject unsure |
 | plants/sagittaria-subulata | [photo](https://media.aquatome.com/inaturalist/38202100.webp) | subject unsure |
 | plants/sagittaria-subulata | [photo](https://media.aquatome.com/inaturalist/38202122.webp) | subject unsure |
+| plants/sagittaria-subulata | [photo](https://media.aquatome.com/inaturalist/500913080.webp) | subject unsure |
+| plants/sagittaria-subulata | [photo](https://media.aquatome.com/inaturalist/500913089.webp) | subject unsure |
 | plants/sagittaria-subulata | [photo](https://media.aquatome.com/inaturalist/702542120.webp) | subject unsure |
 | species/erpetoichthys-calabaricus | [photo](https://media.aquatome.com/commons/26708ef33c0f05d3.webp) | subject unsure |
 | plants/lilaeopsis-brasiliensis | [photo](https://media.aquatome.com/inaturalist/312876772.webp) | subject unsure |
 | plants/lilaeopsis-brasiliensis | [photo](https://media.aquatome.com/inaturalist/7571227.webp) | subject unsure |
 | plants/lilaeopsis-brasiliensis | [photo](https://media.aquatome.com/inaturalist/7571435.webp) | subject unsure |
+| plants/lilaeopsis-brasiliensis | [photo](https://media.aquatome.com/inaturalist/98927763.webp) | subject unsure |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/commons/e96225bb097394c9.webp) | subject unsure |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/543890514.webp) | subject unsure |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/569742325.webp) | subject unsure |
@@ -4626,9 +4661,9 @@ Written by `pnpm engine check-photos` (2026-11-23), most-read pages first. Rules
 | plants/vallisneria-spiralis | [photo](https://media.aquatome.com/tropica/32a5549cfa5b0c5e.webp) | subject unsure |
 | species/crenicichla-marmorata | [photo](https://media.aquatome.com/commons/e8cb82a86126e499.webp) | subject unsure |
 
-## Removed (2804)
+## Removed (2805)
 
-"Something else" records a different subject; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
+"Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -5170,6 +5205,7 @@ Written by `pnpm engine check-photos` (2026-11-23), most-read pages first. Rules
 | plants/marsilea-hirsuta | [photo](https://media.aquatome.com/commons/1fb503a4fb12c06c.webp) | subject unsure; person |
 | plants/marsilea-hirsuta | [photo](https://media.aquatome.com/commons/bd6432c483538954.webp) | subject other |
 | plants/marsilea-hirsuta | [photo](https://media.aquatome.com/commons/f2263587189a1c3f.webp) | subject unsure; person |
+| plants/marsilea-hirsuta | [photo](https://media.aquatome.com/inaturalist/213308720.webp) | subject yes; person |
 | plants/marsilea-hirsuta | [photo](https://media.aquatome.com/tropica/2aaa8edabc45ae9a.webp) | subject none |
 | species/erpetoichthys-calabaricus | [photo](https://media.aquatome.com/commons/667ab15cee54d193.webp) | subject other |
 | species/erpetoichthys-calabaricus | [photo](https://media.aquatome.com/inaturalist/502735696.webp) | subject dead |
