@@ -340,6 +340,18 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-3bxkjNxjmGY": [
+    {
+      "at": "2026-11-24T20:41:29Z",
+      "model": "opus",
+      "ran": "claude-opus-5-5",
+      "cli": "2.1.329",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-4tfp4V1usjA": [
     {
       "at": "2026-11-09T00:09:46Z",
@@ -411,6 +423,21 @@
       "notes": [
         "The count was dropped instead of fixed. The headings name 10 fish, but only 9 have bold leads (cá lau kiếng has none), so leaving the number out avoids the mismatch.",
         "Without a number, 'Các loại...' is a bit more generic than the original listicle title, but it reads naturally and keeps the subject."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-dCzUZR-ThLM": [
+    {
+      "at": "2026-11-24T20:41:40Z",
+      "model": "opus",
+      "ran": "claude-opus-5-5",
+      "cli": "2.1.329",
+      "score": 0.85,
+      "notes": [
+        "Starting with a bare 'Loài' reads a little abruptly in Vietnamese; 'Các loài' or 'Những loài' would sound more natural.",
+        "Removing the count avoids the mismatch: the text has 9 headed items (7 fish, snails, shrimp) and 8 table rows, not 10."
       ],
       "attempt": "first",
       "kept": true

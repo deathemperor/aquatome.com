@@ -77902,6 +77902,41 @@
   ],
   "products": []
  },
+ "vi/guides/youtube-_kKdmnfiucg": {
+  "at": "2026-11-24",
+  "hash": "16ac834f25b224ab",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Dưới đây là cách cho ăn ở một loạt bể đang nuôi tốt, cá lớn nhanh và lên màu đẹp.",
+    "why": "The table describes the original writer's own tanks as if the reader knew them.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Khi hết Big Fella, cho ăn riêng Krill Pro khoảng một tháng cá vẫn rất khỏe",
+    "why": "This is the source writer's personal story about their own tank.",
+    "by": "model"
+   }
+  ],
+  "products": [
+   "Dainichi",
+   "Northfin",
+   "Xtreme",
+   "Krill Pro",
+   "Big Fella Cichlid",
+   "Veggie",
+   "Carnivore",
+   "Hikari",
+   "Tetra",
+   "Community Crave",
+   "Cat's Aquatics"
+  ]
+ },
  "vi/guides/youtube-_WVEz9vg6kk": {
   "at": "2026-11-22",
   "hash": "f14fb460d54485da",
@@ -80107,6 +80142,14 @@
    "Seachem Excel"
   ]
  },
+ "vi/guides/youtube-2Crwt3mvdVI": {
+  "at": "2026-11-24",
+  "hash": "f8b811012ea01b62",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/guides/youtube-2e5DdvN68TI": {
   "at": "2026-11-09",
   "hash": "ccf6288d79d7bf3e",
@@ -80598,6 +80641,41 @@
   "products": [
    "Oase 250 Thermo",
    "All Pond Solutions EF-1 Plus"
+  ]
+ },
+ "vi/guides/youtube-3bxkjNxjmGY": {
+  "at": "2026-11-24",
+  "hash": "7eb244a7b281693f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "shop",
+    "part": "P1",
+    "quote": "có thể dùng Easy Green của Aquarium Co-op",
+    "why": "Names a US shop's own product line as the place to get the fertiliser.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "một bể khoảng 1.363 lít chạy bằng Fritz Turbo Start 700",
+    "why": "1,363 litres is a converted 360-gallon tank, not a size anyone in Vietnam would give.",
+    "by": "model"
+   }
+  ],
+  "products": [
+   "Prime",
+   "Stress Coat",
+   "Fritz Guard",
+   "Fritz Complete",
+   "Fritz Turbo Start 700",
+   "API Quick Start",
+   "API General Cure",
+   "Fritz Maracyn",
+   "Melafix",
+   "Pimafix",
+   "Easy Green"
   ]
  },
  "vi/guides/youtube-3CWHI1PM9Qk": {
@@ -82137,6 +82215,14 @@
   "products": [
    "1-2-Grow"
   ]
+ },
+ "vi/guides/youtube-5rLZxyaHFew": {
+  "at": "2026-11-24",
+  "hash": "e4c499a8dcbb9593",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
  },
  "vi/guides/youtube-5T9B5nkh6hE": {
   "at": "2026-11-22",
@@ -85440,6 +85526,17 @@
   ],
   "products": []
  },
+ "vi/guides/youtube-aeFihDELYM8": {
+  "at": "2026-11-24",
+  "hash": "6050b74ebdc1ef70",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "Fritz Turbo Start",
+   "API Quick Start"
+  ]
+ },
  "vi/guides/youtube-AEMv84NfI4o": {
   "at": "2026-11-16",
   "hash": "eca9d0d8e29915fd",
@@ -85942,6 +86039,14 @@
   ],
   "products": []
  },
+ "vi/guides/youtube-AOhuWmKUheU": {
+  "at": "2026-11-24",
+  "hash": "becf0cc30a79375e",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/guides/youtube-apPiQrY9GIM": {
   "at": "2026-11-09",
   "hash": "d8e22528c764afd1",
@@ -86048,6 +86153,14 @@
    "FX6"
   ],
   "pass": true
+ },
+ "vi/guides/youtube-AQOs5D7B-CM": {
+  "at": "2026-11-24",
+  "hash": "15ac5febcca20fe9",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
  },
  "vi/guides/youtube-Arh2r7FXkdc": {
   "at": "2026-11-18",
@@ -86561,6 +86674,18 @@
   ],
   "products": []
  },
+ "vi/guides/youtube-B1NQYePUe_4": {
+  "at": "2026-11-24",
+  "hash": "b6de1d242178c9bb",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "Fluval Cycle",
+   "Quick Start",
+   "Dr. Tim's"
+  ]
+ },
  "vi/guides/youtube-B1T0GU56ETo": {
   "at": "2026-11-08",
   "hash": "fe5d49008401bea1",
@@ -86578,6 +86703,22 @@
   "products": [
    "Atman DF1300"
   ]
+ },
+ "vi/guides/youtube-b32xKswBz0A": {
+  "at": "2026-11-24",
+  "hash": "5353782a4ded0404",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "Lấy nước từ ống đồng bằng van góc tự xuyên (self-piercing angle valve)",
+    "why": "Tapping a copper household water pipe with a self-piercing valve fits North American plumbing; homes in Vietnam mostly use PVC/PPR pipes, where this valve doesn't work.",
+    "by": "model"
+   }
+  ],
+  "products": []
  },
  "vi/guides/youtube-B3vzV_r7tPY": {
   "at": "2026-11-16",
@@ -86810,6 +86951,14 @@
     "by": "model"
    }
   ],
+  "products": []
+ },
+ "vi/guides/youtube-bbDMyPN8QKE": {
+  "at": "2026-11-24",
+  "hash": "84f726c7b0d50cb2",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/guides/youtube-BBMFDKrIGmM": {
@@ -89407,6 +89556,14 @@
   ],
   "products": []
  },
+ "vi/guides/youtube-czqX6TKq5io": {
+  "at": "2026-11-24",
+  "hash": "2f67b91263b95ba0",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/guides/youtube-CzyeWSYmJaQ": {
   "at": "2026-11-08",
   "hash": "844b6d24bcef3216",
@@ -89695,6 +89852,14 @@
     "by": "model"
    }
   ],
+  "products": []
+ },
+ "vi/guides/youtube-dCzUZR-ThLM": {
+  "at": "2026-11-24",
+  "hash": "c844fa5c2c91628f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/guides/youtube-ddIenwrxWgU": {
@@ -90093,6 +90258,14 @@
   "products": [
    "Aqueon"
   ]
+ },
+ "vi/guides/youtube-dNppH_3q7uw": {
+  "at": "2026-11-24",
+  "hash": "6321be1f2909f169",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
  },
  "vi/guides/youtube-DRlTmK7l0uo": {
   "at": "2026-11-10",
@@ -91778,6 +91951,14 @@
   "products": [],
   "pass": true
  },
+ "vi/guides/youtube-F8p4tGsI3iU": {
+  "at": "2026-11-24",
+  "hash": "d1f053edf49cbcf5",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/guides/youtube-FAccJ8TTIAs": {
   "at": "2026-11-10",
   "hash": "759d2860386f6320",
@@ -92552,6 +92733,14 @@
    "keo 502"
   ]
  },
+ "vi/guides/youtube-fxRC8jp_e48": {
+  "at": "2026-11-24",
+  "hash": "00f350ee74255f60",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/guides/youtube-FzY7PZycmc4": {
   "at": "2026-11-08",
   "hash": "5d9ddaa79fb1d710",
@@ -93307,6 +93496,16 @@
   ],
   "products": []
  },
+ "vi/guides/youtube-GG6DUFZaYT8": {
+  "at": "2026-11-24",
+  "hash": "4ce6b9af9461fd68",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "FX6"
+  ]
+ },
  "vi/guides/youtube-GIeCugnkfCQ": {
   "at": "2026-11-08",
   "hash": "d6f150b12c74778b",
@@ -93357,6 +93556,23 @@
    "Seachem Purigen",
    "JBL"
   ]
+ },
+ "vi/guides/youtube-GjtG16diB2o": {
+  "at": "2026-11-24",
+  "hash": "538845f339a427c1",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "gồm cả Arapaima lẫn cá trê goonch",
+    "why": "The goonch (Bagarius) is not a 'cá trê' (Clarias); keepers in Vietnam know it as cá chiên.",
+    "by": "model",
+    "fix": "cá chiên (goonch)"
+   }
+  ],
+  "products": []
  },
  "vi/guides/youtube-gJuWCudImSc": {
   "at": "2026-11-15",
@@ -93656,6 +93872,14 @@
     "by": "model"
    }
   ],
+  "products": []
+ },
+ "vi/guides/youtube-Gqf_mMnUbUU": {
+  "at": "2026-11-24",
+  "hash": "7a0f24833618ad2c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/guides/youtube-gsJFcg0G_yE": {
@@ -95675,6 +95899,14 @@
   ],
   "sourceRead": false
  },
+ "vi/guides/youtube-i5fSu0VT_lg": {
+  "at": "2026-11-24",
+  "hash": "989afa37c1207b16",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/guides/youtube-IAGN8lN997s": {
   "at": "2026-11-09",
   "hash": "ef4cbda9863da2c8",
@@ -96798,6 +97030,41 @@
   ],
   "products": []
  },
+ "vi/guides/youtube-j8fD7EhXv0Y": {
+  "at": "2026-11-24",
+  "hash": "2ba014fe53a6460e",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "dose",
+    "part": "P1",
+    "quote": "Ví dụ với muối RPM của Fritz: một muỗng đi kèm dùng cho khoảng 20 lít nước.",
+    "why": "Gives an amount per volume of a named commercial salt mix.",
+    "by": "model",
+    "product": "RPM"
+   }
+  ],
+  "products": [
+   "RPM"
+  ]
+ },
+ "vi/guides/youtube-j8k3IgrSpWE": {
+  "at": "2026-11-24",
+  "hash": "cbe1205d1667b230",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Trong các bể kể trên, rắc rối chưa bao giờ đến từ Oscar.",
+    "why": "Refers to the original writer's own tanks as if the reader knew them; the page never describes any tanks.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
  "vi/guides/youtube-J9EoNDNgJzQ": {
   "at": "2026-11-20",
   "hash": "71684fbb233d2de9",
@@ -97295,6 +97562,20 @@
   "checklist": 3,
   "findings": [],
   "products": []
+ },
+ "vi/guides/youtube-Jm80ewlugp0": {
+  "at": "2026-11-24",
+  "hash": "1d0c37cc409990a2",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "Seachem",
+   "Fritz",
+   "Fluval",
+   "Top Fin",
+   "API"
+  ]
  },
  "vi/guides/youtube-jmOoiLzV0Z8": {
   "at": "2026-11-15",
@@ -98047,6 +98328,23 @@
    "Vaseline"
   ]
  },
+ "vi/guides/youtube-k2d5_x5XRiI": {
+  "at": "2026-11-24",
+  "hash": "17769bf68d2a5fc7",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "sống ổn ba năm trong bể dài 80 lít",
+    "why": "\"Bể dài 80 lít\" is a word-for-word copy of the American \"20 gallon long\" tank size; keepers in Vietnam give a tank's volume or its sides, not a 'long' volume.",
+    "by": "model",
+    "fix": "bể 80 lít"
+   }
+  ],
+  "products": []
+ },
  "vi/guides/youtube-K2U29-mR8a0": {
   "at": "2026-11-08",
   "hash": "7ef82b61e8e5d8ac",
@@ -98310,6 +98608,16 @@
   "products": [
    "Fluval Flex",
    "Tropica"
+  ]
+ },
+ "vi/guides/youtube-kD4tUsSiqFo": {
+  "at": "2026-11-24",
+  "hash": "c6fdc12ed3d9b0f3",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "NorthFin"
   ]
  },
  "vi/guides/youtube-KDbGcwFCT7M": {
@@ -98587,6 +98895,14 @@
    "K1",
    "K1 Micro"
   ]
+ },
+ "vi/guides/youtube-KIevoUDWwRw": {
+  "at": "2026-11-24",
+  "hash": "7a850827cfd5d667",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
  },
  "vi/guides/youtube-KjUE_aid3BI": {
   "at": "2026-11-08",
@@ -99073,6 +99389,14 @@
     "by": "model"
    }
   ],
+  "products": []
+ },
+ "vi/guides/youtube-kWVgIL6HKWw": {
+  "at": "2026-11-24",
+  "hash": "2996ab6657fae542",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/guides/youtube-Kxx-gcrSqBw": {
@@ -99814,6 +100138,33 @@
   ],
   "products": [
    "Extra Bio"
+  ]
+ },
+ "vi/guides/youtube-LgA_2EORKA0": {
+  "at": "2026-11-24",
+  "hash": "dbdc116a0418aa65",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "units",
+    "part": "P6",
+    "quote": "một bể 1.363 lít nuôi 9 con cá lớn",
+    "why": "1,363 litres is a converted 360-gallon tank; no one in Vietnam sizes a tank that way.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P4",
+    "quote": "dùng cát chơi cho trẻ em (play sand), giá rẻ mà dùng tốt",
+    "why": "Bagged 'play sand' is a cheap US hardware-store product, not what keepers in Vietnam buy as a budget sand.",
+    "by": "model"
+   }
+  ],
+  "products": [
+   "Fluval",
+   "Brightwell",
+   "CaribSea"
   ]
  },
  "vi/guides/youtube-lH2GnVdN-4s": {
@@ -100959,6 +101310,22 @@
    "Liquid CO2 Boost",
    "NT Labs"
   ]
+ },
+ "vi/guides/youtube-M3Nyh-8vqSg": {
+  "at": "2026-11-24",
+  "hash": "a2aa5b3d6af35008",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "Bể khoảng 1.360 lít cũng còn xa mới đủ cho chúng.",
+    "why": "1,360 litres is a converted 360-gallon figure no keeper in Vietnam would write.",
+    "by": "model"
+   }
+  ],
+  "products": []
  },
  "vi/guides/youtube-M3sSLf31zso": {
   "at": "2026-11-09",
@@ -103333,7 +103700,7 @@
    "Wonder Shells",
    "Seachem Equilibrium"
   ],
-  "mendTried": "2026-11-22"
+  "mendTried": "2026-11-25"
  },
  "vi/guides/youtube-nvA3c_8w77I": {
   "at": "2026-11-08",
@@ -103501,6 +103868,17 @@
    }
   ],
   "products": []
+ },
+ "vi/guides/youtube-NXMG2NGmNnw": {
+  "at": "2026-11-24",
+  "hash": "dd15e8090fd03333",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "Fluval FX6",
+   "AquaClear"
+  ]
  },
  "vi/guides/youtube-nZM7Tkolvtw": {
   "at": "2026-11-21",
@@ -106785,6 +107163,14 @@
   ],
   "products": []
  },
+ "vi/guides/youtube-qqdzVzMI6iY": {
+  "at": "2026-11-24",
+  "hash": "6a256a9f8ece6622",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/guides/youtube-qqHJr-5enM8": {
   "at": "2026-11-10",
   "hash": "9e9e4d643dba3c1e",
@@ -107030,6 +107416,16 @@
   ],
   "products": [
    "Plasti Dip"
+  ]
+ },
+ "vi/guides/youtube-QXf6XquHnzs": {
+  "at": "2026-11-24",
+  "hash": "a57666f2832eebb8",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "General Cure"
   ]
  },
  "vi/guides/youtube-qzPVpr89Ugo": {
@@ -109034,6 +109430,40 @@
   "products": [],
   "mendTried": "2026-11-19"
  },
+ "vi/guides/youtube-SUZinoLGW48": {
+  "at": "2026-11-24",
+  "hash": "3bd569b9e0d1e1a5",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "Ví dụ, với bể khoảng 1363 lít, bơm dùng là CJ Ultra Zero",
+    "why": "1363 litres is a 360-gallon tank converted, not a size anyone in Vietnam would give.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "chạy khoảng 3028 lít/giờ",
+    "why": "3028 L/h is an 800 gph pump rating converted from gallons.",
+    "by": "model"
+   },
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "lắp vài máy thổi luồng",
+    "why": "Not a term keepers in Vietnam use for a wave/flow pump.",
+    "by": "model",
+    "fix": "máy tạo sóng"
+   }
+  ],
+  "products": [
+   "CJ Ultra Zero",
+   "Fritz Complete"
+  ]
+ },
  "vi/guides/youtube-sV6LatlgWNg": {
   "at": "2026-11-20",
   "hash": "b949c4ecad9ade1d",
@@ -110699,6 +111129,14 @@
     "by": "model"
    }
   ],
+  "products": []
+ },
+ "vi/guides/youtube-TpuI22YRNaY": {
+  "at": "2026-11-24",
+  "hash": "5e9c170ed00c8f3e",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/guides/youtube-tqgAOTIOaE4": {
@@ -113556,6 +113994,22 @@
   "findings": [],
   "products": []
  },
+ "vi/guides/youtube-x-DnSdpVvFs": {
+  "at": "2026-11-24",
+  "hash": "30945323540ed857",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "chẳng hạn phòng giữ quanh năm khoảng 22 °C",
+    "why": "A room held at 22 °C all year reflects a climate-controlled home abroad, not a typical room in Vietnam.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
  "vi/guides/youtube-X1cBflLeYuU": {
   "at": "2026-11-17",
   "hash": "06d5d0c68c5f11ed",
@@ -114652,6 +115106,22 @@
   "products": [],
   "mendTried": "2026-11-17"
  },
+ "vi/guides/youtube-Xw4uBBqf6dk": {
+  "at": "2026-11-24",
+  "hash": "01f6bdb4ca9870d3",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "Bể đặt ở chỗ nước đổ ra không hại gì như gara thì đỡ lo hơn.",
+    "why": "A garage as a spare place for a tank assumes a North American house; few homes in Vietnam have one.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
  "vi/guides/youtube-XwkkskyP-R0": {
   "at": "2026-11-16",
   "hash": "f4b430dd954ba591",
@@ -115426,6 +115896,16 @@
    }
   ],
   "products": []
+ },
+ "vi/guides/youtube-YqdTYODZA8I": {
+  "at": "2026-11-24",
+  "hash": "bee28521d6051391",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "Python"
+  ]
  },
  "vi/guides/youtube-yQmespyBFMo": {
   "at": "2026-11-13",
@@ -116724,6 +117204,14 @@
   "products": [
    "Dennerle Scaper's Soil"
   ]
+ },
+ "vi/guides/youtube-Z9mbK5mwtok": {
+  "at": "2026-11-24",
+  "hash": "ab0f34a3e5152d1e",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
  },
  "vi/guides/youtube-Z9SsF6Hb_gU": {
   "at": "2026-11-23",
@@ -155918,6 +156406,14 @@
  "vi/species/sicyopus-exallisquamulus": {
   "at": "2026-11-18",
   "hash": "ca36bd05b9395a41",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/sicyopus-rubicundus": {
+  "at": "2026-11-24",
+  "hash": "8ea8d7b280f4df5b",
   "model": "opus",
   "checklist": 3,
   "findings": [],

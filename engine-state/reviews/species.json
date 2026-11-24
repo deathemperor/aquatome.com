@@ -1495,6 +1495,45 @@
       "kept": false
     }
   ],
+  "vi/species/garra-flavatra#vS19C2GR5us": [
+    {
+      "at": "2026-11-24T20:31:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.6,
+      "notes": [
+        "[beforeYouBuy] \"Loài này chỉ sống ở một vùng nhỏ của Myanmar\" repeats the page, which already says it is endemic to the Rakhine Yoma range.",
+        "[beforeYouBuy] \"chọn cá trại thì hơn\" is advice the video doesn't give. It only says breeding makes sense. The page also already covers commercial breeding since 2008.",
+        "[dimorphism] The page already says males grow head tubercles and that sexing is hard. NEW mostly repeats this, and only adds that the tubercles are white and appear in breeding season.",
+        "[behaviour] \"Cá đực có thể hơi thô bạo... không đến mức giết\" contradicts the page's \"hoàn toàn hiền hòa với nhau\". NEW doesn't say plainly that the video differs from the page.",
+        "[aquariumSize] The 100 L / 200 L advice differs from the page's 80 L minimum and \"20 lít mỗi con\". NEW doesn't point out the difference.",
+        "[maintenance] \"Cũng có chuyện kể rằng chúng hay nhảy ra ngoài\" repeats the page's jumping and lid warning. The video also hedges this as a story.",
+        "[diet] \"đồ ăn thừa làm bẩn nước\" is a small addition. The video only says to watch water quality.",
+        "[maintenance] \"cỏ thảm (Eleocharis)\" is the writer's guess from a garbled transcript (\"elaris Pila\", \"dwarf hair grass\"). The video doesn't state the genus."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-24T20:31:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.72,
+      "notes": [
+        "[notes] \"chưa từng thấy con nào dài quá 8–9 cm\" repeats the page's 9 cm size (sizeCm 9, \"dài tới 9 cm\"). It adds little beyond that figure and doesn't say how it differs from the 8–10 cm in articles.",
+        "[dimorphism] \"Cá cái tròn mình hơn\" and the head tubercles on males are already on the page. Only the white colour and the link to breeding season are new.",
+        "[diet] \"dưa lưới\" is more specific than the video, which only says \"melons\". The page already lists \"dưa\".",
+        "[behaviour] \"không hề đụng tới tép\" contradicts the page, which says they may nip tiny baby shrimp. NEW doesn't say plainly that the video differs from the page.",
+        "[maintenance] \"Loài này không thích nền phủ kín cỏ thảm\" turns one keeper's remark about his own tanks into a general rule. The video says fish that sit on rocks don't like the hair grass \"too much\".",
+        "[maintenance] \"Đừng bày đá sắc cạnh...\" and \"Cá cũng hay nhảy hơn khi điều kiện bể không hợp ý\" are given as flat rules, not as one keeper's advice. The video presents the jumping as \"stories\". The page already covers jumping and the tight lid.",
+        "[behaviour] \"Con đực trội hay đuổi những con yếu hơn\" mostly repeats the page's text on males chasing each other and fighting over territory."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/garra-panitvongi": [
     {
       "at": "2026-11-08T18:10:43Z",
@@ -3343,6 +3382,38 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/species/sicyopus-rubicundus": [
+    {
+      "at": "2026-11-24T20:30:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.82,
+      "notes": [
+        "\"Giai đoạn đầu là khó nhất\" - the facts don't say the first stage is the hardest; this is a generalisation.",
+        "\"con đực đầu đàn có màu đậm nhất\" - the facts only say subordinate males are duller than the dominant male, so this is close but slightly extended.",
+        "\"Ở một bể nuôi chung\" - the facts say \"the video's tank\"; the phrasing is slightly generalised.",
+        "\"tức là đi lại giữa biển và nước ngọt\" - the facts say larvae develop at sea before returning to fresh water, so this wording is loose.",
+        "\"thường bán dưới tên Red Lipstick Goby\" - the facts say it is rare and sold under that name; \"thường\" is a small addition.",
+        "\"Cá mới nhập về có thể trông nhạt, gần như không màu\" - the facts say only \"colourless at first\"; \"gần như\" is borrowed from the description of females."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-24T20:30:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.9,
+      "notes": [
+        "\"Loài gần nhất dễ nhầm là S. zosterophorum\": the facts only say it differs from S. zosterophorum. They don't call it the closest or most easily confused species.",
+        "\"Nó đẻ trong hang và giữ trứng ở đó\": the facts only say it is a cave brooder. Egg guarding is an inference."
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/species/sphaerichthys-vaillanti#2RrQVvB-jG0": [

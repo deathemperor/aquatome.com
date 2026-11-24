@@ -5070,10 +5070,14 @@
     "reason": "lake location"
   },
   "vgsLgjNbqeU": {
-    "at": "2026-11-07",
+    "at": "2026-11-24",
     "title": "Meet the Mischievous Lipstick Goby, Sicyopus rubicundus - Freshwater Goby",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Sicyopus rubicundus",
+    "page": "species/sicyopus-rubicundus",
+    "done": "new page",
+    "score": 0.9
   },
   "vHkatl9oAgo": {
     "at": "2026-11-07",
@@ -5116,10 +5120,15 @@
     "reason": "product review"
   },
   "vS19C2GR5us": {
-    "at": "2026-11-07",
+    "at": "2026-11-24",
     "title": "The Best Algae Eater for Big Aquariums - Garra flavatra.( Panda Garra)",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Garra flavatra",
+    "page": "species/garra-flavatra",
+    "done": "low",
+    "score": 0.72,
+    "reason": "[notes] \"chưa từng thấy con nào dài quá 8–9 cm\" repeats the page's 9 cm size (sizeCm 9, \"dài tới 9 cm\"). It adds little beyond that figure and doesn't say how it differs from the 8–10 cm in articles.; [dimorphism] \"Cá cái tròn mình hơn\" and the head tubercles on males are already on the page. Only the white colour and the link to breeding season are new."
   },
   "VsaH4KzQCls": {
     "at": "2026-11-07",
@@ -5244,10 +5253,12 @@
     "reason": "fishing lure"
   },
   "wf9sfleenwc": {
-    "at": "2026-11-07",
+    "at": "2026-11-24",
     "title": "Quick Dip into The Reticulated Hillstream Loach - Sewellia lineolata",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "failed",
+    "reason": "whisper: ValueError: Unsupported language: zxx"
   },
   "wFhK6oQfUXk": {
     "at": "2026-11-07",

@@ -6,7 +6,7 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Open, no read of its text | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 5449 | 5427 | 0 | 1998 | 40 | 53 | 232 | 61 | 1393 | 426 | 3270 | 545 | 9 | 24 | 0 | 2 | 15 | 6 | 2 |
+| Vietnamese | 5487 | 5465 | 0 | 2009 | 41 | 54 | 232 | 62 | 1396 | 430 | 3290 | 549 | 9 | 24 | 0 | 2 | 15 | 6 | 2 |
 | Indonesian | 1718 | 1718 | 0 | 463 | 29 | 13 | 4 | 6 | 216 | 39 | 79 | 209 | 0 | 3 | 0 | 5 | 2 | 0 | 0 |
 | Thai | 1716 | 1716 | 0 | 447 | 25 | 3 | 5 | 5 | 213 | 44 | 115 | 203 | 0 | 2 | 0 | 3 | 2 | 0 | 0 |
 | Malay | 598 | 598 | 0 | 163 | 16 | 4 | 0 | 2 | 82 | 19 | 37 | 58 | 0 | 1 | 0 | 3 | 0 | 0 | 0 |
@@ -91,21 +91,22 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - seachem fluorite: 19
 - eheim: 18
 - tropica aquarium soil: 18
-- fluval fx6: 16
+- fluval fx6: 17
 - hikari first bites: 16
 - aquario neo soil: 15
+- hikari: 15
 - carib sea eco-complete: 14
-- hikari: 14
+- aquaclear: 13
 - caribsea eco-complete: 13
 - hikari vibra bites: 13
-- aquaclear: 12
+- api: 12
 - bacter ae: 12
 - easy fry and small fish food: 12
 - fluval plant and shrimp stratum: 12
 - twinstar: 12
 - 1-2-grow: 11
-- api: 11
 - apt fix: 11
+- fluval: 11
 - fluval bug bites: 11
 - jbl: 11
 - ge silicone 1: 10
@@ -114,7 +115,6 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - seachem flourite: 10
 - tetramin: 10
 - chihiros wrgb ii slim: 9
-- fluval: 9
+- fritz complete: 9
 - instant ocean: 9
 - reef roids: 9
-- weld-on 4: 9
