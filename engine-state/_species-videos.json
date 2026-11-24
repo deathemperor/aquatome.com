@@ -1703,6 +1703,14 @@
     "done": "skipped",
     "reason": "no scientific name given"
   },
+  "DFnXL1tdsik": {
+    "at": "2026-11-24",
+    "title": "Unboxing Rare Bettas and Tetras From Moonlight Aquatics",
+    "channel": "Steenfott Aquatics",
+    "kind": "other",
+    "done": "skipped",
+    "reason": "unboxing, several species, shop order"
+  },
   "dG7Ic2CvpoI": {
     "at": "2026-11-07",
     "title": "Exploring A 60 Year Old Issue of Tropical Fish Hobbyist Magazine!",
@@ -5261,10 +5269,15 @@
     "reason": "whisper: ValueError: Unsupported language: zxx"
   },
   "wFhK6oQfUXk": {
-    "at": "2026-11-07",
+    "at": "2026-11-24",
     "title": "Amano Snow Shrimp - Caridina multidentata \"Snow\"",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Caridina multidentata",
+    "page": "species/caridina-multidentata",
+    "done": "low",
+    "score": 0.55,
+    "reason": "\"Tép Amano có một dòng màu mới tên là Snow\": the video says 'Cardinal multidentata Snow' is a colour variant. It never calls it Amano, and the page treats Amano as the species, so this is a loose link.; \"Lứa tép trắng này thả vào bể bình thường có đèn một thời gian thì lại lên màu tự nhiên\": the video says this about 'die anderen von dem Deutschen', meaning other shrimp kept by the German wholesaler. It does not say it about the earlier white shrimp from the breeder, so the attribution is shaky."
   },
   "WGmcAebQiUk": {
     "at": "2026-11-18",
@@ -5291,10 +5304,15 @@
     "reason": "vlog"
   },
   "wlqvoANtEQY": {
-    "at": "2026-11-07",
+    "at": "2026-11-24",
     "title": "ASSASSIN SNAILS SPECIES PROFILE",
     "channel": "Daniel Keeping Fish",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Clea helena",
+    "page": "species/anentome-helena",
+    "done": "low",
+    "score": 0.4,
+    "reason": "\"không phải ốc thường mà là một loài ốc whelk\": the video says it is \"not actually a snail\" and calls it a \"whelk\" in a garbled way. Whelk is an inference, and the page already calls it a snail.; \"Ốc sát thủ dễ mua, tiệm nào cũng hay có\": the video says \"widely available\". \"Tiệm nào cũng hay có\" overstates this."
   },
   "wmDLTQNRFA4": {
     "at": "2026-11-07",
@@ -5369,10 +5387,12 @@
     "reason": "shrimp color genetics, many lines"
   },
   "WyLro8TAUmM": {
-    "at": "2026-11-07",
+    "at": "2026-11-24",
     "title": "Strawberry Leporinus",
     "channel": "Team Detritus",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "X_n4L6CUFWg": {
     "at": "2026-11-07",

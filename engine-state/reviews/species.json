@@ -622,6 +622,46 @@
       "kept": false
     }
   ],
+  "vi/species/anentome-helena#wlqvoANtEQY": [
+    {
+      "at": "2026-11-24T23:46:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.4,
+      "notes": [
+        "\"không phải ốc thường mà là một loài ốc whelk\": the video says it is \"not actually a snail\" and calls it a \"whelk\" in a garbled way. Whelk is an inference, and the page already calls it a snail.",
+        "\"Ốc sát thủ dễ mua, tiệm nào cũng hay có\": the video says \"widely available\". \"Tiệm nào cũng hay có\" overstates this.",
+        "\"nó không làm bể nặng tải như một con cá\": the video says it \"is not going to have as large a bioload\". It is also given as a flat rule, and \"có lẽ tốt hơn thả cá\" is one keeper's opinion.",
+        "\"Một người nuôi giữ ốc ở khoảng rộng hơn một chút, 21–28°C và pH 7–8\": the video gives these as general ranges, not one keeper's habit. The page already has 21–27 and 7.2–8, so this repeats the card with small changes.",
+        "\"Ốc hợp với nền mịn\": the video says \"smooth\" substrates. \"Nó cũng hợp với bể thủy sinh\" is a loose paraphrase of \"great addition to a planted tank\".",
+        "\"có thể cho ăn cả bo bo\": the video says daphnia. \"Bo bo\" is a Vietnamese word for it, and \"ăn tạp đồ đạm\" is a loose rendering of \"opportunistic feeders\".",
+        "\"Ốc có lẽ chỉ bắt được tép đang bệnh\" and \"Một người nuôi giữ hàng nghìn con tép\": these are the video maker's own experience, written as a general point. The page already says shrimp are safe.",
+        "\"Một người nuôi đã thấy một cặp dính nhau tới cả ngày\": the video says \"up to a day\". \"Cả ngày\" is close but not exact. \"Hai con ốc ôm khít lấy nhau\" and \"Ốc con ... ở lì dưới đó\" are loose paraphrases. The 6-month and 2-month figures and the six-snail group are fine, but the six-snail group is already on the page."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-24T23:46:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.35,
+      "notes": [
+        "waterConditions: '21–28°C, pH 7–8' differs from the page's 21–27 and 7.2–8.0. The video does say 21–28 and 7–8, but the new text doesn't flag the difference. It also repeats the page's hard-water point.",
+        "waterConditions: 'tuyệt đối không có đồng' goes further than the video, which only says 'no copper'. 'Một người nuôi... lâu năm thấy' turns the video's general care statements into one keeper's experience.",
+        "beforeYouBuy: 'nó thải ít hơn' is a mistranslation of 'not going to have as large a bioload'. 'có lẽ hơn' is also awkward Vietnamese.",
+        "diet: 'bo bo' (daphnia) is fine. But 'nuôi riêng một bể ốc đĩa, ốc bàng quang' is a cultured-prey tip the video gives only loosely. The video says to keep a separate culture of pest snails, including ramshorn, pond and bladder snails.",
+        "behaviour: 'bình thường bò chậm' is not in the video. The video only says they can be fast when they want to be.",
+        "behaviour: 'giữ cả nghìn con tép chung với hàng trăm con ốc' is the video maker's own setup. It is framed as 'một người nuôi', which is acceptable. But 'có lẽ chúng chỉ bắt được tép đang bệnh' is the video's guess, and it is stated hedged.",
+        "notes: the proboscis and the predation description (inject into flesh, eat alive) partly repeat the page's 'dùng chiếc vòi để dò tìm con mồi'. The siphon and retractable proboscis are also muddled.",
+        "reproduction: 'cặp dính nhau tới cả ngày' is one observation ('I've seen it take up to a day'). It is written as general fact, not as one keeper's experience. The 'six months to adult size' point is fine."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/apistogramma-borellii#1rJLXLHEGE4": [
     {
       "at": "2026-11-08T23:56:07Z",
@@ -871,6 +911,45 @@
         "\"Tép nuôi trong bể thì giữ trong bể, đừng thả ra sông hồ\" is release-prevention advice that the facts don't give. It is a mild extension of the Hungary note.",
         "\"Nhìn bằng mắt thường thì đó là một cái chủy dài\" adds \"to the naked eye\", which the facts don't say. This is a small embellishment.",
         "\"bám trên bề mặt trong bể\" adds \"on surfaces in the tank\" to the grazing description. This is a small embellishment."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/caridina-multidentata#wFhK6oQfUXk": [
+    {
+      "at": "2026-11-24T23:44:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.55,
+      "notes": [
+        "\"Tép Amano có một dòng màu mới tên là Snow\": the video says 'Cardinal multidentata Snow' is a colour variant. It never calls it Amano, and the page treats Amano as the species, so this is a loose link.",
+        "\"Lứa tép trắng này thả vào bể bình thường có đèn một thời gian thì lại lên màu tự nhiên\": the video says this about 'die anderen von dem Deutschen', meaning other shrimp kept by the German wholesaler. It does not say it about the earlier white shrimp from the breeder, so the attribution is shaky.",
+        "\"Một người nuôi loài này lâu năm tin rằng dòng này sẽ giữ được màu trắng, nhưng đó mới là ý kiến của một người\": this is the video maker's opinion, and the added disclaimer is the writer's own. It is acceptable as one keeper's view, but the wording is stilted.",
+        "\"Một người nuôi loài này lâu năm phân biệt bằng cách nhìn lưng. Con cái có các vạch dài trên lưng, còn con đực có chấm\": the page's dimorphism section already says males have dots and females have stripes, so this repeats the page.",
+        "\"Người nuôi ra lứa tép đó cho biết tép được giữ trong tối và cho ăn thêm canxi\": this is stated as the breeder's account, which is fine. But \"Vì thế chúng chỉ trắng đục, nửa trong\" turns it into a firm cause-and-effect claim.",
+        "\"Theo lời người đó, màu trắng là do một đột biến gen\": this matches the video. The sentence \"Tép Amano có một dòng màu mới\" is also not clearly separated from the page's Amano description, and the video places the variant in Europe only 'recently'.",
+        "\"nhà buôn sỉ tại Đức\": this is acceptable, but the video says 'we' kept them, so it was the video maker's own test. The text presents it as an impersonal check."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-24T23:44:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.5,
+      "notes": [
+        "\"Theo người lai\" is a mistranslation. \"Lai\" means hybrid, and the video's Züchter is a breeder (người nuôi/nhà lai tạo). It reads as machine translation.",
+        "\"Lúc mua, nên hỏi rõ tép là dòng Snow thật hay chỉ là tép bị nuôi tối cho bạc màu\" is buying advice the video never gives.",
+        "\"nuôi thử ba tháng trong bể có đèn\": the video says three months at a wholesaler's tank. It doesn't say the Snow were under light. The light detail was said about the other shrimp.",
+        "\"Thả sang bể bình thường có đèn... là chúng lại về màu tự nhiên\" is generalized. The video only says the other white shrimp from the German wholesaler reverted.",
+        "\"do một trại nổi tiếng làm ra\" and \"trại chọn lọc qua nhiều lứa\": the video says a well-known breeder, not a farm, and doesn't say how many generations.",
+        "The dimorphism paragraph repeats the page's male-dots/female-stripes point, which is already there. It writes \"vạch dài\" where the page says \"vạch vvắn/ngắn\", and doesn't say the video differs.",
+        "\"Dòng Snow trắng gần như không còn hoa văn\" is an inference. The video only says sex can no longer be told apart in the transparent whitish form.",
+        "\"nên chắc là chúng sẽ trắng luôn\" is the speaker's own belief, given as a near-fact. It should be written as one person's view."
       ],
       "attempt": "first",
       "kept": false

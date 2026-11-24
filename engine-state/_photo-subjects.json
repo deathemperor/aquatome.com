@@ -146580,6 +146580,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/105077435.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "239fceb52ef0dfc6a852fc3eee6c3bfe516181b5c762cd3c7c0b1144b4a5db9c",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/105110630.webp": {
     "glossostigma-elatinoides": {
       "ok": "yes",
@@ -146646,6 +146661,35 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "e7a2bbdf5eeafe7d3363b01e4fde5491372088d2010fbe171525de72190defc5",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/105146111.webp": {
+    "hypostomus-luteus": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "69bc892a846c520832221333c85e862faa0c91fe24afe1578856025c07c79196",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/105146233.webp": {
+    "hypostomus-luteus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "8373611baf85a4f52beba8f6e07c8b0b9489a08f72e0edb57d03e6dc818ba6d3",
       "hints": {
         "dead": false,
         "people": false
@@ -147342,6 +147386,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "a963b11773c15eef758bfbe046b07dec38791d76c3e300a4ad610215dc21a5f4",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/107560091.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "b73ce16dbf4d0bf350e783d42b5f4aed2a047fc754f112a05f77e6c4857837ce",
       "hints": {
         "dead": false,
         "people": false
@@ -150769,6 +150828,21 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "3f553bec196e8f53f906076b942a3d4e1eb8400c1a5545676ec37d2038834660",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/116612700.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "0f824e65e6e130c1937081a8c577800b75c4db1a9cbfa1495ae48b305c95ee53",
       "hints": {
         "dead": false,
         "people": false
@@ -159916,6 +159990,20 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/152995951.webp": {
+    "pseudohemiodon-laticeps": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "e27d1765436ad8b8651fe48306cf62b11aeaf5cb5ede150cbb60ba1e640ed0a8",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/153128498.webp": {
     "betta-kuehnei": {
       "ok": "unsure",
@@ -169012,6 +169100,36 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/181941068.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "c88c02a6b55d50abef81cb2b944f70d55d561649941a7c8f000da9eea49cbe80",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/181941095.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "39a524e8f91566cc5b5edd1d1c3d9d5a4630ee3bf6e3088b852eb7af63fa817a",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/182016037.webp": {
     "vitta-virginea": {
       "ok": "yes",
@@ -171392,6 +171510,20 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "6f30ed681c9fba023b32ee978032d1f23f4c320548d264b0b4c8becffc754ca6",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/189178432.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "343cefab8333c6a7f4e0af436f0181dfabdd2f7dafd54da7d396a380e4748f80",
       "hints": {
         "dead": false,
         "people": false
@@ -176446,6 +176578,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/214554797.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "9734caf65aac1182885fbfcd5da4b70e5e1db639b67448df464b7322c3083435",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/214572161.webp": {
     "trichopsis-vittata": {
       "ok": "yes",
@@ -180620,6 +180767,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/227559873.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "7cf8f3eec355bc006b27ad584f6152ed6c384befa6d09da93d8675edad6b3385",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/227559941.webp": {
     "riccia-fluitans": {
       "ok": "yes",
@@ -180846,6 +181008,21 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "6688a03d2e3d0348cd90c545d423b5ccf9740b2ad5de1d85c580edc993d99564",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/228145183.webp": {
+    "acantopsis-dialuzona": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "02f4c57418fb035a4453f3e5b7983c1a73f3fa1a46560cf23861d13f587fdca1",
       "hints": {
         "dead": false,
         "people": false
@@ -182031,6 +182208,21 @@
       "hints": {
         "dead": true,
         "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/231601765.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "b12d41773799ded65f05eb3eae103a069bd1f3f47428a805a7176c87661d435b",
+      "hints": {
+        "dead": true,
+        "people": true
       }
     }
   },
@@ -183408,6 +183600,20 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "06ecc4a327f83c613fbb882d9aa991bb8df3a8546bf29b3a989b899a6c291736",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/236253769.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "f1f3b8f7c8072fc14ee4d6b696410df1bf3dacb4d0fe5542b6021b5cebaf08ee",
       "hints": {
         "dead": false,
         "people": false
@@ -186416,6 +186622,50 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "d636acb13d7a471664039c8ea0ad129b30e726f3a40a821f9da355a8b078e342",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/246201025.webp": {
+    "moenkhausia-oligolepis": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "9e0287d2e3ed057fa37461239bae453594c6ebc848bad2dbc51a4e59cede8f40",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/246201039.webp": {
+    "moenkhausia-oligolepis": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "2292922758d9eaf65648258bd691ffd1ddbced5f4eb7e5d6f686edd3101d556f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/246201046.webp": {
+    "moenkhausia-oligolepis": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "ddc74a1c35040773a9083ca8214c8f9a109957e7960f30c439e7d4ef3e8963a6",
       "hints": {
         "dead": false,
         "people": false
@@ -190179,6 +190429,21 @@
       "hints": {
         "dead": false,
         "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/254959083.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": true,
+      "logo": false,
+      "note": "subject yes; person",
+      "noteHash": "1a5a316a663caab216262eb2dbf3be054f30092ea1ca14c6abe238b5bc03282b",
+      "hints": {
+        "dead": false,
+        "people": true
       }
     }
   },
@@ -194659,6 +194924,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/26726372.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "0770e4f908eb5f3a4fe8e2f5a076de4ba94f4feb415439c0d01525a48e08ac57",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/267287200.webp": {
     "rotala-rotundifolia": {
       "ok": "yes",
@@ -196541,6 +196821,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/277434711.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "8282b06887db7717e877891a894e2e246cb087a6b98c07e2aa774080a8d24d4e",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/27761376.webp": {
     "pistia-stratiotes": {
       "ok": "yes",
@@ -196813,6 +197108,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "e7072c62da5e8e90279f08b9528fd159da9ba8914706b1ec0d44588ef03fb8a9",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/279292516.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "00c665b6e46051c4c5291402e1372899eb723f2524d7c2e66ac87439b9649b7b",
       "hints": {
         "dead": false,
         "people": false
@@ -197195,6 +197505,34 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "bdbf14ba2cc65b6069e62fab6212239c0f617b8b13405c8d64a29f445fa5a1d9",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/282064944.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "8beda1fb57253959d62bc4fb88e853c52b21b842c7faf1f2bd8cf40b84532326",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/282064956.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "6488ced55ce15eb9f66c2c7d6a1a40b1b9de04de3ccb2ee91370556abe69ff01",
       "hints": {
         "dead": false,
         "people": false
@@ -198979,6 +199317,20 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/288831755.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "b3d838a12637c3e42eab8f376147251080eda18d7ed7cc9e1c72c339d23b656b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/288941429.webp": {
     "pogostemon-stellatus": {
       "ok": "unsure",
@@ -199672,6 +200024,36 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "9e2c507de1c10da5fae96a12429841cda57547ceb8e832af3df9824477223c32",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/293282528.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "141b292709bd51564b4392116e6d9f556bcabdd2487b0c5d08f3f324d22d3e57",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/293282573.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "4327c6ccecde8664762c2243204935bbedfff5082cc591e7ab434cbd7e47ae3e",
       "hints": {
         "dead": false,
         "people": false
@@ -200743,6 +201125,21 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "03f4bb91c3acb83aed6683a6dc90592cf5d94ca26060ca709b48d910a98e7856",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/297446639.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "08b12cc9b8a60acb7670c0230749d8423b2489e33e37d55513c8280c5784e3d1",
       "hints": {
         "dead": false,
         "people": false
@@ -201940,6 +202337,36 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/301084565.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "d7deaed748c6646ed1c93b6d862c496db792f42c02862e69ce4c7626e4a1639f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/301084585.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "fee80a39128f9212f005584ed8e60b5b3cd827b791f0745ca3903803ea5f7fa4",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/301341351.webp": {
     "rotala-rotundifolia": {
       "ok": "yes",
@@ -201964,6 +202391,36 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "50d2e399c24d84fbf55a10bfd61241ced4757954a24aba4c76d48c2d24fc7667",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/301475623.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "7f765b879ccf134b13d899399ba8cbf58797dbc396f2771c52bfd5291af8afdc",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/301475654.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "d443575834cd2da78957739953e8ac9128ed808ee232ee6f5f8c6dfcaf2d2c2a",
       "hints": {
         "dead": false,
         "people": false
@@ -202315,6 +202772,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "c1242550ad3548ae9d10e4261268ca0895f08b11f411fe45cca1ebfb3b836125",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/303177687.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "bd2708952fcb925ee600c2eea2db6131003c5ced7185253c05b968e18b9a42ec",
       "hints": {
         "dead": false,
         "people": false
@@ -204391,6 +204863,51 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "ae164bfa1f0bb81bb9a2c55da89b907a3a68f0c82b063169d2fc254286d25050",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/312848261.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "38d039e37f489a9558764656fffa464acf5bc482a648f32462f6eb4714b93404",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/312848285.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "c0a720873d23ff2ac5b217cfc562e25b7a16d2568bac41aa6449a91206b750bf",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/312848304.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "cd25929a088d660f226c3f2e98582203a1f8a16842d030cb9c43ba8b902a2a60",
       "hints": {
         "dead": false,
         "people": false
@@ -228406,6 +228923,20 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/410906469.webp": {
+    "pseudeutropius-brachypopterus": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "44dbf502193c561befa3622995076e38076f48f2e734acfe1ce8d63ab03a7399",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/41137206.webp": {
     "pistia-stratiotes": {
       "ok": "yes",
@@ -231946,6 +232477,20 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/431171462.webp": {
+    "pseudohemiodon-laticeps": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "2820b1dea2055ee3a29711a0d050f9cbade15de9603b03023dcddbb2d4b200dc",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/431334921.webp": {
     "hoplerythrinus-unitaeniatus": {
       "ok": "yes",
@@ -232232,6 +232777,21 @@
       "noteHash": "5ff81ab4c2c6eba8307f157f1f7b1d9e7a61850d3f89b298a82e44895657955c",
       "hints": {
         "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/432641969.webp": {
+    "erethistes-pusillus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "c7b60f49529ec6de4afae7f2876a149e34d900b0f1b029b0334b0ffd733678df",
+      "hints": {
+        "dead": false,
         "people": false
       }
     }
@@ -235187,6 +235747,20 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/447560572.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "unsure",
+      "typical": false,
+      "person": true,
+      "logo": false,
+      "note": "subject unsure; person",
+      "noteHash": "d40b025ef28f92985cddad3bff989d2b815c3dab5b7693a006f4237e0220ce75",
+      "hints": {
+        "dead": false,
+        "people": true
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/447608055.webp": {
     "betta-kuehnei": {
       "ok": "yes",
@@ -238031,6 +238605,36 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "dd2893b593676b21ac9751bbad5f0ac24a75bb486a207392fa8a9957a7865a53",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/460125711.webp": {
+    "sicyopus-rubicundus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "65d001cf44e782ba7800a0a3ba41726dd936dbe30a5dd5bcee28d4d105a79232",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/460129993.webp": {
+    "sicyopus-rubicundus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "35cdd8931b9b3a82b294246faa18fdd4a426e229ddb1b571bb59a96de1cea835",
       "hints": {
         "dead": false,
         "people": false
@@ -241355,6 +241959,35 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/472003791.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "e9972d88f9b5be90b31ed18a57847195233ac4e2ac221adaa503904ace44b001",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/472003808.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "489b5f4d8a75582df85fd8faf20d78341c37a7c93e77703168bf8761a94883b1",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/472130069.webp": {
     "nematabramis-alestes": {
       "ok": "yes",
@@ -243292,6 +243925,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/478597948.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "954ae310ab9263a7769c4d9c7b3953e30509552bc42e5db70e43086bf29d8a69",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/4786375.webp": {
     "lobelia-cardinalis": {
       "ok": "yes",
@@ -244019,6 +244667,20 @@
       "hints": {
         "dead": false,
         "people": true
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/483417188.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "8755a3059ff04d712948ecfe272d85b4bbbe30913896352bfb60a86c9772cc57",
+      "hints": {
+        "dead": false,
+        "people": false
       }
     }
   },
@@ -250120,6 +250782,36 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/52306034.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "61bf96854003a4e00da2af6c060bd99f1a7159b3fee504e6af9da16baff13523",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/52306232.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "f575ceee3a2eed1a31a16fff5714bf267c769ad9d9138f28f84d91f648adc25c",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/523076298.webp": {
     "herichthys-cyanoguttatus": {
       "ok": "yes",
@@ -251794,6 +252486,50 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/532718935.webp": {
+    "stiphodon-ornatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "87a4cf72bfd70fd9a94063fabce0b1043f5a3eecd27dff3e9c8a681ec265e194",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/532718965.webp": {
+    "stiphodon-ornatus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "f7c09e3c4ff3015dfdcda026b22768baef7f7dd80d00f34203056940ab21a53b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/532719084.webp": {
+    "stiphodon-ornatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "84eb4f9a91abb6266c01d0d0b73327f3a6663dc5573cf00990a30fe5fdd2df74",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/532720222.webp": {
     "cardamine-lyrata": {
       "ok": "yes",
@@ -252053,6 +252789,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "4f9bba4616b5f08926483d5de8ee82eff06301e7cc22bda451b680680bdf7725",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/533971881.webp": {
+    "stiphodon-ornatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "06e943afab45f980e6970895fb939a7e976331fc8b45d5d95acea097ec73b16d",
       "hints": {
         "dead": false,
         "people": false
@@ -253081,6 +253832,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/540045033.webp": {
+    "sicyopus-rubicundus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "335f4d1ff001d28d5c1762d1c3035fd5323834ebfe2004827a7f0518191db641",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/540120697.webp": {
     "ranunculus-inundatus": {
       "ok": "yes",
@@ -253427,6 +254193,51 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "ea106a7c63a55aafeb38e42c55bb2449d06f2326a9c725dd6a0c2cb468428fd2",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/54297156.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "9585151dd1ca14aa2e76e35189f35eeceb4959c31d4e13e92cf6eab560731d80",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/54297158.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "3c670473d397124c9f2b63498d8a1eafccc5a9a24af49f7bf66618480e44f9c8",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/54297252.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "73f907feee53ee5c070d19c395809c8644375b27aee61a806eee86e9b62851dc",
       "hints": {
         "dead": false,
         "people": false
@@ -254767,6 +255578,36 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/550264186.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "e9a8fab075c94579e18837288a011e4205939ff2d8608b51ce0a2219443b0a0e",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/550264306.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "e0bc06e2b9be8f5e624b2a6dd938f322df9f22bc46b3dade2a88c580347564cc",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/550424561.webp": {
     "anablepsoides-hartii": {
       "ok": "yes",
@@ -254880,6 +255721,51 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "2047efc84e46dd7e2341f405e6f71f2fa230143f47c52b68cfcb799a9889fdbc",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/550874328.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "ca9e7d9f52e2980a1d5f1671b127fb606cab33a20d093186579aa1c9ed8cbad7",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/550874407.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "a01d02fe5c1022021101fb1a9b05adb9ca5eb66c173db9ffa728b389d9a7d583",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/550874438.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "d119909c257f33dcab24dad5e61f242d8a60218ec7c400e39db65ff8e6204d72",
       "hints": {
         "dead": false,
         "people": false
@@ -255344,6 +256230,21 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "20dfd9aa7c806dcc1a80e6685d6154bbffe2241d4868e42258cffbc051891b38",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/55306015.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "8a21d9f28ad3f16685a5e1610939044b0ba5ac6e8e918ba8259758d46870b7ed",
       "hints": {
         "dead": false,
         "people": false
@@ -259635,6 +260536,20 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/575510839.webp": {
+    "desmopuntius-rhomboocellatus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "0f868bee83673655ea414c647083b17063db79a4cf145e96f704e32cb640dd97",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/575735823.webp": {
     "riccardia-chamedryfolia": {
       "ok": "yes",
@@ -259938,6 +260853,36 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "54177db711e7f25184d2ad0e6bd35e2b161a5f36688af8462af352664f8aae72",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/579165113.webp": {
+    "acantopsis-dialuzona": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "8adca83d569939077da2fd6448e58bf31ef9a5d93133584f398acf0df782734d",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/579165163.webp": {
+    "acantopsis-dialuzona": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "5869898bf16d98e5bacda973ae9f6afdc48fdac901cbbf37a6c457478db95d33",
       "hints": {
         "dead": false,
         "people": false
@@ -262718,6 +263663,20 @@
       "logo": false,
       "note": "subject dead",
       "noteHash": "19ad06c111196579d474ab822da6e26a568a7e1dfbc880ff5db0f9b453857bb1",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/592175085.webp": {
+    "sicyopus-rubicundus": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "f0494e2ca0df23ca54760351759cf7416fc788441550c459c76bd80d611c8026",
       "hints": {
         "dead": true,
         "people": false
@@ -275022,6 +275981,20 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/65473947.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "bea1523c8b12d85d477c79c223f9c55af250776c63360adcd1375d7dd3e3a532",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/65474458.webp": {
     "brevibora-dorsiocellata": {
       "ok": "other",
@@ -278458,6 +279431,36 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/687766403.webp": {
+    "abramites-hypselonotus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "146ab5de0702aa861a02eed18bd9c950c9cf694588424c875fdfea4fa7cf9c8a",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/687766491.webp": {
+    "abramites-hypselonotus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "fe002d8661d96fccab84cb0918102aa34a4b4dbcf8f84e8f41023cec65a43139",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/688280382.webp": {
     "limnophila-sessiliflora": {
       "ok": "unsure",
@@ -278787,6 +279790,51 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "e6797f20a5debfb96a175801041754625f83cdee0962c628d97b95f3c9ff2824",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/689575313.webp": {
+    "sicyopus-rubicundus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "5484420fb5a77ab0652ce0243f5e40d16d361c93b4ca8f5ed068d96139ad391e",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/689575329.webp": {
+    "sicyopus-rubicundus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "c2b67ca6d3f3ec3086ac1a15e0dc0a9aa6d1b38306e423a4dc47cddf2efa6710",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/689575347.webp": {
+    "sicyopus-rubicundus": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "879775b79695d3bc0cb8ec97fbd2090014ad3b4157f168caf07ac648954a3117",
       "hints": {
         "dead": false,
         "people": false
@@ -280873,6 +281921,20 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/706668726.webp": {
+    "stiphodon-ornatus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "96429ffbad83e0fb5e781a8251ca0e042eab951948847f2320432572399250c9",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/706763195.webp": {
     "pethia-guganio": {
       "ok": "yes",
@@ -282593,6 +283655,20 @@
       "hints": {
         "dead": false,
         "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/721706225.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "unsure",
+      "typical": false,
+      "person": true,
+      "logo": false,
+      "note": "subject unsure; person",
+      "noteHash": "32a7c9d92944bb6580c5b942b2c029c2c2462475fb173a524182c91312581213",
+      "hints": {
+        "dead": false,
+        "people": true
       }
     }
   },
@@ -285709,6 +286785,34 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/745580370.webp": {
+    "moenkhausia-oligolepis": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "e56facc8a93044660745b03b31bc2d2f1296d43d217574b459dbc2c0679035f0",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/745580394.webp": {
+    "moenkhausia-oligolepis": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "ff4d8237856f30f253c600ff418495028eae70300c954ec0ef3182077ae0d65e",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/745620181.webp": {
     "microphis-lineatus": {
       "ok": "unsure",
@@ -287812,6 +288916,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/779424.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "b239993ae83882374a2d1ba6e54ba4168b5b6a3d1f27c022d58ffc5cdf3de507",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/77950920.webp": {
     "pomacea-bridgesii": {
       "ok": "yes",
@@ -288013,6 +289132,20 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "7bebd685b5851f3ed0c7d4445d13fabc818df362ff39512aa3c1d3e56f6067f3",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/78434495.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "522858b6b3efb7c0891f78be652d77e185013d153ed0589796c1ce84e0041992",
       "hints": {
         "dead": false,
         "people": false
@@ -292821,6 +293954,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/93769080.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "38e65661739851a8d162d41a4727bfc51ee9c13999b0a0ec2523e2da684869d2",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/93830140.webp": {
     "murdannia-keisak": {
       "ok": "yes",
@@ -293050,6 +294198,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "336cbd8c301de7fb5cf2b75d30f204e5d6b06fc0aae73b657ef7fffe00f538b6",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/94380094.webp": {
+    "moenkhausia-oligolepis": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "1154f6c9e8ef7c5b73e67c7a3c3e1298a0b8b4b08789cd53932864d893d90e0a",
       "hints": {
         "dead": false,
         "people": false
