@@ -4,13 +4,23 @@
   "File:Microdevario kubotai.jpg",
   "File:Microdevario kubotai-hires.jpg",
   "inat:3216592",
-  "flickr:8441819994"
+  "flickr:8441819994",
+  "inat:174851067",
+  "inat:519337756",
+  "inat:519655807",
+  "inat:673230693",
+  "inat:673230691",
+  "inat:676663212",
+  "inat:676663271"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/ae4361b4800d06cd.webp": "7fdb5d0707a76efe",
   "https://media.aquatome.com/commons/9536a7200592a208.webp": "46063e371f9d8585",
   "https://media.aquatome.com/seriouslyfish/7306cf12e963af18.webp": "4069786cb2769243",
-  "https://media.aquatome.com/seriouslyfish/a614ef35f4e8daf4.webp": "fffffffbffff7f9f"
+  "https://media.aquatome.com/seriouslyfish/a614ef35f4e8daf4.webp": "fffffffbffff7f9f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/174851067/large.jpeg": "5000144307075801",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/673230693/large.jpg": "0200030606320400",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/673230691/large.jpg": "1000129c4f030100"
  },
  "inat": {
   "taxon": 187672,
@@ -27,6 +37,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 370400833,
+  "done": true
  },
  "exhausted": "2026-11-09"
 }

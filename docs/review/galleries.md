@@ -5,12 +5,12 @@ Written by `pnpm engine gallery` (2026-11-24). Targets: packages/engine/src/gall
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
-| shop | 60 | 131 | 81 | 24 | 47 | 189 |
+| shop | 60 | 131 | 81 | 24 | 49 | 187 |
 | popular | 40 | 21 | 0 | 0 | 1 | 20 |
 | covered | 30 | 964 | 32 | 9 | 27 | 978 |
 | rest | 20 | 2005 | 81 | 0 | 126 | 1960 |
 
-## Short of target: every source read (820)
+## Short of target: every source read (825)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -245,10 +245,10 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/micranthemum-callitrichoides | shop | 12 | 60 |
 | species/trigonostigma-hengeli | shop | 4 | 60 |
 | species/boraras-brigittae | shop | 4 | 60 |
-| plants/eleocharis-parvula | shop | 47 | 60 |
+| plants/eleocharis-parvula | shop | 45 | 60 |
 | species/gymnarchus-niloticus | shop | 8 | 60 |
 | species/agamyxis-pectinifrons | shop | 0 | 60 |
-| species/chitala-ornata | shop | 12 | 60 |
+| species/chitala-ornata | shop | 10 | 60 |
 | species/apteronotus-albifrons | shop | 4 | 60 |
 | species/apteronotus-leptorhynchus | shop | 2 | 60 |
 | species/myxocyprinus-asiaticus | shop | 7 | 60 |
@@ -261,36 +261,34 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/cryptocoryne-usteriana | shop | 5 | 60 |
 | species/astyanax-mexicanus | shop | 25 | 60 |
 | species/iriatherina-werneri | shop | 3 | 60 |
-| plants/bacopa-salzmannii | shop | 4 | 60 |
-| species/epalzeorhynchos-kalopterus | shop | 2 | 60 |
-| plants/cardamine-lyrata | shop | 3 | 60 |
+| species/helostoma-temminckii | shop | 17 | 60 |
+| plants/bacopa-salzmannii | shop | 8 | 60 |
+| species/epalzeorhynchos-kalopterus | shop | 3 | 60 |
+| plants/cardamine-lyrata | shop | 17 | 60 |
 | species/pseudomugil-furcatus | shop | 5 | 60 |
-| species/amphilophus-labiatus | shop | 5 | 60 |
+| species/amphilophus-labiatus | shop | 30 | 60 |
 | species/epalzeorhynchos-bicolor | shop | 10 | 60 |
-| species/pethia-conchonius | shop | 6 | 60 |
-| plants/gratiola-viscidula | shop | 8 | 60 |
-| species/synodontis-eupterus | shop | 11 | 60 |
+| species/pethia-conchonius | shop | 15 | 60 |
+| plants/gratiola-viscidula | shop | 33 | 60 |
+| species/synodontis-eupterus | shop | 14 | 60 |
 | species/tropheus-duboisi | shop | 1 | 60 |
-| species/balantiocheilos-melanopterus | shop | 19 | 60 |
-| plants/hygrophila-pinnatifida | shop | 12 | 60 |
-| plants/juncus-repens | shop | 38 | 60 |
-| species/maylandia-estherae | shop | 20 | 60 |
+| species/balantiocheilos-melanopterus | shop | 20 | 60 |
+| plants/hygrophila-pinnatifida | shop | 21 | 60 |
+| species/maylandia-estherae | shop | 21 | 60 |
 | species/hyphessobrycon-amandae | shop | 5 | 60 |
-| plants/lagenandra-meeboldii | shop | 10 | 60 |
-| species/trigonostigma-espei | shop | 3 | 60 |
-| species/microdevario-kubotai | shop | 2 | 60 |
+| plants/lagenandra-meeboldii | shop | 12 | 60 |
+| species/trigonostigma-espei | shop | 6 | 60 |
+| species/microdevario-kubotai | shop | 5 | 60 |
 | plants/limnophila-hippuridoides | shop | 3 | 60 |
 | species/danio-kyathit | shop | 0 | 60 |
 | species/danio-choprae | shop | 3 | 60 |
-| species/tanichthys-albonubes | shop | 5 | 60 |
+| species/tanichthys-albonubes | shop | 25 | 60 |
 | plants/myriophyllum-mattogrossense | shop | 9 | 60 |
 | species/inpaichthys-kerri | shop | 5 | 60 |
-| plants/nymphoides-hydrophylla | shop | 41 | 60 |
 | species/paracheirodon-simulans | shop | 2 | 60 |
-| plants/phyllanthus-fluitans | shop | 11 | 60 |
-| species/pristella-maxillaris | shop | 3 | 60 |
+| plants/phyllanthus-fluitans | shop | 21 | 60 |
+| species/pristella-maxillaris | shop | 6 | 60 |
 | species/prionobrama-filigera | shop | 1 | 60 |
-| plants/pogostemon-deccanensis | shop | 45 | 60 |
 | species/hyphessobrycon-rosaceus | shop | 4 | 60 |
 | species/carinotetraodon-travancoricus | shop | 11 | 60 |
 | species/pterygoplichthys-joselimaianus | shop | 3 | 60 |
@@ -554,8 +552,10 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/centromochlus-heckelii | covered | 3 | 30 |
 | species/centromochlus-macracanthus | covered | 0 | 30 |
 | species/cephalosilurus-apurensis | covered | 0 | 30 |
+| species/cetopsidium-minutum | covered | 0 | 30 |
 | species/cetopsis-coecutiens | covered | 0 | 30 |
 | species/cetopsis-oliveirai | covered | 0 | 30 |
+| species/cetopsis-plumbea | covered | 0 | 30 |
 | species/chaca-bankanensis | covered | 1 | 30 |
 | species/chaca-chaca | covered | 0 | 30 |
 | species/chaetostoma-fischeri | covered | 0 | 30 |
@@ -612,6 +612,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/crenicichla-lugubris | covered | 0 | 30 |
 | species/crenuchus-spilurus | covered | 0 | 30 |
 | species/crossoloricaria-cephalaspis | covered | 0 | 30 |
+| species/crossoloricaria-venezuelae | covered | 0 | 30 |
 | species/ctenochromis-polli | covered | 0 | 30 |
 | species/ctenopoma-acutirostre | covered | 1 | 30 |
 | species/ctenopoma-kingsleyae | covered | 1 | 30 |
@@ -630,8 +631,10 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/dawkinsia-exclamatio | covered | 1 | 30 |
 | species/dawkinsia-rohani | covered | 3 | 30 |
 | species/dekeyseria-scaphirhyncha | covered | 0 | 30 |
+| species/denticetopsis-iwokrama | covered | 0 | 30 |
 | species/denticetopsis-macilenta | covered | 0 | 30 |
 | species/denticetopsis-praecox | covered | 0 | 30 |
+| species/denticetopsis-sauli | covered | 0 | 30 |
 | species/desmopuntius-pentazona | covered | 3 | 30 |
 | species/devario-assamensis | covered | 1 | 30 |
 | species/devario-auropurpureus | covered | 0 | 30 |
@@ -656,6 +659,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/enteromius-jae | covered | 1 | 30 |
 | species/entomocorus-benjamini | covered | 0 | 30 |
 | species/epiplatys-dageti | covered | 0 | 30 |
+| species/erethistoides-sicula | covered | 0 | 30 |
 | species/eretmodus-cyanostictus | covered | 0 | 30 |
 | species/ernstichthys-megistus | covered | 0 | 30 |
 | species/erythrinus-erythrinus | covered | 0 | 30 |
@@ -675,6 +679,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/geophagus-megasema | covered | 0 | 30 |
 | species/geophagus-pellegrini | covered | 0 | 30 |
 | species/geophagus-winemilleri | covered | 0 | 30 |
+| species/glyptothorax-cous | covered | 0 | 30 |
 | species/gnathochromis-permaxillaris | covered | 1 | 30 |
 | species/gobioides-broussonnetii | covered | 6 | 30 |
 | species/guyanancistrus-brevispinis | covered | 7 | 30 |

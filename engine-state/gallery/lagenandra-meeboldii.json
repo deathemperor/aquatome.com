@@ -16,7 +16,9 @@
   "flickr:53538120817",
   "flickr:54551343525",
   "flickr:54565219198",
-  "flickr:54564110157"
+  "flickr:54564110157",
+  "inat:447250956",
+  "inat:641805233"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/d5a797d9aa49ee70.webp": "ca8c075753190908",
@@ -32,7 +34,9 @@
   "https://media.aquatome.com/flickr/54564110157.webp": "c1016329f1b1c1b0",
   "https://media.aquatome.com/flickr/54550977466.webp": "7935d69b55c96945",
   "https://media.aquatome.com/flickr/54592527904.webp": "9eda92c5cdadfdf5",
-  "https://media.aquatome.com/flickr/54591454867.webp": "96a0a898d129a985"
+  "https://media.aquatome.com/flickr/54591454867.webp": "96a0a898d129a985",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/447250956/large.jpeg": "286490b33bd5ebca",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/641805233/large.jpg": "e2f031317a4b0d2d"
  },
  "inat": {
   "taxon": 818692,
@@ -49,6 +53,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 351679707,
+  "done": true
  },
  "exhausted": "2026-11-09"
 }

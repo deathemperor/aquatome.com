@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules: docs/governance.md, "Photos".
-24315 verdicts. Shows it: 14874; its habitat (asked again): 3; something else: 615; not a photo of it: 388; dead or as food: 1153; a person in it: 362; a logo on it: 379; can't tell: 4590.
+24405 verdicts. Shows it: 14919; its habitat (asked again): 3; something else: 616; not a photo of it: 388; dead or as food: 1160; a person in it: 363; a logo on it: 380; can't tell: 4625.
 
 ## Left with no photo (187)
 
@@ -193,7 +193,7 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 - species/xenotilapia-sima
 - species/xiurenbagrus-gigas
 
-## Can't tell: still shown (4590)
+## Can't tell: still shown (4625)
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -1019,7 +1019,12 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/208137366.webp) | subject unsure |
 | plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/208137442.webp) | subject unsure |
 | plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/227885896.webp) | subject unsure |
+| plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/253470844.webp) | subject unsure |
+| plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/259580667.webp) | subject unsure |
+| plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/259580690.webp) | subject unsure |
 | plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/266221611.webp) | subject unsure |
+| plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/271306178.webp) | subject unsure |
+| plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/272114616.webp) | subject unsure |
 | plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/306682766.webp) | subject unsure |
 | plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/32075373.webp) | subject unsure |
 | species/channa-asiatica | [photo](https://media.aquatome.com/commons/940d5c4b49fcb3d8.webp) | subject unsure |
@@ -1072,7 +1077,16 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/atractosteus-spatula | [photo](https://media.aquatome.com/commons/eab2f170cfd15b77.webp) | subject unsure |
 | species/atractosteus-spatula | [photo](https://media.aquatome.com/glaser/1734b6ea073ea413.webp) | subject unsure; logo |
 | species/atractosteus-spatula | [photo](https://media.aquatome.com/glaser/29a8b8d9af0fe994.webp) | subject unsure; logo |
+| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/141682111.webp) | subject unsure |
+| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/147011896.webp) | subject unsure |
+| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/147011901.webp) | subject unsure |
 | species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/207230565.webp) | subject unsure |
+| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/21076975.webp) | subject unsure |
+| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/232976313.webp) | subject unsure |
+| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/232976355.webp) | subject unsure |
+| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/249168006.webp) | subject unsure |
+| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/249168016.webp) | subject unsure |
+| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/265260763.webp) | subject unsure |
 | species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/30247864.webp) | subject unsure |
 | species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/35388326.webp) | subject unsure |
 | species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/420144296.webp) | subject unsure |
@@ -1080,8 +1094,11 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/589928706.webp) | subject unsure |
 | species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/589928733.webp) | subject unsure |
 | species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/603617704.webp) | subject unsure |
+| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/64623997.webp) | subject unsure |
 | species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/666055063.webp) | subject unsure |
 | species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/727694219.webp) | subject unsure |
+| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/87060851.webp) | subject unsure |
+| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/9791327.webp) | subject unsure |
 | species/atractosteus-spatula | [photo](https://media.aquatome.com/seriouslyfish/3e3a1938b76daf4e.webp) | subject unsure |
 | plants/echinodorus-cordifolius | [photo](https://media.aquatome.com/inaturalist/127916648.webp) | subject unsure |
 | plants/echinodorus-cordifolius | [photo](https://media.aquatome.com/inaturalist/127916662.webp) | subject unsure |
@@ -1149,7 +1166,19 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | plants/eleocharis-parvula | [photo](https://media.aquatome.com/commons/b33bf2187b30d8ae.webp) | subject unsure |
 | plants/eleocharis-parvula | [photo](https://media.aquatome.com/commons/c201f4164e45ecac.webp) | subject unsure |
 | plants/eleocharis-parvula | [photo](https://media.aquatome.com/commons/fb8db1037e85d566.webp) | subject unsure |
+| plants/eleocharis-parvula | [photo](https://media.aquatome.com/inaturalist/11123621.webp) | subject unsure |
+| plants/eleocharis-parvula | [photo](https://media.aquatome.com/inaturalist/151071689.webp) | subject unsure |
+| plants/eleocharis-parvula | [photo](https://media.aquatome.com/inaturalist/230562441.webp) | subject unsure |
+| plants/eleocharis-parvula | [photo](https://media.aquatome.com/inaturalist/281007952.webp) | subject unsure |
+| plants/eleocharis-parvula | [photo](https://media.aquatome.com/inaturalist/308907933.webp) | subject unsure |
+| plants/eleocharis-parvula | [photo](https://media.aquatome.com/inaturalist/310143297.webp) | subject unsure |
+| plants/eleocharis-parvula | [photo](https://media.aquatome.com/inaturalist/355445548.webp) | subject unsure |
 | plants/eleocharis-parvula | [photo](https://media.aquatome.com/inaturalist/359434721.webp) | subject unsure |
+| plants/eleocharis-parvula | [photo](https://media.aquatome.com/inaturalist/400817831.webp) | subject unsure |
+| plants/eleocharis-parvula | [photo](https://media.aquatome.com/inaturalist/421983433.webp) | subject unsure |
+| plants/eleocharis-parvula | [photo](https://media.aquatome.com/inaturalist/546113709.webp) | subject unsure |
+| plants/eleocharis-parvula | [photo](https://media.aquatome.com/inaturalist/54812209.webp) | subject unsure |
+| plants/eleocharis-parvula | [photo](https://media.aquatome.com/inaturalist/678257084.webp) | subject unsure |
 | species/gymnarchus-niloticus | [photo](https://media.aquatome.com/commons/8771eea3195c3784.webp) | subject unsure |
 | species/gymnarchus-niloticus | [photo](https://media.aquatome.com/commons/95ac72e841ecbbfd.webp) | subject unsure |
 | species/gymnarchus-niloticus | [photo](https://media.aquatome.com/commons/fe45718a404011c1.webp) | subject unsure |
@@ -1180,6 +1209,7 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | plants/cryptocoryne-nurii | [photo](https://media.aquatome.com/cryptspages/nur_B803_x_2502.webp) | subject unsure |
 | plants/cryptocoryne-nurii | [photo](https://media.aquatome.com/inaturalist/522816575.webp) | subject unsure |
 | species/garra-rufa | [photo](https://media.aquatome.com/commons/958c11b6e8411f0b.webp) | subject unsure |
+| species/garra-rufa | [photo](https://media.aquatome.com/inaturalist/440624291.webp) | subject unsure |
 | species/osphronemus-goramy | [photo](https://media.aquatome.com/commons/bd317ae7633a7eb1.webp) | subject unsure |
 | species/osphronemus-goramy | [photo](https://media.aquatome.com/inaturalist/53544577.webp) | subject unsure |
 | plants/cryptocoryne-undulata | [photo](https://media.aquatome.com/cryptspages/und_x_B195_834.webp) | subject unsure |
@@ -1194,6 +1224,11 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/ctenolucius-hujeta | [photo](https://media.aquatome.com/inaturalist/723680392.webp) | subject unsure |
 | species/ctenolucius-hujeta | [photo](https://media.aquatome.com/inaturalist/729996210.webp) | subject unsure |
 | plants/cryptocoryne-usteriana | [photo](https://media.aquatome.com/inaturalist/255933719.webp) | subject unsure |
+| species/astyanax-mexicanus | [photo](https://media.aquatome.com/inaturalist/120204388.webp) | subject unsure |
+| species/astyanax-mexicanus | [photo](https://media.aquatome.com/inaturalist/120204414.webp) | subject unsure |
+| species/astyanax-mexicanus | [photo](https://media.aquatome.com/inaturalist/241781792.webp) | subject unsure |
+| species/astyanax-mexicanus | [photo](https://media.aquatome.com/inaturalist/244280381.webp) | subject unsure |
+| species/astyanax-mexicanus | [photo](https://media.aquatome.com/inaturalist/275344353.webp) | subject unsure |
 | species/epalzeorhynchos-kalopterus | [photo](https://media.aquatome.com/commons/3842c3b3366920ed.webp) | subject unsure |
 | species/epalzeorhynchos-kalopterus | [photo](https://media.aquatome.com/commons/4978ce7ceab738d2.webp) | subject unsure |
 | species/monodactylus-argenteus | [photo](https://media.aquatome.com/inaturalist/242436915.webp) | subject unsure |
@@ -4788,9 +4823,9 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | plants/vallisneria-spiralis | [photo](https://media.aquatome.com/tropica/32a5549cfa5b0c5e.webp) | subject unsure |
 | species/crenicichla-marmorata | [photo](https://media.aquatome.com/commons/e8cb82a86126e499.webp) | subject unsure |
 
-## Removed (2827)
+## Removed (2837)
 
-"Something else" records a different subject; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
+"Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -5417,6 +5452,7 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/channa-stewartii | [photo](https://media.aquatome.com/commons/ba0d7bc1fcaf33b3.webp) | subject none |
 | species/channa-andrao | [photo](https://media.aquatome.com/inaturalist/80516645.webp) | subject yes; logo |
 | plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/217894164.webp) | subject unsure; person; logo |
+| plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/252117433.webp) | subject yes; person |
 | plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/610888905.webp) | subject yes; person |
 | species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/23153152.webp) | subject dead |
 | species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/23153165.webp) | subject dead |
@@ -5433,10 +5469,14 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | plants/pistia-stratiotes | [photo](https://media.aquatome.com/inaturalist/13470095.webp) | subject unsure; person |
 | plants/pistia-stratiotes | [photo](https://media.aquatome.com/inaturalist/25516085.webp) | subject other |
 | species/atractosteus-spatula | [photo](https://media.aquatome.com/flickr/3584837610.webp) | subject yes; person |
+| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/104237015.webp) | subject dead |
 | species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/11692089.webp) | subject other |
+| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/162323336.webp) | subject dead |
+| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/245051354.webp) | subject dead |
 | species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/337735276.webp) | subject other |
 | species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/358305652.webp) | subject other |
 | species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/429767072.webp) | subject dead |
+| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/47922022.webp) | subject dead |
 | species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/573395581.webp) | subject other |
 | plants/echinodorus-cordifolius | [photo](https://media.aquatome.com/inaturalist/45037000.webp) | subject yes; person |
 | plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/commons/5401ef9dc4762f5f.webp) | subject none |
@@ -5463,6 +5503,8 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | plants/eleocharis-parvula | [photo](https://media.aquatome.com/commons/9fc71787d3cd4530.webp) | subject other |
 | plants/eleocharis-parvula | [photo](https://media.aquatome.com/flickr/21025434875.webp) | subject dead |
 | plants/eleocharis-parvula | [photo](https://media.aquatome.com/flickr/21033000101.webp) | subject other |
+| plants/eleocharis-parvula | [photo](https://media.aquatome.com/inaturalist/228551589.webp) | subject yes; logo |
+| plants/eleocharis-parvula | [photo](https://media.aquatome.com/inaturalist/696400379.webp) | subject other |
 | plants/eleocharis-parvula | [photo](https://media.aquatome.com/tropica/ec82adbf11ce3597.webp) | subject none |
 | plants/eleocharis-parvula (a guide photo) | [photo](https://media.aquatome.com/video/kbXHTTdSWQg/p4-emhhcmtpa2guanBn.webp) | subject dead |
 | species/agamyxis-pectinifrons | [photo](https://media.aquatome.com/commons/389b8952f1d2096d.webp) | subject other |
@@ -5470,6 +5512,8 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | plants/limnobium-laevigatum | [photo](https://media.aquatome.com/inaturalist/521320579.webp) | subject yes; person |
 | plants/limnobium-laevigatum | [photo](https://media.aquatome.com/inaturalist/665548579.webp) | subject other |
 | plants/limnobium-laevigatum (a guide photo) | [photo](https://media.aquatome.com/video/qWNzwIvN-94/p5-9Gcm9nYml0LmpwZw.webp) | subject yes; logo |
+| species/chitala-ornata | [photo](https://media.aquatome.com/inaturalist/461051550.webp) | subject dead |
+| species/chitala-ornata | [photo](https://media.aquatome.com/inaturalist/492133497.webp) | subject dead |
 | species/chitala-ornata | [photo](https://media.aquatome.com/seriouslyfish/73bb5d5c325f5744.webp) | subject dead |
 | plants/limnophila-sessiliflora | [photo](https://media.aquatome.com/inaturalist/453348744.webp) | subject yes; person |
 | plants/limnophila-sessiliflora | [photo](https://media.aquatome.com/inaturalist/453349415.webp) | subject yes; person |
@@ -5492,6 +5536,7 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/astyanax-mexicanus | [photo](https://media.aquatome.com/commons/5daded6f6849c60d.webp) | subject dead; logo |
 | species/astyanax-mexicanus | [photo](https://media.aquatome.com/flickr/14339090568.webp) | subject yes; logo |
 | species/iriatherina-werneri | [photo](https://media.aquatome.com/bwaquatics/cf6a56a53ceb687f.webp) | subject none |
+| species/helostoma-temminckii | [photo](https://media.aquatome.com/inaturalist/65478826.webp) | subject dead |
 | species/monodactylus-argenteus | [photo](https://media.aquatome.com/inaturalist/338086053.webp) | subject other |
 | species/monodactylus-argenteus | [photo](https://media.aquatome.com/inaturalist/338087674.webp) | subject other |
 | species/monodactylus-argenteus | [photo](https://media.aquatome.com/inaturalist/584576430.webp) | subject yes; logo |

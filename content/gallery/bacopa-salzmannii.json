@@ -47,9 +47,65 @@
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Bacopasalzmannii'Purple'(043B)/30171",
       "source": "tropica",
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/141881019.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/141881019-480.webp",
+      "width": 1024,
+      "height": 784,
+      "licence": "CC BY-NC",
+      "author": "Mario Montero-Guzmán",
+      "sourceUrl": "https://www.inaturalist.org/photos/141881019",
+      "caption": "Bacopa salzmannii mọc ngoài tự nhiên giữa cỏ, có hoa nhỏ",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/154229655.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/154229655-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Apipa",
+      "sourceUrl": "https://www.inaturalist.org/photos/154229655",
+      "caption": "Hoa tím nhạt của Bacopa salzmannii nhìn cận cảnh",
+      "best": true,
+      "kind": "flower",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/141881033.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/141881033-480.webp",
+      "width": 1024,
+      "height": 770,
+      "licence": "CC BY-NC",
+      "author": "Mario Montero-Guzmán",
+      "sourceUrl": "https://www.inaturalist.org/photos/141881033",
+      "caption": "Cây Bacopa salzmannii ra hoa tím nhạt mọc giữa cỏ ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/154229910.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/154229910-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Apipa",
+      "sourceUrl": "https://www.inaturalist.org/photos/154229910",
+      "caption": "Lá và thân Bacopa salzmannii mọc dày, nhìn cận cảnh",
+      "best": false,
+      "kind": "detail",
+      "setup": false,
+      "unchecked": true
     }
   ],
-  "seen": 7,
-  "updatedAt": "2026-11-10",
-  "builtAt": "2026-10-31"
+  "seen": 13,
+  "updatedAt": "2026-11-24",
+  "builtAt": "2026-11-24"
 }

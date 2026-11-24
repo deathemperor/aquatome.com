@@ -386,20 +386,6 @@
       "caption": "Cá sấu hỏa tiễn thân có đốm bơi trong bể lớn thủy cung"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/21076975.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/21076975-480.webp",
-      "width": 1024,
-      "height": 731,
-      "licence": "CC BY-NC",
-      "author": "Javi Gonzalez",
-      "sourceUrl": "https://www.inaturalist.org/photos/21076975",
-      "caption": "Hai cá sấu hỏa tiễn bơi trong nước đục ngoài tự nhiên",
-      "best": true,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/2783292.webp",
       "thumb": "https://media.aquatome.com/inaturalist/2783292-480.webp",
       "width": 1024,
@@ -410,36 +396,7 @@
       "caption": "Cá sấu hỏa tiễn bơi gần mặt nước xanh ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/87060851.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/87060851-480.webp",
-      "width": 1024,
-      "height": 575,
-      "licence": "CC BY-NC-SA",
-      "author": "isidro732",
-      "sourceUrl": "https://www.inaturalist.org/photos/87060851",
-      "caption": "Đàn cá sấu hỏa tiễn bơi trong nước xanh ngoài tự nhiên",
-      "best": true,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/9791327.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/9791327-480.webp",
-      "width": 1024,
-      "height": 670,
-      "licence": "CC BY-NC",
-      "author": "Jon McIntyre",
-      "sourceUrl": "https://www.inaturalist.org/photos/9791327",
-      "caption": "Cá sấu hỏa tiễn bơi gần mặt nước đục ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/14053445.webp",
@@ -452,8 +409,7 @@
       "caption": "Cá sấu hỏa tiễn bơi trong nước sông đục",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/14085881.webp",
@@ -466,6 +422,113 @@
       "caption": "Cá sấu hỏa tiễn nhìn từ trên xuống, bơi trong sông",
       "best": true,
       "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/36660164.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/36660164-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "lfh631",
+      "sourceUrl": "https://www.inaturalist.org/photos/36660164",
+      "caption": "Cá sấu hỏa tiễn nằm gần bờ cỏ trong nước nông",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/80405137.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/80405137-480.webp",
+      "width": 1024,
+      "height": 606,
+      "licence": "CC BY-NC",
+      "author": "Jeff McIntyre",
+      "sourceUrl": "https://www.inaturalist.org/photos/80405137",
+      "caption": "Cá sấu hỏa tiễn bơi trong nước đục ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/141989604.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/141989604-480.webp",
+      "width": 1024,
+      "height": 520,
+      "licence": "CC BY-NC",
+      "author": "Sam Dragon-Moore",
+      "sourceUrl": "https://www.inaturalist.org/photos/141989604",
+      "caption": "Cá sấu hỏa tiễn bơi gần bờ kè trong nước trong",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/204082778.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/204082778-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "ulexeuropaeus",
+      "sourceUrl": "https://www.inaturalist.org/photos/204082778",
+      "caption": "Cá sấu hỏa tiễn lớn ở vùng nước nông ban đêm",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/285364592.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/285364592-480.webp",
+      "width": 1024,
+      "height": 549,
+      "licence": "CC BY-NC",
+      "author": "Michael Orgill",
+      "sourceUrl": "https://www.inaturalist.org/photos/285364592",
+      "caption": "Cá sấu hỏa tiễn non bơi trong vùng nước nông có rong",
+      "best": true,
+      "kind": "juvenile",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/279769732.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/279769732-480.webp",
+      "width": 1024,
+      "height": 679,
+      "licence": "CC BY-NC",
+      "author": "Ad Konings",
+      "sourceUrl": "https://www.inaturalist.org/photos/279769732",
+      "caption": "Đàn cá sấu hỏa tiễn bơi sát mặt nước ngoài tự nhiên",
+      "best": true,
+      "kind": "group",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/292754112.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/292754112-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "practamuin",
+      "sourceUrl": "https://www.inaturalist.org/photos/292754112",
+      "caption": "Cá sấu hỏa tiễn bơi trong nước sông đục ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/279770147.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/279770147-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY-NC",
+      "author": "Ad Konings",
+      "sourceUrl": "https://www.inaturalist.org/photos/279770147",
+      "caption": "Đàn cá sấu hỏa tiễn bơi gần mặt nước ngoài tự nhiên",
+      "best": true,
+      "kind": "group",
       "setup": false,
       "unchecked": true
     },
@@ -480,36 +543,46 @@
       "caption": "Cá sấu hỏa tiễn nổi trên mặt nước ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/36660164.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/36660164-480.webp",
-      "width": 768,
-      "height": 1024,
+      "url": "https://media.aquatome.com/inaturalist/21076975.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/21076975-480.webp",
+      "width": 1024,
+      "height": 731,
       "licence": "CC BY-NC",
-      "author": "lfh631",
-      "sourceUrl": "https://www.inaturalist.org/photos/36660164",
-      "caption": "Cá sấu hỏa tiễn nằm gần bờ cỏ trong nước nông",
+      "author": "Javi Gonzalez",
+      "sourceUrl": "https://www.inaturalist.org/photos/21076975",
+      "caption": "Hai cá sấu hỏa tiễn bơi trong nước đục ngoài tự nhiên",
       "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "kind": "group",
+      "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/47922022.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/47922022-480.webp",
-      "width": 576,
-      "height": 1024,
+      "url": "https://media.aquatome.com/inaturalist/9791327.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/9791327-480.webp",
+      "width": 1024,
+      "height": 670,
       "licence": "CC BY-NC",
-      "author": "heteromyid",
-      "sourceUrl": "https://www.inaturalist.org/photos/47922022",
-      "caption": "Cá sấu hỏa tiễn bơi gần mặt nước trong tự nhiên",
+      "author": "Jon McIntyre",
+      "sourceUrl": "https://www.inaturalist.org/photos/9791327",
+      "caption": "Cá sấu hỏa tiễn bơi gần mặt nước đục ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/87060851.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/87060851-480.webp",
+      "width": 1024,
+      "height": 575,
+      "licence": "CC BY-NC-SA",
+      "author": "isidro732",
+      "sourceUrl": "https://www.inaturalist.org/photos/87060851",
+      "caption": "Đàn cá sấu hỏa tiễn bơi trong nước xanh ngoài tự nhiên",
+      "best": true,
+      "kind": "group",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/64623997.webp",
@@ -522,50 +595,7 @@
       "caption": "Cá sấu hỏa tiễn bơi gần mặt nước trong môi trường tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/80405137.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/80405137-480.webp",
-      "width": 1024,
-      "height": 606,
-      "licence": "CC BY-NC",
-      "author": "Jeff McIntyre",
-      "sourceUrl": "https://www.inaturalist.org/photos/80405137",
-      "caption": "Cá sấu hỏa tiễn bơi trong nước đục ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/104237015.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/104237015-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Michael Scherer",
-      "sourceUrl": "https://www.inaturalist.org/photos/104237015",
-      "caption": "Cá sấu hỏa tiễn bơi trong nước xanh ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/141989604.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/141989604-480.webp",
-      "width": 1024,
-      "height": 520,
-      "licence": "CC BY-NC",
-      "author": "Sam Dragon-Moore",
-      "sourceUrl": "https://www.inaturalist.org/photos/141989604",
-      "caption": "Cá sấu hỏa tiễn bơi gần bờ kè trong nước trong",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/147011896.webp",
@@ -578,8 +608,7 @@
       "caption": "Cá sấu hỏa tiễn nổi lên mặt nước tạo gợn sóng",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/147011901.webp",
@@ -592,36 +621,7 @@
       "caption": "Cá sấu hỏa tiễn bơi sát mặt nước ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/162323336.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/162323336-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "garzaj2386",
-      "sourceUrl": "https://www.inaturalist.org/photos/162323336",
-      "caption": "Cá sấu hỏa tiễn bơi gần mặt nước ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/204082778.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/204082778-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "ulexeuropaeus",
-      "sourceUrl": "https://www.inaturalist.org/photos/204082778",
-      "caption": "Cá sấu hỏa tiễn lớn ở vùng nước nông ban đêm",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/232976313.webp",
@@ -634,8 +634,7 @@
       "caption": "Cá sấu hỏa tiễn bơi sát mặt nước trong hồ",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/232976355.webp",
@@ -648,22 +647,7 @@
       "caption": "Cá sấu hỏa tiễn nổi gần mặt nước xanh ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/245051354.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/245051354-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Michael Verdirame",
-      "sourceUrl": "https://www.inaturalist.org/photos/245051354",
-      "caption": "Cá sấu hỏa tiễn bơi trong nước đục ven bờ",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/249168006.webp",
@@ -676,8 +660,7 @@
       "caption": "Cá sấu hỏa tiễn bơi gần mặt nước ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/249168016.webp",
@@ -690,8 +673,7 @@
       "caption": "Cá sấu hỏa tiễn nhìn từ trên xuống, bơi trong nước đục",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/265260763.webp",
@@ -704,8 +686,7 @@
       "caption": "Cá sấu hỏa tiễn lớn bơi trong nước ven bờ",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/141682111.webp",
@@ -718,11 +699,10 @@
       "caption": "Cá sấu hỏa tiễn nằm yên dưới nước cạnh bờ đá",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     }
   ],
-  "seen": 675,
+  "seen": 735,
   "updatedAt": "2026-11-24",
   "builtAt": "2026-11-24"
 }

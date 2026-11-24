@@ -6,15 +6,15 @@
       "thumb": "https://media.aquatome.com/commons/246581693eccf859-480.webp",
       "width": 1200,
       "height": 812,
-      "licence": "Public domain",
-      "author": "Silex6",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synodontis_Eupterus_3.JPG",
-      "caption": "Cá nheo lông vũ trưởng thành trong bể có sỏi và cây thủy sinh",
       "large": {
         "url": "https://media.aquatome.com/commons/246581693eccf859-large.webp",
         "width": 1775,
         "height": 1200
-      }
+      },
+      "licence": "Public domain",
+      "author": "Silex6",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synodontis_Eupterus_3.JPG",
+      "caption": "Cá nheo lông vũ trưởng thành trong bể có sỏi và cây thủy sinh"
     },
     {
       "url": "https://media.aquatome.com/commons/84161f6574c46ef7.webp",
@@ -119,9 +119,51 @@
       "author": "Gourami Watcher",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Featherfun_Syno4.jpg",
       "caption": "Cá nheo lông vũ màu nâu đốm đen bơi cạnh cây lá xanh"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/429438094.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/429438094-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "H.Grenier",
+      "sourceUrl": "https://www.inaturalist.org/photos/429438094",
+      "caption": "Cá nheo lông vũ trưởng thành bơi trong bể kính nhỏ",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/429441726.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/429441726-480.webp",
+      "width": 1024,
+      "height": 512,
+      "licence": "CC BY-NC",
+      "author": "H.Grenier",
+      "sourceUrl": "https://www.inaturalist.org/photos/429441726",
+      "caption": "Cá nheo lông vũ với râu dài và vây lưng xòe trong bể chụp",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/470379786.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/470379786-480.webp",
+      "width": 1024,
+      "height": 512,
+      "licence": "CC BY-NC",
+      "author": "H.Grenier",
+      "sourceUrl": "https://www.inaturalist.org/photos/470379786",
+      "caption": "Cá nheo lông vũ có đốm đen rõ trên thân vàng nâu",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
     }
   ],
-  "seen": 30,
-  "updatedAt": "2026-11-01",
-  "builtAt": "2026-11-01"
+  "seen": 35,
+  "updatedAt": "2026-11-24",
+  "builtAt": "2026-11-24"
 }

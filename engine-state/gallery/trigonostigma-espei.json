@@ -9,14 +9,24 @@
   "File:Trigonostigma espei Thai (cropped).jpg",
   "inat:300596843",
   "inat:300596862",
-  "inat:470429626"
+  "inat:470429626",
+  "inat:470229329",
+  "inat:470229336",
+  "inat:470229343",
+  "inat:519317589",
+  "inat:541163318",
+  "inat:541163345",
+  "inat:541163371"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/48210c6db7fe3282.webp": "839b0e13b71d9b6b",
   "https://media.aquatome.com/seriouslyfish/ea06696e60152130.webp": "91b1c29c9832c3d7",
   "https://media.aquatome.com/commons/ab7d31b513f53bc1.webp": "d4c7843c148c1ccc",
   "https://media.aquatome.com/commons/aca43c942f61b930.webp": "4bdb9498ec8cccc6",
-  "https://media.aquatome.com/commons/df7054354a59aec1.webp": "878ec0051d1a4268"
+  "https://media.aquatome.com/commons/df7054354a59aec1.webp": "878ec0051d1a4268",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/470229329/large.jpg": "83811a06049a8e00",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/470229336/large.jpg": "0e0628160389051a",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/470229343/large.jpg": "efdfdcb967e6b8f7"
  },
  "inat": {
   "taxon": 188587,
@@ -33,6 +43,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 300348475,
+  "done": true
  },
  "exhausted": "2026-11-09"
 }

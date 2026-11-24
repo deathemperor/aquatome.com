@@ -36,9 +36,51 @@
       "caption": "Cá tetra tia X dạng nhạt màu trong bể nuôi",
       "best": false,
       "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/759849878.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/759849878-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY-NC",
+      "author": "japhb",
+      "sourceUrl": "https://www.inaturalist.org/photos/759849878",
+      "caption": "Cá tetra tia X bơi trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/189141498.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/189141498-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "maleshastarr",
+      "sourceUrl": "https://www.inaturalist.org/photos/189141498",
+      "caption": "Cá tetra tia X bơi trong bể ảnh nhỏ",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/671285855.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/671285855-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "David Zipper",
+      "sourceUrl": "https://www.inaturalist.org/photos/671285855",
+      "caption": "Cá tetra tia X vây cam trong bể ảnh nhỏ",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
     }
   ],
-  "seen": 5,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 17,
+  "updatedAt": "2026-11-24",
+  "builtAt": "2026-11-24"
 }

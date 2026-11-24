@@ -216,6 +216,19 @@
       "caption": "Cá tetra hang mù màu nhạt bơi chúi đầu xuống trong bể tối"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/132994823.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/132994823-480.webp",
+      "width": 816,
+      "height": 460,
+      "licence": "CC BY-NC",
+      "author": "Pablo Carrillo-Reyes",
+      "sourceUrl": "https://www.inaturalist.org/photos/132994823",
+      "caption": "Cá tetra hang mù bơi trong nước đục ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/120204414.webp",
       "thumb": "https://media.aquatome.com/inaturalist/120204414-480.webp",
       "width": 1024,
@@ -226,8 +239,7 @@
       "caption": "Hai cá tetra bơi trong dòng nước trong xanh ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/244280381.webp",
@@ -240,8 +252,7 @@
       "caption": "Cá tetra hang mù trong thùng nhựa trắng, nhìn từ trên",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/120204388.webp",
@@ -254,22 +265,7 @@
       "caption": "Cá tetra nhỏ bơi trong nước xanh ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/132994823.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/132994823-480.webp",
-      "width": 816,
-      "height": 460,
-      "licence": "CC BY-NC",
-      "author": "Pablo Carrillo-Reyes",
-      "sourceUrl": "https://www.inaturalist.org/photos/132994823",
-      "caption": "Cá tetra hang mù bơi trong nước đục ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/241781792.webp",
@@ -282,8 +278,7 @@
       "caption": "Đàn cá tetra hang mù bơi trong suối nước trong",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/275344353.webp",
@@ -296,8 +291,7 @@
       "caption": "Cá tetra hang mù bơi giữa tảo vàng ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     }
   ],
   "seen": 83,

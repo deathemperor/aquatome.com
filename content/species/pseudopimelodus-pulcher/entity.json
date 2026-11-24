@@ -72,7 +72,12 @@
       "author": "Flávio Mendes",
       "sourceUrl": "https://www.inaturalist.org/photos/340543687",
       "caption": "Cá Pseudopimelodus pulcher vằn đen vàng trong khay trắng",
-      "setup": true
+      "setup": true,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/340543687-large.webp",
+        "width": 1655,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

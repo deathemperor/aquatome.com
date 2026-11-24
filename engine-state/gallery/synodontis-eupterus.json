@@ -25,7 +25,12 @@
   "File:Обитатели петербургского Океанариума 12.jpg",
   "inat:173574100",
   "inat:233486434",
-  "inat:233486443"
+  "inat:233486443",
+  "inat:62923649",
+  "inat:330088509",
+  "inat:429438094",
+  "inat:429441726",
+  "inat:470379786"
  ],
  "hashes": {
   "https://media.aquatome.com/scotcat/ef2d1ea2fdfd8e56.webp": "321852445060e1e3",
@@ -41,7 +46,10 @@
   "https://media.aquatome.com/commons/3834d5104ae9f48f.webp": "d4b0bc7a1b9b1f16",
   "https://media.aquatome.com/commons/caafc9c5094f7cdc.webp": "cece4edfded8e3ab",
   "https://media.aquatome.com/inaturalist/233486434.webp": "8702270591d276fe",
-  "https://media.aquatome.com/inaturalist/233486443.webp": "fe1f878f1e1e3868"
+  "https://media.aquatome.com/inaturalist/233486443.webp": "fe1f878f1e1e3868",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/429438094/large.jpeg": "733765e0f85b6d77",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/429441726/large.jpeg": "334f69613339193c",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/470379786/large.jpeg": "07372760d0c08201"
  },
  "inat": {
   "taxon": 188508,
@@ -58,6 +66,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 261786809,
+  "done": true
  },
  "exhausted": "2026-11-08"
 }

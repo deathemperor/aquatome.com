@@ -16,15 +16,15 @@
       "thumb": "https://media.aquatome.com/commons/524e6524c48665c3-480.webp",
       "width": 1200,
       "height": 694,
-      "licence": "CC BY-SA 4.0",
-      "author": "Marrabbio2",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puntius_conchonius.jpg",
-      "caption": "Cá ánh kim hồng đực màu bạc ánh hồng trong bể",
       "large": {
         "url": "https://media.aquatome.com/commons/524e6524c48665c3-large.webp",
         "width": 1468,
         "height": 849
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Marrabbio2",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puntius_conchonius.jpg",
+      "caption": "Cá ánh kim hồng đực màu bạc ánh hồng trong bể"
     },
     {
       "url": "https://media.aquatome.com/commons/1679bc586fd557d2.webp",
@@ -41,48 +41,174 @@
       "thumb": "https://media.aquatome.com/commons/b8b490aebfe56acc-480.webp",
       "width": 1200,
       "height": 572,
-      "licence": "CC0",
-      "author": "Usien",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pethia_conchonius_Prachtbarbe.JPG",
-      "caption": "Cá ánh kim hồng đực màu đồng đỏ, vảy rõ nét",
       "large": {
         "url": "https://media.aquatome.com/commons/b8b490aebfe56acc-large.webp",
         "width": 2400,
         "height": 1145
-      }
+      },
+      "licence": "CC0",
+      "author": "Usien",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pethia_conchonius_Prachtbarbe.JPG",
+      "caption": "Cá ánh kim hồng đực màu đồng đỏ, vảy rõ nét"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/700464239.webp",
       "thumb": "https://media.aquatome.com/inaturalist/700464239-480.webp",
       "width": 576,
       "height": 1024,
-      "licence": "CC0",
-      "author": "dinomariobob",
-      "sourceUrl": "https://www.inaturalist.org/photos/700464239",
-      "caption": "Cá ánh kim hồng màu cam đào với đốm đen bên thân",
       "large": {
         "url": "https://media.aquatome.com/inaturalist/700464239-large.webp",
         "width": 1152,
         "height": 2048
-      }
+      },
+      "licence": "CC0",
+      "author": "dinomariobob",
+      "sourceUrl": "https://www.inaturalist.org/photos/700464239",
+      "caption": "Cá ánh kim hồng màu cam đào với đốm đen bên thân"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/552748997.webp",
       "thumb": "https://media.aquatome.com/inaturalist/552748997-480.webp",
       "width": 1024,
       "height": 768,
-      "licence": "CC BY",
-      "author": "olmagon",
-      "sourceUrl": "https://www.inaturalist.org/photos/552748997",
-      "caption": "Cá ánh kim hồng đực màu đỏ cam bơi trong bể",
       "large": {
         "url": "https://media.aquatome.com/inaturalist/552748997-large.webp",
         "width": 1600,
         "height": 1200
-      }
+      },
+      "licence": "CC BY",
+      "author": "olmagon",
+      "sourceUrl": "https://www.inaturalist.org/photos/552748997",
+      "caption": "Cá ánh kim hồng đực màu đỏ cam bơi trong bể"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/538837879.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/538837879-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "nakarinfearless",
+      "sourceUrl": "https://www.inaturalist.org/photos/538837879",
+      "caption": "Cá rosy barb đực màu cam đỏ trong đĩa petri",
+      "best": true,
+      "kind": "male",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/313153855.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/313153855-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Tse Chung Yi",
+      "sourceUrl": "https://www.inaturalist.org/photos/313153855",
+      "caption": "Cá rosy barb màu vàng cam bơi gần đá dưới nước",
+      "best": true,
+      "kind": "form",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/504691418.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/504691418-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Khant Ye Yint ( Lord Khanevyr ov Mandralyx)",
+      "sourceUrl": "https://www.inaturalist.org/photos/504691418",
+      "caption": "Đàn cá rosy barb cái bạc trên nền sỏi",
+      "best": true,
+      "kind": "group",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/313153889.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/313153889-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Tse Chung Yi",
+      "sourceUrl": "https://www.inaturalist.org/photos/313153889",
+      "caption": "Cá rosy barb vàng cam giữa cành cây chìm dưới nước",
+      "best": true,
+      "kind": "form",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/699081505.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/699081505-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "saltlii_fenglot",
+      "sourceUrl": "https://www.inaturalist.org/photos/699081505",
+      "caption": "Cá rosy barb dạng vàng trong bể nền sỏi đen",
+      "best": true,
+      "kind": "form",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/699081580.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/699081580-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "saltlii_fenglot",
+      "sourceUrl": "https://www.inaturalist.org/photos/699081580",
+      "caption": "Cá rosy barb dạng vàng bơi trong bể thủy sinh xanh",
+      "best": true,
+      "kind": "form",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/699081850.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/699081850-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "saltlii_fenglot",
+      "sourceUrl": "https://www.inaturalist.org/photos/699081850",
+      "caption": "Cá rosy barb dạng vàng cam bơi trong bể thủy sinh",
+      "best": false,
+      "kind": "form",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/653614713.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/653614713-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY-NC",
+      "author": "Hubert Lagrange",
+      "sourceUrl": "https://www.inaturalist.org/photos/653614713",
+      "caption": "Đàn cá rosy barb bơi trên nền cát ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/550723386.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/550723386-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Juan Lucas",
+      "sourceUrl": "https://www.inaturalist.org/photos/550723386",
+      "caption": "Cá rosy barb nhỏ màu vàng ô liu trong cốc thủy tinh",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
     }
   ],
-  "seen": 16,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 52,
+  "updatedAt": "2026-11-24",
+  "builtAt": "2026-11-24"
 }

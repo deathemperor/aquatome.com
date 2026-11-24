@@ -153,8 +153,7 @@
       "caption": "Hai cá Garra rufa bơi trong bể đáy sỏi đá",
       "best": true,
       "kind": "pair",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/566362040.webp",
@@ -167,8 +166,7 @@
       "caption": "Đàn cá Garra rufa trong khay chứa nước trên nền đá",
       "best": true,
       "kind": "group",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/440624291.webp",
@@ -181,8 +179,7 @@
       "caption": "Cá Garra rufa bơi trên đáy đá ở suối tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     }
   ],
   "seen": 112,
