@@ -43,6 +43,17 @@
     ],
     "mentions": 29
   },
+  "pangio-kuhlii": {
+    "name": "Pangio kuhlii",
+    "mentionedIn": [
+      "guides/aquariumcoop-blogs-aquarium-10-best-aquarium-fish-for-beginners",
+      "guides/aquariumcoop-blogs-aquarium-10-gallon-oddball-fish",
+      "guides/aquariumcoop-blogs-aquarium-care-guide-for-kuhli-loaches",
+      "guides/aquariumcoop-blogs-aquarium-cheap-aquarium-fish",
+      "guides/aquariumcoop-blogs-aquarium-loaches"
+    ],
+    "mentions": 31
+  },
   "crossocheilus-oblongus": {
     "name": "Crossocheilus oblongus",
     "mentionedIn": [
@@ -53,17 +64,6 @@
       "guides/youtube-H-wwZiQJL4E"
     ],
     "mentions": 31
-  },
-  "pangio-kuhlii": {
-    "name": "Pangio kuhlii",
-    "mentionedIn": [
-      "guides/aquariumcoop-blogs-aquarium-10-best-aquarium-fish-for-beginners",
-      "guides/aquariumcoop-blogs-aquarium-10-gallon-oddball-fish",
-      "guides/aquariumcoop-blogs-aquarium-care-guide-for-kuhli-loaches",
-      "guides/aquariumcoop-blogs-aquarium-cheap-aquarium-fish",
-      "guides/aquariumcoop-blogs-aquarium-loaches"
-    ],
-    "mentions": 30
   },
   "barbodes-xouthos": {
     "name": "Barbodes xouthos",
@@ -86,6 +86,17 @@
       "species/barbucca-diabolica"
     ],
     "mentions": 22
+  },
+  "hypostomus-plecostomus": {
+    "name": "Hypostomus plecostomus",
+    "mentionedIn": [
+      "guides/aquariumcoop-blogs-aquarium-pleco-care-guide",
+      "guides/aquariumcoop-blogs-aquarium-top-5-popular-catfish",
+      "guides/sprucepets-aquarium-catfish-breeds-5115234",
+      "guides/sprucepets-large-fish-for-freshwater-aquariums-7570272",
+      "guides/sprucepets-lifespans-of-aquarium-fish-1378340"
+    ],
+    "mentions": 17
   },
   "ficus-pumila": {
     "name": "Ficus pumila",
@@ -142,17 +153,6 @@
       "guides/youtube-KsmBRW22jiQ"
     ],
     "mentions": 15
-  },
-  "hypostomus-plecostomus": {
-    "name": "Hypostomus plecostomus",
-    "mentionedIn": [
-      "guides/aquariumcoop-blogs-aquarium-pleco-care-guide",
-      "guides/aquariumcoop-blogs-aquarium-top-5-popular-catfish",
-      "guides/sprucepets-aquarium-catfish-breeds-5115234",
-      "guides/sprucepets-large-fish-for-freshwater-aquariums-7570272",
-      "guides/sprucepets-lifespans-of-aquarium-fish-1378340"
-    ],
-    "mentions": 14
   },
   "barbonymus-schwanenfeldii": {
     "name": "Barbonymus schwanenfeldii",
@@ -550,6 +550,17 @@
     ],
     "mentions": 6
   },
+  "amphiprion-ocellaris": {
+    "name": "Amphiprion ocellaris",
+    "mentionedIn": [
+      "guides/youtube-J4e7xzevT5E",
+      "guides/youtube-XtekO7RRRcA",
+      "guides/youtube-b32xKswBz0A",
+      "guides/youtube-mB3je2t-Bo8",
+      "guides/youtube-z_pKaOlsKyg"
+    ],
+    "mentions": 6
+  },
   "akysis-microps": {
     "name": "Akysis microps",
     "mentionedIn": [
@@ -767,17 +778,6 @@
       "guides/youtube-cFz39Sl2OR4",
       "guides/youtube-dkLOgcPoYuE",
       "guides/youtube-wtRniN_Ef9k"
-    ],
-    "mentions": 5
-  },
-  "amphiprion-ocellaris": {
-    "name": "Amphiprion ocellaris",
-    "mentionedIn": [
-      "guides/youtube-J4e7xzevT5E",
-      "guides/youtube-XtekO7RRRcA",
-      "guides/youtube-mB3je2t-Bo8",
-      "guides/youtube-z_pKaOlsKyg",
-      "species/elacatinus-oceanops"
     ],
     "mentions": 5
   },
@@ -2322,6 +2322,14 @@
     "mentionedIn": [
       "guides/youtube-DRlTmK7l0uo",
       "guides/youtube-ld9WkDIP_o4"
+    ],
+    "mentions": 2
+  },
+  "arapaima-gigas": {
+    "name": "Arapaima gigas",
+    "mentionedIn": [
+      "guides/youtube-GjtG16diB2o",
+      "guides/youtube-HRHGNurFb8Y"
     ],
     "mentions": 2
   },
@@ -4690,13 +4698,6 @@
     "name": "Phlebodium aureum",
     "mentionedIn": [
       "guides/youtube-GAac09m7CVA"
-    ],
-    "mentions": 1
-  },
-  "arapaima-gigas": {
-    "name": "Arapaima gigas",
-    "mentionedIn": [
-      "guides/youtube-HRHGNurFb8Y"
     ],
     "mentions": 1
   },
@@ -8392,6 +8393,13 @@
     "name": "Hapalocarcinus marsupialis",
     "mentionedIn": [
       "species/seriatopora-hystrix"
+    ],
+    "mentions": 1
+  },
+  "sicyopus-auxilimentus": {
+    "name": "Sicyopus auxilimentus",
+    "mentionedIn": [
+      "species/sicyopus-rubicundus"
     ],
     "mentions": 1
   },

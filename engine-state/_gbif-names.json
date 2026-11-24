@@ -4595,6 +4595,14 @@
     "genus": "Barbonymus",
     "matchType": "EXACT"
   },
+  "Barbonymus schwanfeldii": {
+    "canonicalName": "Barbonymus schwanefeldii",
+    "phylum": "Chordata",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Barbonymus",
+    "matchType": "FUZZY"
+  },
   "Barbronia weberi": {
     "canonicalName": "Barbronia weberi",
     "order": "Euhirudinea",
@@ -8127,6 +8135,7 @@
     "genus": "Chitala",
     "matchType": "EXACT"
   },
+  "Chitala ocellata": null,
   "Chitala ornata": {
     "canonicalName": "Chitala ornata",
     "order": "Osteoglossiformes",
@@ -17479,6 +17488,7 @@
     "genus": "Ictiobus",
     "matchType": "EXACT"
   },
+  "Idanoi thu": null,
   "Iguanodectes adujai": {
     "canonicalName": "Iguanodectes adujai",
     "order": "Characiformes",
@@ -22307,6 +22317,7 @@
   "Nai drainages": null,
   "Nakhon provinces": null,
   "Nalbant separated": null,
+  "Nalua thu": null,
   "Nanay drainages": null,
   "Nandus nebulosus": {
     "canonicalName": "Nandus nebulosus",
@@ -32247,6 +32258,14 @@
     "matchType": "EXACT"
   },
   "Sicyopterus punctatus": null,
+  "Sicyopus auxilimentus": {
+    "canonicalName": "Sicyopus auxilimentus",
+    "phylum": "Chordata",
+    "order": "Perciformes",
+    "family": "Gobiidae",
+    "genus": "Sicyopus",
+    "matchType": "EXACT"
+  },
   "Sicyopus cebuensis": {
     "canonicalName": "Sicyopus cebuensis",
     "order": "Perciformes",
@@ -32271,6 +32290,14 @@
   "Sicyopus has": null,
   "Sicyopus jonklaasi": {
     "canonicalName": "Sicyopus jonklaasi",
+    "order": "Perciformes",
+    "family": "Gobiidae",
+    "genus": "Sicyopus",
+    "matchType": "EXACT"
+  },
+  "Sicyopus rubicundus": {
+    "canonicalName": "Sicyopus rubicundus",
+    "phylum": "Chordata",
     "order": "Perciformes",
     "family": "Gobiidae",
     "genus": "Sicyopus",
@@ -33083,6 +33110,7 @@
   "Suriname has": null,
   "Suriname kho": null,
   "Suy dinh": null,
+  "Suy ngh": null,
   "Symmeria paniculata": {
     "canonicalName": "Symmeria paniculata",
     "order": "Caryophyllales",
