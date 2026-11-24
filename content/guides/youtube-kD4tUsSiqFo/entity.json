@@ -103,24 +103,7 @@
     "figures": [
       {
         "heading": "Cá bảy màu từ đâu ra, có cần làm nước giống tự nhiên không",
-        "moments": [
-          {
-            "t": 45,
-            "url": "https://media.aquatome.com/video/kD4tUsSiqFo/at45-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đàn cá bảy màu bơi quanh hòn đá trong bể.",
-            "sharpness": 162.8
-          },
-          {
-            "t": 70,
-            "url": "https://media.aquatome.com/video/kD4tUsSiqFo/at70-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cá bảy màu bơi gần hang đá trên nền sỏi vàng.",
-            "sharpness": 463.1
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/kD4tUsSiqFo/p0-ZW5fbW9ycGguanBn.webp",
           "thumb": "https://media.aquatome.com/video/kD4tUsSiqFo/p0-ZW5fbW9ycGguanBn-480.webp",
@@ -141,7 +124,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể trồng cây có sỏi nền, vài con bảy màu bơi lội.",
-            "sharpness": 1280.7
+            "sharpness": 1280.7,
+            "person": false
           },
           {
             "t": 155,
@@ -149,7 +133,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bảy màu bơi giữa bể cây thủy sinh xanh rậm rạp.",
-            "sharpness": 671.1
+            "sharpness": 671.1,
+            "person": false
           }
         ]
       },
@@ -162,7 +147,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai con cá bảy màu bơi giữa bể thủy sinh nhiều cây xanh.",
-            "sharpness": 1053.2
+            "sharpness": 1053.2,
+            "person": false
           },
           {
             "t": 200,
@@ -172,17 +158,7 @@
             "caption": "Nhiều cá bảy màu bơi trong bể, có con ở tầng đáy.",
             "sharpness": 41.4
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/kD4tUsSiqFo/p2-fYWVuZXVzKS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/kD4tUsSiqFo/p2-fYWVuZXVzKS5qcGc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC0",
-          "author": "Andrew Keller",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Female_Bronze_Corydoras_(Corydoras_aeneus).jpg",
-          "caption": "Cá chuột Corydoras kiếm ăn dưới đáy bể thủy sinh, hợp nuôi chung với bảy màu."
-        }
+        ]
       },
       {
         "heading": "Cho cá bảy màu đẻ thế nào",

@@ -10,7 +10,21 @@
   "File:Polycentridae Monocirrhus polyacanthus 1.1.jpg",
   "File:South American leaffish.jpg",
   "File:South American leaf fish.jpg",
-  "gbif:1321494211:82e0305a0b765942"
+  "gbif:1321494211:82e0305a0b765942",
+  "inat:6984208",
+  "inat:312580405",
+  "inat:418026645",
+  "inat:418026672",
+  "inat:547562004",
+  "inat:582255397",
+  "inat:718456570",
+  "inat:718456498",
+  "inat:718456626",
+  "inat:752433973",
+  "inat:752434236",
+  "inat:753286684",
+  "inat:758186044",
+  "inat:758186056"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/0d6a85f8a0767346.webp": "673a1f27b2b2c202",
@@ -19,7 +33,10 @@
   "https://media.aquatome.com/commons/f3981236ca4c840b.webp": "63b363e68618132b",
   "https://media.aquatome.com/commons/150854b8126f26b7.webp": "8b19322068311303",
   "https://media.aquatome.com/commons/73a79992f15a4a69.webp": "3e1a06864767cb52",
-  "https://media.aquatome.com/commons/2764b4d255d0f9c2.webp": "036b040624414204"
+  "https://media.aquatome.com/commons/2764b4d255d0f9c2.webp": "036b040624414204",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/418026645/large.jpg": "5a879b173e1d3a08",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/582255397/large.jpg": "8a0e2e672b06cc32",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/758186044/large.jpg": "2d270303b3bb1613"
  },
  "commons": "2026-11-02",
  "inat": {
@@ -36,6 +53,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 412083523,
+  "done": true
  },
  "exhausted": "2026-11-16"
 }

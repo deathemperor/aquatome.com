@@ -12,22 +12,7 @@
       "caption": "Cá betta raja đực có ánh xanh ở mang trong hộp",
       "best": true,
       "kind": "male",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/521271038.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/521271038-480.webp",
-      "width": 1024,
-      "height": 461,
-      "licence": "CC BY-NC",
-      "author": "Hendra",
-      "sourceUrl": "https://www.inaturalist.org/photos/521271038",
-      "caption": "Cá betta raja đực màu cam trong hộp nhựa ngoài thực địa",
-      "best": true,
-      "kind": "male",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/600349738.webp",
@@ -40,8 +25,7 @@
       "caption": "Cá betta raja đực trong bể thủy sinh có cây",
       "best": true,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/600349765.webp",
@@ -54,22 +38,20 @@
       "caption": "Cá betta raja đực trong bể thủy sinh có cây",
       "best": true,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/396808592.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/396808592-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/521271038.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/521271038-480.webp",
       "width": 1024,
-      "height": 578,
+      "height": 461,
       "licence": "CC BY-NC",
       "author": "Hendra",
-      "sourceUrl": "https://www.inaturalist.org/photos/396808592",
-      "caption": "Cá betta raja đực trong hộp nhựa chụp ngoài thực địa",
-      "best": false,
+      "sourceUrl": "https://www.inaturalist.org/photos/521271038",
+      "caption": "Cá betta raja đực màu cam trong hộp nhựa ngoài thực địa",
+      "best": true,
       "kind": "male",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/543177406.webp",
@@ -82,8 +64,7 @@
       "caption": "Cá betta raja trong môi trường tự nhiên giữa rễ cây",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/100096435.webp",
@@ -96,8 +77,7 @@
       "caption": "Cá betta raja trong hộp trong suốt cùng các cá khác",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/287820887.webp",
@@ -110,8 +90,7 @@
       "caption": "Cá betta raja màu nâu cam trong hộp nhựa trong",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     }
   ],
   "seen": 23,

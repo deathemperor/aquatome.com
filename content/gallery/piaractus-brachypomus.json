@@ -432,14 +432,28 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/605756401.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/605756401-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/612560438.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/612560438-480.webp",
       "width": 1024,
       "height": 768,
       "licence": "CC BY-NC",
-      "author": "JeffreyGammon",
-      "sourceUrl": "https://www.inaturalist.org/photos/605756401",
-      "caption": "Cá hồng bụng đỏ bơi trong nước trong ở suối tự nhiên",
+      "author": "marine_iguana",
+      "sourceUrl": "https://www.inaturalist.org/photos/612560438",
+      "caption": "Cá hồng bụng đỏ bơi cùng đàn cá trong nước trong",
+      "best": true,
+      "kind": "group",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/612604468.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/612604468-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "marine_iguana",
+      "sourceUrl": "https://www.inaturalist.org/photos/612604468",
+      "caption": "Cá hồng bụng đỏ bơi trong dòng nước trong",
       "best": true,
       "kind": "habitat",
       "setup": false,
@@ -459,17 +473,45 @@
       "setup": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/592054760.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/592054760-480.webp",
-      "width": 1024,
-      "height": 576,
+      "url": "https://media.aquatome.com/inaturalist/612604472.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/612604472-480.webp",
+      "width": 768,
+      "height": 1024,
       "licence": "CC BY-NC",
-      "author": "Claire O'Neill",
-      "sourceUrl": "https://www.inaturalist.org/photos/592054760",
-      "caption": "Cá hồng bụng đỏ trưởng thành, bụng cam đỏ, nằm trong khay đỏ",
+      "author": "marine_iguana",
+      "sourceUrl": "https://www.inaturalist.org/photos/612604472",
+      "caption": "Cá hồng bụng đỏ lớn bơi gần bờ trong suối nước trong",
       "best": true,
-      "kind": "other",
-      "setup": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/612089865.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/612089865-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "evanaturalist",
+      "sourceUrl": "https://www.inaturalist.org/photos/612089865",
+      "caption": "Cá hồng bụng đỏ bơi gần mặt nước ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/612360554.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/612360554-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Kenneth Manole",
+      "sourceUrl": "https://www.inaturalist.org/photos/612360554",
+      "caption": "Cá hồng bụng đỏ bơi trong hồ nước xanh",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
       "unchecked": true
     },
     {
@@ -655,6 +697,19 @@
       "setup": false
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/605756401.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/605756401-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "JeffreyGammon",
+      "sourceUrl": "https://www.inaturalist.org/photos/605756401",
+      "caption": "Cá hồng bụng đỏ bơi trong nước trong ở suối tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/538869821.webp",
       "thumb": "https://media.aquatome.com/inaturalist/538869821-480.webp",
       "width": 1024,
@@ -681,7 +736,7 @@
       "setup": false
     }
   ],
-  "seen": 464,
+  "seen": 484,
   "updatedAt": "2026-11-24",
   "builtAt": "2026-11-24"
 }

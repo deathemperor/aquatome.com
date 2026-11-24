@@ -8,11 +8,11 @@ under `<lang>/<path>`.
 
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
-| video-guide | 1175 | 826 (vi 826) | 826 |
+| video-guide | 1212 | 843 (vi 843) | 843 |
 | translation | 2663 | 369 (vi 369) | 369 |
 | vi-rewrite | 439 | 43 (vi 43) | 43 |
 | reader-rewrite | 51 | 0 | 0 |
-| title | 30 | 0 | 0 |
+| title | 32 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
 | topic | 142 | 9 (id 1, ms 1, th 6, vi 1) | 9 |
 | product | 36 | 2 (vi 2) | 2 |
@@ -23,24 +23,24 @@ under `<lang>/<path>`.
 | places | 7931 | 4844 (id 1670, ms 1662, th 1413, vi 99) | 1504 |
 | equipment | 5 | 0 | 0 |
 | planting | 32 | 0 | 0 |
-| species | 34 | 0 | 0 |
+| species | 35 | 0 | 0 |
 | material | 2 | 0 | 0 |
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
 
-826 of 1175 pages under the bar.
+843 of 1212 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| States as certain what the source hedges, or what garbled captions only hint at | 720 | 2077 |
-| Other | 719 | 1800 |
-| Says what the source doesn't (invented, added) | 588 | 1350 |
-| Wording: unnatural, literal, stiff or chatty | 347 | 487 |
-| A number, unit, dose or price | 262 | 375 |
-| Repeats itself (intro, summary, steps and FAQ) | 160 | 187 |
-| Meaning changed or wrong | 141 | 161 |
-| Leaves out what the source says | 56 | 58 |
-| Hobby terms and names | 56 | 58 |
+| States as certain what the source hedges, or what garbled captions only hint at | 734 | 2105 |
+| Other | 730 | 1818 |
+| Says what the source doesn't (invented, added) | 594 | 1360 |
+| Wording: unnatural, literal, stiff or chatty | 351 | 493 |
+| A number, unit, dose or price | 269 | 386 |
+| Repeats itself (intro, summary, steps and FAQ) | 162 | 190 |
+| Meaning changed or wrong | 145 | 165 |
+| Leaves out what the source says | 58 | 60 |
+| Hobby terms and names | 58 | 60 |
 | Names or points to the video, channel, creator or source | 35 | 39 |
 | Copied from the transcript or source | 27 | 29 |
 | Off the title's topic | 27 | 27 |
@@ -308,7 +308,7 @@ under `<lang>/<path>`.
 
 ## title: titles rewritten to promise only what the text has
 
-0 of 30 pages under the bar.
+0 of 32 pages under the bar.
 
 ## breed: breed pages, against their research
 
@@ -671,7 +671,7 @@ under `<lang>/<path>`.
 
 ## species: species pages AquaTome writes from research, and what a species video adds to a page, against their research or video
 
-0 of 34 pages under the bar.
+0 of 35 pages under the bar.
 
 ## material: hobby materials' pages (lũa, đá, nền), against their research
 

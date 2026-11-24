@@ -2,20 +2,6 @@
   "id": "acrochordonichthys-rugosus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/673695351.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/673695351-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Jiayuan Lin",
-      "sourceUrl": "https://www.inaturalist.org/photos/673695351",
-      "caption": "Cá trê banjo bơi dưới suối trong môi trường tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/424447287.webp",
       "thumb": "https://media.aquatome.com/inaturalist/424447287-480.webp",
       "width": 645,
@@ -26,8 +12,7 @@
       "caption": "Cá trê banjo nâu sẫm nằm trên nền cát trong bể",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/424447344.webp",
@@ -40,22 +25,7 @@
       "caption": "Cá trê banjo có vằn nâu bò trên nền cát trong bể",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/457194900.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/457194900-480.webp",
-      "width": 771,
-      "height": 1024,
-      "licence": "CC BY-NC-SA",
-      "author": "Aiman Azmi",
-      "sourceUrl": "https://www.inaturalist.org/photos/457194900",
-      "caption": "Cá trê banjo màu xanh đen trên lưới thu mẫu",
-      "best": false,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/457194895.webp",
@@ -68,8 +38,20 @@
       "caption": "Cá trê banjo màu tối trên lưới thu mẫu ngoài suối",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/673695351.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/673695351-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Jiayuan Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/673695351",
+      "caption": "Cá trê banjo bơi dưới suối trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 19,

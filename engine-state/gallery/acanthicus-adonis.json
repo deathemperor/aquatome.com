@@ -2,7 +2,8 @@
  "queue": [],
  "judged": [
   "File:Acanthicus adonis1.jpg",
-  "File:Acanthicus adonis2.jpg"
+  "File:Acanthicus adonis2.jpg",
+  "inat:238772616"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/a995cba0e8f5e239.webp": "b38e93b22ab868cc",
@@ -29,6 +30,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 139584974,
+  "done": true
  },
  "exhausted": "2026-11-15"
 }

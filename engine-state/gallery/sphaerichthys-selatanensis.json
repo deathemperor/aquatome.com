@@ -1,6 +1,10 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:632180127",
+  "inat:632180160",
+  "inat:632180204"
+ ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/24e9d8b0f4aaeab7.webp": "98c39e9e5f0c2430",
   "https://media.aquatome.com/seriouslyfish/f8220899d9aa0009.webp": "5a25250d0c040410",
@@ -21,6 +25,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 346778916,
+  "done": true
  },
  "exhausted": "2026-11-14"
 }

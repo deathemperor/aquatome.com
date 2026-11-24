@@ -62,20 +62,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/736535398.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/736535398-480.webp",
-      "width": 1024,
-      "height": 741,
-      "licence": "CC BY-NC",
-      "author": "Thomas Menut",
-      "sourceUrl": "https://www.inaturalist.org/photos/736535398",
-      "caption": "Cá trê hươu cao cổ Congo bơi ở vùng nước nông ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/112214421.webp",
       "thumb": "https://media.aquatome.com/inaturalist/112214421-480.webp",
       "width": 1024,
@@ -86,8 +72,7 @@
       "caption": "Cá trê đốm bơi trong khay nước nông, thấy toàn thân",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/171204026.webp",
@@ -100,8 +85,7 @@
       "caption": "Cá trê đốm nâu trên nền sỏi, nhìn nghiêng rõ nét",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     }
   ],
   "seen": 35,

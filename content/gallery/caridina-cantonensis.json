@@ -322,34 +322,6 @@
       "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/32312067.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/32312067-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-NC",
-      "author": "Tommy Hui",
-      "sourceUrl": "https://www.inaturalist.org/photos/32312067",
-      "caption": "Tép màu xanh lam đậm nổi bật trên nền đáy",
-      "best": true,
-      "kind": "form",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/29945317.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/29945317-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Tse Chung Yi",
-      "sourceUrl": "https://www.inaturalist.org/photos/29945317",
-      "caption": "Hai con tép xanh lam trên đá ở suối",
-      "best": true,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/45136324.webp",
       "thumb": "https://media.aquatome.com/inaturalist/45136324-480.webp",
       "width": 1024,
@@ -360,8 +332,7 @@
       "caption": "Tép bee màu xanh xám trên nền cát trong môi trường tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/1523668.webp",
@@ -374,8 +345,7 @@
       "caption": "Tép bee màu trong có chấm đen, chụp trong bể ảnh nhỏ",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/58313865.webp",
@@ -388,8 +358,7 @@
       "caption": "Tép Caridina cantonensis chấm đen bên tảng đá, ảnh cận rõ nét",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/58325302.webp",
@@ -402,36 +371,7 @@
       "caption": "Tép Caridina cantonensis có chấm đen trên đá ở suối",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/61040492.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/61040492-480.webp",
-      "width": 1024,
-      "height": 759,
-      "licence": "CC BY-NC",
-      "author": "Alan Kwok (King Lun), Ada Tai (Ah Heung) / 阿達蘭 AdAlan",
-      "sourceUrl": "https://www.inaturalist.org/photos/61040492",
-      "caption": "Tép sống trên đá rêu trong suối tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/71286540.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/71286540-480.webp",
-      "width": 1024,
-      "height": 602,
-      "licence": "CC BY-NC",
-      "author": "H.T.Cheng",
-      "sourceUrl": "https://www.inaturalist.org/photos/71286540",
-      "caption": "Tép bee có chấm nâu rõ nét trong môi trường tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/101708826.webp",
@@ -444,8 +384,7 @@
       "caption": "Tép Caridina cantonensis có đốm sẫm trong môi trường tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/103156193.webp",
@@ -458,8 +397,7 @@
       "caption": "Tép Caridina cantonensis nhìn nghiêng trên đá dưới suối",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/103156195.webp",
@@ -472,8 +410,59 @@
       "caption": "Tép có đốm đen đứng trên đá trong suối",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/32312067.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/32312067-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Tommy Hui",
+      "sourceUrl": "https://www.inaturalist.org/photos/32312067",
+      "caption": "Tép màu xanh lam đậm nổi bật trên nền đáy",
+      "best": true,
+      "kind": "form",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/29945317.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/29945317-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Tse Chung Yi",
+      "sourceUrl": "https://www.inaturalist.org/photos/29945317",
+      "caption": "Hai con tép xanh lam trên đá ở suối",
+      "best": true,
+      "kind": "group",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/61040492.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/61040492-480.webp",
+      "width": 1024,
+      "height": 759,
+      "licence": "CC BY-NC",
+      "author": "Alan Kwok (King Lun), Ada Tai (Ah Heung) / 阿達蘭 AdAlan",
+      "sourceUrl": "https://www.inaturalist.org/photos/61040492",
+      "caption": "Tép sống trên đá rêu trong suối tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/71286540.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/71286540-480.webp",
+      "width": 1024,
+      "height": 602,
+      "licence": "CC BY-NC",
+      "author": "H.T.Cheng",
+      "sourceUrl": "https://www.inaturalist.org/photos/71286540",
+      "caption": "Tép bee có chấm nâu rõ nét trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/34495303.webp",
@@ -486,8 +475,7 @@
       "caption": "Tép màu xanh lam bò trên nền cát",
       "best": false,
       "kind": "form",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/1981267.webp",
@@ -500,8 +488,7 @@
       "caption": "Tép màu xanh lục có chấm đen bám trên đá rêu",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/17173396.webp",
@@ -514,8 +501,7 @@
       "caption": "Tép có đốm đỏ trên đầu bò trên đá trong bể",
       "best": false,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/29945310.webp",
@@ -528,8 +514,7 @@
       "caption": "Tép màu xanh lam bám trên đá ngoài tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/122934562.webp",
@@ -542,8 +527,7 @@
       "caption": "Tép Caridina cantonensis trong bể trên nền cát, cạnh cành cây",
       "best": false,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/32312045.webp",
@@ -556,8 +540,7 @@
       "caption": "Tép trong suốt ánh xanh bò trên nền cát sỏi",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/59760689.webp",
@@ -570,8 +553,7 @@
       "caption": "Tép Caridina cantonensis màu nâu trên nền cát suối",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/74233384.webp",
@@ -584,8 +566,7 @@
       "caption": "Tép bám trên tảng đá đỏ trong suối",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/79455087.webp",
@@ -598,8 +579,7 @@
       "caption": "Tép bee trong suối, bám trên đá",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     }
   ],
   "seen": 148,

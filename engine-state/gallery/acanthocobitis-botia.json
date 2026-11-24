@@ -2,7 +2,9 @@
  "queue": [],
  "judged": [
   "File:Nemacheilus botia Day 156.jpg",
-  "inat:30119983"
+  "inat:30119983",
+  "inat:465899527",
+  "inat:721219920"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/a7b6da8d21705d5d.webp": "70301ccc278f9f4e",
@@ -26,5 +28,10 @@
  },
  "openverse": {
   "next": null
- }
+ },
+ "inatNc": {
+  "after": 393474842,
+  "done": true
+ },
+ "exhausted": "2026-11-24"
 }

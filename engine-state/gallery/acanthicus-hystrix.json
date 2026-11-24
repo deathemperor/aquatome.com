@@ -2,7 +2,10 @@
  "queue": [],
  "judged": [
   "File:FMIB 38602 Acanthicus histrix Fort St Joaquim in the Distance.jpeg",
-  "File:Acanthicus hystrix.jpg"
+  "File:Acanthicus hystrix.jpg",
+  "inat:266227945",
+  "inat:266228507",
+  "inat:266228511"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/d89124cdd38bbda5.webp": "80808083d1c44203",
@@ -29,5 +32,10 @@
  },
  "openverse": {
   "next": null
- }
+ },
+ "inatNc": {
+  "after": 154097268,
+  "done": true
+ },
+ "exhausted": "2026-11-24"
 }

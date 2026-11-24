@@ -14,18 +14,17 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/265217655.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/265217655-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/606132879.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/606132879-480.webp",
       "width": 1024,
-      "height": 484,
+      "height": 576,
       "licence": "CC BY-NC",
-      "author": "Hendra",
-      "sourceUrl": "https://www.inaturalist.org/photos/265217655",
-      "caption": "Đàn cá rasbora lùn đỏ trong hộp trong suốt",
+      "author": "piyapong",
+      "sourceUrl": "https://www.inaturalist.org/photos/606132879",
+      "caption": "Nhóm cá rasbora lùn bơi cùng nhau trong bể nền tối",
       "best": true,
       "kind": "group",
-      "setup": true,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/403133243.webp",
@@ -38,8 +37,7 @@
       "caption": "Cá rasbora lùn có đốm đen trên nền cát ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/110505174.webp",
@@ -52,36 +50,7 @@
       "caption": "Cá rasbora lùn màu cam đỏ bơi trong bể nhỏ có lá khô",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/606132879.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/606132879-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY-NC",
-      "author": "piyapong",
-      "sourceUrl": "https://www.inaturalist.org/photos/606132879",
-      "caption": "Nhóm cá rasbora lùn bơi cùng nhau trong bể nền tối",
-      "best": true,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/548788727.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/548788727-480.webp",
-      "width": 1024,
-      "height": 629,
-      "licence": "CC BY-NC",
-      "author": "Shanesupertramp",
-      "sourceUrl": "https://www.inaturalist.org/photos/548788727",
-      "caption": "Cá rasbora lùn bơi giữa cỏ thủy sinh ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/110505171.webp",
@@ -94,8 +63,7 @@
       "caption": "Cá rasbora lùn đỏ cam với đốm đen bên thân trong bể",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/255367875.webp",
@@ -108,8 +76,7 @@
       "caption": "Cá rasbora lùn đỏ hồng trong bể chụp ảnh nhỏ",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/606121922.webp",
@@ -122,8 +89,7 @@
       "caption": "Cá rasbora lùn đỏ bơi trên nền sỏi trong bể",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/635194070.webp",
@@ -136,8 +102,33 @@
       "caption": "Cá rasbora lùn màu đỏ cam nổi bật trên nền đen",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/548788727.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/548788727-480.webp",
+      "width": 1024,
+      "height": 629,
+      "licence": "CC BY-NC",
+      "author": "Shanesupertramp",
+      "sourceUrl": "https://www.inaturalist.org/photos/548788727",
+      "caption": "Cá rasbora lùn bơi giữa cỏ thủy sinh ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/265217655.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/265217655-480.webp",
+      "width": 1024,
+      "height": 484,
+      "licence": "CC BY-NC",
+      "author": "Hendra",
+      "sourceUrl": "https://www.inaturalist.org/photos/265217655",
+      "caption": "Đàn cá rasbora lùn đỏ trong hộp trong suốt",
+      "best": true,
+      "kind": "group",
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/177639961.webp",
@@ -150,8 +141,7 @@
       "caption": "Cá rasbora lùn bơi trên nền đáy suối tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/385845689.webp",
@@ -164,8 +154,7 @@
       "caption": "Cá rasbora lùn màu đỏ bơi trong bể chụp ảnh nhỏ",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     }
   ],
   "seen": 84,

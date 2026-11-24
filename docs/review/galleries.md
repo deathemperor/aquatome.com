@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-24). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
 | shop | 60 | 131 | 81 | 24 | 57 | 179 |
 | popular | 40 | 21 | 0 | 0 | 9 | 12 |
-| covered | 30 | 964 | 32 | 9 | 27 | 978 |
-| rest | 20 | 2005 | 81 | 0 | 126 | 1960 |
+| covered | 30 | 964 | 32 | 9 | 30 | 975 |
+| rest | 20 | 2006 | 81 | 0 | 126 | 1961 |
 
-## Short of target: every source read (834)
+## Short of target: every source read (845)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -314,7 +314,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/nematobrycon-lacortei | shop | 0 | 60 |
 | species/moenkhausia-sanctaefilomenae | shop | 9 | 60 |
 | species/symphysodon-discus | popular | 0 | 40 |
-| species/pterygoplichthys-pardalis | popular | 5 | 40 |
+| species/pterygoplichthys-pardalis | popular | 4 | 40 |
 | species/ancistrus-dolichopterus | popular | 6 | 40 |
 | species/hemigrammus-erythrozonus | popular | 6 | 40 |
 | species/poecilia-wingei | popular | 33 | 40 |
@@ -340,33 +340,33 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-fowleri | covered | 1 | 30 |
 | species/platystacus-cotylephorus | covered | 4 | 30 |
 | species/sundadanio-axelrodi | covered | 0 | 30 |
-| species/acrochordonichthys-rugosus | covered | 5 | 30 |
+| species/acrochordonichthys-rugosus | covered | 4 | 30 |
 | species/aguarunichthys-torosus | covered | 0 | 30 |
 | species/akysis-portellus | covered | 0 | 30 |
 | species/amblydoras-nauticus | covered | 0 | 30 |
 | species/ancistrus-claro | covered | 2 | 30 |
 | species/aphanotorulus-unicolor | covered | 0 | 30 |
-| species/apistogramma-agassizii | covered | 5 | 30 |
+| species/apistogramma-agassizii | covered | 4 | 30 |
 | species/asterophysus-batrachus | covered | 1 | 30 |
-| species/auchenoglanis-biscutatus | covered | 1 | 30 |
-| species/auchenoglanis-occidentalis | covered | 8 | 30 |
+| species/auchenoglanis-biscutatus | covered | 0 | 30 |
+| species/auchenoglanis-occidentalis | covered | 7 | 30 |
 | species/axelrodia-riesei | covered | 1 | 30 |
 | species/baryancistrus-xanthellus | covered | 3 | 30 |
 | species/betta-foerschi | covered | 0 | 30 |
-| species/betta-imbellis | covered | 26 | 30 |
-| species/betta-raja | covered | 8 | 30 |
-| species/betta-siamorientalis | covered | 8 | 30 |
+| species/betta-imbellis | covered | 19 | 30 |
+| species/betta-raja | covered | 7 | 30 |
+| species/betta-siamorientalis | covered | 4 | 30 |
 | species/betta-simorum | covered | 3 | 30 |
 | species/betta-unimaculata | covered | 2 | 30 |
-| species/boraras-maculatus | covered | 16 | 30 |
+| species/boraras-maculatus | covered | 12 | 30 |
 | species/boraras-merah | covered | 3 | 30 |
 | species/brachyplatystoma-vaillantii | covered | 1 | 30 |
-| species/brevibora-dorsiocellata | covered | 6 | 30 |
+| species/brevibora-dorsiocellata | covered | 4 | 30 |
 | species/brochis-multiradiatus | covered | 3 | 30 |
-| species/bunocephalus-coracoideus | covered | 2 | 30 |
-| species/centrodoras-brachiatus | covered | 1 | 30 |
+| species/bunocephalus-coracoideus | covered | 1 | 30 |
+| species/centrodoras-brachiatus | covered | 0 | 30 |
 | species/colomesus-asellus | covered | 5 | 30 |
-| species/corydoras-arcuatus | covered | 2 | 30 |
+| species/corydoras-arcuatus | covered | 1 | 30 |
 | species/corydoras-atropersonatus | covered | 0 | 30 |
 | species/corydoras-duplicareus | covered | 0 | 30 |
 | species/corydoras-elegans | covered | 0 | 30 |
@@ -377,9 +377,10 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-septentrionalis | covered | 1 | 30 |
 | species/corydoras-splendens | covered | 4 | 30 |
 | species/denticetopsis-seducta | covered | 0 | 30 |
-| species/desmopuntius-rhomboocellatus | covered | 0 | 30 |
+| species/desmopuntius-hexazona | covered | 16 | 30 |
+| species/desmopuntius-rhomboocellatus | covered | 1 | 30 |
 | species/dianema-urostriatum | covered | 0 | 30 |
-| species/erethistes-pusillus | covered | 1 | 30 |
+| species/erethistes-pusillus | covered | 2 | 30 |
 | species/farlowella-amazonum | covered | 0 | 30 |
 | species/farlowella-platorynchus | covered | 0 | 30 |
 | species/hisonotus-notatus | covered | 0 | 30 |
@@ -387,7 +388,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hypancistrus-inspector | covered | 0 | 30 |
 | species/hypancistrus-zebra | covered | 0 | 30 |
 | species/hyphessobrycon-vilmae | covered | 2 | 30 |
-| species/hypostomus-luteus | covered | 0 | 30 |
+| species/hypostomus-luteus | covered | 2 | 30 |
 | species/hypostomus-roseopunctatus | covered | 0 | 30 |
 | species/kryptopterus-geminus | covered | 0 | 30 |
 | species/lasiancistrus-heteracanthus | covered | 0 | 30 |
@@ -397,35 +398,43 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/macropodus-spechti | covered | 0 | 30 |
 | species/mastiglanis-asopos | covered | 0 | 30 |
 | species/megalancistrus-parananus | covered | 1 | 30 |
-| species/moenkhausia-oligolepis | covered | 2 | 30 |
-| species/monocirrhus-polyacanthus | covered | 7 | 30 |
+| species/moenkhausia-oligolepis | covered | 9 | 30 |
+| species/monocirrhus-polyacanthus | covered | 10 | 30 |
 | species/myloplus-schomburgkii | covered | 2 | 30 |
 | species/nothobranchius-rachovii | covered | 4 | 30 |
 | species/oryzias-woworae | covered | 1 | 30 |
-| species/parauchenoglanis-punctatus | covered | 0 | 30 |
-| species/pseudeutropius-brachypopterus | covered | 0 | 30 |
-| species/pseudomugil-signifer | covered | 18 | 30 |
+| species/parauchenoglanis-punctatus | covered | 1 | 30 |
+| species/parosphromenus-linkei | covered | 0 | 30 |
+| species/physopyxis-lyra | covered | 0 | 30 |
+| species/pseudeutropius-brachypopterus | covered | 1 | 30 |
+| species/pseudohemiodon-laticeps | covered | 2 | 30 |
 | species/pterobunocephalus-depressus | covered | 0 | 30 |
-| species/pterophyllum-altum | covered | 13 | 30 |
-| species/sphaerichthys-osphromenoides | covered | 1 | 30 |
+| species/pterophyllum-altum | covered | 16 | 30 |
+| species/pterygoplichthys-gibbiceps | covered | 15 | 30 |
+| species/sphaerichthys-osphromenoides | covered | 21 | 30 |
 | species/sphaerichthys-selatanensis | covered | 0 | 30 |
 | species/sphaerichthys-vaillanti | covered | 3 | 30 |
-| species/stiphodon-atropurpureus | covered | 3 | 30 |
-| species/stiphodon-ornatus | covered | 0 | 30 |
+| species/stiphodon-ornatus | covered | 11 | 30 |
+| species/sturisomatichthys-leightoni | covered | 0 | 30 |
+| species/tatia-gyrina | covered | 0 | 30 |
 | species/tatia-strigata | covered | 0 | 30 |
 | species/tetraodon-mbu | covered | 21 | 30 |
-| species/trichogaster-chuna | covered | 10 | 30 |
+| species/trichogaster-chuna | covered | 14 | 30 |
 | species/xyliphius-lepturus | covered | 0 | 30 |
 | species/yunnanilus-cruciatus | covered | 0 | 30 |
+| species/abramites-hypselonotus | covered | 5 | 30 |
 | species/acanthicus-adonis | covered | 1 | 30 |
+| species/acanthicus-hystrix | covered | 0 | 30 |
+| species/acanthocobitis-botia | covered | 0 | 30 |
 | species/acanthopsoides-robertsi | covered | 0 | 30 |
-| species/acarichthys-heckelii | covered | 0 | 30 |
+| species/acantopsis-dialuzona | covered | 5 | 30 |
+| species/acarichthys-heckelii | covered | 9 | 30 |
 | species/acentronichthys-leptos | covered | 0 | 30 |
 | species/acestridium-dichromum | covered | 1 | 30 |
 | species/acestrorhynchus-altus | covered | 0 | 30 |
-| species/acestrorhynchus-falcatus | covered | 4 | 30 |
-| species/acestrorhynchus-pantaneiro | covered | 3 | 30 |
-| species/acheilognathus-macropterus | covered | 3 | 30 |
+| species/acestrorhynchus-falcatus | covered | 8 | 30 |
+| species/acestrorhynchus-isalineae | covered | 0 | 30 |
+| species/acestrorhynchus-pantaneiro | covered | 7 | 30 |
 | species/acnodon-normani | covered | 1 | 30 |
 | species/ageneiosus-magoi | covered | 3 | 30 |
 | species/ageneiosus-ucayalensis | covered | 0 | 30 |
@@ -842,6 +851,8 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/ageneiosus-militaris | rest | 0 | 20 |
 | species/ageneiosus-pardalis | rest | 0 | 20 |
 | species/ageneiosus-vittatus | rest | 0 | 20 |
+| species/akysis-pictus | rest | 0 | 20 |
+| species/akysis-variegatus | rest | 0 | 20 |
 | species/ariopsis-assimilis | rest | 14 | 20 |
 | species/astroblepus-mindoensis | rest | 1 | 20 |
 | species/colomesus-tocantinensis | rest | 3 | 20 |

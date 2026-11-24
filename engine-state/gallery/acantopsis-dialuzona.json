@@ -6,7 +6,22 @@
   "File:Acantopsis choirorhynchos.JPG",
   "File:Acantopsis choirorhynchos Bleeker.jpg",
   "File:Horseface loach under aquarium gravel.jpg",
-  "File:Acanthopsis choirorrhynchus Day 155.jpg"
+  "File:Acanthopsis choirorrhynchus Day 155.jpg",
+  "inat:228145183",
+  "inat:228145194",
+  "inat:242488159",
+  "inat:351720523",
+  "inat:351720530",
+  "inat:351720537",
+  "inat:528041503",
+  "inat:579165113",
+  "inat:579165163",
+  "inat:579165211",
+  "inat:612432842",
+  "inat:612432870",
+  "inat:612432896",
+  "inat:614418542",
+  "inat:744281290"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/3c0f217ac8a37c1a.webp": "7bf9a9438b53968c",
@@ -14,7 +29,10 @@
   "https://media.aquatome.com/commons/189d42f8f8f1f9fb.webp": "3a3e3c78442e3f3f",
   "https://media.aquatome.com/glaser/faee21ad23e2f59d.webp": "fde5e866d1fcbe7f",
   "https://media.aquatome.com/glaser/c3eb800b56681841.webp": "c5c5cc868f1e1623",
-  "https://media.aquatome.com/glaser/511eab955acb206a.webp": "498d1f29303393c8"
+  "https://media.aquatome.com/glaser/511eab955acb206a.webp": "498d1f29303393c8",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/228145183/large.jpg": "e6696c236b991c63",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/579165113/large.jpg": "d9c47cd2d4e13bca",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/579165163/large.jpg": "053e2f438f704f3f"
  },
  "commons": "2026-11-03",
  "inat": {
@@ -31,5 +49,10 @@
  },
  "openverse": {
   "next": null
- }
+ },
+ "inatNc": {
+  "after": 405224934,
+  "done": true
+ },
+ "exhausted": "2026-11-24"
 }
