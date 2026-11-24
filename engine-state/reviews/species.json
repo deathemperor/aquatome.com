@@ -223,6 +223,41 @@
       "kept": true
     }
   ],
+  "vi/plants/monosolenium-tenerum#VAEUBxw1OSw": [
+    {
+      "at": "2026-11-24T02:44:59Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.62,
+      "notes": [
+        "\"không nhanh như mọi người hay tả\": the video never says other people describe it as fast. This is an invented comparison.",
+        "\"Ngoài buộc dây cước\": the page already says to tie it to rock with fishing line. Repeating it adds nothing.",
+        "\"Còn nếu chỉ cần một đám rêu cho tép thì đây lại là cái lợi\": this stretches the video. It says scattered pieces each grow separately, which is useful \"if you're looking for functionality\". It doesn't mention shrimp here.",
+        "\"Bể cần bố cục gọn thì đây là cái phiền\": the page already says the plant is hard to keep in one place and unsuited to a laid-out tank, so this partly repeats it.",
+        "The slow growth contradicts the page's \"trung bình đến nhanh\". NEW says \"mọc chậm\" but doesn't clearly say the video differs from the page."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-24T02:44:59Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.7,
+      "notes": [
+        "The video says the moss is slow growing. The page says growth is medium and \"trung bình đến nhanh\". NEW says \"mọc chậm\" as one keeper's view but never says it differs from the page.",
+        "\"phải mất gần một năm mới thành một bụi vừa phải\": the video only says the keeper grew what is shown in a bit less than a year. \"vừa phải\" is an invented size.",
+        "\"Một người nuôi loài này khoảng một năm lại thấy nó mọc chậm\": the wording is stiff. \"lại thấy\" reads like a translation.",
+        "\"chìm vương khắp nền\" and \"rã ra thành mảnh vụn\" repeat what the page already says: it is brittle, breaks into pieces and sinks. Only the benefit of each piece growing on its own is new.",
+        "\"tetra hay săn tép con\": the video only says shrimplets hide from tetras. \"săn\" (hunt) is a small embellishment.",
+        "The [notes] line is a bare one-line comparison. The page already calls the plant \"rất mỏng manh\" and \"giòn\", so little is added."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/plants/najas-guadalupensis#EY13FDXeW3Q": [
     {
       "at": "2026-11-15T23:29:56Z",
@@ -1950,6 +1985,45 @@
       "score": 0.95,
       "notes": [
         "\"hồ, ao sâu trong đất liền\": the facts say only \"inland\" lakes and ponds. \"Sâu\" (deep) is a small addition that no fact supports."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/marosatherina-ladigesi#v6s82Rn891w": [
+    {
+      "at": "2026-11-24T02:44:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.6,
+      "notes": [
+        "[notes] IUCN: video says 'vulnerable', but the page says 'sắp nguy cấp' (near threatened) because of overcollection. NEW doesn't say plainly that the video differs from the page.",
+        "[notes] 'ghi nó ở mức sẽ nguy cấp (vulnerable)' is a mistranslation. 'sẽ nguy cấp' is unnatural, and the IUCN listing is a fact the video states, so it is wrongly made one keeper's note.",
+        "[notes] 'Một người nuôi loài này lâu năm ghi nó...' credits the IUCN status and the population holding steady to a keeper's own writing, which is clumsy.",
+        "[waterConditions] 'Giữ pH trên 7' and 'không phải cá nước mềm' mostly repeat the page, which already has pH 7–8 and says the fish does badly in acidic water. Only the 7.5 and mineralising advice is new.",
+        "[beforeYouBuy] Male long fin trailers and the female look are already on the page under dimorphism, so this partly repeats it.",
+        "[aquariumSize] 'bể 40 lít' and 'dưới 80 lít loại dài' are unit conversions of 10 gal and 20 long that the video never states, and 'sai lầm' comes from an unclear remark in the video.",
+        "[reproduction] 'Cá khỏe và được ăn đủ thì gần như chắc chắn chúng đang đẻ' is one keeper's guarantee given as a general rule. It is also in a passive style that reads like a translation."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-24T02:44:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.7,
+      "notes": [
+        "[reproduction] \"Cá bột mới bơi được cần trùng cỏ hoặc nước xanh\": the page already says fry need trùng cỏ-type food, so this repeats it.",
+        "[reproduction] The yarn spawning mop is close to the page's \"búi sợi nylon làm giá đẻ\", so it partly repeats the page.",
+        "[reproduction] The page gives hatching as 5-10 days and a 22-23.5°C spawning temperature. The NEW text doesn't say that the video's keeper (about 24°C, hatching varies with weather, no heater) differs from this.",
+        "The video calls the species vulnerable on the IUCN list, while the page says near threatened. NEW never says the video differs here.",
+        "[aquariumSize] \"không nuôi trong bể nhỏ hơn 80 lít\" and \"150 lít trở lên\" are rounded conversions of 20 long and 40 breeder. The page says a 76 cm, 68 L tank, and NEW doesn't say that the video disagrees.",
+        "[diet] \"nên đổi sang loại nhỏ hơn\": the video says to use a different brand of blood worms. It doesn't say to switch to a smaller size.",
+        "[reproduction] \"có lẽ chỉ một cặp hoặc 1 đực 2 cái cũng được\" is a guess the keeper never tried. It is written as general advice, not as one keeper's speculation.",
+        "[maintenance] \"cá sẽ kém màu và kém hoạt bát\" in a rockscape pushes the video's \"won't do real well\" further than it goes. The planted-tank advice also repeats the page."
       ],
       "attempt": "first",
       "kept": false

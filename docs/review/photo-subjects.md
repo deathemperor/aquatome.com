@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules: docs/governance.md, "Photos".
-24041 verdicts. Shows it: 14749; its habitat (asked again): 3; something else: 611; not a photo of it: 388; dead or as food: 1146; a person in it: 354; a logo on it: 376; can't tell: 4463.
+24149 verdicts. Shows it: 14818; its habitat (asked again): 3; something else: 613; not a photo of it: 388; dead or as food: 1146; a person in it: 356; a logo on it: 378; can't tell: 4496.
 
 ## Left with no photo (187)
 
@@ -193,7 +193,7 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 - species/xenotilapia-sima
 - species/xiurenbagrus-gigas
 
-## Can't tell: still shown (4463)
+## Can't tell: still shown (4496)
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -657,6 +657,7 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/483531658.webp) | subject unsure |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/487219627.webp) | subject unsure |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/487219803.webp) | subject unsure |
+| species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/507599869.webp) | subject unsure |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/594456752.webp) | subject unsure |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/594690233.webp) | subject unsure |
 | plants/egeria-densa | [photo](https://media.aquatome.com/inaturalist/111784032.webp) | subject unsure |
@@ -888,13 +889,29 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | plants/lilaeopsis-brasiliensis | [photo](https://media.aquatome.com/inaturalist/7571435.webp) | subject unsure |
 | plants/lilaeopsis-brasiliensis | [photo](https://media.aquatome.com/inaturalist/98927763.webp) | subject unsure |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/commons/e96225bb097394c9.webp) | subject unsure |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/205072422.webp) | subject unsure |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/226384322.webp) | subject unsure |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/228391787.webp) | subject unsure |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/265208558.webp) | subject unsure |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/273192924.webp) | subject unsure |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/337794860.webp) | subject unsure |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/352332286.webp) | subject unsure |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/371599549.webp) | subject unsure |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/396855740.webp) | subject unsure |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/543890514.webp) | subject unsure |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/569742325.webp) | subject unsure |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/569742327.webp) | subject unsure |
 | species/boraras-urophthalmoides | [photo](https://media.aquatome.com/inaturalist/251523954.webp) | subject unsure |
+| species/boraras-urophthalmoides | [photo](https://media.aquatome.com/inaturalist/460903791.webp) | subject unsure |
+| species/boraras-urophthalmoides | [photo](https://media.aquatome.com/inaturalist/460903828.webp) | subject unsure |
+| species/boraras-urophthalmoides | [photo](https://media.aquatome.com/inaturalist/608589424.webp) | subject unsure |
+| species/boraras-urophthalmoides | [photo](https://media.aquatome.com/inaturalist/688485563.webp) | subject unsure |
+| species/boraras-urophthalmoides | [photo](https://media.aquatome.com/inaturalist/688526122.webp) | subject unsure |
 | plants/taxiphyllum-alternans | [photo](https://media.aquatome.com/flickr/24486132179.webp) | subject unsure |
 | plants/taxiphyllum-alternans | [photo](https://media.aquatome.com/flickr/24760273561.webp) | subject unsure |
 | plants/taxiphyllum-alternans | [photo](https://media.aquatome.com/inaturalist/472757565.webp) | subject unsure |
+| plants/taxiphyllum-alternans | [photo](https://media.aquatome.com/inaturalist/74130004.webp) | subject unsure |
+| plants/taxiphyllum-alternans | [photo](https://media.aquatome.com/inaturalist/74130057.webp) | subject unsure |
 | plants/taxiphyllum-alternans | [photo](https://media.aquatome.com/tropica/28bf736b6e6aadd1.webp) | subject unsure |
 | species/carassius-auratus | [photo](https://media.aquatome.com/inaturalist/113933698.webp) | subject unsure |
 | species/carassius-auratus | [photo](https://media.aquatome.com/inaturalist/113933707.webp) | subject unsure |
@@ -908,8 +925,21 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/carassius-auratus | [photo](https://media.aquatome.com/panitvong/inat-731776131.webp) | subject unsure |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/commons/2b2afd251f08b1a2.webp) | subject unsure |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/commons/81db0ee988f0156a.webp) | subject unsure |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/10381171.webp) | subject unsure |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/104481273.webp) | subject unsure |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/105143225.webp) | subject unsure |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/11325107.webp) | subject unsure |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/130045210.webp) | subject unsure |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/43268874.webp) | subject unsure |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/43269247.webp) | subject unsure |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/45285316.webp) | subject unsure |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/45462096.webp) | subject unsure |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/46006753.webp) | subject unsure |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/46006946.webp) | subject unsure |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/526145731.webp) | subject unsure |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/61520019.webp) | subject unsure |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/654013920.webp) | subject unsure |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/70769830.webp) | subject unsure |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/tropica/538eb3aa4a04e7f8.webp) | subject unsure |
 | species/poecilia-sphenops | [photo](https://media.aquatome.com/inaturalist/130535925.webp) | subject unsure |
 | species/poecilia-sphenops | [photo](https://media.aquatome.com/inaturalist/611221064.webp) | subject unsure |
@@ -931,6 +961,9 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/osteoglossum-bicirrhosum | [photo](https://media.aquatome.com/commons/8de42ad8d6fde17e.webp) | subject unsure |
 | species/osteoglossum-bicirrhosum | [photo](https://media.aquatome.com/inaturalist/168733.webp) | subject unsure |
 | species/scleropages-jardinii | [photo](https://media.aquatome.com/commons/cd15fb87ae088bf3.webp) | subject unsure |
+| species/scleropages-jardinii | [photo](https://media.aquatome.com/inaturalist/748193016.webp) | subject unsure |
+| species/scleropages-jardinii | [photo](https://media.aquatome.com/inaturalist/748195209.webp) | subject unsure |
+| species/scleropages-jardinii | [photo](https://media.aquatome.com/inaturalist/748197649.webp) | subject unsure |
 | species/scleropages-formosus | [photo](https://images.unsplash.com/photo-1637806701562-3b67d4c9fa28?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8NHx8QXNpYW4lMjBhcm93YW5hfGVufDF8fHx8MTc5MzQ1OTU5MXww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | subject unsure |
 | species/scleropages-formosus | [photo](https://images.unsplash.com/photo-1684127946837-9bca0bcf138e?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8Nnx8QXNpYW4lMjBhcm93YW5hfGVufDF8fHx8MTc5MzQ1OTU5MXww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | subject unsure |
 | species/scleropages-formosus | [photo](https://media.aquatome.com/commons/10f06f09878ccd18.webp) | subject unsure |
@@ -4661,9 +4694,9 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | plants/vallisneria-spiralis | [photo](https://media.aquatome.com/tropica/32a5549cfa5b0c5e.webp) | subject unsure |
 | species/crenicichla-marmorata | [photo](https://media.aquatome.com/commons/e8cb82a86126e499.webp) | subject unsure |
 
-## Removed (2805)
+## Removed (2811)
 
-"Something else" records a different subject; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
+"Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -5215,7 +5248,12 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/commons/123991e9c578a3dc.webp) | subject dead |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/commons/7b7bcddffff6bd8c.webp) | subject none |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/commons/e13ecfe1afc12de2.webp) | subject dead |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/224952775.webp) | subject other |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/227558819.webp) | subject yes; logo |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/229895834.webp) | subject unsure; person |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/251105703.webp) | subject yes; person |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/371464713.webp) | subject yes; person |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/392528954.webp) | subject other |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/panitvong/inat-179239938.webp) | subject dead |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/panitvong/inat-707077438.webp) | subject dead |
 | species/boraras-urophthalmoides | [photo](https://media.aquatome.com/flickr/14436045529.webp) | subject yes; logo |
@@ -5237,6 +5275,7 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/carassius-auratus (a guide photo) | [photo](https://media.aquatome.com/video/zikyuEMALJE/p1-1fb2ZfQXJ0LmpwZw.webp) | subject none |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/363175598.webp) | subject yes; person |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/363431329.webp) | subject yes; person |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/88335203.webp) | subject yes; logo |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/tropica/9731aee570c44e6b.webp) | subject other |
 | species/poecilia-sphenops | [photo](https://media.aquatome.com/commons/42ab0d7ad5d41fc5.webp) | subject dead |
 | species/poecilia-sphenops | [photo](https://media.aquatome.com/commons/bc6d7868f4a60995.webp) | subject dead |

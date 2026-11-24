@@ -77,6 +77,19 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/635491264.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/635491264-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Mike Yan",
+      "sourceUrl": "https://www.inaturalist.org/photos/635491264",
+      "caption": "Cận cảnh các nhánh rêu mọc dày ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/74130004.webp",
       "thumb": "https://media.aquatome.com/inaturalist/74130004-480.webp",
       "width": 1024,
@@ -87,8 +100,7 @@
       "caption": "Đám rêu Đài Loan xanh tươi mọc ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/74130057.webp",
@@ -101,22 +113,7 @@
       "caption": "Rêu mọc thành thảm trên nền đất giữa lá thông khô",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/635491264.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/635491264-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-NC",
-      "author": "Mike Yan",
-      "sourceUrl": "https://www.inaturalist.org/photos/635491264",
-      "caption": "Cận cảnh các nhánh rêu mọc dày ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     }
   ],
   "seen": 32,

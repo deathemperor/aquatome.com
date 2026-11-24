@@ -4991,10 +4991,13 @@
     "reason": "[aquariumSize] 'bể dài khoảng 90 cm, từ 150 lít trở lên': the video says a 3-ft tank, about 40 gallons and up. 150 L is an invented conversion, and the 90 cm figure sits oddly beside the page's 120 cm without saying it differs.; [waterConditions] 'Đừng nuôi ở 27 °C trở lên': the video says 80+ °F water, which is about 27 °C. This is a loose conversion, and the rule is not framed as one keeper's advice."
   },
   "V1YIRWvlejc": {
-    "at": "2026-11-07",
+    "at": "2026-11-24",
     "title": "The World's Smallest Tetra Hides A Shocking Surprise: An Organ NEW to Science! Nanofish Priocharax",
     "channel": "FISHTORY",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Priocharax rex",
+    "done": "skipped",
+    "reason": "no page, and GBIF has no species of that name"
   },
   "v5WzGwZpGPs": {
     "at": "2026-11-07",
@@ -5013,10 +5016,15 @@
     "reason": "opinion"
   },
   "v6s82Rn891w": {
-    "at": "2026-11-07",
+    "at": "2026-11-24",
     "title": "Celebes rainbow (Marosatherina ladigesi)  species profile",
     "channel": "Team Detritus",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Marosatherina ladigesi",
+    "page": "species/marosatherina-ladigesi",
+    "done": "low",
+    "score": 0.7,
+    "reason": "[reproduction] \"Cá bột mới bơi được cần trùng cỏ hoặc nước xanh\": the page already says fry need trùng cỏ-type food, so this repeats it.; [reproduction] The yarn spawning mop is close to the page's \"búi sợi nylon làm giá đẻ\", so it partly repeats the page."
   },
   "V8N5eLPTbno": {
     "at": "2026-11-07",
@@ -5027,10 +5035,15 @@
     "reason": "safety how-to"
   },
   "VAEUBxw1OSw": {
-    "at": "2026-11-07",
+    "at": "2026-11-24",
     "title": "Pelia Moss \"Monosolenium tenerum\" (Easy to keep Aquarium Moss)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Monosolenium tenerum",
+    "page": "plants/monosolenium-tenerum",
+    "done": "low",
+    "score": 0.7,
+    "reason": "The video says the moss is slow growing. The page says growth is medium and \"trung bình đến nhanh\". NEW says \"mọc chậm\" as one keeper's view but never says it differs from the page.; \"phải mất gần một năm mới thành một bụi vừa phải\": the video only says the keeper grew what is shown in a bit less than a year. \"vừa phải\" is an invented size."
   },
   "VaqCL4xyHYw": {
     "at": "2026-11-07",
