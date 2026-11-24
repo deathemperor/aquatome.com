@@ -5,7 +5,7 @@ Written by `pnpm engine gallery` (2026-11-24). Targets: packages/engine/src/gall
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
-| shop | 60 | 131 | 81 | 24 | 57 | 179 |
+| shop | 60 | 131 | 81 | 24 | 56 | 180 |
 | popular | 40 | 21 | 0 | 0 | 6 | 15 |
 | covered | 30 | 964 | 32 | 9 | 27 | 978 |
 | rest | 20 | 2005 | 81 | 0 | 126 | 1960 |
@@ -310,7 +310,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/botia-kubotai | shop | 2 | 60 |
 | species/yasuhikotakia-modesta | shop | 2 | 60 |
 | species/parambassis-ranga | shop | 8 | 60 |
-| species/aphyocharax-anisitsi | shop | 3 | 60 |
+| species/aphyocharax-anisitsi | shop | 1 | 60 |
 | species/nematobrycon-lacortei | shop | 0 | 60 |
 | species/moenkhausia-sanctaefilomenae | shop | 9 | 60 |
 | species/symphysodon-discus | popular | 0 | 40 |
