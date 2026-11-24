@@ -6,20 +6,118 @@
       "thumb": "https://media.aquatome.com/commons/1f89ca62db0f0e31-480.webp",
       "width": 1200,
       "height": 900,
+      "large": {
+        "url": "https://media.aquatome.com/commons/1f89ca62db0f0e31-large.webp",
+        "width": 1600,
+        "height": 1200
+      },
       "licence": "CC BY-SA 4.0",
       "author": "Ildar Sagdejev (Specious)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:2004-02-02_Pterygoplichthys_pardalis_on_blue_gravel.jpg",
       "caption": "Cá tỳ bà leopard trong bể với sỏi xanh",
       "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/305322412.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/305322412-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "ferngirltlc",
+      "sourceUrl": "https://www.inaturalist.org/photos/305322412",
+      "caption": "Ba con cá tỳ bà leopard trong chậu xanh",
+      "best": true,
+      "kind": "group",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/250649523.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/250649523-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Ernesto Octavio Guzman Tapia",
+      "sourceUrl": "https://www.inaturalist.org/photos/250649523",
+      "caption": "Cá tỳ bà leopard trong vũng nước cạnh phiến đá",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/51356375.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/51356375-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Felipe Campos",
+      "sourceUrl": "https://www.inaturalist.org/photos/51356375",
+      "caption": "Cá tỳ bà leopard bơi trên lá khô trong bể chụp ảnh",
+      "best": true,
       "kind": "other",
-      "large": {
-        "url": "https://media.aquatome.com/commons/1f89ca62db0f0e31-large.webp",
-        "width": 1600,
-        "height": 1200
-      }
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/352649323.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/352649323-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Felipe Campos",
+      "sourceUrl": "https://www.inaturalist.org/photos/352649323",
+      "caption": "Cá tỳ bà leopard thân đốm vàng nâu nằm trên lá trong bể",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/352649330.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/352649330-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Felipe Campos",
+      "sourceUrl": "https://www.inaturalist.org/photos/352649330",
+      "caption": "Cá tỳ bà leopard nhìn nghiêng giữa lá khô trong bể chụp",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/587075355.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/587075355-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Charlie Fox-Whelpton",
+      "sourceUrl": "https://www.inaturalist.org/photos/587075355",
+      "caption": "Cá tỳ bà leopard trong hộp đỏ khi cân đo",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/617713477.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/617713477-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "asherah29",
+      "sourceUrl": "https://www.inaturalist.org/photos/617713477",
+      "caption": "Cá tỳ bà leopard đốm mạng nằm trên tấm gỗ, chụp ngoài thực địa",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
     }
   ],
-  "seen": 50,
-  "updatedAt": "2026-11-01",
-  "builtAt": "2026-11-01"
+  "seen": 105,
+  "updatedAt": "2026-11-24",
+  "builtAt": "2026-11-24"
 }

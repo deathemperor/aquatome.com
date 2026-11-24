@@ -695,8 +695,7 @@
       "caption": "Thảm Cây mao lương thủy sinh mọc ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/110270315.webp",
@@ -709,8 +708,7 @@
       "caption": "Bụi Cây mao lương thủy sinh xanh tươi có hoa vàng",
       "best": true,
       "kind": "flower",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/31523551.webp",
@@ -723,8 +721,7 @@
       "caption": "Cây mao lương thủy sinh có hoa vàng nhỏ ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/31523533.webp",
@@ -737,22 +734,7 @@
       "caption": "Lá Cây mao lương thủy sinh mọc ngoài tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/97058912.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/97058912-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "PatriciaD",
-      "sourceUrl": "https://www.inaturalist.org/photos/97058912",
-      "caption": "Cây mao lương thủy sinh ra hoa vàng giữa cỏ",
-      "best": false,
-      "kind": "flower",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/33136005.webp",
@@ -765,8 +747,7 @@
       "caption": "Cây mao lương thủy sinh mọc trên bãi ẩm",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/35722401.webp",
@@ -779,22 +760,7 @@
       "caption": "Cây mao lương thủy sinh mọc ở vùng nước nông",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/94121978.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/94121978-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Lucas Hopkins",
-      "sourceUrl": "https://www.inaturalist.org/photos/94121978",
-      "caption": "Cây mao lương thủy sinh mọc trên nền đất khô",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/97058904.webp",
@@ -807,8 +773,20 @@
       "caption": "Bụi Cây mao lương thủy sinh lá xẻ mảnh",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/94121978.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/94121978-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Lucas Hopkins",
+      "sourceUrl": "https://www.inaturalist.org/photos/94121978",
+      "caption": "Cây mao lương thủy sinh mọc trên nền đất khô",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 144,

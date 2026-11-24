@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules: docs/governance.md, "Photos".
-24604 verdicts. Shows it: 15054; its habitat (asked again): 3; something else: 617; not a photo of it: 388; dead or as food: 1170; a person in it: 368; a logo on it: 382; can't tell: 4671.
+24795 verdicts. Shows it: 15182; its habitat (asked again): 3; something else: 619; not a photo of it: 388; dead or as food: 1197; a person in it: 370; a logo on it: 384; can't tell: 4701.
 
 ## Left with no photo (187)
 
@@ -193,7 +193,7 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 - species/xenotilapia-sima
 - species/xiurenbagrus-gigas
 
-## Can't tell: still shown (4671)
+## Can't tell: still shown (4701)
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -1388,8 +1388,10 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/commons/6f087a8d42d358b7.webp) | subject unsure |
 | plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/commons/adf9b56d6415e047.webp) | subject unsure |
 | plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/flickr/54206043758.webp) | subject unsure |
+| plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/inaturalist/103982050.webp) | subject unsure |
 | plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/inaturalist/144875302.webp) | subject unsure |
 | plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/inaturalist/57535800.webp) | subject unsure |
+| plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/inaturalist/87562093.webp) | subject unsure |
 | plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/inaturalist/97336555.webp) | subject unsure |
 | species/hyphessobrycon-rosaceus | [photo](https://media.aquatome.com/commons/21b8fc8fd884dc91.webp) | subject unsure |
 | plants/proserpinaca-palustris | [photo](https://media.aquatome.com/inaturalist/183488460.webp) | subject unsure |
@@ -1408,12 +1410,16 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | plants/ranunculus-inundatus | [photo](https://media.aquatome.com/inaturalist/479746116.webp) | subject unsure |
 | plants/ranunculus-inundatus | [photo](https://media.aquatome.com/inaturalist/619453774.webp) | subject unsure |
 | plants/ranunculus-inundatus | [photo](https://media.aquatome.com/inaturalist/704438884.webp) | subject unsure |
+| plants/ranunculus-inundatus | [photo](https://media.aquatome.com/inaturalist/94121978.webp) | subject unsure |
 | plants/ranunculus-inundatus | [photo](https://media.aquatome.com/inaturalist/98294780.webp) | subject unsure |
 | plants/ranunculus-inundatus | [photo](https://media.aquatome.com/inaturalist/98294810.webp) | subject unsure |
 | plants/ranunculus-inundatus | [photo](https://media.aquatome.com/inaturalist/98294879.webp) | subject unsure |
 | species/sewellia-lineolata | [photo](https://media.aquatome.com/aquariumcoop/9a5ec1b467c2e38d.webp) | subject unsure |
 | plants/rotala-macrandra | [photo](https://media.aquatome.com/commons/a2c38b71059b7fc3.webp) | subject unsure |
 | plants/rotala-macrandra | [photo](https://media.aquatome.com/inaturalist/255471269.webp) | subject unsure |
+| plants/rotala-macrandra | [photo](https://media.aquatome.com/inaturalist/465880378.webp) | subject unsure |
+| plants/rotala-macrandra | [photo](https://media.aquatome.com/inaturalist/465880412.webp) | subject unsure |
+| plants/rotala-macrandra | [photo](https://media.aquatome.com/inaturalist/465880427.webp) | subject unsure |
 | species/sewellia-breviventralis | [photo](https://media.aquatome.com/glaser/22b4e1cfa1ca2ad3.webp) | subject unsure; logo |
 | species/sewellia-breviventralis | [photo](https://media.aquatome.com/glaser/d7d27c2e9b1f3c0a.webp) | subject unsure; logo |
 | species/botia-almorhae | [photo](https://media.aquatome.com/inaturalist/617422035.webp) | subject unsure |
@@ -1422,16 +1428,20 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/pseudomugil-gertrudae | [photo](https://media.aquatome.com/inaturalist/682650379.webp) | subject unsure |
 | species/pseudomugil-gertrudae | [photo](https://media.aquatome.com/inaturalist/691923446.webp) | subject unsure |
 | species/pseudomugil-gertrudae | [photo](https://media.aquatome.com/inaturalist/695711336.webp) | subject unsure |
+| species/pseudomugil-gertrudae | [photo](https://media.aquatome.com/inaturalist/745897110.webp) | subject unsure |
 | species/atyopsis-moluccensis | [photo](https://media.aquatome.com/commons/4712899f243feaa1.webp) | subject unsure |
+| species/atyopsis-moluccensis | [photo](https://media.aquatome.com/inaturalist/523498683.webp) | subject unsure |
 | species/vittina-waigiensis (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/8e362893e1346949.webp) | subject unsure |
 | species/vittina-waigiensis (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/fb433cb2c3a7d8ad.webp) | subject unsure |
 | species/clarias-batrachus | [photo](https://media.aquatome.com/commons/23a3148744f2e77f.webp) | subject unsure |
 | species/clarias-batrachus | [photo](https://media.aquatome.com/commons/e000e9ffdecbc952.webp) | subject unsure |
 | species/clarias-batrachus | [photo](https://media.aquatome.com/commons/e84a15e627d748cb.webp) | subject unsure |
+| species/clarias-batrachus | [photo](https://media.aquatome.com/inaturalist/137111419.webp) | subject unsure |
 | species/clarias-batrachus | [photo](https://media.aquatome.com/inaturalist/348008050.webp) | subject unsure |
 | species/amatitlania-nigrofasciata | [photo](https://media.aquatome.com/commons/08c5b596e416121c.webp) | subject unsure |
 | species/amatitlania-nigrofasciata | [photo](https://media.aquatome.com/commons/81059a00571f748b.webp) | subject unsure |
 | species/amatitlania-nigrofasciata | [photo](https://media.aquatome.com/flickr/42695826130.webp) | subject unsure |
+| species/amatitlania-nigrofasciata | [photo](https://media.aquatome.com/inaturalist/184906776.webp) | subject unsure |
 | species/amatitlania-nigrofasciata | [photo](https://media.aquatome.com/inaturalist/28418633.webp) | subject unsure |
 | species/amatitlania-nigrofasciata | [photo](https://media.aquatome.com/inaturalist/28418655.webp) | subject unsure |
 | species/amatitlania-nigrofasciata | [photo](https://media.aquatome.com/inaturalist/383055496.webp) | subject unsure |
@@ -1440,16 +1450,36 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/amatitlania-nigrofasciata | [photo](https://media.aquatome.com/inaturalist/486109697.webp) | subject unsure |
 | species/amatitlania-nigrofasciata | [photo](https://media.aquatome.com/inaturalist/595295183.webp) | subject unsure |
 | species/amatitlania-nigrofasciata | [photo](https://media.aquatome.com/inaturalist/818934.webp) | subject unsure |
+| species/amatitlania-nigrofasciata | [photo](https://media.aquatome.com/inaturalist/8984900.webp) | subject unsure |
 | species/andinoacara-rivulatus | [photo](https://media.aquatome.com/commons/d50f3ea5630ff569.webp) | subject unsure |
+| species/andinoacara-rivulatus | [photo](https://media.aquatome.com/inaturalist/275620615.webp) | subject unsure |
+| species/andinoacara-rivulatus | [photo](https://media.aquatome.com/inaturalist/425786953.webp) | subject unsure |
 | species/andinoacara-rivulatus | [photo](https://media.aquatome.com/inaturalist/540996701.webp) | subject unsure |
 | species/herichthys-carpintis | [photo](https://media.aquatome.com/commons/5fd9297ce7494a7c.webp) | subject unsure |
 | species/herichthys-carpintis | [photo](https://media.aquatome.com/commons/de2f5b168a96f863.webp) | subject unsure |
+| species/herichthys-carpintis | [photo](https://media.aquatome.com/inaturalist/117710484.webp) | subject unsure |
+| species/herichthys-carpintis | [photo](https://media.aquatome.com/inaturalist/117713914.webp) | subject unsure |
 | species/herichthys-carpintis | [photo](https://media.aquatome.com/inaturalist/142764458.webp) | subject unsure |
 | species/herichthys-carpintis | [photo](https://media.aquatome.com/inaturalist/142984934.webp) | subject unsure |
 | species/herichthys-carpintis | [photo](https://media.aquatome.com/inaturalist/154193742.webp) | subject unsure |
 | species/herichthys-carpintis | [photo](https://media.aquatome.com/inaturalist/154195475.webp) | subject unsure |
+| species/herichthys-carpintis | [photo](https://media.aquatome.com/inaturalist/293901704.webp) | subject unsure |
+| species/herichthys-carpintis | [photo](https://media.aquatome.com/inaturalist/37970121.webp) | subject unsure |
+| species/herichthys-carpintis | [photo](https://media.aquatome.com/inaturalist/572645364.webp) | subject unsure |
+| species/herichthys-carpintis | [photo](https://media.aquatome.com/inaturalist/95682644.webp) | subject unsure |
+| species/monopterus-albus | [photo](https://media.aquatome.com/inaturalist/146101683.webp) | subject unsure |
+| species/monopterus-albus | [photo](https://media.aquatome.com/inaturalist/48362298.webp) | subject unsure |
 | species/macrognathus-siamensis | [photo](https://media.aquatome.com/commons/0f4a074a80eae220.webp) | subject unsure |
+| species/macrognathus-siamensis | [photo](https://media.aquatome.com/inaturalist/251569271.webp) | subject unsure |
 | species/macrognathus-siamensis | [photo](https://media.aquatome.com/inaturalist/423648215.webp) | subject unsure |
+| species/macrognathus-siamensis | [photo](https://media.aquatome.com/inaturalist/451793575.webp) | subject unsure |
+| species/macrognathus-siamensis | [photo](https://media.aquatome.com/inaturalist/665406202.webp) | subject unsure |
+| species/macrognathus-siamensis | [photo](https://media.aquatome.com/inaturalist/665406235.webp) | subject unsure |
+| species/macrognathus-siamensis | [photo](https://media.aquatome.com/inaturalist/749864516.webp) | subject unsure |
+| species/macrognathus-siamensis | [photo](https://media.aquatome.com/inaturalist/766148929.webp) | subject unsure |
+| species/macrognathus-siamensis | [photo](https://media.aquatome.com/inaturalist/766148950.webp) | subject unsure |
+| species/macrognathus-siamensis | [photo](https://media.aquatome.com/inaturalist/766148968.webp) | subject unsure |
+| species/macrognathus-siamensis | [photo](https://media.aquatome.com/inaturalist/80058089.webp) | subject unsure |
 | species/mastacembelus-armatus | [photo](https://media.aquatome.com/commons/12f19a3a1b01c2eb.webp) | subject unsure |
 | species/mastacembelus-armatus | [photo](https://media.aquatome.com/inaturalist/103123599.webp) | subject unsure |
 | species/mastacembelus-armatus | [photo](https://media.aquatome.com/inaturalist/248693214.webp) | subject unsure |
@@ -4869,9 +4899,9 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | plants/vallisneria-spiralis | [photo](https://media.aquatome.com/tropica/32a5549cfa5b0c5e.webp) | subject unsure |
 | species/crenicichla-marmorata | [photo](https://media.aquatome.com/commons/e8cb82a86126e499.webp) | subject unsure |
 
-## Removed (2855)
+## Removed (2888)
 
-"Something else" records a different subject; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
+"Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -5634,6 +5664,7 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/2hraquarist/370f9f563d36df11.webp) | subject none |
 | plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/2hraquarist/881912be3f678bf6.webp) | subject none |
 | plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/inaturalist/87109136.webp) | subject other |
+| plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/inaturalist/89046666.webp) | subject yes; logo |
 | species/hyphessobrycon-rosaceus | [photo](https://media.aquatome.com/commons/2cc98205851f778c.webp) | subject dead |
 | species/hyphessobrycon-rosaceus | [photo](https://media.aquatome.com/commons/4e7bac394b8ca01d.webp) | subject dead |
 | species/carinotetraodon-travancoricus | [photo](https://images.unsplash.com/photo-1588942238143-c06a33b0a943?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MTh8fER3YXJmJTIwcHVmZmVyZmlzaHxlbnwxfHx8fDE3OTM2ODI2MjF8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | subject other |
@@ -5645,12 +5676,17 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | plants/ranunculus-inundatus | [photo](https://media.aquatome.com/inaturalist/366034873.webp) | subject yes; person |
 | plants/ranunculus-inundatus | [photo](https://media.aquatome.com/inaturalist/618952690.webp) | subject other |
 | plants/ranunculus-inundatus | [photo](https://media.aquatome.com/inaturalist/621067225.webp) | subject other |
+| plants/ranunculus-inundatus | [photo](https://media.aquatome.com/inaturalist/97058912.webp) | subject unsure; person |
 | plants/ranunculus-inundatus | [photo](https://media.aquatome.com/tropica/41466d03d1c04438.webp) | subject none |
 | plants/ranunculus-inundatus | [photo](https://media.aquatome.com/tropica/f65ed08aa6c38efe.webp) | subject none |
 | plants/rotala-macrandra | [photo](https://media.aquatome.com/commons/00bf8bec5be8fe32.webp) | subject other |
 | plants/rotala-macrandra | [photo](https://media.aquatome.com/commons/bc9c858e7a31e596.webp) | subject other |
 | species/marosatherina-ladigesi | [photo](https://media.aquatome.com/commons/43027cbb342dcc46.webp) | subject yes; logo |
+| species/pseudomugil-gertrudae | [photo](https://media.aquatome.com/inaturalist/11567113.webp) | subject dead |
+| species/pseudomugil-gertrudae | [photo](https://media.aquatome.com/inaturalist/384343543.webp) | subject yes; logo |
 | species/atyopsis-moluccensis | [photo](https://media.aquatome.com/commons/cb558bb39d51d86f.webp) | subject other |
+| species/atyopsis-moluccensis | [photo](https://media.aquatome.com/inaturalist/350263080.webp) | subject other |
+| species/atyopsis-moluccensis | [photo](https://media.aquatome.com/inaturalist/722750673.webp) | subject other |
 | species/vittina-waigiensis (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/39f8f230c254d8dc.webp) | subject other |
 | species/vittina-waigiensis (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/71c51b1f32273749.webp) | subject other |
 | species/vittina-waigiensis (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/7de6919a9ff11b94.webp) | subject other |
@@ -5660,21 +5696,43 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/vittina-waigiensis | [photo](https://media.aquatome.com/commons/da91c1572f8c2738.webp) | subject dead |
 | species/clarias-batrachus | [photo](https://media.aquatome.com/commons/cd01af2bb1fc790f.webp) | subject none |
 | species/clarias-batrachus | [photo](https://media.aquatome.com/commons/fc98e8e2f9ff1877.webp) | subject dead |
+| species/clarias-batrachus | [photo](https://media.aquatome.com/inaturalist/107996822.webp) | subject dead |
 | species/clarias-batrachus | [photo](https://media.aquatome.com/inaturalist/109934767.webp) | subject dead |
+| species/clarias-batrachus | [photo](https://media.aquatome.com/inaturalist/168842913.webp) | subject dead |
+| species/clarias-batrachus | [photo](https://media.aquatome.com/inaturalist/169912953.webp) | subject dead |
 | species/clarias-batrachus | [photo](https://media.aquatome.com/inaturalist/357344752.webp) | subject yes; person |
 | species/clarias-batrachus | [photo](https://media.aquatome.com/inaturalist/417855996.webp) | subject dead |
+| species/clarias-batrachus | [photo](https://media.aquatome.com/inaturalist/46646152.webp) | subject dead |
+| species/clarias-batrachus | [photo](https://media.aquatome.com/inaturalist/46646169.webp) | subject dead |
+| species/clarias-batrachus | [photo](https://media.aquatome.com/inaturalist/54468111.webp) | subject dead |
 | species/clarias-batrachus | [photo](https://media.aquatome.com/inaturalist/593832540.webp) | subject dead |
+| species/clarias-batrachus | [photo](https://media.aquatome.com/inaturalist/73051348.webp) | subject dead |
+| species/clarias-batrachus | [photo](https://media.aquatome.com/inaturalist/73051479.webp) | subject dead |
+| species/clarias-batrachus | [photo](https://media.aquatome.com/inaturalist/89820700.webp) | subject dead |
+| species/clarias-batrachus | [photo](https://media.aquatome.com/inaturalist/95083189.webp) | subject dead |
+| species/clarias-batrachus | [photo](https://media.aquatome.com/inaturalist/95387067.webp) | subject dead |
+| species/amatitlania-nigrofasciata | [photo](https://media.aquatome.com/inaturalist/117425570.webp) | subject dead |
 | species/amatitlania-nigrofasciata | [photo](https://media.aquatome.com/inaturalist/332719964.webp) | subject yes; person |
+| species/andinoacara-rivulatus | [photo](https://media.aquatome.com/inaturalist/103091475.webp) | subject dead |
+| species/andinoacara-rivulatus | [photo](https://media.aquatome.com/inaturalist/103091496.webp) | subject dead |
 | species/monopterus-albus | [photo](https://media.aquatome.com/commons/22f678a3e0f84764.webp) | subject dead |
 | species/monopterus-albus | [photo](https://media.aquatome.com/commons/431472853029c2b8.webp) | subject dead |
 | species/monopterus-albus | [photo](https://media.aquatome.com/commons/73d5f9e16c12be92.webp) | subject dead |
 | species/monopterus-albus | [photo](https://media.aquatome.com/commons/7dea9976d1a9188f.webp) | subject dead |
+| species/monopterus-albus | [photo](https://media.aquatome.com/inaturalist/122530704.webp) | subject dead |
+| species/monopterus-albus | [photo](https://media.aquatome.com/inaturalist/139471890.webp) | subject dead |
 | species/monopterus-albus | [photo](https://media.aquatome.com/inaturalist/2813136.webp) | subject unsure; logo |
+| species/monopterus-albus | [photo](https://media.aquatome.com/inaturalist/28270031.webp) | subject yes; person |
 | species/monopterus-albus | [photo](https://media.aquatome.com/inaturalist/2873738.webp) | subject dead; logo |
+| species/monopterus-albus | [photo](https://media.aquatome.com/inaturalist/44777878.webp) | subject dead |
+| species/monopterus-albus | [photo](https://media.aquatome.com/inaturalist/44777890.webp) | subject dead |
 | species/monopterus-albus | [photo](https://media.aquatome.com/inaturalist/469852828.webp) | subject dead |
 | species/monopterus-albus | [photo](https://media.aquatome.com/inaturalist/472204886.webp) | subject dead |
+| species/monopterus-albus | [photo](https://media.aquatome.com/inaturalist/47712915.webp) | subject dead |
 | species/monopterus-albus | [photo](https://media.aquatome.com/inaturalist/744705668.webp) | subject dead |
 | species/mastacembelus-erythrotaenia | [photo](https://media.aquatome.com/commons/b18f6d47ec824403.webp) | subject dead |
+| species/mastacembelus-erythrotaenia | [photo](https://media.aquatome.com/inaturalist/593924476.webp) | subject dead |
+| species/mastacembelus-erythrotaenia | [photo](https://media.aquatome.com/inaturalist/758237672.webp) | subject dead |
 | species/mastacembelus-armatus | [photo](https://media.aquatome.com/inaturalist/346813022.webp) | subject dead |
 | species/mastacembelus-armatus | [photo](https://media.aquatome.com/inaturalist/487803876.webp) | subject unsure; person |
 | species/mastacembelus-armatus | [photo](https://media.aquatome.com/inaturalist/606230550.webp) | subject dead |
@@ -5682,7 +5740,12 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/trichopodus-trichopterus | [photo](https://media.aquatome.com/commons/6a48a232d99c8b0b.webp) | subject dead |
 | species/trichopodus-trichopterus | [photo](https://media.aquatome.com/commons/88dde4c7b32997c5.webp) | subject other |
 | species/trichopodus-trichopterus | [photo](https://media.aquatome.com/commons/ae0e328a6830f1c5.webp) | subject yes; logo |
+| species/trichopodus-trichopterus | [photo](https://media.aquatome.com/inaturalist/110666306.webp) | subject dead |
+| species/trichopodus-trichopterus | [photo](https://media.aquatome.com/inaturalist/159528881.webp) | subject dead |
+| species/trichopodus-trichopterus | [photo](https://media.aquatome.com/inaturalist/159528896.webp) | subject dead |
+| species/trichopodus-trichopterus | [photo](https://media.aquatome.com/inaturalist/159848232.webp) | subject dead |
 | species/trichopodus-trichopterus | [photo](https://media.aquatome.com/inaturalist/554052775.webp) | subject dead |
+| species/trichopodus-trichopterus | [photo](https://media.aquatome.com/inaturalist/91829442.webp) | subject dead |
 | species/botia-kubotai | [photo](https://media.aquatome.com/seriouslyfish/ab08fd880a5eb9ab.webp) | subject none |
 | species/parambassis-ranga | [photo](https://media.aquatome.com/commons/a501f5c9fa54ce76.webp) | subject none |
 | species/parambassis-ranga | [photo](https://media.aquatome.com/commons/cb62edb4f38e4bae.webp) | subject other |

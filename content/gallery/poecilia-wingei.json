@@ -372,9 +372,37 @@
       "caption": "Cá bảy màu Endler cái trong bể nuôi",
       "best": false,
       "kind": "female"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/615544290.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/615544290-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Gabriel Vera",
+      "sourceUrl": "https://www.inaturalist.org/photos/615544290",
+      "caption": "Đàn cá bảy màu Endler trong vùng nước nông tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/615544646.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/615544646-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Gabriel Vera",
+      "sourceUrl": "https://www.inaturalist.org/photos/615544646",
+      "caption": "Đàn cá Endler bơi giữa cỏ nước ở môi trường hoang dã",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
     }
   ],
-  "seen": 169,
-  "updatedAt": "2026-11-02",
-  "builtAt": "2026-11-02"
+  "seen": 176,
+  "updatedAt": "2026-11-24",
+  "builtAt": "2026-11-24"
 }

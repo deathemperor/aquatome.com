@@ -6,17 +6,17 @@
       "thumb": "https://media.aquatome.com/commons/7ae5ec939ef3c992-480.webp",
       "width": 1200,
       "height": 800,
+      "large": {
+        "url": "https://media.aquatome.com/commons/7ae5ec939ef3c992-large.webp",
+        "width": 1800,
+        "height": 1200
+      },
       "licence": "CC BY-SA 4.0",
       "author": "根川孝太郎 (Kotaro Negawa)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kitano_Medaka_female_by_Hino,_Tokyo.jpg",
       "caption": "Cá medaka đực nhìn nghiêng trên nền xanh tối",
       "best": true,
-      "kind": "male",
-      "large": {
-        "url": "https://media.aquatome.com/commons/7ae5ec939ef3c992-large.webp",
-        "width": 1800,
-        "height": 1200
-      }
+      "kind": "male"
     },
     {
       "url": "https://media.aquatome.com/commons/a626105ecf8035b5.webp",
@@ -35,17 +35,17 @@
       "thumb": "https://media.aquatome.com/inaturalist/394772870-480.webp",
       "width": 1024,
       "height": 683,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/394772870-large.webp",
+        "width": 1800,
+        "height": 1200
+      },
       "licence": "CC BY",
       "author": "WATANABE Hitoshi 渡辺仁",
       "sourceUrl": "https://www.inaturalist.org/photos/394772870",
       "caption": "Cá medaka Nhật trong môi trường nước nông có rong tảo",
       "best": true,
-      "kind": "habitat",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/394772870-large.webp",
-        "width": 1800,
-        "height": 1200
-      }
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/495d0e994bb6fcc2.webp",
@@ -232,34 +232,34 @@
       "thumb": "https://media.aquatome.com/commons/4f94899e8e811e8e-480.webp",
       "width": 1200,
       "height": 800,
+      "large": {
+        "url": "https://media.aquatome.com/commons/4f94899e8e811e8e-large.webp",
+        "width": 1800,
+        "height": 1200
+      },
       "licence": "CC BY-SA 3.0",
       "author": "根川孝太郎 (Kotaro Negawa)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kitano_Medaka_Male_by_Hino,_Tokyo.jpg",
       "caption": "Cá medaka đực vây vàng nhìn nghiêng",
       "best": true,
-      "kind": "male",
-      "large": {
-        "url": "https://media.aquatome.com/commons/4f94899e8e811e8e-large.webp",
-        "width": 1800,
-        "height": 1200
-      }
+      "kind": "male"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/631330028.webp",
       "thumb": "https://media.aquatome.com/inaturalist/631330028-480.webp",
       "width": 1024,
       "height": 768,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/631330028-large.webp",
+        "width": 1600,
+        "height": 1200
+      },
       "licence": "CC BY",
       "author": "りなべる",
       "sourceUrl": "https://www.inaturalist.org/photos/631330028",
       "caption": "Cá medaka Nhật trưởng thành trong hộp nhỏ có thước đo",
       "best": true,
-      "kind": "other",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/631330028-large.webp",
-        "width": 1600,
-        "height": 1200
-      }
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/216884292.webp",
@@ -368,9 +368,163 @@
       "caption": "Cá medaka Nhật trưởng thành bơi gần mặt nước trong bể",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/363147658.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/363147658-480.webp",
+      "width": 1024,
+      "height": 787,
+      "licence": "CC BY-NC",
+      "author": "Amaël Borzée",
+      "sourceUrl": "https://www.inaturalist.org/photos/363147658",
+      "caption": "Cá medaka Nhật bơi gần mặt nước trong ao ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/259494412.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/259494412-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "yah_japan",
+      "sourceUrl": "https://www.inaturalist.org/photos/259494412",
+      "caption": "Cá medaka nhìn nghiêng rõ nét trong hộp chụp ảnh",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/259496078.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/259496078-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "yah_japan",
+      "sourceUrl": "https://www.inaturalist.org/photos/259496078",
+      "caption": "Cá medaka có vây đuôi vàng trong hộp chụp ảnh",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/260314247.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/260314247-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "yah_japan",
+      "sourceUrl": "https://www.inaturalist.org/photos/260314247",
+      "caption": "Cá medaka trong hộp nhựa trong suốt, mắt xanh",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/394411580.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/394411580-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Shin.YD -iKBM",
+      "sourceUrl": "https://www.inaturalist.org/photos/394411580",
+      "caption": "Cá medaka Nhật trưởng thành bơi trong khay trong suốt",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/316259047.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/316259047-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "taek-guen-im",
+      "sourceUrl": "https://www.inaturalist.org/photos/316259047",
+      "caption": "Hai cá medaka bơi cạnh nhau trong khay trắng",
+      "best": false,
+      "kind": "pair",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/98108162.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/98108162-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "堀内伸一",
+      "sourceUrl": "https://www.inaturalist.org/photos/98108162",
+      "caption": "Đàn cá medaka trong hộp nhựa trong suốt ngoài trời",
+      "best": false,
+      "kind": "group",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/125748049.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/125748049-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "yshinada",
+      "sourceUrl": "https://www.inaturalist.org/photos/125748049",
+      "caption": "Cá medaka bơi bên đáy sỏi nhỏ, nền sáng",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/98108352.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/98108352-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "堀内伸一",
+      "sourceUrl": "https://www.inaturalist.org/photos/98108352",
+      "caption": "Nhiều cá medaka bơi trong hộp nhựa chụp ngoài trời",
+      "best": false,
+      "kind": "group",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/258955578.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/258955578-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "yah_japan",
+      "sourceUrl": "https://www.inaturalist.org/photos/258955578",
+      "caption": "Cá medaka nhìn nghiêng trong hộp chụp ảnh nhỏ",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/356269656.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/356269656-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "hakkahamushi",
+      "sourceUrl": "https://www.inaturalist.org/photos/356269656",
+      "caption": "Cá medaka Nhật nhỏ bơi trên khay lưới đen",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
     }
   ],
-  "seen": 100,
-  "updatedAt": "2026-11-02",
-  "builtAt": "2026-11-02"
+  "seen": 140,
+  "updatedAt": "2026-11-24",
+  "builtAt": "2026-11-24"
 }

@@ -18,17 +18,17 @@
       "thumb": "https://media.aquatome.com/commons/1275ad3e5b49f559-480.webp",
       "width": 1200,
       "height": 900,
+      "large": {
+        "url": "https://media.aquatome.com/commons/1275ad3e5b49f559-large.webp",
+        "width": 1600,
+        "height": 1200
+      },
       "licence": "Public domain",
       "author": "Greenspottedpuffer.net",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Green_Spotted_Puffer.jpg",
       "caption": "Cá nóc xanh đốm nhìn nghiêng trong bể, mắt to",
       "best": true,
-      "kind": "other",
-      "large": {
-        "url": "https://media.aquatome.com/commons/1275ad3e5b49f559-large.webp",
-        "width": 1600,
-        "height": 1200
-      }
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/fe06190fe2560ecb.webp",
@@ -149,9 +149,93 @@
       "caption": "Cá nóc xanh đốm bơi ở vùng nước nông",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/98208794.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/98208794-480.webp",
+      "width": 1024,
+      "height": 786,
+      "licence": "CC BY-NC",
+      "author": "Grigory Evtukh",
+      "sourceUrl": "https://www.inaturalist.org/photos/98208794",
+      "caption": "Cá nóc xanh đốm vàng đen bơi ở vùng nước nông",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/48873791.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/48873791-480.webp",
+      "width": 1024,
+      "height": 737,
+      "licence": "CC BY-NC",
+      "author": "Nico Vromant",
+      "sourceUrl": "https://www.inaturalist.org/photos/48873791",
+      "caption": "Cá nóc xanh đốm bơi trong bể, thân vàng đốm đen",
+      "best": true,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/145555234.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/145555234-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Fiora Li",
+      "sourceUrl": "https://www.inaturalist.org/photos/145555234",
+      "caption": "Cá nóc xanh đốm vàng trong rừng ngập mặn tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/208134194.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/208134194-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "sucker69420",
+      "sourceUrl": "https://www.inaturalist.org/photos/208134194",
+      "caption": "Cá nóc xanh đốm bơi trong nước đục ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/208134215.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/208134215-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "sucker69420",
+      "sourceUrl": "https://www.inaturalist.org/photos/208134215",
+      "caption": "Cá nóc xanh đốm bơi gần lá khô trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/208134232.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/208134232-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "sucker69420",
+      "sourceUrl": "https://www.inaturalist.org/photos/208134232",
+      "caption": "Cá nóc xanh đốm vằn đốm vàng bơi trong nước tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
     }
   ],
-  "seen": 36,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 76,
+  "updatedAt": "2026-11-24",
+  "builtAt": "2026-11-24"
 }

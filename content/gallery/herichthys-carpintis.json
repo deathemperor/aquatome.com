@@ -226,78 +226,7 @@
       "caption": "Cá đực màu xanh lam đốm trắng, vây lưng cao",
       "best": true,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/45057392.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/45057392-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Jonh Arias",
-      "sourceUrl": "https://www.inaturalist.org/photos/45057392",
-      "caption": "Cá rô phi Mexico non bơi gần đáy cát, thân ánh xanh",
-      "best": true,
-      "kind": "juvenile",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/37970121.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/37970121-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Salvador Luna Vargas",
-      "sourceUrl": "https://www.inaturalist.org/photos/37970121",
-      "caption": "Nhóm cá rô phi Mexico bơi dưới nước ngoài tự nhiên",
-      "best": true,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/26869262.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/26869262-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-NC",
-      "author": "Todd Fitzgerald",
-      "sourceUrl": "https://www.inaturalist.org/photos/26869262",
-      "caption": "Cá rô phi Mexico sống ngoài tự nhiên trên nền cát",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/30025702.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/30025702-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Josep Vilet",
-      "sourceUrl": "https://www.inaturalist.org/photos/30025702",
-      "caption": "Cá rô phi Mexico trưởng thành trong bể thủy sinh có đá",
-      "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/293901704.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/293901704-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-NC",
-      "author": "Ricardo Arredondo T.",
-      "sourceUrl": "https://www.inaturalist.org/photos/293901704",
-      "caption": "Ba con cá bơi gần đá trong nước xanh",
-      "best": true,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/91670503.webp",
@@ -310,22 +239,7 @@
       "caption": "Cá Herichthys carpintis bơi giữa đá dưới nước trong tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/95682644.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/95682644-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY-NC",
-      "author": "Marco Zozaya",
-      "sourceUrl": "https://www.inaturalist.org/photos/95682644",
-      "caption": "Cá Herichthys carpintis có sọc ngang bơi trên nền cát trong tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/111975600.webp",
@@ -338,36 +252,7 @@
       "caption": "Cá rô phi Mexico bơi trên nền cát ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/117713914.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/117713914-480.webp",
-      "width": 882,
-      "height": 786,
-      "licence": "CC BY-NC-SA",
-      "author": "R.E.Llanos",
-      "sourceUrl": "https://www.inaturalist.org/photos/117713914",
-      "caption": "Cá có sọc đen thân bơi gần đáy ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/151143210.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/151143210-480.webp",
-      "width": 1024,
-      "height": 682,
-      "licence": "CC BY-NC",
-      "author": "Sergio Terán",
-      "sourceUrl": "https://www.inaturalist.org/photos/151143210",
-      "caption": "Hai cá bơi trên nền đá ở suối tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/208221271.webp",
@@ -380,8 +265,33 @@
       "caption": "Cá rô phi Mexico bơi bên vách đá dưới nước",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/26869262.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/26869262-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Todd Fitzgerald",
+      "sourceUrl": "https://www.inaturalist.org/photos/26869262",
+      "caption": "Cá rô phi Mexico sống ngoài tự nhiên trên nền cát",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/151143210.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/151143210-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY-NC",
+      "author": "Sergio Terán",
+      "sourceUrl": "https://www.inaturalist.org/photos/151143210",
+      "caption": "Hai cá bơi trên nền đá ở suối tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/351194412.webp",
@@ -394,64 +304,7 @@
       "caption": "Cá rô phi Mexico sống trong suối nước nông trên đáy đá",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/572645364.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/572645364-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "sisi_ze",
-      "sourceUrl": "https://www.inaturalist.org/photos/572645364",
-      "caption": "Cá rô phi Mexico nhỏ bơi trên đáy cát ở nơi hoang dã",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/659225757.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/659225757-480.webp",
-      "width": 1024,
-      "height": 732,
-      "licence": "CC BY-NC",
-      "author": "micah_riegner",
-      "sourceUrl": "https://www.inaturalist.org/photos/659225757",
-      "caption": "Cá rô phi Mexico bơi giữa đá dưới nước ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/279899412.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/279899412-480.webp",
-      "width": 1024,
-      "height": 682,
-      "licence": "CC BY-NC",
-      "author": "Ricardo Arredondo T.",
-      "sourceUrl": "https://www.inaturalist.org/photos/279899412",
-      "caption": "Nhóm cá nhỏ bơi giữa đá dưới nước",
-      "best": false,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/117710484.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/117710484-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-NC-SA",
-      "author": "R.E.Llanos",
-      "sourceUrl": "https://www.inaturalist.org/photos/117710484",
-      "caption": "Cá lớn có đốm đen bơi trong nước đục ngoài tự nhiên",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/165619803.webp",
@@ -464,8 +317,7 @@
       "caption": "Cá có vằn ngang nằm trong vũng nước nông tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/254302981.webp",
@@ -478,8 +330,59 @@
       "caption": "Cá có sọc vằn bơi gần đáy bùn trong tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/45057392.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/45057392-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Jonh Arias",
+      "sourceUrl": "https://www.inaturalist.org/photos/45057392",
+      "caption": "Cá rô phi Mexico non bơi gần đáy cát, thân ánh xanh",
+      "best": true,
+      "kind": "juvenile",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/659225757.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/659225757-480.webp",
+      "width": 1024,
+      "height": 732,
+      "licence": "CC BY-NC",
+      "author": "micah_riegner",
+      "sourceUrl": "https://www.inaturalist.org/photos/659225757",
+      "caption": "Cá rô phi Mexico bơi giữa đá dưới nước ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/30025702.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/30025702-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Josep Vilet",
+      "sourceUrl": "https://www.inaturalist.org/photos/30025702",
+      "caption": "Cá rô phi Mexico trưởng thành trong bể thủy sinh có đá",
+      "best": true,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/279899412.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/279899412-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY-NC",
+      "author": "Ricardo Arredondo T.",
+      "sourceUrl": "https://www.inaturalist.org/photos/279899412",
+      "caption": "Nhóm cá nhỏ bơi giữa đá dưới nước",
+      "best": false,
+      "kind": "group",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/263824585.webp",
@@ -492,8 +395,7 @@
       "caption": "Cá bơi sát vách bê tông dưới nước",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/263824591.webp",
@@ -506,8 +408,85 @@
       "caption": "Cá có đốm bên cạnh bờ bê tông dưới nước",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/37970121.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/37970121-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Salvador Luna Vargas",
+      "sourceUrl": "https://www.inaturalist.org/photos/37970121",
+      "caption": "Nhóm cá rô phi Mexico bơi dưới nước ngoài tự nhiên",
+      "best": true,
+      "kind": "group",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/95682644.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/95682644-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY-NC",
+      "author": "Marco Zozaya",
+      "sourceUrl": "https://www.inaturalist.org/photos/95682644",
+      "caption": "Cá Herichthys carpintis có sọc ngang bơi trên nền cát trong tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/293901704.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/293901704-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Ricardo Arredondo T.",
+      "sourceUrl": "https://www.inaturalist.org/photos/293901704",
+      "caption": "Ba con cá bơi gần đá trong nước xanh",
+      "best": true,
+      "kind": "group",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/117713914.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/117713914-480.webp",
+      "width": 882,
+      "height": 786,
+      "licence": "CC BY-NC-SA",
+      "author": "R.E.Llanos",
+      "sourceUrl": "https://www.inaturalist.org/photos/117713914",
+      "caption": "Cá có sọc đen thân bơi gần đáy ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/572645364.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/572645364-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "sisi_ze",
+      "sourceUrl": "https://www.inaturalist.org/photos/572645364",
+      "caption": "Cá rô phi Mexico nhỏ bơi trên đáy cát ở nơi hoang dã",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/117710484.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/117710484-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC-SA",
+      "author": "R.E.Llanos",
+      "sourceUrl": "https://www.inaturalist.org/photos/117710484",
+      "caption": "Cá lớn có đốm đen bơi trong nước đục ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 211,

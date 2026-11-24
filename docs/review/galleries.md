@@ -5,12 +5,12 @@ Written by `pnpm engine gallery` (2026-11-24). Targets: packages/engine/src/gall
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
-| shop | 60 | 131 | 81 | 24 | 55 | 181 |
-| popular | 40 | 21 | 0 | 0 | 1 | 20 |
+| shop | 60 | 131 | 81 | 24 | 57 | 179 |
+| popular | 40 | 21 | 0 | 0 | 6 | 15 |
 | covered | 30 | 964 | 32 | 9 | 27 | 978 |
 | rest | 20 | 2005 | 81 | 0 | 126 | 1960 |
 
-## Short of target: every source read (826)
+## Short of target: every source read (819)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -297,41 +297,34 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/sewellia-breviventralis | shop | 0 | 60 |
 | species/botia-almorhae | shop | 7 | 60 |
 | species/marosatherina-ladigesi | shop | 2 | 60 |
-| species/pseudomugil-gertrudae | shop | 19 | 60 |
-| species/atyopsis-moluccensis | shop | 10 | 60 |
+| species/pseudomugil-gertrudae | shop | 17 | 60 |
+| species/atyopsis-moluccensis | shop | 7 | 60 |
 | species/vittina-waigiensis | shop | 5 | 60 |
 | species/cyrtocara-moorii | shop | 5 | 60 |
-| species/andinoacara-rivulatus | shop | 33 | 60 |
-| species/herichthys-carpintis | shop | 40 | 60 |
-| species/mastacembelus-erythrotaenia | shop | 8 | 60 |
+| species/andinoacara-rivulatus | shop | 31 | 60 |
+| species/herichthys-carpintis | shop | 39 | 60 |
+| species/mastacembelus-erythrotaenia | shop | 6 | 60 |
 | species/macrognathus-siamensis | shop | 19 | 60 |
 | species/mastacembelus-armatus | shop | 19 | 60 |
+| species/trichopodus-leerii | shop | 33 | 60 |
 | species/botia-kubotai | shop | 2 | 60 |
 | species/yasuhikotakia-modesta | shop | 2 | 60 |
-| species/parambassis-ranga | shop | 2 | 60 |
-| species/scatophagus-argus | shop | 36 | 60 |
-| species/piaractus-brachypomus | shop | 41 | 60 |
-| species/aphyocharax-anisitsi | shop | 1 | 60 |
+| species/parambassis-ranga | shop | 8 | 60 |
+| species/aphyocharax-anisitsi | shop | 3 | 60 |
 | species/nematobrycon-lacortei | shop | 0 | 60 |
-| species/moenkhausia-sanctaefilomenae | shop | 8 | 60 |
+| species/moenkhausia-sanctaefilomenae | shop | 9 | 60 |
 | species/symphysodon-discus | popular | 0 | 40 |
-| species/pterygoplichthys-pardalis | popular | 1 | 40 |
-| species/ancistrus-dolichopterus | popular | 5 | 40 |
+| species/pterygoplichthys-pardalis | popular | 8 | 40 |
+| species/ancistrus-dolichopterus | popular | 6 | 40 |
 | species/hemigrammus-erythrozonus | popular | 6 | 40 |
-| species/poecilia-wingei | popular | 31 | 40 |
-| species/oryzias-latipes | popular | 29 | 40 |
-| species/macropodus-opercularis | popular | 20 | 40 |
+| species/poecilia-wingei | popular | 33 | 40 |
 | species/pelvicachromis-pulcher | popular | 9 | 40 |
-| species/thorichthys-meeki | popular | 14 | 40 |
-| species/heros-severus | popular | 8 | 40 |
-| species/rocio-octofasciata | popular | 36 | 40 |
+| species/thorichthys-meeki | popular | 23 | 40 |
+| species/heros-severus | popular | 9 | 40 |
 | species/channa-barca | popular | 0 | 40 |
 | species/channa-bleheri | popular | 1 | 40 |
-| species/channa-micropeltes | popular | 14 | 40 |
 | species/datnioides-microlepis | popular | 2 | 40 |
 | species/datnioides-pulcher | popular | 2 | 40 |
-| species/pangasianodon-hypophthalmus | popular | 30 | 40 |
-| species/dichotomyctere-nigroviridis | popular | 12 | 40 |
 | species/pomacea-diffusa | popular | 15 | 40 |
 | breeds/electric-blue-ram | covered | 1 | 30 |
 | breeds/blue-diamond-discus | covered | 1 | 30 |

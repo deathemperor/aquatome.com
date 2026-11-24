@@ -547,8 +547,7 @@
       "caption": "Cá sặc bướm xanh tím với đốm đen bên thân trong bể thủy sinh",
       "best": true,
       "kind": "form",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/4454972.webp",
@@ -561,7 +560,20 @@
       "caption": "Cá sặc bướm bơi trong bể kính nhỏ",
       "best": true,
       "kind": "group",
-      "setup": true,
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/204245115.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/204245115-480.webp",
+      "width": 1024,
+      "height": 681,
+      "licence": "CC BY-NC",
+      "author": "batworker",
+      "sourceUrl": "https://www.inaturalist.org/photos/204245115",
+      "caption": "Cá sặc bướm bơi trong nước đục ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
       "unchecked": true
     },
     {
@@ -575,8 +587,7 @@
       "caption": "Cá sặc bướm trưởng thành trong bể ảnh nhỏ",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/57022845.webp",
@@ -589,35 +600,20 @@
       "caption": "Cặp cá sặc bướm màu xanh tím trong bể thủy sinh",
       "best": true,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/91829442.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/91829442-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/224141889.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/224141889-480.webp",
       "width": 1024,
-      "height": 768,
+      "height": 719,
       "licence": "CC BY-NC",
-      "author": "Naufal Urfi Dhiya'ulhaq",
-      "sourceUrl": "https://www.inaturalist.org/photos/91829442",
-      "caption": "Cá sặc bướm trên nền giấy kẻ ô để chụp ảnh",
+      "author": "Patrick James",
+      "sourceUrl": "https://www.inaturalist.org/photos/224141889",
+      "caption": "Hai cá sặc bướm bơi gần mặt nước trong ao",
       "best": true,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/110666306.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/110666306-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC-SA",
-      "author": "Aiman Azmi",
-      "sourceUrl": "https://www.inaturalist.org/photos/110666306",
-      "caption": "Nhóm cá sặc bướm sẫm màu trong khay nhựa",
-      "best": true,
-      "kind": "group",
-      "setup": true,
+      "kind": "habitat",
+      "setup": false,
       "unchecked": true
     },
     {
@@ -631,8 +627,7 @@
       "caption": "Cá sặc bướm ánh xanh trong lưới vợt",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/110733320.webp",
@@ -645,53 +640,38 @@
       "caption": "Nhóm cá sặc bướm ánh xanh trong lưới vợt",
       "best": true,
       "kind": "group",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/224141902.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/224141902-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Patrick James",
+      "sourceUrl": "https://www.inaturalist.org/photos/224141902",
+      "caption": "Cá sặc bướm với tia vây dài bơi trong ao",
+      "best": true,
+      "kind": "habitat",
       "setup": false,
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/159528881.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/159528881-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/169873006.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/169873006-480.webp",
       "width": 768,
       "height": 1024,
       "licence": "CC BY-NC",
-      "author": "Wilailuck Naksri",
-      "sourceUrl": "https://www.inaturalist.org/photos/159528881",
-      "caption": "Cá sặc bướm sọc vằn trong hộp chụp ảnh, nhìn từ trên",
-      "best": true,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/159528896.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/159528896-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Wilailuck Naksri",
-      "sourceUrl": "https://www.inaturalist.org/photos/159528896",
-      "caption": "Cá sặc bướm có vằn sọc rõ, mắt đỏ, trong hộp nhỏ",
-      "best": true,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/159848232.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/159848232-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "sdyaung",
-      "sourceUrl": "https://www.inaturalist.org/photos/159848232",
-      "caption": "Cá sặc bướm trong khay vàng, thân xám có vằn",
+      "author": "Akmal Idham",
+      "sourceUrl": "https://www.inaturalist.org/photos/169873006",
+      "caption": "Cá sặc bướm màu vàng nhạt trong túi nhựa trong suốt",
       "best": true,
       "kind": "other",
       "setup": true,
       "unchecked": true
     }
   ],
-  "seen": 406,
+  "seen": 446,
   "updatedAt": "2026-11-24",
   "builtAt": "2026-11-24"
 }
