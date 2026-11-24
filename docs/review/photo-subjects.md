@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules: docs/governance.md, "Photos".
-24405 verdicts. Shows it: 14919; its habitat (asked again): 3; something else: 616; not a photo of it: 388; dead or as food: 1160; a person in it: 363; a logo on it: 380; can't tell: 4625.
+24416 verdicts. Shows it: 14925; its habitat (asked again): 3; something else: 616; not a photo of it: 388; dead or as food: 1160; a person in it: 363; a logo on it: 382; can't tell: 4628.
 
 ## Left with no photo (187)
 
@@ -193,7 +193,7 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 - species/xenotilapia-sima
 - species/xiurenbagrus-gigas
 
-## Can't tell: still shown (4625)
+## Can't tell: still shown (4628)
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -1240,6 +1240,9 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/monodactylus-argenteus | [photo](https://media.aquatome.com/inaturalist/515266448.webp) | subject unsure |
 | species/monodactylus-argenteus | [photo](https://media.aquatome.com/inaturalist/615990151.webp) | subject unsure |
 | species/monodactylus-argenteus | [photo](https://media.aquatome.com/inaturalist/620831808.webp) | subject unsure |
+| plants/cardamine-lyrata | [photo](https://media.aquatome.com/inaturalist/736457406.webp) | subject unsure |
+| plants/cardamine-lyrata | [photo](https://media.aquatome.com/inaturalist/736468294.webp) | subject unsure |
+| plants/cardamine-lyrata | [photo](https://media.aquatome.com/inaturalist/736468552.webp) | subject unsure |
 | species/pseudomugil-furcatus | [photo](https://media.aquatome.com/aquariumcoop/2a3f6f00ca4019c1.webp) | subject unsure |
 | species/pseudomugil-furcatus | [photo](https://media.aquatome.com/inaturalist/309615729.webp) | subject unsure |
 | plants/ceratopteris-thalictroides | [photo](https://media.aquatome.com/commons/92b97a86c4af3399.webp) | subject unsure |
@@ -4823,9 +4826,9 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | plants/vallisneria-spiralis | [photo](https://media.aquatome.com/tropica/32a5549cfa5b0c5e.webp) | subject unsure |
 | species/crenicichla-marmorata | [photo](https://media.aquatome.com/commons/e8cb82a86126e499.webp) | subject unsure |
 
-## Removed (2837)
+## Removed (2839)
 
-"Something else" records a different subject; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
+"Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -5537,6 +5540,8 @@ Written by `pnpm engine check-photos` (2026-11-24), most-read pages first. Rules
 | species/astyanax-mexicanus | [photo](https://media.aquatome.com/flickr/14339090568.webp) | subject yes; logo |
 | species/iriatherina-werneri | [photo](https://media.aquatome.com/bwaquatics/cf6a56a53ceb687f.webp) | subject none |
 | species/helostoma-temminckii | [photo](https://media.aquatome.com/inaturalist/65478826.webp) | subject dead |
+| plants/bacopa-salzmannii | [photo](https://media.aquatome.com/inaturalist/141881019.webp) | subject yes; logo |
+| plants/bacopa-salzmannii | [photo](https://media.aquatome.com/inaturalist/141881033.webp) | subject yes; logo |
 | species/monodactylus-argenteus | [photo](https://media.aquatome.com/inaturalist/338086053.webp) | subject other |
 | species/monodactylus-argenteus | [photo](https://media.aquatome.com/inaturalist/338087674.webp) | subject other |
 | species/monodactylus-argenteus | [photo](https://media.aquatome.com/inaturalist/584576430.webp) | subject yes; logo |

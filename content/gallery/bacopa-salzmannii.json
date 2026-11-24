@@ -49,20 +49,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/141881019.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/141881019-480.webp",
-      "width": 1024,
-      "height": 784,
-      "licence": "CC BY-NC",
-      "author": "Mario Montero-Guzmán",
-      "sourceUrl": "https://www.inaturalist.org/photos/141881019",
-      "caption": "Bacopa salzmannii mọc ngoài tự nhiên giữa cỏ, có hoa nhỏ",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/154229655.webp",
       "thumb": "https://media.aquatome.com/inaturalist/154229655-480.webp",
       "width": 1024,
@@ -73,22 +59,7 @@
       "caption": "Hoa tím nhạt của Bacopa salzmannii nhìn cận cảnh",
       "best": true,
       "kind": "flower",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/141881033.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/141881033-480.webp",
-      "width": 1024,
-      "height": 770,
-      "licence": "CC BY-NC",
-      "author": "Mario Montero-Guzmán",
-      "sourceUrl": "https://www.inaturalist.org/photos/141881033",
-      "caption": "Cây Bacopa salzmannii ra hoa tím nhạt mọc giữa cỏ ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/154229910.webp",
@@ -101,8 +72,7 @@
       "caption": "Lá và thân Bacopa salzmannii mọc dày, nhìn cận cảnh",
       "best": false,
       "kind": "detail",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     }
   ],
   "seen": 13,
