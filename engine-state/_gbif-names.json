@@ -802,6 +802,14 @@
     "genus": "Akysis",
     "matchType": "EXACT"
   },
+  "Akysis leucorhynchus": {
+    "canonicalName": "Pseudobagarius leucorhynchus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Akysidae",
+    "genus": "Pseudobagarius",
+    "matchType": "EXACT"
+  },
   "Akysis longifilis": {
     "canonicalName": "Akysis longifilis",
     "order": "Siluriformes",
@@ -7149,6 +7157,14 @@
     "genus": "Tatia",
     "matchType": "EXACT"
   },
+  "Centromochlus existimatus": {
+    "canonicalName": "Centromochlus existimatus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Auchenipteridae",
+    "genus": "Centromochlus",
+    "matchType": "EXACT"
+  },
   "Centromochlus heckelii": {
     "canonicalName": "Centromochlus heckelii",
     "order": "Siluriformes",
@@ -7757,6 +7773,14 @@
   },
   "Characidium deludens": {
     "canonicalName": "Characidium deludens",
+    "order": "Characiformes",
+    "family": "Crenuchidae",
+    "genus": "Characidium",
+    "matchType": "EXACT"
+  },
+  "Characidium fasciadorsale": {
+    "canonicalName": "Characidium zebra",
+    "phylum": "Chordata",
     "order": "Characiformes",
     "family": "Crenuchidae",
     "genus": "Characidium",
@@ -8453,6 +8477,7 @@
     "genus": "Maskaheros",
     "matchType": "EXACT"
   },
+  "Cichlasoma relatives": null,
   "Cichlasoma sajica": {
     "canonicalName": "Amatitlania sajica",
     "order": "Perciformes",
@@ -8776,6 +8801,7 @@
   },
   "Clo trong": null,
   "Cloramin trong": null,
+  "Clorua cao": null,
   "Clou und": null,
   "Clupeichthys aesamensis": {
     "canonicalName": "Clupeichthys aesarnensis",
@@ -9076,6 +9102,14 @@
     "order": "Apiales",
     "family": "Apiaceae",
     "genus": "Conium",
+    "matchType": "EXACT"
+  },
+  "Conorhynchos nelsoni": {
+    "canonicalName": "Potamarius nelsoni",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Ariidae",
+    "genus": "Potamarius",
     "matchType": "EXACT"
   },
   "Conta conta": {
@@ -10007,6 +10041,14 @@
   },
   "Corydoras sterbai": {
     "canonicalName": "Corydoras sterbai",
+    "order": "Siluriformes",
+    "family": "Callichthyidae",
+    "genus": "Corydoras",
+    "matchType": "EXACT"
+  },
+  "Corydoras treitlii": {
+    "canonicalName": "Corydoras treitlii",
+    "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Callichthyidae",
     "genus": "Corydoras",
@@ -14065,6 +14107,7 @@
   "Giun grindal": null,
   "Giun huy": null,
   "Giun mua": null,
+  "Giun ngoe": null,
   "Giun nhi": null,
   "Giun nightcrawler": null,
   "Glanidium leopardus": {
@@ -14862,6 +14905,14 @@
     "genus": "Harttia",
     "matchType": "EXACT"
   },
+  "Harttia guianensis": {
+    "canonicalName": "Harttia guianensis",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Harttia",
+    "matchType": "EXACT"
+  },
   "Harttia honours": null,
   "Harttia kronei": {
     "canonicalName": "Harttia kronei",
@@ -14875,6 +14926,14 @@
     "order": "Siluriformes",
     "family": "Loricariidae",
     "genus": "Harttia",
+    "matchType": "EXACT"
+  },
+  "Harttia maculata": {
+    "canonicalName": "Cteniloricaria maculata",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Cteniloricaria",
     "matchType": "EXACT"
   },
   "Harttia nijsseni": {
@@ -14922,6 +14981,14 @@
     "matchType": "EXACT"
   },
   "Hasemania negodagua": null,
+  "Haustor ochoterenai": {
+    "canonicalName": "Ictalurus ochoterenai",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Ictaluridae",
+    "genus": "Ictalurus",
+    "matchType": "EXACT"
+  },
   "Hawksbill turtles": null,
   "Hazar toothcarp": null,
   "Heaterstat inline": null,
@@ -15732,6 +15799,14 @@
     "genus": "Hemisilurus",
     "matchType": "EXACT"
   },
+  "Hemisilurus mekongensis": {
+    "canonicalName": "Hemisilurus mekongensis",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Siluridae",
+    "genus": "Hemisilurus",
+    "matchType": "EXACT"
+  },
   "Hemisilurus moolenburghi": {
     "canonicalName": "Hemisilurus moolenburghi",
     "order": "Siluriformes",
@@ -16183,6 +16258,7 @@
   "Hoplisoma metae": null,
   "Hoplisoma nattereri": null,
   "Hoplisoma oiapoquense": null,
+  "Hoplisoma ortegai": null,
   "Hoplisoma paleatum": null,
   "Hoplisoma paragua": null,
   "Hoplisoma petracinii": null,
@@ -16486,6 +16562,14 @@
   },
   "Hypancistrus lunaorum": {
     "canonicalName": "Hypancistrus lunaorum",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Hypancistrus",
+    "matchType": "EXACT"
+  },
+  "Hypancistrus zebra": {
+    "canonicalName": "Hypancistrus zebra",
+    "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Loricariidae",
     "genus": "Hypancistrus",
@@ -17474,6 +17558,22 @@
     "genus": "Ictalurus",
     "matchType": "EXACT"
   },
+  "Ictalurus ochoterenai": {
+    "canonicalName": "Ictalurus ochoterenai",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Ictaluridae",
+    "genus": "Ictalurus",
+    "matchType": "EXACT"
+  },
+  "Ictalurus pricei": {
+    "canonicalName": "Ictalurus pricei",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Ictaluridae",
+    "genus": "Ictalurus",
+    "matchType": "EXACT"
+  },
   "Ictalurus serracanthus": {
     "canonicalName": "Ameiurus serracanthus",
     "order": "Siluriformes",
@@ -17572,6 +17672,14 @@
     "order": "Cyprinodontiformes",
     "family": "Goodeidae",
     "genus": "Ilyodon",
+    "matchType": "EXACT"
+  },
+  "Imparfinis minutus": {
+    "canonicalName": "Imparfinis minutus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Heptapteridae",
+    "genus": "Imparfinis",
     "matchType": "EXACT"
   },
   "Imparfinis mirini": {
@@ -18329,6 +18437,14 @@
     "genus": "Labiobarbus",
     "matchType": "EXACT"
   },
+  "Lacantunia enigmatica": {
+    "canonicalName": "Lacantunia enigmatica",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Lacantuniidae",
+    "genus": "Lacantunia",
+    "matchType": "EXACT"
+  },
   "Lactuca sativa": {
     "canonicalName": "Lactuca sativa",
     "order": "Asterales",
@@ -18818,6 +18934,15 @@
     "matchType": "EXACT"
   },
   "Leonell xem": null,
+  "Leopardus wiedii": {
+    "canonicalName": "Leopardus wiedii",
+    "phylum": "Chordata",
+    "class": "Mammalia",
+    "order": "Carnivora",
+    "family": "Felidae",
+    "genus": "Leopardus",
+    "matchType": "EXACT"
+  },
   "Lepidiolamprologus attenuatus": {
     "canonicalName": "Lepidiolamprologus attenuatus",
     "order": "Perciformes",
@@ -20637,6 +20762,14 @@
   },
   "Maylandia lombardoi": {
     "canonicalName": "Maylandia lombardoi",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Maylandia",
+    "matchType": "EXACT"
+  },
+  "Maylandia zebra": {
+    "canonicalName": "Maylandia zebra",
+    "phylum": "Chordata",
     "order": "Perciformes",
     "family": "Cichlidae",
     "genus": "Maylandia",
@@ -23360,6 +23493,7 @@
   "Ngay sau": null,
   "Ngay trong": null,
   "Nghe nhi": null,
+  "Nghe tuy": null,
   "Nha ngh": null,
   "Nickerie dist": null,
   "Nieuwe bijdrage": null,
@@ -23408,6 +23542,7 @@
   "Nitrat cao": null,
   "Nitrat kho": null,
   "Nitrat trong": null,
+  "Nitrit cao": null,
   "Nitrit sau": null,
   "Nitrospira moscoviensis": {
     "canonicalName": "Nitrospira moscoviensis",
@@ -25738,11 +25873,27 @@
     "genus": "Parasphaerichthys",
     "matchType": "FUZZY"
   },
+  "Parasturisoma maculata": {
+    "canonicalName": "Cteniloricaria maculata",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Cteniloricaria",
+    "matchType": "EXACT"
+  },
   "Parathelphusa pantherina": {
     "canonicalName": "Parathelphusa pantherina",
     "order": "Decapoda",
     "family": "Gecarcinucidae",
     "genus": "Parathelphusa",
+    "matchType": "EXACT"
+  },
+  "Paratheraps breidohri": {
+    "canonicalName": "Vieja breidohri",
+    "phylum": "Chordata",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Vieja",
     "matchType": "EXACT"
   },
   "Paratilapia polleni": {
@@ -27921,6 +28072,14 @@
     "genus": "Poropuntius",
     "matchType": "EXACT"
   },
+  "Potamarius nelsoni": {
+    "canonicalName": "Potamarius nelsoni",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Ariidae",
+    "genus": "Potamarius",
+    "matchType": "EXACT"
+  },
   "Potamocypoda parapugil": {
     "canonicalName": "Potamocypoda parapugil",
     "order": "Decapoda",
@@ -28879,6 +29038,14 @@
   },
   "Pseudomystus breviceps": {
     "canonicalName": "Pseudomystus breviceps",
+    "order": "Siluriformes",
+    "family": "Bagridae",
+    "genus": "Pseudomystus",
+    "matchType": "EXACT"
+  },
+  "Pseudomystus flavipinnis": {
+    "canonicalName": "Pseudomystus flavipinnis",
+    "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Bagridae",
     "genus": "Pseudomystus",
@@ -30509,6 +30676,14 @@
     "order": "Siluriformes",
     "family": "Heptapteridae",
     "genus": "Rhamdia",
+    "matchType": "EXACT"
+  },
+  "Rhamdioglanis transfasciatus": {
+    "canonicalName": "Rhamdioglanis transfasciatus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Heptapteridae",
+    "genus": "Rhamdioglanis",
     "matchType": "EXACT"
   },
   "Rhamphichthys rostratus": {
@@ -32590,6 +32765,14 @@
     "matchType": "EXACT"
   },
   "Spezies mit": null,
+  "Sphaeramia nematoptera": {
+    "canonicalName": "Sphaeramia nematoptera",
+    "phylum": "Chordata",
+    "order": "Perciformes",
+    "family": "Apogonidae",
+    "genus": "Sphaeramia",
+    "matchType": "EXACT"
+  },
   "Sphaerichthys acrostoma": {
     "canonicalName": "Sphaerichthys acrostoma",
     "order": "Perciformes",
@@ -34809,6 +34992,14 @@
     "genus": "Trichomycterus",
     "matchType": "EXACT"
   },
+  "Trichomycterus mondolfi": {
+    "canonicalName": "Trichomycterus mondolfi",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Trichomycteridae",
+    "genus": "Trichomycterus",
+    "matchType": "EXACT"
+  },
   "Trichomycterus spegazzinii": {
     "canonicalName": "Trichomycterus spegazzinii",
     "order": "Siluriformes",
@@ -35388,6 +35579,14 @@
   },
   "Vieja bifasciata": {
     "canonicalName": "Vieja bifasciata",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Vieja",
+    "matchType": "EXACT"
+  },
+  "Vieja breidohri": {
+    "canonicalName": "Vieja breidohri",
+    "phylum": "Chordata",
     "order": "Perciformes",
     "family": "Cichlidae",
     "genus": "Vieja",
