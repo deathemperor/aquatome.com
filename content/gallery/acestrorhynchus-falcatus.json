@@ -56,22 +56,7 @@
       "caption": "Cá măng đuôi đỏ trong môi trường tự nhiên giữa lá và cành",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/747390264.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/747390264-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-NC",
-      "author": "BOILEDIEU",
-      "sourceUrl": "https://www.inaturalist.org/photos/747390264",
-      "caption": "Cá măng đuôi đỏ bơi trong nước nông, thân dài, đuôi đỏ",
-      "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/458646617.webp",
@@ -84,8 +69,20 @@
       "caption": "Cá măng đuôi đỏ bơi gần mặt nước trong suối",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/747390264.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/747390264-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "BOILEDIEU",
+      "sourceUrl": "https://www.inaturalist.org/photos/747390264",
+      "caption": "Cá măng đuôi đỏ bơi trong nước nông, thân dài, đuôi đỏ",
+      "best": true,
+      "kind": "other",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/529129305.webp",
@@ -98,8 +95,7 @@
       "caption": "Cá măng đuôi đỏ bơi trên nền cát ở suối nước trong",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     }
   ],
   "seen": 36,

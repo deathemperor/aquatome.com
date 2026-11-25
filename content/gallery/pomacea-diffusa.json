@@ -182,20 +182,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/573259909.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/573259909-480.webp",
-      "width": 767,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Rizwan Rehim",
-      "sourceUrl": "https://www.inaturalist.org/photos/573259909",
-      "caption": "Ốc mystery vỏ cam đang bò trong bể",
-      "best": true,
-      "kind": "form",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/58044634.webp",
       "thumb": "https://media.aquatome.com/inaturalist/58044634-480.webp",
       "width": 1024,
@@ -207,20 +193,6 @@
       "best": true,
       "kind": "habitat",
       "setup": false
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/573260052.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/573260052-480.webp",
-      "width": 767,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Rizwan Rehim",
-      "sourceUrl": "https://www.inaturalist.org/photos/573260052",
-      "caption": "Ốc mystery vỏ cam to trong bể nước",
-      "best": true,
-      "kind": "form",
-      "setup": false,
-      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/188714733.webp",
@@ -259,8 +231,33 @@
       "caption": "Ốc mystery trên nền xi măng với ổ trứng trắng",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/227562034.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/227562034-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "supun_dilshan",
+      "sourceUrl": "https://www.inaturalist.org/photos/227562034",
+      "caption": "Ốc mystery vỏ vàng xanh cùng ốc con trong nước",
+      "best": false,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/573260052.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/573260052-480.webp",
+      "width": 767,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Rizwan Rehim",
+      "sourceUrl": "https://www.inaturalist.org/photos/573260052",
+      "caption": "Ốc mystery vỏ cam to trong bể nước",
+      "best": true,
+      "kind": "form",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/166288137.webp",
@@ -289,16 +286,16 @@
       "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/227562034.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/227562034-480.webp",
-      "width": 1024,
+      "url": "https://media.aquatome.com/inaturalist/573259909.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/573259909-480.webp",
+      "width": 767,
       "height": 1024,
       "licence": "CC BY-NC",
-      "author": "supun_dilshan",
-      "sourceUrl": "https://www.inaturalist.org/photos/227562034",
-      "caption": "Ốc mystery vỏ vàng xanh cùng ốc con trong nước",
-      "best": false,
-      "kind": "other",
+      "author": "Rizwan Rehim",
+      "sourceUrl": "https://www.inaturalist.org/photos/573259909",
+      "caption": "Ốc mystery vỏ cam đang bò trong bể",
+      "best": true,
+      "kind": "form",
       "setup": false
     },
     {
@@ -338,8 +335,7 @@
       "caption": "Ốc mystery thân nâu xanh trong xô trắng",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/496128276.webp",
@@ -352,8 +348,7 @@
       "caption": "Ốc mystery đang bò trong xô, thấy rõ râu và chân",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/262591084.webp",

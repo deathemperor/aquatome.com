@@ -1,7 +1,10 @@
 {
  "queue": [],
  "judged": [
-  "File:Yasuhikotakia nigrolineata.jpg"
+  "File:Yasuhikotakia nigrolineata.jpg",
+  "inat:660527071",
+  "inat:660527097",
+  "inat:660527120"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/f60817772bcaf388.webp": "27216367990c3c97",
@@ -25,6 +28,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 361854604,
+  "done": true
  },
  "exhausted": "2026-11-11"
 }

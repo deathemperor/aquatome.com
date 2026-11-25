@@ -5,7 +5,9 @@
   "File:Female Apistogramma bitaeniata 'Tefe'.jpg",
   "File:Apistogramma bitaeniata (11120154523).jpg",
   "flickr:11119978155",
-  "flickr:11120154523"
+  "flickr:11120154523",
+  "inat:68029800",
+  "inat:68029819"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/101c200138215ef1.webp": "721a0f1e0e0d39fb",
@@ -14,7 +16,8 @@
   "https://media.aquatome.com/commons/355ae217bd8f52c2.webp": "6c6f6e2f3c9c446c",
   "https://media.aquatome.com/glaser/9443f61bd6853f6f.webp": "6f0f2e4c754c0c0e",
   "https://media.aquatome.com/glaser/e488f3608fc634da.webp": "8d0ccbc45a0c1606",
-  "https://media.aquatome.com/glaser/5d36362fecb2f11c.webp": "87673c3c3616e6a6"
+  "https://media.aquatome.com/glaser/5d36362fecb2f11c.webp": "87673c3c3616e6a6",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/68029819/large.jpeg": "200202204c98b918"
  },
  "commons": "2026-11-04",
  "inat": {
@@ -31,5 +34,10 @@
  },
  "openverse": {
   "next": null
- }
+ },
+ "inatNc": {
+  "after": 42837494,
+  "done": true
+ },
+ "exhausted": "2026-11-25"
 }

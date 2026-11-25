@@ -13,9 +13,23 @@
       "best": true,
       "kind": "form",
       "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/116477879.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/116477879-480.webp",
+      "width": 1024,
+      "height": 986,
+      "licence": "CC BY-NC",
+      "author": "Hubert Szczygieł",
+      "sourceUrl": "https://www.inaturalist.org/photos/116477879",
+      "caption": "Cá Compressiceps sọc vằn bơi giữa nước trong hồ Tanganyika",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
     }
   ],
-  "seen": 1,
-  "updatedAt": "2026-11-15",
-  "builtAt": "2026-11-15"
+  "seen": 8,
+  "updatedAt": "2026-11-25",
+  "builtAt": "2026-11-25"
 }

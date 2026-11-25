@@ -228,20 +228,19 @@
       "caption": "Cá mắt xanh đực trong hộp trong suốt để chụp ảnh",
       "best": true,
       "kind": "male",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/30525274.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/30525274-480.webp",
-      "width": 1024,
-      "height": 658,
+      "url": "https://media.aquatome.com/inaturalist/181032227.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/181032227-480.webp",
+      "width": 931,
+      "height": 690,
       "licence": "CC BY-NC",
-      "author": "James Bailey",
-      "sourceUrl": "https://www.inaturalist.org/photos/30525274",
-      "caption": "Cá mắt xanh Thái Bình Dương bơi gần mặt nước ngoài tự nhiên",
+      "author": "Leo O",
+      "sourceUrl": "https://www.inaturalist.org/photos/181032227",
+      "caption": "Cặp cá mắt xanh Thái Bình Dương trong bể thủy sinh",
       "best": true,
-      "kind": "habitat",
+      "kind": "pair",
       "setup": false,
       "unchecked": true
     },
@@ -256,7 +255,20 @@
       "caption": "Cá mắt xanh Thái Bình Dương trưởng thành trong bể ảnh nhỏ",
       "best": true,
       "kind": "other",
-      "setup": true,
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/181032641.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/181032641-480.webp",
+      "width": 800,
+      "height": 638,
+      "licence": "CC BY-NC",
+      "author": "Leo O",
+      "sourceUrl": "https://www.inaturalist.org/photos/181032641",
+      "caption": "Cá mắt xanh Thái Bình Dương đực vây vàng cam trong bể trồng cây",
+      "best": true,
+      "kind": "male",
+      "setup": false,
       "unchecked": true
     },
     {
@@ -270,8 +282,7 @@
       "caption": "Cá mắt xanh Thái Bình Dương vây vàng trong bể ảnh",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/54508097.webp",
@@ -284,8 +295,7 @@
       "caption": "Cá mắt xanh Thái Bình Dương vàng bơi trong bể kính",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/106960859.webp",
@@ -298,48 +308,19 @@
       "caption": "Cá mắt xanh Thái Bình Dương trong bể nhỏ chụp ảnh",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/11598740.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/11598740-480.webp",
-      "width": 1024,
-      "height": 576,
+      "url": "https://media.aquatome.com/inaturalist/238068911.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/238068911-480.webp",
+      "width": 473,
+      "height": 1024,
       "licence": "CC BY-NC",
-      "author": "spqrblake",
-      "sourceUrl": "https://www.inaturalist.org/photos/11598740",
-      "caption": "Nhóm cá mắt xanh Thái Bình Dương trong bể ảnh nhỏ",
-      "best": false,
-      "kind": "group",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/30525271.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/30525271-480.webp",
-      "width": 1024,
-      "height": 677,
-      "licence": "CC BY-NC",
-      "author": "James Bailey",
-      "sourceUrl": "https://www.inaturalist.org/photos/30525271",
-      "caption": "Cá mắt xanh Thái Bình Dương trong suối nước nông",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/11598743.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/11598743-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY-NC",
-      "author": "spqrblake",
-      "sourceUrl": "https://www.inaturalist.org/photos/11598743",
-      "caption": "Đàn cá mắt xanh Thái Bình Dương trong bể ảnh",
-      "best": false,
-      "kind": "group",
+      "author": "Hiroya Kidoguchi",
+      "sourceUrl": "https://www.inaturalist.org/photos/238068911",
+      "caption": "Cá mắt xanh Thái Bình Dương trong hộp ảnh nhỏ ngoài tự nhiên",
+      "best": true,
+      "kind": "other",
       "setup": true,
       "unchecked": true
     },
@@ -354,8 +335,7 @@
       "caption": "Đàn cá mắt xanh Thái Bình Dương trong nước nông ngoài tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/30824342.webp",
@@ -368,8 +348,7 @@
       "caption": "Cá mắt xanh Thái Bình Dương trên đáy suối",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/49766113.webp",
@@ -382,8 +361,7 @@
       "caption": "Cá mắt xanh Thái Bình Dương bơi gần đá dưới suối",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/139155208.webp",
@@ -396,11 +374,36 @@
       "caption": "Cá mắt xanh đực ngoài tự nhiên giữa đá sỏi suối",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/30525274.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/30525274-480.webp",
+      "width": 1024,
+      "height": 658,
+      "licence": "CC BY-NC",
+      "author": "James Bailey",
+      "sourceUrl": "https://www.inaturalist.org/photos/30525274",
+      "caption": "Cá mắt xanh Thái Bình Dương bơi gần mặt nước ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/30525271.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/30525271-480.webp",
+      "width": 1024,
+      "height": 677,
+      "licence": "CC BY-NC",
+      "author": "James Bailey",
+      "sourceUrl": "https://www.inaturalist.org/photos/30525271",
+      "caption": "Cá mắt xanh Thái Bình Dương trong suối nước nông",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     }
   ],
-  "seen": 129,
-  "updatedAt": "2026-11-24",
-  "builtAt": "2026-11-24"
+  "seen": 149,
+  "updatedAt": "2026-11-25",
+  "builtAt": "2026-11-25"
 }

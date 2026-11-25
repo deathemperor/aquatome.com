@@ -1,7 +1,22 @@
 {
   "id": "akysis-prashadi",
-  "photos": [],
-  "seen": 0,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/539035168.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/539035168-480.webp",
+      "width": 1024,
+      "height": 609,
+      "licence": "CC BY-NC",
+      "author": "Khant Ye Yint ( Lord Khanevyr ov Mandralyx)",
+      "sourceUrl": "https://www.inaturalist.org/photos/539035168",
+      "caption": "Hai cá trê suối Indawgyi trong chậu nhựa xanh",
+      "best": true,
+      "kind": "group",
+      "setup": true,
+      "unchecked": true
+    }
+  ],
+  "seen": 1,
+  "updatedAt": "2026-11-25",
+  "builtAt": "2026-11-25"
 }

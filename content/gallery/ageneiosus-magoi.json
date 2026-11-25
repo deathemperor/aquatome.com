@@ -2,6 +2,34 @@
   "id": "ageneiosus-magoi",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/709410338.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/709410338-480.webp",
+      "width": 1024,
+      "height": 583,
+      "licence": "CC BY-NC",
+      "author": "Leo G. Nico",
+      "sourceUrl": "https://www.inaturalist.org/photos/709410338",
+      "caption": "Cá trê cá heo Magoi sọc đen trắng trên nền sỏi",
+      "best": true,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/709410349.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/709410349-480.webp",
+      "width": 1024,
+      "height": 657,
+      "licence": "CC BY-NC",
+      "author": "Leo G. Nico",
+      "sourceUrl": "https://www.inaturalist.org/photos/709410349",
+      "caption": "Cá trê cá heo Magoi bơi nhìn nghiêng trong bể",
+      "best": true,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/glaser/aa2397db6895b69f.webp",
       "thumb": "https://media.aquatome.com/glaser/aa2397db6895b69f-480.webp",
       "width": 850,
@@ -32,6 +60,7 @@
       "source": "glaser"
     }
   ],
-  "seen": 0,
-  "updatedAt": "2026-11-20"
+  "seen": 3,
+  "updatedAt": "2026-11-25",
+  "builtAt": "2026-11-25"
 }

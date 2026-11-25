@@ -1,16 +1,16 @@
 # Photo galleries
 
-Written by `pnpm engine gallery` (2026-11-24). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
+Written by `pnpm engine gallery` (2026-11-25). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
 | shop | 60 | 131 | 81 | 24 | 57 | 179 |
 | popular | 40 | 21 | 0 | 0 | 9 | 12 |
-| covered | 30 | 964 | 32 | 9 | 30 | 975 |
+| covered | 30 | 964 | 32 | 9 | 32 | 973 |
 | rest | 20 | 2006 | 81 | 0 | 126 | 1961 |
 
-## Short of target: every source read (845)
+## Short of target: every source read (875)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -388,7 +388,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hypancistrus-inspector | covered | 0 | 30 |
 | species/hypancistrus-zebra | covered | 0 | 30 |
 | species/hyphessobrycon-vilmae | covered | 2 | 30 |
-| species/hypostomus-luteus | covered | 2 | 30 |
+| species/hypostomus-luteus | covered | 1 | 30 |
 | species/hypostomus-roseopunctatus | covered | 0 | 30 |
 | species/kryptopterus-geminus | covered | 0 | 30 |
 | species/lasiancistrus-heteracanthus | covered | 0 | 30 |
@@ -398,28 +398,28 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/macropodus-spechti | covered | 0 | 30 |
 | species/mastiglanis-asopos | covered | 0 | 30 |
 | species/megalancistrus-parananus | covered | 1 | 30 |
-| species/moenkhausia-oligolepis | covered | 9 | 30 |
+| species/moenkhausia-oligolepis | covered | 8 | 30 |
 | species/monocirrhus-polyacanthus | covered | 10 | 30 |
 | species/myloplus-schomburgkii | covered | 2 | 30 |
 | species/nothobranchius-rachovii | covered | 4 | 30 |
 | species/oryzias-woworae | covered | 1 | 30 |
-| species/parauchenoglanis-punctatus | covered | 1 | 30 |
+| species/parauchenoglanis-punctatus | covered | 0 | 30 |
 | species/parosphromenus-linkei | covered | 0 | 30 |
 | species/physopyxis-lyra | covered | 0 | 30 |
-| species/pseudeutropius-brachypopterus | covered | 1 | 30 |
-| species/pseudohemiodon-laticeps | covered | 2 | 30 |
+| species/pseudeutropius-brachypopterus | covered | 0 | 30 |
+| species/pseudohemiodon-laticeps | covered | 0 | 30 |
 | species/pterobunocephalus-depressus | covered | 0 | 30 |
 | species/pterophyllum-altum | covered | 16 | 30 |
 | species/pterygoplichthys-gibbiceps | covered | 15 | 30 |
-| species/sphaerichthys-osphromenoides | covered | 21 | 30 |
+| species/sphaerichthys-osphromenoides | covered | 17 | 30 |
 | species/sphaerichthys-selatanensis | covered | 0 | 30 |
 | species/sphaerichthys-vaillanti | covered | 3 | 30 |
-| species/stiphodon-ornatus | covered | 11 | 30 |
+| species/stiphodon-ornatus | covered | 5 | 30 |
 | species/sturisomatichthys-leightoni | covered | 0 | 30 |
 | species/tatia-gyrina | covered | 0 | 30 |
 | species/tatia-strigata | covered | 0 | 30 |
 | species/tetraodon-mbu | covered | 21 | 30 |
-| species/trichogaster-chuna | covered | 14 | 30 |
+| species/trichogaster-chuna | covered | 12 | 30 |
 | species/xyliphius-lepturus | covered | 0 | 30 |
 | species/yunnanilus-cruciatus | covered | 0 | 30 |
 | species/abramites-hypselonotus | covered | 5 | 30 |
@@ -428,58 +428,80 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/acanthocobitis-botia | covered | 0 | 30 |
 | species/acanthopsoides-robertsi | covered | 0 | 30 |
 | species/acantopsis-dialuzona | covered | 5 | 30 |
-| species/acarichthys-heckelii | covered | 9 | 30 |
+| species/acarichthys-heckelii | covered | 3 | 30 |
 | species/acentronichthys-leptos | covered | 0 | 30 |
 | species/acestridium-dichromum | covered | 1 | 30 |
 | species/acestrorhynchus-altus | covered | 0 | 30 |
 | species/acestrorhynchus-falcatus | covered | 8 | 30 |
 | species/acestrorhynchus-isalineae | covered | 0 | 30 |
-| species/acestrorhynchus-pantaneiro | covered | 7 | 30 |
+| species/acestrorhynchus-pantaneiro | covered | 5 | 30 |
 | species/acnodon-normani | covered | 1 | 30 |
-| species/ageneiosus-magoi | covered | 3 | 30 |
+| species/ageneiosus-lineatus | covered | 0 | 30 |
+| species/ageneiosus-magoi | covered | 5 | 30 |
 | species/ageneiosus-ucayalensis | covered | 0 | 30 |
 | species/aguarunichthys-tocantinsensis | covered | 0 | 30 |
-| species/akysis-hendricksoni | covered | 0 | 30 |
+| species/ailia-coila | covered | 2 | 30 |
+| species/akysis-hendricksoni | covered | 4 | 30 |
 | species/akysis-longifilis | covered | 0 | 30 |
-| species/akysis-maculipinnis | covered | 0 | 30 |
-| species/akysis-prashadi | covered | 0 | 30 |
+| species/akysis-maculipinnis | covered | 1 | 30 |
+| species/akysis-prashadi | covered | 1 | 30 |
 | species/akysis-varius | covered | 0 | 30 |
+| species/allenbatrachus-grunniens | covered | 1 | 30 |
 | species/altolamprologus-calvus | covered | 1 | 30 |
-| species/altolamprologus-compressiceps | covered | 1 | 30 |
+| species/altolamprologus-compressiceps | covered | 3 | 30 |
 | species/amaralia-hypsiura | covered | 0 | 30 |
 | species/ambastaia-nigrolineata | covered | 1 | 30 |
-| species/anabas-testudineus | covered | 7 | 30 |
+| species/amblyceps-laticeps | covered | 0 | 30 |
+| species/amphilius-platychir | covered | 3 | 30 |
 | species/anadoras-grypus | covered | 3 | 30 |
 | species/ancharius-fuscus | covered | 0 | 30 |
+| species/ancistrus-leucostictus | covered | 0 | 30 |
 | species/ancistrus-macrophthalmus | covered | 4 | 30 |
+| species/ancistrus-patronus | covered | 0 | 30 |
 | species/ancistrus-ranunculus | covered | 0 | 30 |
+| species/ancistrus-triradiatus | covered | 2 | 30 |
 | species/annamia-normani | covered | 0 | 30 |
 | species/anostomus-anostomus | covered | 2 | 30 |
 | species/anostomus-ternetzi | covered | 0 | 30 |
+| species/aphyocharax-nattereri | covered | 0 | 30 |
+| species/aphyosemion-australe | covered | 15 | 30 |
+| species/aphyosemion-bivittatum | covered | 0 | 30 |
 | species/aphyosemion-gabunense | covered | 1 | 30 |
-| species/apistogramma-baenschi | covered | 0 | 30 |
-| species/apistogramma-borellii | covered | 19 | 30 |
+| species/aphyosemion-striatum | covered | 0 | 30 |
+| species/apistogramma-baenschi | covered | 4 | 30 |
+| species/apistogramma-barlowi | covered | 0 | 30 |
+| species/apistogramma-bitaeniata | covered | 3 | 30 |
+| species/apistogramma-borellii | covered | 24 | 30 |
 | species/apistogramma-cacatuoides | covered | 22 | 30 |
-| species/apistogramma-commbrae | covered | 1 | 30 |
+| species/apistogramma-commbrae | covered | 3 | 30 |
 | species/apistogramma-elizabethae | covered | 0 | 30 |
+| species/apistogramma-eremnopyge | covered | 0 | 30 |
 | species/apistogramma-eunotus | covered | 0 | 30 |
 | species/apistogramma-gibbiceps | covered | 0 | 30 |
 | species/apistogramma-macmasteri | covered | 3 | 30 |
 | species/apistogramma-mendezi | covered | 1 | 30 |
+| species/apistogramma-nijsseni | covered | 4 | 30 |
 | species/apistogramma-panduro | covered | 3 | 30 |
+| species/apistogramma-pantalone | covered | 0 | 30 |
 | species/apistogramma-paulmuelleri | covered | 0 | 30 |
-| species/apistogramma-trifasciata | covered | 3 | 30 |
-| species/ariopsis-felis | covered | 20 | 30 |
-| species/ariopsis-seemanni | covered | 0 | 30 |
+| species/apistogramma-trifasciata | covered | 4 | 30 |
+| species/aplocheilus-blockii | covered | 11 | 30 |
+| species/ariopsis-seemanni | covered | 2 | 30 |
 | species/aspidoras-pauciradiatus | covered | 4 | 30 |
+| species/aspidoras-raimundi | covered | 2 | 30 |
 | species/aspidoras-taurus | covered | 3 | 30 |
+| species/astyanax-jordani | covered | 7 | 30 |
 | species/astyanax-leopoldi | covered | 0 | 30 |
-| species/atractosteus-tristoechus | covered | 2 | 30 |
+| species/atractosteus-tristoechus | covered | 9 | 30 |
+| species/auchenipterichthys-coracoideus | covered | 0 | 30 |
+| species/auchenipterichthys-punctatus | covered | 0 | 30 |
 | species/auchenipterus-nigripinnis | covered | 1 | 30 |
+| species/aulonocara-maylandi | covered | 1 | 30 |
 | species/axelrodia-stigmatias | covered | 0 | 30 |
+| species/badis-assamensis | covered | 1 | 30 |
 | species/badis-badis | covered | 2 | 30 |
+| species/badis-corycaeus | covered | 0 | 30 |
 | species/bagarius-suchus | covered | 0 | 30 |
-| species/bagre-marinus | covered | 7 | 30 |
 | species/bagrichthys-hypselopterus | covered | 0 | 30 |
 | species/bagrichthys-macracanthus | covered | 0 | 30 |
 | species/bagrichthys-obscurus | covered | 0 | 30 |
@@ -851,8 +873,16 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/ageneiosus-militaris | rest | 0 | 20 |
 | species/ageneiosus-pardalis | rest | 0 | 20 |
 | species/ageneiosus-vittatus | rest | 0 | 20 |
+| species/ailiichthys-punctata | rest | 0 | 20 |
 | species/akysis-pictus | rest | 0 | 20 |
 | species/akysis-variegatus | rest | 0 | 20 |
+| species/alestopetersius-hilgendorfi | rest | 0 | 20 |
+| species/alestopetersius-leopoldianus | rest | 0 | 20 |
+| species/alestopetersius-nigropterus | rest | 0 | 20 |
+| species/alestopetersius-smykalai | rest | 0 | 20 |
+| species/amblyceps-apangi | rest | 0 | 20 |
+| species/amblyceps-arunachalense | rest | 0 | 20 |
+| species/amblyceps-caecutiens | rest | 0 | 20 |
 | species/ariopsis-assimilis | rest | 14 | 20 |
 | species/astroblepus-mindoensis | rest | 1 | 20 |
 | species/colomesus-tocantinensis | rest | 3 | 20 |

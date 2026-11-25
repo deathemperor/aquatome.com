@@ -3,7 +3,10 @@
  "judged": [
   "File:GrandidierMadagascarFishes 0087.jpg",
   "File:Batrachus grunniens Ford 59.jpg",
-  "File:Batrachus grunniens Ford 60.jpg"
+  "File:Batrachus grunniens Ford 60.jpg",
+  "inat:475177954",
+  "inat:760626343",
+  "inat:760618633"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/2f639cd464d93059.webp": "86c6c7577afcf0fc",
@@ -12,7 +15,8 @@
   "https://media.aquatome.com/commons/58d4fccf4ab56485.webp": "8f87d6c6caf2dcff",
   "https://media.aquatome.com/glaser/da207146ad15f493.webp": "8627259c31efd6dc",
   "https://media.aquatome.com/glaser/0ef68d2dcc8afc4c.webp": "476b55f1e4e87cdb",
-  "https://media.aquatome.com/glaser/c9c1aa0209b2bc0b.webp": "6bfe3270ccc4ddb5"
+  "https://media.aquatome.com/glaser/c9c1aa0209b2bc0b.webp": "6bfe3270ccc4ddb5",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/760626343/large.jpg": "6f3770e4c2d2f2c0"
  },
  "commons": "2026-11-03",
  "inat": {
@@ -29,5 +33,10 @@
  },
  "openverse": {
   "next": null
- }
+ },
+ "inatNc": {
+  "after": 413283585,
+  "done": true
+ },
+ "exhausted": "2026-11-25"
 }

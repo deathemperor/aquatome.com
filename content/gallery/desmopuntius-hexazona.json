@@ -37,8 +37,7 @@
       "caption": "Cá pentazona bơi trên nền cát trong môi trường tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/204550228.webp",
@@ -64,8 +63,7 @@
       "caption": "Nhóm cá pentazona trong bể có đá cuội và sỏi trắng",
       "best": true,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/351162347.webp",
@@ -91,8 +89,7 @@
       "caption": "Cá pentazona trưởng thành với vằn đen rõ trong bể nhỏ",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/472002880.webp",
@@ -105,8 +102,7 @@
       "caption": "Cá pentazona vằn đen thân cam chụp trong hộp có thước đo",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/644026029.webp",
@@ -119,8 +115,7 @@
       "caption": "Cá pentazona thân sọc đen nổi bật trên nền đen",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/559652863.webp",
@@ -133,8 +128,20 @@
       "caption": "Cá pentazona giữa đá và cát dưới suối",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/559652911.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/559652911-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Tse Chung Yi",
+      "sourceUrl": "https://www.inaturalist.org/photos/559652911",
+      "caption": "Cá pentazona bên gốc rễ và cát trong suối",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/254959938.webp",
@@ -150,20 +157,6 @@
       "setup": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/559652911.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/559652911-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Tse Chung Yi",
-      "sourceUrl": "https://www.inaturalist.org/photos/559652911",
-      "caption": "Cá pentazona bên gốc rễ và cát trong suối",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/376180039.webp",
       "thumb": "https://media.aquatome.com/inaturalist/376180039-480.webp",
       "width": 1024,
@@ -174,8 +167,7 @@
       "caption": "Cá pentazona bơi trong hộp nhựa trong ngoài tự nhiên",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/glaser/a533b6936435596f.webp",

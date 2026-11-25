@@ -122,20 +122,6 @@
       "kind": "form"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/699538336.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/699538336-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "RAHAMAT ALI Bol",
-      "sourceUrl": "https://www.inaturalist.org/photos/699538336",
-      "caption": "Cá sặc mật ong đực màu đỏ cam trên nền trắng",
-      "best": true,
-      "kind": "male",
-      "setup": true,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/343078493.webp",
       "thumb": "https://media.aquatome.com/inaturalist/343078493-480.webp",
       "width": 1024,
@@ -146,8 +132,7 @@
       "caption": "Cá sặc mật ong cái bơi giữa cây thủy sinh trong bể",
       "best": true,
       "kind": "female",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/699538397.webp",
@@ -160,8 +145,7 @@
       "caption": "Nhóm cá sặc mật ong đực và cái trong khay trắng",
       "best": true,
       "kind": "group",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     }
   ],
   "seen": 21,

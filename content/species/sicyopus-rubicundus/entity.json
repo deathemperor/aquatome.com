@@ -129,7 +129,19 @@
       ]
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/460129993.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/460129993-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Tse Chung Yi",
+      "sourceUrl": "https://www.inaturalist.org/photos/460129993",
+      "caption": "Cá đực thân cam đỏ nằm trên tảng đá trong suối",
+      "setup": false
+    }
+  ],
   "videos": [
     {
       "youtubeId": "vgsLgjNbqeU",
