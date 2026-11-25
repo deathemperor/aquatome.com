@@ -5395,10 +5395,14 @@
     "reason": "no scientific name given"
   },
   "X_n4L6CUFWg": {
-    "at": "2026-11-07",
+    "at": "2026-11-25",
     "title": "Get to Know the Playful Panda Garra, Garra flavatra - Popular Aquarium Fish",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Garra flavatra",
+    "page": "species/garra-flavatra",
+    "done": "added",
+    "score": 0.85
   },
   "X0PY-fQPEfc": {
     "at": "2026-11-07",
@@ -5517,10 +5521,12 @@
     "reason": "food deep dive, not a species page"
   },
   "xPQzJa2CvuY": {
-    "at": "2026-11-07",
+    "at": "2026-11-25",
     "title": "Platy Fish (Species Spotlight)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "Xry0LnxTpu0": {
     "at": "2026-11-07",
@@ -5571,10 +5577,15 @@
     "reason": "tank setup"
   },
   "XzI-SP6ZWoM": {
-    "at": "2026-11-07",
+    "at": "2026-11-25",
     "title": "Borneo Red Fin Silver Shark - Cyclocheilichthys janthochir - Rare Barb Fish Profile & Care Guide",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Cyclocheilichthys janthochir",
+    "page": "species/cyclocheilichthys-janthochir",
+    "done": "low",
+    "score": 0.6,
+    "reason": "[distribution] \"Loài này chỉ có ở lưu vực sông Kapuas\" repeats what the page already says (endemic, Kapuas collection locality), so it adds nothing new.; [notes] Body and fin description (silver body, red fins, black stripe) repeats the page's identification text (red marks on dorsal and caudal fins, black stripe along the body). Only the transparent fins and the torpedo shape are new."
   },
   "y-kWuJb76c4": {
     "at": "2026-11-07",

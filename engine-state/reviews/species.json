@@ -1239,6 +1239,46 @@
       "kept": false
     }
   ],
+  "vi/species/cyclocheilichthys-janthochir#XzI-SP6ZWoM": [
+    {
+      "at": "2026-11-25T02:44:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.55,
+      "notes": [
+        "[behaviour] \"Một người nuôi cho rằng có thể nuôi riêng một con\" – the video states this as general advice, not one keeper's view; misattributed framing.",
+        "[behaviour] \"hợp nhất là những loài cỡ vừa, hiền... cá ngựa vằn\" – partly overlaps with the page, which already lists compatible tankmates. Rasbora and zebrafish are video-only.",
+        "[behaviour] \"nhóm 6–8 con\" – the page already says to keep a group of six or more, so this partly repeats it.",
+        "[behaviour] \"Cá rất nhát và dễ giật mình\" – the page already covers shyness (\"bớt nhát\"). Low value as new content.",
+        "[maintenance] \"Muốn giữ nitrat thấp thì bể cần sủi khí, lọc mạnh\" – the video says this, but the page already says the fish can't tolerate organic waste and needs clean water. Partial repeat.",
+        "[notes] \"Vây ngực, vây bụng và vây hậu môn của nó trong suốt\" – fine per the video. But \"Thân cá thuôn dài như hình ngư lôi\" omits the silvery colour. The video also says the body is torpedo-shaped, not just elongated.",
+        "[diet] \"bọ gậy\" for mosquito larvae is OK. \"Cá cũng ăn thức ăn khô dạng hạt\" repeats the page, which already lists flakes and pellets (\"dạng mảnh và dạng viên\"). It also leaves out flakes and pellets.",
+        "[dimorphism] \"chưa ai xác nhận\" – the video says it is \"believed\", and the page already carries the same claim about the thicker body and paler colour. It repeats the page and doesn't say how the video differs."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-25T02:44:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.6,
+      "notes": [
+        "[distribution] \"Loài này chỉ có ở lưu vực sông Kapuas\" repeats what the page already says (endemic, Kapuas collection locality), so it adds nothing new.",
+        "[notes] Body and fin description (silver body, red fins, black stripe) repeats the page's identification text (red marks on dorsal and caudal fins, black stripe along the body). Only the transparent fins and the torpedo shape are new.",
+        "[diet] \"Ngoài các món đã kể\" refers to the page's other text, so the sentence reads as a patch rather than a standalone statement. The page already says large fish like chopped shrimp, and \"Cá lớn cũng ăn được krill\" is close to that.",
+        "[diet] \"lăng quăng\" is a doubtful rendering of mosquito larvae. In Vietnamese it means mosquito wrigglers in general, and hobbyists usually say \"bọ gậy\". \"mysis\" is also a loose translation of mysids.",
+        "[behaviour] \"cá lòng tong cỡ lớn hay cá ngựa vằn\" makes the larger rasboras and zebrafish into a named list of examples. The video does say these, but \"lòng tong\" is an odd choice for rasboras.",
+        "[behaviour] The video says 6–8 fish, while the page says 6 or more. The NEW text does not point out this difference.",
+        "[maintenance] The video says the fish need floating plants because they dim the light. The page already says the habitat is shaded. The new text has no clear conflict, but the aeration and filtration advice is stated flatly as a rule.",
+        "[dimorphism] \"khá khó\" is fine, but the sentence leaves out the video's point that the sex differences are only believed, not confirmed. The page already has that claim."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/danio-erythromicron#N1bg013jXHQ": [
     {
       "at": "2026-11-19T23:43:11Z",
@@ -1529,6 +1569,38 @@
         "[behaviour] The aggression toward similar species, the loner habit and the \"chưa rõ lâu dài\" point for keeping several together are already on the page. They are not new.",
         "[aquariumSize] \"bể dài 120 cm tốt hơn\" repeats the page's 120 cm figure. The video says \"four-foot\".",
         "[maintenance] The under-gravel filter story and the \"Cá tự nhiên biến mất thì kiểm tra lọc\" advice are one keeper's experience. Parts are written as general fact with no \"một người nuôi\" framing."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/garra-flavatra#X_n4L6CUFWg": [
+    {
+      "at": "2026-11-25T02:42:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.85,
+      "notes": [
+        "\"Ráy (Cryptocoryne)\": the video only says \"Cryptocoryne\". Using \"ráy\" as the Vietnamese name is a questionable choice, because hobbyists usually use \"ráy\" for Anubias. Writing \"Cryptocoryne\" alone would be safer.",
+        "\"bên cạnh kiếm Amazon\": the page already lists kiếm Amazon under equipment. This is only a light overlap, since the video does pair it with Cryptocoryne.",
+        "[behaviour] The claim that the fish tries to escape when the tank is not suitable matches the video. The page only says the fish jumps, so the added condition is new and fine."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-25T02:42:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.6,
+      "notes": [
+        "\"nên xem lại nước và dòng chảy\": the video only says escapes happen if the tank isn't optimal and stresses well-oxygenated water. It never says to check current or to react to climbing behaviour. This is an added instruction.",
+        "\"leo thành kính hay nhảy\" and \"nhớ đậy nắp khít\": the PAGE already says this several times (nắp khít, nhảy, leo lên mặt kính). It is repeated content. Only the \"escape when conditions aren't right\" link is new.",
+        "\"chịu được kiểu bể nền sỏi, đá và cuội\": the video says a varied substrate plus resilient plants like Cryptocoryne. It doesn't say Cryptocoryne tolerates this substrate. This is an inference.",
+        "\"trồng thêm ráy (Cryptocoryne) xuống nền\": the video lists the plant as a suggestion in an ideal setup. The \"trồng xuống nền\" detail is not stated.",
+        "\"Loài này có tiếng hay tìm cách trốn\": the wording is close to the video, but it is written as a general rule. It could be framed as the video's own observation."
       ],
       "attempt": "first",
       "kept": false
