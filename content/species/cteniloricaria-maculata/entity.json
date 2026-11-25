@@ -1,0 +1,93 @@
+{
+  "id": "cteniloricaria-maculata",
+  "scientificName": "Cteniloricaria maculata",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Cteniloricaria",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "suriname",
+    "corantijn",
+    "guyana",
+    "french-guiana",
+    "maroni"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 17
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1550",
+      "html": "<ul><li>Scientific name: Cteniloricaria maculata (Boeseman, 1971)</li><li>Common name: Whiptail Catfish</li><li>Type locality: Sipaliwini, upper Corantijn River basin, Suriname.</li><li>Synonyms: Harttia maculata, Parasturisoma maculata</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1550",
+      "html": "<p>South America: Maroni and Corantijn River basins, including Guyana waters and the coastal rivers of Suriname and the Guianas.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1550",
+      "html": "<p>Lives in creeks and rapids where the vegetation is poor, the water is clear, well-oxygenated and shallow (less than 1 m), with a sandy to rocky substrate.</p><p>Found together with Characidium fasciadorsale, Imparfinis minutus, Corydoras guianensis and especially Harttia surinamensis.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1550",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1550",
+      "html": "<p>Zool. Verh. (Leiden) No. 116 - pp33 - Pl. 5</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Cteniloricaria_platystoma_%28Mitaraka_Mountains%2C_French_Guiana%29.png/960px-Cteniloricaria_platystoma_%28Mitaraka_Mountains%2C_French_Guiana%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 551,
+      "licence": "CC0",
+      "author": "Fréderic Melki",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cteniloricaria_platystoma_(Mitaraka_Mountains,_French_Guiana).png",
+      "caption": "A wild specimen of catfish species Cteniloricaria platystoma, photographed in a stream running through the Mitaraka Mountains of French Guiana.",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Cteniloricaria_platystoma_%28Mitaraka_Mountains%2C_French_Guiana%29.png/500px-Cteniloricaria_platystoma_%28Mitaraka_Mountains%2C_French_Guiana%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát bể cá",
+        "sỏi nền bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-25"
+}

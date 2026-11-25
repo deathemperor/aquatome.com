@@ -164,6 +164,29 @@
       "kept": true
     }
   ],
+  "vi/products/fluval-fx4": [
+    {
+      "at": "2026-11-25T01:48:07Z",
+      "model": "code",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-25T01:48:07Z",
+      "model": "code",
+      "cli": "2.1.329",
+      "score": 0,
+      "notes": [
+        "\"Lọc này mồi rất dễ. Motor nằm dưới đáy thùng, chỉ cần đổ nước vào rồi cắm điện là lọc chạy, và một bài review thấy đây là một trong những lọc thùng dễ lắp nhất từng set.\" names Motor: its reviews' titles and descriptions and our catalog have no such name, so the captions may have misheard it. Say it without the name (\"một đèn khác\")",
+        "\"Một bài review thấy ống gân khó làm hơn ống trơn, đầu ống phải có nút cao su nhỏ mới không rò, còn gắn phụ kiện đầu ra như Flow Swing thì rất vất vả.\" names Swing: its reviews' titles and descriptions and our catalog have no such name, so the captions may have misheard it. Say it without the name (\"một đèn khác\")"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/fluval-fx6": [
     {
       "at": "2026-11-13T23:03:15Z",

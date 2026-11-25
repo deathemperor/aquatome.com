@@ -1,0 +1,386 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Recommended tank size",
+      "value": "Up to 1000 L (shop also states 400–1000 L)",
+      "source": 0
+    },
+    {
+      "key": "Pump flow rate",
+      "value": "2650 L/h",
+      "source": 0
+    },
+    {
+      "key": "Filtered circulation flow",
+      "value": "1700 L/h",
+      "source": 1
+    },
+    {
+      "key": "Power",
+      "value": "30 W",
+      "source": 0
+    },
+    {
+      "key": "Max head height",
+      "value": "2.1 m",
+      "source": 0
+    },
+    {
+      "key": "Media volume",
+      "value": "3.9 L",
+      "source": 0
+    },
+    {
+      "key": "Canister water volume",
+      "value": "14 L",
+      "source": 1
+    },
+    {
+      "key": "Dimensions",
+      "value": "36 × 36 × 42 cm",
+      "source": 0
+    },
+    {
+      "key": "Dimensions (alternate listing)",
+      "value": "40 × 40 × 42 cm",
+      "source": 1
+    },
+    {
+      "key": "Weight",
+      "value": "6.5 kg empty",
+      "source": 0
+    },
+    {
+      "key": "Inlet/outlet diameter",
+      "value": "24 mm",
+      "source": 0
+    },
+    {
+      "key": "Flow rate (US units)",
+      "value": "700 US gal/h; up to 250 US gal tanks",
+      "source": 3
+    },
+    {
+      "key": "Max head pressure (US)",
+      "value": "6.9 ft",
+      "source": 3
+    },
+    {
+      "key": "Canister volume (US)",
+      "value": "3.7 US gal",
+      "source": 3
+    },
+    {
+      "key": "Warranty",
+      "value": "3 years on the pump in Vietnam; impeller shaft and other removable parts, impact damage and misuse not covered",
+      "source": 0
+    },
+    {
+      "key": "Warranty (US)",
+      "value": "3-year limited",
+      "source": 4
+    },
+    {
+      "key": "Water type",
+      "value": "Freshwater and saltwater",
+      "source": 5
+    }
+  ],
+  "variants": [
+    {
+      "name": "Fluval FX2",
+      "specs": [
+        {
+          "key": "Tank size",
+          "value": "Up to 750 L",
+          "source": 1
+        },
+        {
+          "key": "Pump flow",
+          "value": "1800 L/h",
+          "source": 1
+        },
+        {
+          "key": "Circulation flow",
+          "value": "1300 L/h",
+          "source": 1
+        },
+        {
+          "key": "Media volume",
+          "value": "3.9 L",
+          "source": 1
+        },
+        {
+          "key": "Power",
+          "value": "27 W",
+          "source": 1
+        },
+        {
+          "key": "Dimensions",
+          "value": "34 × 34 × 42 cm",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "Fluval FX4",
+      "specs": [
+        {
+          "key": "Tank size",
+          "value": "Up to 1000 L",
+          "source": 1
+        },
+        {
+          "key": "Pump flow",
+          "value": "2650 L/h",
+          "source": 1
+        },
+        {
+          "key": "Circulation flow",
+          "value": "1700 L/h",
+          "source": 1
+        },
+        {
+          "key": "Media volume",
+          "value": "3.9 L",
+          "source": 1
+        },
+        {
+          "key": "Power",
+          "value": "30 W",
+          "source": 1
+        },
+        {
+          "key": "Dimensions",
+          "value": "40 × 40 × 42 cm",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "Fluval FX6",
+      "specs": [
+        {
+          "key": "Tank size",
+          "value": "Up to 1500 L",
+          "source": 1
+        },
+        {
+          "key": "Pump flow",
+          "value": "3500 L/h",
+          "source": 1
+        },
+        {
+          "key": "Circulation flow",
+          "value": "2130 L/h",
+          "source": 1
+        },
+        {
+          "key": "Media volume",
+          "value": "5.9 L",
+          "source": 1
+        },
+        {
+          "key": "Power",
+          "value": "41 W",
+          "source": 1
+        },
+        {
+          "key": "Dimensions",
+          "value": "40 × 40 × 53 cm",
+          "source": 1
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/fluval-fx4-filter-loc-thung-cao-cap",
+      "vnd": 9750000,
+      "variant": "FX4 (listed in stock)",
+      "source": 0
+    },
+    {
+      "shop": "ShopThuySinh.com",
+      "url": "https://shopthuysinh.com/may-loc-be-ca-fluval-fx2-fx4-fx6-xuat-xu-chau-au/",
+      "vnd": 9750000,
+      "variant": "FX4 (page about two years old)",
+      "source": 1
+    },
+    {
+      "shop": "ShopThuySinh.com",
+      "url": "https://shopthuysinh.com/may-loc-be-ca-fluval-fx2-fx4-fx6-xuat-xu-chau-au/",
+      "vnd": 11850000,
+      "variant": "FX6",
+      "source": 1
+    },
+    {
+      "shop": "ICDI Aquarium and Pets",
+      "url": "https://www.icdi-aquarium.com/may-loc-be-ca-fluval-fx4",
+      "vnd": 9753000,
+      "variant": "FX4 (seen only in search results; stock status conflicting)",
+      "source": 2
+    }
+  ],
+  "fits": [
+    {
+      "fact": "Sized for large tanks, from about 400 L up to 1000 L.",
+      "source": 0
+    },
+    {
+      "fact": "Can be used on both freshwater and marine tanks.",
+      "source": 5
+    },
+    {
+      "fact": "Some owners found the supplied hoses don't fit certain acrylic tanks, so check before buying.",
+      "source": 5
+    },
+    {
+      "fact": "Tanks smaller than 750 L can use the FX2, and tanks up to 1500 L call for the FX6.",
+      "source": 1
+    },
+    {
+      "fact": "One owner runs it on a 125-gallon brackish tank.",
+      "source": 7
+    }
+  ],
+  "usage": [
+    {
+      "fact": "After assembling and connecting the hoses, fill the tank and plug the filter in. The Smart Pump primes itself, so no manual priming is needed.",
+      "source": 6
+    },
+    {
+      "fact": "On first start the pump runs for about a minute to fill the canister. After that it stops for one minute every 12 hours to purge trapped air.",
+      "source": 6
+    },
+    {
+      "fact": "Drain the canister before routine maintenance. A drain/utility valve at the base also helps with water changes.",
+      "source": 3
+    },
+    {
+      "fact": "The reviewer found it rarely clogs and needs little maintenance, but said the lid can be hard to remove.",
+      "source": 5
+    },
+    {
+      "fact": "If it gets noisy or flow drops, clean the impeller chamber and check it for debris.",
+      "source": 8
+    }
+  ],
+  "issues": [
+    {
+      "fact": "One owner had a vibrating noise that stopped only after closing the outlet valve about halfway, which costs flow.",
+      "source": 7
+    },
+    {
+      "fact": "A roughly two-year-old unit began pulsing and drawing water weakly even after cleaning. Others suspected an unbalanced impeller and pointed to the 3-year warranty.",
+      "source": 8
+    },
+    {
+      "fact": "The reviewer called it quiet and well built, but noted the high price and that media needs topping up often.",
+      "source": 5
+    },
+    {
+      "fact": "Sources disagree on dimensions (36×36×42 vs 40×40×42 cm).",
+      "source": 1
+    },
+    {
+      "fact": "Sources disagree on warranty: a UK retailer lists 2 years, while Vietnamese and US sellers list 3.",
+      "source": 12
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Fluval",
+      "model": "FX6",
+      "why": "Same design for tanks up to 1500 L, with 3500 L/h and 5.9 L of media; about 2.1 million VND more.",
+      "source": 1
+    },
+    {
+      "brand": "SUNSUN",
+      "model": "HW-304A / HW-304B",
+      "why": "Much cheaper Chinese canister filters sold in Vietnam, rated around 475 L and 2000 L/h. The B version adds a UV lamp. Suited to smaller tanks or tight budgets.",
+      "source": 9
+    },
+    {
+      "brand": "Oase",
+      "model": "BioMaster 850",
+      "why": "Premium German alternative for tanks up to 850 L at 32 W, with a tall, narrow body (24 × 24 × 53.5 cm). Vietnamese availability and price not confirmed.",
+      "source": 10
+    },
+    {
+      "brand": "Eheim",
+      "model": "Classic 600 (2217)",
+      "why": "Simple, long-lasting design for 180–600 L tanks; a cheaper choice if the tank doesn't need FX4-level flow. Vietnamese price not confirmed.",
+      "source": 11
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://thuysinhbichphuong.vn/fluval-fx4-filter-loc-thung-cao-cap",
+      "title": "FLUVAL FX4 FILTER - LỌC THÙNG CAO CẤP (Thủy Sinh Bích Phương)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shopthuysinh.com/may-loc-be-ca-fluval-fx2-fx4-fx6-xuat-xu-chau-au/",
+      "title": "Máy lọc bể cá Fluval FX2 FX4 FX6 - ShopThuySinh.com",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.icdi-aquarium.com/may-loc-be-ca-fluval-fx4",
+      "title": "Máy Lọc Bể Cá FLUVAL FX4 - ICDI Aquarium and Pets",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/fluval-fx4-canister-filter-fluval.html",
+      "title": "Fluval FX4 Canister Filter - Bulk Reef Supply",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.petco.com/product/fluval-fx4-canister-filter",
+      "title": "Fluval FX4 Canister Filter - Petco",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquariumsource.com/fluval-fx4-canister-filter-review/",
+      "title": "Fluval FX4 Canister Filter Review - AquariumSource",
+      "kind": "review"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/1208196/Fluval-Fx4.html?page=7",
+      "title": "Fluval FX4 User Manual - ManualsLib",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://www.monsterfishkeepers.com/forums/threads/noisy-canister-filter-fluval-fx4.711579/",
+      "title": "Noisy Canister Filter (Fluval FX4) - MonsterFishKeepers",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.monsterfishkeepers.com/forums/goto/post?id=8441956",
+      "title": "Having trouble with a Fluval Fx4 - MonsterFishKeepers",
+      "kind": "forum"
+    },
+    {
+      "url": "https://chiaki.vn/loc-thung-chinh-hang-sunsun-hw-302-hw-303a-loc-thung-dung-be-thuy-sinh-loc-thung-sunsun",
+      "title": "Lọc thùng SUNSUN HW-302/HW-303A - Chiaki",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.oase.com/en/products-a-z/family/product/p/77106-biomaster-850.html",
+      "title": "OASE BioMaster 850 Technical Data",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://eheim.com/en_GB/aquatics/technology/external-filters/classic/classic-600",
+      "title": "EHEIM classic 600",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://www.completeaquatics.co.uk/aquarium-accessories/aquarium-filters-and-media/external-filters-for-aquariums/fluval-fx4",
+      "title": "Fluval FX4 - Complete Aquatics",
+      "kind": "shop"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "ca-lau-kieng-rineloricaria-aurata",
+  "name": "Cá lau kiếng Rineloricaria aurata",
+  "altNames": [
+    "Cá chổi vàng",
+    "Golden Witch Catfish"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Rineloricaria aurata sống ở Paraguay. Cá lau kiếng đuôi roi xuất khẩu chủ yếu được bắt trên sông Paraguay, đoạn gần thủ đô Asunción. Ở đó có thể gặp ba loài: R. aurata, R. lanceolata và R. parva.</p>",
+    "behaviour:glaser": "<p>R. aurata hay đào bới hơn hai loài kia. Bể không có nền cát thì chúng không thấy thoải mái.</p>",
+    "equipment:glaser": "<p>Phải có nền cát vì loài này hay đào bới.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  }
+}

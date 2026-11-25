@@ -1,0 +1,22 @@
+{
+  "slug": "ca-centromochlus-existimatus",
+  "name": "Cá Centromochlus existimatus",
+  "altNames": [
+    "Woodcat"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<p>Centromochlus existimatus Mees, 1974. Nơi thu mẫu chuẩn: cảng Manaus, sông Amazon, Brazil. Kích thước: 6,6 cm SL. Danh sách Đỏ IUCN: Ít quan tâm (đánh giá lần cuối năm 2020).</p>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực sông Amazon.</p>",
+    "equipment:planetcatfish": "<p>Họ cá này có tên chung là woodcat, tức \"mèo gỗ\", và đúng như tên gọi, chúng thích những khúc gỗ có khe hở để lách mình vào. Con lớn thì hay chui chung với nhau vào ống để trốn.</p>",
+    "reproduction:planetcatfish": "<p>Chưa có báo cáo nào về chuyện loài này sinh sản.</p>",
+    "references:planetcatfish": "<p>Zoologische Verhandelingen (Leiden) No. 132, tr. 50, Hình 8 (bên phải).</p>"
+  },
+  "quality": {
+    "score": 0.6,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.6
+    },
+    "reason": "thin"
+  }
+}

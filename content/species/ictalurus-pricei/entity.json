@@ -1,0 +1,75 @@
+{
+  "id": "ictalurus-pricei",
+  "scientificName": "Ictalurus pricei",
+  "order": "Siluriformes",
+  "family": "Ictaluridae",
+  "genus": "Ictalurus",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "mexico",
+    "rio-yaqui",
+    "united-states",
+    "arizona"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 57
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1556",
+      "html": "<ul><li>Scientific name: Ictalurus pricei (Rutter, 1896)</li><li>Common name: Yaqui Catfish</li><li>Type locality: San Bernardino Creek, Rio Yaqui, Arizona, U.S.A. or northern border of Sonora, Mexico.</li><li>IUCN Red List: Endangered (last assessed 2018).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1556",
+      "html": "<p>North America: Rio Yaqui and Rio Casas Grandes drainages in northwestern Mexico and (presumably) extreme southeastern Arizona in the USA.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1556",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Catostomus_bernardini.jpg/960px-Catostomus_bernardini.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "Jacob Malcom",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Catostomus_bernardini.jpg",
+      "caption": "Catostomus bernardini - Yaqui sucker (middle) with Yaqui Catfish (left) and Roundtail Chub (right).",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Catostomus_bernardini.jpg/500px-Catostomus_bernardini.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Ictalurus_pricei_5875513.jpg/960px-Ictalurus_pricei_5875513.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "Jacob Malcom",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ictalurus_pricei_5875513.jpg",
+      "caption": "Yaqui Catfish (Ictalurus pricei)",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Ictalurus_pricei_5875513.jpg/500px-Ictalurus_pricei_5875513.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "epBPuVUOCDo",
+      "title": "A Yaqui catfish (Ictalurus pricei) at the Arizona Sonora Desert Museum in Tucson, AZ.",
+      "durationSec": 19,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-25"
+}

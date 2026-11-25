@@ -1,0 +1,50 @@
+{
+  "id": "ictalurus-ochoterenai",
+  "scientificName": "Ictalurus ochoterenai",
+  "order": "Siluriformes",
+  "family": "Ictaluridae",
+  "genus": "Ictalurus",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "mexico",
+    "lerma"
+  ],
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1557",
+      "html": "<ul><li>Scientific name: Ictalurus ochoterenai (de Buen, 1946)</li><li>Common name: Chapala Catfish</li><li>Type locality: Lago de Chapala, Isla Patos, Mexico.</li><li>Synonym: Haustor ochoterenai</li><li>IUCN Red List category: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1557",
+      "html": "<p>Central America: endemic to the Lerma River basin, Mexico.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1557",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1557",
+      "html": "<p>Etymology: Ictalurus comes from the Greek ichthys, meaning fish, and ailouros, meaning cat; literally \"fish cat\" (catfish). The species is named to honour Isaac Ochoterena, who founded the Institute of Biology at the National Autonomous University of México.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1557",
+      "html": "<p>Anales del Instituto de Biologia de la Universidad de Mexico v. 17 (nos 1-2), pp 271, Fig. 1.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-25"
+}

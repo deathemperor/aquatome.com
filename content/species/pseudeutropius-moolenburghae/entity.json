@@ -9,13 +9,28 @@
     "asia",
     "indonesia",
     "sumatra",
-    "borneo"
+    "borneo",
+    "batang-hari",
+    "kapuas"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 10
+      },
+      {
+        "source": "glaser",
+        "value": 10
+      }
+    ],
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
       }
     ]
   },
@@ -33,10 +48,46 @@
       "html": "<p>Asia: Sumatra and western Borneo. Type locality: Djambi, Batang Hari River, Sumatra, Indonesia.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudeutropius-moolenburghae-2/",
+      "html": "<p>Their home are the river systems Batang Hari on Sumatra and Kapuas on Borneo, from where many popular aquarium fish come.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudeutropius-moolenburghae-2/",
+      "html": "<p>Soft, acidic water corresponds to natural conditions, but is not necessary for long-term maintenance. The water temperature should be 24-28°C.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudeutropius-moolenburghae-2/",
+      "html": "<p>A dimly furnished tank with Cryptocoryne bushes, floating ferns on the surface and dead leaves on the bottom is ideal.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudeutropius-moolenburghae-2/",
+      "html": "<p>Pseudeutropius moolenburghae eat all common ornamental fish food, they are not interested in plants.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudeutropius-moolenburghae-2/",
+      "html": "<p>As company are suitable e.g. mouth-breeding fighting fish, Rasbora species, coolie loaches etc. Under no circumstances should these delicate catfish be kept along with bullies such as tiger barbs.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1505",
       "html": "<p>Breeding: unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudeutropius-moolenburghae-2/",
+      "html": "<p>In the aquarium, these blackwater fish should be acclimated carefully, because from the wild they know practically no bacterial water pollution.</p>"
     },
     {
       "key": "references",
@@ -45,8 +96,78 @@
       "html": "<p>Fishes Indo-Australian Archipelago v. 2, pp 249, Fig. 100.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/66f436439763e9eb.webp",
+      "thumb": "https://media.aquatome.com/glaser/66f436439763e9eb-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudeutropius-moolenburghae-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/8f15eed3cf656d1d.webp",
+      "thumb": "https://media.aquatome.com/glaser/8f15eed3cf656d1d-480.webp",
+      "width": 850,
+      "height": 1159,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudeutropius-moolenburghae-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f9bfbf4bdd97103e.webp",
+      "thumb": "https://media.aquatome.com/glaser/f9bfbf4bdd97103e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudeutropius-moolenburghae-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c43005b84b980640.webp",
+      "thumb": "https://media.aquatome.com/glaser/c43005b84b980640-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudeutropius-moolenburghae-2/",
+      "source": "glaser"
+    }
+  ],
   "videos": [],
-  "productSlots": [],
-  "updatedAt": "2026-11-23"
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh 80cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cảnh nhỏ",
+        "thức ăn cá da trơn"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây cryptocoryne",
+        "dương xỉ thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-25"
 }

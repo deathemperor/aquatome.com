@@ -580,6 +580,43 @@
       "kept": true
     }
   ],
+  "vi/products/fluval-fx4": [
+    {
+      "at": "2026-11-25T01:44:32Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.9,
+      "notes": [
+        "\"Bảng phía trên có cả hai con số\" refers to a table that is not in the page or the facts; it is an unsupported reference.",
+        "\"FX2 và FX4 chứa cùng một lượng vật liệu lọc\" is supported (both 3.9 L), so it is fine. \"Dòng FX có ba cỡ\" is a small generalization, since the facts list only FX2, FX4 and FX6.",
+        "\"Bể dưới 750 L thì dùng FX2 được\" and \"bể đến 1500 L thì phải lên FX6\" are supported, but \"FX4 lo cho bể đến 1000 L\" is stated more firmly than the facts' 400–1000 L range.",
+        "\"Máy đắt hơn FX4\" for the FX6 is supported (about 2.1 million VND more), but the page leaves out the amount. This is not an error.",
+        "\"Có người chơi gặp tiếng rung và bơm yếu dần sau khoảng hai năm\" merges two separate owner reports. The vibration report gave no age, and the weak pump was a unit about two years old."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-25T01:44:32Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.8,
+      "notes": [
+        "\"Nhà sản xuất ghi bể đến 1000 L\" / \"nhà sản xuất ghi 36 × 36 × 42 cm\": the facts give source 0 as a shop listing, not the manufacturer. The page also attributes the 40×40×42 figure to a different shop.",
+        "\"Lúc đó máy đang xả khí chứ không phải hỏng, không cần lo\": the facts say the pump stops to purge air. The reassurance is mild embellishment.",
+        "\"Nếu tủ bể chật thì đo theo con số lớn hơn cho chắc\": advice that is not in the facts.",
+        "\"FX6 có thùng cao hơn\": the facts only give FX6 dimensions of 40×40×53, so this is an inference.",
+        "\"hai máy khác nhau chủ yếu ở bơm\": FX2 and FX4 differ in more than the pump (tank size, power, dimensions). This is a small overgeneralisation.",
+        "\"nhà sản xuất ghi cho bể khoảng 475 L và lưu lượng 2000 L/h\" (SUNSUN): the facts say \"rated\" and do not name the manufacturer as the source.",
+        "\"Dùng cho bể nước mặn được không? Được... bể nước lợ\": brackish is treated as supporting evidence for saltwater. This is a minor stretch.",
+        "\"Bể nhỏ hơn mức đó thì nhìn sang FX2 hoặc các dòng lọc nhỏ hơn\": the facts only say tanks under 750 L can use the FX2."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/fluval-fx6": [
     {
       "at": "2026-11-13T22:59:47Z",

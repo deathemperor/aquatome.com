@@ -320,6 +320,10 @@
       {
         "source": "seriouslyfish",
         "value": 3.8
+      },
+      {
+        "source": "glaser",
+        "value": 3
       }
     ],
     "difficulty": [
@@ -346,6 +350,15 @@
         "source": "seriouslyfish",
         "value": 45
       }
+    ],
+    "lifeYears": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 4,
+          "max": 4
+        }
+      }
     ]
   },
   "sections": [
@@ -362,6 +375,12 @@
       "html": "<p>Pseudomugil gertrudae is a pseudomugilid from northern Australia, Papua New Guinea and the Aru Islands, eastern Indonesia. Wild populations are isolated from one another and differ in colour pattern, body size and fin morphology, but the fish on sale are of a single, commercially produced ornamental strain. Dark spots in the dorsal, anal and caudal fins separate it from other members of the genus except P. paskai and Pseudomugil sp. 'red neon'.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/pseudomugil-gertrudae-2/",
+      "html": "<p>This blue-eye is part of the standard offer; the animals are bred ones from Indonesia. This variant stays a bit smaller (around 3 cm) than the popular variant from the Aru Islands, which reaches almost 4 cm in length.</p>"
+    },
+    {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/pseudomugil-gertrudae-gertrudes-spotted-blue-eye-rainbowfish",
@@ -372,6 +391,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-gertrudae",
       "html": "<p>Described from 'Rivulet in sago forest at Ngaiguli, Terangan, Aru Island, Aru Islands, Maluku, Indonesia', corresponding to the island now normally referred to as 'Trangan' in the Aru Islands group, eastern Indonesia.</p><p>The islands are located in the Arafura Sea, with western New Guinea to the north and the Arnhem Land Region of Australia's Northern Territory to the south, and though they lie within Maluku province of eastern Indonesia, are part of the Australian continent in a geological sense.</p><p>Populations are now known from numerous rivers draining into the Timor Sea and Gulf of Carpentaria, northern Australia, with a range extending eastwards from the city of Darwin through the Kakadu National Park, Arnhem Land, and Carpentaria as far the Cape York Peninsula.</p><p>It's also known from the islands of Bathurst, Melville, and Groot Eylandt, plus some smaller islands in the Torres Strait.</p><p>Known localities in the Northern Territory include the rivers Moyle, Daly, Finniss, Adelaide, Alligator, Blyth, Liverpool, Cadell, Buckingham, Cato, and some smaller drainages around Darwin.</p><p>In Queensland it's been recorded in the Wenlock, Embley, Dulhunty, Coen, Jardine, Olive, Jacky Jacky, Mciver, Endeavour, Barron, Mulgrave, Russell, Johnstone, Moresby, Tully and Murray watersheds, plus some nutrient-poor coastal lakes in the Flattery Point and around Shelburne Bay.</p><p>In Papua New Guinea records exist from the Bensbach, Pahoturi, and Fly (Elevala River and Lake Bosset, aka Lake Herbert Hoover) river systems but it may be more widely-distributed in southern drainages of the country and neighbouring state of Papua, Indonesia.</p><p>Wild examples are uncommon in the aquarium hobby with the majority of those traded bred commercially for the purpose, though some populations are available and usually labelled with collection details in order to discourage hybridisation, e.g., 'Aru II', 'Aru IV', 'Cadell River', etc.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/pseudomugil-gertrudae-2/",
+      "html": "<p>Pseudomugil gertrudae has a relatively wide distribution in northern Australia, but does not occur uniformly everywhere, being scattered. In addition, it is found on many small islands and in Papua New Guinea. Since the different populations have no contact with each other, there are many subtle differences in coloration. However, this is probably also related to the respective biotopes.</p>"
     },
     {
       "key": "habitat",
@@ -410,6 +435,12 @@
       "html": "<ul><li>Temperature: 21–28 °C</li><li>pH: 4.5–7.5</li><li>Hardness: 5–12 dGH</li></ul><p>NB: suggested ranges are for the ornamental strain. Wild specimens from specific localities may require particular conditions, especially those inhabiting oligotrophic blackwater environments.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/pseudomugil-gertrudae-2/",
+      "html": "<p>The measured water values in waters with P. gertrudae vary enormously: temperature 12–34 °C, pH 3.7–9.4, conductance 12–650 µS/cm, total hardness 0–18 °dH, carbonate hardness 0–10 °dH. They are tough little creatures! In nature they usually live only one year, but in the aquarium they can live up to four years.</p>"
+    },
+    {
       "key": "equipment",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/pseudomugil-gertrudae-gertrudes-spotted-blue-eye-rainbowfish",
@@ -440,6 +471,12 @@
       "html": "<p>Peaceful but unsuitable for the general community aquarium since it's easily outcompeted and quite timid.</p><p>It's best maintained alone or alongside fishes of comparable size, disposition, and requirements and freshwater shrimp of the genera Caridina and Neocaridina but in all cases be sure to research your choices thoroughly prior to purchase.</p><p>P. gertrudae is a shoaling species and should be kept in a group of at least 8-10 specimens, ideally more. Maintaining it in such numbers will not only make the fish less nervous but result in a more effective, natural-looking display.</p><p>Males will also display their best colours and some fascinating behaviour as they compete with one other for female attention.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/pseudomugil-gertrudae-2/",
+      "html": "<p>During the day the males are continuously busy with courtship, flapping their fins like a butterfly with its wings. From time to time they also stretch their fins to the breaking point and sail around their mate or a rival. It is a great pleasure to watch the fish.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-gertrudae",
@@ -450,6 +487,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-gertrudae",
       "html": "<p>This species is an egg-scatterer exhibiting no parental care and will consume its own eggs and fry given the opportunity.</p><p>Spawning is more likely in temperatures towards the upper end of the range suggested above, with females capable of depositing a few eggs daily for a period of several days, these being attached to aquatic vegetation or other substrate by adhesive filaments.</p><p>An individual male may also mate with multiple females during a single day, and spawning usually continues throughout daylight hours during warmer periods.</p><p>In nature it displays a seasonal reproductive cycle coinciding with the onset of the wet season, around October-December, when food and aquatic vegetation are at their most plentiful.</p><p>Spawning occurs during daylight hours with a peak of activity in late morning/early afternoon when water temperature is 24–28 °C, and in the aquarium breeding can occur throughout the year if temperature is raised to these values.</p><p>There exist two basic methods for aquarium breeding.</p><p>The first involves isolating a small group comprising a single male and two or three females into a container with an air-powered sponge filter and spawning medium in the form of nylon mops or aquatic moss.</p><p>The medium is checked several times per day and any eggs removed to a separate container for incubation and hatching.</p><p>The alternative is to maintain a colony of adults in a larger, fully-decorated set-up which if well-planted should allow some fry to survive.</p><p>Since the latter spend the early part of life close to the water surface aquatic mosses from the genus Taxiphylum attached to décor high in the water column apparently produce the most favourable results, but floating plants with trailing roots are also recommended.</p><p>The latter approach is normally less productive but simpler and more reliable as mature, planted aquaria facilitate relatively stable water conditions and the resident microfauna can constitute a valuable early food source for fish fry.</p><p>The incubation period is around 10 days depending on temperature and the fry require microscopic food such as Paramecium for up to 5 days before they're able to accept Artemia nauplii, micro worm, and similarly-sized foods immediately.</p><p>They can also be raised using good quality, powdered dry products of which some are available in incrementally-graded particle sizes, and growth rate is normally quite fast compared with some congeners.</p><p>Should eggs containing developed embryos fail to hatch they can apparently be stimulated to do so by putting them in a small vial or similar container with some water from the aquarium and shaking it vigorously, or placing it in your pocket and walking around with it. It appears the resultant change in pressure causes the eggs to hatch.</p><p>Small meals should be offered at least twice daily. Aged water can result in high mortality so regular, small water changes are essential and uneaten food should not be allowed to accumulate in the rearing tank.</p><p>Pseudomugil spp. are quite short-lived with females tending to survive for only a single reproductive season in nature.</p><p>Though lifespan tends to increase in well-maintained aquaria the fish will normally be less fecund once they reach an age of 12-18 months.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/pseudomugil-gertrudae-2/",
+      "html": "<p>In the aquarium they are continuous spawners that lay a few eggs a day – up to 10 or 12 per female, but usually fewer. The eggs are deposited in fine aquatic plants or artificial spawning substrates (spawning mops). The parents do not care for the eggs or the fry, which hatch after 4–9 days (depending on water temperature).</p>"
     },
     {
       "key": "notes",
@@ -477,34 +520,74 @@
       "source": "seriouslyfish"
     },
     {
+      "url": "https://media.aquatome.com/glaser/12da4f4ae4cfb0cc.webp",
+      "thumb": "https://media.aquatome.com/glaser/12da4f4ae4cfb0cc-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/pseudomugil-gertrudae-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f9f212f1c20887ea.webp",
+      "thumb": "https://media.aquatome.com/glaser/f9f212f1c20887ea-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/pseudomugil-gertrudae-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c941b8e3279fc173.webp",
+      "thumb": "https://media.aquatome.com/glaser/c941b8e3279fc173-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/pseudomugil-gertrudae-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7586ad1700eec523.webp",
+      "thumb": "https://media.aquatome.com/glaser/7586ad1700eec523-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/pseudomugil-gertrudae-2/",
+      "source": "glaser"
+    },
+    {
       "url": "https://media.aquatome.com/commons/1ab6cab2c60600a5.webp",
       "thumb": "https://media.aquatome.com/commons/1ab6cab2c60600a5-480.webp",
       "width": 960,
       "height": 540,
-      "licence": "CC BY-SA 3.0 de",
-      "author": "Der Regenbogenfisch",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudomugil_gertrudae_ARUII_Maennchen.jpg",
-      "caption": "Spotted Blue Eye (Pseudomugil gertrudae)",
       "large": {
         "url": "https://media.aquatome.com/commons/1ab6cab2c60600a5-large.webp",
         "width": 1000,
         "height": 563
-      }
+      },
+      "licence": "CC BY-SA 3.0 de",
+      "author": "Der Regenbogenfisch",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudomugil_gertrudae_ARUII_Maennchen.jpg",
+      "caption": "Spotted Blue Eye (Pseudomugil gertrudae)"
     },
     {
       "url": "https://media.aquatome.com/commons/7d9fae1ead0c1889.webp",
       "thumb": "https://media.aquatome.com/commons/7d9fae1ead0c1889-480.webp",
       "width": 960,
       "height": 533,
-      "licence": "CC BY-SA 4.0",
-      "author": "Atulbhats",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Getrudae_Rainbowfish.jpg",
-      "caption": "A Pseudomugil gertrudae also known as Spotted blue-eye rainbow fish searching for food.",
       "large": {
         "url": "https://media.aquatome.com/commons/7d9fae1ead0c1889-large.webp",
         "width": 2160,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Atulbhats",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Getrudae_Rainbowfish.jpg",
+      "caption": "A Pseudomugil gertrudae also known as Spotted blue-eye rainbow fish searching for food."
     }
   ],
   "videos": [
@@ -561,5 +644,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-25"
 }

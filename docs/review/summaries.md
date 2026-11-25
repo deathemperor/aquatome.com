@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (179)
+# Tóm tắt chờ duyệt (180)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -960,6 +960,17 @@ Hồ sơ cá lau kiếng aspidolepis (Hemiancistrus aspidolepis) có rất ít t
 
 Kiểm tra:
 - The mistake "Đừng mặc định nuôi loài này trong nước đứng ... hãy tạo dòng chảy trong bể" gives tank-flow advice the page never gives. The page only says the species lives in fast-flowing water in the wild and has no care or tank guidance, so the fix is invented.
+
+## Cá nheo Mekong Hemisilurus (Hemisilurus mekongensis)
+id: `hemisilurus-mekongensis`
+
+Cá nheo Mekong Hemisilurus (Hemisilurus mekongensis) lớn tới 80 cm, nên chỉ hợp người có chỗ nuôi rất rộng. Hồ sơ không ghi bể tối thiểu, nhiệt độ hay pH, nên chưa đủ cơ sở để nói về điều kiện nước. Ngoài tự nhiên cá sống ở sông lớn vùng cao, có vào cả rừng ngập nước, gặp ở chỗ nước xiết lẫn đoạn sông sâu chảy chậm. Điểm khó nhất là kích thước, và chưa có tài liệu nào ghi lại chuyện sinh sản.
+
+- Đừng nuôi cá trong bể bé vì cá lớn tới 80 cm; hãy tính chỗ nuôi cho cỡ trưởng thành ngay từ đầu.
+- Đừng chỉ cho ăn một món; ngoài tự nhiên cá ăn giun, thực vật, xác vụn động vật và côn trùng, nên cho ăn theo hướng đa dạng đó.
+
+Kiểm tra:
+- "Đừng chỉ cho ăn một món... nên cho ăn theo hướng đa dạng đó": the page only lists the wild diet (giun, thực vật, xác vụn động vật, côn trùng). It gives no advice on feeding the fish in a tank, so this mistake and its fix are invented.
 
 ## Cá rô phi Mexico Herichthys carpintis (Herichthys carpintis)
 id: `herichthys-carpintis`

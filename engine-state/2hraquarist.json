@@ -1002,9 +1002,9 @@
   },
   "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/nitrate-limitation": {
     "entityIds": [],
-    "updatedAt": "2026-11-23T14:10:54.320Z",
+    "updatedAt": "2026-11-24T23:16:00.263Z",
     "status": "error",
-    "attempts": 2,
+    "attempts": 3,
     "error": "no archived copy (HTTP 404)"
   },
   "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/nutrient-tunnel-vision": {
@@ -1019,16 +1019,16 @@
   },
   "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/planted-tank-fertilizing-101": {
     "entityIds": [],
-    "updatedAt": "2026-11-23T14:11:06.417Z",
+    "updatedAt": "2026-11-24T23:16:16.204Z",
     "status": "error",
-    "attempts": 2,
+    "attempts": 3,
     "error": "no archived copy (HTTP 404)"
   },
   "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/planted-tank-lighting-101": {
     "entityIds": [],
-    "updatedAt": "2026-11-23T14:11:18.347Z",
+    "updatedAt": "2026-11-24T23:16:28.097Z",
     "status": "error",
-    "attempts": 2,
+    "attempts": 3,
     "error": "no archived copy (HTTP 404)"
   },
   "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/prevent-algae-growth": {
@@ -1063,9 +1063,9 @@
   },
   "https://www.2hraquarist.com/blogs/beginners-planted-tank-101/water-change-the-2hr-way": {
     "entityIds": [],
-    "updatedAt": "2026-11-23T14:11:30.460Z",
+    "updatedAt": "2026-11-24T23:16:40.533Z",
     "status": "error",
-    "attempts": 2,
+    "attempts": 3,
     "error": "no archived copy (HTTP 404)"
   },
   "https://www.2hraquarist.com/blogs/campfire/26-nov-stronger-colours": {
@@ -1185,6 +1185,87 @@
     "updatedAt": "2026-11-23T17:22:09.435Z",
     "hash": "289549df22b5ace5d9bd038750700ca13cf246972b1efb89adb96bec9f7402bb",
     "processedHash": "289549df22b5ace5d9bd038750700ca13cf246972b1efb89adb96bec9f7402bb",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/community/craftspeak": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-community-craftspeak"
+    ],
+    "updatedAt": "2026-11-24T23:16:54.539Z",
+    "hash": "1fa27c55a16c67f29602a20694b2035389c37d28b99328c2fa173b883d274e5b",
+    "processedHash": "1fa27c55a16c67f29602a20694b2035389c37d28b99328c2fa173b883d274e5b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/community/craftspeak-canada": {
+    "entityIds": [],
+    "updatedAt": "2026-11-24T23:21:43.505Z",
+    "hash": "ad4db84a2bc21fc580a4bdb7ee4ebb9b6d90642b5e8d2fbd985106b18a56dc38",
+    "processedHash": "ad4db84a2bc21fc580a4bdb7ee4ebb9b6d90642b5e8d2fbd985106b18a56dc38",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/community/craftspeak-philippines": {
+    "entityIds": [],
+    "updatedAt": "2026-11-24T23:21:59.325Z",
+    "hash": "26f62e1486247a970e86326524e157d78c7be28cb87a60f7d40cb4d784f5ec66",
+    "processedHash": "26f62e1486247a970e86326524e157d78c7be28cb87a60f7d40cb4d784f5ec66",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/community/craftspeak-uk": {
+    "entityIds": [],
+    "updatedAt": "2026-11-24T23:22:13.104Z",
+    "hash": "97548ff3c48a1f1119ca474e57333cc8a3082fb1eba979c55a4b49e49ac51a1d",
+    "processedHash": "97548ff3c48a1f1119ca474e57333cc8a3082fb1eba979c55a4b49e49ac51a1d",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/creating-nature/best-festive-red-plant": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-creating-nature-best-festive-red-plant"
+    ],
+    "updatedAt": "2026-11-24T23:22:25.460Z",
+    "hash": "783751d9d6c0a91e4bff3090846d6d2a80d461939ab26ac7f1307630392219b5",
+    "processedHash": "783751d9d6c0a91e4bff3090846d6d2a80d461939ab26ac7f1307630392219b5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/creating-nature/bright-enough-think-again": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-creating-nature-bright-enough-think-again"
+    ],
+    "updatedAt": "2026-11-24T23:24:14.687Z",
+    "hash": "69f8ae3f47c064be39a2c01f5002bf984092cb611766f6b95cbe802b57784c54",
+    "processedHash": "69f8ae3f47c064be39a2c01f5002bf984092cb611766f6b95cbe802b57784c54",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/creating-nature/connecting-hardscape": {
+    "entityIds": [],
+    "updatedAt": "2026-11-24T23:25:56.711Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "no archived copy (HTTP 404)"
+  },
+  "https://www.2hraquarist.com/blogs/creating-nature/flowering-underwater": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-creating-nature-flowering-underwater"
+    ],
+    "updatedAt": "2026-11-24T23:26:12.992Z",
+    "hash": "78675b4b4ac15cf1e91d3fbec551928ed73c50c434cff8a9b65030ff2fc0d959",
+    "processedHash": "78675b4b4ac15cf1e91d3fbec551928ed73c50c434cff8a9b65030ff2fc0d959",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/creating-nature/how-to-reset-a-tank": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-creating-nature-how-to-reset-a-tank"
+    ],
+    "updatedAt": "2026-11-24T23:28:03.583Z",
+    "hash": "4e8175ec6a9bac828ef5419b74b858554a9c8d008acda5967c12cf416ec678ea",
+    "processedHash": "4e8175ec6a9bac828ef5419b74b858554a9c8d008acda5967c12cf416ec678ea",
     "status": "processed",
     "attempts": 0
   },

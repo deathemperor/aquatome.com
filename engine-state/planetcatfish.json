@@ -5478,5 +5478,287 @@
     "processedHash": "30e7cfdf4cc05a26925921585ab66412a1ccc8d810d1f5cf97a615504ceef2b8",
     "status": "processed",
     "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=154": {
+    "entityIds": [
+      "species/apistogramma-cinilabra"
+    ],
+    "updatedAt": "2026-11-25T00:49:05.447Z",
+    "hash": "cd4b42530b4c8cdef7d38a33e5c59f5ced43784ce5f28e673daa3aea847087ed",
+    "processedHash": "cd4b42530b4c8cdef7d38a33e5c59f5ced43784ce5f28e673daa3aea847087ed",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1540": {
+    "entityIds": [
+      "species/corydoras-albolineatus"
+    ],
+    "updatedAt": "2026-11-25T00:50:12.118Z",
+    "hash": "89d78f449d00f7a77437e1e008064af418354423ce37271c9e71e22269e803af",
+    "processedHash": "89d78f449d00f7a77437e1e008064af418354423ce37271c9e71e22269e803af",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1541": {
+    "entityIds": [],
+    "updatedAt": "2026-11-25T00:51:59.583Z",
+    "hash": "d18445ee58a214b308bfec549be98c558229e05fa18320c01994494befcdc777",
+    "processedHash": "d18445ee58a214b308bfec549be98c558229e05fa18320c01994494befcdc777",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1542": {
+    "entityIds": [
+      "species/pseudomystus-flavipinnis"
+    ],
+    "updatedAt": "2026-11-25T00:53:00.259Z",
+    "hash": "dd38129922c0a5235f3684aac11293be3099040c37d50b8449cd15e9d8243ada",
+    "processedHash": "dd38129922c0a5235f3684aac11293be3099040c37d50b8449cd15e9d8243ada",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1543": {
+    "entityIds": [
+      "species/genidens-genidens"
+    ],
+    "updatedAt": "2026-11-25T00:54:14.212Z",
+    "hash": "f923e49e45b413c79a21623ebd5e5d303dba3982084ddfe59212f56009e0adc8",
+    "processedHash": "f923e49e45b413c79a21623ebd5e5d303dba3982084ddfe59212f56009e0adc8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1544": {
+    "entityIds": [
+      "species/centromochlus-existimatus"
+    ],
+    "updatedAt": "2026-11-25T00:54:56.274Z",
+    "hash": "26284b5ddd286b5d56d1a369f56666e07d792c969090cd4b5547f38fdfea6bd4",
+    "processedHash": "26284b5ddd286b5d56d1a369f56666e07d792c969090cd4b5547f38fdfea6bd4",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1545": {
+    "entityIds": [
+      "species/rhamdioglanis-transfasciatus"
+    ],
+    "updatedAt": "2026-11-25T00:56:20.902Z",
+    "hash": "80f27f5fe013976b5897883643632eca9f97e1c6d1a391c57e12162d3a9a4b8d",
+    "processedHash": "80f27f5fe013976b5897883643632eca9f97e1c6d1a391c57e12162d3a9a4b8d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1546": {
+    "entityIds": [
+      "species/trichomycterus-maracaya"
+    ],
+    "updatedAt": "2026-11-25T00:57:14.212Z",
+    "hash": "5610a17400a72fe1beaf2fdd68c3d214c9cc5a62dc3957e69e2d18a0b9a852ce",
+    "processedHash": "5610a17400a72fe1beaf2fdd68c3d214c9cc5a62dc3957e69e2d18a0b9a852ce",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1547": {
+    "entityIds": [
+      "species/corydoras-ortegai"
+    ],
+    "updatedAt": "2026-11-25T00:58:11.734Z",
+    "hash": "faf375a87ac14dc7414c19ff7545bd4466e504fb33aff38ca6a749066d7acc91",
+    "processedHash": "faf375a87ac14dc7414c19ff7545bd4466e504fb33aff38ca6a749066d7acc91",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1548": {
+    "entityIds": [
+      "species/pseudobagrus-tenuis"
+    ],
+    "updatedAt": "2026-11-25T00:59:35.906Z",
+    "hash": "68535f84dc82efc1822bf6acc50066f9d43434284e28ba9e5fcb848b41022b4d",
+    "processedHash": "68535f84dc82efc1822bf6acc50066f9d43434284e28ba9e5fcb848b41022b4d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1549": {
+    "entityIds": [
+      "species/trichomycterus-mondolfi"
+    ],
+    "updatedAt": "2026-11-25T01:00:16.978Z",
+    "hash": "118527c9054a7ff1be737ec89574ee8b4c5f81f73c64aca8a52684f6ebd3fb8b",
+    "processedHash": "118527c9054a7ff1be737ec89574ee8b4c5f81f73c64aca8a52684f6ebd3fb8b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=155": {
+    "entityIds": [],
+    "updatedAt": "2026-11-25T01:01:04.106Z",
+    "hash": "3742f888b81bf81151474c6ef3a27e1052fd3bb1330d35a29db802d38ab7d84b",
+    "processedHash": "3742f888b81bf81151474c6ef3a27e1052fd3bb1330d35a29db802d38ab7d84b",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1550": {
+    "entityIds": [
+      "species/cteniloricaria-maculata"
+    ],
+    "updatedAt": "2026-11-25T01:01:46.883Z",
+    "hash": "84d1b6e4597976ed86a2601f610affe526c4ae5b77b5fa454aea6ad079e5b40b",
+    "processedHash": "84d1b6e4597976ed86a2601f610affe526c4ae5b77b5fa454aea6ad079e5b40b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1551": {
+    "entityIds": [
+      "species/harttia-guianensis"
+    ],
+    "updatedAt": "2026-11-25T01:02:32.113Z",
+    "hash": "d64fb7fbde0b4ce1baf1240504674a53162c0990ed469eff47711cebb3187026",
+    "processedHash": "d64fb7fbde0b4ce1baf1240504674a53162c0990ed469eff47711cebb3187026",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1552": {
+    "entityIds": [],
+    "updatedAt": "2026-11-25T01:03:22.258Z",
+    "hash": "1681641dc59cf8b8a954b734ac39907d1ac631dcbc826a9a363d97baab044d8b",
+    "processedHash": "1681641dc59cf8b8a954b734ac39907d1ac631dcbc826a9a363d97baab044d8b",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1553": {
+    "entityIds": [
+      "species/pseudobagarius-leucorhynchus"
+    ],
+    "updatedAt": "2026-11-25T01:03:58.173Z",
+    "hash": "bfa10abb1682fdca8bd12b835edf13e86f5e64223efbe8b3047806a48b67bb7b",
+    "processedHash": "bfa10abb1682fdca8bd12b835edf13e86f5e64223efbe8b3047806a48b67bb7b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1554": {
+    "entityIds": [
+      "species/glyptothorax-platypogon"
+    ],
+    "updatedAt": "2026-11-25T01:04:48.088Z",
+    "hash": "64dae6c2e7d80c00adb8b5831b2e62b88c5888bd3f1dd4ca8aaff495e76bd8a8",
+    "processedHash": "64dae6c2e7d80c00adb8b5831b2e62b88c5888bd3f1dd4ca8aaff495e76bd8a8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1555": {
+    "entityIds": [
+      "species/lacantunia-enigmatica"
+    ],
+    "updatedAt": "2026-11-25T01:05:52.713Z",
+    "hash": "099162ad2a171f10c23f6319c1b41dc0ade230ea498fd250ce4ca3ff4378f893",
+    "processedHash": "099162ad2a171f10c23f6319c1b41dc0ade230ea498fd250ce4ca3ff4378f893",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1556": {
+    "entityIds": [
+      "species/ictalurus-pricei"
+    ],
+    "updatedAt": "2026-11-25T01:06:46.282Z",
+    "hash": "fd0d265f0eebc781786080db8b0eefa9b24e7ec97d9d1c99916e74c4737acfe6",
+    "processedHash": "fd0d265f0eebc781786080db8b0eefa9b24e7ec97d9d1c99916e74c4737acfe6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1557": {
+    "entityIds": [
+      "species/ictalurus-ochoterenai"
+    ],
+    "updatedAt": "2026-11-25T01:07:33.703Z",
+    "hash": "88d0e32de7487bdead6e2cf3eb7d7f4ea094ad9bb035c63143925b81ac689b05",
+    "processedHash": "88d0e32de7487bdead6e2cf3eb7d7f4ea094ad9bb035c63143925b81ac689b05",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1558": {
+    "entityIds": [
+      "species/ictalurus-dugesii"
+    ],
+    "updatedAt": "2026-11-25T01:08:16.152Z",
+    "hash": "f3b2f67cbd9fc7688bbd6bcc6e3076a4d029f1487225fce335080b5cc6ced5d0",
+    "processedHash": "f3b2f67cbd9fc7688bbd6bcc6e3076a4d029f1487225fce335080b5cc6ced5d0",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1559": {
+    "entityIds": [
+      "species/ictalurus-balsanus"
+    ],
+    "updatedAt": "2026-11-25T01:08:51.631Z",
+    "hash": "57ded2f40213a4958b3ef39dea7af7d40a10b6b0f06267062ace50fa72c5a8d2",
+    "processedHash": "57ded2f40213a4958b3ef39dea7af7d40a10b6b0f06267062ace50fa72c5a8d2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=156": {
+    "entityIds": [
+      "species/rama-rama"
+    ],
+    "updatedAt": "2026-11-25T01:09:29.546Z",
+    "hash": "a4b9158c585d11fb089aae49e66228e3ba8947dc276f5c4df149add9ea27e642",
+    "processedHash": "a4b9158c585d11fb089aae49e66228e3ba8947dc276f5c4df149add9ea27e642",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1560": {
+    "entityIds": [
+      "species/ictalurus-australis"
+    ],
+    "updatedAt": "2026-11-25T01:10:21.025Z",
+    "hash": "9d45a7ca73b8b76b8f8ce02d7e45f6f1e428859eecd81f10aebbe64749ff24a6",
+    "processedHash": "9d45a7ca73b8b76b8f8ce02d7e45f6f1e428859eecd81f10aebbe64749ff24a6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1561": {
+    "entityIds": [
+      "species/potamarius-nelsoni"
+    ],
+    "updatedAt": "2026-11-25T01:11:05.922Z",
+    "hash": "b12b9c9f6871c433e44b39ff2787371627b6e2e09b8aa5fb3b6316c53a67b00c",
+    "processedHash": "b12b9c9f6871c433e44b39ff2787371627b6e2e09b8aa5fb3b6316c53a67b00c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1562": {
+    "entityIds": [
+      "species/ictalurus-lupus"
+    ],
+    "updatedAt": "2026-11-25T01:11:44.572Z",
+    "hash": "26981d358d1e2a72b8f2c24e40896f24ffbe3a0586cca5df288806ef87b4dfcc",
+    "processedHash": "26981d358d1e2a72b8f2c24e40896f24ffbe3a0586cca5df288806ef87b4dfcc",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1563": {
+    "entityIds": [
+      "species/bagrichthys-majusculus"
+    ],
+    "updatedAt": "2026-11-25T01:12:35.804Z",
+    "hash": "1295ce0f155d969d05e35d08020627cc58e1b8ae5cc2441d16d1fb4d1ddf8994",
+    "processedHash": "1295ce0f155d969d05e35d08020627cc58e1b8ae5cc2441d16d1fb4d1ddf8994",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1564": {
+    "entityIds": [
+      "species/hemisilurus-mekongensis"
+    ],
+    "updatedAt": "2026-11-25T01:13:15.684Z",
+    "hash": "033a21886cfc6e2607a8427586e6f5446e113674f9abcf0e2a85f019eb2f1615",
+    "processedHash": "033a21886cfc6e2607a8427586e6f5446e113674f9abcf0e2a85f019eb2f1615",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1565": {
+    "entityIds": [],
+    "updatedAt": "2026-11-25T01:13:59.292Z",
+    "hash": "795df747a68085ca1a81c6c3ad008b2f5842d36c76e9a15a7a874b02801b253c",
+    "processedHash": "795df747a68085ca1a81c6c3ad008b2f5842d36c76e9a15a7a874b02801b253c",
+    "status": "skipped",
+    "attempts": 0
   }
 }

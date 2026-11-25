@@ -1,9 +1,12 @@
 {
   "id": "genidens-genidens",
-  "summary": "Cá nheo biển Guri (Genidens genidens) lớn tới 42,5 cm, là cá biển ven bờ, mùa xuân lên nước ngọt để đẻ. Hồ sơ không có số liệu về bể tối thiểu, nhiệt độ, pH hay độ khó, nên chưa đủ cơ sở để nói bể và nước thế nào cho hợp. Khó nhất là thiếu thông tin nuôi: ai muốn nuôi nên tìm thêm nguồn khác trước khi quyết định.",
-  "mistakes": [],
-  "speciesUpdatedAt": "2026-11-18",
-  "writtenFrom": "81d504bda55836e4",
-  "generatedAt": "2026-11-19T19:56:24.339Z",
+  "summary": "Cá nheo biển Guri (Genidens genidens) lớn tới 42,5 cm và hồ sơ ghi điều kiện nước là nước lợ. Hồ sơ không nêu bể tối thiểu, nhiệt độ hay pH. Chưa ai cho loài này đẻ trong bể.",
+  "mistakes": [
+    "Nuôi trong nước ngọt thuần: hồ sơ ghi điều kiện nước là nước lợ, nên chuẩn bị nước lợ.",
+    "Mua với ý định gây giống: hồ sơ ghi chưa ai cho loài này đẻ trong bể, nên đừng tính chuyện gây giống."
+  ],
+  "speciesUpdatedAt": "2026-11-25",
+  "writtenFrom": "01817ff614a0a28c",
+  "generatedAt": "2026-11-25T01:56:23.247Z",
   "review": "approved"
 }
