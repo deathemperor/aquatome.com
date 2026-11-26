@@ -6,7 +6,7 @@ import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join, relative } from 'node:path'
 import sharp from 'sharp'
-import { photoAddressSet, stillShown } from '@aq/schema'
+import { PHOTO_SCREEN_FILE, photoAddressSet, retainedOwnMark, stillShown, type PhotoScreenEntry } from '@aq/schema'
 import { LlmError } from './claude'
 import { contactSheet, stillDone } from './video-images'
 import type { StillsState } from './video-stills'
@@ -100,9 +100,9 @@ async function pool<T>(items: T[], n: number, f: (x: T) => Promise<void>) {
 }
 
 /** Why a photo leaves a guide, or undefined; `brandKept`: an equipment guide's (the brand is the product's) or a video still. */
-export function guidePhotoOff(v: GuidePhotoVerdict | undefined, brandKept: boolean): string | undefined {
+export function guidePhotoOff(v: GuidePhotoVerdict | undefined, brandKept: boolean, ownMarkKept = false): string | undefined {
   if (!v) return undefined
-  return v.mark ? `watermark: ${photoReason(v)}` : v.brand && !brandKept ? `logo: ${photoReason(v)}` : v.person ? `people: ${photoReason(v)}` : undefined
+  return v.mark && !ownMarkKept ? `watermark: ${photoReason(v)}` : v.brand && !brandKept ? `logo: ${photoReason(v)}` : v.person ? `people: ${photoReason(v)}` : undefined
 }
 
 /** The model's verdict on each image (at most PER_SHEET), in order; one it didn't answer is undefined. `subjects`: each image's guide's subject, if it's to be asked about. */
@@ -215,8 +215,11 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
   // A guide's photo that is also the last photo of a species, plant or breed page doesn't go on the list, which would
   // take it off that page too: it waits for a second look (last-photo.ts). It still leaves the guides.
   const sl = looks(await readSecondLook(root))
+  const marks = (await readJson<Record<string, PhotoScreenEntry>>(state(PHOTO_SCREEN_FILE))) ?? {}
+  const ownMark = photoAddressSet(Object.keys(marks).filter(url => retainedOwnMark(url, marks[url])))
+  const verdictOff = (url: string, brandKept: boolean) => guidePhotoOff(cache[url], brandKept, ownMark(url))
   const listing = new Map([...items.values()].flatMap(x => {
-    const why = guidePhotoOff(cache[x.url], x.equipment || x.still)
+    const why = verdictOff(x.url, x.equipment || x.still)
     return why && sl.open(x.url) ? [[x.url, why] as const] : []
   }))
   const removesWrapper = photoAddressSet([...listing].flatMap(([url, reason]) => versionRejection(reason) ? [] : [url]))
@@ -224,7 +227,7 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
   const heldAddress = photoAddressSet(last.keys())
   const holding = new Map<string, { why: string; pages: string[] }>()
   for (const x of items.values()) {
-    const why = guidePhotoOff(cache[x.url], x.equipment || x.still)
+    const why = verdictOff(x.url, x.equipment || x.still)
     if (!why) continue
     report.off.push(`${x.url}: ${why}`)
     if (last.has(x.url)) { holding.set(x.url, { why, pages: last.get(x.url)! }); report.held.push(`${x.url}: ${last.get(x.url)!.join(', ')}`); continue }
@@ -239,7 +242,7 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     const equipment = file.startsWith(join(content, 'equipment'))
     const subject = subjectOf.get(file)
     const another = (url: string) => !!subject && cache[url]?.other?.[subject] === true
-    stripPhotos(data, url => sl.open(url) && (!!guidePhotoOff(cache[url], equipment || !!items.get(url)?.still) || another(url)), removed, report.kept)
+    stripPhotos(data, url => sl.open(url) && (!!verdictOff(url, equipment || !!items.get(url)?.still) || another(url)), removed, report.kept)
     report.subject.push(...removed.filter(another).map(u => `${relative(root, file)}: ${u}: ${cache[u]!.note}`))
     // What's left of a guide's stills carries its verdict, which they need to show.
     let cleared = 0

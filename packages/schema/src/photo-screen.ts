@@ -102,10 +102,17 @@ export function publicPhotoVersion<P extends Photo>(p: P, images: Readonly<Image
 export const isVersionRejection = (reason: string): boolean => /^(?:dead|people|waiting): /.test(reason)
 const CREDIT_HOLD_TEXT = 'rejected: held for a credit read'
 export const CREDIT_HOLD_REJECTION = `rejected: withheld [sha256:${createHash('sha256').update(CREDIT_HOLD_TEXT).digest('hex')}]`
+export const CREDIT_HOLD_FILE = '_credit-holds.json'
 
 /** The stored URL and any original the public loader can use if it withdraws an alteration. */
 export function deadScreenPhotoUrls(p: PhotoVersions): string[] {
   return p.altered?.length && !p.generated && !isOwnerCrop(p) && mayFallBack(p) ? [p.url, p.original!.url] : [p.url]
+}
+
+/** An active rights hold covers the stored photo and originals carried by its saved placements. */
+export function creditHoldPhotoUrls(holds: Record<string, { released?: boolean; places?: { photo: PhotoVersions }[] }> = {}): string[] {
+  return Object.entries(holds).flatMap(([url, hold]) => hold.released ? [] :
+    [url, ...(hold.places ?? []).flatMap(place => deadScreenPhotoUrls(place.photo))])
 }
 
 /** Photo placements that carry their own publishing and attribution metadata. */
@@ -180,13 +187,13 @@ export async function expandWholePhotoRejections(
   const effective = photoRejections(rejections, marks)
   const originals = await originalPhotoRefusals(root, url => {
     const entry = effective(url)
-    return entry && !isVersionRejection(entry[1]) ? entry[0] : undefined
+    return entry && entry[1] !== CREDIT_HOLD_REJECTION && !isVersionRejection(entry[1]) ? entry[0] : undefined
   })
   const added: Record<string, string> = {}
   for (const [url, causes] of originals) {
     const prior = effective(url)?.[1]
-    const cause = [...causes].find(url => rejections[url] !== CREDIT_HOLD_REJECTION) ?? causes.values().next().value
-    if (cause && (!prior || (isVersionRejection(prior) && rejections[cause] !== CREDIT_HOLD_REJECTION))) added[url] = rejections[cause]!
+    const cause = causes.values().next().value
+    if (cause && (!prior || isVersionRejection(prior))) added[url] = rejections[cause]!
   }
   return Object.keys(added).length ? { ...rejections, ...added } : rejections
 }

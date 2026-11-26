@@ -1,11 +1,12 @@
 import { createHash } from 'node:crypto'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
-import { CREDIT_HOLD_REJECTION, deadScreenPhotoUrls, photoAddressSet, type Photo, type SourceId } from '@aq/schema'
+import { CREDIT_HOLD_FILE, CREDIT_HOLD_REJECTION, creditHoldPhotoUrls, deadScreenPhotoUrls, photoAddressSet, type Photo, type SourceId } from '@aq/schema'
 import { holdForSecondLook, looks, readSecondLook } from './last-photo'
 import type { PageImage } from './outline'
 import { creditKind } from './photo-credit'
 import { recordPhotoRefusals, writePhotoState } from './photo-state'
+import { writeImageCache } from './image-cache-write'
 import { holdablePhotoVerdicts } from './photo-visibility'
 import { dedupeKey, photoKey, refusedCredit, type CreditTerms, type Media } from './source-photos'
 import { stripPhotos } from './watermarks'
@@ -23,7 +24,7 @@ import { stripPhotos } from './watermarks'
  */
 export const CREDIT_READS = 'engine-state/_credit-reads.json'
 export const PHOTO_CREDITS = 'engine-state/_photo-credits.json'
-export const CREDIT_HOLDS = 'engine-state/_credit-holds.json'
+export const CREDIT_HOLDS = `engine-state/${CREDIT_HOLD_FILE}`
 export type CreditRead = { source: SourceId; at: string; by: string }
 export type CreditReadKind = 'own' | 'agency' | 'other' | 'none'
 export type PhotoCredit = { page: string; kind: CreditReadKind; line?: string; at: string }
@@ -36,13 +37,13 @@ export type HeldPlace = { file: string; path: string[]; at: number; prev?: strin
 /** A calendar day whose guide card showed a held photo. */
 export type CalendarPlace = { file: string; date: string; guide?: string }
 /** A photo a person took off readers' pages until its source page's credit read: who, when, why, and where it was. */
-export type CreditHold = { page: string; by: string; on: string; why: string; places: HeldPlace[]; calendar?: CalendarPlace[] }
+export type CreditHold = { page: string; by: string; on: string; why: string; places: HeldPlace[]; calendar?: CalendarPlace[]; released?: true }
 
 const REJECTED = 'engine-state/_photo-rejected.json'
 /** The never-again note a credit hold puts there, the same for every held photo: how a release knows its own. */
 export const HOLD_NOTE = CREDIT_HOLD_REJECTION
 const readMap = async <T>(file: string): Promise<Record<string, T>> => JSON.parse(await readFile(file, 'utf8').catch((e: NodeJS.ErrnoException) => { if (e.code === 'ENOENT') return '{}'; throw e })) as Record<string, T>
-const writeMap = (file: string, v: Record<string, unknown>) => writeFile(file, `${JSON.stringify(Object.fromEntries(Object.entries(v).sort(([a], [b]) => a.localeCompare(b))), null, 2)}\n`)
+const writeMap = (file: string, v: Record<string, unknown>) => writeImageCache(file, `${JSON.stringify(Object.fromEntries(Object.entries(v).sort(([a], [b]) => a.localeCompare(b))), null, 2)}\n`)
 export const readCreditReads = (root: string) => readMap<CreditRead>(join(root, CREDIT_READS))
 export const writeCreditReads = (root: string, v: Record<string, CreditRead>) => writeMap(join(root, CREDIT_READS), v)
 
@@ -239,10 +240,16 @@ export async function releaseCreditHolds(root: string, credits: Record<string, P
   const holds = await readMap<CreditHold>(join(root, CREDIT_HOLDS)), rejected = await readMap<string>(join(root, REJECTED))
   const back: string[] = [], off: string[] = [], places: HeldPlace[] = [], cards: { url: string; c: CalendarPlace }[] = []
   const left = new Map<string, { places: HeldPlace[]; calendar: CalendarPlace[] }>()
+  const ownedAddresses = (url: string, hold: CreditHold) => [url, ...hold.places.flatMap(p => deadScreenPhotoUrls(p.photo))]
   for (const [u, h] of Object.entries(holds)) {
-    const c = credits[u]
+    const addresses = ownedAddresses(u, h)
+    const c = addresses.flatMap(url => credits[url] ?? []).sort((a, b) => RANK[b.kind] - RANK[a.kind])[0]
     if (!c) continue
-    if (c.kind !== 'own' || (u in rejected && rejected[u] !== HOLD_NOTE)) { off.push(u); continue }
+    if (c.kind !== 'own' || (u in rejected && rejected[u] !== HOLD_NOTE)) {
+      for (const url of addresses) rejected[url] ??= rejected[u] ?? HOLD_NOTE
+      off.push(u)
+      continue
+    }
     back.push(u)
     places.push(...h.places)
     cards.push(...(h.calendar ?? []).map(c => ({ url: u, c })))
@@ -250,14 +257,14 @@ export async function releaseCreditHolds(root: string, credits: Record<string, P
   const stay = (u: string) => left.get(u) ?? (left.set(u, { places: [], calendar: [] }), left.get(u)!)
   // Off the never-again list first, then back on the pages, then out of the holds: a failure at any point leaves no
   // photo shown while barred, and the hold still names what the next read's release finishes.
-  const returned = new Set(back)
-  const ownedAddresses = (url: string, hold: CreditHold) => [url, ...hold.places.flatMap(p => deadScreenPhotoUrls(p.photo))]
-  const stillHeld = photoAddressSet(Object.entries(holds).flatMap(([url, hold]) => returned.has(url) ? [] : ownedAddresses(url, hold)))
   const lifted = photoAddressSet(back.flatMap(url => ownedAddresses(url, holds[url]!)))
+  for (const url of back) holds[url]!.released = true
+  const stillHeld = photoAddressSet(creditHoldPhotoUrls(holds))
   for (const url of Object.keys(rejected)) {
     if (rejected[url] === HOLD_NOTE && lifted(url) && !stillHeld(url)) delete rejected[url]
   }
   await writePhotoState(join(root, REJECTED), rejected)
+  if (back.length) await writeMap(join(root, CREDIT_HOLDS), holds)
   for (const file of new Set([...places.map(p => p.file), ...cards.map(x => x.c.file)])) {
     const f = join(root, file), raw = await readFile(f, 'utf8').catch(() => undefined)
     const mine = places.filter(p => p.file === file).sort((a, b) => a.at - b.at), days = cards.filter(x => x.c.file === file)
