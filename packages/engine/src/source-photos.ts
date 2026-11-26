@@ -192,8 +192,8 @@ export const mayTake = (source: SourceId, sourceName: string, deps: CreditTerms 
 export type SourcePhoto = Photo & { heading?: string }
 
 function storedSourcePhoto(p: Photo): Photo | undefined {
-  if (!p.source || p.generated || p.ownerCrop) return undefined
-  const original = p.altered?.length ? p.original : p
+  if (!p.source || p.generated) return undefined
+  const original = p.ownerCrop || p.altered?.length ? p.original : p
   if (!original) return undefined
   const { url, thumb, width, height } = original
   return { url, thumb, width, height, licence: p.licence, author: p.author, ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), sourceUrl: p.sourceUrl, source: p.source }

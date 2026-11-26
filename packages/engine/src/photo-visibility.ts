@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { lastPhotoVerdicts, looks, pagesShowing, readSecondLook } from './last-photo'
-import { CREDIT_HOLD_FILE, creditHoldPhotoUrls, type CreditHoldPhotos } from '@aq/schema'
+import { CREDIT_HOLD_FILE, CREDIT_HOLD_REJECTION, creditHoldPhotoUrls, type CreditHoldPhotos } from '@aq/schema'
 import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, expandWholePhotoRejections, facePhotoStatus, FACES_FILE, guideLooked, guidePhotoUrlsIn, GUIDE_LOOKS_FILE, IMAGE_SWITCHES, isOwnerCrop, isVersionRejection, mayPublish, mayPublishLicence, ownDeadPhotoUrls, originalPhotoRefusals, ownerCropFitsPage, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoRejections, rejectedEntry, photoWaitsFor, publicPhotoVersion, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
 
 const read = async <T>(root: string, name: string): Promise<Record<string, T> | undefined> => {
@@ -31,6 +31,11 @@ export const permittedPhotoSource = (photo: Photo, sources: Record<string, Sourc
 
 export async function readCreditHoldWait(root: string): Promise<(url: string) => boolean> {
   return photoAddressSet(creditHoldPhotoUrls(await read<CreditHoldPhotos>(root, CREDIT_HOLD_FILE)))
+}
+
+export async function readPhotoIntakeBlocks(root: string): Promise<Record<string, string>> {
+  const [rejected, holds] = await Promise.all([read<string>(root, PHOTO_REJECTED_FILE), read<CreditHoldPhotos>(root, CREDIT_HOLD_FILE)])
+  return { ...Object.fromEntries(creditHoldPhotoUrls(holds).map(url => [url, CREDIT_HOLD_REJECTION])), ...rejected }
 }
 
 /** Use the public screen predicates before removing a photo that might leave its page empty. */

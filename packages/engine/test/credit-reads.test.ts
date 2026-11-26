@@ -292,7 +292,7 @@ test('a whole credit refusal holds a fallback original even when the alteration 
   expect((await json(join(r, 'engine-state/_photo-second-look.json')))[stored.url].originals).toEqual([original.url])
 })
 
-test('credit release cannot erase a human agreement recorded during the hold', async () => {
+test.each([false, true])('credit release preserves an agreement when the sweep has %s run', async swept => {
   const held = photo('agreed')
   const file = 'content/species/fish-e/entity.json'
   const r = await root({ [file]: { id: 'fish-e', photos: [held] } })
@@ -305,7 +305,7 @@ test('credit release cannot erase a human agreement recorded during the hold', a
   const marks = await json(join(r, 'engine-state/_photo-second-look.json'))
   marks[held.url].look = { said: 'agree', by: 'reviewer', on: '2026-11-26' }
   await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify(marks))
-  await listAgreed(r)
+  if (swept) await listAgreed(r)
   const read = { [held.url]: { page: PAGE, kind: 'own', at: '2026-11-26' } satisfies PhotoCredit }
 
   expect(await releaseCreditHolds(r, read)).toEqual({ back: [], off: [held.url], stuck: [] })
@@ -352,4 +352,23 @@ test('the publisher original releases an owner crop and remains available for a 
   expect(await releaseCreditHolds(r, read)).toEqual({ back: [crop.url], off: [], stuck: [] })
   expect((await json(join(r, calendar))).days).toEqual([{ ...day, guideImg: crop.url }])
   expect(await json(join(r, CREDIT_HOLDS))).toEqual({})
+})
+
+test('a publisher refusal on the original applies to its approved crop on the page and in its album', async () => {
+  const image = 'https://www.example-pets.test/crop.jpg'
+  const original = photo('original', { url: media.urlFor(photoKey('sprucepets', image)) })
+  const crop = photo('owner-crop', { original, ownerCrop: { id: 'approved-crop' } })
+  const spare = photo('spare', { source: undefined, licence: 'CC BY 4.0' })
+  const page = 'content/species/fish-e/entity.json', album = 'content/gallery/fish-e.json'
+  const r = await root({ [page]: { id: 'fish-e', photos: [crop, spare] }, [album]: { id: 'fish-e', photos: [crop] } })
+  const read = pageCredits([{ src: image, alt: '', credit: 'Independent Picture Agency' }], PAGE, 'sprucepets', SITE, terms, media, '2026-11-26')
+  expect(read[original.url]?.kind).toBe('other')
+  await recordCredits(r, read)
+
+  expect((await applyCreditReads(r)).held).toEqual([])
+  expect((await json(join(r, page))).photos).toEqual([spare])
+  expect((await json(join(r, album))).photos).toEqual([])
+  const rejected = await json(join(r, 'engine-state/_photo-rejected.json'))
+  expect(rejected[crop.url]).toMatch(/^rejected: /)
+  expect(rejected[original.url]).toMatch(/^rejected: /)
 })

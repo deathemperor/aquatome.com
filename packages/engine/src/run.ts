@@ -8,7 +8,6 @@ import { across, LARGE_PX } from './curation'
 import { cardGaps } from './card-fill'
 import { appendChangelog } from './changelog'
 import { applyCreditReads, CREDIT_HOLDS, creditPagesWaiting, pageCredits, readCreditReads, recordCredits, releaseCreditHolds, writeCreditReads } from './credit-reads'
-import { CREDIT_HOLD_REJECTION, creditHoldPhotoUrls } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { deeperPages, depthReport, popularityOrder, readSearchCache, runOrder, saveSearchCache, searchThin, thinSpecies, type DepthReport } from './depth'
 import { discover } from './discover'
@@ -28,7 +27,7 @@ import { rewriteVi, VI_WRITE } from './vi-rewrite'
 import { QUALITY_THRESHOLD, gate, reviewTranslation, steadyRead, WRITER_BAND } from './quality'
 import { logReviews, type Review } from './review-log'
 import { holdForSecondLook } from './last-photo'
-import { readPhotoWaits, readRecoveryRetention, versionRejection } from './photo-visibility'
+import { readPhotoIntakeBlocks, readPhotoWaits, readRecoveryRetention, versionRejection } from './photo-visibility'
 import { linkedPhotos, mayTake, pickSourcePhotos, sourcePhotoInventory, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
 import { snapshotHash, writeSnapshot } from './snapshot'
 import { ARCHIVE_POLITE, archiveStops } from './archive'
@@ -297,9 +296,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   const sourceNames = (await readJson<Partial<Record<SourceId, { name: string; publish?: boolean | 'photos'; permission?: CreditTerms & { markRemoval?: { allowed?: boolean; date?: string } } }>>>(join(contentRoot, 'sources.json'))) ?? {}
   const gbifCache: Record<string, Taxon | null> = {}
   const readPhotoState = async () => {
-    const raw = await readJson<Record<string, string>>(join(root, 'engine-state/_photo-rejected.json'))
-    const holds = await readJson<Parameters<typeof creditHoldPhotoUrls>[0]>(join(root, CREDIT_HOLDS))
-    const blocked = { ...Object.fromEntries(creditHoldPhotoUrls(holds).map(url => [url, CREDIT_HOLD_REJECTION])), ...raw }
+    const blocked = await readPhotoIntakeBlocks(root)
     const screen = await readJson<Record<string, PhotoScreenEntry>>(join(root, 'engine-state', PHOTO_SCREEN_FILE))
     const [photoWaits, pendingRefusal] = await Promise.all([
       readPhotoWaits(root, { rejected: blocked, watermarks: screen, freshOwn: true }), readRecoveryRetention(root),

@@ -308,14 +308,15 @@ test("gallery: a photo the photo check took off this page is never put back, fro
   expect(shown.some(u => u.includes('commons.wikimedia.org'))).toBe(true)
 })
 
-test("gallery: a photo the check called dead here that a second look cleared may come back from the queue; one it didn't clear stays out", async () => {
+test.each([false, true])('gallery: a cleared dead verdict allows intake (copied to the mirror: %s)', async mirrored => {
   const r = await root()
   const cand = (n: number) => ({ url: `https://inaturalist-open-data.s3.amazonaws.com/photos/${n}/original.jpg`, thumb: `https://inaturalist-open-data.s3.amazonaws.com/photos/${n}/medium.jpg`, width: 1332, height: 1776, licence: 'CC BY', author: 'a', sourceUrl: `https://www.inaturalist.org/photos/${n}`, key: `inat:${n}` })
   const back = cand(81), kept = cand(82)
   await mkdir(join(r, 'engine-state/gallery'), { recursive: true })
   await writeFile(join(r, 'engine-state/gallery/betta-splendens.json'), JSON.stringify({ queue: [back, kept], judged: [], hashes: {} }))
   const dead = { ok: 'dead', typical: false, note: 'a fish on a board' }
-  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [back.url]: { 'betta-splendens': dead }, [kept.url]: { 'betta-splendens': dead } }))
+  const reviewed = mirrored ? `https://media.aquatome.com/${mirrorPlan(back.url)!.key}` : back.url
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [reviewed]: { 'betta-splendens': dead }, [kept.url]: { 'betta-splendens': dead } }))
   const rec = { why: 'dead: withheld [sha256:' + 'b'.repeat(64) + ']', step: 'the photo check', pages: ['species/betta-splendens'], at: '2026-11-20', off: true }
   await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [back.url]: { ...rec, look: { said: 'clear', by: 'the chief of staff', on: '2026-11-20' } }, [kept.url]: rec }))
   await galleries(r, deps(), { sheets: 5 })
