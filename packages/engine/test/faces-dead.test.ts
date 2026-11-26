@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
-import { loadAll } from '@aq/schema'
+import { loadAll, mirrorPlan } from '@aq/schema'
 import { LlmError } from '../src/claude'
 import { screenDead, type DeadScreenDeps } from '../src/dead-screen'
 import { putBackCleared, waitingEntry } from '../src/last-photo'
@@ -413,6 +413,28 @@ test('the standalone screen asks about the displayed original even when the stor
   const { d, sent } = deps()
   expect((await screenDead(root, d.dead, { limit: 1 })).judged).toBe(1)
   expect(sent).toEqual([original.url])
+})
+
+test('a rejected source URL keeps its mirrored fallback off the page, album and direct lookup', async () => {
+  const source = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Example.jpg/1280px-Example.jpg'
+  const mirrored = `https://media.aquatome.com/${mirrorPlan(source)!.key}`
+  const altered = {
+    ...photo('altered'),
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'e'.repeat(64) }],
+    original: { url: mirrored, width: 960, height: 640 },
+  }
+  const { root, state, publicView } = await publicFixture([altered], [altered], [altered.url, mirrored])
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [altered.url]: { dead: false }, [mirrored]: { dead: false } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [altered.url]: 0, [mirrored]: 0 }))
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [source]: 'dead: withheld' }))
+  const content = await publicView()
+  expect(content.species.find(page => page.id === 'alpha')!.photos).toEqual([])
+  expect(content.galleries.alpha).toBeUndefined()
+  expect(content.photoWaits!(mirrored)).toBe(true)
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [altered.url]: { dead: false } }))
+  const { d, sent } = deps()
+  expect((await run(root, d)).owed).toBe(0)
+  expect(sent).toEqual([])
 })
 
 test('an incomplete cached verdict waits on the site and gets a fresh screen', async () => {

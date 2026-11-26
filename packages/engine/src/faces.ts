@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
-import { awaitsScreen, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadPhotoOff, deadScreenPhotoUrls, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, publicPhotoVersion, SECOND_LOOK_RECORD, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { awaitsScreen, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadPhotoOff, deadScreenPhotoUrls, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, publicPhotoVersion, rejectedEntry, SECOND_LOOK_RECORD, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
 import { screenDead, type DeadScreenDeps } from './dead-screen'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
@@ -35,6 +35,7 @@ export async function visionFaces(files: string[]): Promise<number[]> {
 export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: FaceDeps, rejectedFile?: string, root = join(contentRoot, '..'), enrol?: (fresh: string[]) => Promise<ReadonlySet<string>>): Promise<{ checked: number; fresh: string[]; screened: string[]; removed: string[]; held: string[]; firstOff: string[]; failed: string[] }> {
   const cache: Record<string, number> = JSON.parse(await readFile(cacheFile, 'utf8').catch(() => '{}'))
   const rejected: Record<string, string> = rejectedFile ? JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) : {}
+  const listed = rejectedEntry(rejected)
   const pages: { file: string; e: { photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } } }[] = []
   for (const kind of ['species', 'plants', 'guides']) {
     for (const id of await readdir(join(contentRoot, kind)).catch(() => [] as string[])) {
@@ -44,7 +45,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
     }
   }
   const photoUrls = (p: Photo) => enrol ? deadScreenPhotoUrls(p) : [p.url]
-  const todo = [...new Set(pages.flatMap(p => (p.e.photos ?? []).flatMap(photoUrls)))].filter(u => !(u in cache) && !(u in rejected))
+  const todo = [...new Set(pages.flatMap(p => (p.e.photos ?? []).flatMap(photoUrls)))].filter(u => !(u in cache) && !listed(u))
   const waitingForDead = await enrol?.(todo)
   const failed: string[] = []
   // Screened in this run: its verdict is the photo's first from this step.
@@ -84,15 +85,16 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   // A stored alteration and its original can have separate decisions. Keep the credited wrapper for its other version.
   const keepsOriginal = (p: Photo) => {
     const original = photoUrls(p)[1]
-    const why = rejected[p.url]
+    const why = listed(p.url)?.[1]
     const versionRejection = !why || /^(?:dead|people|waiting): /.test(why)
-    return versionRejection && !!original && (!(original in rejected) || rejected[original]?.startsWith('waiting:') === true)
+    const originalRejection = original && listed(original)?.[1]
+    return versionRejection && !!original && (!originalRejection || originalRejection.startsWith('waiting:'))
   }
   const pagesToKeep = await pagesShowing(contentRoot, p => waitingForDead ? version(p)?.url : p.url)
   const unread = new Set(todo.filter(u => !Object.hasOwn(cache, u)))
-  const offPage = (u: string) => face(u) || u in rejected || waitingForDead?.has(u) === true ||
+  const offPage = (u: string) => face(u) || !!listed(u) || waitingForDead?.has(u) === true ||
     (!!waitingForDead && (unread.has(u) || deadPhotoOff(u, screen, secondLook) || (!!watermarks && awaitsScreen(u, watermarks[u]))))
-  const last = new Map([...lastPhotos(pagesToKeep, offPage)].filter(([u]) => face(u) && !(u in rejected)))
+  const last = new Map([...lastPhotos(pagesToKeep, offPage)].filter(([u]) => face(u) && !listed(u)))
   // Only one that passed the check before is held; a face found now, on one that never did, takes it off, marked on both
   // lists (last-photo.ts).
   const firstOff = new Map([...last].filter(([u]) => screened.has(u) && !passed.has(u)))
@@ -116,9 +118,9 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const offFirst = [...firstOff].map(([u, ps]) => `${u}: ${ps.join(', ')}`)
   const removed: string[] = []
   for (const { file, e } of pages) {
-    const keep = (e.photos ?? []).filter(p => keepsOriginal(p) || (!((face(p.url) && !last.has(p.url)) || p.url in rejected)))
+    const keep = (e.photos ?? []).filter(p => keepsOriginal(p) || (!(face(p.url) && !last.has(p.url)) && !listed(p.url)))
     // A video section's photo the owner rejected (the images pass screened it for faces when it picked it).
-    const figures = (e.video?.figures ?? []).filter(f => f.photo && f.photo.url in rejected)
+    const figures = (e.video?.figures ?? []).filter(f => f.photo && listed(f.photo.url))
     if (keep.length === (e.photos ?? []).length && !figures.length) continue
     const at = file.slice(contentRoot.length + 1)
     removed.push(...(e.photos ?? []).filter(p => !keep.includes(p)).map(p => `${at}: ${p.url}`), ...figures.map(f => `${at}: ${f.photo!.url}`))
@@ -146,7 +148,8 @@ async function unjudged(root: string, contentRoot: string): Promise<string[]> {
     ownDeadPhotoUrls(contentRoot), read(DEAD_SCREEN_FILE), read(PHOTO_CHECK_FILE), read(PHOTO_SUBJECTS_FILE), read(SECOND_LOOK_RECORD), read(PHOTO_REJECTED_FILE),
   ])
   const looked = deadLooked({ screen, check, subjects, secondLook })
-  return [...shown].filter(u => !looked(u) && !(u in rejected))
+  const listed = rejectedEntry(rejected as Record<string, string>)
+  return [...shown].filter(u => !looked(u) && !listed(u))
 }
 
 /**

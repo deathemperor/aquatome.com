@@ -1,4 +1,4 @@
-import { askedByCheckOf, awaitsScreen, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadPhotoOff, deadScreenPhotoUrls, facePhotoOff, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, publicPhotoVersion, facePhotoStatus, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { askedByCheckOf, awaitsScreen, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadPhotoOff, deadScreenPhotoUrls, facePhotoOff, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, publicPhotoVersion, rejectedEntry, facePhotoStatus, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
 import { compactVerdict, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
@@ -84,6 +84,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     readJson<Record<string, unknown>>(state(PHOTO_CHECK_FILE)),
     readJson<Record<string, unknown>>(state(PHOTO_SUBJECTS_FILE)),
   ])
+  const isListed = rejectedEntry(photoRejected)
   const lookedBefore = deadLooked({ screen: cache, check, subjects, secondLook: await readSecondLook(root) })
   // `firstOff`: a page's last photo the hold doesn't keep, its first verdict on a photo that never passed the check (last-photo.ts).
   const report = { sheets: 0, judged: 0, dead: [] as string[], held: [] as string[], firstOff: [] as string[], failed: [] as string[], left: 0, stopped: '' }
@@ -108,7 +109,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       const urls = o.photos ? [...new Set((e?.photos ?? []).flatMap(deadScreenPhotoUrls))].filter(u => o.photos!.has(u))
         : [head && version(head)?.url]
       for (const url of urls) {
-        if (!url || url in photoRejected || lookedBefore(url)) continue
+        if (!url || isListed(url) || lookedBefore(url)) continue
         const it = photos.get(url) ?? { key: url, url, files: [] }
         it.files.push(file)
         photos.set(url, it)
@@ -178,7 +179,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     ])
     const looked = deadLooked({ screen: cache, check, subjects, secondLook })
     const { unread, altered: flaggedAlterations } = await facePhotoStatus(content, faces)
-    const offPage = (u: string) => going.has(u) || u in photoRejected || deadPhotoOff(u, oldCache, secondLook) ||
+    const offPage = (u: string) => going.has(u) || !!isListed(u) || deadPhotoOff(u, oldCache, secondLook) ||
       !!listed?.[u] || (owned.has(u) && !looked(u)) || unread.has(u) || (flaggedAlterations.has(u) && facePhotoOff(u, faces, secondLook)) || (!!watermarks && awaitsScreen(u, watermarks[u]))
     for (const [url, refs] of lastPhotos(pages, offPage)) if (going.has(url)) last.set(url, refs)
   }

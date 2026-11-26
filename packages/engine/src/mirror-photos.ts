@@ -1,8 +1,7 @@
 import { writePhotoState } from './photo-state'
-import { createHash } from 'node:crypto'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { IMAGE_SWITCHES, isInatNonCommercial, isNonCommercial, type ImageSwitches } from '@aq/schema'
+import { IMAGE_SWITCHES, isInatNonCommercial, isNonCommercial, mirrorPlan, type ImageSwitches } from '@aq/schema'
 import type { Media } from './source-photos'
 import { looks, readSecondLook, writeSecondLook } from './last-photo'
 
@@ -10,34 +9,7 @@ type Photo = { url: string; thumb?: string; width: number; height: number; licen
 type Stored = Awaited<ReturnType<Media['put']>>
 export type MirrorDeps = { bytes: (url: string) => Promise<Uint8Array>; media: Media; sleep: (ms: number) => Promise<void> }
 
-const sha16 = (s: string) => createHash('sha256').update(s).digest('hex').slice(0, 16)
-
-/**
- * A hot-linked Commons, iNaturalist, Flickr or GBIF photo: its R2 key (one per Commons file or iNaturalist photo, whatever size or
- * query string the URL carries) and the URLs to fetch it from, best first. Undefined for photos we serve already.
- */
-export function mirrorPlan(url: string): { key: string; fetch: string[] } | undefined {
-  const u = new URL(url)
-  if (u.host === 'upload.wikimedia.org' || u.host === 'thumb.wikimedia.org') {
-    const m = u.pathname.match(/^\/wikipedia\/commons\/(?:thumb\/)?[0-9a-f]\/[0-9a-f]{2}\/([^/]+)/)
-    return m ? { key: `commons/${sha16(decodeURIComponent(m[1]!))}.webp`, fetch: [url] } : undefined
-  }
-  if (u.host === 'inaturalist-open-data.s3.amazonaws.com' || u.host === 'static.inaturalist.org') {
-    const m = u.pathname.match(/^\/photos\/(\d+)\/(square|small|medium|large|original)\.\w*$/)
-    return m ? { key: `inaturalist/${m[1]}.webp`, fetch: [...new Set([url.replace(/\/(square|small|medium)\./, '/large.'), url])] } : undefined
-  }
-  // Flickr photos (found through Openverse): one key per photo id, whatever size the URL asks for.
-  if (/^(live|farm\d+)\.staticflickr\.com$/.test(u.host)) {
-    const m = u.pathname.match(/^\/\d+\/(\d+)_[0-9a-f]+(?:_[a-z0-9])?\.jpg$/)
-    return m ? { key: `flickr/${m[1]}.webp`, fetch: [url] } : undefined
-  }
-  // GBIF's copy of an occurrence photo: one key per occurrence and photo.
-  if (u.host === 'api.gbif.org') {
-    const m = u.pathname.match(/^\/v1\/image\/cache\/(?:fit-in\/)?[\dx]+\/occurrence\/(\d+)\/media\/([0-9a-f]{32})$/)
-    return m ? { key: `gbif/${m[1]}-${m[2]!.slice(0, 16)}.webp`, fetch: [url.replace(/\/fit-in\/[\dx]+\//, '/fit-in/1200x/')] } : undefined
-  }
-  return undefined
-}
+export { mirrorPlan } from '@aq/schema'
 
 const isPhoto = (x: unknown): x is Photo => !!x && typeof x === 'object' && typeof (x as Photo).url === 'string' && typeof (x as Photo).licence === 'string' && typeof (x as Photo).sourceUrl === 'string'
 function photosIn(x: unknown, out: Photo[] = []): Photo[] {

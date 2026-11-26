@@ -1,5 +1,4 @@
-import { isAllowedLicence, type Photo } from '@aq/schema'
-import { mirrorPlan } from './mirror-photos'
+import { isAllowedLicence, rejectedEntry, type Photo } from '@aq/schema'
 import { dropEmails } from './outline'
 import { authorText } from './wiki-author'
 
@@ -113,37 +112,7 @@ export function unfitCommons(f: { title: string; description?: string; categorie
   return plate ? `not a photo: a paper's plate, ${plate}` : undefined
 }
 
-/** Our store's address: a photo's key there is the rest of its address. */
-const OURS = 'https://media.aquatome.com/'
-/**
- * A photo's one key in our store, whichever address names it: our copy's own, or the key a Commons, iNaturalist, Flickr
- * or GBIF address mirrors to at any size (mirror-photos.ts mirrorPlan); none for another address, or for one that isn't.
- */
-export function photoKey(url: string): string | undefined {
-  if (url.startsWith(OURS)) return url.slice(OURS.length) || undefined
-  try { return mirrorPlan(url)?.key } catch { return undefined }
-}
-
-/**
- * The entry engine-state/_photo-rejected.json (URL → why) holds for a photo, `[the address it is listed by, why]`: by
- * its own address, or by its one key in our store (photoKey), either way round. A photo listed by its source's address
- * is the same photo once its copy is in our store, and at any other size of that source; one listed by our copy is
- * the same photo at its source's address. On 19 Nov three photos the list named by their Commons address showed on two
- * fish pages as our copies.
- */
-export function rejectedEntry(rejected: Record<string, string>): (url: string) => [string, string] | undefined {
-  const byKey = new Map<string, string>()
-  for (const u of Object.keys(rejected)) {
-    const k = photoKey(u)
-    if (k && rejected[u] && !byKey.has(k)) byKey.set(k, u)
-  }
-  return url => {
-    if (rejected[url]) return [url, rejected[url]!]
-    const k = photoKey(url)
-    const u = k === undefined ? undefined : byKey.get(k)
-    return u === undefined ? undefined : [u, rejected[u]!]
-  }
-}
+export { photoKey, rejectedEntry } from '@aq/schema'
 
 /** Whether a photo is on engine-state/_photo-rejected.json, by any of its addresses (rejectedEntry). */
 export function isRejected(rejected: Record<string, string>): (url: string) => boolean {

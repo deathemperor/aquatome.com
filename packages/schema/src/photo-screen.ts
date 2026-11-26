@@ -1,3 +1,4 @@
+import type { PhotoRejection } from './photo-address'
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { isOwnerCrop, type ImageSwitches } from './image-policy'
@@ -187,15 +188,36 @@ export function facePhotoOff(url: string, faces?: Record<string, unknown>, secon
  * file it came from still needs to preserve a different fallback version. A last-photo hold or a person's clear can
  * keep a dead verdict from taking effect.
  */
-export function deadPhotoOff(url: string, screen?: Record<string, unknown>, secondLook?: Record<string, unknown>, rejected?: Record<string, unknown>): boolean {
-  const why = rejected?.[url]
-  const mark = secondLook?.[url] as LookMark | undefined
+export function deadPhotoOff(url: string, screen?: Record<string, unknown>, secondLook?: Record<string, unknown>, rejected?: PhotoRejection): boolean {
+  const rejection = rejected?.(url)
+  const why = rejection?.[1]
+  const mark = secondLook?.[rejection?.[0] ?? url] as LookMark | undefined
   if (typeof why === 'string' && (why.startsWith('dead:') || why.startsWith('people:') || why.startsWith('waiting:'))) return true
   const look = photoLookAnswer(mark)
   if (look?.said === 'clear') return false
   if (mark?.off === true && typeof mark.why === 'string' && mark.why.startsWith('dead:')) return true
   const verdict = screen?.[url] as { dead?: unknown } | undefined
   return verdict?.dead === true && !mayKeepPhoto(mark)
+}
+
+export type PhotoWaitRecords = {
+  watermarks?: Record<string, PhotoScreenEntry>
+  owed?: Record<string, unknown>
+  unread?: ReadonlySet<string>
+  flaggedAlterations?: ReadonlySet<string>
+  faces?: Record<string, unknown>
+  unjudged?: ReadonlySet<string>
+  deadScreen?: Record<string, unknown>
+  secondLook?: Record<string, unknown>
+  rejected?: PhotoRejection
+}
+
+/** The screen records that can withhold a selected photo version, wherever its address is used. */
+export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
+  return url => (!!r.watermarks && awaitsScreen(url, r.watermarks[url])) ||
+    (!!r.owed && Object.hasOwn(r.owed, url)) || r.unread?.has(url) === true ||
+    (r.flaggedAlterations?.has(url) === true && facePhotoOff(url, r.faces, r.secondLook)) ||
+    r.unjudged?.has(url) === true || deadPhotoOff(url, r.deadScreen, r.secondLook, r.rejected)
 }
 
 /**

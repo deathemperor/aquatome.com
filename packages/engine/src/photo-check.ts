@@ -1,12 +1,12 @@
 import { piece, PieceAdmissionError } from './pieces'
 import { errorKind } from './state'
-import { compactVerdict, modelFailureKind, photoHints, photoReason, deadNote, peopleNote, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
+import { compactRejection, compactVerdict, modelFailureKind, photoHints, photoReason, deadNote, peopleNote, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { writeImageCache } from './image-cache-write'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { isNonCommercial, photoFitsHead, realPhotosFirst } from '@aq/schema'
+import { IMAGE_SWITCHES, isNonCommercial, photoFitsHead, publicPhotoVersion, realPhotosFirst, type Photo as ContentPhoto, type SourceInfo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
@@ -20,6 +20,7 @@ import { ageOf, ageUnasked, grownFirst, grownHead, headAsksAge, youngUnasked } f
 import { CF, namedOn, namedOrder, passesHead, SPECIES } from './photo-named'
 import { readAvoid } from './curation'
 import { priorityFish } from './priority-fish'
+import { readPhotoWaits } from './photo-visibility'
 
 type Photo = { url: string; caption?: string; author?: string; authorUrl?: string; sourceUrl?: string; licence?: string; generated?: unknown }
 /**
@@ -811,20 +812,35 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // Pages this run would leave with no photo of their own: more than the cap, and none of them loses any.
   const real = (ps: Photo[] | undefined) => (ps ?? []).filter(p => !p.generated)
   const ownPhotos = async (file: string) => real((await readJson<{ photos?: Photo[] }>(file))?.photos)
+  const waitsFor = await readPhotoWaits(root, { check: legacy, subjects: cache, rejected })
+  const sources = (await readJson<Record<string, SourceInfo>>(join(content, 'sources.json'))) ?? {}
+  const shownPhotos = async (file: string) => (await ownPhotos(file)).flatMap(photo => {
+    const p = photo as ContentPhoto
+    const version = publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
+    return version ? [version] : []
+  })
+  const takenOff = async (file: string): Promise<string[]> => {
+    const photos = await shownPhotos(file)
+    const removes = blocked(file)
+    if (photos.some(p => !removes(p.url) && !waitsFor(p.url))) return []
+    return photos.filter(p => removes(p.url)).map(p => p.url)
+  }
   const pageFiles = [...new Set(shown.filter(x => !x.guide && x.file.endsWith('entity.json')).map(x => x.file))]
   const emptying: string[] = []
-  // What would leave each of them with nothing.
   const emptyBy = new Map<string, string[]>()
-  for (const file of pageFiles) { const ps = await ownPhotos(file); if (ps.length && ps.every(p => blocked(file)(p.url))) { emptying.push(file); emptyBy.set(file, ps.map(p => p.url)) } }
+  for (const file of pageFiles) {
+    const removed = await takenOff(file)
+    if (removed.length) { emptying.push(file); emptyBy.set(file, removed) }
+  }
   // A page with none of its own whose album would go whole is left with nothing too (the chief of staff, 2026-11-14).
   const galleryOf = (file: string) => join(content, 'gallery', `${file.split('/').at(-2)}.json`)
   for (const g of [...new Set(shown.filter(x => !x.guide && /\/gallery\/[^/]+\.json$/.test(x.file)).map(x => x.file))]) {
     const s = byId.get(g.split('/').at(-1)!.replace(/\.json$/, ''))
     if (!s) continue
     const file = join(content, s.kind, s.id, 'entity.json')
-    if (emptying.includes(file) || (await ownPhotos(file)).length) continue
-    const ps = await ownPhotos(g)
-    if (ps.length && ps.every(p => blocked(g)(p.url))) { emptying.push(file); emptyBy.set(file, ps.map(p => p.url)) }
+    if (emptying.includes(file) || (await shownPhotos(file)).some(p => !blocked(file)(p.url) && !waitsFor(p.url))) continue
+    const removed = await takenOff(g)
+    if (removed.length) { emptying.push(file); emptyBy.set(file, removed) }
   }
   // A cap that isn't a whole number (a typo) is the usual one: it never lets a run through unheld.
   const cap = Number.isInteger(o.emptyCap) && o.emptyCap! >= 0 ? o.emptyCap! : EMPTY_CAP
@@ -877,7 +893,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   }
   const preservesOriginal = (url: string, original: string, blockedOriginal: boolean) =>
     /^(?:dead|people|waiting): /.test(rejected[url] ?? added[url] ?? '') &&
-    (!blockedOriginal || !!rejected[original]?.startsWith('waiting:'))
+    (!blockedOriginal || firstOff.has(original) || !!rejected[original]?.startsWith('waiting:'))
+  const edits = new Map<string, string>()
   for (const file of [...new Set(shown.map(x => x.file))]) {
     if (held.has(file)) {
       // A held page keeps what passed before; a first verdict comes off it all the same.
@@ -887,7 +904,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       stripPhotos(data, first, removed, [], preservesOriginal)
       if (!removed.length) continue
       report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))
-      await writeFile(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
+      edits.set(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
       continue
     }
     const raw = await readFile(file, 'utf8')
@@ -964,7 +981,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const out = `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`
     if (out === raw) continue
     report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))
-    await writeFile(file, out)
+    edits.set(file, out)
   }
 
   // 3. Verdicts, the blocklist (re-read, so entries another step added meanwhile stay) and the review file.
@@ -983,9 +1000,13 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   await writePhotoState(rejectedFile, now)
   // Publish removals before a completed verdict can release the same URL in a fallback or another copy.
   await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort()))
+  for (const [file, out] of edits) await writeFile(file, out)
   // One another step listed meanwhile keeps that step's reason, and no id from this run.
-  const taken = kinded.filter(u => now[u] !== added[u])
-  if (taken.length) { for (const u of taken) delete kinds[u]; await writeKinds() }
+  if (kinded.length) {
+    const published = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
+    const taken = kinded.filter(u => published[u] !== compactRejection(added[u]!))
+    if (taken.length) { for (const u of taken) delete kinds[u]; await writeKinds() }
+  }
   // This run's hold alone, once its pages, verdicts and never-again list are written (above).
   await writeHeld(heldNow)
   const left = new Map<string, number>()

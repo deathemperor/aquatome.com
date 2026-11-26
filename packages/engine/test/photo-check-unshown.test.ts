@@ -62,6 +62,40 @@ test('a failed rejection write leaves the new subject verdict unpublished', asyn
   await mkdir(join(r, 'engine-state/_photo-rejected.json'))
   await expect(checkPagePhotos(r, model({ 'a-dead': dead }), { limit: 10 })).rejects.toThrow()
   expect((await json(r, 'engine-state/_photo-subjects.json'))[url('a-dead')]).toBeUndefined()
+  expect(await photosOf(r, 'aaa')).toEqual(['a-dead', 'a-live'])
+})
+
+test('the photo check and sweep keep a refused passed photo if its only sibling still waits', async () => {
+  const r = await store({ aaa: ['a-dead', 'a-pending'] }, { 'a-dead': { aaa: oldPass } })
+  const state = (name: string, record: object) => writeFile(join(r, 'engine-state', name), JSON.stringify(record))
+  await state('_photo-dead-owed.json', { [url('a-pending')]: '2026-11-26' })
+  await state('_dead-screen.json', { [url('a-dead')]: { dead: false } })
+  const out = await checkPagePhotos(r, model({ 'a-dead': dead }), { limit: 1, emptyCap: 0 })
+  expect(out.heads.held).toContain(`species/aaa: ${url('a-dead')}`)
+  expect(await photosOf(r, 'aaa')).toContain('a-dead')
+
+  const independent = await store({ aaa: ['a-dead', 'a-pending'] }, { 'a-dead': { aaa: { ...dead, logo: false } } })
+  await writeFile(join(independent, 'engine-state/_dead-screen.json'), JSON.stringify({ [url('a-dead')]: { dead: false } }))
+  const swept = await sweep(independent, { history: async () => [] })
+  expect(swept.refusedHeld.some(row => row.startsWith('species/aaa'))).toBe(true)
+  expect(await photosOf(independent, 'aaa')).toContain('a-dead')
+})
+
+test('one photo check keeps a fallback original marked off for recovery alongside its rejected alteration', async () => {
+  const r = await store({ aaa: ['altered', 'a-live'], bbb: ['original'] })
+  const original = photo('original')
+  const altered = {
+    ...photo('altered'), altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'e'.repeat(64) }],
+    original: { url: original.url, width: original.width, height: original.height },
+  }
+  const afile = 'content/species/aaa/entity.json', album = 'content/gallery/aaa.json'
+  await writeFile(join(r, afile), JSON.stringify(fish('aaa', [altered, photo('a-live')])))
+  await writeFile(join(r, album), JSON.stringify({ id: 'aaa', photos: [altered], seen: 1, updatedAt: '2026-11-26' }))
+  const checked = await checkPagePhotos(r, model({ altered: dead, original: dead }), { limit: 10, emptyCap: 0 })
+  expect(checked.firstOff).toContain(`species/bbb: ${original.url}`)
+  expect((await json(r, afile)).photos).toContainEqual(altered)
+  expect((await json(r, album)).photos).toContainEqual(altered)
+  expect((await json(r, 'engine-state/_photo-rejected.json'))[original.url]).toMatch(/^waiting: /)
 })
 
 test('an emptied page the fill refills with a photo the check calls dead shows nothing, and the photo waits for a second look marked on both lists; a photo that passed before is held as before', async () => {

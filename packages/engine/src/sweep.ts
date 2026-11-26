@@ -13,6 +13,7 @@ import { droppedName, FISH_NAMES, KIND_PASSAGES, ownWords, type FishName, type K
 import { withLNumber } from './l-numbers'
 import { pickStands, readPersonYes } from './person-yes'
 import { EMPTY_CAP, refusedOn, type PhotoVerdict } from './photo-check'
+import { readPhotoWaits } from './photo-visibility'
 import { CAPTIONED } from './captions'
 import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmails, dropEmailsDeep, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, fixTranslation, hasEmail, isAdPoster, isMediaFile, mayHoldEmail, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields, type PageKind } from './pages'
@@ -1181,16 +1182,14 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       const off = new Map(own(data).flatMap(p => { const w = why(id, p.url); return w && sl.open(p.url) ? [[p.url, w] as const] : [] }))
       if (off.size) plan.push({ file, id, raw, data, off })
     }
-    const losesEveryPhoto = (x: (typeof plan)[number]) => {
-      const photos = own(x.data)
-      return photos.length > 0 && photos.every(p => x.off.has(p.url))
-    }
+    const waitsFor = plan.length ? await readPhotoWaits(root) : () => false
+    const losesEveryPhoto = (x: (typeof plan)[number]) => !own(x.data).some(p => !x.off.has(p.url) && !waitsFor(p.url))
     const emptying = plan.filter(x => x.file.endsWith('entity.json') && losesEveryPhoto(x))
     // A page with none of its own whose album would go whole is left with nothing too (the chief of staff, 2026-11-14).
     for (const x of plan) {
       if (!x.file.endsWith(`gallery/${x.id}.json`) || !losesEveryPhoto(x)) continue
       const page = JSON.parse(await readFile(join(content, kindOf.get(x.id)!, x.id, 'entity.json'), 'utf8').catch(() => '{}')) as Doc
-      if (!own(page).length) emptying.push(x)
+      if (!own(page).some(p => !waitsFor(p.url))) emptying.push(x)
     }
     // The pages the check's last run held (photo-check.ts writes them, page → true), and this run's own past the cap. A
     // held file the sweep can't read holds every page: nothing comes off until a run of the check writes it again.
