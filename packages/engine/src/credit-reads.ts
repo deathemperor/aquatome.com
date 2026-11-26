@@ -116,6 +116,7 @@ export async function applyCreditReads(root: string, step = 'the credit read'): 
   const heldAddress = photoAddressSet(held.keys())
   const gone = (u: string) => off(u) && !heldAddress(u)
   for (const u of Object.keys(credits)) if (gone(u) && !(u in rejected)) rejected[u] = compactRejection(`rejected: ${credits[u]!.kind} credit ${credits[u]!.line ?? ''}`)
+  await writePhotoState(rejectedFile, rejected)
   const removed: string[] = []
   for (const f of (await readdir(content, { recursive: true })).filter(f => f.endsWith('.json')).map(f => join(content, f))) {
     const raw = await readFile(f, 'utf8')
@@ -126,7 +127,6 @@ export async function applyCreditReads(root: string, step = 'the credit read'): 
     removed.push(...here.map(u => `${relative(root, f)}: ${u}`))
     await writeFile(f, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
   }
-  await writePhotoState(rejectedFile, rejected)
   return { removed, held: [...held.keys()] }
 }
 

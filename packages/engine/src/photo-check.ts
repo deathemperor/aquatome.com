@@ -872,12 +872,15 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   }
   const blockedVersions = async (file: string) => {
     const urls = new Set<string>()
+    const firstByAddress = rejectedEntry(Object.fromEntries(Object.entries(added).filter(([url]) => first(url))))
     for (const photo of await ownPhotos(file)) {
-      const stored = blockedAs(file, photo.url)
-      if (stored) urls.add(stored)
-      const served = versionOf(photo)
-      const reason = served && blockedAs(file, served.url)
-      if (reason) urls.add(reason)
+      const served = versionOf(photo)?.url
+      for (const version of new Set([photo.url, ...(served ? [served] : [])])) {
+        const blocked = blockedAs(file, version)
+        if (blocked) urls.add(blocked)
+        const firstAt = firstByAddress(version)?.[0]
+        if (firstAt) urls.add(firstAt)
+      }
     }
     return urls
   }
@@ -940,8 +943,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       firstOff.delete(url)
     } else firstByPhoto.set(key, url)
   }
-  for (const [url, why] of Object.entries(added)) {
-    if (firstOff.has(url) || !FIRST_OFF.test(why)) continue
+  for (const url of Object.keys(added)) {
+    if (firstOff.has(url)) continue
     const canonical = firstByPhoto.get(photoKey(url) ?? url)
     if (canonical) firstAliases.set(url, canonical)
   }
@@ -955,7 +958,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // Each photo a held page would have lost goes on the second look, with its reason (last-photo.ts).
   const holding = new Map<string, { why: string; pages: string[] }>()
   for (const file of heldPages) for (const f of [file, galleryOf(file)]) for (const url of await blockedVersions(f)) {
-    if (url in rejected || first(url)) continue
+    if (url in rejected || first(url) || firstAliases.has(url)) continue
     const id = file.split('/').at(-2)!
     const h = holding.get(url) ?? { why: added[url] ?? `not ${label(id)}: ${verdict(url, id)?.note ?? ''}`, pages: [] }
     h.pages.push(pageOf(file))
