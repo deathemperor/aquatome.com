@@ -151,6 +151,13 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
 
 /** Sheets of 12 the dead-fish screen takes in one faces step: a pages run's new photos made 11 or 12 (20 to 21 Nov 2026). */
 export const NEW_PHOTO_SHEETS = 14
+/**
+ * Sheets of 12 album photos the screen takes in one faces step, after the photos it owes (`screenDead` `albums`). None
+ * until the chief of staff sets the pace: the 12,500 no look had judged on 22 Nov 2026 are a hand run's (`faces --sheets
+ * <n>`), on a dated raise of the step's line. The albums took in 2,760 new photos in the week to 22 Nov, about 390 a day:
+ * 4 sheets a step, about 960 a day over about 20 faces steps at about $0.02 a sheet, would keep ahead of them.
+ */
+export const ALBUM_SHEETS = 0
 
 const readPhotoRecord = async (root: string, name: string): Promise<Record<string, unknown>> =>
   JSON.parse(await readFile(join(root, 'engine-state', name), 'utf8').catch(() => '{}'))
@@ -197,7 +204,7 @@ async function stillOwed(root: string, contentRoot: string, owed: Record<string,
  * failing leaves the face pass as written (the chief of staff, 21 Nov 2026: the screen sees every new photo before it
  * can show).
  */
-export async function screenNewPhotos(contentRoot: string, cacheFile: string, d: FaceDeps & { dead: DeadScreenDeps }, rejectedFile?: string, root = join(contentRoot, '..')): Promise<{ faces: Awaited<ReturnType<typeof dropFacePhotos>>; dead?: Awaited<ReturnType<typeof screenDead>>; deadFailed?: string; owed: number }> {
+export async function screenNewPhotos(contentRoot: string, cacheFile: string, d: FaceDeps & { dead: DeadScreenDeps }, rejectedFile?: string, root = join(contentRoot, '..'), o: { albumSheets?: number } = {}): Promise<{ faces: Awaited<ReturnType<typeof dropFacePhotos>>; dead?: Awaited<ReturnType<typeof screenDead>>; deadFailed?: string; owed: number; albums?: Awaited<ReturnType<typeof screenDead>>; albumsFailed?: string }> {
   const owedFile = join(root, 'engine-state', DEAD_OWED_FILE)
   const before = JSON.parse(await readFile(owedFile, 'utf8').catch(() => '{}')) as Record<string, string>
   const today = new Date().toISOString().slice(0, 10)
@@ -211,13 +218,24 @@ export async function screenNewPhotos(contentRoot: string, cacheFile: string, d:
   })
   const owed = await stillOwed(root, contentRoot, enrolled, today)
   await write(owed)
-  if (!Object.keys(owed).length) return { faces, owed: 0 }
-  try {
-    const dead = await screenDead(root, d.dead, { limit: NEW_PHOTO_SHEETS * 12, photos: new Set(Object.keys(owed)) })
-    const left = await stillOwed(root, contentRoot, owed, today)
-    await write(left)
-    return { faces, dead, owed: Object.keys(left).length }
-  } catch (err) {
-    return { faces, deadFailed: photoFailure(err), owed: Object.keys(owed).length }
+  const out: Awaited<ReturnType<typeof screenNewPhotos>> = { faces, owed: Object.keys(owed).length }
+  if (out.owed) {
+    try {
+      out.dead = await screenDead(root, d.dead, { limit: NEW_PHOTO_SHEETS * 12, photos: new Set(Object.keys(owed)) })
+      const left = await stillOwed(root, contentRoot, owed, today)
+      await write(left)
+      out.owed = Object.keys(left).length
+    } catch (err) {
+      out.deadFailed = photoFailure(err)
+    }
   }
+  // Start the album queue once the page photos have all received a verdict.
+  if (out.owed || out.deadFailed || out.dead?.stopped || out.dead?.failed.length) return out
+  try {
+    const albums = await screenDead(root, d.dead, { limit: (o.albumSheets ?? ALBUM_SHEETS) * 12, albums: true })
+    if (albums.judged || albums.left || albums.failed.length || albums.stopped) out.albums = albums
+  } catch (err) {
+    out.albumsFailed = photoFailure(err)
+  }
+  return out
 }

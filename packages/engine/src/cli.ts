@@ -377,11 +377,14 @@ if (cmd === 'photo-privacy') {
   for (const f of r.failed.slice(0, 30)) console.log(`failed: ${f}`)
 } else if (cmd === 'faces') {
   // Drop photos showing people (macOS Vision face detection); each photo is checked once, cached in engine-state. Then
-  // the dead-fish screen on the photos it judged now (faces.ts screenNewPhotos), counted under this step's line.
-  const { faces: r, dead, deadFailed, owed } = await screenNewPhotos(join(ROOT, 'content'), join(ROOT, 'engine-state/_photo-faces.json'), {
+  // the dead-fish screen on the photos it judged now (faces.ts screenNewPhotos), counted under this step's line, then on
+  // album photos no look has judged: ALBUM_SHEETS sheets, or `--sheets <n>` in a hand run (the albums' backlog).
+  const albumSheets = values.sheets === undefined ? undefined : Number(values.sheets)
+  if (albumSheets !== undefined && !(Number.isInteger(albumSheets) && albumSheets >= 0)) throw new Error('faces --sheets takes a whole number of album sheets')
+  const { faces: r, dead, deadFailed, owed, albums, albumsFailed } = await screenNewPhotos(join(ROOT, 'content'), join(ROOT, 'engine-state/_photo-faces.json'), {
     get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
     detect: visionFaces, dead: deadScreenDeps(),
-  }, join(ROOT, 'engine-state/_photo-rejected.json'), ROOT)
+  }, join(ROOT, 'engine-state/_photo-rejected.json'), ROOT, { albumSheets })
   console.log(`faces: ${r.checked} checked, ${r.removed.length} removed, ${r.held.length} held for a second look (a page's last photo), ${r.failed.length} failed`)
   for (const x of r.held) console.log(`held for a second look: ${x}`)
   for (const x of r.firstOff) console.log(`off at its first verdict, waiting for a second look: ${x}`)
@@ -396,6 +399,14 @@ if (cmd === 'photo-privacy') {
     for (const x of dead.failed.slice(0, 30)) console.log(`failed: ${x}`)
   }
   if (owed) console.log(`dead-screen of new photos: ${owed} owed a look, off every public page until judged`)
+  if (albumsFailed) console.log(`dead-screen of album photos: failed (${albumsFailed})`)
+  if (albums) {
+    console.log(`dead-screen of album photos: ${albums.sheets} sheets, ${albums.judged} judged, ${albums.dead.length} dead, ${albums.held.length} held for a second look (a page's last photo), ${albums.firstOff.length} off at their first verdict, ${albums.left} left for later runs, ${albums.failed.length} failed${albums.stopped ? ` (stopped: ${albums.stopped})` : ''}`)
+    for (const x of albums.dead) console.log(`dead (album): ${x.split(": ")[0]}`)
+    for (const x of albums.held) console.log(`held for a second look (album): ${x}`)
+    for (const x of albums.firstOff) console.log(`off at its first verdict, waiting for a second look (album): ${x}`)
+    for (const x of albums.failed.slice(0, 30)) console.log(`failed: ${x}`)
+  }
 } else if (cmd === 'calibrate-marks') {
   if (!values.manifest) throw new Error('calibrate-marks needs a reviewed --manifest in the private image cache')
   const cases = JSON.parse(await readFile(String(values.manifest), 'utf8')) as Parameters<typeof calibrateMarks>[0]

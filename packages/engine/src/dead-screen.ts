@@ -1,4 +1,4 @@
-import { askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoWaitsFor, publicPhotoVersion, rejectedEntry, facePhotoStatus, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { albumLooked, askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoWaitsFor, publicPhotoVersion, rejectedEntry, facePhotoStatus, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
 import { compactVerdict, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
@@ -29,6 +29,9 @@ import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, re
  * `photos`: these photos alone, in the order given, wherever they stand on a page, and no videos. The faces step passes
  * the photos it owes a look, so a dead fish new to a page is off it at that run's push, not hours later at the photo
  * check's first verdict (faces.ts screenNewPhotos; the chief of staff, 21 Nov 2026).
+ *
+ * In `albums` mode only the screen's own verdict or a person's look counts. A dead version leaves its album
+ * when screened, even if it was the album's last photo. Copies on the fish or plant page follow the same verdict.
  */
 export type DeadVerdict = { dead: boolean; note: string; frames?: boolean }
 export type DeadScreenDeps = {
@@ -72,7 +75,7 @@ export async function askedByCheck(root: string): Promise<Set<string>> {
 }
 
 /** `backCheck`: also the videos judged from their thumbnail alone (the screen's verdicts from before it saw frames). */
-export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: number; parallel?: number; backCheck?: boolean; photos?: ReadonlySet<string> }) {
+export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: number; parallel?: number; backCheck?: boolean; photos?: ReadonlySet<string>; albums?: boolean }) {
   const content = join(root, 'content')
   const state = (f: string) => join(root, 'engine-state', f)
   const records = (await readJson<Record<string, DeadVerdict>>(state('_dead-screen.json'))) ?? {}
@@ -94,7 +97,29 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const version = (p: Photo) => publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
   const videos = new Map<string, Item>()
   const photos = new Map<string, Item>()
-  for (const kind of ['species', 'plants']) {
+  if (o.albums) {
+    const looked = albumLooked({ screen: cache, secondLook: await readSecondLook(root) })
+    for (const name of (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort()) {
+      const file = join(content, 'gallery', name)
+      const album = await readJson<{ photos?: Photo[] }>(file)
+      for (const url of new Set((album?.photos ?? []).flatMap(deadScreenPhotoUrls))) {
+        if (!url || isListed(url) || looked(url)) continue
+        const it = photos.get(url) ?? { key: url, url, files: [] }
+        it.files.push(file)
+        photos.set(url, it)
+      }
+    }
+    if (o.limit === 0) return { ...report, left: photos.size }
+    // One that is a page's own photo too (528 on 22 Nov, most a head picked from the album) leaves that page at once as well.
+    for (const kind of ['species', 'plants', 'breeds']) {
+      for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
+        const file = join(content, kind, id, 'entity.json')
+        const page = await readJson<{ photos?: Photo[] }>(file)
+        for (const url of new Set((page?.photos ?? []).flatMap(deadScreenPhotoUrls))) photos.get(url)?.files.push(file)
+      }
+    }
+  }
+  for (const kind of o.albums ? [] : ['species', 'plants']) {
     for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
       const file = join(content, kind, id, 'entity.json')
       const e = await readJson<{ photos?: Photo[]; videos?: { youtubeId: string }[] }>(file)
@@ -160,16 +185,18 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     await rm(dir, { recursive: true, force: true })
   }
 
+  if (o.albums) report.left = todo.filter(it => !Object.hasOwn(cache, it.key)).length
+
   // Off the lists and off the pages that show them. A photo whose going would leave a page with nothing stays, held for
   // a second look (last-photo.ts); one the second look cleared stays too.
   const secondLook = await readSecondLook(root)
   const sl = looks(secondLook)
   // A hold on another reason doesn't keep a photo that never passed from this, its first verdict (photo-check.ts spared).
-  const passed = photoAddressSet(off.some(x => !x.video) ? await readPassedBefore(root) : [])
+  const passed = photoAddressSet(!o.albums && off.some(x => !x.video) ? await readPassedBefore(root) : [])
   const going = new Set(off.filter(x => !x.video && (sl.open(x.url) || (sl.waiting(x.url) && !passed(x.url)))).map(x => x.url))
   // Photos already listed never-again leave every page anyway (the sweep), so they count as going.
   const last = new Map<string, string[]>()
-  if (going.size) {
+  if (!o.albums && going.size) {
     const [pages, owned, listed, faces, watermarks] = await Promise.all([
       pagesShowing(content, p => {
         const reason = isListed(p.url)?.[1]

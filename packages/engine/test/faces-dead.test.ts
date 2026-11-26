@@ -623,3 +623,106 @@ test('the standalone screen also holds a passed head whose sibling is unjudged',
   expect(out.held).toEqual([`${old.url}: species/a`])
   expect(await urls(root, 'a')).toEqual([old.url, pending.url])
 })
+
+test("after the photos it owes, the screen takes album photos no look of its own or a person's has judged, the photo check's verdict or not: a dead one leaves its album at this push, even when it is the page's last", async () => {
+  // The chief of staff, 22 Nov 2026: about 1 in 20 album photos was a catch, whatever the photo check had said.
+  const root = await mkdtemp(join(tmpdir(), 'faces-dead-'))
+  const put = async (path: string, data: unknown) => { await mkdir(join(root, path, '..'), { recursive: true }); await writeFile(join(root, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await put('content/species/e/entity.json', { id: 'e', photos: [photo('e-own'), photo('e-checked-dead')], videos: [] })
+  await put('content/species/f/entity.json', { id: 'f', photos: [], videos: [] })
+  await put('content/gallery/e.json', { id: 'e', seen: 4, updatedAt: '2026-11-22', photos: [photo('e-checked-dead'), photo('e-live'), photo('e-screened'), photo('e-cleared')] })
+  // f shows no own photo: its one album photo is its last.
+  await put('content/gallery/f.json', { id: 'f', seen: 1, updatedAt: '2026-11-22', photos: [photo('f-only-dead')] })
+  await put('engine-state/_photo-faces.json', { [m('e-own')]: 0, [m('e-checked-dead')]: 0 })
+  await put('engine-state/_dead-screen.json', { [m('e-own')]: { dead: false, note: 'live fish in a tank' }, [m('e-screened')]: { dead: false, note: 'live fish in a tank' } })
+  await put('engine-state/_photo-subjects.json', {
+    [m('e-checked-dead')]: { e: { ok: 'yes', typical: true, note: '', logo: false } },
+    [m('f-only-dead')]: { f: { ok: 'yes', typical: true, note: '', logo: false } },
+  })
+  await put('engine-state/_photo-second-look.json', { [m('e-cleared')]: { why: 'watermark: withheld [sha256:' + '0'.repeat(64) + ']', step: 'the watermark screen', pages: ['species/e'], at: '2026-11-20', look: { said: 'clear', by: 'the chief of staff', on: '2026-11-21' } } })
+  const album = async (id: string) => (await json(root, `content/gallery/${id}.json`)).photos.map((p: { url: string }) => p.url)
+  const withAlbums = (dd: ReturnType<typeof deps>['d']) => screenNewPhotos(join(root, 'content'), join(root, 'engine-state/_photo-faces.json'), dd, join(root, 'engine-state/_photo-rejected.json'), root, { albumSheets: 1 })
+  // None by default, until the chief of staff sets the pace: a hand run gives the sheets. The step says how many wait.
+  const none = deps()
+  expect(await run(root, none.d)).toEqual({ faces: expect.objectContaining({ checked: 0 }), owed: 0, albums: expect.objectContaining({ sheets: 0, judged: 0, left: 3 }) })
+  expect(none.sent).toEqual([])
+  const { d, sent } = deps()
+  const r = await withAlbums(d)
+  expect(r.dead).toBeUndefined()
+  expect(sent).toEqual([m('e-checked-dead'), m('e-live'), m('f-only-dead')])
+  expect(r.albums).toMatchObject({ sheets: 1, judged: 3, left: 0, failed: [] })
+  expect(r.albums!.dead).toEqual([`${m('e-checked-dead')}: dead screen dead`, `${m('f-only-dead')}: dead screen dead`])
+  expect(await album('e')).toEqual([m('e-live'), m('e-screened'), m('e-cleared')])
+  // Its copy among the page's own photos (a head picked from the album) is off the page at the same push.
+  expect(await urls(root, 'e')).toEqual([m('e-own')])
+  expect((await json(root, 'content/gallery/e.json')).seen).toBe(4)
+  // The album verdict takes off f's only photo even though the photo check previously passed it.
+  expect(r.albums!.firstOff).toEqual([])
+  expect(r.albums!.held).toEqual([])
+  expect(await album('f')).toEqual([])
+  const rejected = await json(root, 'engine-state/_photo-rejected.json')
+  expectControlledRejections(rejected, { [m('e-checked-dead')]: 'dead', [m('f-only-dead')]: 'dead' })
+  // Album photos are never on the owed list: none of them waits on a public page for this.
+  expect(await owed(root)).toEqual([])
+  // Judged now: the next run sends none.
+  const next = deps()
+  expect(await withAlbums(next.d)).toEqual({ faces: expect.objectContaining({ checked: 0 }), owed: 0 })
+  expect(next.sent).toEqual([])
+  // A failed image is still owed and gets another turn.
+  await put('content/gallery/f.json', { id: 'f', seen: 1, updatedAt: '2026-11-22', photos: [photo('f-unreadable')] })
+  const failed = deps({ unreadable: m('f-unreadable') })
+  expect((await withAlbums(failed.d)).albums).toMatchObject({ sheets: 0, judged: 0, left: 1, failed: [expect.any(String)] })
+  const retry = deps()
+  expect((await withAlbums(retry.d)).albums).toMatchObject({ sheets: 1, judged: 1, left: 0, failed: [] })
+  expect(retry.sent).toEqual([m('f-unreadable')])
+})
+
+test('an album can owe the original beneath an alteration with a verdict', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'faces-dead-'))
+  const gallery = join(root, 'content/gallery')
+  const state = join(root, 'engine-state')
+  await mkdir(gallery, { recursive: true })
+  await mkdir(state, { recursive: true })
+  await writeFile(join(gallery, 'a.json'), JSON.stringify({
+    id: 'a', photos: [{ ...photo('upscaled'), altered: [{ method: 'lanczos3-upscale' }], original: { url: m('original-dead') } }],
+  }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [m('upscaled')]: { dead: false } }))
+  const { d, sent } = deps()
+  const r = await screenNewPhotos(join(root, 'content'), join(state, '_photo-faces.json'), d, join(state, '_photo-rejected.json'), root, { albumSheets: 1 })
+  expect(sent).toEqual([m('original-dead')])
+  expect(r.albums).toMatchObject({ judged: 1, left: 0, dead: [expect.stringContaining(m('original-dead'))] })
+  expectControlledRejections(await json(root, 'engine-state/_photo-rejected.json'), { [m('original-dead')]: 'dead' })
+})
+
+test('the album photos take the sheets a run allows, after every photo the screen owes; the rest wait for later runs', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'faces-dead-'))
+  const put = async (path: string, data: unknown) => { await mkdir(join(root, path, '..'), { recursive: true }); await writeFile(join(root, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await put('content/species/g/entity.json', { id: 'g', photos: [photo('g-new-live')], videos: [] })
+  await put('content/gallery/g.json', { id: 'g', seen: 15, updatedAt: '2026-11-22', photos: Array.from({ length: 15 }, (_, i) => photo(`g${String(i).padStart(2, '0')}-live`)) })
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  const { d, sent } = deps()
+  const r = await screenNewPhotos(join(root, 'content'), join(root, 'engine-state/_photo-faces.json'), d, join(root, 'engine-state/_photo-rejected.json'), root, { albumSheets: 1 })
+  expect(sent[0]).toBe(m('g-new-live'))
+  expect(sent.slice(1)).toEqual(Array.from({ length: 12 }, (_, i) => m(`g${String(i).padStart(2, '0')}-live`)))
+  expect(r).toMatchObject({ owed: 0, dead: { judged: 1 }, albums: { sheets: 1, judged: 12, left: 3 } })
+  // A stop at the step's line on the owed photos leaves the albums for the next run.
+  const again = await mkdtemp(join(tmpdir(), 'faces-dead-'))
+  await mkdir(join(again, 'content/species/g'), { recursive: true })
+  await mkdir(join(again, 'content/gallery'), { recursive: true })
+  await mkdir(join(again, 'engine-state'), { recursive: true })
+  await writeFile(join(again, 'content/species/g/entity.json'), JSON.stringify({ id: 'g', photos: [photo('g-new-live')], videos: [] }))
+  await writeFile(join(again, 'content/gallery/g.json'), JSON.stringify({ id: 'g', seen: 1, updatedAt: '2026-11-22', photos: [photo('g-album-live')] }))
+  const stopped = deps({ stop: true })
+  const s = await screenNewPhotos(join(again, 'content'), join(again, 'engine-state/_photo-faces.json'), stopped.d, join(again, 'engine-state/_photo-rejected.json'), again)
+  expect(s.dead).toMatchObject({ stopped: 'usage limit' })
+  expect(s.albums).toBeUndefined()
+  expect(stopped.sent).toEqual([m('g-new-live')])
+
+  // An unanswered tile keeps the page photo owed even when the sheet returned without throwing.
+  const unanswered = deps()
+  const incomplete = { ...unanswered.d, dead: { ...unanswered.d.dead, look: async () => ({ tiles: [] }) } }
+  const pending = await screenNewPhotos(join(again, 'content'), join(again, 'engine-state/_photo-faces.json'), incomplete, join(again, 'engine-state/_photo-rejected.json'), again, { albumSheets: 1 })
+  expect(pending).toMatchObject({ owed: 1, dead: { judged: 0, failed: [] } })
+  expect(pending.albums).toBeUndefined()
+  expect(unanswered.sent).toEqual([m('g-new-live')])
+})
