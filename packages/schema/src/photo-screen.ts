@@ -2,6 +2,7 @@ import { photoAddressSet, type PhotoRejection } from './photo-address'
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { isOwnerCrop, type ImageSwitches } from './image-policy'
+import { retainedOwnMark } from './own-mark'
 import type { Photo } from './types'
 
 /**
@@ -10,7 +11,7 @@ import type { Photo } from './types'
  */
 export type OcrSummary = { c: number; at?: string; alnum: number; mark: boolean; hash: string }
 export type LegacyOcrLine = { t: string; c: number; at?: string }
-export type PhotoScreenEntry = { ocr: (OcrSummary | LegacyOcrLine)[]; watermark?: boolean }
+export type PhotoScreenEntry = { ocr: (OcrSummary | LegacyOcrLine)[]; watermark?: boolean; retainedOwnMark?: unknown }
 
 const MARK = /©|\(c\)|copyright|www\.|https?:|\.(com|net|org|de|co|vn|th|id|uk)\b/i
 
@@ -256,9 +257,16 @@ export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
     ...(r.unread ?? []),
     ...[...(r.flaggedAlterations ?? [])].filter(url => facePhotoOff(url, r.faces, r.secondLook, cleared, held)),
   ])
-  return url => (!!r.watermarks && awaitsScreen(url, r.watermarks[url])) ||
-    owesLook(url) || faceWaits(url) ||
-    deadPhotoOff(url, r.deadScreen, r.secondLook, r.rejected, cleared, held, firstOff)
+  return url => {
+    if (r.watermarks) {
+      if (awaitsScreen(url, r.watermarks[url])) return true
+      const entry = r.rejected?.(url)
+      if (entry?.[1].startsWith('watermark:') &&
+          !retainedOwnMark(url, r.watermarks[url]) && !retainedOwnMark(entry[0], r.watermarks[entry[0]])) return true
+    }
+    return owesLook(url) || faceWaits(url) ||
+      deadPhotoOff(url, r.deadScreen, r.secondLook, r.rejected, cleared, held, firstOff)
+  }
 }
 
 /**

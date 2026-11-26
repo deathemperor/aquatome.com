@@ -92,11 +92,11 @@ export type PageShows = { ref: string; own: string[]; album: string[]; nonCommer
 /** Every species, plant and breed page, as the site shows it now. */
 export async function pagesShowing(content: string, version: (p: Photo, ref: string, scientificName: string) => string | undefined = p => p.url): Promise<PageShows[]> {
   type Doc = { photos?: (Photo & { unchecked?: boolean })[]; scientificName?: string }
-  const urls = (d: Doc | null, ref: string, scientificName: string, album = false, nonCommercial?: Set<string>) => [...new Set((d?.photos ?? []).flatMap(p => {
+  const urls = (d: Doc | null, ref: string, scientificName: string, album = false, nonCommercial?: Set<string>) => (d?.photos ?? []).flatMap(p => {
     const url = p?.url && !p.generated && !(album && p.unchecked) ? version(p, ref, scientificName) : undefined
     if (url && isNonCommercial(p.licence ?? '')) nonCommercial?.add(url)
     return url ? [url] : []
-  }))]
+  })
   const read = async (f: string) => JSON.parse(await readFile(f, 'utf8').catch(() => 'null')) as Doc | null
   const out: PageShows[] = []
   for (const kind of ['species', 'plants', 'breeds']) {
