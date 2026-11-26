@@ -74,6 +74,7 @@ struct TanksView: View {
                 let devices = tanks.devices(in: t).filter { $0.kind == "light" || $0.kind == "plug" }.count
                 NavigationLink(value: t.id) { TankRow(tank: t, devices: devices) }
                   .accessibilityIdentifier("tank")
+                  .listRowInsets(EdgeInsets(top: 10, leading: 16, bottom: 10, trailing: 16))
               }
               // In the list too, where it's seen: the + in the bar above is easy to miss.
               Button { adding = true } label: { Label("Thêm bể", systemImage: "plus") }
@@ -141,7 +142,7 @@ private struct TankRow: View {
     let fishText = Text("\(fish) con")
     let plantsText = Text("\(plants) loại cây")
     let devicesText = Text("\(devices) thiết bị")
-    HStack(alignment: .top, spacing: 12) {
+    HStack(alignment: .top, spacing: 8) {
       if !textSize.isAccessibilitySize { TankRowDrawing(tank: tank, plants: plants) }
       VStack(alignment: .leading, spacing: 2) {
         Text(tank.name).font(.headline)
