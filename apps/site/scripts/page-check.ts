@@ -10,6 +10,7 @@ import { HTMLElement, parse } from 'node-html-parser'
 import { headingSubject, loadAll, PictureSet, pictureOf, type Content, type LinkTarget, type Photo, type PictureHashes } from '@aq/schema'
 import { LANGS, langOf, LINK_MARK, localizePath, translator, type Lang } from '../src/lib/i18n'
 import { saysSci, sciWords } from '../src/lib/sci'
+import { CARE_SECTIONS } from '../src/lib/sections'
 import { linkTargets } from '../src/lib/mentions'
 import { smallSrc } from '../src/lib/img'
 import { isFish } from '../src/lib/taxa-places'
@@ -22,6 +23,7 @@ export const CHECKS = {
   'wrong-fish': 'a figure of another fish under a fish\'s heading',
   'wrong-link': 'a name linked to a fish with another scientific name than the one in brackets',
   'missing-photo': 'a fish\'s section without a photo, though the fish has one',
+  'early-figure': 'an inline photo before a fish’s first care section',
   toc: 'contents that disagree with the headings, or numbers out of order',
   'empty-section': 'a heading with nothing under it',
   'link-mark': 'a marker localizeLinks left in the page, which no page may ship with',
@@ -178,7 +180,8 @@ export function checkPage(path: string, html: string, facts: Facts): Problem[] {
 
   // A fish's or plant's page says its scientific name once in its title and its description, where its name says it
   // already too ("Cá Abbottina rivularis"): 1,337 titles said it twice (13 November, lib/meta.ts).
-  const sci = facts.living.get(facts.byPath.get(path) ?? '')?.sci
+  const key = facts.byPath.get(path) ?? ''
+  const sci = facts.living.get(key)?.sci
   if (sci) {
     for (const [what, said] of [['title', root.querySelector('title')?.text], ['description', root.querySelector('meta[name="description"]')?.getAttribute('content')]] as const) {
       if (said && (said.match(sciWords(sci, 'giu'))?.length ?? 0) > 1) out.push({ check: 'name-twice', detail: `${what}: ${said}` })
@@ -192,6 +195,13 @@ export function checkPage(path: string, html: string, facts: Facts): Problem[] {
       for (const data of [JSON.parse(ld.rawText) as { headline?: string; alternativeHeadline?: string }].flat()) {
         if (data.headline && data.alternativeHeadline && saysSci(data.headline, data.alternativeHeadline)) out.push({ check: 'name-twice', detail: `structured data: ${data.headline} / ${data.alternativeHeadline}` })
       }
+    }
+  }
+  if (key.startsWith('species:')) {
+    const sections = root.querySelector('main .body')?.children ?? []
+    const firstCare = sections.findIndex(el => CARE_SECTIONS.some(k => el.id === `muc-${k}`))
+    if (firstCare >= 0 && sections.slice(0, firstCare).some(el => el.tagName === 'FIGURE' && el.classList.contains('inl'))) {
+      out.push({ check: 'early-figure', detail: `photo before #${sections[firstCare]!.id}` })
     }
   }
   // On any page (a fish's or plant's own, a list's cards, a guide's): a scientific name printed under a name that says it

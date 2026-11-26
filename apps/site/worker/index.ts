@@ -22,6 +22,7 @@ import { DASHBOARD_HOST, galleryParent, isViPage, listParent, withoutVi } from '
 import { appPageClosed } from './app-switch'
 import { gonePage, isHidden, pagePath } from './hidden'
 import { prefersMarkdown } from './markdown'
+import { browserHeaders, CSP_REPORT_PATH, cspReport } from './browser-headers'
 import { deleteRoute, listPhotos, minePhotos, photosAdmin, postPhoto } from './photos'
 import { reportRoute } from './report'
 import { accounts, depsFor, type AccountDeps, type AccountsEnv } from './accounts/api'
@@ -251,6 +252,7 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
     if (lang !== 'vi') return finish(new Response(null, { status: 302, headers: { location: `${homeOf(lang)}${url.search}`, link: DISCOVERY_LINK, vary: 'Accept-Language, Cookie', 'cache-control': 'private, no-store' } }), env)
   }
   if (url.pathname === '/_e') return events(req, url, env)
+  if (url.pathname === CSP_REPORT_PATH) return cspReport(req, env.EVENTS)
   // Names readers keep that have no page (worker/wanted.ts): open to everyone, signed in or not, accounts on or off.
   if (url.pathname === '/api/v1/wanted' || url.pathname === '/api/v1/wanted/') return finish(await wantedRoute(req, env, new Date()), env)
   // Readers report a comment or photo (worker/report.ts): signed in or not, accounts on or off.
@@ -331,7 +333,10 @@ export { FishIdRelay } from './fishid/relay'
 export { FishIdLedger } from './fishid/ledger'
 
 export default {
-  fetch: (req: Request, env: FullEnv, ctx: ExecutionContext) => handle(req, env, p => ctx.waitUntil(p)),
+  async fetch(req: Request, env: FullEnv, ctx: ExecutionContext) {
+    const response = await handle(req, env, p => ctx.waitUntil(p))
+    return browserHeaders(response, new URL(req.url).hostname !== DASHBOARD_HOST)
+  },
 
   /**
    * Daily: the affiliate checker, the removed-comment purge, expired sign-in data, kept fish-ID photos past their 6
