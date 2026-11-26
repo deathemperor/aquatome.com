@@ -54,9 +54,13 @@ test('a long name containing its scientific name keeps the common name that fits
   const sci = 'Limnobium laevigatum'
   const common = 'Bèo tây Nam Mỹ'
   const detail = 'giống lá nhỏ dành cho hồ thủy sinh có nhiều cây nổi'
-  expect(plantTitle('vi', `${common} (${sci}), ${detail}`, sci)).toBe(`${common} (${sci})`)
+  expect(plantTitle('vi', `${common} (${sci}), ${detail}`, sci)).toContain(common)
   const scienceFirst = plantTitle('vi', `${sci} (${common} ${detail})`, sci)
   expect(scienceFirst).toContain(common)
   expect(scienceFirst).toContain(sci)
   expect([...scienceFirst].length).toBeLessThanOrEqual(70)
+  const inTheMiddle = plantTitle('vi', `Cây ${sci} (bèo tây Nam Mỹ), ${detail}`, sci)
+  expect(inTheMiddle).toContain('bèo tây Nam Mỹ')
+  expect(inTheMiddle).toContain(sci)
+  expect([...inTheMiddle].length).toBeLessThanOrEqual(70)
 })

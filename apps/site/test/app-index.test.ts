@@ -3,11 +3,12 @@ import { expect, test } from 'vitest'
 import { CurationSchema, FIRST_GUIDES, FIRST_PLANTS, POPULAR, slugify, STAPLE_SPECIES, type Content } from '@aq/schema'
 import { pageShard, PageShard } from '@aq/schema/app-page'
 import { isVietnamese } from '@aq/schema/text'
-import { APP_TOOL_PAGES, appBreeds, appEquipment, appGlossary, appGuideImage, appGuides, appIndex, appPlants, appSeries, appSpecies, breedGroup, type AppIndex, type AppItem } from '../src/lib/app-index'
+import { appBreeds, appEquipment, appGlossary, appGuideImage, appGuides, appIndex, appPlants, appSeries, appSpecies, breedGroup, type AppIndex, type AppItem } from '../src/lib/app-index'
 import { glossaryParts } from '../src/lib/glossary-page'
 import { easyPlants, groupTiles, leadGuides } from '../src/lib/home'
 import { getContent } from '../src/lib/content'
 import { descriptionForSearch } from '../src/lib/meta'
+import { TOOL_DESCRIPTIONS } from '../src/lib/tools'
 import { appPath, LANGS, localizePath, OTHER_LANGS, toVi, translator } from '../src/lib/i18n'
 import { appHref, appPage, DIST, page } from './dist'
 import { slow } from '@aq/schema/test-time'
@@ -435,9 +436,9 @@ test('a tool carries its page\'s own title, the line under its heading and its d
     const t = translator(lang)
     for (const tool of index(lang).items.filter(i => i.kind === 'tool')) {
       const { dom } = appPage(tool.path)
-      const definition = APP_TOOL_PAGES.find(([path]) => path === toVi(tool.path))
-      expect(definition, tool.path).toBeDefined()
-      const fullDescription = t(definition![2].at(-1)!)
+      const descriptionKey = TOOL_DESCRIPTIONS[toVi(tool.path)]
+      expect(descriptionKey, tool.path).toBeDefined()
+      const fullDescription = t(descriptionKey!)
       const title = dom.querySelector('title')?.text.replace(/ — AquaTome$/, '')
       const intro = dom.querySelector('p.intro')?.text
       const snippet = dom.querySelector('meta[name="description"]')?.getAttribute('content')
