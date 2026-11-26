@@ -249,6 +249,9 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertEqual(chip(app, "fish").value as? String, "8")
     XCTAssertEqual(chip(app, "guide").value as? String, "1")
     XCTAssertEqual(chip(app, "video").value as? String, "2")
+    let title = app.descendants(matching: .any)["results-fish"].firstMatch
+    XCTAssertTrue(title.waitForExistence(timeout: 5))
+    readsClearly(app, title, "the result kind heading")
     XCTAssertEqual(rows(app), 9, "three fish, one written guide, two videos and three tools")
 
     let more = app.buttons["see-all-fish"]

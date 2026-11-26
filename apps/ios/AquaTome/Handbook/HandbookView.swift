@@ -48,7 +48,7 @@ struct HandbookView: View {
                   .accessibilityIdentifier("see-all-\(section.kind.rawValue)")
                 }
               } header: {
-                Text(section.kind.title).font(.headline).foregroundStyle(.primary).textCase(nil)
+                Text(section.kind.title).font(.headline).foregroundStyle(Color.primary).textCase(nil)
                   .accessibilityAddTraits(.isHeader)
                   .accessibilityIdentifier("results-\(section.kind.rawValue)")
               }
