@@ -316,7 +316,7 @@ export function entriesDir(env: NodeJS.ProcessEnv = process.env): string | undef
   return machine(env) === 'mac' ? join(homedir(), '.cache/aquatome/put-back') : undefined
 }
 
-type Kept = Stood & { url: string; at: string; why: string }
+type Kept = Stood & { replaces?: string; url: string; at: string; why: string }
 const keptFile = (dir: string, url: string, mark: SecondLook, p: Place) =>
   join(dir, `${createHash('sha256').update(JSON.stringify([url, p.captureDay ?? mark.at, mark.why, p.file, p.index, ...(p.capture ? [p.capture] : [])])).digest('hex')}.json`)
 
@@ -335,12 +335,12 @@ async function readKept(dir: string, url: string, mark: SecondLook, p: Place): P
 }
 
 /** Publish the entry only if absent. Readers see a complete file and repeat writers preserve the first capture. */
-async function writeKept(dir: string, url: string, mark: SecondLook, p: Stood) {
+async function writeKept(dir: string, url: string, mark: SecondLook, p: Stood, replaces?: string) {
   await mkdir(dir, { recursive: true, mode: 0o700 })
   const file = keptFile(dir, url, mark, p)
   const temporary = `${file}.${randomUUID()}.next`
   try {
-    await writeFile(temporary, JSON.stringify({ ...p, url, at: mark.at, why: mark.why }), { mode: 0o600, flag: 'wx' })
+    await writeFile(temporary, JSON.stringify({ ...p, replaces, url, at: mark.at, why: mark.why }), { mode: 0o600, flag: 'wx' })
     try { await link(temporary, file) } catch (e) {
       if ((e as NodeJS.ErrnoException).code !== 'EEXIST' || !(await readKept(dir, url, mark, p))) throw e
     }
@@ -366,9 +366,9 @@ async function capturePlaces(sl: SecondLooks, left: Map<string, Stood[]>, dir: s
       if (!PLACE.test(p.file)) continue
       const earlierPlace = named.get(p.file)
       if (earlierPlace) {
-        if (byHost(p)) continue
         const earlier = await readKept(dir, url, r, earlierPlace)
-        if (!earlier || !byHost(earlier)) continue
+        if (!earlier) throw new Error('Photo take-off is waiting for an existing private capture')
+        if (byHost(p) || !byHost(earlier)) continue
       }
       const place = { file: p.file, index: p.index, capture: randomUUID() }
       const order = p.order ? [...p.order] : undefined
@@ -383,7 +383,7 @@ async function capturePlaces(sl: SecondLooks, left: Map<string, Stood[]>, dir: s
           }
         }
       }
-      await writeKept(dir, url, r, { ...p, ...place, order })
+      await writeKept(dir, url, r, { ...p, ...place, order }, earlierPlace?.capture)
       named.set(p.file, place)
       r.left = [...named.values()]
       const at = previous.get(p.file) ?? []
@@ -425,7 +425,8 @@ async function pruneKept(root: string, dir: string, local: SecondLooks) {
     if (!k || typeof k.url !== 'string' || !day(k.at) || typeof k.why !== 'string') continue
     const mark = marks[k.url], here = local[k.url]
     const restored = mark?.back && here?.back && mark.why === k.why && here.why === k.why &&
-      mark.settled?.some(p => p.file === k.file && (p.captureDay ?? mark.at) === k.at)
+      mark.settled?.some(p => p.file === k.file && (p.captureDay ?? mark.at) === k.at &&
+        (p.capture === k.capture || !k.replaces || p.capture !== k.replaces))
     const agreed = !mark && !here && rejected[k.url] === k.why
     if (restored || agreed) await rm(path, { force: true })
   }
@@ -736,13 +737,14 @@ export async function putBackCleared(root: string, history: History, at = today(
       }
       const blockedHost = setsCookies(address)
       if (current.some(url => samePhoto(url) && (blockedHost || !setsCookies(url)))) continue
-      const blockedAlias = blockedHost ? -1 : current.findIndex(url => samePhoto(url) && setsCookies(url))
-      if (blockedAlias >= 0) photos.splice(blockedAlias, 1, p.photo)
-      else {
-        const position = order.indexOf(address)
-        const index = photoPosition(current, order, position >= 0 ? position : p.index, p.index)
-        photos.splice(index, 0, p.photo)
+      if (!blockedHost) {
+        for (let i = photos.length - 1; i >= 0; i--) {
+          if (samePhoto(current[i]!) && setsCookies(current[i]!)) photos.splice(i, 1)
+        }
       }
+      const position = order.indexOf(address)
+      const index = photoPosition(photos.map(photo => String(photo.url)), order, position >= 0 ? position : p.index, p.index)
+      photos.splice(index, 0, p.photo)
       await replacePhotoDocument(file, `${JSON.stringify(doc, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
       out.back.push(`${p.file}: ${address}`)
     }

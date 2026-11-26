@@ -3,7 +3,7 @@ import { replacePhotoDocument } from './image-cache-write'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { GallerySchema, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo } from '@aq/schema'
+import { GallerySchema, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, photoAddressSet, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { galleryPlan, TARGETS, TIER_ORDER, type PlanItem } from './gallery-plan'
@@ -496,6 +496,14 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   const sl = await readSecondLook(root)
   const rejected = JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
   const cleanupRejected = withoutClearedWaits({ ...rejected }, sl)
+  const pendingPlaces = new Map<string, string[]>()
+  for (const [url, mark] of Object.entries(sl)) {
+    if (mark.back) continue
+    for (const { file } of mark.left ?? []) {
+      const id = /^content\/gallery\/([^/]+)\.json$/.exec(file)?.[1]
+      if (id) pendingPlaces.set(id, [...(pendingPlaces.get(id) ?? []), url])
+    }
+  }
   // Keep the intake hold until recovery restores the saved entry. Cleanup can leave an existing cleared copy in place.
   const rejectedPhoto = isRejected(rejected)
   // A photo the photo check took off a page (another fish, none, dead), by its address in our bucket: never back in that
@@ -628,11 +636,13 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
       const seen = new Set([...[...e.photos, ...gallery].flatMap(p => [p.url, p.sourceUrl]), ...other.urls])
       const judged = new Set(st.judged)
       const offHere = isRejected(offBy.get(t.id) ?? {})
+      const awaitingRecovery = photoAddressSet(pendingPlaces.get(t.id) ?? [])
+      const offIntake = (url: string) => offHere(url) || rejectedPhoto(url) || awaitingRecovery(url)
       // A candidate queued before it joined the never-again list (by any address) never reaches the screen.
-      st.queue = st.queue.filter(c => !offHere(c.url) && !rejectedPhoto(c.url))
+      st.queue = st.queue.filter(c => !offIntake(c.url))
       // Its switch off, a non-commercial candidate queued while it was on is never screened.
       if (!nc) st.queue = st.queue.filter(c => !isNonCommercial(c.licence))
-      const isNew = (c: Candidate) => !rejectedPhoto(c.url) && !offHere(c.url) && !seen.has(c.url) && !seen.has(c.sourceUrl) && !judged.has(c.key) && !st.queue.some(q => q.key === c.key)
+      const isNew = (c: Candidate) => !offIntake(c.url) && !seen.has(c.url) && !seen.has(c.sourceUrl) && !judged.has(c.key) && !st.queue.some(q => q.key === c.key)
       for (const p of [...e.photos, ...gallery]) {
         if (!st.hashes[p.url]) st.hashes[p.url] = await d.get(p.thumb ?? p.url).then(dhash).catch(() => '')
       }

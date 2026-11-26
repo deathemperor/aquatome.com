@@ -30,15 +30,21 @@ function mergePlaces(chosen, base, ours, theirs) {
   })
   const settled = new Map([...datedPlaces(other, 'settled'), ...datedPlaces(chosen, 'settled')].map(p => [p.file, p]))
   const original = new Map(datedPlaces(base).map(p => [p.file, p]))
-  const pending = new Map(datedPlaces(chosen).filter(p => !settled.has(p.file)).map(p => [p.file, p]))
+  const pending = new Map(datedPlaces(chosen).map(p => [p.file, p]))
   const sameCapture = (p, q) => !!p && !!q && p.capture === q.capture && p.index === q.index && p.captureDay === q.captureDay
   for (const place of datedPlaces(other)) {
     const before = original.get(place.file)
     const selected = pending.get(place.file)
-    if (settled.has(place.file) || (chosen.back && sameCapture(place, before))) continue
+    if (chosen.back && sameCapture(place, before)) continue
     if (!selected || (sameCapture(selected, before) && !sameCapture(place, before))) pending.set(place.file, place)
   }
-  const { back, left, ...merged } = chosen
+  for (const [file, receipt] of settled) {
+    const next = pending.get(file)
+    if (!next) continue
+    if (sameCapture(receipt, next) || sameCapture(original.get(file), next)) pending.delete(file)
+    else settled.delete(file)
+  }
+  const { back, left, settled: _settled, ...merged } = chosen
   merged.at = at
   if ((settled.size || pending.size) && record(ours) && record(theirs)) merged.pages = [...new Set([...ours.pages, ...theirs.pages])].sort()
   if (settled.size) merged.settled = [...settled.values()]
