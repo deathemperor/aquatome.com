@@ -254,7 +254,7 @@ export function photoClears(records: Record<string, unknown> = {}): (url: string
   }
 }
 
-type LookMark = { why?: unknown; off?: boolean; left?: unknown; settled?: unknown }
+type LookMark = { why?: unknown; off?: boolean; left?: unknown; settled?: unknown; waitingReasons?: unknown }
 
 function unansweredHold(record: unknown): boolean {
   const mark = record as LookMark | undefined
@@ -288,6 +288,8 @@ export function settledWaiting(reason: unknown, record: unknown): boolean {
   return typeof reason === 'string' && reason.startsWith('waiting:') && typeof mark?.why === 'string' &&
     Array.isArray(mark.settled) && mark.settled.length > 0 &&
     (reason === mark.why.replace(/^[^:]+:/, 'waiting:') ||
+      (Array.isArray(mark.waitingReasons) && mark.waitingReasons.some(why =>
+        typeof why === 'string' && reason === why.replace(/^[^:]+:/, 'waiting:'))) ||
       [...mark.settled, ...(Array.isArray(mark.left) ? mark.left : [])].some(p =>
         typeof p?.captureWhy === 'string' && reason === p.captureWhy.replace(/^[^:]+:/, 'waiting:'))) &&
     photoLookAnswer(mark)?.said === 'clear'

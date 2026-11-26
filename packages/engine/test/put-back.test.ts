@@ -196,7 +196,7 @@ test('the history from git: each page, album and guide file that showed the phot
   await put('content/species/ggg/entity.json', ent(['g-dead', 'g1', 'g2'])); git('commit', '-qam', 'back by a step')
   await put('content/species/ggg/entity.json', ent(['g1', 'g2'])); await put('content/species/hhh/entity.json', ent(['h1', 'h2'])); git('commit', '-qam', 'off again')
   const places = await gitHistory(r)(url('g-dead'), new Date().toISOString().slice(0, 10))
-  expect(places?.sort((a, b) => a.file.localeCompare(b.file))).toEqual([
+  expect(places?.sort((a, b) => a.file.localeCompare(b.file))).toMatchObject([
     { file: 'content/gallery/ggg.json', index: 0, photo: photo('g-dead'), times: 1, order: ['g-dead'].map(url) },
     { file: 'content/guides/care/entity.json', index: 1, photo: photo('g-dead'), times: 1, order: ['c1', 'g-dead'].map(url) },
     { file: 'content/species/ggg/entity.json', index: 1, photo: photo('g-dead'), times: 2, order: ['g1', 'g-dead', 'g2'].map(url) },
@@ -1353,7 +1353,7 @@ test.each(['none', 'return', 'independent removal', 'removal with committed firs
   expect((await json(r, file)).photos).toEqual(later.includes('removal') ? [one, between] : [one, between, two])
 })
 
-test('a take-off restores the plain occurrence after its neighbor while a wrapper stays', async () => {
+test.each(['lead', 'tail', 'wrapper later removed'])('a clear restores the plain placement in order with a %s', async caseName => {
   const { r, git, clear } = await runRepo()
   const plain = { ...photo('a-dead'), caption: 'Plain placement credit' }
   const original = photo('live-original')
@@ -1362,17 +1362,66 @@ test('a take-off restores the plain occurrence after its neighbor while a wrappe
   const other = 'content/species/bbb/entity.json'
   await mkdir(join(r, other, '..'), { recursive: true })
   await writeFile(join(r, other), JSON.stringify(fish('bbb', [plain])))
-  await writeFile(join(r, A), JSON.stringify(fish('aaa', [wrapper, neighbor, plain])))
+  const originalOrder = caseName === 'tail' ? [wrapper, neighbor, plain] : [plain, wrapper, neighbor]
+  await writeFile(join(r, A), JSON.stringify(fish('aaa', originalOrder)))
   await writeFile(join(r, 'engine-state/_dead-screen.json'), JSON.stringify({ [original.url]: { dead: false } }))
+  git('add', '-A'); git('commit', '-qm', 'both placements')
   await screenDead(r, deadModel(), { limit: 48, photos: new Set([plain.url]) })
   expect((await json(r, A)).photos).toEqual([wrapper, neighbor])
   const captured = await keptFor(plain.url)
   // The last-photo selection has a surviving original on this page, so a second page made the same first refusal recoverable.
   expect(captured.map(p => p.entry.photo)).toContainEqual(plain)
   git('add', '-A'); git('commit', '-qm', 'the take-off')
+  if (caseName === 'wrapper later removed') {
+    await writeFile(join(r, A), JSON.stringify(fish('aaa', [neighbor])))
+    git('add', '-A'); git('commit', '-qm', 'editor removes the retained wrapper')
+  }
   await clear()
   await putBackCleared(r, gitHistory(r))
-  expect((await json(r, A)).photos).toEqual([wrapper, neighbor, plain])
+  expect((await json(r, A)).photos).toEqual(caseName === 'wrapper later removed' ? [plain, neighbor] : originalOrder)
+})
+
+test('an unreadable rejection map leaves a clear pending until its independent refusal can be checked', async () => {
+  const { r, git, clear } = await runRepo()
+  const u = url('a-new')
+  await page(r, 'aaa', ['a-new'])
+  await screenDead(r, deadModel(), { limit: 48 })
+  git('add', '-A'); git('commit', '-qm', 'the take-off')
+  await clear()
+  const rejected = join(r, 'engine-state/_photo-rejected.json')
+  await rm(rejected)
+  await mkdir(rejected)
+  await expect(putBackCleared(r, gitHistory(r))).rejects.toMatchObject({ code: 'EISDIR' })
+  expect(await photosOf(r, 'aaa')).toEqual([])
+  expect((await json(r, SL))[u].back).toBeUndefined()
+  await rm(rejected, { recursive: true })
+  await writeFile(rejected, JSON.stringify({ [u]: compactRejection('people: independently refused') }))
+  expect((await putBackCleared(r, gitHistory(r))).off).toHaveLength(1)
+  expect(await photosOf(r, 'aaa')).toEqual([])
+})
+
+test('a clear recognizes the waiting hash of a competing capture at the same place', async () => {
+  const { r, git } = await runRepo()
+  const another = await store({})
+  const u = url('a-new')
+  const first = { why, step: 'the photo check', pages: ['species/aaa'], at: today(), off: true }
+  const second = { ...first, why: compactRejection('people: separately marked'), step: 'face detection' }
+  const entry = photo('a-new')
+  for (const [folder, mark] of [[r, first], [another, second]] as const) {
+    await writeFile(join(folder, SL), JSON.stringify({ [u]: mark }))
+    await notePlaces(folder, new Map([[u, [{ file: A, index: 0, photo: entry }]]]))
+  }
+  const previous = await json(r, SL)
+  previous[u].look = { said: 'clear', by: 'reviewer', on: today() }
+  const combined = mergeMaps({}, previous, await json(another, SL))
+  expect(combined[u].why).toBe(second.why)
+  expect(combined[u].look).toBeUndefined()
+  combined[u].look = { said: 'clear', by: 'reviewer', on: today() }
+  await writeFile(join(r, SL), JSON.stringify(combined))
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [u]: waitingEntry(first.why) }))
+  git('add', '-A'); git('commit', '-qm', 'merged refusals with current clear')
+  expect((await putBackCleared(r, gitHistory(r))).back).toEqual([`${A}: ${u}`])
+  expect((await json(r, 'engine-state/_photo-rejected.json'))[u]).toBeUndefined()
 })
 
 test('a separate clear places an album photo between two occurrences of another address', async () => {
