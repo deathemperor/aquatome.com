@@ -195,7 +195,10 @@ test("a read page's pictures name our photos credited to its publisher alone, wh
   const { photoKey } = await import('../src/source-photos')
   const key = (src: string) => photoKey('sprucepets', `https://www.example.org/img/${src}`).replace('sprucepets/', '')
   await writeFile(at('content', 'species', 'a', 'entity.json'), `${JSON.stringify({ photos: [ours(key('a.jpg')), ours(key('b.jpg')), ours(key('c.jpg'), 'Cy Sample / The Example Pets')] }, null, 2)}\n`)
-  await writeFile(at('content', 'gallery', 'a.json'), `${JSON.stringify({ photos: [ours(key('a.jpg'))] }, null, 2)}\n`)
+  const original = ours(key('a.jpg'))
+  const wrapper = { ...original, url: urlFor('sprucepets/alteration.webp'), altered: [{ method: 'lanczos3-upscale' }],
+    original: { url: original.url, width: original.width, height: original.height } }
+  await writeFile(at('content', 'gallery', 'a.json'), `${JSON.stringify({ photos: [wrapper] }, null, 2)}\n`)
   const images = [
     { src: '/img/a.jpg', alt: 'a', credit: 'The Example / Ann Example' },
     { src: '/img/b.jpg', alt: 'b', credit: 'Bo Sample' },

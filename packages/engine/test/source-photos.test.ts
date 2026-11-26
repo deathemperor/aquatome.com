@@ -575,7 +575,7 @@ test('a source reread reuses an original already stored in a credited wrapper', 
   const page = 'https://x.test/fish'
   const src = 'https://x.test/known.jpg'
   const original = { url: `https://media.test/${photoKey(source, src)}`, width: 1000, height: 700 }
-  const stored = { ...original, source, url: 'https://media.test/upscaled.webp', licence: 'CC BY 4.0',
+  const stored = { ...original, source: source as 'glaser', url: 'https://media.test/upscaled.webp', licence: 'CC BY 4.0',
     author: 'Sample credited owner', sourceUrl: page, altered: [{ method: 'lanczos3-upscale' as const, date: '2026-11-26', originalHash: 'a'.repeat(64) }], original }
   const unused = async () => { throw new Error('the stored original must not be fetched or overwritten') }
   const deps = { stored: new Map(), bytes: unused, media: { urlFor: (key: string) => `https://media.test/${key}`, put: unused } }

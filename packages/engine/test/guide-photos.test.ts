@@ -387,7 +387,7 @@ test('a guide refusing an alteration holds the bare original on a fish page unti
   expect((await json(root, 'engine-state/_photo-rejected.json'))[original.url]).toMatch(/^watermark:/)
 })
 
-test('a guide logo refusal replaces the stored alteration’s version refusal and follows its bare original', async () => {
+test('a guide logo refusal follows the bare original even when the same verdict finds a person', async () => {
   const original = photo('original')
   const wrapper = { ...photo('alteration'), altered: [{ method: 'lanczos3-upscale' }], original }
   const root = await store({ guide: { photos: [wrapper] } })
@@ -396,7 +396,7 @@ test('a guide logo refusal replaces the stored alteration’s version refusal an
   await writeFile(join(fish, 'entity.json'), JSON.stringify({ id: 'sample', photos: [original, photo('spare')] }))
   await writeFile(join(root, 'engine-state/_photo-rejected.json'), JSON.stringify({ [wrapper.url]: 'dead: withheld' }))
   await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({
-    [wrapper.url]: { person: false, mark: false, brand: true, note: '' },
+    [wrapper.url]: { person: true, mark: false, brand: true, note: '' },
   }))
   const { d } = model({})
 

@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
 import { expect, onTestFinished, test, vi } from 'vitest'
-import { mirrorPlan } from '@aq/schema'
+import { mirrorPlan, photoWaitsFor } from '@aq/schema'
 import { screenDead, type DeadScreenDeps } from '../src/dead-screen'
 import { dropFacePhotos } from '../src/faces'
 import { listAgreed, unlistCleared, waitingEntry } from '../src/last-photo'
@@ -170,6 +170,22 @@ test('one photo check keeps a fallback original marked off for recovery alongsid
   expect((await json(r, afile)).photos).toContainEqual(altered)
   expect((await json(r, album)).photos).toContainEqual(altered)
   expect((await json(r, 'engine-state/_photo-rejected.json'))[original.url]).toMatch(/^waiting: /)
+})
+
+test('a first dead verdict with a watermark withholds the bare original for the same review', async () => {
+  const r = await store({ aaa: ['wrapper'], bbb: ['original'] })
+  const original = photo('original')
+  const wrapper = { ...photo('wrapper'), altered: [{ method: 'lanczos3-upscale' }], original }
+  await writeFile(join(r, 'content/species/aaa/entity.json'), JSON.stringify(fish('aaa', [wrapper])))
+  const report = await checkPagePhotos(r, model({ wrapper: { ...dead, logo: true } }), { limit: 10, emptyCap: 0 })
+
+  expect(report.firstOff).toHaveLength(1)
+  const marks = await json(r, 'engine-state/_photo-second-look.json')
+  expect(marks[wrapper.url]).toMatchObject({ why: expect.stringMatching(/^watermark:/), off: true,
+    pages: ['species/aaa', 'species/bbb'], originals: [original.url] })
+  const waits = photoWaitsFor({ secondLook: marks })
+  expect(waits(original.url)).toBe(true)
+  expect(waits(wrapper.url)).toBe(true)
 })
 
 test('an emptied page the fill refills with a photo the check calls dead shows nothing, and the photo waits for a second look marked on both lists; a photo that passed before is held as before', async () => {

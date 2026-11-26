@@ -102,7 +102,7 @@ async function pool<T>(items: T[], n: number, f: (x: T) => Promise<void>) {
 /** Why a photo leaves a guide, or undefined; `brandKept`: an equipment guide's (the brand is the product's) or a video still. */
 export function guidePhotoOff(v: GuidePhotoVerdict | undefined, brandKept: boolean): string | undefined {
   if (!v) return undefined
-  return v.person ? `people: ${photoReason(v)}` : v.mark ? `watermark: ${photoReason(v)}` : v.brand && !brandKept ? `logo: ${photoReason(v)}` : undefined
+  return v.mark ? `watermark: ${photoReason(v)}` : v.brand && !brandKept ? `logo: ${photoReason(v)}` : v.person ? `people: ${photoReason(v)}` : undefined
 }
 
 /** The model's verdict on each image (at most PER_SHEET), in order; one it didn't answer is undefined. `subjects`: each image's guide's subject, if it's to be asked about. */
