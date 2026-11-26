@@ -2,7 +2,7 @@ import { copyFile, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
 import { mirrorPlan } from '@aq/schema'
 import { screenDead, type DeadScreenDeps } from '../src/dead-screen'
 import { dropFacePhotos } from '../src/faces'
@@ -245,18 +245,35 @@ test('one photo on two pages, the only photo on one and one of several on the ot
   expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [url('j-dead')]: waitingEntry(sl[url('j-dead')].why) })
 })
 
-test('the other address of a first refusal joins the same wait even when it has a visible sibling', async () => {
+test.each([false, true])('the other address of a first refusal joins the same wait (different verdict: %s)', async mixed => {
   const r = await store({ jjj: [], kkk: [] })
   const source = 'https://live.staticflickr.com/123/456_abc.jpg'
   const mirror = `https://media.aquatome.com/${mirrorPlan(source)!.key}`
   await writeFile(join(r, 'content/species/jjj/entity.json'), JSON.stringify(fish('jjj', [{ ...photo('mirror'), url: mirror }])))
   await writeFile(join(r, 'content/species/kkk/entity.json'), JSON.stringify(fish('kkk', [{ ...photo('source'), url: source }, photo('live')])))
 
-  await checkPagePhotos(r, model({ [name(source)]: dead, [name(mirror)]: dead }), { limit: 10 })
+  await checkPagePhotos(r, model({ [name(source)]: dead, [name(mirror)]: mixed ? { person: true } : dead }), { limit: 10 })
 
   const marks = await json(r, 'engine-state/_photo-second-look.json')
   expect(marks[mirror]).toMatchObject({ pages: ['species/jjj'], off: true })
   expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [mirror]: waitingEntry(marks[mirror].why) })
+})
+
+test('retrying a source copy under its mirror’s wait makes no new rejection', async () => {
+  const r = await store({ jjj: [], kkk: [] }, { live: { kkk: { ...oldPass, logo: false, person: false } } })
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(source)!.key}`
+  const mark = { why: compactRejection('dead: sample'), pages: ['species/jjj'], at: '2026-11-26', step: 'the photo check', off: true }
+  await writeFile(join(r, 'content/species/kkk/entity.json'), JSON.stringify(fish('kkk', [{ ...photo('source'), url: source }, photo('live')])))
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [mirror]: mark }))
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [mirror]: waitingEntry(mark.why) }))
+  const unused = async () => { throw new Error('The waiting source copy needs no additional look') }
+
+  const result = await checkPagePhotos(r, { get: unused, look: unused }, { limit: 10 })
+
+  expect(result.failed).toEqual([])
+  expect(await photosOf(r, 'kkk')).toEqual(['live'])
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [mirror]: waitingEntry(mark.why) })
 })
 
 test.each(['photo check', 'sweep'])('the %s holds the last visible album photo even with an unchecked sibling', async step => {
@@ -491,7 +508,8 @@ test("a photo marked off at its first verdict with no waiting entry: the sweep w
   // p-dead's entry is missing, so a step put it back on its page; s-dead's waits for another reason; w-mark is listed for a mark.
   const mark = compactRejection('watermark: a logo bottom left')
   await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('o-listed')]: compactRejection('dead: on ice'), [url('s-dead')]: waitingEntry('people: another reason'), [url('w-mark')]: mark }))
-  const out = await sweep(r)
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(r, 'private-put-back'))
+  const out = await sweep(r).finally(() => vi.unstubAllEnvs())
   expect(out.waitingBack.sort()).toEqual([url('p-dead'), url('s-dead')])
   const listed = await json(r, 'engine-state/_photo-rejected.json')
   expect(listed[url('p-dead')]).toBe(waitingEntry(p.why))

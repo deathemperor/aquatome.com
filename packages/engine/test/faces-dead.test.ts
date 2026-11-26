@@ -4,7 +4,7 @@ import { chmod, cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/prom
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
-import { expect, test, vi } from 'vitest'
+import { expect, onTestFinished, test, vi } from 'vitest'
 import { loadAll, mirrorPlan } from '@aq/schema'
 import { LlmError } from '../src/claude'
 import { screenDead, type DeadScreenDeps } from '../src/dead-screen'
@@ -132,8 +132,9 @@ test("a stop at the step's line leaves the face pass as written and every page a
 
   // A page the screen can't write: the step still ends, its face pass kept, the failure said.
   const again = await store()
-  await chmod(join(again, 'content/species/a/entity.json'), 0o444)
-  const failed = await run(again, deps().d)
+  const unwritable = join(again, 'content/species/a')
+  await chmod(unwritable, 0o555)
+  const failed = await run(again, deps().d).finally(() => chmod(unwritable, 0o755))
   expect(failed.deadFailed).toMatch(/^photo operation unavailable \[sha256:[0-9a-f]{64}\]$/)
   expect(failed.faces.removed).toEqual([`species/c/entity.json: ${m('c-face')}`])
   expect(Object.keys(await json(again, 'engine-state/_photo-faces.json'))).toHaveLength(6)
@@ -440,7 +441,7 @@ test.each([
   expect((await publicView()).species.find(p => p.id === 'alpha')?.photos.map(p => p.url)).toEqual([mirror.url])
 })
 
-test.each([false, true])('one clear restores the credited mirror from Git (both addresses refused: %s)', async both => {
+test.each([false, true])('one clear restores the credited mirror (both addresses refused: %s)', async both => {
   const source = { ...photo('source'), url: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/prior-dead.jpg' }
   const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(source.url)!.key}`, author: 'Sample mirror credit' }
   const sibling = photo('sibling-live')
@@ -455,6 +456,8 @@ test.each([false, true])('one clear restores the credited mirror from Git (both 
   git('init', '-q', '-b', 'main'); git('config', 'user.email', 't@example.org'); git('config', 'user.name', 'Sample Tester')
   git('add', '.'); git('commit', '-qm', 'page with the credited mirror')
 
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
+  onTestFinished(() => vi.unstubAllEnvs())
   const { d } = deps()
   if (both) d.dead.look = async () => ({ tiles: [1, 2].map(n => ({ n, dead: true, note: '' })) })
   const out = await run(root, d)
@@ -496,6 +499,66 @@ test.each(['face detection', 'the dead-fish screen'])('a sibling waiting on its 
   expect(view.species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([flagged.url])
   expect(view.photoWaits!(pending.url)).toBe(true)
   expect((await json(root, 'engine-state/_photo-second-look.json'))[flagged.url]).toMatchObject({ step, pages: ['species/alpha'] })
+})
+
+test.each(['face detection', 'the dead-fish screen'])('a sibling from a withdrawn source cannot displace the last passed photo in %s', async step => {
+  const flagged = photo(step === 'face detection' ? 'passed-face' : 'passed-dead')
+  const withdrawn = { ...photo('withdrawn'), source: 'glaser' }
+  const { root, state, publicView } = await publicFixture([flagged, withdrawn], [], [flagged.url, withdrawn.url])
+  const sources = await json(root, 'content/sources.json')
+  sources.glaser = { name: 'Sample source', homepage: 'https://example.org', publish: false }
+  await writeFile(join(root, 'content/sources.json'), JSON.stringify(sources))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [withdrawn.url]: { dead: false } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [withdrawn.url]: 0, ...(step === 'face detection' ? {} : { [flagged.url]: 0 }) }))
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [flagged.url]: {
+    ok: 'yes', person: false, ...(step === 'face detection' ? { logo: false } : {}),
+  } }))
+
+  await run(root, deps().d)
+  expect((await json(root, 'engine-state/_photo-second-look.json'))[flagged.url]).toMatchObject({ step, pages: ['species/alpha'] })
+  expect((await publicView()).species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([flagged.url])
+})
+
+test('a vetoed owner crop cannot replace a previously passed photo', async () => {
+  const flagged = photo('passed-dead')
+  const crop = { ...photo('crop'), source: 'glaser', ownerCrop: { id: 'sample', pixelHash: 'a'.repeat(64) } }
+  const { root, state, publicView } = await publicFixture([flagged, crop], [], [flagged.url, crop.url])
+  const sources = await json(root, 'content/sources.json')
+  sources.glaser = {
+    name: 'Sample source', homepage: 'https://example.org', publish: 'photos',
+    permission: { date: '2026-11-26', file: 'fixture', scope: [], markRemoval: { allowed: false } },
+  }
+  await writeFile(join(root, 'content/sources.json'), JSON.stringify(sources))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [crop.url]: { dead: false } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [crop.url]: 0, [flagged.url]: 0 }))
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [flagged.url]: { ok: 'yes', person: false } }))
+
+  await run(root, deps().d)
+  expect((await json(root, 'engine-state/_photo-second-look.json'))[flagged.url]).toMatchObject({ pages: ['species/alpha'] })
+  expect((await publicView()).species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([flagged.url])
+})
+
+test('a first people refusal hides both addresses even if its rejection write fails', async () => {
+  const source = { ...photo('source'), url: 'https://live.staticflickr.com/123/456_abc.jpg' }
+  const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(source.url)!.key}` }
+  const { root, state, publicView } = await publicFixture([source], [mirror], [source.url, mirror.url])
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [source.url]: 0, [mirror.url]: 0 }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [source.url]: { dead: false }, [mirror.url]: { dead: false } }))
+  const rejected = join(state, '_photo-rejected.json')
+  await mkdir(rejected)
+  const { d } = deps()
+  await expect(checkPagePhotos(root, {
+    get: d.dead.get, look: async () => ({ photos: [{ n: 1, ok: 'yes', typical: false, person: true, logo: false, note: 'sample' }] }),
+  }, { only: 'alpha', limit: 1 })).rejects.toThrow()
+  await rm(rejected, { recursive: true })
+
+  const mark = (await json(root, 'engine-state/_photo-second-look.json'))[source.url]
+  expect(mark).toMatchObject({ off: true, why: expect.stringMatching(/^people:/) })
+  const view = await publicView()
+  expect(view.species.find(page => page.id === 'alpha')?.photos).toEqual([])
+  expect(view.galleries.alpha).toBeUndefined()
+  expect(view.photoWaits!(source.url)).toBe(true)
+  expect(view.photoWaits!(mirror.url)).toBe(true)
 })
 
 test('a rejection for the stored URL on another page preserves the cleared original across retries and sweep', async () => {
@@ -617,6 +680,30 @@ test('an incomplete cached verdict waits on the site and gets a fresh screen', a
   expect((await run(root, d)).owed).toBe(0)
   expect(sent).toEqual([candidate.url])
   expect((await publicView()).species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([candidate.url])
+})
+
+test('the sweep finishes a direct removal when the rejected URL still carries an original on another page', async () => {
+  const original = photo('fallback-live'), stored = photo('stored-dead'), live = photo('sibling-live')
+  const altered = {
+    ...stored,
+    original: { url: original.url, width: original.width, height: original.height },
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }],
+  }
+  const { root, state, file, publicView } = await publicFixture([altered, live], [altered], [stored.url, original.url, live.url])
+  const entity = await json(root, 'content/species/alpha/entity.json')
+  const direct = join(root, 'content/species/direct')
+  await mkdir(direct)
+  await writeFile(join(direct, 'entity.json'), JSON.stringify({ ...entity, id: 'direct', photos: [stored, live] }))
+
+  await run(root, deps().d)
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[stored.url]).toMatch(/^dead: /)
+  // A checkout can still have the direct entry when the verdict has been saved and its page write interrupted.
+  await writeFile(join(direct, 'entity.json'), JSON.stringify({ ...entity, id: 'direct', photos: [stored, live] }))
+  await sweep(root)
+
+  expect(await urls(root, 'direct')).toEqual([live.url])
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toContainEqual(altered)
+  expect((await publicView()).galleries.alpha?.map(p => p.url)).toContain(original.url)
 })
 
 test('a rejection write failure cannot release the album copy on retry', async () => {

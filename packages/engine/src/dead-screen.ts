@@ -1,4 +1,5 @@
 import { albumLooked, askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, photoLookAnswer, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoClears, photoWaitsFor, publicPhotoVersion, rejectedEntry, facePhotoStatus, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { replacePhotoDocument } from './image-cache-write'
 import { compactVerdict, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
@@ -9,6 +10,7 @@ import { LlmError } from './claude'
 import { contactSheet } from './video-images'
 import { keptOwnMark, type WatermarkEntry } from './watermarks'
 import { entriesDir, holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, type Stood } from './last-photo'
+import { permittedPhotoSource } from './photo-visibility'
 
 /**
  * No dead fish on a page, for what the photo check hasn't asked about (photo-check.ts asks since 2026-11-05): each species
@@ -259,6 +261,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   if (!o.albums && going.size) {
     const [pages, owned, listed, faces, watermarks] = await Promise.all([
       pagesShowing(content, p => {
+        if (!permittedPhotoSource(p, sources)) return undefined
         const reason = isListed(p.url)?.[1]
         // The sweep removes the whole wrapper for a rejection that applies to the photo as a whole.
         if (reason && !/^(?:dead|people|waiting): /.test(reason)) return p.url
@@ -321,16 +324,10 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       report.failed.push(`${it.key}: take-off waits for its recovery capture`)
       continue
     }
-    let keptWrapper = false
     for (const file of it.files) {
       const { page } = await readPage(file)
       if (it.video) page.videos = (page.videos ?? []).filter(v => v.youtubeId !== it.video)
-      else page.photos = (page.photos ?? []).filter(p => {
-        if (p.url !== it.url) return true
-        if (!retainFallback(p)) return false
-        keptWrapper = true
-        return true
-      })
+      else page.photos = (page.photos ?? []).filter(p => p.url !== it.url || retainFallback(p))
     }
     if (reviewUrl) {
       // Keep the existing unanswered review, including its source address, and record the places it can restore.
@@ -346,7 +343,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       report.dead.push(`${it.key}: ${note}`)
       if (it.video) videoRejected[it.video] ??= why
       // Album screening records a take-off even when a wrapper stays to carry a passing original.
-      else if (!it.rejection && (o.albums || !keptWrapper)) {
+      else if (!it.rejection) {
         if (keptAlbumMarks.has(it.url)) photoRejected[it.url] = why
         else photoRejected[it.url] ??= why
       }
@@ -356,8 +353,9 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const left = new Map<string, Stood[]>()
   const newFirst = rejectedEntry(Object.fromEntries([...firstOff.keys()].map(url => [url, holding.get(url)!.why])))
   for (const [file, edit] of edits) placesIn(root, file, edit.original, url => {
+    if (edit.page.photos?.some(p => p.url === url)) return undefined
     const reviewUrl = albumHold(url)
-    return newFirst(url)?.[0] ?? (reviewUrl && holding.has(reviewUrl) && !edit.page.photos?.some(p => p.url === url) ? reviewUrl : undefined)
+    return newFirst(url)?.[0] ?? (reviewUrl && holding.has(reviewUrl) ? reviewUrl : undefined)
   }, left)
   await holdForSecondLook(root, holding, 'the dead-fish screen', undefined, left)
   const save = (f: string, data: object) => writePhotoState(state(f), data)
@@ -366,7 +364,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   if (report.judged) await save('_dead-screen.json', cache)
   for (const [file, { raw, page }] of edits) {
     const next = `${JSON.stringify(page, null, indentOf(raw))}\n`
-    if (next !== raw) await writeFile(file, next)
+    if (next !== raw) await replacePhotoDocument(file, next)
   }
   return report
 }

@@ -1,4 +1,5 @@
 import { execFile } from 'node:child_process'
+import { replacePhotoDocument } from './image-cache-write'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -10,6 +11,7 @@ import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { keptMarks } from './own-mark'
 import { captureWaiting, holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, withoutSettledWaits, type Stood } from './last-photo'
+import { permittedPhotoSource } from './photo-visibility'
 
 export type FaceDeps = { get: (url: string) => Promise<Uint8Array>; detect: (files: string[]) => Promise<number[]> }
 
@@ -101,7 +103,9 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   }
   const dropsStored = (p: Photo) => !keepsOriginal(p) && (!!listed(p.url) || face(p.url))
   const pagesToKeep = await pagesShowing(contentRoot, p => {
-    if (!waitingForDead || dropsStored(p)) return p.url
+    if (!waitingForDead) return p.url
+    if (!permittedPhotoSource(p, sources)) return undefined
+    if (dropsStored(p)) return p.url
     const shown = version(p)?.url
     return shown && !setsCookies(shown) ? shown : undefined
   })
@@ -151,7 +155,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
     removed.push(...(e.photos ?? []).filter(p => !keep.includes(p)).map(p => `${at}: ${p.url}`), ...figures.map(f => `${at}: ${f.photo!.url}`))
     if (e.photos) e.photos = keep
     for (const f of figures) delete f.photo
-    await writeFile(file, `${JSON.stringify(e, null, 2)}\n`)
+    await replacePhotoDocument(file, `${JSON.stringify(e, null, 2)}\n`)
   }
   await writeFile(cacheFile, `${JSON.stringify(Object.fromEntries(Object.entries(cache).sort()), null, 2)}\n`)
   return { checked: todo.length - failed.length, fresh: todo, screened: [...screened], removed, held, firstOff: offFirst, failed }

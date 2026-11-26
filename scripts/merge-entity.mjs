@@ -36,21 +36,26 @@ function mergeLists(base, ours, theirs, field) {
     if (t.has(id)) out.push(merge3(b.get(id), it, t.get(id)))
     else if (!untouched(id, it)) out.push(it)
   }
-  for (const [i, it] of theirs.entries()) {
+  for (const it of theirs) {
     const id = idOf(it)
-    if (untouched(id, it)) continue
-    // A restored photo can be inserted ahead of a photo both sides kept. Preserve that position when merging a push.
-    const next = field === 'photos' ? theirs.slice(i + 1).map(idOf).find(id => o.has(id) && out.some(x => idOf(x) === id)) : undefined
-    if (o.has(id)) {
-      if (!b.has(id) && next !== undefined) {
-        const position = out.findIndex(x => idOf(x) === id)
-        const anchor = out.findIndex(x => idOf(x) === next)
-        if (position > anchor) out.splice(anchor, 0, ...out.splice(position, 1))
+    if (!o.has(id) && !untouched(id, it)) out.push(it)
+  }
+  if (field === 'photos') {
+    // Work back from each surviving anchor so a restored run of photos keeps its order.
+    let anchor
+    for (const it of theirs.slice().reverse()) {
+      const id = idOf(it)
+      const position = out.findIndex(x => idOf(x) === id)
+      if (position < 0) continue
+      if (!b.has(id) && anchor !== undefined) {
+        const to = out.findIndex(x => idOf(x) === anchor)
+        if (!o.has(id) || position > to) {
+          const [photo] = out.splice(position, 1)
+          out.splice(out.findIndex(x => idOf(x) === anchor), 0, photo)
+        }
       }
-      continue
+      anchor = id
     }
-    if (next === undefined) out.push(it)
-    else out.splice(out.findIndex(x => idOf(x) === next), 0, it)
   }
   return out
 }

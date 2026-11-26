@@ -148,6 +148,22 @@ test.each([false, true])('watermark holds use the album and this pass’s decisi
   }
 })
 
+test('a mirror already listed for a source watermark cannot replace the last photo', async () => {
+  const r = await site()
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = 'https://media.aquatome.com/flickr/456.webp'
+  await writeFile(join(r, 'content/species/a/entity.json'), JSON.stringify({ id: 'a', photos: [photo('glaser'), { ...photo('fish'), url: mirror }] }))
+  await writeFile(join(r, 'content/gallery/a.json'), JSON.stringify({ id: 'a', photos: [] }))
+  const cache = join(r, 'engine-state/_photo-watermarks.json')
+  const rejected = join(r, 'engine-state/_photo-rejected.json')
+  await writeFile(cache, JSON.stringify({ [mirror]: { ocr: [], watermark: false } }))
+  await writeFile(rejected, JSON.stringify({ [source]: 'watermark: withheld' }))
+
+  const result = await screenWatermarks(r, cache, rejected, deps().d, { limit: 10 })
+
+  expect(result.held).toContain(`${url('glaser')}: species/a`)
+})
+
 test('item admission stops without model calls or content changes', async () => {
   const root = await site()
   const { d, calls } = deps()
