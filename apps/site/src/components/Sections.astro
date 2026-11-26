@@ -16,13 +16,13 @@ import { i18n, isVietnameseTitle } from '../lib/i18n'
  * at the end of that section, or where it would be when the page has none. The sources' own reference lists ("Tài liệu
  * tham khảo") go in the source list, which is one closed block after the text.
  * `fold`: sections whose text a phone folds under their heading (PhoneFold.astro). */
-type Props = SectionProps & { fold?: SectionKey[] }
-const { fold = [] } = Astro.props
+type Props = SectionProps & { fold?: SectionKey[]; figuresAfterCare?: boolean }
+const { fold = [], figuresAfterCare } = Astro.props
 // `t` is the entity's translation (a prop): the translator is `tr` here.
 const { t: tr, lang } = i18n(Astro.url)
 const { range } = fmt(lang)
 const pair = (v: Range | number) => (isRange(v) ? `${v.min},${v.max}` : `${v},${v}`)
-const { groups, refs, note, figAfter, wild, wildAt } = sectionParts(lang, await getContent(lang), Astro.props)
+const { groups, refs, note, figAfter, wild, wildAt } = sectionParts(lang, await getContent(lang), Astro.props, { figuresAfterCare })
 const biblio = groups.find(g => g.key === 'references')
 // Each slot's place: inside its own section, else before the first section after where it would be (or the end).
 const SLOTS = (['waterConditions', 'behaviour'] as SectionKey[]).filter(k => Astro.slots.has(k))
@@ -56,7 +56,7 @@ const before = (i: number) => SLOTS.filter(k => at(k) === i && groups[i]?.key !=
         {SLOTS.includes(sec.key) && <div class="slotted"><slot name={sec.key} /></div>}
       </section>
     )}
-    {figAfter.has(i) && <Fragment set:html={figureHtml(lang, figAfter.get(i)!)} />}
+    {figAfter.get(i)?.map(f => <Fragment set:html={figureHtml(lang, f)} />)}
   </>
   ))}
   {before(groups.length).map(k => <div class="slotted"><slot name={k} /></div>)}
