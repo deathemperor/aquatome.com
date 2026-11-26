@@ -1656,3 +1656,44 @@ test('a bare original whose alteration is already refused contributes no album l
   await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [wrapper.url]: 'logo: sample' }))
   expect(await screenDead(root, deps().d.dead, { limit: 0, albums: true })).toMatchObject({ left: 0, pendingTakeOffs: 0 })
 })
+
+test('an owed-list replacement failure preserves every queued URL for retry', async () => {
+  const root = await store()
+  const list = join(root, 'engine-state/_photo-dead-owed.json')
+  const previous = { [m('b-dead')]: '2026-11-26' }
+  await writeFile(list, JSON.stringify(previous))
+  const original = imageWrites.writeImageCache
+  const fail = vi.spyOn(imageWrites, 'writeImageCache').mockImplementation(async (file, bytes) => {
+    if (file === list) throw new Error('fixture interrupted the owed-list replacement')
+    return original(file, bytes)
+  })
+  try {
+    await expect(run(root, deps().d)).rejects.toThrow('fixture interrupted the owed-list replacement')
+  } finally { fail.mockRestore() }
+  expect(await json(root, 'engine-state/_photo-dead-owed.json')).toEqual(previous)
+})
+
+test('a pending album refusal leaves glossary photos available for a clear', async () => {
+  const dead = photo('held-dead')
+  const { root, state, file, publicView } = await publicFixture([dead], [dead], [dead.url])
+  const glossary = join(root, 'content/glossary/sample/entity.json')
+  await mkdir(join(glossary, '..'), { recursive: true })
+  const record = { id: 'sample', photos: [dead], kinds: [{ photo: dead }] }
+  await writeFile(glossary, JSON.stringify(record))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [dead.url]: { dead: true } }))
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+    [dead.url]: { why: 'dead: withheld', pages: ['species/alpha'], at: '2026-11-26', step: 'the dead-fish screen' },
+  }))
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
+  onTestFinished(() => { vi.unstubAllEnvs() })
+  await screenDead(root, deps().d.dead, { limit: 0, albums: true })
+  await sweep(root, { history: async () => [] })
+  expect(JSON.parse(await readFile(glossary, 'utf8'))).toEqual(record)
+  const marks = await json(root, 'engine-state/_photo-second-look.json')
+  marks[dead.url].look = { said: 'clear', by: 'reviewer', on: '2026-11-26' }
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify(marks))
+  await sweep(root, { history: async () => [] })
+  expect(JSON.parse(await readFile(glossary, 'utf8'))).toEqual(record)
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([dead])
+  expect((await publicView()).photoWaits!(dead.url)).toBe(false)
+})

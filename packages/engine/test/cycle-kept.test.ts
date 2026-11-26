@@ -746,6 +746,22 @@ test('an unverified merge sweep holds the push and retries the kept work', () =>
   expect(c.branches()).toEqual([])
 }, slow(60_000))
 
+
+test('three unfinished publication sweeps retain the original work on a held branch', () => {
+  const c = clone()
+  migrating(c, false, true)
+  c.sh(work)
+  const before = c.sh('git rev-parse HEAD')
+  c.elsewhere('content/c.json', 'sf')
+  c.cycle(pushing)
+  c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  for (let run = 0; run < 3; run++) c.cycle(`${privacy}; publish_kept photos`)
+  const [held] = c.branches()
+  expect(held).toMatch(/^held\/photos\/.+-out3$/)
+  expect(c.sh(`git rev-parse ${held}`)).toBe(before)
+  expect(c.onMain('content/b.json')).toBe('')
+}, slow(60_000))
+
 test('the engine keeps a content commit when its first sweep fails', () => {
   const c = clone()
   migrating(c, false, true)

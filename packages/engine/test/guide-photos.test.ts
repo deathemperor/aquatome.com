@@ -399,3 +399,17 @@ test('all whole-photo refusals on alterations sharing a sole bare original wait 
   expect(report.held).toEqual(wrappers.map(p => `${p.url}: species/only`))
   expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({})
 })
+
+test("a refusal on a localized equipment photo holds the fish page's original", async () => {
+  const original = photo('equipment-bare')
+  const wrapper = { ...photo('equipment-alteration'), altered: [{ method: 'lanczos3-upscale' }], original }
+  const root = await store({}, { 'id/sample': { types: [{ photo: wrapper }] } })
+  const fish = join(root, 'content/species/only')
+  await mkdir(fish, { recursive: true })
+  await writeFile(join(fish, 'entity.json'), JSON.stringify({ id: 'only', photos: [original] }))
+  const { d } = model({ 'equipment-alteration': { mark: true } })
+  const report = await screenGuidePhotos(root, d, { limit: 1 })
+  expect(report.held).toContain(`${wrapper.url}: species/only`)
+  expect((await json(root, 'engine-state/_photo-second-look.json'))[wrapper.url].originals).toEqual([original.url])
+  expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({})
+})

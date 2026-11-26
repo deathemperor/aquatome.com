@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { lastPhotoVerdicts, looks, pagesShowing, readSecondLook } from './last-photo'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, facePhotoStatus, FACES_FILE, IMAGE_SWITCHES, isOwnerCrop, isVersionRejection, mayPublish, mayPublishLicence, ownDeadPhotoUrls, originalPhotoRefusals, ownerCropFitsPage, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoRejections, rejectedEntry, photoWaitsFor, publicPhotoVersion, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, expandWholePhotoRejections, facePhotoStatus, FACES_FILE, IMAGE_SWITCHES, isOwnerCrop, isVersionRejection, mayPublish, mayPublishLicence, ownDeadPhotoUrls, originalPhotoRefusals, ownerCropFitsPage, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoRejections, rejectedEntry, photoWaitsFor, publicPhotoVersion, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
 
 const read = async <T>(root: string, name: string): Promise<Record<string, T> | undefined> => {
   const raw = await readFile(join(root, 'engine-state', name), 'utf8').catch((error: NodeJS.ErrnoException) => {
@@ -45,8 +45,9 @@ export async function readPhotoWaits(
   if (looked) {
     for (const url of await ownDeadPhotoUrls(content)) if (!looked(url)) unjudged.add(url)
   }
+  const effective = await expandWholePhotoRejections(content, rejected ?? {}, watermarks)
   const waits = photoWaitsFor({ watermarks, owed, unread, flaggedAlterations, faces, unjudged, deadScreen, secondLook,
-    rejected: photoRejections(rejected ?? {}, watermarks) })
+    rejected: photoRejections(effective, watermarks) })
   return url => setsCookies(url) || waits(url) ||
     (overrides.freshOwn === true && ((!!looked && !looked(url)) || (!!faces && !Object.hasOwn(faces, url))))
 }
@@ -58,7 +59,7 @@ export async function holdablePhotoVerdicts(root: string, rejected: Record<strin
   const [waits, sources, marks] = await Promise.all([
     readPhotoWaits(root, { rejected }), readPhotoSources(content), read<PhotoScreenEntry>(root, PHOTO_SCREEN_FILE),
   ])
-  const listed = photoRejections(rejected, marks)
+  const listed = photoRejections(await expandWholePhotoRejections(content, rejected, marks), marks)
   const pages = await pagesShowing(content, (p, ref, name) => {
     const shown = publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
     if (!shown || !permittedPhotoSource(shown, sources, ref, name)) return undefined

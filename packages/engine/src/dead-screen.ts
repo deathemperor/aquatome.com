@@ -427,8 +427,8 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   // A retry can always find the owning photo until its removal or hold is durable.
   const left = new Map<string, Stood[]>()
   const newFirst = rejectedEntry(Object.fromEntries([...firstOff.keys()].map(url => [url, holding.get(url)!.why])))
-  for (const [file, edit] of edits) placesIn(root, file, edit.original, url => {
-    if (edit.page.photos?.some(p => p.url === url)) return undefined
+  for (const [file, edit] of edits) placesIn(root, file, edit.original, (url, slot) => {
+    if (edit.page.photos?.includes(slot.photo as Photo)) return undefined
     const reviewUrl = albumHold(url)
     return newFirst(url)?.[0] ?? (reviewUrl && holding.has(reviewUrl) ? reviewUrl : undefined)
   }, left)
