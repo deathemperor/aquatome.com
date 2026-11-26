@@ -429,7 +429,7 @@ fi
 # comments and related posts cut, empty headings, repeated paragraphs and labels out of order fixed, photos of another
 # fish or a map taken off their page, card figures out of bounds hidden, titles promising a count their text lacks
 # rewritten (reviewer-gated) or their number dropped.
-pnpm engine sweep || log "sweep: failed"
+sweep_for_publish
 # A held video guide whose read names only sentences that go whole (the source talking, a foreign shop, a price, a
 # product; advice for a reader elsewhere waits for the mend) has them cut by code with no model, twelve guides a run, each cut sentence kept in
 # engine-state/_video-cut.json for the sentence-only mend to write the true ones back. A guide a cut could break, or one a
@@ -487,8 +487,11 @@ if [ -z "$(git status --porcelain -- content sources apps/site/src/i18n)" ]; the
   # Only the engine's own records changed (pages tried, photo verdicts, pages kept as they were): keep them, or the next
   # cycle redoes that work. The site doesn't read them, so no build and no deploy.
   if [ -n "$(git status --porcelain -- engine-state docs/review)" ]; then
-    git add engine-state docs/review && git commit -q -m "engine: $PART records $(date -u +%F)" && push || exit 1
+    git add engine-state docs/review && git commit -q -m "engine: $PART records $(date -u +%F)" || exit 1
+    if [ -n "${SWEEP_FAILED:-}" ]; then keep_unpublished "$PART"; log "sweep failed, not publishing records"; exit 1; fi
+    push || exit 1
   fi
+  [ -z "${SWEEP_FAILED:-}" ] || exit 1
   # Pages hidden or unhidden on the dashboard since the last deploy still need a build to leave (or rejoin) the lists.
   HIDDEN_JSON="$(curl -sf -H "authorization: Bearer $(cat "$HOME/.config/aquatome/ab-dash-token")" https://aquatome.com/_ab/hidden.json || true)"
   HIDDEN_NOW="$(printf '%s' "$HIDDEN_JSON" | shasum | cut -c1-40)"

@@ -6,13 +6,13 @@ import { replacePhotoDocument, writeImageCache } from './image-cache-write'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { IMAGE_SWITCHES, isNonCommercial, ncAlone, photoAddressSet, photoFitsHead, photoKey, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto, type SourceInfo } from '@aq/schema'
+import { IMAGE_SWITCHES, isNonCommercial, ncAlone, photoAddressSet, photoFitsHead, photoKey, photoRejections, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
 import { galleryPlan } from './gallery-plan'
 import { pickStands, readPersonYes } from './person-yes'
-import { FIRST_OFF, holdForSecondLook, looks, passedBefore, placesIn, readSecondLook, waitingEntry, withoutClearedWaits, withoutSettledWaits, type Stood } from './last-photo'
+import { entriesDir, FIRST_OFF, holdForSecondLook, looks, passedBefore, placesIn, readSecondLook, waitingEntry, withoutClearedWaits, withoutSettledWaits, type Stood } from './last-photo'
 import { contactSheet } from './video-images'
 import { keptOwnMark, LOGO_FOLDERS, retainedOwnMark, shouldStripPhoto, stripPhotos, type WatermarkEntry } from './watermarks'
 import { keptLast, screenedShop } from './own-mark'
@@ -20,7 +20,7 @@ import { ageOf, ageUnasked, grownFirst, grownHead, headAsksAge, youngUnasked } f
 import { CF, namedOn, namedOrder, passesHead, SPECIES } from './photo-named'
 import { readAvoid } from './curation'
 import { priorityFish } from './priority-fish'
-import { permittedPhotoSource, readPhotoWaits } from './photo-visibility'
+import { permittedPhotoSource, readPhotoSources, readPhotoWaits } from './photo-visibility'
 
 type Photo = { url: string; caption?: string; author?: string; authorUrl?: string; sourceUrl?: string; licence?: string; generated?: unknown; unchecked?: boolean }
 /**
@@ -820,7 +820,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const first = (url: string) => sl.off(url) || (FIRST_OFF.test(added[url] ?? '') && freshBad.has(url))
   const offAt = new Set(shown.filter(off).map(x => `${x.file}\n${x.url}`))
   // One marked off at its first verdict is off wherever it shows, its never-again entry there or not (last-photo.ts).
-  const pendingGlobal = rejectedEntry(Object.fromEntries(Object.entries(added).filter(([, why]) => FIRST_OFF.test(why))))
+  const pendingGlobal = photoRejections(Object.fromEntries(Object.entries(added)
+    .filter(([, why]) => FIRST_OFF.test(why) || why.startsWith('watermark:'))), marks)
   const blockedAs = (file: string, url: string) => {
     const waiting = waitingAt(url)
     if (waiting) return waiting
@@ -835,7 +836,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const real = (ps: Photo[] | undefined) => (ps ?? []).filter(p => !p.generated)
   const ownPhotos = async (file: string) => real((await readJson<{ photos?: Photo[] }>(file))?.photos)
   const waitsFor = await readPhotoWaits(root, { check: legacy, subjects: cache, rejected })
-  const sources = (await readJson<Record<string, SourceInfo>>(join(content, 'sources.json'))) ?? {}
+  const sources = await readPhotoSources(content)
   const firstOff = new Map<string, { why: string; pages: string[]; off: true }>()
   const firstAliases = new Map<string, string>()
   const preservesOriginal = (url: string, original: string, blockedOriginal: boolean) => {
@@ -978,6 +979,13 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // Where each one marked off stood, for its record: the put-back's only trace of one this run brought (last-photo.ts).
   const stood = new Map<string, Stood[]>()
   const edits = new Map<string, string>()
+  const canCapture = !!entriesDir()
+  const recoverableEdit = (url: string) => {
+    const at = waitingAt(url)
+    if (!at) return true
+    const entry = rejectedAt(url)
+    return canCapture && sl.off(at) && (!entry || entry[1] === waitingEntry(secondLook[at]!.why))
+  }
   for (const file of [...new Set(shown.map(x => x.file))]) {
     const capture = (url: string) => {
       const reason = blockedAs(file, url)
@@ -989,7 +997,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       const data = JSON.parse(raw) as { photos?: Photo[] }
       const removed: string[] = []
       const before = { ...data }
-      stripPhotos(data, url => !!capture(url), removed, [], preservesOriginal)
+      stripPhotos(data, url => recoverableEdit(url) && !!capture(url), removed, [], preservesOriginal)
       placesIn(root, file, before, url => removed.includes(url) ? capture(url) : undefined, stood)
       if (!removed.length) continue
       report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))
@@ -1001,7 +1009,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const before = real(data.photos)[0]?.url
     const removed: string[] = []
     const beforeEdit = { ...data }
-    stripPhotos(data, blocked(file), removed, [], preservesOriginal)
+    stripPhotos(data, url => recoverableEdit(url) && blocked(file)(url), removed, [], preservesOriginal)
     placesIn(root, file, beforeEdit, url => removed.includes(url) ? capture(url) : undefined, stood)
     // A gallery photo that waited (`unchecked`): judged for this page and left on, it shows from the next build.
     const gallery = galleryId(file)

@@ -1350,7 +1350,8 @@ test('an agreed watermark rejection keeps a fallback original off the page and a
   expect(view.photoWaits!(original.url)).toBe(true)
 })
 
-test.each([false, true])('a non-commercial replacement survives while its sibling is withheld (fallback: %s)', async fallback => {
+test.each(['watermark', 'fallback', 'withdrawn'])('a non-commercial replacement survives while its sibling is withheld by %s', async condition => {
+  const fallback = condition === 'fallback'
   const head = photo('passed-dead'), pending = photo('pending-mark')
   const nc = {
     ...photo('non-commercial'), url: 'https://media.aquatome.com/inaturalist/42.webp',
@@ -1359,8 +1360,13 @@ test.each([false, true])('a non-commercial replacement survives while its siblin
   const sibling = fallback ? {
     ...photo('upscale'), altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }],
     original: { url: pending.url, width: pending.width, height: pending.height },
-  } : pending
-  const { root, state, publicView } = await publicFixture([head, sibling, nc], [], [head.url, nc.url, ...(fallback ? [sibling.url] : [])])
+  } : condition === 'withdrawn' ? { ...pending, source: 'glaser' } : pending
+  const { root, state, publicView } = await publicFixture([head, sibling, nc], [], [head.url, nc.url, ...(condition !== 'watermark' ? [sibling.url] : [])])
+  if (condition === 'withdrawn') {
+    const sources = await json(root, 'content/sources.json')
+    sources.glaser = { name: 'Sample source', homepage: 'https://example.org', publish: false }
+    await writeFile(join(root, 'content/sources.json'), JSON.stringify(sources))
+  }
   await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [nc.url]: { dead: false }, [pending.url]: { dead: false }, ...(fallback ? { [sibling.url]: { dead: false } } : {}) }))
   await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [head.url]: 0, [nc.url]: 0, [pending.url]: 0, ...(fallback ? { [sibling.url]: 0 } : {}) }))
   await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [head.url]: { ok: 'yes', person: false } }))
@@ -1371,10 +1377,10 @@ test.each([false, true])('a non-commercial replacement survives while its siblin
   expect((await publicView()).species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([nc.url])
 })
 
-test('a retained shop watermark does not exclude an unjudged fallback original from the screen', async () => {
+test.each([false, true])('a retained shop watermark leaves an unjudged original retryable (alteration refused: %s)', async refuseAlteration => {
   const original = { ...photo('retained-live'), url: 'https://media.aquatome.com/glaser/retained-live.webp' }
   const stored = {
-    ...photo('stored-upscale'), altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'b'.repeat(64) }],
+    ...photo(refuseAlteration ? 'stored-dead' : 'stored-upscale'), altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'b'.repeat(64) }],
     original: { url: original.url, width: original.width, height: original.height },
   }
   const { root, state, publicView } = await publicFixture([stored], [stored], [stored.url, original.url])
@@ -1386,9 +1392,15 @@ test('a retained shop watermark does not exclude an unjudged fallback original f
   }))
   await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [original.url]: 'watermark: withheld' }))
   await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [stored.url]: 0, [original.url]: 0 }))
-  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [stored.url]: { dead: false } }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify(refuseAlteration ? {} : { [stored.url]: { dead: false } }))
+  if (refuseAlteration) {
+    const first = deps({ unreadable: original.url })
+    expect((await run(root, first.d)).owed).toBe(1)
+    expect(await owed(root)).toEqual([original.url])
+    expect((await json(root, 'content/species/alpha/entity.json')).photos).toEqual([stored])
+    expect((await publicView()).galleries.alpha).toBeUndefined()
+  }
   const { d, sent } = deps()
-
   expect((await publicView()).photoWaits!(original.url)).toBe(true)
   expect((await run(root, d)).owed).toBe(0)
   expect(sent).toEqual([original.url])
@@ -1449,4 +1461,44 @@ test('an album take-off keeps a waiting guide stock slot through the sweep and h
   expect(JSON.parse(await readFile(guide, 'utf8')).video.figures).toEqual(figures)
   expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([dead])
   expect((await publicView()).galleries.alpha?.map(p => p.url)).toEqual([dead.url])
+})
+
+test('agreement with a face hold supersedes an approved shop watermark', async () => {
+  const shop = { ...photo('shop'), url: 'https://media.aquatome.com/glaser/shop-face.webp' }
+  const { root, state, publicView } = await publicFixture([shop], [shop], [shop.url])
+  await writeFile(join(state, '_photo-watermarks.json'), JSON.stringify({
+    [shop.url]: { ocr: [], watermark: true, retainedOwnMark: {
+      source: 'glaser', sourceUrl: 'https://www.aquariumglaser.de/sample/', owner: 'source', by: 'screen',
+    } },
+  }))
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [shop.url]: 'watermark: withheld' }))
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [shop.url]: { ok: 'yes', logo: false, person: false } }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [shop.url]: { dead: false } }))
+
+  expect((await run(root, deps().d)).faces.held).toEqual([`${shop.url}: species/alpha`])
+  expect((await publicView()).galleries.alpha?.map(p => p.url)).toEqual([shop.url])
+  const marks = await json(root, 'engine-state/_photo-second-look.json')
+  expect(marks[shop.url].off).toBeUndefined()
+  marks[shop.url].look = { said: 'agree', by: 'reviewer', on: '2026-11-26' }
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify(marks))
+
+  await sweep(root, { history: async () => [] })
+
+  expectControlledRejections(await json(root, 'engine-state/_photo-rejected.json'), { [shop.url]: 'people' })
+  const view = await publicView()
+  expect(view.species.find(page => page.id === 'alpha')?.photos).toEqual([])
+  expect(view.galleries.alpha).toBeUndefined()
+})
+
+test('an unreadable source permission record stops the dead screen before it removes a passed photo', async () => {
+  const only = { ...photo('sole-dead'), source: 'glaser' }
+  const root = await onePage([only])
+  await writeFile(join(root, 'engine-state/_photo-check.json'), JSON.stringify({ [only.url]: { ok: 'yes', person: false } }))
+  await mkdir(join(root, 'content/sources.json'))
+  const { d, sent } = deps()
+
+  await expect(screenDead(root, d.dead, { limit: 1 })).rejects.toThrow()
+  expect(sent).toEqual([])
+  expect(await urls(root, 'a')).toEqual([only.url])
+  await expect(readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8')).rejects.toMatchObject({ code: 'ENOENT' })
 })

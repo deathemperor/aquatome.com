@@ -786,10 +786,14 @@ verify_cycle() {
 # older code turned main red. So they're rewritten here first, with no model and no decision changed, before the sweep and
 # the tests see them. A migration that fails publishes nothing, and the work is kept for the next run, which migrates and
 # tests it again, never held for it (MIGRATE_FAILED; the Image Lead and the chief of staff, 13 Nov).
-sweep_merged() {
-  MIGRATE_FAILED= SWEEP_FAILED=
-  pnpm engine photo-privacy --write || { MIGRATE_FAILED=1; log "photo records: the migration failed, so nothing is published"; }
+sweep_for_publish() {
+  SWEEP_FAILED=
   pnpm engine sweep || { SWEEP_FAILED=1; log "sweep: failed, so nothing is published"; }
+}
+sweep_merged() {
+  MIGRATE_FAILED=
+  pnpm engine photo-privacy --write || { MIGRATE_FAILED=1; log "photo records: the migration failed, so nothing is published"; }
+  sweep_for_publish
   git add content sources engine-state docs/review
   git diff --cached --quiet || git commit -q -m "content: sweep on main as it is now"
 }

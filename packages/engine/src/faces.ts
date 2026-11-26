@@ -5,12 +5,12 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoRejections, photoWaitsFor, publicPhotoVersion, rejectedEntry, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoRejections, photoWaitsFor, publicPhotoVersion, rejectedEntry, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
 import { screenDead, type DeadScreenDeps } from './dead-screen'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
-import { captureWaiting, holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, withoutClearedWaits, withoutSettledWaits, type Stood } from './last-photo'
-import { permittedPhotoSource } from './photo-visibility'
+import { captureWaiting, entriesDir, holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, withoutClearedWaits, withoutSettledWaits, type Stood } from './last-photo'
+import { permittedPhotoSource, readPhotoSources } from './photo-visibility'
 
 export type FaceDeps = { get: (url: string) => Promise<Uint8Array>; detect: (files: string[]) => Promise<number[]> }
 
@@ -84,9 +84,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const passed = photoAddressSet(await readPassedBefore(root))
   const face = (u: string) => cache[u]! > 0 && !sl.clearedPhoto(u) && !sl.pendingOff(u) && (sl.open(u) || ((sl.waiting(u) || sl.held(u)) && screened.has(u) && !passed(u)))
   const screen = waitingForDead && await readPhotoRecord(root, DEAD_SCREEN_FILE)
-  const sources: Record<string, SourceInfo> = waitingForDead
-    ? JSON.parse(await readFile(join(contentRoot, 'sources.json'), 'utf8').catch(() => '{}'))
-    : {}
+  const sources = waitingForDead ? await readPhotoSources(contentRoot) : {}
   const watermarks = waitingForDead ? marks : undefined
   const version = (p: Photo) =>
     publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
@@ -120,8 +118,10 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const why = 'people: a face (face detection)'
   await holdForSecondLook(root, new Map([...last].map(([u, pages]) => [u, { why, pages }])), 'face detection')
   const left = new Map<string, Stood[]>()
-  const removes = (p: Photo) => dropsStored(p) && !heldByAddress(p.url)
   const waiting = captureWaiting(secondLook, listed)
+  const canCapture = !!entriesDir()
+  const removes = (p: Photo) => dropsStored(p) && !heldByAddress(p.url) &&
+    (!listed(p.url)?.[1].startsWith('waiting:') || (canCapture && !!waiting(p.url)))
   const newFirst = rejectedEntry(Object.fromEntries([...firstOff.keys()].map(url => [url, why])))
   for (const { file, e } of pages) {
     const removed = new Set((e.photos ?? []).filter(removes).map(p => p.url))
