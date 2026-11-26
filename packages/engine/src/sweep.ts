@@ -1,3 +1,4 @@
+import { recordListedAlbumTakeOffs } from './album-takeoffs'
 import { compactRejection } from './photo-observations'
 import { replacePhotoDocument } from './image-cache-write'
 import { writePhotoState } from './photo-state'
@@ -1172,6 +1173,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const g = data as { kinds?: { photo?: unknown }[] }
     if (glossaryFiles.includes(file) && Array.isArray(g.kinds)) { g.kinds = g.kinds.filter(k => k.photo); if (!g.kinds.length) delete g.kinds }
     await notePlaces(root, places)
+    if (galleryFiles.includes(file)) await recordListedAlbumTakeOffs(root, removed, rejectedAt)
     for (const url of removed) report.again.push(`${file.slice(content.length + 1)}: ${url} (${compactRejection(listedWhy(url))})`)
     await replacePhotoDocument(file, `${JSON.stringify(data, null, indentOf(raw))}\n`)
     changed(file.slice(content.length + 1))

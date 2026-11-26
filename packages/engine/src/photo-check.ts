@@ -1001,7 +1001,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const data = JSON.parse(raw) as { photos?: Photo[]; video?: { figures?: { photo?: Photo; moments?: { url: string }[] }[] } }
     // Waiting guide slots remain in the document until recovery can capture those slots.
     const nested = photoAddressSet((data.video?.figures ?? []).flatMap(f => [
-      ...(f.photo ? deadScreenPhotoUrls(f.photo) : []), ...(f.moments ?? []).map(m => m.url),
+      ...(f.photo ? deadScreenPhotoUrls(f.photo as ContentPhoto) : []), ...(f.moments ?? []).map(m => m.url),
     ]))
     const canRemove = (url: string) => recoverableEdit(url) && !(nested(url) && (waitingAt(url) || capture(url)))
     if (held.has(file)) {
