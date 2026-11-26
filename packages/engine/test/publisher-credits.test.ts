@@ -195,7 +195,10 @@ test("a read page's pictures name our photos credited to its publisher alone, wh
   const { photoKey } = await import('../src/source-photos')
   const key = (src: string) => photoKey('sprucepets', `https://www.example.org/img/${src}`).replace('sprucepets/', '')
   await writeFile(at('content', 'species', 'a', 'entity.json'), `${JSON.stringify({ photos: [ours(key('a.jpg')), ours(key('b.jpg')), ours(key('c.jpg'), 'Cy Sample / The Example Pets')] }, null, 2)}\n`)
-  await writeFile(at('content', 'gallery', 'a.json'), `${JSON.stringify({ photos: [ours(key('a.jpg'))] }, null, 2)}\n`)
+  const original = ours(key('a.jpg'))
+  const wrapper = { ...original, url: urlFor('sprucepets/alteration.webp'), altered: [{ method: 'lanczos3-upscale' }],
+    original: { url: original.url, width: original.width, height: original.height } }
+  await writeFile(at('content', 'gallery', 'a.json'), `${JSON.stringify({ photos: [wrapper] }, null, 2)}\n`)
   const images = [
     { src: '/img/a.jpg', alt: 'a', credit: 'The Example / Ann Example' },
     { src: '/img/b.jpg', alt: 'b', credit: 'Bo Sample' },
@@ -220,17 +223,22 @@ test("a copy that shows another credit, or a line the guard refuses, keeps every
   const g = (n: number, sourceUrl: string, caption?: string) => ({ url: `https://media.aquatome.com/glaser/${n}.webp`, width: 800, height: 600, licence: SOURCE_PHOTO_LICENCE, author: 'Aquarium Glaser', source: 'glaser', sourceUrl, ...(caption ? { caption } : {}) })
   // Photo 1: the page's copy prints another credit, the album's copy has no caption. Photo 2: one copy from a page whose
   // line names two people, one from a page whose line names one. Photo 3: no conflict anywhere, named.
-  await writeFile(at('content', 'species', 'a', 'entity.json'), `${JSON.stringify({ photos: [g(1, one, 'Male, photo: Bo Sample'), g(2, two), g(3, one, 'Female')] }, null, 2)}\n`)
-  await writeFile(at('content', 'gallery', 'a.json'), `${JSON.stringify({ photos: [g(1, one), g(2, one), g(3, one)] }, null, 2)}\n`)
+  const original = g(4, one)
+  const named = { ...original, author: 'Bo Sample / Aquarium Glaser' }
+  const wrapper = { ...original, url: 'https://media.aquatome.com/glaser/alteration.webp', altered: [{ method: 'lanczos3-upscale' }],
+    original: { url: original.url, width: original.width, height: original.height } }
+  await writeFile(at('content', 'species', 'a', 'entity.json'), `${JSON.stringify({ photos: [g(1, one, 'Male, photo: Bo Sample'), g(2, two), g(3, one, 'Female'), named] }, null, 2)}\n`)
+  await writeFile(at('content', 'gallery', 'a.json'), `${JSON.stringify({ photos: [g(1, one), g(2, one), g(3, one), wrapper] }, null, 2)}\n`)
   const r = await namePublisherCredits(root)
   expect(r.named).toEqual({ glaser: 2 })
-  expect(JSON.parse(await readFile(at('content', 'species', 'a', 'entity.json'), 'utf8')).photos.map((p: { author: string }) => p.author)).toEqual(['Aquarium Glaser', 'Aquarium Glaser', 'Ann Example / Aquarium Glaser'])
-  expect(JSON.parse(await readFile(at('content', 'gallery', 'a.json'), 'utf8')).photos.map((p: { author: string }) => p.author)).toEqual(['Aquarium Glaser', 'Aquarium Glaser', 'Ann Example / Aquarium Glaser'])
+  expect(JSON.parse(await readFile(at('content', 'species', 'a', 'entity.json'), 'utf8')).photos.map((p: { author: string }) => p.author)).toEqual(['Aquarium Glaser', 'Aquarium Glaser', 'Ann Example / Aquarium Glaser', named.author])
+  expect(JSON.parse(await readFile(at('content', 'gallery', 'a.json'), 'utf8')).photos.map((p: { author: string }) => p.author)).toEqual(['Aquarium Glaser', 'Aquarium Glaser', 'Ann Example / Aquarium Glaser', 'Aquarium Glaser'])
   expect(r.untied).toEqual([
     { file: join('content', 'species', 'a', 'entity.json'), url: g(1, one).url, why: 'its own line differs' },
     { file: join('content', 'species', 'a', 'entity.json'), url: g(2, one).url, why: 'more than one person' },
     { file: join('content', 'gallery', 'a.json'), url: g(1, one).url, why: 'its own line differs' },
     { file: join('content', 'gallery', 'a.json'), url: g(2, one).url, why: 'more than one person' },
+    { file: join('content', 'gallery', 'a.json'), url: wrapper.url, why: 'two lines across its copies' },
   ])
 })
 

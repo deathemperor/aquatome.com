@@ -124,7 +124,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const left = new Map<string, Stood[]>()
   const waiting = captureWaiting(secondLook, listed)
   const canCapture = !!entriesDir()
-  const removes = (p: Photo) => dropsStored(p) && !heldByAddress(p.url) &&
+  const removes = (p: Photo) => dropsStored(p) && !heldByAddress(p.url) && (canCapture || !markedByAddress(p.url)) &&
     (!listed(p.url)?.[1].startsWith('waiting:') || (canCapture && !!waiting(p.url)))
   const newFirst = rejectedEntry(Object.fromEntries([...firstOff.keys()].map(url => [url, why])))
   for (const { file, e } of pages) {

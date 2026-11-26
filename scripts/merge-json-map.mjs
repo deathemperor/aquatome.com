@@ -20,10 +20,13 @@ const record = v => !!v && typeof v === 'object' && !Array.isArray(v) && typeof 
 const answered = v => !!v.look && (v.look.said === 'agree' || v.look.said === 'clear') && typeof v.look.by === 'string' && v.look.by.trim() !== '' && /^\d{4}-\d{2}-\d{2}$/.test(v.look.on ?? '')
 const placeKey = p => `${p.file}:${JSON.stringify(p.path ?? [])}:${p.occurrence ?? 0}`
 const placesOf = (r, field = 'left') => Array.isArray(r?.[field]) ? r[field].filter(p => typeof p?.file === 'string' && Number.isSafeInteger(p.index) && (p.index >= 0 || p.index === -1 && p.path?.[3] === 'photo')) : []
-const sameReason = (a, b) => typeof a === 'string' && typeof b === 'string' && a.split(':', 1)[0] === b.split(':', 1)[0]
 function mergePlaces(chosen, base, ours, theirs) {
-  if (ours.off !== true || theirs.off !== true || !sameReason(ours.why, theirs.why)) return chosen
+  if (ours.off !== true || theirs.off !== true) return chosen
   const other = chosen === ours ? theirs : ours
+  const differentKind = chosen.why.split(':', 1)[0] !== other.why.split(':', 1)[0]
+  const competing = placesOf(other).some(p => p.capture)
+  const inheritedWaits = [...(chosen.waitingReasons ?? []), ...(other.waitingReasons ?? [])]
+  if (differentKind && !competing && !inheritedWaits.length) return chosen
   const at = ours.at < theirs.at ? ours.at : theirs.at
   const datedPlaces = (mark, field) => placesOf(mark, field).map(p => {
     const { captureDay, captureWhy, ...place } = p
@@ -31,11 +34,13 @@ function mergePlaces(chosen, base, ours, theirs) {
     const reason = captureWhy ?? mark.why
     return { ...place, ...(captured === at ? {} : { captureDay: captured }), ...(reason === chosen.why ? {} : { captureWhy: reason }) }
   })
-  const settled = new Map([...datedPlaces(other, 'settled'), ...datedPlaces(chosen, 'settled')].map(p => [placeKey(p), p]))
+  const oldSettled = chosen.why === other.why ? datedPlaces(other, 'settled') : []
+  const settled = new Map([...oldSettled, ...datedPlaces(chosen, 'settled')].map(p => [placeKey(p), p]))
   const original = new Map(datedPlaces(base).map(p => [placeKey(p), p]))
   const pending = new Map(datedPlaces(chosen).map(p => [placeKey(p), p]))
   const sameCapture = (p, q) => !!p && !!q && p.capture === q.capture && p.index === q.index && p.captureDay === q.captureDay && p.captureWhy === q.captureWhy
   for (const place of datedPlaces(other)) {
+    if (differentKind && !place.capture) continue
     const before = original.get(placeKey(place))
     const selected = pending.get(placeKey(place))
     if (chosen.back && sameCapture(place, before)) continue
@@ -50,10 +55,15 @@ function mergePlaces(chosen, base, ours, theirs) {
   }
   const { back, left, settled: _settled, ...merged } = chosen
   merged.at = at
+  if (inheritedWaits.length || (chosen.why !== other.why && competing)) {
+    const reasons = competing ? [...inheritedWaits, other.why] : inheritedWaits
+    merged.waitingReasons = [...new Set(reasons.filter(reason =>
+      reason !== chosen.why && /^(?:dead|people|watermark|logo): withheld \[sha256:[a-f0-9]{64}\]$/.test(reason)))].sort()
+  }
   if ((settled.size || pending.size) && record(ours) && record(theirs)) merged.pages = [...new Set([...ours.pages, ...theirs.pages])].sort()
   if (settled.size) merged.settled = [...settled.values()]
   if (pending.size) return { ...merged, left: [...pending.values()] }
-  const completed = back ?? other.back
+  const completed = back ?? (chosen.why === other.why ? other.back : undefined)
   return completed ? { ...merged, back: completed } : merged
 }
 

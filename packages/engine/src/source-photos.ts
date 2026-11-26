@@ -199,12 +199,16 @@ function storedSourcePhoto(p: Photo): Photo | undefined {
   return { url, thumb, width, height, licence: p.licence, author: p.author, ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), sourceUrl: p.sourceUrl, source: p.source }
 }
 
+const hasPhotographer = (photo: Photo) => photo.author.includes(' / ')
+
 /** Media addresses are shared by publisher and image, including originals kept inside an alteration. */
 export async function storedSourcePhotos(content: string): Promise<Map<string, Photo>> {
   const stored = new Map<string, Photo>()
   for await (const p of photoPlacements(content)) {
     const photo = storedSourcePhoto(p)
-    if (photo && !stored.has(photo.url)) stored.set(photo.url, photo)
+    if (!photo) continue
+    const previous = stored.get(photo.url)
+    if (!previous || (!hasPhotographer(previous) && hasPhotographer(photo))) stored.set(photo.url, photo)
   }
   return stored
 }
@@ -213,22 +217,33 @@ export async function storedSourcePhotos(content: string): Promise<Map<string, P
 function publishedSourcePhoto(root: string, url: string): Photo | undefined {
   const git = (...args: string[]) => spawnSync('git', ['-C', root, ...args], { encoding: 'utf8', maxBuffer: 8 << 20 })
   const scopes = ['content/species', 'content/plants', 'content/breeds', 'content/guides', 'content/glossary', 'content/gallery', 'content/equipment']
+  const inRevision = (version: string, paths: string): Photo | undefined => {
+    let first: Photo | undefined
+    for (const file of paths.split('\0')) {
+      if (!file.endsWith('/entity.json') && !/^content\/(gallery|equipment)\/.*\.json$/.test(file)) continue
+      const result = git('show', `${version}:${file}`)
+      if (result.status !== 0) continue
+      for (const p of documentPhotos(JSON.parse(result.stdout))) {
+        const record = storedSourcePhoto(p)
+        if (record?.url !== url) continue
+        if (hasPhotographer(record)) return record
+        first ??= record
+      }
+    }
+    return first
+  }
+  const current = git('grep', '-l', '-z', '-F', '-e', url, 'HEAD', '--', ...scopes)
+  if (current.status === 0) {
+    const record = inRevision('HEAD', current.stdout.split('\0').map(path => path.replace(/^HEAD:/, '')).join('\0'))
+    if (record) return record
+  }
   const rev = git('log', '-1', '--first-parent', '--diff-merges=first-parent', '--no-patch', '--format=%H', '-S', url, '--', ...scopes).stdout?.trim()
   if (!rev) return undefined
   const changed = git('rev-parse', '--verify', '-q', `${rev}^`).status === 0
     ? git('diff', '--name-only', '-z', `${rev}^`, rev, '--', ...scopes)
     : git('diff-tree', '--root', '-r', '--no-commit-id', '--name-only', '-z', rev, '--', ...scopes)
-  for (const file of (changed.stdout ?? '').split('\0').filter(path => path.endsWith('/entity.json') || /^content\/(gallery|equipment)\/.*\.json$/.test(path))) {
-    for (const version of [`${rev}^`, rev]) {
-      const result = git('show', `${version}:${file}`)
-      if (result.status !== 0) continue
-      for (const p of documentPhotos(JSON.parse(result.stdout))) {
-        const record = storedSourcePhoto(p)
-        if (record?.url === url) return record
-      }
-    }
-  }
-  return undefined
+  const files = changed.stdout ?? ''
+  return inRevision(`${rev}^`, files) ?? inRevision(rev, files)
 }
 
 /** Existing verdicts name stored bytes even after the last page placement leaves. */
@@ -289,7 +304,7 @@ export async function storeSourcePhotos(
       if (known) {
         const placed = nearby ? known : { ...known, sourceUrl: pageUrl, ...(img.alt ? { caption: img.alt.slice(0, 200) } : {}) }
         const shared = nearby ? storedSourcePhoto(nearby) : known
-        if (shared?.url === url && !deps.stored?.has(url)) deps.stored?.set(url, shared)
+        if (shared?.url === url && (!deps.stored?.has(url) || shared.author !== sourceName)) deps.stored?.set(url, shared)
         out.push(img.heading ? { ...placed, heading: img.heading } : placed)
         group.done = true
         break

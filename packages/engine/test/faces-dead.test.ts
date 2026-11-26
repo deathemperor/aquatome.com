@@ -5,14 +5,15 @@ import { chmod, cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/prom
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
-import { expect, onTestFinished, test, vi } from 'vitest'
+import { beforeEach, expect, onTestFinished, test, vi } from 'vitest'
 import { loadAll, mirrorPlan } from '@aq/schema'
 import * as imageWrites from '../src/image-cache-write'
 import { recordAlbumTakeOffs } from '../src/album-takeoffs'
 import { LlmError } from '../src/claude'
 import { acknowledgeAlbumTakeOffs, screenDead, type DeadScreenDeps } from '../src/dead-screen'
 import { galleries, type GalleryDeps } from '../src/gallery'
-import { gitHistory, putBackCleared, waitingEntry } from '../src/last-photo'
+import { gitHistory, putBackCleared, unlistCleared, waitingEntry } from '../src/last-photo'
+import { holdForCreditRead, releaseCreditHolds } from '../src/credit-reads'
 import { checkPagePhotos } from '../src/photo-check'
 import { sweep } from '../src/sweep'
 import { BACKLOG_SHEETS, dropFacePhotos, NEW_PHOTO_RESERVE, NEW_PHOTO_SHEETS, screenNewPhotos } from '../src/faces'
@@ -21,6 +22,15 @@ import { BACKLOG_SHEETS, dropFacePhotos, NEW_PHOTO_RESERVE, NEW_PHOTO_SHEETS, sc
 const m = (name: string) => `https://m/${name}.webp`
 const photo = (name: string) => ({ url: m(name), width: 960, height: 640, licence: 'CC BY 4.0', author: 'Sample Tester', sourceUrl: 'https://example.org/x' })
 const video = (youtubeId: string) => ({ youtubeId, title: youtubeId, durationSec: 300, lang: 'en' })
+
+beforeEach(async () => {
+  const folder = await mkdtemp(join(tmpdir(), 'aq-faces-recovery-'))
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', folder)
+  onTestFinished(async () => {
+    vi.unstubAllEnvs()
+    await rm(folder, { recursive: true, force: true })
+  })
+})
 
 // Species a: its head was judged by the face finder in an earlier run; a new dead fish and a new live one follow it, and
 // a video. Species b, a new page: its one photo, a dead fish. Species c: a new photo with a face, and a new live fish.
@@ -282,6 +292,35 @@ async function publicFixture(photos: object[], albums: object[], urls: string[])
   const publicView = () => loadAll({ root: content, lang: 'vi', publicBuild: true })
   return { root, state, file, publicView }
 }
+
+test('clearing an independent review leaves the bare original hidden until its rights hold releases', async () => {
+  const original = photo('original')
+  const wrapper = { ...photo('wrapper'), altered: [{ method: 'lanczos3-upscale' }], original }
+  const { root, state, publicView } = await publicFixture([original], [original], [original.url, wrapper.url])
+  const guide = join(root, 'content/guides/sample/entity.json')
+  await mkdir(join(guide, '..'), { recursive: true })
+  await writeFile(guide, JSON.stringify({ id: 'sample', photos: [wrapper] }))
+  const why = 'dead: withheld'
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [original.url]: waitingEntry(why) }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [original.url]: { dead: false } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [original.url]: 0 }))
+  await holdForCreditRead(root, [wrapper.url], 'reviewer', '2026-11-26', 'credit unread')
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+    [original.url]: { why, at: '2026-11-26', off: true, pages: ['species/alpha'], step: 'the photo check',
+      look: { said: 'clear', on: '2026-11-26', by: 'reviewer' } },
+  }))
+  expect(await unlistCleared(root)).toEqual([original.url])
+
+  const held = await publicView()
+  expect(held.photoWaits!(original.url)).toBe(true)
+  expect(held.species.find(page => page.id === 'alpha')?.photos ?? []).toEqual([])
+  expect(held.galleries.alpha ?? []).toEqual([])
+
+  await releaseCreditHolds(root, { [original.url]: { kind: 'own', page: original.sourceUrl, at: '2026-11-26' } })
+  const released = await publicView()
+  expect(released.photoWaits!(original.url)).toBe(false)
+  expect(released.species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([original.url])
+})
 
 test.each([false, true])('the face finder holds a passed last photo while its sibling owes the dead-fish screen (original: %s)', async useOriginal => {
   const flagged = photo('passed-face'), pending = photo('unreadable')
@@ -1079,6 +1118,7 @@ test('a retained album original does not strand a dead alias in a guide stock sl
 })
 
 test('a hold that cannot be captured is reported as a pending take-off', async () => {
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', 'off')
   const dead = photo('known-dead')
   const { root, state, file } = await albumFixture([dead])
   await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [dead.url]: { dead: true } }))

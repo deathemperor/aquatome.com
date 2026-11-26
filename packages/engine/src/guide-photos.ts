@@ -1,12 +1,12 @@
 import { piece } from './pieces'
 import { compactVerdict, photoReason, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
-import { writePhotoState } from './photo-state'
+import { recordPhotoRefusals, writePhotoState } from './photo-state'
 import { holdablePhotoVerdicts, versionRejection } from './photo-visibility'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join, relative } from 'node:path'
 import sharp from 'sharp'
-import { deadScreenPhotoUrls, guideLooked, GUIDE_LOOKS_FILE, photoAddressSet, rejectedEntry, stillShown, subjectForGuide, type Photo } from '@aq/schema'
+import { deadScreenPhotoUrls, guideLooked, GUIDE_LOOKS_FILE, PHOTO_SCREEN_FILE, photoAddressSet, rejectedEntry, retainedOwnMark, stillShown, subjectForGuide, type Photo, type PhotoScreenEntry } from '@aq/schema'
 export { guideSubject } from '@aq/schema'
 import { LlmError } from './claude'
 import { contactSheet, stillDone } from './video-images'
@@ -85,9 +85,9 @@ async function pool<T>(items: T[], n: number, f: (x: T) => Promise<void>) {
 }
 
 /** Why a photo leaves a guide, or undefined; `brandKept`: an equipment guide's (the brand is the product's) or a video still. */
-export function guidePhotoOff(v: GuidePhotoVerdict | undefined, brandKept: boolean): string | undefined {
+export function guidePhotoOff(v: GuidePhotoVerdict | undefined, brandKept: boolean, ownMarkKept = false): string | undefined {
   if (!v) return undefined
-  return v.person ? `people: ${photoReason(v)}` : v.mark ? `watermark: ${photoReason(v)}` : v.brand && !brandKept ? `logo: ${photoReason(v)}` : undefined
+  return v.mark && !ownMarkKept ? `watermark: ${photoReason(v)}` : v.brand && !brandKept ? `logo: ${photoReason(v)}` : v.person ? `people: ${photoReason(v)}` : undefined
 }
 
 /** The model's verdict on each image (at most PER_SHEET), in order; one it didn't answer is undefined. `subjects`: each image's guide's subject, if it's to be asked about. */
@@ -232,12 +232,16 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
 
   // 2. Off the guides and equipment guides; a person, a mark, or a brand on a photo no equipment guide shows and that
   // isn't a still, onto the blocklist.
-  const now = (await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {} // re-read: entries another step added meanwhile stay
+  const rejectedFile = state('_photo-rejected.json')
+  const now = (await readJson<Record<string, string>>(rejectedFile)) ?? {} // re-read: entries another step added meanwhile stay
   // A guide's photo that is also the last photo of a species, plant or breed page doesn't go on the list, which would
   // take it off that page too: it waits for a second look (last-photo.ts). It still leaves the guides.
   const sl = looks(await readSecondLook(root))
+  const marks = (await readJson<Record<string, PhotoScreenEntry>>(state(PHOTO_SCREEN_FILE))) ?? {}
+  const ownMark = photoAddressSet(Object.keys(marks).filter(url => retainedOwnMark(url, marks[url])))
+  const verdictOff = (url: string, brandKept: boolean) => guidePhotoOff(cache[url], brandKept, ownMark(url))
   const listing = new Map([...items.values()].flatMap(x => {
-    const why = guidePhotoOff(cache[x.url], x.equipment || x.still)
+    const why = verdictOff(x.url, x.equipment || x.still)
     return why && sl.open(x.url) ? [[x.url, why] as const] : []
   }))
   const removesWrapper = photoAddressSet([...listing].flatMap(([url, reason]) => versionRejection(reason) ? [] : [url]))
@@ -245,14 +249,14 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
   const heldAddress = photoAddressSet(last.keys())
   const holding = new Map<string, { why: string; pages: string[] }>()
   for (const x of items.values()) {
-    const why = guidePhotoOff(cache[x.url], x.equipment || x.still)
+    const why = verdictOff(x.url, x.equipment || x.still)
     if (!why) continue
     report.off.push(`${x.url}: ${why}`)
     if (last.has(x.url)) { holding.set(x.url, { why, pages: last.get(x.url)! }); report.held.push(`${x.url}: ${last.get(x.url)!.join(', ')}`); continue }
-    if (sl.open(x.url) && !heldAddress(x.url)) now[x.url] ??= why
   }
   await holdForSecondLook(root, holding, 'the guide photo check')
-  await writePhotoState(state('_photo-rejected.json'), now)
+  await recordPhotoRefusals(rejectedFile, now, new Map([...listing].filter(([url]) => !heldAddress(url))))
+  await writePhotoState(rejectedFile, now)
   for (const file of files) {
     const raw = await readFile(file, 'utf8')
     const data = JSON.parse(raw) as Guide
@@ -260,8 +264,11 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     const equipment = file.startsWith(join(content, 'equipment'))
     const subject = subjectOf.get(file)
     const another = (url: string) => !!subject && cache[url]?.other?.[subject] === true
-    const remove = (url: string) => sl.open(url) && (!!guidePhotoOff(cache[url], equipment || !!items.get(url)?.still) || another(url))
-    stripPhotos(data, remove, removed, report.kept, (_stored, _original, blockedOriginal) => !blockedOriginal)
+    const remove = (url: string) => sl.open(url) && (!!verdictOff(url, equipment || !!items.get(url)?.still) || another(url))
+    stripPhotos(data, remove, removed, report.kept, (url, _original, blockedOriginal) => {
+      const reason = verdictOff(url, equipment || !!items.get(url)?.still)
+      return !blockedOriginal && (heldAddress(url) || !reason || versionRejection(reason))
+    })
     const stock = (data.video?.figures ?? []).flatMap(f => f.photo ? [f.photo] : [])
     for (const p of [...(data.photos ?? []), ...stock]) {
       if (p.original && deadScreenPhotoUrls(p).includes(p.original.url) && remove(p.original.url)) {

@@ -27,41 +27,72 @@ function idOf(it) {
 }
 
 function mergeLists(base, ours, theirs, field) {
-  const index = list => new Map(list.map(it => [idOf(it), it]))
-  const [b, o, t] = [index(base), index(ours), index(theirs)]
-  const untouched = (id, it) => b.has(id) && eq(b.get(id), it) // left as it was by one side, so the other's removal stands
-  const out = []
-  for (const it of ours) {
-    const id = idOf(it)
-    if (t.has(id)) out.push(merge3(b.get(id), it, t.get(id)))
-    else if (!untouched(id, it)) out.push(it)
-  }
-  for (const it of theirs) {
-    const id = idOf(it)
-    if (!o.has(id) && !untouched(id, it)) out.push(it)
+  const lists = [base, ours, theirs]
+  const repeated = new Set()
+  if (field === 'photos') for (const list of lists) {
+    const seen = new Set()
+    for (const it of list) {
+      const id = idOf(it)
+      if (seen.has(id)) repeated.add(id)
+      seen.add(id)
+    }
   }
   if (field === 'photos') {
-    const order = theirs.map(idOf).filter(id => out.some(x => idOf(x) === id))
+    const before = new Set(base.map(idOf))
+    const local = new Map(theirs.map(it => [idOf(it), it]))
+    for (const it of ours) {
+      const id = idOf(it), other = local.get(id)
+      if (!before.has(id) && other && !eq(it?.altered, other.altered)) repeated.add(id)
+    }
+  }
+  const key = it => {
+    const id = idOf(it)
+    return repeated.has(id) ? JSON.stringify([id, it?.altered ?? null]) : id
+  }
+  const pairs = list => {
+    const counts = new Map()
+    return list.map(it => {
+      const k = key(it)
+      if (!repeated.has(idOf(it))) return [k, it]
+      const occurrence = counts.get(k) ?? 0
+      counts.set(k, occurrence + 1)
+      return [JSON.stringify([k, occurrence]), it]
+    })
+  }
+  const [before, main, local] = lists.map(pairs)
+  const [b, o, t] = [new Map(before), new Map(main), new Map(local)]
+  const untouched = (id, it) => b.has(id) && eq(b.get(id), it) // left as it was by one side, so the other's removal stands
+  const out = []
+  for (const [id, it] of main) {
+    if (t.has(id)) out.push([id, merge3(b.get(id), it, t.get(id))])
+    else if (!untouched(id, it)) out.push([id, it])
+  }
+  for (const [id, it] of local) {
+    if (!o.has(id) && !untouched(id, it)) out.push([id, it])
+  }
+  if (field === 'photos') {
+    const at = id => out.findIndex(([k]) => k === id)
+    const order = local.map(([id]) => id).filter(id => at(id) >= 0)
     let previous
     for (const [i, id] of order.entries()) {
       if (!b.has(id)) {
-        const position = out.findIndex(x => idOf(x) === id)
-        const after = previous === undefined ? -1 : out.findIndex(x => idOf(x) === previous)
+        const position = at(id)
+        const after = previous === undefined ? -1 : at(previous)
         const later = order.slice(i + 1)
         const next = later.find(id => b.has(id)) ?? (after < 0 ? later.find(id => o.has(id)) : undefined)
-        const before = next === undefined ? out.length : out.findIndex(x => idOf(x) === next)
+        const before = next === undefined ? out.length : at(next)
         if (position >= before || position <= after || !o.has(id) && next !== undefined) {
           const [photo] = out.splice(position, 1)
           const insert = next !== undefined
-            ? out.findIndex(x => idOf(x) === next)
-            : out.findIndex(x => idOf(x) === previous) + 1
+            ? at(next)
+            : at(previous) + 1
           out.splice(insert, 0, photo)
         }
       }
       previous = id
     }
   }
-  return out
+  return out.map(([, item]) => item)
 }
 
 /** Three-way merge of two versions of a JSON value against their common base (undefined: both sides added it). */

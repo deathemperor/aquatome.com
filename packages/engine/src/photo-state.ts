@@ -1,10 +1,21 @@
 import { readFile } from 'node:fs/promises'
 import { basename, dirname, join } from 'node:path'
-import { expandWholePhotoRejections, isVersionRejection, PHOTO_SCREEN_FILE, type PhotoScreenEntry } from '@aq/schema'
+import { expandWholePhotoRejections, isVersionRejection, PHOTO_SCREEN_FILE, photoRejections, rejectedEntry, type PhotoScreenEntry } from '@aq/schema'
 import { compactScreen, compactVerdict, compactRejections, compactRejection, photoFailure } from './photo-observations'
 import { writeImageCache } from './image-cache-write'
 
 export const PHOTO_STATE_FILES = ['_photo-watermarks.json','_photo-rejected.json','_photo-check.json','_photo-subjects.json','_photo-guides.json','_dead-screen.json','_video-stills.json','_video-rejected.json'] as const
+
+/** Missing state is empty. A damaged or unreadable decision record must stop an edit. */
+export async function readPhotoMap<T>(file: string): Promise<Record<string, T>> {
+  const raw = await readFile(file, 'utf8').catch((error: NodeJS.ErrnoException) => {
+    if (error.code === 'ENOENT') return '{}'
+    throw error
+  })
+  const data: unknown = JSON.parse(raw)
+  if (!data || typeof data !== 'object' || Array.isArray(data)) throw new Error(`${basename(file)} must be a map`)
+  return data as Record<string, T>
+}
 /** The shared persistence boundary. Model prose and OCR strings are never serialized by these writers. */
 export function compactPhotoState(file:string,value:unknown):unknown {
   const name=basename(file),data=value as Record<string,any>
@@ -29,17 +40,34 @@ export function compactPhotoState(file:string,value:unknown):unknown {
     return {...(v.at!==undefined?{at:v.at}:{}),...(v.timed!==undefined?{timed:v.timed}:{}),...(v.failed!==undefined?{failed:v.failed?photoFailure(v.failed):''}:{}),...(kept?{kept}:{})}
   })
 }
+async function storedWatermarks(file: string): Promise<Record<string, PhotoScreenEntry> | undefined> {
+  return readFile(join(dirname(file), PHOTO_SCREEN_FILE), 'utf8').then(
+    raw => JSON.parse(raw) as Record<string, PhotoScreenEntry>,
+    (error: NodeJS.ErrnoException) => { if (error.code !== 'ENOENT') throw error; return undefined },
+  )
+}
+
+/** Keep an existing effective refusal unless the new one applies to the entire photo. */
+export async function recordPhotoRefusals(
+  file: string, rejected: Record<string, string>, refusals: ReadonlyMap<string, string>, marks?: Record<string, PhotoScreenEntry>,
+): Promise<void> {
+  if (!refusals.size) return
+  const active = photoRejections(rejected, marks ?? await storedWatermarks(file))
+  const pending = rejectedEntry(Object.fromEntries(refusals))
+  for (const url of new Set([...refusals.keys(), ...Object.keys(rejected)])) {
+    const decision = pending(url)?.[1]
+    const prior = active(url)?.[1]
+    if (decision && (!prior || (isVersionRejection(prior) && !isVersionRejection(decision)))) rejected[url] = decision
+  }
+}
+
 export async function writePhotoState(file:string,value:unknown,indent:number|string=2):Promise<void> {
   let data = compactPhotoState(file, value)
   if (basename(file) === '_photo-rejected.json') {
     const rejected = data as Record<string, string>
     if (Object.values(rejected).some(why => why && !isVersionRejection(why))) {
       const state = dirname(file)
-      const marks = await readFile(join(state, PHOTO_SCREEN_FILE), 'utf8').then(
-        raw => JSON.parse(raw) as Record<string, PhotoScreenEntry>,
-        (error: NodeJS.ErrnoException) => { if (error.code !== 'ENOENT') throw error; return undefined },
-      )
-      data = await expandWholePhotoRejections(join(dirname(state), 'content'), rejected, marks)
+      data = await expandWholePhotoRejections(join(dirname(state), 'content'), rejected, await storedWatermarks(file))
     }
   }
   await writeImageCache(file, JSON.stringify(data, null, indent) + '\n')

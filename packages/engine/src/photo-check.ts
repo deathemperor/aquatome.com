@@ -13,7 +13,7 @@ import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
 import { galleryPlan } from './gallery-plan'
 import { pickStands, readPersonYes } from './person-yes'
-import { entriesDir, FIRST_OFF, holdForSecondLook, looks, passedBefore, placesIn, readSecondLook, waitingEntry, withoutClearedWaits, withoutSettledWaits, type Stood } from './last-photo'
+import { entriesDir, holdForSecondLook, looks, passedBefore, placesIn, readSecondLook, waitingEntry, withoutClearedWaits, withoutSettledWaits, type Stood } from './last-photo'
 import { contactSheet } from './video-images'
 import { keptOwnMark, LOGO_FOLDERS, retainedOwnMark, shouldStripPhoto, stripPhotos, type WatermarkEntry } from './watermarks'
 import { keptLast, screenedShop } from './own-mark'
@@ -106,7 +106,7 @@ const blockedFor = (by: Record<string, PhotoVerdict> = {}, keepOwnLogo = false) 
   const dead = vs.find(v => v.ok === 'dead')
   const person = vs.find(v => v.person)
   const logo = keepOwnLogo ? undefined : vs.find(v => v.logo)
-  return dead ? `dead: ${dead.note}` : person ? `people: ${person.note}` : logo ? `watermark: ${logo.note}` : undefined
+  return logo ? `watermark: ${logo.note}` : dead ? `dead: ${dead.note}` : person ? `people: ${person.note}` : undefined
 }
 
 /** A page whose photos show one subject: a species, a plant (a cultivar is named in its scientific name), or a breed. */
@@ -471,7 +471,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const sl = looks(secondLook)
   const rejectedAt = rejectedEntry(rejected)
   const markedAt = rejectedEntry(Object.fromEntries(Object.entries(secondLook)
-    .filter(([url, mark]) => sl.off(url) && FIRST_OFF.test(mark.why))
+    .filter(([url]) => sl.off(url))
     .map(([url, mark]) => [url, waitingEntry(mark.why)])))
   const waitingAt = (url: string) => {
     const entry = rejectedAt(url)
@@ -818,7 +818,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // The hold protects a photo that passed the check before (the chief of staff, 20 Nov 2026). This run's first verdict of
   // dead or a person, on a photo that never passed, isn't held: it comes off, even as a page's last photo, and waits for
   // its look marked on both lists (last-photo.ts), as does one already marked.
-  const first = (url: string) => sl.off(url) || (FIRST_OFF.test(added[url] ?? '') && freshBad.has(url))
+  const first = (url: string) => sl.off(url) || (Object.hasOwn(added, url) && freshBad.has(url))
   const offAt = new Set(shown.filter(off).map(x => `${x.file}\n${x.url}`))
   // One marked off at its first verdict is off wherever it shows, its never-again entry there or not (last-photo.ts).
   const pendingGlobal = photoRejections(added, marks)
@@ -1035,8 +1035,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     if (held.has(file)) {
       // A held page keeps what passed before; a first verdict comes off it all the same.
       const removed: string[] = []
-      const before = file.includes('/guides/') ? structuredClone(data) : { ...data }
-      stripPhotos(data, url => canRemove(url) && !!capture(url), removed, [], preservesOriginal)
+      const before = { ...data }
+      stripPhotos(data, url => canCapture && canRemove(url) && !!capture(url), removed, [], preservesOriginal)
       placesIn(root, file, before, (url, slot) => !data.photos?.includes(slot.photo as Photo) ? capture(url) : undefined, stood)
       if (!removed.length) continue
       if (galleryId(file)) for (const url of removed) albumRemoved.add(url)
@@ -1046,8 +1046,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     }
     const before = real(data.photos)[0]?.url
     const removed: string[] = []
-    const beforeEdit = file.includes('/guides/') ? structuredClone(data) : { ...data }
-    stripPhotos(data, url => canRemove(url) && blocked(file)(url), removed, [], preservesOriginal)
+    const beforeEdit = { ...data }
+    stripPhotos(data, url => canRemove(url) && (canCapture || !capture(url)) && blocked(file)(url), removed, [], preservesOriginal)
     placesIn(root, file, beforeEdit, (url, slot) => !data.photos?.includes(slot.photo as Photo) ? capture(url) : undefined, stood)
     // A gallery photo that waited (`unchecked`): judged for this page and left on, it shows from the next build.
     const gallery = galleryId(file)
