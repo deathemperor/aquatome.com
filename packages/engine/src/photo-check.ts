@@ -1,3 +1,4 @@
+import { recordListedAlbumTakeOffs } from './album-takeoffs'
 import { piece, PieceAdmissionError } from './pieces'
 import { errorKind } from './state'
 import { compactRejection, compactVerdict, modelFailureKind, photoHints, photoReason, deadNote, peopleNote, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
@@ -1011,6 +1012,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // Where each one marked off stood, for its record: the put-back's only trace of one this run brought (last-photo.ts).
   const stood = new Map<string, Stood[]>()
   const edits = new Map<string, string>()
+  const albumRemoved = new Set<string>()
   const canCapture = !!entriesDir()
   const recoverableEdit = (url: string) => {
     const at = waitingAt(url)
@@ -1037,6 +1039,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       stripPhotos(data, url => canRemove(url) && !!capture(url), removed, [], preservesOriginal)
       placesIn(root, file, before, url => removed.includes(url) ? capture(url) : undefined, stood)
       if (!removed.length) continue
+      if (galleryId(file)) for (const url of removed) albumRemoved.add(url)
       report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))
       edits.set(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
       continue
@@ -1113,6 +1116,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     }
     const out = `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`
     if (out === raw) continue
+    if (galleryId(file)) for (const url of removed) albumRemoved.add(url)
     report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))
     edits.set(file, out)
   }
@@ -1131,6 +1135,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const now = withoutSettledWaits((await readJson<Record<string, string>>(rejectedFile)) ?? {}, await readSecondLook(root))
   // One off at its first verdict waits there marked, and isn't counted refused (last-photo.ts).
   for (const [u, why] of Object.entries(added)) if (!(u in now) && !firstAliases.has(u)) { if (firstOff.has(u)) now[u] = waitingEntry(why); else { now[u] = why; report.rejected++ } }
+  if (albumRemoved.size) await recordListedAlbumTakeOffs(root, albumRemoved, rejectedEntry(now))
   await writePhotoState(rejectedFile, now)
   // Keep the rejection durable during the page edits. A subject verdict may release the dead-fish wait, so
   // publish it only after every edit has succeeded.

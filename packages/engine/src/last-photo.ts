@@ -437,7 +437,7 @@ export function entriesDir(env: NodeJS.ProcessEnv = process.env): string | undef
   return machine(env) === 'mac' ? join(homedir(), '.cache/aquatome/put-back') : undefined
 }
 
-type Kept = Stood & { replaces?: string; url: string; at: string; why: string }
+type Kept = Stood & { replaces?: string; ancestors?: string[]; url: string; at: string; why: string }
 const keptFile = (dir: string, url: string, mark: SecondLook, p: Place) =>
   join(dir, `${createHash('sha256').update(JSON.stringify([url, p.captureDay ?? mark.at, mark.why, p.file, p.index, ...(p.path ? [p.path] : []), ...(p.capture ? [p.capture] : [])])).digest('hex')}.json`)
 
@@ -456,12 +456,13 @@ async function readKept(dir: string, url: string, mark: SecondLook, p: Place): P
 }
 
 /** Publish the entry only if absent. Readers see a complete file and repeat writers preserve the first capture. */
-async function writeKept(dir: string, url: string, mark: SecondLook, p: Stood, replaces?: string) {
+async function writeKept(dir: string, url: string, mark: SecondLook, p: Stood, previous: Kept | undefined) {
   await mkdir(dir, { recursive: true, mode: 0o700 })
   const file = keptFile(dir, url, mark, p)
   const temporary = `${file}.${randomUUID()}.next`
   try {
-    await writeFile(temporary, JSON.stringify({ ...p, replaces, url, at: mark.at, why: mark.why }), { mode: 0o600, flag: 'wx' })
+    const ancestors = previous?.capture ? [...new Set([previous.capture, ...(previous.ancestors ?? (previous.replaces ? [previous.replaces] : []))])] : undefined
+    await writeFile(temporary, JSON.stringify({ ...p, replaces: previous?.capture, ancestors, url, at: mark.at, why: mark.why }), { mode: 0o600, flag: 'wx' })
     try { await link(temporary, file) } catch (e) {
       if ((e as NodeJS.ErrnoException).code !== 'EEXIST' || !(await readKept(dir, url, mark, p))) throw e
     }
@@ -486,8 +487,8 @@ async function capturePlaces(sl: SecondLooks, left: Map<string, Stood[]>, dir: s
     for (const p of [...places].sort((a, b) => byHost(a) - byHost(b))) {
       if (!validPlace(p)) continue
       const earlierPlace = named.get(placeKey(p))
+      const earlier = earlierPlace ? await readKept(dir, url, r, earlierPlace) : undefined
       if (earlierPlace) {
-        const earlier = await readKept(dir, url, r, earlierPlace)
         if (!earlier) throw new Error('Photo take-off is waiting for an existing private capture')
         if (byHost(p) > byHost(earlier)) continue
         const sameEntry = JSON.stringify(p.photo) === JSON.stringify(earlier.photo)
@@ -508,7 +509,7 @@ async function capturePlaces(sl: SecondLooks, left: Map<string, Stood[]>, dir: s
           }
         }
       }
-      await writeKept(dir, url, r, { ...p, ...place, order }, earlierPlace?.capture)
+      await writeKept(dir, url, r, { ...p, ...place, order }, earlier)
       named.set(placeKey(p), place)
       r.left = [...named.values()]
       const at = previous.get(placeKey(p)) ?? []
@@ -553,7 +554,8 @@ async function pruneKept(root: string, dir: string, local: SecondLooks) {
     if (!k || typeof k.url !== 'string' || !day(k.at) || typeof k.why !== 'string') continue
     const mark = marks[k.url], here = local[k.url]
     const restored = mark?.back && here?.back && mark.why === k.why && here.why === k.why &&
-      mark.settled?.some(p => placeKey(p) === placeKey(k) && (p.capture === k.capture || !k.replaces || p.capture !== k.replaces))
+      mark.settled?.some(p => placeKey(p) === placeKey(k) &&
+        (p.capture === k.capture || !p.capture || !(k.ancestors ?? (k.replaces ? [k.replaces] : [])).includes(p.capture)))
     const refusal = rejected[k.url]
     const agreed = !mark && !here && typeof refusal === 'string' && !refusal.startsWith('waiting:')
     if (restored || agreed) await rm(path, { force: true })
@@ -647,16 +649,27 @@ export function gitHistory(root: string, tip = 'HEAD'): History {
       if (files.status !== 0) return undefined
       for (const file of files.stdout.split('\n').filter(Boolean)) {
         const before = spots(`${sha}^`, file), after = spots(sha, file)
-        const seen = new Set<string>()
-        for (const p of before) if (!setsCookies(String(p.photo.url))) served.add(placeKey({ ...p, file }))
-        for (const p of before) {
+        const group = (p: PhotoSlot) => placeKey({ ...p, file, occurrence: undefined })
+        for (const p of before) if (!setsCookies(String(p.photo.url))) served.add(group(p))
+        const usable = (p: PhotoSlot) => !served.has(group(p)) || !setsCookies(String(p.photo.url))
+        const candidates = before.filter(usable)
+        const matched = new Set<PhotoSlot>()
+        const changed: PhotoSlot[] = []
+        for (const next of after.filter(usable)) {
+          const same = candidates.find(p => !matched.has(p) && sameGuideSlot(p, next) && JSON.stringify(p.photo) === JSON.stringify(next.photo))
+          if (same) matched.add(same)
+          else changed.push(next)
+        }
+        for (const next of changed) {
+          const same = candidates.find(p => !matched.has(p) && sameGuideSlot(p, next))
+          if (same) matched.add(same)
+        }
+        for (const p of candidates) {
           // A part can move when a neighboring part is dropped.
-          const same = (q: PhotoSlot) => sameGuideSlot(p, q)
-          const position = { file, index: p.index, ...(p.path ? { path: p.path } : {}) }
+          if (matched.has(p)) continue
+          const same = (q: PhotoSlot) => sameGuideSlot(p, q) && p.occurrence === q.occurrence
+          const position = { file, index: p.index, ...(p.path ? { path: p.path } : {}), ...(p.occurrence ? { occurrence: p.occurrence } : {}) }
           const key = placeKey(position)
-          const usable = (q: PhotoSlot) => !served.has(key) || !setsCookies(String(q.photo.url))
-          if (!usable(p) || seen.has(key) || after.some(q => same(q) && usable(q))) continue
-          seen.add(key)
           const capturedAt = captureCommits.get(key)
           if (capturedAt && capturedAt !== mark && capturedAt !== sha) {
             const afterCapture = git('merge-base', '--is-ancestor', capturedAt, sha)
@@ -688,11 +701,20 @@ export const CLEARED_VERDICT = 'dead' as const
 
 /** Place a URL next to its nearest saved neighbors when some have already returned. */
 function photoPosition(current: string[], order: string[], at: number, fallback: number): number {
-  const following = new Set(order.slice(at + 1))
-  const preceding = new Set(order.slice(0, at))
-  const next = current.findIndex(url => following.has(url))
+  const slots = (urls: string[]) => {
+    const counts = new Map<string, number>()
+    return urls.map(url => {
+      const occurrence = counts.get(url) ?? 0
+      counts.set(url, occurrence + 1)
+      return JSON.stringify([url, occurrence])
+    })
+  }
+  const former = slots(order), present = slots(current)
+  const following = new Set(former.slice(at + 1))
+  const preceding = new Set(former.slice(0, at))
+  const next = present.findIndex(slot => following.has(slot))
   if (next >= 0) return next
-  const prev = current.findLastIndex(url => preceding.has(url))
+  const prev = present.findLastIndex(slot => preceding.has(slot))
   return prev >= 0 ? prev + 1 : Math.min(fallback, current.length)
 }
 
@@ -774,7 +796,7 @@ async function reconcileRebasedPlaces(root: string, local: SecondLooks) {
         if (!returned) out.off.push(`${url}: it left ${place.file} again on main, and that removal stands`)
         continue
       }
-      if (!returned || !prior.settled?.some(p => placeKey(p) === placeKey(place)) || lookOf(pending) ||
+      if (!returned || !prior.settled?.some(p => placeKey(p) === placeKey(place)) || pending.settled?.some(p => placeKey(p) === placeKey(place)) ||
           !pending.left?.some(p => placeKey(p) === placeKey(place)) || previousSlots.length || currentSlots.length ||
           !at(publishedJson(root, place.file, base)).length) continue
       const insert = (photos: Record<string, unknown>[]) => {
@@ -1024,7 +1046,12 @@ export async function putBackCleared(root: string, history: History, at = today(
           earlierOrders.set(orderKey, earlier)
         }
         const blockedHost = setsCookies(address)
-        if (current.filter(url => samePhoto(url) && (blockedHost || !setsCookies(url))).length > (p.occurrence ?? 0)) continue
+        const alteration = JSON.stringify(p.photo.altered)
+        const represented = photos.filter(photo => {
+          const url = String(photo.url)
+          return samePhoto(url) && (blockedHost || !setsCookies(url)) && JSON.stringify(photo.altered) === alteration
+        })
+        if (represented.length > (p.occurrence ?? 0)) continue
         if (!blockedHost) {
           for (let i = photos.length - 1; i >= 0; i--) {
             if (samePhoto(current[i]!) && setsCookies(current[i]!)) photos.splice(i, 1)

@@ -262,8 +262,9 @@ drop_branch() {
 # and on GitHub a plain push moves a branch on when it's behind. A <to> already there fails it, here and on GitHub
 # (the lease that it isn't there); a delete here that fails takes back the branch just made.
 move_branch() {
-  if engine_cloud; then net git push -q --atomic --force-with-lease="refs/heads/$2:" origin "HEAD:refs/heads/$2" ":refs/heads/$1" || return 1; fi
-  git branch -q "$2" HEAD || return 1
+  local work="${3:-HEAD}"
+  if engine_cloud; then net git push -q --atomic --force-with-lease="refs/heads/$2:" origin "$work:refs/heads/$2" ":refs/heads/$1" || return 1; fi
+  git branch -q "$2" "$work" || return 1
   git branch -q -D "$1" || { git branch -q -D "$2"; return 1; }
 }
 # `rename_branch <from> <to>`: the same work under another name (its count, count_outs), and in the cloud GitHub's in one
@@ -308,17 +309,23 @@ count_outs() {
     else log "$1 passed and couldn't lose its count, nor have $to beside it: only this run's FAULT line records the pass"; fi
     return 0
   fi
-  [ "$KEPT_WHY" = "tests out of time again" ] || return 0
+  case "$KEPT_WHY" in "tests out of time again"|"the sweep on main did not finish") ;; *) return 0 ;; esac
   n=$(($(outs "$1") + 1))
   if [ "$n" -ge "$OUT_CYCLES" ]; then
     OUT_FAILED=$n KEPT_FAILED=1
-    out_of_time_output "$(uncounted "$1")" "$n"
+    if [ -n "${SWEEP_FAILED:-}" ]; then
+      FAULT="${FAULT:+$FAULT; }$1 reached $n cycles without a finished publication sweep"
+    else
+      out_of_time_output "$(uncounted "$1")" "$n"
+    fi
     return 0
   fi
-  KEPT_WHY="tests out of time again: $n of $OUT_CYCLES cycles in a row"
+  KEPT_WHY="$KEPT_WHY: $n of $OUT_CYCLES cycles in a row"
   to="$(uncounted "$1")-out$n"
   if rename_branch "$1" "$to"; then BRANCH=$to; return 0; fi
-  FAULT="${FAULT:+$FAULT; }$1 ran out of time again and couldn't be renamed $to: it stays as $1, its count not moved on"
+  local why="ran out of time again"
+  [ -z "${SWEEP_FAILED:-}" ] || why="could not finish the sweep"
+  FAULT="${FAULT:+$FAULT; }$1 $why and couldn't be renamed $to: it stays as $1, its count not moved on"
   return 0
 }
 # A check of kept or held work that passed ends its row of time-outs then, before any push is tried (the chief of staff,
@@ -474,8 +481,11 @@ publish_kept() {
       # failure ends the row.
       held="held/$(uncounted "${branch#kept/}")${OUT_FAILED:+-out$OUT_FAILED}"
       why="failed its tests twice"
-      [ -z "$OUT_FAILED" ] || why="ran out of time $OUT_FAILED cycles in a row"
-      if move_branch "$BRANCH" "$held"; then
+      if [ -n "$OUT_FAILED" ]; then
+        if [ -n "${SWEEP_FAILED:-}" ]; then why="could not finish the sweep $OUT_FAILED cycles in a row"
+        else why="ran out of time $OUT_FAILED cycles in a row"; fi
+      fi
+      if move_branch "$BRANCH" "$held" "${SWEEP_RETRY_HEAD:-HEAD}"; then
         log "$branch $why: on $held, not published"
       else
         log "$branch $why and couldn't be moved to $held: it stays kept for the next run"
@@ -535,8 +545,11 @@ retry_held() {
     if [ -n "$KEPT_FAILED" ]; then
       tried="$(uncounted "$branch")-tried"
       why="failed its tests again"
-      [ -z "$OUT_FAILED" ] || why="ran out of time $OUT_FAILED cycles in a row"
-      if move_branch "$BRANCH" "$tried"; then
+      if [ -n "$OUT_FAILED" ]; then
+        if [ -n "${SWEEP_FAILED:-}" ]; then why="could not finish the sweep $OUT_FAILED cycles in a row"
+        else why="ran out of time $OUT_FAILED cycles in a row"; fi
+      fi
+      if move_branch "$BRANCH" "$tried" "${SWEEP_RETRY_HEAD:-HEAD}"; then
         log "$branch $why: on $tried, not tried again"
       else
         log "$branch $why and couldn't be moved to $tried: it stays held"

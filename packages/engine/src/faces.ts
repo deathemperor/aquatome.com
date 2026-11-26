@@ -11,6 +11,7 @@ import { costLog, leftToday, stepName } from './ceiling'
 import { GUIDE_BACKLOG_PER_SHEET, screenGuidesDead } from './guides-dead'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
+import { writeImageCache } from './image-cache-write'
 import { captureWaiting, entriesDir, holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, withoutClearedWaits, withoutSettledWaits, type Stood } from './last-photo'
 import { permittedPhotoSource, readPhotoSources } from './photo-visibility'
 
@@ -238,9 +239,12 @@ async function stillOwed(root: string, contentRoot: string, owed: Record<string,
  */
 export async function screenNewPhotos(contentRoot: string, cacheFile: string, d: FaceDeps & { dead: DeadScreenDeps; guideBacklog?: DeadScreenDeps }, rejectedFile?: string, root = join(contentRoot, '..'), o: { albumSheets?: number; backlog?: number; room?: () => number | null } = {}): Promise<{ faces: Awaited<ReturnType<typeof dropFacePhotos>>; dead?: Awaited<ReturnType<typeof screenDead>>; deadFailed?: string; owed: number; albums?: Awaited<ReturnType<typeof screenDead>>; albumsFailed?: string; guides?: Awaited<ReturnType<typeof screenGuidesDead>>; guidesFailed?: string }> {
   const owedFile = join(root, 'engine-state', DEAD_OWED_FILE)
-  const before = JSON.parse(await readFile(owedFile, 'utf8').catch(() => '{}')) as Record<string, string>
+  const before = JSON.parse(await readFile(owedFile, 'utf8').catch((error: NodeJS.ErrnoException) => {
+    if (error.code === 'ENOENT') return '{}'
+    throw error
+  })) as Record<string, string>
   const today = new Date().toISOString().slice(0, 10)
-  const write = async (x: Record<string, string>) => { await mkdir(join(root, 'engine-state'), { recursive: true }); await writeFile(owedFile, `${JSON.stringify(x, null, 2)}\n`) }
+  const write = async (x: Record<string, string>) => { await mkdir(join(root, 'engine-state'), { recursive: true }); await writeImageCache(owedFile, `${JSON.stringify(x, null, 2)}\n`) }
   let enrolled = before
   const faces = await dropFacePhotos(contentRoot, cacheFile, d, rejectedFile, root, async fresh => {
     // The photos new to the face finder are among them, and come first after those owed before.
