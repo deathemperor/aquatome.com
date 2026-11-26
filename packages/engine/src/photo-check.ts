@@ -1036,7 +1036,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       // A held page keeps what passed before; a first verdict comes off it all the same.
       const removed: string[] = []
       const before = { ...data }
-      stripPhotos(data, url => canRemove(url) && !!capture(url), removed, [], preservesOriginal)
+      stripPhotos(data, url => canCapture && canRemove(url) && !!capture(url), removed, [], preservesOriginal)
       placesIn(root, file, before, (url, slot) => !data.photos?.includes(slot.photo as Photo) ? capture(url) : undefined, stood)
       if (!removed.length) continue
       if (galleryId(file)) for (const url of removed) albumRemoved.add(url)
@@ -1047,7 +1047,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const before = real(data.photos)[0]?.url
     const removed: string[] = []
     const beforeEdit = { ...data }
-    stripPhotos(data, url => canRemove(url) && blocked(file)(url), removed, [], preservesOriginal)
+    stripPhotos(data, url => canRemove(url) && (canCapture || !capture(url)) && blocked(file)(url), removed, [], preservesOriginal)
     placesIn(root, file, beforeEdit, (url, slot) => !data.photos?.includes(slot.photo as Photo) ? capture(url) : undefined, stood)
     // A gallery photo that waited (`unchecked`): judged for this page and left on, it shows from the next build.
     const gallery = galleryId(file)

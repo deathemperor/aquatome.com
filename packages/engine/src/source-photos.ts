@@ -213,13 +213,9 @@ export async function storedSourcePhotos(content: string): Promise<Map<string, P
 function publishedSourcePhoto(root: string, url: string): Photo | undefined {
   const git = (...args: string[]) => spawnSync('git', ['-C', root, ...args], { encoding: 'utf8', maxBuffer: 8 << 20 })
   const scopes = ['content/species', 'content/plants', 'content/breeds', 'content/guides', 'content/glossary', 'content/gallery', 'content/equipment']
-  const rev = git('log', '-1', '--first-parent', '--diff-merges=first-parent', '--no-patch', '--format=%H', '-S', url, '--', ...scopes).stdout?.trim()
-  if (!rev) return undefined
-  const changed = git('rev-parse', '--verify', '-q', `${rev}^`).status === 0
-    ? git('diff', '--name-only', '-z', `${rev}^`, rev, '--', ...scopes)
-    : git('diff-tree', '--root', '-r', '--no-commit-id', '--name-only', '-z', rev, '--', ...scopes)
-  for (const file of (changed.stdout ?? '').split('\0').filter(path => path.endsWith('/entity.json') || /^content\/(gallery|equipment)\/.*\.json$/.test(path))) {
-    for (const version of [`${rev}^`, rev]) {
+  const inRevision = (version: string, paths: string): Photo | undefined => {
+    for (const file of paths.split('\0')) {
+      if (!file.endsWith('/entity.json') && !/^content\/(gallery|equipment)\/.*\.json$/.test(file)) continue
       const result = git('show', `${version}:${file}`)
       if (result.status !== 0) continue
       for (const p of documentPhotos(JSON.parse(result.stdout))) {
@@ -228,7 +224,18 @@ function publishedSourcePhoto(root: string, url: string): Photo | undefined {
       }
     }
   }
-  return undefined
+  const current = git('grep', '-l', '-z', '-F', '-e', url, 'HEAD', '--', ...scopes)
+  if (current.status === 0) {
+    const record = inRevision('HEAD', current.stdout.split('\0').map(path => path.replace(/^HEAD:/, '')).join('\0'))
+    if (record) return record
+  }
+  const rev = git('log', '-1', '--first-parent', '--diff-merges=first-parent', '--no-patch', '--format=%H', '-S', url, '--', ...scopes).stdout?.trim()
+  if (!rev) return undefined
+  const changed = git('rev-parse', '--verify', '-q', `${rev}^`).status === 0
+    ? git('diff', '--name-only', '-z', `${rev}^`, rev, '--', ...scopes)
+    : git('diff-tree', '--root', '-r', '--no-commit-id', '--name-only', '-z', rev, '--', ...scopes)
+  const files = changed.stdout ?? ''
+  return inRevision(`${rev}^`, files) ?? inRevision(rev, files)
 }
 
 /** Existing verdicts name stored bytes even after the last page placement leaves. */
@@ -289,7 +296,7 @@ export async function storeSourcePhotos(
       if (known) {
         const placed = nearby ? known : { ...known, sourceUrl: pageUrl, ...(img.alt ? { caption: img.alt.slice(0, 200) } : {}) }
         const shared = nearby ? storedSourcePhoto(nearby) : known
-        if (shared?.url === url && !deps.stored?.has(url)) deps.stored?.set(url, shared)
+        if (shared?.url === url && (!deps.stored?.has(url) || shared.author !== sourceName)) deps.stored?.set(url, shared)
         out.push(img.heading ? { ...placed, heading: img.heading } : placed)
         group.done = true
         break

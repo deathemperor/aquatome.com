@@ -1,6 +1,6 @@
 import { piece } from './pieces'
 import { compactVerdict, photoReason, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
-import { writePhotoState } from './photo-state'
+import { recordPhotoRefusals, writePhotoState } from './photo-state'
 import { holdablePhotoVerdicts, versionRejection } from './photo-visibility'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -210,7 +210,8 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
 
   // 2. Off the guides and equipment guides; a person, a mark, or a brand on a photo no equipment guide shows and that
   // isn't a still, onto the blocklist.
-  const now = (await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {} // re-read: entries another step added meanwhile stay
+  const rejectedFile = state('_photo-rejected.json')
+  const now = (await readJson<Record<string, string>>(rejectedFile)) ?? {} // re-read: entries another step added meanwhile stay
   // A guide's photo that is also the last photo of a species, plant or breed page doesn't go on the list, which would
   // take it off that page too: it waits for a second look (last-photo.ts). It still leaves the guides.
   const sl = looks(await readSecondLook(root))
@@ -227,10 +228,10 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     if (!why) continue
     report.off.push(`${x.url}: ${why}`)
     if (last.has(x.url)) { holding.set(x.url, { why, pages: last.get(x.url)! }); report.held.push(`${x.url}: ${last.get(x.url)!.join(', ')}`); continue }
-    if (sl.open(x.url) && !heldAddress(x.url)) now[x.url] ??= why
   }
   await holdForSecondLook(root, holding, 'the guide photo check')
-  await writePhotoState(state('_photo-rejected.json'), now)
+  await recordPhotoRefusals(rejectedFile, now, new Map([...listing].filter(([url]) => !heldAddress(url))))
+  await writePhotoState(rejectedFile, now)
   for (const file of files) {
     const raw = await readFile(file, 'utf8')
     const data = JSON.parse(raw) as Guide
