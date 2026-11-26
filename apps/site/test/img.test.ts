@@ -27,7 +27,7 @@ test('article photos offer their recorded 480 px copy and keep the original fall
   const html = figureHtml('vi', { photo: p, label: 'Cá neon' })
   expect(html).toContain(`src="${full}" width="1024" height="720" alt="Cá neon"`)
   expect(html).toContain(`srcset="${srcset}"`)
-  expect(html).toContain('sizes="auto,')
+  expect(html).toContain('sizes="min(calc(100vw - 3rem), 640px)"')
   expect(figureHtml('vi', { photo: p }, true)).not.toContain('srcset=')
 })
 
