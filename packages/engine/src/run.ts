@@ -119,7 +119,7 @@ export type ReadKeeps = { owned?: (p: Photo) => boolean; gone?: (p: Photo) => bo
  */
 export const waitsForScreen = (screen: Record<string, PhotoScreenEntry> | undefined) => (p: Photo) => !!screen && awaitsScreen(p.url, screen[p.url])
 /** What a re-read of a page keeps, the same on every path that merges one (the run and the content backfill). */
-export const readKeeps = (page: string, scientificName: string, blocked: Record<string, unknown>, sources: Parameters<typeof hiddenFromReaders>[1], screen?: Record<string, PhotoScreenEntry>, photoWaits?: (url: string) => boolean, pendingRefusal?: (url: string) => boolean): ReadKeeps => {
+export const readKeeps = (page: string, scientificName: string, blocked: Record<string, string>, sources: Parameters<typeof hiddenFromReaders>[1], screen?: Record<string, PhotoScreenEntry>, photoWaits?: (url: string) => boolean, pendingRefusal?: (url: string) => boolean): ReadKeeps => {
   const gone = hiddenFromReaders({}, sources)
   const listed = photoRejections(blocked, screen)
   const selected = (p: Photo) => {

@@ -437,7 +437,7 @@ test('a reread keeps a waiting original and does not count a rejected wrapper as
   const original = { ...photo('original'), licence: 'CC BY 4.0' }
   const stored: Photo = { ...photo('stored'), licence: 'CC BY 4.0', source, sourceUrl: page,
     altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }], original }
-  const passed = { ...photo('head'), source, sourceUrl: page }
+  const passed: Photo = { ...photo('head'), source, sourceUrl: page }
   const keeps = readKeeps(ref, 'Sample fish', { [original.url]: 'waiting: withheld' }, names)
   expect(mergeRead([stored], source, page, [], keeps)).toEqual({ photos: [stored], held: [] })
   const blocked = readKeeps(ref, 'Sample fish', { [stored.url]: 'watermark: withheld' }, names)
@@ -452,7 +452,7 @@ test('a reread keeps the credited original of a durable first refusal before its
   const page = 'https://x/source'
   const stored: Photo = { ...photo('stored-version'), source, sourceUrl: page,
     altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }], original }
-  const fresh = { ...photo('new-photo'), source, sourceUrl: page }
+  const fresh: Photo = { ...photo('new-photo'), source, sourceUrl: page }
   await writeFile(join(root, 'engine-state/_photo-second-look.json'), JSON.stringify({
     [original.url]: { why: 'dead: withheld', step: 'the dead-fish screen', pages: ['species/a'], at: '2026-11-26', off: true },
   }))
