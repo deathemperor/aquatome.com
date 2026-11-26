@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto'
 import { afterEach, expect, test } from 'vitest'
 import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { APPROVED_GENERATED_GATE, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, IMAGE_SWITCHES, loadAll, PhotoSchema, SourceInfoSchema, type GeneratedRecord, type Photo } from '../src/index'
 
@@ -13,13 +13,21 @@ const generated: GeneratedRecord = { model: 'gpt-image-2', driverModel: 'gpt-5.6
 const real: Photo = { url: 'https://media.aquatome.com/real.webp', width: 800, height: 600, licence: 'CC0', author: 'Source', sourceUrl: 'https://example.org/photo' }
 const ai: Photo = { ...real, url: 'https://media.aquatome.com/ai.webp', licence: 'AI-generated', author: 'AI', generated }
 async function fixture(photos: Photo[], gallery: Photo[] = []) {
-  const root = await mkdtemp(join(tmpdir(), 'image-policy-')); dirs.push(root)
+  const place = await mkdtemp(join(tmpdir(), 'image-policy-')); dirs.push(place)
+  const root = join(place, 'content')
   await cp(fileURLToPath(new URL('./fixtures/store', import.meta.url)), root, { recursive: true })
   const file = join(root, 'species/alpha/entity.json'), entity = JSON.parse(await readFile(file, 'utf8'))
   entity.photos = photos; await writeFile(file, JSON.stringify(entity))
   await mkdir(join(root, 'gallery'), { recursive: true }); await writeFile(join(root, 'gallery/alpha.json'), JSON.stringify({ id: 'alpha', photos: [...gallery, ...photos.filter(p => p.generated)], seen: gallery.length, updatedAt: '2026-11-10' }))
   await writeFile(join(root, 'image-approvals.json'), JSON.stringify({ calibrationHash: hash, photos: Object.fromEntries(photos.filter(p => p.generated).map(p => [p.url, { page: 'species/alpha', recordHash: createHash('sha256').update(JSON.stringify([entity.scientificName, entity.sections])).digest('hex'), check: p.generated!.check }])) }))
   return root
+}
+async function screenRecords(root: string, photos: Photo[], judged: string[]) {
+  const state = join(dirname(root), 'engine-state')
+  await mkdir(state, { recursive: true })
+  await writeFile(join(state, '_photo-watermarks.json'), JSON.stringify(Object.fromEntries(photos.map(p => [p.url, { ocr: [], watermark: false }]))))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify(Object.fromEntries(photos.map(p => [p.url, 0]))))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify(Object.fromEntries(judged.map(url => [url, { dead: false }]))))
 }
 // These cases are about which photos publish; the loader's whole-area box for an unboxed fish photo is subject-frame.test.ts's.
 const load = (root: string, on = false) => loadAll({ root, lang: 'vi', publicBuild: true, wholeBoxes: false, imageSwitches: { ...IMAGE_SWITCHES, publishGenerated: on } })
@@ -36,6 +44,12 @@ test('generated pictures stay off in review, and require their own positive refe
 
 test('a real photograph arriving in the visible album takes the generated head back immediately', async () => {
   const root = await fixture([ai], [real])
+  expect((await load(root, true)).species[0]!.photos.map(p => p.url)).toEqual([real.url, ai.url])
+  await screenRecords(root, [ai, real], [ai.url])
+  const waiting = await load(root, true)
+  expect(waiting.species[0]!.photos.map(p => p.url)).toEqual([ai.url])
+  expect(waiting.galleries.alpha?.some(p => p.url === real.url)).toBe(true)
+  await screenRecords(root, [ai, real], [ai.url, real.url])
   expect((await load(root, true)).species[0]!.photos.map(p => p.url)).toEqual([real.url, ai.url])
 })
 
@@ -62,6 +76,13 @@ test('each source can revoke its altered pictures in one build; Glaser falls bac
   expect(photos[0]!.altered).toBeUndefined(); expect(photos[0]!.thumb).toBeUndefined()
   sources.bwaquatics.permission.markRemoval = { allowed: false }; await writeFile(file, JSON.stringify(sources))
   expect((await loadAll(opts)).species[0]!.photos.map(p => p.url)).toEqual([glaser.original!.url])
+  const original = { ...glaser, ...glaser.original! }
+  await screenRecords(root, [glaser, bw, original], [glaser.url, bw.url])
+  const waiting = await loadAll(opts)
+  expect(waiting.species[0]!.photos).toEqual([])
+  expect(waiting.photoWaits!(original.url)).toBe(true)
+  await screenRecords(root, [glaser, bw, original], [glaser.url, bw.url, original.url])
+  expect((await loadAll(opts)).species[0]!.photos.map(p => p.url)).toEqual([original.url])
 })
 
 test('withdrawing a generated head retains its real album lead, including build-time invalidation',async()=>{

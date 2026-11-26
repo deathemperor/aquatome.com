@@ -1,4 +1,4 @@
-import { askedByCheckOf } from '@aq/schema'
+import { askedByCheckOf, deadScreenPhotoUrls, type Photo } from '@aq/schema'
 import { compactVerdict, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
@@ -89,7 +89,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   for (const kind of ['species', 'plants']) {
     for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
       const file = join(content, kind, id, 'entity.json')
-      const e = await readJson<{ photos?: { url: string }[]; videos?: { youtubeId: string }[] }>(file)
+      const e = await readJson<{ photos?: Photo[]; videos?: { youtubeId: string }[] }>(file)
       for (const v of o.photos ? [] : e?.videos ?? []) {
         const key = `youtube:${v.youtubeId}`
         if (v.youtubeId in videoRejected || (key in cache && !(o.backCheck && !cache[key]!.frames))) continue
@@ -97,7 +97,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
         it.files.push(file)
         videos.set(key, it)
       }
-      const urls = o.photos ? (e?.photos ?? []).map(p => p.url).filter(u => o.photos!.has(u)) : [e?.photos?.[0]?.url]
+      const urls = o.photos ? [...new Set((e?.photos ?? []).flatMap(deadScreenPhotoUrls))].filter(u => o.photos!.has(u)) : [e?.photos?.[0]?.url]
       for (const url of urls) {
         if (!url || url in cache || url in photoRejected || asked.has(url)) continue
         const it = photos.get(url) ?? { key: url, url, files: [] }
@@ -179,8 +179,12 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     }
     for (const file of it.files) {
       const raw = await readFile(file, 'utf8')
-      const e = JSON.parse(raw) as { photos?: { url: string }[]; videos?: { youtubeId: string }[] }
-      const next = it.video ? { ...e, videos: (e.videos ?? []).filter(v => v.youtubeId !== it.video) } : { ...e, photos: (e.photos ?? []).filter(p => p.url !== it.url) }
+      const e = JSON.parse(raw) as { photos?: Photo[]; videos?: { youtubeId: string }[] }
+      const next = it.video ? { ...e, videos: (e.videos ?? []).filter(v => v.youtubeId !== it.video) } : { ...e, photos: (e.photos ?? []).filter(p => p.url !== it.url).map(p => {
+        if (p.original?.url !== it.url) return p
+        const { original: _rejected, ...kept } = p
+        return kept
+      }) }
       await writeFile(file, `${JSON.stringify(next, null, indentOf(raw))}\n`)
     }
   }

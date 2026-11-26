@@ -2,7 +2,7 @@ import { spawnSync } from 'node:child_process'
 import { access, mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
-import { DEAD_SCREEN_FILE, deadLooked, FACES_FILE, LANGS, loadAll, PHOTO_BOXES_FILE, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, vnDate } from '@aq/schema'
+import { DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, LANGS, loadAll, PHOTO_BOXES_FILE, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, vnDate, type Photo } from '@aq/schema'
 
 /**
  * Fish pages our removals left with no photo, first for new photos (the chief of staff, 21 Nov): every page a run's own
@@ -48,7 +48,7 @@ export const diskOwners = (root: string): Owners => async urls => {
     for (const id of await readdir(join(root, 'content', kind)).catch(() => [] as string[])) {
       const f = `content/${kind}/${id}/entity.json`
       const s = await readFile(join(root, f), 'utf8').catch(() => undefined)
-      if (s !== undefined && ((JSON.parse(s) as { photos?: { url: string }[] }).photos ?? []).some(p => want.has(p.url))) out.push(f)
+      if (s !== undefined && ((JSON.parse(s) as { photos?: Photo[] }).photos ?? []).flatMap(deadScreenPhotoUrls).some(u => want.has(u))) out.push(f)
     }
   }
   return out

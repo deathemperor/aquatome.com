@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD } from '@aq/schema'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, type Photo as PagePhoto } from '@aq/schema'
 import { screenDead, type DeadScreenDeps } from './dead-screen'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
@@ -120,8 +120,8 @@ async function unjudged(root: string, contentRoot: string): Promise<string[]> {
   const shown = new Set<string>()
   for (const kind of ['species', 'plants']) {
     for (const id of (await readdir(join(contentRoot, kind)).catch(() => [] as string[])).sort()) {
-      const e = JSON.parse(await readFile(join(contentRoot, kind, id, 'entity.json'), 'utf8').catch(() => '{}')) as { photos?: { url: string }[] }
-      for (const p of e.photos ?? []) shown.add(p.url)
+      const e = JSON.parse(await readFile(join(contentRoot, kind, id, 'entity.json'), 'utf8').catch(() => '{}')) as { photos?: PagePhoto[] }
+      for (const url of (e.photos ?? []).flatMap(deadScreenPhotoUrls)) shown.add(url)
     }
   }
   const read = async (f: string) => JSON.parse(await readFile(join(root, 'engine-state', f), 'utf8').catch(() => '{}')) as Record<string, unknown>

@@ -169,7 +169,7 @@ test("the screen owes every photo of a fish or plant page that no look has judge
   const root = await mkdtemp(join(tmpdir(), 'faces-dead-'))
   const put = async (path: string, data: unknown) => { await mkdir(join(root, path, '..'), { recursive: true }); await writeFile(join(root, path), `${JSON.stringify(data, null, 2)}\n`) }
   await put('content/species/d/entity.json', { id: 'd', photos: [photo('d-read'), photo('d-asked'), photo('d-cleared'), photo('d-read-dead')], videos: [] })
-  await put('content/plants/p/entity.json', { id: 'p', photos: [photo('p-read')] })
+  await put('content/plants/p/entity.json', { id: 'p', photos: [{ ...photo('p-read'), altered: [{ method: 'lanczos3-upscale' }], original: { url: m('p-original-dead') } }] })
   // A guide's photos are the guides' own looks' (guide-photos.ts), not this screen's.
   await put('content/guides/g/entity.json', { id: 'g', photos: [photo('g-read')] })
   // Every one read by the face finder before this run: none is new to it.
@@ -179,8 +179,9 @@ test("the screen owes every photo of a fish or plant page that no look has judge
   const { d, sent } = deps()
   const r = await run(root, d)
   expect(r.faces.checked).toBe(0)
-  expect(sent).toEqual([m('d-read'), m('d-read-dead'), m('p-read')])
-  expect(r.dead).toMatchObject({ judged: 3, left: 0 })
+  expect(sent).toEqual([m('d-read'), m('d-read-dead'), m('p-read'), m('p-original-dead')])
+  expect(r.dead).toMatchObject({ judged: 4, left: 0 })
+  expect((await json(root, 'content/plants/p/entity.json')).photos).toEqual([{ ...photo('p-read'), altered: [{ method: 'lanczos3-upscale' }] }])
   // Off at this push, as a new photo's dead verdict is: d keeps its other photos.
   expect(await urls(root, 'd')).toEqual([m('d-read'), m('d-asked'), m('d-cleared')])
   expect(await owed(root)).toEqual([])

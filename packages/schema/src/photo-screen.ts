@@ -1,3 +1,6 @@
+import { isOwnerCrop } from './image-policy'
+import type { Photo } from './types'
+
 /**
  * The public screen record keeps measurements and a fingerprint, never the lettering itself.
  * Legacy lines are readable during the engine-owned migration, but are never written again.
@@ -74,6 +77,13 @@ export const PHOTO_CHECK_FILE = '_photo-check.json'
 export const PHOTO_SUBJECTS_FILE = '_photo-subjects.json'
 /** The second look's records, in engine-state (address → record): a person's `look` is on its photo's record. */
 export const SECOND_LOOK_RECORD = '_photo-second-look.json'
+/** The stored URL and any original the public loader can use if it withdraws an alteration. */
+export function deadScreenPhotoUrls(p: Pick<Photo, 'url' | 'altered' | 'original' | 'generated' | 'source' | 'ownerCrop'>): string[] {
+  if (!p.original || !p.altered?.length || p.generated || isOwnerCrop(p)) return [p.url]
+  const removedMark = p.altered.some(a => a.method === 'mark-removal' || a.method === 'mark-crop')
+  return removedMark && p.source !== 'glaser' ? [p.url] : [p.url, p.original.url]
+}
+
 export type DeadLookRecords = { screen: Record<string, unknown>; check?: Record<string, unknown>; subjects?: Record<string, unknown>; secondLook?: Record<string, unknown> }
 
 const has = (v: unknown, key: string) => !!v && typeof v === 'object' && Object.hasOwn(v, key)
