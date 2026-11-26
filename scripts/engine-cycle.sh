@@ -503,6 +503,7 @@ if [ -z "$(git status --porcelain -- content sources apps/site/src/i18n)" ]; the
 fi
 git add content sources engine-state docs/review apps/site/src/i18n
 git commit -q -m "content: engine $PART $(date -u +%F)"
+if [ -n "${SWEEP_FAILED:-}" ]; then keep_unpublished "$PART"; log "sweep failed, not publishing content"; exit 1; fi
 # Checked on top of main as it is now (catch_up), not as it was when the cycle started hours ago: the suite must pass
 # (verify_cycle; deploy.yml builds the real site before it goes live). A commit that fails twice is held, unpublished,
 # unless its tests only ran out of time: then it's kept, and the next cycle publishes it first (keep_unpublished).
