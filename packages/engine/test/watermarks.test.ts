@@ -24,7 +24,7 @@ test('text worth a look: a credit, a web address or a clear word; not the stray 
 const NAMES = ['fish', 'glaser', 'box', 'fish2', 'still-credit', 'still-ok', 'hero-credit', 'type-ok', 'logo-only']
 const TEXT: Record<string, string[]> = { glaser: ['AQUARIUM GLASER'], box: ['SERA flore'], 'still-credit': ['© Tank Channel'], 'hero-credit': ['www.shop.example'] }
 const url = (n: string) => `https://media.example/${n}.webp`
-const photo = (n: string) => ({ url: url(n), width: 960, height: 720, licence: 'x', author: 'x', sourceUrl: 'x' })
+const photo = (n: string) => ({ url: url(n), width: 960, height: 720, licence: 'CC BY 4.0', author: 'x', sourceUrl: 'x' })
 
 async function site() {
   const r = await mkdtemp(join(tmpdir(), 'aq-wm-'))

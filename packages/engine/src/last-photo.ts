@@ -1,4 +1,4 @@
-import { mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, setsCookies, settledWaiting, type Photo } from '@aq/schema'
+import { isNonCommercial, mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, setsCookies, settledWaiting, type Photo } from '@aq/schema'
 import { spawnSync } from 'node:child_process'
 import { createHash, randomUUID } from 'node:crypto'
 import { link, mkdir, readdir, readFile, rm, stat, writeFile } from 'node:fs/promises'
@@ -76,25 +76,27 @@ export function looks(sl: SecondLooks) {
     waiting: (url: string) => has(sl, url) && !lookOf(sl[url]),
     /** A still-visible hold, including one on another address of the photo. */
     held,
+    clearedPhoto: cleared,
     /** Off its pages at its first verdict, and on the never-again list as waiting, until its look (above). */
     off,
     /** A source and its mirror share an unanswered first refusal. */
     pendingOff,
     /** Neither waiting nor cleared: a step's verdict may act on it. */
-    open: (url: string) => has(sl, url) ? lookOf(sl[url])?.said === 'agree' : !cleared(url) && !held(url) && !pendingOff(url),
+    open: (url: string) => !cleared(url) && (has(sl, url) ? lookOf(sl[url])?.said === 'agree' : !held(url) && !pendingOff(url)),
   }
 }
 
 /** A species, plant or breed page: its own photos and its album's, generated ones left out. */
-export type PageShows = { ref: string; own: string[]; album: string[] }
+export type PageShows = { ref: string; own: string[]; album: string[]; nonCommercial?: Set<string> }
 
 /** Every species, plant and breed page, as the site shows it now. */
 export async function pagesShowing(content: string, version: (p: Photo, ref: string, scientificName: string) => string | undefined = p => p.url): Promise<PageShows[]> {
   type Doc = { photos?: (Photo & { unchecked?: boolean })[]; scientificName?: string }
-  const urls = (d: Doc | null, ref: string, scientificName: string, album = false) => [...new Set((d?.photos ?? []).flatMap(p => {
+  const urls = (d: Doc | null, ref: string, scientificName: string, album = false, nonCommercial?: Set<string>) => (d?.photos ?? []).flatMap(p => {
     const url = p?.url && !p.generated && !(album && p.unchecked) ? version(p, ref, scientificName) : undefined
+    if (url && isNonCommercial(p.licence ?? '')) nonCommercial?.add(url)
     return url ? [url] : []
-  }))]
+  })
   const read = async (f: string) => JSON.parse(await readFile(f, 'utf8').catch(() => 'null')) as Doc | null
   const out: PageShows[] = []
   for (const kind of ['species', 'plants', 'breeds']) {
@@ -104,7 +106,8 @@ export async function pagesShowing(content: string, version: (p: Photo, ref: str
       const ref = `${kind}/${id}`
       const name = own.scientificName ?? ''
       const album = await read(join(content, 'gallery', `${id}.json`))
-      out.push({ ref, own: urls(own, ref, name), album: urls(album, kind === 'species' ? ref : '', name, true) })
+      const nonCommercial = new Set<string>()
+      out.push({ ref, own: urls(own, ref, name, false, nonCommercial), album: urls(album, kind === 'species' ? ref : '', name, true), nonCommercial })
     }
   }
   return out
@@ -136,16 +139,23 @@ export function lastPhotoVerdicts(
     if (!addresses.has(key)) addresses.set(key, url)
   }
   const byVerdict = (url: string) => addresses.get(photoKey(url) ?? url)
-  // Keep the last own-photo decision, and check the album as well when no own photo could have shown.
-  const candidates = pages.flatMap(page => page.own.length && page.album.length && page.own.every(url => unavailable(url, page.ref))
-    ? [page, { ...page, own: [] }]
-    : [page])
+  const hasOwn = (page: PageShows, off: (url: string) => boolean) => {
+    const remaining = page.own.filter(url => !off(url))
+    return remaining.some(url => !page.nonCommercial?.has(url)) || remaining.length === 1
+  }
   const out = new Map<string, Set<string>>()
-  for (const [url, refs] of lastPhotos(candidates, (url, ref) => byVerdict(url) !== undefined || unavailable(url, ref))) {
-    const verdict = byVerdict(url)
-    if (verdict) {
+  for (const page of pages) {
+    const unavailableHere = (url: string) => unavailable(url, page.ref)
+    const off = (url: string) => byVerdict(url) !== undefined || unavailableHere(url)
+    const ownEmpties = page.own.length && !hasOwn(page, off)
+    // A page that already has no eligible own photo can depend on the album.
+    const albumEmpties = !hasOwn(page, unavailableHere) && page.album.every(off)
+    const removed = [...(ownEmpties ? page.own : []), ...(albumEmpties ? page.album : [])]
+    for (const url of removed) {
+      const verdict = byVerdict(url)
+      if (!verdict) continue
       const existing = out.get(verdict) ?? new Set<string>()
-      for (const ref of refs) existing.add(ref)
+      existing.add(page.ref)
       out.set(verdict, existing)
     }
   }
@@ -285,7 +295,7 @@ export async function unlistCleared(root: string, deferred: ReadonlySet<string> 
 
 /** A place a photo stood: its page's, album's or guide's file (from the repository's root) and its place in `photos`. */
 type GuideSlot = ['video', 'figures', number, 'photo' | 'moments']
-export type Place = { file: string; index: number; path?: GuideSlot; capture?: string }
+export type Place = { file: string; index: number; path?: GuideSlot; capture?: string; captureDay?: string }
 const placeKey = (p: Pick<Place, 'file' | 'path'>) => `${p.file}:${JSON.stringify(p.path ?? [])}`
 const validPlace = (p: Place) => PLACE.test(p.file) && Number.isSafeInteger(p.index) && (p.path === undefined
   ? p.index >= 0
@@ -380,9 +390,9 @@ export function entriesDir(env: NodeJS.ProcessEnv = process.env): string | undef
   return machine(env) === 'mac' ? join(homedir(), '.cache/aquatome/put-back') : undefined
 }
 
-type Kept = Stood & { url: string; at: string; why: string }
+type Kept = Stood & { replaces?: string; url: string; at: string; why: string }
 const keptFile = (dir: string, url: string, mark: SecondLook, p: Place) =>
-  join(dir, `${createHash('sha256').update(JSON.stringify([url, mark.at, mark.why, p.file, p.index, ...(p.path ? [p.path] : []), ...(p.capture ? [p.capture] : [])])).digest('hex')}.json`)
+  join(dir, `${createHash('sha256').update(JSON.stringify([url, p.captureDay ?? mark.at, mark.why, p.file, p.index, ...(p.path ? [p.path] : []), ...(p.capture ? [p.capture] : [])])).digest('hex')}.json`)
 
 async function readKept(dir: string, url: string, mark: SecondLook, p: Place): Promise<Kept | undefined> {
   const raw = await readFile(keptFile(dir, url, mark, p), 'utf8').catch(async (e: NodeJS.ErrnoException) => {
@@ -391,7 +401,7 @@ async function readKept(dir: string, url: string, mark: SecondLook, p: Place): P
   })
   if (raw === undefined) return undefined
   const v = JSON.parse(raw) as Kept
-  if (v?.url !== url || v.at !== mark.at || v.why !== mark.why || v.file !== p.file || v.index !== p.index || placeKey(v) !== placeKey(p) || v.capture !== p.capture || typeof v.photo?.url !== 'string' ||
+  if (v?.url !== url || v.at !== (p.captureDay ?? mark.at) || v.why !== mark.why || v.file !== p.file || v.index !== p.index || placeKey(v) !== placeKey(p) || v.capture !== p.capture || typeof v.photo?.url !== 'string' ||
       (v.order !== undefined && (!Array.isArray(v.order) || v.order.some(u => typeof u !== 'string')))) {
     throw new Error('Unrecognized private photo recovery entry')
   }
@@ -399,12 +409,12 @@ async function readKept(dir: string, url: string, mark: SecondLook, p: Place): P
 }
 
 /** Publish the entry only if absent. Readers see a complete file and repeat writers preserve the first capture. */
-async function writeKept(dir: string, url: string, mark: SecondLook, p: Stood) {
+async function writeKept(dir: string, url: string, mark: SecondLook, p: Stood, replaces?: string) {
   await mkdir(dir, { recursive: true, mode: 0o700 })
   const file = keptFile(dir, url, mark, p)
   const temporary = `${file}.${randomUUID()}.next`
   try {
-    await writeFile(temporary, JSON.stringify({ ...p, url, at: mark.at, why: mark.why }), { mode: 0o600, flag: 'wx' })
+    await writeFile(temporary, JSON.stringify({ ...p, replaces, url, at: mark.at, why: mark.why }), { mode: 0o600, flag: 'wx' })
     try { await link(temporary, file) } catch (e) {
       if ((e as NodeJS.ErrnoException).code !== 'EEXIST' || !(await readKept(dir, url, mark, p))) throw e
     }
@@ -430,9 +440,9 @@ async function capturePlaces(sl: SecondLooks, left: Map<string, Stood[]>, dir: s
       if (!validPlace(p)) continue
       const earlierPlace = named.get(placeKey(p))
       if (earlierPlace) {
-        if (byHost(p)) continue
         const earlier = await readKept(dir, url, r, earlierPlace)
-        if (!earlier || !byHost(earlier)) continue
+        if (!earlier) throw new Error('Photo take-off is waiting for an existing private capture')
+        if (byHost(p) || !byHost(earlier)) continue
       }
       const place = { file: p.file, index: p.index, ...(p.path ? { path: p.path } : {}), capture: randomUUID() }
       const order = p.order ? [...p.order] : undefined
@@ -447,7 +457,7 @@ async function capturePlaces(sl: SecondLooks, left: Map<string, Stood[]>, dir: s
           }
         }
       }
-      await writeKept(dir, url, r, { ...p, ...place, order })
+      await writeKept(dir, url, r, { ...p, ...place, order }, earlierPlace?.capture)
       named.set(placeKey(p), place)
       r.left = [...named.values()]
       const at = previous.get(placeKey(p)) ?? []
@@ -488,8 +498,9 @@ async function pruneKept(root: string, dir: string, local: SecondLooks) {
     try { k = raw === undefined ? undefined : JSON.parse(raw) as Kept } catch { continue }
     if (!k || typeof k.url !== 'string' || !day(k.at) || typeof k.why !== 'string') continue
     const mark = marks[k.url], here = local[k.url]
-    const restored = mark?.back && here?.back && mark.at === k.at && mark.why === k.why && here.at === k.at && here.why === k.why &&
-      mark.settled?.some(p => placeKey(p) === placeKey(k))
+    const restored = mark?.back && here?.back && mark.why === k.why && here.why === k.why &&
+      mark.settled?.some(p => placeKey(p) === placeKey(k) && (p.captureDay ?? mark.at) === k.at &&
+        (p.capture === k.capture || !k.replaces || p.capture !== k.replaces))
     const agreed = !mark && !here && rejected[k.url] === k.why
     if (restored || agreed) await rm(path, { force: true })
   }
@@ -636,18 +647,26 @@ async function checkUnpublishedRestores(root: string, local: SecondLooks, histor
   const done = Object.entries(local).filter(([, mark]) => mark.back && mark.settled?.length && lookOf(mark)?.said === 'clear')
   if (!done.length) return []
   const published = publishedJson(root, `engine-state/${SECOND_LOOK_FILE}`) as SecondLooks | undefined
+  if (!published) return []
+  const diff = spawnSync('git', ['-C', root, 'diff', '--name-only', '-z', 'refs/remotes/origin/main', '--', 'content'], { encoding: 'utf8' })
+  if (diff.status !== 0) throw new Error('Could not compare restored photos with main')
+  const changed = new Set(diff.stdout.split('\0'))
   const undone: string[] = []
   for (const [url, mark] of done) {
-    const prior = published?.[url]
-    if (!prior?.off || prior.at !== mark.at || prior.why !== mark.why || prior.back) continue
-    const historyPlaces = await history(url, mark.at, mark.settled)
+    const prior = published[url]
+    if (!prior?.off || prior.why !== mark.why || (prior.at !== mark.at && !mark.settled?.some(p => p.captureDay === prior.at))) continue
+    const unpublished = mark.settled!.filter(place => changed.has(place.file))
+    if (!unpublished.length) continue
+    const historyPlaces = await history(url, mark.at, unpublished)
     if (!historyPlaces) throw new Error('Could not verify an unpublished photo restore after pulling main')
-    const settled = new Set(mark.settled!.map(placeKey))
+    const settled = new Set(unpublished.map(placeKey))
     const matches = photoAddressSet([url])
     for (const p of historyPlaces) {
       if (p.times < 2 || !settled.has(placeKey(p))) continue
       const guide = p.file.startsWith('content/guides/')
-      const hasSlot = (slot: PhotoSlot) => sameGuideSlot(p, slot) && typeof slot.photo.url === 'string' && matches(slot.photo.url)
+      const blockedHost = setsCookies(typeof p.photo.url === 'string' ? p.photo.url : url)
+      const matchesRestored = (address: string) => matches(address) && (blockedHost || !setsCookies(address))
+      const hasSlot = (slot: PhotoSlot) => sameGuideSlot(p, slot) && typeof slot.photo.url === 'string' && matchesRestored(slot.photo.url)
       if (photoSlots(publishedJson(root, p.file), guide).some(hasSlot)) continue
       const file = join(root, p.file)
       const raw = await readFile(file, 'utf8').catch((error: NodeJS.ErrnoException) => {
@@ -658,11 +677,11 @@ async function checkUnpublishedRestores(root: string, local: SecondLooks, histor
       const data = JSON.parse(raw) as { photos?: { url: string }[]; video?: { figures?: { photo?: { url: string }; moments?: { url: string }[] }[] } }
       const found = photoSlots(data, guide).find(hasSlot)
       if (!found) continue
-      if (!found.path) data.photos = data.photos!.filter(photo => !matches(photo.url))
+      if (!found.path) data.photos = data.photos!.filter(photo => !matchesRestored(photo.url))
       else {
         const figure = data.video!.figures![found.path[2]]!
         if (found.path[3] === 'photo') delete figure.photo
-        else figure.moments = figure.moments!.filter(photo => !matches(photo.url))
+        else figure.moments = figure.moments!.filter(photo => !matchesRestored(photo.url))
       }
       await replacePhotoDocument(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
       undone.push(`${url}: it left ${p.file} again on main, and that removal stands`)
@@ -757,6 +776,7 @@ export async function putBackCleared(root: string, history: History, at = today(
     try {
       for (const p of own) {
         if (!validPlace(p) ||
+            (p.captureDay !== undefined && !day(p.captureDay)) ||
             (p.capture !== undefined && !/^[a-f0-9-]{36}$/.test(p.capture))) throw new Error('Invalid photo recovery place')
         const kept = await readKept(dir!, u, sl[u]!, p)
         if (kept) captures.set(placeKey(p), kept)
@@ -856,9 +876,15 @@ export async function putBackCleared(root: string, history: History, at = today(
           earlier.push(p.order)
           earlierOrders.set(placeKey(p), earlier)
         }
-        if (current.some(samePhoto)) continue
+        const blockedHost = setsCookies(address)
+        if (current.some(url => samePhoto(url) && (blockedHost || !setsCookies(url)))) continue
+        if (!blockedHost) {
+          for (let i = photos.length - 1; i >= 0; i--) {
+            if (samePhoto(current[i]!) && setsCookies(current[i]!)) photos.splice(i, 1)
+          }
+        }
         const position = order.indexOf(address)
-        const index = photoPosition(current, order, position >= 0 ? position : p.index, p.index)
+        const index = photoPosition(photos.map(photo => String(photo.url)), order, position >= 0 ? position : p.index, p.index)
         photos.splice(index, 0, p.photo)
       }
       await replacePhotoDocument(file, `${JSON.stringify(doc, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)

@@ -1,8 +1,11 @@
 import { execFileSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
+// @ts-expect-error The Git merge driver is plain JavaScript.
+import { mergeMaps } from '../../../scripts/merge-json-map.mjs'
 import { copyFile, mkdir, mkdtemp, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
 import { afterAll, afterEach, beforeEach, expect, test } from 'vitest'
 import { screenDead, type DeadScreenDeps } from '../src/dead-screen'
@@ -578,9 +581,12 @@ test('history-only recovery restores the original order even for clears sorted b
   expect(await photosOf(r, 'aaa')).toEqual(sequence)
 })
 
-test('an unpublished restore defers to an independent removal during the push rebase', async () => {
+test.each([false, true])('an unpublished restore defers to independent removal (main restored first: %s)', async publishedRestore => {
   const { r, git, clear } = await runRepo()
   const u = url('a-dead')
+  const driver = fileURLToPath(new URL('../../../scripts/merge-json-map.mjs', import.meta.url))
+  git('config', 'merge.jsonmap.driver', `node "${driver}" %O %A %B`)
+  await writeFile(join(r, '.gitattributes'), 'engine-state/_photo-*.json merge=jsonmap\n')
   await page(r, 'aaa', ['a-dead'])
   git('add', '-A'); git('commit', '-qm', 'photo on main')
   await screenDead(r, deadModel(), { limit: 48 })
@@ -592,7 +598,8 @@ test('an unpublished restore defers to an independent removal during the push re
   git('add', '-A'); git('commit', '-qm', 'unpublished restore')
 
   git('switch', '-qc', 'concurrent-main', 'refs/remotes/origin/main')
-  await page(r, 'aaa', ['a-dead'])
+  if (publishedRestore) await putBackCleared(r, gitHistory(r), '2026-11-27')
+  else await page(r, 'aaa', ['a-dead'])
   git('add', '-A'); git('commit', '-qm', 'photo reappeared on main')
   await page(r, 'aaa', [])
   git('add', '-A'); git('commit', '-qm', 'independent removal')
@@ -623,6 +630,46 @@ test('gallery cleanup leaves a same-cycle album copy while a valid clear is wait
   await sweep(r, { history: gitHistory(r) })
   expect((await json(r, albumFile)).photos).toEqual([photo('a-dead')])
   expect(await photosOf(r, 'aaa')).toEqual(['a-dead'])
+})
+
+test.each([false, true])('a cleared candidate waits for the saved album entry (page settled: %s)', async settled => {
+  const { r, git, clear } = await runRepo({ aaa: [] })
+  const u = url('a-dead')
+  const albumFile = 'content/gallery/aaa.json'
+  await page(r, 'aaa', ['a-dead'])
+  await screenDead(r, deadModel(), { limit: 48 })
+  const mark = (await json(r, SL))[u]
+  await notePlaces(r, new Map([[u, [{ file: albumFile, index: 0, photo: photo('a-dead') }]]]))
+  git('add', '-A'); git('commit', '-qm', 'the marked photo left both places')
+  await clear()
+  if (settled) {
+    const marks = await json(r, SL)
+    marks[u].settled = marks[u].left.filter((p: { file: string }) => p.file === A)
+    marks[u].left = marks[u].left.filter((p: { file: string }) => p.file === albumFile)
+    await writeFile(join(r, SL), JSON.stringify(marks))
+    await page(r, 'aaa', ['a-dead'])
+    await writeFile(join(r, 'engine-state/_photo-rejected.json'), '{}')
+  }
+  const queueDir = join(r, 'engine-state/gallery')
+  await mkdir(queueDir, { recursive: true })
+  await writeFile(join(queueDir, 'aaa.json'), JSON.stringify({
+    queue: [{ ...photo('a-dead'), author: 'Sample candidate credit', key: 'sample' }], judged: [], hashes: {},
+  }))
+  const fetched: string[] = []
+  const get = async (address: string) => {
+    fetched.push(address)
+    throw new Error('No outside source in this test')
+  }
+  const unused = async () => { throw new Error('No outside source in this test') }
+  await galleries(r, { get, http: unused, look: unused, faces: unused, sleep: async () => {}, now: () => new Date() },
+    { sheets: 1, only: 'aaa', budget: { inat: 0, gbif: 0, openverse: 0 } })
+  expect(fetched.filter(address => address === u)).toHaveLength(settled ? 1 : 0)
+  expect((await json(r, 'engine-state/gallery/aaa.json')).queue).toEqual([])
+  expect(await albumOf(r, 'aaa')).toEqual([])
+  expect((await json(r, 'engine-state/_photo-rejected.json'))[u]).toBe(settled ? undefined : waitingEntry(mark.why))
+
+  await putBackCleared(r, gitHistory(r))
+  expect((await json(r, albumFile)).photos).toEqual([photo('a-dead')])
 })
 
 test('private entries survive an unpublished agreement and are removed after it reaches main', async () => {
@@ -864,6 +911,83 @@ test('independent checkouts keep different private places for the same marked ph
   expect((await keptOf(u))!.places).toEqual({ [page.file]: page.photo, [album.file]: album.photo })
   expect((await json(one, SL))[u].left).toEqual([capturedAt(A, 0)])
   expect((await json(two, SL))[u].left).toEqual([capturedAt(album.file, 2)])
+})
+
+test('a published hotlink settlement preserves a newer mirror capture and restores its saved lead position', async () => {
+  const { r, git } = await runRepo()
+  const another = await store({})
+  const u = 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Sample.jpg'
+  const blocked = { ...photo('hotlink'), url: u }
+  const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(u)!.key}`, author: 'Sample mirror credit' }
+  const neighbor = photo('neighbor')
+  const marked = { why, step: 'the photo check', pages: ['species/aaa'], at: today(), off: true }
+  await writeFile(join(r, SL), JSON.stringify({ [u]: marked }))
+  await notePlaces(r, new Map([[u, [{ file: A, index: 0, photo: blocked }]]]))
+  const base = await json(r, SL)
+  await writeFile(join(another, SL), JSON.stringify(base))
+  await notePlaces(another, new Map([[u, [{ file: A, index: 0, photo: mirror, order: [mirror.url, neighbor.url] }]]]))
+  const updated = await json(another, SL)
+  const captured = updated[u].left[0].capture
+  const completed = {
+    [u]: { ...marked, look: { said: 'clear', by: 'reviewer', on: today() }, back: today(), settled: base[u].left },
+  }
+  await writeFile(join(r, SL), JSON.stringify(completed))
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), '{}')
+  await writeFile(join(r, A), JSON.stringify(fish('aaa', [neighbor, blocked])))
+  git('add', '-A'); git('commit', '-qm', 'published hotlink settlement')
+  git('update-ref', 'refs/remotes/origin/main', 'HEAD')
+  await putBackCleared(r, async () => [])
+  expect((await keptFor(u)).some(p => p.entry.capture === captured)).toBe(true)
+
+  const merged = mergeMaps(base, completed, updated)
+  expect(merged[u].left).toEqual(updated[u].left)
+  expect(merged[u].back).toBeUndefined()
+  await writeFile(join(r, SL), JSON.stringify(merged))
+  expect((await putBackCleared(r, async () => [])).back).toEqual([`${A}: ${mirror.url}`])
+  expect((await json(r, A)).photos).toEqual([mirror, neighbor])
+})
+
+test('gallery cleanup keeps a newly found mirror if the previous private capture is missing', async () => {
+  const r = await store({}, { aaa: [] })
+  const file = 'content/gallery/aaa.json'
+  const u = 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Sample.jpg'
+  const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(u)!.key}` }
+  const mark = { why, step: 'the photo check', pages: ['species/aaa'], at: today(), off: true }
+  await writeFile(join(r, SL), JSON.stringify({ [u]: mark }))
+  await notePlaces(r, new Map([[u, [{ file, index: 0, photo: { ...mirror, url: u } }]]]))
+  await rm((await keptFor(u))[0]!.file)
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [u]: waitingEntry(why) }))
+  await writeFile(join(r, file), JSON.stringify({ id: 'aaa', photos: [mirror] }))
+  const unused = async () => { throw new Error('No source in this test') }
+  await expect(galleries(r, { get: unused, http: unused, look: unused, faces: unused, sleep: unused, now: () => new Date() },
+    { sheets: 0, only: 'missing' })).rejects.toThrow('waiting for an existing private capture')
+  expect((await json(r, file)).photos).toEqual([mirror])
+})
+
+test('captures from opposite sides of UTC midnight restore their respective places', async () => {
+  const { r, git } = await runRepo({ aaa: [] })
+  const another = await store({})
+  const u = url('a-new')
+  const galleryFile = 'content/gallery/aaa.json'
+  const before = { why, step: 'the photo check', pages: ['species/aaa'], at: '2026-11-25', off: true }
+  const after = { ...before, at: '2026-11-26' }
+  const owned = photo('a-new')
+  const gallery = { ...owned, caption: 'Sample album caption' }
+  await writeFile(join(r, SL), JSON.stringify({ [u]: before }))
+  await writeFile(join(another, SL), JSON.stringify({ [u]: after }))
+  await notePlaces(r, new Map([[u, [{ file: A, index: 0, photo: owned }]]]))
+  await notePlaces(another, new Map([[u, [{ file: galleryFile, index: 0, photo: gallery }]]]))
+  const merged = mergeMaps({}, await json(another, SL), await json(r, SL))
+  expect(merged[u].at).toBe(before.at)
+  expect(merged[u].left).toContainEqual(expect.objectContaining({ file: galleryFile, captureDay: after.at }))
+  merged[u].look = { said: 'clear', by: 'reviewer', on: '2026-11-26' }
+  await writeFile(join(r, SL), JSON.stringify(merged))
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [u]: waitingEntry(why) }))
+  git('add', '-A'); git('commit', '-qm', 'merged mark awaiting recovery')
+
+  expect((await putBackCleared(r, gitHistory(r))).unread).toEqual([])
+  expect((await json(r, A)).photos).toEqual([owned])
+  expect((await json(r, galleryFile)).photos).toEqual([gallery])
 })
 
 test("the history, along main's own line: a place that showed it at the mark and that a later run emptied counts; not one emptied before the mark or one it came to after; a parallel removal once, a merge's own removal, and a renamed page's old file", async () => {

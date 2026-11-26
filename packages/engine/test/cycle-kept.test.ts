@@ -640,12 +640,12 @@ test('the engine cycle and both video jobs keep unpublished work wherever they g
 // every run's tests failed on them. Here `pnpm` stands in for the migration (`engine photo-privacy --write`: "legacy"
 // becomes "migrated" in engine-state, or it fails) and for the sweep, each call noted in order with the checks, which fail
 // while an old record is left, as the privacy test does.
-function migrating(c: ReturnType<typeof clone>, fails = false) {
+function migrating(c: ReturnType<typeof clone>, fails = false, sweepFails = false) {
   c.sh(`cat > "$HOME/bin/pnpm" <<'EOF'
 #!/bin/sh
 case "$2" in
   photo-privacy) echo migrate >> "$HOME/order"; ${fails ? 'exit 1' : `perl -pi -e 's/legacy/migrated/g' engine-state/*.json`} ;;
-  sweep) echo sweep >> "$HOME/order" ;;
+  sweep) echo sweep >> "$HOME/order"; ${sweepFails ? 'exit 1' : ':'} ;;
 esac
 exit 0
 EOF`)
@@ -718,6 +718,24 @@ test('a migration that fails publishes nothing, and the work is kept for the nex
   expect(c.cycle(`${privacy}; publish_kept photos; [ -z "$MIGRATE_FAILED" ] && echo cleared`)).toMatch(/LOG published kept\/photos\/[\s\S]*cleared/)
   expect(c.onMain('content/b.json')).toBe('photos')
   expect(c.onMain('engine-state/_photo-watermarks.json')).toBe('migrated')
+  expect(c.branches()).toEqual([])
+}, slow(60_000))
+
+test('an unverified merge sweep holds the push and retries the kept work', () => {
+  const c = clone()
+  migrating(c, false, true)
+  c.sh(work)
+  c.elsewhere('content/c.json', 'sf')
+  const log = c.cycle(pushing)
+  expect(log).toContain('LOG the sweep on main did not finish: not tested, not published')
+  expect(log).toContain('NOT PUBLISHED')
+  expect(c.onMain('content/b.json')).toBe('')
+  expect(c.branches()[0]).toMatch(/^kept\/photos\//)
+
+  c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  migrating(c)
+  expect(c.cycle(`${privacy}; publish_kept photos`)).toContain('LOG published kept/photos/')
+  expect(c.onMain('content/b.json')).toBe('photos')
   expect(c.branches()).toEqual([])
 }, slow(60_000))
 

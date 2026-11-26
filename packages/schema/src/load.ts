@@ -12,7 +12,7 @@ import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MAR
 import { HAND_BOXES } from './hand-boxes'
 import { markOutsideCrop, photoFitsCard, photoFitsHead, photoFitsWholeHead, SUBJECT_FRAMES, subjectPixels, validCropGeometry, type SubjectFractions } from './image-geometry'
 import { judgeQuality, speciesDepth } from './depth'
-import { isAllowedLicence, isInatNonCommercial, isNonCommercial, ncAlone } from './licence'
+import { isNonCommercial, mayPublishLicence, ncAlone } from './licence'
 import { isVietnamese, markVietnameseNames } from './text'
 import { pageFish, videosForPage, videosOnTwoFish } from './videos'
 import { BreedSchema, CaptionsSchema, VideoGeneratedSchema, VideoTitlesSchema, VideoTitlesOnSchema, OneVoiceSchema, PageDatesSchema, PictureHashesSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MATERIAL_SECTION_ORDER, MaterialSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
@@ -348,7 +348,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
         }
       }
     }
-    return p.source ? photoAllowed(p.source) : isAllowedLicence(p.licence) || ((album || head) && images.inatNonCommercial && isInatNonCommercial(p))
+    return p.source ? photoAllowed(p.source) : mayPublishLicence(p, (album || head) && images.inatNonCommercial)
   }).map(p => caption(boxed(p))))
   // A fish's page shows a non-commercial photo (iNaturalist's, the switch on) only as its head with no other real photo,
   // where it's the one way to show that fish (the chief of staff's rule, 17 Nov; the engine's lead-photo.ts puts it there).

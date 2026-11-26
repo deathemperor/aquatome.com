@@ -55,7 +55,7 @@ export const thumbnail = (youtubeId: string) => `https://i.ytimg.com/vi/${youtub
 /** A video's thumbnail, then the frames YouTube publishes from about a quarter, half and three quarters through. */
 export const videoFrames = (youtubeId: string) => [thumbnail(youtubeId), ...[1, 2, 3].map(n => `https://i.ytimg.com/vi/${youtubeId}/hq${n}.jpg`)]
 
-type Item = { key: string; url: string; files: string[]; video?: string; rejection?: string }
+type Item = { key: string; url: string; files: string[]; video?: string; rejection?: string; agreement?: [string, string] }
 async function readJson<T>(path: string): Promise<T | undefined> {
   const raw = await readFile(path, 'utf8').catch((error: NodeJS.ErrnoException) => {
     if (error.code === 'ENOENT') return undefined
@@ -114,6 +114,9 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   if (o.albums) {
     const looked = albumLooked({ screen: cache, secondLook: initialLooks })
     const cleared = photoClears(initialLooks)
+    const agreedDead = rejectedEntry(Object.fromEntries(Object.entries(initialLooks)
+      .filter(([, mark]) => mark.why.startsWith('dead:') && photoLookAnswer(mark)?.said === 'agree')
+      .map(([url, mark]) => [url, mark.why])))
     const kept = keptOwnMark(photoRejected, (await readJson<Record<string, Pick<WatermarkEntry, 'retainedOwnMark'>>>(state(PHOTO_SCREEN_FILE))) ?? {})
     keptAlbumMark = (url: string) => {
       const entry = isListed(url)
@@ -131,10 +134,11 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
         const rejection = entry && (entry[1].startsWith('dead:') ||
           (entry[1].startsWith('waiting:') && record?.off && record.why.startsWith('dead:'))) ? entry[1] : undefined
         if (entry && !rejection) continue
-        const alreadyDead = !!rejection || (cache[url]?.dead === true && !cleared(url) && !photoLookAnswer(initialLooks[url]))
+        const agreement = rejection?.startsWith('dead:') ? undefined : agreedDead(url)
+        const alreadyDead = !!rejection || !!agreement || (cache[url]?.dead === true && !cleared(url))
         if (!alreadyDead && looked(url)) continue
         const take = alreadyDead ? knownDead : photos
-        const it = take.get(url) ?? { key: url, url, files: [], ...(rejection ? { rejection } : {}) }
+        const it = take.get(url) ?? { key: url, url, files: [], rejection, agreement }
         it.files.push(file)
         take.set(url, it)
       }
@@ -266,8 +270,8 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const passed = photoAddressSet(!o.albums && off.some(x => !x.video) ? await readPassedBefore(root) : [])
   const clearedAlbum = photoClears(secondLook)
   const going = new Set(off.filter(x => !x.video && (o.albums
-    ? x.rejection?.startsWith('dead:') || !clearedAlbum(x.url)
-    : !sl.pendingOff(x.url) && (sl.open(x.url) || ((sl.waiting(x.url) || sl.held(x.url)) && !passed(x.url))))).map(x => x.url))
+    ? !!x.agreement || x.rejection?.startsWith('dead:') || !clearedAlbum(x.url)
+    : !sl.clearedPhoto(x.url) && !sl.pendingOff(x.url) && (sl.open(x.url) || ((sl.waiting(x.url) || sl.held(x.url)) && !passed(x.url))))).map(x => x.url))
   // Photos already listed never-again leave every page anyway (the sweep), so they count as going.
   const last = new Map<string, string[]>()
   if (!o.albums && going.size) {
@@ -327,12 +331,12 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   }
   for (const it of off) {
     const note = cache[it.key]?.note ?? (it.rejection ? compactRejection(it.rejection) : '')
-    const why = it.rejection ?? `dead: ${note} (the dead-fish screen)`
+    const why = it.agreement?.[1] ?? it.rejection ?? `dead: ${note} (the dead-fish screen)`
     if (!it.video && (!going.has(it.url) || heldByAddress(it.url))) {
       if (held.has(it.url)) { holding.set(it.url, { why, pages: held.get(it.url)! }); report.held.push(`${it.key}: ${held.get(it.url)!.join(', ')}`) }
       continue
     }
-    const reviewUrl = it.rejection?.startsWith('dead:') ? undefined : albumHold(it.url)
+    const reviewUrl = it.agreement || it.rejection?.startsWith('dead:') ? undefined : albumHold(it.url)
     if (reviewUrl && !entriesDir()) {
       report.pendingTakeOffs++
       report.failed.push(`${it.key}: take-off waits for its recovery capture`)
@@ -358,7 +362,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
         }
       }
     }
-    if (it.rejection && !removed) continue
+    if (it.rejection && !it.agreement && !removed) continue
     if (reviewUrl) {
       // Keep the existing unanswered review, including its source address, and record the places it can restore.
       const pending = secondLook[reviewUrl]!
@@ -373,7 +377,10 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       report.dead.push(`${it.key}: ${note}`)
       if (it.video) videoRejected[it.video] ??= why
       // Album screening records a take-off even when a wrapper stays to carry a passing original.
-      else if (!it.rejection) {
+      else if (it.agreement) {
+        const [address] = it.agreement
+        if (!photoRejected[address] || photoRejected[address].startsWith('waiting:')) photoRejected[address] = why
+      } else if (!it.rejection) {
         if (keptAlbumMark(it.url)) photoRejected[it.url] = why
         else photoRejected[it.url] ??= why
       }
@@ -392,7 +399,10 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   if (off.some(x => x.video)) await save('_video-rejected.json', videoRejected)
   if (off.some(x => !x.video && going.has(x.url) && !heldByAddress(x.url))) await save('_photo-rejected.json', photoRejected)
   if (report.judged) await save('_dead-screen.json', cache)
-  for (const [file, { raw, page }] of edits) {
+  // While a linked page still needs an edit, keep its album entry so a retry finds the take-off again.
+  const galleryDir = join(content, 'gallery') + '/'
+  const writes = [...edits].sort(([a], [b]) => Number(a.startsWith(galleryDir)) - Number(b.startsWith(galleryDir)))
+  for (const [file, { raw, page }] of writes) {
     const next = `${JSON.stringify(page, null, indentOf(raw))}\n`
     if (next !== raw) await replacePhotoDocument(file, next)
   }
