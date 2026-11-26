@@ -457,7 +457,7 @@ test.each([false, true])('one clear restores the credited mirror (both addresses
   git('add', '.'); git('commit', '-qm', 'page with the credited mirror')
 
   vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
-  onTestFinished(() => vi.unstubAllEnvs())
+  onTestFinished(() => { vi.unstubAllEnvs() })
   const { d } = deps()
   if (both) d.dead.look = async () => ({ tiles: [1, 2].map(n => ({ n, dead: true, note: '' })) })
   const out = await run(root, d)
@@ -958,6 +958,60 @@ test.each(['screen cache', 'page rejection'])('zero album sheets apply a known t
   expect(JSON.parse(await readFile(guide, 'utf8')).photos).toEqual([])
   expect((await screenDead(root, d.dead, { limit: 0, albums: true })).dead).toEqual([])
   expect(sent).toEqual([])
+})
+
+test('a zero-sheet take-off leaves an independent permanent rejection in place', async () => {
+  const dead = photo('known-dead')
+  const { root, state, file } = await albumFixture([dead])
+  const rejected = { [dead.url]: 'dead: withheld' }
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify(rejected))
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+    [dead.url]: { why: 'watermark: held', pages: ['species/a'], at: '2026-11-26', step: 'the watermark screen' },
+  }))
+
+  const result = await screenDead(root, deps().d.dead, { limit: 0, albums: true })
+
+  expect(result).toMatchObject({ sheets: 0, pendingTakeOffs: 0, dead: [expect.stringContaining(dead.url)] })
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[dead.url]).toMatch(/^dead: /)
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([])
+})
+
+test('a retained album original does not strand a dead alias in a guide stock slot', async () => {
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(source)!.key}`
+  const original = photo('original-live')
+  const stored = { ...photo('stored'), url: mirror, altered: [{ method: 'lanczos3-upscale' }], original }
+  const { root, state, file } = await albumFixture([stored])
+  const guide = join(root, 'content/guides/example/entity.json')
+  await mkdir(join(guide, '..'), { recursive: true })
+  await writeFile(guide, JSON.stringify({ video: { figures: [{ photo: { ...photo('stock'), url: source }, moments: [] }] } }))
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [source]: 'dead: withheld' }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [original.url]: { dead: false } }))
+
+  const result = await screenDead(root, deps().d.dead, { limit: 0, albums: true })
+
+  expect(result).toMatchObject({ dead: [expect.stringContaining(mirror)], pendingTakeOffs: 0, left: 0 })
+  expect(JSON.parse(await readFile(guide, 'utf8')).video.figures).toEqual([])
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([stored])
+  expect((await screenDead(root, deps().d.dead, { limit: 0, albums: true })).dead).toEqual([])
+})
+
+test('a hold that cannot be captured is reported as a pending take-off', async () => {
+  const dead = photo('known-dead')
+  const { root, state, file } = await albumFixture([dead])
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [dead.url]: { dead: true } }))
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+    [dead.url]: { why: 'dead: held', pages: ['species/a'], at: '2026-11-26', step: 'the dead-fish screen' },
+  }))
+
+  expect(await screenDead(root, deps().d.dead, { limit: 0, albums: true })).toMatchObject({ left: 0, pendingTakeOffs: 1, dead: [] })
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([dead])
+})
+
+test.each(['_dead-screen.json', '_photo-watermarks.json'])('an unreadable %s returns no album balance', async filename => {
+  const { root, state } = await albumFixture([photo('photo')])
+  await mkdir(join(state, filename))
+  await expect(screenDead(root, deps().d.dead, { limit: 0, albums: true })).rejects.toThrow()
 })
 
 test('a human clear at a source address satisfies the album’s mirror without another tile', async () => {
