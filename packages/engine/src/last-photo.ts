@@ -262,7 +262,7 @@ export async function unlistCleared(root: string, deferred: ReadonlySet<string> 
 }
 
 /** A place a photo stood: its page's, album's or guide's file (from the repository's root) and its place in `photos`. */
-export type Place = { file: string; index: number; capture?: string }
+export type Place = { file: string; index: number; capture?: string; captureDay?: string }
 /** The same, with its entry there, as the step that takes it off holds it. */
 export type Stood = Place & { photo: Record<string, unknown>; order?: string[] }
 /** A place a photo's mark took it off, as it was just before it first left from the mark on; and how many times it left. */
@@ -308,7 +308,7 @@ export function entriesDir(env: NodeJS.ProcessEnv = process.env): string | undef
 
 type Kept = Stood & { url: string; at: string; why: string }
 const keptFile = (dir: string, url: string, mark: SecondLook, p: Place) =>
-  join(dir, `${createHash('sha256').update(JSON.stringify([url, mark.at, mark.why, p.file, p.index, ...(p.capture ? [p.capture] : [])])).digest('hex')}.json`)
+  join(dir, `${createHash('sha256').update(JSON.stringify([url, p.captureDay ?? mark.at, mark.why, p.file, p.index, ...(p.capture ? [p.capture] : [])])).digest('hex')}.json`)
 
 async function readKept(dir: string, url: string, mark: SecondLook, p: Place): Promise<Kept | undefined> {
   const raw = await readFile(keptFile(dir, url, mark, p), 'utf8').catch(async (e: NodeJS.ErrnoException) => {
@@ -317,7 +317,7 @@ async function readKept(dir: string, url: string, mark: SecondLook, p: Place): P
   })
   if (raw === undefined) return undefined
   const v = JSON.parse(raw) as Kept
-  if (v?.url !== url || v.at !== mark.at || v.why !== mark.why || v.file !== p.file || v.index !== p.index || v.capture !== p.capture || typeof v.photo?.url !== 'string' ||
+  if (v?.url !== url || v.at !== (p.captureDay ?? mark.at) || v.why !== mark.why || v.file !== p.file || v.index !== p.index || v.capture !== p.capture || typeof v.photo?.url !== 'string' ||
       (v.order !== undefined && (!Array.isArray(v.order) || v.order.some(u => typeof u !== 'string')))) {
     throw new Error('Unrecognized private photo recovery entry')
   }
@@ -414,8 +414,8 @@ async function pruneKept(root: string, dir: string, local: SecondLooks) {
     try { k = raw === undefined ? undefined : JSON.parse(raw) as Kept } catch { continue }
     if (!k || typeof k.url !== 'string' || !day(k.at) || typeof k.why !== 'string') continue
     const mark = marks[k.url], here = local[k.url]
-    const restored = mark?.back && here?.back && mark.at === k.at && mark.why === k.why && here.at === k.at && here.why === k.why &&
-      mark.settled?.some(p => p.file === k.file)
+    const restored = mark?.back && here?.back && mark.why === k.why && here.why === k.why &&
+      mark.settled?.some(p => p.file === k.file && (p.captureDay ?? mark.at) === k.at)
     const agreed = !mark && !here && rejected[k.url] === k.why
     if (restored || agreed) await rm(path, { force: true })
   }
@@ -563,13 +563,19 @@ async function checkUnpublishedRestores(root: string, local: SecondLooks, histor
   const done = Object.entries(local).filter(([, mark]) => mark.back && mark.settled?.length && lookOf(mark)?.said === 'clear')
   if (!done.length) return []
   const published = publishedJson(root, `engine-state/${SECOND_LOOK_FILE}`) as SecondLooks | undefined
+  if (!published) return []
+  const diff = spawnSync('git', ['-C', root, 'diff', '--name-only', '-z', 'refs/remotes/origin/main', '--', 'content'], { encoding: 'utf8' })
+  if (diff.status !== 0) throw new Error('Could not compare restored photos with main')
+  const changed = new Set(diff.stdout.split('\0'))
   const undone: string[] = []
   for (const [url, mark] of done) {
-    const prior = published?.[url]
-    if (!prior?.off || prior.at !== mark.at || prior.why !== mark.why || prior.back) continue
-    const historyPlaces = await history(url, mark.at, mark.settled)
+    const prior = published[url]
+    if (!prior?.off || prior.why !== mark.why || (prior.at !== mark.at && !mark.settled?.some(p => p.captureDay === prior.at))) continue
+    const unpublished = mark.settled!.filter(place => changed.has(place.file))
+    if (!unpublished.length) continue
+    const historyPlaces = await history(url, mark.at, unpublished)
     if (!historyPlaces) throw new Error('Could not verify an unpublished photo restore after pulling main')
-    const settled = new Set(mark.settled!.map(p => p.file))
+    const settled = new Set(unpublished.map(p => p.file))
     const matches = photoAddressSet([url])
     for (const p of historyPlaces) {
       if (p.times < 2 || !settled.has(p.file)) continue
@@ -657,6 +663,7 @@ export async function putBackCleared(root: string, history: History, at = today(
     try {
       for (const p of own) {
         if (!PLACE.test(p.file) || !Number.isSafeInteger(p.index) || p.index < 0 ||
+            (p.captureDay !== undefined && !day(p.captureDay)) ||
             (p.capture !== undefined && !/^[a-f0-9-]{36}$/.test(p.capture))) throw new Error('Invalid photo recovery place')
         const kept = await readKept(dir!, u, sl[u]!, p)
         if (kept) captures.set(p.file, kept)
@@ -719,9 +726,13 @@ export async function putBackCleared(root: string, history: History, at = today(
       }
       const blockedHost = setsCookies(address)
       if (current.some(url => samePhoto(url) && (blockedHost || !setsCookies(url)))) continue
-      const position = order.indexOf(address)
-      const index = photoPosition(current, order, position >= 0 ? position : p.index, p.index)
-      photos.splice(index, 0, p.photo)
+      const blockedAlias = blockedHost ? -1 : current.findIndex(url => samePhoto(url) && setsCookies(url))
+      if (blockedAlias >= 0) photos.splice(blockedAlias, 1, p.photo)
+      else {
+        const position = order.indexOf(address)
+        const index = photoPosition(current, order, position >= 0 ? position : p.index, p.index)
+        photos.splice(index, 0, p.photo)
+      }
       await replacePhotoDocument(file, `${JSON.stringify(doc, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
       out.back.push(`${p.file}: ${address}`)
     }

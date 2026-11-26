@@ -1,7 +1,10 @@
 import { execFileSync } from 'node:child_process'
+// @ts-expect-error The Git merge driver is plain JavaScript.
+import { mergeMaps } from '../../../scripts/merge-json-map.mjs'
 import { copyFile, mkdir, mkdtemp, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
 import { afterAll, afterEach, beforeEach, expect, test } from 'vitest'
 import { screenDead, type DeadScreenDeps } from '../src/dead-screen'
@@ -576,9 +579,12 @@ test('history-only recovery restores the original order even for clears sorted b
   expect(await photosOf(r, 'aaa')).toEqual(sequence)
 })
 
-test('an unpublished restore defers to an independent removal during the push rebase', async () => {
+test.each([false, true])('an unpublished restore defers to independent removal (main restored first: %s)', async publishedRestore => {
   const { r, git, clear } = await runRepo()
   const u = url('a-dead')
+  const driver = fileURLToPath(new URL('../../../scripts/merge-json-map.mjs', import.meta.url))
+  git('config', 'merge.jsonmap.driver', `node "${driver}" %O %A %B`)
+  await writeFile(join(r, '.gitattributes'), 'engine-state/_photo-*.json merge=jsonmap\n')
   await page(r, 'aaa', ['a-dead'])
   git('add', '-A'); git('commit', '-qm', 'photo on main')
   await screenDead(r, deadModel(), { limit: 48 })
@@ -590,7 +596,8 @@ test('an unpublished restore defers to an independent removal during the push re
   git('add', '-A'); git('commit', '-qm', 'unpublished restore')
 
   git('switch', '-qc', 'concurrent-main', 'refs/remotes/origin/main')
-  await page(r, 'aaa', ['a-dead'])
+  if (publishedRestore) await putBackCleared(r, gitHistory(r), '2026-11-27')
+  else await page(r, 'aaa', ['a-dead'])
   git('add', '-A'); git('commit', '-qm', 'photo reappeared on main')
   await page(r, 'aaa', [])
   git('add', '-A'); git('commit', '-qm', 'independent removal')
@@ -621,6 +628,37 @@ test('gallery cleanup leaves a same-cycle album copy while a valid clear is wait
   await sweep(r, { history: gitHistory(r) })
   expect((await json(r, albumFile)).photos).toEqual([photo('a-dead')])
   expect(await photosOf(r, 'aaa')).toEqual(['a-dead'])
+})
+
+test('a cleared candidate waits for the saved album entry before intake', async () => {
+  const { r, git, clear } = await runRepo({ aaa: [] })
+  const u = url('a-dead')
+  const albumFile = 'content/gallery/aaa.json'
+  await page(r, 'aaa', ['a-dead'])
+  await screenDead(r, deadModel(), { limit: 48 })
+  const mark = (await json(r, SL))[u]
+  await notePlaces(r, new Map([[u, [{ file: albumFile, index: 0, photo: photo('a-dead') }]]]))
+  git('add', '-A'); git('commit', '-qm', 'the marked photo left both places')
+  await clear()
+  const queueDir = join(r, 'engine-state/gallery')
+  await mkdir(queueDir, { recursive: true })
+  await writeFile(join(queueDir, 'aaa.json'), JSON.stringify({
+    queue: [{ ...photo('a-dead'), author: 'Sample candidate credit', key: 'sample' }], judged: [], hashes: {},
+  }))
+  const fetched: string[] = []
+  const get = async (address: string) => {
+    fetched.push(address)
+    throw new Error('No outside source in this test')
+  }
+  const unused = async () => { throw new Error('No outside source in this test') }
+  await galleries(r, { get, http: unused, look: unused, faces: unused, sleep: async () => {}, now: () => new Date() },
+    { sheets: 1, only: 'aaa', budget: { inat: 0, gbif: 0, openverse: 0 } })
+  expect(fetched).not.toContain(u)
+  expect(await albumOf(r, 'aaa')).toEqual([])
+  expect((await json(r, 'engine-state/_photo-rejected.json'))[u]).toBe(waitingEntry(mark.why))
+
+  await putBackCleared(r, gitHistory(r))
+  expect((await json(r, albumFile)).photos).toEqual([photo('a-dead')])
 })
 
 test('private entries survive an unpublished agreement and are removed after it reaches main', async () => {
@@ -862,6 +900,32 @@ test('independent checkouts keep different private places for the same marked ph
   expect((await keptOf(u))!.places).toEqual({ [page.file]: page.photo, [album.file]: album.photo })
   expect((await json(one, SL))[u].left).toEqual([capturedAt(A, 0)])
   expect((await json(two, SL))[u].left).toEqual([capturedAt(album.file, 2)])
+})
+
+test('captures from opposite sides of UTC midnight restore their respective places', async () => {
+  const { r, git } = await runRepo({ aaa: [] })
+  const another = await store({})
+  const u = url('a-new')
+  const galleryFile = 'content/gallery/aaa.json'
+  const before = { why, step: 'the photo check', pages: ['species/aaa'], at: '2026-11-25', off: true }
+  const after = { ...before, at: '2026-11-26' }
+  const owned = photo('a-new')
+  const gallery = { ...owned, caption: 'Sample album caption' }
+  await writeFile(join(r, SL), JSON.stringify({ [u]: before }))
+  await writeFile(join(another, SL), JSON.stringify({ [u]: after }))
+  await notePlaces(r, new Map([[u, [{ file: A, index: 0, photo: owned }]]]))
+  await notePlaces(another, new Map([[u, [{ file: galleryFile, index: 0, photo: gallery }]]]))
+  const merged = mergeMaps({}, await json(another, SL), await json(r, SL))
+  expect(merged[u].at).toBe(before.at)
+  expect(merged[u].left).toContainEqual(expect.objectContaining({ file: galleryFile, captureDay: after.at }))
+  merged[u].look = { said: 'clear', by: 'reviewer', on: '2026-11-26' }
+  await writeFile(join(r, SL), JSON.stringify(merged))
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [u]: waitingEntry(why) }))
+  git('add', '-A'); git('commit', '-qm', 'merged mark awaiting recovery')
+
+  expect((await putBackCleared(r, gitHistory(r))).unread).toEqual([])
+  expect((await json(r, A)).photos).toEqual([owned])
+  expect((await json(r, galleryFile)).photos).toEqual([gallery])
 })
 
 test("the history, along main's own line: a place that showed it at the mark and that a later run emptied counts; not one emptied before the mark or one it came to after; a parallel removal once, a merge's own removal, and a renamed page's old file", async () => {

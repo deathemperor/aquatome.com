@@ -494,8 +494,9 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
     },
   }
   const sl = await readSecondLook(root)
-  const rejected = withoutClearedWaits(JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8').catch(() => '{}')), sl)
-  // A Commons, iNaturalist, Flickr or GBIF photo rejected after it moved to our bucket is known there by its key (mirror-photos.ts).
+  const rejected = JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
+  const cleanupRejected = withoutClearedWaits({ ...rejected }, sl)
+  // Keep the intake hold until recovery restores the saved entry. Cleanup can leave an existing cleared copy in place.
   const rejectedPhoto = isRejected(rejected)
   // A photo the photo check took off a page (another fish, none, dead), by its address in our bucket: never back in that
   // page's gallery, from a search or from the queue. A hand seed (gallery-seed.ts) queued a bred discus the owner had
@@ -520,7 +521,7 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   let openverseFailures = 0
   const today = d.now().toISOString().slice(0, 10)
   const days = (date: string) => (d.now().getTime() - Date.parse(date)) / 86_400_000
-  await dropRejected(root, content, rejectedPhoto, captureWaiting(sl, rejectedEntry(rejected)))
+  await dropRejected(root, content, isRejected(cleanupRejected), captureWaiting(sl, rejectedEntry(cleanupRejected)))
   // `shard` [i, n]: every n-th page from the i-th, so n runs can share the work (each still most popular first).
   const plan = (await galleryPlan(root)).filter((t, i) => (!o.only || t.id === o.only) && (!o.shard || i % o.shard[1] === o.shard[0]))
   // Each source's requests: counted against the run's budget, at the pace the source asks for (shared by n shards).

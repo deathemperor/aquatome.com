@@ -39,6 +39,19 @@ test('a clear keeps recovery places added for the same mark in a concurrent chec
   expect(mergeMaps(base, checked, { u: { ...captured.u, why: 'people: withheld' } })).toEqual({ u: { ...captured.u, why: 'people: withheld' } })
 })
 
+test('a clear retains a concurrently replaced capture', () => {
+  const mark = { why: 'dead: withheld', step: 'the dead-fish screen', pages: ['species/x'], at: '2026-11-20', off: true }
+  const original = { file: 'content/species/x/entity.json', index: 0, capture: 'hotlink' }
+  const mirror = { ...original, index: 1, capture: 'credited-mirror' }
+  const base = { u: { ...mark, left: [original] } }
+  const look = { said: 'clear', by: 'reviewer', on: '2026-11-21' }
+  const clear = { u: { ...base.u, look } }
+  const concurrent = { u: { ...mark, left: [mirror] } }
+  const merged = { u: { ...clear.u, left: [mirror] } }
+  expect(mergeMaps(base, clear, concurrent)).toEqual(merged)
+  expect(mergeMaps(base, concurrent, clear)).toEqual(merged)
+})
+
 test('merging captures retains both pages covered by the verdict', () => {
   const base = { why: 'dead: withheld', step: 'the photo check', at: '2026-11-20', off: true }
   const a = { ...base, pages: ['species/a'], left: [{ file: 'content/species/a/entity.json', index: 0 }] }
