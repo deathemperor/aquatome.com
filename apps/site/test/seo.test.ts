@@ -103,6 +103,23 @@ test('robots: production points to the sitemap, staging blocks everything', () =
   expect(robotsTxt(true, 'https://x.huuloc.com')).toBe('User-agent: *\nDisallow: /\n')
   expect(readFileSync(join(DIST, 'robots.txt'), 'utf8')).toContain('Sitemap:')
 })
+
+test('only the content-hashed Astro directory gets immutable caching', () => {
+  const rules = readFileSync(new URL('../public/_headers', import.meta.url), 'utf8').trim().split(/\r?\n\r?\n/)
+  expect(rules.filter(rule => /\bimmutable\b/.test(rule))).toEqual([
+    '/_astro/*\n  Cache-Control: public, max-age=31536000, immutable',
+  ])
+})
+
+test('the immutable Astro directory is reserved for generated files', () => {
+  expect(existsSync(new URL('../public/_astro', import.meta.url)), 'public/_astro would bypass content hashing').toBe(false)
+})
+
+test('every file in the Astro asset directory has a content hash in its name', () => {
+  const files = readdirSync(join(DIST, '_astro'), { recursive: true, withFileTypes: true }).filter(file => file.isFile())
+  expect(files.length).toBeGreaterThan(0)
+  expect(files.map(f => f.name).filter(name => !/[.-][A-Za-z0-9_-]{8}\.[a-z0-9]+$/i.test(name))).toEqual([])
+})
 test('search index is built and pages carry an accent-free search alias', () => {
   expect(existsSync(join(DIST, 'pagefind', 'pagefind.js'))).toBe(true)
   const { dom } = page('/ca/ca-dia/')
