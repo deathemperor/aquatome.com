@@ -488,7 +488,7 @@ if [ -z "$(git status --porcelain -- content sources apps/site/src/i18n)" ]; the
   # cycle redoes that work. The site doesn't read them, so no build and no deploy.
   if [ -n "$(git status --porcelain -- engine-state docs/review)" ]; then
     git add engine-state docs/review && git commit -q -m "engine: $PART records $(date -u +%F)" || exit 1
-    if [ -n "${SWEEP_FAILED:-}" ]; then keep_unpublished "$PART"; exit 1; fi
+    if [ -n "${SWEEP_FAILED:-}" ]; then keep_unpublished "$PART"; log "sweep failed, not publishing records"; exit 1; fi
     push || exit 1
   fi
   [ -z "${SWEEP_FAILED:-}" ] || exit 1
