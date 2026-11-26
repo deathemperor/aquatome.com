@@ -8,6 +8,9 @@ import { missingAddresses } from '../scripts/check-addresses'
 import { VI_SECTIONS } from '../worker/paths'
 import { LANGS } from '@aq/schema/langs'
 import { APP_PAGES, APP_STATE } from '../src/lib/app'
+import { getContent } from '../src/lib/content'
+import { localizePath } from '../src/lib/i18n'
+import { sitemapEntries } from '../src/lib/sitemap'
 
 const htmlFiles = (dir: string): string[] =>
   readdirSync(dir).flatMap(f => { const p = join(dir, f); return statSync(p).isDirectory() ? htmlFiles(p) : p.endsWith('.html') ? [p] : [] })
@@ -36,6 +39,20 @@ test('sitemap lists indexable pages and omits noindex ones', () => {
   const xml = sitemapText()
   expect(xml).toContain('/ca/ca-neon-vua/')
   expect(xml).not.toContain('/ca/ca-boraras-do/')
+})
+
+test('the sitemap lists every fish group page in each language that has that group', async () => {
+  const entries = await sitemapEntries()
+  const paths = new Set(entries.filter(e => e.kind === 'other').map(e => e.path))
+  for (const lang of LANGS) {
+    const content = await getContent(lang)
+    for (const group of new Set(content.species.map(s => s.group))) {
+      const path = localizePath(lang, `/vi/nhom/${group}/`)
+      expect(paths.has(path), path).toBe(true)
+    }
+  }
+  expect(paths.has('/phan-loai/')).toBe(true)
+  expect(paths.has('/nguon-goc/')).toBe(true)
 })
 const sheet = (kind: string) => readFileSync(join(DIST, `sitemap-${kind}.xml`), 'utf8')
 const dateIn = (xml: string, path: string) => new RegExp(`<loc>https?://[^/]+${path}</loc>(?:<lastmod>([^<]+)</lastmod>)?`).exec(xml)
