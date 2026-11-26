@@ -10,6 +10,16 @@ const read = async <T>(root: string, name: string): Promise<Record<string, T> | 
   return raw === undefined ? undefined : JSON.parse(raw) as Record<string, T>
 }
 
+export async function readPhotoSources(content: string): Promise<Record<string, SourceInfo>> {
+  const raw = await readFile(join(content, 'sources.json'), 'utf8').catch((error: NodeJS.ErrnoException) => {
+    if (error.code === 'ENOENT') return '{}'
+    throw error
+  })
+  const sources: unknown = JSON.parse(raw)
+  if (!sources || typeof sources !== 'object' || Array.isArray(sources)) throw new Error('Source permissions must be a map')
+  return sources as Record<string, SourceInfo>
+}
+
 /** A withdrawn source cannot supply a replacement for a photo about to be removed. */
 export const permittedPhotoSource = (photo: Photo, sources: Record<string, SourceInfo>, ref: string, scientificName: string, allowInat = IMAGE_SWITCHES.inatNonCommercial): boolean => {
   const source = photo.source ? sources[photo.source] : undefined
