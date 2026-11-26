@@ -222,7 +222,7 @@ export async function writeSecondLook(root: string, sl: SecondLooks) {
 export async function listAgreed(root: string, includes: (url: string) => boolean = () => true): Promise<string[]> {
   const sl = await readSecondLook(root)
   const agreedBy = looks(sl).agreed
-  const agreed = Object.keys(sl).filter(url => includes(url) && agreedBy(url))
+  const agreed = Object.keys(sl).filter(url => agreedBy(url) && (includes(url) || sl[url]!.originals?.some(includes)))
   if (!agreed.length) return []
   const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
   const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
@@ -238,12 +238,12 @@ export async function listAgreed(root: string, includes: (url: string) => boolea
     // lift (the independent reader, 20 Nov).
     const prior = rejected[url]
     if (!prior || prior === CREDIT_HOLD_REJECTION || prior.startsWith('waiting:') || (isVersionRejection(prior) && !isVersionRejection(sl[url]!.why)) ||
-        (prior.startsWith('watermark:') && (sl[url]!.off || !active(url)))) {
+        (prior.startsWith('watermark:') && (sl[url]!.off || !active(url) || (!isVersionRejection(sl[url]!.why) && !sl[url]!.why.startsWith('watermark:'))))) {
       rejected[url] = sl[url]!.why
     }
     for (const original of sl[url]!.originals ?? []) {
       const previous = active(original)?.[1]
-      if (!previous || previous === CREDIT_HOLD_REJECTION || isVersionRejection(previous)) rejected[original] = sl[url]!.why
+      if (!previous || previous === CREDIT_HOLD_REJECTION || isVersionRejection(previous) || (previous.startsWith('watermark:') && !sl[url]!.why.startsWith('watermark:'))) rejected[original] = sl[url]!.why
     }
     delete sl[url]
   }

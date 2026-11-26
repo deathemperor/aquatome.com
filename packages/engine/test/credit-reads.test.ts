@@ -353,3 +353,22 @@ test('the publisher original releases an owner crop and remains available for a 
   expect((await json(join(r, calendar))).days).toEqual([{ ...day, guideImg: crop.url }])
   expect(await json(join(r, CREDIT_HOLDS))).toEqual({})
 })
+
+test('a publisher refusal on the original applies to its approved crop on the page and in its album', async () => {
+  const image = 'https://www.example-pets.test/crop.jpg'
+  const original = photo('original', { url: media.urlFor(photoKey('sprucepets', image)) })
+  const crop = photo('owner-crop', { original, ownerCrop: { id: 'approved-crop' } })
+  const spare = photo('spare', { source: undefined, licence: 'CC BY 4.0' })
+  const page = 'content/species/fish-e/entity.json', album = 'content/gallery/fish-e.json'
+  const r = await root({ [page]: { id: 'fish-e', photos: [crop, spare] }, [album]: { id: 'fish-e', photos: [crop] } })
+  const read = pageCredits([{ src: image, alt: '', credit: 'Independent Picture Agency' }], PAGE, 'sprucepets', SITE, terms, media, '2026-11-26')
+  expect(read[original.url]?.kind).toBe('other')
+  await recordCredits(r, read)
+
+  expect((await applyCreditReads(r)).held).toEqual([])
+  expect((await json(join(r, page))).photos).toEqual([spare])
+  expect((await json(join(r, album))).photos).toEqual([])
+  const rejected = await json(join(r, 'engine-state/_photo-rejected.json'))
+  expect(rejected[crop.url]).toMatch(/^rejected: /)
+  expect(rejected[original.url]).toMatch(/^rejected: /)
+})
