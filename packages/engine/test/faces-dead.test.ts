@@ -1533,9 +1533,9 @@ test('a mirrored cached death uses the matching older watermark review at its so
   expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([])
 })
 
-test('a failed take-off receipt is recovered when the sweep already has a page rejection', async () => {
+test.each(['sweep', 'photo check'])('a failed take-off receipt is recovered by %s with a prior page rejection', async cleaner => {
   const dead = photo('dead')
-  const { root, state, file } = await albumFixture([dead])
+  const { root, state, file } = await publicFixture([photo('live')], [dead], [dead.url])
   await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [dead.url]: { dead: true } }))
   await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [dead.url]: 'dead: prior page verdict' }))
   const replace = imageWrites.writeImageCache
@@ -1547,8 +1547,11 @@ test('a failed take-off receipt is recovered when the sweep already has a page r
   try {
     await expect(screenDead(root, d, { limit: 0, albums: true })).rejects.toThrow('simulated receipt failure')
   } finally { failing.mockRestore() }
-  await writeFile(join(root, 'content/sources.json'), '{}')
-  await sweep(root, { history: async () => [] })
+  if (cleaner === 'sweep') await sweep(root, { history: async () => [] })
+  else {
+    const unused = async () => { throw new Error('no live look') }
+    await checkPagePhotos(root, { get: unused, look: unused }, { limit: 0, fill: 0 })
+  }
   expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([])
   expect((await screenDead(root, d, { limit: 0, albums: true })).albumBatches).toEqual([{ id: expect.any(String), urls: [dead.url] }])
 })
@@ -1618,15 +1621,38 @@ test('overlapping merged batches keep their identities and never redeliver ackno
   const { root, state } = await albumFixture([])
   const folder = join(state, 'album-takeoff-batches')
   await mkdir(folder)
-  const [a, b, c] = ['a', 'b', 'c'].map(m)
+  const a = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(a)!.key}`
+  const b = m('b'), c = m('c')
   const id = (urls: string[]) => createHash('sha256').update(JSON.stringify(urls)).digest('hex')
-  const first = [a!, b!], concurrent = [a!, c!]
+  const first = [a, b].sort(), concurrent = [mirror, c].sort()
   await writeFile(join(folder, id(first)), JSON.stringify(first))
   await writeFile(join(folder, id(concurrent)), JSON.stringify(concurrent))
   expect(await acknowledgeAlbumTakeOffs(root, id(first))).toBe(2)
   const d = deps().d.dead
-  expect((await screenDead(root, d, { limit: 0, albums: true })).albumBatches).toEqual([{ id: id([c!]), urls: [c!] }])
-  expect((await screenDead(root, d, { limit: 0, albums: true })).albumBatches).toEqual([{ id: id([c!]), urls: [c!] }])
-  expect(await acknowledgeAlbumTakeOffs(root, id([c!]))).toBe(1)
+  expect((await screenDead(root, d, { limit: 0, albums: true })).albumBatches).toEqual([{ id: id([c]), urls: [c] }])
+  expect((await screenDead(root, d, { limit: 0, albums: true })).albumBatches).toEqual([{ id: id([c]), urls: [c] }])
+  expect(await acknowledgeAlbumTakeOffs(root, id([c]))).toBe(1)
   expect((await screenDead(root, d, { limit: 0, albums: true })).albumBatches).toEqual([])
+})
+
+test('a cached dead photo with an orphaned waiting rejection remains pending', async () => {
+  const dead = photo('dead')
+  const { root, state, file } = await albumFixture([dead])
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [dead.url]: { dead: true } }))
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [dead.url]: waitingEntry('watermark: sample') }))
+  const report = await screenDead(root, deps().d.dead, { limit: 0, albums: true })
+  expect(report).toMatchObject({ left: 0, pendingTakeOffs: 1, albumBatches: [] })
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([dead])
+})
+
+test('a bare original whose alteration is already refused contributes no album look debt', async () => {
+  const original = photo('bare-original')
+  const wrapper = { ...photo('already-refused'), altered: [{ method: 'lanczos3-upscale' }], original }
+  const { root, state } = await albumFixture([original])
+  const owner = join(root, 'content/species/owner/entity.json')
+  await mkdir(join(owner, '..'), { recursive: true })
+  await writeFile(owner, JSON.stringify({ photos: [wrapper] }))
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [wrapper.url]: 'logo: sample' }))
+  expect(await screenDead(root, deps().d.dead, { limit: 0, albums: true })).toMatchObject({ left: 0, pendingTakeOffs: 0 })
 })

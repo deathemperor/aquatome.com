@@ -1,4 +1,4 @@
-import { albumLooked, askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, photoLookAnswer, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoClears, photoKey, photoRejections, photoWaitsFor, publicPhotoVersion, rejectedEntry, facePhotoStatus, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
+import { albumLooked, askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, expandWholePhotoRejections, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, photoLookAnswer, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoClears, photoKey, photoRejections, photoWaitsFor, publicPhotoVersion, rejectedEntry, facePhotoStatus, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
 import { albumReceipts, completeAlbumReceipts, recordAlbumTakeOffs, type TakeOffReceipt } from './album-takeoffs'
 import { replacePhotoDocument } from './image-cache-write'
 import { compactRejection, compactVerdict, photoFailure, photoModelStop } from './photo-observations'
@@ -101,7 +101,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     readJson<Record<string, unknown>>(state(PHOTO_SUBJECTS_FILE)),
   ])
   const watermarkCache = await readJson<Record<string, PhotoScreenEntry>>(state(PHOTO_SCREEN_FILE))
-  const isListed = photoRejections(photoRejected, watermarkCache)
+  const isListed = photoRejections(await expandWholePhotoRejections(content, photoRejected, watermarkCache), watermarkCache)
   const initialLooks = await readSecondLook(root)
   const initialClears = photoClears(initialLooks)
   const lookedBefore = deadLooked({ screen: cache, check, subjects, secondLook: initialLooks })
@@ -153,7 +153,13 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
         const rejection = entry && (entry[1].startsWith('dead:') ||
           (entry[1].startsWith('waiting:') && record && !cleared(url) &&
             ((record.off && record.why.startsWith('dead:')) || cache[url]?.dead === true || receipts[url] === true))) ? entry[1] : undefined
-        if (entry && !rejection) continue
+        if (entry && !rejection) {
+          if (entry[1].startsWith('waiting:') && !cleared(url) && (cache[url]?.dead === true || receipts[url] === true)) {
+            if (!deferred.has(url)) report.pendingTakeOffs++
+            deferred.add(url)
+          }
+          continue
+        }
         const agreement = rejection?.startsWith('dead:') ? undefined : agreedDead(url)
         const alreadyDead = !!rejection || !!agreement || ((cache[url]?.dead === true || receipts[url] === true) && !cleared(url))
         if (!alreadyDead && looked(url)) continue
@@ -164,7 +170,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       }
     }
     for (const [url, receipt] of Object.entries(receipts)) {
-      if (receipt !== true || knownDead.has(url) || (cleared(url) && !isListed(url)?.[1].startsWith('dead:'))) continue
+      if (receipt !== true || knownDead.has(url) || deferred.has(url) || (cleared(url) && !isListed(url)?.[1].startsWith('dead:'))) continue
       knownDead.set(url, { key: url, url, files: [], rejection: isListed(url)?.[1] })
     }
     if (!knownDead.size && (!o.limit || !photos.size)) {
@@ -376,6 +382,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       const { page } = await readPage(file)
       if (it.video) page.videos = (page.videos ?? []).filter(v => v.youtubeId !== it.video)
       else {
+        if (reviewUrl && file.startsWith(join(content, 'glossary') + '/')) continue
         const prior = page.photos ?? []
         if (prior.some(remove)) {
           page.photos = prior.filter(p => !remove(p))

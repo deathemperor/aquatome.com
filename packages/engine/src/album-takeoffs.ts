@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import type { PhotoRejection } from '@aq/schema'
+import { photoKey, type PhotoRejection } from '@aq/schema'
 import { writePhotoState } from './photo-state'
 import { writeImageCache } from './image-cache-write'
 import { readSecondLook, waitingEntry } from './last-photo'
@@ -41,10 +41,10 @@ export async function recordListedAlbumTakeOffs(root: string, urls: Iterable<str
     const entry = listed(url)
     if (!entry) return []
     const [address, reason] = entry
-    if (reason.startsWith('dead:')) return [address]
+    if (reason.startsWith('dead:')) return [url]
     const mark = marks[address]
     return mark && reason === waitingEntry(mark.why) &&
-      (mark.why.startsWith('dead:') || dead?.[address]?.dead || dead?.[url]?.dead) ? [address] : []
+      (mark.why.startsWith('dead:') || dead?.[address]?.dead || dead?.[url]?.dead) ? [url] : []
   })
   if (removed.length) await recordAlbumTakeOffs(root, removed)
 }
@@ -75,26 +75,31 @@ export async function completeAlbumReceipts(root: string, completed: string[], i
   const receipts = await albumReceipts(root)
   const batches = await readBatches(root)
   const acknowledged = new Set((await readdir(ackDir(root)).catch(missing)) ?? [])
-  const covered = new Set(batches.filter(batch => acknowledged.has(batch.id)).flatMap(batch => batch.urls))
+  const identity = (url: string) => photoKey(url) ?? url
+  const covered = new Set(batches.filter(batch => acknowledged.has(batch.id)).flatMap(batch => batch.urls.map(identity)))
   for (const url of ignored) if (receipts[url] === true) delete receipts[url]
-  const ready = new Set([...completed, ...batches.flatMap(batch => batch.urls)].filter(url => !covered.has(url)))
+  const ready = new Map<string, string>()
+  for (const url of [...completed, ...batches.flatMap(batch => batch.urls)].sort()) {
+    const key = identity(url)
+    if (!covered.has(key) && !ready.has(key)) ready.set(key, url)
+  }
   const report: Batch[] = []
   // A committed batch keeps the membership its ID names. A simultaneous overlapping batch contributes only the URLs
   // still due, under a new ID when needed.
   for (const batch of batches) {
-    if (!batch.urls.every(url => ready.has(url))) continue
+    if (!batch.urls.every(url => ready.has(identity(url)))) continue
     report.push(batch)
-    for (const url of batch.urls) ready.delete(url)
+    for (const url of batch.urls) ready.delete(identity(url))
   }
-  const rest = [...ready].sort()
+  const rest = [...ready.values()].sort()
   for (let start = 0; start < rest.length; start += 30) {
     const urls = rest.slice(start, start + 30), id = hash(urls)
     await mkdir(batchDir(root), { recursive: true })
     await writeImageCache(join(batchDir(root), id), `${JSON.stringify(urls)}\n`)
     report.push({ id, urls })
   }
-  const assigned = new Map([...batches, ...report].flatMap(batch => batch.urls.map(url => [url, batch.id] as const)))
-  for (const url of completed) if (assigned.has(url)) receipts[url] = { batch: assigned.get(url)! }
+  const assigned = new Map([...batches, ...report].flatMap(batch => batch.urls.map(url => [identity(url), batch.id] as const)))
+  for (const url of completed) if (assigned.has(identity(url))) receipts[url] = { batch: assigned.get(identity(url))! }
   if (completed.length || ignored.length) await writePhotoState(receiptFile(root), receipts)
   return report
 }

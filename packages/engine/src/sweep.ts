@@ -1159,9 +1159,12 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   for (const file of [...(await shownIn('species')), ...(await shownIn('plants')), ...(await shownIn('breeds')), ...galleryFiles, ...(await shownIn('guides')), ...(await everyJson('equipment')), ...glossaryFiles]) {
     const raw = await readFile(file, 'utf8').catch(() => null)
     if (!raw) continue
-    const data = JSON.parse(raw) as { photos?: unknown; video?: { figures?: { photo?: { url?: string }; moments?: { url?: string }[] }[] } }
-    const protectedParts = new Set(file.includes('/guides/') ? (data.video?.figures ?? []).flatMap(part => [part.photo, ...(part.moments ?? [])])
-      .flatMap(photo => photo?.url && rejectedAt(photo.url)?.[1].startsWith('waiting:') ? [photo.url] : []) : [])
+    type Ref = { url?: string }
+    const data = JSON.parse(raw) as { photos?: Ref[]; video?: { figures?: { photo?: Ref; moments?: Ref[] }[] }; kinds?: { photo?: Ref }[] }
+    const protectedPhotos = file.includes('/guides/')
+      ? (data.video?.figures ?? []).flatMap(part => [part.photo, ...(part.moments ?? [])])
+      : glossaryFiles.includes(file) ? [...(data.photos ?? []), ...(data.kinds ?? []).map(kind => kind.photo)] : []
+    const protectedParts = new Set(protectedPhotos.flatMap(photo => photo?.url && rejectedAt(photo.url)?.[1].startsWith('waiting:') ? [photo.url] : []))
     const places = new Map<string, Stood[]>()
     const canCapture = !!entriesDir()
     const remove = (url: string) => {
