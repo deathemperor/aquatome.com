@@ -30,6 +30,13 @@ test('the same new page from two sources: both sources\' figures, places, sectio
   })
 })
 
+test('a restored lead and its next photo stay together before their shared anchor', () => {
+  const lead = { url: 'lead' }, next = { url: 'next' }, tail = { url: 'tail' }
+  const base = { photos: [tail] }
+  expect(merge3(base, { photos: [tail, lead, next] }, { photos: [lead, next, tail] }))
+    .toEqual({ photos: [lead, next, tail] })
+})
+
 test('a restored lead keeps its position when main added a photo during the restore', () => {
   const head = { url: 'restored', author: 'Sample Credit' }
   const tail = { url: 'tail' }

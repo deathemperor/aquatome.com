@@ -111,14 +111,18 @@ function mergeList(base, ours, theirs, gone) {
   const mains = new Set(ko.filter(k => !inBase.has(k) && !t.has(k)))
   theirs.forEach((x, i) => {
     const k = kt[i]
-    if (b.has(k) || o.has(k)) return // there already, or main took it off
+    if (b.has(k) || (o.has(k) && !isPicture(x))) return
+    // Both sides put this picture back. Use the run's position and keep the picture already merged.
+    const existing = at.indexOf(k)
+    const picture = existing < 0 ? x : out.splice(existing, 1)[0]
+    if (existing >= 0) at.splice(existing, 1)
     let pos = 0
     for (let j = i - 1; j >= 0; j--) {
       const before = at.indexOf(kt[j])
       if (before >= 0) { pos = before + 1; break }
     }
     while (pos < at.length && mains.has(at[pos])) pos++
-    out.splice(pos, 0, x)
+    out.splice(pos, 0, picture)
     at.splice(pos, 0, k)
   })
   return out.every(x => isPicture(x) && typeof x.t === 'number') ? out.sort((p, q) => p.t - q.t) : out

@@ -6,7 +6,7 @@ import { homedir } from 'node:os'
 import { dirname, join, relative } from 'node:path'
 import { machine } from './ceiling'
 import { compactRejection } from './photo-observations'
-import { writeImageCache } from './image-cache-write'
+import { replacePhotoDocument, writeImageCache } from './image-cache-write'
 import { writePhotoState } from './photo-state'
 
 /**
@@ -626,6 +626,7 @@ export async function putBackCleared(root: string, history: History, at = today(
     }
     mark.back = at
   }
+  const earlierOrders = new Map<string, string[][]>()
   restore: for (const u of due) {
     const entry = rejected[u]
     if (entry !== undefined && entry !== waitingEntry(sl[u]!.why)) {
@@ -718,15 +719,19 @@ export async function putBackCleared(root: string, history: History, at = today(
         into.photo = p.photo
       } else {
         const photos = Array.isArray(into[slot]) ? into[slot]! : (into[slot] = [])
-        if (photos.some(x => typeof x?.url === 'string' && samePhoto(x.url))) continue
+        const earlier = earlierOrders.get(placeKey(p)) ?? []
         const current = photos.map(photo => String(photo?.url))
-        const order = p.order ?? []
-        const position = order.indexOf(String(p.photo.url))
+        const order = earlier.find(order => order.includes(address) && order.some(url => url !== address && current.includes(url))) ?? p.order ?? []
+        if (p.order?.length) {
+          earlier.push(p.order)
+          earlierOrders.set(placeKey(p), earlier)
+        }
+        if (current.some(samePhoto)) continue
+        const position = order.indexOf(address)
         const index = photoPosition(current, order, position >= 0 ? position : p.index, p.index)
         photos.splice(index, 0, p.photo)
       }
-      const mode = (await stat(file)).mode & 0o777
-      await writeImageCache(file, `${JSON.stringify(doc, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`, mode)
+      await replacePhotoDocument(file, `${JSON.stringify(doc, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
       out.back.push(`${p.file}: ${address}`)
       if (guideId) parts.lift(slot === 'photo' ? String(p.photo.sourceUrl ?? '') : address, guideId)
     }

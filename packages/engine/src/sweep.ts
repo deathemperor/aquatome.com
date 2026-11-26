@@ -1,4 +1,5 @@
 import { compactRejection } from './photo-observations'
+import { replacePhotoDocument } from './image-cache-write'
 import { writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
@@ -13,7 +14,7 @@ import { droppedName, FISH_NAMES, KIND_PASSAGES, ownWords, type FishName, type K
 import { withLNumber } from './l-numbers'
 import { pickStands, readPersonYes } from './person-yes'
 import { EMPTY_CAP, refusedOn, type PhotoVerdict } from './photo-check'
-import { readPhotoWaits } from './photo-visibility'
+import { permittedPhotoSource, readPhotoWaits } from './photo-visibility'
 import { CAPTIONED } from './captions'
 import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmails, dropEmailsDeep, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, fixTranslation, hasEmail, isAdPoster, isMediaFile, mayHoldEmail, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields, type PageKind } from './pages'
@@ -40,7 +41,7 @@ import { readVideoRejected } from './videos'
 import { dropNonCommercial, orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 import { rejectedEntry } from './photos'
-import { captureWaiting, gitHistory, holdForSecondLook, listAgreed, looks, mendWaiting, notePlaces, placesIn, putBackCleared, readSecondLook, unlistCleared, type History, type Stood } from './last-photo'
+import { captureWaiting, entriesDir, gitHistory, holdForSecondLook, listAgreed, looks, mendWaiting, notePlaces, placesIn, putBackCleared, readSecondLook, unlistCleared, type History, type Stood } from './last-photo'
 import { keptCapOwn, keptLast, keptMarks } from './own-mark'
 import { ageOf, grownFirst, grownHead } from './young-heads'
 import { namedOn, namedOrder, passesHead } from './photo-named'
@@ -1148,15 +1149,17 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     if (!raw) continue
     const data = JSON.parse(raw) as { photos?: unknown }
     const places = new Map<string, Stood[]>()
-    placesIn(root, file, data, url => listed(url) ? remember(url) : undefined, places)
+    const canCapture = !!entriesDir()
+    const remove = (url: string) => listed(url) && (canCapture || !remember(url))
+    placesIn(root, file, data, url => remove(url) ? remember(url) : undefined, places)
     const removed: string[] = []
-    stripPhotos(data, listed, removed, [], keepsVersion)
+    stripPhotos(data, remove, removed, [], keepsVersion)
     if (!removed.length) continue
     const g = data as { kinds?: { photo?: unknown }[] }
     if (glossaryFiles.includes(file) && Array.isArray(g.kinds)) { g.kinds = g.kinds.filter(k => k.photo); if (!g.kinds.length) delete g.kinds }
     await notePlaces(root, places)
     for (const url of removed) report.again.push(`${file.slice(content.length + 1)}: ${url} (${compactRejection(listedWhy(url))})`)
-    await write(file, raw, data)
+    await replacePhotoDocument(file, `${JSON.stringify(data, null, indentOf(raw))}\n`)
     changed(file.slice(content.length + 1))
   }
   // A photo the check refused stays off: a Seriously Fish read or the monthly backfill puts back what its source still
@@ -1173,8 +1176,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     type Doc = { photos?: (Photo & { unchecked?: boolean })[] }
     const sources = JSON.parse(await readFile(join(content, 'sources.json'), 'utf8').catch(() => '{}')) as Record<string, SourceInfo>
     const shown = (p: Photo) => publicPhotoVersion(p, o.switches ?? IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
-    const own = (data: Doc, album = false) => (data.photos ?? []).flatMap(p => {
-      const version = !p.generated && !(album && p.unchecked) && shown(p)
+    const own = (data: Doc, album = false, showing = false) => (data.photos ?? []).flatMap(p => {
+      const version = !p.generated && !(album && p.unchecked) && (!showing || permittedPhotoSource(p, sources)) && shown(p)
       return version ? [version] : []
     })
     // A photo held for a second look, or one it cleared, stays (last-photo.ts).
@@ -1188,13 +1191,13 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       if (off.size) plan.push({ file, id, raw, data, off })
     }
     const waitsFor = plan.length ? await readPhotoWaits(root) : () => false
-    const losesEveryPhoto = (x: (typeof plan)[number]) => !own(x.data, x.file.endsWith(`gallery/${x.id}.json`)).some(p => !x.off.has(p.url) && !waitsFor(p.url))
+    const losesEveryPhoto = (x: (typeof plan)[number]) => !own(x.data, x.file.endsWith(`gallery/${x.id}.json`), true).some(p => !x.off.has(p.url) && !waitsFor(p.url))
     const emptying = plan.filter(x => x.file.endsWith('entity.json') && losesEveryPhoto(x))
     // A page with none of its own whose album would go whole is left with nothing too (the chief of staff, 2026-11-14).
     for (const x of plan) {
       if (!x.file.endsWith(`gallery/${x.id}.json`) || !losesEveryPhoto(x)) continue
       const page = JSON.parse(await readFile(join(content, kindOf.get(x.id)!, x.id, 'entity.json'), 'utf8').catch(() => '{}')) as Doc
-      if (!own(page).some(p => !waitsFor(p.url))) emptying.push(x)
+      if (!own(page, false, true).some(p => !waitsFor(p.url))) emptying.push(x)
     }
     // The pages the check's last run held (photo-check.ts writes them, page → true), and this run's own past the cap. A
     // held file the sweep can't read holds every page: nothing comes off until a run of the check writes it again.

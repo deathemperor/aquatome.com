@@ -1,4 +1,5 @@
 import { piece } from './pieces'
+import { replacePhotoDocument } from './image-cache-write'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -14,7 +15,7 @@ import { namedOn, namedOrder, SPECIES, type Named } from './photo-named'
 import { keptCap, keptMarks } from './own-mark'
 import { isRejected, rejectedEntry, unfitCommons } from './photos'
 import { shouldStripPhoto } from './watermarks'
-import { captureWaiting, CLEARED_VERDICT, looks, notePlaces, placesIn, readSecondLook, withoutSettledWaits, type Stood } from './last-photo'
+import { captureWaiting, entriesDir, CLEARED_VERDICT, looks, notePlaces, placesIn, readSecondLook, withoutSettledWaits, type Stood } from './last-photo'
 import { EMPTIED_FILE, readList } from './emptied-pages'
 import { readPriorityFish } from './priority-fish'
 import { contactSheet } from './video-images'
@@ -811,7 +812,8 @@ async function dropRejected(root: string, content: string, rejected: ReturnType<
   for (const f of (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json'))) {
     const file = join(content, 'gallery', f)
     const g = JSON.parse(await readFile(file, 'utf8')) as { photos: Photo[] }
-    const blocked = (url: string) => !!rejected(url)
+    const canCapture = !!entriesDir()
+    const blocked = (url: string) => !!rejected(url) && (canCapture || !waiting(url))
     const keep = g.photos.filter(p => !shouldStripPhoto(p, blocked, (url, original, blockedOriginal) =>
       /^(?:dead|people|waiting): /.test(rejected(url)?.[1] ?? '') &&
       (!blockedOriginal || rejected(original)?.[1].startsWith('waiting:') === true),
@@ -821,7 +823,7 @@ async function dropRejected(root: string, content: string, rejected: ReturnType<
     const removed = new Set(g.photos.filter(p => !keep.includes(p)).map(p => p.url))
     placesIn(root, file, g, url => removed.has(url) ? waiting(url) : undefined, stood)
     await notePlaces(root, stood)
-    await writeFile(file, `${JSON.stringify({ ...g, photos: keep }, null, 2)}\n`)
+    await replacePhotoDocument(file, `${JSON.stringify({ ...g, photos: keep }, null, 2)}\n`)
   }
 }
 
