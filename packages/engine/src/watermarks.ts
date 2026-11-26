@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
-import { IMAGE_SWITCHES, LOGO_FOLDERS, logoFolder, ocrHit } from '@aq/schema'
+import { deadScreenPhotoUrls, IMAGE_SWITCHES, LOGO_FOLDERS, logoFolder, ocrHit, type Photo } from '@aq/schema'
 import { rememberMarkedPhotos } from './marked-photos'
 import { compactScreen, summarizeOcr, PHOTO_MARK_KINDS, PHOTO_POSITIONS, photoFailure, photoModelStop, type CompactScreen } from './photo-observations'
 import { writePhotoState } from './photo-state'
@@ -132,12 +132,16 @@ function urlsIn(x: unknown, out: Set<string>, from: Map<string, Set<string>>) {
  * with neither goes too), equipment type photos. An equipment hero is required: it becomes the first type photo left,
  * and stays (`kept`) when there is none.
  */
-export function stripPhotos(x: unknown, blocked: (url: string) => boolean, removed: string[], kept: string[]) {
-  if (Array.isArray(x)) { for (const v of x) stripPhotos(v, blocked, removed, kept); return }
+export function stripPhotos(x: unknown, blocked: (url: string) => boolean, removed: string[], kept: string[], preserveOriginal?: (url: string, original: string, blockedOriginal: boolean) => boolean) {
+  if (Array.isArray(x)) { for (const v of x) stripPhotos(v, blocked, removed, kept, preserveOriginal); return }
   if (!x || typeof x !== 'object') return
   const o = x as Record<string, unknown>
-  for (const v of Object.values(o)) stripPhotos(v, blocked, removed, kept)
-  const drop = (p: unknown) => isRef(p) && blocked(p.url) && removed.push(p.url) > 0
+  for (const v of Object.values(o)) stripPhotos(v, blocked, removed, kept, preserveOriginal)
+  const drop = (p: unknown) => {
+    if (!isRef(p) || !blocked(p.url)) return false
+    const original = preserveOriginal && deadScreenPhotoUrls(p as Photo)[1]
+    return (!original || !preserveOriginal?.(p.url, original, blocked(original))) && removed.push(p.url) > 0
+  }
   for (const k of ['photos', 'moments']) if (Array.isArray(o[k])) o[k] = (o[k] as unknown[]).filter(p => !drop(p))
   if (drop(o.photo)) delete o.photo
   if (Array.isArray(o.figures)) o.figures = (o.figures as { moments?: unknown[]; photo?: unknown }[]).filter(f => f.moments?.length || f.photo)

@@ -8,6 +8,7 @@ import { loadAll } from '@aq/schema'
 import { LlmError } from '../src/claude'
 import { screenDead, type DeadScreenDeps } from '../src/dead-screen'
 import { putBackCleared } from '../src/last-photo'
+import { sweep } from '../src/sweep'
 import { NEW_PHOTO_SHEETS, screenNewPhotos } from '../src/faces'
 
 // The faces step screens the photos new to it for dead fish too, before the push (the chief of staff, 21 Nov 2026).
@@ -178,7 +179,7 @@ test("the screen owes every photo of a fish or plant page that no look has judge
   // A guide's photos are the guides' own looks' (guide-photos.ts), not this screen's.
   await put('content/guides/g/entity.json', { id: 'g', photos: [photo('g-read')] })
   // Every one read by the face finder before this run: none is new to it.
-  await put('engine-state/_photo-faces.json', Object.fromEntries(['d-read', 'd-asked', 'd-cleared', 'd-read-dead', 'p-read', 'g-read'].map(n => [m(n), 0])))
+  await put('engine-state/_photo-faces.json', Object.fromEntries(['d-read', 'd-asked', 'd-cleared', 'd-read-dead', 'p-read', 'p-original-dead', 'g-read'].map(n => [m(n), 0])))
   await put('engine-state/_photo-subjects.json', { [m('d-asked')]: { d: { ok: 'yes', typical: true, note: '', logo: false } } })
   await put('engine-state/_photo-second-look.json', { [m('d-cleared')]: { why: 'watermark: withheld [sha256:' + '0'.repeat(64) + ']', step: 'the watermark screen', pages: ['species/d'], at: '2026-11-20', look: { said: 'clear', by: 'the chief of staff', on: '2026-11-21' } } })
   const { d, sent } = deps()
@@ -322,6 +323,83 @@ test('a face flagged on a stored alteration leaves the passing original in the p
   expect(page.photos).toEqual([expect.objectContaining({ url: original.url, author: original.author })])
   expect(view.galleries.alpha).toEqual([expect.objectContaining({ url: original.url, author: original.author })])
   expect(view.photoWaits!(flagged.url)).toBe(true)
+})
+
+test('a fallback original waits for its own face result, and a face on it stays off every public copy', async () => {
+  const original = photo('original-face')
+  const altered = {
+    ...original, url: m('altered-clean'),
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'c'.repeat(64) }],
+    original: { url: original.url, width: original.width, height: original.height },
+  }
+  const { root, state, publicView } = await publicFixture([altered], [altered], [altered.url, original.url])
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [altered.url]: { dead: false }, [original.url]: { dead: false } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [altered.url]: 0 }))
+  const hidden = async () => {
+    const content = await publicView()
+    expect(content.species.find(p => p.id === 'alpha')?.photos).toEqual([])
+    expect(content.galleries.alpha).toBeUndefined()
+    expect(content.photoWaits!(original.url)).toBe(true)
+  }
+  await hidden()
+  expect((await run(root, deps({ unreadable: original.url }).d)).faces.failed).toHaveLength(1)
+  await hidden()
+  const read = await run(root, deps().d)
+  expect(read.faces.screened).toEqual([original.url])
+  expect(read.faces.firstOff).toEqual([`${original.url}: species/alpha`])
+  await hidden()
+})
+
+test.each(['face detection', 'the dead-fish screen'])('a sibling waiting on its watermark result cannot displace the last passed photo in %s', async step => {
+  const flagged = photo(step === 'face detection' ? 'passed-face' : 'passed-dead')
+  const pending = photo('watermark-pending')
+  const { root, state, publicView } = await publicFixture([flagged, pending], [], [flagged.url])
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [pending.url]: { dead: false } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [pending.url]: 0, ...(step === 'face detection' ? {} : { [flagged.url]: 0 }) }))
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [flagged.url]: {
+    ok: 'yes', person: false, ...(step === 'face detection' ? { logo: false } : {}),
+  } }))
+  await run(root, deps().d)
+  const view = await publicView()
+  expect(view.species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([flagged.url])
+  expect(view.photoWaits!(pending.url)).toBe(true)
+  expect((await json(root, 'engine-state/_photo-second-look.json'))[flagged.url]).toMatchObject({ step, pages: ['species/alpha'] })
+})
+
+test('a rejection for the stored URL on another page preserves the cleared original across retries and sweep', async () => {
+  const original = photo('original-clear')
+  const stored = photo('stored-dead')
+  const alteration = {
+    ...stored,
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'd'.repeat(64) }],
+    original: { url: original.url, width: original.width, height: original.height },
+  }
+  const { root, state, file, publicView } = await publicFixture([alteration], [alteration], [stored.url, original.url])
+  const entity = JSON.parse(await readFile(file, 'utf8'))
+  const other = join(root, 'content/species/second')
+  await mkdir(other)
+  await writeFile(join(other, 'entity.json'), JSON.stringify({ ...entity, id: 'second', photos: [stored] }))
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [original.url]: { ok: 'yes', person: false, logo: false } }))
+  await writeFile(join(state, '_dead-screen.json'), '{}')
+  expect((await run(root, deps().d)).dead?.firstOff).toContain(`${stored.url}: species/second`)
+  await run(root, deps().d)
+  await sweep(root, { history: async () => [] })
+  const content = await publicView()
+  expect(content.species.find(p => p.id === 'alpha')?.photos).toEqual([expect.objectContaining({ url: original.url, author: original.author })])
+  expect(content.galleries.alpha).toEqual([expect.objectContaining({ url: original.url, author: original.author })])
+  expect(content.photoWaits!(stored.url)).toBe(true)
+})
+
+test('the standalone screen asks about the displayed original even when the stored head has a verdict', async () => {
+  const stored = photo('stored'), original = photo('ordinary-original')
+  const root = await onePage([{
+    ...stored, altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'e'.repeat(64) }],
+    original: { url: original.url, width: original.width, height: original.height },
+  }])
+  await writeFile(join(root, 'engine-state/_dead-screen.json'), JSON.stringify({ [stored.url]: { dead: false } }))
+  const { d, sent } = deps()
+  expect((await screenDead(root, d.dead, { limit: 1 })).judged).toBe(1)
+  expect(sent).toEqual([original.url])
 })
 
 test('an incomplete cached verdict waits on the site and gets a fresh screen', async () => {

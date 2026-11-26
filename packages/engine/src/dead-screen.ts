@@ -1,4 +1,4 @@
-import { askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadPhotoOff, deadScreenPhotoUrls, facePhotoOff, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, publicPhotoVersion, facePhotoStatus, type Photo, type SourceInfo } from '@aq/schema'
+import { askedByCheckOf, awaitsScreen, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadPhotoOff, deadScreenPhotoUrls, facePhotoOff, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, publicPhotoVersion, facePhotoStatus, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
 import { compactVerdict, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
@@ -89,6 +89,8 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const report = { sheets: 0, judged: 0, dead: [] as string[], held: [] as string[], firstOff: [] as string[], failed: [] as string[], left: 0, stopped: '' }
 
   // Videos first (the owner's find), then main photos; each picture once, with every page that shows it.
+  const sources = (await readJson<Record<string, SourceInfo>>(join(content, 'sources.json'))) ?? {}
+  const version = (p: Photo) => publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
   const videos = new Map<string, Item>()
   const photos = new Map<string, Item>()
   for (const kind of ['species', 'plants']) {
@@ -102,7 +104,9 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
         it.files.push(file)
         videos.set(key, it)
       }
-      const urls = o.photos ? [...new Set((e?.photos ?? []).flatMap(deadScreenPhotoUrls))].filter(u => o.photos!.has(u)) : [e?.photos?.[0]?.url]
+      const head = e?.photos?.[0]
+      const urls = o.photos ? [...new Set((e?.photos ?? []).flatMap(deadScreenPhotoUrls))].filter(u => o.photos!.has(u))
+        : [head && version(head)?.url]
       for (const url of urls) {
         if (!url || url in photoRejected || lookedBefore(url)) continue
         const it = photos.get(url) ?? { key: url, url, files: [] }
@@ -164,19 +168,18 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const going = new Set(off.filter(x => !x.video && (sl.open(x.url) || (sl.waiting(x.url) && !passed.has(x.url)))).map(x => x.url))
   // Photos already listed never-again leave every page anyway (the sweep), so they count as going.
   const last = new Map<string, string[]>()
-  const sources = going.size ? (await readJson<Record<string, SourceInfo>>(join(content, 'sources.json')) ?? {}) : {}
-  const version = (p: Photo) => publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
   if (going.size) {
-    const [pages, owned, listed, faces] = await Promise.all([
+    const [pages, owned, listed, faces, watermarks] = await Promise.all([
       pagesShowing(content, p => version(p)?.url),
       ownDeadPhotoUrls(content),
       o.photos ? undefined : readJson<Record<string, string>>(state(DEAD_OWED_FILE)),
       readJson<Record<string, number>>(state(FACES_FILE)),
+      readJson<Record<string, PhotoScreenEntry>>(state(PHOTO_SCREEN_FILE)),
     ])
     const looked = deadLooked({ screen: cache, check, subjects, secondLook })
     const { unread, altered: flaggedAlterations } = await facePhotoStatus(content, faces)
     const offPage = (u: string) => going.has(u) || u in photoRejected || deadPhotoOff(u, oldCache, secondLook) ||
-      !!listed?.[u] || (owned.has(u) && !looked(u)) || unread.has(u) || (flaggedAlterations.has(u) && facePhotoOff(u, faces, secondLook))
+      !!listed?.[u] || (owned.has(u) && !looked(u)) || unread.has(u) || (flaggedAlterations.has(u) && facePhotoOff(u, faces, secondLook)) || (!!watermarks && awaitsScreen(u, watermarks[u]))
     for (const [url, refs] of lastPhotos(pages, offPage)) if (going.has(url)) last.set(url, refs)
   }
   // Only one that passed the check before is held; this verdict, on one that never did, takes it off, marked (last-photo.ts).

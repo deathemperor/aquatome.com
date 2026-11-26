@@ -125,8 +125,11 @@ export async function facePhotoStatus(root: string, faces?: Record<string, unkno
   const unread = new Set<string>(), altered = new Set<string>()
   if (!faces) return { unread, altered }
   for await (const photo of entityPhotos(root, kinds)) {
-    if (!Object.hasOwn(faces, photo.url)) unread.add(photo.url)
-    else if (typeof faces[photo.url] === 'number' && Number(faces[photo.url]) > 0 && deadScreenPhotoUrls(photo).length > 1) altered.add(photo.url)
+    const versions = deadScreenPhotoUrls(photo)
+    for (const url of versions) {
+      if (!Object.hasOwn(faces, url)) unread.add(url)
+      else if (versions.length > 1 && typeof faces[url] === 'number' && Number(faces[url]) > 0) altered.add(url)
+    }
   }
   return { unread, altered }
 }
@@ -187,7 +190,7 @@ export function facePhotoOff(url: string, faces?: Record<string, unknown>, secon
 export function deadPhotoOff(url: string, screen?: Record<string, unknown>, secondLook?: Record<string, unknown>, rejected?: Record<string, unknown>): boolean {
   const why = rejected?.[url]
   const mark = secondLook?.[url] as LookMark | undefined
-  if (typeof why === 'string' && (why.startsWith('dead:') || why.startsWith('waiting:'))) return true
+  if (typeof why === 'string' && (why.startsWith('dead:') || why.startsWith('people:') || why.startsWith('waiting:'))) return true
   const look = photoLookAnswer(mark)
   if (look?.said === 'clear') return false
   if (mark?.off === true && typeof mark.why === 'string' && mark.why.startsWith('dead:')) return true
