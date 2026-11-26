@@ -2,7 +2,7 @@ import { piece, PieceAdmissionError } from './pieces'
 import { errorKind } from './state'
 import { compactRejection, compactVerdict, modelFailureKind, photoHints, photoReason, deadNote, peopleNote, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
 import { writePhotoState } from './photo-state'
-import { writeImageCache } from './image-cache-write'
+import { replacePhotoDocument, writeImageCache } from './image-cache-write'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -1070,7 +1070,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   await writePhotoState(rejectedFile, now)
   // Keep the rejection durable during the page edits. A subject verdict may release the dead-fish wait, so
   // publish it only after every edit has succeeded.
-  for (const [file, out] of edits) await writeFile(file, out)
+  for (const [file, out] of edits) await replacePhotoDocument(file, out)
   await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort()))
   // One another step listed meanwhile keeps that step's reason, and no id from this run.
   if (kinded.length) {

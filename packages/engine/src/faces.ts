@@ -1,4 +1,5 @@
 import { execFile } from 'node:child_process'
+import { replacePhotoDocument } from './image-cache-write'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -145,7 +146,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
     removed.push(...(e.photos ?? []).filter(p => !keep.includes(p)).map(p => `${at}: ${p.url}`), ...figures.map(f => `${at}: ${f.photo!.url}`))
     if (e.photos) e.photos = keep
     for (const f of figures) delete f.photo
-    await writeFile(file, `${JSON.stringify(e, null, 2)}\n`)
+    await replacePhotoDocument(file, `${JSON.stringify(e, null, 2)}\n`)
   }
   await writeFile(cacheFile, `${JSON.stringify(Object.fromEntries(Object.entries(cache).sort()), null, 2)}\n`)
   return { checked: todo.length - failed.length, fresh: todo, screened: [...screened], removed, held, firstOff: offFirst, failed }

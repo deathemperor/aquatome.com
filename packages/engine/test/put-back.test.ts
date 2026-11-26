@@ -496,6 +496,73 @@ test('an unparseable destination keeps its clear pending and its private entry',
   expect(await keptOf(u)).not.toBeNull()
 })
 
+test('a first refusal captures the removed copy and does not restore an independently removed wrapper', async () => {
+  const { r, git, clear } = await runRepo()
+  const stored = 'a-dead', original = 'b-live', other = 'content/species/bbb/entity.json'
+  await page(r, 'aaa', [stored])
+  await page(r, 'bbb', [stored])
+  const doc = await json(r, other)
+  const wrapper = { ...photo(stored), altered: [{ method: 'lanczos3-upscale' }], original: { url: url(original), width: 960, height: 640 } }
+  await writeFile(join(r, other), JSON.stringify({ ...doc, photos: [wrapper] }))
+  await screenDead(r, deadModel(), { limit: 48, photos: new Set([url(stored)]) })
+  const mark = (await json(r, SL))[url(stored)]
+  expect(mark.left).toEqual([expect.objectContaining({ file: A })])
+  expect((await json(r, other)).photos).toEqual([wrapper])
+  git('add', '-A'); git('commit', '-qm', 'marked direct copy')
+  await writeFile(join(r, other), JSON.stringify({ ...doc, photos: [] }))
+  git('add', '-A'); git('commit', '-qm', 'independently removed wrapper')
+
+  await clear()
+  await sweep(r, { history: gitHistory(r) })
+  expect((await json(r, other)).photos).toEqual([])
+  expect(await photosOf(r, 'aaa')).toEqual([stored])
+})
+
+test('the sweep leaves a later waiting album entry in place until a checkout can capture it', async () => {
+  const { r, git, clear } = await runRepo({ aaa: [] })
+  const albumFile = 'content/gallery/aaa.json', u = url('a-new')
+  await page(r, 'aaa', ['a-new'])
+  await screenDead(r, deadModel(), { limit: 48 })
+  git('add', '-A'); git('commit', '-qm', 'waiting mark')
+  const album = await json(r, albumFile)
+  await writeFile(join(r, albumFile), JSON.stringify({ ...album, photos: [photo('a-new')] }))
+  git('add', '-A'); git('commit', '-qm', 'later album copy')
+
+  process.env.AQ_PUT_BACK_ENTRIES = 'off'
+  await sweep(r, { history: gitHistory(r) })
+  expect((await json(r, albumFile)).photos).toEqual([photo('a-new')])
+  expect((await json(r, 'engine-state/_photo-rejected.json'))[u]).toMatch(/^waiting: /)
+
+  process.env.AQ_PUT_BACK_ENTRIES = kept
+  await sweep(r, { history: gitHistory(r) })
+  expect((await json(r, albumFile)).photos).toEqual([])
+  git('add', '-A'); git('commit', '-qm', 'captured album removal')
+  await clear()
+  await sweep(r, { history: gitHistory(r) })
+  expect((await json(r, albumFile)).photos).toEqual([photo('a-new')])
+})
+
+test('history-only recovery keeps the lead when separate marks removed photos in sequence', async () => {
+  const { r, git, clear } = await runRepo()
+  const lead = 'a-lead', tail = 'b-tail'
+  await page(r, 'aaa', [lead, tail])
+  git('add', '-A'); git('commit', '-qm', 'original page order')
+  process.env.AQ_PUT_BACK_ENTRIES = 'off'
+  // The photo check can mark each URL even if the other is already hidden by an earlier read.
+  const why = compactRejection('dead: sample')
+  await writeFile(join(r, SL), JSON.stringify({ [url(lead)]: { why, step: 'the photo check', pages: ['species/aaa'], at: today(), off: true } }))
+  await page(r, 'aaa', [tail])
+  git('add', '-A'); git('commit', '-qm', 'first photo removed')
+  const first = await json(r, SL)
+  await writeFile(join(r, SL), JSON.stringify({ ...first, [url(tail)]: { ...first[url(lead)] } }))
+  await page(r, 'aaa', [])
+  git('add', '-A'); git('commit', '-qm', 'second photo removed')
+
+  await clear()
+  await sweep(r, { history: gitHistory(r) })
+  expect(await photosOf(r, 'aaa')).toEqual([lead, tail])
+})
+
 test('history-only recovery restores the original order even for clears sorted by different URLs', async () => {
   const { r, git, clear } = await runRepo()
   const sequence = ['z-lead', 'm-body', 'a-third']

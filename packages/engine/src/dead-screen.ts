@@ -1,4 +1,5 @@
 import { askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoWaitsFor, publicPhotoVersion, rejectedEntry, facePhotoStatus, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { replacePhotoDocument } from './image-cache-write'
 import { compactVerdict, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
@@ -246,7 +247,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   // A retry can always find the owning photo until its removal or hold is durable.
   const left = new Map<string, Stood[]>()
   const newFirst = rejectedEntry(Object.fromEntries([...firstOff.keys()].map(url => [url, holding.get(url)!.why])))
-  for (const [file, edit] of edits) placesIn(root, file, edit.original, url => newFirst(url)?.[0], left)
+  for (const [file, edit] of edits) placesIn(root, file, edit.original, url => edit.page.photos?.some(p => p.url === url) ? undefined : newFirst(url)?.[0], left)
   await holdForSecondLook(root, holding, 'the dead-fish screen', undefined, left)
   const save = (f: string, data: object) => writePhotoState(state(f), data)
   if (off.some(x => x.video)) await save('_video-rejected.json', videoRejected)
@@ -254,7 +255,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   if (report.judged) await save('_dead-screen.json', cache)
   for (const [file, { raw, page }] of edits) {
     const next = `${JSON.stringify(page, null, indentOf(raw))}\n`
-    if (next !== raw) await writeFile(file, next)
+    if (next !== raw) await replacePhotoDocument(file, next)
   }
   return report
 }

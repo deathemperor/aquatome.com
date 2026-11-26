@@ -2,7 +2,7 @@ import { copyFile, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
 import { mirrorPlan } from '@aq/schema'
 import { screenDead, type DeadScreenDeps } from '../src/dead-screen'
 import { dropFacePhotos } from '../src/faces'
@@ -491,7 +491,8 @@ test("a photo marked off at its first verdict with no waiting entry: the sweep w
   // p-dead's entry is missing, so a step put it back on its page; s-dead's waits for another reason; w-mark is listed for a mark.
   const mark = compactRejection('watermark: a logo bottom left')
   await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('o-listed')]: compactRejection('dead: on ice'), [url('s-dead')]: waitingEntry('people: another reason'), [url('w-mark')]: mark }))
-  const out = await sweep(r)
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(r, 'private-put-back'))
+  const out = await sweep(r).finally(() => vi.unstubAllEnvs())
   expect(out.waitingBack.sort()).toEqual([url('p-dead'), url('s-dead')])
   const listed = await json(r, 'engine-state/_photo-rejected.json')
   expect(listed[url('p-dead')]).toBe(waitingEntry(p.why))

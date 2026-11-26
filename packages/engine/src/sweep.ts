@@ -1,4 +1,5 @@
 import { compactRejection } from './photo-observations'
+import { replacePhotoDocument } from './image-cache-write'
 import { writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
@@ -40,7 +41,7 @@ import { readVideoRejected } from './videos'
 import { dropNonCommercial, orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 import { rejectedEntry } from './photos'
-import { captureWaiting, gitHistory, holdForSecondLook, listAgreed, looks, mendWaiting, notePlaces, placesIn, putBackCleared, readSecondLook, unlistCleared, type History, type Stood } from './last-photo'
+import { captureWaiting, entriesDir, gitHistory, holdForSecondLook, listAgreed, looks, mendWaiting, notePlaces, placesIn, putBackCleared, readSecondLook, unlistCleared, type History, type Stood } from './last-photo'
 import { keptCapOwn, keptLast, keptMarks } from './own-mark'
 import { ageOf, grownFirst, grownHead } from './young-heads'
 import { namedOn, namedOrder, passesHead } from './photo-named'
@@ -1148,15 +1149,17 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     if (!raw) continue
     const data = JSON.parse(raw) as { photos?: unknown }
     const places = new Map<string, Stood[]>()
-    placesIn(root, file, data, url => listed(url) ? remember(url) : undefined, places)
+    const canCapture = !!entriesDir()
+    const remove = (url: string) => listed(url) && (canCapture || !remember(url))
+    placesIn(root, file, data, url => remove(url) ? remember(url) : undefined, places)
     const removed: string[] = []
-    stripPhotos(data, listed, removed, [], keepsVersion)
+    stripPhotos(data, remove, removed, [], keepsVersion)
     if (!removed.length) continue
     const g = data as { kinds?: { photo?: unknown }[] }
     if (glossaryFiles.includes(file) && Array.isArray(g.kinds)) { g.kinds = g.kinds.filter(k => k.photo); if (!g.kinds.length) delete g.kinds }
     await notePlaces(root, places)
     for (const url of removed) report.again.push(`${file.slice(content.length + 1)}: ${url} (${compactRejection(listedWhy(url))})`)
-    await write(file, raw, data)
+    await replacePhotoDocument(file, `${JSON.stringify(data, null, indentOf(raw))}\n`)
     changed(file.slice(content.length + 1))
   }
   // A photo the check refused stays off: a Seriously Fish read or the monthly backfill puts back what its source still

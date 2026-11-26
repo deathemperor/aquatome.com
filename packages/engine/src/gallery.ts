@@ -1,4 +1,5 @@
 import { piece } from './pieces'
+import { replacePhotoDocument } from './image-cache-write'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -13,7 +14,7 @@ import { cantTellOn, OFF, type PhotoVerdict } from './photo-check'
 import { namedOn, namedOrder, SPECIES, type Named } from './photo-named'
 import { keptCap, keptMarks } from './own-mark'
 import { isRejected, rejectedEntry, unfitCommons } from './photos'
-import { captureWaiting, CLEARED_VERDICT, looks, notePlaces, placesIn, readSecondLook, withoutSettledWaits, type Stood } from './last-photo'
+import { captureWaiting, entriesDir, CLEARED_VERDICT, looks, notePlaces, placesIn, readSecondLook, withoutSettledWaits, type Stood } from './last-photo'
 import { contactSheet } from './video-images'
 import { authorText } from './wiki-author'
 import { WikimediaRefused } from './wikimedia-rest'
@@ -796,12 +797,14 @@ async function dropRejected(root: string, content: string, isRejected: (url: str
   for (const f of (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json'))) {
     const file = join(content, 'gallery', f)
     const g = JSON.parse(await readFile(file, 'utf8')) as { photos: Photo[] }
-    const keep = g.photos.filter(p => !isRejected(p.url))
+    const canCapture = !!entriesDir()
+    const remove = (url: string) => isRejected(url) && (canCapture || !waiting(url))
+    const keep = g.photos.filter(p => !remove(p.url))
     if (keep.length === g.photos.length) continue
     const stood = new Map<string, Stood[]>()
-    placesIn(root, file, g, url => isRejected(url) ? waiting(url) : undefined, stood)
+    placesIn(root, file, g, url => remove(url) ? waiting(url) : undefined, stood)
     await notePlaces(root, stood)
-    await writeFile(file, `${JSON.stringify({ ...g, photos: keep }, null, 2)}\n`)
+    await replacePhotoDocument(file, `${JSON.stringify({ ...g, photos: keep }, null, 2)}\n`)
   }
 }
 
