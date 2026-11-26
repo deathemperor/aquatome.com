@@ -213,7 +213,7 @@ final class TanksFlowTests: XCTestCase {
   // MARK: Helpers
 
   @MainActor func testKeepsAReminderOnItsTankAndCanMarkItDone() {
-    var app = launch("-seed-tanks", "two")
+    var app = launch("-seed-tanks", "two", "-fake-tank-reminder-permission")
     let tank = app.buttons.matching(identifier: "tank").firstMatch
     XCTAssertTrue(tank.waitForExistence(timeout: 5))
     tank.tap()
@@ -224,7 +224,7 @@ final class TanksFlowTests: XCTestCase {
     app.buttons["tank-reminder-save"].tap()
 
     app.terminate()
-    app = launch(reset: false)
+    app = launch(reset: false, "-fake-tank-reminder-permission")
     let first = app.buttons.matching(identifier: "tank").firstMatch
     XCTAssertTrue(first.waitForExistence(timeout: 5))
     first.tap()
@@ -242,6 +242,22 @@ final class TanksFlowTests: XCTestCase {
     app.buttons.matching(identifier: "tank").element(boundBy: 1).tap()
     XCTAssertTrue(app.scrolledDown(to: app.buttons["tank-reminder-add"]).isHittable)
     XCTAssertFalse(app.buttons["tank-reminder"].exists)
+
+    // An existing recurring task can first opt into notifications as it is completed. The stand-in refreshes the
+    // schedule at the same time as the permission request, as a tank sync could.
+    app.buttons["tank-reminder-add"].tap()
+    app.buttons["tank-reminder-repeat"].tap()
+    app.buttons["Hằng tuần"].tap()
+    app.buttons["tank-reminder-save"].tap()
+    XCTAssertTrue(reminder.waitForExistence(timeout: 5))
+    let permission = app.staticTexts["tank-reminder-permission"]
+    XCTAssertEqual(permission.label, "0")
+    reminder.tap()
+    app.switches["tank-reminder-notify"].tap()
+    XCTAssertTrue(app.scrolledDown(to: done).isHittable)
+    done.tap()
+    let asked = NSPredicate(format: "label == %@", "1")
+    XCTAssertEqual(XCTWaiter.wait(for: [XCTNSPredicateExpectation(predicate: asked, object: permission)], timeout: 5), .completed)
   }
 
   private func launch(reset: Bool = true, _ args: String...) -> XCUIApplication {

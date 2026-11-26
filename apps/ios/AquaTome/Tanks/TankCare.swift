@@ -14,8 +14,14 @@ final class TankCare {
   private(set) var notificationsOff = false
   private(set) var schedulingFailed = false
   @ObservationIgnored private let defaults: UserDefaults
+  @ObservationIgnored private var tankNames: [String: String] = [:]
   @ObservationIgnored private var scheduling: Task<Void, Never>?
+  @ObservationIgnored private var askingPermission: Task<Void, Never>?
   @ObservationIgnored private var refreshID = UUID()
+  #if DEBUG
+  let testsPermission = ProcessInfo.processInfo.arguments.contains("-fake-tank-reminder-permission")
+  private(set) var permissionRequests = 0
+  #endif
 
   init(defaults: UserDefaults = .standard) {
     self.defaults = defaults
@@ -24,11 +30,18 @@ final class TankCare {
     catch { unreadable = true }
   }
 
-  func save(_ item: TankReminder, tanks: [Tank], askForPermission: Bool = false) throws {
+  func save(_ item: TankReminder, tanks: [Tank]) throws {
     guard tanks.contains(where: { $0.id == item.tankID }) else { throw SaveError.missingTank }
     try replace(items.filter { $0.id != item.id } + [item])
     UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [Self.noticeID(item)])
-    refresh(tanks: tanks, askForPermission: askForPermission && item.notify)
+    refresh(tanks: tanks)
+    if item.notify && !item.finished {
+      requestPermission()
+      #if DEBUG
+      // Match a sync arriving while the opt-in is waiting for iOS.
+      if testsPermission { refresh(tanks: tanks) }
+      #endif
+    }
   }
 
   func remove(_ item: TankReminder, tanks: [Tank]) throws {
@@ -57,29 +70,46 @@ final class TankCare {
 
   private static func noticeID(_ item: TankReminder) -> String { noticePrefix + item.id.uuidString }
 
-  func refresh(tanks: [Tank], askForPermission: Bool = false) {
+  func refresh(tanks: [Tank]) {
+    tankNames = Dictionary(tanks.map { ($0.id, $0.name) }, uniquingKeysWith: { first, _ in first })
+    reconcileNotices()
+  }
+
+  private var wanted: [TankReminder] {
+    items.filter { $0.notify && !$0.finished && tankNames[$0.tankID] != nil }
+  }
+
+  private func requestPermission() {
+    guard askingPermission == nil else { return }
+    // This task belongs to the user's opt-in. An ordinary sync can replace the schedule without replacing the prompt.
+    askingPermission = Task {
+      let center = UNUserNotificationCenter.current()
+      if await permissionStatus(center) == .notDetermined, !wanted.isEmpty {
+        await authorize(center)
+      }
+      askingPermission = nil
+      reconcileNotices()
+    }
+  }
+
+  private func reconcileNotices() {
     scheduling?.cancel()
     let current = UUID()
     refreshID = current
-    let names = Dictionary(tanks.map { ($0.id, $0.name) }, uniquingKeysWith: { first, _ in first })
-    let wanted = items.filter { $0.notify && !$0.finished && names[$0.tankID] != nil }
+    let names = tankNames
+    let active = wanted
     let detached = items.filter { names[$0.tankID] == nil }.map(Self.noticeID)
     scheduling = Task {
       let center = UNUserNotificationCenter.current()
-      var permission = await center.notificationSettings().authorizationStatus
-      guard !Task.isCancelled else { return }
-      if permission == .notDetermined && askForPermission {
-        _ = try? await center.requestAuthorization(options: [.alert, .sound])
-        permission = await center.notificationSettings().authorizationStatus
-      }
+      let permission = await permissionStatus(center)
       let pending = await center.pendingNotificationRequests()
       guard !Task.isCancelled else { return }
 
       let allowed = permission == .authorized || permission == .provisional || permission == .ephemeral
-      notificationsOff = !wanted.isEmpty && permission == .denied
+      notificationsOff = !active.isEmpty && permission == .denied
       schedulingFailed = false
       let now = Date()
-      let future = allowed ? wanted.filter { $0.due > now }.sorted { $0.due < $1.due } : []
+      let future = allowed ? active.filter { $0.due > now }.sorted { $0.due < $1.due } : []
       let ids = Set(future.map(Self.noticeID))
       let obsolete = pending.map(\.identifier).filter { $0.hasPrefix(Self.noticePrefix) && !ids.contains($0) }
       center.removePendingNotificationRequests(withIdentifiers: obsolete)
@@ -100,6 +130,20 @@ final class TankCare {
         }
       }
     }
+  }
+
+  private func permissionStatus(_ center: UNUserNotificationCenter) async -> UNAuthorizationStatus {
+    #if DEBUG
+    if testsPermission { return permissionRequests == 0 ? .notDetermined : .denied }
+    #endif
+    return await center.notificationSettings().authorizationStatus
+  }
+
+  private func authorize(_ center: UNUserNotificationCenter) async {
+    #if DEBUG
+    if testsPermission { permissionRequests += 1; return }
+    #endif
+    _ = try? await center.requestAuthorization(options: [.alert, .sound])
   }
 }
 
@@ -177,7 +221,9 @@ private struct TankReminderEditor: View {
         Picker("Nhắc lại sau khi làm", selection: $item.interval) {
           ForEach(TankReminder.Repeat.allCases, id: \.self) { interval in Text(interval.title.inApp).tag(interval) }
         }
+        .accessibilityIdentifier("tank-reminder-repeat")
         Toggle("Nhắc qua thông báo", isOn: $item.notify)
+          .accessibilityIdentifier("tank-reminder-notify")
         if let last = item.lastDone {
           LabeledContent("Lần làm gần nhất", value: last.formatted(.dateTime.day().month().year().hour().minute().locale(.app)))
         }
@@ -208,17 +254,13 @@ private struct TankReminderEditor: View {
         ToolbarItem(placement: .confirmationAction) {
           Button("Lưu") {
             if item.finished { item.reopen() }
-            save(askForPermission: true)
+            finish { try tanks.care.save(item, tanks: tanks.tanks) }
           }
           .disabled(item.due <= .now)
           .accessibilityIdentifier("tank-reminder-save")
         }
       }
     }
-  }
-
-  private func save(askForPermission: Bool) {
-    finish { try tanks.care.save(item, tanks: tanks.tanks, askForPermission: askForPermission) }
   }
 
   private func finish(_ change: () throws -> Void) {

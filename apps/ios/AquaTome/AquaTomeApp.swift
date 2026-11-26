@@ -234,6 +234,9 @@ struct AquaTomeApp: App {
         VStack {
           Text(verbatim: telemetry.received.isEmpty ? "none" : telemetry.received.joined(separator: " | ")).accessibilityIdentifier("telemetry-received")
           Text(verbatim: telemetry.queueKept ? "kept" : "none").accessibilityIdentifier("telemetry-queue")
+          if tanks.care.testsPermission {
+            Text(verbatim: String(tanks.care.permissionRequests)).accessibilityIdentifier("tank-reminder-permission")
+          }
           AppearanceProbe(id: "appearance-app")
         }
         .font(.system(size: 1)).opacity(0.01)

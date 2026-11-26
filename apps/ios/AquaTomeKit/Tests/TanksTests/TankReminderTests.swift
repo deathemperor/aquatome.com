@@ -20,7 +20,7 @@ struct TankReminderTests {
     #expect(reminder.due == due)
     reminder.reopen()
     #expect(!reminder.finished)
-    #expect(reminder.lastDone == nil)
+    #expect(reminder.lastDone == finished)
   }
 
   @Test func weeklyReminderUsesTheCompletionDayAndItsOwnTimeOfDay() throws {
@@ -43,6 +43,16 @@ struct TankReminderTests {
     #expect(reminder.due == next)
     let decoded = try JSONDecoder().decode(TankReminder.self, from: JSONEncoder().encode(reminder))
     #expect(decoded == reminder)
+  }
+
+  @Test func changingARepeatingReminderToOneOffKeepsItsCompletionHistory() throws {
+    let completed = try day(2026, 11, 27, 9)
+    var reminder = TankReminder(tankID: "one", due: try day(2026, 11, 27, 7))
+    reminder.interval = .weekly
+    reminder.complete(at: completed, in: calendar)
+    reminder.interval = .once
+    #expect(!reminder.finished)
+    #expect(reminder.lastDone == completed)
   }
 
   private func day(_ year: Int, _ month: Int, _ day: Int, _ hour: Int) throws -> Date {

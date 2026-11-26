@@ -28,6 +28,7 @@ public struct TankReminder: Codable, Equatable, Identifiable, Sendable {
   public var interval: Repeat
   public var notify: Bool
   public private(set) var lastDone: Date?
+  public private(set) var finished = false
 
   public init(tankID: String, due: Date) {
     id = UUID()
@@ -38,18 +39,19 @@ public struct TankReminder: Codable, Equatable, Identifiable, Sendable {
     notify = false
   }
 
-  public var finished: Bool { interval == .once && lastDone != nil }
-
   public mutating func complete(at now: Date, in calendar: Calendar) {
     guard !finished else { return }
     lastDone = now
-    guard let unit = interval.unit,
-          let nextDay = calendar.date(byAdding: unit, value: 1, to: now) else { return }
+    guard let unit = interval.unit else {
+      finished = true
+      return
+    }
+    guard let nextDay = calendar.date(byAdding: unit, value: 1, to: now) else { return }
     let time = calendar.dateComponents([.hour, .minute], from: due)
     due = calendar.date(bySettingHour: time.hour ?? 0, minute: time.minute ?? 0, second: 0, of: nextDay,
                         matchingPolicy: .nextTime) ?? nextDay
   }
 
   /// Editing a completed one-off creates a new due date while keeping the task's identity.
-  public mutating func reopen() { lastDone = nil }
+  public mutating func reopen() { finished = false }
 }
