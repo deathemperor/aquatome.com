@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import worker, { type Env } from '../index'
 
@@ -24,7 +25,7 @@ function setup(extra: Record<string, string> = {}) {
 }
 
 test('public static and Worker pages send the security headers and a report-only CSP', async () => {
-  const rules = readFileSync(new URL('../../public/_headers', import.meta.url), 'utf8').trim().split(/\r?\n\r?\n/)
+  const rules = readFileSync(fileURLToPath(new URL('../../public/_headers', import.meta.url).href), 'utf8').trim().split(/\r?\n\r?\n/)
   const site = rules.find(r => r.startsWith('https://aquatome.com/*\n'))
   expect(site).toBeDefined()
   const response = await setup().request('/ca/')
