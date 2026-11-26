@@ -1,4 +1,4 @@
-import { mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, settledWaiting, type Photo } from '@aq/schema'
+import { mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, setsCookies, settledWaiting, type Photo } from '@aq/schema'
 import { spawnSync } from 'node:child_process'
 import { createHash, randomUUID } from 'node:crypto'
 import { link, mkdir, readdir, readFile, rm, stat, writeFile } from 'node:fs/promises'
@@ -65,6 +65,8 @@ export async function readSecondLook(root: string): Promise<SecondLooks> {
 export function looks(sl: SecondLooks) {
   const cleared = photoClears(sl)
   const held = photoHolds(sl)
+  const off = (url: string) => has(sl, url) && sl[url]!.off === true && !lookOf(sl[url])
+  const pendingOff = photoAddressSet(Object.keys(sl).filter(off))
   return {
     /** Cleared: no automatic verdict takes it off. */
     cleared: (url: string) => has(sl, url) && lookOf(sl[url])?.said === 'clear',
@@ -75,9 +77,11 @@ export function looks(sl: SecondLooks) {
     /** A still-visible hold, including one on another address of the photo. */
     held,
     /** Off its pages at its first verdict, and on the never-again list as waiting, until its look (above). */
-    off: (url: string) => has(sl, url) && sl[url]!.off === true && !lookOf(sl[url]),
+    off,
+    /** A source and its mirror share an unanswered first refusal. */
+    pendingOff,
     /** Neither waiting nor cleared: a step's verdict may act on it. */
-    open: (url: string) => has(sl, url) ? lookOf(sl[url])?.said === 'agree' : !cleared(url) && !held(url),
+    open: (url: string) => has(sl, url) ? lookOf(sl[url])?.said === 'agree' : !cleared(url) && !held(url) && !pendingOff(url),
   }
 }
 
@@ -85,10 +89,10 @@ export function looks(sl: SecondLooks) {
 export type PageShows = { ref: string; own: string[]; album: string[] }
 
 /** Every species, plant and breed page, as the site shows it now. */
-export async function pagesShowing(content: string, version: (p: Photo) => string | undefined = p => p.url): Promise<PageShows[]> {
-  type Doc = { photos?: (Photo & { unchecked?: boolean })[] }
-  const urls = (d: Doc | null, album = false) => [...new Set((d?.photos ?? []).flatMap(p => {
-    const url = p?.url && !p.generated && !(album && p.unchecked) ? version(p) : undefined
+export async function pagesShowing(content: string, version: (p: Photo, ref: string, scientificName: string) => string | undefined = p => p.url): Promise<PageShows[]> {
+  type Doc = { photos?: (Photo & { unchecked?: boolean })[]; scientificName?: string }
+  const urls = (d: Doc | null, ref: string, scientificName: string, album = false) => [...new Set((d?.photos ?? []).flatMap(p => {
+    const url = p?.url && !p.generated && !(album && p.unchecked) ? version(p, ref, scientificName) : undefined
     return url ? [url] : []
   }))]
   const read = async (f: string) => JSON.parse(await readFile(f, 'utf8').catch(() => 'null')) as Doc | null
@@ -97,7 +101,10 @@ export async function pagesShowing(content: string, version: (p: Photo) => strin
     for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
       const own = await read(join(content, kind, id, 'entity.json'))
       if (!own) continue
-      out.push({ ref: `${kind}/${id}`, own: urls(own), album: urls(await read(join(content, 'gallery', `${id}.json`)), true) })
+      const ref = `${kind}/${id}`
+      const name = own.scientificName ?? ''
+      const album = await read(join(content, 'gallery', `${id}.json`))
+      out.push({ ref, own: urls(own, ref, name), album: urls(album, kind === 'species' ? ref : '', name, true) })
     }
   }
   return out
@@ -222,6 +229,14 @@ export async function listAgreed(root: string): Promise<string[]> {
  */
 export function withoutSettledWaits(rejected: Record<string, string>, marks: SecondLooks): Record<string, string> {
   for (const [url, mark] of Object.entries(marks)) if (settledWaiting(rejected[url], mark)) delete rejected[url]
+  return rejected
+}
+
+/** Leave a waiting copy in place once a valid clear has arrived, even before recovery completes. */
+export function withoutClearedWaits(rejected: Record<string, string>, marks: SecondLooks): Record<string, string> {
+  for (const [url, mark] of Object.entries(marks)) {
+    if (mark.off === true && lookOf(mark)?.said === 'clear' && rejected[url] === waitingEntry(mark.why)) delete rejected[url]
+  }
   return rejected
 }
 
@@ -366,9 +381,16 @@ async function capturePlaces(sl: SecondLooks, left: Map<string, Stood[]>, dir: s
   for (const [url, places] of left) {
     const r = has(sl, url) ? sl[url]! : undefined
     if (!r || r.off !== true || lookOf(r) || r.back) continue
-    const named = new Set((r.left ?? []).map(placeKey))
-    for (const p of places) {
-      if (named.has(placeKey(p)) || !validPlace(p)) continue
+    const named = new Map((r.left ?? []).map(p => [placeKey(p), p]))
+    const byHost = (place: Stood) => Number(setsCookies(String(place.photo.url)))
+    for (const p of [...places].sort((a, b) => byHost(a) - byHost(b))) {
+      if (!validPlace(p)) continue
+      const earlierPlace = named.get(placeKey(p))
+      if (earlierPlace) {
+        if (byHost(p)) continue
+        const earlier = await readKept(dir, url, r, earlierPlace)
+        if (!earlier || !byHost(earlier)) continue
+      }
       const place = { file: p.file, index: p.index, ...(p.path ? { path: p.path } : {}), capture: randomUUID() }
       const order = p.order ? [...p.order] : undefined
       if (order) {
@@ -383,8 +405,8 @@ async function capturePlaces(sl: SecondLooks, left: Map<string, Stood[]>, dir: s
         }
       }
       await writeKept(dir, url, r, { ...p, ...place, order })
-      named.add(placeKey(p))
-      r.left = [...(r.left ?? []), place]
+      named.set(placeKey(p), place)
+      r.left = [...named.values()]
       const at = previous.get(placeKey(p)) ?? []
       if (!previous.has(placeKey(p))) previous.set(placeKey(p), at)
       at.push({ url, mark: r, place })
@@ -401,20 +423,20 @@ export async function notePlaces(root: string, left: Map<string, Stood[]>, dir =
   if (await capturePlaces(sl, left, dir)) await writeSecondLook(root, sl)
 }
 
+function publishedJson(root: string, file: string): Record<string, unknown> | undefined {
+  const read = spawnSync('git', ['-C', root, 'show', `refs/remotes/origin/main:${file}`], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+  if (read.status !== 0) return undefined
+  const value: unknown = JSON.parse(read.stdout)
+  if (!object(value)) throw new Error('Invalid published photo recovery record')
+  return value
+}
+
 /** Private recovery entries outlive an unpublished restore or agree. Prune only against a matching published outcome. */
 async function pruneKept(root: string, dir: string, local: SecondLooks) {
   const files = (await readdir(dir).catch(() => [] as string[])).filter(f => /^[a-f0-9]{64}\.json$/.test(f))
   if (!files.length) return
-  const tip = spawnSync('git', ['-C', root, 'rev-parse', '--verify', 'refs/remotes/origin/main'], { encoding: 'utf8' })
-  if (tip.status !== 0) return
-  const sha = tip.stdout.trim()
-  const published = (file: string) => {
-    const got = spawnSync('git', ['-C', root, 'show', `${sha}:engine-state/${file}`], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
-    if (got.status !== 0) return undefined
-    try { const value: unknown = JSON.parse(got.stdout); return object(value) ? value : undefined } catch { return undefined }
-  }
-  const marks = published(SECOND_LOOK_FILE) as SecondLooks | undefined
-  const rejected = published('_photo-rejected.json')
+  const marks = publishedJson(root, `engine-state/${SECOND_LOOK_FILE}`) as SecondLooks | undefined
+  const rejected = publishedJson(root, 'engine-state/_photo-rejected.json')
   if (!marks || !rejected) return
   for (const file of files) {
     const path = join(dir, file)
@@ -507,6 +529,7 @@ export function gitHistory(root: string): History {
       if (published) captureCommits.set(placeKey(place), published)
     }
     const search = mirrors.length || addresses.size > 1 ? [] : ['-S', url]
+    const served = new Set<string>()
     const log = git('log', ...line, '--reverse', '--format=%H', ...search, `${parent}..HEAD`, '--', ...places)
     if (log.status !== 0) return undefined
     const out = new Map<string, LeftPlace>()
@@ -516,12 +539,16 @@ export function gitHistory(root: string): History {
       if (files.status !== 0) return undefined
       for (const file of files.stdout.split('\n').filter(Boolean)) {
         const before = spots(`${sha}^`, file), after = spots(sha, file)
+        const seen = new Set<string>()
+        for (const p of before) if (!setsCookies(String(p.photo.url))) served.add(placeKey({ ...p, file }))
         for (const p of before) {
           // A part can move when another is dropped. Its heading identifies the same slot through that move.
           const same = (q: PhotoSlot) => p.path?.[3] === q.path?.[3] && (p.heading !== undefined ? p.heading === q.heading : p.path?.[2] === q.path?.[2])
-          if (after.some(same)) continue
           const position = { file, index: p.index, ...(p.path ? { path: p.path } : {}) }
           const key = placeKey(position)
+          const usable = (q: PhotoSlot) => !served.has(key) || !setsCookies(String(q.photo.url))
+          if (!usable(p) || seen.has(key) || after.some(q => same(q) && usable(q))) continue
+          seen.add(key)
           const capturedAt = captureCommits.get(key)
           if (capturedAt && capturedAt !== mark && capturedAt !== sha) {
             const afterCapture = git('merge-base', '--is-ancestor', capturedAt, sha)
@@ -534,7 +561,7 @@ export function gitHistory(root: string): History {
             const starting = capturedAt && capturedAt !== mark ? [`${capturedAt}^`, capturedAt] : [parent, mark]
             const wasPresent = (!capturedAt && spots(parent, file).some(same)) ||
               (capturedKeys.has(key) && starting.some(rev => spots(rev, file).some(same)))
-            out.set(key, { ...position, photo: p.photo, order: p.order, times: wasPresent ? 1 : 2, ...(p.heading !== undefined ? { heading: p.heading } : {}) })
+            out.set(key, { ...position, photo: p.photo, order: p.order, times: wasPresent ? 1 : 2, ...(p.heading !== undefined ? { heading: p.heading, partOrder: p.partOrder } : {}) })
           }
         }
       }
@@ -559,6 +586,40 @@ function photoPosition(current: string[], order: string[], at: number, fallback:
   if (next >= 0) return next
   const prev = current.findLastIndex(url => preceding.has(url))
   return prev >= 0 ? prev + 1 : Math.min(fallback, current.length)
+}
+
+/** After a push rebase, honor a new removal on main before publishing a completed local restore. */
+async function checkUnpublishedRestores(root: string, local: SecondLooks, history: History): Promise<string[]> {
+  const done = Object.entries(local).filter(([, mark]) => mark.back && mark.settled?.length && lookOf(mark)?.said === 'clear')
+  if (!done.length) return []
+  const published = publishedJson(root, `engine-state/${SECOND_LOOK_FILE}`) as SecondLooks | undefined
+  const undone: string[] = []
+  for (const [url, mark] of done) {
+    const prior = published?.[url]
+    if (!prior?.off || prior.at !== mark.at || prior.why !== mark.why || prior.back) continue
+    const historyPlaces = await history(url, mark.at, mark.settled)
+    if (!historyPlaces) throw new Error('Could not verify an unpublished photo restore after pulling main')
+    const settled = new Set(mark.settled!.map(p => p.file))
+    const matches = photoAddressSet([url])
+    for (const p of historyPlaces) {
+      if (p.times < 2 || !settled.has(p.file)) continue
+      const main = publishedJson(root, p.file)
+      if (Array.isArray(main?.photos) && main.photos.some(photo => typeof photo?.url === 'string' && matches(photo.url))) continue
+      const file = join(root, p.file)
+      const raw = await readFile(file, 'utf8').catch((error: NodeJS.ErrnoException) => {
+        if (error.code === 'ENOENT') return undefined
+        throw error
+      })
+      if (raw === undefined) continue
+      const data = JSON.parse(raw) as { photos?: { url: string }[] }
+      if (!data.photos) continue
+      const keep = data.photos.filter(photo => !matches(photo.url))
+      if (keep.length === data.photos.length) continue
+      await replacePhotoDocument(file, `${JSON.stringify({ ...data, photos: keep }, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
+      undone.push(`${url}: it left ${p.file} again on main, and that removal stands`)
+    }
+  }
+  return undone
 }
 
 /**
@@ -590,6 +651,7 @@ export async function putBackCleared(root: string, history: History, at = today(
   const out = { back: [] as string[], off: [] as string[], unread: [] as string[] }
   const sl = await readSecondLook(root)
   if (dir) await pruneKept(root, dir, sl)
+  out.off.push(...await checkUnpublishedRestores(root, sl, history))
   const l = looks(sl)
   const due = Object.keys(sl).filter(u => sl[u]!.off === true && l.cleared(u) && !sl[u]!.back)
   if (!due.length) return out

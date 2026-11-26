@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, facePhotoStatus, FACES_FILE, guideLooked, guidePhotoUrlsIn, GUIDE_LOOKS_FILE, isOwnerCrop, mayPublish, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoWaitsFor, rejectedEntry, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, facePhotoStatus, FACES_FILE, guideLooked, guidePhotoUrlsIn, GUIDE_LOOKS_FILE, isOwnerCrop, mayPublish, ownDeadPhotoUrls, ownerCropFitsPage, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoWaitsFor, rejectedEntry, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
 
 const read = async <T>(root: string, name: string): Promise<Record<string, T> | undefined> => {
   const raw = await readFile(join(root, 'engine-state', name), 'utf8').catch((error: NodeJS.ErrnoException) => {
@@ -11,10 +11,10 @@ const read = async <T>(root: string, name: string): Promise<Record<string, T> | 
 }
 
 /** A withdrawn source cannot supply a replacement for a photo about to be removed. */
-export const permittedPhotoSource = (photo: Photo, sources: Record<string, SourceInfo>): boolean => {
-  if (!photo.source) return true
-  const source = sources[photo.source]
-  return mayPublish(source, 'photos') && !(isOwnerCrop(photo) && source?.permission?.markRemoval?.allowed === false)
+export const permittedPhotoSource = (photo: Photo, sources: Record<string, SourceInfo>, ref: string, scientificName: string): boolean => {
+  const source = photo.source ? sources[photo.source] : undefined
+  if (photo.source && !mayPublish(source, 'photos')) return false
+  return !isOwnerCrop(photo) || (source?.permission?.markRemoval?.allowed !== false && ownerCropFitsPage(photo, ref, scientificName))
 }
 
 /** Use the public screen predicates before removing a photo that might leave its page empty. */

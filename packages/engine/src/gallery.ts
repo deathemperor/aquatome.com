@@ -15,7 +15,7 @@ import { namedOn, namedOrder, SPECIES, type Named } from './photo-named'
 import { keptCap, keptMarks } from './own-mark'
 import { isRejected, rejectedEntry, unfitCommons } from './photos'
 import { shouldStripPhoto } from './watermarks'
-import { captureWaiting, entriesDir, CLEARED_VERDICT, looks, notePlaces, placesIn, readSecondLook, withoutSettledWaits, type Stood } from './last-photo'
+import { captureWaiting, entriesDir, CLEARED_VERDICT, looks, notePlaces, placesIn, readSecondLook, withoutClearedWaits, type Stood } from './last-photo'
 import { EMPTIED_FILE, readList } from './emptied-pages'
 import { readPriorityFish } from './priority-fish'
 import { contactSheet } from './video-images'
@@ -503,7 +503,7 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
     },
   }
   const sl = await readSecondLook(root)
-  const rejected = withoutSettledWaits(JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8').catch(() => '{}')), sl)
+  const rejected = withoutClearedWaits(JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8').catch(() => '{}')), sl)
   // A Commons, iNaturalist, Flickr or GBIF photo rejected after it moved to our bucket is known there by its key (mirror-photos.ts).
   const rejectedPhoto = isRejected(rejected)
   // A photo the photo check took off a page (another fish, none, dead), by its address in our bucket: never back in that

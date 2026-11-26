@@ -41,20 +41,24 @@ function mergeLists(base, ours, theirs, field) {
     if (!o.has(id) && !untouched(id, it)) out.push(it)
   }
   if (field === 'photos') {
-    // Work back from each surviving anchor so a restored run of photos keeps its order.
-    let anchor
-    for (const it of theirs.slice().reverse()) {
-      const id = idOf(it)
-      const position = out.findIndex(x => idOf(x) === id)
-      if (position < 0) continue
-      if (!b.has(id) && anchor !== undefined) {
-        const to = out.findIndex(x => idOf(x) === anchor)
-        if (!o.has(id) || position > to) {
+    const order = theirs.map(idOf).filter(id => out.some(x => idOf(x) === id))
+    let previous
+    for (const [i, id] of order.entries()) {
+      if (!b.has(id)) {
+        const position = out.findIndex(x => idOf(x) === id)
+        const after = previous === undefined ? -1 : out.findIndex(x => idOf(x) === previous)
+        const later = order.slice(i + 1)
+        const next = later.find(id => b.has(id)) ?? (after < 0 ? later.find(id => o.has(id)) : undefined)
+        const before = next === undefined ? out.length : out.findIndex(x => idOf(x) === next)
+        if (position >= before || position <= after || !o.has(id) && next !== undefined) {
           const [photo] = out.splice(position, 1)
-          out.splice(out.findIndex(x => idOf(x) === anchor), 0, photo)
+          const insert = next !== undefined
+            ? out.findIndex(x => idOf(x) === next)
+            : out.findIndex(x => idOf(x) === previous) + 1
+          out.splice(insert, 0, photo)
         }
       }
-      anchor = id
+      previous = id
     }
   }
   return out

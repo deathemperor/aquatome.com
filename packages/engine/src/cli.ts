@@ -404,7 +404,7 @@ if (cmd === 'photo-privacy') {
   if (owed) console.log(`dead-screen of new photos: ${owed} owed a look, off every public page until judged`)
   if (albumsFailed) console.log(`dead-screen of album photos: failed (${albumsFailed})`)
   if (albums) {
-    console.log(`dead-screen of album photos: ${albums.sheets} sheets, ${albums.judged} judged, ${albums.dead.length} dead, ${albums.held.length} held for a second look (a page's last photo), ${albums.firstOff.length} off at their first verdict, ${albums.left} left for later runs, ${albums.failed.length} failed${albums.stopped ? ` (stopped: ${albums.stopped})` : ''}`)
+    console.log(`dead-screen of album photos: ${albums.sheets} sheets, ${albums.judged} judged, ${albums.dead.length} dead, ${albums.held.length} held for a second look (a page's last photo), ${albums.firstOff.length} off at their first verdict, ${albums.left} left for later runs, ${albums.pendingTakeOffs} pending take-offs, ${albums.failed.length} failed${albums.stopped ? ` (stopped: ${albums.stopped})` : ''}`)
     for (const x of albums.dead) console.log(`dead (album): ${x.split(": ")[0]}`)
     for (const x of albums.held) console.log(`held for a second look (album): ${x}`)
     for (const x of albums.firstOff) console.log(`off at its first verdict, waiting for a second look (album): ${x}`)

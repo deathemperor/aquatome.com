@@ -578,6 +578,53 @@ test('history-only recovery restores the original order even for clears sorted b
   expect(await photosOf(r, 'aaa')).toEqual(sequence)
 })
 
+test('an unpublished restore defers to an independent removal during the push rebase', async () => {
+  const { r, git, clear } = await runRepo()
+  const u = url('a-dead')
+  await page(r, 'aaa', ['a-dead'])
+  git('add', '-A'); git('commit', '-qm', 'photo on main')
+  await screenDead(r, deadModel(), { limit: 48 })
+  git('add', '-A'); git('commit', '-qm', 'the mark')
+  await clear()
+  git('update-ref', 'refs/remotes/origin/main', 'HEAD')
+  await putBackCleared(r, gitHistory(r))
+  expect(await photosOf(r, 'aaa')).toEqual(['a-dead'])
+  git('add', '-A'); git('commit', '-qm', 'unpublished restore')
+
+  git('switch', '-qc', 'concurrent-main', 'refs/remotes/origin/main')
+  await page(r, 'aaa', ['a-dead'])
+  git('add', '-A'); git('commit', '-qm', 'photo reappeared on main')
+  await page(r, 'aaa', [])
+  git('add', '-A'); git('commit', '-qm', 'independent removal')
+  git('update-ref', 'refs/remotes/origin/main', 'HEAD')
+  git('switch', '-q', 'main')
+  git('rebase', 'refs/remotes/origin/main')
+  expect(await photosOf(r, 'aaa')).toEqual(['a-dead'])
+
+  const result = await putBackCleared(r, gitHistory(r))
+
+  expect(result.off).toContain(`${u}: it left ${A} again on main, and that removal stands`)
+  expect(await photosOf(r, 'aaa')).toEqual([])
+})
+
+test('gallery cleanup leaves a same-cycle album copy while a valid clear is waiting for sweep', async () => {
+  const { r, git, clear } = await runRepo({ aaa: [] })
+  const albumFile = 'content/gallery/aaa.json'
+  await page(r, 'aaa', ['a-dead'])
+  await screenDead(r, deadModel(), { limit: 48 })
+  git('add', '-A'); git('commit', '-qm', 'the mark')
+  await clear()
+  const album = await json(r, albumFile)
+  await writeFile(join(r, albumFile), JSON.stringify({ ...album, photos: [photo('a-dead')] }))
+  const unused = async () => { throw new Error('No source is needed') }
+  await galleries(r, { get: unused, http: unused, look: unused, faces: unused, sleep: unused, now: () => new Date() }, { sheets: 0, only: 'missing' })
+  expect((await json(r, albumFile)).photos).toEqual([photo('a-dead')])
+
+  await sweep(r, { history: gitHistory(r) })
+  expect((await json(r, albumFile)).photos).toEqual([photo('a-dead')])
+  expect(await photosOf(r, 'aaa')).toEqual(['a-dead'])
+})
+
 test('private entries survive an unpublished agreement and are removed after it reaches main', async () => {
   const { r, git, agree } = await runRepo()
   await page(r, 'aaa', ['a-new'])

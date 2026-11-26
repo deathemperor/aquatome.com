@@ -441,11 +441,13 @@ test.each([
   expect((await publicView()).species.find(p => p.id === 'alpha')?.photos.map(p => p.url)).toEqual([mirror.url])
 })
 
-test.each([false, true])('one clear restores the credited mirror (both addresses refused: %s)', async both => {
+test.each([
+  { both: false, hotlinkAlsoOnPage: false }, { both: true, hotlinkAlsoOnPage: false }, { both: false, hotlinkAlsoOnPage: true },
+])('one clear restores the credited mirror (%j)', async ({ both, hotlinkAlsoOnPage }) => {
   const source = { ...photo('source'), url: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/prior-dead.jpg' }
   const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(source.url)!.key}`, author: 'Sample mirror credit' }
   const sibling = photo('sibling-live')
-  const { root, state, file, publicView } = await publicFixture([mirror], [], [mirror.url, source.url, sibling.url])
+  const { root, state, file, publicView } = await publicFixture(hotlinkAlsoOnPage ? [source, mirror] : [mirror], [], [mirror.url, source.url, sibling.url])
   const entity = JSON.parse(await readFile(file, 'utf8'))
   const other = join(root, 'content/species/second')
   await mkdir(other)
@@ -519,14 +521,14 @@ test.each(['face detection', 'the dead-fish screen'])('a sibling from a withdraw
   expect((await publicView()).species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([flagged.url])
 })
 
-test('a vetoed owner crop cannot replace a previously passed photo', async () => {
+test.each([false, true])('an unapproved owner crop cannot replace a passed photo (veto: %s)', async veto => {
   const flagged = photo('passed-dead')
   const crop = { ...photo('crop'), source: 'glaser', ownerCrop: { id: 'sample', pixelHash: 'a'.repeat(64) } }
   const { root, state, publicView } = await publicFixture([flagged, crop], [], [flagged.url, crop.url])
   const sources = await json(root, 'content/sources.json')
   sources.glaser = {
     name: 'Sample source', homepage: 'https://example.org', publish: 'photos',
-    permission: { date: '2026-11-26', file: 'fixture', scope: [], markRemoval: { allowed: false } },
+    permission: { date: '2026-11-26', file: 'fixture', scope: [], ...(veto ? { markRemoval: { allowed: false } } : {}) },
   }
   await writeFile(join(root, 'content/sources.json'), JSON.stringify(sources))
   await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [crop.url]: { dead: false } }))
@@ -608,6 +610,44 @@ test('the standalone screen asks about the displayed original even when the stor
   const { d, sent } = deps()
   expect((await screenDead(root, d.dead, { limit: 1 })).judged).toBe(1)
   expect(sent).toEqual([original.url])
+})
+
+test('a retry under the other address does not create a second first-refusal mark', async () => {
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(source)!.key}` }
+  const { root, state, publicView } = await publicFixture([mirror], [], [mirror.url])
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [mirror.url]: 0 }))
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+    [source]: { why: 'dead: withheld', pages: ['species/alpha'], at: '2026-11-26', step: 'the dead-fish screen', off: true },
+  }))
+  const { d } = deps()
+  d.dead.look = async () => ({ tiles: [{ n: 1, dead: true, note: 'fish on a board' }] })
+
+  await run(root, d)
+
+  expect(Object.keys(await json(root, 'engine-state/_photo-second-look.json'))).toEqual([source])
+  expect((await publicView()).photoWaits!(mirror.url)).toBe(true)
+})
+
+test('Git recovery follows the credited mirror even if the hotlink leaves in a later commit', async () => {
+  const source = { ...photo('source'), url: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Example.jpg' }
+  const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(source.url)!.key}` }
+  const { root, state, file } = await publicFixture([source, mirror], [], [source.url, mirror.url])
+  const entity = await json(root, 'content/species/alpha/entity.json')
+  const git = (...args: string[]) => execFileSync('git', args, { cwd: root, encoding: 'utf8' })
+  git('init', '-q', '-b', 'main'); git('config', 'user.email', 't@example.org'); git('config', 'user.name', 'Sample Tester')
+  git('add', '.'); git('commit', '-qm', 'two addresses')
+
+  const day = new Date().toISOString().slice(0, 10)
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+    [source.url]: { why: 'dead: withheld', pages: ['species/alpha'], at: day, step: 'the dead-fish screen', off: true },
+  }))
+  await writeFile(file, JSON.stringify({ ...entity, photos: [source] }))
+  git('add', '.'); git('commit', '-qm', 'marked off and removed the mirror')
+  await writeFile(file, JSON.stringify({ ...entity, photos: [] }))
+  git('add', '.'); git('commit', '-qm', 'removed the hotlink later')
+
+  expect(await gitHistory(root)(source.url, day)).toMatchObject([{ index: 1, photo: mirror, times: 1 }])
 })
 
 test('a first dead verdict on a mirror takes effect through a watermark hold at the source', async () => {
@@ -958,6 +998,60 @@ test.each(['screen cache', 'page rejection'])('zero album sheets apply a known t
   expect(JSON.parse(await readFile(guide, 'utf8')).photos).toEqual([])
   expect((await screenDead(root, d.dead, { limit: 0, albums: true })).dead).toEqual([])
   expect(sent).toEqual([])
+})
+
+test('a zero-sheet take-off leaves an independent permanent rejection in place', async () => {
+  const dead = photo('known-dead')
+  const { root, state, file } = await albumFixture([dead])
+  const rejected = { [dead.url]: 'dead: withheld' }
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify(rejected))
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+    [dead.url]: { why: 'watermark: held', pages: ['species/a'], at: '2026-11-26', step: 'the watermark screen' },
+  }))
+
+  const result = await screenDead(root, deps().d.dead, { limit: 0, albums: true })
+
+  expect(result).toMatchObject({ sheets: 0, pendingTakeOffs: 0, dead: [expect.stringContaining(dead.url)] })
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[dead.url]).toMatch(/^dead: /)
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([])
+})
+
+test('a retained album original does not strand a dead alias in a guide stock slot', async () => {
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(source)!.key}`
+  const original = photo('original-live')
+  const stored = { ...photo('stored'), url: mirror, altered: [{ method: 'lanczos3-upscale' }], original }
+  const { root, state, file } = await albumFixture([stored])
+  const guide = join(root, 'content/guides/example/entity.json')
+  await mkdir(join(guide, '..'), { recursive: true })
+  await writeFile(guide, JSON.stringify({ video: { figures: [{ photo: { ...photo('stock'), url: source }, moments: [] }] } }))
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [source]: 'dead: withheld' }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [original.url]: { dead: false } }))
+
+  const result = await screenDead(root, deps().d.dead, { limit: 0, albums: true })
+
+  expect(result).toMatchObject({ dead: [expect.stringContaining(mirror)], pendingTakeOffs: 0, left: 0 })
+  expect(JSON.parse(await readFile(guide, 'utf8')).video.figures).toEqual([])
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([stored])
+  expect((await screenDead(root, deps().d.dead, { limit: 0, albums: true })).dead).toEqual([])
+})
+
+test('a hold that cannot be captured is reported as a pending take-off', async () => {
+  const dead = photo('known-dead')
+  const { root, state, file } = await albumFixture([dead])
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [dead.url]: { dead: true } }))
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+    [dead.url]: { why: 'dead: held', pages: ['species/a'], at: '2026-11-26', step: 'the dead-fish screen' },
+  }))
+
+  expect(await screenDead(root, deps().d.dead, { limit: 0, albums: true })).toMatchObject({ left: 0, pendingTakeOffs: 1, dead: [] })
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([dead])
+})
+
+test.each(['_dead-screen.json', '_photo-watermarks.json'])('an unreadable %s returns no album balance', async filename => {
+  const { root, state } = await albumFixture([photo('photo')])
+  await mkdir(join(state, filename))
+  await expect(screenDead(root, deps().d.dead, { limit: 0, albums: true })).rejects.toThrow()
 })
 
 test('a human clear at a source address satisfies the album’s mirror without another tile', async () => {

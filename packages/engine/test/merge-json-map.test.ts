@@ -68,6 +68,13 @@ test("the part-photo list merges by key through the map driver, and no other fil
   expect(shaped).toEqual(['engine-state/_part-photos-off.json'])
 })
 
+test('merging captures retains both pages covered by the verdict', () => {
+  const base = { why: 'dead: withheld', step: 'the photo check', at: '2026-11-20', off: true }
+  const a = { ...base, pages: ['species/a'], left: [{ file: 'content/species/a/entity.json', index: 0 }] }
+  const b = { ...base, pages: ['species/b'], left: [{ file: 'content/species/b/entity.json', index: 0 }] }
+  expect(mergeMaps({}, { u: a }, { u: b })).toEqual({ u: { ...a, pages: ['species/a', 'species/b'], left: [...a.left, ...b.left] } })
+})
+
 test('a pending album capture keeps a concurrent page settlement from Git history', () => {
   const mark = { why: 'dead: withheld', step: 'the photo check', pages: ['species/x'], at: '2026-11-20', off: true }
   const look = { said: 'clear', by: 'reviewer', on: '2026-11-21' }
