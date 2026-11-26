@@ -248,7 +248,8 @@ export async function listAgreed(root: string): Promise<string[]> {
     // after that night's seven). On one marked off, a mark's entry does too, which a shop's own kept mark could otherwise
     // lift (the independent reader, 20 Nov).
     const prior = rejected[url]
-    if (!prior || prior.startsWith('waiting:') || (prior.startsWith('watermark:') && (sl[url]!.off || !active(url)))) {
+    if (!prior || prior.startsWith('waiting:') || (isVersionRejection(prior) && !isVersionRejection(sl[url]!.why)) ||
+        (prior.startsWith('watermark:') && (sl[url]!.off || !active(url)))) {
       rejected[url] = sl[url]!.why
     }
     for (const original of sl[url]!.originals ?? []) {

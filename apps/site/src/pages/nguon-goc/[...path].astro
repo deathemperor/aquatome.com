@@ -42,7 +42,7 @@ const intro = place ? INTROS[place.id] ?? t(PLACE_INTRO, { n: species.length, pl
 const alternates = await alternatesWhere(Astro.url.pathname, c => !place || c.places.some(p => p.id === place.id))
 const href = (k: Localized<PlaceEntity>) => (k.kind === 'country' ? `/vi/nguon-goc/${k.parent}/${k.id}/` : k.kind === 'continent' ? `/vi/nguon-goc/${k.id}/` : undefined)
 ---
-<Browse title={place && !TITLES[place.id] ? t('Cá cảnh bản địa {place}: {n} loài', { place: name, n: species.length }) : name} heading={capitalized(name)} crumbs={crumbs} intro={intro} credits={creditsFor(gridPhotos(c, species.slice(0, PAGE)).map(p => p ?? undefined))} creditsLater={species.length > PAGE} alternates={alternates}>
+<Browse title={place && !TITLES[place.id] ? t('Cá cảnh bản địa {place}: {n} loài', { place: name, n: species.length }) : name} heading={capitalized(name)} crumbs={crumbs} structuredBreadcrumb intro={intro} credits={creditsFor(gridPhotos(c, species.slice(0, PAGE)).map(p => p ?? undefined))} creditsLater={species.length > PAGE} alternates={alternates}>
   {kids.length > 0 && (
     <ul class="kids">{kids.map(k => { const h = href(k); return <li>{h ? <a href={h}>{capitalized(k.t.name)}</a> : <span>{capitalized(k.t.name)}</span>}</li> })}</ul>
   )}

@@ -1169,6 +1169,29 @@ test('a waiting rejection with a missing mark leaves its album entry available f
   expect(await keptOf(u)).toBeNull()
 })
 
+test('gallery cleanup captures the removed entry without capturing the retained wrapper at its address', async () => {
+  const r = await store({}, { aaa: [] })
+  const file = 'content/gallery/aaa.json'
+  const plain = { ...photo('a-dead'), caption: 'Original album entry' }
+  const wrapper = { ...plain, caption: 'Credited fallback entry', altered: [{ method: 'lanczos3-upscale' }], original: photo('original') }
+  const mark = { why, step: 'the photo check', pages: ['species/aaa'], at: today(), off: true }
+  await writeFile(join(r, file), JSON.stringify({ id: 'aaa', photos: [plain, wrapper] }))
+  await writeFile(join(r, SL), JSON.stringify({ [plain.url]: mark }))
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [plain.url]: waitingEntry(why) }))
+  const unused = async () => { throw new Error('No source in this test') }
+
+  await galleries(r, { get: unused, http: unused, look: unused, faces: unused, sleep: unused, now: () => new Date() },
+    { sheets: 0, only: 'missing' })
+
+  expect((await json(r, file)).photos).toEqual([wrapper])
+  expect((await keptFor(plain.url)).map(kept => kept.entry.photo)).toEqual([plain])
+  const recorded = await json(r, SL)
+  recorded[plain.url].look = { said: 'clear', by: 'reviewer', on: today() }
+  await writeFile(join(r, SL), JSON.stringify(recorded))
+  await putBackCleared(r, async () => [])
+  expect((await json(r, file)).photos).toEqual([plain, wrapper])
+})
+
 test('gallery cleanup keeps a newly found mirror if the previous private capture is missing', async () => {
   const r = await store({}, { aaa: [] })
   const file = 'content/gallery/aaa.json'
