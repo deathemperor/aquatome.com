@@ -6,7 +6,7 @@ import { mergePhotos, readKeeps } from './run'
 import { readPhotoWaits, readRecoveryRetention } from './photo-visibility'
 import { SOURCES, sourceById } from './sources'
 import { sourcesOnArchive } from './state'
-import { linkedPhotos, mayTake, pickSourcePhotos, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
+import { linkedPhotos, mayTake, pickSourcePhotos, storedSourcePhotos, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
 import { withSections } from './guide-sections'
 import { WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
 
@@ -55,8 +55,8 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
   const names: Record<string, { name?: string; publish?: boolean | 'photos'; permission?: CreditTerms & { markRemoval?: { allowed?: boolean } } }> = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8').catch(() => '{}'))
   const blocked: Record<string, string> = JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8').catch(() => '{}'))
   const screen: Record<string, PhotoScreenEntry> | undefined = JSON.parse(await readFile(join(root, 'engine-state', PHOTO_SCREEN_FILE), 'utf8').catch(() => 'null')) ?? undefined
-  const [photoWaits, pendingRefusal] = await Promise.all([
-    readPhotoWaits(root, { rejected: blocked, watermarks: screen, freshOwn: true }), readRecoveryRetention(root),
+  const [photoWaits, pendingRefusal, storedPhotos] = await Promise.all([
+    readPhotoWaits(root, { rejected: blocked, watermarks: screen, freshOwn: true }), readRecoveryRetention(root), storedSourcePhotos(join(root, 'content')),
   ])
   const last = new Map<SourceId, number>()
   // Every request to a source (its page, photo pages, images) at the engine's pace for it.
@@ -102,7 +102,7 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
           const images = src.photoPages ? await linkedPhotos(r.html, url, src.photoPages, get) : o.images
           const name = names[source]?.name ?? source
           const terms = names[source]?.permission
-          const photoDeps = { bytes: polite(source, d.bytes), media: d.media, blocked, refusedCredits: terms?.refusedCredits, coveredCredits: terms?.coveredCredits }
+          const photoDeps = { bytes: polite(source, d.bytes), media: d.media, blocked, stored: storedPhotos, refusedCredits: terms?.refusedCredits, coveredCredits: terms?.coveredCredits }
           const picked = pickSourcePhotos(images, url, e.scientificName ? [e.scientificName] : [], max, kind === 'guides' ? 'guide' : 'subject', src.minPhotoWidth, mayTake(source, name, photoDeps, e.photos))
           const stored = await storeSourcePhotos(source, name, url, picked, photoDeps, e.photos, max)
           if (stored.length && kind === 'guides') {

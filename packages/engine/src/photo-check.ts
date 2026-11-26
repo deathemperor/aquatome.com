@@ -845,7 +845,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const verdict = pendingGlobal(original)?.[0] ?? original
     const waiting = waitingAt(url)
     const pending = pendingGlobal(url)?.[0]
-    const reason = rejectedAt(url)?.[1] ?? added[url] ?? (pending && added[pending]) ?? (waiting && secondLook[waiting]?.why) ?? ''
+    const canonical = firstAliases.get(url) ?? pending
+    const reason = (canonical && firstOff.get(canonical)?.why) ?? rejectedAt(url)?.[1] ?? added[url] ?? (pending && added[pending]) ?? (waiting && secondLook[waiting]?.why) ?? ''
     return /^(?:dead|people|waiting): /.test(reason) &&
       (!blockedOriginal || firstOff.has(firstAliases.get(verdict) ?? verdict) || !!waitingAt(original))
   }
@@ -983,6 +984,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     delete added[url]
     report.blocked = report.blocked.filter(x => !x.startsWith(`${url}: `))
   }
+  const firstRefused = photoAddressSet(firstOff.keys())
   const edits = new Map<string, string>()
   for (const file of [...new Set(shown.map(x => x.file))]) {
     if (held.has(file)) {
@@ -990,7 +992,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       const raw = await readFile(file, 'utf8')
       const data = JSON.parse(raw) as { photos?: Photo[] }
       const removed: string[] = []
-      stripPhotos(data, first, removed, [], preservesOriginal)
+      stripPhotos(data, url => first(url) || firstRefused(url), removed, [], preservesOriginal)
       if (!removed.length) continue
       report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))
       edits.set(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)

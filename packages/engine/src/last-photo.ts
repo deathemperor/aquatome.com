@@ -1,4 +1,4 @@
-import { isNonCommercial, mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, PHOTO_SCREEN_FILE, photoRejections, setsCookies, type Photo } from '@aq/schema'
+import { isNonCommercial, isVersionRejection, originalPhotoRefusals, mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, PHOTO_SCREEN_FILE, photoRejections, rejectedEntry, setsCookies, type Photo } from '@aq/schema'
 import { spawnSync } from 'node:child_process'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
@@ -37,7 +37,7 @@ import { writePhotoState } from './photo-state'
  */
 export type Look = { said: 'agree' | 'clear'; by: string; on: string }
 /** `back`: the day the sweep put a cleared photo back where it was, or found another reason keeps it off (`putBackCleared`). */
-export type SecondLook = { why: string; step: string; pages: string[]; at: string; off?: true; look?: Look; back?: string }
+export type SecondLook = { why: string; step: string; pages: string[]; at: string; off?: true; look?: Look; back?: string; originals?: string[] }
 export type SecondLooks = Record<string, SecondLook>
 export const SECOND_LOOK_FILE = '_photo-second-look.json'
 
@@ -127,7 +127,7 @@ export function lastPhotos(pages: PageShows[], off: (url: string, ref: string) =
 /** Attribute a page's loss to the address that received the verdict, even when it serves a mirror. */
 export function lastPhotoVerdicts(
   pages: PageShows[], unavailable: (url: string, ref: string) => boolean, verdicts: Iterable<string>,
-  removesWrapper?: (verdictUrl: string) => boolean,
+  removesWrapper?: (verdictUrl: string) => boolean, originals?: ReadonlyMap<string, string>,
 ): Map<string, string[]> {
   const addresses = new Map<string, string>()
   for (const url of verdicts) {
@@ -135,6 +135,7 @@ export function lastPhotoVerdicts(
     if (!addresses.has(key)) addresses.set(key, url)
   }
   const byVerdict = (url: string) => addresses.get(photoKey(url) ?? url)
+  const linked = new Map([...originals ?? []].map(([url, cause]) => [photoKey(url) ?? url, byVerdict(cause) ?? cause]))
   const out = new Map<string, Set<string>>()
   for (const page of pages) {
     const unavailableHere = (url: string) => unavailable(url, page.ref)
@@ -142,7 +143,7 @@ export function lastPhotoVerdicts(
       const wrapper = stored?.[i]
       const verdict = byVerdict(url)
       const onWrapper = wrapper && wrapper !== url ? byVerdict(wrapper) : undefined
-      return { url, verdicts: [verdict, onWrapper && removesWrapper?.(onWrapper) ? onWrapper : undefined] }
+      return { url, verdicts: [verdict, linked.get(photoKey(url) ?? url), onWrapper && removesWrapper?.(onWrapper) ? onWrapper : undefined] }
     })
     const own = versions(page.own, page.ownStored), album = versions(page.album, page.albumStored)
     const off = (p: typeof own[number]) => p.verdicts.some(Boolean) || unavailableHere(p.url)
@@ -189,11 +190,15 @@ export const waitingEntry = (why: string) => compactRejection(why).replace(/^[^:
 export async function holdForSecondLook(root: string, held: Map<string, { why: string; pages: string[]; off?: true }>, step: string, at = today()): Promise<string[]> {
   if (!held.size) return []
   const sl = await readSecondLook(root)
+  const whole = rejectedEntry(Object.fromEntries([...held].filter(([, h]) => !isVersionRejection(h.why)).map(([url, h]) => [url, h.why])))
+  const originals = [...held.values()].some(h => !isVersionRejection(h.why))
+    ? await originalPhotoRefusals(join(root, 'content'), url => whole(url)?.[0]) : new Map<string, string>()
   const added: string[] = []
   for (const [url, h] of held) {
     // A first verdict's mark takes the place of a hold on another reason that has no answer yet (photo-check.ts spared).
     if (has(sl, url) && !(h.off && !sl[url]!.off && !lookOf(sl[url]))) continue
-    sl[url] = { why: compactRejection(h.why), step, pages: [...new Set(h.pages)].sort(), at, ...(h.off ? { off: true as const } : {}) }
+    const linked = [...originals].filter(([, cause]) => cause === url).map(([original]) => original).sort()
+    sl[url] = { ...(linked.length ? { originals: linked } : {}), why: compactRejection(h.why), step, pages: [...new Set(h.pages)].sort(), at, ...(h.off ? { off: true as const } : {}) }
     added.push(url)
   }
   if (added.length) await writeSecondLook(root, sl)
@@ -229,6 +234,10 @@ export async function listAgreed(root: string): Promise<string[]> {
     const prior = rejected[url]
     if (!prior || prior.startsWith('waiting:') || (prior.startsWith('watermark:') && (sl[url]!.off || !active(url)))) {
       rejected[url] = sl[url]!.why
+    }
+    for (const original of sl[url]!.originals ?? []) {
+      const previous = active(original)?.[1]
+      if (!previous || isVersionRejection(previous)) rejected[original] = sl[url]!.why
     }
     delete sl[url]
   }

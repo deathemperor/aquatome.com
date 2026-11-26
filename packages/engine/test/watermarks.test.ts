@@ -212,3 +212,21 @@ test("a watermarked photo that is a page's last stays everywhere it shows, off t
   expect(look[url('glaser')]).toMatchObject({ step: 'the watermark screen', pages: ['species/z'] })
   expect(look[url('glaser')].why).toMatch(/^watermark: /)
 })
+
+test('a newly refused alteration records the bare original before its wrapper leaves', async () => {
+  const r = await site()
+  const cache = join(r, 'engine-state/_photo-watermarks.json')
+  const rejected = join(r, 'engine-state/_photo-rejected.json')
+  const original = photo('original'), stored = photo('stored'), live = photo('live')
+  const wrapper = { ...stored, altered: [{ method: 'lanczos3-upscale' }], original }
+  await writeFile(join(r, 'content/species/a/entity.json'), JSON.stringify({ id: 'a', photos: [wrapper, live] }))
+  await writeFile(join(r, 'content/gallery/a.json'), JSON.stringify({ id: 'a', photos: [original] }))
+  await writeFile(join(r, 'content/guides/g/entity.json'), JSON.stringify({ id: 'g', photos: [] }))
+  const clear = { ocr: [], watermark: false }
+  await writeFile(cache, JSON.stringify({ [stored.url]: { ocr: [], watermark: true, kind: 'logo' }, [original.url]: clear, [live.url]: clear,
+    [url('hero-credit')]: clear, [url('type-ok')]: clear }))
+  const { d } = deps()
+  await screenWatermarks(r, cache, rejected, d, { limit: 0 })
+  expect((await read(r, 'content/species/a/entity.json')).photos).toEqual([live])
+  expect((await read(r, 'engine-state/_photo-rejected.json'))[original.url]).toMatch(/^watermark:/)
+})

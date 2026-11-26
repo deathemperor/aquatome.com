@@ -645,6 +645,7 @@ test('a first dead verdict reaches the page using its mirror despite a different
   await writeFile(join(r, 'content/species/bbb/entity.json'), JSON.stringify(fish('bbb', [photoAt(source), photo('b-live')])))
   await checkPagePhotos(r, model({ [name(source)]: dead, [name(mirror)]: { logo: true } }), { limit: 10 })
 
+  expect(await photosOf(r, 'aaa')).toEqual([])
   expect(await json(r, 'engine-state/_photo-second-look.json')).toEqual({
     [source]: expect.objectContaining({ off: true, pages: ['species/aaa'] }),
   })
