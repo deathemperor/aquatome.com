@@ -65,6 +65,8 @@ export async function readSecondLook(root: string): Promise<SecondLooks> {
 export function looks(sl: SecondLooks) {
   const cleared = photoClears(sl)
   const held = photoHolds(sl)
+  const off = (url: string) => has(sl, url) && sl[url]!.off === true && !lookOf(sl[url])
+  const pendingOff = photoAddressSet(Object.keys(sl).filter(off))
   return {
     /** Cleared: no automatic verdict takes it off. */
     cleared: (url: string) => has(sl, url) && lookOf(sl[url])?.said === 'clear',
@@ -75,9 +77,11 @@ export function looks(sl: SecondLooks) {
     /** A still-visible hold, including one on another address of the photo. */
     held,
     /** Off its pages at its first verdict, and on the never-again list as waiting, until its look (above). */
-    off: (url: string) => has(sl, url) && sl[url]!.off === true && !lookOf(sl[url]),
+    off,
+    /** A source and its mirror share an unanswered first refusal. */
+    pendingOff,
     /** Neither waiting nor cleared: a step's verdict may act on it. */
-    open: (url: string) => has(sl, url) ? lookOf(sl[url])?.said === 'agree' : !cleared(url) && !held(url),
+    open: (url: string) => has(sl, url) ? lookOf(sl[url])?.said === 'agree' : !cleared(url) && !held(url) && !pendingOff(url),
   }
 }
 
@@ -478,6 +482,7 @@ export function gitHistory(root: string): History {
     const mirrors = mirrorSearchTerms(url)
     const samePhoto = photoAddressSet([url])
     const shown = (p: Record<string, unknown>) => typeof p?.url === 'string' && samePhoto(p.url)
+    const publishable = (p: Record<string, unknown>) => typeof p?.url === 'string' && samePhoto(p.url) && !setsCookies(p.url)
     const terms = [url, ...mirrors].flatMap(s => ['-e', s])
     const held = git('grep', '-l', '-F', ...terms, parent, '--', 'content/species', 'content/plants', 'content/breeds', 'content/gallery', 'content/guides')
     if (held.status !== 0 && held.status !== 1) return undefined
@@ -497,6 +502,7 @@ export function gitHistory(root: string): History {
     }
     const addresses = new Set([url, ...byFile.values()])
     const search = mirrors.length || addresses.size > 1 ? [] : ['-S', url]
+    const served = new Set(places.filter(file => urls(at(parent, file)).some(publishable)))
     const log = git('log', ...line, '--reverse', '--format=%H', ...search, `${parent}..HEAD`, '--', ...places)
     if (log.status !== 0) return undefined
     const out = new Map<string, LeftPlace>()
@@ -514,9 +520,11 @@ export function gitHistory(root: string): History {
         const matches = photoAddressSet([url, byFile.get(file) ?? url])
         const shownAt = (p: Record<string, unknown>) => typeof p?.url === 'string' && matches(p.url)
         const before = urls(at(`${sha}^`, file))
-        const eligible = before.findIndex(p => shownAt(p) && !setsCookies(p.url as string))
-        const index = eligible >= 0 ? eligible : before.findIndex(shownAt)
-        if (index < 0 || urls(at(sha, file)).some(shownAt)) continue
+        const publishableAt = (p: Record<string, unknown>) => shownAt(p) && !setsCookies(p.url as string)
+        if (before.some(publishableAt)) served.add(file)
+        const tracked = served.has(file) ? publishableAt : shownAt
+        const index = before.findIndex(tracked)
+        if (index < 0 || urls(at(sha, file)).some(tracked)) continue
         const had = out.get(file)
         if (had) had.times++
         else {

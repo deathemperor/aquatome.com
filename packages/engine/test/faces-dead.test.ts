@@ -609,6 +609,44 @@ test('the standalone screen asks about the displayed original even when the stor
   expect(sent).toEqual([original.url])
 })
 
+test('a retry under the other address does not create a second first-refusal mark', async () => {
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(source)!.key}` }
+  const { root, state, publicView } = await publicFixture([mirror], [], [mirror.url])
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [mirror.url]: 0 }))
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+    [source]: { why: 'dead: withheld', pages: ['species/alpha'], at: '2026-11-26', step: 'the dead-fish screen', off: true },
+  }))
+  const { d } = deps()
+  d.dead.look = async () => ({ tiles: [{ n: 1, dead: true, note: 'fish on a board' }] })
+
+  await run(root, d)
+
+  expect(Object.keys(await json(root, 'engine-state/_photo-second-look.json'))).toEqual([source])
+  expect((await publicView()).photoWaits!(mirror.url)).toBe(true)
+})
+
+test('Git recovery follows the credited mirror even if the hotlink leaves in a later commit', async () => {
+  const source = { ...photo('source'), url: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Example.jpg' }
+  const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(source.url)!.key}` }
+  const { root, state, file } = await publicFixture([source, mirror], [], [source.url, mirror.url])
+  const entity = await json(root, 'content/species/alpha/entity.json')
+  const git = (...args: string[]) => execFileSync('git', args, { cwd: root, encoding: 'utf8' })
+  git('init', '-q', '-b', 'main'); git('config', 'user.email', 't@example.org'); git('config', 'user.name', 'Sample Tester')
+  git('add', '.'); git('commit', '-qm', 'two addresses')
+
+  const day = new Date().toISOString().slice(0, 10)
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+    [source.url]: { why: 'dead: withheld', pages: ['species/alpha'], at: day, step: 'the dead-fish screen', off: true },
+  }))
+  await writeFile(file, JSON.stringify({ ...entity, photos: [source] }))
+  git('add', '.'); git('commit', '-qm', 'marked off and removed the mirror')
+  await writeFile(file, JSON.stringify({ ...entity, photos: [] }))
+  git('add', '.'); git('commit', '-qm', 'removed the hotlink later')
+
+  expect(await gitHistory(root)(source.url, day)).toMatchObject([{ index: 1, photo: mirror, times: 1 }])
+})
+
 test('a first dead verdict on a mirror takes effect through a watermark hold at the source', async () => {
   const source = 'https://live.staticflickr.com/123/456_abc.jpg'
   const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(source)!.key}` }

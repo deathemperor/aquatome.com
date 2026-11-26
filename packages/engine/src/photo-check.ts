@@ -841,7 +841,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const preservesOriginal = (url: string, original: string, blockedOriginal: boolean) => {
     const verdict = pendingGlobal(original)?.[0] ?? original
     const waiting = waitingAt(url)
-    const reason = rejectedAt(url)?.[1] ?? added[url] ?? (waiting && secondLook[waiting]?.why) ?? ''
+    const pending = pendingGlobal(url)?.[0]
+    const reason = rejectedAt(url)?.[1] ?? added[url] ?? (pending && added[pending]) ?? (waiting && secondLook[waiting]?.why) ?? ''
     return /^(?:dead|people|waiting): /.test(reason) &&
       (!blockedOriginal || firstOff.has(firstAliases.get(verdict) ?? verdict) || !!waitingAt(original))
   }
