@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto'
 import { execFileSync } from 'node:child_process'
 import { expectControlledRejections } from './photo-privacy-assertions'
 import { chmod, cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
@@ -1532,10 +1533,11 @@ test('a mirrored cached death uses the matching older watermark review at its so
   expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([])
 })
 
-test('a failed take-off receipt leaves the album present for replay after the sweep', async () => {
+test('a failed take-off receipt is recovered when the sweep already has a page rejection', async () => {
   const dead = photo('dead')
   const { root, state, file } = await albumFixture([dead])
   await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [dead.url]: { dead: true } }))
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [dead.url]: 'dead: prior page verdict' }))
   const replace = imageWrites.writeImageCache
   const failing = vi.spyOn(imageWrites, 'writeImageCache').mockImplementation(async (path, data) => {
     if (path.endsWith('_photo-album-dead-takeoffs.json')) throw new Error('simulated receipt failure')
@@ -1547,7 +1549,7 @@ test('a failed take-off receipt leaves the album present for replay after the sw
   } finally { failing.mockRestore() }
   await writeFile(join(root, 'content/sources.json'), '{}')
   await sweep(root, { history: async () => [] })
-  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([dead])
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([])
   expect((await screenDead(root, d, { limit: 0, albums: true })).albumBatches).toEqual([{ id: expect.any(String), urls: [dead.url] }])
 })
 
@@ -1585,4 +1587,46 @@ test.each([['rejected:', false], ['logo:', false], ['rejected:', true], ['logo:'
   await sweep(root)
   expect(await json(root, 'engine-state/_photo-rejected.json')).toHaveProperty(original.url)
   expect((await publicView()).photoWaits!(original.url)).toBe(true)
+})
+
+test('pending take-off receipts find remaining breed and glossary copies after an album disappears', async () => {
+  const dead = photo('dead')
+  const { root, state, file } = await albumFixture([dead])
+  const breed = join(root, 'content/breeds/sample/entity.json')
+  const glossary = join(root, 'content/glossary/sample/entity.json')
+  for (const entity of [breed, glossary]) await mkdir(join(entity, '..'), { recursive: true })
+  await writeFile(breed, JSON.stringify({ id: 'sample', photos: [dead] }))
+  await writeFile(glossary, JSON.stringify({ id: 'sample', kinds: [{ photo: dead }] }))
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [dead.url]: 'dead: prior page verdict' }))
+  const replace = imageWrites.replacePhotoDocument
+  const fault = vi.spyOn(imageWrites, 'replacePhotoDocument').mockImplementation(async (path, data) => {
+    if (path === breed) throw new Error('simulated breed write failure')
+    await replace(path, data)
+  })
+  const d = deps().d.dead
+  try {
+    await expect(screenDead(root, d, { limit: 0, albums: true })).rejects.toThrow('simulated breed write failure')
+  } finally { fault.mockRestore() }
+  await writeFile(file, JSON.stringify({ id: 'alpha', photos: [] }))
+  const replay = await screenDead(root, d, { limit: 0, albums: true })
+  expect(replay).toMatchObject({ pendingTakeOffs: 0, left: 0, albumBatches: [{ id: expect.any(String), urls: [dead.url] }] })
+  expect(JSON.parse(await readFile(breed, 'utf8')).photos).toEqual([])
+  expect(JSON.parse(await readFile(glossary, 'utf8')).kinds).toBeUndefined()
+})
+
+test('overlapping merged batches keep their identities and never redeliver acknowledged URLs', async () => {
+  const { root, state } = await albumFixture([])
+  const folder = join(state, 'album-takeoff-batches')
+  await mkdir(folder)
+  const [a, b, c] = ['a', 'b', 'c'].map(m)
+  const id = (urls: string[]) => createHash('sha256').update(JSON.stringify(urls)).digest('hex')
+  const first = [a!, b!], concurrent = [a!, c!]
+  await writeFile(join(folder, id(first)), JSON.stringify(first))
+  await writeFile(join(folder, id(concurrent)), JSON.stringify(concurrent))
+  expect(await acknowledgeAlbumTakeOffs(root, id(first))).toBe(2)
+  const d = deps().d.dead
+  expect((await screenDead(root, d, { limit: 0, albums: true })).albumBatches).toEqual([{ id: id([c!]), urls: [c!] }])
+  expect((await screenDead(root, d, { limit: 0, albums: true })).albumBatches).toEqual([{ id: id([c!]), urls: [c!] }])
+  expect(await acknowledgeAlbumTakeOffs(root, id([c!]))).toBe(1)
+  expect((await screenDead(root, d, { limit: 0, albums: true })).albumBatches).toEqual([])
 })

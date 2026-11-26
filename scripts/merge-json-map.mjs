@@ -19,6 +19,7 @@ import { pathToFileURL } from 'node:url'
 const record = v => !!v && typeof v === 'object' && !Array.isArray(v) && typeof v.why === 'string' && typeof v.step === 'string' && Array.isArray(v.pages) && typeof v.at === 'string'
 const answered = v => !!v.look && (v.look.said === 'agree' || v.look.said === 'clear') && typeof v.look.by === 'string' && v.look.by.trim() !== '' && /^\d{4}-\d{2}-\d{2}$/.test(v.look.on ?? '')
 const placesOf = (r, field = 'left') => Array.isArray(r?.[field]) ? r[field].filter(p => typeof p?.file === 'string' && Number.isSafeInteger(p.index) && p.index >= 0) : []
+const placeKey = p => p.occurrence ? `${p.file}#${p.occurrence}` : p.file
 function mergePlaces(chosen, base, ours, theirs) {
   if (ours.off !== true || theirs.off !== true || ours.why !== theirs.why) return chosen
   const other = chosen === ours ? theirs : ours
@@ -28,15 +29,15 @@ function mergePlaces(chosen, base, ours, theirs) {
     const captured = captureDay ?? mark.at
     return captured === at ? place : { ...place, captureDay: captured }
   })
-  const settled = new Map([...datedPlaces(other, 'settled'), ...datedPlaces(chosen, 'settled')].map(p => [p.file, p]))
-  const original = new Map(datedPlaces(base).map(p => [p.file, p]))
-  const pending = new Map(datedPlaces(chosen).map(p => [p.file, p]))
+  const settled = new Map([...datedPlaces(other, 'settled'), ...datedPlaces(chosen, 'settled')].map(p => [placeKey(p), p]))
+  const original = new Map(datedPlaces(base).map(p => [placeKey(p), p]))
+  const pending = new Map(datedPlaces(chosen).map(p => [placeKey(p), p]))
   const sameCapture = (p, q) => !!p && !!q && p.capture === q.capture && p.index === q.index && p.captureDay === q.captureDay
   for (const place of datedPlaces(other)) {
-    const before = original.get(place.file)
-    const selected = pending.get(place.file)
+    const before = original.get(placeKey(place))
+    const selected = pending.get(placeKey(place))
     if (chosen.back && sameCapture(place, before)) continue
-    if (!selected || (sameCapture(selected, before) && !sameCapture(place, before))) pending.set(place.file, place)
+    if (!selected || (sameCapture(selected, before) && !sameCapture(place, before))) pending.set(placeKey(place), place)
   }
   for (const [file, receipt] of settled) {
     const next = pending.get(file)
