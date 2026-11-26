@@ -2,7 +2,7 @@ import { piece, PieceAdmissionError } from './pieces'
 import { createHash } from 'node:crypto'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { awaitsScreen, deadScreenPhotoUrls, GuideSchema, IMAGE_SWITCHES, isAllowedLicence, PHOTO_SCREEN_FILE, photoRejections, publicPhotoVersion, type PhotoScreenEntry, isOwnerCrop, mayPublish, photoAddressSet, setsCookies, ownerCropApproved, ownerCropCanonical, metricPage, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, judgeQuality, nameKey, retiredTo, slugify, speciesDepth, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
+import { awaitsScreen, deadScreenPhotoUrls, GuideSchema, IMAGE_SWITCHES, isNonCommercial, mayPublishLicence, PHOTO_SCREEN_FILE, photoRejections, publicPhotoVersion, type PhotoScreenEntry, isOwnerCrop, mayPublish, photoAddressSet, setsCookies, ownerCropApproved, ownerCropCanonical, metricPage, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, judgeQuality, nameKey, retiredTo, slugify, speciesDepth, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
 import type { z } from 'zod'
 import { across, LARGE_PX } from './curation'
 import { cardGaps } from './card-fill'
@@ -109,10 +109,10 @@ export const approvedCrop = (page: string, scientificName: string, approvals?: P
  * since they turn on its switches and stored checks: an altered photo with no original while those switches are off, and
  * an approved crop whose stored checks fail. No page held either on 14 Nov 2026.
  */
-export const hiddenFromReaders = (blocked: Record<string, unknown>, sources: Partial<Record<SourceId, { publish?: boolean | 'photos'; permission?: { markRemoval?: { allowed?: boolean; date?: string } } }>>) => (p: Photo) =>
-  p.url in blocked || setsCookies(p.url) || (!p.source && !isAllowedLicence(p.licence)) ||
+export const hiddenFromReaders = (blocked: Record<string, unknown>, sources: Partial<Record<SourceId, { publish?: boolean | 'photos'; permission?: { markRemoval?: { allowed?: boolean; date?: string } } }>>, allowInat = false) => (p: Photo) =>
+  p.url in blocked || setsCookies(p.url) || (!p.source && !mayPublishLicence(p, allowInat)) ||
   (!!p.source && (!mayPublish(sources[p.source], 'photos') || (isOwnerCrop(p) && sources[p.source]?.permission?.markRemoval?.allowed === false)))
-export type ReadKeeps = { owned?: (p: Photo) => boolean; gone?: (p: Photo) => boolean; waits?: (p: Photo) => boolean; recovery?: (p: Photo) => boolean }
+export type ReadKeeps = { owned?: (p: Photo) => boolean; gone?: (p: Photo) => boolean; waits?: (p: Photo) => boolean; recovery?: (p: Photo) => boolean; nonCommercial?: (p: Photo) => boolean }
 /**
  * A photo the watermark screen still owes a look (schema's awaitsScreen): the build shows it only once the screen has
  * judged it clean, and then by itself. With no screen record, nothing waits, as in a build that has none.
@@ -120,7 +120,7 @@ export type ReadKeeps = { owned?: (p: Photo) => boolean; gone?: (p: Photo) => bo
 export const waitsForScreen = (screen: Record<string, PhotoScreenEntry> | undefined) => (p: Photo) => !!screen && awaitsScreen(p.url, screen[p.url])
 /** What a re-read of a page keeps, the same on every path that merges one (the run and the content backfill). */
 export const readKeeps = (page: string, scientificName: string, blocked: Record<string, string>, sources: Parameters<typeof hiddenFromReaders>[1], screen?: Record<string, PhotoScreenEntry>, photoWaits?: (url: string) => boolean, pendingRefusal?: (url: string) => boolean): ReadKeeps => {
-  const gone = hiddenFromReaders({}, sources)
+  const gone = hiddenFromReaders({}, sources, IMAGE_SWITCHES.inatNonCommercial)
   const listed = photoRejections(blocked, screen)
   const selected = (p: Photo) => {
     const permission = p.source ? sources[p.source]?.permission?.markRemoval : undefined
@@ -134,6 +134,7 @@ export const readKeeps = (page: string, scientificName: string, blocked: Record<
       return !shown || gone(shown) || !!listed(shown.url) || !!(storedReason && !versionRejection(storedReason))
     },
     waits: p => { const shown = selected(p); return !!shown && (photoWaits?.(shown.url) ?? waitsForScreen(screen)(shown)) },
+    nonCommercial: p => isNonCommercial(selected(p)?.licence ?? ''),
     recovery: p => deadScreenPhotoUrls(p).some(url => pendingRefusal?.(url) || listed(url)?.[1].startsWith('waiting:') === true),
   }
 }
@@ -161,9 +162,13 @@ export const mergeRead = (prev: Photo[], source: SourceId, url: string, fresh: P
   // A photo the build shows, or will by itself once the watermark screen has judged it clean; and one it shows now.
   const shows = (p: Photo) => !p.generated && !o.gone?.(p) && (!isOwnerCrop(p) || owned(p))
   const seen = (p: Photo) => shows(p) && !waits(p)
+  const visible = (ps: Photo[]) => {
+    const ready = ps.filter(seen)
+    return ready.length > 1 && o.nonCommercial ? ready.filter(p => !o.nonCommercial?.(p)) : ready
+  }
   const replaced = (p: Photo) => p.source === source && p.sourceUrl === url && !owned(p) && !recovery(p)
-  const recoverable = photoAddressSet(prev.filter(recovery).map(p => p.url))
-  const merged = [...fresh.filter(p => !recoverable(p.url)), ...prev.filter(p => !replaced(p))].map((p, i) => ({ p, i })).sort((a, b) => rank(a.p) - rank(b.p) || a.i - b.i).map(x => x.p)
+  const recoverable = photoAddressSet(prev.filter(recovery).flatMap(deadScreenPhotoUrls))
+  const merged = [...fresh.filter(p => !deadScreenPhotoUrls(p).some(recoverable)), ...prev.filter(p => !replaced(p))].map((p, i) => ({ p, i })).sort((a, b) => rank(a.p) - rank(b.p) || a.i - b.i).map(x => x.p)
   const head = prev[0] && !replaced(prev[0]) && across(prev[0].large ?? prev[0], 'square') >= LARGE_PX ? prev[0] : undefined
   const all = head ? [head, ...merged.filter(p => p.url !== head.url)] : merged
   // The owner's crops first inside the cap, every other photo in its order after them.
@@ -171,12 +176,12 @@ export const mergeRead = (prev: Photo[], source: SourceId, url: string, fresh: P
   const rest = all.filter(p => !owned(p) && !recovery(p))
   const others = new Set([...all.filter(p => !owned(p) && recovery(p)), ...rest.filter(seen), ...rest.filter(p => shows(p) && !seen(p)), ...rest.filter(p => !shows(p))].slice(0, room))
   const photos = all.filter(p => crops.includes(p) || others.has(p))
-  const left = prev.filter(seen)
+  const left = visible(prev)
   // Nothing a reader could see left: the seen ones from before stay, held, behind the owner's crops (kept even when the
   // build hides them); photos waiting for the watermark screen stay behind those, the read's own and the page's old ones
   // (an old one the read replaced is held too); and a generated photo the read kept stays behind them, as it would
   // without this rule. With none of these, none at all, and the caller looks to Commons.
-  if (photos.some(seen)) return { photos, held: [] }
+  if (visible(photos).length) return { photos, held: [] }
   const waiting = [...photos, ...prev].filter(p => shows(p) && waits(p) && !owned(p))
   const both = [...photos.filter(owned), ...left.filter(p => !owned(p)), ...photos.filter(recovery), ...waiting, ...photos.filter(p => p.generated)]
   const kept = both.filter((p, i) => both.findIndex(q => q.url === p.url) === i).slice(0, MAX_PHOTOS)

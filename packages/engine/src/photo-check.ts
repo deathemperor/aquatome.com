@@ -820,15 +820,17 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const first = (url: string) => sl.off(url) || (FIRST_OFF.test(added[url] ?? '') && freshBad.has(url))
   const offAt = new Set(shown.filter(off).map(x => `${x.file}\n${x.url}`))
   // One marked off at its first verdict is off wherever it shows, its never-again entry there or not (last-photo.ts).
-  const pendingGlobal = photoRejections(Object.fromEntries(Object.entries(added)
-    .filter(([, why]) => FIRST_OFF.test(why) || why.startsWith('watermark:'))), marks)
+  const pendingGlobal = photoRejections(added, marks)
+  const existingGlobal = photoRejections(rejected, marks)
   const blockedAs = (file: string, url: string) => {
     const waiting = waitingAt(url)
     if (waiting) return waiting
     if (url in added) return url
     const pending = pendingGlobal(url)?.[0]
     if (pending && pending in added) return pending
-    if ((url in rejected && !keepLogo(url)) || offAt.has(`${file}\n${url}`) || sl.off(url)) return url
+    const existing = existingGlobal(url)
+    if (existing) return existing[0]
+    if (offAt.has(`${file}\n${url}`) || sl.off(url)) return url
     return undefined
   }
   const blocked = (file: string) => (url: string) => blockedAs(file, url) !== undefined

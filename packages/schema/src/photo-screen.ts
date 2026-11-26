@@ -248,11 +248,11 @@ export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
     ...[...(r.flaggedAlterations ?? [])].filter(url => facePhotoOff(url, r.faces, r.secondLook, cleared, held)),
   ])
   return url => {
+    const entry = r.rejected?.(url)
+    if (entry && !entry[1].startsWith('watermark:')) return true
     if (r.watermarks) {
       if (awaitsScreen(url, r.watermarks[url])) return true
-      const entry = r.rejected?.(url)
-      if (entry?.[1].startsWith('watermark:') &&
-          !retainedOwnMark(url, r.watermarks[url]) && !retainedOwnMark(entry[0], r.watermarks[entry[0]])) return true
+      if (entry && !retainedOwnMark(url, r.watermarks[url]) && !retainedOwnMark(entry[0], r.watermarks[entry[0]])) return true
     }
     return owesLook(url) || faceWaits(url) ||
       deadPhotoOff(url, r.deadScreen, r.secondLook, r.rejected, cleared, held, firstOff)
