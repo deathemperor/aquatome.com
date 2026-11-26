@@ -92,10 +92,14 @@ export function speciesDescription(lang: Lang, name: string, sci: string, card: 
 
 const plain = (html: string) => html.replace(/<a class="cite[^"]*"[^>]*>[\s\S]*?<\/a>/g, '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim()
 
-/** The first real paragraph, skipping photo captions and credits. */
-export function guideDescription(html: string): string {
+/** The opening paragraph, or a short description from the summary or prose. */
+export function guideDescription(html: string, summary: readonly string[] = [], lang: Lang = 'vi'): string {
   const body = html.replace(/<figure\b[^>]*>[\s\S]*?<\/figure>/g, '')
   const paras = [...body.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/g)]
     .map(m => plain(m[1]!)).filter(p => p && !p.includes('©'))
-  return paras.find(p => p.length >= 60) ?? paras[0] ?? ''
+  const opening = paras.find(p => p.length >= 60) ?? paras[0]
+  if (opening) return opening
+  const takeaways = summary.map(plain).filter(Boolean).join(' ')
+  const prose = body.replace(/<(p|ul|ol|table)\b[^>]*>[\s\S]*?<\/\1>/g, ' ')
+  return descriptionForSearch(lang, takeaways || plain(prose))
 }

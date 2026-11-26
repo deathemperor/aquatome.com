@@ -42,6 +42,15 @@ test('a short guide introduction stays separate from a long list or table', () =
   expect(guideDescription('<p>Ảnh © tác giả</p><ul><li>Bể nhỏ</li></ul>')).toBe('')
 })
 
+test('guides without paragraphs can use their summary or other opening prose', () => {
+  const summary = 'Chọn nền và đèn phù hợp với các cây trong hồ.'
+  const intro = 'Bắt đầu từ một bể nhỏ, rồi chọn cây hợp với ánh sáng.'
+  const html = `<div>${intro}</div><table><tr><td>${'Kích thước bể '.repeat(15)}</td></tr></table>`
+  expect(guideDescription(html, [summary])).toBe(summary)
+  expect(guideDescription(html)).toBe(intro)
+  expect([...guideDescription(`<div>${'Chọn cây hợp với ánh sáng '.repeat(20)}</div>`)].length).toBeLessThanOrEqual(160)
+})
+
 
 test('a sentence under 80 characters leaves room for a word-boundary excerpt', () => {
   const sentence = 'Bể cần nước sạch và đủ chỗ để cá bơi.'
