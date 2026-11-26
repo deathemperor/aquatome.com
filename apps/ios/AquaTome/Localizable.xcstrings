@@ -23035,6 +23035,28 @@
         }
       }
     },
+    "Chưa xin được quyền gửi thông báo.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Izin notifikasi belum dapat diminta."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kebenaran pemberitahuan belum dapat diminta."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ขออนุญาตส่งการแจ้งเตือนไม่สำเร็จ"
+          }
+        }
+      }
+    },
     "Chưa lên lịch được thông báo. Mở lại ứng dụng để thử lại.": {
       "localizations": {
         "id": {

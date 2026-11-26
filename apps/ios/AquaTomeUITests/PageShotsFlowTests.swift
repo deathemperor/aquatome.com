@@ -867,6 +867,19 @@ final class PageShotsFlowTests: XCTestCase {
     snap("\(name)-03")
   }
 
+  @MainActor func testTheTankReminderEditor() {
+    let app = launch(dark: false, ["-seed-tanks", "two"], look: .v2)
+    app.openTab("Bể của tôi")
+    let tank = app.buttons["tank"].firstMatch
+    XCTAssertTrue(tank.waitForExistence(timeout: 5))
+    tank.tap()
+    let add = app.buttons["tank-reminder-add"]
+    XCTAssertTrue(app.scrolledDown(to: add).isHittable)
+    add.tap()
+    XCTAssertTrue(app.buttons["tank-reminder-save"].waitForExistence(timeout: 5))
+    capture(app, "tank-reminder-editor-light", dark: false, large: true, screens: 1)
+  }
+
   private func snap(_ name: String) {
     let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
     a.name = "shot-" + name

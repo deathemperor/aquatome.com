@@ -7,12 +7,12 @@ import UserNotifications
 final class OwnerNotifications: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
   /// What APNs' token is given to (the app's start sets it).
   var received: ((Data) -> Void)?
-  @MainActor private var pendingTank: String?
-  @MainActor var openTank: ((String) -> Void)? {
+  @MainActor private var pendingReminder: (tank: String, id: UUID)?
+  @MainActor var openReminder: ((String, UUID) -> Void)? {
     didSet {
-      if let pendingTank, let openTank {
-        self.pendingTank = nil
-        openTank(pendingTank)
+      if let pendingReminder, let openReminder {
+        self.pendingReminder = nil
+        openReminder(pendingReminder.tank, pendingReminder.id)
       }
     }
   }
@@ -38,9 +38,10 @@ final class OwnerNotifications: NSObject, UIApplicationDelegate, UNUserNotificat
   nonisolated func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
     let request = response.notification.request
     if request.identifier.hasPrefix(TankCare.noticePrefix),
-       let id = request.content.userInfo[TankCare.tankKey] as? String {
+       let tank = request.content.userInfo[TankCare.tankKey] as? String,
+       let id = UUID(uuidString: String(request.identifier.dropFirst(TankCare.noticePrefix.count))) {
       await MainActor.run {
-        if let openTank { openTank(id) } else { pendingTank = id }
+        if let openReminder { openReminder(tank, id) } else { pendingReminder = (tank, id) }
       }
       return
     }

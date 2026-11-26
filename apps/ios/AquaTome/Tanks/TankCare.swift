@@ -12,7 +12,9 @@ final class TankCare {
   private(set) var items: [TankReminder] = []
   private(set) var unreadable = false
   private(set) var notificationsOff = false
+  private(set) var authorizationFailed = false
   private(set) var schedulingFailed = false
+  private(set) var notification: TankReminder?
   @ObservationIgnored private let defaults: UserDefaults
   @ObservationIgnored private var tankNames: [String: String] = [:]
   @ObservationIgnored private var scheduling: Task<Void, Never>?
@@ -42,6 +44,16 @@ final class TankCare {
       if testsPermission { refresh(tanks: tanks) }
       #endif
     }
+  }
+
+  func openFromNotification(tankID: String, reminderID: UUID) {
+    notification = items.first { $0.id == reminderID && $0.tankID == tankID }
+  }
+
+  func takeNotification(for tankID: String) -> TankReminder? {
+    guard let notification, notification.tankID == tankID else { return nil }
+    self.notification = nil
+    return notification
   }
 
   func remove(_ item: TankReminder, tanks: [Tank]) throws {
@@ -79,13 +91,18 @@ final class TankCare {
     items.filter { $0.notify && !$0.finished && tankNames[$0.tankID] != nil }
   }
 
-  private func requestPermission() {
+  func requestPermission() {
     guard askingPermission == nil else { return }
     // This task belongs to the user's opt-in. An ordinary sync can replace the schedule without replacing the prompt.
     askingPermission = Task {
       let center = UNUserNotificationCenter.current()
-      if await permissionStatus(center) == .notDetermined, !wanted.isEmpty {
-        await authorize(center)
+      do {
+        if await permissionStatus(center) == .notDetermined, !wanted.isEmpty {
+          try await authorize(center)
+        }
+        authorizationFailed = false
+      } catch {
+        authorizationFailed = true
       }
       askingPermission = nil
       reconcileNotices()
@@ -107,6 +124,7 @@ final class TankCare {
 
       let allowed = permission == .authorized || permission == .provisional || permission == .ephemeral
       notificationsOff = !active.isEmpty && permission == .denied
+      authorizationFailed = !active.isEmpty && permission == .notDetermined && askingPermission == nil
       schedulingFailed = false
       let now = Date()
       let future = allowed ? active.filter { $0.due > now }.sorted { $0.due < $1.due } : []
@@ -134,17 +152,25 @@ final class TankCare {
 
   private func permissionStatus(_ center: UNUserNotificationCenter) async -> UNAuthorizationStatus {
     #if DEBUG
-    if testsPermission { return permissionRequests == 0 ? .notDetermined : .denied }
+    if testsPermission { return permissionRequests < 2 ? .notDetermined : .denied }
     #endif
     return await center.notificationSettings().authorizationStatus
   }
 
-  private func authorize(_ center: UNUserNotificationCenter) async {
+  private func authorize(_ center: UNUserNotificationCenter) async throws {
     #if DEBUG
-    if testsPermission { permissionRequests += 1; return }
+    if testsPermission {
+      permissionRequests += 1
+      if permissionRequests == 1 { throw PermissionTestError.unavailable }
+      return
+    }
     #endif
-    _ = try? await center.requestAuthorization(options: [.alert, .sound])
+    _ = try await center.requestAuthorization(options: [.alert, .sound])
   }
+
+  #if DEBUG
+  private enum PermissionTestError: Error { case unavailable }
+  #endif
 }
 
 struct TankCareSection: View {
@@ -152,6 +178,7 @@ struct TankCareSection: View {
   @Environment(TanksModel.self) private var tanks
   @Environment(\.openURL) private var openURL
   @State private var editing: TankReminder?
+  @State private var nextEditor: TankReminder?
 
   var body: some View {
     let care = tanks.care
@@ -193,11 +220,30 @@ struct TankCareSection: View {
           Button("Mở Cài đặt") {
             if let url = URL(string: UIApplication.openSettingsURLString) { openURL(url) }
           }
+        } else if care.authorizationFailed {
+          Text("Chưa xin được quyền gửi thông báo.")
+          Button("Thử lại") { care.requestPermission() }.accessibilityIdentifier("tank-reminder-permission-retry")
         }
         if care.schedulingFailed { Text("Chưa lên lịch được thông báo. Mở lại ứng dụng để thử lại.") }
       }
     }
-    .sheet(item: $editing) { item in
+    .onChange(of: care.notification, initial: true) {
+      guard let target = care.takeNotification(for: tank.id), editing?.id != target.id else { return }
+      if nextEditor != nil {
+        nextEditor = target
+      } else if editing == nil {
+        editing = target
+      } else {
+        nextEditor = target
+        editing = nil
+      }
+    }
+    .sheet(item: $editing, onDismiss: {
+      if let nextEditor {
+        self.nextEditor = nil
+        editing = nextEditor
+      }
+    }) { item in
       TankReminderEditor(item: item, saved: items.contains(where: { $0.id == item.id }))
     }
   }
@@ -217,6 +263,7 @@ private struct TankReminderEditor: View {
         Picker("Việc cần làm", selection: $item.kind) {
           ForEach(TankReminder.Kind.allCases, id: \.self) { kind in Text(kind.title.inApp).tag(kind) }
         }
+        .accessibilityIdentifier("tank-reminder-kind")
         DatePicker("Ngày nhắc", selection: $item.due)
         Picker("Nhắc lại sau khi làm", selection: $item.interval) {
           ForEach(TankReminder.Repeat.allCases, id: \.self) { interval in Text(interval.title.inApp).tag(interval) }
@@ -246,6 +293,15 @@ private struct TankReminderEditor: View {
           }
         }
         if failed { Text("Chưa lưu được lời nhắc. Thử lại.").foregroundStyle(Color.warning) }
+        #if DEBUG
+        if tanks.care.testsPermission,
+           let other = tanks.care.items.first(where: { $0.tankID == item.tankID && $0.id != item.id }) {
+          Button {
+            tanks.care.openFromNotification(tankID: other.tankID, reminderID: other.id)
+          } label: { Text(verbatim: "Open other reminder") }
+          .accessibilityIdentifier("tank-reminder-test-notification")
+        }
+        #endif
       }
       .navigationTitle("Lời nhắc")
       .navigationBarTitleDisplayMode(.inline)

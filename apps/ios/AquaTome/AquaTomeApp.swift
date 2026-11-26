@@ -212,7 +212,10 @@ struct AquaTomeApp: App {
       // The owner's notifications turned on here: this launch's token, sent once the owner is known (OwnerPush).
       .task {
         notifications.received = { token in Task { await account.push.received(token) } }
-        notifications.openTank = { id in open(.tanks(id)) }
+        notifications.openReminder = { tank, id in
+          tanks.care.openFromNotification(tankID: tank, reminderID: id)
+          open(.tanks(tank))
+        }
         await OwnerNotifications.register(account.push)
       }
       // Whatever tab is showing: a light left on a test colour goes back to its schedule (LightsModel.leave).

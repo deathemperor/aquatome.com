@@ -258,6 +258,28 @@ final class TanksFlowTests: XCTestCase {
     done.tap()
     let asked = NSPredicate(format: "label == %@", "1")
     XCTAssertEqual(XCTWaiter.wait(for: [XCTNSPredicateExpectation(predicate: asked, object: permission)], timeout: 5), .completed)
+    let retry = app.buttons["tank-reminder-permission-retry"]
+    XCTAssertTrue(app.scrolledDown(to: retry).isHittable)
+    retry.tap()
+    let retried = NSPredicate(format: "label == %@", "2")
+    XCTAssertEqual(XCTWaiter.wait(for: [XCTNSPredicateExpectation(predicate: retried, object: permission)], timeout: 5), .completed)
+
+    // A tap for another reminder in the same tank replaces the editor that was already open.
+    XCTAssertTrue(app.scrolledDown(to: app.buttons["tank-reminder-add"]).isHittable)
+    app.buttons["tank-reminder-add"].tap()
+    app.buttons["tank-reminder-kind"].tap()
+    app.buttons["Cắt tỉa cây"].tap()
+    app.buttons["tank-reminder-save"].tap()
+    let water = app.buttons.matching(identifier: "tank-reminder")
+      .matching(NSPredicate(format: "label CONTAINS %@", "Thay nước")).firstMatch
+    XCTAssertTrue(water.waitForExistence(timeout: 5))
+    water.tap()
+    let other = app.buttons["tank-reminder-test-notification"]
+    XCTAssertTrue(app.scrolledDown(to: other).isHittable)
+    other.tap()
+    let kind = app.buttons["tank-reminder-kind"]
+    let trimming = NSPredicate { _, _ in kind.exists && ((kind.value as? String) == "Cắt tỉa cây" || kind.label.contains("Cắt tỉa cây")) }
+    XCTAssertEqual(XCTWaiter.wait(for: [XCTNSPredicateExpectation(predicate: trimming, object: nil)], timeout: 10), .completed)
   }
 
   private func launch(reset: Bool = true, _ args: String...) -> XCUIApplication {
