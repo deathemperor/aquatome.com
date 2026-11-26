@@ -845,8 +845,11 @@ final class ChatFlowTests: XCTestCase {
   }
 
   func testASectionOfAFishsPageKeepsItsHeadingInTheWebFallback() {
-    let app = launch("-chat-blocks", "-pages-count", "1")
-    answerWithEveryBlock(app)
+    let app = launch("-chat-blocks", "-pages-count", "1", "-picked-photo")
+    // Start from the fish identifier so chat opens while fish pages use their web fallback.
+    openFishIdChat(app)
+    ask(app, "Neon và cá đĩa khác nhau thế nào?")
+    XCTAssertTrue(element(app, "chat-answer").waitForExistence(timeout: 30), "no whole answer")
     let link = app.buttons.matching(identifier: "chat-section-open").element(boundBy: 2)
     XCTAssertTrue(link.waitForExistence(timeout: 5), "no section")
     reveal(app, link, times: 40)

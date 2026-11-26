@@ -143,7 +143,7 @@ struct SpeciesPage: View {
     // A page the app can't draw (its kind not drawn here, or it didn't come): the site's page, or its kept copy offline, as
     // v1 showed it, under v1's bar (the v2 Lab, 15 Nov: the old look's switch goes on Thu 19, and this was only v1's).
     if asked && doc == nil {
-      PageView(item: item, url: handbook.url(item), webOnly: true)
+      PageView(item: item, url: handbook.url(item), at: openAt, webOnly: true)
     } else {
       drawn
     }
@@ -216,17 +216,17 @@ struct SpeciesPage: View {
   /// The page asked for, and worked out into its parts once.
   private func come() async {
     guard doc == nil else { return }
+    // This visit owns the heading even if its load is interrupted.
+    if let at = handbook.openingAt, handbook.item(at: at.path)?.path == item.path {
+      openAt = at.heading
+      handbook.openingAt = nil
+    }
     let loaded = await handbook.doc(item)
     guard !Task.isCancelled else { return }
     doc = loaded
     whole = loaded.map(WholeParts.init)
     asked = true
-    guard loaded != nil else { return }
-    if let at = handbook.openingAt, handbook.item(at: at.path)?.path == item.path {
-      handbook.openingAt = nil
-      openAt = at.heading
-    }
-    handbook.read(item)
+    if loaded != nil { handbook.read(item) }
   }
 
   /// The page under its bar: the shade behind the status bar, the edge swipe back, the band, the bar's title and the

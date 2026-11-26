@@ -71,7 +71,7 @@ struct PageView: View {
 
   /// The web view uses its initial URL. Read a waiting heading before the task consumes it.
   private var atHeading: URL {
-    guard let heading = heading ?? pendingHeading, var c = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return url }
+    guard let heading = heading ?? pendingHeading ?? (webOnly ? at : nil), var c = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return url }
     c.fragment = heading
     return c.url ?? url
   }
@@ -494,7 +494,8 @@ private struct WebPage: UIViewRepresentable {
       if isInterruption(error) { return }
       let u = (error as NSError).userInfo[NSURLErrorFailingURLErrorKey] as? URL ?? page.url
       // The failed HTTP request may have dropped the fragment on the original page's URL.
-      let address = u.path == page.url.path && u.query == page.url.query && u.fragment == nil ? page.url : u
+      let samePage = PageStore.address(u, site: page.url) == PageStore.address(page.url, site: page.url)
+      let address = samePage && u.fragment == nil ? page.url : u
       if let data = PageStore.archive(for: address, site: page.url) {
         page.offline = true
         archiveHeading = address.fragment(percentEncoded: false)
@@ -514,14 +515,17 @@ enum PageStore {
   static func file(for url: URL, site: URL, includeFragment: Bool = false) -> URL {
     let dir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appendingPathComponent("pages", isDirectory: true)
     try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
-    let canonical = PathForm.underVi.url(url, site: site)
-    var address = canonical.absoluteString
-    if !includeFragment, canonical.fragment != nil, var parts = URLComponents(url: canonical, resolvingAgainstBaseURL: true) {
-      parts.fragment = nil
-      address = parts.url?.absoluteString ?? address
-    }
-    let key = SHA256.hash(data: Data(address.utf8)).map { String(format: "%02x", $0) }.joined()
+    let key = SHA256.hash(data: Data(address(url, site: site, includeFragment: includeFragment).utf8))
+      .map { String(format: "%02x", $0) }.joined()
     return dir.appendingPathComponent("\(key).webarchive")
+  }
+
+  static func address(_ url: URL, site: URL, includeFragment: Bool = false) -> String {
+    let canonical = PathForm.underVi.url(url, site: site)
+    guard !includeFragment, canonical.fragment != nil, var parts = URLComponents(url: canonical, resolvingAgainstBaseURL: true)
+    else { return canonical.absoluteString }
+    parts.fragment = nil
+    return parts.url?.absoluteString ?? canonical.absoluteString
   }
 
   static func archive(for url: URL, site: URL) -> Data? {
