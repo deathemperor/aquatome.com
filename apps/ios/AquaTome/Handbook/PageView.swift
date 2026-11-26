@@ -92,12 +92,7 @@ struct PageView: View {
           // Not the page's own id, which says the page has come: an outer id wins.
           .accessibilityIdentifier("page-head")
       } else {
-        // The site's tools save to "Bể của tôi": here, to the app's tanks (PageBridge).
-        WebPage(url: atHeading, lang: handbook.lang, offline: $offline, failed: $failed, store: tanks.storeForPages(),
-                saved: { tanks.mergeFromPage($0) }, open: openScreen, loaded: webOnly ? readWhenLoaded : nil)
-          // On the page alone: on the whole screen, it would take the place of the facts' own (an outer id wins).
-          .accessibilityIdentifier("page")
-          .ignoresSafeArea(edges: .bottom)
+        website
       }
     }
       .task(id: item.path) {
@@ -194,8 +189,16 @@ struct PageView: View {
       }
   }
 
+  private var website: some View {
+    // The site's tools can save to the app's tanks through PageBridge.
+    WebPage(url: atHeading, lang: handbook.lang, offline: $offline, failed: $failed, store: tanks.storeForPages(),
+            saved: { tanks.mergeFromPage($0) }, open: openScreen, loaded: { readWhenLoaded($0) })
+      .accessibilityIdentifier("page")
+      .ignoresSafeArea(edges: .bottom)
+  }
+
   private func readWhenLoaded(_ loadedURL: URL) {
-    guard !readFallback, PageStore.address(loadedURL, site: url) == PageStore.address(url, site: url) else { return }
+    guard webOnly, !readFallback, PageStore.address(loadedURL, site: url) == PageStore.address(url, site: url) else { return }
     readFallback = true
     handbook.read(item)
   }
