@@ -64,6 +64,8 @@ export function looks(sl: SecondLooks) {
     agreed: (url: string) => has(sl, url) && lookOf(sl[url])?.said === 'agree',
     /** Held with no answer yet: it stays on every page. */
     waiting: (url: string) => has(sl, url) && !lookOf(sl[url]),
+    /** A still-visible hold, including one on another address of the photo. */
+    held,
     /** Off its pages at its first verdict, and on the never-again list as waiting, until its look (above). */
     off: (url: string) => has(sl, url) && sl[url]!.off === true && !lookOf(sl[url]),
     /** Neither waiting nor cleared: a step's verdict may act on it. */

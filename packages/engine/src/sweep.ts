@@ -1165,11 +1165,11 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const pickedOn = new Set(standing.map(([ref, url]) => `${ref.split('/')[1]}\n${url}`))
     const why = refusedOn(subjects, id => kindOf.get(id), (id, url) => pickedOn.has(`${id}\n${url}`), new Set(standing.map(([, url]) => url)))
     for (const [ref, url] of standing) if (Object.values(subjects[url] ?? {}).some(v => !v.guide && v.ok === 'none')) report.refusedPicked.push(`${ref}: ${url}`)
-    type Doc = { photos?: Photo[] }
+    type Doc = { photos?: (Photo & { unchecked?: boolean })[] }
     const sources = JSON.parse(await readFile(join(content, 'sources.json'), 'utf8').catch(() => '{}')) as Record<string, SourceInfo>
     const shown = (p: Photo) => publicPhotoVersion(p, o.switches ?? IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
-    const own = (data: Doc) => (data.photos ?? []).flatMap(p => {
-      const version = !p.generated && shown(p)
+    const own = (data: Doc, album = false) => (data.photos ?? []).flatMap(p => {
+      const version = !p.generated && !(album && p.unchecked) && shown(p)
       return version ? [version] : []
     })
     // A photo held for a second look, or one it cleared, stays (last-photo.ts).
@@ -1183,7 +1183,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       if (off.size) plan.push({ file, id, raw, data, off })
     }
     const waitsFor = plan.length ? await readPhotoWaits(root) : () => false
-    const losesEveryPhoto = (x: (typeof plan)[number]) => !own(x.data).some(p => !x.off.has(p.url) && !waitsFor(p.url))
+    const losesEveryPhoto = (x: (typeof plan)[number]) => !own(x.data, x.file.endsWith(`gallery/${x.id}.json`)).some(p => !x.off.has(p.url) && !waitsFor(p.url))
     const emptying = plan.filter(x => x.file.endsWith('entity.json') && losesEveryPhoto(x))
     // A page with none of its own whose album would go whole is left with nothing too (the chief of staff, 2026-11-14).
     for (const x of plan) {
