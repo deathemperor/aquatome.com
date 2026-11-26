@@ -285,7 +285,7 @@ struct SpeciesPage: View {
       ScrollView {
         // One stack, the page's content: a part's place in it (PageNavigator.space) doesn't change as the page scrolls.
         VStack {
-          top
+          top(proxy)
           rest(proxy)
         }
         .coordinateSpace(.named(PageNavigator.space))
@@ -394,8 +394,34 @@ struct SpeciesPage: View {
     .accessibilityIdentifier("chat-entry")
   }
 
+  /// The text credit under the figures. A credit with no links of its own opens the sources when the page has them.
+  private func pageCredit(_ credit: [PageDoc.Run], _ proxy: ScrollViewProxy) -> some View {
+    let text = Text(styled(credit, font: .footnote))
+    let sources = whole?.parts.firstIndex {
+      if case .refs = $0 { return true }
+      return false
+    }
+    return Group {
+      if credit.allSatisfy({ $0.href == nil && $0.tip == nil }), let whole, let sources {
+        Button { jump(to: whole.ids[sources], proxy) } label: {
+          text.underline()
+            .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+            .contentShape(.rect)
+        }
+        .buttonStyle(.plain)
+      } else {
+        text.frame(maxWidth: .infinity, alignment: .leading)
+      }
+    }
+    .foregroundStyle(.white.opacity(0.75))
+    .tint(.white)
+    .padding(.horizontal, 20)
+    .padding(.bottom, 14)
+    .accessibilityIdentifier("v2-page-credit")
+  }
+
   /// The photo, the name, "Thêm vào bể", the figures and the rest of its photos, on the photo's colour.
-  private var top: some View {
+  private func top(_ proxy: ScrollViewProxy) -> some View {
     VStack(spacing: 0) {
       if let hero {
         let whole = wholeHead
@@ -433,15 +459,7 @@ struct SpeciesPage: View {
         .environment(\.colorScheme, .dark)
         .padding(.horizontal, 20)
         .padding(.vertical, 14)
-      // Whose text the page is, under its figures, as the site's data card ends and v1's page had it ("AquaTome tổng hợp từ
-      // 9 nguồn rồi tự viết"), its sources a tap away; on the colour as the photo's credit is.
-      if let credit = doc?.credit, !credit.isEmpty {
-        Text(styled(credit, font: .footnote)).foregroundStyle(.white.opacity(0.75)).tint(.white)
-          .frame(maxWidth: .infinity, alignment: .leading)
-          .padding(.horizontal, 20)
-          .padding(.bottom, 14)
-          .accessibilityIdentifier("v2-page-credit")
-      }
+      if let credit = doc?.credit, !credit.isEmpty { pageCredit(credit, proxy) }
       if !photos.isEmpty { gallery.padding(.bottom, 24) }
       // Until it's asked for, the colour runs on past the screen's foot, the spinner on it: no white strip, no tab bar
       // changing, when the page comes. Not a fish with no photo: it'll have no gallery to fill the place.

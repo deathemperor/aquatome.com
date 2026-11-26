@@ -64,9 +64,14 @@ struct PageView: View {
     }
   }
 
-  /// The web page's address, at the heading it was opened at.
+  private var pendingHeading: String? {
+    guard let at = handbook.openingAt, handbook.item(at: at.path)?.path == item.path else { return nil }
+    return at.heading
+  }
+
+  /// The web view uses its initial URL. Read a waiting heading before the task consumes it.
   private var atHeading: URL {
-    guard let heading, var c = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return url }
+    guard let heading = heading ?? pendingHeading, var c = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return url }
     c.fragment = heading
     return c.url ?? url
   }
@@ -95,9 +100,9 @@ struct PageView: View {
     }
       .task(id: item.path) {
         // Taken at once, whether the app draws the page or the web does: it's for this visit alone.
-        if let at = handbook.openingAt, handbook.item(at: at.path)?.path == item.path {
+        if let pendingHeading {
+          heading = pendingHeading
           handbook.openingAt = nil
-          heading = at.heading
         }
         // Opened before the index said the app draws this kind: the web page, for this visit (not a spinner later).
         guard !webOnly, handbook.drawsItself(item), !tried else { tried = true; return }
@@ -388,9 +393,9 @@ private struct WebPage: UIViewRepresentable {
   }
 
   #if DEBUG
-  /// The site's page in UI tests: its path and query, for a test to tell which page opened.
+  /// The site's page in UI tests: its path, query and heading.
   static func standIn(_ url: URL) -> String {
-    #"<!doctype html><meta name="viewport" content="width=device-width"><p>\#(url.path(percentEncoded: false))\#(url.query(percentEncoded: false).map { "?" + $0 } ?? "")</p>"#
+    #"<!doctype html><meta name="viewport" content="width=device-width"><p>\#(url.path(percentEncoded: false))\#(url.query(percentEncoded: false).map { "?" + $0 } ?? "")\#(url.fragment(percentEncoded: false).map { "#" + $0 } ?? "")</p>"#
   }
   #endif
 
@@ -417,6 +422,7 @@ private struct WebPage: UIViewRepresentable {
     var page: WebPage
     /// The load of the kept copy, shown offline: not kept again, and it doesn't clear the offline note.
     private var archive: WKNavigation?
+    private var archiveHeading: String?
     /// Whether the site answered the page now loading with a page (2xx), not an error page to keep over a good copy.
     private var answered = true
 
@@ -460,7 +466,15 @@ private struct WebPage: UIViewRepresentable {
     }
 
     func webView(_ web: WKWebView, didFinish navigation: WKNavigation!) {
-      if navigation === archive { return archive = nil }
+      if navigation === archive {
+        archive = nil
+        if let archiveHeading {
+          web.callAsyncJavaScript("document.getElementById(heading)?.scrollIntoView()",
+                                  arguments: ["heading": archiveHeading], in: nil, contentWorld: .page, completionHandler: nil)
+        }
+        archiveHeading = nil
+        return
+      }
       // Online again: the notes go, and the page is kept for next time.
       page.offline = false
       page.failed = false
@@ -479,8 +493,11 @@ private struct WebPage: UIViewRepresentable {
       // Another load took its place (the reader tapped on, or went back): nothing failed.
       if isInterruption(error) { return }
       let u = (error as NSError).userInfo[NSURLErrorFailingURLErrorKey] as? URL ?? page.url
-      if let data = try? Data(contentsOf: PageStore.file(for: u, site: page.url)) {
+      // The failed HTTP request may have dropped the fragment on the original page's URL.
+      let address = u.path == page.url.path && u.query == page.url.query && u.fragment == nil ? page.url : u
+      if let data = PageStore.archive(for: address, site: page.url) {
         page.offline = true
+        archiveHeading = address.fragment(percentEncoded: false)
         archive = web.load(data, mimeType: "application/x-webarchive", characterEncodingName: "utf-8", baseURL: u)
       } else {
         page.failed = true
@@ -494,11 +511,24 @@ enum PageStore {
   /// A Vietnamese page's archive is named by its address under "/vi/" whichever form it's opened in (PathForm), as the
   /// archives kept before the site moved those pages are: a page opened at one, or sent from one to the other, finds
   /// its archive at the other.
-  static func file(for url: URL, site: URL) -> URL {
+  static func file(for url: URL, site: URL, includeFragment: Bool = false) -> URL {
     let dir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appendingPathComponent("pages", isDirectory: true)
     try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
-    let key = SHA256.hash(data: Data(PathForm.underVi.url(url, site: site).absoluteString.utf8)).map { String(format: "%02x", $0) }.joined()
+    let canonical = PathForm.underVi.url(url, site: site)
+    var address = canonical.absoluteString
+    if !includeFragment, canonical.fragment != nil, var parts = URLComponents(url: canonical, resolvingAgainstBaseURL: true) {
+      parts.fragment = nil
+      address = parts.url?.absoluteString ?? address
+    }
+    let key = SHA256.hash(data: Data(address.utf8)).map { String(format: "%02x", $0) }.joined()
     return dir.appendingPathComponent("\(key).webarchive")
+  }
+
+  static func archive(for url: URL, site: URL) -> Data? {
+    if let data = try? Data(contentsOf: file(for: url, site: site)) { return data }
+    // Older builds could save an archive under the full address, including its fragment.
+    guard url.fragment != nil else { return nil }
+    return try? Data(contentsOf: file(for: url, site: site, includeFragment: true))
   }
 }
 

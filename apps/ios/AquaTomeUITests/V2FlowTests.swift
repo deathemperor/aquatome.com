@@ -1050,6 +1050,12 @@ final class V2FlowTests: XCTestCase {
     let life = app.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS %@", "Tuổi thọ")).firstMatch
     reveal(app, life)
     XCTAssertTrue(life.exists, "the lifespan nowhere on the page")
+    repeatUntil(credit.exists && credit.isHittable, times: 8) { app.swipeDown() }
+    XCTAssertTrue(credit.exists && credit.isHittable, "the credit remains in reach")
+    credit.tap()
+    let sources = app.staticTexts["Nguồn"].firstMatch
+    let visible = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isHittable == true"), object: sources)
+    XCTAssertEqual(XCTWaiter().wait(for: [visible], timeout: 5), .completed, "the credit jumps to the sources")
   }
 
   /// The search tab shows its screen, not the tab that was in front.
