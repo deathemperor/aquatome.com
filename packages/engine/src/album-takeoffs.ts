@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { photoKey, type PhotoRejection } from '@aq/schema'
 import { writePhotoState } from './photo-state'
 import { writeImageCache } from './image-cache-write'
-import { readSecondLook, waitingEntry } from './last-photo'
+import { readSecondLook, waitingReview } from './last-photo'
 
 const receiptFile = (root: string) => join(root, 'engine-state', '_photo-album-dead-takeoffs.json')
 const batchDir = (root: string) => join(root, 'engine-state', 'album-takeoff-batches')
@@ -42,9 +42,8 @@ export async function recordListedAlbumTakeOffs(root: string, urls: Iterable<str
     if (!entry) return []
     const [address, reason] = entry
     if (reason.startsWith('dead:')) return [url]
-    const mark = marks[address]
-    return mark && reason === waitingEntry(mark.why) &&
-      (mark.why.startsWith('dead:') || dead?.[address]?.dead || dead?.[url]?.dead) ? [url] : []
+    const review = waitingReview(marks, address, reason)
+    return review && (review[1].why.startsWith('dead:') || dead?.[review[0]]?.dead || dead?.[address]?.dead || dead?.[url]?.dead) ? [url] : []
   })
   if (removed.length) await recordAlbumTakeOffs(root, removed)
 }

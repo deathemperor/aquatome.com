@@ -9,7 +9,7 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
-import { entriesDir, holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, type Stood } from './last-photo'
+import { entriesDir, holdForSecondLook, lastPhotoVerdicts, looks, ownsWaiting, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, waitingReview, type Stood } from './last-photo'
 import { permittedPhotoSource, readCreditHoldWait, readPhotoSources } from './photo-visibility'
 
 /**
@@ -118,7 +118,8 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     else report.dead.push(line)
   }
   const reportAlbumTakeOffs = async () => {
-    const completed = Object.keys(receipts).filter(url => receipts[url] === true && !deferred.has(url))
+    const pending = photoAddressSet(deferred)
+    const completed = Object.keys(receipts).filter(url => receipts[url] === true && !pending(url))
     const ignored = completed.filter(url => initialClears(url) && !isListed(url)?.[1].startsWith('dead:'))
     const ready = completed.filter(url => !ignored.includes(url))
     const batches = await completeAlbumReceipts(root, ready, ignored)
@@ -132,20 +133,19 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const videos = new Map<string, Item>()
   const photos = new Map<string, Item>()
   const knownDead = new Map<string, Item>()
+  const albumFiles = new Map<string, Set<string>>()
   if (o.albums) {
     const looked = albumLooked({ screen: cache, secondLook: initialLooks })
     const cleared = initialClears
     const agreedDead = rejectedEntry(Object.fromEntries(Object.entries(initialLooks)
       .filter(([, mark]) => mark.why.startsWith('dead:') && photoLookAnswer(mark)?.said === 'agree')
       .map(([url, mark]) => [url, mark.why])))
-    const waits = rejectedEntry(Object.fromEntries(Object.entries(initialLooks)
-      .filter(([, mark]) => !photoLookAnswer(mark) || mark.off)
-      .map(([address, mark]) => [address, waitingEntry(mark.why)])))
     const knownTakeOff = (url: string): Item | undefined => {
-      const entry = isListed(url)?.[1]
+      const listed = isListed(url)
+      const entry = listed?.[1]
       const agreement = entry?.startsWith('dead:') ? undefined : agreedDead(url)
-      const review = waits(url)
-      const record = review && review[1] === entry ? initialLooks[review[0]] : undefined
+      const review = listed && waitingReview(initialLooks, listed[0], listed[1])
+      const record = review?.[1]
       const waiting = entry?.startsWith('waiting:')
       const cached = !cleared(url) && (cache[url]?.dead === true || receipts[url] === true)
       if (waiting && !cleared(url) && !agreement && !record && cached && !deferred.has(url)) {
@@ -165,11 +165,13 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       if (!Array.isArray(album?.photos)) throw new Error(`Album photo inventory unavailable: ${name}`)
       for (const url of new Set(album.photos.flatMap(deadScreenPhotoUrls))) {
         if (!url) continue
+        const key = photoKey(url) ?? url
+        if (!albumFiles.has(key)) albumFiles.set(key, new Set())
+        albumFiles.get(key)!.add(file)
         const dead = knownDead.get(url) ?? knownTakeOff(url)
         if (!dead && (isListed(url) || looked(url))) continue
         const take = dead ? knownDead : photos
         const it = dead ?? photos.get(url) ?? { key: url, url, files: [] }
-        it.files.push(file)
         take.set(url, it)
       }
     }
@@ -186,6 +188,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     const byPhoto = new Map<string, Item[]>()
     for (const item of [...photos.values(), ...knownDead.values()]) {
       const key = photoKey(item.url) ?? item.url
+      item.files.push(...(albumFiles.get(key) ?? []))
       byPhoto.set(key, [...(byPhoto.get(key) ?? []), item])
     }
     for (const kind of ['species', 'plants', 'breeds', 'guides', 'glossary']) {
@@ -335,6 +338,12 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     ? Object.fromEntries(Object.entries(secondLook).filter(([url]) => sl.waiting(url)).map(([url, record]) => [url, record.why]))
     : {})
   const albumHold = (url: string) => {
+    if (!o.albums) return undefined
+    const entry = isListed(url)
+    if (entry?.[1].startsWith('waiting:')) {
+      const review = waitingReview(secondLook, entry[0], entry[1])
+      return review && sl.waiting(review[0]) ? review[0] : undefined
+    }
     const key = albumHolds(url)?.[0]
     return key && (sl.waiting(url) || sl.held(url) || sl.pendingOff(url) || isListed(url)?.[0] === key) ? key : undefined
   }
@@ -359,6 +368,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     return markedByAddress(original.url) || heldByAddress(original.url) || albumHold(original.url) || sl.off(original.url) || prior?.startsWith('waiting:') ||
       (!prior && !goingByAddress(original.url))
   }
+  const receipted = photoAddressSet(Object.keys(receipts))
   for (const it of off) {
     const note = cache[it.key]?.note ?? (it.rejection ? compactRejection(it.rejection) : '')
     const why = it.agreement?.[1] ?? it.rejection ?? `dead: ${note} (the dead-fish screen)`
@@ -399,12 +409,14 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
         }
       }
     }
-    if (it.rejection && !it.agreement && !removed) continue
+    const retainedVersion = o.albums && it.rejection?.startsWith('dead:') &&
+      albumFiles.has(photoKey(it.url) ?? it.url) && !receipted(it.url)
+    if (it.rejection && !it.agreement && !removed && !retainedVersion) continue
     if (reviewUrl) {
       // Keep the existing unanswered review, including its source address, and record the places it can restore.
       const pending = secondLook[reviewUrl]!
       holding.set(reviewUrl, { why: pending.why, pages: pending.pages, off: true })
-      photoRejected[reviewUrl] = waitingEntry(pending.why)
+      if (!ownsWaiting(pending, it.rejection)) photoRejected[reviewUrl] = waitingEntry(pending.why)
       reportDead(it.key, note)
     } else if (!it.video && firstOff.has(it.url)) {
       holding.set(it.url, { why, pages: firstOff.get(it.url)!, off: true })

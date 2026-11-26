@@ -592,7 +592,7 @@ test('a source reread reuses an original already stored in a credited wrapper', 
   ])
 })
 
-test('a different source page reuses the bytes and credit of an already stored original', async () => {
+test.each([false, true])('a different page reuses the credited original without reusing the crop (owner crop: %s)', async crop => {
   const root = await mkdtemp(join(tmpdir(), 'source-original-'))
   const earlier = join(root, 'species/earlier')
   await mkdir(earlier, { recursive: true })
@@ -603,7 +603,7 @@ test('a different source page reuses the bytes and credit of an already stored o
   const credit = { licence: 'CC BY 4.0', author: 'Sample credited owner', sourceUrl: 'https://source.example/earlier', source }
   await writeFile(join(earlier, 'entity.json'), JSON.stringify({ photos: [{
       ...credit, url: 'https://media.test/upscaled.webp', width: 2000, height: 1400,
-      altered: [{ method: 'lanczos3-upscale' }], original,
+      altered: [{ method: 'lanczos3-upscale' }], original, ...(crop ? { ownerCrop: { id: 'reviewed-crop' } } : {}),
     }] }))
   const stored = await storedSourcePhotos(root)
   const unused = async () => { throw new Error('an address shared by another page must keep its bytes') }
@@ -614,6 +614,7 @@ test('a different source page reuses the bytes and credit of an already stored o
 
 test.each([
   ['species/sample/entity.json', (p?: object) => ({ photos: p ? [p] : [] })],
+  ['species/crop/entity.json', (p?: object) => ({ photos: p ? [{ ...p, url: 'https://media.test/crop.webp', ownerCrop: { id: 'reviewed-crop' }, original: p }] : [] })],
   ['equipment/id/example.json', (p?: object) => ({ types: p ? [{ photo: p }] : [] })],
   ['glossary/sample/entity.json', (p?: object) => ({ kinds: p ? [{ photo: p }] : [] })],
 ] as const)('an unplaced publisher image recovers its credit from %s', async (path, doc) => {
