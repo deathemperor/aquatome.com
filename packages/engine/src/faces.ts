@@ -76,7 +76,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const sl = looks(secondLook)
   // A hold on another reason doesn't keep a photo that never passed from a face found now, its first verdict (photo-check.ts spared).
   const passed = photoAddressSet(await readPassedBefore(root))
-  const face = (u: string) => cache[u]! > 0 && (sl.open(u) || (sl.waiting(u) && screened.has(u) && !passed(u)))
+  const face = (u: string) => cache[u]! > 0 && (sl.open(u) || ((sl.waiting(u) || sl.held(u)) && screened.has(u) && !passed(u)))
   const screen = waitingForDead && await readPhotoRecord(root, DEAD_SCREEN_FILE)
   const sources: Record<string, SourceInfo> = waitingForDead
     ? JSON.parse(await readFile(join(contentRoot, 'sources.json'), 'utf8').catch(() => '{}'))
