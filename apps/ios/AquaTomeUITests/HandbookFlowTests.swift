@@ -271,18 +271,20 @@ final class HandbookFlowTests: XCTestCase {
     app.launchForFlow()
     app.openTab("Tìm")
     search(app, "ca\n")
-    let fish = chip(app, "fish")
-    XCTAssertTrue(fish.waitForExistence(timeout: 5))
+    let first = item(app, "Cá đĩa")
+    XCTAssertTrue(first.waitForExistence(timeout: 5) && first.isHittable, "the best fish starts in view")
     let more = app.buttons["see-all-fish"]
     let list = app.collectionViews.firstMatch
-    repeatUntil(more.exists && more.isHittable, times: 8) { drag(list, from: 0.65, to: 0.28) }
+    repeatUntil(more.exists && more.isHittable && !(first.exists && first.isHittable), times: 8) {
+      drag(list, from: 0.65, to: 0.28)
+    }
     XCTAssertTrue(more.exists && more.isHittable)
-    XCTAssertFalse(fish.exists && fish.isHittable, "the chip must be out of view before the tap")
+    XCTAssertFalse(first.exists && first.isHittable, "the first row is offscreen before the tap")
     more.tap()
 
+    let fish = chip(app, "fish")
     XCTAssertTrue(fish.waitForExistence(timeout: 5))
     XCTAssertTrue(fish.isHittable && fish.isSelected, "the selected chip returned to the top")
-    let first = item(app, "Cá đĩa")
     XCTAssertTrue(first.waitForExistence(timeout: 5) && first.isHittable, "the best fish is back in view")
   }
 
