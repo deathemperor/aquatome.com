@@ -409,7 +409,10 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
   const asked = clock()
   const [handed, tankHanded] = await Promise.all([o.handover ? inTime(o.handover, 'handover') : undefined, o.start.tank ? inTime(() => o.tanks(), 'tanks') : undefined])
   const opened = tankHanded ? await openedTank(o.start, async () => tankHanded, o.handbook, !!handed) : undefined
-  const content = [...(first.content as Anthropic.ContentBlockParam[]), ...(opened ? [{ type: 'text' as const, text: opened }] : [])]
+  const tankContext = opened ?? (o.start.tank
+    ? 'The saved tank this chat was opened from is unavailable. When the question depends on that tank, ask for its current details. Do not substitute another saved tank or assume the earlier review is current.'
+    : undefined)
+  const content = [...(first.content as Anthropic.ContentBlockParam[]), ...(tankContext ? [{ type: 'text' as const, text: tankContext }] : [])]
   // No `recheck` here: an answer that may be sent back must not stream, as the reader would have read the one it replaces.
   const run = await runAgent<Step>({
     send,

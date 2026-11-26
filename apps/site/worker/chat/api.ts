@@ -336,9 +336,17 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const running = conv?.running && clock() - conv.running.at < RUNNING_MS ? conv.running : undefined
   if (running && idem && running.key === idem) return waitFor(readKept, keptResponse, stream, clock, deps)
   // Hidden from the list on another device: ended, so the app asks in a new conversation. A read that fails stops no question.
-  const hidden = conv?.turns.length ? (await env.DB.prepare('SELECT hidden FROM chat_conversations WHERE account = ? AND id = ?').bind(account, q.conversation).first<{ hidden: number }>().catch(() => null))?.hidden === 1 : false
-  if (conv && (hidden || clock() - conv.created > CONVERSATION_MS || conv.turns.length >= maxTurns)) return json({ error: 'ended' }, 410)
+  const row = conv?.turns.length ? await env.DB.prepare('SELECT hidden, start FROM chat_conversations WHERE account = ? AND id = ?').bind(account, q.conversation).first<{ hidden: number; start: string }>().catch(() => null) : null
+  if (conv && (row?.hidden === 1 || clock() - conv.created > CONVERSATION_MS || conv.turns.length >= maxTurns)) return json({ error: 'ended' }, 410)
   if (running) return json({ error: 'answering' }, 409)
+  // Later turns use the original tank selection, never start metadata from the new question.
+  let start: Start = conv?.turns.length ? {} : q.start
+  if (row) {
+    try {
+      const saved = JSON.parse(row.start) as Start | null
+      if (saved?.from === 'tank' && typeof saved.tank === 'string' && saved.tank) start = { tank: saved.tank }
+    } catch { /* A historical row without a readable start can still take a question. */ }
+  }
 
   // Admission, in one step in the ledger: the account's day, chat's day and the site's spend, and a healthy key.
   const model = env.CHAT_MODEL || DEFAULT_MODEL
@@ -464,7 +472,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
           if (call !== 0) { key = used; wrote = used.hash }
           return r.value
         },
-        model, lang: q.lang, question: q.question, earlier: conv?.turns ?? [], start: (conv?.turns.length ? {} : q.start), handbook: hb,
+        model, lang: q.lang, question: q.question, earlier: conv?.turns ?? [], start, handbook: hb,
         tanks,
         ...(search ? { handover: async () => handoverFor({ question: q.question, start: q.start, tanks: (await tanks()) ?? [], hb, lang: q.lang, search }) } : {}),
         onStep, clock,

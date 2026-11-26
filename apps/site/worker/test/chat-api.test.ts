@@ -1346,6 +1346,38 @@ test('read_tanks reads the account\'s synced tanks with their ids, its fish name
   expect(result).toContain('\\"name\\":\\"Cá neon xanh\\",\\"id\\":\\"paracheirodon-innesi\\",\\"count\\":12')
 })
 
+test('a saved-tank review keeps its original tank on follow-ups and reads the current sync', async () => {
+  const { e, db } = env()
+  const me = await signIn(db)
+  const now = new Date()
+  const at = now.toISOString()
+  const tank = { id: crypto.randomUUID(), name: 'Bể rêu', notes: 'Nước đục', species: [], plants: [], createdAt: at, updatedAt: at }
+  const other = { ...tank, id: crypto.randomUUID(), name: 'Bể tép', notes: 'Bể khác' }
+  await syncStore(db, me.id, { v: 1, tanks: [tank, other], devices: [] }, now)
+  const c = claude([() => answers({})])
+  const auth = bearer(me.token)
+  await run(ask(auth, { from: 'tank', about: undefined, tank: tank.id, question: 'Bể này ổn không?' }), e, deps(c.fetch), now)
+  expect(JSON.stringify(c.bodies.at(-1)!.messages)).toContain('Nước đục')
+
+  const later = new Date(now.getTime() + 1000)
+  await syncStore(db, me.id, { v: 1, tanks: [{ ...tank, notes: 'Nước đã trong', updatedAt: later.toISOString() }], devices: [] }, later)
+  await run(ask(auth, { from: 'tank', about: undefined, tank: other.id, question: 'Giờ thì sao?' }), e, deps(c.fetch), later)
+  const followup = JSON.stringify(c.bodies.at(-1)!.messages)
+  expect(followup).toContain(tank.id)
+  expect(followup).toContain('Nước đã trong')
+  expect(followup).not.toContain(other.id)
+  expect(followup).not.toContain('Nước đục')
+
+  const deleted = new Date(later.getTime() + 1000)
+  const tombstone = { id: tank.id, updatedAt: deleted.toISOString(), deletedAt: deleted.toISOString() }
+  await syncStore(db, me.id, { v: 1, tanks: [tombstone], devices: [] }, deleted)
+  await run(ask(auth, { question: 'Vậy cần đo gì?' }), e, deps(c.fetch), deleted)
+  const after = JSON.stringify(c.bodies.at(-1)!.messages)
+  expect(after).toContain('The saved tank this chat was opened from is unavailable.')
+  expect(after).not.toContain(other.id)
+  expect(after).not.toContain('Nước đã trong')
+})
+
 test('read_tanks reads the whole saved tank: plants, substrate, notes, days since saved, each light\'s active schedule, what its plugs power', async () => {
   const { e, db } = env()
   const me = await signIn(db)
