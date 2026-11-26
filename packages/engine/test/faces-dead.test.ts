@@ -8,7 +8,7 @@ import { expect, onTestFinished, test, vi } from 'vitest'
 import { loadAll, mirrorPlan } from '@aq/schema'
 import * as imageWrites from '../src/image-cache-write'
 import { LlmError } from '../src/claude'
-import { screenDead, type DeadScreenDeps } from '../src/dead-screen'
+import { acknowledgeAlbumTakeOffs, screenDead, type DeadScreenDeps } from '../src/dead-screen'
 import { galleries, type GalleryDeps } from '../src/gallery'
 import { gitHistory, putBackCleared, waitingEntry } from '../src/last-photo'
 import { checkPagePhotos } from '../src/photo-check'
@@ -1206,6 +1206,7 @@ test.each([false, true])('a failed breed write leaves its album entry available 
     await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
       [dead.url]: { why: 'watermark: withheld', pages: ['breeds/beta'], at: '2026-11-26', step: 'the watermark screen' },
     }))
+    await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [dead.url]: waitingEntry('watermark: withheld') }))
   }
   const replace = imageWrites.replacePhotoDocument
   const failing = vi.spyOn(imageWrites, 'replacePhotoDocument').mockImplementation(async (path, bytes) => {
@@ -1431,10 +1432,17 @@ test('a failed second album write preserves both applied take-offs for the next 
   const retry = await screenDead(root, d.dead, { limit: 0, albums: true })
   expect(retry.dead).toEqual([expect.stringContaining(first.url), expect.stringContaining(second.url)])
   expect(JSON.parse(await readFile(other, 'utf8')).photos).toEqual([])
-  expect((await screenDead(root, d.dead, { limit: 0, albums: true })).dead).toEqual([])
+  expect(retry.albumBatches).toEqual([{ id: expect.stringMatching(/^[a-f0-9]{64}$/), urls: [first.url, second.url] }])
+  // The caller could lose the first report after its files were changed. The same batch stays available.
+  const repeated = await screenDead(root, d.dead, { limit: 0, albums: true })
+  expect(repeated.dead).toEqual([])
+  expect(repeated.albumBatches).toEqual(retry.albumBatches)
+  expect(await acknowledgeAlbumTakeOffs(root, retry.albumBatches[0]!.id)).toBe(2)
+  expect(await acknowledgeAlbumTakeOffs(root, retry.albumBatches[0]!.id)).toBe(0)
+  expect((await screenDead(root, d.dead, { limit: 0, albums: true })).albumBatches).toEqual([])
 })
 
-test('an album take-off keeps a waiting guide stock slot through the sweep and human clear', async () => {
+test('an album take-off keeps a waiting guide stock slot through photo check, sweep and human clear', async () => {
   const dead = photo('held-dead')
   const { root, state, file, publicView } = await publicFixture([dead], [dead], [dead.url])
   const guide = join(root, 'content/guides/sample/entity.json')
@@ -1451,6 +1459,9 @@ test('an album take-off keeps a waiting guide stock slot through the sweep and h
   const { d } = deps()
 
   expect((await screenDead(root, d.dead, { limit: 0, albums: true })).dead).toHaveLength(1)
+  const unused = async () => { throw new Error('the fixture must not fetch or judge a photo') }
+  await checkPagePhotos(root, { get: unused, look: unused }, { limit: 0, fill: 0 })
+  expect(JSON.parse(await readFile(guide, 'utf8')).video.figures).toEqual(figures)
   await sweep(root, { history: async () => [] })
   expect(JSON.parse(await readFile(guide, 'utf8')).video.figures).toEqual(figures)
   const marks = await json(root, 'engine-state/_photo-second-look.json')

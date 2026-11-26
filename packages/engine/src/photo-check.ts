@@ -6,7 +6,7 @@ import { replacePhotoDocument, writeImageCache } from './image-cache-write'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { IMAGE_SWITCHES, isNonCommercial, ncAlone, photoAddressSet, photoFitsHead, photoKey, photoRejections, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto } from '@aq/schema'
+import { deadScreenPhotoUrls, IMAGE_SWITCHES, isNonCommercial, ncAlone, photoAddressSet, photoFitsHead, photoKey, photoRejections, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
@@ -991,25 +991,28 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       const reason = blockedAs(file, url)
       return reason && first(reason) ? (firstAliases.get(reason) ?? reason) : undefined
     }
+    const raw = await readFile(file, 'utf8')
+    const data = JSON.parse(raw) as { photos?: Photo[]; video?: { figures?: { photo?: Photo; moments?: { url: string }[] }[] } }
+    // Waiting guide slots remain in the document until recovery can capture those slots.
+    const nested = photoAddressSet((data.video?.figures ?? []).flatMap(f => [
+      ...(f.photo ? deadScreenPhotoUrls(f.photo) : []), ...(f.moments ?? []).map(m => m.url),
+    ]))
+    const canRemove = (url: string) => recoverableEdit(url) && !(nested(url) && (waitingAt(url) || capture(url)))
     if (held.has(file)) {
       // A held page keeps what passed before; a first verdict comes off it all the same.
-      const raw = await readFile(file, 'utf8')
-      const data = JSON.parse(raw) as { photos?: Photo[] }
       const removed: string[] = []
       const before = { ...data }
-      stripPhotos(data, url => recoverableEdit(url) && !!capture(url), removed, [], preservesOriginal)
+      stripPhotos(data, url => canRemove(url) && !!capture(url), removed, [], preservesOriginal)
       placesIn(root, file, before, url => removed.includes(url) ? capture(url) : undefined, stood)
       if (!removed.length) continue
       report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))
       edits.set(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
       continue
     }
-    const raw = await readFile(file, 'utf8')
-    const data = JSON.parse(raw) as { photos?: Photo[] }
     const before = real(data.photos)[0]?.url
     const removed: string[] = []
     const beforeEdit = { ...data }
-    stripPhotos(data, url => recoverableEdit(url) && blocked(file)(url), removed, [], preservesOriginal)
+    stripPhotos(data, url => canRemove(url) && blocked(file)(url), removed, [], preservesOriginal)
     placesIn(root, file, beforeEdit, url => removed.includes(url) ? capture(url) : undefined, stood)
     // A gallery photo that waited (`unchecked`): judged for this page and left on, it shows from the next build.
     const gallery = galleryId(file)
