@@ -694,7 +694,7 @@ final class PageShotsFlowTests: XCTestCase {
   /// `shows`: what the section has once it's loaded.
   private func shootOwner(_ name: String, section: String?, shows: String = "owner-chart", dark: Bool = false, size: String? = nil,
                           more: [String] = [], bell: Bool = false, needs: Bool = false, screens: Int? = nil) {
-    let app = launch(dark: dark, size: size, XCUIApplication.standInOwner + more)
+    let app = launch(dark: dark, size: size, XCUIApplication.standInOwner + more, look: .v2)
     app.openAccount()
     app.signInWithStandInApple()
     app.scrollToAndTap("owner-dashboard")
