@@ -1,0 +1,40 @@
+---
+import type { GetStaticPaths, Page } from 'astro'
+import PageNav from '../../../components/PageNav.astro'
+import Browse from '../../../layouts/Browse.astro'
+import { CATALOGUE_PAGE_SIZE, cataloguePagePath } from '../../../lib/catalogue'
+import { i18n, LANG, langOf } from '../../../lib/i18n'
+import { sitemapEntries, type SitemapEntry } from '../../../lib/sitemap'
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const entries = (await sitemapEntries()).sort((a, b) => a.path.localeCompare(b.path))
+  return paginate(entries, { pageSize: CATALOGUE_PAGE_SIZE })
+}) satisfies GetStaticPaths
+
+const { page } = Astro.props as { page: Page<SitemapEntry> }
+const { t } = i18n(Astro.url)
+const heading = t('Mục lục')
+const title = page.currentPage === 1 ? heading : `${heading} · ${page.currentPage}`
+const numbered = Array.from({ length: page.lastPage }, (_, i) => i + 1)
+---
+<Browse title={title} heading={heading} ads={false} search={false}>
+  {page.lastPage > 1 && (
+    <nav class="numbers" aria-label={t('Các trang')}>
+      {numbered.map(n => n === page.currentPage
+        ? <span aria-current="page">{n}</span>
+        : <a href={cataloguePagePath(n)}>{n}</a>)}
+    </nav>
+  )}
+  <ul class="entries">
+    {page.data.map(entry => <li><a href={entry.path} lang={LANG[langOf(entry.path)].html}>{entry.label ?? decodeURIComponent(entry.path)}</a></li>)}
+  </ul>
+  <PageNav prev={page.currentPage > 1 ? cataloguePagePath(page.currentPage - 1) : undefined} next={page.currentPage < page.lastPage ? cataloguePagePath(page.currentPage + 1) : undefined} />
+</Browse>
+<style>
+  .numbers { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-5); }
+  .numbers a, .numbers span { display: inline-grid; min-width: 44px; min-height: 44px; place-items: center; border: 1px solid var(--c-rule); }
+  .numbers span { border-color: var(--c-ink); font-weight: 600; }
+  .entries { columns: 16rem; column-gap: var(--space-6); list-style: none; padding: 0; }
+  .entries li { break-inside: avoid; border-top: 1px dotted var(--c-rule); }
+  .entries a { display: flex; align-items: center; min-height: 44px; padding-block: var(--space-2); overflow-wrap: anywhere; }
+</style>
