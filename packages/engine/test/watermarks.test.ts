@@ -148,6 +148,43 @@ test.each([false, true])('watermark holds use the album and this pass’s decisi
   }
 })
 
+test('a mirror already listed for a source watermark cannot replace the last photo', async () => {
+  const r = await site()
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = 'https://media.aquatome.com/flickr/456.webp'
+  await writeFile(join(r, 'content/species/a/entity.json'), JSON.stringify({ id: 'a', photos: [photo('glaser'), { ...photo('fish'), url: mirror }] }))
+  await writeFile(join(r, 'content/gallery/a.json'), JSON.stringify({ id: 'a', photos: [] }))
+  const cache = join(r, 'engine-state/_photo-watermarks.json')
+  const rejected = join(r, 'engine-state/_photo-rejected.json')
+  await writeFile(cache, JSON.stringify({ [mirror]: { ocr: [], watermark: false } }))
+  await writeFile(rejected, JSON.stringify({ [source]: 'watermark: withheld' }))
+
+  const result = await screenWatermarks(r, cache, rejected, deps().d, { limit: 10 })
+
+  expect(result.held).toContain(`${url('glaser')}: species/a`)
+})
+
+test('the watermark pass holds the last served original of an already rejected alteration', async () => {
+  const r = await site()
+  const original = photo('glaser')
+  const stored = { ...photo('stored'), altered: [{ method: 'lanczos3-upscale' }],
+    original: { url: original.url, width: original.width, height: original.height } }
+  const file = 'content/species/a/entity.json'
+  await writeFile(join(r, file), JSON.stringify({ id: 'a', photos: [stored] }))
+  await writeFile(join(r, 'content/gallery/a.json'), JSON.stringify({ id: 'a', photos: [] }))
+  const other = join(r, 'content/species/b/entity.json')
+  await mkdir(join(other, '..'), { recursive: true })
+  await writeFile(other, JSON.stringify({ id: 'b', photos: [original, photo('box')] }))
+  const rejected = join(r, 'engine-state/_photo-rejected.json')
+  await writeFile(rejected, JSON.stringify({ [stored.url]: 'dead: withheld' }))
+
+  const result = await screenWatermarks(r, join(r, 'engine-state/_photo-watermarks.json'), rejected, deps().d, { limit: 10 })
+
+  expect(result.held).toContain(`${original.url}: species/a`)
+  expect((await read(r, file)).photos).toEqual([stored])
+  expect((await read(r, 'engine-state/_photo-rejected.json'))[original.url]).toBeUndefined()
+})
+
 test('item admission stops without model calls or content changes', async () => {
   const root = await site()
   const { d, calls } = deps()

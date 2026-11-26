@@ -245,18 +245,51 @@ test('one photo on two pages, the only photo on one and one of several on the ot
   expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [url('j-dead')]: waitingEntry(sl[url('j-dead')].why) })
 })
 
-test('the other address of a first refusal joins the same wait even when it has a visible sibling', async () => {
+test.each([false, true])('the other address of a first refusal joins the same wait (different verdict: %s)', async mixed => {
   const r = await store({ jjj: [], kkk: [] })
   const source = 'https://live.staticflickr.com/123/456_abc.jpg'
   const mirror = `https://media.aquatome.com/${mirrorPlan(source)!.key}`
   await writeFile(join(r, 'content/species/jjj/entity.json'), JSON.stringify(fish('jjj', [{ ...photo('mirror'), url: mirror }])))
   await writeFile(join(r, 'content/species/kkk/entity.json'), JSON.stringify(fish('kkk', [{ ...photo('source'), url: source }, photo('live')])))
 
-  await checkPagePhotos(r, model({ [name(source)]: dead, [name(mirror)]: dead }), { limit: 10 })
+  await checkPagePhotos(r, model({ [name(source)]: dead, [name(mirror)]: mixed ? { person: true } : dead }), { limit: 10 })
 
   const marks = await json(r, 'engine-state/_photo-second-look.json')
   expect(marks[mirror]).toMatchObject({ pages: ['species/jjj'], off: true })
   expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [mirror]: waitingEntry(marks[mirror].why) })
+})
+
+test('retrying a source copy under its mirror’s wait makes no new rejection', async () => {
+  const r = await store({ jjj: [], kkk: [] }, { live: { kkk: { ...oldPass, logo: false, person: false } } })
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(source)!.key}`
+  const mark = { why: compactRejection('dead: sample'), pages: ['species/jjj'], at: '2026-11-26', step: 'the photo check', off: true }
+  await writeFile(join(r, 'content/species/kkk/entity.json'), JSON.stringify(fish('kkk', [{ ...photo('source'), url: source }, photo('live')])))
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [mirror]: mark }))
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [mirror]: waitingEntry(mark.why) }))
+  const unused = async () => { throw new Error('The waiting source copy needs no additional look') }
+
+  const result = await checkPagePhotos(r, { get: unused, look: unused }, { limit: 10 })
+
+  expect(result.failed).toEqual([])
+  expect(await photosOf(r, 'kkk')).toEqual(['live'])
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [mirror]: waitingEntry(mark.why) })
+})
+
+test('a durable first refusal preserves a separately eligible original when the rejection write failed', async () => {
+  const r = await store({ jjj: [] })
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(source)!.key}`
+  const original = photo('original')
+  const stored = { ...photo('altered'), url: mirror, altered: [{ method: 'lanczos3-upscale' }],
+    original: { url: original.url, width: original.width, height: original.height } }
+  const file = 'content/species/jjj/entity.json'
+  await writeFile(join(r, file), JSON.stringify(fish('jjj', [stored])))
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({
+    [source]: { why: compactRejection('dead: sample'), pages: ['species/kkk'], at: '2026-11-26', step: 'the photo check', off: true },
+  }))
+  await checkPagePhotos(r, model({}), { limit: 10 })
+  expect((await json(r, file)).photos).toEqual([stored])
 })
 
 test.each(['photo check', 'sweep'])('the %s holds the last visible album photo even with an unchecked sibling', async step => {

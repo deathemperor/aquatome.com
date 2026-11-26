@@ -1,4 +1,4 @@
-import { mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, type Photo } from '@aq/schema'
+import { mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, setsCookies, type Photo } from '@aq/schema'
 import { spawnSync } from 'node:child_process'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
@@ -77,10 +77,10 @@ export function looks(sl: SecondLooks) {
 export type PageShows = { ref: string; own: string[]; album: string[] }
 
 /** Every species, plant and breed page, as the site shows it now. */
-export async function pagesShowing(content: string, version: (p: Photo) => string | undefined = p => p.url): Promise<PageShows[]> {
-  type Doc = { photos?: (Photo & { unchecked?: boolean })[] }
-  const urls = (d: Doc | null, album = false) => [...new Set((d?.photos ?? []).flatMap(p => {
-    const url = p?.url && !p.generated && !(album && p.unchecked) ? version(p) : undefined
+export async function pagesShowing(content: string, version: (p: Photo, ref: string, scientificName: string) => string | undefined = p => p.url): Promise<PageShows[]> {
+  type Doc = { photos?: (Photo & { unchecked?: boolean })[]; scientificName?: string }
+  const urls = (d: Doc | null, ref: string, scientificName: string, album = false) => [...new Set((d?.photos ?? []).flatMap(p => {
+    const url = p?.url && !p.generated && !(album && p.unchecked) ? version(p, ref, scientificName) : undefined
     return url ? [url] : []
   }))]
   const read = async (f: string) => JSON.parse(await readFile(f, 'utf8').catch(() => 'null')) as Doc | null
@@ -89,7 +89,10 @@ export async function pagesShowing(content: string, version: (p: Photo) => strin
     for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
       const own = await read(join(content, kind, id, 'entity.json'))
       if (!own) continue
-      out.push({ ref: `${kind}/${id}`, own: urls(own), album: urls(await read(join(content, 'gallery', `${id}.json`)), true) })
+      const ref = `${kind}/${id}`
+      const name = own.scientificName ?? ''
+      const album = await read(join(content, 'gallery', `${id}.json`))
+      out.push({ ref, own: urls(own, ref, name), album: urls(album, kind === 'species' ? ref : '', name, true) })
     }
   }
   return out
@@ -291,7 +294,9 @@ export function gitHistory(root: string): History {
       const files = git('diff', '--name-only', '--no-renames', ...search, `${sha}^`, sha, '--', ...places)
       if (files.status !== 0) return undefined
       for (const file of files.stdout.split('\n').filter(Boolean)) {
-        const before = urls(at(`${sha}^`, file)), index = before.findIndex(shown)
+        const before = urls(at(`${sha}^`, file))
+        const eligible = before.findIndex(p => shown(p) && !setsCookies(p.url as string))
+        const index = eligible >= 0 ? eligible : before.findIndex(shown)
         if (index < 0 || urls(at(sha, file)).some(shown)) continue
         const had = out.get(file)
         if (had) had.times++

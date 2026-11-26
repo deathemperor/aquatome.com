@@ -192,6 +192,15 @@ export function photoHolds(records: Record<string, unknown> = {}): (url: string)
   return url => Object.hasOwn(records, url) ? unansweredHold(records[url]) : held(url)
 }
 
+/** A first-refusal mark is durable before its rejection entry is written. */
+function photoFirstOff(records: Record<string, unknown> = {}): (url: string) => boolean {
+  return photoAddressSet(Object.keys(records).filter(url => {
+    const mark = records[url] as LookMark | undefined
+    return mark?.off === true && typeof mark.why === 'string' && /^(?:dead|people):/.test(mark.why) &&
+      photoLookAnswer(mark)?.said !== 'clear'
+  }))
+}
+
 /** A face found on one version of a photo disqualifies that URL, subject to its second look. */
 export function facePhotoOff(url: string, faces?: Record<string, unknown>, secondLook?: Record<string, unknown>, cleared = photoClears(secondLook), held = photoHolds(secondLook)): boolean {
   const count = faces?.[url]
@@ -203,13 +212,12 @@ export function facePhotoOff(url: string, faces?: Record<string, unknown>, secon
  * file it came from still needs to preserve a different fallback version. A last-photo hold or a person's clear can
  * keep a dead verdict from taking effect.
  */
-export function deadPhotoOff(url: string, screen?: Record<string, unknown>, secondLook?: Record<string, unknown>, rejected?: PhotoRejection, cleared = photoClears(secondLook), held = photoHolds(secondLook)): boolean {
+export function deadPhotoOff(url: string, screen?: Record<string, unknown>, secondLook?: Record<string, unknown>, rejected?: PhotoRejection, cleared = photoClears(secondLook), held = photoHolds(secondLook), firstOff = photoFirstOff(secondLook)): boolean {
   const rejection = rejected?.(url)
   const why = rejection?.[1]
-  const mark = secondLook?.[rejection?.[0] ?? url] as LookMark | undefined
   if (typeof why === 'string' && (why.startsWith('dead:') || why.startsWith('people:') || why.startsWith('waiting:'))) return true
   if (cleared(rejection?.[0] ?? url)) return false
-  if (mark?.off === true && typeof mark.why === 'string' && mark.why.startsWith('dead:')) return true
+  if (firstOff(url)) return true
   const verdict = screen?.[url] as { dead?: unknown } | undefined
   return verdict?.dead === true && !held(rejection?.[0] ?? url)
 }
@@ -231,13 +239,14 @@ export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
   const owesLook = photoAddressSet([...Object.keys(r.owed ?? {}), ...(r.unjudged ?? [])])
   const cleared = photoClears(r.secondLook)
   const held = photoHolds(r.secondLook)
+  const firstOff = photoFirstOff(r.secondLook)
   const faceWaits = photoAddressSet([
     ...(r.unread ?? []),
     ...[...(r.flaggedAlterations ?? [])].filter(url => facePhotoOff(url, r.faces, r.secondLook, cleared, held)),
   ])
   return url => (!!r.watermarks && awaitsScreen(url, r.watermarks[url])) ||
     owesLook(url) || faceWaits(url) ||
-    deadPhotoOff(url, r.deadScreen, r.secondLook, r.rejected, cleared, held)
+    deadPhotoOff(url, r.deadScreen, r.secondLook, r.rejected, cleared, held, firstOff)
 }
 
 /**

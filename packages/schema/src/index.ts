@@ -37,4 +37,4 @@ export * from './tanks'
 export * from './devices'
 export { pageMatcher, sciKey, type MatchPage } from './unlisted'
 
-export { OWNER_CROPS, ownerCropApproved, ownerCropCanonical, type OwnerCropApproval } from './owner-crops'
+export { OWNER_CROPS, ownerCropApproved, ownerCropCanonical, ownerCropFitsPage, type OwnerCropApproval } from './owner-crops'

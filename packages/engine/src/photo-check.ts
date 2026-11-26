@@ -20,7 +20,7 @@ import { ageOf, ageUnasked, grownFirst, grownHead, headAsksAge, youngUnasked } f
 import { CF, namedOn, namedOrder, passesHead, SPECIES } from './photo-named'
 import { readAvoid } from './curation'
 import { priorityFish } from './priority-fish'
-import { readPhotoWaits } from './photo-visibility'
+import { permittedPhotoSource, readPhotoWaits } from './photo-visibility'
 
 type Photo = { url: string; caption?: string; author?: string; authorUrl?: string; sourceUrl?: string; licence?: string; generated?: unknown; unchecked?: boolean }
 /**
@@ -466,7 +466,18 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const passed = passedBefore(cache, legacy)
   const rejected = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
   // A photo held for a second look, or one it cleared, isn't taken off on a verdict (last-photo.ts).
-  const sl = looks(await readSecondLook(root))
+  const secondLook = await readSecondLook(root)
+  const sl = looks(secondLook)
+  const rejectedAt = rejectedEntry(rejected)
+  const markedAt = rejectedEntry(Object.fromEntries(Object.entries(secondLook)
+    .filter(([url, mark]) => sl.off(url) && FIRST_OFF.test(mark.why))
+    .map(([url, mark]) => [url, waitingEntry(mark.why)])))
+  const waitingAt = (url: string) => {
+    const entry = rejectedAt(url)
+    if (!entry) return markedAt(url)?.[0]
+    return entry[1].startsWith('waiting:') ? entry[0] : undefined
+  }
+  const unavailable = (url: string) => url in rejected || !!waitingAt(url)
   const marks = (await readJson<Record<string, WatermarkEntry>>(join(root, 'engine-state/_photo-watermarks.json'))) ?? {}
   const keepLogo = keptOwnMark(rejected, marks)
   // A photo with a shop's own mark, kept (own-mark.ts): it stays, after every unmarked photo on its page, and never leads
@@ -612,7 +623,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       if (now === 'first' && !later && s === all[0]) firstAt = sheets.length
       if (sheets.length >= o.limit || (now === 'first' && sheets.length - firstAt >= fill) || (now === 'bareNc' && ncTaken >= (o.ncShare ?? BARE_NC_SHARE))) break
       if (only && !only.has(s.id)) continue
-      const open = (onPage.get(s.id) ?? []).filter(x => !(x.url in rejected) && want(x) && !queued.has(`${s.id}\n${x.url}`))
+      const open = (onPage.get(s.id) ?? []).filter(x => !unavailable(x.url) && want(x) && !queued.has(`${s.id}\n${x.url}`))
       const mine = [...new Set(open.filter(x => phase(x, now) && !!x.galleryOnly === later).map(x => x.url))]
       if (!mine.length) continue
       // The page's lead, when it is not judged yet, heads the first sheet a run gives its page, whatever its turn, as it
@@ -738,7 +749,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     // like every sheet (`piece`).
     const kin = new Set<string>()
     for (const t of otherInAlbum) for (const x of onPage.get(t.page!) ?? []) {
-      if (x.file === t.file && x.url !== t.url && !(x.url in rejected) && unseen(x) && sameUploader(t, x)) kin.add(`${x.page}\n${x.url}`)
+      if (x.file === t.file && x.url !== t.url && !unavailable(x.url) && unseen(x) && sameUploader(t, x)) kin.add(`${x.page}\n${x.url}`)
     }
     const again: { s: Subject; urls: string[]; i: string }[] = []
     for (const s of all) {
@@ -797,12 +808,12 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // keep a photo from its first verdict of dead or a person (the independent reader, 20 Nov).
   const spared = (url: string) => !sl.open(url) && !((sl.waiting(url) || sl.held(url)) && freshBad.has(url))
   for (const url of everywhere.keys()) {
-    const why = url in rejected || spared(url) ? undefined : blockedFor(cache[url], keepLogo(url) || ownMarkWaits.has(url))
+    const why = unavailable(url) || spared(url) ? undefined : blockedFor(cache[url], keepLogo(url) || ownMarkWaits.has(url))
     if (why) { added[url] = why; report.blocked.push(`${url}: ${why}`) }
   }
   // Not one its file name took off: a photo of the species it names, which that species' page may still take.
   const named = (url: string) => Object.values(cache[url] ?? {}).some(v => v.file)
-  for (const [url, xs] of onPages) if (!(url in rejected) && !(url in added) && !named(url) && everywhere.get(url)!.every(off)) added[url] = `not ${label(xs[0]!.page!)}: ${verdict(url, xs[0]!.page!, !xs[0]!.guide)!.note}`
+  for (const [url, xs] of onPages) if (!unavailable(url) && !(url in added) && !named(url) && everywhere.get(url)!.every(off)) added[url] = `not ${label(xs[0]!.page!)}: ${verdict(url, xs[0]!.page!, !xs[0]!.guide)!.note}`
   // The hold protects a photo that passed the check before (the chief of staff, 20 Nov 2026). This run's first verdict of
   // dead or a person, on a photo that never passed, isn't held: it comes off, even as a page's last photo, and waits for
   // its look marked on both lists (last-photo.ts), as does one already marked.
@@ -811,6 +822,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // One marked off at its first verdict is off wherever it shows, its never-again entry there or not (last-photo.ts).
   const pendingGlobal = rejectedEntry(Object.fromEntries(Object.entries(added).filter(([, why]) => FIRST_OFF.test(why))))
   const blockedAs = (file: string, url: string) => {
+    const waiting = waitingAt(url)
+    if (waiting) return waiting
     if (url in added) return url
     const pending = pendingGlobal(url)?.[0]
     if (pending && pending in added) return pending
@@ -827,8 +840,10 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const firstAliases = new Map<string, string>()
   const preservesOriginal = (url: string, original: string, blockedOriginal: boolean) => {
     const verdict = pendingGlobal(original)?.[0] ?? original
-    return /^(?:dead|people|waiting): /.test(rejected[url] ?? added[url] ?? '') &&
-      (!blockedOriginal || firstOff.has(firstAliases.get(verdict) ?? verdict) || !!rejected[original]?.startsWith('waiting:'))
+    const waiting = waitingAt(url)
+    const reason = rejectedAt(url)?.[1] ?? added[url] ?? (waiting && secondLook[waiting]?.why) ?? ''
+    return /^(?:dead|people|waiting): /.test(reason) &&
+      (!blockedOriginal || firstOff.has(firstAliases.get(verdict) ?? verdict) || !!waitingAt(original))
   }
   const versionOf = (photo: Photo) => {
     const p = photo as ContentPhoto
@@ -841,9 +856,12 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   }
   const shownPhotos = async (file: string) => {
     const gallery = galleryId(file)
+    const subject = byId.get(gallery ?? file.split('/').at(-2)!)
+    const ref = subject && (!gallery || subject.kind === 'species') ? `${subject.kind}/${subject.id}` : ''
     return (await ownPhotos(file)).flatMap(photo => {
-      if (gallery && photo.unchecked && !albumChecked(photo.url, gallery)) return []
       const stored = photo as ContentPhoto
+      if (!permittedPhotoSource(stored, sources, ref, subject?.sci ?? '')) return []
+      if (gallery && photo.unchecked && !albumChecked(photo.url, gallery)) return []
       const served = versionOf(stored)
       return served ? [{ stored, served }] : []
     })
@@ -910,7 +928,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   }
   const firstByPhoto = new Map<string, string>()
   for (const [url, mark] of firstOff) {
-    const key = `${mark.why.split(':')[0]}\n${photoKey(url) ?? url}`
+    const key = photoKey(url) ?? url
     const prior = firstByPhoto.get(key)
     if (prior) {
       firstOff.get(prior)!.pages.push(...mark.pages)
@@ -919,8 +937,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     } else firstByPhoto.set(key, url)
   }
   for (const [url, why] of Object.entries(added)) {
-    if (firstOff.has(url)) continue
-    const canonical = firstByPhoto.get(`${why.split(':')[0]}\n${photoKey(url) ?? url}`)
+    if (firstOff.has(url) || !FIRST_OFF.test(why)) continue
+    const canonical = firstByPhoto.get(photoKey(url) ?? url)
     if (canonical) firstAliases.set(url, canonical)
   }
   for (const [url, h] of firstOff) report.firstOff.push(`${[...new Set(h.pages)].join(', ')}: ${url}`)

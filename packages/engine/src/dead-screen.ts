@@ -8,6 +8,7 @@ import sharp from 'sharp'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
 import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, readPassedBefore, readSecondLook, waitingEntry } from './last-photo'
+import { permittedPhotoSource } from './photo-visibility'
 
 /**
  * No dead fish on a page, for what the photo check hasn't asked about (photo-check.ts asks since 2026-11-05): each species
@@ -171,7 +172,8 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const last = new Map<string, string[]>()
   if (going.size) {
     const [pages, owned, listed, faces, watermarks] = await Promise.all([
-      pagesShowing(content, p => {
+      pagesShowing(content, (p, ref, scientificName) => {
+        if (!permittedPhotoSource(p, sources, ref, scientificName)) return undefined
         const reason = isListed(p.url)?.[1]
         // The sweep removes the whole wrapper for a rejection that applies to the photo as a whole.
         if (reason && !/^(?:dead|people|waiting): /.test(reason)) return p.url
@@ -220,16 +222,10 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       if (held.has(it.url)) { holding.set(it.url, { why, pages: held.get(it.url)! }); report.held.push(`${it.key}: ${held.get(it.url)!.join(', ')}`) }
       continue
     }
-    let keptWrapper = false
     for (const file of it.files) {
       const { page } = await readPage(file)
       if (it.video) page.videos = (page.videos ?? []).filter(v => v.youtubeId !== it.video)
-      else page.photos = (page.photos ?? []).filter(p => {
-        if (p.url !== it.url) return true
-        if (!retainFallback(p)) return false
-        keptWrapper = true
-        return true
-      })
+      else page.photos = (page.photos ?? []).filter(p => p.url !== it.url || retainFallback(p))
     }
     if (!it.video && firstOff.has(it.url)) {
       holding.set(it.url, { why, pages: firstOff.get(it.url)!, off: true })
@@ -238,8 +234,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     } else if (it.video || !markedByAddress(it.url)) {
       report.dead.push(`${it.key}: ${cache[it.key]!.note}`)
       if (it.video) videoRejected[it.video] ??= why
-      // The verdict holds a rejected alteration by its raw URL. Keep its fallback's wrapper out of the blanket sweep.
-      else if (!keptWrapper) photoRejected[it.url] ??= why
+      else photoRejected[it.url] ??= why
     }
   }
   // A retry can always find the owning photo until its removal or hold is durable.
