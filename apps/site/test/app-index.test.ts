@@ -7,6 +7,7 @@ import { appBreeds, appEquipment, appGlossary, appGuideImage, appGuides, appInde
 import { glossaryParts } from '../src/lib/glossary-page'
 import { easyPlants, groupTiles, leadGuides } from '../src/lib/home'
 import { getContent } from '../src/lib/content'
+import { descriptionForSearch } from '../src/lib/meta'
 import { appPath, LANGS, localizePath, OTHER_LANGS } from '../src/lib/i18n'
 import { appHref, appPage, DIST, page } from './dist'
 import { slow } from '@aq/schema/test-time'
@@ -433,13 +434,19 @@ test('a tool carries its page\'s own title, the line under its heading and its d
   for (const lang of LANGS) {
     for (const tool of index(lang).items.filter(i => i.kind === 'tool')) {
       const { dom } = appPage(tool.path)
-      const said = [
-        dom.querySelector('title')?.text.replace(/ — AquaTome$/, ''),
-        dom.querySelector('p.intro')?.text,
-        dom.querySelector('meta[name="description"]')?.getAttribute('content'),
-      ]
-      // Each once, and not the name it's listed by.
-      expect(tool.words, tool.path).toEqual([...new Set(said.filter((s): s is string => !!s && s !== tool.name))])
+      const shown = [dom.querySelector('title')?.text.replace(/ — AquaTome$/, ''), dom.querySelector('p.intro')?.text]
+      const visible = [...new Set(shown.filter((s): s is string => !!s && s !== tool.name))]
+      const description = dom.querySelector('meta[name="description"]')?.getAttribute('content')
+      const words = tool.words ?? []
+      expect(words.slice(0, visible.length), tool.path).toEqual(visible)
+      // The app keeps the full tool description for matching. The page emits its search snippet.
+      const remaining = words.slice(visible.length)
+      if (description && description !== tool.name && !visible.includes(description)) {
+        expect(remaining, tool.path).toHaveLength(1)
+        expect(descriptionForSearch(lang, remaining[0]!), tool.path).toBe(description)
+      } else {
+        expect(remaining, tool.path).toEqual([])
+      }
     }
   }
   expect(index('vi').items.find(i => i.path === '/vi/cong-cu/the-tich-be/')?.words).toContain('Tính thể tích bể cá: lít, gallon, độ dày kính')
