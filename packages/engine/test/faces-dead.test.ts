@@ -922,19 +922,49 @@ test('an agreed watermark rejection keeps a fallback original off the page and a
   expect(view.photoWaits!(original.url)).toBe(true)
 })
 
-test('a non-commercial replacement survives licence cleanup while its sibling waits for the watermark screen', async () => {
+test.each([false, true])('a non-commercial replacement survives while its sibling is withheld (fallback: %s)', async fallback => {
   const head = photo('passed-dead'), pending = photo('pending-mark')
   const nc = {
     ...photo('non-commercial'), url: 'https://media.aquatome.com/inaturalist/42.webp',
     sourceUrl: 'https://www.inaturalist.org/photos/42', licence: 'CC BY-NC 4.0',
   }
-  const { root, state, publicView } = await publicFixture([head, pending, nc], [], [head.url, nc.url])
-  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [nc.url]: { dead: false }, [pending.url]: { dead: false } }))
-  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [head.url]: 0, [nc.url]: 0, [pending.url]: 0 }))
+  const sibling = fallback ? {
+    ...photo('upscale'), altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }],
+    original: { url: pending.url, width: pending.width, height: pending.height },
+  } : pending
+  const { root, state, publicView } = await publicFixture([head, sibling, nc], [], [head.url, nc.url, ...(fallback ? [sibling.url] : [])])
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [nc.url]: { dead: false }, [pending.url]: { dead: false }, ...(fallback ? { [sibling.url]: { dead: false } } : {}) }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [head.url]: 0, [nc.url]: 0, [pending.url]: 0, ...(fallback ? { [sibling.url]: 0 } : {}) }))
   await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [head.url]: { ok: 'yes', person: false } }))
 
   await run(root, deps().d)
   await sweep(root, { history: async () => [] })
 
   expect((await publicView()).species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([nc.url])
+})
+
+test('a retained shop watermark does not exclude an unjudged fallback original from the screen', async () => {
+  const original = { ...photo('retained-live'), url: 'https://media.aquatome.com/glaser/retained-live.webp' }
+  const stored = {
+    ...photo('stored-upscale'), altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'b'.repeat(64) }],
+    original: { url: original.url, width: original.width, height: original.height },
+  }
+  const { root, state, publicView } = await publicFixture([stored], [stored], [stored.url, original.url])
+  await writeFile(join(state, '_photo-watermarks.json'), JSON.stringify({
+    [original.url]: { ocr: [], watermark: true, retainedOwnMark: {
+      source: 'glaser', sourceUrl: 'https://www.aquariumglaser.de/sample/', owner: 'source', by: 'screen',
+    } },
+    [stored.url]: { ocr: [] },
+  }))
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [original.url]: 'watermark: withheld' }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [stored.url]: 0, [original.url]: 0 }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [stored.url]: { dead: false } }))
+  const { d, sent } = deps()
+
+  expect((await publicView()).photoWaits!(original.url)).toBe(true)
+  expect((await run(root, d)).owed).toBe(0)
+  expect(sent).toEqual([original.url])
+  const view = await publicView()
+  expect(view.species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([original.url])
+  expect(view.galleries.alpha?.map(p => p.url)).toEqual([original.url])
 })

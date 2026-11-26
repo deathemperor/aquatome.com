@@ -815,7 +815,7 @@ async function dropRejected(content: string, why: (url: string) => string | unde
  * stay (isInatNonCommercial); off, none does. A source's photo shows by its permission and is left alone. The files
  * changed, and `file: url` for each photo taken off.
  */
-export async function dropNonCommercial(content: string, switches: Readonly<ImageSwitches> = IMAGE_SWITCHES, withheld: (url: string) => boolean = () => false): Promise<{ files: string[]; photos: string[] }> {
+export async function dropNonCommercial(content: string, switches: Readonly<ImageSwitches> = IMAGE_SWITCHES, withheld: (photo: Photo) => boolean = () => false): Promise<{ files: string[]; photos: string[] }> {
   const out = { files: [] as string[], photos: [] as string[] }
   const files: string[] = []
   for (const f of (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json'))) files.push(`gallery/${f}`)
@@ -828,7 +828,7 @@ export async function dropNonCommercial(content: string, switches: Readonly<Imag
     const album = f.startsWith('gallery/')
     // A fish's page keeps one only as its head with no other real photo, where it's the one way to show that fish (the
     // chief of staff's rule, 17 Nov; lead-photo.ts puts it there); a guide never. With the switch off, heads go too.
-    const head = (i: number) => !f.startsWith('guides/') && data.photos!.every((photo, j) => i === j || photo.generated || withheld(photo.url))
+    const head = (i: number) => !f.startsWith('guides/') && data.photos!.every((photo, j) => i === j || photo.generated || withheld(photo))
     const off = data.photos.filter((p, i) => !p.source && isNonCommercial(p.licence) && !((album || head(i)) && switches.inatNonCommercial && isInatNonCommercial(p)))
     if (!off.length) continue
     await writeFile(join(content, f), `${JSON.stringify({ ...data, photos: data.photos.filter(p => !off.includes(p)) }, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)

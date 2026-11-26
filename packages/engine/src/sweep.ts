@@ -1368,7 +1368,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   }
 
   // Card figures: hidden or shown again, as the build shows the card (published sources, no tank that is a volume).
-  const sources = JSON.parse(await readFile(join(content, 'sources.json'), 'utf8').catch(() => '{}')) as Record<string, { publish?: boolean | 'photos' }>
+  const sources = JSON.parse(await readFile(join(content, 'sources.json'), 'utf8').catch(() => '{}')) as Record<string, SourceInfo>
   for (const kind of ['species', 'breeds']) {
     for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
       const file = join(content, kind, id, 'entity.json')
@@ -1459,7 +1459,12 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   }
   // Non-commercial photos off every album and page in one step: all of them with their switch off, all but iNaturalist's
   // album photos with it on (gallery.ts dropNonCommercial). Before the albums are ordered.
-  const nonCommercial = await dropNonCommercial(content, o.switches ?? IMAGE_SWITCHES, await readPhotoWaits(root))
+  const waitsForPhoto = await readPhotoWaits(root)
+  const photoSwitches = o.switches ?? IMAGE_SWITCHES
+  const nonCommercial = await dropNonCommercial(content, photoSwitches, photo => {
+    const served = publicPhotoVersion(photo, photoSwitches, photo.source ? sources[photo.source]?.permission?.markRemoval : undefined)
+    return !served || waitsForPhoto(served.url)
+  })
   nonCommercial.files.forEach(changed)
   report.nonCommercial = nonCommercial.photos
   // Every album in the album order, after every photo above has left: the check's screening order, photo-tank and ruler
