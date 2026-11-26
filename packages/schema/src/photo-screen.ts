@@ -100,7 +100,7 @@ export function publicPhotoVersion<P extends Photo>(p: P, images: Readonly<Image
 }
 
 /** These refusals apply to the version that received the verdict. */
-export const isVersionRejection = (reason: string): boolean => /^(?:dead|people|waiting): /.test(reason)
+export const isVersionRejection = (reason: string): boolean => /^(?:dead|people|waiting|flagged by the backlog's look): /.test(reason)
 
 /** The stored URL and any original the public loader can use if it withdraws an alteration. */
 export function deadScreenPhotoUrls(p: PhotoVersions): string[] {

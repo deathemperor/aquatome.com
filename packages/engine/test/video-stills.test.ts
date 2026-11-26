@@ -276,3 +276,15 @@ test('a later guide failure still marks an earlier flagged frame for review', as
   expect((await s.read('engine-state/_photo-second-look.json'))[frame]).toMatchObject({ off: true, pages: ['guides/youtube-b1'] })
   expect((await s.read('engine-state/_photo-rejected.json'))[frame]).toMatch(/^waiting: /)
 })
+
+test('a previously uploaded frame keeps its first refusal when the old tile is still in the guide', async () => {
+  const still = 'https://m/video/b1/at20-hd.webp'
+  const s = await site()
+  await s.put('engine-state/_photo-guides.json', { [still]: { person: false, mark: false, brand: false, dead: true, note: 'sample' } })
+  const originalGet = s.d.get
+  s.d.get = async url => url === still ? grey(60, 1200, 675).webp().toBuffer() : originalGet(url)
+  const result = await videoStills(s.root, s.d)
+  expect((await s.read('engine-state/_photo-guides.json'))[still]).toMatchObject({ dead: true })
+  expect(s.calls.puts).not.toContain('video/b1/at20-hd.webp')
+  expect(result.dead).toEqual([`${still}: guides/youtube-b1`])
+})

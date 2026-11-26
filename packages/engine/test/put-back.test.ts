@@ -1323,7 +1323,7 @@ test('separate take-offs and cleanup keep both repeated part slots identifiable 
   expect((await json(r, G)).video.figures).toEqual(figures)
 })
 
-test('an original remains available for clearance after both guide versions were flagged', async () => {
+test.each(['dead', "flagged by the backlog's look"])('an original remains available when both guide versions were flagged as %s', async reason => {
   const r = await store({})
   const G = 'content/guides/ggg/entity.json'
   const original = { ...stock, url: url('unmodified'), author: 'Sample original credit' }
@@ -1331,19 +1331,18 @@ test('an original remains available for clearance after both guide versions were
   await mkdir(join(r, G, '..'), { recursive: true })
   await writeFile(join(r, G), JSON.stringify({ ...guideBefore, photos: [wrapper], video: { ...guideBefore.video,
     figures: [{ heading: 'part', photo: wrapper, moments: [] }] } }))
-  await takeOffGuidesDead(r, new Map([[original.url, 'sample'], [wrapper.url, 'sample']]), 'the guide photo check')
+  await takeOffGuidesDead(r, new Map([[original.url, 'sample'], [wrapper.url, 'sample']]), 'the guide photo check', reason)
   const marks = await json(r, SL)
   marks[original.url].look = { said: 'clear', by: 'reviewer', on: today() }
   marks[wrapper.url].look = { said: 'agree', by: 'reviewer', on: today() }
   await writeFile(join(r, SL), JSON.stringify(marks))
 
-  await listAgreed(r)
-  await putBackCleared(r, async () => [])
+  await sweep(r, { history: async () => [] })
   const result = await json(r, G)
   expect(result.photos).toEqual([wrapper])
   expect(result.video.figures[0].photo).toEqual(wrapper)
   const rejected = await json(r, 'engine-state/_photo-rejected.json')
-  expect(rejected[wrapper.url]).toMatch(/^dead:/)
+  expect(rejected[wrapper.url]).toMatch(new RegExp(`^${reason}:`))
   expect(rejected[original.url]).toBeUndefined()
 })
 
@@ -1474,4 +1473,35 @@ test("the history from git finds a guide's part photo and frame where they stood
   await put(SL, { [frame.url]: { ...rec, look: { said: 'clear', by: 'the chief of staff', on: today } } }); git('commit', '-qam', 'cleared')
   expect((await putBackCleared(r, gitHistory(r), today)).back).toEqual([`${G}: ${frame.url}`])
   expect((await json(r, G)).video.figures).toEqual([guideAfter.video.figures[0], { heading: 'two', moments: [frame] }])
+})
+
+test('a clear restores a frame to the saved heading occurrence when both parts share a stock photo', async () => {
+  const r = await store({})
+  const G = 'content/guides/ggg/entity.json'
+  const figures = [{ heading: 'Same', photo: stock, moments: [] }, { heading: 'Same', photo: stock, moments: [frame] }]
+  await mkdir(join(r, G, '..'), { recursive: true })
+  await writeFile(join(r, G), JSON.stringify({ ...guideBefore, video: { ...guideBefore.video, figures } }))
+  await takeOffGuidesDead(r, new Map([[frame.url, 'sample']]), 'the guide photo check')
+  const records = await json(r, SL)
+  records[frame.url].look = { said: 'clear', by: 'reviewer', on: today() }
+  await writeFile(join(r, SL), JSON.stringify(records))
+  expect((await putBackCleared(r, async () => [])).back).toHaveLength(1)
+  expect((await json(r, G)).video.figures).toEqual(figures)
+})
+
+test('one clearance lifts a replayed stock exclusion on a second guide', async () => {
+  const r = await store({})
+  const paths = ['ggg', 'later'].map(id => [id, `content/guides/${id}/entity.json`] as const)
+  const dead = new Map([[stock.url, 'sample']])
+  for (const [id, file] of paths) {
+    await mkdir(join(r, file, '..'), { recursive: true })
+    await writeFile(join(r, file), JSON.stringify({ ...guideBefore, id }))
+    await takeOffGuidesDead(r, dead, 'the guide photo check')
+  }
+  const records = await json(r, SL)
+  expect(records[stock.url].pages).toEqual(['guides/ggg', 'guides/later'])
+  records[stock.url].look = { said: 'clear', by: 'reviewer', on: today() }
+  await writeFile(join(r, SL), JSON.stringify(records))
+  expect((await putBackCleared(r, async () => [])).back).toHaveLength(2)
+  expect((await json(r, 'engine-state/_part-photos-off.json'))[hashOf(stockPage)]).toBeUndefined()
 })

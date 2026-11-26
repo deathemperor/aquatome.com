@@ -5,8 +5,9 @@ import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies, THUMB_WIDTH } from './thumb'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, completedDeadVerdict, deadLooked, expandWholePhotoRejections, isVersionRejection, photoClears, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, facePhotoOff, guidePhotoAllowed, guidePhotoWaits, GUIDE_LOOKS_FILE, GUIDE_UNJUDGED_LIMIT, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type PhotoScreenEntry } from './photo-screen'
+import { askedByCheckOf, DEAD_OWED_FILE, DEAD_SCREEN_FILE, completedDeadVerdict, deadLooked, expandWholePhotoRejections, isVersionRejection, photoClears, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, facePhotoOff, guidePhotoAllowed, guidePhotoWaits, GUIDE_LOOKS_FILE, GUIDE_UNJUDGED_LIMIT, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type PhotoScreenEntry } from './photo-screen'
 import { photoRejections } from './own-mark'
+import { photoAddressSet } from './photo-address'
 import { ownerCropFitsPage } from './owner-crops'
 import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
 import { HAND_BOXES } from './hand-boxes'
@@ -253,10 +254,13 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const deadScreen = screen ? await stateRecord<Record<string, unknown>>(root, DEAD_SCREEN_FILE) : undefined
   if (screen && !deadScreen && opts.photoScreen === 'required') throw new Error(`${join(dirname(root), 'engine-state', DEAD_SCREEN_FILE)}: the dead-fish screen's record is missing, so no photo can be shown as judged for a dead fish`)
   const secondLook = deadScreen || faces || screen ? await stateRecord<Record<string, { why?: string; off?: boolean; look?: { said?: string } }>>(root, SECOND_LOOK_RECORD) : undefined
+  const photoCheck = await stateRecord<Record<string, unknown>>(root, PHOTO_CHECK_FILE)
+  const photoSubjects = await stateRecord<Record<string, unknown>>(root, PHOTO_SUBJECTS_FILE)
+  const checkedForDead = photoAddressSet(askedByCheckOf(photoCheck, photoSubjects))
   const lookedForDead = deadScreen ? deadLooked({
     screen: deadScreen,
-    check: await stateRecord<Record<string, unknown>>(root, PHOTO_CHECK_FILE),
-    subjects: await stateRecord<Record<string, unknown>>(root, PHOTO_SUBJECTS_FILE),
+    check: photoCheck,
+    subjects: photoSubjects,
     secondLook,
   }) : undefined
   const unjudged = new Set<string>()
@@ -288,7 +292,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const guideClear = photoClears(secondLook)
   const refusedByGuideLook = (url: string) => {
     const verdict = guideLooks?.[url]
-    return completedDeadVerdict(verdict) && verdict.dead && !guideClear(url)
+    return completedDeadVerdict(verdict) && verdict.dead && !guideClear(url) && !checkedForDead(url)
   }
   const screened = (p: { url: string; thumb?: string; large?: { url: string } }): boolean => {
     if (!screen) return true

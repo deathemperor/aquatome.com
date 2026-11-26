@@ -4,7 +4,7 @@ import { writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 import { parse } from 'node-html-parser'
-import { IMAGE_SWITCHES, isNonCommercial, ncAlone, publicPhotoVersion, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type SourceInfo, type Summary, type WrittenLang, type ImageSwitches, expandWholePhotoRejections } from '@aq/schema'
+import { isVersionRejection, IMAGE_SWITCHES, isNonCommercial, ncAlone, publicPhotoVersion, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type SourceInfo, type Summary, type WrittenLang, type ImageSwitches, expandWholePhotoRejections } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
@@ -1150,7 +1150,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const active = withoutClearedWaits({ ...rejected }, marks)
   const remember = captureWaiting(marks, rejectedAt)
   const keepsVersion = (url: string, original: string, blockedOriginal: boolean) =>
-    /^(?:dead|people|waiting): /.test(listedWhy(url)) && (!blockedOriginal || listedWhy(original).startsWith('waiting:'))
+    isVersionRejection(listedWhy(url)) && (!blockedOriginal || listedWhy(original).startsWith('waiting:'))
   for (const file of [...(await shownIn('species')), ...(await shownIn('plants')), ...(await shownIn('breeds')), ...galleryFiles, ...(await shownIn('guides')), ...(await everyJson('equipment')), ...glossaryFiles]) {
     const raw = await readFile(file, 'utf8').catch(() => null)
     if (!raw) continue

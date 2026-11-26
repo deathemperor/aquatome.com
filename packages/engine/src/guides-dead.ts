@@ -1,4 +1,4 @@
-import { completedDeadVerdict, deadScreenPhotoUrls, rejectedEntry, type Photo } from '@aq/schema'
+import { photoAddressSet, completedDeadVerdict, deadScreenPhotoUrls, rejectedEntry, type Photo } from '@aq/schema'
 import { createHash } from 'node:crypto'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -75,11 +75,11 @@ export async function takeOffGuidesDead(root: string, dead: Map<string, string>,
   const reviews = await readSecondLook(root)
   const sl = looks(reviews)
   const where = await guidePlaces(root)
-  const asked = await askedByCheck(root)
+  const asked = photoAddressSet(await askedByCheck(root))
   const rejected = (await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {}
   const isListed = rejectedEntry(rejected)
   const going = [...dead].filter(([u]) => {
-    if (!where.has(u) || asked.has(u)) return false
+    if (!where.has(u) || asked(u)) return false
     const existing = isListed(u)?.[1]
     const review = reviews[u]
     const allowed = !existing || existing.startsWith('watermark:')
@@ -122,10 +122,10 @@ export async function takeOffGuidesDead(root: string, dead: Map<string, string>,
       partsChanged ||= JSON.stringify(parts[key]) !== JSON.stringify(had)
     }
   }
-  // A flag and the source exclusion must survive even if the private entry cannot be written yet.
+  // A review can be answered as soon as it is recorded. Its source exclusion must already exist.
+  if (partsChanged) await writeImageCache(partsFile, `${JSON.stringify(parts, null, 2)}\n`)
   await holdForSecondLook(root, hold, step)
   await writePhotoState(state('_photo-rejected.json'), rejected)
-  if (partsChanged) await writeImageCache(partsFile, `${JSON.stringify(parts, null, 2)}\n`)
   const off = new Set(going.map(([u]) => u))
   const recovery = new Map<string, Stood[]>()
   const edits = new Map<string, string>()

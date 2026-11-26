@@ -198,7 +198,16 @@ export async function holdForSecondLook(root: string, held: Map<string, { why: s
   if (!held.size && !places?.size) return []
   const sl = await readSecondLook(root)
   const added: string[] = []
+  let extended = false
   for (const [url, h] of held) {
+    const existing = sl[url]
+    if (existing?.off && h.off && existing.step === step && existing.why === compactRejection(h.why) && !lookOf(existing)) {
+      const pages = [...new Set([...existing.pages, ...h.pages])].sort()
+      const parts = [...new Set([...(existing.parts ?? []), ...(h.parts ?? [])])].sort()
+      extended ||= pages.length !== existing.pages.length || parts.length !== (existing.parts?.length ?? 0)
+      existing.pages = pages
+      if (parts.length) existing.parts = parts
+    }
     // A first verdict's mark takes the place of a hold on another reason that has no answer yet (photo-check.ts spared).
     if (has(sl, url) && !(h.off && !sl[url]!.off && !lookOf(sl[url]))) continue
     sl[url] = { why: compactRejection(h.why), step, pages: [...new Set(h.pages)].sort(), at, ...(h.off ? { off: true as const } : {}), ...(h.parts?.length ? { parts: [...new Set(h.parts)].sort() } : {}) }
@@ -206,7 +215,7 @@ export async function holdForSecondLook(root: string, held: Map<string, { why: s
   }
   const dir = places?.size ? entriesDir() : undefined
   const captured = dir && places ? await capturePlaces(sl, places, dir) : false
-  if (added.length || captured) await writeSecondLook(root, sl)
+  if (added.length || extended || captured) await writeSecondLook(root, sl)
   return added
 }
 
@@ -942,7 +951,8 @@ export async function putBackCleared(root: string, history: History, at = today(
         }
         const ranked = p.partImages ? headings.map(i => ({ i, score: score(figures[i]!, saved) }))
           .filter(candidate => candidate.score > 0).sort((a, b) => b.score - a.score) : []
-        const found = ranked[0]?.i
+        const corresponding = occurrence === undefined ? saved : headings[occurrence]
+        const found = ranked.find(candidate => candidate.score === ranked[0]?.score && candidate.i === corresponding)?.i ?? ranked[0]?.i
         const dropped = found === undefined && priorHeadingCount > 1 && headings.length < priorHeadingCount && !!p.partImages
         const at = p.heading === undefined ? saved : found ?? (dropped ? -1 : occurrence === undefined
           ? figures[saved]?.heading === p.heading ? saved : headings[0] ?? -1

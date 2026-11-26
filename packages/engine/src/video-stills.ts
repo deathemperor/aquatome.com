@@ -3,7 +3,8 @@ import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { GuideSchema, type GuideEntity, keepFigureSlots } from '@aq/schema'
+import sharp from 'sharp'
+import { completedDeadVerdict, GuideSchema, type GuideEntity, keepFigureSlots } from '@aq/schema'
 import { LlmError } from './claude'
 import { dhash } from './gallery'
 import type { Media } from './source-photos'
@@ -126,6 +127,8 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
         fail('no stream to take frames from'); continue
       }
 
+      const hdKey = (t: number) => `video/${v.youtubeId}/at${t}-hd.webp`
+      const resumed = new Map<Moment, Moment>()
       // 1. The frame at each tile's second, when it shows the tile's moment.
       const grabbed: { m: Moment; t: number; hd: Uint8Array; png: string }[] = []
       let left = 0
@@ -133,12 +136,26 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
         if (stillDone(m, kept)) continue
         if (m.url in rejected) { kept[String(m.t)] = 'rejected'; continue } // never given a new address that escapes it
         try {
+          const shown = frames.storyboard && AT_SECOND.test(m.url) ? tileTime(frames.storyboard, m.t) : m.t
+          const prior = [m.t, shown].map(t => ({ t, url: d.media.urlFor(hdKey(t)) }))
+            .find(frame => completedDeadVerdict(verdicts[frame.url]))
+          if (prior) {
+            const { url, t } = prior
+            const bytes = await d.get(url)
+            const { width, height } = await sharp(bytes).metadata()
+            if (!width || !height) throw new Error('the stored frame has no dimensions')
+            const still: Moment = { ...m, url, t, width, height, sharpness: await frameSharpness(bytes), person: false }
+            const verdict = verdicts[url]!
+            if (verdict.dead) { dead.set(url, verdict.note); delete still.person }
+            resumed.set(m, still)
+            inARow = 0
+            continue
+          }
           const tile = await d.get(m.url)
           let t = m.t
           let hd = await sharpFrame(d.grab, frames.stream, t, tile)
           // A still made while the video's tile interval was misread (storyboardInterval) names a second up to 1.3% early:
           // the frame is at the second its tile really shows, and the still's play button starts there too.
-          const shown = frames.storyboard && AT_SECOND.test(m.url) ? tileTime(frames.storyboard, m.t) : m.t
           if (!hd && shown !== m.t) { hd = await sharpFrame(d.grab, frames.stream, shown, tile); if (hd) { t = shown; retimed++ } }
           inARow = 0
           if (!hd) { kept[String(m.t)] = `the frame at ${m.t} s isn't the tile's moment`; report.kept.push(`${id} t${m.t}`); continue }
@@ -210,11 +227,11 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
       }
 
       // 3. Upload what passed, then the guide with its stills swapped and any dropped.
-      const swap = new Map<Moment, Moment>()
+      const swap = new Map(resumed)
       for (const { m, t, hd } of grabbed) {
         const entry = entries.get(m)
         if (!entry) continue
-        const s = await d.media.put(`video/${v.youtubeId}/at${t}-hd.webp`, hd)
+        const s = await d.media.put(hdKey(t), hd)
         marks[s.url] = entry
         hashes[s.url] = await dhash(hd)
         const verdict = judged.get(m)!
@@ -224,7 +241,11 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
         if (verdict.dead) delete still.person // the tile's verdict isn't the frame's
         swap.set(m, still)
       }
-      if (swap.size) await writePhotoState(file('engine-state', '_photo-guides.json'), Object.fromEntries(Object.entries(verdicts).sort()))
+      if (swap.size > resumed.size) {
+        await writePhotoState(file('engine-state', '_photo-watermarks.json'), Object.fromEntries(Object.entries(marks).sort()))
+        await writeFile(file('content', 'picture-hashes.json'), sortedJson(hashes))
+        await writePhotoState(file('engine-state', '_photo-guides.json'), Object.fromEntries(Object.entries(verdicts).sort()))
+      }
       if (swap.size || drop.size || retimed) await save(keepFigureSlots(figures.map(f => ({ ...f, moments: f.moments.filter(m => !drop.has(m)).map(m => swap.get(m) ?? m) }))))
       if (swap.size || drop.size) changed = true
       state[id] = record()

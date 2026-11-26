@@ -112,7 +112,11 @@ function mergePartOff(base, ours, theirs) {
   const seconds = mergeMembers(base?.seconds, ours?.seconds, theirs?.seconds).sort((a, b) => a - b)
   const agreedGuides = mergeMembers(base?.agreedGuides, ours?.agreedGuides, theirs?.agreedGuides).sort()
   const tracksHolds = [base, ours, theirs].some(v => v?.holds || v?.manualGuides || v?.agreedGuides)
-  const manual = v => v?.manualGuides ?? (tracksHolds && v && !v.holds && !v.agreedGuides ? v.guides : undefined)
+  const manual = v => {
+    if (!tracksHolds || !v) return v?.manualGuides
+    const attributed = new Set([...(v.agreedGuides ?? []), ...Object.values(v.holds ?? {}).flat()])
+    return [...new Set([...(v.manualGuides ?? []), ...(v.guides ?? []).filter(g => !attributed.has(g))])]
+  }
   const manualGuides = mergeMembers(manual(base), manual(ours), manual(theirs)).sort()
   const guides = [...new Set([
     ...mergeMembers(base?.guides, ours?.guides, theirs?.guides), ...agreedGuides, ...manualGuides, ...Object.values(holds).flat(),

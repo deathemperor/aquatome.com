@@ -61,8 +61,9 @@ test('a concurrent source exclusion keeps the added guide and drops the cleared 
   expect(mergeMaps(base, {}, added)).toEqual(expected)
   expect(mergeMaps(base, added, {})).toEqual(expected)
   const confirmed = { [key]: { ...added[key], agreedGuides: ['a'] } }
-  expect(mergeMaps(base, {}, confirmed)).toEqual(confirmed)
-  expect(mergeMaps(base, confirmed, {})).toEqual(confirmed)
+  const merged = { [key]: { ...confirmed[key], manualGuides: ['b'] } }
+  expect(mergeMaps(base, {}, confirmed)).toEqual(merged)
+  expect(mergeMaps(base, confirmed, {})).toEqual(merged)
 })
 
 test('a concurrent hold for the same guide preserves the exclusion when the first photo clears', () => {
@@ -324,4 +325,14 @@ test('a concurrent manual stock exclusion keeps its ownership beside a pending a
       guides: ['g'], manualGuides: ['g'], holds: { photo: ['g'] },
     })
   }
+})
+
+test('a manual guide added to an existing held source remains independently excluded', () => {
+  const key = 'sha256:sample'
+  const entry = { why: 'dead: withheld', guides: ['a'], holds: { first: ['a'] } }
+  const base = { [key]: entry }
+  const manual = { [key]: { ...entry, guides: ['a', 'b'] } }
+  const automatic = { [key]: { ...manual[key], holds: { ...entry.holds, second: ['b'] } } }
+  expect(mergeMaps(base, manual, automatic)[key].manualGuides).toEqual(['b'])
+  expect(mergeMaps(base, automatic, manual)[key].manualGuides).toEqual(['b'])
 })
