@@ -30,6 +30,7 @@ async function store() {
   await put('engine-state/_photo-faces.json', { [m('a-old')]: 0 })
   // a's head was judged by the screen too, in that earlier run.
   await put('engine-state/_dead-screen.json', { [m('a-old')]: { dead: false, note: 'live fish in a tank' } })
+  await mkdir(join(root, 'content/gallery'), { recursive: true })
   return root
 }
 const json = async (root: string, path: string) => JSON.parse(await readFile(join(root, path), 'utf8'))
@@ -181,6 +182,7 @@ test("the screen owes every photo of a fish or plant page that no look has judge
   await put('content/plants/p/entity.json', { id: 'p', photos: [{ ...photo('p-read'), altered: [{ method: 'lanczos3-upscale' }], original: { url: m('p-original-dead') } }] })
   // A guide's photos are the guides' own looks' (guide-photos.ts), not this screen's.
   await put('content/guides/g/entity.json', { id: 'g', photos: [photo('g-read')] })
+  await mkdir(join(root, 'content/gallery'), { recursive: true })
   // Every one read by the face finder before this run: none is new to it.
   await put('engine-state/_photo-faces.json', Object.fromEntries(['d-read', 'd-asked', 'd-cleared', 'd-read-dead', 'p-read', 'p-original-dead', 'g-read'].map(n => [m(n), 0])))
   await put('engine-state/_photo-subjects.json', { [m('d-asked')]: { d: { ok: 'yes', typical: true, note: '', logo: false } } })
@@ -225,7 +227,7 @@ test('a rejected alteration keeps its held original in the entity and paired alb
   expect((await json(root, 'content/species/a/entity.json')).photos).toEqual([altered])
   expect((await json(root, 'content/gallery/a.json')).photos).toEqual([altered])
   expect((await json(root, 'engine-state/_dead-screen.json'))[altered.url].dead).toBe(true)
-  expect((await json(root, 'engine-state/_photo-rejected.json'))[altered.url]).toBeUndefined()
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[altered.url]).toMatch(/^dead: /)
 })
 
 test('an unreadable sibling does not remove the only previously passed photo', async () => {
@@ -800,7 +802,7 @@ test.each([false, true])('an album pass applies a held verdict and preserves rec
   const { d, sent } = deps()
   vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
   try {
-    const out = await screenDead(root, d.dead, { limit: 12, albums: true })
+    const out = await screenDead(root, d.dead, { limit: 0, albums: true })
     expect(out).toMatchObject({ sheets: 0, judged: 0, left: 0, dead: [expect.stringContaining(dead.url)] })
     expect(sent).toEqual([])
     expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([])
@@ -820,7 +822,7 @@ test.each([false, true])('an album pass applies a held verdict and preserves rec
   } finally { vi.unstubAllEnvs() }
 })
 
-test.each([false, true])('a dead alteration is reported once and its album original survives gallery cleanup (kept mark: %s)', async keptMark => {
+test.each([false, true])('a dead alteration is reported once and its original survives gallery and face cleanup (kept mark: %s)', async keptMark => {
   const original = { ...photo('original-live'), ...(keptMark ? { url: 'https://media.aquatome.com/glaser/sample.webp' } : {}) }
   const altered = {
     ...photo('stored-dead'),
@@ -836,6 +838,9 @@ test.each([false, true])('a dead alteration is reported once and its album origi
       ocr: [], watermark: true, retainedOwnMark: { owner: 'source', source: 'glaser', sourceUrl: 'https://www.aquariumglaser.de/sample/' },
     } }))
   }
+  const own = join(root, 'content/species/a/entity.json')
+  await mkdir(join(own, '..'), { recursive: true })
+  await writeFile(own, JSON.stringify({ id: 'a', photos: [altered] }))
   const { d, sent } = deps()
   expect((await screenDead(root, d.dead, { limit: 12, albums: true })).dead).toEqual([expect.stringContaining(altered.url)])
   expect((await json(root, 'engine-state/_photo-rejected.json'))[altered.url]).toMatch(/^dead: /)
@@ -845,7 +850,51 @@ test.each([false, true])('a dead alteration is reported once and its album origi
   const unused = async () => { throw new Error('Gallery cleanup needs no source or model') }
   const cleanup: GalleryDeps = { get: unused, http: unused, look: unused, faces: unused, sleep: unused, now: () => new Date() }
   await galleries(root, cleanup, { sheets: 0, only: 'missing' })
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [original.url]: 0, [altered.url]: 0 }))
+  await run(root, d)
   expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([altered])
+  expect(JSON.parse(await readFile(own, 'utf8')).photos).toEqual([altered])
+})
+
+test.each(['screen cache', 'page rejection'])('zero album sheets apply a known take-off from the %s to the album and guide', async source => {
+  const dead = photo('known-dead')
+  const { root, state, file } = await albumFixture([dead])
+  const guide = join(root, 'content/guides/example/entity.json')
+  await mkdir(join(guide, '..'), { recursive: true })
+  await writeFile(guide, JSON.stringify({ photos: [dead] }))
+  if (source === 'screen cache') await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [dead.url]: { dead: true } }))
+  else await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [dead.url]: 'dead: withheld' }))
+  const { d, sent } = deps()
+  const out = await screenDead(root, d.dead, { limit: 0, albums: true })
+  expect(out).toMatchObject({ sheets: 0, left: 0, dead: [expect.stringContaining(dead.url)] })
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([])
+  expect(JSON.parse(await readFile(guide, 'utf8')).photos).toEqual([])
+  expect((await screenDead(root, d.dead, { limit: 0, albums: true })).dead).toEqual([])
+  expect(sent).toEqual([])
+})
+
+test('a human clear at a source address satisfies the album’s mirror without another tile', async () => {
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(source)!.key}` }
+  const { root, state } = await albumFixture([mirror])
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+    [source]: { why: 'dead: withheld', pages: ['species/a'], at: '2026-11-26', step: 'the dead-fish screen',
+      look: { on: '2026-11-26', said: 'clear', by: 'reviewer' } },
+  }))
+  const { d, sent } = deps()
+  expect(await screenDead(root, d.dead, { limit: 12, albums: true })).toMatchObject({ sheets: 0, judged: 0, left: 0 })
+  expect(sent).toEqual([])
+})
+
+test.each(['missing album directory', 'unreadable guide'])('an incomplete inventory fails for a %s', async condition => {
+  const dead = photo('known-dead')
+  const { root, state } = await albumFixture([dead])
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [dead.url]: { dead: true } }))
+  if (condition === 'missing album directory') await rm(join(root, 'content/gallery'), { recursive: true })
+  else await mkdir(join(root, 'content/guides/example/entity.json'), { recursive: true })
+  const { d, sent } = deps()
+  await expect(screenDead(root, d.dead, { limit: 0, albums: true })).rejects.toThrow()
+  expect(sent).toEqual([])
 })
 
 test('an unreadable album reports a failed count rather than a cleared backlog', async () => {

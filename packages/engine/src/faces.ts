@@ -8,6 +8,7 @@ import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, IMAG
 import { screenDead, type DeadScreenDeps } from './dead-screen'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
+import { keptMarks } from './own-mark'
 import { captureWaiting, holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, withoutSettledWaits, type Stood } from './last-photo'
 
 export type FaceDeps = { get: (url: string) => Promise<Uint8Array>; detect: (files: string[]) => Promise<number[]> }
@@ -38,7 +39,12 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const rejected: Record<string, string> = rejectedFile
     ? withoutSettledWaits(JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')), before)
     : {}
-  const listed = rejectedEntry(rejected)
+  const rejectedAt = rejectedEntry(rejected)
+  const keepMark = await keptMarks(root)
+  const listed = (url: string) => {
+    const entry = rejectedAt(url)
+    return entry?.[1].startsWith('watermark:') && (keepMark(url) || keepMark(entry[0])) ? undefined : entry
+  }
   const pages: { file: string; e: { photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } } }[] = []
   for (const kind of ['species', 'plants', 'guides']) {
     for (const id of await readdir(join(contentRoot, kind)).catch(() => [] as string[])) {

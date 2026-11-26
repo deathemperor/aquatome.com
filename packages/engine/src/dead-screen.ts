@@ -8,7 +8,7 @@ import sharp from 'sharp'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
 import { keptOwnMark, type WatermarkEntry } from './watermarks'
-import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, type Stood } from './last-photo'
+import { entriesDir, holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, type Stood } from './last-photo'
 
 /**
  * No dead fish on a page, for what the photo check hasn't asked about (photo-check.ts asks since 2026-11-05): each species
@@ -53,7 +53,7 @@ export const thumbnail = (youtubeId: string) => `https://i.ytimg.com/vi/${youtub
 /** A video's thumbnail, then the frames YouTube publishes from about a quarter, half and three quarters through. */
 export const videoFrames = (youtubeId: string) => [thumbnail(youtubeId), ...[1, 2, 3].map(n => `https://i.ytimg.com/vi/${youtubeId}/hq${n}.jpg`)]
 
-type Item = { key: string; url: string; files: string[]; video?: string }
+type Item = { key: string; url: string; files: string[]; video?: string; rejection?: string }
 const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, () => undefined)
 const indentOf = (raw: string) => /^\{\n( +)"/.exec(raw)?.[1]?.length ?? 0
 
@@ -106,34 +106,48 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     const looked = albumLooked({ screen: cache, secondLook: initialLooks })
     const cleared = photoClears(initialLooks)
     const kept = keptOwnMark(photoRejected, (await readJson<Record<string, Pick<WatermarkEntry, 'retainedOwnMark'>>>(state(PHOTO_SCREEN_FILE))) ?? {})
-    const albums = await readdir(join(content, 'gallery')).catch((error: NodeJS.ErrnoException) => {
-      if (error.code === 'ENOENT') return []
-      throw error
-    })
+    const effectiveEntry = (url: string) => {
+      const entry = isListed(url)
+      return entry?.[1].startsWith('watermark:') && (kept(url) || kept(entry[0])) ? undefined : entry
+    }
+    const albums = await readdir(join(content, 'gallery'))
     for (const name of albums.filter(f => f.endsWith('.json')).sort()) {
       const file = join(content, 'gallery', name)
       const album = JSON.parse(await readFile(file, 'utf8')) as { photos?: Photo[] }
       if (!Array.isArray(album?.photos)) throw new Error(`Album photo inventory unavailable: ${name}`)
       for (const url of new Set(album.photos.flatMap(deadScreenPhotoUrls))) {
         if (!url) continue
-        const entry = isListed(url)
-        if (entry && !kept(entry[0]) && !(entry[1].startsWith('watermark:') && kept(url))) continue
-        if (entry) keptAlbumMarks.add(url)
-        const alreadyDead = cache[url]?.dead === true && !cleared(url) && !photoLookAnswer(initialLooks[url])
+        const entry = effectiveEntry(url)
+        const record = entry && initialLooks[entry[0]]
+        const rejection = entry && (entry[1].startsWith('dead:') ||
+          (entry[1].startsWith('waiting:') && record?.off && record.why.startsWith('dead:'))) ? entry[1] : undefined
+        if (entry && !rejection) continue
+        if (isListed(url) && !entry) keptAlbumMarks.add(url)
+        if (rejection && !album.photos.some(photo => {
+          if (photo.url !== url) return false
+          const original = version(photo)
+          return !original || original.url === url || !!effectiveEntry(original.url)
+        })) continue
+        const alreadyDead = !!rejection || (cache[url]?.dead === true && !cleared(url) && !photoLookAnswer(initialLooks[url]))
         if (!alreadyDead && looked(url)) continue
         const take = alreadyDead ? knownDead : photos
-        const it = take.get(url) ?? { key: url, url, files: [] }
+        const it = take.get(url) ?? { key: url, url, files: [], ...(rejection ? { rejection } : {}) }
         it.files.push(file)
         take.set(url, it)
       }
     }
-    if (o.limit === 0) return { ...report, left: photos.size }
-    // A copy picked for a page leaves it at the same push.
-    for (const kind of ['species', 'plants', 'breeds']) {
-      for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
-        const file = join(content, kind, id, 'entity.json')
-        const page = await readJson<{ photos?: Photo[] }>(file)
-        for (const url of new Set((page?.photos ?? []).flatMap(deadScreenPhotoUrls))) (photos.get(url) ?? knownDead.get(url))?.files.push(file)
+    if (!knownDead.size && (!o.limit || !photos.size)) return { ...report, left: photos.size }
+    // A copy picked for a page or guide leaves it at the same push.
+    for (const kind of ['species', 'plants', 'breeds', 'guides']) {
+      const dir = join(content, kind)
+      const pages = await readdir(dir, { withFileTypes: true }).catch((error: NodeJS.ErrnoException) => {
+        if (error.code === 'ENOENT') return []
+        throw error
+      })
+      for (const page of pages.filter(entry => entry.isDirectory())) {
+        const file = join(dir, page.name, 'entity.json')
+        const entity = JSON.parse(await readFile(file, 'utf8')) as { photos?: Photo[] }
+        for (const url of new Set((entity.photos ?? []).flatMap(deadScreenPhotoUrls))) (photos.get(url) ?? knownDead.get(url))?.files.push(file)
       }
     }
   }
@@ -224,7 +238,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   }
 
   if (o.albums) {
-    const remaining = todo.filter(it => !Object.hasOwn(cache, it.key))
+    const remaining = todo.filter(it => !completedDeadVerdict(cache[it.key]))
     report.left = remaining.length
     const now = Date.now()
     const attempts = Object.fromEntries(remaining.flatMap(({ url }) =>
@@ -271,7 +285,10 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const albumHolds = rejectedEntry(o.albums
     ? Object.fromEntries(Object.entries(secondLook).filter(([url]) => sl.waiting(url)).map(([url, record]) => [url, record.why]))
     : {})
-  const albumHold = (url: string) => sl.waiting(url) || sl.held(url) ? albumHolds(url)?.[0] : undefined
+  const albumHold = (url: string) => {
+    const key = albumHolds(url)?.[0]
+    return key && (sl.waiting(url) || sl.held(url) || isListed(url)?.[0] === key) ? key : undefined
+  }
   const holding = new Map<string, { why: string; pages: string[]; off?: true }>()
   type Page = { photos?: Photo[]; videos?: { youtubeId: string }[] }
   const edits = new Map<string, { raw: string; original: Page; page: Page }>()
@@ -293,9 +310,15 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       ((!prior || keptAlbumMarks.has(original.url)) && !going.has(original.url))
   }
   for (const it of off) {
-    const why = `dead: ${cache[it.key]!.note} (the dead-fish screen)`
+    const note = cache[it.key]?.note ?? it.rejection ?? ''
+    const why = it.rejection ?? `dead: ${note} (the dead-fish screen)`
     if (!it.video && (!going.has(it.url) || heldByAddress(it.url))) {
       if (held.has(it.url)) { holding.set(it.url, { why, pages: held.get(it.url)! }); report.held.push(`${it.key}: ${held.get(it.url)!.join(', ')}`) }
+      continue
+    }
+    const reviewUrl = albumHold(it.url)
+    if (reviewUrl && !entriesDir()) {
+      report.failed.push(`${it.key}: take-off waits for its recovery capture`)
       continue
     }
     let keptWrapper = false
@@ -309,22 +332,21 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
         return true
       })
     }
-    const reviewUrl = albumHold(it.url)
     if (reviewUrl) {
       // Keep the existing unanswered review, including its source address, and record the places it can restore.
       const pending = secondLook[reviewUrl]!
       holding.set(reviewUrl, { why: pending.why, pages: pending.pages, off: true })
       photoRejected[reviewUrl] = waitingEntry(pending.why)
-      report.dead.push(`${it.key}: ${cache[it.key]!.note}`)
+      report.dead.push(`${it.key}: ${note}`)
     } else if (!it.video && firstOff.has(it.url)) {
       holding.set(it.url, { why, pages: firstOff.get(it.url)!, off: true })
       report.firstOff.push(`${it.key}: ${firstOff.get(it.url)!.join(', ')}`)
       photoRejected[it.url] ??= waitingEntry(why)
     } else if (it.video || !markedByAddress(it.url)) {
-      report.dead.push(`${it.key}: ${cache[it.key]!.note}`)
+      report.dead.push(`${it.key}: ${note}`)
       if (it.video) videoRejected[it.video] ??= why
       // Album screening records a take-off even when a wrapper stays to carry a passing original.
-      else if (o.albums || !keptWrapper) {
+      else if (!it.rejection && (o.albums || !keptWrapper)) {
         if (keptAlbumMarks.has(it.url)) photoRejected[it.url] = why
         else photoRejected[it.url] ??= why
       }

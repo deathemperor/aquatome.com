@@ -166,7 +166,8 @@ export function deadLooked(r: DeadLookRecords): (url: string) => boolean {
 }
 /** Album vetting counts only a verdict from the dead-fish screen or a person's second look. */
 export function albumLooked(r: Pick<DeadLookRecords, 'screen' | 'secondLook'>): (url: string) => boolean {
-  return url => completedDeadVerdict(r.screen[url]) || !!photoLookAnswer(r.secondLook?.[url])
+  const cleared = photoClears(r.secondLook)
+  return url => completedDeadVerdict(r.screen[url]) || cleared(url) || !!photoLookAnswer(r.secondLook?.[url])
 }
 
 /** A second look is answered only with a decision, a reviewer and a dated record. */
