@@ -112,7 +112,7 @@ export const approvedCrop = (page: string, scientificName: string, approvals?: P
 export const hiddenFromReaders = (blocked: Record<string, unknown>, sources: Partial<Record<SourceId, { publish?: boolean | 'photos'; permission?: { markRemoval?: { allowed?: boolean; date?: string } } }>>, allowInat = false) => (p: Photo) =>
   p.url in blocked || setsCookies(p.url) || (!p.source && !mayPublishLicence(p, allowInat)) ||
   (!!p.source && (!mayPublish(sources[p.source], 'photos') || (isOwnerCrop(p) && sources[p.source]?.permission?.markRemoval?.allowed === false)))
-export type ReadKeeps = { owned?: (p: Photo) => boolean; gone?: (p: Photo) => boolean; waits?: (p: Photo) => boolean; recovery?: (p: Photo) => boolean; nonCommercial?: (p: Photo) => boolean }
+export type ReadKeeps = { owned?: (p: Photo) => boolean; gone?: (p: Photo) => boolean; waits?: (p: Photo) => boolean; recovery?: (p: Photo) => boolean; nonCommercial?: (p: Photo) => boolean; servedAddress?: (p: Photo) => string | undefined }
 /**
  * A photo the watermark screen still owes a look (schema's awaitsScreen): the build shows it only once the screen has
  * judged it clean, and then by itself. With no screen record, nothing waits, as in a build that has none.
@@ -135,6 +135,7 @@ export const readKeeps = (page: string, scientificName: string, blocked: Record<
     },
     waits: p => { const shown = selected(p); return !!shown && (photoWaits?.(shown.url) ?? waitsForScreen(screen)(shown)) },
     nonCommercial: p => isNonCommercial(selected(p)?.licence ?? ''),
+    servedAddress: p => selected(p)?.url,
     recovery: p => deadScreenPhotoUrls(p).some(url => pendingRefusal?.(url) || listed(url)?.[1].startsWith('waiting:') === true),
   }
 }
@@ -158,7 +159,6 @@ export const readKeeps = (page: string, scientificName: string, blocked: Record<
  */
 export const mergeRead = (prev: Photo[], source: SourceId, url: string, fresh: Photo[], o: ReadKeeps = {}): { photos: Photo[]; held: Photo[] } => {
   const owned = o.owned ?? (() => false), waits = o.waits ?? (() => false)
-  const recovery = (p: Photo) => prev.includes(p) && o.recovery?.(p) === true
   // A photo the build shows, or will by itself once the watermark screen has judged it clean; and one it shows now.
   const shows = (p: Photo) => !p.generated && !o.gone?.(p) && (!isOwnerCrop(p) || owned(p))
   const seen = (p: Photo) => shows(p) && !waits(p)
@@ -166,6 +166,13 @@ export const mergeRead = (prev: Photo[], source: SourceId, url: string, fresh: P
     const ready = ps.filter(seen)
     return ready.length > 1 && o.nonCommercial ? ready.filter(p => !o.nonCommercial?.(p)) : ready
   }
+  const freshAddress = photoAddressSet(fresh.map(p => o.servedAddress?.(p) ?? p.url))
+  const keptBefore = new Set(prev.filter(p => {
+    if (o.recovery?.(p)) return true
+    const served = o.servedAddress?.(p)
+    return !!served && served !== p.url && freshAddress(served) && shows(p) && waits(p)
+  }))
+  const recovery = (p: Photo) => keptBefore.has(p)
   const replaced = (p: Photo) => p.source === source && p.sourceUrl === url && !owned(p) && !recovery(p)
   const recoverable = photoAddressSet(prev.filter(recovery).flatMap(deadScreenPhotoUrls))
   const merged = [...fresh.filter(p => !deadScreenPhotoUrls(p).some(recoverable)), ...prev.filter(p => !replaced(p))].map((p, i) => ({ p, i })).sort((a, b) => rank(a.p) - rank(b.p) || a.i - b.i).map(x => x.p)

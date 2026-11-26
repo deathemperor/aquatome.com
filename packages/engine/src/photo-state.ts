@@ -1,4 +1,6 @@
-import { basename } from 'node:path'
+import { readFile } from 'node:fs/promises'
+import { basename, dirname, join } from 'node:path'
+import { expandWholePhotoRejections, isVersionRejection, PHOTO_SCREEN_FILE, type PhotoScreenEntry } from '@aq/schema'
 import { compactScreen, compactVerdict, compactRejections, compactRejection, photoFailure } from './photo-observations'
 import { writeImageCache } from './image-cache-write'
 
@@ -28,5 +30,17 @@ export function compactPhotoState(file:string,value:unknown):unknown {
   })
 }
 export async function writePhotoState(file:string,value:unknown,indent:number|string=2):Promise<void> {
-  await writeImageCache(file,JSON.stringify(compactPhotoState(file,value),null,indent)+'\n')
+  let data = compactPhotoState(file, value)
+  if (basename(file) === '_photo-rejected.json') {
+    const rejected = data as Record<string, string>
+    if (Object.values(rejected).some(why => why && !isVersionRejection(why))) {
+      const state = dirname(file)
+      const marks = await readFile(join(state, PHOTO_SCREEN_FILE), 'utf8').then(
+        raw => JSON.parse(raw) as Record<string, PhotoScreenEntry>,
+        (error: NodeJS.ErrnoException) => { if (error.code !== 'ENOENT') throw error; return undefined },
+      )
+      data = await expandWholePhotoRejections(join(dirname(state), 'content'), rejected, marks)
+    }
+  }
+  await writeImageCache(file, JSON.stringify(data, null, indent) + '\n')
 }

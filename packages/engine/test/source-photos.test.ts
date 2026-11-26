@@ -565,3 +565,15 @@ test('a shown photo the page lays out small keeps its place too, and its rank am
   expect(out.map(p => p.url)).toEqual([shown.url, ...[1, 2, 3].map(n => `https://media.test/${photoKey('glaser', `https://x.test/f${n}.jpg`)}`)])
   expect(fetched).toEqual([1, 2, 3].map(n => `https://x.test/f${n}.jpg`))
 })
+
+test('a source reread reuses an original already stored in a credited wrapper', async () => {
+  const source = 'glaser'
+  const page = 'https://x.test/fish'
+  const src = 'https://x.test/known.jpg'
+  const original = { url: `https://media.test/${photoKey(source, src)}`, width: 1000, height: 700 }
+  const stored = { ...original, url: 'https://media.test/upscaled.webp', licence: 'CC BY 4.0',
+    author: 'Sample credited owner', sourceUrl: page, altered: [{ method: 'lanczos3-upscale' as const, date: '2026-11-26', originalHash: 'a'.repeat(64) }], original }
+  const unused = async () => { throw new Error('the stored original must not be fetched or overwritten') }
+  const deps = { bytes: unused, media: { urlFor: (key: string) => `https://media.test/${key}`, put: unused } }
+  expect(await storeSourcePhotos(source, 'Source', page, [{ src, alt: '', width: 1000, height: 700 }], deps, [stored])).toEqual([stored])
+})
