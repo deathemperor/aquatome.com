@@ -1383,7 +1383,15 @@ final class V2FlowTests: XCTestCase {
 
   /// The card's six figures fit, and the page's colour continues under the tab bar.
   func testAFishsPageShowsEveryFigureOnItsColourUnderTheTabBar() {
-    let app = launch("-v2", "YES", "-appearance", "light", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryL")
+    checkFiguresOnThePageColour(appearance: "light")
+  }
+
+  func testAFishsPageKeepsItsColourUnderTheTabBarInDarkMode() {
+    checkFiguresOnThePageColour(appearance: "dark")
+  }
+
+  private func checkFiguresOnThePageColour(appearance: String) {
+    let app = launch("-v2", "YES", "-appearance", appearance, "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryL")
     app.launchForFlow()
     XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
@@ -1396,16 +1404,15 @@ final class V2FlowTests: XCTestCase {
                    "its lifespan on the card")
     XCTAssertTrue(app.frame.contains(figure.frame), "a figure off the screen: \(figure.frame)")
     Thread.sleep(forTimeInterval: 0.5)
-    let shot = Pixels(XCUIScreen.main.screenshot())
+    let screenshot = XCUIScreen.main.screenshot()
+    let shot = Pixels(screenshot)
     let colour = shot.at(6, app.frame.midY), foot = shot.at(6, app.frame.maxY - 6)
-    let white = Pixels.RGB(r: 255, g: 255, b: 255)
-    XCTAssertGreaterThan(foot.distance(to: white), 60, "the fish page lost its colour under the tab bar: \(foot)")
-    // At L, iOS 27's soft edge lightens the page ground in the strip below the glass. On iOS 26 the fade leaves
-    // the ground as drawn. Allow the soft edge's white tint while checking that the page's colour still comes through.
-    let tint = softEdgeHolds ? min(0.55, max(0, (foot.r - colour.r) / max(1, white.r - colour.r))) : 0
-    func lightened(_ channel: Double) -> Double { channel + (255 - channel) * tint }
-    let expected = Pixels.RGB(r: lightened(colour.r), g: lightened(colour.g), b: lightened(colour.b))
-    XCTAssertLessThan(expected.distance(to: foot), 40, "wrong ground under the tab bar: \(colour) above, \(foot) under it")
+    XCTAssertGreaterThan(colour.distance(to: Pixels.RGB(r: 255, g: 255, b: 255)), 60, "the fish page has no colour: \(colour)")
+    XCTAssertLessThan(colour.distance(to: foot), 40, "wrong ground under the tab bar: \(colour) above, \(foot) under it")
+    let attachment = XCTAttachment(screenshot: screenshot)
+    attachment.name = "fish-foot-\(appearance)"
+    attachment.lifetime = .keepAlways
+    add(attachment)
   }
 
   /// A fish's page whose head shows its photo whole, at rest: the ⋯ in iOS's glass beside the back in its own, on the

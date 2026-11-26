@@ -200,8 +200,8 @@ private struct ClearOfTheFade: ViewModifier {
 /// On iOS 26 the fade at every size (Design, 20 Nov): 26's soft edge leaves the strip below the floating bar sharp, where a
 /// fish page's photo credit read (26.5), and its hard edge paints an opaque band across a coloured page's foot. The page
 /// doesn't run under the bar there, and a tap under it opens nothing, as at AX3.
-/// On 27.2 iOS draws no edge under a tab bar of its own accord: each is asked for. A tab's own, not each page's: it holds
-/// for every page of the tab, v1's too.
+/// On iOS 27 a coloured page uses the fade while its colour reaches the bar. The native edge paints a pale band over
+/// that colour in light mode. Plain pages still use the native edge (Design, 22 Nov).
 private struct ClearUnderTabBar: ViewModifier {
   let ground: Color
   /// The fade's height, if it's a set one. Short: v1's pinned controls end just above it. v2's own pages end above it
@@ -217,9 +217,10 @@ private struct ClearUnderTabBar: ViewModifier {
   @Environment(\.dynamicTypeSize) private var size
   /// iOS 27's soft edge blurs the strip below the floating bar too; 26's doesn't.
   private var softHolds: Bool { if #available(iOS 27, *) { true } else { false } }
+  private var needsFade: Bool { !softHolds || size >= .accessibility3 || footGround != nil }
 
   func body(content: Content) -> some View {
-    if #available(iOS 26, *), size >= .accessibility3 || !softHolds {
+    if #available(iOS 26, *) {
       content
         .environment(\.v2FootGround, $footGround)
         .background {
@@ -229,7 +230,7 @@ private struct ClearUnderTabBar: ViewModifier {
           VStack(spacing: 0) {
             Color.black
             // A bar at the foot of the screen; an iPad's is at the top, with only the home indicator's inset here.
-            if bar >= 49 {
+            if needsFade, bar >= 49 {
               LinearGradient(colors: [.black, .clear], startPoint: .top, endPoint: .bottom).frame(height: fade ?? scaled)
               Color.clear.frame(height: bar)
             }
@@ -240,7 +241,7 @@ private struct ClearUnderTabBar: ViewModifier {
         // A mask hides what's under it but leaves it live: a tap beside or under the bar stops here, not on a card that
         // can't be seen. VoiceOver still reaches what's hidden, and scrolls it into view.
         .overlay {
-          if bar >= 49 {
+          if needsFade, bar >= 49 {
             VStack(spacing: 0) {
               Spacer(minLength: 0)
               Color.clear.contentShape(.rect).frame(height: bar).onTapGesture {}.accessibilityHidden(true)
@@ -248,12 +249,8 @@ private struct ClearUnderTabBar: ViewModifier {
             .ignoresSafeArea()
           }
         }
-        .scrollEdgeEffectHidden(true, for: .bottom)
-    } else if #available(iOS 26, *) {
-      content
-        .environment(\.v2FootGround, $footGround)
-        .background { (footGround?.colour ?? ground).ignoresSafeArea().animation(.easeInOut(duration: 0.2), value: footGround) }
         .scrollEdgeEffectStyle(size >= .xxLarge ? .hard : .soft, for: .bottom)
+        .scrollEdgeEffectHidden(needsFade, for: .bottom)
     } else {
       content
     }
