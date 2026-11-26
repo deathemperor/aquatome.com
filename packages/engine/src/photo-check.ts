@@ -1029,7 +1029,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       const data = JSON.parse(raw) as { photos?: Photo[] }
       const removed: string[] = []
       const before = { ...data }
-      stripPhotos(data, url => recoverableEdit(url) && !!capture(url), removed, [], preservesOriginal)
+      stripPhotos(data, url => canCapture && recoverableEdit(url) && !!capture(url), removed, [], preservesOriginal)
       placesIn(root, file, before, (url, slot) => !data.photos?.includes(slot.photo as Photo) ? capture(url) : undefined, stood)
       if (!removed.length) continue
       report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))
@@ -1041,7 +1041,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const before = real(data.photos)[0]?.url
     const removed: string[] = []
     const beforeEdit = { ...data }
-    stripPhotos(data, url => recoverableEdit(url) && blocked(file)(url), removed, [], preservesOriginal)
+    stripPhotos(data, url => recoverableEdit(url) && (canCapture || !capture(url)) && blocked(file)(url), removed, [], preservesOriginal)
     placesIn(root, file, beforeEdit, (url, slot) => !data.photos?.includes(slot.photo as Photo) ? capture(url) : undefined, stood)
     // A gallery photo that waited (`unchecked`): judged for this page and left on, it shows from the next build.
     const gallery = galleryId(file)

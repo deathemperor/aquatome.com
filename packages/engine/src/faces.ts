@@ -122,7 +122,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const left = new Map<string, Stood[]>()
   const waiting = captureWaiting(secondLook, listed)
   const canCapture = !!entriesDir()
-  const removes = (p: Photo) => dropsStored(p) && !heldByAddress(p.url) &&
+  const removes = (p: Photo) => dropsStored(p) && !heldByAddress(p.url) && (canCapture || !markedByAddress(p.url)) &&
     (!listed(p.url)?.[1].startsWith('waiting:') || (canCapture && !!waiting(p.url)))
   const newFirst = rejectedEntry(Object.fromEntries([...firstOff.keys()].map(url => [url, why])))
   for (const { file, e } of pages) {
@@ -148,7 +148,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   for (const { file, e } of pages) {
     const keep = (e.photos ?? []).filter(p => !removes(p))
     // A video section's photo the owner rejected (the images pass screened it for faces when it picked it).
-    const figures = (e.video?.figures ?? []).filter(f => f.photo && listed(f.photo.url))
+    const figures = (e.video?.figures ?? []).filter(f => f.photo && listed(f.photo.url) && !listed(f.photo.url)?.[1].startsWith('waiting:'))
     if (keep.length === (e.photos ?? []).length && !figures.length) continue
     const at = file.slice(contentRoot.length + 1)
     removed.push(...(e.photos ?? []).filter(p => !keep.includes(p)).map(p => `${at}: ${p.url}`), ...figures.map(f => `${at}: ${f.photo!.url}`))

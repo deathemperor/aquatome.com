@@ -5,7 +5,7 @@ import { chmod, cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/prom
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
-import { expect, onTestFinished, test, vi } from 'vitest'
+import { beforeEach, expect, onTestFinished, test, vi } from 'vitest'
 import { loadAll, mirrorPlan } from '@aq/schema'
 import { LlmError } from '../src/claude'
 import { galleries } from '../src/gallery'
@@ -19,6 +19,15 @@ import { NEW_PHOTO_SHEETS, screenNewPhotos } from '../src/faces'
 const m = (name: string) => `https://m/${name}.webp`
 const photo = (name: string) => ({ url: m(name), width: 960, height: 640, licence: 'CC BY 4.0', author: 'Sample Tester', sourceUrl: 'https://example.org/x' })
 const video = (youtubeId: string) => ({ youtubeId, title: youtubeId, durationSec: 300, lang: 'en' })
+
+beforeEach(async () => {
+  const folder = await mkdtemp(join(tmpdir(), 'aq-faces-recovery-'))
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', folder)
+  onTestFinished(async () => {
+    vi.unstubAllEnvs()
+    await rm(folder, { recursive: true, force: true })
+  })
+})
 
 // Species a: its head was judged by the face finder in an earlier run; a new dead fish and a new live one follow it, and
 // a video. Species b, a new page: its one photo, a dead fish. Species c: a new photo with a face, and a new live fish.

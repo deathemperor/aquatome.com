@@ -8,7 +8,7 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
-import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, type Stood } from './last-photo'
+import { entriesDir, holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, type Stood } from './last-photo'
 import { permittedPhotoSource, readPhotoSources } from './photo-visibility'
 
 /**
@@ -198,6 +198,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const firstOff = new Map([...last].filter(([u]) => !passed(u)))
   const heldByAddress = photoAddressSet(held.keys())
   const markedByAddress = photoAddressSet(firstOff.keys())
+  const canCapture = !!entriesDir()
   const holding = new Map<string, { why: string; pages: string[]; off?: true }>()
   type Page = { photos?: Photo[]; videos?: { youtubeId: string }[] }
   const edits = new Map<string, { raw: string; original: Page; page: Page }>()
@@ -227,7 +228,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     for (const file of it.files) {
       const { page } = await readPage(file)
       if (it.video) page.videos = (page.videos ?? []).filter(v => v.youtubeId !== it.video)
-      else page.photos = (page.photos ?? []).filter(p => p.url !== it.url || retainFallback(p))
+      else if (canCapture || !markedByAddress(it.url)) page.photos = (page.photos ?? []).filter(p => p.url !== it.url || retainFallback(p))
     }
     if (!it.video && firstOff.has(it.url)) {
       holding.set(it.url, { why, pages: firstOff.get(it.url)!, off: true })
