@@ -19,6 +19,7 @@ final class TanksModel {
 
   private(set) var store = TankStore()
   private(set) var problem: Problem?
+  let care = TankCare()
   private let file: URL
   /// Readers' demand (docs/my-tanks-sync.md): where a save sends what it put on a tank without a page, and whether the
   /// handbook has a page for one (then it isn't sent), asked once its index is read. The app sets them.
@@ -104,6 +105,7 @@ final class TanksModel {
     var s = store
     try s.deleteTank(id)
     try commit(s)
+    care.tankDeleted(id, tanks: tanks)
   }
 
   /// A sync's result (AccountModel): the account's store with the phone's changes since, saved as an edit is.

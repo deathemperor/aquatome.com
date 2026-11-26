@@ -191,6 +191,7 @@ private struct TankDetail: View {
           Text(f.isEmpty ? String(localized: "Chưa có kích thước.", bundle: .app) : f.joined(separator: " · ")).accessibilityIdentifier("facts")
           if let n = t.notes { Text(n).accessibilityIdentifier("notes") }
         }
+        TankCareSection(tank: t)
         // As the site lists them: fish (with how many), then plants, each opening its page (TankLife.swift).
         TankLifeSections(tank: t, sheet: $lifeSheet)
         // Whether its fish go together and fit the tank, as the site's tank-mates tool says (TankCheckView.swift): after

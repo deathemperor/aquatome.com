@@ -212,6 +212,38 @@ final class TanksFlowTests: XCTestCase {
 
   // MARK: Helpers
 
+  @MainActor func testKeepsAReminderOnItsTankAndCanMarkItDone() {
+    var app = launch("-seed-tanks", "two")
+    let tank = app.buttons.matching(identifier: "tank").firstMatch
+    XCTAssertTrue(tank.waitForExistence(timeout: 5))
+    tank.tap()
+    let add = app.buttons["tank-reminder-add"]
+    XCTAssertTrue(app.scrolledDown(to: add).isHittable)
+    add.tap()
+    XCTAssertTrue(app.buttons["tank-reminder-save"].waitForExistence(timeout: 5))
+    app.buttons["tank-reminder-save"].tap()
+
+    app.terminate()
+    app = launch(reset: false)
+    let first = app.buttons.matching(identifier: "tank").firstMatch
+    XCTAssertTrue(first.waitForExistence(timeout: 5))
+    first.tap()
+    let reminder = app.buttons["tank-reminder"].firstMatch
+    XCTAssertTrue(app.scrolledDown(to: reminder).isHittable)
+    XCTAssertTrue(reminder.label.contains("Thay nước"), reminder.label)
+    reminder.tap()
+    let done = app.buttons["tank-reminder-done"]
+    XCTAssertTrue(app.scrolledDown(to: done).isHittable)
+    done.tap()
+    XCTAssertTrue(reminder.waitForExistence(timeout: 5))
+    XCTAssertTrue(reminder.label.contains("Đã làm"), reminder.label)
+
+    app.pageBack.tap()
+    app.buttons.matching(identifier: "tank").element(boundBy: 1).tap()
+    XCTAssertTrue(app.scrolledDown(to: app.buttons["tank-reminder-add"]).isHittable)
+    XCTAssertFalse(app.buttons["tank-reminder"].exists)
+  }
+
   private func launch(reset: Bool = true, _ args: String...) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook"] + (reset ? ["-reset-defaults"] : []) + args

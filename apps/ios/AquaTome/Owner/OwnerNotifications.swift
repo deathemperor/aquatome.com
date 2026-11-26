@@ -7,6 +7,15 @@ import UserNotifications
 final class OwnerNotifications: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
   /// What APNs' token is given to (the app's start sets it).
   var received: ((Data) -> Void)?
+  @MainActor private var pendingTank: String?
+  @MainActor var openTank: ((String) -> Void)? {
+    didSet {
+      if let pendingTank, let openTank {
+        self.pendingTank = nil
+        openTank(pendingTank)
+      }
+    }
+  }
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
     UNUserNotificationCenter.current().delegate = self
@@ -27,7 +36,15 @@ final class OwnerNotifications: NSObject, UIApplicationDelegate, UNUserNotificat
   }
 
   nonisolated func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
-    guard let page = OwnerPush.page(response.notification.request.content.userInfo) else { return }
+    let request = response.notification.request
+    if request.identifier.hasPrefix(TankCare.noticePrefix),
+       let id = request.content.userInfo[TankCare.tankKey] as? String {
+      await MainActor.run {
+        if let openTank { openTank(id) } else { pendingTank = id }
+      }
+      return
+    }
+    guard let page = OwnerPush.page(request.content.userInfo) else { return }
     await MainActor.run { UIApplication.shared.open(OwnCopy.marked(page, site: AccountsClient.site)) }
   }
 
