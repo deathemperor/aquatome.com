@@ -1,6 +1,7 @@
 import type Anthropic from '@anthropic-ai/sdk'
 import { runAgent, type AgentRun, type Limits } from '../agent/loop'
 import { ANSWER_SCHEMA, filler, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type ChatBlock, type Choice } from './answer'
+import { EQUIPMENT_INSTRUCTIONS, EQUIPMENT_PICK, equipmentChoices, equipmentProposal, type Equipment, type EquipmentProposal } from './equipment'
 import type { Handbook, Lang } from './handbook'
 import type { Found, Handover } from './handover'
 import type { MatesCheck } from './mates'
@@ -287,7 +288,7 @@ export const NO_THINKING: Record<string, { thinking?: Anthropic.ThinkingConfigPa
 export const noThinking = (model: string) => NO_THINKING[model] ?? NO_THINKING['claude-opus-5-5']!
 
 /** `opening`: the first line the reader was shown, if one was (the turn leaves it out when the answer is off topic: api.ts). */
-export type ChatRun = AgentRun<Step> & { answer?: Answer; blocks: ChatBlock[]; dropped: string[]; opening?: string; handed?: Found[] }
+export type ChatRun = AgentRun<Step> & { answer?: Answer; blocks: ChatBlock[]; dropped: string[]; opening?: string; handed?: Found[]; equipment?: EquipmentProposal }
 export type ChatOptions = {
   /**
    * One call to Claude. With `onText`, the call streams, and each raw delta of its text content (never its thinking)
@@ -301,6 +302,8 @@ export type ChatOptions = {
   start: Start
   handbook: Handbook
   tanks: () => Promise<Tank[] | null>
+  /** The selected tank's offerable devices, for an opted-in app turn. */
+  equipment?: () => Promise<Equipment[]>
   /** What goes in the run's first message after the question (handover.ts). Never in the first line's call, which doesn't wait for it. */
   handover?: () => Promise<Handover | undefined>
   effort?: 'low' | 'medium' | 'high'
@@ -407,20 +410,31 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
   // Asked for once the first line's call has left, so a search never holds the line back.
   const clock = o.clock ?? Date.now
   const asked = clock()
-  const [handed, tankHanded] = await Promise.all([o.handover ? inTime(o.handover, 'handover') : undefined, o.start.tank ? inTime(() => o.tanks(), 'tanks') : undefined])
+  const [handed, tankHanded, equipment] = await Promise.all([
+    o.handover ? inTime(o.handover, 'handover') : undefined,
+    o.start.tank ? inTime(() => o.tanks(), 'tanks') : undefined,
+    o.equipment ? inTime(o.equipment, 'equipment') : undefined,
+  ])
   const opened = tankHanded ? await openedTank(o.start, async () => tankHanded, o.handbook, !!handed) : undefined
   const tankContext = opened ?? (o.start.tank
     ? 'The saved tank this chat was opened from is unavailable. When the question depends on that tank, ask for its current details. Do not substitute another saved tank or assume the earlier review is current.'
     : undefined)
   const content = [...(first.content as Anthropic.ContentBlockParam[]), ...(tankContext ? [{ type: 'text' as const, text: tankContext }] : [])]
+  const offers = opened && equipment?.length ? equipment : undefined
+  if (offers) content.push({ type: 'text', text: `Switch options for this turn: ${JSON.stringify(equipmentChoices(offers))}` })
+  const schema = offers ? {
+    ...ANSWER_SCHEMA,
+    required: [...ANSWER_SCHEMA.required, 'equipment'],
+    properties: { ...ANSWER_SCHEMA.properties, equipment: EQUIPMENT_PICK },
+  } : ANSWER_SCHEMA
   // No `recheck` here: an answer that may be sent back must not stream, as the reader would have read the one it replaces.
   const run = await runAgent<Step>({
     send,
     model: o.model,
-    system: SYSTEM,
+    system: offers ? `${SYSTEM}\n\n${EQUIPMENT_INSTRUCTIONS}` : SYSTEM,
     tools: chatTools({ handbook: o.handbook, tanks: o.tanks, checks }),
     first: { role: 'user', content: [...content, ...(handed ? [{ type: 'text' as const, text: handed.text }] : [])] },
-    schema: ANSWER_SCHEMA as unknown as Record<string, unknown>,
+    schema: schema as unknown as Record<string, unknown>,
     effort: o.effort ?? 'medium',
     lastEffort: o.lastEffort ?? 'low',
     pace: CHAT_PACE,
@@ -450,5 +464,8 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
   // The picks the stream didn't fill (all of them, when the text didn't stream): the same picks, as both read the same JSON.
   if (answer) for (const p of answer.blocks.slice(picked)) await blocks.add(p)
   const filled = answer ? blocks.done() : { blocks: [], dropped: [] }
-  return { ...run, ...(answer ? { answer } : {}), ...filled, ...(opening ? { opening } : {}), ...(handed?.sections.length ? { handed: handed.sections } : {}) }
+  const proposal = answer && !answer.offTopic && offers && o.start.tank && run.message?.stop_reason === 'end_turn'
+    ? equipmentProposal(o.start.tank, offers, answer.equipment)
+    : undefined
+  return { ...run, ...(answer ? { answer } : {}), ...filled, ...(opening ? { opening } : {}), ...(handed?.sections.length ? { handed: handed.sections } : {}), ...(proposal ? { equipment: proposal } : {}) }
 }

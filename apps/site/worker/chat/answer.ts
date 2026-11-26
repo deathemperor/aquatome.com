@@ -74,7 +74,7 @@ export const ANSWER_SCHEMA = {
 } as const
 
 export type Choice = { t: (typeof BLOCKS)[number]; ids: string[]; path: string | null; heading: string | null; tool: ToolName | null; fish: { id: string; count: number }[]; tank: { l: number; w: number; h: number } | null; tankId: string | null }
-export type Answer = { offTopic: boolean; text: string; covered: boolean; blocks: Choice[]; suggestions: string[]; clashes: Clash[] }
+export type Answer = { offTopic: boolean; text: string; covered: boolean; blocks: Choice[]; suggestions: string[]; clashes: Clash[]; equipment?: unknown }
 
 /**
  * What an off-topic question gets, in the reader's language, whatever Claude wrote: one friendly line back to what the

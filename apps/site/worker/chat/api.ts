@@ -15,6 +15,7 @@ import { handoverFor } from './handover'
 import { sectionSearch } from './section-search'
 import { answerQuestion, CHAT_LIMITS, CHAT_PRESENT, MAX_TOKENS, noThinking, OPENING_TOKENS, type ChatRun, type Earlier, type Start } from './agent'
 import type { ChatBlock } from './answer'
+import { equipmentOf, type EquipmentProposal } from './equipment'
 import { handbookOf, type Handbook, type Lang, type Source } from './handbook'
 import { chatAccount, conversationKey, retryKey, secs, stopKey } from './store'
 import type { Step, Tank, TankLight } from './tools'
@@ -52,6 +53,8 @@ export type ChatEnv = {
   /** "on": the test account (accounts/tester.ts) may ask. Anything else, or missing: its session is no session here. */
   CHAT_TESTER?: string
   CHAT_MODEL?: string
+  /** Owner accounts with an opted-in app only. Disabled unless set to "owner". */
+  CHAT_EQUIPMENT?: string
   /** The search that hands Claude sections before its first call (handover.ts): Workers AI embeds the reader's words, Vectorize finds the sections. */
   AI?: Ai
   CHAT_SEARCH?: Vectorize
@@ -182,7 +185,7 @@ export function chatWorstCost(model: string): number {
 }
 
 /** The contract's `Turn`. */
-export type Turn = { conversation: string; n: number; text: string; blocks: ChatBlock[]; suggestions: string[]; covered: boolean; model: string; steps?: Step[]; opening?: string }
+export type Turn = { conversation: string; n: number; text: string; blocks: ChatBlock[]; suggestions: string[]; covered: boolean; model: string; steps?: Step[]; opening?: string; equipment?: EquipmentProposal }
 /** A conversation as kept (under its account's prefix): when it began, its turns, and the question being answered. */
 export type Conversation = { created: number; turns: KeptTurn[]; running?: { key: string; at: number } }
 /** A turn as a conversation keeps it, to read it to Claude and draw it again. A turn from before the past conversations has the first five alone. */
@@ -239,8 +242,7 @@ export function assetSource(env: Pick<ChatEnv, 'ASSETS'>, origin: string): Sourc
 }
 
 /** The account's saved tanks as the chat reads them (tools.ts `Tank`): what read_tanks tells Claude and a check is of. */
-export async function tanksOf(db: D1Database, account: string, now = new Date()): Promise<Tank[]> {
-  const store = await loadStore(db, account)
+function tanksOf(store: Awaited<ReturnType<typeof loadStore>>, now: Date): Tank[] {
   const devices = store.devices.filter(d => !isTombstone(d)) as Device[]
   return (store.tanks.filter(t => !isTombstone(t)) as SavedTank[]).map(r => {
     const mine = devices.filter(d => d.tankId === r.id)
@@ -302,6 +304,8 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   if (!session || (bearer && session.via !== 'bearer')) return json({ error: 'session' }, 401)
   const idem = req.headers.get('idempotency-key')?.trim().toLowerCase() ?? ''
   if (idem && !UUID.test(idem)) return json({ error: 'bad idempotency-key' }, 400)
+  const mayOfferEquipment = env.CHAT_EQUIPMENT === 'owner' && role === 'owner' && session.via === 'bearer' &&
+    !!idem && req.headers.get('X-AquaTome-Equipment') === '1'
   const raw = await req.text().catch(() => '')
   if (raw.length > MAX_BODY) return json({ error: 'too long', limit: maxChars }, 413)
   let body: unknown
@@ -423,9 +427,11 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   // The first question of a conversation, on the owner's account alone: opening chat to all turns this off. To widen it, first
   // a judged pass three times the size of the last, whose middle estimate of mistakes doesn't lean worse than today's chat (2026-11-09).
   const search = env.CHAT === 'owner' && env.AI && env.CHAT_SEARCH && !conv?.turns.length ? sectionSearch(env.AI, env.CHAT_SEARCH) : undefined
-  let saved: Promise<Tank[]> | undefined
-  /** The reader's tanks, read once for the handover and for read_tanks; a read that failed is tried again by the next. */
-  const tanks = () => (saved ??= tanksOf(env.DB, session.userId, now)).catch(e => { saved = undefined; console.error('chat tanks:', e); return null })
+  let saved: ReturnType<typeof loadStore> | undefined
+  /** One snapshot of the reader's tanks for this turn. A failed read can be tried again by the next tool call. */
+  const savedTanks = () => saved ??= loadStore(env.DB, session.userId).catch(e => { saved = undefined; throw e })
+  const tanks = () => savedTanks().then(store => tanksOf(store, now), e => { console.error('chat tanks:', e); return null })
+  const equipmentTank = mayOfferEquipment && (conv?.turns.length || start.from === 'tank') ? start.tank : undefined
 
   /** The run, after admission: its turn, or the error it ends on (as the JSON answer's status). */
   const work = async (onStep?: (s: Step) => void, onText?: (piece: string) => void, onBlock?: (b: ChatBlock) => void, onOpening?: (line: string) => void, until?: () => number): Promise<{ status: number; body: Record<string, unknown> }> => {
@@ -474,6 +480,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
         },
         model, lang: q.lang, question: q.question, earlier: conv?.turns ?? [], start, handbook: hb,
         tanks,
+        ...(equipmentTank ? { equipment: async () => equipmentOf(await savedTanks(), equipmentTank) } : {}),
         ...(search ? { handover: async () => handoverFor({ question: q.question, start: q.start, tanks: (await tanks()) ?? [], hb, lang: q.lang, search }) } : {}),
         onStep, clock,
         ...(onText ? { onText: (piece: string) => { shown = true; onText(piece) }, ...(onBlock ? { onBlock } : {}) } : {}),
@@ -501,6 +508,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
         // An off-topic answer keeps no line: `done` has the last word, and the app takes away the one it showed (the
         // Design Lead's rule). The transcript keeps it all the same: the reader saw it.
         ...(out.opening && !out.answer.offTopic ? { opening: out.opening } : {}),
+        ...(out.equipment ? { equipment: out.equipment } : {}),
       }
       return { status: 200, body: turn as unknown as Record<string, unknown> }
     } catch (e) {
@@ -529,7 +537,8 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
     const turn = done.status === 200 ? done.body as unknown as Turn : undefined
     const asked = clock()
     const next: Conversation = { created: mark.created, turns: turn ? [...mark.turns, { n: turn.n, question: q.question, text: turn.text, blocks: turn.blocks, suggestions: turn.suggestions, covered: turn.covered, model: turn.model, ...(turn.steps ? { steps: turn.steps } : {}), ...(turn.opening ? { opening: turn.opening } : {}), at: asked }] : mark.turns }
-    const k: Kept = turn ? { at: asked, turn } : { at: asked, status: done.status, ...(done.body as { error: string; counted?: boolean; freeLeft?: number }) }
+    // A proposal is only for the app that asked and received this turn. Replays and history never offer an old switch.
+    const k: Kept = turn ? { at: asked, turn: { ...turn, equipment: undefined } } : { at: asked, status: done.status, ...(done.body as { error: string; counted?: boolean; freeLeft?: number }) }
     if (keptKey) await env.UPLOADS.put(keptKey, JSON.stringify(k)).catch(e => console.error('chat kept:', e))
     await env.UPLOADS.put(convKey, JSON.stringify(next)).catch(e => console.error('chat conversation:', e))
     if (turn) await listed(asked, next.turns.length).catch(e => console.error('chat list:', e))

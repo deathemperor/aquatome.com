@@ -1378,6 +1378,52 @@ test('a saved-tank review keeps its original tank on follow-ups and reads the cu
   expect(after).not.toContain('Nước đã trong')
 })
 
+test('an opted-in owner app can receive one safe equipment proposal, only on the original completed turn', async () => {
+  const { e, db } = env()
+  const owner = await signIn(db)
+  const reader = await signIn(db)
+  e.OWNER_ACCOUNTS = owner.id
+  const now = new Date()
+  const at = now.toISOString()
+  const tank = { id: crypto.randomUUID(), name: 'Bể rêu', species: [], plants: [], createdAt: at, updatedAt: at }
+  const strip = { id: crypto.randomUUID(), tankId: tank.id, kind: 'plug', brand: 'tuya', remoteId: 'internal-strip', outlets: [{ code: 'switch_1', role: 'co2' }], createdAt: at, updatedAt: at }
+  await syncStore(db, owner.id, { v: 1, tanks: [tank], devices: [strip] }, now)
+  const body = { from: 'tank', tank: tank.id, about: undefined, question: 'Tắt CO₂ cho mình.' }
+  const headers = { 'X-AquaTome-Equipment': '1', 'Idempotency-Key': crypto.randomUUID() }
+  let pick: unknown = { option: 1, on: false }
+  let offTopic = false
+  const c = claude([() => answers({ offTopic, text: 'Bạn xác nhận tắt CO₂ trên ứng dụng nhé.', equipment: pick })])
+
+  const askAs = (token: string, extra = {}, h = headers) => run(ask(bearer(token), { ...body, ...extra }, h), e, deps(c.fetch), now)
+  const withNewTurn = () => ({ ...headers, 'Idempotency-Key': crypto.randomUUID() })
+  expect((await askAs(owner.token)).body).not.toHaveProperty('equipment')
+  expect(JSON.stringify(c.bodies.at(-1))).not.toContain('Switch options for this turn')
+  e.CHAT_EQUIPMENT = 'owner'
+  expect((await askAs(reader.token, {}, withNewTurn())).body).not.toHaveProperty('equipment')
+  const web = await createSession(db, owner.id, 'web', now)
+  expect((await run(ask({ cookie: `${COOKIE}=${web}`, origin: 'https://x.test' }, body, withNewTurn()), e, deps(c.fetch), now)).body).not.toHaveProperty('equipment')
+  expect((await askAs(owner.token, {}, { ...withNewTurn(), 'X-AquaTome-Equipment': '' })).body).not.toHaveProperty('equipment')
+  expect((await askAs(owner.token, { conversation: crypto.randomUUID(), tank: crypto.randomUUID() }, withNewTurn())).body).not.toHaveProperty('equipment')
+
+  const turnKey = withNewTurn()
+  const original = await askAs(owner.token, {}, turnKey)
+  expect(original.body.equipment).toEqual({ tank: tank.id, role: 'co2', command: { device: strip.id, outlet: 'switch_1', on: false } })
+  const prompt = JSON.stringify(c.bodies.at(-1))
+  expect(prompt).toContain('Switch options for this turn')
+  for (const value of [strip.id, strip.remoteId, 'switch_1']) expect(prompt).not.toContain(value)
+  const calls = c.bodies.length
+  expect((await askAs(owner.token, {}, turnKey)).body).not.toHaveProperty('equipment')
+  expect(c.bodies).toHaveLength(calls)
+  const streamed = await askAs(owner.token, {}, { ...withNewTurn(), Accept: 'text/event-stream' })
+  expect(streamed.body.equipment).toEqual(original.body.equipment)
+
+  pick = { option: 1, on: true }
+  expect((await askAs(owner.token, {}, withNewTurn())).body).not.toHaveProperty('equipment')
+  pick = { option: 1, on: false }
+  offTopic = true
+  expect((await askAs(owner.token, {}, withNewTurn())).body).not.toHaveProperty('equipment')
+})
+
 test('read_tanks reads the whole saved tank: plants, substrate, notes, days since saved, each light\'s active schedule, what its plugs power', async () => {
   const { e, db } = env()
   const me = await signIn(db)
