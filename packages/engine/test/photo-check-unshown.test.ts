@@ -276,6 +276,21 @@ test('retrying a source copy under its mirror’s wait makes no new rejection', 
   expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [mirror]: waitingEntry(mark.why) })
 })
 
+test('a new source refusal preserves a mirror wrapper carrying a separately eligible original', async () => {
+  const r = await store({ jjj: [], kkk: [] })
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(source)!.key}`
+  const original = photo('original')
+  const stored = { ...photo('altered'), url: mirror, altered: [{ method: 'lanczos3-upscale' }],
+    original: { url: original.url, width: original.width, height: original.height } }
+  const file = 'content/species/jjj/entity.json'
+  await writeFile(join(r, file), JSON.stringify(fish('jjj', [stored, photo('second-live')])))
+  await writeFile(join(r, 'content/species/kkk/entity.json'), JSON.stringify(fish('kkk', [{ ...photo('source'), url: source }, photo('live')])))
+  await checkPagePhotos(r, model({ [name(source)]: dead }), { limit: 10 })
+  expect((await json(r, file)).photos).toContainEqual(stored)
+  expect((await json(r, 'engine-state/_photo-rejected.json'))[source]).toMatch(/^dead: /)
+})
+
 test('a durable first refusal preserves a separately eligible original when the rejection write failed', async () => {
   const r = await store({ jjj: [] })
   const source = 'https://live.staticflickr.com/123/456_abc.jpg'
