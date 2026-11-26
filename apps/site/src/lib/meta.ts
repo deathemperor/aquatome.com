@@ -22,8 +22,10 @@ function clip(text: string, lang: Lang, max: number, granularity: 'word' | 'sent
   let end = 0
   let count = 0
   for (const part of segments(text, lang, granularity)) {
-    count += length(part.segment)
-    if (count > max) break
+    const segmentLength = length(part.segment)
+    const lastLength = granularity === 'sentence' ? length(part.segment.trimEnd()) : segmentLength
+    if (count + lastLength > max) break
+    count += segmentLength
     if (granularity !== 'word' || part.isWordLike) end = part.index + part.segment.length
   }
   return text.slice(0, end).trimEnd()

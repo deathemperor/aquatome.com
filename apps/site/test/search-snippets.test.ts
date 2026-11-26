@@ -41,3 +41,11 @@ test('a sentence under 80 characters leaves room for a word-boundary excerpt', (
   expect(descriptionForSearch('vi', text, [...expected].length + 2)).toBe(expected)
   expect(descriptionForSearch('vi', sentence)).toBe(sentence)
 })
+
+
+test('a sentence ending exactly at the character limit still fits before a separating space', () => {
+  const first = 'Khi nuôi cá theo đàn, hãy chọn bể có nước sạch và đủ khoảng trống để cả đàn cá bơi cùng nhau.'
+  const two = first + ' Cá cũng cần chỗ ẩn để nghỉ.'
+  const text = two + ' Thêm một ít cây vào bể.'
+  expect(descriptionForSearch('vi', text, [...two].length)).toBe(two)
+})

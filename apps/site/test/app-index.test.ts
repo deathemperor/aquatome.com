@@ -449,6 +449,8 @@ test('a tool carries its page\'s own title, the line under its heading and its d
       }
     }
   }
+  const budget = index('vi').items.find(i => i.path === '/vi/cong-cu/du-toan-be/')
+  expect(budget?.words).toContain('Dự toán chi phí set bể cá, bể thủy sinh 30–120 cm: giá bể, chân, lọc, sưởi, đèn, phân nền, CO₂, bộ test và ổ cắm thông minh theo ba mức đầu tư, cộng tiền điện và tiền nuôi mỗi tháng.')
   expect(index('vi').items.find(i => i.path === '/vi/cong-cu/the-tich-be/')?.words).toContain('Tính thể tích bể cá: lít, gallon, độ dày kính')
   expect(index('vi').items.filter(i => i.kind !== 'tool' && i.kind !== 'glossary').some(i => 'words' in i)).toBe(false)
 })
