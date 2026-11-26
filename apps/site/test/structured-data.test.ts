@@ -2,6 +2,7 @@ import { readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import type { ChangelogEntry } from '@aq/schema'
 import { expect, test } from 'vitest'
+import { getContent } from '../src/lib/content'
 import { langOf, localizePath } from '../src/lib/i18n'
 import { OFF_LIST_GROUPS } from '../src/lib/format'
 import { articleLd, breadcrumbLd, firstPublished } from '../src/lib/structured-data'
@@ -36,7 +37,7 @@ test('breadcrumbs keep their order, use local addresses and fall back to an exis
 
 const ld = (html: string) => [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)].map(m => JSON.parse(m[1]!))
 
-test('every supported built page has the expected structured data in its own language', () => {
+test('every supported built page has the expected structured data in its own language', async () => {
   const covered = new Set<string>()
   const articles = ['ca', 'cay', 'thuat-ngu', 'huong-dan', 'nhom']
   const hubs = ['ca', 'cay', 'thuat-ngu', 'huong-dan', 'kham-pha']
@@ -78,9 +79,13 @@ test('every supported built page has the expected structured data in its own lan
     }
     if (articleKind === 'cay') expect(article.about?.['@type'], path).toBe('Taxon')
     if (articleKind === 'thuat-ngu') expect(article.about?.['@type'], path).toBe('DefinedTerm')
-    if (nodeOf('VideoObject')) {
+    const videoObject = nodeOf('VideoObject')
+    if (videoObject) {
       expect(article, path).toBeDefined()
-      expect(nodeOf('VideoObject'), path).not.toHaveProperty('author')
+      const slug = path.slice(section('huong-dan').length, -1)
+      const video = (await getContent(lang)).guides.find(guide => guide.t.slug === slug)?.video
+      expect(video, path).toBeDefined()
+      expect(videoObject.author, path).toEqual({ '@type': 'Person', name: video!.channel, url: video!.channelUrl })
       covered.add('video')
     }
     expect(JSON.stringify(data), path).not.toContain('"@type":"HowTo"')
