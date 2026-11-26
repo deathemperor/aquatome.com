@@ -1534,9 +1534,9 @@ test('a mirrored cached death uses the matching older watermark review at its so
 })
 
 test.each(['sweep', 'photo check'])('a failed take-off receipt is recovered by %s with a prior page rejection', async cleaner => {
-  const dead = photo('dead')
-  const { root, state, file } = await publicFixture([photo('live')], [dead], [dead.url])
-  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [dead.url]: { dead: true } }))
+  const dead = photo('dead'), live = photo('live')
+  const { root, state } = await publicFixture([live], [dead], [dead.url, live.url])
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [dead.url]: { dead: true }, [live.url]: { dead: false } }))
   await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [dead.url]: 'dead: prior page verdict' }))
   const replace = imageWrites.writeImageCache
   const failing = vi.spyOn(imageWrites, 'writeImageCache').mockImplementation(async (path, data) => {
@@ -1552,7 +1552,7 @@ test.each(['sweep', 'photo check'])('a failed take-off receipt is recovered by %
     const unused = async () => { throw new Error('no live look') }
     await checkPagePhotos(root, { get: unused, look: unused }, { limit: 0, fill: 0 })
   }
-  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([])
+  expect(JSON.parse(await readFile(join(root, 'content/gallery/alpha.json'), 'utf8')).photos).toEqual([])
   expect((await screenDead(root, d, { limit: 0, albums: true })).albumBatches).toEqual([{ id: expect.any(String), urls: [dead.url] }])
 })
 
@@ -1675,7 +1675,7 @@ test('an owed-list replacement failure preserves every queued URL for retry', as
 
 test('a pending album refusal leaves glossary photos available for a clear', async () => {
   const dead = photo('held-dead')
-  const { root, state, file, publicView } = await publicFixture([dead], [dead], [dead.url])
+  const { root, state, publicView } = await publicFixture([dead], [dead], [dead.url])
   const glossary = join(root, 'content/glossary/sample/entity.json')
   await mkdir(join(glossary, '..'), { recursive: true })
   const record = { id: 'sample', photos: [dead], kinds: [{ photo: dead }] }
@@ -1694,6 +1694,6 @@ test('a pending album refusal leaves glossary photos available for a clear', asy
   await writeFile(join(state, '_photo-second-look.json'), JSON.stringify(marks))
   await sweep(root, { history: async () => [] })
   expect(JSON.parse(await readFile(glossary, 'utf8'))).toEqual(record)
-  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([dead])
+  expect(JSON.parse(await readFile(join(root, 'content/gallery/alpha.json'), 'utf8')).photos).toEqual([dead])
   expect((await publicView()).photoWaits!(dead.url)).toBe(false)
 })
