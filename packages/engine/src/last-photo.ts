@@ -313,6 +313,13 @@ const placeKey = (p: Place) => p.occurrence ? `${p.file}#${p.occurrence}` : p.fi
 /** The same, with its entry there, as the step that takes it off holds it. */
 export type Stood = Place & { photo: Record<string, unknown>; order?: string[]; orderKeys?: string[]; orderKeyIndex?: number }
 const placementHash = (p: Record<string, unknown>) => createHash('sha256').update(JSON.stringify(p ?? null)).digest('hex')
+const placementVariant = (photo: Record<string, unknown>) => {
+  const original = (photo.original as { url?: unknown } | undefined)?.url
+  return JSON.stringify([photo.altered ?? null, typeof original === 'string' ? photoKey(original) ?? original : null, photo.ownerCrop !== undefined])
+}
+const samePlacement = (a: Record<string, unknown>, b: Record<string, unknown>) =>
+  photoAddressSet([String(a.url)])(String(b.url)) && placementVariant(a) === placementVariant(b)
+
 /** A place a photo's mark took it off, as it was just before it first left from the mark on; and how many times it left. */
 export type LeftPlace = Stood & { times: number }
 
@@ -408,17 +415,36 @@ async function capturePlaces(sl: SecondLooks, left: Map<string, Stood[]>, dir: s
     const byHost = (place: Stood) => Number(setsCookies(String(place.photo.url)))
     for (const p of [...places].sort((a, b) => byHost(a) - byHost(b))) {
       if (!PLACE.test(p.file)) continue
-      const earlierPlace = named.get(placeKey(p))
-      const earlier = earlierPlace ? await readKept(dir, url, r, earlierPlace) : undefined
-      if (earlierPlace) {
-        if (!earlier) throw new Error('Photo take-off is waiting for an existing private capture')
+      let earlierPlace = named.get(placeKey(p))
+      let earlier = earlierPlace ? await readKept(dir, url, r, earlierPlace) : undefined
+      if (earlierPlace && !earlier) throw new Error('Photo take-off is waiting for an existing private capture')
+      let occurrence = p.occurrence
+      if (earlier && !samePlacement(p.photo, earlier.photo)) {
+        const other = [...named.values()].filter(place => place.file === p.file && place !== earlierPlace)
+        earlier = undefined
+        for (const candidate of other) {
+          const entry = await readKept(dir, url, r, candidate)
+          if (!entry) throw new Error('Photo take-off is waiting for an existing private capture')
+          if (samePlacement(p.photo, entry.photo) && (entry.index === p.index || placementHash(entry.photo) === placementHash(p.photo))) {
+            earlier = entry
+            earlierPlace = candidate
+            break
+          }
+        }
+        if (earlier) occurrence = earlierPlace?.occurrence
+        else {
+          occurrence = 1
+          while (named.has(placeKey({ ...p, occurrence }))) occurrence++
+        }
+      }
+      if (earlier) {
         if (byHost(p) > byHost(earlier)) continue
         const sameEntry = JSON.stringify(p.photo) === JSON.stringify(earlier.photo)
         const sameOrder = !p.order || JSON.stringify(p.order) === JSON.stringify(earlier.order?.filter(url => p.order!.includes(url)))
         if ((!p.order || p.index === earlier.index) && sameEntry && sameOrder) continue
         if (p.photo.url !== earlier.photo.url && byHost(p) === byHost(earlier)) continue
       }
-      const place = { file: p.file, index: p.index, ...(p.occurrence ? { occurrence: p.occurrence } : {}), capture: randomUUID() }
+      const place = { file: p.file, index: p.index, ...(occurrence ? { occurrence } : {}), capture: randomUUID() }
       const order = p.order ? [...p.order] : undefined
       let orderKeys = p.orderKeys ? [...p.orderKeys] : undefined
       let orderKeyIndex = p.orderKeyIndex ?? p.index
@@ -449,7 +475,7 @@ async function capturePlaces(sl: SecondLooks, left: Map<string, Stood[]>, dir: s
         }
       }
       await writeKept(dir, url, r, { ...p, ...place, order, orderKeys, ...(orderKeys ? { orderKeyIndex } : {}) }, earlier)
-      named.set(placeKey(p), place)
+      named.set(placeKey(place), place)
       r.left = [...named.values()]
       const at = previous.get(p.file) ?? []
       if (!previous.has(p.file)) previous.set(p.file, at)
@@ -574,30 +600,22 @@ export function gitHistory(root: string, tip = 'HEAD'): History {
     const captureCommits = new Map<string, string>()
     for (const place of captured) {
       if (!place.capture) continue
-      const match = (p: Place) => p.file === place.file && p.capture === place.capture
+      const match = (p: Place) => placeKey(p) === placeKey(place) && p.capture === place.capture
       const published = states.find(sha => {
         const entry = recordAt(sha)?.[url]
         return entry?.left?.some(match) || entry?.settled?.some(match)
       })
-      if (published) captureCommits.set(place.file, published)
+      if (published) captureCommits.set(placeKey(place), published)
     }
-    const addresses = new Set([url, ...byFile.values()])
-    const search = mirrors.length || addresses.size > 1 ? [] : ['-S', url]
     const served = new Set(places.filter(file => urls(at(parent, file)).some(publishable)))
-    const log = git('log', ...line, '--reverse', '--format=%H', ...search, `${parent}..${tip}`, '--', ...places)
+    const log = git('log', ...line, '--reverse', '--format=%H', `${parent}..${tip}`, '--', ...places)
     if (log.status !== 0) return undefined
     const out = new Map<string, LeftPlace>()
     // Oldest first: the first leaving gives the place and the entry; every leaving counts.
     for (const sha of log.stdout.split('\n').filter(Boolean)) {
-      const files = git('diff', '--name-only', '--no-renames', ...search, `${sha}^`, sha, '--', ...places)
+      const files = git('diff', '--name-only', '--no-renames', `${sha}^`, sha, '--', ...places)
       if (files.status !== 0) return undefined
       for (const file of files.stdout.split('\n').filter(Boolean)) {
-        const capturedAt = captureCommits.get(file)
-        if (capturedAt && capturedAt !== mark && capturedAt !== sha) {
-          const afterCapture = git('merge-base', '--is-ancestor', capturedAt, sha)
-          if (afterCapture.status === 1) continue
-          if (afterCapture.status !== 0) return undefined
-        }
         const matches = photoAddressSet([url, byFile.get(file) ?? url])
         const shownAt = (p: Record<string, unknown>) => typeof p?.url === 'string' && matches(p.url)
         const before = urls(at(`${sha}^`, file))
@@ -606,23 +624,23 @@ export function gitHistory(root: string, tip = 'HEAD'): History {
         const tracked = served.has(file) ? publishableAt : shownAt
         const from = before.flatMap((photo, index) => tracked(photo) ? [{ photo, index }] : [])
         const after = urls(at(sha, file)).filter(tracked)
-        if (from.length <= after.length) continue
-        // Match unchanged entries first, then treat the other surviving entries as edits to the earliest slots.
+        if (!from.length) continue
+        // First match exact entries, then allow metadata edits within the same photo version.
         const kept = new Set<number>()
-        let unmatched = 0
+        const changed: Record<string, unknown>[] = []
         for (const photo of after) {
-          const index = from.findIndex((entry, i) => !kept.has(i) && JSON.stringify(photo) === JSON.stringify(entry.photo))
-          if (index < 0) unmatched++
+          const index = from.findIndex((entry, i) => !kept.has(i) && placementHash(photo) === placementHash(entry.photo))
+          if (index < 0) changed.push(photo)
           else kept.add(index)
         }
-        const starting = capturedAt && capturedAt !== mark ? [`${capturedAt}^`, capturedAt] : [parent, mark]
-        const wasPresent = (!capturedAt && previous.has(file)) ||
-          (byFile.has(file) && starting.some(rev => urls(at(rev, file)).some(shownAt)))
+        for (const photo of changed) {
+          const index = from.findIndex((entry, i) => !kept.has(i) && samePlacement(photo, entry.photo))
+          if (index >= 0) kept.add(index)
+        }
         const order = before.map(p => typeof p?.url === 'string' ? p.url : '')
         const orderKeys = before.map(placementHash)
         for (const [index, entry] of from.entries()) {
           if (kept.has(index)) continue
-          if (unmatched > 0) { unmatched--; continue }
           const exact = (p: { file: string; photo?: Record<string, unknown> }) =>
             p.file === file && JSON.stringify(p.photo) === JSON.stringify(entry.photo)
           const saved = captured.filter(exact)
@@ -630,13 +648,20 @@ export function gitHistory(root: string, tip = 'HEAD'): History {
           const occurrence = saved.length === 1 ? saved[0]!.occurrence : known.length === 1 ? known[0]!.occurrence : index
           const placement = { file, index: entry.index, ...(occurrence ? { occurrence } : {}) }
           const key = placeKey(placement)
+          const capturedAt = captureCommits.get(key)
+          if (capturedAt && capturedAt !== mark && capturedAt !== sha) {
+            const afterCapture = git('merge-base', '--is-ancestor', capturedAt, sha)
+            if (afterCapture.status === 1) continue
+            if (afterCapture.status !== 0) return undefined
+          }
+          const starting = capturedAt && capturedAt !== mark ? [`${capturedAt}^`, capturedAt] : [parent, mark]
+          const wasPresent = (!capturedAt && previous.has(file)) ||
+            (byFile.has(file) && starting.some(rev => urls(at(rev, file)).some(shownAt)))
           const had = out.get(key)
-          const previous = saved[0] ?? captured.find(p => placeKey(p) === key) ?? had
+          const named = saved[0] ?? captured.find(p => placeKey(p) === key) ?? had
           // A named take-off identifies the removed occurrences. Other copies in its file may have stayed on.
-          if (namedAtMark && !previous) continue
-          const former = previous?.photo
-          if (former && (!photoAddressSet([String(former.url)])(String(entry.photo.url)) ||
-            JSON.stringify(former.altered ?? null) !== JSON.stringify(entry.photo.altered ?? null))) continue
+          if (namedAtMark && !named) continue
+          if (named?.photo && !samePlacement(named.photo, entry.photo)) continue
           if (had) had.times++
           else {
             const existed = saved.length === 1
@@ -741,7 +766,7 @@ async function reconcileRebasedPlaces(root: string, local: SecondLooks, dir?: st
         if (!capture) return candidates[place.occurrence ?? 0]
         const exact = candidates.filter(photo => placementHash(photo) === placementHash(capture.photo))
         if (exact.length === 1) return exact[0]
-        const variant = candidates.filter(photo => JSON.stringify(photo.altered) === JSON.stringify(capture.photo.altered))
+        const variant = candidates.filter(photo => samePlacement(photo, capture.photo))
         return variant.length === 1 ? variant[0] : variant[place.occurrence ?? 0]
       }
       const returned = copy(publicPhotos)
@@ -934,14 +959,14 @@ export async function putBackCleared(root: string, history: History, at = today(
         earlierOrders.set(p.file, earlier)
       }
       const blockedHost = setsCookies(address)
-      const alteration = JSON.stringify(p.photo.altered)
+      const variant = placementVariant(p.photo)
       const represented = photos.filter(photo => {
         const url = String(photo.url)
-        return samePhoto(url) && (blockedHost || !setsCookies(url)) && JSON.stringify(photo.altered) === alteration
+        return samePhoto(url) && (blockedHost || !setsCookies(url)) && placementVariant(photo) === variant
       })
       const original = JSON.stringify(p.photo)
       const siblings = places.filter(entry => entry.file === p.file && samePhoto(String(entry.photo.url)) &&
-        JSON.stringify(entry.photo.altered) === alteration)
+        placementVariant(entry.photo) === variant)
       const exact = represented.filter(entry => JSON.stringify(entry) === original).length
       const sameBefore = siblings.filter(entry => entry.index < p.index && JSON.stringify(entry.photo) === original).length
       if (siblings.length < 2 ? represented.length > 0 : exact > sameBefore) continue

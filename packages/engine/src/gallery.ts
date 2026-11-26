@@ -3,7 +3,7 @@ import { replacePhotoDocument } from './image-cache-write'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { GallerySchema, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, photoAddressSet, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo } from '@aq/schema'
+import { GallerySchema, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, photoAddressSet, photoKey, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { galleryPlan, TARGETS, TIER_ORDER, type PlanItem } from './gallery-plan'
@@ -518,7 +518,19 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   // its own page still keeps it out, as in the put-back (CLEARED_VERDICT; the chief of staff, 21 Nov). The record names
   // pages as kind/id, the verdicts by id.
   const cleared = looks(sl).cleared
-  const clearedOn = (url: string, id: string, ok: PhotoVerdict['ok']) => cleared(url) && sl[url]!.pages.some(p => p.slice(p.indexOf('/') + 1) === id) && (sl[url]!.off !== true || ok === CLEARED_VERDICT)
+  const clearKey = (id: string, url: string) => `${id}\n${photoKey(url) ?? url}`
+  const clearedPages = new Map<string, boolean>()
+  for (const [url, mark] of Object.entries(sl)) {
+    if (!cleared(url)) continue
+    for (const page of mark.pages) {
+      const key = clearKey(page.slice(page.indexOf('/') + 1), url)
+      clearedPages.set(key, mark.off !== true || clearedPages.get(key) === true)
+    }
+  }
+  const clearedOn = (url: string, id: string, ok: PhotoVerdict['ok']) => {
+    const key = clearKey(id, url)
+    return clearedPages.get(key) === true || (ok === CLEARED_VERDICT && clearedPages.has(key))
+  }
   for (const [url, pages] of Object.entries(subjects)) for (const [id, v] of Object.entries(pages)) if (OFF.has(v.ok) && !clearedOn(url, id, v.ok)) (offBy.get(id) ?? offBy.set(id, {}).get(id)!)[url] = v.ok
   const gbifNames = JSON.parse(await readFile(join(root, 'engine-state/_gbif-names.json'), 'utf8').catch(() => '{}')) as Record<string, { canonicalName: string } | null>
   const looksOn = await albumLooks(root, subjects)
