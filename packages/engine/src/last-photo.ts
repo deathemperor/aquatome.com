@@ -74,7 +74,7 @@ export function looks(sl: SecondLooks) {
     /** A source and its mirror share an unanswered first refusal. */
     pendingOff,
     /** Neither waiting nor cleared: a step's verdict may act on it. */
-    open: (url: string) => has(sl, url) ? lookOf(sl[url])?.said === 'agree' : !cleared(url) && !held(url) && !pendingOff(url),
+    open: (url: string) => !cleared(url) && (has(sl, url) ? lookOf(sl[url])?.said === 'agree' : !held(url) && !pendingOff(url)),
   }
 }
 
@@ -131,19 +131,19 @@ export function lastPhotoVerdicts(
     if (!addresses.has(key)) addresses.set(key, url)
   }
   const byVerdict = (url: string) => addresses.get(photoKey(url) ?? url)
-  // Keep the last own-photo decision, and check the album as well when no own photo could have shown.
-  const candidates = pages.flatMap(page => page.own.length && page.album.length && page.own.every(url => unavailable(url, page.ref))
-    ? [page, { ...page, own: [] }]
-    : [page])
+  const hasOwn = (page: PageShows, off: (url: string) => boolean) => {
+    const remaining = page.own.filter(url => !off(url))
+    return remaining.some(url => !page.nonCommercial?.has(url)) || remaining.length === 1
+  }
   const out = new Map<string, Set<string>>()
-  const off = (url: string, ref: string) => byVerdict(url) !== undefined || unavailable(url, ref)
-  for (const page of candidates) {
-    const ownRemaining = page.own.filter(url => !off(url, page.ref))
-    const ownVisible = ownRemaining.some(url => !page.nonCommercial?.has(url)) || ownRemaining.length === 1
-    if (ownVisible) continue
-    const available = page.own.length ? page.own : page.album
-    if (!page.own.length && available.some(url => !off(url, page.ref))) continue
-    for (const url of available) {
+  for (const page of pages) {
+    const unavailableHere = (url: string) => unavailable(url, page.ref)
+    const off = (url: string) => byVerdict(url) !== undefined || unavailableHere(url)
+    const ownEmpties = page.own.length && !hasOwn(page, off)
+    // A page that already has no eligible own photo can depend on the album.
+    const albumEmpties = !hasOwn(page, unavailableHere) && page.album.every(off)
+    const removed = [...(ownEmpties ? page.own : []), ...(albumEmpties ? page.album : [])]
+    for (const url of removed) {
       const verdict = byVerdict(url)
       if (!verdict) continue
       const existing = out.get(verdict) ?? new Set<string>()

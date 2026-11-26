@@ -410,7 +410,8 @@ test.each(['face detection', 'the dead-fish screen'])('a mirror being rejected b
 
 test.each([
   ['face detection', false], ['the dead-fish screen', false],
-  ['face detection', true], ['the dead-fish screen', true],
+  ['face detection', 'pending'], ['the dead-fish screen', 'pending'],
+  ['face detection', 'non-commercial'], ['the dead-fish screen', 'non-commercial'],
 ] as const)('%s records a page that only serves the verdict’s mirror (album lead: %s)', async (step, albumLead) => {
   const byFace = step === 'face detection'
   const name = byFace ? 'prior-face.jpg' : 'prior-dead.jpg'
@@ -423,14 +424,20 @@ test.each([
     ...photo('generated'),
     generated: { model: 'sample', driverModel: 'sample', date: '2026-11-26', prompt: 'example', referenceHash: 'e'.repeat(64) },
   }
-  const { root, state, file, publicView } = await publicFixture(albumLead ? [pending, generated] : [mirror], albumLead ? [mirror, unchecked] : [], [mirror.url, source.url, sibling.url, pending.url, generated.url, unchecked.url])
+  const nc = [41, 42].map(id => ({
+    ...photo(`non-commercial-${id}`), licence: 'CC BY-NC 4.0', sourceUrl: `https://www.inaturalist.org/photos/${id}`,
+    url: `https://media.aquatome.com/inaturalist/${id}.webp`,
+  }))
+  const own = albumLead === 'non-commercial' ? [...nc, generated] : albumLead ? [pending, generated] : [mirror]
+  const { root, state, file, publicView } = await publicFixture(own, albumLead ? [mirror, unchecked] : [],
+    [mirror.url, source.url, sibling.url, pending.url, generated.url, unchecked.url, ...nc.map(p => p.url)])
   const entity = JSON.parse(await readFile(file, 'utf8'))
   const other = join(root, 'content/species/second')
   await mkdir(other)
   await writeFile(join(other, 'entity.json'), JSON.stringify({ ...entity, id: 'second', photos: [source, sibling] }))
   await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [mirror.url]: { ok: 'yes', person: false, ...(byFace ? { logo: false } : {}) } }))
-  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [mirror.url]: { dead: false }, [sibling.url]: { dead: false }, [generated.url]: { dead: false } }))
-  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [mirror.url]: 0, [sibling.url]: 0, [generated.url]: 0, ...(byFace ? {} : { [source.url]: 0 }) }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [mirror.url]: { dead: false }, [sibling.url]: { dead: false }, [generated.url]: { dead: false }, ...Object.fromEntries(nc.map(p => [p.url, { dead: false }])) }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [mirror.url]: 0, [sibling.url]: 0, [generated.url]: 0, ...Object.fromEntries(nc.map(p => [p.url, 0])), ...(byFace ? {} : { [source.url]: 0 }) }))
 
   await run(root, deps({ unreadable: albumLead ? pending.url : undefined }).d)
   expect((await json(root, 'engine-state/_photo-second-look.json'))[source.url]).toMatchObject({ step, pages: ['species/alpha'] })
@@ -855,6 +862,30 @@ test('an unanswered source hold cannot replace a clear on its mirror', async () 
   await run(root, d)
 
   expect(sent).toEqual([])
+  expect(await json(root, 'engine-state/_photo-second-look.json')).toEqual(marks)
+  expect((await publicView()).galleries.alpha?.map(p => p.url)).toEqual([mirror.url])
+})
+
+test('the photo check cannot replace a clear on the mirror with a first refusal at an unanswered source hold', async () => {
+  const source = { ...photo('source'), url: 'https://live.staticflickr.com/123/456_abc.jpg' }
+  const mirror = { ...source, url: `https://media.aquatome.com/${mirrorPlan(source.url)!.key}` }
+  const { root, state, publicView } = await publicFixture([source, mirror], [mirror], [source.url, mirror.url])
+  const marks = {
+    [source.url]: { why: 'watermark: logo', pages: ['species/alpha'], at: '2026-11-25', step: 'the watermark screen' },
+    [mirror.url]: { why: 'dead: withheld', pages: ['species/alpha'], at: '2026-11-26', step: 'the dead-fish screen', off: true, back: '2026-11-26',
+      look: { said: 'clear', by: 'reviewer', on: '2026-11-26' } },
+  }
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [source.url]: 0, [mirror.url]: 0 }))
+  await writeFile(join(state, '_dead-screen.json'), '{}')
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify(marks))
+  let fetched = 0
+  const check = await checkPagePhotos(root, {
+    get: async () => { fetched++; return new Uint8Array(await sharp({ create: { width: 80, height: 60, channels: 3, background: '#468' } }).png().toBuffer()) },
+    look: async () => ({ photos: Array.from({ length: fetched }, (_, i) => ({ n: i + 1, ok: 'dead' as const, typical: false, person: false, logo: false, note: '' })) }),
+  }, { limit: 1 })
+
+  expect(check.judged).toBeGreaterThan(0)
+  expect(check.blocked).toEqual([])
   expect(await json(root, 'engine-state/_photo-second-look.json')).toEqual(marks)
   expect((await publicView()).galleries.alpha?.map(p => p.url)).toEqual([mirror.url])
 })
