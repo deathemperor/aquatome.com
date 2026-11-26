@@ -812,7 +812,10 @@ async function pageOf(root: string, id: string): Promise<Photo[]> {
 /** Photos the owner rejected (engine-state/_photo-rejected.json) leave every gallery, the next run after they are listed. */
 async function dropRejected(root: string, content: string, why: (url: string) => string | undefined, waiting: (url: string) => string | undefined) {
   const canCapture = !!entriesDir()
-  const listed = (url: string) => !!why(url) && (canCapture || !waiting(url))
+  const listed = (url: string) => {
+    const reason = why(url)
+    return !!reason && (!reason.startsWith('waiting:') || (canCapture && !!waiting(url)))
+  }
   for (const f of (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json'))) {
     const file = join(content, 'gallery', f)
     const g = JSON.parse(await readFile(file, 'utf8')) as { photos: Photo[] }

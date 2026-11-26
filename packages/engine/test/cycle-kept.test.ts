@@ -739,6 +739,20 @@ test('an unverified merge sweep holds the push and retries the kept work', () =>
   expect(c.branches()).toEqual([])
 }, slow(60_000))
 
+test('an initial video sweep failure keeps its recovery out of main', () => {
+  for (const f of ['video-cycle.sh', 'video-recheck.sh']) {
+    const c = clone()
+    migrating(c, false, true)
+    c.sh(work)
+    const initialSweep = /^sweep_for_publish$/m.exec(script(f))?.[0]
+    expect(initialSweep).toBe('sweep_for_publish')
+    const output = c.cycle(`${privacy}; ${initialSweep}; if ! verify_cycle; then keep_unpublished videos; echo "NOT PUBLISHED"; exit 0; fi; git push -q origin HEAD:main`)
+    expect(output).toContain('NOT PUBLISHED')
+    expect(c.onMain('content/b.json')).toBe('')
+    expect(c.branches()[0]).toMatch(/^kept\/videos\//)
+  }
+}, slow(60_000))
+
 // engine-cycle.sh's finish, on its own: a fault the run went on past fails the run when it ends, and on the Mac goes to
 // GitHub as a failed run's line does (engine-mac.yml), which the daily report lists.
 test('a run that kept work back for its photo records ends failed, and says why on GitHub', () => {

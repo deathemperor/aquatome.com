@@ -41,8 +41,9 @@ function mergePlaces(chosen, base, ours, theirs) {
   for (const [file, receipt] of settled) {
     const next = pending.get(file)
     if (!next) continue
-    if (sameCapture(receipt, next) || sameCapture(original.get(file), next)) pending.delete(file)
-    else settled.delete(file)
+    // The completed receipt wins over a competing first capture. Only a replacement of that receipt reopens it.
+    if (sameCapture(receipt, original.get(file)) && !sameCapture(receipt, next)) settled.delete(file)
+    else pending.delete(file)
   }
   const { back, left, settled: _settled, ...merged } = chosen
   merged.at = at

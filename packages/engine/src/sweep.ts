@@ -1155,7 +1155,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const canCapture = !!entriesDir()
     const remove = (url: string) => {
       const entry = rejectedAt(url)
-      return listed(url) && (!entry || entry[0] in active) && (canCapture || !remember(url))
+      return listed(url) && (!entry || entry[0] in active) && (!entry?.[1].startsWith('waiting:') || (canCapture && !!remember(url)))
     }
     const before = { ...data }
     const removed: string[] = []

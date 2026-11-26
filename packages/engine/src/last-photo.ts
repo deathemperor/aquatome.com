@@ -571,7 +571,7 @@ function photoPosition(current: string[], order: string[], at: number, fallback:
 
 /** After a push rebase, honor a new removal on main before publishing a completed local restore. */
 async function checkUnpublishedRestores(root: string, local: SecondLooks, history: History): Promise<string[]> {
-  const done = Object.entries(local).filter(([, mark]) => mark.back && mark.settled?.length && lookOf(mark)?.said === 'clear')
+  const done = Object.entries(local).filter(([, mark]) => mark.settled?.length && lookOf(mark)?.said === 'clear')
   if (!done.length) return []
   const published = publishedJson(root, `engine-state/${SECOND_LOOK_FILE}`) as SecondLooks | undefined
   if (!published) return []

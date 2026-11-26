@@ -12,7 +12,7 @@ import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
 import { galleryPlan } from './gallery-plan'
 import { pickStands, readPersonYes } from './person-yes'
-import { FIRST_OFF, holdForSecondLook, looks, passedBefore, placesIn, readSecondLook, waitingEntry, withoutClearedWaits, withoutSettledWaits, type Stood } from './last-photo'
+import { entriesDir, FIRST_OFF, holdForSecondLook, looks, passedBefore, placesIn, readSecondLook, waitingEntry, withoutClearedWaits, withoutSettledWaits, type Stood } from './last-photo'
 import { contactSheet } from './video-images'
 import { keptOwnMark, LOGO_FOLDERS, retainedOwnMark, shouldStripPhoto, stripPhotos, type WatermarkEntry } from './watermarks'
 import { keptLast, screenedShop } from './own-mark'
@@ -978,6 +978,13 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // Where each one marked off stood, for its record: the put-back's only trace of one this run brought (last-photo.ts).
   const stood = new Map<string, Stood[]>()
   const edits = new Map<string, string>()
+  const canCapture = !!entriesDir()
+  const recoverableEdit = (url: string) => {
+    const at = waitingAt(url)
+    if (!at) return true
+    const entry = rejectedAt(url)
+    return canCapture && sl.off(at) && (!entry || entry[1] === waitingEntry(secondLook[at]!.why))
+  }
   for (const file of [...new Set(shown.map(x => x.file))]) {
     const capture = (url: string) => {
       const reason = blockedAs(file, url)
@@ -989,7 +996,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       const data = JSON.parse(raw) as { photos?: Photo[] }
       const removed: string[] = []
       const before = { ...data }
-      stripPhotos(data, url => !!capture(url), removed, [], preservesOriginal)
+      stripPhotos(data, url => recoverableEdit(url) && !!capture(url), removed, [], preservesOriginal)
       placesIn(root, file, before, url => removed.includes(url) ? capture(url) : undefined, stood)
       if (!removed.length) continue
       report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))
@@ -1001,7 +1008,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const before = real(data.photos)[0]?.url
     const removed: string[] = []
     const beforeEdit = { ...data }
-    stripPhotos(data, blocked(file), removed, [], preservesOriginal)
+    stripPhotos(data, url => recoverableEdit(url) && blocked(file)(url), removed, [], preservesOriginal)
     placesIn(root, file, beforeEdit, url => removed.includes(url) ? capture(url) : undefined, stood)
     // A gallery photo that waited (`unchecked`): judged for this page and left on, it shows from the next build.
     const gallery = galleryId(file)
