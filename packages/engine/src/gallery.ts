@@ -13,7 +13,7 @@ import { cantTellOn, OFF, type PhotoVerdict } from './photo-check'
 import { namedOn, namedOrder, SPECIES, type Named } from './photo-named'
 import { keptCap, keptMarks } from './own-mark'
 import { isRejected, rejectedEntry, unfitCommons } from './photos'
-import { captureWaiting, CLEARED_VERDICT, looks, notePlaces, placesIn, readSecondLook, type Stood } from './last-photo'
+import { captureWaiting, CLEARED_VERDICT, looks, notePlaces, placesIn, readSecondLook, withoutSettledWaits, type Stood } from './last-photo'
 import { contactSheet } from './video-images'
 import { authorText } from './wiki-author'
 import { WikimediaRefused } from './wikimedia-rest'
@@ -492,7 +492,8 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
       return b
     },
   }
-  const rejected = JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
+  const sl = await readSecondLook(root)
+  const rejected = withoutSettledWaits(JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8').catch(() => '{}')), sl)
   // A Commons, iNaturalist, Flickr or GBIF photo rejected after it moved to our bucket is known there by its key (mirror-photos.ts).
   const rejectedPhoto = isRejected(rejected)
   // A photo the photo check took off a page (another fish, none, dead), by its address in our bucket: never back in that
@@ -505,7 +506,6 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   // off at its first verdict, the clear answers only the dead fish there: another fish, nothing of the subject or "no" on
   // its own page still keeps it out, as in the put-back (CLEARED_VERDICT; the chief of staff, 21 Nov). The record names
   // pages as kind/id, the verdicts by id.
-  const sl = await readSecondLook(root)
   const cleared = looks(sl).cleared
   const clearedOn = (url: string, id: string, ok: PhotoVerdict['ok']) => cleared(url) && sl[url]!.pages.some(p => p.slice(p.indexOf('/') + 1) === id) && (sl[url]!.off !== true || ok === CLEARED_VERDICT)
   for (const [url, pages] of Object.entries(subjects)) for (const [id, v] of Object.entries(pages)) if (OFF.has(v.ok) && !clearedOn(url, id, v.ok)) (offBy.get(id) ?? offBy.set(id, {}).get(id)!)[url] = v.ok

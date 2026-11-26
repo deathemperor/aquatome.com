@@ -30,6 +30,14 @@ test('the same new page from two sources: both sources\' figures, places, sectio
   })
 })
 
+test('a restored lead keeps its position when main added a photo during the restore', () => {
+  const head = { url: 'restored', author: 'Sample Credit' }
+  const tail = { url: 'tail' }
+  const added = { url: 'added-on-main' }
+  expect(mergeFile({ photos: [tail] }, { photos: [tail, added] }, { photos: [head, tail] }))
+    .toEqual({ photos: [head, tail, added] })
+})
+
 test('changes on an existing page: each side\'s edit lands, a removal stands, a clash goes to theirs', () => {
   const base = { photos: [{ url: 'p1' }, { url: 'face' }], dataCard: { tempC: [{ source: 'sf', value: { min: 22, max: 28 } }] }, name: 'A' }
   const ours = { photos: [{ url: 'p1' }], dataCard: { tempC: [{ source: 'sf', value: { min: 24, max: 28 } }] }, name: 'B' } // faces dropped a photo; sf refreshed

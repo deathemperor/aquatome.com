@@ -12,7 +12,7 @@ import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
 import { galleryPlan } from './gallery-plan'
 import { pickStands, readPersonYes } from './person-yes'
-import { FIRST_OFF, holdForSecondLook, looks, passedBefore, placesIn, readSecondLook, waitingEntry, type Stood } from './last-photo'
+import { FIRST_OFF, holdForSecondLook, looks, passedBefore, placesIn, readSecondLook, waitingEntry, withoutSettledWaits, type Stood } from './last-photo'
 import { contactSheet } from './video-images'
 import { keptOwnMark, LOGO_FOLDERS, retainedOwnMark, shouldStripPhoto, stripPhotos, type WatermarkEntry } from './watermarks'
 import { keptLast, screenedShop } from './own-mark'
@@ -464,7 +464,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const legacy=Object.fromEntries(Object.entries(rawLegacy).map(([u,v])=>[u,compactVerdict(v)]))
   // The photos that passed the check before this run (last-photo.ts): its verdicts as the run found them.
   const passed = passedBefore(cache, legacy)
-  const rejected = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
+  const rejected = withoutSettledWaits((await readJson<Record<string, string>>(rejectedFile)) ?? {}, await readSecondLook(root))
   // A photo held for a second look, or one it cleared, isn't taken off on a verdict (last-photo.ts).
   const sl = looks(await readSecondLook(root))
   const marks = (await readJson<Record<string, WatermarkEntry>>(join(root, 'engine-state/_photo-watermarks.json'))) ?? {}
@@ -1031,7 +1031,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const kinded = Object.keys(added).filter(u => !(u in listedBefore) && added[u]!.startsWith('not ') && namedKinds.has(u) && !(u in kinds))
   for (const u of kinded) kinds[u] = namedKinds.get(u)!
   if (kinded.length) await writeKinds()
-  const now = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
+  const now = withoutSettledWaits((await readJson<Record<string, string>>(rejectedFile)) ?? {}, await readSecondLook(root))
   // One off at its first verdict waits there marked, and isn't counted refused (last-photo.ts).
   for (const [u, why] of Object.entries(added)) if (!(u in now)) { if (firstOff.has(u)) now[u] = waitingEntry(why); else { now[u] = why; report.rejected++ } }
   await writePhotoState(rejectedFile, now)

@@ -8,7 +8,7 @@ import { awaitsScreen, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadPhotoOf
 import { screenDead, type DeadScreenDeps } from './dead-screen'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
-import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, type Stood } from './last-photo'
+import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, withoutSettledWaits, type Stood } from './last-photo'
 
 export type FaceDeps = { get: (url: string) => Promise<Uint8Array>; detect: (files: string[]) => Promise<number[]> }
 
@@ -34,7 +34,10 @@ export async function visionFaces(files: string[]): Promise<number[]> {
  */
 export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: FaceDeps, rejectedFile?: string, root = join(contentRoot, '..'), enrol?: (fresh: string[]) => Promise<ReadonlySet<string>>): Promise<{ checked: number; fresh: string[]; screened: string[]; removed: string[]; held: string[]; firstOff: string[]; failed: string[] }> {
   const cache: Record<string, number> = JSON.parse(await readFile(cacheFile, 'utf8').catch(() => '{}'))
-  const rejected: Record<string, string> = rejectedFile ? JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) : {}
+  const before = await readSecondLook(root)
+  const rejected: Record<string, string> = rejectedFile
+    ? withoutSettledWaits(JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')), before)
+    : {}
   const listed = rejectedEntry(rejected)
   const pages: { file: string; e: { photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } } }[] = []
   for (const kind of ['species', 'plants', 'guides']) {
@@ -118,7 +121,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const refusedNow = rejectedFile ? [...screened].filter(u => face(u) && !passed(u) && !firstOff.has(u) && !last.has(u)) : []
   if (firstOff.size || refusedNow.length) {
     const file = rejectedFile ?? join(root, 'engine-state', '_photo-rejected.json')
-    const now = JSON.parse(await readFile(file, 'utf8').catch(() => '{}')) as Record<string, string>
+    const now = withoutSettledWaits(JSON.parse(await readFile(file, 'utf8').catch(() => '{}')), secondLook)
     for (const u of firstOff.keys()) now[u] ??= waitingEntry(why)
     for (const u of refusedNow) now[u] ??= why
     await writePhotoState(file, now)

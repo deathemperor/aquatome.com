@@ -170,7 +170,7 @@ export function photoLookAnswer(record: unknown): { said: 'agree' | 'clear'; by:
   return { said: look.said, by: look.by, on: look.on }
 }
 
-type LookMark = { why?: unknown; off?: boolean }
+type LookMark = { why?: unknown; off?: boolean; settled?: unknown }
 
 function mayKeepPhoto(mark: LookMark | undefined) {
   const answer = photoLookAnswer(mark)
@@ -183,6 +183,14 @@ export function facePhotoOff(url: string, faces?: Record<string, unknown>, secon
   return typeof count === 'number' && count > 0 && !mayKeepPhoto(secondLook?.[url] as LookMark | undefined)
 }
 
+/** One place has already published its clear. A later pending place must not put the whole URL back on the list. */
+export function settledWaiting(reason: unknown, record: unknown): boolean {
+  const mark = record as LookMark | undefined
+  return typeof reason === 'string' && reason.startsWith('waiting:') && typeof mark?.why === 'string' &&
+    reason === mark.why.replace(/^[^:]+:/, 'waiting:') && Array.isArray(mark.settled) && mark.settled.length > 0 &&
+    photoLookAnswer(mark)?.said === 'clear'
+}
+
 /**
  * A waiting rejection remains in force when its mark is missing. A recorded dead verdict holds its URL even if the
  * file it came from still needs to preserve a different fallback version. A last-photo hold or a person's clear can
@@ -192,6 +200,7 @@ export function deadPhotoOff(url: string, screen?: Record<string, unknown>, seco
   const rejection = rejected?.(url)
   const why = rejection?.[1]
   const mark = secondLook?.[rejection?.[0] ?? url] as LookMark | undefined
+  if (settledWaiting(why, mark)) return false
   if (typeof why === 'string' && (why.startsWith('dead:') || why.startsWith('people:') || why.startsWith('waiting:'))) return true
   const look = photoLookAnswer(mark)
   if (look?.said === 'clear') return false

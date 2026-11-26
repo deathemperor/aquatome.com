@@ -26,7 +26,7 @@ function idOf(it) {
   return JSON.stringify(it)
 }
 
-function mergeLists(base, ours, theirs) {
+function mergeLists(base, ours, theirs, field) {
   const index = list => new Map(list.map(it => [idOf(it), it]))
   const [b, o, t] = [index(base), index(ours), index(theirs)]
   const untouched = (id, it) => b.has(id) && eq(b.get(id), it) // left as it was by one side, so the other's removal stands
@@ -36,24 +36,28 @@ function mergeLists(base, ours, theirs) {
     if (t.has(id)) out.push(merge3(b.get(id), it, t.get(id)))
     else if (!untouched(id, it)) out.push(it)
   }
-  for (const it of theirs) {
+  for (const [i, it] of theirs.entries()) {
     const id = idOf(it)
-    if (!o.has(id) && !untouched(id, it)) out.push(it)
+    if (o.has(id) || untouched(id, it)) continue
+    // A restored photo can be inserted ahead of a photo both sides kept. Preserve that position when merging a push.
+    const next = field === 'photos' ? theirs.slice(i + 1).map(idOf).find(id => b.has(id) && out.some(x => idOf(x) === id)) : undefined
+    if (next === undefined) out.push(it)
+    else out.splice(out.findIndex(x => idOf(x) === next), 0, it)
   }
   return out
 }
 
 /** Three-way merge of two versions of a JSON value against their common base (undefined: both sides added it). */
-export function merge3(base, ours, theirs) {
+export function merge3(base, ours, theirs, field) {
   if (eq(ours, theirs)) return ours
   if (base !== undefined && eq(base, ours)) return theirs
   if (base !== undefined && eq(base, theirs)) return ours
-  if (Array.isArray(ours) && Array.isArray(theirs)) return mergeLists(Array.isArray(base) ? base : [], ours, theirs)
+  if (Array.isArray(ours) && Array.isArray(theirs)) return mergeLists(Array.isArray(base) ? base : [], ours, theirs, field)
   if (isObj(ours) && isObj(theirs)) {
     const b = isObj(base) ? base : {}
     const out = {}
     for (const k of new Set([...Object.keys(ours), ...Object.keys(theirs)])) {
-      if (k in ours && k in theirs) out[k] = merge3(b[k], ours[k], theirs[k])
+      if (k in ours && k in theirs) out[k] = merge3(b[k], ours[k], theirs[k], k)
       else {
         const v = k in ours ? ours[k] : theirs[k]
         if (!(k in b && eq(b[k], v))) out[k] = v // else the other side removed it

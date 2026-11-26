@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process'
-import { copyFile, mkdir, mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises'
+import { copyFile, mkdir, mkdtemp, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
@@ -267,7 +267,11 @@ test('a photo taken off in the run that brought it, cleared, goes back to its pl
   expect((await keptOf(url('a-new'))).places).toEqual({ [A]: entry })
   git('add', '-A'); git('commit', '-qm', 'the run')
   await clear()
+  const before = await stat(join(r, A))
   const out = await sweep(r, { history: gitHistory(r) })
+  const after = await stat(join(r, A))
+  expect(after.ino).not.toBe(before.ino)
+  expect(after.mode).toBe(before.mode)
   expect(out.putBackOff).toEqual([])
   expect(out.putBack).toEqual([`${A}: ${url('a-new')}`])
   expect((await json(r, A)).photos).toEqual([entry])
@@ -410,6 +414,34 @@ test('published cleanup covers one captured place without deleting a later place
   expect(await photosOf(r, 'aaa')).toEqual(['a-new'])
 })
 
+test.each(['page', 'album'])('pre-sweep steps keep the settled %s during a reopened clear', async destination => {
+  const albumFile = 'content/gallery/aaa.json', u = url('a-new')
+  const { r } = await runRepo({ aaa: destination === 'album' ? ['a-new'] : [] })
+  if (destination === 'page') await page(r, 'aaa', ['a-new'])
+  const settled = destination === 'page' ? A : albumFile
+  const pending = settled === A ? albumFile : A
+  const why = compactRejection('dead: held')
+  await writeFile(join(r, SL), JSON.stringify({ [u]: {
+    why, step: 'the dead-fish screen', pages: ['species/aaa'], at: today(), off: true,
+    look: { said: 'clear', by: 'reviewer', on: today() }, settled: [{ file: settled, index: 0 }], left: [{ file: pending, index: 0 }],
+  } }))
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [u]: waitingEntry(why) }))
+  process.env.AQ_PUT_BACK_ENTRIES = 'off'
+
+  const unused = async () => { throw new Error('No source or model should be used in this test') }
+  await dropFacePhotos(join(r, 'content'), join(r, 'engine-state/_photo-faces.json'), {
+    get: async () => new Uint8Array(), detect: async files => files.map(() => 0),
+  }, join(r, 'engine-state/_photo-rejected.json'), r)
+  expect((await json(r, settled)).photos).toEqual([photo('a-new')])
+  await checkPagePhotos(r, { get: unused, look: unused }, { limit: 0 })
+  expect((await json(r, settled)).photos).toEqual([photo('a-new')])
+  const deps: GalleryDeps = { get: unused, http: unused, look: unused, faces: unused, sleep: unused, now: () => new Date() }
+  await galleries(r, deps, { sheets: 0, only: 'missing' })
+  expect((await json(r, settled)).photos).toEqual([photo('a-new')])
+  await sweep(r, { history: gitHistory(r) })
+  expect((await json(r, settled)).photos).toEqual([photo('a-new')])
+})
+
 test('an unparseable destination keeps its clear pending and its private entry', async () => {
   const { r, git, clear } = await runRepo()
   const u = url('a-new')
@@ -529,6 +561,24 @@ test('the first sweep removal counts once if the mark was published before the o
   await sweep(r, { history: gitHistory(r) })
   expect(await photosOf(r, 'aaa')).toEqual(['a-new'])
   expect((await json(r, SL))[u].back).toBeDefined()
+})
+
+test('the first removal of a later album copy counts from its own capture', async () => {
+  const { r, git, clear } = await runRepo({ aaa: [] })
+  const u = url('a-new'), albumFile = 'content/gallery/aaa.json'
+  await page(r, 'aaa', ['a-new'])
+  await screenDead(r, deadModel(), { limit: 48 })
+  git('add', '-A'); git('commit', '-qm', 'mark and remove the page photo')
+  await album(r, 'aaa', ['a-new'])
+  await notePlaces(r, new Map([[u, [{ file: albumFile, index: 0, photo: photo('a-new') }]]]))
+  git('add', '-A'); git('commit', '-qm', 'capture the later copy before its removal finished')
+  await sweep(r, { history: gitHistory(r) })
+  expect(await albumOf(r, 'aaa')).toEqual([])
+  git('add', '-A'); git('commit', '-qm', 'remove the album copy for the first time')
+  await clear()
+  await sweep(r, { history: gitHistory(r) })
+  expect(await photosOf(r, 'aaa')).toEqual(['a-new'])
+  expect(await albumOf(r, 'aaa')).toEqual(['a-new'])
 })
 
 test('the published capture identifies its own metadata when checkouts mark the same place', async () => {

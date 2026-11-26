@@ -1,4 +1,4 @@
-import { mirrorSearchTerms, photoAddressSet, photoKey, photoLookAnswer as lookOf, type Photo } from '@aq/schema'
+import { mirrorSearchTerms, photoAddressSet, photoKey, photoLookAnswer as lookOf, settledWaiting, type Photo } from '@aq/schema'
 import { spawnSync } from 'node:child_process'
 import { createHash, randomUUID } from 'node:crypto'
 import { link, mkdir, readdir, readFile, rm, stat, writeFile } from 'node:fs/promises'
@@ -204,6 +204,15 @@ export async function listAgreed(root: string): Promise<string[]> {
   await writePhotoState(rejectedFile, rejected)
   await writeSecondLook(root, sl)
   return agreed
+}
+
+/**
+ * A clear that published one place remains in force when a later place is still recovering. An older checkout can
+ * carry its waiting entry back into the merge, so apply the clear before any step uses the rejection list.
+ */
+export function withoutSettledWaits(rejected: Record<string, string>, marks: SecondLooks): Record<string, string> {
+  for (const [url, mark] of Object.entries(marks)) if (settledWaiting(rejected[url], mark)) delete rejected[url]
+  return rejected
 }
 
 /**
@@ -428,7 +437,8 @@ export function gitHistory(root: string): History {
     if (shallow.status !== 0 || shallow.stdout.trim() !== 'false') return undefined
     const marks = git('log', ...line, '--reverse', '--format=%H', `--since=${since}T00:00:00Z`, '--', `engine-state/${SECOND_LOOK_FILE}`)
     if (marks.status !== 0) return undefined
-    const mark = marks.stdout.split('\n').filter(Boolean).find(sha => recordAt(sha)?.[url]?.off === true)
+    const states = marks.stdout.split('\n').filter(Boolean)
+    const mark = states.find(sha => recordAt(sha)?.[url]?.off === true)
     if (!mark) return []
     const parent = git('rev-parse', '--verify', '-q', `${mark}^`).stdout.trim()
     if (!parent) return []
@@ -447,6 +457,16 @@ export function gitHistory(root: string): History {
     const places = [...new Set([...previous, ...captured.map(p => p.file).filter(f => PLACE.test(f))])]
     if (!places.length) return []
     const byFile = new Map(captured.map(p => [p.file, p.photoUrl ?? url]))
+    const captureCommits = new Map<string, string>()
+    for (const place of captured) {
+      if (!place.capture) continue
+      const match = (p: Place) => p.file === place.file && p.capture === place.capture
+      const published = states.find(sha => {
+        const entry = recordAt(sha)?.[url]
+        return entry?.left?.some(match) || entry?.settled?.some(match)
+      })
+      if (published) captureCommits.set(place.file, published)
+    }
     const addresses = new Set([url, ...byFile.values()])
     const search = mirrors.length || addresses.size > 1 ? [] : ['-S', url]
     const log = git('log', ...line, '--reverse', '--format=%H', ...search, `${parent}..HEAD`, '--', ...places)
@@ -457,6 +477,12 @@ export function gitHistory(root: string): History {
       const files = git('diff', '--name-only', '--no-renames', ...search, `${sha}^`, sha, '--', ...places)
       if (files.status !== 0) return undefined
       for (const file of files.stdout.split('\n').filter(Boolean)) {
+        const capturedAt = captureCommits.get(file)
+        if (capturedAt && capturedAt !== mark && capturedAt !== sha) {
+          const afterCapture = git('merge-base', '--is-ancestor', capturedAt, sha)
+          if (afterCapture.status === 1) continue
+          if (afterCapture.status !== 0) return undefined
+        }
         const matches = photoAddressSet([url, byFile.get(file) ?? url])
         const shownAt = (p: Record<string, unknown>) => typeof p?.url === 'string' && matches(p.url)
         const before = urls(at(`${sha}^`, file)), index = before.findIndex(shownAt)
@@ -464,7 +490,9 @@ export function gitHistory(root: string): History {
         const had = out.get(file)
         if (had) had.times++
         else {
-          const wasPresent = previous.has(file) || (byFile.has(file) && [parent, mark].some(rev => urls(at(rev, file)).some(shownAt)))
+          const starting = capturedAt && capturedAt !== mark ? [`${capturedAt}^`, capturedAt] : [parent, mark]
+          const wasPresent = (!capturedAt && previous.has(file)) ||
+            (byFile.has(file) && starting.some(rev => urls(at(rev, file)).some(shownAt)))
           const times = wasPresent ? 1 : 2
           out.set(file, { file, index, photo: before[index]!, times, order: before.map(p => typeof p?.url === 'string' ? p.url : '') })
         }
@@ -609,7 +637,8 @@ export async function putBackCleared(root: string, history: History, at = today(
       const position = order.indexOf(String(p.photo.url))
       const index = photoPosition(current, order, position >= 0 ? position : p.index, p.index)
       photos.splice(index, 0, p.photo)
-      await writeFile(file, `${JSON.stringify(doc, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
+      const mode = (await stat(file)).mode & 0o777
+      await writeImageCache(file, `${JSON.stringify(doc, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`, mode)
       out.back.push(`${p.file}: ${address}`)
     }
     if (entry !== undefined) { delete rejected[u]; unlisted = true }
