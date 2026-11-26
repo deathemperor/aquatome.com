@@ -43,12 +43,12 @@ test('a short guide introduction stays separate from a long list or table', () =
 })
 
 test('guides without paragraphs can use their summary or other opening prose', () => {
-  const summary = 'Chọn nền và đèn phù hợp với các cây trong hồ.'
-  const intro = 'Bắt đầu từ một bể nhỏ, rồi chọn cây hợp với ánh sáng.'
-  const html = `<div>${intro}</div><table><tr><td>${'Kích thước bể '.repeat(15)}</td></tr></table>`
-  expect(guideDescription(html, [summary])).toBe(summary)
+  const summary = ['Chọn nền và đèn phù hợp với các cây trong hồ.', `${'Chọn cây hợp với ánh sáng. '.repeat(12)}Đo lượng khoáng.`]
+  const intro = `Bắt đầu từ một bể nhỏ. ${'Chọn cây hợp với ánh sáng. '.repeat(10)}Chuẩn bị đèn.`
+  const html = `<div>${intro}</div><div>Đo kích thước bể.</div><table><tr><td>${'Kích thước bể '.repeat(15)}</td></tr></table>`
+  expect(guideDescription(html, summary)).toBe(summary.join(' '))
   expect(guideDescription(html)).toBe(intro)
-  expect([...guideDescription(`<div>${'Chọn cây hợp với ánh sáng '.repeat(20)}</div>`)].length).toBeLessThanOrEqual(160)
+  expect(descriptionForSearch('vi', guideDescription(html, summary))).not.toContain('Đo lượng khoáng.')
 })
 
 

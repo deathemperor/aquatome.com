@@ -37,7 +37,7 @@ const { m, species, plants, ph, lead, gear, toc, prose, minutes, series, inSerie
 const srcset = lead && widthSrcset(lead)
 const uncarded = species.length + plants.length - cardSpecies.length - cardPlants.length
 const v = g.video
-const fullDescription = guideDescription(g.t.body ?? '', g.t.summary, lang) || g.t.name
+const fullDescription = guideDescription(g.t.body ?? '', g.t.summary) || g.t.name
 const description = descriptionForSearch(lang, fullDescription)
 const back: [string, string] = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi/huong-dan/', t('Hướng dẫn')]
 const crumbs: [string, string][] = v ? [['/vi/video/', t('Video')]] : [back]
