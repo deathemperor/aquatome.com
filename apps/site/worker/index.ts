@@ -295,6 +295,14 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   const t = Date.now()
   const res = await env.ASSETS.fetch(plain)
   const assetMs = Date.now() - t // Server-Timing: a cold edge fetches the page from storage (0.3–2 s), a warm one ~10 ms
+  // The static assets router uses 307 for a canonical slash. Keep its destination and the reader's query.
+  if (res.status === 307 && (req.method === 'GET' || req.method === 'HEAD') && !url.pathname.endsWith('/')) {
+    const slash = `${url.pathname}/`
+    const to = slash + url.search
+    const location = res.headers.get('location')
+    const path = location?.startsWith(`${url.origin}/`) ? location.slice(url.origin.length) : location
+    if (isPage(slash) && (path === slash || path === to)) return finish(new Response(null, { status: 301, headers: { location: to } }), env)
+  }
   if (res.status === 404 && isPage(url.pathname)) {
     const to = await redirectFor(env.ASSETS, url.origin, url.pathname)
     // An album's address for good (it has no page of its own since 18 Nov), a list's numbered page for now (it can come back).
