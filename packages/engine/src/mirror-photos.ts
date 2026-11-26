@@ -1,7 +1,7 @@
 import sharp from 'sharp'
 import { writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { basename, join } from 'node:path'
 import { IMAGE_SWITCHES, isInatNonCommercial, isNonCommercial, mirrorPlan, THUMB_WIDTH, type ImageSwitches } from '@aq/schema'
 import type { Media } from './source-photos'
 import { looks, readSecondLook, writeSecondLook } from './last-photo'
@@ -50,6 +50,7 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
   const report = { mirrored: 0, files: 0, pending: 0, failed: [] as string[] }
   const done = new Map<string, Stored>()
   const moved: [string, string][] = []
+  const uploaded = new Set<string>()
   const edits = new Map<string, string>()
   // A photo off at its first verdict is coming off every page: it isn't copied, so its waiting entry and its record keep
   // one address (last-photo.ts; the independent reader, 20 Nov).
@@ -100,6 +101,7 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
             for (const u of plan.fetch) { bytes = await d.bytes(u).catch(() => undefined); if (bytes) break }
             if (!bytes) throw new Error('not downloadable')
             stored = await d.media.put(plan.key, bytes)
+            uploaded.add(stored.url)
             await d.sleep(500) // Wikimedia asks bulk clients to go gently
           }
           done.set(plan.key, stored)
@@ -119,7 +121,10 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
   }
   if (moved.length) for (const [path, cache] of caches) {
     let n = 0
-    for (const [from, to] of moved) if (from in cache && !(to in cache)) { cache[to] = cache[from]; n++ }
+    for (const [from, to] of moved) {
+      if (!uploaded.has(to) && basename(path) !== '_photo-rejected.json') continue
+      if (from in cache && !(to in cache)) { cache[to] = cache[from]; n++ }
+    }
     if (n) await writePhotoState(path, cache)
   }
   // A second look's "clear" follows its photo to our bucket, so the cleared verdict copied above doesn't take it off there.

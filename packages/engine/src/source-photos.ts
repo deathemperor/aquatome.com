@@ -1,8 +1,9 @@
+import { spawnSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
 import sharp from 'sharp'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { DEAD_SCREEN_FILE, deadScreenPhotoUrls, FACES_FILE, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoPlacements, THUMB_WIDTH, type Photo, type SourceId } from '@aq/schema'
+import { DEAD_SCREEN_FILE, deadScreenPhotoUrls, FACES_FILE, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoPlacements, type Photo, type SourceId } from '@aq/schema'
 import { parse } from 'node-html-parser'
 import { archiveStops } from './archive'
 import { dropEmails, type PageImage } from './outline'
@@ -190,17 +191,46 @@ export const mayTake = (source: SourceId, sourceName: string, deps: CreditTerms 
 /** A stored photo and the source heading it sat under (guide-sections.ts turns that into the guide's own heading). */
 export type SourcePhoto = Photo & { heading?: string }
 
+function storedSourcePhoto(p: Photo): Photo | undefined {
+  if (!p.source || p.generated || p.ownerCrop) return undefined
+  const original = p.altered?.length ? p.original : p
+  if (!original) return undefined
+  const { url, thumb, width, height } = original
+  return { url, thumb, width, height, licence: p.licence, author: p.author, ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), sourceUrl: p.sourceUrl, source: p.source }
+}
+
 /** Media addresses are shared by publisher and image, including originals kept inside an alteration. */
 export async function storedSourcePhotos(content: string): Promise<Map<string, Photo>> {
   const stored = new Map<string, Photo>()
   for await (const p of photoPlacements(content)) {
-    if (!p.source || p.generated || p.ownerCrop) continue
-    const original = p.altered?.length ? p.original : p
-    if (!original || stored.has(original.url)) continue
-    const { url, thumb, width, height } = original
-    stored.set(url, { url, thumb, width, height, licence: p.licence, author: p.author, sourceUrl: p.sourceUrl, source: p.source })
+    const photo = storedSourcePhoto(p)
+    if (photo && !stored.has(photo.url)) stored.set(photo.url, photo)
   }
   return stored
+}
+
+/** Recover the credit of an unplaced image from the last revision that carried it. */
+function publishedSourcePhoto(root: string, url: string): Photo | undefined {
+  const git = (...args: string[]) => spawnSync('git', ['-C', root, ...args], { encoding: 'utf8', maxBuffer: 8 << 20 })
+  const scopes = ['content/species', 'content/plants', 'content/breeds', 'content/guides', 'content/gallery']
+  const rev = git('log', '-1', '--first-parent', '--diff-merges=first-parent', '--no-patch', '--format=%H', '-S', url, '--', ...scopes).stdout?.trim()
+  if (!rev) return undefined
+  const changed = git('rev-parse', '--verify', '-q', `${rev}^`).status === 0
+    ? git('diff', '--name-only', '-z', `${rev}^`, rev, '--', ...scopes)
+    : git('diff-tree', '--root', '-r', '--no-commit-id', '--name-only', '-z', rev, '--', ...scopes)
+  for (const file of (changed.stdout ?? '').split('\0').filter(path => path.endsWith('/entity.json') || path.startsWith('content/gallery/'))) {
+    for (const version of [`${rev}^`, rev]) {
+      const result = git('show', `${version}:${file}`)
+      if (result.status !== 0) continue
+      const doc = JSON.parse(result.stdout) as { photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } }
+      const photos = [...(doc.photos ?? []), ...(doc.video?.figures ?? []).flatMap(f => f.photo ? [f.photo] : [])]
+      for (const p of photos) {
+        const record = storedSourcePhoto(p)
+        if (record?.url === url) return record
+      }
+    }
+  }
+  return undefined
 }
 
 /** Existing verdicts name stored bytes even after the last page placement leaves. */
@@ -216,7 +246,7 @@ export async function sourcePhotoInventory(root: string) {
     storedSourcePhotos(join(root, 'content')),
     ...[FACES_FILE, PHOTO_SCREEN_FILE, DEAD_SCREEN_FILE, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE].map(record),
   ])
-  return { stored, screened: new Set(records.flat()) }
+  return { stored, screened: new Set(records.flat()), recover: (url: string) => publishedSourcePhoto(root, url) }
 }
 
 /**
@@ -226,7 +256,7 @@ export async function sourcePhotoInventory(root: string) {
  */
 export async function storeSourcePhotos(
   source: SourceId, sourceName: string, pageUrl: string, picked: Picked[],
-  deps: CreditTerms & { bytes: (url: string, referer: string) => Promise<Uint8Array>; media: Media; size?: (bytes: Uint8Array) => Promise<{ width?: number; height?: number }>; blocked?: Record<string, string>; stored?: Map<string, Photo>; screened?: ReadonlySet<string> }, existing: Photo[], max = Infinity,
+  deps: CreditTerms & { bytes: (url: string, referer: string) => Promise<Uint8Array>; media: Media; size?: (bytes: Uint8Array) => Promise<{ width?: number; height?: number }>; blocked?: Record<string, string>; stored?: Map<string, Photo>; screened?: ReadonlySet<string>; recover?: (url: string) => Photo | undefined }, existing: Photo[], max = Infinity,
 ): Promise<SourcePhoto[]> {
   const out: SourcePhoto[] = []
   let extra = 0
@@ -254,34 +284,33 @@ export async function storeSourcePhotos(
       if (deps.blocked?.[deps.media.urlFor(key)]) { group.done = true; break }
       const url = deps.media.urlFor(key)
       const nearby = existingByUrl.get(url)
-      const known = nearby ?? deps.stored?.get(url)
+      const screened = !!deps.screened?.has(url)
+      const known = nearby ?? deps.stored?.get(url) ?? (screened ? deps.recover?.(url) : undefined)
       // A photo stored already keeps its credit here: only the sweep and the line-read list name a stored one, since they
       // read every copy of it first (publisher-credits.ts; found in Codex's read, 20 Nov 2026).
       if (known) {
         const placed = nearby ? known : { ...known, sourceUrl: pageUrl, ...(img.alt ? { caption: img.alt.slice(0, 200) } : {}) }
+        deps.stored?.set(url, known)
         out.push(img.heading ? { ...placed, heading: img.heading } : placed)
         group.done = true
         break
       }
+      if (screened) continue
       if (extraRequest) {
         if (extra >= EXTRA_DOWNLOADS) continue
         extra++
       }
-      const screened = !!deps.screened?.has(url)
-      const address = screened ? url : img.src
       let bytes: Uint8Array
       try {
-        bytes = await deps.bytes(address, pageUrl)
+        bytes = await deps.bytes(img.src, pageUrl)
       } catch (e) {
         if (archiveStops(e)) throw e // the page waits for the archive, rather than losing its pictures
-        console.warn(`photo skipped ${address}: ${(e as Error).message}`) // one unreachable image doesn't fail the page
+        console.warn(`photo skipped ${img.src}: ${(e as Error).message}`) // one unreachable image doesn't fail the page
         continue
       }
       const { width = 0, height = 0 } = await (deps.size ?? (b => sharp(b).metadata()))(bytes).catch(() => ({ width: 0, height: 0 }))
       if (width < (img.minWidth ?? MIN_WIDTH) || !okShape(width, height)) continue
-      const stored = screened
-        ? { url, thumb: deps.media.urlFor(key.replace(/\.webp$/, `-${THUMB_WIDTH}.webp`)), width, height }
-        : await deps.media.put(key, bytes) // storage failures (token, bucket) fail the page so it is retried
+      const stored = await deps.media.put(key, bytes) // storage failures (token, bucket) fail the page so it is retried
       const credited = { ...stored, licence: SOURCE_PHOTO_LICENCE, author: line(img) ? `${line(img)} / ${sourceName}` : sourceName, sourceUrl: pageUrl, source }
       deps.stored?.set(url, credited)
       out.push({ ...credited, ...(img.alt ? { caption: img.alt.slice(0, 200) } : {}), ...(img.heading ? { heading: img.heading } : {}) })

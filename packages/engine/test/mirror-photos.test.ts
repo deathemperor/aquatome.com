@@ -172,3 +172,16 @@ test("a second look's clear follows its photo to our bucket, so the verdict copi
   const sl = JSON.parse(await readFile(join(r, 'engine-state/_photo-second-look.json'), 'utf8'))
   expect(sl['https://media.aquatome.com/inaturalist/617421644.webp']).toEqual(rec)
 })
+
+test('a previously stored mirror never borrows a missing judgment from the current hotlink', async () => {
+  const r = await root()
+  const mirror = `https://media.aquatome.com/${mirrorPlan(C1280)!.key}`
+  const gallery = join(r, 'content/gallery/astronotus-ocellatus.json')
+  await writeFile(gallery, JSON.stringify({ id: 'astronotus-ocellatus', photos: [photo(mirror)] }))
+  const replay = deps()
+  await mirrorPhotos(r, replay.d)
+  expect(replay.put).not.toContain(mirrorPlan(C1280)!.key)
+  const state = JSON.parse(await readFile(join(r, 'engine-state/_dead-screen.json'), 'utf8'))
+  expect(state[mirror]).toBeUndefined()
+  expect(JSON.parse(await read(r, 'species/astronotus-ocellatus/entity.json')).photos[0].url).toBe(mirror)
+})

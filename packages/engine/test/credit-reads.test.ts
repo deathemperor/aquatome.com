@@ -235,3 +235,18 @@ test('the credit check excludes a bare original already refused through another 
   expect(await applyCreditReads(r)).toEqual({ removed: [], held: [last.url] })
   expect((await json(join(r, 'content/species/fish-a/entity.json'))).photos).toEqual([last, original])
 })
+
+test('a whole credit refusal holds a fallback original even when the alteration already has a version refusal', async () => {
+  const original = photo('original'), stored = photo('altered')
+  const wrapper = { ...stored, altered: [{ method: 'lanczos3-upscale' }], original }
+  const r = await root({
+    'content/species/fish-a/entity.json': { id: 'fish-a', photos: [wrapper] },
+    'content/sources.json': { sprucepets: { publish: true } },
+    'engine-state/_photo-rejected.json': { [stored.url]: 'dead: withheld' },
+    'engine-state/_photo-watermarks.json': { [original.url]: { ocr: [] } },
+  })
+  await recordCredits(r, { [stored.url]: { page: PAGE, kind: 'agency', at: '2026-11-26' } })
+  expect(await applyCreditReads(r)).toEqual({ removed: [], held: [stored.url] })
+  expect((await json(join(r, 'content/species/fish-a/entity.json'))).photos).toEqual([wrapper])
+  expect((await json(join(r, 'engine-state/_photo-second-look.json')))[stored.url].originals).toEqual([original.url])
+})

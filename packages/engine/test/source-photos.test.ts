@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { mkdir, mkdtemp, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -601,21 +602,29 @@ test('a different source page reuses the bytes and credit of an already stored o
   expect(fresh).toEqual([{ ...original, ...credit, sourceUrl: 'https://source.example/new' }])
 })
 
-test('an unplaced publisher image with a verdict reuses the stored bytes', async () => {
+test('an unplaced publisher image recovers the credit belonging to the stored bytes', async () => {
   const root = await mkdtemp(join(tmpdir(), 'source-verdict-'))
+  const git = (...args: string[]) => execFileSync('git', args, { cwd: root, encoding: 'utf8' })
+  git('init', '-q')
+  git('config', 'user.email', 'fixture@example.org')
+  git('config', 'user.name', 'Fixture')
   await mkdir(join(root, 'engine-state'))
   const src = 'https://source.example/screened.jpg'
   const source = 'seriouslyfish'
   const mediaUrl = (key: string) => `https://media.test/${key}`
   const url = mediaUrl(photoKey(source, src))
+  const old = { url, source, sourceUrl: 'https://source.example/earlier', width: 1000, height: 700, licence: 'CC BY 4.0', author: 'Sample Original Credit' }
+  const file = join(root, 'content/species/sample/entity.json')
+  await mkdir(join(file, '..'), { recursive: true })
+  await writeFile(file, JSON.stringify({ photos: [old] }))
+  git('add', '-A'); git('commit', '-qm', 'credited image')
+  await writeFile(file, JSON.stringify({ photos: [] }))
+  git('add', '-A'); git('commit', '-qm', 'placement removed')
   await writeFile(join(root, 'engine-state/_dead-screen.json'), JSON.stringify({ [url]: { dead: false } }))
   const inventory = await sourcePhotoInventory(root)
-  const seen: string[] = []
-  const photos = await storeSourcePhotos(source, 'Site', 'https://source.example/page',
-    [{ src, alt: '', width: 1000, height: 700 }], {
-      ...inventory, bytes: async address => { seen.push(address); return jpeg(1000, 700) },
-      media: { urlFor: mediaUrl, put: async () => { throw new Error('a screened image must not be overwritten') } },
-    }, [])
-  expect(seen).toEqual([url])
-  expect(photos).toMatchObject([{ url, width: 1000, height: 700 }])
+  const unused = async () => { throw new Error('a screened image must not be fetched through the publisher or overwritten') }
+  const page = 'https://source.example/new'
+  const photos = await storeSourcePhotos(source, 'Site', page, [{ src, alt: '', width: 1000, height: 700 }],
+    { ...inventory, bytes: unused, media: { urlFor: mediaUrl, put: unused } }, [])
+  expect(photos).toMatchObject([{ ...old, sourceUrl: page }])
 })
