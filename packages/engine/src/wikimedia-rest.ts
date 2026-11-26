@@ -41,7 +41,18 @@ async function readRest(file: string): Promise<Rest | null> {
  * `fetch` for the engine's process: any other host passes through untouched. `restFile` is kept outside any checkout,
  * since it's this Mac that Wikimedia refuses.
  */
-export function restingFetch(fetch: typeof globalThis.fetch, o: { restFile: string; now: () => Date; ua: string }): typeof globalThis.fetch {
+type RestOptions = { restFile: string; now: () => Date; ua: string }
+
+export function restingFetch(fetch: typeof globalThis.fetch, o: RestOptions): typeof globalThis.fetch {
+  return restingHostFetch(fetch, o, wikimedia, until => new WikimediaRefused(until))
+}
+
+/** Unsplash image delivery has its own rest so other sources can keep advancing. */
+export function restingUnsplashPhotos(fetch: typeof globalThis.fetch, o: RestOptions): typeof globalThis.fetch {
+  return restingHostFetch(fetch, o, host => host === 'images.unsplash.com', until => new Error(`Unsplash images unavailable until ${until}`))
+}
+
+function restingHostFetch(fetch: typeof globalThis.fetch, o: RestOptions, matches: (host: string) => boolean, refused: (until: string) => Error): typeof globalThis.fetch {
   // The album step downloads six pictures at once: their refusals take turns to write, so none reads a rest another is
   // about to replace.
   let writing: Promise<unknown> = Promise.resolve()
@@ -57,9 +68,9 @@ export function restingFetch(fetch: typeof globalThis.fetch, o: { restFile: stri
   }
   return async (input, init) => {
     const href = typeof input === 'string' ? input : input instanceof URL ? input.href : input.url
-    if (!wikimedia(new URL(href).hostname)) return fetch(input, init)
+    if (!matches(new URL(href).hostname)) return fetch(input, init)
     const rest = await readRest(o.restFile)
-    if (rest && o.now().getTime() < Date.parse(rest.until)) throw new WikimediaRefused(rest.until)
+    if (rest && o.now().getTime() < Date.parse(rest.until)) throw refused(rest.until)
     const headers = new Headers(init?.headers ?? (input instanceof Request ? input.headers : undefined))
     headers.set('user-agent', o.ua)
     const r = await fetch(input, { ...init, headers })
@@ -69,7 +80,7 @@ export function restingFetch(fetch: typeof globalThis.fetch, o: { restFile: stri
       const waitMs = namedWait(r.headers.get('retry-after'), o.now()) ?? (again ? Math.min(rest.waitMs * 2, WIKIMEDIA_REST_MAX_MS) : WIKIMEDIA_REST_MS)
       const turn = writing.then(() => keep({ until: new Date(o.now().getTime() + waitMs).toISOString(), waitMs }))
       writing = turn.catch(() => undefined)
-      throw new WikimediaRefused((await turn).until)
+      throw refused((await turn).until)
     }
     return r
   }

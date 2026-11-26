@@ -4,7 +4,7 @@ import { chmod, cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/prom
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
 import { loadAll, mirrorPlan } from '@aq/schema'
 import { LlmError } from '../src/claude'
 import { screenDead, type DeadScreenDeps } from '../src/dead-screen'
@@ -85,7 +85,7 @@ test('the faces step screens the photos new to it for dead fish, wherever they s
 
   // The next run: nothing new to the face finder, so nothing is sent and no model is called.
   const next = deps()
-  expect(await run(root, next.d)).toEqual({ faces: expect.objectContaining({ checked: 0, screened: [] }), owed: 0 })
+  expect(await run(root, next.d)).toMatchObject({ faces: { checked: 0, screened: [] }, owed: 0, albums: { sheets: 0, left: 0 } })
   expect(next.sent).toEqual([])
 })
 
@@ -198,7 +198,7 @@ test("the screen owes every photo of a fish or plant page that no look has judge
   expect(await owed(root)).toEqual([])
   // Judged now: the next run owes none and calls no model.
   const next = deps()
-  expect(await run(root, next.d)).toEqual({ faces: expect.objectContaining({ checked: 0 }), owed: 0 })
+  expect(await run(root, next.d)).toMatchObject({ faces: { checked: 0 }, owed: 0, albums: { sheets: 0, left: 0 } })
   expect(next.sent).toEqual([])
 })
 
@@ -666,7 +666,7 @@ test("after the photos it owes, the screen takes album photos no look of its own
   expect(await owed(root)).toEqual([])
   // Judged now: the next run sends none.
   const next = deps()
-  expect(await withAlbums(next.d)).toEqual({ faces: expect.objectContaining({ checked: 0 }), owed: 0 })
+  expect(await withAlbums(next.d)).toMatchObject({ faces: { checked: 0 }, owed: 0, albums: { sheets: 0, judged: 0, left: 0 } })
   expect(next.sent).toEqual([])
   // A failed image is still owed and gets another turn.
   await put('content/gallery/f.json', { id: 'f', seen: 1, updatedAt: '2026-11-22', photos: [photo('f-unreadable')] })
@@ -738,21 +738,55 @@ async function albumFixture(photos: ReturnType<typeof photo>[]) {
   return { root, state, file }
 }
 
-test('an authorized album pass acts on a dead verdict from the earlier page pass without another look', async () => {
+test('an album pass applies a held page verdict once and preserves its recovery if the reviewer clears it', async () => {
   const dead = photo('held-dead')
   const { root, state, file } = await albumFixture([dead])
+  const markFile = join(state, '_photo-second-look.json')
+  await cp(new URL('../../schema/test/fixtures/store/sources.json', import.meta.url), join(root, 'content/sources.json'))
   await mkdir(join(root, 'content/species/a'), { recursive: true })
   await writeFile(join(root, 'content/species/a/entity.json'), JSON.stringify({ id: 'a', photos: [dead] }))
   await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [dead.url]: { dead: true, note: '' } }))
-  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+  await writeFile(markFile, JSON.stringify({
     [dead.url]: { why: 'dead: withheld', step: 'the dead-fish screen', at: '2026-11-26', pages: ['species/a'] },
   }))
   const { d, sent } = deps()
-  const out = await screenDead(root, d.dead, { limit: 12, albums: true })
-  expect(out).toMatchObject({ sheets: 0, judged: 0, left: 0, dead: [expect.stringContaining(dead.url)] })
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
+  try {
+    const out = await screenDead(root, d.dead, { limit: 12, albums: true })
+    expect(out).toMatchObject({ sheets: 0, judged: 0, left: 0, dead: [expect.stringContaining(dead.url)] })
+    expect(sent).toEqual([])
+    expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([])
+    expect(await urls(root, 'a')).toEqual([])
+
+    const marks = await json(root, 'engine-state/_photo-second-look.json')
+    expect(marks[dead.url]).toMatchObject({ off: true, left: expect.arrayContaining([
+      expect.objectContaining({ file: 'content/species/a/entity.json', index: 0 }),
+      expect.objectContaining({ file: 'content/gallery/a.json', index: 0 }),
+    ]) })
+    marks[dead.url].look = { said: 'clear', by: 'reviewer', on: '2026-11-26' }
+    await writeFile(markFile, JSON.stringify(marks))
+    await sweep(root, { history: async () => [] })
+    expect(await urls(root, 'a')).toEqual([dead.url])
+    expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([dead])
+    expect((await screenDead(root, d.dead, { limit: 12, albums: true })).dead).toEqual([])
+  } finally { vi.unstubAllEnvs() }
+})
+
+test('a dead alteration with an eligible album original is reported once', async () => {
+  const original = photo('original-live')
+  const altered = {
+    ...photo('stored-dead'),
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'b'.repeat(64) }],
+    original: { url: original.url, width: original.width, height: original.height },
+  }
+  const { root, state, file } = await albumFixture([altered])
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [original.url]: { dead: false }, [altered.url]: { dead: true } }))
+  const { d, sent } = deps()
+  expect((await screenDead(root, d.dead, { limit: 12, albums: true })).dead).toEqual([expect.stringContaining(altered.url)])
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[altered.url]).toMatch(/^dead: /)
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([altered])
+  expect(await screenDead(root, d.dead, { limit: 12, albums: true })).toMatchObject({ sheets: 0, judged: 0, left: 0, dead: [] })
   expect(sent).toEqual([])
-  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([])
-  expect(await urls(root, 'a')).toEqual([])
 })
 
 test('conflicting album answers leave their tile owed and repeated identical answers count once', async () => {

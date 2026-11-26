@@ -233,8 +233,7 @@ export async function screenNewPhotos(contentRoot: string, cacheFile: string, d:
   const pagesWaiting = out.owed || out.deadFailed || out.dead?.stopped || out.dead?.failed.length
   try {
     const limit = pagesWaiting ? 0 : (o.albumSheets ?? ALBUM_SHEETS) * 12
-    const albums = await screenDead(root, d.dead, { limit, albums: true })
-    if (albums.judged || albums.dead.length || albums.left || albums.failed.length || albums.stopped) out.albums = albums
+    out.albums = await screenDead(root, d.dead, { limit, albums: true })
   } catch (err) {
     out.albumsFailed = photoFailure(err)
   }

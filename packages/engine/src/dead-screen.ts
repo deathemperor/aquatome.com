@@ -259,6 +259,9 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   // Only one that passed the check before is held; this verdict, on one that never did, takes it off, marked (last-photo.ts).
   const held = new Map([...last].filter(([u]) => passed(u)))
   const firstOff = new Map([...last].filter(([u]) => !passed(u)))
+  const albumHolds = new Map(o.albums ? off.flatMap(({ url }) =>
+    sl.waiting(url) && secondLook[url] ? [[url, secondLook[url]!] as const] : [],
+  ) : [])
   const holding = new Map<string, { why: string; pages: string[]; off?: true }>()
   type Page = { photos?: Photo[]; videos?: { youtubeId: string }[] }
   const edits = new Map<string, { raw: string; original: Page; page: Page }>()
@@ -276,7 +279,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     if (!original || original.url === p.url) return false
     // The wrapper holds the original's credit and other metadata until the person's decision or next look.
     const prior = photoRejected[original.url]
-    return firstOff.has(original.url) || held.has(original.url) || sl.off(original.url) || prior?.startsWith('waiting:') ||
+    return firstOff.has(original.url) || held.has(original.url) || albumHolds.has(original.url) || sl.off(original.url) || prior?.startsWith('waiting:') ||
       (!prior && !going.has(original.url))
   }
   for (const it of off) {
@@ -296,15 +299,21 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
         return true
       })
     }
-    if (!it.video && firstOff.has(it.url)) {
+    const pending = albumHolds.get(it.url)
+    if (pending) {
+      // The album comes off now. Keep the existing unanswered review and record the places it can restore.
+      holding.set(it.url, { why: pending.why, pages: pending.pages, off: true })
+      photoRejected[it.url] = waitingEntry(pending.why)
+      report.dead.push(`${it.key}: ${cache[it.key]!.note}`)
+    } else if (!it.video && firstOff.has(it.url)) {
       holding.set(it.url, { why, pages: firstOff.get(it.url)!, off: true })
       report.firstOff.push(`${it.key}: ${firstOff.get(it.url)!.join(', ')}`)
       photoRejected[it.url] ??= waitingEntry(why)
     } else {
       report.dead.push(`${it.key}: ${cache[it.key]!.note}`)
       if (it.video) videoRejected[it.video] ??= why
-      // The verdict holds a rejected alteration by its raw URL. Keep its fallback's wrapper out of the blanket sweep.
-      else if (!keptWrapper) {
+      // Album screening records a take-off even when a wrapper stays to carry a passing original.
+      else if (o.albums || !keptWrapper) {
         if (keptAlbumMarks.has(it.url)) photoRejected[it.url] = why
         else photoRejected[it.url] ??= why
       }
@@ -312,7 +321,8 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   }
   // A retry can always find the owning photo until its removal or hold is durable.
   const left = new Map<string, Stood[]>()
-  for (const [file, edit] of edits) placesIn(root, file, edit.original, url => firstOff.has(url), left)
+  for (const [file, edit] of edits) placesIn(root, file, edit.original, url => firstOff.has(url) ||
+    (albumHolds.has(url) && !edit.page.photos?.some(p => p.url === url)), left)
   await holdForSecondLook(root, holding, 'the dead-fish screen', undefined, left)
   const save = (f: string, data: object) => writePhotoState(state(f), data)
   if (off.some(x => x.video)) await save('_video-rejected.json', videoRejected)

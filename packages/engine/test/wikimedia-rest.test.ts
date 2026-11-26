@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { namedWait, restingFetch, WikimediaRefused, WIKIMEDIA_REST_MAX_MS, WIKIMEDIA_REST_MS } from '../src/wikimedia-rest'
+import { namedWait, restingFetch, restingUnsplashPhotos, WikimediaRefused, WIKIMEDIA_REST_MAX_MS, WIKIMEDIA_REST_MS } from '../src/wikimedia-rest'
 
 const UA = 'aquatome-engine/0.1 (https://aquatome.com)'
 const API = 'https://commons.wikimedia.org/w/api.php?action=query'
@@ -138,6 +138,23 @@ test('a wait is read as seconds or as a date; anything else names none', () => {
   expect(namedWait('Thu, 12 Nov 2026 14:00:00 GMT', now)).toBe(3_600_000)
   expect(namedWait('soon', now)).toBeUndefined()
   expect(namedWait(null, now)).toBeUndefined()
+})
+
+test('an Unsplash image refusal rests that host and allows other hosts to advance', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'album-photo-rest-'))
+  let now = new Date('2026-11-26T00:00:00Z')
+  const first = 'https://images.unsplash.com/photo-sample-a'
+  const second = 'https://images.unsplash.com/photo-sample-b'
+  const s = server([{ status: 429, retryAfter: '120' }])
+  const options = { restFile: join(dir, 'rest.json'), now: () => now, ua: UA }
+  await expect(restingUnsplashPhotos(s.fetch, options)(first)).rejects.toThrow('2026-11-26T00:02:00.000Z')
+  const next = restingUnsplashPhotos(s.fetch, options)
+  await expect(next(second)).rejects.toThrow('2026-11-26T00:02:00.000Z')
+  expect((await next(PICTURE)).status).toBe(200)
+  expect(s.sent.map(x => x.url)).toEqual([first, PICTURE])
+  now = new Date('2026-11-26T00:02:00Z')
+  expect((await next(second)).status).toBe(200)
+  expect(s.sent.map(x => x.url)).toEqual([first, PICTURE, second])
 })
 
 test("the engine's commands all run behind the rest: cli.ts puts it on the process's fetch before any command", () => {

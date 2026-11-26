@@ -30,7 +30,7 @@ import { loadPages } from './pages'
 import { copiesToRedo, redoCopies, type Redone } from './seasons'
 import { FIT_KINDS, fitDue, fitFindings, fitKey, fitReport, runFit, type FitState } from './fit'
 import { changedFiles, gate, gateFitReport, HELD_BY_HAND, heldMendsOf, heldNow, writeFitSummary } from './gate'
-import { restingFetch } from './wikimedia-rest'
+import { restingFetch, restingUnsplashPhotos } from './wikimedia-rest'
 import { fitRewrite, foreignProduct } from './fit-rewrite'
 import { unitsMend } from './units-mend'
 import { videoCut, VIDEO_CUT_LIMIT } from './video-cut'
@@ -217,10 +217,13 @@ const galleryDeps = (): GalleryDeps => ({
   look: (file, prompt) => claudeVision<Vet>({ system: 'You pick photos for a fish or plant photo gallery. Reply only with JSON.', prompt, schema: GALLERY_VET, file }),
 })
 /** The dead-fish screen's fetch and look (dead-screen.ts), for its own command and the faces step. */
-const deadScreenDeps = (): DeadScreenDeps => ({
-  get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
-  look: (file, prompt) => claudeVision({ system: 'You look at pictures for an aquarium handbook. Reply only with JSON.', prompt, schema: DEAD_SCREEN_SCHEMA, file, model: process.env.DEAD_SCREEN_MODEL ?? 'sonnet' }),
-})
+const deadScreenDeps = (): DeadScreenDeps => {
+  const fetchPhoto = restingUnsplashPhotos(fetch, { restFile: join(homedir(), '.cache/aquatome/unsplash-image-rest.json'), now: () => new Date(), ua: UA })
+  return {
+    get: async u => { const res = await fetchPhoto(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
+    look: (file, prompt) => claudeVision({ system: 'You look at pictures for an aquarium handbook. Reply only with JSON.', prompt, schema: DEAD_SCREEN_SCHEMA, file, model: process.env.DEAD_SCREEN_MODEL ?? 'sonnet' }),
+  }
+}
 const cmd = positionals[0]
 // The command, wherever it stood among the options, is the name its model calls are counted under (ceiling.ts stepFor).
 nameStep(stepFor(cmd))
