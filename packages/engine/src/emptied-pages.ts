@@ -40,6 +40,13 @@ export type Read = (path: string) => Promise<string | undefined>
 export type Owners = (urls: string[]) => Promise<string[]>
 
 const OWNER_KINDS = ['species', 'plants', 'guides'] as const
+const MIRROR_HOSTS: Partial<Record<string, string[]>> = {
+  commons: ['upload.wikimedia.org/', 'thumb.wikimedia.org/'],
+  inaturalist: ['inaturalist-open-data.s3.amazonaws.com/', 'static.inaturalist.org/'],
+  flickr: ['.staticflickr.com/'],
+  gbif: ['api.gbif.org/v1/image/cache/'],
+}
+const mirrorHosts = (key: string | undefined) => key && MIRROR_HOSTS[key.split('/')[0]!]
 
 /** Owners as the working tree at `root` holds them: each page whose own photos hold one of the addresses. */
 export const diskOwners = (root: string): Owners => async urls => {
@@ -56,15 +63,9 @@ export const diskOwners = (root: string): Owners => async urls => {
 
 /** Owners as commit `at` of the repository at `root` holds them: each such page whose file names one of the addresses. */
 const commitOwners = (root: string, at: string, read: Read): Owners => async urls => {
-  const hosts: Record<string, string[]> = {
-    commons: ['upload.wikimedia.org/', 'thumb.wikimedia.org/'],
-    inaturalist: ['inaturalist-open-data.s3.amazonaws.com/', 'static.inaturalist.org/'],
-    flickr: ['.staticflickr.com/'],
-    gbif: ['api.gbif.org/v1/image/cache/'],
-  }
   const matches = new Set(urls)
   for (const url of urls) {
-    const key = photoKey(url), mirrors = key && hosts[key.split('/')[0]!]
+    const key = photoKey(url), mirrors = mirrorHosts(key)
     if (!mirrors) continue
     matches.add(`https://media.aquatome.com/${key}`)
     for (const host of mirrors) matches.add(host)
@@ -134,7 +135,7 @@ export async function showingPhotos(refs: string[], read: Read, owners: Owners):
       for (const f of [`content/${kind}/${id}/entity.json`, `content/gallery/${id}.json`]) { const s = await put(f); if (s !== undefined) theirs.push(s) }
     }
     const urls = theirs.flatMap(s => ((JSON.parse(s) as { photos?: Photo[] }).photos ?? []).flatMap(deadScreenPhotoUrls))
-    const waits = new Set<string>()
+    const waits = new Set(urls.filter(url => mirrorHosts(photoKey(url))))
     const record = await read(`engine-state/${FACES_FILE}`)
     if (record !== undefined) {
       const seen = JSON.parse(record) as Record<string, number>

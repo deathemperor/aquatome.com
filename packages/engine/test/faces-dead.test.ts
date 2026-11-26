@@ -325,21 +325,25 @@ test('a face flagged on a stored alteration leaves the passing original in the p
   expect(view.photoWaits!(flagged.url)).toBe(true)
 })
 
-test('a fallback original waits for its own face result, and a face on it stays off every public copy', async () => {
-  const original = photo('original-face')
+test.each([false, true])('a fallback original waits for its own face result, including its album copy (mirrored: %s)', async mirrored => {
+  const source = 'https://upload.wikimedia.org/wikipedia/commons/a/ab/original-face.jpg'
+  const original = { ...photo('original-face'), url: mirrored ? source : m('original-face') }
+  const albumUrl = mirrored ? `https://media.aquatome.com/${mirrorPlan(source)!.key}` : original.url
   const altered = {
     ...original, url: m('altered-clean'),
     altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'c'.repeat(64) }],
     original: { url: original.url, width: original.width, height: original.height },
   }
-  const { root, state, publicView } = await publicFixture([altered], [altered], [altered.url, original.url])
-  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [altered.url]: { dead: false }, [original.url]: { dead: false } }))
-  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [altered.url]: 0 }))
+  const album = mirrored ? { ...photo('album'), url: albumUrl } : altered
+  const { root, state, publicView } = await publicFixture([altered], [album], [altered.url, original.url, albumUrl])
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [altered.url]: { dead: false }, [original.url]: { dead: false }, [albumUrl]: { dead: false } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [altered.url]: 0, ...(mirrored ? { [albumUrl]: 0 } : {}) }))
   const hidden = async () => {
     const content = await publicView()
     expect(content.species.find(p => p.id === 'alpha')?.photos).toEqual([])
     expect(content.galleries.alpha).toBeUndefined()
     expect(content.photoWaits!(original.url)).toBe(true)
+    expect(content.photoWaits!(albumUrl)).toBe(true)
   }
   await hidden()
   expect((await run(root, deps({ unreadable: original.url }).d)).faces.failed).toHaveLength(1)
@@ -348,6 +352,22 @@ test('a fallback original waits for its own face result, and a face on it stays 
   expect(read.faces.screened).toEqual([original.url])
   expect(read.faces.firstOff).toEqual([`${original.url}: species/alpha`])
   await hidden()
+})
+
+test('a stored watermark rejection cannot count its dropped original as a replacement in the face pass', async () => {
+  const head = photo('passed-face'), original = photo('original-live')
+  const altered = {
+    ...original, url: m('altered-with-mark'),
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'd'.repeat(64) }],
+    original: { url: original.url, width: original.width, height: original.height },
+  }
+  const { root, state, publicView } = await publicFixture([head, altered], [], [head.url, original.url, altered.url])
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [head.url]: { ok: 'yes', person: false, logo: false } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [original.url]: 0 }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [original.url]: { dead: false } }))
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [altered.url]: 'watermark: withheld' }))
+  expect((await run(root, deps().d)).faces.held).toContain(`${head.url}: species/alpha`)
+  expect((await publicView()).species.find(p => p.id === 'alpha')?.photos.map(p => p.url)).toEqual([head.url])
 })
 
 test.each(['face detection', 'the dead-fish screen'])('a sibling waiting on its watermark result cannot displace the last passed photo in %s', async step => {

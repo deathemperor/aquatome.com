@@ -237,10 +237,12 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // real content needs the record.
   const faces = screen ? await stateRecord<Record<string, number>>(root, FACES_FILE) : undefined
   if (screen && !faces && opts.photoScreen === 'required') throw new Error(`${join(dirname(root), 'engine-state', FACES_FILE)}: the face finder's record is missing, so no page's own photo can be shown as read`)
+  const rejectedForDead = screen ? rejectedEntry(await stateRecord<Record<string, string>>(root, PHOTO_REJECTED_FILE) ?? {}) : undefined
   const { unread, altered: flaggedAlterations } = await facePhotoStatus(root, faces)
   if (faces && opts.photoScreen === 'required') {
-    console.log(`${lang}: ${unread.size} own photos of species, plant and guide pages wait, the face finder has never read them`)
-    if (unread.size > UNREAD_FACES_LIMIT) throw new Error(`${lang}: ${unread.size} own photos of species, plant and guide pages the face finder has never read (${join(dirname(root), 'engine-state', FACES_FILE)}). More than ${UNREAD_FACES_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) reads them.`)
+    const retryable = [...unread].filter(url => !rejectedForDead?.(url)).length
+    console.log(`${lang}: ${retryable} own photos of species, plant and guide pages wait, the face finder has never read them`)
+    if (retryable > UNREAD_FACES_LIMIT) throw new Error(`${lang}: ${retryable} own photos of species, plant and guide pages the face finder has never read (${join(dirname(root), 'engine-state', FACES_FILE)}). More than ${UNREAD_FACES_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) reads them.`)
   }
   // And an own photo of a species or plant page that no look has judged for a dead fish (photo-screen.ts deadLooked),
   // owed or not: the list is the engine's queue, and one that is behind can't let a photo through (the chief of staff,
@@ -255,7 +257,6 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     subjects: await stateRecord<Record<string, unknown>>(root, PHOTO_SUBJECTS_FILE),
     secondLook,
   }) : undefined
-  const rejectedForDead = deadScreen ? rejectedEntry(await stateRecord<Record<string, string>>(root, PHOTO_REJECTED_FILE) ?? {}) : undefined
   const unjudged = new Set<string>()
   if (lookedForDead) {
     for (const url of await ownDeadPhotoUrls(root)) if (!lookedForDead(url)) unjudged.add(url)

@@ -90,11 +90,15 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
     const originalRejection = original && listed(original)?.[1]
     return versionRejection && !!original && (!originalRejection || originalRejection.startsWith('waiting:'))
   }
-  const pagesToKeep = await pagesShowing(contentRoot, p => waitingForDead ? version(p)?.url : p.url)
-  const unread = new Set(todo.filter(u => !Object.hasOwn(cache, u)))
+  const dropsStored = (p: Photo) => !keepsOriginal(p) && (!!listed(p.url) || face(p.url))
+  const pagesToKeep = await pagesShowing(contentRoot, p => {
+    if (!waitingForDead || dropsStored(p)) return p.url
+    return version(p)?.url
+  })
+  const unread = photoAddressSet(todo.filter(u => !Object.hasOwn(cache, u)))
   const owesLook = photoAddressSet(waitingForDead ?? [])
   const offPage = (u: string) => face(u) || !!listed(u) || owesLook(u) ||
-    (!!waitingForDead && (unread.has(u) || deadPhotoOff(u, screen, secondLook) || (!!watermarks && awaitsScreen(u, watermarks[u]))))
+    (!!waitingForDead && (unread(u) || deadPhotoOff(u, screen, secondLook) || (!!watermarks && awaitsScreen(u, watermarks[u]))))
   const last = new Map([...lastPhotos(pagesToKeep, offPage)].filter(([u]) => face(u) && !listed(u)))
   // Only one that passed the check before is held; a face found now, on one that never did, takes it off, marked on both
   // lists (last-photo.ts).
@@ -119,7 +123,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const offFirst = [...firstOff].map(([u, ps]) => `${u}: ${ps.join(', ')}`)
   const removed: string[] = []
   for (const { file, e } of pages) {
-    const keep = (e.photos ?? []).filter(p => keepsOriginal(p) || (!(face(p.url) && !last.has(p.url)) && !listed(p.url)))
+    const keep = (e.photos ?? []).filter(p => !dropsStored(p) || last.has(p.url))
     // A video section's photo the owner rejected (the images pass screened it for faces when it picked it).
     const figures = (e.video?.figures ?? []).filter(f => f.photo && listed(f.photo.url))
     if (keep.length === (e.photos ?? []).length && !figures.length) continue

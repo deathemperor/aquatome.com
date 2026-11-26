@@ -427,6 +427,13 @@ test("a public build shows no own photo of a species, plant or guide page the fa
     await judgedAll([...all, ...many.map(p => short(p.url))])
     await expect(loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })).rejects.toThrow(`vi: ${UNREAD_FACES_LIMIT + 1} own photos of species, plant and guide pages the face finder has never read`)
     expect((await shown(true)).fish).toEqual(['fish-read'])
+    // A listed URL cannot be retried by faces and still stays off the page.
+    const rejectedFile = join(site, 'engine-state', '_photo-rejected.json')
+    await writeFile(rejectedFile, JSON.stringify({ [many[0]!.url]: 'dead: withheld' }))
+    const retryable = await loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })
+    expect(retryable.photoWaits!(many[0]!.url)).toBe(true)
+    const { rm } = await import('node:fs/promises')
+    await rm(rejectedFile)
     // At the limit it builds.
     await write('species/alpha/entity.json', { ...alpha, photos: [photo('fish-read'), photo('fish-unread'), ...many.slice(1)] })
     await loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })

@@ -95,6 +95,25 @@ test('a verdict on the stored photo holds the last visible original if the edit 
   expect((await json(r, file)).photos).toEqual([altered])
 })
 
+test('a refused fallback original gets a hold when another page’s verdict would empty its page', async () => {
+  const r = await store({ aaa: ['altered'], bbb: ['original', 'b-live'] }, { original: { bbb: oldPass } })
+  const original = photo('original')
+  const altered = {
+    ...photo('altered'), altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'c'.repeat(64) }],
+    original: { url: original.url, width: original.width, height: original.height },
+  }
+  const file = 'content/species/aaa/entity.json'
+  await writeFile(join(r, file), JSON.stringify(fish('aaa', [altered])))
+  const checked = await checkPagePhotos(r, model({ original: dead }), { limit: 10, emptyCap: 0 })
+  expect(checked.heads.held).toContain(`species/aaa: ${altered.url}`)
+  expect((await json(r, 'engine-state/_photo-second-look.json'))[original.url]).toMatchObject({
+    why: expect.stringMatching(/^dead:/), pages: ['species/aaa'],
+  })
+  expect((await json(r, 'engine-state/_photo-rejected.json'))[original.url]).toBeUndefined()
+  expect((await json(r, file)).photos).toEqual([altered])
+  expect(await photosOf(r, 'bbb')).toEqual(['b-live'])
+})
+
 test('one photo check keeps a fallback original marked off for recovery alongside its rejected alteration', async () => {
   const r = await store({ aaa: ['altered', 'a-live'], bbb: ['original'] })
   const original = photo('original')

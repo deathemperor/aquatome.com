@@ -215,9 +215,12 @@ export type PhotoWaitRecords = {
 /** The screen records that can withhold a selected photo version, wherever its address is used. */
 export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
   const owesLook = photoAddressSet([...Object.keys(r.owed ?? {}), ...(r.unjudged ?? [])])
+  const faceWaits = photoAddressSet([
+    ...(r.unread ?? []),
+    ...[...(r.flaggedAlterations ?? [])].filter(url => facePhotoOff(url, r.faces, r.secondLook)),
+  ])
   return url => (!!r.watermarks && awaitsScreen(url, r.watermarks[url])) ||
-    owesLook(url) || r.unread?.has(url) === true ||
-    (r.flaggedAlterations?.has(url) === true && facePhotoOff(url, r.faces, r.secondLook)) ||
+    owesLook(url) || faceWaits(url) ||
     deadPhotoOff(url, r.deadScreen, r.secondLook, r.rejected)
 }
 

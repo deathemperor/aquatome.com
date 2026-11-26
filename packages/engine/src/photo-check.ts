@@ -818,11 +818,24 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const preservesOriginal = (url: string, original: string, blockedOriginal: boolean) =>
     /^(?:dead|people|waiting): /.test(rejected[url] ?? added[url] ?? '') &&
     (!blockedOriginal || firstOff.has(original) || !!rejected[original]?.startsWith('waiting:'))
-  const shownPhotos = async (file: string) => (await ownPhotos(file)).flatMap(photo => {
+  const versionOf = (photo: Photo) => {
     const p = photo as ContentPhoto
-    const version = publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
-    return version ? [{ stored: p, served: version }] : []
+    return publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
+  }
+  const shownPhotos = async (file: string) => (await ownPhotos(file)).flatMap(stored => {
+    const served = versionOf(stored)
+    return served ? [{ stored, served }] : []
   })
+  const blockedVersions = async (file: string) => {
+    const urls = new Set<string>()
+    const removes = blocked(file)
+    for (const photo of await ownPhotos(file)) {
+      if (removes(photo.url)) urls.add(photo.url)
+      const served = versionOf(photo)
+      if (served && removes(served.url)) urls.add(served.url)
+    }
+    return urls
+  }
   const takenOff = async (file: string): Promise<string[]> => {
     const photos = await shownPhotos(file)
     const removes = blocked(file)
@@ -864,11 +877,11 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // Each first verdict on a page left with nothing waits for its look, marked: the page's own and its album's, whether or
   // not the page is held. On a page only first verdicts empty, the album's first-verdict photos are its last hope of a
   // picture, as its own are (the chief of staff, 21 Nov 2026).
-  for (const file of holdOn ? emptying : []) for (const f of [file, galleryOf(file)]) for (const p of await ownPhotos(f)) {
-    if (!first(p.url) || sl.off(p.url)) continue
-    const h = firstOff.get(p.url) ?? { why: added[p.url]!, pages: [], off: true as const }
+  for (const file of holdOn ? emptying : []) for (const f of [file, galleryOf(file)]) for (const url of await blockedVersions(f)) {
+    if (!first(url) || sl.off(url)) continue
+    const h = firstOff.get(url) ?? { why: added[url]!, pages: [], off: true as const }
     if (!h.pages.includes(pageOf(file))) h.pages.push(pageOf(file))
-    firstOff.set(p.url, h)
+    firstOff.set(url, h)
   }
   for (const [url, h] of firstOff) report.firstOff.push(`${h.pages.join(', ')}: ${url}`)
   report.blocked = report.blocked.filter(x => !firstOff.has(x.slice(0, x.indexOf(': '))))
@@ -876,12 +889,12 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   for (const file of heldPages) report.heads.held.push(`${pageOf(file)}: ${((await ownPhotos(file))[0] ?? (await ownPhotos(galleryOf(file)))[0])!.url}`)
   // Each photo a held page would have lost goes on the second look, with its reason (last-photo.ts).
   const holding = new Map<string, { why: string; pages: string[] }>()
-  for (const file of heldPages) for (const f of [file, galleryOf(file)]) for (const p of await ownPhotos(f)) {
-    if (p.url in rejected || !blocked(f)(p.url) || first(p.url)) continue
+  for (const file of heldPages) for (const f of [file, galleryOf(file)]) for (const url of await blockedVersions(f)) {
+    if (url in rejected || first(url)) continue
     const id = file.split('/').at(-2)!
-    const h = holding.get(p.url) ?? { why: added[p.url] ?? `not ${label(id)}: ${verdict(p.url, id)?.note ?? ''}`, pages: [] }
+    const h = holding.get(url) ?? { why: added[url] ?? `not ${label(id)}: ${verdict(url, id)?.note ?? ''}`, pages: [] }
     h.pages.push(pageOf(file))
-    holding.set(p.url, h)
+    holding.set(url, h)
   }
   await holdForSecondLook(root, holding, 'the photo check')
   // The pages held go to engine-state/_photo-held.json (page → true, a map as the engine's other records, so its merge
@@ -896,10 +909,10 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const heldKeys = heldBefore && typeof heldBefore === 'object' && !Array.isArray(heldBefore) ? Object.keys(heldBefore) : []
   await writeHeld({ ...Object.fromEntries(heldKeys.map(k => [k, true as const])), ...heldNow })
   // Not onto the never-again list either, or a later run would take them off through that, unseen.
-  for (const file of held) for (const p of await ownPhotos(file)) {
-    if (!(p.url in added) || first(p.url)) continue
-    delete added[p.url]
-    report.blocked = report.blocked.filter(x => !x.startsWith(`${p.url}: `))
+  for (const file of held) for (const url of await blockedVersions(file)) {
+    if (!(url in added) || first(url)) continue
+    delete added[url]
+    report.blocked = report.blocked.filter(x => !x.startsWith(`${url}: `))
   }
   const edits = new Map<string, string>()
   for (const file of [...new Set(shown.map(x => x.file))]) {
