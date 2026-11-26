@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { lastPhotoVerdicts, pagesShowing } from './last-photo'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, facePhotoStatus, FACES_FILE, IMAGE_SWITCHES, isOwnerCrop, mayPublish, mayPublishLicence, ownDeadPhotoUrls, ownerCropFitsPage, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoRejections, photoWaitsFor, publicPhotoVersion, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { lastPhotoVerdicts, looks, pagesShowing, readSecondLook } from './last-photo'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, facePhotoStatus, FACES_FILE, IMAGE_SWITCHES, isOwnerCrop, mayPublish, mayPublishLicence, ownDeadPhotoUrls, ownerCropFitsPage, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoRejections, photoWaitsFor, publicPhotoVersion, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
 
 const read = async <T>(root: string, name: string): Promise<Record<string, T> | undefined> => {
   const raw = await readFile(join(root, 'engine-state', name), 'utf8').catch((error: NodeJS.ErrnoException) => {
@@ -62,9 +62,19 @@ export async function holdablePhotoVerdicts(root: string, rejected: Record<strin
   const pages = await pagesShowing(content, (p, ref, name) => {
     const shown = publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
     if (!shown || !permittedPhotoSource(shown, sources, ref, name)) return undefined
+    const storedReason = listed(p.url)?.[1]
+    if (storedReason && !versionRejection(storedReason)) return undefined
     return shown.url
   })
   return lastPhotoVerdicts(pages, url => waits(url) || !!listed(url), [...verdicts].filter(url => !listed(url)), removesWrapper)
 }
 
 export const versionRejection = (reason: string) => /^(?:dead|people|waiting): /.test(reason)
+
+/** A durable first refusal can exist before its waiting rejection or after a clear arrives. */
+export async function readRecoveryRetention(root: string): Promise<(url: string) => boolean> {
+  const marks = await readSecondLook(root)
+  const review = looks(marks)
+  return photoAddressSet(Object.keys(marks).filter(url => review.off(url) ||
+    (marks[url]!.off === true && !marks[url]!.back && review.cleared(url))))
+}

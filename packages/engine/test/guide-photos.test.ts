@@ -350,3 +350,16 @@ test('the guide check holds all addresses when a marked upscale carries a fish p
   expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({})
   expect((await json(root, 'content/species/a/entity.json')).photos).toEqual([stored])
 })
+
+test('a stored watermark refusal cannot make the guide check count its fallback as a surviving replacement', async () => {
+  const prior = photo('passed')
+  const wrapper = { ...photo('already-listed'), altered: [{ method: 'lanczos3-upscale' }], original: photo('fallback') }
+  const root = await store({ guide: { photos: [prior] } })
+  const file = join(root, 'content/species/a/entity.json')
+  await mkdir(join(file, '..'), { recursive: true })
+  await writeFile(file, JSON.stringify({ id: 'a', photos: [prior, wrapper] }))
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), JSON.stringify({ [wrapper.url]: 'watermark: withheld' }))
+  const result = await screenGuidePhotos(root, model({ passed: { mark: true } }).d, { limit: 2 })
+  expect(result.held).toEqual([`${prior.url}: species/a`])
+  expect(await json(root, 'engine-state/_photo-rejected.json')).not.toHaveProperty(prior.url)
+})
