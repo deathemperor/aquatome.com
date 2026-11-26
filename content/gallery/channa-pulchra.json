@@ -1,7 +1,31 @@
 {
   "id": "channa-pulchra",
-  "photos": [],
-  "seen": 0,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/475711151.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/475711151-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Khant Ye Yint ( Lord Khanevyr ov Mandralyx)",
+      "sourceUrl": "https://www.inaturalist.org/photos/475711151",
+      "caption": "Cá lóc Channa pulchra màu hồng tím bơi trong bể có đá",
+      "best": true,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/dbc5aaf41ade7f47.webp",
+      "thumb": "https://media.aquatome.com/glaser/dbc5aaf41ade7f47-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-pulchra-2/",
+      "source": "glaser"
+    }
+  ],
+  "seen": 1,
+  "updatedAt": "2026-11-18",
+  "builtAt": "2026-11-18"
 }

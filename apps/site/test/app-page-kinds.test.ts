@@ -9,8 +9,10 @@ import { photoCredit } from '../src/lib/cite'
 import { getContent } from '../src/lib/content'
 import { smallSrc } from '../src/lib/img'
 import { speciesParts } from '../src/lib/species-page'
+import { APP_GALLERY_MIN } from '../src/lib/gallery'
 import { appPath, LANGS, licenceLabel, translator } from '../src/lib/i18n'
 import { appHref, appPage, DIST } from './dist'
+import type { AlbumPhoto } from '../src/lib/album'
 
 // The app draws fish, plant and glossary pages from these copies (once the index counts their kinds): what they hold
 // must be the page, credits and sources first.
@@ -19,6 +21,11 @@ const clean = (s: string) => s.replace(/\s+/g, ' ').trim()
 const text = (c: Inline[] = []) => c.map(r => (typeof r === 'string' ? r : r.text)).join('')
 const all = <T extends Block['t']>(d: PageDoc, t: T) => d.blocks.filter((b): b is B<T> => b.t === t)
 const one = <T extends Block['t']>(d: PageDoc, t: T) => all(d, t)[0]
+/** The photos the page's album holds, as its viewer has them (GalleryStrip.astro). */
+const albumCount = (dom: HTMLElement) => {
+  const data = dom.querySelector('[data-album] script[type="application/json"]')
+  return data ? (JSON.parse(data.textContent) as { photos: unknown[] }).photos.length : 0
+}
 const txt = (el: HTMLElement | null | undefined) => clean(el?.textContent ?? '')
 /** The keys the page's readers' sections (comments, readers' photos) read theirs by. */
 const talk = (dom: HTMLElement) => ({
@@ -62,7 +69,9 @@ function pictured(d: PageDoc, dom: HTMLElement, bySource: Map<string, Photo[]>, 
   // The footer's "Nguồn ảnh" names each photo by its own page: every one the page shows is in the copy, credited. (The
   // footer also credits a photo the text had no room for; the copy doesn't show that one either.)
   const ours = new Set(images(d).map(i => i.credit!.url))
-  const shown = new Set(dom.querySelectorAll('img').map(i => i.getAttribute('src')))
+  // A fish's or a plant's strip under six photos is the site's alone (APP_GALLERY_MIN): the copy has no album to credit it in.
+  const album: HTMLElement[] = one(d, 'gallery') ? [] : dom.querySelectorAll('[data-album] img')
+  const shown = new Set(dom.querySelectorAll('img').filter(i => !album.includes(i)).map(i => i.getAttribute('src')))
   for (const a of dom.querySelectorAll('#photo-credits li a')) {
     const href = a.getAttribute('href')!
     if (!(bySource.get(href) ?? []).some(p => shown.has(p.url) || shown.has(smallSrc(p)))) continue
@@ -130,25 +139,22 @@ function wild(d: PageDoc, dom: HTMLElement): boolean {
 }
 
 /**
- * The gallery as the page's strip shows it and its gallery page lists it. The strip's own thumbnails: the further ones a
- * computer's photo column shows (`li.more`) are the gallery's, which the copy carries whole.
+ * The gallery as the page's strip shows it and its album holds it (GalleryStrip.astro: the album opens over the page). The
+ * strip's own thumbnails: the further ones a computer's photo column shows (`li.more`) are the album's, which the copy
+ * carries whole, but for pictures made by AI, which the app's album grid can't label yet.
  */
 function gallery(d: PageDoc, dom: HTMLElement) {
   const g = one(d, 'gallery')
   const strip = dom.querySelectorAll('.strip li:not(.more) img')
-  expect(!!g, d.path).toBe(strip.length > 0)
+  expect(!!g, d.path).toBe(strip.length > 0 && albumCount(dom) >= APP_GALLERY_MIN)
   if (!g) return
   expect(g.title, d.path).toBe(txt(dom.querySelector('#gal-h')))
   expect(g.strip.map(i => g.photos[i]!.thumb ?? g.photos[i]!.src), d.path).toEqual(strip.map(i => i.getAttribute('src')))
-  const all = appPage(g.href!).dom
-  expect(g.photos.map(p => p.src), d.path).toEqual(all.querySelectorAll('[data-gallery] a').map(a => a.getAttribute('data-full')))
-  expect(g.photos.map(p => p.credit!.url), d.path).toEqual(all.querySelectorAll('[data-gallery] a').map(a => a.getAttribute('data-src')))
-  // "6 ảnh từ Wikimedia Commons, giấy phép mở.": the gallery page's line, with the count its title gives there, without the
-  // scientific name before it or the link after.
-  const lead = all.querySelector('.lead')!
-  lead.querySelectorAll('.sci, a').forEach(x => x.remove())
+  const album = (JSON.parse(dom.querySelector('[data-album] script[type="application/json"]')!.textContent).photos as AlbumPhoto[]).filter(p => !p.ai)
+  expect(g.photos.map(p => p.src), d.path).toEqual(album.map(p => p.u))
+  expect(g.photos.map(p => p.credit!.url), d.path).toEqual(album.map(p => p.s))
+  // "6 ảnh từ Wikimedia Commons, giấy phép mở.": the count the album holds.
   expect(g.note, d.path).toContain(String(g.photos.length))
-  expect(g.note.toLowerCase(), d.path).toContain(clean(lead.textContent.replace(/^ ·/, '')).toLowerCase())
 }
 
 test('each fish\'s copy reads as its built page: header, credits, sources, card sources, tank mates, climate, gallery, breeds, videos', async () => {
@@ -268,7 +274,7 @@ test('each breed\'s copy reads as its built page: header, parents, card sources,
       expect(trust?.rows.map(r => [r.field, r.label, !!r.conflict, !!r.marked, r.note, r.items]) ?? [], d.path).toEqual(rows.map(r => [
         r.getAttribute('data-src-field'), txt(r.querySelector('dt')), r.getAttribute('data-conflict') === 'true', !!r.querySelector('dt .mark'), r.querySelector('dd > p') ? txt(r.querySelector('dd > p')) : undefined, r.querySelectorAll('li').map(txt),
       ]))
-      // The gallery's strip; its gallery page's photos when it has one.
+      // The gallery's strip and the photos it opens in the viewer.
       const g = one(d, 'gallery')
       const strip = dom.querySelectorAll('.strip li:not(.more) img')
       expect(!!g, d.path).toBe(strip.length > 0)
@@ -276,7 +282,7 @@ test('each breed\'s copy reads as its built page: header, parents, card sources,
       else if (g) {
         expect(g.title, d.path).toBe(txt(dom.querySelector('#gal-h')))
         expect(g.strip.map(i => g.photos[i]!.thumb ?? g.photos[i]!.src), d.path).toEqual(strip.map(i => i.getAttribute('src')))
-        expect(dom.querySelector('.strip .head a'), d.path).toBeNull()
+        expect(dom.querySelector('.strip [data-all]:not([data-fits])'), d.path).toBeNull()
       }
       // The summary, its text with the pages it names, its lines, the questions.
       const summary = one(d, 'summary')
@@ -371,6 +377,43 @@ test('each fish\'s and plant\'s text converts with nothing the app would have to
     expect(sectionBlocks('vi', c, { sections: p.text.sections, t: p.text.t, self: `species:${s.id}`, selfNames: [s.scientificName, s.t.name, ...s.t.altNames], figures: p.figures.map(photo => ({ photo })), card: s.dataCard, range: { id: s.id, name: s.t.name, range: s.range } }).unknown, s.id).toEqual([])
   }
   for (const x of appPlants('vi', c)) expect(sectionBlocks('vi', c, { sections: x.sections, t: x.t, figures: x.photos.slice(1).map(photo => ({ photo })) }).unknown, x.id).toEqual([])
+})
+
+// Design, 20 Nov 2026: the site's strip shows an album from one photo past the lead; the app keeps its six.
+test("the app's page shows no album under six photos, though the site's page shows its strip", async () => {
+  const c = await getContent('vi')
+  const s = c.species.find(x => x.id === 'paracheirodon-innesi')!
+  const site = await speciesParts('vi', c, s)
+  expect(site.gallery.length).toBeGreaterThan(0)
+  expect(site.gallery.length).toBeLessThan(APP_GALLERY_MIN)
+  expect(site.strip.some(Boolean)).toBe(true)
+  expect(one(await fishDoc('vi', c, s, listedPaths('vi', c)), 'gallery')).toBeUndefined()
+  // At six, the app shows it, as before.
+  const big = c.species.find(x => x.id === 'paracheirodon-axelrodi')!
+  expect((await speciesParts('vi', c, big)).gallery.length).toBeGreaterThanOrEqual(APP_GALLERY_MIN)
+  expect(one(await fishDoc('vi', c, big, listedPaths('vi', c)), 'gallery')).toBeDefined()
+})
+
+// The photo strip's reader, 20 Nov 2026: under six photos the app shows no strip, so its copy takes no photo for one. A
+// photo of the fish's own that its short album also holds stays between the app's sections, where the site's page puts
+// it in the strip.
+test("under six photos, the app's copy keeps a photo the site's short strip shows", async () => {
+  const c0 = await getContent('vi')
+  const s0 = c0.species.find(x => x.id === 'paracheirodon-innesi')!
+  // A photo of its album's that isn't its lead (the lead is the page's own photo and never in the strip).
+  const shared = (await speciesParts('vi', c0, s0)).gallery.find(p => p.url !== s0.photos[0]!.url)!
+  const c = { ...c0, species: c0.species.map(x => (x.id === s0.id ? { ...x, photos: [x.photos[0]!, shared] } : x)) } as Content
+  const s = c.species.find(x => x.id === s0.id)!
+  const site = await speciesParts('vi', c, s)
+  expect(site.gallery.length).toBeLessThan(APP_GALLERY_MIN)
+  expect(site.strip.some(p => p?.url === shared.url)).toBe(true)
+  expect(site.figures.map(p => p.url)).not.toContain(shared.url)
+  const app = await speciesParts('vi', c, s, { app: true })
+  expect(app.strip).toEqual([])
+  expect(app.figures.map(p => p.url)).toContain(shared.url)
+  const d = await fishDoc('vi', c, s, listedPaths('vi', c))
+  expect(all(d, 'figure').map(f => f.img.src)).toContain(shared.url)
+  expect(one(d, 'gallery')).toBeUndefined()
 })
 
 test('a fish\'s copy: its blocks in page order, every one credited and sourced', async () => {

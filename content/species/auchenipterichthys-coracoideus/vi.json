@@ -4,7 +4,9 @@
   "altNames": [
     "Cá trê gỗ Zamora",
     "Midnight Catfish",
-    "Zamora woodcat"
+    "Zamora woodcat",
+    "Cá Zamora",
+    "Zamora Cat"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Cá trê nửa đêm, Auchenipterichthys coracoideus, là một loài cá trê họ Auchenipteridae đến từ vùng Amazon của Peru và Brazil cùng lưu vực Essequibo. Còn được gọi là 'Zamora woodcat', loài này thường bị nhầm với A. thoracatus, hai loài khác nhau chủ yếu ở số tia vây hậu môn. Ban ngày chúng trú ẩn giữa rễ cây chìm, gốc cây hoặc thảm thực vật ở các con sông đục và vùng ngập nước, rồi ra kiếm ăn ở vùng nước thoáng vào ban đêm.</p><ul><li>Kích thước tối đa: 110 mm SL</li><li>Kích thước bể: 80 × 30 cm</li><li>Nhiệt độ: 22–25°C</li><li>pH: 6,0–7,2</li><li>Độ cứng: 0–10 dGH</li></ul>",
@@ -18,13 +20,21 @@
     "dimorphism:seriouslyfish": "<p>Con đực trưởng thành sinh dục phát triển một phần mở rộng dạng móc ở đầu vây hậu môn, dùng trong khi giao phối (xem 'sinh sản'), và ở con đực trong mùa sinh sản, gai vây lưng trở nên dài ra rất nhiều.</p>",
     "reproduction:seriouslyfish": "<p>Có rất ít thông tin, nhưng loài này đã được nhân giống trong bể ở Đức. Thụ tinh diễn ra trong cơ thể, con đực dùng vây hậu môn biến đổi tương tự gonopodium của các loài cá đẻ con. Sau đó con cái đẻ trứng trực tiếp lên nền. Chưa quan sát thấy hành vi chăm sóc con. Có vẻ con cái có thể trữ tinh trùng để dùng sau, vì chúng được ghi nhận đẻ trứng có thụ tinh khi không có con đực.</p>",
     "notes:seriouslyfish": "<p>Loài này còn có tên thông thường khác là 'Zamora woodcat' và thường bị nhầm với A. thoracatus. A. thoracatus là một loài hợp lệ và rất giống A. coracoideus ở chỗ xương coracoid lộ ra ở mặt bụng ở cả hai loài, chỉ được phủ bởi một lớp da mỏng. Hai loài khác nhau chủ yếu ở số tia vây hậu môn: A. coracoideus thường có ít hơn 26 tia vây hậu môn (phổ biến nhất là 23), còn A. thoracatus thường có hơn 25 tia (phổ biến nhất là 27). Ngoài ra, A. thoracatus chỉ giới hạn ở thượng lưu sông Madeira ở tây nam Brazil và đông Bolivia, trong khi A. coracoideus phân bố rộng hơn khắp phần lớn vùng Amazon, và con đực trong mùa sinh sản của A. thoracatus dường như không phát triển gai vây lưng kéo dài như ở A. coracoideus. Cũng có thể có những khác biệt về màu sắc khi sống chưa được ghi nhận. Hai thành viên còn lại của giống có thể phân biệt qua màu sắc: A. longimanus có màu tổng thể khá đồng nhất, còn A. punctatus có nhiều đốm sẫm sắp xếp ngẫu nhiên trên thân.</p>",
-    "references:seriouslyfish": "<ul><li>Ferraris, C. J., Jr., R. P. Vari, and S. J. Raredon (2005). Catfishes of the genus Auchenipterichthys (Osteichthyes: Siluriformes: Auchenipteridae); a revisionary study. Neotropical Ichthyology 3(1), 81-98</li></ul>"
+    "references:seriouslyfish": "<ul><li>Ferraris, C. J., Jr., R. P. Vari, and S. J. Raredon (2005). Catfishes of the genus Auchenipterichthys (Osteichthyes: Siluriformes: Auchenipteridae); a revisionary study. Neotropical Ichthyology 3(1), 81-98</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Amazon và sông Araguaia thuộc lưu vực Tocantins. Nơi thu mẫu chuẩn: Iquitos, Peru.</p><p>Loài này phân bố rộng khắp Amazon. Trước đây người ta từng nhận nhầm nó là A. thoracatus, nhưng thật ra đây là A. coracoideus. Nó sống ở lưu vực sông Amazon và sông Araguaia thuộc lưu vực Tocantins. Còn Auchenipterichthys thoracatus thì có ở thượng lưu sông Madeira.</p>",
+    "quickFacts:scotcat": "<ul><li>Danh sách đỏ IUCN: Ít quan tâm (Least Concern), vì vùng phân bố khá rộng và có vẻ không gặp mối đe dọa lớn nào (IUCN 2023).</li></ul>",
+    "behaviour:scotcat": "<p>Thả chung với cá cỡ bình thường thì đây là loài cá da trơn hợp bể nuôi chung. Với cá tetra nhỏ chẳng hạn thì không nên tin nó. Lúc chạng vạng và ban đêm, nó đi tuần quanh bể và sẽ tóm dần từng con.</p>",
+    "diet:scotcat": "<p>Loài này ăn được hầu hết các loại thức ăn cho cá cảnh: thức ăn vảy loại tốt, giun trắng, thức ăn viên nén, viên chìm, và đồ đông lạnh như trùng huyết. Lúc đầu nên cho ăn khi tắt đèn. Đến khi cá quen giờ cho ăn ban ngày thì rất có thể chúng cũng ra ăn cùng.</p>",
+    "reproduction:scotcat": "<p>Cá trong họ này thụ tinh trong. Cá cái đẻ trứng đã thụ tinh lên cây thủy sinh rồi bỏ mặc, không chăm trứng. Có một bản tường thuật về lần cho đẻ không thành. Theo đó, cá đực bơi theo sau cá cái, rồi hai con bất ngờ khóa vây ngực vào nhau, kèm cả vây mỡ và vây đuôi của con cái. Chúng lao vùn vụt quanh bể, không để ý gì đến xung quanh. Sau màn vật lộn đó, hai con tách ra, rơi xuống đáy bể và nằm đó vài tiếng như bị \"choáng\".</p>",
+    "notes:scotcat": "<p>Từ nguyên: tên loài coracoideus nghĩa là giống con quạ, tức là màu đen.</p>",
+    "references:scotcat": "<p>Carl J. Ferraris Jr., Richard P. Vari, and Sandra J. Raredon. Catfishes of the genus Auchenipterichthys (Osteichthyes: Siluriformes: Auchenipteridae); a revisionary study. ScotCat Factsheet no. 97. July 2004. Velasquez, M., Hidalgo, M. &amp; Frederico, R.G. 2023. Auchenipterichthys coracoideus. The IUCN Red List of Threatened Species 2023.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.8
+      "seriouslyfish": 0.8,
+      "scotcat": 0.9
     }
   }
 }

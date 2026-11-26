@@ -1,5 +1,6 @@
 import { errorKind } from './state'
 import { piece } from './pieces'
+import { createHash } from 'node:crypto'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -137,8 +138,48 @@ const photoPrompt = (heading: string, text: string, n: number) => `These are ${n
 Pick at most 1. Skip photos showing people, diagrams or charts with English text, photos of a different subject (e.g. sea algae for an aquarium algae section), and poor-quality photos.
 Give n and a caption: one short Vietnamese sentence (≤ 14 words) saying what the photo shows, in natural hobbyist Vietnamese. Return no picks if none fits.`
 
+/**
+ * Commons files the picture step doesn't pick (engine-state/_part-photos-off.json, beside the content folder), by the
+ * file's page (a part photo's `sourceUrl`): for the guides listed, or with no `guides`, for every guide; `why` in plain
+ * words. A person takes a part's photo off by hand, as Curation did after judging every part's photo by eye (16 Nov:
+ * an office ceiling light on a part about glass, sweets on a part about an old tank). A guide's parts are picked once,
+ * but a guide written again (videos --redo) starts with none, and the same searches would bring the photo back, at an
+ * address with the part's new number that the never-again list (by address) doesn't know. A file whose page names what
+ * its lettering says is listed as `sha256:` and the hash of its page instead, since that is never written out.
+ *
+ * It holds video frames too, since 21 Nov (the chief of staff: two bettas lying flat in bottles, which a reader can take
+ * for dead): listed by the frame's address, with `seconds`, the seconds of the guide's video the step doesn't cut a
+ * frame at, for the guides listed. A guide written again starts with no frames, and its plan's times, each cut at t-5,
+ * t, t+5 and t+10, can land on the same second again, at the same address. `seconds` is always written in the entry,
+ * never read off the address, and an entry with `seconds` and no `guides` stops the step: it never bars a second on
+ * every video.
+ */
+export type PartPhotosOff = Record<string, { why: string; guides?: string[]; seconds?: number[] }>
+/** The list; none where the file isn't there. A file that is there but can't be read stops the step, so no photo comes back. */
+export async function readPartPhotosOff(contentRoot: string): Promise<PartPhotosOff> {
+  const raw = await readFile(join(contentRoot, '..', 'engine-state', '_part-photos-off.json'), 'utf8').catch((err: NodeJS.ErrnoException) => {
+    if (err.code === 'ENOENT') return ''
+    throw err
+  })
+  if (!raw.trim()) return {}
+  const off: unknown = JSON.parse(raw)
+  if (typeof off !== 'object' || off === null || Array.isArray(off)) throw new Error('_part-photos-off.json: not a list of files')
+  for (const [key, o] of Object.entries(off as Record<string, { guides?: unknown; seconds?: unknown }>)) {
+    if (o?.seconds === undefined) continue
+    if (!Array.isArray(o.seconds) || !o.seconds.every(s => Number.isInteger(s))) throw new Error(`_part-photos-off.json: ${key}: seconds is not a list of whole seconds`)
+    if (!Array.isArray(o.guides) || !o.guides.length) throw new Error(`_part-photos-off.json: ${key} bars seconds but names no guides`)
+  }
+  return off as PartPhotosOff
+}
+const partPhotoOff = (off: PartPhotosOff, guide: string, sourceUrl: string) => {
+  const hashed = `sha256:${createHash('sha256').update(sourceUrl).digest('hex')}`
+  const key = [sourceUrl, hashed].find(k => Object.hasOwn(off, k))
+  const o = key ? off[key] : undefined
+  return !!o && (!o.guides || o.guides.includes(guide))
+}
+
 /** Pictures for one guide's sections; [] when nothing fitted (the guide is then done). */
-async function figuresFor(e: GuideEntity, vi: Translation, d: ImageDeps, dir: string): Promise<Figure[]> {
+async function figuresFor(e: GuideEntity, vi: Translation, d: ImageDeps, dir: string, off: PartPhotosOff = {}): Promise<Figure[]> {
   const v = e.video!
   const secs = sections(vi.body ?? '')
   if (!secs.length) return []
@@ -149,6 +190,8 @@ async function figuresFor(e: GuideEntity, vi: Translation, d: ImageDeps, dir: st
   const frameAt = sb ? frames(sb, d.get) : null
   const out: Figure[] = []
   const seen = new Set<number>()
+  // The seconds a person took this guide's frames off at (the list's `seconds`, for the guides it names).
+  const barred = new Set(Object.values(off).flatMap(o => (o.seconds && o.guides?.includes(e.id) ? o.seconds : [])))
   for (const [i, s] of secs.entries()) {
     const p = plan[i]
     if (!p) continue
@@ -156,7 +199,7 @@ async function figuresFor(e: GuideEntity, vi: Translation, d: ImageDeps, dir: st
 
     // Video moments: stills around each planned time, the model picks, no faces.
     const times = [...new Set((p.times ?? []).filter(t => t >= 0 && t <= v.durationSec).slice(0, 3).flatMap(t => [t - 5, t, t + 5, t + 10]))]
-    const cands = frameAt ? (await Promise.all(times.map(frameAt))).filter((f): f is NonNullable<typeof f> => !!f && !seen.has(f.t)) : []
+    const cands = frameAt ? (await Promise.all(times.map(frameAt))).filter((f): f is NonNullable<typeof f> => !!f && !seen.has(f.t) && !barred.has(f.t)) : []
     const uniq = [...new Map(cands.map(c => [c.t, c])).values()].slice(0, 12)
     if (uniq.length) {
       const sheet = join(dir, `${v.youtubeId}-${i}-m.jpg`)
@@ -181,7 +224,7 @@ async function figuresFor(e: GuideEntity, vi: Translation, d: ImageDeps, dir: st
     if (p.query?.trim()) {
       // Wikimedia resting is no "nothing found": the guide waits for its pictures until the rest ends.
       const resting = (err: unknown) => { if (err instanceof WikimediaRefused) throw err }
-      const photos = (await d.commons(p.query.trim()).catch(err => { resting(err); return [] as Photo[] })).slice(0, 6)
+      const photos = (await d.commons(p.query.trim()).catch(err => { resting(err); return [] as Photo[] })).filter(ph => !partPhotoOff(off, e.id, ph.sourceUrl)).slice(0, 6)
       const bytes = await Promise.all(photos.map(ph => d.get(ph.url).catch(err => { resting(err); return null })))
       const ok = photos.flatMap((ph, j) => (bytes[j] ? [{ ph, b: bytes[j]! }] : []))
       if (ok.length) {
@@ -209,6 +252,7 @@ async function figuresFor(e: GuideEntity, vi: Translation, d: ImageDeps, dir: st
 export async function videoImages(contentRoot: string, d: ImageDeps, opts: { limit?: number } = {}): Promise<{ done: string[]; failed: string[]; stoppedEarly: boolean }> {
   const done: string[] = []
   const failed: string[] = []
+  const off = await readPartPhotosOff(contentRoot)
   const dir = await mkdtemp(join(tmpdir(), 'aq-vimg-'))
   try {
     for (const id of (await readdir(join(contentRoot, 'guides')).catch(() => [] as string[])).filter(x => x.startsWith('youtube-')).sort()) {
@@ -218,7 +262,7 @@ export async function videoImages(contentRoot: string, d: ImageDeps, opts: { lim
       if (!e.video || e.video.figures) continue
       const vi = JSON.parse(await readFile(join(contentRoot, 'guides', id, 'vi.json'), 'utf8')) as Translation
       try {
-        const figures = await piece(id, () => figuresFor(e, vi, d, dir))
+        const figures = await piece(id, () => figuresFor(e, vi, d, dir, off))
         await writeFile(file, `${JSON.stringify(GuideSchema.parse({ ...e, video: { ...e.video, figures } }), null, 2)}\n`)
         done.push(`${id}: ${figures.length} sections, ${figures.reduce((n, f) => n + f.moments.length, 0)} stills, ${figures.filter(f => f.photo).length} photos`)
       } catch (err) {

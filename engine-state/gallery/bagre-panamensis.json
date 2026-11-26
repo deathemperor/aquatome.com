@@ -1,0 +1,44 @@
+{
+ "queue": [],
+ "judged": [
+  "gbif:1318625732:4be8b3744c308bd6",
+  "gbif:1456083333:8559695c1a86e6e7",
+  "gbif:1455973470:bba59c3774bea0c4",
+  "gbif:1455935897:f3d6f8873645b528",
+  "gbif:1455982954:c95cda21d6909af9",
+  "gbif:1455982954:8e1763e8731460c2",
+  "gbif:1456045579:36fcd4af06eb2773",
+  "gbif:1456045579:f7c07f6d475b7888",
+  "gbif:1456135074:7101c5562d13635f",
+  "gbif:1456135074:bf83e0c8af56641a",
+  "gbif:1456170160:be73c6dc625754c4",
+  "gbif:1456217319:4f61b976b76014b8",
+  "gbif:1456243828:881bf5f23de1d7ee",
+  "inat:106847526",
+  "inat:106848609",
+  "inat:460263286",
+  "inat:460263321"
+ ],
+ "hashes": {},
+ "inat": {
+  "taxon": 95040,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "commons": "2026-11-17",
+ "gbif": {
+  "key": 5202989,
+  "next": null
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 256675505,
+  "done": true
+ },
+ "exhausted": "2026-11-21"
+}

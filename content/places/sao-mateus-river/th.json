@@ -3,6 +3,12 @@
   "name": "เซามาเตวส์",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-19T00:38:09.876Z",
+    "why": "เซามาเตวส์ transliterates São Mateus but omits the Thai kind word แม่น้ำ for a river, and the usual Thai rendering is เซาแมตเตอุส/เซาเมเตอุส style, so the bare name isn't how a Thai atlas would write the river."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

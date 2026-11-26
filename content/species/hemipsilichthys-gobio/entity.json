@@ -1,0 +1,57 @@
+{
+  "id": "hemipsilichthys-gobio",
+  "scientificName": "Hemipsilichthys gobio",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hemipsilichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "paraiba-do-sul"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 15.6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1499",
+      "html": "<p>Hemipsilichthys gobio (Lütken, 1874). Family Loricariidae. Type locality: Rio Parahyba, Brazil. Size: 15.6 cm SL. IUCN Red List: Near Threatened (last assessed 2022).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1499",
+      "html": "<p>South America: Paraíba do Sul River basin. Rio de Janeiro State Rivers, Paraíba do Sul.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1499",
+      "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1499",
+      "html": "<p>Identification: dorsal series of lateral scutes on both sides not meeting along the middorsal line between the end of dorsal-fin base and the adipose fin; both tooth lobes approximately equal size; orbital diameter 12.0-14.7% HL.</p><p>Etymology: Greek, hemi = half + Greek, psilos = hairless + Greek, ichtys = fish.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1499",
+      "html": "<p>Videnskabelige Meddelelser fra den Naturhistoriske Forening i Kjøbenhavn, Aaret 1873 (nos 13-14), pp 217 [16], Pl. 4.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-23"
+}

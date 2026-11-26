@@ -1,0 +1,46 @@
+{
+  "id": "astronotus-mikoljii",
+  "native": {
+    "input": "a31698b1fa71da26",
+    "at": "2026-11-23T01:48:47.136Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "The Oscar from the Orinoco drainage and the Gulf of Paria in northern South America.",
+        "ok": true
+      },
+      {
+        "name": "Gulf of Paria",
+        "source": "glaser",
+        "quote": "The Oscar from the Orinoco drainage and the Gulf of Paria in northern South America.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "VE",
+        "CO",
+        "TT"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astronotus mikoljii",
+    "status": "ACCEPTED",
+    "taxonKey": 11523528,
+    "datasets": [
+      [
+        "83c9289f-0d18-42ae-98b0-2ad3621f0dfa",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-23T01:48:47.136Z"
+  }
+}

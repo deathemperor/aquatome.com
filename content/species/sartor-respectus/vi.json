@@ -1,0 +1,20 @@
+{
+  "slug": "ca-sartor-respectus",
+  "name": "Cá Sartor respectus",
+  "altNames": [],
+  "sections": {
+    "quickFacts:glaser": "<p>Sartor respectus có lẽ là loài lạ nhất trong nhóm cá đầu chúi (headstander, loài bơi chúi đầu xuống). Nó không lớn lắm, chỉ khoảng 10 cm.</p>",
+    "distribution:glaser": "<p>Sartor respectus sống ở sông Rio Xingu. Có hai loài khác trông rất giống nó: S. elongatus ở Rio Trombetas và S. tucuruiensis ở Rio Tocantins.</p>",
+    "diet:glaser": "<p>Sartor chuyên mổ ấu trùng côn trùng bám ở mặt dưới thân cây và cành cây đổ xuống nước. Để làm việc này, hàm dưới của chúng có răng nhô ra như ngà.</p>",
+    "behaviour:glaser": "<p>Chúng hay cà khịa nhau, chuyện này ai nuôi các loài anostomid cũng biết, nhưng không con nào bị thương nặng.</p>",
+    "notes:glaser": "<p>Tên chi \"Sartor\" là chữ Latin, nghĩa là \"thợ may\", hay rộng hơn là người làm nghề dùng kim. Cái tên ám chỉ hàm răng dưới dài và nhọn như kim của chúng.</p>"
+  },
+  "quality": {
+    "score": 0.75,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.75
+    },
+    "reason": "thin"
+  }
+}

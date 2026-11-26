@@ -1,0 +1,15 @@
+---
+url: https://www.aquariumglaser.de/en/10-catfishes/baryancistrus-xanthellus-l18-l81-l81n-l177-2/
+title: Baryancistrus xanthellus L18, L81, L81n, L177 - Aquarium Glaser GmbH
+fetchedAt: 2026-11-21T01:27:23.101Z
+hash: 8ef6a260d8f47e2b632c73624e3736ba9d25c0f921c2ff36f0c4af3a2a843ad4
+---
+
+About from the end of May to the end of September the season of the beautiful Golden Nuggets of the genus Baryancistrus lasts. Although the fish are considered to be extremely common in nature, are also found in shallow water and have been used as food fish since time immemorial, they were only scientifically described as Baryancistrus xanthellus in 2011.
+Although L18, L81, L81n and L177 are all considered to belong to the same species from a scientific point of view, in the ornamental fish trade they have been assigned different L-numbers because they are differently colored. All Baryancistrus xanthellus come from the Rio Xingu and its tributaries. One can distinguish four color forms: L18, “the” Golden Nugget, has relatively large spots, it comes from the main river. L81, on the other hand, has much smaller dots, and apparently occurs together with L18 in the main river. The largest points of all are found in L177, which comes from a tributary of the Xingu, the Rio Iriri. Recently, a variety has appeared on the market that resembles L81 in terms of the dot size, but has a much broader dorsal fin seam and a stronger yellow coloration. Since there is no L-number available for this form yet, it is called L81n “New Stardust” (the “n” stands for “new”). Nothing is known about the exact origin of these animals, only that they too are said to come from the Xingu.
+In all four of them the dot sizes, the width of the fin seams and the yellow portion in the coloration vary considerably, so that sometimes it is difficult to assign them to an L-number in single animals. When they are fully grown – all four can reach a length of 25-30 cm – they all look relatively the same and the spots are much smaller than in the young animals.
+The breeding of the animals can also succeed in the aquarium. They are typical cave breeders. However, the special requirements of these animals mean that breeding successes are very rare.
+First of all you have to know that the Xingu has relatively warm water all year round. The catfish are sensitive to temperatures below 28°C. Then they are extremely needy animals, which are adapted in nature to constantly take up a relatively nutrient-poor food. With one or two feedings per day these catfish do not get along. Finally, they are territorial and quarrelsome animals, which need space once they have exceeded the 20-cm mark.
+In summary one can say that the Baryancistrus L18, L81, L81n and L177 are very beautiful and desirable fish, but the care and breeding in the aquarium can only be successful if their very special requirements are met intensively.
+At the moment we have especially beautiful L81 and L81n , of which we present you here current pictures.
+Text and photos: Frank Schäfer

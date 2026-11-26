@@ -13,7 +13,8 @@
     "papua-new-guinea",
     "solomon-islands",
     "philippines",
-    "new-caledonia"
+    "new-caledonia",
+    "sulawesi"
   ],
   "range": {
     "native": {
@@ -24,12 +25,15 @@
       ],
       "regions": [
         "Ambon Island",
-        "Maluku Islands",
         "Sumatra",
-        "Bismarck Archipelago"
+        "Bismarck Archipelago",
+        "Sulawesi",
+        "Bali",
+        "New Guinea"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -42,9 +46,18 @@
           ],
           "regions": [
             "Ambon Island",
-            "Maluku Islands",
             "Sumatra",
             "Bismarck Archipelago"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The species has a wide distribution: it is known from Sulawesi, Bali, New Guinea (Irian Jaya), generally in Indonesia, and in the west to the Solomon Islands.",
+          "countries": [],
+          "regions": [
+            "Sulawesi",
+            "Bali",
+            "New Guinea"
           ]
         }
       ]
@@ -52,7 +65,7 @@
     "records": {
       "taxonKey": 2376126,
       "total": 272,
-      "fetched": "2026-11-15",
+      "fetched": "2026-11-17",
       "countries": [
         [
           "ID",
@@ -275,6 +288,13 @@
           "min": 22,
           "max": 28
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -334,10 +354,22 @@
       "html": "<p>Described from Ambon Island, South Molucca Islands, a group within the Maluku Islands chain in central Indonesia, but currently considered to range eastwards from western Sumatra across much of Indonesia, northern Papua New Guinea and the Bismarck Archipelago as far as the Solomon Islands.</p><p>Despite being similar in appearance to several other Stiphodon spp. (notably S. atropurpureus - see 'Notes') its range doesn't overlap with any of them though it may co-exist with dissimilar ones including S. carisa (Sumatra) or S. atratus (Halmahera to Papua New Guinea) at some localities.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/stiphodon-semoni-5/",
+      "html": "<p>Stiphodon semoni was described back in 1895. The species has a wide distribution: it is known from Sulawesi, Bali, New Guinea (Irian Jaya), generally in Indonesia, and in the west to the Solomon Islands. The larvae of this species develop in a marine environment, so the wide distribution is not so astonishing.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-semoni",
       "html": "<p>Members of this genus are near-exclusive inhabitants of short coastal streams on tropical, often volcanic, islands, with typical habitats lying above waterfalls or cataracts.</p><p>This makes them inaccessible to the majority of fishes although other gobies from the genus Sicyopus often occur syntopically, sometimes alongside two or more Stiphodon species. Amphidromous Macrobrachium spp. shrimp and neritid snails are the commonest invertebrates to be found.</p><p>The gradient of the streams varies depending on locality, and Stiphodon spp. inhabiting the fastest-flowing and/or living above waterfalls generally lack extended dorsal-fin rays/spines plus the first dorsal-fin is rounded in shape and approximately the same height as the second dorsal-fin.</p><p>In contrast those possessing a 'taller' first dorsal-fin with one or more extended rays (characters usually if not always more apparent in males) tend to live in slower-moving streams and not climb waterfalls as part of their life cycle (Watson, 2008).</p><p>S. semoni falls into the former group and typically occurs in higher altitude biotopes characterised by rapidly-flowing, narrow runs and riffles broken up by wider-slower-moving stretches, usually located above waterfalls or cataracts.</p><p>Substrates are normally of bedrock with scattered jumbles of rocks and boulders, and while riparian/stream-side vegetation and submerged leaf litter are common aquatic plants aren't usually present.</p><p>Evidence exists to suggest that different Stiphodon spp. actively choose a particular substrate type over another, with some appearing to focus on rocks/boulders within a particular size range for example.</p><p>The range of substrate sizes chosen by females also appears to be significantly narrower than that for males in some cases, so resource partitioning may be occurring between and/or within species depending on locality.</p><p>The most favourable habitats all contain very clear, well-oxygenated water which, allied with the tropical sun, facilitates the development of a rich biofilm carpeting submerged surfaces.</p><p>Sicydiines are such successful colonisers of these niche environments due to aspects of their morphology which allow them to both utilise this as a food source and employ a remarkable breeding strategy.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/stiphodon-semoni-5/",
+      "html": "<p>The adults are strictly freshwater fish that prefer clear, small streams.</p>"
     },
     {
       "key": "aquariumSize",
@@ -352,10 +384,28 @@
       "html": "<p>These gobies aren't too difficult to keep provided some basic requirements are met.</p><p>Most importantly the water must be clean and well-oxygenated at all times so we suggest the use of either an over-sized filter, additional powerheads, flow pumps, or airstones.</p><p>While torrential conditions are unnecessary a turnover of 10-15 times tank volume per hour is recommended, though with good oxygenation a lower rate of 5-10 times per hour is feasible.</p><p>Base substrate can either be of gravel, sand, or a mixture of both to which should be added a layer of water-worn rocks and pebbles of varying sizes.</p><p>Aged driftwood can also be used but avoid new pieces since these usually leach tannins which discolour the water and reduce the effectiveness of artificial lighting.</p><p>The latter must be strong to promote the growth of algae and associated micro-organisms because Stiphodon spp. are highly specialised biofilm grazers.</p><p>Some aquarists even maintain an open filter sponge in the tank to provide an additional food source.</p><p>If keeping multiple males of one or more species structure the rockwork to form plenty of potential hiding places and broken lines-of-sight to reduce the likelihood of excessive aggression.</p><p>Also bear in mind that males in particular tend to dig into the substrate when sleeping or spawning meaning larger rocks are best positioned directly on the tank base to prevent any risk of collapse.</p><p>They don't sleep in the same burrow each night and females have been observed to occupy uninhabited ones.</p><p>Although not a feature of this species' natural habitat aquatic plants can be used with hardier genera such as Microsorum, Crinum, and Anubias likely to fare best.</p><p>The latter are particularly useful as their leaves tend to attract algal growth and provide hiding places.</p><p>Since they need stable water conditions and feed on biofilm these fishes should never be added to immature set-ups and a tightly-fitting cover is necessary since they're able to climb glass.</p><p>While weekly water changes of 30-50% tank volume are essential the rest of the tank needn't be kept too clean and algae should be allowed to grow on all surfaces except the viewing pane.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/stiphodon-semoni-5/",
+      "html": "<p>Keeping these fish is pretty easy. The bottom of the tank should be furnished with round river stones of about 6-8 cm diameter, and portions of sandy bottom.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-semoni",
       "html": "<ul><li>Temperature: 22–28°C; increased surface agitation is needed to maintain dissolved oxygen levels towards the upper end of this range.</li><li>pH: 6.5–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/stiphodon-semoni-5/",
+      "html": "<p>The water temperature can be between 24 and 28 °C.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/stiphodon-semoni-5/",
+      "html": "<p>As these fish love current, they should have good filtration in their tank.</p>"
     },
     {
       "key": "diet",
@@ -368,6 +418,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-semoni",
       "html": "<p>Stiphodon spp. can be kept in a community provided tankmates are chosen with care.</p><p>Peaceful, similarly-sized species which naturally inhabit well-oxygenated streams such as Tanichthys, Microdevario, or smaller Danio species are the best choices for the upper levels, but we've also seen it being maintained with various characids, small poeciliid livebearers, and freshwater shrimp of the genera Caridina and Neocaridina.</p><p>Other bottom-dwellers can include small loaches from genera such as Gastromyzon, Pseudogastromyzon, Barbucca, or Acanthopsoides, and in high-turnover set-ups obligate torrent-dwellers like Annamia, Homaloptera, etc.</p><p>Avoid those that feed aggressively such as many Schistura spp.</p><p>Bigger fishes are best omitted entirely although in large set-ups it may be possible to add a few non-predatory, surface-dwelling species, while the majority of cichlids and other territorial fishes inhabiting the lower reaches should be avoided entirely.</p><p>Males tend to be loosely territorial, especially when breeding, but several can be kept together provided sufficient space and suitable foods are available, and other stream-dwelling gobies such as Sicyopus, Sicyopterus, Rhinogobius, or Schismatogobius spp. also make good companions.</p><p>Though males aren't necessarily gregarious females tend to exist in loose groups meaning a single male with two or more females is the recommended minimum purchase.</p><p>Females of different species will group together but males appear able to differentiate between them.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/stiphodon-semoni-5/",
+      "html": "<p>The members of the genus Stiphodon are in general termed \"neon gobies\", but this fits especially for S. semoni. Stiphodon are very peaceful fish. They should be kept in groups, in which case they show a lot of interesting behaviour.</p>"
     },
     {
       "key": "dimorphism",
@@ -401,20 +457,9 @@
       "width": 1024,
       "height": 535,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Steven Clarke / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-semoni",
       "caption": "A male in the aquarium.",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/9baa1a10f98c35f3.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/9baa1a10f98c35f3-480.webp",
-      "width": 867,
-      "height": 524,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-semoni",
-      "caption": "Pair of adult S. semoni collected from Goodenough Island, Milne Bay Province, Papua New Guinea. Male at front.",
       "source": "seriouslyfish"
     },
     {
@@ -423,7 +468,7 @@
       "width": 925,
       "height": 541,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Steven Clarke / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-semoni",
       "caption": "Female specimen.",
       "source": "seriouslyfish"
@@ -434,13 +479,38 @@
       "width": 819,
       "height": 614,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Leo Chan / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-semoni",
       "caption": "In males the colour of the lateral stripe can vary depending on the angle and quality of light. Here it appears blueish.",
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "x1LrhtU0UUA",
+      "title": "Adding BLUE STIPHODON GOBY to shallow RIVER AQUARIUM | EP5 HILLSTREAM AQUARIUM",
+      "durationSec": 554,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "A6ndIIiJ7MA",
+      "title": "Bombastic side eye from blue stiphodon goby? 🤨 #fishtank #aquarium",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "sK-54H29g1k",
+      "title": "Stiphodon Semoni Grazing On Some Algae! #Shorts",
+      "durationSec": 12,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "iRoSZRcdfUU",
+      "title": "*NEW* Stiphodon Semoni - Cobalt Blue Goby",
+      "durationSec": 281,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -471,5 +541,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-17"
 }

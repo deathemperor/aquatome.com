@@ -1,7 +1,11 @@
 {
  "queue": [],
- "judged": [],
- "hashes": {},
+ "judged": [
+  "inat:341490366"
+ ],
+ "hashes": {
+  "https://media.aquatome.com/inaturalist/341490366.webp": "8fd1451fc6b2decf"
+ },
  "commons": "2026-11-10",
  "inat": {
   "taxon": 113661,
@@ -10,5 +14,13 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2344472,
+  "next": null
+ },
+ "inatNc": {
+  "after": 194295090,
+  "done": true
  }
 }

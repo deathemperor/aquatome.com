@@ -10,6 +10,50 @@
     "mexico",
     "tecolutla"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [
+        "Tecolutia River"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "X. evelynae lives exclusively in the Tecolutia River basin on the Atlantic slope of Mexico.",
+          "countries": [
+            "MX"
+          ],
+          "regions": [
+            "Tecolutia River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2350187,
+      "total": 12,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "MX",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          -98.4375,
+          19.6875,
+          12,
+          12
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {
@@ -32,7 +76,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus_evelynae_en/",
       "source": "glaser"
     }

@@ -9,19 +9,53 @@
     "asia",
     "myanmar"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This archer fish lives exclusively in freshwater and originates from Burma.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2382441,
+      "total": 1,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          7.03125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/toxotes_blythii_en/",
-      "html": "<p>This archer fish that lives exclusively in freshwater originates from Burma.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/toxotes_blythii_en/",
-      "html": "<p>The animals of the current importation have a very uniform pattern; this is quite different to the specimens observed in former importations. Possibly the fish in the current import represent even a species new to science, for there are a lot of hints that the real diversity and species-richness in archerfish is not understood yet. Currently only 7 species are recognized in the genus Toxotes.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/toxotes-blythii-2/",
+      "html": "<p>This archer fish lives exclusively in freshwater and originates from Burma.</p>"
     }
   ],
   "photos": [
@@ -31,7 +65,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/toxotes_blythii_en/",
       "source": "glaser"
     },
@@ -41,17 +75,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/toxotes_blythii_en/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/c298cef3ea4cd852.webp",
-      "thumb": "https://media.aquatome.com/glaser/c298cef3ea4cd852-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/toxotes_blythii_en/",
       "source": "glaser"
     },
@@ -61,8 +85,48 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/toxotes_blythii_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c298cef3ea4cd852.webp",
+      "thumb": "https://media.aquatome.com/glaser/c298cef3ea4cd852-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/toxotes_blythii_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f361d0e8e234af9d.webp",
+      "thumb": "https://media.aquatome.com/glaser/f361d0e8e234af9d-480.webp",
+      "width": 850,
+      "height": 721,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/toxotes-blythii-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f75f69eb929c1a3b.webp",
+      "thumb": "https://media.aquatome.com/glaser/f75f69eb929c1a3b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/toxotes-blythii-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/56710fcb614f1262.webp",
+      "thumb": "https://media.aquatome.com/glaser/56710fcb614f1262-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/toxotes-blythii-2/",
       "source": "glaser"
     }
   ],
@@ -113,5 +177,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-21"
 }

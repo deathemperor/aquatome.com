@@ -1,0 +1,184 @@
+{
+  "id": "synodontis-soloni",
+  "scientificName": "Synodontis soloni",
+  "order": "Siluriformes",
+  "family": "Mochokidae",
+  "genus": "Synodontis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "congo"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 25
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/synodontis-soloni-2/",
+      "html": "<p>A very rarely offered squeaker catfish from the Congo. The species is medium sized (for squeakers): specimens 20–25 cm long can be called real big ones.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/synodontis-soloni-2/",
+      "html": "<p>Congo.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/synodontis-soloni-2/",
+      "html": "<p>The large caudal fin and the slender body give hints that this is a rheophilic species. Against conspecifics the specimens, which are currently 12–15 cm long, are quite peaceful. Obviously these fish live in dark places, as the eyes have strongly reflecting zones. This leads to artefacts (red eyes) in pictures taken with flash.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/synodontis-soloni-2/",
+      "html": "<p>Two scientifically described, extremely similar species originate from the very same region and differ from S. soloni only by a few minor differences (eye diameter, shape of the humeral process, shape of the adipose fin, proportions of the body, shape of barbels): Synodontis smiti and S. camelopardalis. However, in an import of 35 specimens many intermediate animals were represented in respect of colouration, so they could not be sorted in a sensible way. Possibly S. smiti and S. camelopardalis are only synonyms of S. soloni. In any case S. soloni is the earliest described species (soloni 1899, smiti 1902, camelopardalis 1971).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/8a5b22b3a1d46ecc.webp",
+      "thumb": "https://media.aquatome.com/glaser/8a5b22b3a1d46ecc-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/synodontis-soloni-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9a57366071be81bd.webp",
+      "thumb": "https://media.aquatome.com/glaser/9a57366071be81bd-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/synodontis-soloni-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1efdc455e3d24e3c.webp",
+      "thumb": "https://media.aquatome.com/glaser/1efdc455e3d24e3c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/synodontis-soloni-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/77b0c55cc117273d.webp",
+      "thumb": "https://media.aquatome.com/glaser/77b0c55cc117273d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/synodontis-soloni-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "1nT1mGm9-xo",
+      "title": "Predatorium - New Plants and Feeding",
+      "durationSec": 170,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn nuôi cá nheo"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá nheo",
+        "viên chìm cá đáy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-18",
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Congo"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "A very rarely offered squeaker catfish from the Congo.",
+          "countries": [],
+          "regions": [
+            "Congo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344379,
+      "total": 22,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "CD",
+          17
+        ],
+        [
+          "CG",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          12.65625,
+          -7.03125,
+          1
+        ],
+        [
+          14.0625,
+          -5.625,
+          14
+        ],
+        [
+          14.0625,
+          -4.21875,
+          5
+        ],
+        [
+          15.46875,
+          -5.625,
+          1
+        ],
+        [
+          23.90625,
+          0,
+          1
+        ]
+      ]
+    }
+  }
+}

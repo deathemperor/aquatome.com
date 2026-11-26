@@ -1,26 +1,25 @@
 {
   "slug": "kepala-timah",
-  "name": "Kepala timah",
+  "name": "Ikan kepala timah",
   "altNames": [
     "Blue panchax",
     "Panchax",
-    "Panchax biru",
     "kepala-timah india"
   ],
   "sections": {
-    "distribution:glaser": "<p>Karena koneksi penerbangan yang masih buruk, impor dari India hanya datang sesekali. Kali ini sebuah impor kembali berhasil masuk. Di dalamnya antara lain ada panchax biasa, Aplocheilus panchax. A. panchax adalah ikan paling umum di sebagian besar wilayah India dan bisa ditemukan benar-benar di mana saja, mulai dari genangan air terkecil sampai tepian sungai dan danau besar; panchax bahkan tahan terhadap air asin di muara.</p>",
-    "habitat:glaser": "<p>Suhu air, terutama di perairan kecil, sangat berubah-ubah: saat terkena matahari suhunya dengan mudah naik jauh di atas 30 °C, dan pada malam hari bisa turun sampai 12–14 °C.</p>",
-    "maintenance:glaser": "<p>Merawat panchax itu mudah. Ikan ini hidup di permukaan air. Parameter air dan suhu praktis tidak berpengaruh (lihat di atas).</p>",
-    "diet:glaser": "<p>Ikan ini dengan senang hati mau makan pakan ikan apa saja yang ukurannya pas untuk mulutnya.</p>",
-    "behaviour:glaser": "<p>Umumnya A. panchax damai, tetapi kadang ada jantan yang suka berkelahi, jadi teman satu akuariumnya sebaiknya bukan ikan yang terlalu rapuh. Yang cocok misalnya rosy barb dan zebra danio, yang berasal dari biotop yang sama. Panchax tidak mengganggu tanaman.</p>",
-    "dimorphism:glaser": "<p>Jantan dapat dibedakan dari betina lewat bentuk sirip anusnya.</p>",
-    "notes:glaser": "<p>Setelah Perang Dunia II, panchax lambat laun menghilang dari akuarium. Orang sudah punya pemanas listrik (menggantikan pembakar spiritus di bawah akuarium), filter dan aerasi, dan terutama lampu. Dulu akuarium diletakkan menyerong terhadap jendela, sehingga cahaya matahari yang masuk dari samping menerangi akuarium. Dalam cahaya seperti itu panchax tampak cukup berwarna, karena banyak sisiknya berkilau biru. Lain halnya di bawah lampu neon dari atas, panchax terlihat cukup abu-abu, terutama kalau belum beradaptasi.</p>"
+    "distribution:glaser": "<p>Saat ini secara resmi hanya satu spesies yang diakui dalam kelompok spesies ini, yaitu Aplocheilus panchax. Penyebarannya mulai dari Tiongkok, sebagian besar India, Myanmar dan Indochina (Thailand, Vietnam, Kamboja, Laos), hingga Indonesia. Ikan dari daerah asal yang berbeda tampilannya sangat berbeda, jadi sangat mungkin sebenarnya ada banyak spesies, bukan hanya satu.</p><p>Aplocheilus panchax pertama kali dideskripsikan dari Bengal. Panchax baru dari Manipur, di India utara, merupakan salah satu bentuk yang berbeda itu. Bentuk ini dibedakan dari A. panchax yang khas oleh banyaknya bintik merah di tubuh, sirip berwarna oranye cerah, dan pita gelap yang muncul saat ikan merasa terganggu.</p>",
+    "habitat:glaser": "<p>Bentuk Manipur berasal dari daerah pegunungan, tempat suhu bisa dengan mudah turun hingga 15 °C. Spesies ini menyukai perairan dangkal, yang pada hari cerah bisa cepat menghangat sampai 30 °C bahkan lebih.</p>",
+    "waterConditions:glaser": "<p>Panchax baru dari Manipur sebaiknya tidak dipelihara pada suhu terlalu hangat sepanjang tahun, karena asalnya dari daerah pegunungan.</p>",
+    "diet:glaser": "<p>Panchax mau menerima semua pakan ikan yang umum, bahkan pakan serpihan.</p>",
+    "behaviour:glaser": "<p>Panchax adalah ikan yang ideal untuk akuarium komunitas, di sana ia hidup di dekat permukaan. Teman setangkinya jangan terlalu kecil, kalau tidak akan dimakan.</p>",
+    "dimorphism:glaser": "<p>Jantan dan betina mudah dibedakan dari bentuk sirip anal, yang pada betina lebih pendek dan membulat. A. panchax khas dari Bengal menunjukkan polikromatisme: dalam satu populasi ada jantan bersirip putih dan jantan bersirip oranye, sedangkan betinanya semua tampak sama. Bintik merah di tubuh tidak pernah ada pada A. panchax yang khas.</p>",
+    "reproduction:glaser": "<p>Pemijahannya sangat mudah. A. panchax adalah ikan bertelur.</p>"
   },
   "quality": {
-    "score": 0.8,
+    "score": 0.85,
     "indexable": true,
     "bySource": {
-      "glaser": 0.8
+      "glaser": 0.85
     }
   }
 }

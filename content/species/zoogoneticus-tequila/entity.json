@@ -10,6 +10,58 @@
     "mexico",
     "rio-ameca"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [
+        "Río Teuchitlán",
+        "Río Ameca"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The tequila splitfin, Zoogoneticus tequila, is a goodeid endemic to the Río Teuchitlán in the Río Ameca headwaters of Jalisco, Mexico.",
+          "countries": [
+            "MX"
+          ],
+          "regions": [
+            "Río Teuchitlán",
+            "Río Ameca"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2347746,
+      "total": 9,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "MX",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          -104.0625,
+          19.6875,
+          8,
+          8
+        ],
+        [
+          -101.25,
+          18.28125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -138,7 +190,7 @@
       "width": 1200,
       "height": 800,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Max Pedley / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/zoogoneticus-tequila",
       "caption": "Zoogoneticus tequila male",
       "source": "seriouslyfish"
@@ -149,7 +201,7 @@
       "width": 1200,
       "height": 800,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Max Pedley / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/zoogoneticus-tequila",
       "caption": "Zoogoneticus tequila female",
       "source": "seriouslyfish"

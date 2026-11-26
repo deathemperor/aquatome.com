@@ -1,8 +1,8 @@
 {
   "id": "amblyceps-laticeps",
   "native": {
-    "input": "bd7141594935a8b4",
-    "at": "2026-11-06T01:44:56.709Z",
+    "input": "744e19bfb3f1666d",
+    "at": "2026-11-21T13:11:30.372Z",
     "claims": [
       {
         "code": "IN",
@@ -10,6 +10,22 @@
         "source": "scotcat",
         "quote": "Asia: India, Assam, Khasi Hills.",
         "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Bangladesh and India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Bangladesh and India.",
+        "words": "Bangladesh",
         "ok": true
       },
       {
@@ -26,9 +42,7 @@
     "outranked": [],
     "origin": {
       "pagesOnly": [],
-      "sourcesOnly": [
-        "BD"
-      ]
+      "sourcesOnly": []
     }
   },
   "records": {

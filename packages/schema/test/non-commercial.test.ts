@@ -30,8 +30,8 @@ async function fixture(photos: Photo[], gallery: Photo[]) {
 }
 const load = (root: string, on: Partial<ImageSwitches> = {}) => loadAll({ root, lang: 'vi', publicBuild: true, wholeBoxes: false, imageSwitches: { ...IMAGE_SWITCHES, ...on } })
 
-test('the switch ships off', () => {
-  expect(IMAGE_SWITCHES.inatNonCommercial).toBe(false)
+test("the switch is on from 18 Nov (the chief of staff's yes of 17 Nov); turning it off is this one value", () => {
+  expect(IMAGE_SWITCHES.inatNonCommercial).toBe(true)
 })
 
 test('the mark is the photo\'s own licence text: NC in any spelling, whatever else it says', () => {
@@ -56,7 +56,7 @@ test('the site\'s albums: off, no non-commercial photo; on, iNaturalist\'s BY-NC
   const album = [inat(2, 'CC BY-NC'), inat(1, 'CC BY 4.0'), inat(3, 'CC BY-NC-SA'), inat(4, 'CC BY-ND'), inat(5, 'CC BY-NC-ND'), inat(6, 'All rights reserved'), inat(7, ''),
     { ...inat(9, 'CC BY-NC 2.0'), sourceUrl: 'https://commons.wikimedia.org/wiki/File:Sampletown.jpg' }]
   const root = await fixture([inat(8, 'CC BY-NC'), inat(10, 'CC BY-SA')], album)
-  const off = await load(root)
+  const off = await load(root, { inatNonCommercial: false })
   expect(off.galleries.alpha!.map(p => p.url)).toEqual([url(1)])
   expect(off.species[0]!.photos.map(p => p.url)).toEqual([url(10)])
   const on = await load(root, { inatNonCommercial: true })
@@ -71,4 +71,16 @@ test('a head that gives way to an album photo takes an open one, never a non-com
   expect(on.galleries.alpha!.map(p => p.url)).toContain(url(2))
   const only = await fixture([ai], [inat(2, 'CC BY-NC')])
   expect((await load(only, { publishGenerated: true, inatNonCommercial: true })).species[0]!.photos.map(p => p.url)).not.toContain(url(2))
+})
+
+test("a page's head may be iNaturalist's non-commercial photo where it's the page's one real photo, the switch on (the chief of staff's rule, 17 Nov); off, or beside an open photo, it isn't", async () => {
+  const root = await fixture([inat(8, 'CC BY-NC')], [inat(1, 'CC BY 4.0')])
+  expect((await load(root, { inatNonCommercial: true })).species[0]!.photos.map(p => [p.url, p.licence])).toEqual([[url(8), 'CC BY-NC']])
+  expect((await load(root, { inatNonCommercial: false })).species[0]!.photos).toEqual([])
+  // Beside an open photo, either side of it, the open one shows alone.
+  for (const photos of [[inat(8, 'CC BY-NC'), inat(10, 'CC BY-SA')], [inat(10, 'CC BY-SA'), inat(8, 'CC BY-NC')]])
+    expect((await load(await fixture(photos, []), { inatNonCommercial: true })).species[0]!.photos.map(p => p.url)).toEqual([url(10)])
+  // Another site's non-commercial photo never leads.
+  const commons = await fixture([{ ...inat(9, 'CC BY-NC 2.0'), sourceUrl: 'https://commons.wikimedia.org/wiki/File:Sampletown.jpg' }], [])
+  expect((await load(commons, { inatNonCommercial: true })).species[0]!.photos).toEqual([])
 })

@@ -27,7 +27,7 @@ struct LightOutletFact: View {
           }
         }
         OutletFact(icon: "powerplug") {
-          Text("Cắm vào ổ “\(title)” (\(picked.plug.nickname ?? String(localized: "Ổ cắm"))).").accessibilityIdentifier("light-outlet")
+          Text("Cắm vào ổ “\(title)” (\(picked.plug.nickname ?? String(localized: "Ổ cắm", bundle: .app))).").accessibilityIdentifier("light-outlet")
           if case .read(let cutting)? = timers.state, cutting.isEmpty {
             Text("Không thấy hẹn giờ tắt nào của ổ này trong Smart Life.").font(.footnote).foregroundStyle(.secondary)
               .accessibilityIdentifier("outlet-timers")
@@ -69,8 +69,8 @@ struct LightOutletFact: View {
     let ordered = suggested.map { s in [s] + offered.filter { $0 != s } } ?? offered
     return Menu {
       ForEach(ordered) { o in
-        let item = "\(name(o)) · \(o.plug.nickname ?? String(localized: "Ổ cắm"))"
-        Button(o == suggested ? String(localized: "\(item) (gợi ý)") : item) { pick(o.pick, light) }
+        let item = "\(name(o)) · \(o.plug.nickname ?? String(localized: "Ổ cắm", bundle: .app))"
+        Button(o == suggested ? String(localized: "\(item) (gợi ý)", bundle: .app) : item) { pick(o.pick, light) }
       }
       if picked { Button("Bỏ chọn ổ", role: .destructive) { pick(nil, light) } }
       if asksIfOnOne { Button("Đèn không cắm ổ cắm Smart Life") { notOnPlug = (lines + [light.id]).joined(separator: "\n") } }
@@ -100,18 +100,18 @@ struct LightOutletFact: View {
   private func when(_ t: PlugTimer) -> String {
     let at: String
     if t.everyDay {
-      at = String(localized: "\(t.time) mỗi ngày")
+      at = String(localized: "\(t.time) mỗi ngày", bundle: .app)
     } else if t.once {
-      at = t.date.map { String(localized: "\(t.time) ngày \(day($0))") } ?? t.time
+      at = t.date.map { String(localized: "\(t.time) ngày \(day($0))", bundle: .app) } ?? t.time
     } else {
       // The days' names in the app's language, Monday first.
       var calendar = Calendar(identifier: .gregorian)
-      calendar.locale = Locale(identifier: Bundle.main.preferredLocalizations.first ?? "vi")
+      calendar.locale = .app
       let names = calendar.standaloneWeekdaySymbols
-      at = String(localized: "\(t.time) vào \([1, 2, 3, 4, 5, 6, 0].filter { t.days[$0] }.map { names[$0] }.joined(separator: ", "))")
+      at = String(localized: "\(t.time) vào \([1, 2, 3, 4, 5, 6, 0].filter { t.days[$0] }.map { names[$0] }.joined(separator: ", "))", bundle: .app)
     }
     guard let zone = t.timezone, t.zoneDiffers(from: .current, at: Date()) else { return at }
-    return String(localized: "\(at) (giờ \(zone))")
+    return String(localized: "\(at) (giờ \(zone))", bundle: .app)
   }
 
   /// Tuya's "20261105" as the reader's language writes a day; as it is when it isn't one.

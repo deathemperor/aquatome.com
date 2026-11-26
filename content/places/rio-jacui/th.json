@@ -3,6 +3,12 @@
   "name": "ชากูอี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-19T07:52:21.216Z",
+    "why": "ชากูอี is a plausible Thai transliteration of Jacuí, but it lacks the kind word แม่น้ำ that Thai atlases use for a river, so the name is incomplete."
+  },
   "quality": {
     "score": 0.7,
     "indexable": false

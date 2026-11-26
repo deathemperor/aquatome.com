@@ -43,7 +43,8 @@
       ],
       "regions": [],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -2025,6 +2026,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "glaser",
+        "value": 2
       }
     ]
   },
@@ -2036,16 +2041,40 @@
       "html": "<p>The banded knifefish, Gymnotus carapo, is a gymnotid knifefish recorded across Central and South America, from Mexico to Argentina. Several species once considered G. carapo have been described since 1994, and its massive natural range will likely turn out to be far more restricted. It uses a weak electric field to navigate and communicate, and a modified swimbladder acts as an accessory breathing organ. It grows to 60 cm and is sensitive to many medications, particularly copper.</p><ul><li>Needs a very large tank</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/gymnotus-carapo-4/",
+      "html": "<p>The Banded Knifefish (Gymnotus carapo) was the first species of the genus to become known to science and was described back in 1758. It belongs to the larger species of the genus Gymnotus.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/gymnotus-carapo-4/",
+      "html": "<p>In principle Gymnotus carapo would make excellent aquarium fish despite the size they can grow. The species often inhabits swamp areas, has an accessory breathing organ, is very undemanding, has a very attractive pattern and swims, like all knifefishes, in a fascinating way. But sadly all Gymnotus are extremely aggressive against conspecifics, which makes it most often impossible even to keep a pair together.</p><p>Currently available are specimens from Venezuela between 12 and 15 cm long and all banded, with one exception, a large spotted specimen 25–30 cm long.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gymnotus-carapo",
       "html": "<p>A very widespread species in both Central and South America. It has been recorded in Mexico, Guatemala, Venezuela, Suriname, French Guiana, Guyana, Trinidad and Tobago, Ecuador, Peru, Brazil, Bolivia, Paraguay, Uruguay and Argentina.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/gymnotus-carapo-4/",
+      "html": "<p>The species has an enormous distribution in South America; however, many mis-identifications probably appeared in older literature. The specimens from Venezuela belong to the subspecies Gymnotus carapo septentrionalis. In 2017, 7 new subspecies of G. carapo were described.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gymnotus-carapo",
       "html": "<p>Tends to inhabit sluggish or still waters and seems to prefer turbid environments. It is also found in the deeper parts of main river channels, and in general can be considered a benthic (bottom dwelling) species.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/gymnotus-carapo-4/",
+      "html": "<p>The species often inhabits swamp areas.</p>"
     },
     {
       "key": "aquariumSize",
@@ -2078,10 +2107,22 @@
       "html": "<p>Small fish will be eaten, but it can be combined with other similarly-sized species in a big enough tank. Don't keep it with anything too boisterous or aggressive or it might become withdrawn. Possible tankmates include large, robust cichlids such as Cichla or Geophagus sp., larger characins, cyprinids, catfish and loricariids and other species such as bichirs. It's very territorial with conspecifics, though, and a massive tank would be needed to keep more than a single specimen.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/gymnotus-carapo-4/",
+      "html": "<p>All Gymnotus are extremely aggressive against conspecifics.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gymnotus-carapo",
       "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/gymnotus-carapo-4/",
+      "html": "<p>External differences between the sexes are unknown for Gymnotus. In some specimens the banded pattern becomes a spotted pattern when they grow larger than about 20 cm; smaller specimens are all banded. Perhaps the pattern shows the sex in larger specimens.</p>"
     },
     {
       "key": "reproduction",
@@ -2090,10 +2131,22 @@
       "html": "<p>It has not been bred in captivity, but some aspects of its breeding behaviour are known. It breeds during the wet season and is a paternal mouthbrooder, with the male also building a nest, in which he broods and protects the eggs and fry.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/gymnotus-carapo-4/",
+      "html": "<p>Gymnotus are paternal broodcarers. Nest-building males have been described from the wild; in captivity they proved to be mouthbrooders. Most probably sibling, but different species were involved in the two studies.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gymnotus-carapo",
       "html": "<p>Not a good beginner's species, due to its very respectable adult size, but it makes a stunning oddball addition to communities of larger fish. It's sensitive to many aquarium medications, particularly those containing copper.</p><p>The genus Gymnotus has undergone considerable taxonomic revision in recent years, with over 20 new species being described since 1994, including several that were originally considered to be G. carapo. The systematics of the genus are still not fully understood, and it's likely that the massive natural range quoted for this species will turn out to be far more restricted in the future. This probably also explains the variability in colour and patterning of fish imported under the name \"carapo knifefish\", and the influx of new and interesting variants onto the market over the last few years, such as the stunning tiger knifefish, G. tigre.</p><p>Like other gymnotids, it produces a weak electric field using specially-adapted muscle tissue located towards the tail. It also possesses electroreceptors, which allow the fish to receive electrical signals. With these, the fish can sense the tiniest of movements as the field around it is disturbed, and navigate in total darkness, useful skills when hunting prey or avoiding predators in the dark. What's most fascinating about this adaptation is that the fish also use it to communicate with each other and find partners.</p><p>It also has a modified swimbladder that acts as an accessory breathing organ. This allows the fish to survive in polluted or hypoxic (oxygen-deficient) environments, and also comes in useful when waters recede at the end of the wet season if the fish becomes stranded, for example.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/gymnotus-carapo-4/",
+      "html": "<p>The number of described species in the genus Gymnotus has increased rapidly. Since the last complete revision of the New World Knifefishes in 1994, 34 new species and 7 subspecies have been described, raising the total to 43. Members of the genus are cylindrical in shape and most often have an attractive pattern. The smallest are said to reach only 10 cm, the largest up to 40 cm.</p>"
     }
   ],
   "photos": [
@@ -2102,18 +2155,73 @@
       "thumb": "https://media.aquatome.com/inaturalist/346194955-480.webp",
       "width": 1024,
       "height": 600,
-      "licence": "CC BY",
-      "author": "Татьяна Максимова",
-      "sourceUrl": "https://www.inaturalist.org/photos/346194955",
-      "caption": "Cá dao vằn bơi dưới nước trong môi trường tự nhiên",
       "large": {
         "url": "https://media.aquatome.com/inaturalist/346194955-large.webp",
         "width": 2048,
         "height": 1200
-      }
+      },
+      "licence": "CC BY",
+      "author": "Татьяна Максимова",
+      "sourceUrl": "https://www.inaturalist.org/photos/346194955",
+      "caption": "Cá dao vằn bơi dưới nước trong môi trường tự nhiên"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/67d02d3cb7104b95.webp",
+      "thumb": "https://media.aquatome.com/glaser/67d02d3cb7104b95-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/gymnotus-carapo-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f6b7f3fc08815fac.webp",
+      "thumb": "https://media.aquatome.com/glaser/f6b7f3fc08815fac-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/gymnotus-carapo-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/88a95dc94e39fdb9.webp",
+      "thumb": "https://media.aquatome.com/glaser/88a95dc94e39fdb9-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/gymnotus-carapo-4/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "TdU2kYrXE4w",
+      "title": "Gymnotus carapo",
+      "durationSec": 54,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "v1zCR6BL_Ck",
+      "title": "Gymnotus carapo \"pez cuchillo\"",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "DjExzaNgrBE",
+      "title": "Gymnotus carapo (banded knifefish) feeding",
+      "durationSec": 28,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "RqQVxvPNsRs",
+      "title": "Peixe Elétrico (Gymnotus carapo) em Aquário caseiro",
+      "durationSec": 119,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -2142,5 +2250,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-21"
 }

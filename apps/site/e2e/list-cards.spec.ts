@@ -74,13 +74,14 @@ for (const { path, prefix } of LISTS) {
     const shown = (await cardsBySlug(page)).flatMap(([slug]) => photo.get(slug) ?? [])
     test.skip(shown.length === 0, 'no photos on the first page')
     // Each photo's own page (an Unsplash row also links its photographer and Unsplash: a.author, a.site).
-    const links = await page.locator('#photo-credits li a:not(.author, .site)').evaluateAll(as => as.map(a => a.getAttribute('href')!))
+    const links = await page.locator('#photo-credits li a:not(.author, .site, .licence)').evaluateAll(as => as.map(a => a.getAttribute('href')!))
     expect([...links].sort()).toEqual([...new Set(shown)].sort())
     const built = await rows(page)
     const key = (row: string) => /data-author="[^"]*" data-licence="[^"]*"/.exec(row)![0]
     expect(new Set(built.map(key)).size, 'one row per author and licence').toBe(built.length)
-    // A row of the server's made only of these photos comes out the same when the script writes it.
-    const same = server.filter(r => [...r.matchAll(/href="([^"]+)"/g)].every(m => shown.includes(m[1]!.replace(/&amp;/g, '&'))))
+    // A row of the server's made only of these photos comes out the same when the script writes it (its licence's link
+    // is the licence's page, not a photo's).
+    const same = server.filter(r => [...r.matchAll(/<a (?!class="licence")[^>]*href="([^"]+)"/g)].every(m => shown.includes(m[1]!.replace(/&amp;/g, '&'))))
     expect(same.length).toBeGreaterThan(0)
     for (const r of same) expect(built.find(b => key(b) === key(r))).toBe(r)
     // The footer's button counts them: "Nguồn ảnh (n)" in the page's language.

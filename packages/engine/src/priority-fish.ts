@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { awaitsScreen, hashDistance, isAllowedLicence, isGenerated, isOwnerCrop, mayPublish, PHOTO_SCREEN_FILE, pictureOf, SAME_PICTURE, setsCookies, unmarked, type Photo, type PhotoScreenEntry } from '@aq/schema'
+import { diskOwners, EMPTIED_FILE, readList, showingPhotos } from './emptied-pages'
 import { isRejected } from './photos'
 
 /**
@@ -65,12 +66,21 @@ export async function shownPictures(root: string, kind: string, id: string): Pro
   return clean
 }
 
-/** The fish to take first, as `kind/id`, oldest day first: those on the list whose album row doesn't show yet. */
+/**
+ * The fish to take first, as `kind/id`, oldest day first: those on the owner's list whose album row doesn't show six
+ * yet, and the pages our removals emptied (emptied-pages.ts) that are pages with no photo yet, by the site's own rule.
+ * A page on both keeps the owner's six.
+ */
 export async function priorityFish(root: string): Promise<string[]> {
   const out: [string, string][] = []
-  for (const [ref, day] of Object.entries(await readPriorityFish(root))) {
+  const owner = await readPriorityFish(root)
+  for (const [ref, day] of Object.entries(owner)) {
     const [kind, id] = ref.split('/') as [string, string]
     if ((await shownPictures(root, kind, id)) < PRIORITY_UNTIL) out.push([ref, day])
   }
+  const emptied = Object.entries(await readList(root, EMPTIED_FILE)).filter(([ref]) => !Object.hasOwn(owner, ref))
+  const showing = await showingPhotos(emptied.map(([ref]) => ref), p => readFile(join(root, p), 'utf8').catch(() => undefined), diskOwners(root))
+  // A page with no photo yet; one the loader drops (no section it may show) is no page to find photos for.
+  for (const [ref, day] of emptied) if (showing.get(ref) === false) out.push([ref, day])
   return out.sort((a, b) => a[1].localeCompare(b[1]) || a[0].localeCompare(b[0])).map(([ref]) => ref)
 }

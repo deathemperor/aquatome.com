@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "brazil",
-    "amazon"
+    "amazon",
+    "tefe"
   ],
   "range": {
     "native": {
@@ -17,15 +18,17 @@
       ],
       "regions": [
         "Amazon",
-        "Madeira"
+        "Madeira",
+        "Solimões"
       ],
       "sources": [
-        "planetcatfish"
+        "planetcatfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "planetcatfish",
-          "quote": "Type locality: Amazon River near Teffé, Brazil.",
+          "quote": "Rineloricaria teffeana (Steindachner, 1879). Type locality: Amazon River near Teffé, Brazil. Etymology: Greek, rhinos = nose + Latin, lorica, loricare = cuirass of corslet of leather. Named after Tefé, its type locality. Size: 14 cm SL.",
           "countries": [
             "BR"
           ],
@@ -37,7 +40,8 @@
           "countries": [],
           "regions": [
             "Amazon",
-            "Madeira"
+            "Madeira",
+            "Solimões"
           ]
         }
       ]
@@ -137,6 +141,10 @@
       {
         "source": "planetcatfish",
         "value": 14
+      },
+      {
+        "source": "glaser",
+        "value": 12
       }
     ]
   },
@@ -146,6 +154,12 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1294",
       "html": "<p>Rineloricaria teffeana (Steindachner, 1879). Type locality: Amazon River near Teffé, Brazil. Etymology: Greek, rhinos = nose + Latin, lorica, loricare = cuirass of corslet of leather. Named after Tefé, its type locality. Size: 14 cm SL.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-teffeana-2/",
+      "html": "<p>The small remaining whiptail catfishes of the genus Rineloricaria enjoy great popularity among aquarists. They have a whimsical appearance, are peaceful, have no high space requirements and can usually be bred quite well. Some species have even really fancy pattern. The most beautiful is certainly R. teffeana. It has no bright colors, but a really attractive pattern. Its maximum length is about 12 cm (without caudal fin).</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -158,6 +172,12 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1294",
       "html": "<p>South America: Amazon River basin (Tefé, Middle Amazon (Solimões), Madeira). IUCN Red List category: Least Concern (last assessed 2018).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-teffeana-2/",
+      "html": "<p>Although Tefé in Brazil is a famous discus locality, Rineloricaria teffeana has its type locality there (i.e. the specimens available to Steindachner in 1879, on the basis of which the species was described and named, were collected there). It is offered only extremely rarely by exporters.</p>"
     },
     {
       "key": "waterConditions",
@@ -226,17 +246,6 @@
       "source": "scotcat"
     },
     {
-      "url": "https://media.aquatome.com/scotcat/7a9afdbc339c2cbd.webp",
-      "thumb": "https://media.aquatome.com/scotcat/7a9afdbc339c2cbd-480.webp",
-      "width": 500,
-      "height": 329,
-      "licence": "dùng với sự cho phép",
-      "author": "Hans-Georg Evers / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_teffeana.htm",
-      "caption": "Rineloricaria teffeana",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/scotcat/1d2acd9fd550d029.webp",
       "thumb": "https://media.aquatome.com/scotcat/1d2acd9fd550d029-480.webp",
       "width": 500,
@@ -246,6 +255,36 @@
       "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_teffeana.htm",
       "caption": "Rineloricaria teffeana",
       "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/cf245db201e86b45.webp",
+      "thumb": "https://media.aquatome.com/glaser/cf245db201e86b45-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-teffeana-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c71fd7bba407d79b.webp",
+      "thumb": "https://media.aquatome.com/glaser/c71fd7bba407d79b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-teffeana-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5913b5b37377579a.webp",
+      "thumb": "https://media.aquatome.com/glaser/5913b5b37377579a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-teffeana-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -279,5 +318,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-23"
 }

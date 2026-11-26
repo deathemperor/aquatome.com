@@ -1,0 +1,300 @@
+{
+  "id": "pyrrhulina-laeta",
+  "scientificName": "Pyrrhulina laeta",
+  "order": "Characiformes",
+  "family": "Lebiasinidae",
+  "genus": "Pyrrhulina",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Amazon"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species originates from the upper and central Amazon river basin, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355670,
+      "total": 62,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "BR",
+          30
+        ],
+        [
+          "PE",
+          21
+        ],
+        [
+          "CO",
+          11
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          0,
+          2,
+          0
+        ],
+        [
+          -75.9375,
+          1.40625,
+          7,
+          0
+        ],
+        [
+          -74.53125,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -5.625,
+          2,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          5,
+          0
+        ],
+        [
+          -74.53125,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          -4.21875,
+          5,
+          0
+        ],
+        [
+          -73.125,
+          -2.8125,
+          4,
+          0
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          0,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          8,
+          8
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          10,
+          10
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina-laeta/",
+      "html": "<p>Including the caudal fin the males can reach 12 cm in length. Males are generally larger than the females. A characteristic pattern for the species is the black line that extends to the level of the dorsal fin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina-laeta/",
+      "html": "<p>The species originates from the upper and central Amazon river basin, Brazil.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina-laeta/",
+      "html": "<p>Water temperature should be between 24-28°C. pH and hardness are of little importance.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina-laeta/",
+      "html": "<p>They feed readily on live, frozen and dry fish food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina-laeta/",
+      "html": "<p>In the aquarium Pyrrhulina laeta is an ideal tankmate for community tanks. It is very peaceful. However, tankmates must not be too small, otherwise they are taken as food. Only in breeding condition males defend their territory and might become a bit quarrelsome. Plants are neglected.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina-laeta/",
+      "html": "<p>Like all its congeners P. laeta is a brood-caring species. The eggs (up to 500) are deposited on the top of a large leaf. The male defends and cares for the eggs until they hatch.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/35cea7b756550409.webp",
+      "thumb": "https://media.aquatome.com/glaser/35cea7b756550409-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina-laeta/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "Srb-OcnIV4s",
+      "title": "Pyrrhulina laeta 002",
+      "durationSec": 100,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "_hiWCHeeLI4",
+      "title": "Pyrrhulina Laeta 001",
+      "durationSec": 63,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "edy4QX212ow",
+      "title": "Tropical Freshwater Aquarium - Guiana Shield Habitat - South America",
+      "durationSec": 4588,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể cá cộng đồng"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

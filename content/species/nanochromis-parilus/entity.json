@@ -8,7 +8,8 @@
   "places": [
     "africa",
     "democratic-republic-of-the-congo",
-    "republic-of-the-congo"
+    "republic-of-the-congo",
+    "kinshasa"
   ],
   "range": {
     "native": {
@@ -125,6 +126,10 @@
       {
         "source": "seriouslyfish",
         "value": 8
+      },
+      {
+        "source": "glaser",
+        "value": 8
       }
     ],
     "tankCm": [
@@ -150,14 +155,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/nanochromis_parilus_en/",
-      "html": "<p>Nanochromis parilus is a species of dwarf cichlid that originates from the Congo region.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/nanochromis_parilus_en/",
-      "html": "<p>This species is usually offered as wild-collected fish, but a breeder is currently able to supply fully grown, very healthy bred animals.</p><p>Among these bred fish, two types of males appear. Some males have a red pattern in the lower part of the caudal fin, others do not. Formerly it was thought among aquarists that these differences in caudal fin pattern could be used to separate N. parilus from a closely related species, N. nudiceps. However, it is now known that N. nudiceps has an overall different look.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nanochromis-parilus-wild-2/",
+      "html": "<p>Nanochromis parilus are beautiful, assertive dwarf cichlids. The maximum size is 8 cm (male); females stay smaller. They can be recognized by the broad white band in the dorsal fin.</p>"
     },
     {
       "key": "distribution",
@@ -166,10 +165,22 @@
       "html": "<p>Democratic Republic of Congo and Republic of the Congo.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nanochromis-parilus-wild-2/",
+      "html": "<p>This species is very common in the region around the capital Kinshasa (Congo). It was described by science only in 1976. In the hobby it has been known since 1952, but was initially misidentified as Nanochromis nudiceps (which is a different species).</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nanochromis-parilus",
       "html": "<p>It is found in slow-moving areas of streams.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nanochromis-parilus-wild-2/",
+      "html": "<p>Nanochromis parilus are river-dwellers, but not rapids cichlids, preferring calmer sections.</p>"
     },
     {
       "key": "aquariumSize",
@@ -182,6 +193,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nanochromis-parilus",
       "html": "<p>The aquarium should contain plenty of hiding places. Clay pot caves, rocks, roots and pieces of driftwood can all be used. Plants are not essential but the fish will appreciate the additional cover. A sandy substrate is recommended as this species likes to dig. Filtration through peat is useful.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nanochromis-parilus-wild-2/",
+      "html": "<p>Care is similar to the closely related Pelvicachromis, but keep in mind that breeding animals can be quite aggressive.</p>"
     },
     {
       "key": "waterConditions",
@@ -214,6 +231,12 @@
       "html": "<p>Not easy, as this species will not spawn in water with a pH value of above 6.5 and preferably lower. Bi-parental cave spawner. A single pair can be bred in a 45 cm aquarium, with a larger tank being required for 2 or more pairs. The aquarium should be set up as suggested above with very soft and acidic water of pH 5.0–6.5 and a temperature of 25–26.5°C. Gentle filtration via an air-powered sponge filter is adequate. Rocks and driftwood should be provided as the fish will dig under one of these to spawn. They will also provide hiding places for the female if she is not ready to spawn, as the male can be very aggressive in his pursuits, despite pairing being initiated by the female. The use of target fish, in the form of other compatible small cichlids, may prove successful but is not guaranteed. The fish should be conditioned on a varied diet of live and frozen foods.</p><p>When in breeding condition the pair will take on more intense colouration and the female will begin to display at the male, contorting her body into an 's' shape and exposing her violet belly. Much gill flaring and mouthing will ensue. The pair will then excavate a cave underneath a rock or piece of driftwood, where spawning occurs. The male will defend the spawning site while the female tends to the eggs. Some role swapping may occur here.</p><p>The eggs will hatch in 2–3 days and become free swimming at around 7 days. The fry are relatively large and can be fed microworm and/or brine shrimp nauplii from the moment they are free swimming. It is essential that the fry are kept in very soft and acidic water. Swings in pH and dH will often result in large losses. As they grow, they can slowly be acclimatised to more standard conditions. Brood care by the parents usually continues for about a month, after which they may spawn again. Predation of the fry by the parents is very rare.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nanochromis-parilus-wild-2/",
+      "html": "<p>This species is a cavity breeder, with the female caring for the clutch and the newly hatched young, and the male defending the territory. When the young are larger, both parents lead the young.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nanochromis-parilus",
@@ -227,7 +250,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/nanochromis_parilus_en/",
       "source": "glaser"
     },
@@ -237,7 +260,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/nanochromis_parilus_en/",
       "source": "glaser"
     },
@@ -247,7 +270,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/nanochromis_parilus_en/",
       "source": "glaser"
     },
@@ -257,12 +280,67 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/nanochromis_parilus_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/6fba6be69f7d5c16.webp",
+      "thumb": "https://media.aquatome.com/glaser/6fba6be69f7d5c16-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nanochromis-parilus-wild-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/3e66b208cea9247f.webp",
+      "thumb": "https://media.aquatome.com/glaser/3e66b208cea9247f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nanochromis-parilus-wild-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2453efb4013bf372.webp",
+      "thumb": "https://media.aquatome.com/glaser/2453efb4013bf372-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nanochromis-parilus-wild-2/",
       "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "AiltvwhpprY",
+      "title": "Nanochromis parilus Species Profile",
+      "durationSec": 254,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "C-CmPGUPDq8",
+      "title": "Nanochromis Parilus Fry 🤞 hope they make it!",
+      "durationSec": 32,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "uf1WafSm_Pk",
+      "title": "Nanochromis Parilus: Stunning Colors in the Aquarium",
+      "durationSec": 12,
+      "lang": "hi"
+    },
+    {
+      "youtubeId": "rGMklwHDxDs",
+      "title": "Happy Memorial Day!!  Blue Congo Dwarf Cichlid Nanochromis parilus!!  (2023) #shorts",
+      "durationSec": 38,
+      "lang": "en-US"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -292,5 +370,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-21"
 }

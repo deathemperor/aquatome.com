@@ -1,5 +1,106 @@
 {
   "id": "trung-huyet",
   "en": "Bloodworms",
-  "latin": "Chironomidae"
+  "latin": "Chironomidae",
+  "refs": [
+    {
+      "url": "https://rainbowfish.angfa.org.au/foods_and_feeding/bloodworms.html",
+      "title": "Bloodworms"
+    },
+    {
+      "url": "https://saigonfish.com/trung-huyet-thuc-an-cho-ca-canh",
+      "title": "Trùng Huyết - Thức Ăn Dinh Dưỡng Cho Betta, Cá Dĩa, Thần Tiên"
+    },
+    {
+      "url": "https://thegioicacanh.com.vn/trung-huyet-dong-lanh-vi-24-vien-p39103938.html",
+      "title": "Trùng Huyết Đông Lạnh (Vĩ 24 viên)"
+    },
+    {
+      "url": "https://aquasetup.com/thuc-an-cho-ca-dong-lanh-co-tot-khong-bo-bo-trun-huyet-artemia-dong-lanh/",
+      "title": "Thức ăn cho cá đông lạnh có tốt không? - Bo bo , trùn huyết, artemia đông lạnh,.. - aquasetup"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/frozen-fish-food-guide",
+      "title": "How to Feed Frozen Fish Food to Your Freshwater Aquarium – Aquarium Co-Op"
+    },
+    {
+      "url": "https://www.amazonasmagazine.com/2018/05/17/bloodworms-allergic-reactions-very-real-for-some-fishkeepers/",
+      "title": "Bloodworms: Allergic Reactions Very Real for Some Fishkeepers"
+    },
+    {
+      "url": "https://thuycungxanh.vn/kien-thuc-ky-thuat/cac-loai-thuc-an-cho-ca-canh-42.html",
+      "title": "Các loại thức ăn cho cá cảnh"
+    },
+    {
+      "url": "https://aquariumcare.vn/san-pham/243/trun-huyet-thuc-an-cho-ca.html",
+      "title": "Trùn Huyết Thức Ăn Cho Cá - Vi Sinh Cá Cảnh Aquarium Care"
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24535989/",
+      "title": "Chironomidae bloodworms larvae as aquatic amphibian food."
+    }
+  ],
+  "related": [
+    "thuc-an-dong-lanh",
+    "thuc-an-kho",
+    "thuc-an-song",
+    "trung-chi",
+    "artemia",
+    "bo-bo"
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/c0f337a3cccb35d0.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/c0f337a3cccb35d0-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/bloodworms-profile-life-cycle-and-culture-guide/",
+      "caption": "Trùng huyết đỏ tươi cuộn vào nhau.",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "kinds": [
+    {
+      "id": "trung-huyet-dong-lanh",
+      "photo": {
+        "url": "https://media.aquatome.com/aquariumcoop/4c511cefbefd0e99.webp",
+        "thumb": "https://media.aquatome.com/aquariumcoop/4c511cefbefd0e99-480.webp",
+        "width": 1000,
+        "height": 744,
+        "licence": "dùng với sự cho phép",
+        "author": "Aquarium Co-op",
+        "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/fish-food-types",
+        "caption": "Trùng huyết đông lạnh: một vỉ 12 viên trùng huyết đông lạnh.",
+        "source": "aquariumcoop"
+      }
+    },
+    {
+      "id": "trung-huyet-song",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/a67c54dc625fed13.webp",
+        "thumb": "https://media.aquatome.com/commons/a67c54dc625fed13-480.webp",
+        "width": 1200,
+        "height": 911,
+        "licence": "Public domain",
+        "author": "USFWS Mountain Prairie",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Midge_(chironomid)_larvae_at_Seedskadee_National_Wildlife_Refuge_(47519310422).jpg",
+        "caption": "Trùng huyết sống: vài con ấu trùng muỗi lắc màu đỏ trong một khay nước trắng."
+      }
+    },
+    {
+      "id": "trung-huyet-dong-kho",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/f0c9789a4ada2ab8.webp",
+        "thumb": "https://media.aquatome.com/commons/f0c9789a4ada2ab8-480.webp",
+        "width": 1001,
+        "height": 1000,
+        "licence": "CC BY-SA 3.0",
+        "author": "Buchling",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fischfutter-Mueckenlarven.jpg",
+        "caption": "Trùng huyết đông khô: một nhúm trùng huyết đông khô trên nền trắng."
+      }
+    }
+  ]
 }

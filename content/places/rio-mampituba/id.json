@@ -1,8 +1,13 @@
 {
   "slug": "rio-mampituba",
-  "name": "Mampituba",
+  "name": "Sungai Mampituba",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-18T05:55:51.262Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

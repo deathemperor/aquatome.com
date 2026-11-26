@@ -10,7 +10,8 @@
     "cameroon",
     "ndian",
     "nigeria",
-    "cross-river"
+    "cross-river",
+    "funge"
   ],
   "range": {
     "native": {
@@ -153,6 +154,15 @@
         "source": "seriouslyfish",
         "value": 5
       }
+    ],
+    "lifeYears": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 2,
+          "max": 3
+        }
+      }
     ]
   },
   "sections": [
@@ -163,43 +173,97 @@
       "html": "<p>The two-banded lyretail, Aphyosemion bivittatum, is a killifish that appears restricted to coastal plains along the Cameroon and Nigeria border. Its range includes the Korup and Cross River National Parks, and the type locality is close to a waterfall on the Ndian River in southwestern Cameroon.</p><ul><li>Max size: 50 mm SL (2.0 in SL)</li></ul>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-chromaphyosemion-bivittatum-funge-2/",
+      "html": "<p>Chromaphyosemion are wonderful beginner killifishes, as they can definitely be kept in community aquariums with calm small fish. Their life expectancy is as high as of other small fish species, so they are not seasonal fish. Usually such animals become 2-3 years old.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-bivittatum",
       "html": "<p>Type locality is close to a waterfall on the Ndian River in southwestern Cameroon, and appears restricted to the coastal plains either side of the border between Cameroon and Nigeria, including the Korup and Cross River National Parks.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-chromaphyosemion-bivittatum-funge-2/",
+      "html": "<p>The Funge is a river or, rather, estuary in southeastern Cameroon in the district of Ndian. The Funge is less than 40 km long and is part of a system of coastal marshlands whose best known outlet is the Rio del Rey. This in turn is in contact with the Cross River drainage, which forms the border between Cameroon and Nigeria. From this wild, beautiful and internationally protected landscape comes the population of the killifish Aphyosemion bivittatum.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-chromaphyosemion-bivittatum-funge-2/",
+      "html": "<p>Aphyosemion bivittatum is an adhesive spawner that lays its eggs on fine-grained plants, roots, etc. The eggs take about 14 days to develop. Since Aphyosemion bivittatum is considered to be exceptionally voracious, this species will also sometimes eat its own spawn, which is otherwise uncommon in killies.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-bivittatum",
       "html": "<p><strong>Etymology</strong></p><p>Aphyosemion: from the Greek aphúe (ἀφύη), meaning 'a small fish', and semeion (σημεῖον), meaning 'banner, flag', in reference to the \"ornamented, often lyre-shaped\" caudal fin in male individuals of genus members.</p><p>bivittatum: from the Latin bi-, a prefix meaning 'having two parts', and vittatus, meaning 'banded', in reference to this species' typical colour pattern featuring two dark longitudinal bands on the body.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-chromaphyosemion-bivittatum-funge-2/",
+      "html": "<p>Aphyosemion bivittatum belongs to a well defined Aphyosemion group, for which the name Chromaphyosemion is available and preferred within the killifish community. However, scientists concerned with killifish systematics consider it premature to separate some groups from the larger genus Aphyosemion without an overall revision. That is why Chromaphyosemion is currently listed only as a subgenus.</p>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/dbd01c207d8f66da.webp",
-      "width": 960,
-      "height": 664,
-      "licence": "CC BY-SA 4.0",
-      "author": "Mattus1990",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kaprozubka_dvojp%C3%A1sa_-_aphyosemion_bivittatum.jpg",
-      "caption": "♂Aphyosemion bivittatum",
-      "thumb": "https://media.aquatome.com/commons/dbd01c207d8f66da-480.webp",
-      "large": {
-        "url": "https://media.aquatome.com/commons/dbd01c207d8f66da-large.webp",
-        "width": 1734,
-        "height": 1200
-      }
-    },
-    {
       "url": "https://media.aquatome.com/commons/5e19d31c0c91347a.webp",
+      "thumb": "https://media.aquatome.com/commons/5e19d31c0c91347a-480.webp",
       "width": 818,
       "height": 611,
       "licence": "CC BY-SA 3.0",
       "author": "Violaine2, France",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chromaphyosemion_bivittatum.png",
-      "caption": "♂ Aphyosemion bivittatum (syn. Chromaphyosemion bivittatum)",
-      "thumb": "https://media.aquatome.com/commons/5e19d31c0c91347a-480.webp"
+      "caption": "♂ Aphyosemion bivittatum (syn. Chromaphyosemion bivittatum)"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/dbd01c207d8f66da.webp",
+      "thumb": "https://media.aquatome.com/commons/dbd01c207d8f66da-480.webp",
+      "width": 960,
+      "height": 664,
+      "large": {
+        "url": "https://media.aquatome.com/commons/dbd01c207d8f66da-large.webp",
+        "width": 1734,
+        "height": 1200
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Mattus1990",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kaprozubka_dvojp%C3%A1sa_-_aphyosemion_bivittatum.jpg",
+      "caption": "♂Aphyosemion bivittatum"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/68799da36d00f7b9.webp",
+      "thumb": "https://media.aquatome.com/glaser/68799da36d00f7b9-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-chromaphyosemion-bivittatum-funge-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/79f0bed2707f0490.webp",
+      "thumb": "https://media.aquatome.com/glaser/79f0bed2707f0490-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-chromaphyosemion-bivittatum-funge-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/91d1293d233f1465.webp",
+      "thumb": "https://media.aquatome.com/glaser/91d1293d233f1465-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-chromaphyosemion-bivittatum-funge-2/",
+      "source": "glaser"
     }
   ],
   "videos": [],
@@ -219,5 +283,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-23"
 }

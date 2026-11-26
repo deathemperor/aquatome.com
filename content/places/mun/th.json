@@ -1,8 +1,13 @@
 {
   "slug": "mun",
-  "name": "มูล",
+  "name": "แม่น้ำมูล",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-19T18:51:02.855Z"
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

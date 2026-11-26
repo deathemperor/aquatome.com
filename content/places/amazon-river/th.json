@@ -1,8 +1,13 @@
 {
   "slug": "amazon-river",
-  "name": "แอมะซอน",
+  "name": "แม่น้ำแอมะซอน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-18T05:58:31.067Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

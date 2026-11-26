@@ -1,0 +1,51 @@
+{
+  "id": "apistogramma-personata",
+  "native": {
+    "input": "94f2ecfd7470e46f",
+    "at": "2026-11-17T11:42:48.614Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It was collected for the first time in 1995 by Uwe Werner and company near Mitu, Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Vaupes",
+        "source": "glaser",
+        "quote": "The city of Mitu is placed at the banks of the Rio Vaupes.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma personata",
+    "status": "ACCEPTED",
+    "taxonKey": 2371288,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T11:42:48.614Z"
+  }
+}

@@ -3,6 +3,7 @@ import { appendFileSync, mkdtempSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { failureDetail, failureMessage } from './call-failure'
 import { ceilingMessage, costLog, inPiece, stepName } from './ceiling'
 import { envFor, NotTheAccount, onAccounts, tokenHash } from './claude-accounts'
 import { cycleOnlyHosts } from './cycle-only'
@@ -42,10 +43,11 @@ export function cliVersion(): string {
 /** The model that wrote most of a call's answer, by the command's report of each model it used. */
 export const answeredBy = (usage: unknown): string | undefined =>
   Object.entries((usage ?? {}) as Record<string, { outputTokens?: number }>).sort(([, a], [, b]) => (b.outputTokens ?? 0) - (a.outputTokens ?? 0))[0]?.[0]
-export type Llm = <T>(args: { system: string; prompt: string; schema: object; model?: string }) => Promise<T>
+/** `unkept`: the call's prompt is kept in no session on disk (`--no-session-persistence`): a page's text no one may keep. */
+export type Llm = <T>(args: { system: string; prompt: string; schema: object; model?: string; unkept?: boolean }) => Promise<T>
 
 type RunOpts = {
-  tools: string; deny?: string[]; cwd: string; model?: string; timeoutMs?: number; privateImage?: boolean
+  tools: string; deny?: string[]; cwd: string; model?: string; timeoutMs?: number; privateImage?: boolean; unkept?: boolean
   /** MCP servers the call may use (a config file), and the tools it is allowed, by name (`--allowedTools`; `tools` otherwise). */
   mcp?: string; allow?: string; effort?: 'low' | 'medium' | 'high'
   /** Streamed (`stream-json`, partial messages): each event as it comes, with the ms since the call began. */
@@ -59,23 +61,29 @@ type RunOpts = {
  * Before each try, the step's ceiling for the day (ceiling.ts): the engine's own limit, so a step at it fails here with
  * no call made, no account set aside and the next account not tried.
  */
-const run = <T>(system: string, prompt: string, schema: object, opts: RunOpts): Promise<T> => onAccounts(token => {
-  const capped = ceilingMessage(stepName(), costLog())
-  if (capped) return Promise.reject(new NotTheAccount(capped))
-  return once<T>(system, prompt, schema, opts, token)
-}, m => new LlmError(m))
+const run = <T>(system: string, prompt: string, schema: object, opts: RunOpts): Promise<T> => {
+  let attempt = 0 // each account tried is one
+  return onAccounts(token => {
+    const capped = ceilingMessage(stepName(), costLog())
+    if (capped) return Promise.reject(new NotTheAccount(capped))
+    return once<T>(system, prompt, schema, opts, token, ++attempt)
+  }, m => new LlmError(m))
+}
 
-function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, token?: string): Promise<T> {
+function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, token?: string, attempt = 1): Promise<T> {
   return new Promise<T>((resolve, reject) => {
     const allow = opts.allow ?? opts.tools
     const args = ['-p', '--model', modelOf(opts.model), ...(opts.onEvent ? ['--output-format', 'stream-json', '--verbose', '--include-partial-messages'] : ['--output-format', 'json']),
       '--tools', opts.tools, ...(allow ? ['--allowedTools', allow] : []), ...(opts.mcp ? ['--mcp-config', opts.mcp] : []), ...(opts.effort ? ['--effort', opts.effort] : []), ...(opts.deny?.length ? ['--disallowedTools', opts.deny.join(',')] : []),
-      '--setting-sources', '', '--strict-mcp-config', ...(opts.privateImage ? ['--no-session-persistence'] : []), '--system-prompt', system, '--json-schema', JSON.stringify(schema)]
+      '--setting-sources', '', '--strict-mcp-config', ...(opts.privateImage || opts.unkept ? ['--no-session-persistence'] : []), '--system-prompt', system, '--json-schema', JSON.stringify(schema)]
     const started = Date.now()
     const child = spawn('claude', args, { cwd: opts.cwd, stdio: ['pipe', 'pipe', 'pipe'], env: envFor(token) })
     let out = ''
     let err = ''
-    const timer = setTimeout(() => child.kill('SIGTERM'), opts.timeoutMs ?? 10 * 60_000)
+    // The engine's own timer: a call it stops says so, whatever the stopped process printed.
+    const ms = opts.timeoutMs ?? 10 * 60_000
+    let timedOut = false
+    const timer = setTimeout(() => { timedOut = true; child.kill('SIGTERM') }, ms)
     // Decoded across chunks: the pipe cuts a long answer at any byte, and a chunk decoded by itself turns a character cut
     // in two into U+FFFD (a Thai letter is three bytes: 38 Thai pages had one, 2026-11-10).
     child.stdout.setEncoding('utf8')
@@ -91,8 +99,14 @@ function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, 
     })
     child.stderr.on('data', d => (err += d))
     child.on('error', e => reject(new LlmError(e.message)))
-    child.on('close', code => {
+    child.on('close', (code, signal) => {
       clearTimeout(timer)
+      // On GitHub, a line of ours beside the failure for whoever debugs a cloud run (call-failure.ts failureDetail).
+      const failed = (message: string, text?: string, result?: { subtype?: unknown; stop_reason?: unknown }) => {
+        if (process.env.GITHUB_ACTIONS) console.log(failureDetail({ message, text, result, model: modelOf(opts.model), step: stepName(), page: inPiece.getStore(), attempt, code, signal }))
+        return new LlmError(message)
+      }
+      if (timedOut) return reject(failed(`claude timed out after ${Math.round(ms / 1000)} s`))
       try {
         const r = opts.onEvent ? JSON.parse(out.trim().split('\n').reverse().find(l => l.includes('"type":"result"')) ?? '') : JSON.parse(out)
         opts.onResult?.(r)
@@ -109,10 +123,15 @@ function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, 
             console.warn(`ENGINE_COST_LOG: ${(e as Error).message}`) // a log it can't write never fails the call
           }
         }
-        if (r.is_error || code !== 0) return reject(new LlmError(`claude failed (${code}): ${r.result ?? err}`.slice(0, 500)))
+        // On GitHub, whose logs are public, what failed is said in our words and none of the CLI's (call-failure.ts).
+        if (r.is_error || code !== 0) {
+          const text = String(r.result ?? err)
+          return reject(failed(failureMessage(`claude failed (${code})`, text, r).slice(0, 500), text, r))
+        }
         resolve(r.structured_output as T)
       } catch {
-        reject(new LlmError(`claude returned non-JSON (${code}): ${(out || err).slice(0, 300)}`))
+        const text = (out || err).slice(0, 300)
+        reject(failed(failureMessage(`claude returned non-JSON (${code})`, text), text))
       }
     })
     child.stdin.end(prompt)
@@ -120,7 +139,7 @@ function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, 
 }
 
 /** Headless Claude Code on the owner's subscription, lean context (no tools, settings, MCP or default system prompt). */
-export const claudeCli: Llm = <T>({ system, prompt, schema, model }: { system: string; prompt: string; schema: object; model?: string }) => run<T>(system, prompt, schema, { tools: '', cwd: noFiles(), model })
+export const claudeCli: Llm = <T>({ system, prompt, schema, model, unkept }: { system: string; prompt: string; schema: object; model?: string; unkept?: boolean }) => run<T>(system, prompt, schema, { tools: '', cwd: noFiles(), model, unkept })
 
 /**
  * Same, with the tools of MCP servers (a config file) and those alone (`allow`, by their mcp__<server>__<tool> names), streamed:
@@ -160,7 +179,7 @@ const ENGINE_ROOT = fileURLToPath(new URL('../../..', import.meta.url))
  * browser check), or a site refused as a source (cycle-only.ts REFUSED_SITES), read again from the engine's own record before every call, so a source marked since is off at once (the
  * chief of staff, 14 Nov 2026, on the owner's rule that nothing goes round a challenge). Slower, so a longer timeout.
  */
-export const researchFor = (root: string): Llm => async <T>({ system, prompt, schema, model }: { system: string; prompt: string; schema: object; model?: string }) =>
-  run<T>(system, prompt, schema, { tools: 'WebSearch,WebFetch', deny: researchDeny(await cycleOnlyHosts(root)), cwd: noFiles(), model, timeoutMs: 25 * 60_000 })
+export const researchFor = (root: string): Llm => async <T>({ system, prompt, schema, model, unkept }: { system: string; prompt: string; schema: object; model?: string; unkept?: boolean }) =>
+  run<T>(system, prompt, schema, { tools: 'WebSearch,WebFetch', deny: researchDeny(await cycleOnlyHosts(root)), cwd: noFiles(), model, timeoutMs: 25 * 60_000, unkept })
 /** Web research, the one every step uses. */
 export const claudeResearch: Llm = researchFor(ENGINE_ROOT)

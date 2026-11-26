@@ -1,0 +1,48 @@
+{
+  "id": "centromochlus-akwe",
+  "native": {
+    "input": "b94db6f73129c3b5",
+    "at": "2026-11-23T01:48:47.136Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Tocantins-Araguaia River basin, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tocantins-Araguaia",
+        "source": "scotcat",
+        "quote": "South America: Tocantins-Araguaia River basin, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Centromochlus akwe",
+    "status": "ACCEPTED",
+    "taxonKey": 11171077,
+    "datasets": [
+      [
+        "4a28670f-4b90-43a3-a326-5806dbc68563",
+        6
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-23T01:48:47.136Z"
+  }
+}

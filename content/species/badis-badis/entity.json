@@ -23,6 +23,7 @@
       "regions": [
         "Ganges",
         "Mahanadi",
+        "Yamuna",
         "Dibru River"
       ],
       "sources": [
@@ -37,22 +38,24 @@
             "NP",
             "BD"
           ],
-          "regions": []
+          "regions": [
+            "Ganges",
+            "Mahanadi"
+          ]
         },
         {
           "source": "seriouslyfish",
           "quote": "Native to the Ganges River system, from the Yamuna River in Himachal Pradesh state, India, to its delta in Bangladesh.",
           "countries": [],
           "regions": [
-            "Ganges"
+            "Yamuna"
           ]
         },
         {
           "source": "seriouslyfish",
-          "quote": "It is also known from Ganges tributaries in Nepal, while in India there are additional records from the Mahanadi River system in Chhattisgarh and Orissa states, and parts of Assam state including the city of Guwahati, Kaziranga National Park, and the Dibru River basin.",
+          "quote": "It is often associated with water lily beds, and in the Dibru River occurs sympatrically with B. assamensis.",
           "countries": [],
           "regions": [
-            "Mahanadi",
             "Dibru River"
           ]
         }
@@ -398,6 +401,13 @@
           "min": 15,
           "max": 25
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 30
+        }
       }
     ],
     "ph": [
@@ -422,6 +432,10 @@
       {
         "source": "seriouslyfish",
         "value": 6
+      },
+      {
+        "source": "glaser",
+        "value": 5
       }
     ],
     "tankCm": [
@@ -443,6 +457,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/badis-badis",
       "html": "<p>The badis, Badis badis, is a small badid from the Ganges river system in India, Nepal and Bangladesh, with further records in Assam and the Mahanadi. Sometimes sold as the 'chameleon fish' for its ability to change colour rapidly, especially when breeding or stressed, it was one of only two badids popular in the hobby before 2002. Several congeners share its dark cleithral spot and can be hard to tell apart. It is sluggish and retiring, and rival males can be quite aggressive towards one another in confined spaces.</p><ul><li>Max size: 60 mm SL (2.4 in)</li><li>Aquarium size: 80 × 30 cm (31 × 12 in)</li><li>Temperature: 15–25°C (59–77°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 3–15 dGH</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/badis-badis-2/",
+      "html": "<p>The blue perch is a classic among aquarium fish and has been in the hobby for over 100 years. The maximum length of the peaceful animal is 5 cm. Males in courtship display are almost black with sometimes blue shimmering fins, in neutral colouring the animals are reddish brown with vertical black bandages (which can also vanish completely); any colouring between these two extremes is possible depending on the mood, which is why this species is also called chameleon fish.</p>"
     },
     {
       "key": "distribution",
@@ -475,16 +495,34 @@
       "html": "<ul><li>Temperature: 15–25°C (59–77°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 3–15 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/badis-badis-2/",
+      "html": "<p>Badis badis are undemanding as far as water values are concerned. They can be maintained well at room temperature, i.e. without additional heating. The temperature may lie in the range between 18 and 30°C, the fish are very adaptable in this respect. However, they live much longer at lower and fluctuating temperatures.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/badis-badis",
       "html": "<p>Badis species are micropredators feeding on small aquatic crustaceans, worms, insect larvae and other zooplankton. In the aquarium they often refuse dried foods, and should instead be offered small live or frozen fare such as Artemia, Daphnia or glassworm.</p><p>They are somewhat shy, deliberate feeders, and it is also important to note that all species develop issues with obesity and become more susceptible to disease when fed chironomid larvae (bloodworm) and Tubifex, so these should be omitted from the diet.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/badis-badis-2/",
+      "html": "<p>All species of Badis avoid dry food, but are easy to feed with frozen or live food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/badis-badis",
       "html": "<p>This species is sluggish with a retiring nature, and may be intimidated or out-competed for food by larger or aggressive species. Certainly do not combine it with territorial benthic fishes unless the aquarium is very large, and never house it with other Badis species since hybridisation might occur. Also note that freshwater shrimp of the popular genera Caridina and Neocaridina may be preyed upon.</p><p>It is not a gregarious fish as such, and rival males can be quite aggressive towards one another, especially in confined spaces. In these cases only a single pair or one male and several females should be purchased, but in roomier surroundings a group can coexist provided there is space for each male to establish a territory. Well-planned placement of caves can help in this respect; do not be tempted to cluster all available spawning sites in one area, for example.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/badis-badis-2/",
+      "html": "<p>Plants are not damaged by blue perch and other fish are usually ignored. Only very small ones could be considered as food.</p>"
     },
     {
       "key": "dimorphism",
@@ -518,7 +556,7 @@
       "width": 768,
       "height": 496,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Nilanjan Mukherjee / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/badis-badis",
       "caption": "Male individual of Badis cf. badis from Buxa Tiger Reserve, Jalpaiguri district, Weat Bengal state, northern India.",
       "source": "seriouslyfish"
@@ -529,7 +567,7 @@
       "width": 768,
       "height": 576,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Nilanjan Mukherjee / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/badis-badis",
       "caption": "Specimen from Kokrajhar district, Assam state, northern India. This population has appeared in the ornamental trade as B. sp. 'fat face.",
       "source": "seriouslyfish"
@@ -590,5 +628,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-19"
 }

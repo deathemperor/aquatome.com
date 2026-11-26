@@ -3,7 +3,8 @@
 // per problem. A problem still failing updates its issue; a check that passes again closes it. Uses the gh CLI (GH_TOKEN).
 //
 //   site-watch.mjs prepare <site> <dir>      sitemap → <dir>/e2e-pages.json; pages of open issues → <dir>/e2e-recheck.json
-//   site-watch.mjs report <results.json>[,<more.json>] <run-url>    (the page checks, then Lighthouse's own run)
+//   site-watch.mjs report <results.json>[,<more.json>] <run-url>    (the page checks, then Lighthouse's own run, then its second
+//                                                                    measure of the pages that missed: a later file's result wins)
 //   site-watch.mjs deploy-failed <run-url> | deploy-ok <run-url> | deploy-late <run-url>
 //   site-watch.mjs pr-comment <results.json> <pr-number> <run-url>    the AI review's findings as one comment on the PR, and
 //                                                                     how many reviews did not run, and why
@@ -110,6 +111,29 @@ export function checks(report) {
 }
 
 /**
+ * The checks of several reports as one, a later report's result for a check on a form (phone, computer) in place of an
+ * earlier one's: Lighthouse's second measure of the pages that missed (watch.yml) decides them, so a page that passes it
+ * opens no issue on the way. A form the later report didn't measure keeps its first result.
+ */
+export function merged(lists) {
+  const out = new Map()
+  for (const list of lists) for (const c of list) {
+    const was = out.get(c.key)
+    if (!was) { out.set(c.key, c); continue }
+    const again = new Set([...c.failed, ...c.passed])
+    const kept = form => !again.has(form)
+    out.set(c.key, {
+      ...was,
+      failed: [...was.failed.filter(kept), ...c.failed],
+      passed: [...was.passed.filter(kept), ...c.passed],
+      errors: [...was.errors.filter(e => kept(e.slice(0, e.indexOf(':')))), ...c.errors],
+      notes: [...was.notes, ...c.notes], highs: [...was.highs, ...c.highs], skips: [...was.skips, ...c.skips],
+    })
+  }
+  return [...out.values()]
+}
+
+/**
  * The AI review's PR comment, from checks(). A page is reviewed when its review ran: it passed, or failed on what it
  * found. A skip (Claude's usage limit, e2e/claude-limit.ts) or any other failure is a review that did not run, counted
  * under its reason. ci.yml runs the phone project only, so a review's one skip is that reason.
@@ -194,7 +218,7 @@ if (cmd === 'prepare') {
     process.exit(0)
   }
   passing(issues, fingerprint('no-results'), runUrl, 'The checks ran')
-  for (const c of files.flatMap(f => checks(JSON.parse(readFileSync(f, 'utf8'))))) {
+  for (const c of merged(files.map(f => checks(JSON.parse(readFileSync(f, 'utf8')))))) {
     const fp = fingerprint(c.key)
     // The page a check is about (a page check, a review, Lighthouse): rechecked every run until it passes (prepare).
     const path = checkedPage(c.title)

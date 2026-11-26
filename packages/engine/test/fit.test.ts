@@ -1,7 +1,8 @@
 import { expect, test } from 'vitest'
-import { CHECKLIST, dealerNotice, doseGroups, fitCounts, fitDue, fitFindings, fitKey, fitOrder, fitPrompt, fitReport, fitRules, fitText, hasDose, keepCautions, keepDoses, keepFit, productOf, readFit, runFit, type FitCheck, type FitDose } from '../src/fit'
+import { CHECKLIST, dealerNotice, dealerShelf, doseGroups, fitCounts, fitDue, fitFindings, fitKey, fitOrder, fitPrompt, fitReport, fitRules, fitText, hasDose, keepCautions, keepDoses, keepFit, openUnread, productOf, readFit, runFit, SHELF_WHY, type FitCheck, type FitDose } from '../src/fit'
 import { LlmError, type Llm } from '../src/claude'
 import type { Page } from '../src/pages'
+import { retiredTo } from '@aq/schema'
 import { mkdtemp, readFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -293,10 +294,34 @@ test('the report counts and never lists a page', () => {
   const a = page('<p>Mua trên Amazon.</p>', { id: 'a-secret-slug' })
   const entry = { at: '2026-11-08', hash: fitText(a).hash, model: 'm', findings: [], products: ['Hikari', 'hikari', 'Ich-X'] }
   const md = fitReport([a], { 'vi/guides/a-secret-slug': entry })
-  expect(md).toContain('| Vietnamese | 1 | 1 | 1 | 1 | 1 |') // its product and its shop
+  expect(md).toContain('| Vietnamese | 1 | 1 | – | 1 | 1 | 1 |') // its product and its shop; no holds given, no open count
   expect(md).toContain('- hikari: 1') // a product to look up next
   expect(md).not.toContain('a-secret-slug')
   expect(md).not.toContain('ich-x')
+})
+
+// The chief of staff, 20 Nov 2026: until a push can't publish a page no read covers, the report counts the open pages
+// whose text no saved read is of, which nothing else reads.
+test('the report counts the open pages whose text no read is of, and leaves the held ones out', () => {
+  const read = page('<p>Ổn.</p>', { id: 'read' })
+  const changed = page('<p>Đã sửa.</p>', { id: 'changed' })
+  const none = page('<p>Chưa đọc.</p>', { id: 'none' })
+  const held = page('<p>Bị giữ.</p>', { id: 'held' })
+  const entry = (p: Page, hash = fitText(p).hash) => ({ at: '2026-11-08', hash, model: 'm', findings: [], products: [] })
+  const state = { 'vi/guides/read': entry(read), 'vi/guides/changed': entry(changed, 'old text'), 'vi/guides/held': entry(held, 'old text') }
+  const holds = new Map([['content/guides/held/vi.json', { checks: ['source'], at: '2026-11-08' }]])
+  // Read as it is: not counted; read on older text, or never: counted; held: not counted, the gate reads it.
+  expect(openUnread([read, changed, none, held], state, holds, 'vi')).toBe(2)
+  expect(fitReport([read, changed, none, held], state, holds)).toContain('| Vietnamese | 4 | 1 | 2 |')
+  expect(openUnread([read, changed, none, held], state, new Map(), 'vi')).toBe(3)
+})
+
+// A reader of #1731: a retired guide is no page (the site leaves it out, its addresses forwarding), so it isn't counted.
+test('a retired guide is not among the open pages no read covers', () => {
+  const gone = page('<p>Đã nghỉ.</p>', { id: 'aquariumcoop-blogs-aquarium-aquarium-shopping-list' })
+  expect(retiredTo(gone.id)).toBe('guides')
+  expect(openUnread([gone], {}, new Map(), 'vi')).toBe(0)
+  expect(openUnread([page('<p>Đã nghỉ.</p>', { id: 'still-here' })], {}, new Map(), 'vi')).toBe(1)
 })
 
 test('the counts: pages with a finding by check, and in all with words apart', () => {
@@ -645,6 +670,61 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
   expect(fitRules(page('<h3>Cây về yếu thì chuyện gì đã xảy ra</h3><p>Cây ở lô này nằm ngoài nước khá lâu và được cất trong tủ lạnh trước khi trồng.</p>', { kind: 'species' })).filter(f => f.why.startsWith('a dealer'))).toEqual([])
   // Only Vietnamese, for now.
   expect(fitRules(page('<p>Bây giờ dạng thuần đã có hàng trở lại.</p>', { lang: 'id', path: '/id/panduan/g/' })).filter(f => f.why.startsWith('a dealer'))).toEqual([])
+})
+
+// The chief of staff, 15 Nov 2026: in a dealer's own part, what is true anywhere stays and the dealer's shelf goes. Lines
+// as the site had them on 16 Nov (aquariumglaser's parts).
+test('a dealer\'s shelf in its own part is named, a sentence that also gives a place or a look is left, and trade facts stay', () => {
+  const named = [
+    'Cỡ cá thường bán: 6–8 cm.', 'Kích thước hiện có: 6-8 cm.', 'Kích thước cá thường có bán: 8–10 cm.', 'Cỡ cá về tiệm: 10–12 cm.',
+    'Cá bán ra thường có cỡ 4-5 cm.', 'Cá bán ngoài tiệm thường dài 5-7 cm.', 'Lứa cá hiện có dài khoảng 7-9 cm.', 'những con cá hiện có dài 5-7 cm.',
+    'Hiện trên thị trường có cả cá bắt ngoài tự nhiên lẫn cá trại.', 'Hiện đã có cá bắt ngoài tự nhiên bán trên thị trường.',
+    'Những con đang bán trên thị trường là cá nhân giống ở Đức.', 'Tuy vậy, cá đang có trên thị trường hiện nay là cá nhân giống ở Đức.',
+    'Những con đang bán đều là cá sinh sản trong bể, do người nuôi ở châu Âu nhân giống.', 'Hiện có một ít cá do trại ở Đức cho đẻ.',
+  ]
+  const left = [
+    // A place, but the dealer's own country: without its stock words it would say where every such fish is from.
+    'Hiện có cá lau kính dẹt nhập từ Peru, dài 10-13 cm.', 'Hiện đã có cá nhân giống ở Đức, thuộc quần thể từ sông Oyapoc.',
+    // A look, a maximum, how rare.
+    'Cá đang bán hiện nay dài 10-12 cm và màu khá xỉn.', 'Hiện có cá Desmopuntius hexazona đánh bắt ngoài tự nhiên, rất đẹp, đã đạt kích thước tối đa (5-6 cm).',
+    'Loài này rất hiếm khi về hàng, và lần nhập vừa rồi cũng chỉ có được vài con.',
+    // A figure besides the size on offer, or more after it; a sentence the mend reads whole, past a semicolon or an initial.
+    'Cỡ cá hiện có: 4-5 cm, trưởng thành dài tới 30 cm.', 'Cá bán ra thường dài 3-5 cm, lớn nhanh.',
+    'Cỡ cá thường bán: 4-5 cm; cá trưởng thành dài 12 cm.', 'Hiện trên thị trường đang có cá A. atahualpa đánh bắt tự nhiên từ Peru.',
+    // The line's history, a caution, advice (the fresh read of #1488).
+    'Cá bán ra là cá trại ở Đức, còn đàn bố mẹ ban đầu do một người chơi tự nhập về.',
+    'Trong đợt nhập vừa rồi, nhiều con chết vì sốc nước, nên bạn cần thả cá thật chậm.', 'Cá bán ra thường dài 3 cm và cần ăn thức ăn sống cỡ nhỏ.',
+  ]
+  const stays = [
+    'Gần như toàn bộ cá bán ra là cá nhân giống.', 'Cá hô con đang bán hiện nay đều xuất phát từ trại nuôi thủy sản.', 'Tiếc là loài này rất hiếm khi có bán.',
+    'Loài này thường được bán dưới tên Rasbora taeniata.', 'Chi này hiện có mười loài.', 'Cá lớn được tới cỡ bán sau vài tháng.',
+    // The bitterling's caution not to let mussels go: what's sold beside the fish, never a shelf of fish.
+    'Trên thị trường có rất nhiều loài trai khác nhau, trong đó có cả loài ngoại lai.', 'Cá dài tối đa 2 cm.', 'Xuất xứ: Thái Lan.',
+    // The species' forms, which the next lines describe.
+    'Trên thị trường hiện có hai dạng của loài này.',
+    // The trade's, with no now; fish in keepers' tanks, not on sale; a caution (the fresh read of #1488).
+    'Ngoài thị trường có cả cá bắt từ tự nhiên lẫn cá nhân giống.', 'Trên thị trường có cá do người Đức nhân giống.',
+    'Loài này hiện có mặt trong bể của nhiều người nuôi ở châu Âu.', 'Trên thị trường có cá bị tiêm thuốc nhuộm, bạn đừng mua.',
+    'Trên thị trường có cả cá bắt tự nhiên từ Guinea lẫn cá nhân giống từ Indonesia.',
+  ]
+  for (const s of named) expect(dealerShelf(s), s).toEqual({ named: [s], left: [] })
+  for (const s of left) expect(dealerShelf(s), s).toEqual({ named: [], left: [s] })
+  for (const s of stays) expect(dealerShelf(s), s).toEqual({ named: [], left: [] })
+  // In a part, each sentence by itself.
+  expect(dealerShelf('Cá dài tối đa 2 cm. Xuất xứ: Thái Lan. Cỡ cá thường bán: 1,5–2 cm.')).toEqual({ named: ['Cỡ cá thường bán: 1,5–2 cm.'], left: [] })
+  // One the next sentence leans on stays: cut, it would leave "Chúng sống với nhau khá hòa thuận" said of every such fish,
+  // a predator's, when it was said of one batch of young (Hoplias malabaricus on the site, the fresh read of #1488).
+  expect(dealerShelf('Hiện đã có cá con do người nuôi ở Đức cho sinh sản. Lứa này đang dài 6-8 cm. Chúng sống với nhau khá hòa thuận, miễn là được ăn đủ.'))
+    .toEqual({ named: [], left: ['Hiện đã có cá con do người nuôi ở Đức cho sinh sản.'] })
+  expect(dealerShelf('Cỡ cá thường bán: 6–8 cm. Chúng cần bể lớn.')).toEqual({ named: [], left: ['Cỡ cá thường bán: 6–8 cm.'] })
+
+  // Named as a source finding, its sentence whole, only in a shop's own part and in Vietnamese.
+  const shelf = (field: string, o: Partial<Page> = {}) => fitRules(page('', { kind: 'species', path: '/vi/ca/g/', fields: [{ field, html: '<p>Cá dài tối đa 2 cm. Cỡ cá thường bán: 1,5–2 cm.</p>' }], ...o })).filter(f => f.why === SHELF_WHY)
+  expect(shelf('sections.quickFacts:glaser').map(f => [f.check, f.quote])).toEqual([['source', 'Cỡ cá thường bán: 1,5–2 cm.']])
+  expect(shelf('sections.quickFacts:bwaquatics')).toHaveLength(1)
+  expect(shelf('sections.quickFacts:seriouslyfish')).toEqual([])
+  expect(shelf('body')).toEqual([])
+  expect(shelf('sections.quickFacts:glaser', { lang: 'id', path: '/id/ikan/g/' })).toEqual([])
 })
 
 // The Writing Lead, 14 Nov 2026: the glowlight tetra's "Lá dẻ gai hay lá sồi đều dùng được" passed the read.

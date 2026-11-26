@@ -142,25 +142,25 @@ struct TankVolumeView: View {
 
   private var result: AttributedString {
     switch form.outcome {
-    case .failure(.missing(let key)): return line(AttributedString(localized: "Nhập \(label(key).lowercased())."), .secondary)
-    case .failure(.tooLong(let pane, let side)): return line(AttributedString(localized: "\(label(pane)) phải ngắn hơn \(than(side))."), Color.warning)
-    case .failure(.fill): return line(AttributedString(localized: "Mực nước phải lớn hơn 0 và không cao hơn bể."), Color.warning)
+    case .failure(.missing(let key)): return line(AttributedString(localized: "Nhập \(label(key).lowercased()).", bundle: .app), .secondary)
+    case .failure(.tooLong(let pane, let side)): return line(AttributedString(localized: "\(label(pane)) phải ngắn hơn \(than(side)).", bundle: .app), Color.warning)
+    case .failure(.fill): return line(AttributedString(localized: "Mực nước phải lớn hơn 0 và không cao hơn bể.", bundle: .app), Color.warning)
     case .success(let w):
-      var big = AttributedString(localized: "\(number(w.volume.litres, 1)) lít")
+      var big = AttributedString(localized: "\(number(w.volume.litres, 1)) lít", bundle: .app)
       big.font = .largeTitle.bold()
-      var text = big + AttributedString(" ") + line(AttributedString(localized: "(\(number(w.volume.gallons, 1)) gallon Mỹ)"), .secondary)
-      if let f = w.volume.filled { text += "\n" + AttributedString(localized: "Tới mực nước: **\(number(f, 1)) lít**.") }
+      var text = big + AttributedString(" ") + line(AttributedString(localized: "(\(number(w.volume.gallons, 1)) gallon Mỹ)", bundle: .app), .secondary)
+      if let f = w.volume.filled { text += "\n" + AttributedString(localized: "Tới mực nước: **\(number(f, 1)) lít**.", bundle: .app) }
       let water = number(w.water, 0)
-      text += "\n" + AttributedString(localized: "Nước thực tế sau khi trải nền, đặt đá lũa: khoảng **\(water) lít** (\(water) kg nước).")
+      text += "\n" + AttributedString(localized: "Nước thực tế sau khi trải nền, đặt đá lũa: khoảng **\(water) lít** (\(water) kg nước).", bundle: .app)
       if let g = w.glass {
         if let order = g.order, let kg = w.glassKg {
-          text += "\n" + AttributedString(localized: "Kính trước tối thiểu \(number(g.min, 1)) mm → đặt kính **\(order) mm**, kính nặng khoảng \(number(kg, 0)) kg.")
+          text += "\n" + AttributedString(localized: "Kính trước tối thiểu \(number(g.min, 1)) mm → đặt kính **\(order) mm**, kính nặng khoảng \(number(kg, 0)) kg.", bundle: .app)
         } else {
-          text += "\n" + line(AttributedString(localized: "Kính cần dày hơn 19 mm (tối thiểu \(number(g.min, 1)) mm): bể cỡ này cần kính dán nhiều lớp hoặc giằng, nên để thợ tính."), Color.warning)
+          text += "\n" + line(AttributedString(localized: "Kính cần dày hơn 19 mm (tối thiểu \(number(g.min, 1)) mm): bể cỡ này cần kính dán nhiều lớp hoặc giằng, nên để thợ tính.", bundle: .app), Color.warning)
         }
       }
       if let path = w.heaterPath(tools: handbook.language.path("cong-cu")) {
-        text += "\n" + link(AttributedString(localized: "Cần sưởi bao nhiêu W cho bể này →"), path)
+        text += "\n" + link(AttributedString(localized: "Cần sưởi bao nhiêu W cho bể này →", bundle: .app), path)
       }
       return text
     }
@@ -169,10 +169,10 @@ struct TankVolumeView: View {
   /// The page's note and its ready-made tanks, as the app draws a table: the first cell, then each other under its
   /// heading. (Its questions, for search engines, restate what the tool shows: left out, for the app's size.)
   private var page: AttributedString {
-    var text = line(AttributedString(localized: "Đo lòng bể (trừ độ dày kính). Lượng nước thực tế tính bằng \(number(TankVolume.waterShare * 100, 0) + "%") thể tích, sau khi trải nền, đặt đá lũa và chừa mép trên. Độ dày kính tính cho kính thường (kính nổi, không phải kính cường lực), hệ số an toàn 3,8, chỉ áp dụng cho bể hộp; bể đặt làm nên hỏi thêm thợ."), .secondary)
-    text += "\n\n" + heading(AttributedString(localized: "Bể bán sẵn: bao nhiêu lít, kính bao nhiêu mm"))
-    text += "\n" + line(AttributedString(localized: "Dài × rộng × cao (cm)"), .secondary)
-    let head = [String(localized: "Thể tích (lít)"), String(localized: "Nước thực tế (lít)"), String(localized: "Kính (mm)"), String(localized: "Nặng khi đầy (kg)")]
+    var text = line(AttributedString(localized: "Đo lòng bể (trừ độ dày kính). Lượng nước thực tế tính bằng \(number(TankVolume.waterShare * 100, 0) + "%") thể tích, sau khi trải nền, đặt đá lũa và chừa mép trên. Độ dày kính tính cho kính thường (kính nổi, không phải kính cường lực), hệ số an toàn 3,8, chỉ áp dụng cho bể hộp; bể đặt làm nên hỏi thêm thợ.", bundle: .app), .secondary)
+    text += "\n\n" + heading(AttributedString(localized: "Bể bán sẵn: bao nhiêu lít, kính bao nhiêu mm", bundle: .app))
+    text += "\n" + line(AttributedString(localized: "Dài × rộng × cao (cm)", bundle: .app), .secondary)
+    let head = [String(localized: "Thể tích (lít)", bundle: .app), String(localized: "Nước thực tế (lít)", bundle: .app), String(localized: "Kính (mm)", bundle: .app), String(localized: "Nặng khi đầy (kg)", bundle: .app)]
     for r in TankVolume.readyMade {
       var size = link(AttributedString("\(Int(r.l)) × \(Int(r.w)) × \(Int(r.h))"), "/vi/cong-cu/the-tich-be/?hinh=chu-nhat&l=\(Int(r.l))&w=\(Int(r.w))&h=\(Int(r.h))")
       size.font = .body.bold()
@@ -180,7 +180,7 @@ struct TankVolumeView: View {
       text += "\n\n" + size + "\n"
       for i in head.indices { text += AttributedString((i > 0 ? " · " : "") + head[i] + ": " + cells[i]) }
     }
-    text += "\n\n" + line(AttributedString(localized: "Cân nặng gồm nước, kính và khoảng \("15%") thể tích là nền (cát, phân nền), chưa tính tủ. Bể từ 100 lít nên đặt trên tủ chuyên dụng, sàn chịu lực."), .secondary)
+    text += "\n\n" + line(AttributedString(localized: "Cân nặng gồm nước, kính và khoảng \("15%") thể tích là nền (cát, phân nền), chưa tính tủ. Bể từ 100 lít nên đặt trên tủ chuyên dụng, sàn chịu lực.", bundle: .app), .secondary)
     return text
   }
 
@@ -218,7 +218,7 @@ struct TankVolumeView: View {
         try tanks.change(id, change)
         tank = kept
       } else if tanks.tanks.count >= maxTanks {
-        said = line(AttributedString(localized: "Đã đủ 50 bể: xóa bớt bể cũ để thêm."), Color.warning)
+        said = line(AttributedString(localized: "Đã đủ 50 bể: xóa bớt bể cũ để thêm.", bundle: .app), Color.warning)
         return
       } else {
         let typed = name.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -226,17 +226,17 @@ struct TankVolumeView: View {
         target = tank.id
         name = ""
       }
-      said = AttributedString(localized: "Đã lưu vào “\(tank.name)”.") + " "
-        + link(AttributedString(localized: "Xem trong Bể của tôi →"), "/vi/cong-cu/be-cua-toi/#be-\(tank.id)")
+      said = AttributedString(localized: "Đã lưu vào “\(tank.name)”.", bundle: .app) + " "
+        + link(AttributedString(localized: "Xem trong Bể của tôi →", bundle: .app), "/vi/cong-cu/be-cua-toi/#be-\(tank.id)")
     } catch {
-      said = line(AttributedString(localized: "Chưa lưu được thay đổi. Thử lại."), Color.warning)
+      said = line(AttributedString(localized: "Chưa lưu được thay đổi. Thử lại.", bundle: .app), Color.warning)
     }
   }
 
   /// A new tank's name when none is typed: a box by its sides, any other shape by its name and litres.
   private func defaultName(_ w: Worked, _ put: Worked.Save) -> String {
-    if case let .dims(l, wd, h) = put { return String(localized: "Bể \(number(l, 1)) × \(number(wd, 1)) × \(number(h, 1))") }
-    return String(localized: "\(shapeName(w.shape)), \(number(w.volume.litres, 1)) lít")
+    if case let .dims(l, wd, h) = put { return String(localized: "Bể \(number(l, 1)) × \(number(wd, 1)) × \(number(h, 1))", bundle: .app) }
+    return String(localized: "\(shapeName(w.shape)), \(number(w.volume.litres, 1)) lít", bundle: .app)
   }
 
   // MARK: Words
@@ -248,52 +248,52 @@ struct TankVolumeView: View {
 
   private func shapeName(_ s: TankShape) -> String {
     switch s {
-    case .box: String(localized: "Chữ nhật")
-    case .cube: String(localized: "Lập phương")
-    case .hexagon: String(localized: "Lục giác")
-    case .octagon: String(localized: "Bát giác")
-    case .flatBackHexagon: String(localized: "Lục giác lưng phẳng")
-    case .cylinder: String(localized: "Trụ tròn")
-    case .halfCylinder: String(localized: "Nửa trụ")
-    case .quarterCircle: String(localized: "Góc ¼ tròn")
-    case .ellipse: String(localized: "Elip")
-    case .cornerPentagon: String(localized: "Ngũ giác góc")
-    case .lShape: String(localized: "Chữ L")
-    case .cornerTriangle: String(localized: "Tam giác góc")
+    case .box: String(localized: "Chữ nhật", bundle: .app)
+    case .cube: String(localized: "Lập phương", bundle: .app)
+    case .hexagon: String(localized: "Lục giác", bundle: .app)
+    case .octagon: String(localized: "Bát giác", bundle: .app)
+    case .flatBackHexagon: String(localized: "Lục giác lưng phẳng", bundle: .app)
+    case .cylinder: String(localized: "Trụ tròn", bundle: .app)
+    case .halfCylinder: String(localized: "Nửa trụ", bundle: .app)
+    case .quarterCircle: String(localized: "Góc ¼ tròn", bundle: .app)
+    case .ellipse: String(localized: "Elip", bundle: .app)
+    case .cornerPentagon: String(localized: "Ngũ giác góc", bundle: .app)
+    case .lShape: String(localized: "Chữ L", bundle: .app)
+    case .cornerTriangle: String(localized: "Tam giác góc", bundle: .app)
     }
   }
 
   /// A size's box, by its key in this shape.
   private func label(_ key: String) -> String {
     switch (key, form.shape) {
-    case ("l", .cube): String(localized: "Cạnh")
-    case ("l", _): String(localized: "Dài")
-    case ("w", _): String(localized: "Rộng")
-    case ("h", _): String(localized: "Cao")
-    case ("f", _): String(localized: "Kính trước")
-    case ("e", _): String(localized: "Kính hông")
-    case ("d", .halfCylinder): String(localized: "Dài (lưng phẳng)")
-    case ("d", _): String(localized: "Đường kính")
-    case ("r", _), ("a", .cornerPentagon): String(localized: "Cạnh áp tường")
-    case ("a", _): String(localized: "Cạnh 1")
-    case ("b", .cornerPentagon): String(localized: "Cạnh ngắn")
-    case ("b", _): String(localized: "Cạnh 2")
-    case ("l1", _): String(localized: "Dài nhánh 1")
-    case ("w1", _): String(localized: "Rộng nhánh 1")
-    case ("l2", _): String(localized: "Dài nhánh 2")
-    case ("w2", _): String(localized: "Rộng nhánh 2")
-    default: String(localized: "Mực nước (không bắt buộc)")
+    case ("l", .cube): String(localized: "Cạnh", bundle: .app)
+    case ("l", _): String(localized: "Dài", bundle: .app)
+    case ("w", _): String(localized: "Rộng", bundle: .app)
+    case ("h", _): String(localized: "Cao", bundle: .app)
+    case ("f", _): String(localized: "Kính trước", bundle: .app)
+    case ("e", _): String(localized: "Kính hông", bundle: .app)
+    case ("d", .halfCylinder): String(localized: "Dài (lưng phẳng)", bundle: .app)
+    case ("d", _): String(localized: "Đường kính", bundle: .app)
+    case ("r", _), ("a", .cornerPentagon): String(localized: "Cạnh áp tường", bundle: .app)
+    case ("a", _): String(localized: "Cạnh 1", bundle: .app)
+    case ("b", .cornerPentagon): String(localized: "Cạnh ngắn", bundle: .app)
+    case ("b", _): String(localized: "Cạnh 2", bundle: .app)
+    case ("l1", _): String(localized: "Dài nhánh 1", bundle: .app)
+    case ("w1", _): String(localized: "Rộng nhánh 1", bundle: .app)
+    case ("l2", _): String(localized: "Dài nhánh 2", bundle: .app)
+    case ("w2", _): String(localized: "Rộng nhánh 2", bundle: .app)
+    default: String(localized: "Mực nước (không bắt buộc)", bundle: .app)
     }
   }
 
   /// The side a pane must be shorter than, as the site's refusal names it.
   private func than(_ key: String) -> String {
     switch key {
-    case "l": String(localized: "chiều dài")
-    case "w": String(localized: "chiều rộng")
-    case "a": String(localized: "cạnh áp tường")
-    case "l1": String(localized: "dài nhánh 1")
-    default: String(localized: "dài nhánh 2")
+    case "l": String(localized: "chiều dài", bundle: .app)
+    case "w": String(localized: "chiều rộng", bundle: .app)
+    case "a": String(localized: "cạnh áp tường", bundle: .app)
+    case "l1": String(localized: "dài nhánh 1", bundle: .app)
+    default: String(localized: "dài nhánh 2", bundle: .app)
     }
   }
 }

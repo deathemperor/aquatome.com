@@ -1,0 +1,335 @@
+{
+  "id": "asolene-spixii",
+  "scientificName": "Asolene spixii",
+  "order": "Architaenioglossa",
+  "family": "Ampullariidae",
+  "genus": "Asolene",
+  "group": "snails",
+  "places": [
+    "south-america",
+    "argentina",
+    "formosa",
+    "brazil",
+    "rio-grande-do-sul",
+    "bolivia",
+    "santa-cruz",
+    "paraguay",
+    "alto-parana",
+    "uruguay",
+    "cerro-largo",
+    "peru"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "AR",
+        "BR",
+        "BO",
+        "PY",
+        "UY",
+        "PE"
+      ],
+      "regions": [
+        "Amazon"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "These snails originate in South America: Argentina (provinces of Formosa, Chaco, Corrientes); southern Brazil (Rio Grande do Sul, Mato Grosso); Bolivia (Santa Cruz de la Sierra department, Chiquitos province); Paraguay (Alto Paraná, Itapuá, Ñeembucú departments); Uruguay (Cerro Largo department); Peru: known for the Amazon.",
+          "countries": [
+            "AR",
+            "BR",
+            "BO",
+            "PY",
+            "UY",
+            "PE"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7412117,
+      "total": 18,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "AR",
+          8
+        ],
+        [
+          "BR",
+          8
+        ],
+        [
+          "MX",
+          1
+        ],
+        [
+          "UY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -94.21875,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -32.34375,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -28.125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -35.15625,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -28.125,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -33.75,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -30.9375,
+          5,
+          5
+        ],
+        [
+          -50.625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 4,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 3
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 2,
+          "max": 3
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/spixi-snail-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Name: Spixi snail</li><li>Other names: Spixi Apple Snail, Zebra Apple Snail</li><li>Scientific name: Asolene spixi</li><li>Minimum tank size: 10 litres</li><li>Breeding: medium</li><li>Optimal KH: 3–8</li><li>Dwellers: mid and bottom</li><li>Nitrate: less than 20</li><li>Diet: omnivore</li><li>Temperament: peaceful (with caution)</li><li>Colour form: yellow with black stripes</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/spixi-snail-guide-care-diet-and-breeding/",
+      "html": "<p>Asolene spixi is one of the most beautiful and, at the same time, the rarest snail species in the aquarium hobby nowadays. There is a lot of conflicting information about them. Although they are not the best algae-eaters, Spixi snails can eat pests like hydra.</p><p>Important: Asolene spixi has been made illegal to cross state lines, so check your state laws before purchase. The reason for this restriction is that it belongs to the notorious Ampullariidae family, which includes Pomacea canaliculata (pest snail). Pomacea canaliculata is on the list of the world's worst 100 invasive alien species (and top 40 in Europe) because of its potential effect on the ecosystem and huge economic losses, especially in Asia.</p><p>Because of several pest snails in the Ampullariidae family, Asolene spixi was restricted as well, just in case. Spixi snails are not illegal to keep, so you would have to find a local breeder.</p><p>They are nearly impossible to find nowadays. If you manage to get Spixi snails, make sure they are not hybrids, because hybrids can be very destructive in planted tanks and too aggressive towards smaller snails.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/spixi-snail-guide-care-diet-and-breeding/",
+      "html": "<p>These snails originate in South America: Argentina (provinces of Formosa, Chaco, Corrientes); southern Brazil (Rio Grande do Sul, Mato Grosso); Bolivia (Santa Cruz de la Sierra department, Chiquitos province); Paraguay (Alto Paraná, Itapuá, Ñeembucú departments); Uruguay (Cerro Largo department); Peru: known for the Amazon.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/spixi-snail-guide-care-diet-and-breeding/",
+      "html": "<p>They are common in ponds, ditches, shallow lagoons, slow-moving streams and rivers with loamy and sandy bottoms. Spixi snails prefer an environment with a lot of vegetation.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/spixi-snail-guide-care-diet-and-breeding/",
+      "html": "<p>Spixi snails do not require a lot of space. They can live even in a 10-litre tank.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/spixi-snail-guide-care-diet-and-breeding/",
+      "html": "<p>This is a hardy species that is not too fussy about water parameters. Aim for a pH between 7.0 and 8.0 and a hardness between 0 and 20.</p><p>Although they can tolerate pH 6.5, it is better not to leave them in acidic water for a long time (weeks). Acidic water slowly dissolves their shell (usually in the form of tiny holes).</p><p>Spixi snails can thrive in a wide range of temperatures, 18–30°C. However, the optimal temperature is 24–28°C. When the temperature drops too low, Spixi snails tend to bury themselves and hibernate until it is warm enough.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/spixi-snail-guide-care-diet-and-breeding/",
+      "html": "<p><strong>Lighting:</strong> Spixi snails do not really need light, as they are nocturnal. Lighting should be adapted to the needs of the plants and fish in the tank.</p><p><strong>Filtration:</strong> There are no special requirements. As long as the filter suits the size of the tank, it will be fine.</p><p><strong>Substrate:</strong> Ideally, use a substrate that allows the snails to bury themselves, so sand and soil substrates are the best choice. Some people keep them in bare-bottom tanks or on gravel, but we need to replicate their natural environment; otherwise it can constantly stress Spixi snails and shorten their life span.</p><p>Make sure the tank is set up correctly and the water is properly cycled, so that beneficial bacteria convert harmful compounds into less harmful ones. Like all invertebrates, they need careful acclimation.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/spixi-snail-guide-care-diet-and-breeding/",
+      "html": "<p>Although Spixi snails can feed on algae, they are mostly detritivores. They prefer decomposing plant and animal matter to anything else.</p><p>They will eat the same food you feed your fish and shrimp (shrimp pellets, shrimp granules, fish flakes, algae wafers, etc.), but mostly survive on what is in the tank. They may even pick up crumbs and leftovers. They are natural scavengers.</p><p>Add blanched vegetables such as carrot, sprouts, spinach, cucumber and zucchini.</p><p>Like all other snails, they need a calcium supplement to keep their shells beautiful and healthy. Calcium prevents shell deterioration.</p><p>Like other invertebrates, Spixi snails are sensitive to copper and copper compounds. When purchasing aquarium fertilizers, make sure they do not contain copper-based chemicals.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/spixi-snail-guide-care-diet-and-breeding/",
+      "html": "<p>Spixi snails can be shy and quiet, especially when newly introduced into an aquarium.</p><p>They are mostly nocturnal and during the day they often bury themselves in the substrate, though not completely; the top of the shell is still visible. By doing so they prevent a gas pocket from building up, which can be dangerous to fish or shrimp.</p><p>Although most active at night, when hungry they are fairly active at any time. They can also attach themselves to the water surface (because of surface tension).</p><p>Spixi snails are not social and do not care about being in a group of their own kind.</p><p>They will not show aggression towards other snails unless they are very hungry and the potential prey is small enough to be completely covered by their foot. Nonetheless, predation on eggs and snails has been well documented.</p><p><strong>Plant safety:</strong> Although usually compatible with a planted tank, they are not completely plant safe. If given a chance, they may eat soft and tender plants (like Frogbit or cryptocorynes) even when well fed. Unlike other plant-eating snails (like Marisa cornuarietis, the Giant Colombian Ramshorn snail), they only nibble small holes rather than chop off entire leaves. It depends on several things:</p><ul><li>Type of plants: Spixi snails do not have a strong radula (a tooth-studded tongue) and cannot eat hard plants.</li><li>Age: they are more prone to eating live plants when young. Feeding them vegetables should curb their appetite for aquarium plants to some degree.</li><li>Cross-breeding: Spixi snails can interbreed with Marisa cornuarietis. These hybrids can feed on any living and decaying aquatic plants, so do not mix them.</li></ul><p><strong>Do they eat hydra?</strong> There is some disagreement as to whether Spixi snails eat hydra. Some reports say they paid no attention to hydra, while many aquarists claim they eat all the hydras in their tank within days (weeks). Some people believe that only hybrids of Spixi snails and Marisa cornuarietis eat hydras, but because they look alike, people mistakenly think Spixi snails do it as well.</p><p><strong>Tank mates:</strong></p><p>Snails: Spixi snails can be semi-aggressive, so be very careful when keeping them with other snails, as they are capable of eating their eggs and baby snails, especially species without a operculum to protect the foot, since they must grasp the foot to consume a snail. There are several reports of them completely suppressing populations of Malaysian trumpet snails, pond snails and bladder snails, but there is still a good chance that well-fed Spixi snails will not bother other snails at all. Do not keep them with Marisa cornuarietis: they will crossbreed and the hybrids are more aggressive. They are not very effective against other snails and are not built to eat snails like Assassin snails; Assassin snails will easily overpower and eat Spixi snails.</p><p>Fish: Spixi snails should not be kept with Botia lohacata, cichlids, loaches and goldfish. Some fish do not eat the snails but eat the exposed eyestalks or long tentacles. Tank mates should be other calm and peaceful community tank fish (for example, pygmy corydoras and Otocinclus).</p><p>Dwarf shrimp: shrimp that prefer slightly alkaline water are the best choice, for example vampire shrimp, bamboo shrimp, Amano shrimp, ghost shrimp, cherry shrimp, blue tiger shrimp, snowball shrimp, Caridina cf. babaulti, blue velvet shrimp, Malawa shrimp, etc.</p><p>Crayfish: keep Spixi snails away from all types of crayfish (even dwarf Mexican crayfish) and even some predatory shrimp such as the Macrobrachium family. All of them can be very aggressive towards the snails.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/spixi-snail-guide-care-diet-and-breeding/",
+      "html": "<p>There is no visible sexual dimorphism between males and females. In all copulations observed, males were a little smaller than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/spixi-snail-guide-care-diet-and-breeding/",
+      "html": "<p>Depending on the temperature, Spixi snails reach maturity at 4–5 months old. To breed them you need a group of 5–6 to improve the odds of getting both genders (they are not hermaphroditic). The male mounts the shell of the female on its right side to initiate copulation. Mating duration is highly variable, from a few minutes to several hours.</p><p>They need high temperatures (26–30°C) to lay eggs. Females lay eggs only underwater. The clutches are colourless and translucent, deposited on stone, driftwood, glass or vegetation (never on the bottom of the aquarium) and embedded in a gelatinous mass about 1.5–2 cm in size. The total number of eggs per female is 10–30. Eggs need a temperature of at least 25°C to develop. Young snails hatch within 14–21 days.</p><p>It is important to remove or isolate egg masses, because they can be eaten even by the mother. Baby snails should not be kept with adults because adults are cannibalistic and can eat their own young.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/spixi-snail-guide-care-diet-and-breeding/",
+      "html": "<p>Spixi snails have a \"door\" (an operculum) which they use to completely close their shell when disturbed or threatened.</p><p>They are easily identified by a series of dark spiral stripes along their yellowish shell, which is formed by 4 or 5 convex whorls and is somewhat depressed towards the upper edge. The shell opening is oval and elongated. The body is slightly darker than the shell and may acquire a yellowish or brown hue, with dark spots that can change over time. The tentacles are about the length of the foot when fully extended, and the breathing siphon is short (about the length of the labial tentacles).</p><p>Healthy, genetically strong Spixi snails live 2–3 years on average, and up to 5 years with exceptional care. The wide range of reported life spans is a result of different habitat conditions.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/31f4dafeeb32d284.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/31f4dafeeb32d284-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/spixi-snail-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "-CNdkcWEbws",
+      "title": "How to - Rock only Blackwater Biotope Aquarium with Zebra Apple Snails - Asolene Spixi Snail Tank",
+      "durationSec": 253,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ezu8AZX4Dy8",
+      "title": "Legen Asolene #spixi #Schnecken schon mit 1,5 cm Eier?! #Shorts #Aquaristik #Aquarium",
+      "durationSec": 39,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "pTdp5r1jQkU",
+      "title": "This snail eats hydra! Asolene spixi, the Zebra Apple Snail",
+      "durationSec": 247,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể thủy sinh 20 lít",
+        "bể nuôi ốc"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền thủy sinh",
+        "nền cát cho ốc"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho ốc",
+        "canxi cho ốc và tép"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mini",
+        "lọc thùng bể nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-18"
+}

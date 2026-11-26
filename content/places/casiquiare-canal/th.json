@@ -3,6 +3,12 @@
   "name": "คลองกาซีกียาเร",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-18T12:19:38.009Z",
+    "why": "The Thai transliteration of Casiquiare is plausible, but \"คลอง\" (canal) is a kind word where Thai atlases would use \"แม่น้ำ\" or \"ช่องแคบ\"; the usual Thai form is \"คลองคาซิกิอาเร\" or \"แม่น้ำคาซิกิอาเร\", and the spelling กาซีกียาเร is unconventional."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

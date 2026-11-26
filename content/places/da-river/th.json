@@ -3,6 +3,12 @@
   "name": "แม่น้ำดำ",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.12,
+    "at": "2026-11-18T12:22:23.896Z",
+    "why": "แม่น้ำดำ translates \"Đà\" as \"black\" (ดำ) word by word, whereas Thai atlases transliterate the proper name as แม่น้ำดา (Da River, Song Da)."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

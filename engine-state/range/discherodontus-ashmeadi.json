@@ -1,8 +1,8 @@
 {
   "id": "discherodontus-ashmeadi",
   "native": {
-    "input": "7c3891f9f22a586b",
-    "at": "2026-11-08T03:17:10.020Z",
+    "input": "948ac31a73b12f2d",
+    "at": "2026-11-21T07:12:58.512Z",
     "claims": [
       {
         "code": "TH",
@@ -40,6 +40,25 @@
         "name": "Mae Klong",
         "source": "seriouslyfish",
         "quote": "Apparently native to the Mae Klong and Mekong river basins in Thailand, Laos and Cambodia but oddly appears not to occur in the Chao Phraya drainage which separates the two.",
+        "ok": true
+      },
+      {
+        "name": "Xe Bangfai",
+        "source": "seriouslyfish",
+        "quote": "In Laos it's been collected from the Xe Bangfai river, a tributary of the Mekong that was due to be dammed in 2009/10.",
+        "country": "LA",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "glaser",
+        "quote": "They occur widespread in the Mekong and Meklong areas.",
+        "ok": true
+      },
+      {
+        "name": "Meklong",
+        "source": "glaser",
+        "quote": "They occur widespread in the Mekong and Meklong areas.",
         "ok": true
       }
     ],

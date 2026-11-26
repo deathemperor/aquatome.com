@@ -1,0 +1,65 @@
+{
+  "id": "ictalurus-lupus",
+  "scientificName": "Ictalurus lupus",
+  "order": "Siluriformes",
+  "family": "Ictaluridae",
+  "genus": "Ictalurus",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "united-states",
+    "rio-grande",
+    "mexico"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 48
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1562",
+      "html": "<ul><li>Scientific name: Ictalurus lupus (Girard, 1858)</li><li>Type locality: Headwaters of Rio Pecos, Texas, U.S.A.</li><li>Synonym: Pimelodus lupus</li><li>Identification: Greatly resembles a small channel catfish, however, the body lacks spots and the caudal fin is not deeply forked. The base of the anal fin is longer than the head length.</li><li>IUCN Red List: Data Deficient (last assessed 2019).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1562",
+      "html": "<p>North America: USA to Rio Grande drainage including Pecos River system in southeast New Mexico and Devils River in southern Texas; also in northeastern Mexico.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1562",
+      "html": "<p>Breeding: Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1562",
+      "html": "<p>Etymology: Ictalurus comes from the Greek ichthys, meaning fish, and ailouros, meaning cat; literally \"fish cat\" (catfish). The specific epithet lupus means wolf, but it is unclear why this name was chosen as this species does not have any outward lupine qualities; perhaps it is in reference to its feeding habits or other pack-like behaviour.</p><p>FishBase lists 480 mm TL.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1562",
+      "html": "<p>General report upon zoology of the several Pacific railroad routes, 1857, pp 211.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "gKD-pOWjaOQ",
+      "title": "The good, the bad, and the fishly",
+      "durationSec": 289,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-25"
+}

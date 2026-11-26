@@ -3,6 +3,12 @@
   "name": "ตาเซะเบอรา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T00:41:05.913Z",
+    "why": "The Thai transliteration of Tasek Bera is acceptable, but it has no kind word such as ทะเลสาบ (lake), which an atlas in Thailand would normally add for this lake and wetland."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

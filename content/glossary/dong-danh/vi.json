@@ -2,12 +2,13 @@
   "slug": "dong-danh",
   "name": "Tên đồng nghĩa",
   "altNames": [
-    "đồng danh"
+    "Danh pháp đồng nghĩa"
   ],
   "sections": {},
-  "definition": "Tên khoa học khác từng được dùng cho cùng một loài, thường do loài được mô tả lại hoặc chuyển sang chi khác. Cá cảnh hay được bán dưới tên cũ, nên biết tên đồng nghĩa giúp tra cứu tài liệu chính xác hơn.",
+  "body": "<h3>Tên hợp lệ và tên đồng nghĩa</h3><p>Tên công bố sớm nhất được ưu tiên. Tên công bố sau gọi là đồng nghĩa muộn (junior synonym).</p><p>Một tài liệu tham khảo ghi thêm:</p><ul><li>trong động vật học, đồng nghĩa sớm (senior synonym) được ưu tiên hơn đồng nghĩa muộn, và đồng nghĩa muộn chỉ được dùng trong trường hợp ngoại lệ;</li><li>tên đồng nghĩa khoa học không dùng thay cho tên đúng được, khác với từ đồng nghĩa trong lời nói thường ngày;</li><li>mỗi loài hay nhóm sinh vật với định nghĩa, vị trí và bậc phân loại xác định chỉ có một tên chính thức tại một thời điểm, và bộ luật danh pháp liên quan quyết định tên nào là tên đó.</li></ul><h3>Ví dụ ở cá bảy màu</h3><p>Một bài khác ghi:</p><ul><li>năm 1866 Albert Günther đặt tên cá bảy màu là <em>Girardinus guppii</em>, rồi năm 1913 tên được đổi thành <em>Lebistes reticulatus</em>;</li><li>Wilhelm Peters đã mô tả loài này từ năm 1859, nên tên sớm hơn được ưu tiên, và tên hợp lệ bây giờ là <em>Poecilia reticulata</em>;</li><li>tên thường gọi \"guppy\" vẫn còn dùng, dù <em>Girardinus guppii</em> nay là tên đồng nghĩa.</li></ul><h3>Định danh nhầm và tên lỗi thời</h3><p>Một tài liệu tham khảo khác ghi:</p><ul><li>một trường hợp định danh nhầm nằm trong danh sách đồng nghĩa không thật sự là tên khác của loài, nó có mặt ở đó là do hai loài từng bị nhầm với nhau;</li><li>khoảng 10% tên cá trong một công trình trở nên lỗi thời sau 10 năm.</li></ul><h3>Đổi tên và lợi ích</h3><p>Một hãng ghi:</p><ul><li>khi các nhà khoa học hiểu thêm, nhất là nhờ phân tích DNA, đôi khi họ đổi chi hoặc loài của một con cá;</li><li>tên hay đổi ở cichlid các hồ Rift Lake châu Phi, nhất là cichlid hồ Malawi, và ở cá họ chép mới phát hiện ở Myanmar và Trung Quốc;</li><li>tên khoa học giúp người chơi khắp thế giới nói về một loài mà không bị rối như với tên thường gọi, vốn mỗi nơi gọi một kiểu;</li><li>biết chi của một con cá giúp đoán cá có lẽ lớn cỡ nào, tính nết ra sao, ăn gì và cần gì để đẻ.</li></ul>",
+  "definition": "Tên đồng nghĩa là một tên khoa học khác của cùng một loài hay nhóm sinh vật. Thường chỉ một trong các tên ấy được dùng làm tên chính thức.",
   "quality": {
-    "score": 0.9,
+    "score": 1,
     "indexable": true
   }
 }

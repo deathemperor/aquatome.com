@@ -3,6 +3,12 @@
   "name": "Ribeira do Iguape",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-18T05:55:30.849Z",
+    "why": "The place is the Ribeira do Iguape river basin, and Indonesian atlases would write \"Sungai Ribeira do Iguape\" or \"Lembah/Daerah Aliran Sungai Ribeira do Iguape\", so the bare name omits the kind word \"Sungai\", although the proper name spelling is kept correctly."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

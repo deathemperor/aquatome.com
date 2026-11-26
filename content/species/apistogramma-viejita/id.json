@@ -20,10 +20,10 @@
     "references:seriouslyfish": "<ul><li>802 - 811 Cichlid Atlas 2000, Mergus</li></ul>"
   },
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.9,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.7
+      "seriouslyfish": 0.9
     }
   }
 }

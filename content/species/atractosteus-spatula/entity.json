@@ -27,11 +27,17 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The alligator gar, Atractosteus spatula, is a gar from the lower Mississippi basin and Gulf Coast states of the south-eastern USA and Mexico.",
+          "quote": "Native to central and south-eastern states of the USA plus northern and central Mexico.",
           "countries": [
             "US",
             "MX"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "No specific type locality was provided in the original description, and it has already disappeared from much of its northern range, with modern distribution comprising the lower Mississippi River basin plus Gulf Coast states of the southeastern U.S. and Mexico, as far south as the state of Veracruz.",
+          "countries": [],
           "regions": [
             "Mississippi"
           ]
@@ -495,13 +501,20 @@
     "tankCm": [
       {
         "source": "seriouslyfish",
-        "value": 200
+        "value": 200,
+        "hidden": "shorter than twice the fish (200 cm)"
       }
     ],
     "difficulty": [
       {
         "source": "seriouslyfish",
         "value": 6
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 200
       }
     ]
   },
@@ -511,6 +524,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-spatula",
       "html": "<p>The alligator gar, Atractosteus spatula, is a gar from the lower Mississippi basin and Gulf Coast states of the south-eastern USA and Mexico. One of the largest freshwater fishes in the world, it reaches a recorded 3050 mm and can live well over 50 years, so it should not be considered a home aquarium subject. Juveniles are seen for sale quite regularly, and a hybrid with Lepisosteus platostomus is known as the 'crocodile gar'.</p><ul><li>Max size: 3050 mm SL (120 in)</li><li>Temperature: 11–23°C (52–73°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 5–25 dGH</li><li>Difficulty: 6 of 8, rated difficult because it needs a tank at least 2 m long</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/atractosteus-spatula-4/",
+      "html": "<p>Alligator gars are so-called living fossils. They developed about 100 million years ago in the upper Cretaceous and have not changed much since then. Currently two genera live in the New World: Atractosteus (three species) and Lepisosteus (four species).</p><p>Common name: Alligator gar</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/atractosteus-spatula-4/",
+      "html": "<p>The members of Atractosteus can reach about 2 m in length (formerly they are said to have reached even 3 m) and are thus the largest recent members of the gars. The three species are very similar to each other and differ only in details which are not observable from outside. The specimens offered are currently about 8-10 cm long and were bred in Indonesia; the identity of the species is taken from the breeders, as it cannot be verified.</p><p>Alligator gars are gorgeous animals for large show aquaria.</p><p>The animals offered for public aquaria or owners of really big tanks are bred ones from Indonesia, Malaysia and Singapore. The latest sport offered from there is the Platinum form.</p>"
     },
     {
       "key": "distribution",
@@ -523,6 +548,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-spatula",
       "html": "<p>Found in various habitats from large lakes and rivers to sluggish tributaries, backwaters and pools, and can survive in both fresh and brackish waters, but shows a preference for large rivers with extensive associated floodplains. Does not tend to inhabit swiftly-flowing environments.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/atractosteus-spatula-4/",
+      "html": "<p>Sadly the natural population is decreasing due to habitat loss.</p>"
     },
     {
       "key": "aquariumSize",
@@ -549,10 +580,22 @@
       "html": "<p>Gars are ambush predators feeding on smaller fishes and aquatic crustaceans in nature. It can sometimes be tricky to get newly-introduced captive individuals to accept dead foods though most will learn to do so following a short period of starvation.</p><p>After a short time most small individuals will accept meaty frozen foods such as prawns, lance fish, etc., while larger specimens can be offered whole fishes such as trout or sprats. Feed every day when juvenile but as the fish grows reduce the frequency; an adult requires only one or two meals per week at most.</p><p>In extreme cases there may be no other option but to use live \"feeder\" fishes for the initial period but it must be stressed that this is only advisable until an individual has built up adequate body mass to attempt a starvation period.</p><p>It's highly recommended to buy such feeders in advance and quarantine them for at least two weeks to ensure they're free of disease while feeding them a high quality diet so that the flesh is sufficiently nutritious.</p><p>This species should never be fed the meat of mammals such as beef heart or chicken since some of the lipids and other organic compounds contained in these meats cannot be properly metabolised by fishes, causing excess fat deposition and even organ degeneration over the long term.</p><p>Except for in the extreme circumstance described there's also no real benefit in the use of feeder fishes due to the risk of disease or parasite introduction.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/atractosteus-spatula-4/",
+      "html": "<p>Gars feed exclusively on fish, but can be easily accustomed to feeding by forceps.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-spatula",
       "html": "<p>Best kept alone, or with similarly-sized, non-aggressive fishes it cannot fit into its mouth.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/atractosteus-spatula-4/",
+      "html": "<p>Against conspecifics and other species of fish the gars are absolutely peaceful as long as they do not serve as food.</p>"
     },
     {
       "key": "dimorphism",
@@ -571,22 +614,83 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-spatula",
       "html": "<p>This is one of the largest freshwater fish species in the world, and clearly shouldn't be considered a home aquarium subject at all given its eventual size and the fact it can live for well in excess of 50 years.</p><p>Unfortunately, juveniles are seen for sale quite regularly in the aquarium trade, normally without adequate information provided regarding their long-term care.</p><p>There also exist several hybridised gars, of which a cross between A. spatula and Lepisosteus platostomus, commonly referred to as 'crocodile gar', is among the most common.</p><p>Gars are among the most primitive fish species still alive today. They have a modified, vascularised swim bladder that is connected to the pharynx and allows them to breathe atmospheric air to a certain extent.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/atractosteus-spatula-4/",
+      "html": "<p>Among the ancient features of the fish are the very strange bony scalation and the remains of a \"tail\" in the upper half of the caudal fin, which is clearly visible in baby fish. Gars do not breathe only via gills, but also via the swim bladder, which serves as a lung, so they can survive even in very oxygen-poor water.</p><p>Lexicon: Atractosteus means \"arrow-bone\". spatula means \"short sword\", referring to the shape of the snout. Lepisosteus means \"bone-scale\".</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/3e3a1938b76daf4e.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/3e3a1938b76daf4e-480.webp",
       "width": 800,
       "height": 540,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Enrico Richter / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-spatula",
       "caption": "Juvenile specimen.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/3e3a1938b76daf4e-480.webp"
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b94dff0ba0ed42d1.webp",
+      "thumb": "https://media.aquatome.com/glaser/b94dff0ba0ed42d1-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/atractosteus-spatula-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1734b6ea073ea413.webp",
+      "thumb": "https://media.aquatome.com/glaser/1734b6ea073ea413-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/atractosteus-spatula-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/29a8b8d9af0fe994.webp",
+      "thumb": "https://media.aquatome.com/glaser/29a8b8d9af0fe994-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/atractosteus-spatula-4/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "nr3D-vXh0RA",
+      "title": "Alligator Gar Fish (Atractosteus spatula) #aligatorfish #fish #aligator #aquarium",
+      "durationSec": 18,
+      "lang": "kn"
+    },
+    {
+      "youtubeId": "ob5UlTYezUg",
+      "title": "How Alligator gar fish/Atractosteus spatula look like / Aquarium fish pet",
+      "durationSec": 59,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Tsh4lyW7SuY",
+      "title": "33 Dubai Mall Aquarium Atractosteus spatula Alligatorhecht alligator gar",
+      "durationSec": 207,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "IbO2eB3mQwg",
+      "title": "My Pet Alligator Gar:  5 Years Later!",
+      "durationSec": 832,
+      "lang": "en-US"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -609,5 +713,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-21"
 }

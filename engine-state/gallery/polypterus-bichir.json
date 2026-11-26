@@ -10,7 +10,12 @@
   "File:Бишер (20250430141406).jpg",
   "inat:580339330"
  ],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/glaser/7bb8bed51247c04a.webp": "4ceccb4420e2123e",
+  "https://media.aquatome.com/glaser/30e6f94d08a84f3a.webp": "5b88200c08cec68c",
+  "https://media.aquatome.com/glaser/3adcfe1dbd43a653.webp": "32786872857b8f67",
+  "https://media.aquatome.com/glaser/060811f10749f730.webp": "4f076ebc4c927361"
+ },
  "commons": "2026-11-09",
  "inat": {
   "taxon": 121328,
@@ -19,5 +24,12 @@
    "research": 0,
    "agree": 375436210
   }
+ },
+ "gbif": {
+  "key": 2346588,
+  "next": null
+ },
+ "openverse": {
+  "next": null
  }
 }

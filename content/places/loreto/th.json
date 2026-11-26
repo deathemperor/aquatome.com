@@ -3,6 +3,12 @@
   "name": "โลเรโต",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T11:53:11.368Z",
+    "why": "The transliteration โลเรโต is phonetically right for Loreto, but an atlas in Thailand would write the region with the kind word \"แคว้น\" or \"จังหวัด\"; Peru's Loreto is usually \"จังหวัดโลเรโต\" or \"แคว้นโลเรโต\", so the bare name lacks it."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

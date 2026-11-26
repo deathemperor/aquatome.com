@@ -14,17 +14,36 @@
     ]
   },
   "aegagropila-linnaei": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-20",
+    "from": "2026-11-19",
     "name": "มาริโมะ",
     "confidence": "high",
     "score": 0.88,
-    "notes": [
-      "\"ทีมทำความสะอาดอย่างกุ้งน้ำจืด\" is a literal rendering of \"clean-up crew\". Use the hobby term, e.g. \"สัตว์กินเศษอาหาร/กลุ่มสัตว์ช่วยทำความสะอาด (clean-up crew)\".",
-      "\"ตะกอนสะสม\" for \"detritus\" is imprecise. \"เศษอินทรีย์/ขี้ปลาและเศษสิ่งปฏิกูล\" is closer.",
-      "\"คลุมบนหินและขอนไม้\" narrows \"hardscape\" to rocks and driftwood. Use \"วัสดุตกแต่ง/ฮาร์ดสเคป\" or \"หินและไม้ตกแต่ง\" to keep the general sense.",
-      "\"ตะไคร่และสาหร่ายในตู้\" adds \"ในตู้\" and \"ตะไคร่\", which the source does not have. Keep to \"สาหร่าย\"."
-    ]
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "b6554f869d70",
+      "quickFacts:aquariumcoop": "90b6518b8723",
+      "distribution:aquariumcoop": "6418a40df441",
+      "maintenance:aquariumcoop": "5dc66afe1346",
+      "reproduction:aquariumcoop": "74daaad00314",
+      "notes:tropica": "8db4e4915828",
+      "notes:aquariumcoop": "50362fe6a409"
+    },
+    "failed": {
+      "at": "2026-11-20T01:08:43.092Z",
+      "parts": {
+        "quickFacts:aquariumbreeder": "6db0d7c0866c",
+        "beforeYouBuy:aquariumbreeder": "09c0fc476c2b",
+        "distribution:aquariumbreeder": "849cbd7ff40b",
+        "habitat:aquariumbreeder": "b03915b19a96",
+        "aquariumSize:aquariumbreeder": "2f02e9919105",
+        "maintenance:aquariumbreeder": "cc4be3ab25d7",
+        "waterConditions:aquariumbreeder": "8cbefc36809d",
+        "equipment:aquariumbreeder": "c3309ef6f8e0",
+        "behaviour:aquariumbreeder": "ffb2d319ef6f",
+        "notes:aquariumbreeder": "4caf6c7108b8"
+      }
+    }
   },
   "alternanthera-bettzickiana": {
     "at": "2026-10-31",
@@ -297,15 +316,30 @@
     ]
   },
   "bacopa-caroliniana": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-17",
+    "from": "2026-11-17",
     "name": "บาโคปา แคโรไลนา",
     "confidence": "medium",
     "score": 0.9,
-    "notes": [
-      "Item 2: \"Its slow growth rate makes it one of the few stem plants that do not need much attention\" — \"ไม่ต้องดูแลบ่อย\" is fine, but \"เลี้ยงง่ายมาก\" slightly overstates \"very convenient\"; consider \"สะดวกมาก\" (minor).",
-      "Item 3: \"3–4 cm wide\" refers to the stem/leaf width in the source; \"ต้น...กว้าง 3–4 ซม.\" is ambiguous — consider specifying the width of the plant/leaf cluster (minor)."
-    ]
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "3cc7c3149b72",
+      "maintenance:tropica": "ba9a6dc2507d",
+      "notes:tropica": "1ad8d7aa6a02"
+    },
+    "failed": {
+      "at": "2026-11-17T11:04:58.642Z",
+      "parts": {
+        "quickFacts:aquariumbreeder": "84310afbe3ec",
+        "distribution:aquariumbreeder": "0069199a0303",
+        "habitat:aquariumbreeder": "d9967dad3aff",
+        "aquariumSize:aquariumbreeder": "6e1e757490a0",
+        "maintenance:aquariumbreeder": "6a7e6dca1a61",
+        "waterConditions:aquariumbreeder": "aa3977bf097e",
+        "equipment:aquariumbreeder": "fdca4076e868",
+        "notes:aquariumbreeder": "2aa9acefa0e1"
+      }
+    }
   },
   "bacopa-monnieri": {
     "at": "2026-10-30",
@@ -385,15 +419,32 @@
     ]
   },
   "bucephalandra": {
-    "at": "2026-11-05",
-    "from": "2026-11-04",
-    "name": "บูเซฟาลันดรา",
+    "at": "2026-11-20",
+    "from": "2026-11-20",
+    "name": "บูเซฟาลานดรา",
     "confidence": "medium",
-    "score": 0.85,
+    "score": 0.9,
     "notes": [
-      "\"เฟิร์นใบหอก\" for \"java fern\": Thai hobbyists usually say \"เฟิร์นชวา\" (Java fern). \"ใบหอก\" is the narrow-leaf variety, so use \"เฟิร์นชวา\".",
-      "\"Rock wool\" is translated as \"ใยหิน\" in brackets. Consider the hobby term \"ร็อกวูล\" so it matches what shops label. Also \"ปุ๋ยฝัง\" could be \"ปุ๋ยเม็ดฝัง (root tab)\"."
-    ]
+      "Item 9: 'java fern' is rendered 'เฟิร์นใบหอก'. Thai hobbyists usually say 'เฟิร์นชวา' (Microsorum pteropus), so use that. This is a minor term issue.",
+      "Item 5: 'hidden parts of the island' is rendered 'พื้นที่ลึกลับ' (mysterious areas). 'พื้นที่ห่างไกล' or 'พื้นที่ที่ยังไม่มีใครสำรวจ' is more natural."
+    ],
+    "parts": {
+      "quickFacts:aquariumcoop": "d81e85552c76",
+      "quickFacts:aquariumbreeder": "0cca1832cc9b",
+      "beforeYouBuy:aquariumcoop": "a34b7793c0f9",
+      "distribution:aquariumcoop": "e0186ea4e791",
+      "distribution:aquariumbreeder": "9aa3ba9346ff",
+      "habitat:aquariumcoop": "7cbfe5e4979d",
+      "habitat:aquariumbreeder": "833a28d7b05d",
+      "aquariumSize:aquariumcoop": "a3baeaf52246",
+      "maintenance:aquariumcoop": "37d503dd6910",
+      "maintenance:aquariumbreeder": "836bcfa44b71",
+      "waterConditions:aquariumcoop": "64cabfe51254",
+      "waterConditions:aquariumbreeder": "8b2596cfaf8a",
+      "reproduction:aquariumcoop": "f6f50b2bf10c",
+      "notes:aquariumcoop": "363198704527",
+      "notes:aquariumbreeder": "1006582effd5"
+    }
   },
   "bucephalandra-diabolica": {
     "at": "2026-10-30",
@@ -535,6 +586,46 @@
       "\"ต้นไม้มาเป็นกำ\": \"มา\" is a small addition (it implies the plants are sold that way). Consider \"ไม้น้ำที่เป็นกำ...\"."
     ]
   },
+  "cabomba-furcata": {
+    "at": "2026-11-21",
+    "from": "2026-11-20",
+    "name": "คาบอมบ้าแดง",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"ข้อปล้อง\" is a bit stiff; hobbyists usually say \"ปล้อง\" or \"ระยะห่างระหว่างข้อ\" (minor).",
+      "\"ยอดเล็กลง\" for \"smaller crowns\" is slightly vague; \"ยอดมีขนาดเล็กลง/กอยอดเล็กลง\" would be clearer (minor).",
+      "\"ใบแยกเป็นแฉกเล็ก ๆ ละเอียด\" is acceptable but \"ใบแตกเป็นฝอยละเอียด\" is more natural (minor).",
+      "\"aggressive amount of light\" is rendered \"แสงจัดมาก\"; fine, but the 'umols' → 'µmol/m²/s' expansion adds unit detail not in the source (minor)."
+    ],
+    "parts": {
+      "quickFacts:2hraquarist": "9c74b81d21a2",
+      "maintenance:2hraquarist": "1be9bcc7d10e",
+      "notes:2hraquarist": "79323d5a2ef5"
+    }
+  },
+  "cabomba-sp": {
+    "at": "2026-11-17",
+    "from": "2026-11-17",
+    "name": "คาบอมบ้า",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"หอยศัตรูพืช\" for \"pest snails\" is a little off. Hobbyists usually say \"หอยรบกวน\" or \"หอยตัวแถม\". This is minor."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "b6596fed4391",
+      "beforeYouBuy:aquariumbreeder": "a7d12095e0d0",
+      "distribution:aquariumbreeder": "81691d764304",
+      "habitat:aquariumbreeder": "f5383c2b13c5",
+      "aquariumSize:aquariumbreeder": "19064e4ecbff",
+      "maintenance:aquariumbreeder": "cf4b11baf1d5",
+      "waterConditions:aquariumbreeder": "c5c9b46b9071",
+      "equipment:aquariumbreeder": "b1728eb17de4",
+      "behaviour:aquariumbreeder": "3fa1eb8c4f53",
+      "notes:aquariumbreeder": "59c2dc837df1"
+    }
+  },
   "caloglossa-beccarii": {
     "at": "2026-10-30",
     "from": "2026-10-29",
@@ -560,24 +651,72 @@
     ]
   },
   "ceratophyllum-demersum": {
-    "at": "2026-11-09",
-    "from": "2026-11-09",
+    "at": "2026-11-20",
+    "from": "2026-11-20",
     "name": "สาหร่ายพุงชะโด",
     "confidence": "high",
     "score": 0.85,
     "notes": [
-      "Item 6: \"ไม่ต้องอัดคาร์บอนไดออกไซด์ (CO2) เพราะโตเร็วมาก จึงเหมาะใช้เป็นไม้หลังตู้\" reads as if fast growth is the reason CO2 isn't needed. The English gives fast growth as the reason for using it as a background plant. Split the sentences, for example: \"...ไม่ต้องอัด CO2 และเพราะโตเร็วมาก จึงเหมาะใช้เป็นไม้หลังตู้...\"",
-      "Item 6: \"ให้ไม้น้ำต้นอื่นได้รับอาหารเพียงพอ\" should say nutrients (\"ธาตุอาหาร\") instead of \"อาหาร\", which could be read as food.",
-      "Item 9: \"ปลาคาร์ป\" for koi is too general. Use \"ปลาคาร์ป (โคอิ)\" or \"ปลาแฟนซีคาร์ป\"."
-    ]
+      "Item 18: 'สาหร่ายอเมริกัน (American water weed)' is not a term hobbyists use. Use 'เอโลเดีย (Elodea)' or keep the English name.",
+      "Item 18: 'หอยปอมเปย์ (mystery snail)' is a non-standard name. Use 'หอยมิสทรี' or 'หอยแอปเปิ้ล'.",
+      "Item 18: 'กุ้งฝอย (ghost)' is not the usual name for ghost shrimp. Use 'กุ้งแก้ว' or 'โกสต์ชริมป์'.",
+      "Item 18: 'สาหร่ายใบพาย (Vallisneria)' is questionable. Use 'วาลิสเนเรีย' or 'สาหร่ายเกลียว'.",
+      "Item 17: 'koi' is translated as 'ปลาคาร์ป', which is too broad. Use 'ปลาคาร์ฟ (โคอิ)'.",
+      "Item 18: 'แหนเป็ดถึงขั้นแย่งแสงและธาตุอาหารชนะสาหร่ายพุงชะโดได้' is awkward. Rephrase to 'แหนเป็ดอาจแย่งแสงและธาตุอาหารได้เก่งกว่าสาหร่ายพุงชะโดด้วยซ้ำ'.",
+      "Items 9 and 19: 'ฤดูใบไม้ร่วง/ฤดูใบไม้ผลิ' (autumn/spring) and 'ฤดูหนาว' do not match Thai seasons. Consider 'ช่วงปลายปี/ช่วงอากาศเย็น' and 'ช่วงอากาศอุ่นขึ้น'.",
+      "Item 12: 'ตะไคร่ขน' for hair algae is not the standard term. Use 'ตะไคร่เส้นผม' or 'สาหร่ายเส้นผม'."
+    ],
+    "parts": {
+      "quickFacts:tropica": "a48f285c68d0",
+      "quickFacts:aquariumcoop": "80122459c043",
+      "quickFacts:aquariumbreeder": "bb957d48ea3f",
+      "beforeYouBuy:aquatome": "7710d868a536",
+      "beforeYouBuy:aquariumbreeder": "e7f6a5505266",
+      "distribution:aquariumcoop": "82c4325510a5",
+      "distribution:aquatome": "f66b1cc75a70",
+      "distribution:aquariumbreeder": "3b77050c300e",
+      "habitat:aquariumbreeder": "ca267868c198",
+      "aquariumSize:aquariumbreeder": "3b2dde22aa2a",
+      "maintenance:aquariumcoop": "937ae8fafd03",
+      "maintenance:aquatome": "580107f491b5",
+      "maintenance:aquariumbreeder": "1e78ff1a909d",
+      "waterConditions:aquatome": "6b37e0505175",
+      "waterConditions:aquariumbreeder": "957362b9affa",
+      "equipment:aquariumbreeder": "48e70bb7657c",
+      "behaviour:aquariumcoop": "c9efacc463c7",
+      "behaviour:aquariumbreeder": "2046eabbd733",
+      "reproduction:aquariumcoop": "2b84acb04f4d",
+      "reproduction:aquariumbreeder": "67e85131840f",
+      "notes:tropica": "d1be9a60d3a2",
+      "notes:aquariumcoop": "d3f61e600264",
+      "notes:aquariumbreeder": "343c3dff4596"
+    }
   },
   "ceratopteris-thalictroides": {
-    "at": "2026-11-09",
-    "from": "2026-11-09",
+    "at": "2026-11-20",
+    "from": "2026-11-19",
     "name": "ผักกูดน้ำ",
     "confidence": "medium",
     "score": 0.95,
-    "notes": []
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "f489002efa37",
+      "maintenance:aquatome": "11b63104daa9",
+      "maintenance:tropica": "8e549720f0e5",
+      "notes:tropica": "1b56a594359a"
+    },
+    "failed": {
+      "at": "2026-11-20T01:11:41.704Z",
+      "parts": {
+        "quickFacts:aquariumbreeder": "9ba683b8e8fa",
+        "habitat:aquariumbreeder": "38f69b114569",
+        "aquariumSize:aquariumbreeder": "e4eb2a6c365e",
+        "maintenance:aquariumbreeder": "d5d767d01d7f",
+        "waterConditions:aquariumbreeder": "21e034ce5393",
+        "equipment:aquariumbreeder": "78b096fb03fe",
+        "notes:aquariumbreeder": "829566ffee09"
+      }
+    }
   },
   "crinum-calamistratum": {
     "at": "2026-11-07",
@@ -774,18 +913,37 @@
     ]
   },
   "echinodorus-grisebachii": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
-    "name": "อเมซอนซอร์ด",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
+    "name": "อเมซอนซอร์ด บลีเฮอรี",
     "confidence": "medium",
-    "score": 0.7,
+    "score": 0.6,
     "notes": [
-      "Item 2: \"anchor\" (a bundle held by a lead/metal strip, also called a weight) is rendered as \"ตัวถ่วง\"; this is acceptable, but \"ต้นไม้ที่ได้มาเป็นกำ\" adds the idea of purchase. Use more neutral wording such as \"ไม้น้ำที่มัดเป็นกำ\".",
-      "Item 2: \"Plant the individual plants with some distance into the bottom substrate\" is translated as \"เว้นระยะห่างกันพอสมควร\". This changes the meaning, because the source says to plant them some distance deep into the substrate. Change it to \"ปักลงในพื้นปลูกให้ลึกพอสมควร\".",
-      "Item 3: \"20-50 cm\" is correct, but item 1 says \"20–30+ cm\". The translation \"20–30 ซม. ขึ้นไป\" is fine, so there is nothing to fix there.",
-      "Item 1: \"Rosulate\" is expanded with an explanatory bracket, which adds content. Use a shorter term such as \"ไม้น้ำแบบกอ (Rosulate)\".",
-      "Item 3: \"มือใหม่และผู้ที่มีประสบการณ์แล้ว\" is slightly clumsy. Use \"ผู้เล่นมือใหม่และมือเก่า\"."
-    ]
+      "Item 8 Care: 'Regular dosing of plant fertilizer and iron-rich fertilizer' is rendered as 'ปุ๋ยน้ำและปุ๋ยที่มีธาตุเหล็กสูง'. 'ปุ๋ยน้ำ' (liquid fertilizer) is an added detail that is not in the source. Use 'ปุ๋ยไม้น้ำ'.",
+      "Item 8 Planting: 'Make sure you have not buried the crown too deeply... It has to be above the substrate' conflicts with the earlier 'crown visible at the soil line'. Keep the English meaning, but check that the Thai reads clearly.",
+      "Item 3: 'ควรกักโรคต้นไม้' is awkward and unnatural. Use 'ควรกักต้นไม้ไว้ดูอาการ (quarantine) ก่อนนำลงตู้'.",
+      "Item 3: 'ศัตรูอย่างหอย' turns snails into 'enemies'. The source says pests such as snails, so use 'ศัตรูพืช/สัตว์รบกวน เช่น หอย'.",
+      "Item 3: 'ต้นที่โคนต้นและระบบรากดูแข็งแรงจะช่วยให้รอดได้มากขึ้นอย่างมาก' is awkward and does not clearly say that a robust stem and root structure favour survival.",
+      "Item 3: 'สัตว์ไม่มีกระดูกสันหลังอื่น ๆ' is correct but stiff. Hobbyists would say 'สัตว์น้ำไม่มีกระดูกสันหลัง'.",
+      "Item 5: 'Shrill scapes' is rendered as 'ก้านใบ' (leaf stalks). A scape is a flower stalk. The sentence 'ที่เรียกว่า ‘อเมซอนซอร์ด’ เพราะ...' has no subject and reads abruptly.",
+      "Item 5: 'ทรงกุหลาบซ้อน (rosette)' is a non-standard rendering of rosette. In item 1, 'Rosulate' as 'ทรงกอ' is vague.",
+      "Item 8: 'ใบละลาย' for melting is fine, but 'ต้นส่วนใหญ่ถูกเพาะแบบบก' is awkward. 'Grown emersed' is better rendered as 'เพาะเลี้ยงแบบโผล่พ้นน้ำ'.",
+      "Item 8: 'ปลาซักเกอร์แคระ (Otocinclus)' and 'หอยเนอไรต์' are acceptable. But 'ปลาหมูอินโด (clown loach)' is a wrong common name: clown loach is 'ปลาลูช/ปลาโคลนโลช', and 'ปลาหมูอินโด' is a different local name for Botia. Item 12: 'ปลาปอมปาดัวร์ (discus)' is wrong, because Pompadour is the Thai name for discus but the usual hobby name is 'ปลาปอมปาดัวร์' and may be confusing. 'หอยเจดีย์' for Malaysian trumpet snail is acceptable. 'หอยขมญี่ปุ่น' for Japanese trapdoor snail is questionable. 'ปลาม้าลาย' is ok."
+    ],
+    "parts": {
+      "quickFacts:tropica": "6c8e0b12bda0",
+      "quickFacts:aquariumbreeder": "22bab368dc11",
+      "beforeYouBuy:aquariumbreeder": "79a719a3a09d",
+      "distribution:aquariumbreeder": "787191d2966d",
+      "habitat:aquariumbreeder": "cda66e0a2b36",
+      "aquariumSize:aquariumbreeder": "e7c981e56e83",
+      "maintenance:tropica": "ec4dc3a619c4",
+      "maintenance:aquariumbreeder": "369b57292340",
+      "waterConditions:aquariumbreeder": "c9a418c68709",
+      "equipment:aquariumbreeder": "5d15ecd43570",
+      "notes:tropica": "db7ac997a8e6",
+      "notes:aquariumbreeder": "358191748451"
+    }
   },
   "echinodorus-grisebachii-tropica": {
     "at": "2026-10-31",
@@ -901,31 +1059,59 @@
     ]
   },
   "egeria-densa": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
-    "name": "สาหร่ายอีโลเดีย",
+    "at": "2026-11-16",
+    "from": "2026-11-16",
+    "name": "สาหร่ายอิโลเดีย",
     "confidence": "medium",
     "score": 0.6,
     "notes": [
-      "\"อีโลเดียช่วยป้องกันตะไคร่\": the English says Egeria, and Elodea is a different genus. Use \"อีเจเรีย\" or \"Egeria densa\", or the Thai trade name \"สร้อยไข่มุก/เอโลเดียดำ\" only if it is correct. Don't swap the plant name.",
-      "Omitted: \"Remove the leaves from the lowest 5 cm (2\")\" is rendered as \"เด็ดใบที่โคนลำต้นออกประมาณ 5 ซม.\". That is fine, but \"ประมาณ\" (about) was added. The source gives an exact 5 cm.",
-      "\"ไม้ต้น (ไม้น้ำแบบมีลำต้น)\": \"Stem\" means a stem plant (ไม้ก้านยาว/ไม้ลำต้น). \"ไม้ต้น\" is misleading, so use \"ไม้น้ำแบบลำต้น (Stem)\".",
-      "\"ต้นไม้จะมาเป็นกำของลำต้นหรือต้นอ่อนที่มัดรวมกันไว้ด้วยตัวถ่วง\": awkward. Say \"จำหน่ายเป็นมัด\", and use \"แผ่นตะกั่ว/ตัวถ่วงตะกั่ว\" for the anchor.",
-      "\"ยอดจะเรียวเล็กลง\": \"tendrils\" here means the shoots or stems. Prefer \"ลำต้น/เถา\" so it isn't read as the shoot tips only.",
-      "\"ความต้องการแสง: น้อย\" and \"CO2: น้อย\" are acceptable. In item 1, \"20–30 ซม. ขึ้นไป\" is fine."
-    ]
+      "Item 11: \"bamboo shrimp\" is rendered as \"กุ้งบัมเบิ้ลบี (bamboo shrimp)\". That names a different species, the bumblebee shrimp. Use the correct name for the filter-feeding bamboo shrimp, such as กุ้งไผ่ or กุ้งแบมบู.",
+      "Item 13: the heading \"โตรกเกินไป\" for \"Overgrowth\" is a typo or nonsense word. Use \"โตเร็วเกินไป\" or \"รกเกินไป\".",
+      "Item 8: \"curved blade\" is translated as \"กรรไกรปลายโค้ง\" (curved-tip scissors). The source says a blade. Use \"ใบมีดโค้ง\" or \"กรรไกรปลายโค้ง\" only if that is what was meant.",
+      "Item 9: \"ทนอุณหภูมิได้ง่ายตั้งแต่ต่ำถึง 15 °C\" is awkward. Use \"ทนอุณหภูมิต่ำได้ถึง 15 °C และสูงได้ถึง 28 °C\".",
+      "Item 11: \"ปลาค้อหมากรุก (clown loach)\" is not the usual hobby name for clown loach. Use \"ปลาค้อลายเสือ\" or \"คลาวน์โลช\".",
+      "Item 11: \"กุ้งฝอย (ghost shrimp)\" is a loose match. Use \"กุ้งแก้ว\" or \"โกสต์ชริมพ์\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "e3d355c3ab2c",
+      "quickFacts:aquariumbreeder": "757eafbccbaf",
+      "beforeYouBuy:aquariumbreeder": "39e278d95f3f",
+      "distribution:aquariumbreeder": "406b4d173c33",
+      "habitat:aquariumbreeder": "acab4b21fef3",
+      "aquariumSize:aquariumbreeder": "53db7c4dd85b",
+      "maintenance:tropica": "c35c7022e1a1",
+      "maintenance:aquariumbreeder": "eec8f3aa71ee",
+      "waterConditions:aquariumbreeder": "858a5fe96ee8",
+      "equipment:aquariumbreeder": "1aeacb6e6d0c",
+      "behaviour:aquariumbreeder": "3498f59a3460",
+      "notes:tropica": "6a1436394a76",
+      "notes:aquariumbreeder": "2d052eb80ad4"
+    }
   },
   "eleocharis-acicularis": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
+    "at": "2026-11-16",
+    "from": "2026-11-16",
     "name": "แฮร์กราส",
     "confidence": "medium",
     "score": 0.9,
-    "notes": [
-      "\"หลังปลูกในตู้ได้สองเดือน\" is slightly wordy; the English means 'after two months in the tank', so \"หลังอยู่ในตู้สองเดือน\" is closer.",
-      "\"พบได้ทั่วโลก\" for 'Cosmopolitan' is acceptable, but \"กระจายพันธุ์ทั่วโลก\" is the more usual hobby wording.",
-      "\"เป็นไม้น้ำที่พบได้ทั่วไปมาก\" adds a small amount of wording. \"พบได้ทั่วไปมาก\" is slightly awkward; \"พบได้ทั่วไป\" or \"เป็นที่นิยมมาก\" reads more naturally."
-    ]
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "3f889c91d3f8",
+      "maintenance:tropica": "9ed1d23bc27f"
+    },
+    "failed": {
+      "at": "2026-11-16T23:31:57.485Z",
+      "parts": {
+        "quickFacts:aquariumbreeder": "b03582bd1273",
+        "distribution:aquariumbreeder": "0c90484f53fe",
+        "habitat:aquariumbreeder": "8f4ad1f0faa7",
+        "aquariumSize:aquariumbreeder": "f6595ba7c978",
+        "maintenance:aquariumbreeder": "2cd1203e1b62",
+        "waterConditions:aquariumbreeder": "82407b12779f",
+        "equipment:aquariumbreeder": "521d2e293a02",
+        "notes:aquariumbreeder": "772e5ec6a93c"
+      }
+    }
   },
   "eleocharis-montevidensis": {
     "at": "2026-10-31",
@@ -1058,6 +1244,33 @@
       "Item 2: \"ไม่ค่อยเรื่องมาก\" is colloquial; consider \"ไม่ต้องดูแลมาก\"."
     ]
   },
+  "hemianthus-callitriodes": {
+    "at": "2026-11-19",
+    "from": "2026-11-19",
+    "name": "Hemianthus callitriodes",
+    "confidence": "high",
+    "score": 0.6,
+    "notes": [
+      "Item 8 fish list: \"นีออน\" and \"แพะ (corydoras)\" – \"neon tetras\" should be \"ปลานีออน\" (เตตร้านีออน); corydoras is \"ปลาแพะ\"/\"คอรี่\", \"แพะ\" alone is wrong/unclear; \"ปลาเพลที่\" should be \"ปลาแพลตตี้\".",
+      "Item 8 Tankmates: \"ปลากระดี่แคระ\" for dwarf gouramis OK, but \"ผักบุ้งฝรั่ง (frogbit)\" is a wrong/invented name; frogbit is usually \"ผักตบฝรั่ง/ฟร็อกบิท\". Also Java fern and water wisteria are not floating plants in the source list context but kept; check \"สาหร่ายหางกระรอก\" is fine.",
+      "Item 5 Dry start: \"ใช้ปากคีบปลูก\" is duplicated in the middle of the water-filling instructions, scrambling the sequence (plant first, then add water); the order of steps is changed from the source.",
+      "Item 5 Dry start: \"ฟ็อกกี้พ่นละอองสำหรับรดต้นไม้\" – 'garden mister' should be simply \"กระบอกฉีดพ่นละอองน้ำ\"; \"ฟ็อกกี้\" is a specific nozzle, not the same thing.",
+      "Item 5 Dry start Pros: \"light (without water, even low light can be enough)\" rendered \"เรื่องแสง\" – clarify as 'ใช้แสงน้อย'; also \"ได้ CO2 จากธรรมชาติ\" fine. Cons: \"ละลายไปจำนวนมาก\" loses 'many melt away' subject tie, minor.",
+      "Item 5 Problems: \"yellow ... iron deficiency (such as iron and potassium)\" translated as \"ขาดธาตุอาหาร (เช่น เหล็กและโพแทสเซียม)\" – the source says iron deficiency; Thai changes the meaning to general nutrient deficiency, dropping 'iron deficiency'.",
+      "Item 5 Care: \"Pressurised CO2 ... required\" fine, but \"Introduce algae-eating species\" rendered \"ใส่สัตว์ที่กินตะไคร่\" – use \"ปล่อยสัตว์ที่กินตะไคร่\"; and \"รันวงจรไนโตรเจน\" is ok but 'cycling' more commonly \"ปั่นน้ำ/ปั่นตู้\".",
+      "Item 1: \"Fertilisers: appreciated\" translated \"ตอบสนองดี\" – better \"ชอบปุ๋ย/ควรใส่ปุ๋ย\"; \"Placement ... (carpeting)\" 'ปูพรม' ok. Item 3: 'Common name' lead in item 2/3 \"HC คิวบา\" used as the translated name for Dwarf baby tears is non-standard; use the established \"HC\" or \"เฮมิแอนทัส คิวบา\" consistently."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "4dc447679344",
+      "distribution:aquariumbreeder": "1677f0550b36",
+      "habitat:aquariumbreeder": "359d126badbd",
+      "aquariumSize:aquariumbreeder": "9db3b7d14d80",
+      "maintenance:aquariumbreeder": "71f31dea8fe7",
+      "waterConditions:aquariumbreeder": "866796c3ffe2",
+      "equipment:aquariumbreeder": "9423cea019a7",
+      "notes:aquariumbreeder": "8afff9e5548a"
+    }
+  },
   "hemianthus-micranthemoides": {
     "at": "2026-11-11",
     "from": "2026-11-10",
@@ -1187,23 +1400,37 @@
     ]
   },
   "hygrophila-difformis": {
-    "at": "2026-11-02",
-    "from": "2026-11-02",
+    "at": "2026-11-20",
+    "from": "2026-11-20",
     "name": "วอเตอร์วิสทีเรีย",
     "confidence": "medium",
-    "score": 0.55,
+    "score": 0.85,
     "notes": [
-      "Item 4: \"Tropica's own nursery\" became \"เรือนเพาะชำของผู้ผลิตเอง\". This is acceptable neutral wording, but \"twice a week for 2 weeks\" is fine. The real problem is \"anchor\", which is rendered as \"ตัวถ่วง\". Use \"แผ่นตะกั่ว/ที่รัดโคนต้น\" or similar, because the hobby calls it a lead strip.",
-      "Item 4: \"shrimps and other delicate fish\" became \"กุ้งหรือปลาที่บอบบาง\". This is fine. However, \"2\\\"\" was dropped and \"5 ซม.\" kept, which is correct.",
-      "Item 5: \"Wisteria ... floating ... horizontal stem\" is fine. But \"Halfway through the first week\" and \"ใบบก\" for emersed: the common Thai hobby term is \"ใบเหนือน้ำ/ใบบก\", which is OK. \"ใยหิน (rock wool)\" is OK.",
-      "Item 5: \"If fish dig in the substrate\" became \"ถ้าปลาชอบขุดพื้น\", which is fine. \"ทำให้น้ำนิ่งและขาดออกซิเจน\" is fine.",
-      "Item 5: \"If conversion is difficult, float some stems... replant\" is OK. \"รักษาคุณภาพน้ำ\" for \"water parameters\" is slightly loose. Prefer \"ค่าน้ำ\".",
-      "Item 5: \"ปลูกครึ่งบนแทนที่\" is awkward. Use \"ปลูกครึ่งบนแทน\".",
-      "Item 6: \"A shortage of micronutrients\" is translated as \"ขาดธาตุอาหารรอง\". In Thai usage, \"ธาตุอาหารรอง\" means secondary nutrients (Ca, Mg, S), so use \"ธาตุอาหารเสริม/จุลธาตุ\" instead. Also \"Stems... 6–12 cm wide\" is fine.",
-      "Item 2: \"ใบแฉกเป็นฝอยดูคล้ายลูกไม้\" is fine. \"melting\" is rendered as \"ละลาย\", which is the standard term.",
-      "Item 7: \"ปลูกแบบบก\" is slightly inconsistent with \"ใบบก\". \"เป็นใบแฉกฝอยคล้ายขนนกสีเขียวสด\" is acceptable.",
-      "Item 1: the Thai is fine. Item 3: the Thai is fine. No change needed."
-    ]
+      "#10 Propagation: \"โตเร็วราววัชพืชถึงวันละ 1–8 ซม.\" reads awkwardly. Rephrase, e.g. \"โตเร็วเหมือนวัชพืช วันละ 1–8 ซม.\"",
+      "#14: \"หอยแจแปนนีสแทรปดอร์\" is only a transliteration. Use the Thai hobby name for Japanese trapdoor snail, or give it with the English in brackets.",
+      "#14: \"หอยแอปเปิ้ล (mystery snail)\" is slightly loose. Say \"หอยมิสทรี\" or \"หอยแอปเปิ้ลมิสทรี\" for consistency.",
+      "#11 Floating: \"ใบใหญ่แบบใบบก\" is unclear for \"immersed-style leaves\". Make it plainly \"ใบแบบโผล่พ้นน้ำ\".",
+      "#13 Substrate: \"ดินปลูกที่มีธาตุอาหารสูงเหมาะที่สุด (ดินดีที่สุด)\" is repetitive. Reword so it does not say \"best\" twice."
+    ],
+    "parts": {
+      "quickFacts:tropica": "97a5af628acf",
+      "quickFacts:aquariumcoop": "1f7ab2d5523d",
+      "quickFacts:aquariumbreeder": "d60281aa2681",
+      "beforeYouBuy:aquariumbreeder": "912300957c8e",
+      "distribution:aquariumcoop": "5f394b360c28",
+      "distribution:aquariumbreeder": "e976a206d1bd",
+      "habitat:aquariumbreeder": "4a5e2e3e0e8b",
+      "aquariumSize:aquariumbreeder": "4e3475eb2949",
+      "maintenance:tropica": "85e7d850830d",
+      "maintenance:aquariumcoop": "3c46ee06425c",
+      "maintenance:aquariumbreeder": "9cb99312e504",
+      "waterConditions:aquariumbreeder": "520a23347b37",
+      "equipment:aquariumbreeder": "b6e2236c5197",
+      "behaviour:aquariumbreeder": "991e170ac858",
+      "notes:tropica": "e1d0b346673e",
+      "notes:aquariumcoop": "599bbf2b4a8b",
+      "notes:aquariumbreeder": "64fbbb56ed00"
+    }
   },
   "hygrophila-lancea-araguaia": {
     "at": "2026-11-02",
@@ -1297,6 +1524,34 @@
       "\"คริปต์\": hobbyists more often write \"ครัยปโตคอรีน\" or \"คริปโต\". \"คริปต์\" is acceptable, but \"คริปโต\" is more common."
     ]
   },
+  "lemnoideae": {
+    "at": "2026-11-18",
+    "from": "2026-11-17",
+    "name": "แหนเป็ด",
+    "confidence": "high",
+    "score": 0.6,
+    "notes": [
+      "\"ปลาปอมปาดัวร์\" for discus is wrong: discus is normally \"ปลาปอมปาดัวร์\" in Thai, but the term is not wrong. However \"ปลาออตโต\" for otocinclus and \"ปลาหมู\" for loaches are loose: loaches are \"ปลาโลช\" or \"ปลาหมู\" (fine). Check \"ปลาซักเกอร์\" for plecos: it is better as \"ปลาแพลโก/ปลาซัคเกอร์\".",
+      "\"ปลาตะเพียนโรซี่บาร์บ\": rosy barb is not a ตะเพียน; use \"ปลาโรซี่บาร์บ\".",
+      "\"สายออกซิเจนแบบใส\" (air tubing): use \"สายยางอากาศ/สายลมแบบใส\"; \"ออกซิเจน\" is wrong.",
+      "\"อาจผ่านการฉีดยาฆ่าแมลง\": the English says \"treated with pesticides\", and \"ฉีด\" (spray/inject) is an added detail; use \"ผ่านการใช้ยาฆ่าแมลง\".",
+      "\"เป็นรากพิเศษ\" for adventitious roots: use \"รากแขนง/รากพิเศษ (adventitious)\" more clearly; \"ใบเหลือง\" for \"Yellowing\" and \"ไม่ซีด\" for \"without discolouration\" are loose.",
+      "\"ซึ่งมีความหนาแน่นมากกว่าใบ\": \"fronds\" is rendered \"ใบ\" here but \"แผ่น/ฟรอนด์\" elsewhere; make it consistent.",
+      "\"หากสูงหรือต่ำกว่าช่วงนี้จะหยุดนิ่ง\" is fine, but \"Common Duckweed (Lemna minor)\" is \"แหนเล็ก\" while the heading name is \"แหนเป็ด\"; \"subcosmopolitan\" is rendered \"เกือบทั่วโลก\", acceptable.",
+      "\"ดินมอนต์มอริลโลไนต์\": a spelling slip; the usual form is \"มอนต์มอริลโลไนต์\" (consistent) but add \"(montmorillonite clay)\" for clarity.",
+      "\"กรองแขวน\" for hang-on-back filter: more common is \"กรองแขวนหลังตู้\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "ceae2ffb2153",
+      "distribution:aquariumbreeder": "6892ea0846ac",
+      "habitat:aquariumbreeder": "d626bae01e84",
+      "maintenance:aquariumbreeder": "75e98f5217ea",
+      "waterConditions:aquariumbreeder": "f861adc0ae91",
+      "equipment:aquariumbreeder": "c08e820fd3f6",
+      "diet:aquariumbreeder": "9eb46a329abf",
+      "notes:aquariumbreeder": "ef6f15276eab"
+    }
+  },
   "leptodictyum-riparium": {
     "at": "2026-11-03",
     "from": "2026-10-30",
@@ -1325,7 +1580,7 @@
       "notes:tropica": "e54125693440"
     },
     "failed": {
-      "at": "2026-11-15T23:42:43.885Z",
+      "at": "2026-11-23T01:05:37.906Z",
       "parts": {
         "quickFacts:aquariumbreeder": "b9e110bbf4a1",
         "distribution:aquariumbreeder": "98f051d07e09",
@@ -1340,16 +1595,35 @@
     }
   },
   "limnobium-laevigatum": {
-    "at": "2026-11-09",
-    "from": "2026-11-09",
-    "name": "Amazon Frogbit",
+    "at": "2026-11-20",
+    "from": "2026-11-19",
+    "name": "อเมซอนฟร็อกบิท",
     "confidence": "medium",
     "score": 0.85,
     "notes": [
-      "Item 2: the source text is Vietnamese, not English. The Thai matches its meaning, but check that the right source was supplied.",
-      "Item 2: \"Amazon Frogbit\" is left in Latin letters with no Thai name. Consider adding a Thai transliteration such as \"แอมะซอน ฟร็อกบิต\" the first time it appears.",
-      "Item 4: \"ปลากระดี่\" is fine for gouramies. \"ที่ชอบรากของไม้ลอย\" ends abruptly; it would read better as \"ที่ชอบอาศัยใกล้รากไม้ลอย\"."
-    ]
+      "#12: 'Sagittaria' is left in Latin letters; a Thai hobby name or transliteration would read better.",
+      "#12: 'สาหร่ายใบพาย' for Vallisneria is not the name hobbyists use; use 'วัลลิสเนเรีย' or 'สาหร่ายสปริง'.",
+      "#11: 'full-spectrum' is left in English; use 'ฟูลสเปกตรัม' or 'แสงครบสเปกตรัม'.",
+      "#12: 'หอยมาเลเซีย' for Malaysian trumpet snails is too vague; use 'หอยเจดีย์' or 'หอยทรัมเป็ตมาเลเซีย'.",
+      "#9: 'เดี๋ยวใบใหม่ก็จะขึ้นมา' is too colloquial for a handbook; use 'ไม่นานก็จะมีใบใหม่งอกขึ้นมา'."
+    ],
+    "parts": {
+      "quickFacts:tropica": "59b516c565c6",
+      "quickFacts:aquariumbreeder": "309cb1253ccf",
+      "beforeYouBuy:aquariumbreeder": "f80b00493746",
+      "distribution:aquariumbreeder": "c53c99d6af68",
+      "habitat:aquariumbreeder": "ab9cd04cc311",
+      "aquariumSize:aquariumbreeder": "dfcccd3d9d7c",
+      "maintenance:aquatome": "350432080dfe",
+      "maintenance:tropica": "20c294bd22f8",
+      "maintenance:aquariumbreeder": "4ffd739b681b",
+      "waterConditions:aquariumbreeder": "e5ca66b5ae45",
+      "equipment:aquariumbreeder": "8166925a629b",
+      "behaviour:aquariumbreeder": "b01967d2ad7d",
+      "reproduction:aquariumbreeder": "c83089c53cbb",
+      "notes:tropica": "b645db1d5396",
+      "notes:aquariumbreeder": "817d0cd318ce"
+    }
   },
   "limnophila-aquatica": {
     "at": "2026-11-04",
@@ -1388,16 +1662,32 @@
     ]
   },
   "limnophila-sessiliflora": {
-    "at": "2026-11-04",
-    "from": "2026-10-30",
+    "at": "2026-11-20",
+    "from": "2026-11-19",
     "name": "แอมบูเลีย",
     "confidence": "medium",
-    "score": 0.85,
+    "score": 0.9,
     "notes": [
-      "Taxonomy list in item 10: the rank labels \"Kingdom/Clade/Order/Family/Genus/Species\" and \"Eudicots\" are left in English, but the \"Tracheophytes\" and \"Angiosperms\" lines have Thai glosses. Make this consistent, e.g. อาณาจักร, อันดับ, วงศ์, สกุล, ชนิด.",
-      "\"A perennial erect aquatic plant\" → \"พืชน้ำหลายฤดู\" is not a standard botanical term. Use \"พืชน้ำอายุหลายปี\" or \"ไม้ล้มลุกหลายปี\".",
-      "Item 4: \"endemic to Asia\" → \"พืชถิ่นเดียวของเอเชีย\" sounds like it is found only in Asia, yet the next paragraph lists Africa and Australia. \"มีถิ่นกำเนิดในเอเชีย\" reads more naturally."
-    ]
+      "Item 3: \"damselfly nymphs\" is rendered \"แมลงปอเข็ม\", which reads as the adult insect. Use \"ตัวอ่อนแมลงปอและแมลงปอเข็ม\" so both are clearly larvae.",
+      "Item 5: \"damp soils\" is rendered \"ดินที่ชื้นแฉะ\", which means soggy. \"ดินชื้น\" is closer."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "0e4e9c0d81b9",
+      "quickFacts:tropica": "2821d4c647a7",
+      "beforeYouBuy:aquariumbreeder": "8decb69bdb36",
+      "distribution:aquariumbreeder": "0eb4bc2ed9a7",
+      "habitat:aquariumbreeder": "28dc0b5559ba",
+      "aquariumSize:aquariumbreeder": "8e0d8b44f218",
+      "maintenance:aquariumbreeder": "40482e9e222e",
+      "maintenance:aquatome": "c5689b476ad3",
+      "waterConditions:aquariumbreeder": "e98af4b49ccb",
+      "equipment:aquariumbreeder": "77857411b705",
+      "reproduction:aquatome": "9de8fafe76a6",
+      "notes:aquariumbreeder": "3d90329f68eb",
+      "notes:tropica": "766801544124",
+      "notes:aquatome": "abec291fa74e",
+      "references:aquariumbreeder": "d5e5c4c51c19"
+    }
   },
   "lindernia-rotundifolia": {
     "at": "2026-11-04",
@@ -1431,6 +1721,33 @@
       "Item 3: \"ชื่อสกุลตั้งตาม...\" narrows \"It was named after\" to the genus name. Say \"ชื่อ Lobelia ตั้งตาม...\" or keep it neutral.",
       "Item 7: \"ดูเหมือนเป็นต้นไม้คนละชนิด\" is acceptable. \"ผอมยืด\" and \"โปร่งและผอมยืด\" for \"sparse and slender\" read a bit awkwardly. Use \"ต้นโปร่งและเรียวยาว\"."
     ]
+  },
+  "lomariopsis-sp": {
+    "at": "2026-11-18",
+    "from": "2026-11-17",
+    "name": "ซับวาสเซอร์แทง",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Section 2: \"Christel Kasselman\" is named, which is fine, but the English says the plant \"has not been named as a distinct species\". The Thai \"ยังไม่ได้รับการตั้งชื่อเป็นชนิดแยก\" is acceptable. Section 3 \"พืชอิงอาศัย\" for epiphytic is fine too.",
+      "Section 4: \"เพื่อนร่วมตู้...กุ้งยามาโตะ (Amano)\" is a standard term, but \"หอยโข่งญี่ปุ่น (Japanese trapdoor)\" is wrong: Japanese trapdoor snail is หอยกาบ/หอยฝาปิดญี่ปุ่น (Viviparus), not หอยโข่ง. Use the local term for Japanese trapdoor snail (หอยจุกญี่ปุ่น).",
+      "Section 4: \"ปลาเชอร์รี่บาร์บ\" and \"ปลาหางดาบเขียว\" are acceptable, but \"ปลาที่วางไข่แบบโปรยไข่\" is clumsy. Use \"ปลาที่วางไข่กระจาย (egg scatterer)\".",
+      "Section 4 (the care section): \"การกักโรคไว้ในตู้แยก\" is awkward. Use \"กักตัว/พักต้นไม้ในตู้กักโรค\".",
+      "Section 5: \"ให้ผลผลิตมากกว่า\" for \"more yield\" is odd for a plant. Use \"แตกกอมากกว่า\". \"คาร์บอนน้ำ\" for liquid carbon should be \"คาร์บอนน้ำ (liquid carbon)\" or \"น้ำยาคาร์บอน\".",
+      "Section 5: \"in nature it can thrive in cold temperatures\" is translated as \"สามารถเติบโตได้ดีในอุณหภูมิเย็น\", which is fine. The section 5 sentence \"มีรายงานว่าไม่ชอบแสงจัด\" lacks a subject and should say the plant dislikes it.",
+      "Section 7: \"อับตาย\" for \"smother\" is unnatural; use \"เน่า/อับจนตาย\". \"ละลาย\" for melt is OK.",
+      "Section 3: \"หินขอน\" in the rhizoid explanation is wrong or garbled for hardscape. Use \"หินและไม้ตกแต่ง\".",
+      "Section 1: \"ความยาก: ง่าย\" is fine. \"ซับวาสเซอร์แทง\" is a transliteration, but \"Subwassertang\" is already given."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "9af7634a7976",
+      "distribution:aquariumbreeder": "790415abadc4",
+      "habitat:aquariumbreeder": "1f710b8fea86",
+      "maintenance:aquariumbreeder": "1fb0a328b9b0",
+      "waterConditions:aquariumbreeder": "f3ebb0de339b",
+      "behaviour:aquariumbreeder": "ebb25b0ec16b",
+      "notes:aquariumbreeder": "793d62c0a975"
+    }
   },
   "ludwigia-arcuata": {
     "at": "2026-11-04",
@@ -1486,17 +1803,32 @@
     ]
   },
   "ludwigia-repens": {
-    "at": "2026-11-04",
-    "from": "2026-10-30",
-    "name": "ลัดวิเจีย รูบิน",
+    "at": "2026-11-18",
+    "from": "2026-11-18",
+    "name": "ลัดวิเจีย รีเพนส์ รูบิน",
     "confidence": "medium",
     "score": 0.85,
     "notes": [
-      "Item 3: \"สายพันธุ์หนึ่งของ\" is slightly stiff for \"Variety of\"; \"ไม้น้ำสายพันธุ์/พันธุ์ปลูกเลี้ยงของ Ludwigia repens\" would be more natural.",
-      "Item 3: \"ช่วยตัดกับโทนสีเขียว\" is slightly incomplete for \"provides a great colour contrast\"; consider \"ให้สีตัดกับโทนสีเขียวในตู้ได้อย่างโดดเด่น\".",
-      "Item 2: \"เลี้ยงไม่ยาก\" for \"has few demands\" is fine in meaning, but \"ไม่ต้องการการดูแลมาก\" is closer.",
-      "Item 3: \"กว้าง 4–6 ซม.\" is ambiguous (stem vs. leaf/bush width); the original is also unclear, so check the source."
-    ]
+      "Item 2: \"ชื่ออื่น: Creeping primrose-willow\" leaves the English name untranslated. Add a Thai name or transliteration, or keep the English in brackets after a Thai name.",
+      "Item 11: \"หอยขม Japanese trapdoor\" is half English. Use a Thai name or a transliteration. Also check that หอยขม is the right Thai term for this snail.",
+      "Item 10: \"ไม่ใส่ปุ๋ยน้ำหรือปุ๋ยฝัง\" specifies liquid fertiliser, which the English doesn't. Say \"ไม่ใส่ปุ๋ยหรือปุ๋ยฝัง\" instead.",
+      "Item 8: \"ในช่วงฤดูร้อน\" for \"warm season\" is slightly off in Thailand's climate. \"ช่วงที่อากาศอบอุ่น\" is closer."
+    ],
+    "parts": {
+      "quickFacts:tropica": "2f0d921c7fee",
+      "quickFacts:aquariumbreeder": "c5cc3d5028a4",
+      "beforeYouBuy:aquariumbreeder": "1f9b44553f08",
+      "distribution:aquariumbreeder": "07870da610a8",
+      "habitat:aquariumbreeder": "328aad0c98ea",
+      "aquariumSize:aquariumbreeder": "bf7ccf0ee602",
+      "maintenance:tropica": "d3f6b0856aed",
+      "maintenance:aquariumbreeder": "a48d00c392ad",
+      "waterConditions:aquariumbreeder": "520530be4309",
+      "equipment:aquariumbreeder": "7c57596bb85b",
+      "behaviour:aquariumbreeder": "4a75b70e5d28",
+      "notes:tropica": "2225783b31ce",
+      "notes:aquariumbreeder": "ab1fb2ac2692"
+    }
   },
   "lysimachia-nummularia": {
     "at": "2026-10-30",
@@ -1586,6 +1918,28 @@
       "\"เบาะ\" for \"cushion\" is a bit literal; consider \"พุ่มหนาแน่นคล้ายเบาะ/หมอนนุ่ม\" or \"ก้อนกลมแน่น\""
     ]
   },
+  "micranthemum-tweedei": {
+    "at": "2026-11-20",
+    "from": "2026-11-20",
+    "name": "Micranthemum tweedei",
+    "confidence": "high",
+    "score": 0.72,
+    "notes": [
+      "Item 6: \"สัตว์รบกวน (เช่น หอย)\" adds an example (snails) that the English does not give for tissue culture. Delete \"(เช่น หอย)\".",
+      "Item 2: \"ไม้น้ำกระถางที่ปลูกในฟาร์ม (emersed)\" adds \"emersed\" and \"grown on a farm\". The English only says \"nursery plants\". Simplify to \"ไม้น้ำกระถาง\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "e6f95c1a65ec",
+      "beforeYouBuy:aquariumbreeder": "18c971e9799a",
+      "distribution:aquariumbreeder": "3a5ca014682b",
+      "habitat:aquariumbreeder": "bf24ee5d67cb",
+      "aquariumSize:aquariumbreeder": "aebe9a0032de",
+      "maintenance:aquariumbreeder": "549129c73240",
+      "waterConditions:aquariumbreeder": "42d6fcbabed9",
+      "equipment:aquariumbreeder": "a66bf507c123",
+      "behaviour:aquariumbreeder": "09f05f862d95"
+    }
+  },
   "micranthemum-tweediei": {
     "at": "2026-11-08",
     "from": "2026-11-07",
@@ -1621,21 +1975,41 @@
     ]
   },
   "microsorum-pteropus": {
-    "at": "2026-11-04",
-    "from": "2026-10-31",
+    "at": "2026-11-21",
+    "from": "2026-11-20",
     "name": "เฟิร์นชวา",
     "confidence": "high",
     "score": 0.6,
     "notes": [
-      "Item 5: 'aquarists have forgotten it for several weeks in a bucket and it still lived' is rendered as 'ลืมทิ้งไว้ในถังหลายสัปดาห์ก็ยังไม่ตาย', which loses 'it still lived'. 'คนเลี้ยงปลา' is also too narrow for 'aquarists'. Say 'นักเลี้ยงไม้น้ำ' and make clear the plant survived.",
-      "Item 5: 'Low to medium-high light is perfect' is rendered 'น้อยถึงค่อนข้างมากถือว่าเหมาะที่สุด'. 'ค่อนข้างมาก' is vague, so use 'ปานกลางถึงค่อนข้างสูง'. 'burn or melt' should be 'ใบไหม้หรือเน่าเละ/ละลาย'. 'ใบ' is added to the Thai, though it is acceptable.",
-      "Item 3: 'The author's favourite method' is rendered 'วิธีที่ชอบใช้กัน', which turns one person's preference into a general one. Use a neutral form such as 'วิธีที่แนะนำคือ'.",
-      "Item 3: 'a dish of water' is rendered 'ถาดน้ำ'. 'ภาชนะใส่น้ำตื้น ๆ' is more natural. 'tie it onto wood' is rendered 'ขอนไม้', which is fine. 'algae eaters' is rendered 'ปลาและสัตว์กินตะไคร่', where 'สัตว์' is added. 'Crew' loses the idea of a group of algae eaters.",
-      "Item 3: 'if algae wins' is rendered 'หากตะไคร่ชนะ', which is literal. Use 'หากตะไคร่เข้ายึดครอง/ลุกลามหนัก'.",
-      "Item 1: 'Other varieties' is rendered 'สายพันธุ์อื่น'. Use 'พันธุ์/วาไรตี้' for variety, and consider giving Thai names for Trident (เฟิร์นชวาทริเดนท์) and Narrow Leaf (เฟิร์นชวาใบเล็ก). 'Java Fern' is rendered 'เฟิร์นชวา' (fine).",
-      "Item 2: 'Origin: cultivar' is rendered 'แหล่งที่มา: พันธุ์ปลูกคัดเลือก'. 'ที่มา: พันธุ์ปลูกเลี้ยง (cultivar)' is more natural. The Thai also adds 'ลงตู้ได้สองเดือน', which is fine.",
-      "Item 4: 'herbivorous fish will not eat it' is translated correctly, but 'ปลากินพืชจะไม่กิน' is too absolute. Use 'ปลากินพืชมักไม่กิน'."
-    ]
+      "#12 'ปลาออสก้า' is fine, but 'หอยขมญี่ปุ่น' for Japanese trapdoor snail is questionable; use 'หอยฝาปิดญี่ปุ่น' or keep the English name.",
+      "#11 'ถัง' (bucket) is OK, but 'แสงน้อยถึงค่อนข้างมาก' for 'low to medium-high' is vague; use 'แสงน้อยถึงปานกลางค่อนสูง'.",
+      "#7 'สาหร่ายใบพาย (Vallisneria)' is wrong: Vallisneria is usually called 'วัลลิสเนเรีย' or 'ใบมีด/สาหร่ายหางกระรอก'; not 'ใบพาย'.",
+      "#7 'The author's favourite method' became 'อีกวิธีหนึ่งคือ': the 'favourite' nuance is lost; also 'ปลาที่ชอบตอด' for nippy fish is fine, but 'ทีมปลา' for 'crew of algae eaters' is awkward.",
+      "#9 Quarantine: 'หอย' as pest is OK, but 'ปรสิต ศัตรูพืช' is fine. 'ตัวอ่อนแมลงปอเข็ม' is fine. 'ผูกหรือติดเหง้า' is OK.",
+      "#16 'อายุได้ถึง 2 ปี' kept; 'ใบเว้าเป็นแฉกคล้ายขนนกและแยกเป็นง่ามคล้ายสามง่าม' is clumsy.",
+      "#1 'Needle Leaf', 'Narrow Leaf', 'Trident' left in English; use the established Thai trade forms like 'เฟิร์นชวาใบเข็ม/ใบแคบ' or add transliteration.",
+      "#3 'dKH' used for the hardness unit; the English also used it, so fine, but #3 'ต้นอ่อนที่งอกจากใบ' is OK.",
+      "#4 'พบกระจายอยู่ทั่วไปในเขตร้อนของเอเชียตะวันออกเฉียงใต้' is fine; but 'สายพันธุ์ตามถิ่นที่อยู่' for 'geographical varieties' is slightly loose.",
+      "#1 'สายพันธุ์อื่น ๆ' for 'varieties' and the claim 'one of the world's most widely used' reading 'แพร่หลายที่สุดในโลก' turns 'one of the most' into near-superlative; keep it softer."
+    ],
+    "parts": {
+      "quickFacts:aquariumcoop": "6bcf2166a992",
+      "quickFacts:tropica": "a7149f4500ca",
+      "quickFacts:aquariumbreeder": "4b67a7e0bba1",
+      "distribution:aquariumbreeder": "35d0ed39deaa",
+      "habitat:aquariumbreeder": "2675f5165117",
+      "aquariumSize:aquariumbreeder": "1de66aed8c0e",
+      "maintenance:aquariumcoop": "052ba487355e",
+      "maintenance:tropica": "dc99c6df5692",
+      "maintenance:aquariumbreeder": "949d248a4a75",
+      "waterConditions:aquariumbreeder": "127cce48dcee",
+      "equipment:aquariumcoop": "5d2099ea38b1",
+      "behaviour:aquariumbreeder": "2f25ad2a6255",
+      "reproduction:aquariumcoop": "2e1f91cf5aa3",
+      "notes:aquariumcoop": "947a0d98f7a0",
+      "notes:tropica": "b734195ea119",
+      "notes:aquariumbreeder": "ce35473c445a"
+    }
   },
   "microsorum-pteropus-narrow": {
     "at": "2026-11-08",
@@ -1740,7 +2114,7 @@
   },
   "najas-guadalupensis": {
     "at": "2026-11-16",
-    "from": "2026-11-15",
+    "from": "2026-11-18",
     "name": "สาหร่ายนาจาส",
     "confidence": "medium",
     "score": 0.95,
@@ -1756,6 +2130,21 @@
       "reproduction:aquatome": "7349d148cef3",
       "notes:tropica": "f0ff05bf2bca",
       "notes:aquatome": "08c126e45cf4"
+    },
+    "failed": {
+      "at": "2026-11-18T05:26:13.818Z",
+      "parts": {
+        "quickFacts:aquariumbreeder": "6667947c8d26",
+        "beforeYouBuy:aquariumbreeder": "b2dcac465e87",
+        "distribution:aquariumbreeder": "3ff9ffafefde",
+        "habitat:aquariumbreeder": "d68b47cd5a81",
+        "aquariumSize:aquariumbreeder": "1d28b56f08ad",
+        "maintenance:aquariumbreeder": "65268e65dfc2",
+        "waterConditions:aquariumbreeder": "df5e262e1b3f",
+        "equipment:aquariumbreeder": "3ef81522915d",
+        "behaviour:aquariumbreeder": "d6d4e5a14274",
+        "notes:aquariumbreeder": "dbd0c1a251ce"
+      }
     }
   },
   "nymphaea-lotus": {
@@ -1781,12 +2170,27 @@
     "notes": []
   },
   "nymphaea-zenkeri": {
-    "at": "2026-11-10",
-    "from": "2026-11-10",
-    "name": "ไทเกอร์โลตัส",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
+    "name": "บัวไทเกอร์",
     "confidence": "medium",
-    "score": 0.95,
-    "notes": []
+    "score": 0.88,
+    "notes": [
+      "\"ปลาแคระ otocinclus\": the English name is left in place; use the Thai hobby name \"ปลาอ็อตโต\" (or \"ปลาอ็อตโตซินคลัส\").",
+      "\"หอยกาบประตูญี่ปุ่น\" for Japanese trapdoor snail is an unnatural, non-standard term (กาบ suggests a bivalve); use \"หอยทราปดอร์ญี่ปุ่น\" or give the English trade name.",
+      "\"Anacharis\" is left in Latin letters after a Thai name; fine in brackets, but consider \"Egeria densa/Elodea\" for consistency. \"เฟิร์นใบมะพร้าว\" for Java fern is less common than \"เฟิร์นชวา\" (Java fern)."
+    ],
+    "parts": {
+      "quickFacts:aquariumcoop": "17cd6f6bf4eb",
+      "quickFacts:aquariumbreeder": "59666ae52df8",
+      "distribution:aquariumbreeder": "51c1c9240de6",
+      "habitat:aquariumbreeder": "04ff6b2c7fc6",
+      "maintenance:aquatome": "b3a4b18a9054",
+      "maintenance:aquariumcoop": "d6525a05acb9",
+      "reproduction:aquariumcoop": "4cd409ecc872",
+      "notes:aquariumcoop": "91813775cdd3",
+      "notes:aquariumbreeder": "d175ae3deb85"
+    }
   },
   "nymphoides-aquatica": {
     "at": "2026-10-30",
@@ -1863,6 +2267,47 @@
       "\"ข้อ ... ใบเดี่ยวเพียงใบเดียว\" is redundant. Use \"มีใบเดี่ยวข้อละหนึ่งใบ\".",
       "\"ยิ่งได้รับแสงจัดมากเท่าใด ... เท่านั้น\" is stiff and bookish. A more natural option is \"ยิ่งได้รับแสงมาก ใบยิ่งเป็นสีน้ำตาลเข้มขึ้น\"."
     ]
+  },
+  "phyllantus-fluitans": {
+    "at": "2026-11-16",
+    "from": "2026-11-16",
+    "name": "Phyllantus fluitans",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"สายออกซิเจน\" works, but Thai hobbyists usually say \"สายแอร์\" or \"สายยางออกซิเจน\".",
+      "\"หอยศัตรูพืช\" is slightly off for pest snails in a tank. \"หอยที่ไม่พึงประสงค์\" or \"หอยรบกวน\" is more natural."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "84386acfb575",
+      "distribution:aquariumbreeder": "10f61d50071c",
+      "habitat:aquariumbreeder": "3d25c0804c2d",
+      "aquariumSize:aquariumbreeder": "47b3d66824e7",
+      "maintenance:aquariumbreeder": "77a79b6197bc",
+      "waterConditions:aquariumbreeder": "9b4355068917",
+      "equipment:aquariumbreeder": "17266401026a",
+      "reproduction:aquariumbreeder": "298da21280b6",
+      "notes:aquariumbreeder": "7d46c69258b3",
+      "maintenance:aquatome": "93eaabd38bf6"
+    }
+  },
+  "pistia-stratiotes": {
+    "at": "2026-11-21",
+    "from": "2026-11-20",
+    "name": "จอกแคระ",
+    "confidence": "medium",
+    "score": 0.93,
+    "notes": [],
+    "parts": {
+      "quickFacts:aquariumbreeder": "3eb80a8a1e48",
+      "distribution:aquariumbreeder": "db39b6147851",
+      "aquariumSize:aquariumbreeder": "663e05138600",
+      "maintenance:aquariumbreeder": "b42da1c29bf2",
+      "waterConditions:aquariumbreeder": "5ab34853ef5b",
+      "equipment:aquariumbreeder": "99af1c617753",
+      "reproduction:aquariumbreeder": "96034b16044b",
+      "notes:aquariumbreeder": "28b4fc2db8bc"
+    }
   },
   "plagiomnium-sp-thyme-moss": {
     "at": "2026-11-05",
@@ -2092,12 +2537,30 @@
     ]
   },
   "sagittaria-subulata": {
-    "at": "2026-11-06",
-    "from": "2026-10-31",
+    "at": "2026-11-18",
+    "from": "2026-11-17",
     "name": "ซาจิทาเรีย ซูบูลาต้า",
     "confidence": "medium",
     "score": 0.95,
-    "notes": []
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "b7ff0e78c32e",
+      "maintenance:tropica": "4a34a8e17375",
+      "notes:tropica": "eba23cfbb4a0"
+    },
+    "failed": {
+      "at": "2026-11-18T00:12:38.247Z",
+      "parts": {
+        "quickFacts:aquariumbreeder": "50663f3a5885",
+        "distribution:aquariumbreeder": "af4306880e06",
+        "habitat:aquariumbreeder": "0cd1b2290f12",
+        "aquariumSize:aquariumbreeder": "53bf592ab515",
+        "maintenance:aquariumbreeder": "9ddf010f53d6",
+        "waterConditions:aquariumbreeder": "f7280caad253",
+        "equipment:aquariumbreeder": "9e4ec1d09717",
+        "notes:aquariumbreeder": "189b70237667"
+      }
+    }
   },
   "salvinia-auriculata": {
     "at": "2026-11-08",
@@ -2214,22 +2677,35 @@
     ]
   },
   "taxiphyllum-barbieri": {
-    "at": "2026-11-06",
-    "from": "2026-10-31",
-    "name": "มอสจาวา",
+    "at": "2026-11-22",
+    "from": "2026-11-21",
+    "name": "จาวามอส",
     "confidence": "high",
-    "score": 0.7,
-    "notes": [
-      "Item 3: \"ลืมต้นไม้ไว้ในถัง\" – \"bucket\" is a bucket (xô/กะละมัง/ถังน้ำ), and \"plant\" here is the moss; use \"ลืมมอสไว้ในถังน้ำ\" so it isn't confused with the aquarium. \"ถัง\" alone is ambiguous.",
-      "Item 3: \"มอสในตู้ปลา\" – the source says \"in the tank\" (the aquarium it is in), fine, but \"เล็มสั้น ๆ\" for \"a quick trim\" loses the meaning of a quick/easy trim; use \"ตัดแต่งสั้น ๆ\" or \"ตัดแต่งเล็กน้อย\".",
-      "Item 3: \"white fluff\" is rendered as \"ปุยสีขาว\"; the source says shrimp eat the fluff of hair algae, so name it as the algae (\"ตะไคร่ขนสีขาวฟู\") rather than a separate fluff.",
-      "Item 6: \"ไม้เลื้อยไอวี่\" – ivy is better as \"ไอวี่\" or \"ไม้เลื้อยอย่างไอวี่\"; \"เส้นสีเขียวพลิ้ว\" for \"green wisps\" is awkward; use \"เส้นใยสีเขียวพลิ้วไหว\".",
-      "Item 6: \"สามารถคลุมหรือผูกไว้กับกิ่งไม้ได้ทั้งในระดับสูงและต่ำ\" – \"drape over\" should be \"พาดคลุมกิ่งไม้\"; this wording is vague.",
-      "Item 5: \"กุ้งก็ชอบที่มีที่ให้อาศัย\" – \"nest\" is rendered as \"live in\"; use \"ที่วางไข่/ที่ทำรัง\" if the sense is nesting, or \"ที่เกาะพักอาศัย\".",
-      "Item 7: \"South-East Asia\" is \"เอเชียตะวันออกเฉียงใต้\" (correct), but \"ไม่ค่อยเรื่องมาก\" is colloquial for a handbook; use \"ไม่ต้องการการดูแลมาก\". Also \"มอสจะเติบโตหนา 3–10 ซม.\" is fine, but \"ในตู้เพาะพันธุ์ ... ชั้นดี\" is slightly literary.",
-      "Item 1: \"ใช้ได้หลากหลาย\" for \"versatile\" is vague; use \"ปรับใช้ได้หลายแบบ/จัดตู้ได้หลากหลาย\". \"ไม่มีราก\" – source says \"does not root\", better \"ไม่หยั่งราก\" (it has rhizoids).",
-      "Item 1: \"ส่วนปลายที่เป็นสีเขียวอ่อนคือส่วนที่งอกใหม่\" – OK in meaning, but \"indicate\" is better as \"แสดงถึงการเติบโตใหม่\"."
-    ]
+    "score": 0.6,
+    "notes": [],
+    "parts": {
+      "quickFacts:aquariumcoop": "9848f8ed22ca",
+      "quickFacts:tropica": "f8681475033f",
+      "quickFacts:aquariumbreeder": "8f8ea319e177",
+      "beforeYouBuy:aquariumbreeder": "ad1fdd4b10fc",
+      "distribution:aquariumbreeder": "495e0cf4a192",
+      "habitat:aquariumbreeder": "48a35ee6ee25",
+      "aquariumSize:aquariumbreeder": "ab50a4f300f5",
+      "maintenance:aquariumcoop": "063e0b657d5b",
+      "maintenance:tropica": "4befc7c3a8b4",
+      "maintenance:aquariumbreeder": "2736febdd8f7",
+      "waterConditions:aquariumbreeder": "862aa5dd214a",
+      "equipment:aquariumbreeder": "8bcee5e77aac",
+      "behaviour:aquariumcoop": "3182b3661432",
+      "behaviour:aquariumbreeder": "6ee89fdb49cf",
+      "notes:aquariumcoop": "d3c5728b46a4",
+      "notes:tropica": "a1cf404c400e",
+      "notes:aquariumbreeder": "cf8355fd6b93",
+      "maintenance:aquatome": "3ead3871d7f1",
+      "waterConditions:aquatome": "e2f626ca7f2e",
+      "behaviour:aquatome": "71fd2966f390",
+      "notes:aquatome": "acd298e8992f"
+    }
   },
   "taxiphyllum-sp-flame-moss": {
     "at": "2026-11-06",
@@ -2292,6 +2768,31 @@
     "confidence": "medium",
     "score": 0.95,
     "notes": []
+  },
+  "vallisneria-sp": {
+    "at": "2026-11-17",
+    "from": "2026-11-17",
+    "name": "Vallisneria sp.",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 6: \"ปลูกด้วยคีม\" for \"tweezers\" – คีม means pliers; use \"แหนบ\" or \"ปากคีบ\" (the usual aquascaping tool).",
+      "Item 10: \"tape grass\" and \"frogbit\" are left in English; add Thai (e.g. \"หญ้าริบบิ้น\", \"กลุ่มไม้น้ำลอยฟร็อกบิต\") or put the English in brackets after the Thai.",
+      "Item 7: \"คาร์บอนน้ำ (liquid CO2)\" is an awkward term; use \"CO2 น้ำ\" or \"ลิควิดคาร์บอน\", which hobbyists use.",
+      "Item 8: \"ปลาเพลทีแวกเทล\", \"หอยนีไรท์\" and \"หอยแทรปดอร์ญี่ปุ่น\" are loose transliterations; use the common names \"ปลาแพลตตี้\", \"หอยเนอริต\" and \"หอยแอปเปิ้ลญี่ปุ่น/หอยทรัมเป็ต\" as appropriate."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "f83b66d47850",
+      "beforeYouBuy:aquariumbreeder": "6b962f713ae9",
+      "distribution:aquariumbreeder": "e28847f58473",
+      "habitat:aquariumbreeder": "73465e5df4a3",
+      "aquariumSize:aquariumbreeder": "9c22ab5ac404",
+      "maintenance:aquariumbreeder": "e1ec8256de2b",
+      "waterConditions:aquariumbreeder": "b0f808342fc3",
+      "behaviour:aquariumbreeder": "8e7963d981bf",
+      "reproduction:aquariumbreeder": "1699b8821f0f",
+      "notes:aquariumbreeder": "a7df36e20927"
+    }
   },
   "vallisneria-sp-gigantea": {
     "at": "2026-11-07",

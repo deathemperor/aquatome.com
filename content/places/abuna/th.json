@@ -3,6 +3,12 @@
   "name": "อาบูนัง",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T07:52:44.673Z",
+    "why": "Abunã is Portuguese with a nasal ã, so Thai would transliterate it as อาบูนา (ending -นา), not อาบูนัง, whose final ง makes the ending \"-nang\"."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

@@ -20,10 +20,12 @@
         "ID"
       ],
       "regions": [
-        "Sumatra"
+        "Sumatra",
+        "Java"
       ],
       "sources": [
-        "aquariumcoop"
+        "aquariumcoop",
+        "aquatome"
       ],
       "quotes": [
         {
@@ -36,6 +38,14 @@
           ],
           "regions": [
             "Sumatra"
+          ]
+        },
+        {
+          "source": "aquatome",
+          "quote": "Mẫu gốc dùng để mô tả loài lấy ở đảo Java.",
+          "countries": [],
+          "regions": [
+            "Java"
           ]
         }
       ]
@@ -198,10 +208,37 @@
       "html": "<p>Anentome helena (also Clea helena) is a freshwater snail with a pointy, spiral shell that reaches up to 2.5 cm long. The shell has a ribbed texture and alternating dark brown and yellow stripes that look like a bumblebee pattern. It is a natural way to get rid of pest snails such as bladder snails, ramshorn snails and Malaysian trumpet snails (MTS).</p><p>It often crawls around with its siphon prominently extended; the siphon is used to draw in water to pass across the gills and to detect food. Like the Malaysian trumpet snail, it likes to bury itself in sand or gravel substrate and extends its siphon out of the ground to breathe and smell the surrounding area. As soon as it smells food nearby, it pops out of the ground to hunt.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi có 20–25 bể chỉ mua 3 con ốc sát thủ, rồi chuyển chúng từ bể này sang bể khác khi bể cũ đã hết ốc hại. Trứng ốc bàng quang hay ốc đĩa sót lại sẽ nở ra lứa mới, lúc đó lại chuyển ốc sát thủ về. Với cách này, người đó thấy 3–4 con là đủ cho cả dàn bể và không phải mua thêm ốc sống về làm mồi. Nếu có nhiều bể thì không cần mua ốc sát thủ cho từng bể.</p><p>Ở một tiệm chuyên tép ốc tại châu Âu, dạng vỏ sọc thường có hàng, còn dạng vỏ vàng thỉnh thoảng mới về.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "distribution",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/assassin-snail",
       "html": "<p>This Southeast Asian snail is found in Thailand, Malaysia, and the island of Sumatra in Indonesia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Người ta đã thu được ốc thuộc giống này ở cả Việt Nam. Dạng vỏ sọc bán ngoài tiệm là hàng xuất từ Thái Lan, cụ thể là vùng Phuket. Ấn Độ và Mỹ đang để mắt tới loài này vì sợ nó lan ra ngoài tự nhiên và ăn các loài ốc bản địa, và có vẻ nó đã có mặt ở đó.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
+      "key": "habitat",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Ngoài tự nhiên, ốc sống ở đủ kiểu vùng nước, kể cả nước chảy, miễn là có cái ăn. Nó chủ yếu bò dưới đáy và thích nền hạt mịn để vùi mình.</p>",
+      "refs": [
+        0
+      ]
     },
     {
       "key": "aquariumSize",
@@ -222,10 +259,28 @@
       "html": "<p>These carnivores love to eat snails of all kinds, and given the opportunity, they will also eat deceased animals, fish eggs, and newborn fry (wrigglers) that are not yet freely swimming.</p><p>When pest snails run out, they can be fed any kind of high-protein fish food, such as frozen bloodworms, fish flakes, pellets, sinking wafers, and Repashy gel food. To help them grow strong shells free of cracks and other imperfections, offer mineral-enriched foods, like Easy Shrimp and Snail Shells and Hikari Fancy Guppy pellets.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Giun là món ăn hằng ngày của ốc sát thủ khi bể không còn ốc. Nó cũng ăn cả trứng của các loài ốc khác. Một người nuôi thấy ba con ốc sát thủ dọn sạch 30–40 con ốc bàng quang trong một bể 30–40 lít chỉ trong vài tuần.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "behaviour",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/assassin-snail",
       "html": "<p>Remove all snails that you do not want to be eaten. When kept in groups, assassin snails can take down larger snails, such as mystery, nerite, and Sulawesi rabbit snails. However, they do not tend to attack their own kind and are safe to keep with peaceful fish, aquarium plants, dwarf shrimp, and other non-snail invertebrates.</p><p>Avoid keeping them with snail-eating animals, such as pufferfish and certain types of loaches.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Cách săn mồi, theo quan sát kỹ của một người nuôi lâu năm:</p><ul><li>Ốc trèo lên lưng con mồi rồi xoay qua xoay lại để gỡ nó khỏi lũa. Con mồi thường vẫn ăn tiếp, không biết mình gặp nguy.</li><li>Khi con mồi rụt vào vỏ thì đã muộn. Ốc sát thủ thò một cái vòi rất dài vào trong vỏ, luồn qua phần chân để tới thẳng tim, thận, dạ dày rồi hút sạch nội tạng. Phần chân thường bị bỏ lại trong vỏ.</li><li>Ăn một con ốc đĩa cỡ ngang mình mất khoảng một tiếng. Một con ốc tháp thì phải vật lộn chừng 5 phút.</li><li>Ăn xong, ốc thường tìm chỗ tối, khuất rồi vùi nửa người xuống nền để nghỉ. Nó có thể nằm yên một tuần, mười ngày hoặc lâu hơn mới đi săn tiếp. Tuy vậy, có lần một con vừa ăn xong đã quay sang săn ngay một con ốc đĩa nhỏ trên cùng khúc lũa.</li><li>Không phải lần nào chạm mặt nó cũng tấn công. Có lần nó đụng một con ốc bàng quang rồi bỏ đi.</li></ul><p>Cũng người nuôi đó thấy ốc nhỏ và ốc non dễ bị ăn, còn ốc lớn thì khó hơn hẳn. Có lần một con ốc Clithon nhỏ bám kính quá chặt, ốc sát thủ đeo theo khoảng 10 cm rồi cũng phải buông. Theo người này, ốc nerite lớn hay ốc thỏ Tylomelania lớn khỏe đến mức ốc sát thủ ít có cơ hội, chỉ hạ được khi chúng đã yếu, già hoặc sắp chết. Đây là quan sát của một người, khác với chuyện ốc sát thủ hạ được cả ốc nerite và ốc thỏ.</p><p>Người này cũng cho rằng tép lớn và tép con khỏe mạnh có lẽ không sao. Riêng tép bệnh, yếu đi thì có thể bị ốc săn, còn tép chết thì chắc chắn bị ăn. Như vậy, tép không hẳn lúc nào cũng an toàn tuyệt đối.</p><p>Cá nano và cá nhỏ thường để ốc yên, thỉnh thoảng mổ vài cái làm ốc rụt vào một lúc rồi lại bò tiếp. Cá khác có thể ăn ốc, nên cần chọn bể cho kỹ trước khi thả.</p>",
+      "refs": [
+        0
+      ]
     },
     {
       "key": "reproduction",
@@ -234,10 +289,28 @@
       "html": "<p>Unlike many pest snail species, assassin snails are not hermaphrodites and cannot reproduce by themselves. They are difficult to sex, so the easiest way is to get a group of six or more to increase the chances of having at least one male and one female.</p><p>If fed plenty of food, they will naturally begin to reproduce, although at a much slower rate than most pest snails. The female lays a translucent, square-shaped egg capsule with pointy corners containing a single yellow egg. The capsules are laid one by one and stick to surfaces like rocks, driftwood, or the substrate.</p><p>They can be bred in the same tank as other species, like guppies and cherry shrimp.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Ngoài đá và lũa, ốc còn dán trứng lên rễ cây và lá cây, gần như chỗ nào trong bể cũng có. Mỗi lần đẻ bao nhiêu trứng thì hiện chưa ai biết rõ. Trứng nở sau khoảng 2–6 tuần, nhanh hay chậm là do nhiệt độ nước.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/anentome-helena/",
       "html": "<p>The snail-eating snail Anentome helena is well suited to clearing a tank of other snails. It finds its victims with its trunk. With a total length of about 1.5 cm it is also suitable for very small tanks, in which many hobbyists keep dwarf shrimps. In such small tanks it is nearly impossible to reduce other snails with loaches or puffers. After all the snails have been eaten, it can be fed protein-containing food.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Tên đúng hiện nay là <em>Anentome helena</em>, theo một công trình khoa học công bố năm 2017. Mẫu gốc dùng để mô tả loài lấy ở đảo Java. Công trình này cũng cho rằng thứ trước nay gọi chung là <em>A. helena</em> có lẽ không phải một loài mà là một nhóm loài gần nhau, chắc khoảng bốn loài. Ốc bán ngoài tiệm vì vậy có thể thuộc hai, ba loài khác nhau. Dạng vỏ sọc nâu quen thuộc được xếp là \"loài A\" từ Thái Lan, còn dạng vỏ vàng có lẽ là một loài khác, gọi là \"loài B\", chắc là từ nơi khác tới.</p><p>Loài này họ hàng gần với ốc cối biển. Ốc cối thường vùi mình nằm chờ mồi đi ngang qua, còn ốc sát thủ thì chủ động bò đi tìm ốc khác để săn.</p>\n<p>Ốc sống được khoảng 3–4 năm, theo những gì biết tới nay.</p>",
+      "refs": [
+        0
+      ]
     }
   ],
   "photos": [
@@ -294,7 +367,14 @@
       "source": "aquariumcoop"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "Lfl7W6Ktlmo",
+      "title": "Assassin Snail Clea helena — The Tiny Predator Keeping My Aquarium Balanced!",
+      "durationSec": 1349,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "thuc-an",
@@ -311,5 +391,11 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-19",
+  "refs": [
+    {
+      "url": "https://www.youtube.com/watch?v=Lfl7W6Ktlmo",
+      "title": "Assassin Snail Clea helena — The Tiny Predator Keeping My Aquarium Balanced!"
+    }
+  ]
 }

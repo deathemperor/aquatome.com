@@ -4,12 +4,15 @@
   "altNames": [
     "Freshwater pipefish"
   ],
-  "sections": {},
+  "sections": {
+    "reproduction:glaser": "<p>Giống mọi loài cá chìa vôi khác, con đực giữ trứng cho tới khi nở. Con cái đẻ trứng vào một cái túi chạy dọc bụng con đực.</p>",
+    "dimorphism:glaser": "<p>Con đực rất dễ nhận ra vì dáng mình khác hẳn con cái. Nó dài tới 15 cm, con cái nhỏ hơn một chút. Con đực còn có một sọc đỏ đẹp chạy dọc lưng và hoa văn xinh trên mõm.</p>"
+  },
   "quality": {
-    "score": 0.9,
+    "score": 0.6,
     "indexable": false,
     "bySource": {
-      "glaser": 0.9
+      "glaser": 0.6
     },
     "reason": "thin"
   }

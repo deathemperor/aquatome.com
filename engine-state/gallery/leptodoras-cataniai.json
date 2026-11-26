@@ -2,7 +2,10 @@
  "queue": [],
  "judged": [],
  "hashes": {
-  "https://media.aquatome.com/processed/88bcc45ec27be917385272d913e0bbf9.webp": "989913071c61c80f"
+  "https://media.aquatome.com/processed/88bcc45ec27be917385272d913e0bbf9.webp": "989913071c61c80f",
+  "https://media.aquatome.com/glaser/611be0dc30761813.webp": "183819656ffd7838",
+  "https://media.aquatome.com/glaser/12b8f4f500ca40fb.webp": "4e77e75a19539799",
+  "https://media.aquatome.com/glaser/ada048cb1cb9c5af.webp": "65a3a1d8474e4b8f"
  },
  "inat": {
   "taxon": 613850,
@@ -16,5 +19,13 @@
  "gbif": {
   "key": 2343944,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 0,
+  "done": true
+ },
+ "exhausted": "2026-11-18"
 }

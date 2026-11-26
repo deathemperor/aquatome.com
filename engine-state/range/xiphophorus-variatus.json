@@ -1,17 +1,9 @@
 {
   "id": "xiphophorus-variatus",
   "native": {
-    "input": "a1ad2cccb2ccdfc6",
-    "at": "2026-11-05T19:44:13.099Z",
+    "input": "623dc4c4aeb791da",
+    "at": "2026-11-22T00:38:58.151Z",
     "claims": [
-      {
-        "code": "MX",
-        "status": "native",
-        "source": "glaser",
-        "quote": "The ancestors of these animals were collected in 2002 in Puente Escalanar, Veracruz, Mexico.",
-        "words": "Mexico",
-        "ok": true
-      },
       {
         "code": "MX",
         "status": "native",
@@ -41,7 +33,7 @@
         "status": "introduced",
         "source": "seriouslyfish",
         "quote": "Originally endemic to the Atlantic slope of Mexico but introduced or feral populations now exist in several other countries, including Costa Rica, Colombia, the USA, Hawaii, Singapore and Hong Kong.",
-        "words": "USA",
+        "words": "the USA",
         "ok": true
       },
       {
@@ -57,6 +49,14 @@
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Originally endemic to the Atlantic slope of Mexico but introduced or feral populations now exist in several other countries, including Costa Rica, Colombia, the USA, Hawaii, Singapore and Hong Kong.",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Two wild-derived forms of Xiphophorus variatus are described here, both German-bred descendants of wild populations collected on a scientific expedition in Mexico.",
         "words": "Mexico",
         "ok": true
       }

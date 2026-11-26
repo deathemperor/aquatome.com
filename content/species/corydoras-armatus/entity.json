@@ -25,18 +25,15 @@
       ],
       "regions": [
         "Río Huallaga",
-        "Río Marañón",
-        "Río Madeira",
-        "Amazon"
+        "Río Madeira"
       ],
       "sources": [
-        "seriouslyfish",
-        "glaser"
+        "seriouslyfish"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Type description as given by Günther is 'Xeberos and Huallaga', which appears to correspond to the district of Jeberos in Alto Amazonas state, Peru and small province of Huallaga in San Martín region, respectively.",
+          "quote": "Hoplisoma armatum, long known as Corydoras armatus, is an armoured catfish from the Río Huallaga watershed in Peru, to which it may be endemic.",
           "countries": [
             "PE"
           ],
@@ -55,19 +52,10 @@
         },
         {
           "source": "seriouslyfish",
-          "quote": "Hoplisoma armatum, long known as Corydoras armatus, is an armoured catfish from the Río Huallaga watershed in Peru, to which it may be endemic.",
+          "quote": "Both localities lie within the Río Huallaga watershed to which Hoplisoma armatum may be endemic.",
           "countries": [],
           "regions": [
             "Río Huallaga"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "The Huallaga is a tributary of the Río Marañón which later becomes the Amazon following its confluence with the Ucayali.",
-          "countries": [],
-          "regions": [
-            "Río Marañón",
-            "Amazon"
           ]
         }
       ]
@@ -205,11 +193,22 @@
       {
         "source": "seriouslyfish",
         "value": 6.5
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "tempC": [
       {
         "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      },
+      {
+        "source": "glaser",
         "value": {
           "min": 22,
           "max": 26
@@ -249,16 +248,10 @@
       "html": "<p>Hoplisoma armatum, long known as Corydoras armatus, is an armoured catfish from the Río Huallaga watershed in Peru, to which it may be endemic. Fish from the upper rio Madeira in Brazil and Bolivia have been traded as C. sp. 'dorsalis' and C. sp. 'ogawae' and are officially considered conspecific, although the two areas lie almost 2500 km apart. It can also be confused with H. loretoense but has a deeper body and a longer, slightly curved dorsal-fin spine.</p>"
     },
     {
-      "key": "beforeYouBuy",
+      "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_armatus_spotted__en/",
-      "html": "<p>These fish were described by Günther more than 125 years ago and have hardly ever been imported since.</p>"
-    },
-    {
-      "key": "distribution",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_armatus_spotted__en/",
-      "html": "<p>April 2005: These fish were imported from Colombia. The literature, however, gives Peru and Brazil as their place of origin. Similar animals have been imported from Brazil, but without such a marked pattern as these fish from Colombia.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-armatus-2/",
+      "html": "<p>Corydoras armatus grows to about 5-6 cm long. The enormously high dorsal fin is carried tautly upright.</p>"
     },
     {
       "key": "distribution",
@@ -271,6 +264,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-armatum",
       "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided it's kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-armatus-2/",
+      "html": "<p>The care of C. armatus is the same as for other armored catfishes, but there are two special features. Firstly, C. armatus is one of the most social Corydoras and should therefore be kept in groups of 5 or more. Single animals do not feel well. Secondly, this species is somewhat sensitive to high water temperatures. The range between 22 and 26°C is correct, but for most of the year the lower value should be used as a guideline.</p>"
     },
     {
       "key": "waterConditions",
@@ -299,8 +298,8 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_armatus_spotted__en/",
-      "html": "<p>The characteristic feature of this catfish is the extremely long dorsal fin, whose first ray is coloured darkly. Except for the ventral side, the whole body is marked with dark spots arranged in a vertical line pattern. The head has no spots at all. The body is high compared with the very similar-looking C. loretoensis.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-armatus-2/",
+      "html": "<p>In recent years imports similar to Corydoras armatus (= sp. aff. armatus or cf. armatus), but not identical, were reported more often. Now the \"real\" C. armatus has been received again from Peru. The enormously high dorsal fin is an eye-catcher. It is always carried tautly upright, which reminds one of a group of dwarfs with a pointed cap.</p>"
     },
     {
       "key": "notes",
@@ -315,7 +314,48 @@
       "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Günther, A. (1868). Diagnoses of some new freshwater fishes from Surinam and Brazil, in the collection of the British Museum. Annals and Magazine of Natural History (Series 4) v. 1(6), 475-481</li><li>Nijssen, H. and I. J. H. Isbrücker (1980). A review of the genus Corydoras Lacépède, 1803 (Pisces, Siluriformes, Callichthyidae). Bijdragen tot de Dierkunde 50(1), 190-220</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/501fe8c60b40040d.webp",
+      "thumb": "https://media.aquatome.com/glaser/501fe8c60b40040d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-armatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c7f8e2cb5216866a.webp",
+      "thumb": "https://media.aquatome.com/glaser/c7f8e2cb5216866a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-armatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a2f77dd073fa9d7c.webp",
+      "thumb": "https://media.aquatome.com/glaser/a2f77dd073fa9d7c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-armatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/76e0b6d03f2c76fb.webp",
+      "thumb": "https://media.aquatome.com/glaser/76e0b6d03f2c76fb-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-armatus-2/",
+      "source": "glaser"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "cm-7fxN4DDg",
@@ -371,5 +411,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-14"
+  "updatedAt": "2026-11-22"
 }

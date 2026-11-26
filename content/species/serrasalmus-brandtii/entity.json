@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "brazil",
-    "sao-francisco"
+    "sao-francisco",
+    "rio-sao-francisco"
   ],
   "range": {
     "native": {
@@ -16,29 +17,27 @@
         "BR"
       ],
       "regions": [
-        "São Francisco",
-        "Itapicuru"
+        "Rio São Francisco"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Possibly restricted to the rio São Francisco watershed in eastern Brazil, where it has been recorded throughout the system including major tributaries including the rios das Velhas, Grande, and Urucuia.",
+          "quote": "The white piranha, Serrasalmus brandtii, may be restricted to the rio São Francisco watershed in eastern Brazil.",
           "countries": [
             "BR"
           ],
-          "regions": [
-            "São Francisco"
-          ]
+          "regions": []
         },
         {
           "source": "seriouslyfish",
-          "quote": "It may also occur in the rio Itapicuru which is located south of the São Francisco but is not connected to it.",
+          "quote": "Possibly restricted to the rio São Francisco watershed in eastern Brazil, where it has been recorded throughout the system including major tributaries including the rios das Velhas, Grande, and Urucuia.",
           "countries": [],
           "regions": [
-            "Itapicuru"
+            "Rio São Francisco"
           ]
         }
       ]
@@ -353,6 +352,13 @@
           "min": 20,
           "max": 26
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 24
+        }
       }
     ],
     "ph": [
@@ -377,6 +383,10 @@
       {
         "source": "seriouslyfish",
         "value": 25
+      },
+      {
+        "source": "glaser",
+        "value": 30
       }
     ],
     "tankCm": [
@@ -400,10 +410,22 @@
       "html": "<p>The white piranha, Serrasalmus brandtii, may be restricted to the rio São Francisco watershed in eastern Brazil. Also known as 'green piranha' or 'Brandt's pirambeba', it appears infrequently in the trade, and its name is sometimes misapplied to the distantly related Pygopristis denticulata. Adults are uniformly golden-bronze with dark fin margins and a concave head profile above the eye. It is best kept alone as a single specimen.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus_cf_brandtii_en/",
+      "html": "<p>Serrasalmus cf. brandtii originates from the Rio São Francisco and is closely related to Serrasalmus brandtii. The species is quite aggressive. Origin: Brazil.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-brandtii",
       "html": "<p>Possibly restricted to the rio São Francisco watershed in eastern Brazil, where it has been recorded throughout the system including major tributaries including the rios das Velhas, Grande, and Urucuia. It may also occur in the rio Itapicuru which is located south of the São Francisco but is not connected to it. An introduced population inhabits the Pedra do Cavalo reservoir on the rio Paraguaçu, Bahia state.</p><p>Type locality is 'Lagoa Santa, Minas Gerais State, Brazil'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus_cf_brandtii_en/",
+      "html": "<p>Rio São Francisco, Brazil.</p>"
     },
     {
       "key": "habitat",
@@ -418,6 +440,12 @@
       "html": "<p>Standard length: 25 cm SL. Aquarium base: 150 × 60 cm. Volume: ~540 litres.</p><p>An aquarium measuring at least 150 × 60 × 60 cm is required to house a single specimen.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus_cf_brandtii_en/",
+      "html": "<p>As young fish they can be kept as a shoal in a species aquarium. Adults, at over 30 cm in length, naturally need very large tanks.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-brandtii",
@@ -430,16 +458,34 @@
       "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 5.0–8.0</li><li>Hardness: 2–20 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus_cf_brandtii_en/",
+      "html": "<p>No special requirements are placed on water chemistry and temperature. Medium-hard water, a neutral pH and temperatures around 24°C are recommended.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-brandtii",
       "html": "<p>Serrasalmus species tend to be somewhat opportunistic feeders in the wild, although they display a preference for small fishes, chunks of fish flesh, and fish fins.</p><p>In the aquarium small individuals can be offered chironomid larvae (bloodworm), small earthworms, chopped shellfish and suchlike, while adults will accept strips of fish flesh, live river shrimp, larger earthworms, etc.</p><p>This species should not be fed mammalian or avian meat such as beef heart or chicken since some of the lipids contained in these cannot be properly metabolised by the fish and can cause excessive fat deposition and even organ degeneration. Similarly, there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry the risk of parasite or disease introduction, and tend not have a high nutritional value unless properly conditioned beforehand.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus_cf_brandtii_en/",
+      "html": "<p>Freshly imported piranhas usually accept only live fish as food, but they can be accustomed to fish meat, shrimps or mussels. In some reported cases pellets are also accepted.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-brandtii",
       "html": "<p>Best maintained alone as a single specimen.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus_cf_brandtii_en/",
+      "html": "<p>They are quite aggressive, but as young fish they can be kept as a shoal.</p>"
     },
     {
       "key": "dimorphism",
@@ -468,26 +514,20 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/78f187d4c78e86ae.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/78f187d4c78e86ae-480.webp",
-      "width": 800,
-      "height": 637,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-brandtii",
-      "caption": "Image of S. brandtii specimens from Eigenmann (1915). Specimen 1, 59 mm, Pirapora, Minas Gerais state; 2, 85 mm, Pirapora; 3, 123 mm, Juazeiro, Bahia state; 4, 170 mm, Juazeiro.",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/041ec67bbf88ae4a.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/041ec67bbf88ae4a-480.webp",
-      "width": 800,
-      "height": 600,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-brandtii",
-      "caption": "Subadult from the rio São Francisco.",
-      "source": "seriouslyfish"
+      "url": "https://media.aquatome.com/inaturalist/722423310.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/722423310-480.webp",
+      "width": 1024,
+      "height": 577,
+      "licence": "CC BY-NC",
+      "author": "Brian Williams",
+      "sourceUrl": "https://www.inaturalist.org/photos/722423310",
+      "caption": "Cá piranha trắng có đốm trong nước tự nhiên giữa cây thủy sinh",
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/722423310-large.webp",
+        "width": 2048,
+        "height": 1153
+      }
     }
   ],
   "videos": [],
@@ -519,5 +559,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-17"
 }

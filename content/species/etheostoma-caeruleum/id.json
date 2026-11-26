@@ -1,0 +1,28 @@
+{
+  "slug": "rainbow-darter",
+  "name": "Rainbow Darter",
+  "altNames": [
+    "Darter Pelangi"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Rainbow Darter (Etheostoma caeruleum) adalah spesies kecil yang cantik dengan panjang maksimal 7-8 cm. Ikan ini sudah diimpor sejak tahun 1899, tetapi sampai sekarang tetap jarang ditemukan.</p>",
+    "beforeYouBuy:glaser": "<p>Tidak banyak spesies ikan yang permintaannya lebih besar daripada jumlah ikan yang ditawarkan. Rainbow Darter termasuk salah satu spesies yang istimewa ini.</p>",
+    "distribution:glaser": "<p>Spesies ini berasal dari Amerika Utara.</p>",
+    "habitat:glaser": "<p>Di alam, Rainbow Darter hidup di perairan sejuk yang arusnya deras.</p>",
+    "reproduction:glaser": "<p>Spesies ini meletakkan telurnya di dasar.</p>",
+    "notes:glaser": "<p>Meskipun di alam hidup di perairan sejuk berarus deras, ikan ini sama sekali tidak rewel dalam perawatannya.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.85
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-20"
+  }
+}

@@ -1,8 +1,8 @@
 {
   "id": "betta-simorum",
   "native": {
-    "input": "d1d66f524419a802",
-    "at": "2026-11-06T21:19:39.004Z",
+    "input": "af2ef9ccc7afe3ab",
+    "at": "2026-11-20T17:43:20.430Z",
     "claims": [
       {
         "code": "ID",
@@ -23,20 +23,13 @@
     ],
     "regions": [
       {
-        "name": "Kapuas",
+        "name": "Sumatra",
         "source": "seriouslyfish",
         "quote": "This species has been collected from various localities in the province of Jambi, Sumatra, the adjacent province of Riau, and the Kapuas River system in Kalimantan Barat (West Kalimantan) province, Borneo.",
         "ok": true
       },
       {
-        "name": "Indragiri",
-        "source": "seriouslyfish",
-        "quote": "The type specimens were collected from 'Swamp in Rantau Panjang, Jambi Province, Sumatra, Indonesia', not to be confused with the town of the same name on the Thai-Malay border, whilst in Riau the species appears restricted to the Indragiri river basin.",
-        "country": "ID",
-        "ok": true
-      },
-      {
-        "name": "Sumatra",
+        "name": "Kapuas",
         "source": "seriouslyfish",
         "quote": "This species has been collected from various localities in the province of Jambi, Sumatra, the adjacent province of Riau, and the Kapuas River system in Kalimantan Barat (West Kalimantan) province, Borneo.",
         "ok": true
@@ -45,6 +38,12 @@
         "name": "Borneo",
         "source": "seriouslyfish",
         "quote": "This species has been collected from various localities in the province of Jambi, Sumatra, the adjacent province of Riau, and the Kapuas River system in Kalimantan Barat (West Kalimantan) province, Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Indragiri",
+        "source": "seriouslyfish",
+        "quote": "The type specimens were collected from 'Swamp in Rantau Panjang, Jambi Province, Sumatra, Indonesia', not to be confused with the town of the same name on the Thai-Malay border, whilst in Riau the species appears restricted to the Indragiri river basin.",
         "ok": true
       }
     ],

@@ -1,0 +1,43 @@
+{
+  "id": "hemichromis-exsul",
+  "native": {
+    "input": "2ae636995bb63e9a",
+    "at": "2026-11-18T06:03:35.101Z",
+    "claims": [
+      {
+        "code": "KE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The type locality was lake Rudolf (now: lake Turkana) in Kenya.",
+        "words": "Kenya",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Turkana",
+        "source": "glaser",
+        "quote": "The type locality was lake Rudolf (now: lake Turkana) in Kenya.",
+        "country": "KE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemichromis exsul",
+    "status": "ACCEPTED",
+    "taxonKey": 2371385,
+    "datasets": [],
+    "native": [
+      "KE"
+    ],
+    "requests": 2,
+    "at": "2026-11-18T06:03:35.101Z"
+  }
+}

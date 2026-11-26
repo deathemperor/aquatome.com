@@ -1,8 +1,13 @@
 {
   "slug": "rio-limon",
-  "name": "Limón",
+  "name": "Sungai Limón",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-17T00:12:12.935Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

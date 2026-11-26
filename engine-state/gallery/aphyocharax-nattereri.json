@@ -1,7 +1,10 @@
 {
  "queue": [],
  "judged": [
-  "File:Aphyocharax nattereri (ZFMK-ICH-010414).jpg"
+  "File:Aphyocharax nattereri (ZFMK-ICH-010414).jpg",
+  "inat:127570970",
+  "inat:127591238",
+  "inat:762989976"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/76ac3d43f145df02.webp": "c8c4c60343d2c2c6"
@@ -18,5 +21,13 @@
  "gbif": {
   "key": 2353655,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 414458916,
+  "done": true
+ },
+ "exhausted": "2026-11-25"
 }

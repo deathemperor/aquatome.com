@@ -1,17 +1,16 @@
 {
   "id": "anatolichthys-sureyanus",
-  "summary": "Cá răng thỏ Burdur (Anatolichthys sureyanus) hợp với người đủ tâm huyết theo một dự án nuôi và nhân giống lâu dài, không hợp với người chỉ muốn bể cá màu sắc. Cần bể dài tối thiểu 120 cm, nước kiềm pH 8–10, độ cứng 15–35 dGH, pha muối biển 3–5 g/L, nhiệt độ 5–22 °C, nuôi đàn và nên nuôi riêng. Độ khó 4/8; điểm khó nhất là giữ nước đúng thông số, cho cá qua \"mùa đông\" lạnh mỗi năm và kiểm tra giá thể thường xuyên vì cá ăn trứng, cá con.",
+  "summary": "Cá răng thỏ Burdur (Anatolichthys sureyanus) hợp với người đủ tâm huyết theo một dự án nuôi và nhân giống lâu dài chứ không phải nuôi cho sặc sỡ. Cần bể đáy từ 120 cm, nuôi riêng thành đàn, nước kiềm pH 8–10, độ cứng 15–35 dGH, pha muối biển 3–5 g/L, nhiệt độ 5–22 °C. Khó nhất là giữ nước đúng thông số, cho cá qua \"mùa đông\" lạnh vài tháng mỗi năm và tách trứng kịp vì cá hay ăn trứng, cá con.",
   "mistakes": [
-    "Bỏ qua mùa đông thì cá đẻ kém, sống ngắn hơn; mỗi năm hãy giữ nước lạnh vài tháng.",
-    "Để pH xuống mức axit thì cá có lẽ không sống nổi; giữ pH 8–10 và pha muối biển 3–5 g/L.",
-    "Không kiểm tra giá thể thì cá ăn hết trứng và cá con; trong mùa đẻ, ngày nào cũng kiểm tra giá thể và chuyển phần có trứng sang thùng riêng."
+    "Đừng bỏ qua giai đoạn \"mùa đông\": mỗi năm hãy giữ nước lạnh vài tháng, nếu không cá đẻ kém và sống ngắn hơn.",
+    "Đừng nuôi trong nước axit: giữ pH kiềm như nước hồ và pha muối biển 3–5 g/L.",
+    "Đừng để trứng nằm lại trong bể đàn: cá ăn trứng và cá con, nên kiểm tra giá thể hằng ngày trong mùa đẻ và chuyển giá thể có trứng sang thùng riêng."
   ],
   "speciesUpdatedAt": "2026-10-29",
-  "writtenFrom": "4a34227c7d319e66",
-  "generatedAt": "2026-11-15T20:17:39.940Z",
+  "writtenFrom": "15183294bc77145c",
+  "generatedAt": "2026-11-21T19:28:36.748Z",
   "review": "pending",
   "problems": [
-    "\"Bỏ qua mùa đông thì cá đẻ kém, sống ngắn hơn\": the page hedges with \"nhiều khả năng\" (most likely), and the summary states it as a certainty.",
-    "\"cá ăn hết trứng và cá con\": the page says only that Anatolichthys \"thường ăn\" (usually eat) eggs and fry. \"Ăn hết\" (eat all of them) overstates this."
+    "\"nếu không cá đẻ kém và sống ngắn hơn\": the page hedges this (\"chắc là sẽ đẻ kém đi và sống ngắn hơn\", i.e. probably). The summary turns the hedge into a certainty."
   ]
 }

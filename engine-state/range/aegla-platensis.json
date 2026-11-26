@@ -1,0 +1,63 @@
+{
+  "id": "aegla-platensis",
+  "native": {
+    "input": "64583ba6bc698ead",
+    "at": "2026-11-18T06:03:35.101Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aegla platensis",
+    "status": "ACCEPTED",
+    "taxonKey": 4312488,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        161
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        118
+      ],
+      [
+        "f021b018-836b-4bea-b4da-275902fc546c",
+        21
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        9
+      ],
+      [
+        "1ad3c2b1-04dd-4be2-992b-f74027068713",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "6197c830-d9c7-11de-b793-b8a03c50a862",
+        1
+      ],
+      [
+        "7b84c0a2-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8295f33e-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-18T06:03:35.101Z"
+  }
+}

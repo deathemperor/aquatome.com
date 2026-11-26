@@ -3,6 +3,12 @@
   "name": "โอ",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-18T18:23:48.141Z",
+    "why": "The source names the O river (Ou River, 瓯江) in Zhejiang, but the place is described as a region and \"โอ\" is only a bare transliteration with no kind word like \"แม่น้ำ\", so it is unclear and not the atlas form."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

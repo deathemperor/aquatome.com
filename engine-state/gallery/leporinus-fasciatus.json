@@ -19,7 +19,9 @@
   "File:Leporinus fasciatus.jpg",
   "File:Leporinus fasciatus -Zoo Frankfurt.jpg",
   "File:Anostomidae Leporinus cf fasciatus (5807037498).jpg",
-  "File:Leporinus fasciatus 3zz.jpg"
+  "File:Leporinus fasciatus 3zz.jpg",
+  "flickr:7124562451",
+  "flickr:14525652555"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/005c241adafc3ce7.webp": "3f376398b8c62f2f",
@@ -32,7 +34,11 @@
   "https://media.aquatome.com/inaturalist/741700746.webp": "343434d086c0f28f",
   "https://media.aquatome.com/inaturalist/470664348.webp": "313b3f3f0d27c7c7",
   "https://media.aquatome.com/commons/472463ec759856e0.webp": "cfe69f96cef66ecc",
-  "https://media.aquatome.com/commons/5a1eb0e263e80bb9.webp": "1012429872cb29ed"
+  "https://media.aquatome.com/commons/5a1eb0e263e80bb9.webp": "1012429872cb29ed",
+  "https://media.aquatome.com/glaser/a26a8f7e03e572d8.webp": "dedcdd4f76d8860f",
+  "https://media.aquatome.com/glaser/8c413a246a6f3771.webp": "c40b71c5786024b0",
+  "https://media.aquatome.com/glaser/143a1d3c5779dbac.webp": "b5b42b6b692f9bdb",
+  "https://media.aquatome.com/flickr/7124562451.webp": "383c8e9bc3eafafd"
  },
  "commons": "2026-11-08",
  "inat": {
@@ -42,5 +48,12 @@
    "research": 121463977,
    "agree": 409766902
   }
+ },
+ "gbif": {
+  "key": 2355387,
+  "next": null
+ },
+ "openverse": {
+  "next": null
  }
 }

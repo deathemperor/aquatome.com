@@ -97,20 +97,26 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_steyermarki_en/",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus-steyermarki-2/",
       "html": "<p>Leporinus steyermarki is a beautiful large tetra. It can reach a maximum size of about 30 cm and originates from Venezuela.</p>"
     },
     {
       "key": "diet",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_steyermarki_en/",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus-steyermarki-2/",
       "html": "<p>Like all Leporinus, this fish is an omnivorous animal that takes a lot of plant material for food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus-steyermarki-2/",
+      "html": "<p>Specimens 4-6 cm long are very peaceful towards each other.</p>"
     },
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_steyermarki_en/",
-      "html": "<p>In German, the fish is now and then named \"Grey Leporinus\", which is for sure not describing accurately the coloration of the animal. Maybe this name bases on a confusion with another of the numerous species of Leporinus.</p><p>Lexicon: Leporinus: Latin, means \"hare-nose\". steyermarki: named for Julian A. Steyermark who led the 1953 botanical Venezuela Expedition of the Chicago Natural History Museum; the fish was discovered during this expedition.</p><p>Suggestion of a common name: Golden Spotted Leporinus</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus-steyermarki-2/",
+      "html": "<p>In German, the fish is now and then named \"Grey Leporinus\", which is for sure not describing accurately the coloration of the animal. Maybe this name is based on a confusion with another of the numerous species of Leporinus.</p><p>Lexicon: Leporinus: Latin, means \"hare-nose\". steyermarki: named for Julian A. Steyermark, who led the 1953 botanical Venezuela Expedition of the Chicago Natural History Museum; the fish was discovered during this expedition.</p><p>Suggestion of a common name: Golden Spotted Leporinus</p>"
     }
   ],
   "photos": [
@@ -120,7 +126,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_steyermarki_en/",
       "caption": "Leporinus steyermarki",
       "source": "glaser"
@@ -174,5 +180,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-14"
+  "updatedAt": "2026-11-17"
 }

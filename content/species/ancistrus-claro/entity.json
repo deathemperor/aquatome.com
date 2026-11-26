@@ -9,7 +9,8 @@
   "places": [
     "south-america",
     "brazil",
-    "cuiaba"
+    "cuiaba",
+    "rio-paraguay-parana"
   ],
   "range": {
     "native": {
@@ -17,35 +18,30 @@
         "BR"
       ],
       "regions": [
-        "Rio Cuiabá",
-        "Rio Paraguay"
+        "Cuiabá",
+        "Rio Paraguay-Paraná"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Ancistrus claro, the gold marble bristlenose catfish (LDA 008), is a suckermouth catfish from the rios Claro and Coxipó in Mato Grosso, Brazil.",
+          "quote": "Collected from the rios Claro and Coxipó within the upper rio Cuiabá drainage in Mato Grosso state, central Brazil.",
           "countries": [
             "BR"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Collected from the rios Claro and Coxipó within the upper rio Cuiabá drainage in Mato Grosso state, central Brazil.",
-          "countries": [],
           "regions": [
-            "Rio Cuiabá"
+            "Cuiabá"
           ]
         },
         {
-          "source": "seriouslyfish",
-          "quote": "The Cuiabá is itself a tributary of the rio Paraguay and its lower reaches flow through the Pantanal wetlands.",
+          "source": "glaser",
+          "quote": "The catfish originates from clear water streams with a strong current in the upper part of the Rio Paraguay-Paraná river basin.",
           "countries": [],
           "regions": [
-            "Rio Paraguay"
+            "Rio Paraguay-Paraná"
           ]
         }
       ]
@@ -102,6 +98,13 @@
           "min": 23,
           "max": 28
         }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -110,6 +113,13 @@
         "value": {
           "min": 6,
           "max": 7.5
+        }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.2,
+          "max": 7.6
         }
       }
     ],
@@ -126,6 +136,14 @@
       {
         "source": "seriouslyfish",
         "value": 7
+      },
+      {
+        "source": "glaser",
+        "value": 8
+      },
+      {
+        "source": "planetcatfish",
+        "value": 6.6
       }
     ],
     "tankCm": [
@@ -149,16 +167,46 @@
       "html": "<p>Ancistrus claro, the gold marble bristlenose catfish (LDA 008), is a suckermouth catfish from the rios Claro and Coxipó in Mato Grosso, Brazil. It inhabits flowing streams over boulders and bedrock. Sometimes confused with unidentified fishes such as A. sp. 'L352', it has long maxillary barbels and small spots on the head, with vermiform lines on the body in males and spots all over in females. A peaceful cave-spawner, it has been bred in aquaria on numerous occasions.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-claro-2/",
+      "html": "<p>One of the smallest Ancistrus species is Ancistrus claro, which was known as LDA 8 before its scientific description. It becomes at most 6-8 cm long.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=152",
+      "html": "<p>Ancistrus claro Knaack, 1999. Also known as LDA008, Gold Marble Bristlenose Catfish. Adult size 66 mm SL. Mainly active during the day (at least in its natural habitat). IUCN: Least Concern.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
       "html": "<p>Collected from the rios Claro and Coxipó within the upper rio Cuiabá drainage in Mato Grosso state, central Brazil.</p><p>The Cuiabá is itself a tributary of the rio Paraguay and its lower reaches flow through the Pantanal wetlands.</p><p>Type locality is 'Rio Claro, above the bridge, in the direction of Chappada dos Guimaraes, Mato Grosso State, Brazil'.</p>"
     },
     {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=152",
+      "html": "<p>South America: Cuiabá River basin in upper Paraguay River drainage, Brazil. Type locality: Rio Claro, above the bridge, in the direction of Chappada dos Guimaraes, Mato Grosso State, Brazil.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
       "html": "<p>Inhabits flowing streams with substrates of boulders and bedrock.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-claro-2/",
+      "html": "<p>The catfish originates from clear water streams with a strong current in the upper part of the Rio Paraguay-Paraná river basin.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=152",
+      "html": "<p>Its natural habitat consists of fast flowing waters over a rocky bottom. It also likes to stay in quiet zones of these same river rapids. Conductivity range at type locality: 3–10 microsiemens.</p>"
     },
     {
       "key": "aquariumSize",
@@ -179,10 +227,28 @@
       "html": "<ul><li>Temperature: 23–28°C (73–82°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–15 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=152",
+      "html": "<p>pH 6.2–7.6. Temperature 24–28°C.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=152",
+      "html": "<p>Riverine species are ideal tankmates as they will enjoy a current. Safe with robust plants.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
       "html": "<p>Wild specimens are probably omnivorous foragers but with a preference for aquatic invertebrates and suchlike.</p><p>In the aquarium it does best when offered a varied diet comprising sinking dried foods, frozen Daphnia, mosquito larvae, chironomid larvae (bloodworm), and prawn/shrimp, for example, plus some fresh fruit, parboiled potato, etc.</p><p>Home-made foods using a mixture of natural ingredients bound with gelatin are very useful since they can be tailored to contain fresh vegetables, Spirulina and meatier ingredients.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=152",
+      "html": "<p>Not a picky eater, will eat about anything, from vegetables to bloodworms. A vegetable diet is preferable; animal proteins can be given once or twice a week but should not make up the main diet.</p>"
     },
     {
       "key": "behaviour",
@@ -191,10 +257,28 @@
       "html": "<p>A peaceful, diurnally-active species which can be maintained in a well-chosen community.</p><p>It is a little territorial towards conspecifics and similarly-shaped species but in most cases several can be maintained together provided the aquarium is well-structured (see 'Maintenance').</p>"
     },
     {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=152",
+      "html": "<p>It is not a territorial fish. Can be housed with several of its own kind or other loricariids without a problem.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
       "html": "<p>Adult males possess well-developed odontodes on the pectoral fins and opercle and tentacles on the head while females do not.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-claro-2/",
+      "html": "<p>The sexes are not quite as easy to distinguish as with other Ancistrus species, because just like the dwarf women in Tolkien's \"Lord of the Rings\", the females of the dwarf ancistrus have mighty beards.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=152",
+      "html": "<p>Males have branched tentacles on the snout; females can occasionally have 2–3 very small tentacles, but most don't have any. Mature females have a darker base colouration. The vermiform lines are found predominantly on males. Both sexes grow to about the same size.</p>"
     },
     {
       "key": "reproduction",
@@ -203,16 +287,34 @@
       "html": "<p>Cave-spawner with the male responsible for brood care.</p><p>It's been bred in aquaria on numerous occasions and in well-maintained, mature set-ups juveniles may begin to appear without intervention.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=152",
+      "html": "<p>Typical Ancistrus manner. Males stay in caves and guard the brood. Females lay about 20 to 35 eggs. Eggs hatch after 5–7 days. After about 2 weeks the yolk sac is totally absorbed and the young start to eat. Fry are raised like other members of the genus.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
       "html": "<p>This species is sometimes confused with unidentified fishes such as A. sp. 'L352'.</p><p>It can be told apart from closely-related congeners by possession of relatively long maxillary barbels which are free from the lower lip, and a colour pattern consisting of small spots on the head and vermiform lines on the body in males, and small spots all over the head and body in females.</p><p>Ancistrus is a diverse genus currently containing in excess of 60 valid species, distributed between Panama in Central America and the Río de la Plata drainage, Argentina.</p><p>Members are diagnosed from other loricariids by possessing well-developed interopercular spines and lacking plates and odontodes on the anterior margin of the snout, which is instead covered in fleshy tentacles.</p><p>Thanks to L-Welse.com.</p>"
     },
     {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=152",
+      "html": "<p>Mature males and sometimes females have soft tentacles on the snout, which is unique to the genus Ancistrus. The base colouration is brown with a whitish abdomen. The markings are beige to yellowish white in an irregular reticulated pattern. Snout tentacles of males have a pattern of light-coloured spots. The dorsal and caudal fins have irregular bands. It can be confused with young specimens of common Ancistrus unless the mouth shape is examined: in A. claro it is more oval than rounded. Etymology: Ancistrus comes from the Greek agkistron, meaning hook, referring to the hooked interopercular odontodes; the species is named after the Rio Claro.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
       "html": "<ul><li>Stawikowski, R., A. Werner and I. Seidel (2004). DATZ Special: L-Numbers. DATZ, 1-132</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Bifi, A. G., C. S. Pavanelli and C. H. Zawadzki (2009). Three new species of Ancistrus Kner, 1854 (Siluriformes: Loricariidae) from the Rio Iguaçu basin, Paraná State, Brazil. Zootaxa 2275, 41-59</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=152",
+      "html": "<p>Tropical Fish Hobbyist v. 47 (no. 10), pp 71, Figs. 1-3 + unnumbered.</p>"
     }
   ],
   "photos": [
@@ -237,9 +339,64 @@
       "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_claro.htm",
       "caption": "Ancistrus claro: Pair",
       "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e893fa72b04753aa.webp",
+      "thumb": "https://media.aquatome.com/glaser/e893fa72b04753aa-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-claro-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0419ee6e93fa694e.webp",
+      "thumb": "https://media.aquatome.com/glaser/0419ee6e93fa694e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-claro-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d0d792f8bf41e035.webp",
+      "thumb": "https://media.aquatome.com/glaser/d0d792f8bf41e035-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-claro-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "7Red_FTvfRA",
+      "title": "Breeding Project:  Ancistrus claro",
+      "durationSec": 369,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "n90PNi-ARqM",
+      "title": "Ancistrus claro breeding: emptying cave of free swimming fry",
+      "durationSec": 153,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1MxpS6AI8M8",
+      "title": "Ancistrus Claro",
+      "durationSec": 106,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UwL3BgldyQ8",
+      "title": "Ancistrus Claro",
+      "durationSec": 134,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -269,5 +426,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-23"
 }

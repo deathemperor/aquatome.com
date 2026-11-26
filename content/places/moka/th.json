@@ -3,6 +3,12 @@
   "name": "โมกา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.72,
+    "at": "2026-11-19T12:47:23.201Z",
+    "why": "\"โมกา\" is a valid Thai transliteration of Moka, but the place is a region/river system, and an atlas in Thailand would likely add a kind word such as \"แม่น้ำ\" (river) or \"เขต\", so the bare name is slightly incomplete."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

@@ -1,9 +1,21 @@
 {
  "queue": [],
  "judged": [
-  "File:Barilius bendelisis Minten 148.jpg"
+  "File:Barilius bendelisis Minten 148.jpg",
+  "inat:322738673",
+  "inat:470083158",
+  "inat:504306601",
+  "inat:504306816",
+  "inat:504306917",
+  "inat:552144392",
+  "inat:552144451",
+  "inat:570617698",
+  "inat:722056972"
  ],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/inaturalist/552144451.webp": "a727d9cd67282436",
+  "https://media.aquatome.com/inaturalist/552144392.webp": "c284c60ed25b9851"
+ },
  "commons": "2026-11-06",
  "inat": {
   "taxon": 1315752,
@@ -16,5 +28,9 @@
  "gbif": {
   "key": 2363257,
   "next": null
+ },
+ "inatNc": {
+  "after": 393902343,
+  "done": true
  }
 }

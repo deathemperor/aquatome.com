@@ -1,5 +1,3 @@
-import { readFileSync } from 'node:fs'
-import { fileURLToPath } from 'node:url'
 import type { Page } from '@playwright/test'
 import { lastDays } from '../worker/admin/chart'
 import { contentPage } from '../worker/admin/content-page'
@@ -7,7 +5,7 @@ import { accountsPage, fishIdPage, NEED_TITLE_MAX, photosPage } from '../worker/
 import { scoreboardPage, summariseScoreboard, weeksTo } from '../worker/admin/scoreboard'
 import { viewerZone } from '../worker/admin/time'
 import { todayJson, todayPage } from '../worker/admin/today'
-import { FISH, LOW_CONTENT, PHOTO_APPROVED, PHOTO_WAITING, SPENDING, STATS, TODAY } from '../worker/test/owner-sample'
+import { FISH, LOW_CONTENT, SPENDING, STATS, TODAY } from '../worker/test/owner-sample'
 import { expect, test } from './fixtures'
 import { LIVE } from './pages'
 
@@ -23,16 +21,6 @@ async function serve(page: Page, path: string, html: (tz: string) => string) {
   await page.route(url => url.pathname === path, async route => {
     const tz = viewerZone(new Request(route.request().url(), { headers: await route.request().allHeaders() }))
     await route.fulfill({ contentType: 'text/html; charset=utf-8', body: html(tz) })
-  })
-}
-
-/** The waiting photos' thumbnails, as the Worker serves them from the private bucket (`/_ab/anh/<id>`). */
-async function photos(page: Page) {
-  const file = (name: string) => readFileSync(fileURLToPath(new URL(`./photos/${name}`, import.meta.url)))
-  const by: Record<string, Buffer> = { [PHOTO_WAITING]: file('reader-photo-koi.webp'), [PHOTO_APPROVED]: file('reader-photo-halfmoon.webp') }
-  await page.route(url => url.pathname.startsWith('/_ab/anh/'), route => {
-    const body = by[new URL(route.request().url()).pathname.slice('/_ab/anh/'.length)]
-    return body ? route.fulfill({ contentType: 'image/webp', body }) : route.fulfill({ status: 404 })
   })
 }
 
@@ -52,6 +40,10 @@ test('the scoreboard reads a week off its chart, and fits a 320 px screen', asyn
   await serve(page, '/_ab/thanh-cong/', tz => scoreboardPage(scoreboard(), tz))
   await page.goto('/_ab/thanh-cong/')
   await expect(page.getByRole('heading', { level: 1, name: 'Scoreboard' })).toBeVisible()
+  // The page's first readout keeps its own row: the first screen's grid is Today's alone (#1689's reader, 21 Nov).
+  await expect(page.locator('.readout.first')).toHaveCount(1)
+  await expect(page.locator('.readout.first')).toHaveCSS('display', 'flex')
+  await expect(page.locator('.readout.first')).toHaveCSS('margin-top', '4px')
   const chart = page.locator('figure[aria-labelledby="w-star-t"]')
   await expect(chart.locator('.readout .when')).toHaveText('12 weeks')
   await expect(chart.locator('.readout b')).toHaveText('18')
@@ -69,13 +61,13 @@ test('the scoreboard reads a week off its chart, and fits a 320 px screen', asyn
   expect(errors).toEqual([])
 })
 
-test('a tap on any small column, on the overview and the scoreboard, shows its day and value and stays on the page', async ({ page, errors, isMobile }) => {
+test('a tap on any small column on the scoreboard shows its day and value and stays on the page', async ({ page, errors, isMobile }) => {
   test.skip(LIVE, 'the live dashboard opens only to the owner')
   // The owner (2026-11-07): a tap on a bar gave no number. The overview's columns sat inside their row's link, and
-  // neither page's small columns said their values.
-  await serve(page, '/_ab/', () => todayPage(TODAY))
+  // neither page's small columns said their values. The overview has no tappable columns since 19 Nov: its cards'
+  // seven days have no readout, and the whole card opens its page (Design's board2).
   await serve(page, '/_ab/thanh-cong/', tz => scoreboardPage(scoreboard(), tz))
-  for (const [path, least] of [['/_ab/', 1], ['/_ab/thanh-cong/', 4]] as const) {
+  for (const [path, least] of [['/_ab/thanh-cong/', 4]] as const) {
     await page.goto(path)
     const sparks = await page.locator('[data-spark]').all()
     expect(sparks.length, path).toBeGreaterThanOrEqual(least)
@@ -94,17 +86,6 @@ test('a tap on any small column, on the overview and the scoreboard, shows its d
       expect(new URL(page.url()).pathname).toBe(path)
     }
   }
-  // The answers tile, Monday to Sunday: Tuesday, its second column, as the overview's reply counts it.
-  await page.goto('/_ab/')
-  const answers = page.locator('.kpi').filter({ hasText: 'Found an answer' }).locator('[data-spark]')
-  const box = (await answers.locator('svg').boundingBox())!
-  if (isMobile) await page.touchscreen.tap(box.x + box.width * (1.5 / 7), box.y + box.height / 2)
-  else await page.mouse.move(box.x + box.width * (1.5 / 7), box.y + box.height / 2)
-  const tuesday = todayJson(TODAY).tiles.find(t => t.key === 'answers')!.bars!.values[1]
-  await expect(answers.locator('.so')).toHaveText(`3 Nov: ${tuesday}`)
-  // Today's column, the day not over, is drawn lighter than the days before it (the Design Lead, 2026-11-09).
-  const fill = (sel: string) => answers.locator(sel).first().evaluate(e => getComputedStyle(e).fill)
-  expect(await fill('rect.today')).not.toBe(await fill('rect.now:not(.today)'))
   expect(errors).toEqual([])
 })
 
@@ -129,10 +110,17 @@ test('what needs you: each title on one line on a 390 px phone, on any font; a n
     await page.goto(`/_ab/${i}/`)
     await page.evaluate(() => document.fonts.ready)
     const needs = todayJson(t).needs
-    const rows = page.locator('ul.todo > li')
+    const rows = page.locator('section.needs .nrows > li')
     await expect(rows).toHaveCount(needs.length)
-    for (const [k, row] of (await rows.all()).entries()) {
-      const x = needs[k]!
+    if (needs.length > 3) await page.locator('section.needs details.more > summary').click()
+    // The web shows faults first, then what waits (a source behind a browser check among them; the Design Lead, 20 Nov),
+    // so a row is matched to its need by its title, not by where the data has it.
+    const left = [...needs]
+    for (const row of await rows.all()) {
+      const title = (await row.locator('b').textContent()) ?? ''
+      const at = left.findIndex(n => n.text === title)
+      expect(at, title).toBeGreaterThanOrEqual(0)
+      const x = left.splice(at, 1)[0]!
       const m = await row.locator('b').evaluate(b => {
         const cs = getComputedStyle(b)
         const r = document.createRange()
@@ -162,42 +150,48 @@ test('what needs you: each title on one line on a 390 px phone, on any font; a n
   expect(errors).toEqual([])
 })
 
-test('what needs you: one card, the whole row a link; on a phone a chevron in place of the button, and the photos load', async ({ page, errors }) => {
+test('the first screen: the app\'s five cards, two columns on a desktop and one on a phone; each card opens its page, and what needs you shows three then the rest', async ({ page, errors }) => {
   test.skip(LIVE, 'the live dashboard opens only to the owner')
-  // The Design Lead (2026-11-09): one list in one card, a filled "Review" and outlined "See …" buttons; on a phone no
-  // button, the row is the link with a chevron. The photos' thumbnails were broken images in every shot.
-  await photos(page)
+  // Design's answers (18 Nov): the app's cards (board2) in the web's frame; two columns on a desktop, Needs you and New
+  // pages on the left, Readers, Shipped and the cost on the right; one column on a phone in the board's order.
   await serve(page, '/_ab/', () => todayPage(TODAY))
+  await serve(page, '/_ab/doc-gia/', () => '<main><h1>Readers</h1></main>')
   const needs = todayJson(TODAY).needs
   for (const width of [390, 1280]) {
     await page.setViewportSize({ width, height: 900 })
     await page.goto('/_ab/')
-    await expect(page.locator('ul.todo')).toHaveCount(1)
-    const rows = page.locator('ul.todo > li')
-    await expect(rows).toHaveCount(needs.length)
-    for (const [i, row] of (await rows.all()).entries()) {
-      await expect(row.locator('a'), `${width} px, ${needs[i]!.text}`).toHaveCount(1)
-      if (width === 390) {
-        await expect(row.locator('.act')).toBeHidden()
-        await expect(row.locator('.chev')).toBeVisible()
-      } else {
-        await expect(row.locator('.act')).toBeVisible()
-        await expect(row.locator('.act')).toHaveText(needs[i]!.label)
-        await expect(row.locator('.chev')).toBeHidden()
-      }
+    const box = async (id: string) => (await page.locator(`section.card[aria-labelledby="${id}"]`).boundingBox())!
+    const [n, c, r, s, k] = await Promise.all(['needs', 'content', 'readers', 'shipped', 'cost'].map(box))
+    // Readers beside Shipped at both widths, as the board has them; the cost under them.
+    expect(Math.abs(r!.y - s!.y), `${width} px`).toBeLessThan(1)
+    expect(r!.x + r!.width, `${width} px`).toBeLessThanOrEqual(s!.x)
+    expect(k!.y, `${width} px`).toBeGreaterThan(r!.y + r!.height - 1)
+    if (width === 1280) {
+      // Two columns: Needs you over New pages on the left, Readers and Shipped at the top of the right.
+      expect(c!.y).toBeGreaterThan(n!.y + n!.height - 1)
+      expect(r!.x).toBeGreaterThan(n!.x + n!.width)
+      expect(Math.abs(r!.y - n!.y)).toBeLessThan(1)
+    } else {
+      // One column, in the board's order.
+      for (const [a, b] of [[n, c], [c, r], [s, k]] as const) expect(b!.y).toBeGreaterThan(a!.y + a!.height - 1)
     }
-    const imgs = page.locator('ul.todo img')
-    expect(await imgs.count()).toBe(needs.find(x => x.kind === 'photos')!.photos!.length)
-    for (const img of await imgs.all()) {
-      await img.scrollIntoViewIfNeeded()
-      await expect.poll(() => img.evaluate((e: HTMLImageElement) => e.complete && e.naturalWidth), `${width} px`).toBeGreaterThan(0)
-    }
+    // Three needs, then "2 more", which opens the rest in the same card; each row its own link.
+    const rows = page.locator('section.needs .nrows > li')
+    await expect(rows.filter({ visible: true })).toHaveCount(3)
+    await page.locator('section.needs details.more > summary').click()
+    await expect(rows.filter({ visible: true })).toHaveCount(needs.length)
+    for (const [i, row] of (await rows.all()).entries()) await expect(row.locator('a'), `${width} px, ${needs[i]!.text}`).toHaveAttribute('href', /^\/_ab\//)
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth), `${width} px`).toBeLessThanOrEqual(0)
+    // A card is one link (its heading's link covers it): a tap where its figure is opens its page.
+    const fig = (await page.locator('section.card[aria-labelledby="readers"] .fig').boundingBox())!
+    await page.mouse.click(fig.x + fig.width / 2, fig.y + fig.height / 2)
+    await expect(page).toHaveURL(/\/_ab\/doc-gia\/$/)
+  }
+  for (const width of [320, 412, 800]) {
+    await page.setViewportSize({ width, height: 800 })
+    await page.goto('/_ab/')
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth), `${width} px`).toBeLessThanOrEqual(0)
   }
-  // "Review" filled (its border the colour of its fill), "See …" outlined.
-  const [filled, outlined] = await Promise.all(['li.wait', 'li:not(.wait)'].map(li => page.locator(`ul.todo ${li} .act`).first().evaluate(e => [getComputedStyle(e).backgroundColor, getComputedStyle(e).borderTopColor])))
-  expect(filled![0]).toBe(filled![1])
-  expect(outlined![0]).not.toBe(outlined![1])
   expect(errors).toEqual([])
 })
 
@@ -205,9 +199,8 @@ test('the day charts: a hover or a tap shows the day beside its bar, inside the 
   test.skip(LIVE, 'the live dashboard opens only to the owner')
   // The Design Lead (2026-11-09): a day's name under each bar, no axis, no readout line over it; the overview's draws
   // found an answer only, so it has no legend (Fish ID's three kinds of call keep theirs).
-  await serve(page, '/_ab/', () => todayPage(TODAY))
   await serve(page, '/_ab/nhan-dien-ca/', tz => fishIdPage({ ...FISH, tz }))
-  for (const [path, at] of [['/_ab/', '.acard'], ['/_ab/nhan-dien-ca/', '.charts']] as const) {
+  for (const [path, at] of [['/_ab/nhan-dien-ca/', '.charts']] as const) {
     for (const width of [390, 1280]) {
       await page.setViewportSize({ width, height: 900 })
       await page.goto(path)
@@ -215,7 +208,7 @@ test('the day charts: a hover or a tap shows the day beside its bar, inside the 
       const chart = card.locator('figure.bare')
       await expect(chart).toHaveCount(1)
       await expect(chart.locator('.yax span, .readout')).toHaveCount(0)
-      await expect(chart.locator('.legend span')).toHaveCount(path === '/_ab/' ? 0 : 3)
+      await expect(chart.locator('.legend span')).toHaveCount(3)
       const tip = chart.locator('.tip')
       await expect(tip).toBeHidden()
       const bars = chart.locator('.cols li')

@@ -18,7 +18,6 @@
   "range": {
     "native": {
       "countries": [
-        "VE",
         "BO",
         "BR",
         "CO",
@@ -30,18 +29,9 @@
         "Rio Branco"
       ],
       "sources": [
-        "glaser",
         "scotcat"
       ],
       "quotes": [
-        {
-          "source": "glaser",
-          "quote": "The specimens described here originate from Venezuela.",
-          "countries": [
-            "VE"
-          ],
-          "regions": []
-        },
         {
           "source": "scotcat",
           "quote": "South America: Amazon river basin, Bolivia, Brazil, Colombia, Peru, Ecuador.",
@@ -68,12 +58,12 @@
     },
     "records": {
       "taxonKey": 5202435,
-      "total": 34,
-      "fetched": "2026-11-06",
+      "total": 35,
+      "fetched": "2026-11-21",
       "countries": [
         [
           "BR",
-          22
+          23
         ],
         [
           "GY",
@@ -177,6 +167,12 @@
         ],
         [
           -60.46875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -60.46875,
           2.8125,
           4,
           0
@@ -274,12 +270,6 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/amaralia-hypsiura/",
       "html": "<p>Amaralia are only very rarely offered by the exporters, despite the wide distribution and the fact that they are far from being rare in the wild.</p>"
-    },
-    {
-      "key": "distribution",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/amaralia-hypsiura/",
-      "html": "<p>The species has a very wide distribution in South America. The specimens described here originate from Venezuela.</p>"
     },
     {
       "key": "distribution",

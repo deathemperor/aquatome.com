@@ -18,10 +18,10 @@
     "references:seriouslyfish": "<ul><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li><li>Raju Thomas, K., M. J. George, and C. R. Biju (2002). Freshwater fishes of southern Kerala with notes on the distribution of endemic and endangered species. Journal of the Bombay Natural History Society 99(1), 47-53</li><li>Raju Thomas, K., C. R. Biju, C. R. Ajithkumar and M. J. George (2000). Fish fauna of Idukki and Neyyar wildlife sanctuaries southern Kerala, India. Journal of the Bombay Natural History Society 97(3), 443-446</li></ul>"
   },
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.7
+      "seriouslyfish": 0.8
     }
   }
 }

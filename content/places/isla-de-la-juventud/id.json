@@ -3,6 +3,12 @@
   "name": "Isla de la Juventud",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-23T01:46:17.782Z",
+    "why": "Indonesian atlases and Wikipedia id write \"Pulau Pemuda\" (Isla de la Juventud) for this island, so the bare Spanish name omits the Indonesian word \"Pulau\" for island."
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

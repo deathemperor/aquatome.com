@@ -7,7 +7,9 @@
   "group": "other",
   "places": [
     "oceania",
-    "australia"
+    "australia",
+    "indonesia",
+    "papua"
   ],
   "range": {
     "native": {
@@ -661,6 +663,13 @@
           "min": 24,
           "max": 30
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -685,6 +694,10 @@
       {
         "source": "seriouslyfish",
         "value": 7
+      },
+      {
+        "source": "glaser",
+        "value": 9
       }
     ],
     "tankCm": [
@@ -708,10 +721,22 @@
       "html": "<p>The fly-specked hardyhead, Craterocephalus stercusmuscarum, is an atherinid endemic to Australia. It ranges from the Northern Territory to southern Queensland and forms large shoals over barren sand, mud or clay in streams, rivers, lakes and ponds. Skittish and rarely seen in the trade outside Australia, it does far better in a shoal of at least 8-10. Genetic differences between neighbouring populations are in some cases large enough to suggest several distinct species.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/craterocephalus-stercusmuscarum-2/",
+      "html": "<p>Craterocephalus stercusmuscarum grows to 9 cm long. It is considered very durable and peaceful. There are no special demands concerning water composition; a temperature between 24 and 28°C suits it.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/craterocephalus-stercusmuscarum",
       "html": "<p>Endemic to Australia, from the Northern Territory to Southern Queensland.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/craterocephalus-stercusmuscarum-2/",
+      "html": "<p>Similar to rainbowfishes, hardyheads (Craterocephalus) are exclusive elements of the Australian fauna. That is, they are found only on the Australian continent and offshore islands (including New Guinea) that formed the large landmass called the Sahul during the Ice Age. The animals recently received came from Indonesia, probably from the Indonesian part of the island of New Guinea known as Papua, and are most likely Craterocephalus stercusmuscarum.</p>"
     },
     {
       "key": "habitat",
@@ -744,10 +769,22 @@
       "html": "<p>The guts of wild specimens have been found to contain a mixture of both aquatic and terrestrial insects, zooplankton and plant matter. In the aquarium, it proves unfussy, although it should be offered small live and frozen foods regularly.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/craterocephalus-stercusmuscarum-2/",
+      "html": "<p>They will eat any common ornamental fish food, including dry food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/craterocephalus-stercusmuscarum",
       "html": "<p>Very peaceful and suitable for many community setups, given its relatively small size. It makes an ideal tankmate for other Australian species such as rainbowfish and freshwater gobies. It can be quite skittish and does far better when kept in a shoal of at least 8-10. The males will also be encouraged to display their best colours in the company of conspecifics. Try to provide 2-3 females per male.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/craterocephalus-stercusmuscarum-2/",
+      "html": "<p>Craterocephalus should always be kept in a group; single individuals do not feel well. Because of its unusual body shape it enriches a community aquarium very much.</p>"
     },
     {
       "key": "dimorphism",
@@ -756,46 +793,119 @@
       "html": "<p>Females are rounder-bellied than males when full of eggs. Males exhibit a more intense yellow colouration below the lateral line, especially when in breeding condition.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/craterocephalus-stercusmuscarum-2/",
+      "html": "<p>There are hardly any external sex differences. Females become a little more plump and the yellow coloration of the belly is less pronounced.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/craterocephalus-stercusmuscarum",
       "html": "<p>Has been achieved, albeit rarely. In truth this is probably more to do with the frequency with which it is kept, rather than it being a particularly difficult species to spawn. Spawning occurs among aquatic plants, so a setup with no substrate and a few clumps of fine-leaved plants such as java moss is a good place to start. Set the temperature to around 26 °C. An air-powered sponge filter gently bubbling away is the only other thing required.</p><p>The adult fish are best conditioned as a group in a separate aquarium with plenty of live and frozen foods. As the fish come into condition, the females will appear noticeably plumper, and the males intensify in colour. Select the fattest, best-coloured pair for breeding and introduce them to the spawning tank.</p><p>No precise details of the spawning process are available. The species has an extended breeding season in nature, so expect the pair to spawn daily for a period of several days. The female apparently deposits around 20 eggs per spawning. Like the eggs of some rainbowfish, these are attached to the plants by a thin filament. They hatch in around a week. Remove the parents after a few days, to allow the female to recover and prevent them eating the eggs. The fry should be large enough to accept microworm or brine shrimp nauplii when they have used up their yolk sacs.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/craterocephalus-stercusmuscarum-2/",
+      "html": "<p>The fish spawn on fine plants; they do not practice broodcare.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/craterocephalus-stercusmuscarum",
       "html": "<p>A rarely seen species in the trade, although it's kept quite often by Australian hobbyists. Members of this genus are thought to have a more ancient association with Australian freshwaters than most others found in these habitats. Craterocephalus also contains the most species of any Australian freshwater fish genus.</p><p>It has been shown that there are quite large genetic differences between groups of the species living in close proximity to each other, and even sharing the same waters. In some cases, these are big enough to suggest that several distinct species may actually be involved. Populations in the Johnstone River in Northern Queensland, for example, differ in both reproductive strategy and growth. Other similarly intriguing anomalies are seen elsewhere. This may also help to explain why depending on collection locality, the species can be found thriving over a very large range of water parameters.</p><p>Currently only a single subspecies, C. stercusmuscarum fulvus is considered valid. Further taxonomic revision is likely in the future.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/craterocephalus-stercusmuscarum-2/",
+      "html": "<p>Similar to rainbowfishes, Craterocephalus have two separate dorsal fins and belong to the mullet relatives, but in a different lineage called silverside relatives. Aquaristically Craterocephalus hardly appeared outside Australia so far. All in all Craterocephalus stercusmuscarum is a pretty, if not very colorful fish.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/121e49b71ed8daf8.webp",
+      "thumb": "https://media.aquatome.com/commons/121e49b71ed8daf8-480.webp",
       "width": 960,
       "height": 640,
-      "licence": "CC BY 4.0",
-      "author": "Jesse de Vries",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flyspecked_Hardyhead_(Craterocephalus_stercusmuscarum)_near_Mount_Carbine,_Australia.jpg",
-      "caption": "Photographer: Jesse de Vries Photograph of fishes in captivity, supposedly the Flyspecked Hardyhead (Craterocephalus stercusmuscarum) according to the original photographer, taken near Mount Carbine, ",
-      "thumb": "https://media.aquatome.com/commons/121e49b71ed8daf8-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/121e49b71ed8daf8-large.webp",
         "width": 1799,
         "height": 1200
-      }
+      },
+      "licence": "CC BY 4.0",
+      "author": "Jesse de Vries",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flyspecked_Hardyhead_(Craterocephalus_stercusmuscarum)_near_Mount_Carbine,_Australia.jpg",
+      "caption": "Photographer: Jesse de Vries Photograph of fishes in captivity, supposedly the Flyspecked Hardyhead (Craterocephalus stercusmuscarum) according to the original photographer, taken near Mount Carbine, "
     },
     {
       "url": "https://media.aquatome.com/commons/1747110e264267b4.webp",
+      "thumb": "https://media.aquatome.com/commons/1747110e264267b4-480.webp",
       "width": 960,
       "height": 540,
       "licence": "CC BY-SA 4.0",
       "author": "MurkySeb",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crimson_rainbowfish_and_Unspeckled_Hardyheads.png",
-      "caption": "Not only were there these amazing rainbowfish but there was also lots of Unspeckled Hardyheads swimming alongside them",
-      "thumb": "https://media.aquatome.com/commons/1747110e264267b4-480.webp"
+      "caption": "Not only were there these amazing rainbowfish but there was also lots of Unspeckled Hardyheads swimming alongside them"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/148897e92ae753c8.webp",
+      "thumb": "https://media.aquatome.com/glaser/148897e92ae753c8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/craterocephalus-stercusmuscarum-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d4a76141976fefc2.webp",
+      "thumb": "https://media.aquatome.com/glaser/d4a76141976fefc2-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/craterocephalus-stercusmuscarum-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/83e89d7a80f796d0.webp",
+      "thumb": "https://media.aquatome.com/glaser/83e89d7a80f796d0-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/craterocephalus-stercusmuscarum-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "AEvZq__TQhI",
+      "title": "Australian Native Fish -  Flyspecked Hardyhead - Craterocephalus stercusmuscarum - Boyne River",
+      "durationSec": 261,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "DmSnWACtwQ4",
+      "title": "Native fish: Fly-specked Hardyhead (Craterocephalus stercusmuscarum) in Kakadu",
+      "durationSec": 81,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Q0VShl42oGA",
+      "title": "Fly Specked Hardyhead Care Guide",
+      "durationSec": 288,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jzyQtzRjKkw",
+      "title": "Hardyheads in my Aquarium",
+      "durationSec": 157,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -826,5 +936,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-23"
 }

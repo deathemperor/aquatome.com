@@ -1,0 +1,72 @@
+{
+  "id": "trichogaster-fasciata",
+  "native": {
+    "input": "35fca81a9c0bbc5f",
+    "at": "2026-11-20T07:13:45.828Z",
+    "claims": [
+      {
+        "code": "PK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The banded gourami, Trichogaster fasciata, is a labyrinth fish from Pakistan, India, Nepal, Bangladesh and Myanmar, found in sluggish, weedy waters.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The banded gourami, Trichogaster fasciata, is a labyrinth fish from Pakistan, India, Nepal, Bangladesh and Myanmar, found in sluggish, weedy waters.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The banded gourami, Trichogaster fasciata, is a labyrinth fish from Pakistan, India, Nepal, Bangladesh and Myanmar, found in sluggish, weedy waters.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The banded gourami, Trichogaster fasciata, is a labyrinth fish from Pakistan, India, Nepal, Bangladesh and Myanmar, found in sluggish, weedy waters.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The banded gourami, Trichogaster fasciata, is a labyrinth fish from Pakistan, India, Nepal, Bangladesh and Myanmar, found in sluggish, weedy waters.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "doubtful",
+        "source": "glaser",
+        "quote": "Nobody knows exactly what Colisa fasciata is: the specimen on which the first description is based was lost in the turmoil of the French Revolution, and where it is supposed to come from (Tranquebar in the south of India) there are no gourami at all.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [
+      "IN"
+    ],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "IN"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "unmatched": true,
+    "at": "2026-11-17T00:14:47.070Z"
+  }
+}

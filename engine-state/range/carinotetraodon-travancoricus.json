@@ -1,8 +1,8 @@
 {
   "id": "carinotetraodon-travancoricus",
   "native": {
-    "input": "e289410f57a68a45",
-    "at": "2026-11-09T23:57:44.132Z",
+    "input": "ab8382b65b299ba6",
+    "at": "2026-11-21T13:11:30.372Z",
     "claims": [
       {
         "code": "IN",
@@ -24,7 +24,7 @@
         "code": "IN",
         "status": "native",
         "source": "sprucepets",
-        "quote": "Origin: India",
+        "quote": "Native to the Western Ghats of India, these cute little fish have been in decline since their introduction to the aquarium hobby.",
         "words": "India",
         "ok": true
       },
@@ -33,6 +33,14 @@
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Endemic to the state of Kerala, India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Indian dwarf pufferfish originate from South India (Kerala), where they are unfortunately considered increasingly endangered by dam construction, deforestation and the conversion of forest areas into farmland.",
         "words": "India",
         "ok": true
       }
@@ -46,13 +54,13 @@
         "ok": true
       },
       {
-        "name": "Lake Vembanad",
+        "name": "Periyar",
         "source": "aquariumbreeder",
         "quote": "It is mainly distributed in the Chalakkudy, Pamba, Periyar, Kabani, Bharathapuzha, Vamanapuram and Muvattupuzha rivers, Lake Vembanad and the kole wetlands of Thrissur, Kallar stream and Neyyar wildlife sanctuary of south Kerala.",
         "ok": true
       },
       {
-        "name": "Periyar",
+        "name": "Chalakkudy",
         "source": "aquariumbreeder",
         "quote": "It is mainly distributed in the Chalakkudy, Pamba, Periyar, Kabani, Bharathapuzha, Vamanapuram and Muvattupuzha rivers, Lake Vembanad and the kole wetlands of Thrissur, Kallar stream and Neyyar wildlife sanctuary of south Kerala.",
         "ok": true
@@ -64,7 +72,7 @@
         "ok": true
       },
       {
-        "name": "Chalakkudy",
+        "name": "Lake Vembanad",
         "source": "aquariumbreeder",
         "quote": "It is mainly distributed in the Chalakkudy, Pamba, Periyar, Kabani, Bharathapuzha, Vamanapuram and Muvattupuzha rivers, Lake Vembanad and the kole wetlands of Thrissur, Kallar stream and Neyyar wildlife sanctuary of south Kerala.",
         "ok": true

@@ -1,4 +1,4 @@
-import { fitsCard, linkTerms, stillShown, THUMB_WIDTH, thumbOf, type Content, type LinkTarget, type Localized, type GuideEntity, type Photo, type PlantEntity, type SpeciesEntity, type BreedEntity } from '@aq/schema'
+import { fitsCard, heldPhrase, isNonCommercial, linkTerms, stillShown, THUMB_WIDTH, thumbOf, unmarked, type Content, type LinkTarget, type Localized, type GuideEntity, type Photo, type PlantEntity, type SpeciesEntity, type BreedEntity } from '@aq/schema'
 import { categoriesIn } from './equipment'
 import { GROUP_LABELS } from './format'
 import { taxonHref } from './taxa-places'
@@ -72,7 +72,8 @@ export function linkTargets(c: Content): LinkTarget[] {
   }
   out.push(...taxa.values())
   // Glossary before equipment: "CO2" explains the term rather than selling the kit.
-  for (const g of c.glossary) out.push({ key: `glossary:${g.id}`, href: `/vi/thuat-ngu/${g.t.slug}/`, names: [g.t.name, ...g.t.altNames], cls: 'gl', ...(g.t.definition ? { tip: { term: g.t.name, text: g.t.definition } } : {}) })
+  // A phrase held until the chief of staff rules (glossary-held.ts) isn't linked; it stays the term's.
+  for (const g of c.glossary) out.push({ key: `glossary:${g.id}`, href: `/vi/thuat-ngu/${g.t.slug}/`, names: [g.t.name, ...g.t.altNames, ...(g.t.linkNames ?? [])].filter(n => !heldPhrase(g.id, n)), cls: 'gl', ...(g.t.definition ? { tip: { term: g.t.name, text: g.t.definition } } : {}) })
   const groups = new Set(c.species.map(s => s.group))
   for (const [g, names] of Object.entries(GROUP_TERMS)) if (groups.has(g) && GROUP_LABELS[g]) out.push({ key: `group:${g}`, href: `/vi/nhom/${g}/`, names })
   // Continents and countries have pages; a region or river links to the country it lies in.
@@ -217,42 +218,85 @@ export function titleNames(c: Content, g: Localized<GuideEntity>): Named[] {
 }
 
 /**
- * A guide's possible pictures, best first: its own photos, the open-licence photos its video's sections show, then the
- * first photo of each fish, plant and breed its title names (titleNames), in the title's order. Nothing else: a guide borrows
- * no fish its title doesn't name, and one whose title names none, or only fish with no photo, starts at its title (the
- * chief of staff, 15 Nov, after the discus guide opened on an oscar its text names in passing; before that, on 13 Nov, a
- * guppy guide on a water louse). A guide picked by hand (guide-heads-picks.json, by its id, so in every language)
- * borrows that page instead, or nothing (null): one whose title names an animal it isn't about borrows nothing until its
- * page is right, as the owner was told a guide picturing the wrong animal shows no photo, and the name goes to Writing as
- * a naming fault ("cá rô phi lùn", the tilapia, for a dwarf cichlid). In every language a guide borrows what its pick
- * or its Vietnamese title names (heads), so a translation that names its fish otherwise ("Ikan Discus",
- * "ปลาปอมปาดัวร์ขี้ขาว") shows the same picture. Never the video's thumbnail: it shows the people in the video, and a page's
- * photos show none (PRODUCT.md). A card takes the first one its page doesn't show yet (lib/pictures.ts).
+ * A guide's possible pictures, best first: its own photos, then the first photo of each fish, plant and breed its title
+ * names (titleNames), in the title's order. Nothing else: a guide borrows no fish its title doesn't name, and one whose
+ * title names none, or only fish with no photo, starts at its title (the chief of staff, 15 Nov, after the discus guide
+ * opened on an oscar its text names in passing; before that, on 13 Nov, a guppy guide on a water louse). A guide picked
+ * by hand (guide-heads-picks.json, by its id, so in every language) borrows that page instead, or nothing (null): one whose
+ * title names an animal it isn't about borrows nothing until its page is right, as the owner was told a guide picturing
+ * the wrong animal shows no photo, and the name goes to Writing as a naming fault ("cá rô phi lùn", the tilapia, for a
+ * dwarf cichlid). In every language a guide borrows what its pick or its Vietnamese title names (heads), so a translation
+ * that names its fish otherwise ("Ikan Discus", "ปลาปอมปาดัวร์ขี้ขาว") shows the same picture. Never the video's thumbnail:
+ * it shows the people in the video, and a page's photos show none (PRODUCT.md). A card takes the first one its page
+ * doesn't show yet (lib/pictures.ts).
+ *
+ * A video guide: its still picked by hand (framePicked), else its own video's stills that pass the stills' bar
+ * (stillShown: no one in them, sharp, large enough), in its parts' order as its text runs, before what its title names. Never the stock
+ * photo the picture step found for one of its parts, which its section keeps (the owner, 16 Nov: an office ceiling light
+ * on a coffee-table tank's series; that day's count found most such photos show no fish and no plant). One with neither
+ * takes a guide card's own look, as one that borrows no fish does (the chief of staff, 16 Nov).
+ *
+ * No photo the calendar keeps off cards (content/curation.json `avoid`, withOffCards): a guide's card stands for more than
+ * one fish, so a head held off the day's card is off it too, and the page it borrows from gives its next photo with no
+ * mark on it instead, as a chip's named fish does (the chief of staff, 16 Nov).
  */
 export function guideImages(c: Content, g: Localized<GuideEntity>): Photo[] {
-  // A section's photo can be a strip (a lamp, a tank's length) that a card's 16:9 would crop to a sliver.
-  const sections = (g.video?.figures ?? []).flatMap(f => f.photo ?? []).filter(fitsCard)
   const frame = framePicked(g)
   if (frame.length) return frame
-  return [...g.photos, ...sections, ...heads(c, g).flatMap(x => x.photos[0] ?? [])].filter(p => !p.generated)
+  const held = offCards(c)
+  const v = g.video, stills = (v?.figures ?? []).flatMap(f => f.moments).filter(stillShown).map(m => stillPhoto(v!, m))
+  return [...[...g.photos, ...stills].filter(p => !p.generated && !held(p)), ...borrowed(c, g, held)]
 }
+/**
+ * A guide's card as it was before 16 Nov's rule: its own photos, the photos its video's sections show (a strip a card's
+ * 16:9 would crop to a sliver left out), then what its title names. Only the app's data reads it, for a guide whose card
+ * now has none, until the app's build draws a guide card's designed cover (app-index.ts APP_GUIDE_COVERS).
+ */
+export function guideImageBefore(c: Content, g: Localized<GuideEntity>): Photo | undefined {
+  const held = offCards(c), sections = (g.video?.figures ?? []).flatMap(f => f.photo ?? []).filter(fitsCard)
+  return [...[...g.photos, ...sections].filter(p => !p.generated && !held(p)), ...borrowed(c, g, held)][0]
+}
+/** A series' card: its first part that has a picture, so a series whose first part has none still shows one (the chief of
+ * staff, 16 Nov). */
+export const seriesImage = (c: Content, guides: Localized<GuideEntity>[]): Photo | undefined =>
+  guides.map(g => guideImage(c, g)).find(p => !!p)
+/** Each page a guide borrows from (heads) by its head, or where the calendar holds that off cards, its next photo. */
+const borrowed = (c: Content, g: Localized<GuideEntity>, held: (p: Photo) => boolean): Photo[] =>
+  heads(c, g).flatMap(x => {
+    const [head, ...rest] = x.photos
+    if (!head || head.generated) return []
+    return held(head) ? rest.filter(p => !p.generated && unmarked(p) && !held(p)).slice(0, 1) : [head]
+  })
 /**
  * A video guide's picture picked by hand from its own video (guide-frames.json: the guide's id → the second of one of its
  * sections' stills, so in every language), and its only one: its card, the app's poster, and its series' card where it
- * comes first. A page that already shows it gives the guide's card no picture rather than a stock photo (lib/pictures.ts).
- * For a guide whose stock photos show something that isn't the video's own (the owner, 16 Nov: an office ceiling light on
- * a coffee-table tank's series); the sections keep theirs. Credited to the channel, as the video's thumbnail is
- * (videoPhoto). Only a still the stills' own bar shows (stillShown: no one in it, sharp, large enough), so a pick never puts a
- * person on a card. None where the guide has no such still at that second, and then the usual pictures. Cards load its
- * 480 px copy, as the stills' grid does (lib/video.ts).
+ * is the first part with a picture. A page that already shows it gives the guide's card no picture rather than a stock photo (lib/pictures.ts).
+ * For a guide whose first still that passes isn't the one to show; the sections keep their photos. Only a still the
+ * stills' own bar shows (stillShown), so a pick never puts a person on a card. None where the guide has no such still at
+ * that second, and then the usual pictures.
  */
 const FRAMES = new Map<string, number>(Object.entries(frames as Record<string, number>))
 function framePicked(g: Localized<GuideEntity>): Photo[] {
   const t = FRAMES.get(g.id), v = g.video
   const m = t === undefined || !v ? undefined : (v.figures ?? []).flatMap(f => f.moments).find(x => x.t === t)
-  if (!v || !m || !stillShown(m)) return []
+  return v && m && stillShown(m) ? [stillPhoto(v, m)] : []
+}
+type Video = NonNullable<Localized<GuideEntity>['video']>
+/** A still of a guide's own video as a card's photo, credited to the channel as the video's thumbnail is (videoPhoto). Cards
+ * load its 480 px copy, as the stills' grid does (lib/video.ts). */
+function stillPhoto(v: Video, m: NonNullable<Video['figures']>[number]['moments'][number]): Photo {
   const thumb = m.width > THUMB_WIDTH ? thumbOf(m.url) : undefined
-  return [{ url: m.url, ...(thumb ? { thumb } : {}), width: m.width, height: m.height, licence: 'YouTube', author: v.channel, sourceUrl: `https://www.youtube.com/watch?v=${v.youtubeId}&t=${t}s`, source: 'youtube', caption: m.caption }]
+  return { url: m.url, ...(thumb ? { thumb } : {}), width: m.width, height: m.height, licence: 'YouTube', author: v.channel, sourceUrl: `https://www.youtube.com/watch?v=${v.youtubeId}&t=${m.t}s`, source: 'youtube', caption: m.caption }
+}
+/** The photos the calendar keeps off cards (content/curation.json `avoid`: its photo → why), set as the site loads its
+ * content (content.ts), as withVietnameseHeads sets the Vietnamese. */
+const OFF_CARDS = new WeakMap<Content, Readonly<Record<string, string>>>()
+// A non-commercial photo is off them too, a plant's as well as a fish's: the engine's list holds fish and breeds only (the
+// chief of staff's rule, 17 Nov).
+const offCards = (c: Content) => { const off = OFF_CARDS.get(c) ?? {}; return (p: Photo) => Object.hasOwn(off, p.url) || isNonCommercial(p.licence ?? '') }
+export function withOffCards(c: Content, avoid: Readonly<Record<string, string>>): Content {
+  OFF_CARDS.set(c, avoid)
+  return c
 }
 /**
  * The pages a guide borrows its head from, chosen once for every language (the chief of staff, 15 Nov 2026): Curation's
@@ -312,5 +356,11 @@ function refOf(c: Content, x: Named): string {
   return m.get(x)!
 }
 
-/** A guide's picture: its own photo, else one from its video's sections, else the first fish, plant or breed its title names. */
+/** A guide's card picture (guideImages): its own photo or a still of its own video, else the first fish, plant or breed its title names. */
 export const guideImage = (c: Content, g: Localized<GuideEntity>): Photo | undefined => guideImages(c, g)[0]
+
+/** The localized name of the fish, plant or breed that supplied this guide's lead photo. */
+export function borrowedGuidePhotoName(c: Content, g: Localized<GuideEntity>, photo: Photo): string | undefined {
+  if (g.photos.includes(photo)) return undefined
+  return heads(c, g).find(page => page.photos.includes(photo))?.t.name
+}

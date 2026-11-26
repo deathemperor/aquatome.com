@@ -3,6 +3,12 @@
   "name": "ซิลเฮต",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T00:40:12.418Z",
+    "why": "The Thai name ซิลเฮต is a plausible transliteration, but Thai usage for Sylhet is ซิลเหต (with ไม้เอก on เห), and the region should carry the Thai word for division, เขต or แคว้น, so this version is only a rough match."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

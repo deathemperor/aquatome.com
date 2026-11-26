@@ -1,0 +1,31 @@
+{
+  "slug": "microphis-brachyurus",
+  "name": "Microphis brachyurus",
+  "altNames": [
+    "Ikan Pipa Air Tawar",
+    "Ikan Pipa",
+    "Short-tailed Pipefish",
+    "Freshwater Pipefish",
+    "Tangkur Buaya",
+    "Tangkur ekor-pendek"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Ikan pipa air tawar ekor pendek (Microphis brachyurus) dideskripsikan dari Indonesia. Untuk waktu yang lama, ikan ini dianggap sebagai spesies dengan sebaran di seluruh dunia, yang di berbagai wilayah sebarannya hanya sedikit berbeda pada tingkat subspesies. Karena itu, M. lineatus dan M. aculeatus lama dianggap sebagai subspesies dari M. brachyurus. Sekarang ketiganya dianggap sebagai spesies yang berdiri sendiri.</p><p>Sebagian individu M. brachyurus memiliki garis merah tua pada sepertiga bagian depan tubuhnya. Belum diketahui apa arti garis ini, yang bisa muncul baik pada jantan maupun betina.</p>",
+    "behaviour:glaser": "<p>Pada ikan dari impor baru-baru ini, para jantan terlihat sedang bercumbu. Moncong dan kantong pengeramannya berubah menjadi hitam pekat dalam sekejap. Secepat itu pula si jantan bisa menghilangkan warna hitam tersebut lagi.</p>",
+    "dimorphism:glaser": "<p>Jantan mudah dikenali dari kantong pengeraman di bagian perutnya.</p>",
+    "reproduction:glaser": "<p>Saat dewasa, M. brachyurus hidup di air tawar, dan di sanalah anakan yang sangat kecil dilahirkan. Namun, dalam 2-3 hari anakan ini hanyut ke laut, lalu hidup sebagai plankton selama beberapa waktu sampai akhirnya bermigrasi kembali ke air tawar. Sejauh yang diketahui, pemijahan di air tawar belum pernah berhasil.</p>"
+  },
+  "quality": {
+    "score": 0.75,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.75
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-22"
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "id": "zaireichthys-conspicuus",
+  "scientificName": "Zaireichthys conspicuus",
+  "order": "Siluriformes",
+  "family": "Amphiliidae",
+  "genus": "Zaireichthys",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "zambezi"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Zambezi"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Southern Africa: Upper Zambezi River from the rapid sections at Katima Mulilo down to just above the Victoria Falls.",
+          "countries": [],
+          "regions": [
+            "Zambezi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961343,
+      "total": 14,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "AO",
+          6
+        ],
+        [
+          "NA",
+          5
+        ],
+        [
+          "ZM",
+          2
+        ],
+        [
+          "ZW",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          15.46875,
+          -15.46875,
+          2
+        ],
+        [
+          15.46875,
+          -14.0625,
+          3
+        ],
+        [
+          18.28125,
+          -14.0625,
+          1
+        ],
+        [
+          19.6875,
+          -18.28125,
+          1
+        ],
+        [
+          21.09375,
+          -18.28125,
+          1
+        ],
+        [
+          23.90625,
+          -18.28125,
+          3
+        ],
+        [
+          23.90625,
+          -12.65625,
+          2
+        ],
+        [
+          25.3125,
+          -18.28125,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 3.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_conspicuus.htm",
+      "html": "<ul><li>Common name: Blotched sand catlet</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_conspicuus.htm",
+      "html": "<p>Southern Africa: Upper Zambezi River from the rapid sections at Katima Mulilo down to just above the Victoria Falls.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_conspicuus.htm",
+      "html": "<p>Found in the rapid sections of rivers; seems to inhabit rocky rapids rather than sandy bottoms.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_conspicuus.htm",
+      "html": "<p>It feeds on insects.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_conspicuus.htm",
+      "html": "<p>This species differs from Zaireichthys kafuensis, Z. kavangoensis, Z. monomotapa and Z. pallidus in having a premaxillary tooth patch with the buccal margin expanded laterally, and from all other species in its more robust form and bold markings.</p><p>Dorsal spines (total): 2; dorsal soft rays (total): 6; anal spines: 0; anal soft rays: 9–11; vertebrae: 34–35.</p><p>Etymology: the specific name 'conspicuus' refers to the conspicuous bold markings of this species.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_conspicuus.htm",
+      "html": "<p>Eccles, D.H., D. Tweddle and P.H. Skelton, 2011. Eight new species in the dwarf catfish genus Zaireichthys (Siluriformes: Amphiliidae). Smithiana Bull. (13):3-28. Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 06/2023 ). The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 40cm",
+        "bể cá mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thác nước mini",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi nhỏ nền bể",
+        "đá suối trang trí bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

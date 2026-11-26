@@ -1,14 +1,14 @@
 {
   "id": "macropodus-opercularis",
   "native": {
-    "input": "f234109a5f45113e",
-    "at": "2026-11-09T12:58:06.259Z",
+    "input": "40e7d1d9472bf225",
+    "at": "2026-11-20T07:13:45.828Z",
     "claims": [
       {
         "code": "CN",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Occurs naturally in China, south of the Yangtze (Chang Jiang) River system, including Taiwan and Hainan Island, northern and central Vietnam, and northeastern Laos.",
+        "quote": "The paradise fish, Macropodus opercularis, is a labyrinth fish from China south of the Yangtze, including Taiwan and Hainan, plus Vietnam and Laos.",
         "words": "China",
         "ok": true
       },
@@ -16,7 +16,7 @@
         "code": "VN",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Occurs naturally in China, south of the Yangtze (Chang Jiang) River system, including Taiwan and Hainan Island, northern and central Vietnam, and northeastern Laos.",
+        "quote": "The paradise fish, Macropodus opercularis, is a labyrinth fish from China south of the Yangtze, including Taiwan and Hainan, plus Vietnam and Laos.",
         "words": "Vietnam",
         "ok": true
       },
@@ -24,7 +24,7 @@
         "code": "LA",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Occurs naturally in China, south of the Yangtze (Chang Jiang) River system, including Taiwan and Hainan Island, northern and central Vietnam, and northeastern Laos.",
+        "quote": "The paradise fish, Macropodus opercularis, is a labyrinth fish from China south of the Yangtze, including Taiwan and Hainan, plus Vietnam and Laos.",
         "words": "Laos",
         "ok": true
       },
@@ -75,6 +75,30 @@
         "quote": "Introduced populations exist in a number of countries including South Korea, Japan, Malaysia, Singapore, India, and the U. S. A, mostly as a result of the ornamental trade.",
         "words": "U. S. A",
         "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to southern China (south of the Yangtze, including Taiwan and Hainan), Vietnam and Laos.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to southern China (south of the Yangtze, including Taiwan and Hainan), Vietnam and Laos.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to southern China (south of the Yangtze, including Taiwan and Hainan), Vietnam and Laos.",
+        "words": "Laos",
+        "ok": true
       }
     ],
     "regions": [
@@ -86,18 +110,39 @@
         "ok": true
       },
       {
-        "name": "Hainan Island",
-        "source": "seriouslyfish",
-        "quote": "Occurs naturally in China, south of the Yangtze (Chang Jiang) River system, including Taiwan and Hainan Island, northern and central Vietnam, and northeastern Laos.",
-        "country": "CN",
-        "ok": true
-      },
-      {
         "name": "Taiwan",
         "source": "seriouslyfish",
         "quote": "Occurs naturally in China, south of the Yangtze (Chang Jiang) River system, including Taiwan and Hainan Island, northern and central Vietnam, and northeastern Laos.",
         "ok": false,
         "why": "a country"
+      },
+      {
+        "name": "Hainan",
+        "source": "seriouslyfish",
+        "quote": "Occurs naturally in China, south of the Yangtze (Chang Jiang) River system, including Taiwan and Hainan Island, northern and central Vietnam, and northeastern Laos.",
+        "ok": true
+      },
+      {
+        "name": "Yangtze",
+        "source": "bwaquatics",
+        "quote": "Native to southern China (south of the Yangtze, including Taiwan and Hainan), Vietnam and Laos.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Taiwan",
+        "source": "bwaquatics",
+        "quote": "Native to southern China (south of the Yangtze, including Taiwan and Hainan), Vietnam and Laos.",
+        "country": "CN",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Hainan",
+        "source": "bwaquatics",
+        "quote": "Native to southern China (south of the Yangtze, including Taiwan and Hainan), Vietnam and Laos.",
+        "country": "CN",
+        "ok": true
       }
     ],
     "disputed": [],

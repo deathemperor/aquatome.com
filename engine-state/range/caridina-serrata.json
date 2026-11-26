@@ -1,0 +1,80 @@
+{
+  "id": "caridina-serrata",
+  "native": {
+    "input": "f1fb723cae03d344",
+    "at": "2026-11-23T01:48:47.136Z",
+    "claims": [
+      {
+        "code": "HK",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They are endemic to Hong Kong and have a locally confined distribution.",
+        "words": "Hong Kong",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Hong Kong Island",
+        "source": "aquariumbreeder",
+        "quote": "Caridina serrata was first found and described from Hong Kong Island in 1860.",
+        "country": "HK",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Caridina serrata",
+    "status": "ACCEPTED",
+    "taxonKey": 5863030,
+    "datasets": [
+      [
+        "249ee8b0-183e-418e-8db5-ded1afc3a90b",
+        7
+      ],
+      [
+        "5221e970-757c-43cb-bdd4-2f085bf36ae4",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        2
+      ],
+      [
+        "b1e16a53-5007-4f56-ac45-926d4f729fbe",
+        2
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "7b84c0a2-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "HK"
+    ],
+    "requests": 11,
+    "at": "2026-11-23T01:48:47.136Z"
+  }
+}

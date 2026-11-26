@@ -1,8 +1,13 @@
 {
   "slug": "yamuna",
-  "name": "Yamuna",
+  "name": "Sungai Yamuna",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-17T18:02:55.238Z"
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

@@ -1,0 +1,76 @@
+{
+  "id": "youtube-b32xKswBz0A",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=b32xKswBz0A",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-24",
+  "video": {
+    "youtubeId": "b32xKswBz0A",
+    "title": "Saving My SALTWATER Aquarium... And This Is Just The Beginning! |EP25| Warehouse To Fish Studio",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 1898,
+    "publishedAt": "2026-11-24",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvIM5TufKaTkbfXyaw3dd8K",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/b32xKswBz0A/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Amphiprion ocellaris"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "brand": "AquaMarin",
+        "model": "Pro",
+        "t": 0
+      },
+      {
+        "category": "loc",
+        "type": "sump",
+        "t": 0
+      },
+      {
+        "category": "test-nuoc",
+        "type": "tds",
+        "t": 927
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 1490
+      },
+      {
+        "category": "loc",
+        "type": "tao-dong",
+        "t": 1552
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Vì sao cần máy RO có bơm tăng áp",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/b32xKswBz0A/p0-FuZV9jb2lsLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/b32xKswBz0A/p0-FuZV9jb2lsLmpwZw-480.webp",
+          "width": 960,
+          "height": 1158,
+          "licence": "CC BY 3.0",
+          "author": "David Shankbone",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reverse_osmosis_membrane_coil.jpg",
+          "caption": "Cuộn màng lọc RO nhìn từ đầu, phần lõi quan trọng bên trong máy RO."
+        }
+      }
+    ]
+  }
+}

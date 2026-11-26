@@ -1,30 +1,30 @@
 {
   "id": "corydoras-diphyes",
   "native": {
-    "input": "6cc8aeed8cd0a0ce",
-    "at": "2026-11-07T09:20:22.982Z",
+    "input": "ed4a43901c506be0",
+    "at": "2026-11-16T17:28:41.839Z",
     "claims": [
       {
         "code": "PY",
         "status": "native",
         "source": "glaser",
-        "quote": "Corydoras diphyes originates from a tributary of the Rio Monday, a river flowing into the Rio Parana in Paraguay.",
+        "quote": "C. diphyes originates from a tributary of the Rio Monday, a river flowing into the Rio Parana in Paraguay.",
         "words": "Paraguay",
         "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Rio Monday",
+        "name": "Rio Parana",
         "source": "glaser",
-        "quote": "Corydoras diphyes originates from a tributary of the Rio Monday, a river flowing into the Rio Parana in Paraguay.",
+        "quote": "C. diphyes originates from a tributary of the Rio Monday, a river flowing into the Rio Parana in Paraguay.",
         "country": "PY",
         "ok": true
       },
       {
-        "name": "Rio Parana",
+        "name": "Rio Monday",
         "source": "glaser",
-        "quote": "Corydoras diphyes originates from a tributary of the Rio Monday, a river flowing into the Rio Parana in Paraguay.",
+        "quote": "C. diphyes originates from a tributary of the Rio Monday, a river flowing into the Rio Parana in Paraguay.",
         "country": "PY",
         "ok": true
       }

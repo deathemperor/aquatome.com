@@ -1,0 +1,16 @@
+{
+  "slug": "abanga-river",
+  "name": "อาบันกา",
+  "altNames": [],
+  "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-23T01:42:54.860Z",
+    "why": "อาบันกา is a Thai transliteration of Abanga but lacks the kind word แม่น้ำ that Thai atlases put before a river's name, so it is incomplete."
+  },
+  "quality": {
+    "score": 0.6,
+    "indexable": false
+  }
+}

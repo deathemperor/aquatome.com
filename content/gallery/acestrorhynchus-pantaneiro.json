@@ -30,8 +30,35 @@
       "author": "Nicolas Olejnik",
       "sourceUrl": "https://www.inaturalist.org/photos/1565288",
       "caption": "Cá tetra barracuda thân dài bơi trên đáy cát ở suối nông"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/497089812.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/497089812-480.webp",
+      "width": 1024,
+      "height": 563,
+      "licence": "CC BY-NC",
+      "author": "oscar_galli_merino",
+      "sourceUrl": "https://www.inaturalist.org/photos/497089812",
+      "caption": "Cá tetra barracuda Pantanal bơi trong nước tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/312355379.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/312355379-480.webp",
+      "width": 1024,
+      "height": 686,
+      "licence": "CC BY-NC",
+      "author": "Paulo Robson de Souza",
+      "sourceUrl": "https://www.inaturalist.org/photos/312355379",
+      "caption": "Cá tetra barracuda Pantanal đang bơi trong bể nuôi",
+      "best": true,
+      "kind": "other",
+      "setup": false
     }
   ],
-  "seen": 34,
-  "updatedAt": "2026-10-29"
+  "seen": 69,
+  "updatedAt": "2026-11-24",
+  "builtAt": "2026-11-24"
 }

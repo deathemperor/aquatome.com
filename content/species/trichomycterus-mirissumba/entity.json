@@ -10,6 +10,72 @@
     "brazil",
     "paraiba-do-sul"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Paraíba do Sul",
+        "Preto River"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Preto, near junction with the Santa Clara Creek, Rio Paraiba basin, Visconde de Mauá, Rio de Janeiro, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Trichomycterus mirissumba is endemic to the middle portion of the Paraíba do Sul River basin, in the states of Minas Gerais and Rio de Janeiro.",
+          "countries": [],
+          "regions": [
+            "Paraíba do Sul"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Preto River, Paraíba do Sul River basin (Rio de Janeiro, Brazil).",
+          "countries": [],
+          "regions": [
+            "Preto River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2343039,
+      "total": 12,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "BR",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          -45,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          -45,
+          -22.5,
+          10,
+          10
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

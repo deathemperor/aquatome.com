@@ -2,14 +2,16 @@
   "id": "aegagropila-linnaei",
   "scientificName": "Aegagropila linnaei",
   "synonyms": [
-    "Cladophora aegagropila"
+    "Cladophora aegagropila",
+    "Cladophora sauteri"
   ],
   "difficulty": 1,
   "light": "low",
   "co2": "none",
   "growth": "slow",
   "placement": [
-    "foreground"
+    "foreground",
+    "midground"
   ],
   "sections": [
     {
@@ -26,16 +28,70 @@
       "html": "<p>The marimo moss ball is neither a moss nor a plant, but a species of green algae, Aegagropila linnaei, that gets its unique shape from tumbling about the bottom of freshwater lakes. The nickname \"marimo\" roughly translates from Japanese as \"water plant that's kind of like a bouncy ball.\"</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marimo-moss-ball-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>Common name: Marimo moss ball</li><li>Other names: Lake ball, Cladophora ball, Mossimo, Lake ball pets</li><li>Scientific name: Aegagropila linnaei (Cladophora aegagropila, Cladophora sauteri)</li><li>Minimum tank size: 20 litres</li><li>Lighting: Low to medium</li><li>Water hardness: very soft to very hard</li><li>Substrate: not needed</li><li>Growth rate: slow to moderate</li><li>Placement: foreground / midground</li><li>Fertilizer: not needed to low</li><li>CO2: not needed to low</li><li>Propagation: splitting and re-rolling</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marimo-moss-ball-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Marimo moss ball is a rare species and not easily found in local aquarium stores. Fake Marimo exists. Pointers:</p><ul><li>Fake moss balls are made with a soft plastic ball wrapped in synthetic green hair.</li><li>Most fake balls are not kept in planted tanks, but sold pre-packaged or kept in the decorations section.</li><li>Fake Marimo looks perfectly smooth, while a real Marimo has some slight bumps.</li><li>Real Marimo moss balls can be picked apart and reshaped by rolling between your hands.</li><li>Real Marimo balls will float for some time if you squeeze all the water out. There should be no air bubbles inside the ball.</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/marimo-moss-ball-care",
       "html": "<p>In Japan, wild marimo balls can reach 8 to 12 inches in diameter. In nature, Aegagropila linnaei also grows as flat mats on rock surfaces, free-floating filaments, or shaggy sheets on the lake floor.</p>"
     },
     {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marimo-moss-ball-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Marimo is a species of filamentous green algae commonly found in lakes in the northern hemisphere, for example Lake Akan in Japan, Lake Myvatn in Iceland, Lake Naardermeer in North Holland and Lake Zell in Austria. It is also found in rivers: the epilithic form has been found in the Seine and the Moine in France, the River Sasso in Switzerland, the Féynes spring in Hungary and the Oslava River in the Czech Republic. It also occurs in the brackish northern part of the Baltic Sea, where it grows mostly attached to rocks.</p><p>It is on the national red lists of Belarus, Estonia, Germany, Japan, Russia and Sweden. It has been protected in Japan since the 1920s and in Iceland since 2006. Collecting it in the wild is strictly prohibited.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marimo-moss-ball-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Marimo lives in cool freshwater and brackish habitats, mostly lakes at higher latitudes in the northern hemisphere. The round form is maintained by gentle wave action that occasionally turns the balls. In Lake Akan, large balls reach 20–30 cm and a perfectly round, bowling-ball shape, often in dense colonies. Research suggests the preferred habitat is oligomesotrophic lakes with moderate to high calcium levels, typically not strongly affected by acidification.</p><p>Aegagropila linnaei occurs in several growth forms: free-floating unattached mats, a carpet type attached to shaded sides of submerged rock, and the fragmented or ball type, which is the rarest.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marimo-moss-ball-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Marimo fits any vessel regardless of size: plastic or glass containers, jars, vases, or tanks of 20 litres and more. It is undemanding and a good option for nano tanks.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/marimo-moss-ball-care",
       "html": "<p>When you first get your marimo ball, rinse it in aquarium water and place it in the tank. It may float at first but should eventually sink once it becomes waterlogged.</p><ul><li>Marimo appreciate low to medium light, so keep them out of direct sunlight.</li><li>Most articles recommend cooler temperatures because of their native habitats, but many hobbyists have kept them successfully in betta tanks with temperatures as high as 27°C (80°F).</li><li>Lightly roll the marimo ball in your hands every time you do a water change so that it won't lose its shape.</li><li>Flip it around occasionally so that all parts of the algae get access to light and won't start browning.</li><li>Clean-up crew like freshwater shrimp, snails, and invertebrates are good at picking off leftover food caught in the moss ball.</li><li>If it starts collecting detritus, take it out of the tank, remove any undesirable algae, and gently swish it in a bucket of aquarium water.</li></ul>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marimo-moss-ball-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Marimo is easy to maintain. Rules: do regular water changes, clean the balls, keep their shape, provide cool water, and do not use algae-removing products, which will also kill Marimo.</p><h3>Water changes</h3><p>Change water every one to two weeks; if kept with other plants and animals, change 10–20%. In shrimp tanks, avoid large or frequent water changes, which can cause moulting problems.</p><h3>Cleaning</h3><p>Dirt and debris get trapped in the fine filaments. Take the ball out, gently wash and squeeze it a few times in a container of clean water, then put it back. Do this at least once a month, ideally every two weeks, using only dechlorinated water, for example water from a water change.</p><h3>Cool water</h3><p>Keep the water below 24°C and the tank away from direct sunlight. In hot summers, move the balls to a cooler place for a while. They can be put in the refrigerator, but never allowed to freeze.</p><h3>Shape</h3><p>If a ball loses shape or falls apart, roll it gently between your palms. Turn the balls around regularly to keep the shape and prevent rotting.</p><h3>Propagation</h3><p>After a while a mature ball puts out buds or daughter plants that detach. You can also split a ball into smaller pieces and place them in the tank.</p><h3>Problems</h3><ul><li><strong>Brown Marimo:</strong> sign of dirt build-up. Squeeze it out in a bowl of clean water and add a little salt to stimulate growth. If only one side is brown, it is not getting enough light: turn it more often.</li><li><strong>White Marimo:</strong> too much light. Move it to a slightly shady part of the tank.</li><li><strong>Slimy Marimo:</strong> other algae attached to it. Wash them off, or they will choke the ball.</li><li><strong>Falling apart:</strong> pick up the pieces and roll them together into a big ball, or reshape them into smaller balls, then ensure enough light.</li><li><strong>Black Marimo:</strong> a rare condition where it decays from the inside. Remove it from the water, cut off the blackened parts and roll it back into shape.</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marimo-moss-ball-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>Temperature: 6–24°C. When the water gets hot, move the balls to a cooler area; overheating makes them fall apart.</li><li>pH: 7.0–8.0 for optimal growth and health.</li><li>Hardness: 2–20 dGH. It can also grow in brackish water.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marimo-moss-ball-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Lighting: Marimo needs no special or intense light, as it naturally lives on lake bottoms with little to moderate light. Indirect light or low-intensity artificial light is enough. Direct sunlight and high-intensity LED lighting harm the balls and cause brown spots.</p><p>Substrate: any type is fine, but gravel is most suitable, since sand or soil substrates get tangled in the algae threads and make cleaning harder.</p><p>CO2 and fertilizer: additional CO2 and fertilizer are appreciated but not compulsory. They have little impact on growth because Marimo grows extremely slowly, but help keep it healthy. In shrimp tanks, high CO2 and copper (found in most fertilizers) are extremely dangerous to shrimp.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marimo-moss-ball-care-guide-planting-growing-and-propagation/",
+      "html": "<p>The hardy nature of Marimo makes it compatible with most aquatic animals. It coexists peacefully with non-aggressive fish (bettas, tetras, mollies, danios, platies, guppies), snails (ramshorn, nerite, Malaysian trumpet, Japanese trapdoor, mystery) and shrimp (all Neocaridina varieties, Amano, ghost, bamboo, vampire shrimp). Keeping it with Caridina shrimp is also possible, but they prefer lower pH (below 7.0), which is not optimal for Marimo. Amano shrimp, nerite snails and Otocinclus will not harm it.</p><p>Avoid aggressive or destructive fish such as plecos, African cichlids, angelfish and goldfish. Most crayfish and crabs are also bad neighbours.</p>"
     },
     {
       "key": "reproduction",
@@ -54,29 +110,35 @@
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/marimo-moss-ball-care",
       "html": "<p>Marimo don't have to live only as spheres. Aquascapers have unrolled them into thick carpets, draped them on hardscape, or flattened them to make underwater bonsai trees. Some people place them in decorative jars as home decor instead of in fish tanks.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marimo-moss-ball-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Marimo is a green alga, not a moss; it belongs to the family Pithophoraceae. It was collected in Sweden by Carl Linnaeus in 1753 and first described in the 1820s by Anton E. Sauter from Lake Zell, Austria. It was once placed in Cladophora; DNA research and the presence of chitin in its cell walls returned it to Aegagropila. The Japanese botanist Takuya Kawakami named it Marimo in 1898 at Lake Akan; the name means 'ball seaweed'. The Ainu people hold a three-day festival at Lake Akan every October.</p><p>Description: growth is about 5 mm per year. In the wild balls reach 20–30 cm, while commercial balls are sold at about 5 cm or smaller. The ball has no core; filaments grow in all directions from the centre. The inside is green and packed with dormant chloroplasts that become active within hours if the ball breaks apart.</p><p>Benefits: decorative; produces oxygen through photosynthesis; grazing ground for shrimp and small fish, improving shrimplet survival; harbours beneficial bacteria; produces no waste. Minor bonuses: it reduces nitrate and competes with nuisance algae only slightly because it grows so slowly, so do not rely on it.</p><p>Lifespan: 50–100 years in the wild and up to 10 years in an aquarium if well cared for.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/aquariumcoop/57f2673d7472a8f2.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/57f2673d7472a8f2-480.webp",
       "width": 1000,
       "height": 667,
       "licence": "dùng với sự cho phép",
       "author": "Aquarium Co-op",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/marimo-moss-ball-care",
       "caption": "Marimo Moss Balls – The World’s Easiest Aquarium “Plant” - Aquarium Co-Op",
-      "source": "aquariumcoop",
-      "thumb": "https://media.aquatome.com/aquariumcoop/57f2673d7472a8f2-480.webp"
+      "source": "aquariumcoop"
     },
     {
       "url": "https://media.aquatome.com/commons/f4a5ecdab4c7e6de.webp",
+      "thumb": "https://media.aquatome.com/commons/f4a5ecdab4c7e6de-480.webp",
       "width": 960,
       "height": 775,
       "licence": "CC BY-SA 3.0",
       "author": "Piotr719",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ga%C5%82%C4%99zatka_kulista_(Cladophora_aegagropila).jpg",
-      "caption": "Glon wielokomórkowy z gromady zielenic",
-      "thumb": "https://media.aquatome.com/commons/f4a5ecdab4c7e6de-480.webp"
+      "caption": "Glon wielokomórkowy z gromady zielenic"
     },
     {
       "url": "https://media.aquatome.com/tropica/5a682acb481d2e2b.webp",
@@ -94,24 +156,34 @@
       "source": "tropica"
     },
     {
+      "url": "https://media.aquatome.com/aquariumbreeder/c47d8a045ce3d7d1.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/c47d8a045ce3d7d1-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/marimo-moss-ball-care-guide-planting-growing-and-propagation/",
+      "source": "aquariumbreeder"
+    },
+    {
       "url": "https://media.aquatome.com/commons/35b4eb4dce0d159c.webp",
+      "thumb": "https://media.aquatome.com/commons/35b4eb4dce0d159c-480.webp",
       "width": 960,
       "height": 640,
       "licence": "Public domain",
       "author": "Alaska Region U.S. Fish & Wildlife Service",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Decorative_Moss_Balls_4.jpg",
-      "caption": "Moss balls are a filamentous algae, typically sold as a decoration or for aquariums. Zebra mussels can hitchhike on moss balls. Photo by: Deborah Kornblut/USFWS",
-      "thumb": "https://media.aquatome.com/commons/35b4eb4dce0d159c-480.webp"
+      "caption": "Moss balls are a filamentous algae, typically sold as a decoration or for aquariums. Zebra mussels can hitchhike on moss balls. Photo by: Deborah Kornblut/USFWS"
     },
     {
       "url": "https://media.aquatome.com/commons/385ba69487039ab4.webp",
+      "thumb": "https://media.aquatome.com/commons/385ba69487039ab4-480.webp",
       "width": 960,
       "height": 710,
       "licence": "Public domain",
       "author": "Alaska Region U.S. Fish & Wildlife Service",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Decorative_Moss_Balls_3.jpg",
-      "caption": "Moss balls are a filamentous algae, typically sold as a decoration or for aquariums. Zebra mussels can hitchhike on moss balls. Photo by: Deborah Kornblut/USFWS",
-      "thumb": "https://media.aquatome.com/commons/385ba69487039ab4-480.webp"
+      "caption": "Moss balls are a filamentous algae, typically sold as a decoration or for aquariums. Zebra mussels can hitchhike on moss balls. Photo by: Deborah Kornblut/USFWS"
     }
   ],
   "productSlots": [
@@ -130,5 +202,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-19"
 }

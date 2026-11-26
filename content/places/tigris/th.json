@@ -1,8 +1,13 @@
 {
   "slug": "tigris",
-  "name": "ไทกริส",
+  "name": "แม่น้ำไทกริส",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-19T00:41:50.084Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

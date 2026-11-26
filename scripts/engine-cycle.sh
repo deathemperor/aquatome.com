@@ -143,6 +143,12 @@ publish_kept "$PART"
 pnpm engine redo-unread || log "redo-unread: failed"
 if part pages; then
   pnpm engine run --max-minutes "${ENGINE_MAX_MINUTES:-300}" ${ENGINE_ARGS:---except seriouslyfish}
+  # Practical Fishkeeping through the Internet Archive, right after the three sources read through it and under the same
+  # rest, which is this Mac's: its titles a week apart (once a day while it has none), then the day's one guide on its ideas,
+  # given its post, at most 6 requests a day and 9 a week for its list (ideas.ts refreshMagazine, writeMagazine; the chief
+  # of staff, 21 Nov 2026). Not in a targeted run. Elsewhere only the sf part's Seriously Fish may ask the Archive, after a
+  # browser check on two runs in a week (run.ts), on this Mac too; GitHub never does (cycle-archive.test.ts).
+  if [ -z "${ENGINE_ARGS:-}" ]; then pnpm engine magazine || log "magazine: failed"; fi
   # Plants' other scientific names (sources' "previously named …", GBIF, a few hobby names): linked, checked, searched.
   pnpm engine plant-synonyms || log "plant-synonyms: failed"
   # Fish's older scientific names from GBIF (fish-synonyms.ts), 300 a cycle, each asked once: Commons files some fish under them.
@@ -295,8 +301,11 @@ if part rewrite; then
     pnpm engine localize-cards --lang "$lang" || log "localize-cards $lang: failed"
   done
   # UI text those pages need that src/i18n lacks (a label no page used before): translated now, committed with the content.
-  if I18N_MISSING_OUT=/tmp/aq-i18n-missing.json PUBLIC_BUILD=1 pnpm --filter site build >/dev/null 2>&1 \
-    && node -e 'process.exit(Object.values(require("/tmp/aq-i18n-missing.json")).some(s => s.length) ? 0 : 1)'; then
+  # A build that fails translates none, and says so in one line: the face finder's record lost or past its limit fails it
+  # (packages/schema load.ts UNREAD_FACES_LIMIT), and its output goes nowhere (the chief of staff, 21 Nov).
+  if ! I18N_MISSING_OUT=/tmp/aq-i18n-missing.json PUBLIC_BUILD=1 pnpm --filter site build >/dev/null 2>&1; then
+    log "ui strings: the site's build failed, so this run translated no new UI strings"
+  elif node -e 'process.exit(Object.values(require("/tmp/aq-i18n-missing.json")).some(s => s.length) ? 0 : 1)'; then
     pnpm --filter @aq/engine exec tsx scripts/translate-ui.ts /tmp/aq-i18n-missing.json || log "translate-ui: failed"
   fi
   # Languages the site doesn't serve yet (the language table's `served: false`): their pages, written ahead of going live;
@@ -329,6 +338,13 @@ if part rewrite; then
     ahead pnpm engine localize-equipment --lang "$lang" --limit "${LOCALIZE_EQUIPMENT_AHEAD_LIMIT:-2}"
     ahead pnpm engine localize-cards --lang "$lang"
   done
+  # Indonesian and Thai fish pages out of search for their score, read afresh on two models, Sonnet then Opus
+  # (localize-recheck.ts): back when both pass and no read of the text has a note on a dose or harm (the chief of staff,
+  # 16 Nov 2026). One try a text. Pages the translator wrote in the last day go first, so a new page its first read failed
+  # has its two reads in the same cycle. RECHECK_LIMIT pages a language a cycle (120 a day at about 4 cycles), on its own
+  # line in ceilings.json ("recheck", GitHub's side, where this part runs), gated as the steps above: a cycle that has run
+  # long gives it first, and it starts no page after RECHECK_MINUTES, so it ends inside the job as they do.
+  for lang in id th; do ahead pnpm engine recheck --lang "$lang" --limit "${RECHECK_LIMIT:-15}" --max-minutes "${RECHECK_MINUTES:-15}"; done
   # Indonesian, Thai and Malay place names, each judged alone against its source's sentence (place-judge.ts), after every
   # translation, Malay's too (the rewrites and translations spend first, cycle-languages.test.ts): the
   # unjudged first, the lowest batch score first, JUDGE_PLACES_LIMIT a cycle (the chief of staff, 15 Nov 2026: at most
@@ -338,7 +354,7 @@ if part rewrite; then
   # leads for breed and guide research (forum.ts).
   pnpm engine forum --limit "${FORUM_LIMIT:-10}" --pages 3 || log "forum: failed"
   # Vietnamese shops' blogs, read for ideas a week apart (their posts' titles, never their text): the topics the
-  # handbook has no guide on, most asked first (ideas.ts).
+  # handbook has no guide on, most asked first (ideas.ts), with the magazine's titles the Mac reads (engine magazine).
   pnpm engine ideas || log "ideas: failed"
   # Where each species lives in the wild (range.ts): the countries and regions its sources name, each country with the
   # source's sentence (engine-state/range/), RANGE_LIMIT model calls a cycle for species whose sources' text is new or
@@ -360,8 +376,11 @@ if part rewrite; then
   # again as they are, nothing rewritten: REVIEW_BACKFILL_LIMIT model calls a kind (video guides: video-cycle.sh).
   # rewrite-vi starts a page from its last review's notes: those written here, it reads at the next cycle.
   pnpm engine review-backfill --kind translation,localize,places --limit "${REVIEW_BACKFILL_LIMIT:-10}" || log "review-backfill: failed"
-  # Guides keep to their title's subject: off-topic sections dropped (the copies follow at the next cycle).
-  pnpm engine topic-check --limit "${TOPIC_CHECK_LIMIT:-40}" || log "topic-check: failed"
+  # Guides keep to their title's subject: off-topic sections dropped (the copies follow at the next cycle). None a run
+  # until Monday's change to how a guide is mended (the chief of staff, 20 Nov 2026): on 19 Nov it dropped the rummynose
+  # guide's warning on what a pale red nose says of the water, from a live page. TOPIC_CHECK_LIMIT=40 puts it back, on the
+  # chief of staff's word.
+  pnpm engine topic-check --limit "${TOPIC_CHECK_LIMIT:-0}" || log "topic-check: failed"
   # A reader's eye: the model reads READER_LIMIT pages as a reader would (not read yet first, then changed ones), against
   # a rubric; Vietnamese wording it flags is rewritten, reviewer-gated, READER_REWRITES parts at most; the rest goes to
   # docs/review/reader.md.
@@ -376,12 +395,17 @@ if part rewrite; then
     # most read; pages the gate held new before them (fit-front.json, lane). A run's front-list pages hold the next run's
     # until the chief of staff has read them (fit-front.json, cleared, one run at a time). The pages with a foreign product
     # share the lane's place (products). 24 a run from 15 Nov, after the chief of staff read the lane's first clean run.
-    pnpm engine fit-rewrite --front --limit "${FIT_REWRITE_LIMIT:-24}" || log "fit-rewrite: failed"
+    # Guides are left out: a guide is written again whole, and its check only asks that each of the old text's digit
+    # figures is somewhere in the new one (for-reader.ts figuresLost). Fish, plant and breed parts are mended cut-only
+    # and go on. The lane's guides, which would be mended cut-only too, wait with the rest. FIT_REWRITE_KINDS names the
+    # kinds by their content folders; "species,plants,breeds,guides" puts guides back.
+    pnpm engine fit-rewrite --front --kind "${FIT_REWRITE_KINDS:-species,plants,breeds}" --limit "${FIT_REWRITE_LIMIT:-24}" || log "fit-rewrite: failed"
   else
     log "fit-rewrite: skipped, the cycle has run $(( SECONDS / 60 )) min"
   fi
-  # AquaTome's own guides on the most asked ideas, IDEAS_PER_DAY a day, last: each is a full research run (up to ~25
-  # min), so only with an hour and a half left of the job's 355 minutes (a rewrite job has taken 266).
+  # AquaTome's own guides on the shops' most asked ideas, IDEAS_PER_DAY a day, last (the magazine's are the Mac's): each is
+  # a full research run (up to ~25 min), so only with an hour and a half left of the job's 355 minutes (a rewrite job has
+  # taken 266).
   if [ "$SECONDS" -lt $(( ${IDEAS_BEFORE_MINUTES:-260} * 60 )) ]; then
     pnpm engine write-ideas --limit "${IDEAS_PER_DAY:-2}" || log "write-ideas: failed"
   else
@@ -412,8 +436,15 @@ pnpm engine sweep || log "sweep: failed"
 # person waits on (harm, a kit, a dose), stays as it is (the chief of staff, 15 Nov 2026; video-cut.ts). The gate reads
 # each next. Before the units mend, which then takes a guide held for units alone, and in the Mac's photos part alone, as
 # the units mend is.
+# Off until Monday's change to how a guide is mended (the chief of staff, 20 Nov 2026): its cuts of 15-18 Nov took a
+# condition from the Endlers guide and the maker's own hedge from another, on live pages. VIDEO_CUT=on puts it back, on the
+# chief of staff's word.
 if part photos; then
-  pnpm engine video-cut || log "video-cut: failed"
+  if [ "${VIDEO_CUT:-off}" = on ]; then
+    pnpm engine video-cut || log "video-cut: failed"
+  else
+    log "video-cut: off until the chief of staff puts it back (VIDEO_CUT=on)"
+  fi
 fi
 # A page held for units alone: a tank converted from US gallons some other way ("115 lít") becomes the size a keeper here
 # names ("120 lít"), by code with no model, six pages a run; the gate reads each next and lets it out if it passes. It
@@ -423,6 +454,15 @@ fi
 # verdicts that can differ.
 if part photos; then
   pnpm engine units-mend --first vi/guides/youtube-mGmIvhtIM9k || log "units-mend: failed"
+fi
+# The pass over the open pages no read covers (fit-pass.ts; the chief of staff, 21 Nov 2026): on its two nights alone
+# (fit-pass.json: 00:00 to 07:00 Vietnam time, so the 02:10 and 05:10 starts), FIT_PASS_LIMIT pages a start, on the Mac's
+# second sign-in, which this week's runs have left (CLAUDE_FIRST_ACCOUNT=2: the first if it runs out), on its own line in
+# ceilings.json ("fit-pass"). It reads and records only: the gate next holds a page whose read found harm, in every
+# language, and a kit it finds holds none. In the photos part alone, as the units mend: the Mac's parts overlap, and two
+# clones would read the same pages.
+if part photos; then
+  CLAUDE_FIRST_ACCOUNT=2 pnpm engine fit-pass --limit "${FIT_PASS_LIMIT:-300}" || log "fit-pass: failed"
 fi
 # Last of the steps that write pages: what this run changed is read against the reader-fit checklist (gate.ts). A new page
 # that fails is held, a live page that got worse keeps its committed text, a page built on a foreign shop's kit is held,

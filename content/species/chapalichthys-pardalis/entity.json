@@ -10,6 +10,58 @@
     "mexico",
     "michoacan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Its natural habitat is the waters of the Pacific slope of Mexico, Michoacán province, Tocumbo district.",
+          "countries": [
+            "MX"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2347643,
+      "total": 18,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "MX",
+          18
+        ]
+      ],
+      "cells": [
+        [
+          -104.0625,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          -102.65625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          -102.65625,
+          19.6875,
+          15,
+          15
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -63,7 +115,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/chapalichthys_pardalis_en/",
       "source": "glaser"
     },
@@ -73,7 +125,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/chapalichthys_pardalis_en/",
       "source": "glaser"
     }

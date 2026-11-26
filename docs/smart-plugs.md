@@ -73,9 +73,9 @@ of that design, and as the shape a server route would take if a maker opens link
 
 A plug switches mains power to a CO2 solenoid, a heater or a filter. So:
 
-- **Only on a reader's tap.** Nothing switches on its own in this first version: no schedules, no rules. Clients send a
-  switch only while the reader taps it, online: never through the tanks' save-then-sync path, no outbox, no retry, nothing
-  queued while offline.
+- **Only on a reader's tap.** Nothing switches on its own: no schedules, no rules. Clients send a switch only while the
+  reader taps it, online: never through the tanks' save-then-sync path, no outbox, no retry, nothing queued while
+  offline. The one exception is the master button's end (below), which the reader's own press of it asked for.
 - **A switch sets a state; it never toggles.** `{on: true}` twice leaves the outlet on, so a double tap or a repeated
   request does no harm.
 - **What the plug reports, not what was asked.** After a command the outlet is read back every 600 ms until the plug
@@ -88,6 +88,54 @@ A plug switches mains power to a CO2 solenoid, a heater or a filter. So:
 - **The strips' own timers are left alone.** They keep running when AquaTome or the maker's cloud is down,
   which is the failure to want. AquaTome reads them (below) but never writes or changes one.
 - Offline plugs are shown as offline; a command to one is refused (Tuya's 2001, or listed offline), not queued.
+
+## The master button
+
+"Nút tổng" on the iOS app's Đèn tab (the owner's account; Design Lead's drawing of 14 Nov): one tap sets the devices the
+reader chose (the Love Ecology lamp, and the outlets of the Tuya plugs on their tanks: a fan off, CO2 off…), and the
+phone puts back what it changed at the end, after 1 or 2 hours or when the reader taps Kết thúc. Kept on the phone, not
+synced.
+
+- **Never CO2 on, never a heater** (the chief, 15 Nov; `MasterButton.allows`): the phone puts things back only while the
+  app is open, so CO2 switched on would run all night if the phone were locked at the end, as would a heater left off.
+  CO2's row offers off only and says why; a heater isn't offered. CO2 on comes only once the owner's test (below) shows
+  the strip switches off at 0, the strip's own countdown is what switches CO2 off at the end with the phone as the
+  second line, no Smart Life timer changes that outlet before the end, and the owner has asked for it in their own words.
+
+- **A press** reads the list once (how each outlet is now), then sends each step once, as a tap would: an outlet already
+  as asked has nothing to put back. A step that fails says why under the button; the others stay done. A plug that
+  didn't answer may still have switched, so after a failure the list is read again and only an outlet that reads as
+  the step asked goes back: never one whose state the phone could only guess. A press whose list can't be read (no
+  network) sends nothing and says so. A device deleted from its tank during a run has nothing to go back to.
+  What an earlier press still owes (the lamp after an end while the app was closed, a plug not reached) stays owed
+  through the next press, and through deleting the button, until it is back.
+- **The end is the phone's**, while the app is open, or when it next opens: iOS runs nothing for the app at the end time
+  otherwise. Where AquaTome's notifications are already allowed, one comes at the end time to say so; it never asks for
+  them. The lamp hears the phone only close by and reports nothing: it goes back to the last command this phone sent it
+  (its card's or the button's), or the other way when there is none. The two share the phone's one broadcast: the
+  card waits while the button's steps go out, and a press replaces a broadcast of the card's. Ended while the app was closed, the lamp waits for
+  the reader's "Trả lại" near it.
+- **Put back only what is still as the button left it.** An outlet its schedule or a hand switched during the run is
+  left as it is, and the card says so. CO2 is never switched on by the phone at the end: its schedule may mean it off by
+  then, and CO2 with the lights out can kill fish; the card says to turn it on by hand if wanted. That holds by the
+  outlet's role when the button was pressed, and an outlet made a heater during the run is left as it is too.
+- **No countdown is written to a plug by the app** (the chief, 15 and 17 Nov). A Tuya countdown switches the outlet the
+  other way at 0 whatever it is then, and some plugs' only switch off. The owner's test of one (a row on the card, in
+  build 390) is gone: a kit check fails if the app's code calls a countdown again. It comes back, rebuilt, with the
+  CO2-on work, if the owner says yes to that. The strips' Smart Life timers, which the app can read, will then rule out
+  an outlet a timer switches before the run ends.
+- **Each command is checked as it leaves** (Codex, 17 Nov): the outlet's role now (CO2 never on, a heater never), and
+  the owner still signed in, in the session that pressed or ended it; right before a plug's command goes (after any wait
+  for Tuya's token, and again if it is sent once more for a stale one) and before each of the lamp's recordings.
+  Signed out and in again, a press doesn't go on. An end due while the owner isn't signed in (or not known yet, as at
+  each launch) waits until they are.
+- **An outlet not read at the end isn't put back**: it stays owed, for Trả lại. How each press left an outlet is kept
+  with what it owes, across launches: a step whose answer was lost counts as read after it, or, not read, as gone.
+- **Turning off a filter or an air pump** asks a second time when the button is set up.
+- Its steps are `DeviceCommand`s (protocols/device-command.schema.json), the shape the chat's commands will take: the
+  device record's id, the outlet's code, on, and for the lamp one of its recorded colours. `DeviceCommand.offerable`
+  is what the chat may switch: the lamp, and outlets whose role is CO2 or a fan, never a heater, filter or air pump.
+  The chat's commands are never undone at the button's end.
 
 ## Staying within the makers' limits
 

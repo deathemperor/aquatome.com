@@ -1,8 +1,8 @@
 {
   "id": "platystacus-cotylephorus",
   "native": {
-    "input": "350b045726e9537e",
-    "at": "2026-11-12T21:02:28.514Z",
+    "input": "63f33cef0e7d8121",
+    "at": "2026-11-20T07:13:45.828Z",
     "claims": [
       {
         "code": "VE",
@@ -74,6 +74,22 @@
         "source": "seriouslyfish",
         "quote": "French Guiana, Guyana, Suriname, Venezuela, Brazil, Trinidad and Tobago.",
         "words": "Trinidad and Tobago",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: coastal waters and lower portions of rivers of northern South America, from Venezuela to northern Brazil.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: coastal waters and lower portions of rivers of northern South America, from Venezuela to northern Brazil.",
+        "words": "Brazil",
         "ok": true
       }
     ],
@@ -184,6 +200,6 @@
       "TT"
     ],
     "requests": 13,
-    "at": "2026-11-12T21:02:28.514Z"
+    "at": "2026-11-20T07:13:45.828Z"
   }
 }

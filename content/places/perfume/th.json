@@ -3,6 +3,12 @@
   "name": "แม่น้ำหอม",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.1,
+    "at": "2026-11-18T18:25:13.543Z",
+    "why": "\"แม่น้ำหอม\" translates sông Hương word by word (\"perfume river\") instead of using the Thai atlas form \"แม่น้ำเฮือง\" (Huong River), which keeps the proper name."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

@@ -1,9 +1,17 @@
 {
   "id": "astyanax-jordani",
   "native": {
-    "input": "e8a8290bdd8c3ea0",
-    "at": "2026-11-06T12:17:30.771Z",
+    "input": "92ab2a4e4b09656e",
+    "at": "2026-11-20T17:43:20.430Z",
     "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The blind cave tetra, Astyanax jordani, is an eyeless characid found only in underground caves in San Luis Potosí and Tamaulipas, Mexico.",
+        "words": "Mexico",
+        "ok": true
+      },
       {
         "code": "MX",
         "status": "native",

@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { localizeTopic, makeTopic, recheckTopic, SOURCE_KINDS, usableFact, type TopicFacts } from '../src/topics'
+import { localizeTopic, makeTopic, recheckTopic, SOURCE_KINDS, sourceNumbers, usableFact, type TopicFacts } from '../src/topics'
 import { denied } from './piece-admission'
 
 const facts: TopicFacts = {
@@ -113,6 +113,12 @@ test("a guide never cites a page research may not read: a marketplace's, the mag
   }
   const e = JSON.parse(await readFile(join(root, 'content/guides/aquatome-ca-bi-loi-mat-popeye/entity.json'), 'utf8'))
   expect(e.refs.map((x: { url: string }) => x.url)).toEqual(['https://edis.ifas.ufl.edu/x', 'https://example.org/epsom'])
+  // The research kept holds no refused site's page, nor what it alone says; the other pages research may not read stay in
+  // it, as before (the chief of staff, 17 Nov 2026: Thursday's change, refused-sources.ts).
+  const kept = JSON.parse(await readFile(join(root, 'engine-state/topics/aquatome-ca-bi-loi-mat-popeye.json'), 'utf8')) as TopicFacts
+  expect(kept.sources.map(x => x.url)).toEqual([...facts.sources.map(x => x.url), ...off.slice(0, 5)])
+  expect(kept.facts.map(f => f.fact)).not.toContain('Only off-limits 5')
+  expect(kept.facts.map(f => f.fact)).toContain('Only off-limits 4')
   // Checked again later (review-backfill.ts), against the facts its writer had: the same facts, numbered the same, none of
   // the refused pages' (Codex's read, 14 Nov 2026: the recheck read the research as saved, before the refusal).
   const factsOf = (p: string) => { const f = JSON.parse(p.slice(p.indexOf('FACTS:\n') + 7, p.indexOf('\n\nGUIDE:'))); return { facts: f.facts, sources: f.sources } }
@@ -166,6 +172,142 @@ test('localizeTopic: from the same facts, minus Vietnam-only ones; cites only th
   expect(await localizeTopic(root, llm, r0.id, 'th')).toMatchObject({ skipped: 'done' })
 })
 
+// Codex's read of 21 Nov 2026: the magazine's post was held to its share when the Vietnamese guide was written, and not
+// again when the other languages' were, from the facts as they are then.
+test("another language's guide holds the magazine's post to its share again, on the facts it is written from: a reference gone leaves the post out", async () => {
+  const root = await site()
+  const POST = 'https://www.practicalfishkeeping.co.uk/features/cloudy-water-explained/'
+  const research = async () => ({ found: true, species: [],
+    sources: [{ url: POST, title: 'research calls it', kind: 'shop' }, { url: 'https://a.example/x', title: 'A', kind: 'vet' }, { url: 'https://b.example/y', title: 'B', kind: 'university' }],
+    facts: [{ section: 'causes', fact: 'Post fact one.', source: 0 }, { section: 'causes', fact: 'Post fact two.', source: 0 }, { section: 'prevention', fact: 'A fact.', source: 1 }, { section: 'treatment', fact: 'B fact.', source: 2 }] }) as never
+  const llm0: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Nước đục', summary: ['x'], body: '<p>x</p>', faq: [] }) as never
+  const r0 = await makeTopic(root, { research, llm: llm0 }, { topic: 'Nước bể cá bị đục', kind: 'care' }, { given: { url: POST, title: 'Cloudy water explained', text: 'Placeholder.' } })
+  expect(r0).toMatchObject({ post: 'cited' })
+  // B's reference gone from the guide since: the post would be half the facts beside one other site.
+  const file = join(root, 'content/guides', r0.id, 'entity.json')
+  const entity = JSON.parse(await readFile(file, 'utf8')) as { refs: { url: string }[] }
+  expect(entity.refs.map(x => x.url)).toEqual([POST, 'https://a.example/x', 'https://b.example/y'])
+  await writeFile(file, JSON.stringify({ ...entity, refs: entity.refs.filter(x => x.url !== 'https://b.example/y') }))
+  const prompts: string[] = []
+  const llm: Llm = async ({ prompt }) => {
+    prompts.push(prompt)
+    if (prompt.startsWith('Below are FACTS')) return { score: 0.9, notes: [] } as never
+    return { name: 'Air keruh', slug: 'air-keruh', summary: ['x'], body: '<p>x</p>', faq: [] } as never
+  }
+  await localizeTopic(root, llm, r0.id, 'id')
+  expect(prompts[0]).toContain('A fact.')
+  expect(prompts[0]).not.toContain('Post fact')
+  expect((JSON.parse(await readFile(join(root, 'content/guides', r0.id, 'id.json'), 'utf8')) as { refs: { url: string }[] }).refs.map(x => x.url)).toEqual(['https://a.example/x'])
+})
+
+// Codex's fresh read of 21 Nov 2026: a fact that cites the post also leans on it, there as on the Vietnamese guide.
+test("another language's guide counts a fact that cites the post also as the post's", async () => {
+  const root = await site()
+  const POST = 'https://www.practicalfishkeeping.co.uk/features/cloudy-water-explained/'
+  const research = async () => ({ found: true, species: [],
+    sources: [{ url: POST, title: 'research calls it', kind: 'shop' }, { url: 'https://a.example/x', title: 'A', kind: 'vet' }, { url: 'https://b.example/y', title: 'B', kind: 'university' }, { url: 'https://c.example/z', title: 'C', kind: 'vet' }],
+    facts: [{ section: 'causes', fact: 'Post fact one.', source: 0 }, { section: 'prevention', fact: 'A fact.', source: 1, also: [0] }, { section: 'treatment', fact: 'B fact.', source: 2 }, { section: 'treatment', fact: 'C fact.', source: 3 }] }) as never
+  const llm0: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Nước đục', summary: ['x'], body: '<p>x</p>', faq: [] }) as never
+  const r0 = await makeTopic(root, { research, llm: llm0 }, { topic: 'Nước bể cá bị đục', kind: 'care' }, { given: { url: POST, title: 'Cloudy water explained', text: 'Placeholder.' } })
+  // Two of four lean on the post: half, beside three other sites.
+  expect(r0).toMatchObject({ post: 'cited', given: { from: 2, of: 4 } })
+  // C's reference gone: two of three would lean on it. The post's own fact goes, and A's, which leans on it.
+  const file = join(root, 'content/guides', r0.id, 'entity.json')
+  const entity = JSON.parse(await readFile(file, 'utf8')) as { refs: { url: string }[] }
+  await writeFile(file, JSON.stringify({ ...entity, refs: entity.refs.filter(x => x.url !== 'https://c.example/z') }))
+  const prompts: string[] = []
+  const llm: Llm = async ({ prompt }) => {
+    prompts.push(prompt)
+    if (prompt.startsWith('Below are FACTS')) return { score: 0.9, notes: [] } as never
+    return { name: 'Air keruh', slug: 'air-keruh', summary: ['x'], body: '<p>x</p>', faq: [] } as never
+  }
+  await localizeTopic(root, llm, r0.id, 'id')
+  expect(prompts[0]).toContain('B fact.')
+  expect(prompts[0]).not.toContain('Post fact')
+  expect(prompts[0]).not.toContain('A fact.')
+})
+
+// Fable's read of 21 Nov 2026: the Vietnamese guide written without the post, another language's still had a fact leaning
+// on it, too few of them to be too much there.
+test("another language's guide of one the post was left out of leaves out the facts citing it also", async () => {
+  const root = await site()
+  const POST = 'https://www.practicalfishkeeping.co.uk/features/cloudy-water-explained/'
+  const research = async () => ({ found: true, species: [],
+    sources: [{ url: POST, title: 'research calls it', kind: 'shop' }, { url: 'https://a.example/x', title: 'A', kind: 'vet' }, { url: 'https://b.example/y', title: 'B', kind: 'university' }, { url: 'https://c.example/z', title: 'C', kind: 'vet' }],
+    facts: [...[1, 2, 3].map(i => ({ section: 'causes', fact: `Post fact ${i}.`, source: 0 })), { section: 'prevention', fact: 'A one.', source: 1 }, { section: 'prevention', fact: 'A two.', source: 1, also: [0] }, { section: 'treatment', fact: 'B fact.', source: 2 }, { section: 'treatment', fact: 'C fact.', source: 3 }] }) as never
+  const llm0: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Nước đục', summary: ['x'], body: '<p>x</p>', faq: [] }) as never
+  const r0 = await makeTopic(root, { research, llm: llm0 }, { topic: 'Nước bể cá bị đục', kind: 'care' }, { given: { url: POST, title: 'Cloudy water explained', text: 'Placeholder.' } })
+  expect(r0).toMatchObject({ post: 'too much of one source', given: { from: 0, of: 3 } })
+  const prompts: string[] = []
+  const llm: Llm = async ({ prompt }) => {
+    prompts.push(prompt)
+    if (prompt.startsWith('Below are FACTS')) return { score: 0.9, notes: [] } as never
+    return { name: 'Air keruh', slug: 'air-keruh', summary: ['x'], body: '<p>x</p>', faq: [] } as never
+  }
+  await localizeTopic(root, llm, r0.id, 'id')
+  expect(prompts[0]).toContain('A one.')
+  expect(prompts[0]).not.toContain('A two.')
+  expect(prompts[0]).not.toContain('Post fact')
+})
+
+// The chief of staff, 17 Nov 2026: the quarantine guide's Thai copy printed its facts' source numbers to readers 55 times.
+test('a copy that prints the facts\' source numbers is written once more without them, and not saved if it still does', async () => {
+  expect(sourceNumbers('<p>ตามแหล่งที่ 0 และแหล่งที่ 12 (แหล่งที่ 0)</p><p>แหล่งหนึ่ง</p>')).toEqual(['แหล่งที่ 0', 'แหล่งที่ 12'])
+  // Codex's read of #1588: as the reader reads it (markup gone), with Thai digits, and Indonesian's and Malay's forms; a
+  // count of sources, a year and a source by its kind are none.
+  expect(sourceNumbers('<p><strong>แหล่งที่</strong> 3 และแหล่งข้อมูลที่ ๓</p>')).toEqual(['แหล่งที่ 3', 'แหล่งข้อมูลที่ ๓'])
+  expect(sourceNumbers('<p>Menurut sumber 0 dan <em>Sumber</em> ke-2.</p>')).toEqual(['sumber 0', 'Sumber ke-2'])
+  expect(sourceNumbers('<p>Dua sumber, 3 sumber lain, sumber 2024, sumbernya, แหล่งหนึ่ง, แหล่งที่มา.</p>')).toEqual([])
+  // A measure isn't a source's number (Codex's second read): the source water's temperature, a volume, a range.
+  expect(sourceNumbers('<p>Suhu air sumber 24 °C. Air sumber 5 liter, sumber 2–3 kali.</p>')).toEqual([])
+  expect(sourceNumbers('<p>Suhu air sumber 24,5 °C. Air sumber 24.5 °C. Menurut sumber 2, 3.</p>')).toEqual(['sumber 2'])
+  const root = await site()
+  const llm0: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Cá bị lồi mắt', summary: ['x'], body: '<p>x</p>', faq: [] }) as never
+  const r0 = await makeTopic(root, { research: async () => facts as never, llm: llm0 }, { topic: 'Cá bị lồi mắt (popeye)', kind: 'disease' })
+  const copy = (body: string) => ({ name: 'ตาโปนในปลา', slug: 'fish-popeye', summary: ['ตาปลาโปน'], body, faq: [] })
+  const asked: string[] = []
+  const once: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('Below are FACTS')) return { score: 0.9, notes: [] } as never
+    asked.push(prompt)
+    return (asked.length === 1 ? copy('<p>ตาโปน (แหล่งที่ 0)</p>') : copy('<p>ตาโปน ตามที่แหล่งหนึ่งบอก</p>')) as never
+  }
+  expect(await localizeTopic(root, once, r0.id, 'th')).toMatchObject({ slug: 'fish-popeye' })
+  expect(asked[1]).toContain('It prints the facts\' source numbers, which readers never see: "แหล่งที่ 0"')
+  expect(JSON.parse(await readFile(join(root, 'content/guides', r0.id, 'th.json'), 'utf8')).body).toBe('<p>ตาโปน ตามที่แหล่งหนึ่งบอก</p>')
+  const salinan = (body: string) => ({ name: 'Mata ikan menonjol', slug: 'x', summary: ['Mata ikan menonjol.'], body, faq: [] })
+  const always: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : salinan('<p>Mata menonjol (sumber 2).</p>')) as never
+  expect(await localizeTopic(root, always, r0.id, 'id')).toMatchObject({ skipped: 'prints its facts\' source numbers: sumber 2' })
+  expect(existsSync(join(root, 'content/guides', r0.id, 'id.json'))).toBe(false)
+  // The rewrite is read for both again: one that drops the numbers but names a season its readers don't have isn't saved,
+  // and the copy on the site stays as it was (Codex's second read: in Thai, whose numbers the old check knew too).
+  const th = join(root, 'content/guides', r0.id, 'th.json')
+  const before = await readFile(th, 'utf8')
+  let n = 0
+  const swaps: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : copy(n++ ? '<p>พบบ่อยในฤดูใบไม้ผลิ</p>' : '<p>ตาโปน (แหล่งที่ 2)</p>')) as never
+  expect(await localizeTopic(root, swaps, r0.id, 'th', { redo: true })).toMatchObject({ skipped: 'names another place\'s season: ฤดูใบไม้ผลิ' })
+  expect(await readFile(th, 'utf8')).toBe(before)
+})
+
+// Codex's read of #1588: a body a person fixed is kept, so the generated one, thrown away, is no reason to write again.
+test('a copy whose body a person fixed is read for what this write puts on the page', async () => {
+  const root = await site()
+  const llm0: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Cá bị lồi mắt', summary: ['x'], body: '<p>x</p>', faq: [] }) as never
+  const r0 = await makeTopic(root, { research: async () => facts as never, llm: llm0 }, { topic: 'Cá bị lồi mắt (popeye)', kind: 'disease' })
+  const file = join(root, 'content/guides', r0.id, 'th.json')
+  let writes = 0
+  const llm: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('Below are FACTS')) return { score: 0.9, notes: [] } as never
+    writes++
+    return { name: 'ตาโปนในปลา', slug: 'fish-popeye', summary: ['ใหม่'], body: '<p>ตาโปน (แหล่งที่ 1)</p>', faq: [] } as never
+  }
+  await writeFile(file, JSON.stringify({ slug: 'fish-popeye', name: 'ตาโปนในปลา', body: '<p>แก้ด้วยมือ</p>', bodyFixed: true }))
+  expect(await localizeTopic(root, llm, r0.id, 'th', { redo: true })).toMatchObject({ slug: 'fish-popeye' })
+  expect(writes).toBe(1)
+  const saved = JSON.parse(await readFile(file, 'utf8'))
+  expect(saved.body).toBe('<p>แก้ด้วยมือ</p>')
+  expect(saved.summary).toEqual(['ใหม่'])
+})
+
 // The chief of staff, 16 Nov 2026: a copy's body a person fixed is theirs, as the Vietnamese one is, so a redo (a copy the
 // fit read flags is written again by itself) can't bring back what the hand fix took out.
 test('localizeTopic: a redo keeps a body a person fixed, and its mark', async () => {
@@ -181,6 +323,26 @@ test('localizeTopic: a redo keeps a body a person fixed, and its mark', async ()
   const again = JSON.parse(await readFile(file, 'utf8'))
   expect(again.body).toBe('<p>diperbaiki dengan tangan</p>')
   expect(again.bodyFixed).toBe(true)
+  expect(again.summary).toEqual(['baru'])
+})
+
+// The chief of staff, 21 Nov 2026: an FAQ a person fixed in a copy is theirs too (the live-food guide's Malay allergy
+// answer), so a redo keeps it and its mark, and writes the rest afresh.
+test('localizeTopic: a redo keeps an FAQ a person fixed, and its mark', async () => {
+  const root = await site()
+  const llm0: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Cá bị lồi mắt', summary: ['x'], body: '<p>x</p>', faq: [] }) as never
+  const r0 = await makeTopic(root, { research: async () => facts as never, llm: llm0 }, { topic: 'Cá bị lồi mắt (popeye)', kind: 'disease' })
+  const llm: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Mata tersembul', slug: 'x', summary: ['baru'], body: '<p>tulisan baru</p>', faq: [{ q: 'Soalan?', a: 'Jawapan baru.' }] }) as never
+  await localizeTopic(root, llm, r0.id, 'ms')
+  const file = join(root, 'content/guides', r0.id, 'ms.json')
+  const t = JSON.parse(await readFile(file, 'utf8'))
+  const fixed = [{ q: 'Soalan?', a: 'Jawapan dibetulkan dengan tangan.' }]
+  await writeFile(file, JSON.stringify({ ...t, faq: fixed, faqFixed: true }))
+  await localizeTopic(root, llm, r0.id, 'ms', { redo: true })
+  const again = JSON.parse(await readFile(file, 'utf8'))
+  expect(again.faq).toEqual(fixed)
+  expect(again.faqFixed).toBe(true)
+  expect(again.body).toBe('<p>tulisan baru</p>')
   expect(again.summary).toEqual(['baru'])
 })
 
@@ -443,4 +605,20 @@ test('last item cost refuses admission without calls or content writes', async (
     await expect(localizeTopic(root, async () => { calls++; throw new Error('must not call') }, 'other', 'th')).rejects.toThrow(/not started/)
     expect(calls).toBe(0)
   })
+})
+
+// Frozen food's research wrote "This applies equally to Vietnam's tropical climate" onto a Singapore shop's thaw time, and
+// guides' research wrote "relevant to Vietnam's hot season" onto other countries' pages, all filed under the "vietnam"
+// section. A figure keeps its page's place; the section itself stays as it was (the chief of staff, 17 Nov 2026).
+test('a guide\'s research keeps a figure to its page\'s place and adds Vietnam nowhere the page doesn\'t; the vietnam section stays', async () => {
+  const root = await site()
+  let asked = ''
+  const r = await makeTopic(root, { research: async ({ prompt }) => { asked = prompt; return { ...facts, found: false } as never }, llm: async () => { throw new Error('nothing is written') } }, { topic: 'Cá bỏ ăn', kind: 'care' })
+  expect(r).toMatchObject({ skipped: 'Cá bỏ ăn: nothing reliable found' })
+  expect(asked).toContain('A figure keeps its page\'s place: a figure a page gives for one country, city or climate (room temperatures in Singapore, a pond\'s in Florida) names that place in the fact, as the page does.')
+  expect(asked).not.toContain('anywhere wider than the page names')
+  expect(asked).toContain('A fact from a page outside Vietnam says Vietnam only where the page itself does')
+  // Not "anywhere wider than the page names", which reads loosely (the chief of staff, 17 Nov 2026, on the reader's point).
+  expect(asked).toContain('A fact names no place its page doesn\'t name: never add Vietnam, a region or a climate ("the tropics", "Southeast Asia", "hot countries") to what a page says')
+  expect(asked).toContain('vietnam (anything specific to Vietnam: tropical climate and hot season, tap water, power cuts, products or names used there)')
 })

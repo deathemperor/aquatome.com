@@ -1,8 +1,8 @@
 {
   "id": "microsynodontis-batesii",
   "native": {
-    "input": "47ceed1c18fbe358",
-    "at": "2026-11-10T12:58:20.267Z",
+    "input": "009a949dfd29f2ab",
+    "at": "2026-11-21T19:07:52.042Z",
     "claims": [
       {
         "code": "CD",
@@ -46,7 +46,9 @@
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "NG"
+      ],
       "sourcesOnly": []
     }
   },

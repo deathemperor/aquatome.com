@@ -1,14 +1,20 @@
 {
   "id": "nimbochromis-livingstonii",
   "native": {
-    "input": "0c6948514b29b933",
-    "at": "2026-11-10T20:57:55.515Z",
+    "input": "c530815a2212f8d3",
+    "at": "2026-11-20T17:43:20.430Z",
     "claims": [],
     "regions": [
       {
         "name": "Lake Malawi",
         "source": "seriouslyfish",
         "quote": "Endemic to Lake Malawi.",
+        "ok": true
+      },
+      {
+        "name": "Lake Malawi",
+        "source": "glaser",
+        "quote": "The animal received the name “sleeper” from the fishermen of Lake Malawi, who were able to observe the unusual lying around of the perch, which grows to over 20 cm in length, through the often crystal clear water of the lake.",
         "ok": true
       }
     ],

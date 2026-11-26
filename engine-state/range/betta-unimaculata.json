@@ -1,8 +1,8 @@
 {
   "id": "betta-unimaculata",
   "native": {
-    "input": "b1e8535539faf29f",
-    "at": "2026-11-09T12:58:06.259Z",
+    "input": "de57d7052faa25a6",
+    "at": "2026-11-20T17:43:20.430Z",
     "claims": [
       {
         "code": "ID",
@@ -18,6 +18,14 @@
         "source": "seriouslyfish",
         "quote": "Native to parts of the Kajan (upper River Kayan basin) and Howong (River Mahakam basin) river drainages in the Indonesian province of Kalimantan Timur (East Kalimantan), Borneo.",
         "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Origin: Sangkima, East Kalimantan (Indonesia).",
+        "words": "Indonesia",
         "ok": true
       }
     ],
@@ -41,12 +49,6 @@
         "source": "seriouslyfish",
         "quote": "Betta unimaculata is a large mouthbrooding labyrinth fish from the upper Kayan and Mahakam river drainages in East Kalimantan, Borneo, Indonesia.",
         "country": "ID",
-        "ok": true
-      },
-      {
-        "name": "Tarakan",
-        "source": "bwaquatics",
-        "quote": "Wild-caught Betta unimaculata from the island of Tarakan.",
         "ok": true
       }
     ],

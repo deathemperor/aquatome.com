@@ -6,7 +6,7 @@
     "Sambas river pipefish"
   ],
   "sections": {
-    "beforeYouBuy:aquatome": "<p>Loài này có bán trên thị trường, chẳng hạn một tiệm ở Anh bán con cỡ 8 cm dưới tên Longmouth Pipefish. Nghe nói nhiều pipefish nước ngọt đang nuôi là cá sinh ra trong bể ở nhà, nhưng thông tin đó nói chung cho cả nhóm chứ không riêng loài này.</p><p>Nó không hợp với người mới, do cách ăn đặc thù chứ không phải do tính dữ hay khó nước. Trước khi mua, hỏi kỹ người bán xem chính những con đó đang ăn gì, nhất là đã chịu ăn đồ đông lạnh chưa.</p>",
+    "beforeYouBuy:aquatome": "<p>Loài này có bán trên thị trường. Nghe nói nhiều pipefish nước ngọt đang nuôi là cá sinh ra trong bể ở nhà, nhưng thông tin đó nói chung cho cả nhóm chứ không riêng loài này.</p><p>Nó không hợp với người mới, do cách ăn đặc thù chứ không phải do tính dữ hay khó nước. Trước khi mua, hỏi kỹ người bán xem chính những con đó đang ăn gì, nhất là đã chịu ăn đồ đông lạnh chưa.</p>",
     "distribution:aquatome": "<p>Mẫu chuẩn của loài này đến từ Sambas, phía tây đảo Borneo, Indonesia. Tài liệu phân loại chỉ có tên nó ở Kalimantan và quần đảo Natuna, cụ thể là sông Sambas thuộc Tây Kalimantan và Natuna. Bốn mẫu vật đã biết đều thu từ năm 1851, và có lẽ nó chỉ sống ở những nơi này.</p><p>Một số nguồn của người chơi lại vẽ ra vùng sống rộng hơn hẳn. Có nguồn nói nó ở nhiều nơi thuộc Đông Nam Á và Tây Thái Bình Dương, kể cả những hồ nằm kín trong đất liền. Một tiệm cá thì chỉ ghi xuất xứ Đông Nam Á.</p>",
     "habitat:aquatome": "<p>Đây là cá nước ngọt vùng nhiệt đới, sống ở khoảng nước gần đáy (benthopelagic). Một nguồn của người chơi nói nó ở suối, sông và những khu vực có thể chịu ảnh hưởng của cửa sông.</p>",
     "aquariumSize:aquatome": "<p>Chưa có nguồn nào công bố chiều dài bể tối thiểu và tuổi thọ của loài này. Nó không cần một cái bể gì ghê gớm, nhưng cũng chưa ai đưa ra kích thước cụ thể.</p><p>Nên dùng bể đã chạy lâu, vì trong đó có nhiều sinh vật li ti làm mồi hơn bể mới châm nước. Thả nhiều cây và vật cản như rêu lá mịn, rễ, cành cây để nó có lối luồn lách và săn mồi. Một tiệm cá cũng khuyên trồng cây dày và có chỗ trốn.</p>",
@@ -22,11 +22,5 @@
     "bySource": {
       "aquatome": 0.85
     }
-  },
-  "held": {
-    "checks": [
-      "shop"
-    ],
-    "at": "2026-11-09"
   }
 }

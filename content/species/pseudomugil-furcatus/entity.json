@@ -9,7 +9,8 @@
     "oceania",
     "papua-new-guinea",
     "milne-bay-province",
-    "kwagira-river"
+    "kwagira-river",
+    "sufia"
   ],
   "range": {
     "native": {
@@ -18,15 +19,16 @@
       ],
       "regions": [
         "Kwagira River",
-        "Peria Creek",
         "Musa",
-        "Kwagila"
+        "New Guinea",
+        "Sufia Valley"
       ],
       "sources": [
         "bwaquatics",
         "sprucepets",
         "seriouslyfish",
-        "aquariumcoop"
+        "aquariumcoop",
+        "glaser"
       ],
       "quotes": [
         {
@@ -42,8 +44,7 @@
           "quote": "Forktailed rainbowfish are native to Peria Creek and the Kwagira River of eastern Papua New Guinea; they exist in the wild in only a very small geographic area in Milne Bay Province.",
           "countries": [],
           "regions": [
-            "Kwagira River",
-            "Peria Creek"
+            "Kwagira River"
           ]
         },
         {
@@ -51,8 +52,23 @@
           "quote": "It's been recorded in the Musa and Kwagila river basins which drain into Dyke Ackland Bay and Collingwood Bay, respectively, and presumably occurs in drainages between the two as well.",
           "countries": [],
           "regions": [
-            "Musa",
-            "Kwagila"
+            "Musa"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The blue-eyes Pseudomugil furcatus, relatives of the rainbow fish, originate from the island of New Guinea.",
+          "countries": [],
+          "regions": [
+            "New Guinea"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The natural distribution area is relatively small; the species occurs, as far as known, exclusively in the Sufia Valley, Papua New Guinea.",
+          "countries": [],
+          "regions": [
+            "Sufia Valley"
           ]
         }
       ]
@@ -117,13 +133,6 @@
           "min": 7,
           "max": 8
         }
-      },
-      {
-        "source": "aquariumcoop",
-        "value": {
-          "min": 7,
-          "max": 8
-        }
       }
     ],
     "gh": [
@@ -149,13 +158,6 @@
           "max": 30
         },
         "overruled": "Its keeping range contradicts its own measured reading on the same page, 90–180 ppm (5–10 dGH); BW Aquatics' 4–12 sides with the reading (chief's ruling, 2026-11-10)"
-      },
-      {
-        "source": "aquariumcoop",
-        "value": {
-          "min": 5,
-          "max": 12
-        }
       }
     ],
     "sizeCm": [
@@ -174,6 +176,10 @@
       {
         "source": "aquariumcoop",
         "value": 5
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "difficulty": [
@@ -188,10 +194,6 @@
       {
         "source": "seriouslyfish",
         "value": 4
-      },
-      {
-        "source": "aquariumcoop",
-        "value": 2
       }
     ],
     "tankCm": [
@@ -244,7 +246,7 @@
       "key": "quickFacts",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/forktail-rainbowfish",
-      "html": "<ul><li>pH: above 7.0</li><li>GH: at least 5 dGH</li><li>Minimum tank: about 75 litres</li><li>Lifespan: about two to three years</li></ul>"
+      "html": "<p>Pseudomugil furcatus is a rainbowfish about 5 cm long, known for its glowing blue eyes, yellow fins and a distinct fork pattern on the tail. The yellow tips on the pectoral fins make it look as if the fish are waving little pom-poms as they swim. It lives only two or three years.</p>"
     },
     {
       "key": "distribution",
@@ -262,7 +264,13 @@
       "key": "distribution",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/forktail-rainbowfish",
-      "html": "<p>Pseudomugil furcatus comes from the rainforests of Papua New Guinea.</p>"
+      "html": "<p>This species hails from the rainforests of Papua New Guinea, where it is often found in clearwater streams that are teeming with plant life.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/pseudomugil-furcatus-formerly-popondetta-furcata/",
+      "html": "<p>The blue-eyes Pseudomugil furcatus, relatives of the rainbow fish, originate from the island of New Guinea. However, there are never wild catches of the maximum 6 cm long, peaceful schooling fish on the market, but only offspring, all of which go back to a single collection in 1981. Since then they have been bred continuously. The natural distribution area is relatively small; the species occurs, as far as known, exclusively in the Sufia Valley, Papua New Guinea.</p>"
     },
     {
       "key": "habitat",
@@ -284,9 +292,9 @@
     },
     {
       "key": "habitat",
-      "source": "aquariumcoop",
-      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/forktail-rainbowfish",
-      "html": "<p>It is often found in clearwater streams that are teeming with plant life.</p>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/pseudomugil-furcatus-formerly-popondetta-furcata/",
+      "html": "<p>In the wild the species lives in flowing waters. Together with P. furcatus the beautiful goby Tateurndina ocellicauda can be found. The water there is neutral to slightly alkaline (pH 7-8) and 24-29°C warm; accordingly, P. furcatus is suitable for care and breeding in most common tap waters.</p>"
     },
     {
       "key": "aquariumSize",
@@ -304,7 +312,13 @@
       "key": "aquariumSize",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/forktail-rainbowfish",
-      "html": "<p>This nano fish is a speedy swimmer, so set up a tank of about 75 litres or bigger to give them plenty of room. Rainbowfish tend to swim in the upper half of the aquarium, so a hood or lid is a must to prevent them from jumping out. Consider creating a forest of live aquarium plants for them to explore and swim between.</p>"
+      "html": "<p>This nano fish is a speedy swimmer, so set up a 20-gallon aquarium or bigger to give them plenty of room. Rainbowfish tend to swim in the upper half of the aquarium, so a hood or lid is a must to prevent them from jumping out.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/pseudomugil-furcatus-formerly-popondetta-furcata/",
+      "html": "<p>The aquarium for blue-eyes should contain a lot of free swimming space so that the fish can swim out and the males can fight out their harmless show fights, but also have a good background plantation of fine-grained plants (e.g. Myriophyllum), in which they spawn almost daily.</p>"
     },
     {
       "key": "maintenance",
@@ -341,7 +355,7 @@
       "key": "waterConditions",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/forktail-rainbowfish",
-      "html": "<ul><li>Temperature: 24–27°C</li><li>pH: slightly alkaline, above 7.0</li><li>GH: at least 5 dGH</li></ul>"
+      "html": "<ul><li>Temperature: 75–80°F (24–27°C)</li><li>pH: slightly alkaline, above 7.0</li><li>GH: at least 5° (90 ppm)</li></ul>"
     },
     {
       "key": "equipment",
@@ -354,6 +368,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/forktailed-rainbow-fish-4071595",
       "html": "<p>Be sure the water is well oxygenated. Use a large filtration system but one that doesn't create too much turbulence.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/forktail-rainbowfish",
+      "html": "<p>Given their natural habitat, consider creating a forest of live aquarium plants for them to explore and swim between.</p>"
     },
     {
       "key": "diet",
@@ -377,7 +397,13 @@
       "key": "diet",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/forktail-rainbowfish",
-      "html": "<p>These are small fish with small mouths, so offer a variety of tiny foods. They are not finicky and eat:</p><ul><li>Frozen daphnia, cyclops and baby brine shrimp</li><li>Small pellets</li><li>Hikari Micro Pellets</li><li>Krill flakes</li><li>Freeze-dried daphnia</li><li>Fry and small-fish food</li><li>Live baby brine shrimp</li></ul>"
+      "html": "<p>These are small fish with small mouths, so offer a spread of tiny foods for a healthy variety of nutrients. They are not finicky and eat:</p><ul><li>Frozen daphnia, cyclops and baby brine shrimp</li><li>Magic Bite Size Pellets</li><li>Hikari Micro Pellets</li><li>Krill flakes</li><li>Freeze-dried daphnia</li><li>Easy Fry and Small Fish Food</li><li>Live baby brine shrimp</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/pseudomugil-furcatus-formerly-popondetta-furcata/",
+      "html": "<p>The nutritional requirements of Pseudomugil furcatus are easy to meet, a good dry food is completely sufficient as a basic diet, in addition fine live and frozen food of all kinds can be provided.</p>"
     },
     {
       "key": "behaviour",
@@ -401,7 +427,7 @@
       "key": "behaviour",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/forktail-rainbowfish",
-      "html": "<p>As a shoaling fish, it appreciates being surrounded by as many of its own kind as possible. Fish stores often sell rainbowfish in male-female pairs, so start with a healthy group of at least three pairs (or two males and four females).</p><p>These happy-go-lucky fish can live with almost any peaceful community fish of similar size, such as corydoras, tetras and rasboras. However, they may outcompete slow-moving fish at mealtimes, so make sure everyone gets food. They did not bother adult dwarf shrimp, but will eat baby shrimp that attract their notice. They have also been kept in community tanks with a betta, but this depends on the betta's temperament, so be prepared to remove the betta if necessary. They are very peaceful and do well in planted tanks.</p>"
+      "html": "<p>As a schooling fish, they appreciate being surrounded by as many of their own kind as possible. Fish stores often sell rainbowfish in male-female pairs, so start with a healthy group of at least three pairs (or two males and four females). In the presence of females, males display brighter coloration and \"spar\" with each other in a circular dance.</p><p>They can live with almost any peaceful community fish of similar size, such as corydoras, tetras and rasboras. However, they may outcompete slow-moving fish during mealtimes, so make sure everyone gets a bite. They did not bother adult dwarf shrimp, but will eat baby shrimp. They have been kept successfully in community tanks with a betta, but it depends on the betta's temperament, so be prepared to remove him if necessary.</p>"
     },
     {
       "key": "dimorphism",
@@ -419,7 +445,13 @@
       "key": "dimorphism",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/forktail-rainbowfish",
-      "html": "<p>As in most rainbowfish, females are less colorful than males. Females have less yellow on their fins. In the presence of females, males display brighter coloration and \"spar\" with each other in a circular dance. It is recommended to keep 1–2 females for every male.</p>"
+      "html": "<p>Like most rainbowfish, the females are less colourful than the males and have less yellow on their fins.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/pseudomugil-furcatus-formerly-popondetta-furcata/",
+      "html": "<p>Males and females can be easily distinguished by their different colouring and fin shape.</p>"
     },
     {
       "key": "reproduction",
@@ -443,7 +475,13 @@
       "key": "reproduction",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/forktail-rainbowfish",
-      "html": "<p>Forktail blue-eyes are fairly easy to breed as long as both sexes are present and the fish are not too old. Raise the temperature to around 27°C and feed plenty of food to condition them. Add a DIY yarn spawning mop or a large floating plant with long roots (e.g. water sprite) that is easy to remove.</p><p>Each male can mate with multiple females each day. The females deposit a few large eggs in the spawning mop or floating plant roots. Check the spawning media every day and move the eggs to a separate fry container with an air stone for hatching. Some hobbyists add a few drops of methylene blue to prevent fungus on the eggs. Depending on temperature, the eggs may hatch in 2–3 weeks.</p><p>Feed the fry infusoria, vinegar eels and powdered fry foods. Once they are large enough, switch to live baby brine shrimp for fast and healthy growth.</p>"
+      "html": "<p>Forktail blue-eyes are fairly easy to breed as long as you have both sexes and the fish are not too old. Raise the temperature to around 80°F (27°C) and feed plenty of food to condition them. Add a spawning mop or a large floating plant with long roots (e.g. water sprite) that is easy to remove. Each male can mate with multiple females each day, so keep more females than males.</p><p>The females deposit a few large eggs in the spawning mop or floating plant roots. Check the spawning media every day and move the eggs to a separate fry container with an air stone for hatching. Some hobbyists add a few drops of methylene blue to prevent fungus. Depending on temperature, the eggs may hatch in 2–3 weeks.</p><p>Feed the fry infusoria, vinegar eels and powdered fry foods. Once large enough, switch them to live baby brine shrimp for fast, healthy growth.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/pseudomugil-furcatus-formerly-popondetta-furcata/",
+      "html": "<p>The young fish are very small, but apart from that they are easy to raise. Pseudomugil do not exercise brood care, but they usually do not significantly feed on spawn and juveniles.</p>"
     },
     {
       "key": "notes",
@@ -467,7 +505,7 @@
       "key": "notes",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/forktail-rainbowfish",
-      "html": "<p>Rainbowfish tend to be a bit pricier than the average tropical fish, and Pseudomugil rainbowfish do not live very long, perhaps two or three years. Most other Pseudomugil species, such as the red neon blue-eye (Pseudomugil luminatus) and Gertrude's spotted blue-eye (Pseudomugil gertrudae), have similar care requirements.</p>"
+      "html": "<p>Rainbowfish tend to be pricier than the average tropical fish. Most other Pseudomugil species, such as the red neon blue-eye (Pseudomugil luminatus) and Gertrude's spotted blue-eye (Pseudomugil gertrudae), have similar care requirements.</p>"
     },
     {
       "key": "references",
@@ -483,7 +521,7 @@
       "width": 750,
       "height": 390,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Peter Macguire / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-furcatus",
       "caption": "Adult male specimen from the aquarium trade; aggressive mood.",
       "source": "seriouslyfish"
@@ -494,7 +532,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Dirk Godlinski / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-furcatus",
       "caption": "Adult male; neutral mood.",
       "source": "seriouslyfish"
@@ -544,6 +582,17 @@
       "source": "sprucepets"
     },
     {
+      "url": "https://media.aquatome.com/seriouslyfish/134ac9be0cc5e85f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/134ac9be0cc5e85f-480.webp",
+      "width": 850,
+      "height": 564,
+      "licence": "dùng với sự cho phép",
+      "author": "Dirk Godlinski / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-furcatus",
+      "caption": "Adult female from the aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/aquariumcoop/2a3f6f00ca4019c1.webp",
       "thumb": "https://media.aquatome.com/aquariumcoop/2a3f6f00ca4019c1-480.webp",
       "width": 1000,
@@ -553,17 +602,6 @@
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/forktail-rainbowfish",
       "caption": "forktail or furcata rainbowfish",
       "source": "aquariumcoop"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/134ac9be0cc5e85f.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/134ac9be0cc5e85f-480.webp",
-      "width": 850,
-      "height": 564,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-furcatus",
-      "caption": "Adult female from the aquarium trade.",
-      "source": "seriouslyfish"
     }
   ],
   "videos": [
@@ -621,5 +659,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-20"
 }

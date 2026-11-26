@@ -508,6 +508,38 @@
       "kept": false
     }
   ],
+  "vi/plants/phyllantus-fluitans": [
+    {
+      "at": "2026-11-16T17:39:43Z",
+      "model": "opus",
+      "ran": "claude-opus-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"Loài này không ưa nước động\" drops the INPUT's qualifier \"nhiều\" (\"không ưa nước động nhiều\"), so it overstates the plant's dislike of water movement.",
+        "\"giữ bèo ở một góc\" narrows the INPUT's \"ở một khu\" (one area) to a corner.",
+        "\"thả sang bể chính\" brings in a 'main tank' that the INPUT doesn't mention; the source only says \"trước khi thả vào bể\". This is a small wording addition."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/pistia-stratiotes": [
+    {
+      "at": "2026-11-20T17:50:04Z",
+      "model": "opus",
+      "ran": "claude-opus-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Mấy tuần đầu\" adds a time frame the INPUT doesn't give. The source only says to let newly arrived plants get used to strong light gradually (\"Cây mới về thì cho làm quen dần\") and gives no number of weeks.",
+        "Everything else checks out against the INPUT: floating with no substrate, never pushing it under, quarantine and its risks, letting post-shipped plants recover in a shaded tub, corralling with string or floating tubing, current versus plant size, and root loss after shipping.",
+        "The Vietnamese reads naturally, like something a hobbyist would write."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/plants/pogostemon-stellatus": [
     {
       "at": "2026-11-09T06:12:29Z",

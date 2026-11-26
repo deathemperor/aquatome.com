@@ -1,0 +1,67 @@
+{
+  "id": "hyphessobrycon-negodagua",
+  "native": {
+    "input": "1a48387f4118d055",
+    "at": "2026-11-21T01:22:16.258Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "aquatome",
+        "quote": "Loài này là cá bản địa vùng đông bắc Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraguaçu",
+        "source": "aquatome",
+        "quote": "Các mẫu đầu tiên được thu ở Rio Pratinha, một nhánh ngắn thuộc thượng nguồn lưu vực sông Paraguaçu, nằm trong vùng Chapada Diamantina ở miền đông bắc bán khô hạn của Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Chapada Diamantina",
+        "source": "aquatome",
+        "quote": "Các mẫu đầu tiên được thu ở Rio Pratinha, một nhánh ngắn thuộc thượng nguồn lưu vực sông Paraguaçu, nằm trong vùng Chapada Diamantina ở miền đông bắc bán khô hạn của Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon negodagua",
+    "status": "ACCEPTED",
+    "taxonKey": 2354535,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        5
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-21T01:22:16.258Z"
+  }
+}

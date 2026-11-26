@@ -124,10 +124,22 @@
       "html": "<p>The white-spotted cichlid, Tropheus duboisi, is endemic to Lake Tanganyika, found in rocky areas in deeper water than its congeners. Young fish have white or light blue spots on a jet black body, which fade to blue-black with a yellow or white vertical bar as they mature. Like others in the genus it is very susceptible to 'bloat' and not a good species for the beginner.</p><ul><li>Max size: 120 mm SL (5 in SL)</li><li>Temperature: 23–27°C</li><li>pH: 8.0–9.5</li><li>Hardness: 8–25 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/tropheus-duboisi-2/",
+      "html": "<p>Tropheus duboisi are the \"somewhat different\" Tropheus. While the remaining species of the genus Tropheus are hectic, group-living, always quarreling swimmers, T. duboisi are, at least in nature, rather solitary fish, which are occasionally found in pairs. They are clearly calmer and also considerably less aggressive than the other Tropheus. Adult animals are blue-black with a cream-colored or yellow vertical band. The young are quite delightful and often make even non-cichlid enthusiasts weak. They look like little goblins, pitch black with a white starry-sky pattern.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/tropheus-duboisi",
       "html": "<p>Endemic to Lake Tanganyika.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/tropheus-duboisi-2/",
+      "html": "<p>Like all Tropheus species, this one originates from Lake Tanganyika.</p>"
     },
     {
       "key": "habitat",
@@ -187,41 +199,96 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/544d7ff2e7f88dbf.webp",
+      "thumb": "https://media.aquatome.com/commons/544d7ff2e7f88dbf-480.webp",
       "width": 960,
       "height": 785,
-      "licence": "CC BY-SA 3.0",
-      "author": "Manfred Werner / Tsui",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tropheus_duboisi_Schoenbrunn2008.jpg",
-      "caption": "Tropheus duboisi at the Tiergarten Schönbrunn in Vienna",
-      "thumb": "https://media.aquatome.com/commons/544d7ff2e7f88dbf-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/544d7ff2e7f88dbf-large.webp",
         "width": 1467,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Manfred Werner / Tsui",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tropheus_duboisi_Schoenbrunn2008.jpg",
+      "caption": "Tropheus duboisi at the Tiergarten Schönbrunn in Vienna"
     },
     {
       "url": "https://media.aquatome.com/commons/7d4c2b3e6182f895.webp",
+      "thumb": "https://media.aquatome.com/commons/7d4c2b3e6182f895-480.webp",
       "width": 800,
       "height": 600,
       "licence": "CC BY-SA 3.0",
       "author": "Alexander Langer",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tropheus_duboisi_by_Alexander_Langer.jpg",
-      "caption": "Tropheus duboisi \"Maswa\"",
-      "thumb": "https://media.aquatome.com/commons/7d4c2b3e6182f895-480.webp"
+      "caption": "Tropheus duboisi \"Maswa\""
     },
     {
       "url": "https://media.aquatome.com/commons/a20ac11af58e5ab0.webp",
+      "thumb": "https://media.aquatome.com/commons/a20ac11af58e5ab0-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY 3.0",
       "author": "lienyuan lee",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E7%8F%8D%E7%8F%A0%E8%9D%B4%E8%9D%B6_Tropheus_duboisi_-_panoramio.jpg",
-      "caption": "珍珠蝴蝶 Tropheus duboisi",
-      "thumb": "https://media.aquatome.com/commons/a20ac11af58e5ab0-480.webp"
+      "caption": "珍珠蝴蝶 Tropheus duboisi"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d6241f132847486d.webp",
+      "thumb": "https://media.aquatome.com/glaser/d6241f132847486d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/tropheus-duboisi-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ab10c0b0d110f53a.webp",
+      "thumb": "https://media.aquatome.com/glaser/ab10c0b0d110f53a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/tropheus-duboisi-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9e5eddda40483963.webp",
+      "thumb": "https://media.aquatome.com/glaser/9e5eddda40483963-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/tropheus-duboisi-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "iZhEDeBxR2k",
+      "title": "Tropheus Duboisi Maswa",
+      "durationSec": 25,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "NYOQ9x2jf2c",
+      "title": "Weißpunkt-Brabantbuntbarsch - Tropheus duboisi",
+      "durationSec": 30,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "jvBWwNclKAA",
+      "title": "Tropheus Duboisi Colony | Life in a Calm Tanganyika Aquarium",
+      "durationSec": 62,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "shb6Kl2t4XE",
+      "title": "Tanganyika Biotope Aquarium With Tropheus Duboisi Maswa",
+      "durationSec": 157,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -251,5 +318,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-20"
 }

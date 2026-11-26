@@ -3,6 +3,12 @@
   "name": "วัลลปัตตนัม",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.72,
+    "at": "2026-11-19T00:43:20.023Z",
+    "why": "The Thai transliteration วัลลปัตตนัม is plausible for Vallapattanam in Thai script, but it is a Sanskritized spelling, and atlas usage would more likely be วัลลาพัตตะนัม or similar, so I can't confirm it."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

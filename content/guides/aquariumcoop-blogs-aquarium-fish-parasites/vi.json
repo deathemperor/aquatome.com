@@ -21,5 +21,11 @@
     "bySource": {
       "aquariumcoop": 0.8
     }
+  },
+  "held": {
+    "checks": [
+      "harm"
+    ],
+    "at": "2026-11-23"
   }
 }

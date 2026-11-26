@@ -1,8 +1,13 @@
 {
   "slug": "thua-thien-hue",
-  "name": "Thua Thien Hue",
+  "name": "Provinsi Thua Thien Hue",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.88,
+    "at": "2026-11-18T05:57:13.485Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

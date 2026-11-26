@@ -1,0 +1,51 @@
+{
+  "id": "delturus-angulicauda",
+  "scientificName": "Delturus angulicauda",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Delturus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "mucuri"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 18.7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1496",
+      "html": "<ul><li>Scientific name: Delturus angulicauda (Steindachner, 1877)</li><li>Synonym: Plecostomus angulicauda</li><li>Etymology: Deltos = small board (Greek) + oura = tail (Greek)</li><li>IUCN Red List: Least Concern (last assessed 2018)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1496",
+      "html": "<p>South America: Mucuri River basin, Bahia State rivers. Type locality: Rio Mucuri at Santa Clara; Rio Parahyba, southeastern Brazil.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1496",
+      "html": "<p>Breeding: Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1496",
+      "html": "<p>Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe v. 74 (1. Abth.) 672 [114] Pl. 12</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-23"
+}

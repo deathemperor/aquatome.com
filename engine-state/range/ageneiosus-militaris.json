@@ -1,0 +1,139 @@
+{
+  "id": "ageneiosus-militaris",
+  "native": {
+    "input": "97f7efaf26389333",
+    "at": "2026-11-23T01:48:47.136Z",
+    "claims": [
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: La Plata River basin: Argentina, Brazil, Paraguay and Uruguay.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: La Plata River basin: Argentina, Brazil, Paraguay and Uruguay.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: La Plata River basin: Argentina, Brazil, Paraguay and Uruguay.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: La Plata River basin: Argentina, Brazil, Paraguay and Uruguay.",
+        "words": "Uruguay",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "La Plata River",
+        "source": "scotcat",
+        "quote": "South America: La Plata River basin: Argentina, Brazil, Paraguay and Uruguay.",
+        "ok": true
+      },
+      {
+        "name": "Paraná River",
+        "source": "scotcat",
+        "quote": "This species is widely distributed in the Paraná and Paraguay River basins.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Paraguay River",
+        "source": "scotcat",
+        "quote": "This species is widely distributed in the Paraná and Paraguay River basins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ageneiosus militaris",
+    "status": "ACCEPTED",
+    "taxonKey": 2344552,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        15
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        10
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        9
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        9
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        8
+      ],
+      [
+        "d4b3cce1-4594-47bb-b1e2-1ace65458a11",
+        7
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        6
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        4
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "AR",
+      "BR",
+      "PY",
+      "UY"
+    ],
+    "requests": 12,
+    "at": "2026-11-23T01:48:47.136Z"
+  }
+}

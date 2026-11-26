@@ -3,6 +3,12 @@
   "name": "Antokan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-17T05:16:02.174Z",
+    "why": "The source describes Antokan as a river flowing out of Lake Maninjau, so a Malaysian atlas would write \"Sungai Antokan\" (Batang Antokan locally), and the bare \"Antokan\" leaves out the kind word."
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

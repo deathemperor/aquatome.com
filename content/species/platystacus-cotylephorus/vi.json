@@ -9,7 +9,10 @@
     "Whiptail Banjo Catfish",
     "Cá trê banjo đuôi lươn",
     "Cá banjo vằn",
-    "Banded Banjo Catfish"
+    "Banded Banjo Catfish",
+    "Longtail banjo cat",
+    "Cá banjo đuôi lươn vằn",
+    "Mottled Eel-Tailed Banjo Catfish"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Platystacus cotylephorus Bloch, 1794</li><li>Kích thước: 31,8 cm chiều dài chuẩn (SL)</li><li>Nhiệt độ: 22–25°C</li><li>pH: 6,0–8,2</li><li>Địa điểm mẫu chuẩn: không có</li></ul><p>Màu đốm loang của loài này rất khác nhau giữa các con. Gần như không có hai cá thể nào trông giống hệt nhau.</p>",
@@ -32,14 +35,32 @@
     "dimorphism:seriouslyfish": "<p>Cá đực trưởng thành có gai vây lưng dài hơn hẳn và vây ngực to hơn cá cái. Không nên dựa vào màu sắc để phân biệt đực cái.</p>",
     "reproduction:seriouslyfish": "<p>Chưa ai cho loài này sinh sản trọn vẹn trong bể. Thỉnh thoảng có cá cái đang mang trứng theo lô nhập về, và cá bột từ những lứa này đã được nuôi lớn. Người ta cho rằng cá đẻ trong nước lợ. Tuy vậy, một số báo cáo cho rằng có một giai đoạn trong chu kỳ sinh sản cá sẽ di cư vào nước ngọt. Cách giữ trứng của loài này rất thú vị. Đến mùa sinh sản, bụng cá cái mọc ra rất nhiều cuống thịt gọi là cotylephore. Trứng bám vào các cuống này cho tới khi nở. Người ta cho rằng các cuống này có thể hoạt động giống dây rốn ở động vật có vú, tức là đưa dinh dưỡng hoặc oxy tới phôi đang phát triển. Giả thuyết này nghe hợp lý, vì nơi cá sống thường thiếu cả oxy lẫn dinh dưỡng.</p>",
     "notes:seriouslyfish": "<p>Đây không phải loài cá da trơn hợp với bể cộng đồng thông thường. Cá rất ít vận động, hay lẩn trốn và chỉ ra ngoài bơi lội khi trời tối. Dù vậy, với người chơi thích tìm hiểu thì đây là một loài rất đáng nuôi, vì khả năng ngụy trang của nó thật sự khó tin. Thân cá trông y như một chiếc lá khô. Cá thường chẳng buồn bơi đi khi bị vợt. Lúc thả vào bể, nó chỉ trôi theo dòng nước cho tới khi chạm đáy. Mọi loài trong họ này thỉnh thoảng đều lột da, nhưng lý do cụ thể thì đến giờ vẫn chưa rõ. Chúng còn có một cách di chuyển lạ. Cá hút nước vào miệng rồi phụt ra qua mang để tạo lực đẩy cho thân.</p>",
-    "references:seriouslyfish": "<ul><li>Schäfer, F. (2019). Platystacus cotylephorus Aquarium Glaser. aquariumglaser.de/en/10-catfishes/platystacus-cotylephorus-3 accessed 10 October 2026</li></ul>"
+    "references:seriouslyfish": "<ul><li>Schäfer, F. (2019). Platystacus cotylephorus Aquarium Glaser. aquariumglaser.de/en/10-catfishes/platystacus-cotylephorus-3 accessed 10 October 2026</li></ul>",
+    "quickFacts:glaser": "<p>Trong họ cá banjo, đây là loài đáng nuôi nhất, hơn hẳn các loài còn lại. Nó lớn tới khoảng 30 cm nên cần bể lớn. Các loài cá banjo khác thường nằm im, không cần thì không nhúc nhích, còn loài này lại khá hiếu động.</p>",
+    "habitat:glaser": "<p>Platystacus cotylephorus sống ở vùng hạ lưu các con sông, chịu được cả nước lợ.</p>",
+    "waterConditions:glaser": "<p>Nuôi loài này trong nước ngọt hoàn toàn cũng được. Khi đó pH nên để trung tính hoặc hơi kiềm, nước cứng vừa chứ không mềm.</p>",
+    "diet:glaser": "<p>Cá banjo ăn ngay mọi loại thức ăn đông lạnh, và hầu hết cũng chịu ăn cám viên. Trùn chỉ là món chúng khoái nhất.</p>",
+    "behaviour:glaser": "<p>Loài này rất hiền, nhưng cá nuôi chung quá nhỏ thì có thể bị nó ăn.</p>",
+    "dimorphism:glaser": "<p>Hiện chưa biết chắc cách phân biệt đực cái. Nghe nói con cái có màu nền ngả nâu, còn con đực màu đen. Vây lưng giữa các con cũng khác hình nhau khá rõ, và có thể sau này đó sẽ là cách phân biệt đực cái.</p>",
+    "reproduction:glaser": "<p>Đến nay chưa ai cho loài này đẻ thành công trong bể. Người ta chỉ biết con cái mang trứng dính dưới bụng cho tới khi trứng nở. Ở loài cá, kiểu giữ trứng này là trường hợp có một không hai.</p>",
+    "notes:glaser": "<p>Không có hai con nào màu giống hệt nhau.</p><p>Về tên gọi, Platystacus là tiếng Hy Lạp cổ, ghép từ hai chữ \"rộng\" và \"kim\", ý nói hình dạng thân cá. Còn cotylephorus cũng là tiếng Hy Lạp cổ, nghĩa là \"mang những cái chén\", ý nói lớp da dạng tổ ong dưới bụng con cái, chỗ trứng được gắn vào.</p>",
+    "quickFacts:scotcat": "<ul><li>Danh sách đỏ IUCN: Ít quan tâm. Loài này phân bố rộng nên được xếp ở mức này, dù thông tin về nó còn ít (IUCN 2021).</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: vùng nước ven biển và đoạn hạ lưu các con sông ở phía bắc Nam Mỹ, từ Venezuela đến bắc Brazil.</p>",
+    "maintenance:scotcat": "<p>Đây là loài rất hiền. Nó sống tốt trong bể nuôi chung yên tĩnh, miễn là cá nuôi chung không dữ. Gần như cả ngày chúng vùi mình dưới cát. Nên rải nền cát và chừa một góc tối có trồng cây để cá thấy yên tâm hơn. Loài này nuôi được cả trong nước ngọt lẫn nước lợ.</p>",
+    "diet:scotcat": "<p>Cá ăn đồ tươi sống và đông lạnh như lăng quăng, trùn chỉ, giun đất, giun trắng và các loài giáp xác nhỏ. Chúng cũng ăn thức ăn viên nén và thức ăn dạng mảnh chìm xuống đáy.</p>",
+    "dimorphism:scotcat": "<p>Con đực màu sặc sỡ hơn con cái, vây lưng và vây ngực cũng dài hơn.</p>",
+    "reproduction:scotcat": "<p>Đẻ xong, trứng dính vào bụng con cái. Mỗi trứng bám trên một cuống ngắn mọc ra ở bụng, và cuống này chỉ mất đi khi trứng đã nở.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: tên chi Platystacus ghép từ Platys = rộng và acus = kim. Tên loài cotylephorus nghĩa là chỗ bám của phôi đang phát triển, chỉ việc trứng treo dưới vùng bụng.</p>",
+    "references:scotcat": "<p>Baensch, H.A. and R. Riehl 1985 Aquarien atlas. Band 2. Mergus, Verlag für Natur- und Heimtierkunde GmbH, Melle, Germany. 1216 p. Catfish Study Group; Information Sheet no.97. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Frederico, R.G. 2021. Platystacus cotylephorus. The IUCN Red List of Threatened Species 2021.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
       "planetcatfish": 0.8,
-      "seriouslyfish": 0.92
+      "seriouslyfish": 0.92,
+      "glaser": 0.9,
+      "scotcat": 0.95
     }
   }
 }

@@ -2,7 +2,6 @@
  "queue": [],
  "judged": [],
  "hashes": {
-  "https://media.aquatome.com/scotcat/19b1b04edca3e20f.webp": "d9a9eca0b4f07219",
   "https://media.aquatome.com/scotcat/98b17ca5f8afb30b.webp": "1e6f6567e66fc9c3",
   "https://media.aquatome.com/scotcat/128878a82098b029.webp": "1830e0e2f2696916",
   "https://media.aquatome.com/scotcat/9f946612f0cf90f2.webp": "881071e9d0f0bc3b"
@@ -15,5 +14,9 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2344624,
+  "next": null
  }
 }

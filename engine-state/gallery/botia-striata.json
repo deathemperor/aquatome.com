@@ -14,8 +14,10 @@
   "https://media.aquatome.com/seriouslyfish/84d3dd39de0b924c.webp": "fce2f2d8dac8ccec",
   "https://media.aquatome.com/seriouslyfish/8dff6f8d421b7e29.webp": "99333938e2c48506",
   "https://media.aquatome.com/commons/5ee6460643e3bad9.webp": "6e0b198c1cb89898",
-  "https://media.aquatome.com/commons/fb513e7e7a9960a5.webp": "0f0617674e1376c4",
-  "https://media.aquatome.com/commons/bc141b8a89021ec1.webp": "3c1e1f1bf1e0ac44"
+  "https://media.aquatome.com/commons/bc141b8a89021ec1.webp": "3c1e1f1bf1e0ac44",
+  "https://media.aquatome.com/glaser/2ff96e8b7dd6fc77.webp": "a33c4c871f3a70ec",
+  "https://media.aquatome.com/glaser/eef2c29c404086bf.webp": "025ed2a6cc2f3f3e",
+  "https://media.aquatome.com/glaser/62b123b55e09c51c.webp": "c9c6ce7e2b67193b"
  },
  "commons": "2026-11-06",
  "inat": {
@@ -28,6 +30,9 @@
  },
  "gbif": {
   "key": 2368019,
+  "next": null
+ },
+ "openverse": {
   "next": null
  }
 }

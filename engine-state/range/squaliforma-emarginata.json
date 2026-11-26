@@ -1,8 +1,8 @@
 {
   "id": "squaliforma-emarginata",
   "native": {
-    "input": "89519eb1dcc8d16c",
-    "at": "2026-11-15T00:17:46.244Z",
+    "input": "2ccae650298499d3",
+    "at": "2026-11-22T00:38:58.151Z",
     "claims": [
       {
         "code": "BR",
@@ -35,11 +35,49 @@
         "quote": "The red fin thresher plec, Aphanotorulus emarginatus, is a suckermouth catfish from the Amazon region of Brazil, Ecuador, Peru and Bolivia.",
         "words": "Bolivia",
         "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "There are also some L-numbers: L11 (Rio Xingu, Brazil), L108 (Ecuador, Rio Napo), L116 (Rio Trombetas, Brazil), L131 (Rio Tapajós, Brazil), and L153 (Venezuela).",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "glaser",
+        "quote": "There are also some L-numbers: L11 (Rio Xingu, Brazil), L108 (Ecuador, Rio Napo), L116 (Rio Trombetas, Brazil), L131 (Rio Tapajós, Brazil), and L153 (Venezuela).",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "There are also some L-numbers: L11 (Rio Xingu, Brazil), L108 (Ecuador, Rio Napo), L116 (Rio Trombetas, Brazil), L131 (Rio Tapajós, Brazil), and L153 (Venezuela).",
+        "words": "Venezuela",
+        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Rio Xingú",
+        "name": "Rio Xingu",
+        "source": "glaser",
+        "quote": "There are also some L-numbers: L11 (Rio Xingu, Brazil), L108 (Ecuador, Rio Napo), L116 (Rio Trombetas, Brazil), L131 (Rio Tapajós, Brazil), and L153 (Venezuela).",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Napo",
+        "source": "seriouslyfish",
+        "quote": "L108 is native to the Rio Napo in Ecuador.",
+        "country": "EC",
+        "ok": true
+      },
+      {
+        "name": "Rio Trombetas",
         "source": "seriouslyfish",
         "quote": "L011 hails from the Rio Xingú, L035 from the Rio Araguaia and L116 from the Rio Trombetas.",
         "ok": true
@@ -51,16 +89,16 @@
         "ok": true
       },
       {
-        "name": "Rio Trombetas",
-        "source": "seriouslyfish",
-        "quote": "L011 hails from the Rio Xingú, L035 from the Rio Araguaia and L116 from the Rio Trombetas.",
+        "name": "Rio Tapajós",
+        "source": "glaser",
+        "quote": "There are also some L-numbers: L11 (Rio Xingu, Brazil), L108 (Ecuador, Rio Napo), L116 (Rio Trombetas, Brazil), L131 (Rio Tapajós, Brazil), and L153 (Venezuela).",
+        "country": "BR",
         "ok": true
       },
       {
-        "name": "Rio Napo",
+        "name": "Rio Xingú",
         "source": "seriouslyfish",
-        "quote": "L108 is native to the Rio Napo in Ecuador.",
-        "country": "EC",
+        "quote": "L011 hails from the Rio Xingú, L035 from the Rio Araguaia and L116 from the Rio Trombetas.",
         "ok": true
       }
     ],
@@ -177,9 +215,10 @@
       "BR",
       "EC",
       "PE",
-      "BO"
+      "BO",
+      "VE"
     ],
     "requests": 12,
-    "at": "2026-11-15T00:17:46.244Z"
+    "at": "2026-11-22T00:38:58.151Z"
   }
 }

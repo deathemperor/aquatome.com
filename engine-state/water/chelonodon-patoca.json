@@ -1,0 +1,19 @@
+{
+  "id": "chelonodon-patoca",
+  "input": "127b2afe03d2111b",
+  "at": "2026-11-18T01:04:30.434Z",
+  "claims": [
+    {
+      "kind": "brackish",
+      "source": "glaser",
+      "quote": "Best kept in brackish water.",
+      "ok": true
+    },
+    {
+      "kind": "marine",
+      "source": "glaser",
+      "quote": "Adult specimens usually live in the sea, while young fish live in brackish water and occasionally swim far upstream.",
+      "ok": true
+    }
+  ]
+}

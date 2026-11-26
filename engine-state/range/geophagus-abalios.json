@@ -1,8 +1,8 @@
 {
   "id": "geophagus-abalios",
   "native": {
-    "input": "797f5d9bdca88f04",
-    "at": "2026-11-08T10:57:49.558Z",
+    "input": "976f24c47cfbbbbe",
+    "at": "2026-11-18T06:03:35.101Z",
     "claims": [
       {
         "code": "VE",
@@ -13,27 +13,11 @@
         "ok": true
       },
       {
-        "code": "BR",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "To the south it's found as far as the Río Casiquiare, close to the headwaters of the rio Negro (Brazil).",
-        "words": "Brazil",
-        "ok": true
-      },
-      {
         "code": "VE",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The Llanos is a vast, highly biodiverse system of tropical savannah grasslands, seasonally-flooded plains and forests covering an area measuring almost 600,000 square kilometers in Venezuela and Colombia.",
+        "source": "glaser",
+        "quote": "Geophagus cf. abalios is a beautiful, ovophilous mouthbrooder that originates from Venezuela.",
         "words": "Venezuela",
-        "ok": true
-      },
-      {
-        "code": "CO",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The Llanos is a vast, highly biodiverse system of tropical savannah grasslands, seasonally-flooded plains and forests covering an area measuring almost 600,000 square kilometers in Venezuela and Colombia.",
-        "words": "Colombia",
         "ok": true
       }
     ],
@@ -42,18 +26,10 @@
         "name": "Orinoco",
         "source": "seriouslyfish",
         "quote": "Type locality is 'Laguna Larga, 6.5339°N, 67.4150°W, Río Cinaruco, Apure, Venezuela' but this species known to have a wider distribution within both black and clear water tributary systems of the río Orinoco throughout the Venezuelan Llanos including the ríos Apure, Cinaruco, Capanaparo, Aguaro and Guariquito.",
-        "country": "VE",
         "ok": true
       },
       {
-        "name": "Apure",
-        "source": "seriouslyfish",
-        "quote": "Type locality is 'Laguna Larga, 6.5339°N, 67.4150°W, Río Cinaruco, Apure, Venezuela' but this species known to have a wider distribution within both black and clear water tributary systems of the río Orinoco throughout the Venezuelan Llanos including the ríos Apure, Cinaruco, Capanaparo, Aguaro and Guariquito.",
-        "country": "VE",
-        "ok": true
-      },
-      {
-        "name": "Cinaruco",
+        "name": "Río Cinaruco",
         "source": "seriouslyfish",
         "quote": "Type locality is 'Laguna Larga, 6.5339°N, 67.4150°W, Río Cinaruco, Apure, Venezuela' but this species known to have a wider distribution within both black and clear water tributary systems of the río Orinoco throughout the Venezuelan Llanos including the ríos Apure, Cinaruco, Capanaparo, Aguaro and Guariquito.",
         "country": "VE",
@@ -66,25 +42,25 @@
         "ok": true
       },
       {
-        "name": "Río Casiquiare",
+        "name": "Ventuari",
         "source": "seriouslyfish",
-        "quote": "To the south it's found as far as the Río Casiquiare, close to the headwaters of the rio Negro (Brazil).",
+        "quote": "It also occurs in the río Caura on the Guyana Shield plus the Ventuari and Mavaca drainages in the middle and upper Orinoco where it's also known from some white water, referring to turbidity rather than turbulence, habitats.",
         "ok": true
       },
       {
-        "name": "Llanos",
+        "name": "Río Casiquiare",
         "source": "seriouslyfish",
-        "quote": "The Llanos is a vast, highly biodiverse system of tropical savannah grasslands, seasonally-flooded plains and forests covering an area measuring almost 600,000 square kilometers in Venezuela and Colombia.",
+        "quote": "To the south it's found as far as the Río Casiquiare, close to the headwaters of the rio Negro (Brazil).",
         "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
-      "sourcesOnly": [
-        "CO"
-      ]
+      "pagesOnly": [
+        "BR"
+      ],
+      "sourcesOnly": []
     }
   },
   "records": {
@@ -146,11 +122,9 @@
       ]
     ],
     "native": [
-      "VE",
-      "BR",
-      "CO"
+      "VE"
     ],
     "requests": 11,
-    "at": "2026-11-08T10:57:49.558Z"
+    "at": "2026-11-18T06:03:35.101Z"
   }
 }

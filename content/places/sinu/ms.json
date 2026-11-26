@@ -1,8 +1,13 @@
 {
   "slug": "sinu",
-  "name": "Sinú",
+  "name": "Sungai Sinú",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-17T11:37:32.377Z"
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

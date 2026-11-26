@@ -1288,12 +1288,20 @@
       {
         "source": "seriouslyfish",
         "value": 28
+      },
+      {
+        "source": "glaser",
+        "value": 38.5
       }
     ],
     "tankCm": [
       {
         "source": "seriouslyfish",
         "value": 150
+      },
+      {
+        "source": "glaser",
+        "value": 200
       }
     ],
     "difficulty": [
@@ -1311,10 +1319,22 @@
       "html": "<p>The ornate pim, Pimelodus ornatus, is a pimelodid catfish recorded in major river systems from Colombia and Venezuela south to Paraguay and Argentina. One of the more sought-after pims imported with any regularly, it grows to 28 cm and is a predator that will eat smaller fish. It is scaleless, sensitive to many medications and often in poor shape when first imported, and its rigid fin spines can cause a painful sting.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodus-ornatus-2/",
+      "html": "<p>One of the most attractive large catfishes. Maximum size reported is 38.5 cm (excluding caudal fin). The beautiful and lively fish is notorious for its venomous fin spines.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pimelodus-ornatus",
       "html": "<p>Widespread throughout much of northern South America. It has been recorded in various major river systems in Colombia, Venezuela, Guyana, Suriname, French Guiana, Ecuador, Peru, Brazil, Paraguay and Argentina. These include the Rio Corintijns, Rio Essequibo, Rio Orinoco, Rio Paraná and the Amazon itself.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodus-ornatus-2/",
+      "html": "<p>Pimelodus ornatus is common in large parts of tropical South America. It is reported from the big rivers Amazonas, Orinoco and Parnaná, in addition the Guyana states. The animals currently offered come from Peru.</p>"
     },
     {
       "key": "habitat",
@@ -1329,16 +1349,34 @@
       "html": "<p>It's an active species and needs a big tank. Something around 150 × 60 × 60 cm (~540 litres) should really be the minimum size considered to house one of these long term. This would also suffice for a small group.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodus-ornatus-2/",
+      "html": "<p>Breeding in the aquarium would undoubtedly require larger aquariums starting from 200 cm edge length and several specimens of both sexes.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pimelodus-ornatus",
       "html": "<p>Does best in a dimly lit environment with plenty of swimming space, and a few hiding places to provide security. You won't see it move around as much in a brightly lit tank, except perhaps at feeding time. Under lower light conditions it will cruise around at most times of the day once settled. As with most catfish, a fine sandy substrate is preferable. The addition of some driftwood roots and branches and perhaps some smooth rounded stones would help to simulate the kind of riverine environment the species inhabits in nature. Plants can be used if you like but choose hardy species such as Anubias or Java fern, as these have no particular lighting requirements. They can also be grown attached to the decor which will help to maximise the amount of floor space available.</p><p>Filtration should be strong and efficient, preferably with a good amount of flow. A strict regime of maintenance is essential as like other \"pims\" it's sensitive to deteriorating water conditions, often losing its barbels. Weekly partial water changes should be considered a must.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodus-ornatus-2/",
+      "html": "<p>The care itself is simple, there are no special demands on food and water. Stings from the venomous fin spines are considered extremely painful and are also prone to infection. Therefore, some caution should be exercised when catching it and fine-meshed nets should be used if possible, otherwise the fish can easily become entangled in the meshes with their serrated fin spines. When freed, stings can then easily occur.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pimelodus-ornatus",
       "html": "<ul><li>Temperature: 24–25°C</li><li>pH: 6.0–7.2</li><li>Hardness: 2–18 dGH</li></ul><p>Temperature: Most sources recommend a somewhat restrictive temperature range of 24–25°C. However given the species' natural distribution and migratory nature, it's likely to be much more tolerant than this.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodus-ornatus-2/",
+      "html": "<p>A strong current, soft bottom and dim light meet the requirements of the species perfectly.</p>"
     },
     {
       "key": "diet",
@@ -1353,16 +1391,34 @@
       "html": "<p>Peaceful enough but bear in mind this is a predatory species that won't hesitate to eat smaller fish. It's really only suitable for roomy tanks with occupants that can't be swallowed. It can also bother slower moving tankmates (such as many cichlids) with its activity levels and long barbels, especially at night or when feeding. Robust, active species therefore make the best tankmates. Rainbowfish, medium to large-sized characins, cyprinids and tough catfish such as Loricariids or Doradids are all suitable.</p><p>Although a single specimen will survive by itself, it's a shoaling species by nature and will be much more outgoing and active when maintained in a small group. If kept alone it tends to remain hidden during daylight hours, emerging only after lights out.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodus-ornatus-2/",
+      "html": "<p>P. ornatus is peaceful among each other and towards other fish, as long as they are not considered as food.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pimelodus-ornatus",
       "html": "<p>Unknown, although adult females are likely to be stockier in build than males.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodus-ornatus-2/",
+      "html": "<p>Any externally recognizable sex differences or mating organs do not exist in P. ornatus.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pimelodus-ornatus",
       "html": "<p>There are no reports of successful breeding in the hobby. It's a migratory species, travelling quite large distances upstream during the wet season to spawn. The changes in water chemistry and surroundings required to simulate such a migration in captivity would be at best tricky to reproduce.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodus-ornatus-2/",
+      "html": "<p>Females of this species have been found to have the ability to store sperm. Thus, once fertilized, they can lay viable fertilized eggs without a male. Since this requires internal fertilization, it would be very interesting to know how this occurs. Pimelodus ornatus is imported only rarely, so breeding reports in the aquarium are still pending.</p>"
     },
     {
       "key": "notes",
@@ -1407,16 +1463,71 @@
     },
     {
       "url": "https://media.aquatome.com/commons/dfbeb19c1114a1ea.webp",
+      "thumb": "https://media.aquatome.com/commons/dfbeb19c1114a1ea-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 4.0",
       "author": "Petruss",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Catfish_at_the_Cali_Zoo_Aquarium.jpg",
-      "caption": "Bagrecito común (Pimelodus ornatus) en el acuario del Zoológico de Cali, Colombia",
-      "thumb": "https://media.aquatome.com/commons/dfbeb19c1114a1ea-480.webp"
+      "caption": "Bagrecito común (Pimelodus ornatus) en el acuario del Zoológico de Cali, Colombia"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/6ec6f2af212c0954.webp",
+      "thumb": "https://media.aquatome.com/glaser/6ec6f2af212c0954-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodus-ornatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/89d110d1be69d9d3.webp",
+      "thumb": "https://media.aquatome.com/glaser/89d110d1be69d9d3-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodus-ornatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0df890be22b1c492.webp",
+      "thumb": "https://media.aquatome.com/glaser/0df890be22b1c492-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodus-ornatus-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "MSWL1osCzgQ",
+      "title": "Last ornate pim catfish Pimelodus ornatus female 1ft 12yo doesn't look well",
+      "durationSec": 492,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "7l_a8AtXLu8",
+      "title": "Releasing datnioides microlepis and pimelodus ornatus into the 500 litre.",
+      "durationSec": 178,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "3pmreMajy-A",
+      "title": "Pimelodus Ornatus at Rio Xingu",
+      "durationSec": 32,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "5QSthI3Dxy0",
+      "title": "Ornate pim catfish aka Pimelodus ornatus vs P. blochii aka 4-line pim & P. pictus aka polka dot pim",
+      "durationSec": 444,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -1445,5 +1556,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-21"
 }

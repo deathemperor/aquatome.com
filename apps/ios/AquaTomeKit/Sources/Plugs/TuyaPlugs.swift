@@ -124,8 +124,9 @@ public actor TuyaPlugs: PlugSource {
         guard let o = n.object, let code = o["identifier"]?.string, let name = o["name"]?.string?.trimmingCharacters(in: .whitespacesAndNewlines), !name.isEmpty else { return nil }
         return (code, name)
       }, uniquingKeysWith: { a, _ in a })
+      let codes = Set((status.array ?? []).compactMap { $0.object?["code"]?.string })
       plugs.append(LivePlug(provider: "tuya", id: id, name: d["name"]?.string ?? "", online: d["online"] == .bool(true),
-                            outlets: outlets.map { LiveOutlet(code: $0.code, name: names[$0.code], on: $0.on) }))
+                            outlets: outlets.map { LiveOutlet(code: $0.code, name: names[$0.code], on: $0.on, countdown: codes.contains(Self.countdownCode($0.code))) }))
     }
     listed = Dictionary(plugs.map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a })
     return PlugList(plugs: plugs, others: others)
@@ -133,10 +134,10 @@ public actor TuyaPlugs: PlugSource {
 
   /// One command, then the outlet read back until the plug reports the state asked for (up to 3 seconds). Tuya
   /// accepting a command doesn't mean the plug switched.
-  public func set(provider: String, device: String, outlet code: String, on: Bool) async throws -> Switched {
+  public func set(provider: String, device: String, outlet code: String, on: Bool, allowed: @escaping @Sendable () async -> Bool) async throws -> Switched {
     guard provider == "tuya", let plug = listed[device], plug.outlets.contains(where: { $0.code == code }) else { throw PlugError.noSuchPlug }
     guard plug.online else { throw PlugError.plugOffline }
-    _ = try await call("POST", "/v1.0/iot-03/devices/\(Self.segment(device))/commands", body: ["commands": .array([.object(["code": .string(code), "value": .bool(on)])])])
+    _ = try await call("POST", "/v1.0/iot-03/devices/\(Self.segment(device))/commands", body: ["commands": .array([.object(["code": .string(code), "value": .bool(on)])])], allowed: allowed)
     var reported: Bool?
     var waited = 0
     let start = now(), limit = Double(Self.readFor) / 1000
@@ -151,6 +152,20 @@ public actor TuyaPlugs: PlugSource {
     return Switched(on: reported, confirmed: reported == on)
   }
 
+  /// One command to the outlet's countdown, then its value read back once: running (above 0) when one was started, 0
+  /// when one was ended. Tuya's countdown switches the outlet the other way when it reaches 0.
+  public func countdown(provider: String, device: String, outlet code: String, seconds: Int) async throws -> Bool {
+    guard provider == "tuya", let plug = listed[device], plug.outlets.contains(where: { $0.code == code && $0.countdown }) else { throw PlugError.noSuchPlug }
+    guard plug.online else { throw PlugError.plugOffline }
+    let dp = Self.countdownCode(code)
+    _ = try await call("POST", "/v1.0/iot-03/devices/\(Self.segment(device))/commands", body: ["commands": .array([.object(["code": .string(dp), "value": .number(Double(seconds))])])])
+    await wait(.milliseconds(Self.readEvery))
+    let status = try? await call("GET", "/v1.0/iot-03/devices/\(Self.segment(device))/status")
+    let value = (status?.array ?? []).first { $0.object?["code"]?.string == dp }?.object?["value"]?.number
+    guard let value else { return false }
+    return seconds > 0 ? value > 0 && value <= Double(seconds) : value == 0
+  }
+
   /// The plug's timers in Smart Life: one read, nothing changed.
   public func timers(provider: String, device: String) async throws -> [PlugTimer] {
     guard provider == "tuya" else { throw PlugError.noSuchPlug }
@@ -159,14 +174,20 @@ public actor TuyaPlugs: PlugSource {
 
   // MARK: Requests
 
-  /// With the project's token; a stale one is replaced and the request asked once more.
+  /// With the project's token; a stale one is replaced and the request asked once more. A command goes only if
+  /// `allowed` still says yes once its token is in hand, each time it is sent: what it was checked against may have
+  /// changed while the token was asked for (Codex, 17 Nov).
   private func call(_ method: String, _ path: String, query: [(String, String)] = [], body: [String: JSON]? = nil,
-                    timeout: TimeInterval? = nil) async throws -> JSON {
+                    timeout: TimeInterval? = nil, allowed: (@Sendable () async -> Bool)? = nil) async throws -> JSON {
     do {
-      return try await request(method, path, query: query, body: body, token: accessToken(), timeout: timeout)
+      let t = try await accessToken()
+      if let allowed, !(await allowed()) { throw Withdrawn() }
+      return try await request(method, path, query: query, body: body, token: t, timeout: timeout)
     } catch PlugError.maker(let code) where Self.staleToken.contains(code) {
       token = nil
-      return try await request(method, path, query: query, body: body, token: accessToken(), timeout: timeout)
+      let t = try await accessToken()
+      if let allowed, !(await allowed()) { throw Withdrawn() }
+      return try await request(method, path, query: query, body: body, token: t, timeout: timeout)
     }
   }
 
@@ -232,6 +253,9 @@ public actor TuyaPlugs: PlugSource {
       return (code, on)
     }
   }
+
+  /// An outlet's countdown: `countdown_1` for `switch_1`, `countdown_usb1` for `switch_usb1`, `countdown` for `switch`.
+  static func countdownCode(_ outlet: String) -> String { "countdown" + outlet.dropFirst("switch".count) }
 
   static func isOutlet(_ code: String) -> Bool {
     if code == "switch" { return true }

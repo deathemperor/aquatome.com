@@ -1,0 +1,20 @@
+{
+  "slug": "starry-toado",
+  "name": "Starry Toado",
+  "altNames": [
+    "Buntal Starry Toado",
+    "Starry Puffer",
+    "Ikan Buntal"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Ikan buntal laut yang tertangkap di air tawar murni di Burma (Myanmar).</p>",
+    "notes:glaser": "<p>Ini pertama kalinya Arothron firmamentum ditemukan di air tawar. Diharapkan informasi lebih lanjut akan menyusul.</p>"
+  },
+  "quality": {
+    "score": 0.95,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.95
+    }
+  }
+}

@@ -3,6 +3,12 @@
   "name": "Catalonia",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-20T01:51:49.243Z",
+    "why": "Malay (Bahasa Melayu) writes this region as \"Catalonia\" in English-style spelling less often than the Malay-adapted \"Catalunya\" or \"Catalonia\"; Dewan Bahasa style commonly uses \"Catalonia\", but the Malay-adapted form is more typical of atlases."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

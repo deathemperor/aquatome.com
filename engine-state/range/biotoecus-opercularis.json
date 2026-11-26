@@ -1,8 +1,8 @@
 {
   "id": "biotoecus-opercularis",
   "native": {
-    "input": "53361d655c683873",
-    "at": "2026-11-09T20:43:02.940Z",
+    "input": "8b0e7d807a5608d9",
+    "at": "2026-11-17T11:42:48.614Z",
     "claims": [
       {
         "code": "BR",
@@ -16,12 +16,19 @@
         "code": "BR",
         "status": "native",
         "source": "glaser",
-        "quote": "Available size: 3–4 cm. Origin: Brazil.",
+        "quote": "Aquarium Glaser has regularly imported this dwarf cichlid from the Rio Tapajos in Brazil for quite a while.",
         "words": "Brazil",
         "ok": true
       }
     ],
     "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Biotoecus opercularis is a small geophagine cichlid from the middle Amazon basin in Brazil, including the lower Madeira, Tapajós and Negro.",
+        "country": "BR",
+        "ok": true
+      },
       {
         "name": "Madeira",
         "source": "seriouslyfish",
@@ -35,21 +42,21 @@
         "ok": true
       },
       {
-        "name": "Trombetas",
-        "source": "seriouslyfish",
-        "quote": "It's since recorded throughout much of the region including the lower rios Madeira, Tapajós, Trombetas and middle-to-lower Negro.",
-        "ok": true
-      },
-      {
         "name": "Negro",
         "source": "seriouslyfish",
         "quote": "It's since recorded throughout much of the region including the lower rios Madeira, Tapajós, Trombetas and middle-to-lower Negro.",
         "ok": true
       },
       {
-        "name": "Amazon",
+        "name": "Trombetas",
         "source": "seriouslyfish",
-        "quote": "Biotoecus opercularis is a small geophagine cichlid from the middle Amazon basin in Brazil, including the lower Madeira, Tapajós and Negro.",
+        "quote": "It's since recorded throughout much of the region including the lower rios Madeira, Tapajós, Trombetas and middle-to-lower Negro.",
+        "ok": true
+      },
+      {
+        "name": "Rio Tapajos",
+        "source": "glaser",
+        "quote": "Aquarium Glaser has regularly imported this dwarf cichlid from the Rio Tapajos in Brazil for quite a while.",
         "country": "BR",
         "ok": true
       }

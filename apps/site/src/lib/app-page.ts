@@ -1,9 +1,10 @@
 import { resolveDataCard, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo, type PlantEntity, type Range, type Series, type SourceId, type SourceInfo, type SpeciesEntity } from '@aq/schema'
 import { PAGE_VERSION, pageShard, shardCount, type Block, type Image, type Inline, type PageDoc, type PageShard } from '@aq/schema/app-page'
 import { videoAbout } from './video-about'
-import { appBreeds, appEquipment, appGlossary, appGuides, appIndex, appPlants, appSeries, appSpecies, headPhoto, photoBox, type AppIndex } from './app-index'
+import { appBreeds, appEquipment, appGlossary, appGuideImage, appGuides, appIndex, appPlants, appSeries, appSeriesImage, appSpecies, headPhoto, photoBox, type AppIndex } from './app-index'
 import { breedParts } from './breed-page'
-import { BREED_KIND, type Breed } from './breeds'
+import { breedIsFish, breedKind, type Breed } from './breeds'
+import { isFish } from './taxa-places'
 import { photoCredit } from './cite'
 import { dmy } from './products'
 import { VN_WATER, vnClimate } from './climate'
@@ -14,11 +15,11 @@ import { figureHtml } from './figures'
 import { cardRows } from './card-rows'
 import { nameAndSci, sciBeside } from './sci'
 import { FIELD_LABELS, fmt, GUIDE_KIND_LABELS } from './format'
-import { galleryNote } from './gallery'
+import { APP_GALLERY_MIN, galleryNote } from './gallery'
 import { glossaryParts, USED_IN_SHOWN } from './glossary-page'
 import { guideParts } from './guide-page'
 import { cleanPhoto } from './home'
-import { appLinks, appPath, isVietnamese, served, translator, type Lang, type T } from './i18n'
+import { appLinks, appPath, isVietnamese, isVietnameseTitle, served, translator, type Lang, type T } from './i18n'
 import { resizeOf, smallSrc } from './img'
 import { guideImage } from './mentions'
 import { htmlBlocks } from './page-blocks'
@@ -116,13 +117,12 @@ export function sectionBlocks(lang: Lang, c: Content, props: SectionProps): { bl
         blocks.push({ t: 'p', c: [`${t('Thông số ở đầu trang ghi khác đoạn này:')} ${figures}.`] })
       }
     }
-    const f = figAfter.get(i)
-    if (f) prose(figureHtml(lang, f))
+    for (const f of figAfter.get(i) ?? []) prose(figureHtml(lang, f))
   })
   if (wild && wildAt === groups.length) wildBlocks(wild)
   if (refs.length) {
     blocks.push({
-      t: 'refs', title: t('Nguồn'), id: 'nguon', items: refs.map(r => ({ title: r.name, url: r.url })), note,
+      t: 'refs', title: t('Nguồn'), id: 'nguon', items: refs.map(r => ({ title: lang !== 'vi' && isVietnameseTitle(r.name) ? `${r.name} (${t('tiếng Việt')})` : r.name, url: r.url })), note,
     })
   }
   return { blocks, unknown: [...unknown].sort() }
@@ -150,7 +150,9 @@ function galleryBlock(lang: Lang, sources: Partial<Record<SourceId, SourceInfo>>
   return [{
     t: 'gallery', title: t('Ảnh {name}', { name }), note: galleryNote(t, gallery, sources), photos,
     strip: strip.flatMap(p => (p && at.has(p.url) ? [at.get(p.url)!] : [])),
-    ...(viPath && served(lang, viPath) ? { href: appPath(lang, viPath) } : {}),
+    // The album's old web address, which forwards to the fish's or plant's page since the album has none of its own (the
+    // app doesn't open it; the protocols drop it at their next change).
+    ...(viPath ? { href: appPath(lang, viPath) } : {}),
   }]
 }
 
@@ -196,12 +198,12 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
   const t = translator(lang)
   const { num } = fmt(lang)
   const at = (viPath: string) => appPath(lang, viPath)
-  const p = await speciesParts(lang, c, s)
+  const p = await speciesParts(lang, c, s, { app: true })
   const lead = headImage(lang, headPhoto(s.photos), nameAndSci(s.t.name, s.scientificName))
   const sources = [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', ')
   const { blocks: text } = sectionBlocks(lang, c, { sections: p.text.sections, t: p.text.t, self: `species:${s.id}`, selfNames: [s.scientificName, s.t.name, ...s.t.altNames], figures: p.figures.map(photo => ({ photo })), card: s.dataCard, range: { id: s.id, name: s.t.name, range: s.range }, refs: s.refs })
   // "Nuôi chung" (Companions.astro): the fish to keep with it and away from it; with neither, the tool's link alone.
-  const why = avoidWhy(t, p.mates.self.name)
+  const why = (x: Localized<SpeciesEntity>) => avoidWhy(t, p.mates.self.name, isFish(x))
   const mate = (x: Localized<SpeciesEntity>) => { const img = image(lang, cleanPhoto(x.photos), undefined, true); return { path: at(`/vi/ca/${x.t.slug}/`), name: x.t.name, ...(img ? { img } : {}) } }
   const tool = { text: t('Kiểm tra nuôi chung với loài khác →'), href: at(p.tool) }
   const { good, avoid } = p.mates
@@ -209,7 +211,7 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
     ? {
       t: 'mates', title: t('Nuôi chung'),
       ...(good.length ? { good: { title: t('Hợp với'), items: good.map(({ s }) => mate(s)) } } : {}),
-      ...(avoid.length ? { avoid: { title: t('Tránh'), items: avoid.map(({ s, item, reason }) => ({ ...mate(s), why: why[reason].split('{size}').join(`${num(item.sizeCm!)} cm`) })) } } : {}),
+      ...(avoid.length ? { avoid: { title: t('Tránh'), items: avoid.map(({ s, item, reason }) => ({ ...mate(s), why: why(s)[reason].split('{size}').join(`${num(item.sizeCm!)} cm`) })) } } : {}),
       ...(good.length || avoid.length ? { note: t('Gợi ý theo nhiệt độ, pH, kích thước và tính cách của từng loài.') } : {}),
       tool,
     }
@@ -220,8 +222,8 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
     by: t('AquaTome tóm tắt từ các nguồn bên dưới.'),
   }] : []
   const breeds: Block[] = p.breeds.length ? [{
-    t: 'cards', title: t('Các dòng và cá lai từ {name}', { name: s.t.name }),
-    items: p.breeds.map((b, i) => { const img = image(lang, p.breedPhotos[i], undefined, true); return { path: at(`/vi/ca/${b.t.slug}/`), name: b.t.name, sub: t(BREED_KIND[b.kind]), ...(img ? { img } : {}) } }),
+    t: 'cards', title: t(isFish(s) ? 'Các dòng và cá lai từ {name}' : 'Các dòng và con lai từ {name}', { name: s.t.name }),
+    items: p.breeds.map((b, i) => { const img = image(lang, p.breedPhotos[i], undefined, true); return { path: at(`/vi/ca/${b.t.slug}/`), name: b.t.name, sub: t(breedKind(b.kind, isFish(s))), ...(img ? { img } : {}) } }),
   }] : []
   const videos: Block[] = p.videos.length ? [{
     t: 'videos', title: 'Video',
@@ -242,7 +244,9 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
       ...trustBlock(t, lang, p.card as SpeciesEntity['dataCard'], p.sources),
       mates,
       ...(p.vn ? climateBlock(t, s.dataCard) : []),
-      ...galleryBlock(lang, c.sources, s.t.name, p.gallery, p.strip, p.galleryPath),
+      // A fish's or a plant's album shows in the app from six photos (APP_GALLERY_MIN), though the site's strip shows a
+      // shorter one; a breed's shows whenever its strip does, as before (Design, 20 Nov 2026).
+      ...(p.gallery.length >= APP_GALLERY_MIN ? galleryBlock(lang, c.sources, s.t.name, p.gallery, p.strip, p.galleryPath) : []),
       ...summary,
       ...text,
       ...breeds,
@@ -264,7 +268,8 @@ export function breedDoc(lang: Lang, c: Content, b: Breed, listed: Set<string>):
   const at = (viPath: string) => appPath(lang, viPath)
   const p = breedParts(lang, c, b)
   const lead = headImage(lang, headPhoto(b.photos), b.t.name)
-  const kind = t(BREED_KIND[b.kind])
+  const fish = breedIsFish(c, b)
+  const kind = t(breedKind(b.kind, fish))
   const parents: Block[] = p.parents.length ? [{
     t: 'p', c: [`${t('Lai từ:')} `, ...p.parents.flatMap((x, i): Inline[] => [
       ...(i > 0 ? [', '] : []),
@@ -274,7 +279,7 @@ export function breedDoc(lang: Lang, c: Content, b: Breed, listed: Set<string>):
   }] : []
   const lines: Block[] = p.lines.length ? [{
     t: 'cards', title: t('Các dòng'),
-    items: p.lines.map((x, i) => { const img = image(lang, p.linePhotos[i], undefined, true); return { path: at(`/vi/ca/${x.t.slug}/`), name: x.t.name, sub: t(BREED_KIND[x.kind]), ...(img ? { img } : {}) } }),
+    items: p.lines.map((x, i) => { const img = image(lang, p.linePhotos[i], undefined, true); return { path: at(`/vi/ca/${x.t.slug}/`), name: x.t.name, sub: t(breedKind(x.kind, fish)), ...(img ? { img } : {}) } }),
   }] : []
   return {
     v: PAGE_VERSION,
@@ -297,7 +302,7 @@ export function breedDoc(lang: Lang, c: Content, b: Breed, listed: Set<string>):
       ...(b.t.faq?.length ? [{ t: 'faq' as const, title: t('Hỏi đáp'), items: b.t.faq.map(f => ({ q: f.q, a: f.a })) }] : []),
       ...pagesBlock(lang, listed, t('Bài viết nhắc đến'), p.guides.map(g => `/vi/huong-dan/${g.t.slug}/`), 8),
       ...pagesBlock(lang, listed, t('Có trong video hướng dẫn'), p.videoGuides.map(g => `/vi/huong-dan/${g.t.slug}/`), 6),
-      ...(b.sources.length ? [{ t: 'refs' as const, title: t('Nguồn'), items: b.sources.map(r => ({ title: lang !== 'vi' && isVietnamese(r.title) ? `${r.title} (${t('tiếng Việt')})` : r.title, url: r.url })) }] : []),
+      ...(b.sources.length ? [{ t: 'refs' as const, title: t('Nguồn'), items: b.sources.map(r => ({ title: lang !== 'vi' && isVietnameseTitle(r.title) ? `${r.title} (${t('tiếng Việt')})` : r.title, url: r.url })) }] : []),
     ],
   }
 }
@@ -308,7 +313,7 @@ export function breedDoc(lang: Lang, c: Content, b: Breed, listed: Set<string>):
  */
 export function plantDoc(lang: Lang, c: Content, p: Localized<PlantEntity>, listed: Set<string>): PageDoc {
   const t = translator(lang)
-  const parts = plantParts(lang, c, p)
+  const parts = plantParts(lang, c, p, { app: true })
   const lead = headImage(lang, headPhoto(p.photos), nameAndSci(p.t.name, p.scientificName))
   const { blocks: text } = sectionBlocks(lang, c, { sections: p.sections, t: p.t, self: `plant:${p.id}`, selfNames: [p.scientificName, p.t.name, ...p.t.altNames], figures: parts.figures.map(photo => ({ photo })), co2: p.co2, refs: p.refs })
   return {
@@ -321,7 +326,7 @@ export function plantDoc(lang: Lang, c: Content, p: Localized<PlantEntity>, list
     ...(lead ? { lead } : {}),
     talk: { comments: commentsKey(lang, `plant:${p.id}`) },
     blocks: [
-      ...galleryBlock(lang, c.sources, p.t.name, parts.gallery, parts.strip, parts.galleryPath),
+      ...(parts.gallery.length >= APP_GALLERY_MIN ? galleryBlock(lang, c.sources, p.t.name, parts.gallery, parts.strip, parts.galleryPath) : []),
       ...text,
       ...pagesBlock(lang, listed, t('Bài viết nhắc đến cây này'), parts.guides.map(g => `/vi/huong-dan/${g.t.slug}/`), 8),
       ...pagesBlock(lang, listed, t('Có trong video hướng dẫn'), parts.videoGuides.map(g => `/vi/huong-dan/${g.t.slug}/`), 6),
@@ -360,7 +365,7 @@ export function glossaryDoc(lang: Lang, c: Content, g: Localized<GlossaryEntity>
       ...(used.length ? [{ t: 'h' as const, text: t('Dùng trong {n} trang', { n: num(p.total) }) }, ...used] : []),
       // The rest are reached by the page's search link, which the web page shows: the app offers to open it there.
       ...(used.length && p.more ? [{ t: 'web' as const }] : []),
-      ...(p.refs.length ? [{ t: 'refs' as const, title: t('Nguồn tham khảo'), id: 'nguon', items: p.refs.map(r => ({ title: r.title, url: r.url })) }] : []),
+      ...(p.refs.length ? [{ t: 'refs' as const, title: t('Nguồn tham khảo'), id: 'nguon', items: p.refs.map(r => ({ title: lang !== 'vi' && isVietnameseTitle(r.title) ? `${r.title} (${t('tiếng Việt')})` : r.title, url: r.url })) }] : []),
     ],
   }
 }
@@ -375,8 +380,8 @@ export function videoDoc(lang: Lang, c: Content, s: Series): PageDoc {
   const t = translator(lang)
   const at = (viPath: string) => appPath(lang, viPath)
   const p = seriesParts(lang, c, s)
-  // Its head is its card's photo in the app index: its first guide's (app-index.ts).
-  const first = seriesGuides(c, s)[0], lead = first && headImage(lang, guideImage(c, first), s.vi.name)
+  // Its head is its card's photo in the app index: its first part's that has a picture (app-index.ts).
+  const lead = headImage(lang, appSeriesImage(c, seriesGuides(c, s)), s.vi.name)
   return {
     v: PAGE_VERSION,
     kind: 'video',
@@ -389,7 +394,8 @@ export function videoDoc(lang: Lang, c: Content, s: Series): PageDoc {
       {
         t: 'cards', title: t('Video'),
         items: p.guides.map(({ g, photo, about, length }) => {
-          const img = image(lang, photo, undefined, true)
+          // A part with no picture under the site's rule keeps the one it had while the app has no designed cover.
+          const img = image(lang, photo ?? (guideImage(c, g) ? undefined : appGuideImage(c, g)), undefined, true)
           return { path: at(`/vi/huong-dan/${g.t.slug}/`), name: g.t.name, sub: `${about} · ${length}`, ...(img ? { img } : {}) }
         }),
       },
@@ -492,7 +498,7 @@ export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, list
   }
   const lead = v ? undefined : headImage(lang, p.lead)
   // A video guide's head before it plays: its card's photo (app-index.ts), with its box where it has one.
-  const poster = v ? headImage(lang, guideImage(c, g), g.t.name) : undefined
+  const poster = v ? headImage(lang, appGuideImage(c, g), g.t.name) : undefined
   return {
     v: PAGE_VERSION,
     kind: 'guide',
@@ -518,7 +524,7 @@ export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, list
       ...(g.t.faq?.length ? [{ t: 'faq' as const, title: t('Câu hỏi thường gặp'), items: g.t.faq.map(f => ({ q: f.q, a: f.a })) }] : []),
       ...(v || p.refs?.length ? [{ t: 'refs' as const, title: t('Nguồn tham khảo'), id: 'nguon', items: [
         ...(v ? [{ title: `${t('Video gốc:')} ${v.title}${t(', kênh')} ${v.channel} · ${clock(v.durationSec)}`, url: watchUrl(v.youtubeId) }] : []),
-        ...(p.refs ?? []).map(r => ({ title: lang !== 'vi' && isVietnamese(r.title) ? `${r.title} (${t('tiếng Việt')})` : r.title, url: r.url })),
+        ...(p.refs ?? []).map(r => ({ title: lang !== 'vi' && isVietnameseTitle(r.title) ? `${r.title} (${t('tiếng Việt')})` : r.title, url: r.url })),
       ] }] : []),
       // "Phần tiếp theo" over a series' next parts, as the page has it; the app's list keeps to guides with a picture
       // (guideParts), so where it drops the next parts, the guides it has instead are "Bài tiếp theo" (Fable's read).

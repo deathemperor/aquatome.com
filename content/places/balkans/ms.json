@@ -3,6 +3,12 @@
   "name": "Balkan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-16T17:23:36.945Z",
+    "why": "The Malay name for the region is \"Balkan\" in the singular, or \"Semenanjung Balkan\" for the peninsula. The source's \"Balkans\" here is the region, so \"Balkan\" is plausible and acceptable, but a Malaysian atlas would more likely write \"Semenanjung Balkan\"."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

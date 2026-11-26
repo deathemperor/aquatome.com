@@ -34,11 +34,11 @@
       ],
       "regions": [
         "Mekong",
+        "Tonlé Sap",
         "Sumatra",
         "Borneo",
         "Java",
-        "Bangka",
-        "Belitung"
+        "Bangka"
       ],
       "sources": [
         "seriouslyfish"
@@ -57,6 +57,7 @@
           ],
           "regions": [
             "Mekong",
+            "Tonlé Sap",
             "Sumatra",
             "Borneo"
           ]
@@ -76,8 +77,7 @@
           "quote": "It also occurs in a number of smaller archipelagos including Bangka and Belitung (Billiton).",
           "countries": [],
           "regions": [
-            "Bangka",
-            "Belitung"
+            "Bangka"
           ]
         }
       ]
@@ -430,6 +430,10 @@
       {
         "source": "seriouslyfish",
         "value": 130
+      },
+      {
+        "source": "glaser",
+        "value": 130
       }
     ],
     "tankCm": [
@@ -454,10 +458,22 @@
       "html": "<ul><li>Max size: 1300 mm SL (51 in)</li><li>Temperature: 20–30°C (68–86°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 2–20 dGH</li><li>Difficulty: 6 of 8 (difficult), because it needs a tank at least 2 m long</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-micropeltes-2/",
+      "html": "<p>Channa micropeltes is one of the most beautiful freshwater fishes. This snakehead lives in groups when young and its favorite pastime is eating. It is constantly on the lookout for food and swims lively in a shoal through the aquarium.</p><p>With a maximum final size of over 130 cm, Channa micropeltes is also one of the largest snakeheads.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/channa-micropeltes",
       "html": "<p>Needs a tight-fitting lid as this species is known to jump. The giant snakehead, Channa micropeltes, is a predatory fish from Southeast Asia that grows to well over a metre. Juveniles are sold as 'red' or 'redline' snakehead, but it is suitable only for public installations or the very largest private aquaria. Unlike most Channa species it is pelagic and needs plenty of room to swim, and adults become aggressive at sexual maturity.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-micropeltes-2/",
+      "html": "<p>Do not buy this fish for its juvenile coloration for a community aquarium with small peaceful fish: you will soon have only one fish in the aquarium, a fat Channa micropeltes.</p>"
     },
     {
       "key": "distribution",
@@ -476,6 +492,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/channa-micropeltes",
       "html": "<p>Standard length: 1300 mm SL (51 in). Suitable only for public installations or the very largest private aquaria.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-micropeltes-2/",
+      "html": "<p>Anyone interested in these animals must have a really big aquarium. Then snakehead and human can enjoy each other for decades.</p>"
     },
     {
       "key": "maintenance",
@@ -500,6 +522,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/channa-micropeltes",
       "html": "<p>Best-maintained in a species-specific aquarium, but can apparently be maintained alongside similarly-sized fishes if sufficient space is available.</p><p>Juveniles and subadults are relatively peaceful with one another but become aggressive when they reach sexual maturity.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-micropeltes-2/",
+      "html": "<p>From about 15–20 cm length it loses the beautiful, bright juvenile coloration and changes from a schooling fish to an aggressive loner. It is then black-brown marbled on the back. Its favorite pastime remains eating.</p>"
     },
     {
       "key": "dimorphism",
@@ -532,15 +560,15 @@
       "thumb": "https://media.aquatome.com/commons/004b2d13f73b52b4-480.webp",
       "width": 1200,
       "height": 656,
-      "licence": "CC BY-SA 3.0",
-      "author": "Thesupermat",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:T%C3%AAte_de_serpent.JPG",
-      "caption": "Cá lóc bông trưởng thành trên nền cát trong bể",
       "large": {
         "url": "https://media.aquatome.com/commons/004b2d13f73b52b4-large.webp",
         "width": 2194,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Thesupermat",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:T%C3%AAte_de_serpent.JPG",
+      "caption": "Cá lóc bông trưởng thành trên nền cát trong bể"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/0557a5ade3824a9c.webp",
@@ -548,7 +576,7 @@
       "width": 820,
       "height": 410,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "George Chernilevsky / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/channa-micropeltes",
       "caption": "Young adult individual.",
       "source": "seriouslyfish"
@@ -559,13 +587,68 @@
       "width": 600,
       "height": 357,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Nonn Panitvong / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/channa-micropeltes",
       "caption": "Juvenile from Thailand.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f611240ff45dfd1e.webp",
+      "thumb": "https://media.aquatome.com/glaser/f611240ff45dfd1e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-micropeltes-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/73323021fb6fd4b1.webp",
+      "thumb": "https://media.aquatome.com/glaser/73323021fb6fd4b1-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-micropeltes-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/01610abbd32c77db.webp",
+      "thumb": "https://media.aquatome.com/glaser/01610abbd32c77db-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-micropeltes-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "fOFLYBxzRA0",
+      "title": "Giant snakehead channa micropeltes aquarium",
+      "durationSec": 44,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "KqXQn4JmzTU",
+      "title": "Giant Snakehead Growth in 30 Days #monsterfish #channa #channamicropeltes #toman #fish #aquarium",
+      "durationSec": 19,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "aY7_zV_zBYY",
+      "title": "Monster Fish Update | Channa Micropeltes #channamicropeltes #fishkeepinghobby #animallover",
+      "durationSec": 9,
+      "lang": "zxx"
+    },
+    {
+      "youtubeId": "lzvBGrzC64c",
+      "title": "Giant Snakehead Flaring  #aquariumfishkeepers #fishkeepinghobby #fish #fishaquarium #aquarium",
+      "durationSec": 15,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -597,5 +680,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-21"
 }

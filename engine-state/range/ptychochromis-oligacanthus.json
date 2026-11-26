@@ -1,14 +1,14 @@
 {
   "id": "ptychochromis-oligacanthus",
   "native": {
-    "input": "443d23bebe3a7dd0",
-    "at": "2026-11-13T11:20:11.221Z",
+    "input": "cf4e659151f94843",
+    "at": "2026-11-17T00:14:47.070Z",
     "claims": [
       {
         "code": "MG",
         "status": "native",
         "source": "glaser",
-        "quote": "Ptychochromis oligacanthus is a cichlid endemic to Madagascar.",
+        "quote": "Origin: Madagascar",
         "words": "Madagascar",
         "ok": true
       },
@@ -16,24 +16,22 @@
         "code": "MG",
         "status": "native",
         "source": "glaser",
-        "quote": "The actual Ptychochromis oligacanthus is restricted to the northwest of the island of Madagascar and the small offshore island Nosy Be.",
+        "quote": "They come from the crater lake Bempazawa on the island Nosy Be nearby Madagascar.",
         "words": "Madagascar",
         "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Madagascar",
-        "source": "glaser",
-        "quote": "The actual Ptychochromis oligacanthus is restricted to the northwest of the island of Madagascar and the small offshore island Nosy Be.",
-        "country": "MG",
-        "ok": false,
-        "why": "a country"
-      },
-      {
         "name": "Nosy Be",
         "source": "glaser",
-        "quote": "The actual Ptychochromis oligacanthus is restricted to the northwest of the island of Madagascar and the small offshore island Nosy Be.",
+        "quote": "They come from the crater lake Bempazawa on the island Nosy Be nearby Madagascar.",
+        "ok": true
+      },
+      {
+        "name": "Bempazawa",
+        "source": "glaser",
+        "quote": "They come from the crater lake Bempazawa on the island Nosy Be nearby Madagascar.",
         "ok": true
       }
     ],

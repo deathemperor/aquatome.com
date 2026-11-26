@@ -158,15 +158,20 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/8966a8028c8a7349.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/8966a8028c8a7349-480.webp",
-      "width": 850,
-      "height": 234,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/colomesus-tocantinensis",
-      "caption": "Paratype specimen.",
-      "source": "seriouslyfish"
+      "url": "https://media.aquatome.com/inaturalist/31272383.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/31272383-480.webp",
+      "width": 1024,
+      "height": 498,
+      "licence": "CC BY-NC",
+      "author": "Anthony Giardenelli",
+      "sourceUrl": "https://www.inaturalist.org/photos/31272383",
+      "caption": "Thân cá nóc Tocantins sọc vàng đen trong bể kính",
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/31272383-large.webp",
+        "width": 2048,
+        "height": 995
+      }
     }
   ],
   "videos": [],

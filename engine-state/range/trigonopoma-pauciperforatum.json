@@ -1,0 +1,190 @@
+{
+  "id": "trigonopoma-pauciperforatum",
+  "native": {
+    "input": "eb1fc8b430921910",
+    "at": "2026-11-17T00:14:47.070Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Sundaland (Indonesia, Malay Peninsula), where it lives in black water.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Gunung Sahilan and Deli, Sumatra, Indonesia' but currently considered native to Peninsular Malaysia, Singapore, and the Greater Sunda Islands of Borneo and Sumatra.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Gunung Sahilan and Deli, Sumatra, Indonesia' but currently considered native to Peninsular Malaysia, Singapore, and the Greater Sunda Islands of Borneo and Sumatra.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Gunung Sahilan and Deli, Sumatra, Indonesia' but currently considered native to Peninsular Malaysia, Singapore, and the Greater Sunda Islands of Borneo and Sumatra.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "According to many sources it's also found in Thailand and Cambodia although definitive occurence records from either country are lacking.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "According to many sources it's also found in Thailand and Cambodia although definitive occurence records from either country are lacking.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "On Borneo the majority of collections have occured from the Kapuas River basin in the Indonesian province of West Kalimantan (Kalimantan Barat). It also occurs in the neighbouring Malaysian state of Sarawak and there exist numerous records from the Belait and Ingei Rivers, Belait District, Brunei Darussalam.",
+        "words": "Brunei Darussalam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Gunung Sahilan and Deli, Sumatra, Indonesia' but currently considered native to Peninsular Malaysia, Singapore, and the Greater Sunda Islands of Borneo and Sumatra.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Gunung Sahilan and Deli, Sumatra, Indonesia' but currently considered native to Peninsular Malaysia, Singapore, and the Greater Sunda Islands of Borneo and Sumatra.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Malay Peninsula",
+        "source": "glaser",
+        "quote": "Sundaland (Indonesia, Malay Peninsula), where it lives in black water.",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "On Borneo the majority of collections have occured from the Kapuas River basin in the Indonesian province of West Kalimantan (Kalimantan Barat).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Batang Hari",
+        "source": "seriouslyfish",
+        "quote": "The only information pertaining to Sumatra we have is a single account from Gunung Sahilan in Riau province and another from the Batang Hari river system.",
+        "ok": true
+      },
+      {
+        "name": "Bintan Island",
+        "source": "seriouslyfish",
+        "quote": "Records from Singapore and Sumatra are scarce and it's likely the species can no longer be found in the former although it does still exist on nearby Bintan Island.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Trigonopoma pauciperforatum",
+    "status": "ACCEPTED",
+    "taxonKey": 5962669,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        140
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        137
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        13
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        11
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        7
+      ],
+      [
+        "90cbc357-530d-40f2-8000-331f6b575dd4",
+        6
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "ID",
+      "MY",
+      "SG",
+      "BN"
+    ],
+    "requests": 12,
+    "at": "2026-11-17T00:14:47.070Z"
+  }
+}

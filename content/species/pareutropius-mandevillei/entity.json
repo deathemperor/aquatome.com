@@ -1,0 +1,70 @@
+{
+  "id": "pareutropius-mandevillei",
+  "scientificName": "Pareutropius mandevillei",
+  "order": "Siluriformes",
+  "family": "Schilbeidae",
+  "genus": "Pareutropius",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "congo"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 5.8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1440",
+      "html": "<p>Pareutropius mandevillei Poll, 1959. Family Schilbeidae. Synonym: Eutropiellus mandevillei. Size: 58 mm (5.8 cm) SL. IUCN Red List: Least Concern (last assessed 2009).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1440",
+      "html": "<p>Africa: Congo basin. Type locality: Stanley Pool, Congo River, Democratic Republic of Congo.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1440",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1440",
+      "html": "<p>Annales du Musée du Congo Belge v. 71 (art. 3), pp 92, Pl. 16 (fig. 4A).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "Xvd8MXbp4qo",
+      "title": "Pareutropius mandevillei",
+      "durationSec": 42,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Ba8VXWzw_Ko",
+      "title": "Gobiocichla wonderi",
+      "durationSec": 71,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "zNv8ahg0sl4",
+      "title": "Lower Congo rapids tank",
+      "durationSec": 75,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-22"
+}

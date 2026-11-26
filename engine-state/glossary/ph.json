@@ -1,58 +1,5 @@
 {
   "found": true,
-  "species": [
-    "Paracheirodon axelrodi",
-    "Paracheirodon innesi",
-    "Symphysodon",
-    "Carassius auratus",
-    "Betta splendens",
-    "Poecilia reticulata",
-    "Pterophyllum",
-    "Cyprinus carpio",
-    "Caridina"
-  ],
-  "sources": [
-    {
-      "url": "https://www.seriouslyfish.com/glossary/ph",
-      "title": "pH",
-      "kind": "reference"
-    },
-    {
-      "url": "https://vin.com/doc/?id=8249984",
-      "title": "Practical Water Quality: What It Means and How to Fix It",
-      "kind": "vet"
-    },
-    {
-      "url": "https://aqueon.com/articles/ph-importance",
-      "title": "What is pH and Why Is It Important?",
-      "kind": "maker"
-    },
-    {
-      "url": "https://mayaqua.vn/dieu-chinh-do-ph-trong-be-thuy-sinh-nhu-the-nao/",
-      "title": "ĐIỀU CHỈNH ĐỘ pH TRONG BỂ THỦY SINH NHƯ THẾ NÀO?",
-      "kind": "shop"
-    },
-    {
-      "url": "https://thuysinhaz.com/tanggiamph/",
-      "title": "Cách tăng giảm độ pH trong hồ cá thủy sinh 1 cách an toàn và hiệu quả",
-      "kind": "shop"
-    },
-    {
-      "url": "https://shrimphome.vn/cac-thong-so-nuoc-trong-mot-be-nuoi-trong",
-      "title": "Các Thông Số Nước Trong Một Bể Nuôi Trồng - Thủy sinh | Shrimp Home",
-      "kind": "shop"
-    },
-    {
-      "url": "https://aquazonefish.vn/blogs/kien-thuc/cach-giu-ph-on-dinh-cho-ho-ca",
-      "title": "Cách Giữ PH Ổn Định Cho Hồ Cá Đơn Giản, Dễ Làm",
-      "kind": "shop"
-    },
-    {
-      "url": "https://cafishvet.com/?p=86839",
-      "title": "Old Tank Syndrome",
-      "kind": "vet"
-    }
-  ],
   "facts": [
     {
       "section": "what",
@@ -476,6 +423,90 @@
       "section": "other",
       "fact": "English name: \"pH\".",
       "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "In soft water with low KH, the tannins from Indian almond leaves can lower pH by about 0.2–0.5 units.",
+      "source": 8
+    },
+    {
+      "section": "treatment",
+      "fact": "In hard, well-buffered water, Indian almond leaves have a negligible effect on pH.",
+      "source": 8
+    },
+    {
+      "section": "treatment",
+      "fact": "In well-buffered water with KH above 4–5, the pH effect of Indian almond leaves is negligible.",
+      "source": 8
+    },
+    {
+      "section": "other",
+      "fact": "Singapore tap water, at about KH 1–3, is soft enough to be prone to pH shifts from Indian almond leaves.",
+      "source": 8
+    },
+    {
+      "section": "steps",
+      "fact": "In low-KH water, start with one Indian almond leaf and monitor pH.",
+      "source": 8
+    }
+  ],
+  "species": [
+    "Paracheirodon axelrodi",
+    "Paracheirodon innesi",
+    "Symphysodon",
+    "Carassius auratus",
+    "Betta splendens",
+    "Poecilia reticulata",
+    "Pterophyllum",
+    "Cyprinus carpio",
+    "Caridina",
+    "Terminalia catappa"
+  ],
+  "sources": [
+    {
+      "url": "https://www.seriouslyfish.com/glossary/ph",
+      "title": "pH",
+      "kind": "reference"
+    },
+    {
+      "url": "https://vin.com/doc/?id=8249984",
+      "title": "Practical Water Quality: What It Means and How to Fix It",
+      "kind": "vet"
+    },
+    {
+      "url": "https://aqueon.com/articles/ph-importance",
+      "title": "What is pH and Why Is It Important?",
+      "kind": "maker"
+    },
+    {
+      "url": "https://mayaqua.vn/dieu-chinh-do-ph-trong-be-thuy-sinh-nhu-the-nao/",
+      "title": "ĐIỀU CHỈNH ĐỘ pH TRONG BỂ THỦY SINH NHƯ THẾ NÀO?",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhaz.com/tanggiamph/",
+      "title": "Cách tăng giảm độ pH trong hồ cá thủy sinh 1 cách an toàn và hiệu quả",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shrimphome.vn/cac-thong-so-nuoc-trong-mot-be-nuoi-trong",
+      "title": "Các Thông Số Nước Trong Một Bể Nuôi Trồng - Thủy sinh | Shrimp Home",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquazonefish.vn/blogs/kien-thuc/cach-giu-ph-on-dinh-cho-ho-ca",
+      "title": "Cách Giữ PH Ổn Định Cho Hồ Cá Đơn Giản, Dễ Làm",
+      "kind": "shop"
+    },
+    {
+      "url": "https://cafishvet.com/?p=86839",
+      "title": "Old Tank Syndrome",
+      "kind": "vet"
+    },
+    {
+      "url": "https://gensou.sg/indian-almond-leaves-aquarium/",
+      "title": "Indian Almond Leaves for Aquariums: Benefits and How to Use Them",
+      "kind": "shop"
     }
   ]
 }

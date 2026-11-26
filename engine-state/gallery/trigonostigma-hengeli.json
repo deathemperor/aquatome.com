@@ -4,12 +4,15 @@
   "File:Cyprinidae Trigonostigma hengeli 1.jpg",
   "File:T hengeli.jpg",
   "File:T hengeli (cropped).jpg",
-  "File:Trigonostigma hengeli(Hengeli rasbora).jpg"
+  "File:Trigonostigma hengeli(Hengeli rasbora).jpg",
+  "inat:719985030"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/800b8549bd6f39a7.webp": "16d61a72632c1cc9",
   "https://media.aquatome.com/commons/69b5033b122b728b.webp": "b23036667b73e3c3",
-  "https://media.aquatome.com/commons/13cbf3f0fa1e069a.webp": "76666bf3d9e961f1"
+  "https://media.aquatome.com/commons/13cbf3f0fa1e069a.webp": "76666bf3d9e961f1",
+  "https://media.aquatome.com/glaser/5dbac5c9674d5ac8.webp": "20c111233077276f",
+  "https://media.aquatome.com/glaser/48b78bb1b60aafbc.webp": "05030787031b1707"
  },
  "inat": {
   "taxon": 613746,
@@ -26,6 +29,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 392843712,
+  "done": true
  },
  "exhausted": "2026-11-08"
 }

@@ -2,7 +2,7 @@
 url: https://www.thesprucepets.com/cory-species-1381075
 title: 12 Best Corydoras Catfish for Your Freshwater Aquarium
 fetchedAt: 2026-10-29T06:56:05.229Z
-hash: 659ffcc40b707cc8bc61e8357494ba2ab25bda6a7b68e0ef907b49674ad13e4d
+hash: c88125d51de102a090bf41f3694b2b0a11aa89b4d43ba6728fea09459f84d997
 ---
 
 # Top 12 Corydoras Catfish Species to Enhance Your Aquarium
@@ -125,7 +125,7 @@ Temperature: 73–82 degrees F (23–28 degrees C)
 Tankmates: Peaceful, keep in small schools and with fish that are similar in size
 Sterbai cory are easy to care for like other corys, and can get along well with a variety of other fish species. Their color ranges from dark brown to black but they have white dots all over their body and fins so they’re sure to grab your attention as they swim along the bottom of your tank.
 ## Pygmy Corydoras
-nektofadeev@gmail.com / Getty Images
+ / Getty Images
 ### Species Overview
 Scientific name: Corydoras pygmaeus
 Also known as: Pygmy Catfish

@@ -1,0 +1,223 @@
+{
+  "found": true,
+  "species": [],
+  "sources": [
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/aquarium-aeration",
+      "title": "Air Stones: The Secret Weapon Every Aquarium Needs to Have – Aquarium Co-Op",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquariumscience.org/index.php/9-1-aeration-in-depth",
+      "title": "9.1. Aeration in Depth",
+      "kind": "keeper"
+    },
+    {
+      "url": "https://thuysinh24h.com/may-suc-oxy",
+      "title": "Máy Sủi Oxy Cho Bể Cá Cảnh: Hướng Dẫn Toàn Diện Từ A Đến Z Để Cá Khỏe Mạnh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://ask.ifas.ufl.edu/publication/FA002",
+      "title": "Dissolved Oxygen for Fish Production",
+      "kind": "farm"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Aeration means adding air to the tank with an air pump, airline tubing and an air outlet such as an air stone, sponge filter or moving bed filter.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Gas exchange happens at the water surface: carbon dioxide leaves the water and oxygen from the air dissolves in, and good surface agitation is the key to it.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Turbulent surface flow gives the best gas exchange, while smooth (laminar) flow gives only slight aeration.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "A smooth water surface gives about 5% of the aeration of a choppy surface of the same size.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Rising bubbles aerate by creating turbulent flow at the surface.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Ideal dissolved oxygen in a freshwater tank is about 7 to 8 ppm (mg/L), which can be measured with a test kit or digital meter.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Fully saturated water at 78°F holds 8.25 ppm (mg/L) of oxygen, and warm water holds less oxygen than cold water.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "A dissolved oxygen level of 5 mg/L or more is recommended for optimum fish health, and most fish species are distressed when it falls to 2–4 mg/L.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "The air pump pushes air through the air stone to make fine bubbles that help oxygen dissolve in the water; too little dissolved oxygen can suffocate fish, especially in crowded or warm tanks or when fish are sick.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"máy sục khí\"",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"máy sủi oxy\"",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"đá sủi khí (air stone)\"",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Signs of low oxygen include fish resting on the bottom, low appetite, rapid gill movement and gasping at the surface.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Signs of poor aeration include fish hanging at the surface, piping and rapid gill movement in still water; in strong current, fish swim with gaping mouths.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Dying fish may gasp for oxygen at the surface, which is called \"piping\".",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Common causes of low oxygen are high water temperature, too many fish, certain medications or chemical treatments, and too little surface agitation.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "In a test, floating plants covering the surface of a 55-gallon tank gave significantly lower oxygen.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "In an oxygen emergency, a large water change adds oxygen immediately.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "If fish are dying from low dissolved oxygen, the most important step is to turn on an aerator.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Put the air pump in a dry place above the water line so water cannot flow back into it when the power is off.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "If the pump must sit below the water line, fit a check valve (\"van một chiều (check valve)\") on the airline to protect it.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "A check valve stops water flowing back into the airline tubing and the pump.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Replace the air stone when its bubbles become uneven or it clogs.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "An airstone aerates well only if the pump is big enough to produce hundreds of bubbles per second; small pumps sold in kits or stores give little aeration.",
+      "source": 1
+    },
+    {
+      "section": "other",
+      "fact": "Filter outlets, wavemakers and powerheads that make a choppy surface give excellent aeration.",
+      "source": 1
+    },
+    {
+      "section": "other",
+      "fact": "In a test, a powerhead aimed at the surface did better than a venturi powerhead, and a circulation pump did not significantly raise oxygen.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "In a test, a 40-gallon breeder tank with a sponge filter had higher oxygen than a 55-gallon tank because it had more surface area.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Strong aeration drives CO2 down to roughly 2–3 ppm, while plants do best above 10 ppm CO2, so aeration works against planted tanks that use added CO2.",
+      "source": 1
+    },
+    {
+      "section": "other",
+      "fact": "Low-tech tanks with few fish may skip aeration, but moderately stocked tanks need it.",
+      "source": 1
+    },
+    {
+      "section": "other",
+      "fact": "In dry climates, air pumps and airstones can increase evaporation, so choppy surface waves are preferred there.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Letting floating plants cover the whole surface limits gas exchange.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Placing the air pump below the water line without a check valve lets water flow back into it.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "The air pump draws room air into the tank, so aerosols, floor-stripping chemicals and insect sprays can kill fish; scents are not a problem.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Remove fish before a house is tented for fumigation, because the gas gets into tanks even when they are covered with plastic wrap or foil and the pumps are off.",
+      "source": 1
+    },
+    {
+      "section": "vietnam",
+      "fact": "Thủy Sinh 24H, a Vietnamese shop, sells battery backup air pumps (\"Máy dùng pin (dự phòng)\") that switch on automatically when the mains power fails; the shop calls them essential where power cuts are frequent, but they run only for a short time.",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "Aquarium Science calls the rule of '12 square inches of surface per inch of fish' a myth.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "Aquarium Science says a 2-inch fish needs eight times the aeration of a 1-inch fish, not twice as much.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "Aquarium Science says the ratio of surface area to depth is meaningless for judging aeration.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "Aquarium Science says diffusion alone is not enough for moderately or heavily stocked tanks.",
+      "source": 1
+    }
+  ]
+}

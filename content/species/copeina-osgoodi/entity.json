@@ -10,6 +10,74 @@
     "peru",
     "upper-amazon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Amazon"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Peru",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "There are only two accepted species in Copeina, namely C. gutta and C. osgoodi. Both can be distinguished from each other only by internal features of the dentition and the collecting site: C. guttata is known from the central Amazon basin in Brazil, and C. osgoodi from the upper Amazon in Peru (following Géry, 1978).",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355687,
+      "total": 13,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "PE",
+          13
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -63,17 +131,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/copeina_cf_osgoodi_en/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/5ef84cce6eec60fa.webp",
-      "thumb": "https://media.aquatome.com/glaser/5ef84cce6eec60fa-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/copeina_cf_osgoodi_en/",
       "source": "glaser"
     },
@@ -83,7 +141,17 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/copeina_cf_osgoodi_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5ef84cce6eec60fa.webp",
+      "thumb": "https://media.aquatome.com/glaser/5ef84cce6eec60fa-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/copeina_cf_osgoodi_en/",
       "source": "glaser"
     }

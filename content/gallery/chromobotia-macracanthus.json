@@ -6,17 +6,17 @@
       "thumb": "https://media.aquatome.com/inaturalist/319811024-480.webp",
       "width": 1024,
       "height": 768,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/319811024-large.webp",
+        "width": 1600,
+        "height": 1200
+      },
       "licence": "CC BY",
       "author": "Igor Balashov",
       "sourceUrl": "https://www.inaturalist.org/photos/319811024",
       "caption": "Hai cá heo hề trong bể có lũa và sỏi",
       "best": true,
-      "kind": "pair",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/319811024-large.webp",
-        "width": 1600,
-        "height": 1200
-      }
+      "kind": "pair"
     },
     {
       "url": "https://media.aquatome.com/flickr/5110296885.webp",
@@ -31,19 +31,49 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/commons/dba089266baccee6.webp",
+      "thumb": "https://media.aquatome.com/commons/dba089266baccee6-480.webp",
+      "width": 800,
+      "height": 536,
+      "licence": "CC BY-SA 3.0",
+      "author": "Mgroch at pl.wikipedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Botia_macracanthus_by_Mgroch.JPG",
+      "caption": "Cá heo hề trưởng thành bơi trong bể thủy sinh có cây"
+    },
+    {
       "url": "https://media.aquatome.com/commons/8d89111af94c9833.webp",
       "thumb": "https://media.aquatome.com/commons/8d89111af94c9833-480.webp",
       "width": 1200,
       "height": 800,
-      "licence": "CC BY 2.0",
-      "author": "Vlad Butsky from San Jose, CA, USA",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chromobotia_macracanthus.jpg",
-      "caption": "Cá heo hề thân cam sọc đen trong bể đáy sỏi",
       "large": {
         "url": "https://media.aquatome.com/commons/8d89111af94c9833-large.webp",
         "width": 1800,
         "height": 1200
-      }
+      },
+      "licence": "CC BY 2.0",
+      "author": "Vlad Butsky from San Jose, CA, USA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chromobotia_macracanthus.jpg",
+      "caption": "Cá heo hề thân cam sọc đen trong bể đáy sỏi"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/f5844cf1ed91254f.webp",
+      "thumb": "https://media.aquatome.com/commons/f5844cf1ed91254f-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 4.0",
+      "author": "Emőke Dénes",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chromobotia_macracanthus_-_1.jpg",
+      "caption": "Hai cá heo hề trên nền cát sáng trong bể"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/f5dcee60045a985e.webp",
+      "thumb": "https://media.aquatome.com/commons/f5dcee60045a985e-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 4.0",
+      "author": "BACbKA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2015-09-13-223-Tiger-loach.jpg",
+      "caption": "Cá heo hề vây đỏ trong bể thủy sinh nền sỏi"
     },
     {
       "url": "https://media.aquatome.com/commons/401f80ff45d105d5.webp",
@@ -76,61 +106,6 @@
       "caption": "Cá heo hề trưởng thành màu vàng cam bơi trên nền sỏi"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/31271818.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/31271818-480.webp",
-      "width": 1024,
-      "height": 682,
-      "licence": "CC0",
-      "author": "Dennis White",
-      "sourceUrl": "https://www.inaturalist.org/photos/31271818",
-      "caption": "Cá heo hề vây đuôi đỏ rực bơi giữa cây thủy sinh",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/31271818-large.webp",
-        "width": 1802,
-        "height": 1200
-      }
-    },
-    {
-      "url": "https://media.aquatome.com/commons/dba089266baccee6.webp",
-      "thumb": "https://media.aquatome.com/commons/dba089266baccee6-480.webp",
-      "width": 800,
-      "height": 536,
-      "licence": "CC BY-SA 3.0",
-      "author": "Mgroch at pl.wikipedia",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Botia_macracanthus_by_Mgroch.JPG",
-      "caption": "Cá heo hề trưởng thành bơi trong bể thủy sinh có cây"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/8c9505bd47d72742.webp",
-      "thumb": "https://media.aquatome.com/commons/8c9505bd47d72742-480.webp",
-      "width": 1200,
-      "height": 770,
-      "licence": "Public domain",
-      "author": "Benutzer:martin8721",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Botia_macracanthus_by_Martin8721.jpg",
-      "caption": "Nhóm cá heo hề bơi trong bể trồng cây thủy sinh"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/f5844cf1ed91254f.webp",
-      "thumb": "https://media.aquatome.com/commons/f5844cf1ed91254f-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 4.0",
-      "author": "Emőke Dénes",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chromobotia_macracanthus_-_1.jpg",
-      "caption": "Hai cá heo hề trên nền cát sáng trong bể"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/f5dcee60045a985e.webp",
-      "thumb": "https://media.aquatome.com/commons/f5dcee60045a985e-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 4.0",
-      "author": "BACbKA",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2015-09-13-223-Tiger-loach.jpg",
-      "caption": "Cá heo hề vây đỏ trong bể thủy sinh nền sỏi"
-    },
-    {
       "url": "https://media.aquatome.com/commons/72bb35a5e8d61bb3.webp",
       "thumb": "https://media.aquatome.com/commons/72bb35a5e8d61bb3-480.webp",
       "width": 1200,
@@ -139,6 +114,21 @@
       "author": "Gpasques",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chromobotia_macracanthus_Aquarium_Nancy.jpg",
       "caption": "Cá heo hề bơi trên đá trong bể thủy sinh có cây xanh"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/31271818.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/31271818-480.webp",
+      "width": 1024,
+      "height": 682,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/31271818-large.webp",
+        "width": 1802,
+        "height": 1200
+      },
+      "licence": "CC0",
+      "author": "Dennis White",
+      "sourceUrl": "https://www.inaturalist.org/photos/31271818",
+      "caption": "Cá heo hề vây đuôi đỏ rực bơi giữa cây thủy sinh"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/323652454.webp",
@@ -173,21 +163,31 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/commons/8c9505bd47d72742.webp",
+      "thumb": "https://media.aquatome.com/commons/8c9505bd47d72742-480.webp",
+      "width": 1200,
+      "height": 770,
+      "licence": "Public domain",
+      "author": "Benutzer:martin8721",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Botia_macracanthus_by_Martin8721.jpg",
+      "caption": "Nhóm cá heo hề bơi trong bể trồng cây thủy sinh"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/339892448.webp",
       "thumb": "https://media.aquatome.com/inaturalist/339892448-480.webp",
       "width": 768,
       "height": 1024,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/339892448-large.webp",
+        "width": 1200,
+        "height": 1600
+      },
       "licence": "CC BY",
       "author": "Alex Sosnovshchenko",
       "sourceUrl": "https://www.inaturalist.org/photos/339892448",
       "caption": "Cá heo hề bơi trên nền cát trong bể lớn",
       "best": true,
-      "kind": "other",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/339892448-large.webp",
-        "width": 1200,
-        "height": 1600
-      }
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/44ce1b09d25d6c53.webp",
@@ -228,9 +228,22 @@
       "author": "Matthew Inabinett",
       "sourceUrl": "https://www.inaturalist.org/photos/615925277",
       "caption": "Cá heo hề vây đỏ bơi trên nền sỏi vàng"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/365258689.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/365258689-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Ahsan al hidayat",
+      "sourceUrl": "https://www.inaturalist.org/photos/365258689",
+      "caption": "Cá heo hề trưởng thành bơi trong bể kính nhỏ",
+      "best": true,
+      "kind": "other",
+      "setup": true
     }
   ],
-  "seen": 44,
-  "updatedAt": "2026-11-06",
-  "builtAt": "2026-11-06"
+  "seen": 50,
+  "updatedAt": "2026-11-23",
+  "builtAt": "2026-11-23"
 }

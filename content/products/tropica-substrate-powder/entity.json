@@ -1,0 +1,158 @@
+{
+  "id": "tropica-substrate-powder",
+  "brand": "Tropica",
+  "model": "Substrate Powder",
+  "category": "phan-nen",
+  "type": "phan",
+  "specs": [
+    {
+      "key": "Product type",
+      "value": "Complete, active planted-tank soil. It can be used on its own with no separate bottom layer",
+      "source": 0
+    },
+    {
+      "key": "Grain size",
+      "value": "1–2 mm (fine)",
+      "source": 0
+    },
+    {
+      "key": "Grain size (alternative retailer statement)",
+      "value": "1–1.5 mm 'extra fine'; regular Aquarium Soil is 2–3 mm",
+      "source": 1
+    },
+    {
+      "key": "Grain size (UK retailer)",
+      "value": "under 2 mm",
+      "source": 2
+    },
+    {
+      "key": "Material",
+      "value": "Fired from clays",
+      "source": 1
+    },
+    {
+      "key": "Colour",
+      "value": "Dark brown granules",
+      "source": 2
+    },
+    {
+      "key": "Water chemistry",
+      "value": "Lowers pH slightly and has a mild effect on water chemistry",
+      "source": 0
+    },
+    {
+      "key": "Pack sizes",
+      "value": "3 L and 9 L bags",
+      "source": 0
+    },
+    {
+      "key": "Origin",
+      "value": "Tropica, Denmark",
+      "source": 4
+    }
+  ],
+  "variants": [
+    {
+      "name": "Tropica Aquarium Soil Powder 3 L",
+      "specs": [
+        {
+          "key": "Volume",
+          "value": "3 L",
+          "source": 0
+        },
+        {
+          "key": "Grain size",
+          "value": "1–2 mm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "Tropica Aquarium Soil Powder 9 L",
+      "specs": [
+        {
+          "key": "Volume",
+          "value": "9 L",
+          "source": 0
+        },
+        {
+          "key": "Grain size",
+          "value": "1–2 mm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "Tropica Aquarium Soil (regular grain, sister product)",
+      "specs": [
+        {
+          "key": "Grain size",
+          "value": "2–3 mm",
+          "source": 4
+        },
+        {
+          "key": "Volume sold in Vietnam",
+          "value": "9 L",
+          "source": 4
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://tropica.com/en/plant-care/aquarium-soil/aquarium-soil-powder/",
+      "title": "Tropica – Aquarium Soil Powder",
+      "kind": "manufacturer",
+      "at": "2026-11-19"
+    },
+    {
+      "url": "https://fishyhub.com/product-detail/tropica-aquarium-soil-powder-3l-9l-1754",
+      "title": "FishyHub – Tropica Aquarium Soil Powder 3L/9L",
+      "kind": "shop",
+      "at": "2026-11-19"
+    },
+    {
+      "url": "https://www.abyssaquatics.co.uk/product/tropica-aquarium-soil-powder-3l-complete-bottom-layer-grain-2mm/",
+      "title": "Abyss Aquatics – Tropica Aquarium Soil Powder 3L",
+      "kind": "shop",
+      "at": "2026-11-19"
+    },
+    {
+      "url": "https://gensou.sg/?p=41235",
+      "title": "Gensou – Tropica Aquasoil Powder Review: Buffering Behaviour",
+      "kind": "review",
+      "at": "2026-11-19"
+    },
+    {
+      "url": "https://bucepviet.vn/phan-nen-tropica-aquarium-soil-9l",
+      "title": "Bucep Viet – Phân nền thủy sinh Tropica 9L",
+      "kind": "shop",
+      "at": "2026-11-19"
+    },
+    {
+      "url": "https://thuysinhbichphuong.vn/tropica-aquarium-soil-9l-phan-nen-dat-nen-thuy-sinh",
+      "title": "Thủy sinh Bích Phượng – Tropica Aquarium Soil 9L",
+      "kind": "shop",
+      "at": "2026-11-19"
+    },
+    {
+      "url": "https://yeuthuysinh.vn/tropica-aquarium-soil-9l-phan-nen-dat-nen-thuy-sinh",
+      "title": "Yêu Thủy Sinh – Tropica Aquarium Soil 9L",
+      "kind": "shop",
+      "at": "2026-11-19"
+    },
+    {
+      "url": "https://ukaps.org/forum/threads/murky-water-tank.73701",
+      "title": "UKAPS forum – Murky water tank",
+      "kind": "forum",
+      "at": "2026-11-19"
+    },
+    {
+      "url": "https://shop.glassaqua.com/products/tropica-aquarium-soil",
+      "title": "Glass Aqua – Tropica Aquarium Soil",
+      "kind": "shop",
+      "at": "2026-11-19"
+    }
+  ],
+  "updatedAt": "2026-11-19"
+}

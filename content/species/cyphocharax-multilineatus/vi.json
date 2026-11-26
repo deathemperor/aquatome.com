@@ -1,0 +1,28 @@
+{
+  "slug": "ca-mat-na-vang",
+  "name": "Cá mặt nạ vàng",
+  "altNames": [
+    "Golden Mascara Tetra"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Loài này thuộc nhóm họ hàng với Curimata. Mới nhìn qua thì nó rất giống cá đầu chúi (Chilodus punctatus) quen thuộc, nhưng có vệt đen chạy ngang qua mắt nên dễ phân biệt. Thêm nữa, Cyphocharax bơi nằm ngang như cá \"bình thường\".</p><p>Loài này dài tối đa khoảng 10 cm.</p>",
+    "distribution:glaser": "<p>Số cá này có nguồn gốc từ Venezuela.</p>",
+    "diet:glaser": "<p>Cyphocharax ăn Aufwuchs, tức lớp rêu bám và sinh vật nhỏ phủ trên các bề mặt. Cả ngày chúng lục khắp đá, rễ và cây để tìm rêu cùng mấy con vật nhỏ sống trong đó.</p>",
+    "behaviour:glaser": "<p>C. multilineatus sống với nhau rất hiền hòa.</p>",
+    "notes:glaser": "<p>Nguồn gốc tên gọi: Cyphocharax có gốc tiếng Hy Lạp cổ, nghĩa là \"Charax có bướu\". Charax là một giống cá tetra khác. Multilineatus là tiếng Latin, nghĩa là \"có nhiều sọc\". Chilodus là tiếng Hy Lạp cổ, nghĩa là \"có răng trên môi\". Punctatus là tiếng Latin, nghĩa là \"có đốm\".</p><p>Tên thường gọi được đề xuất: Golden Mascara Tetra.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-24"
+  }
+}

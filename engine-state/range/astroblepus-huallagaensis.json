@@ -1,0 +1,58 @@
+{
+  "id": "astroblepus-huallagaensis",
+  "native": {
+    "input": "8f2b711b28d5d7c0",
+    "at": "2026-11-21T07:12:58.512Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Andes of Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Etymology: The specific name huallagaensis: Named for its type locality, Río Huallaga (Perú, elevation 997 m).",
+        "words": "Perú",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Huallaga",
+        "source": "scotcat",
+        "quote": "Etymology: The specific name huallagaensis: Named for its type locality, Río Huallaga (Perú, elevation 997 m).",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Andes",
+        "source": "scotcat",
+        "quote": "South America: Andes of Peru.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astroblepus huallagaensis",
+    "status": "ACCEPTED",
+    "taxonKey": 11163935,
+    "datasets": [],
+    "native": [
+      "PE"
+    ],
+    "requests": 2,
+    "at": "2026-11-21T07:12:58.512Z"
+  }
+}

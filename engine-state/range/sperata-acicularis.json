@@ -1,0 +1,74 @@
+{
+  "id": "sperata-acicularis",
+  "native": {
+    "input": "ebc12695f1d20a5c",
+    "at": "2026-11-19T07:58:14.453Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "S. acicularis is the only species of the genus reported so far for Burma (Myanmar).",
+        "words": "Burma",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Myanmar; Irrawaddy, Bago and Tenasserim River systems.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Irrawaddy",
+        "source": "scotcat",
+        "quote": "Asia: Myanmar; Irrawaddy, Bago and Tenasserim River systems.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Bago",
+        "source": "scotcat",
+        "quote": "Asia: Myanmar; Irrawaddy, Bago and Tenasserim River systems.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Tenasserim",
+        "source": "scotcat",
+        "quote": "Asia: Myanmar; Irrawaddy, Bago and Tenasserim River systems.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sperata acicularis",
+    "status": "ACCEPTED",
+    "taxonKey": 2338060,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-19T00:50:56.943Z"
+  }
+}

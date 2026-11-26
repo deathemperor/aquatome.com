@@ -92,6 +92,10 @@
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "glaser",
+        "value": 7
       }
     ],
     "difficulty": [
@@ -132,6 +136,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-foerschi",
       "html": "<p>Betta foerschi is a paternal mouthbrooding labyrinth fish from a handful of localities in Central and West Kalimantan, Indonesian Borneo. It lends its name to the B. foerschi group, whose members have iridescent blue or green unpaired fins and two reddish-yellow bars on the opercle. Fish traded as B. foerschi are often the closely-related B. mandor, and the two can be difficult to tell apart.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-foerschi-bred/",
+      "html": "<p>The fighting fish of the Betta foerschi relationship – there are several very similar species, which are considered by some specialists to be only local varieties of the same species, namely Betta foerschi – are not only particularly beautiful, but also particularly interesting.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -212,6 +222,12 @@
       "html": "<p>Paternal mouthbrooder. Ideally organise a separate aquarium for breeding purposes, unless the fish are already being maintained alone.</p><p>The aquarium should have the tightest-fitting cover possible (some breeders use clingfilm/plastic wrap) because the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>Following a protracted courtship, eggs and milt are released during an 'embrace' typical of osphronemids, with the male wrapped around the female. Several 'dummy' embraces may be required before spawning commences.</p><p>However, in contrast to the majority of mouthbrooding Betta spp., the eggs are not caught in the anal-fin of the male but that of the female as is usual in bubble-nesting congeners. The male then collects the eggs directly in his mouth and the cycle is repeated until the female has released all her eggs.</p><p>A brooding male may swallow or release the eggs prematurely if stressed or inexperienced, so it is preferable to leave the female and any other fishes in situ. The incubation period is 8-14 days, after which the male will begin to release free-swimming fry. Unusually, the male may accept food during this period. The adults tend not to eat fry, and some breeders have reported them to develop at a faster rate when left with the parents.</p><p>The fry are large enough to accept motile foods such as microworm and Artemia nauplii immediately, though it should be noted that there exist reports of young Betta developing health issues if fed excessive amounts of the latter. Water changes should be small and regular rather than large and intermittent.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-foerschi-bred/",
+      "html": "<p>They are mouth breeders, but they are, so to speak, at an intermediate stage of development between bubble nest building Betta species and specialized mouth breeders. The spawning process is similar to that of the bubblenest builders, the mouth-brood-time is considerably shorter with 7-8 days than that of the specialized mouth-breeders, who brood about 10 days.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-foerschi",
@@ -231,7 +247,7 @@
       "width": 707,
       "height": 466,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Gustav Eek / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-foerschi",
       "caption": "Male from the aquarium trade; population unspecified.",
       "source": "seriouslyfish"
@@ -242,13 +258,68 @@
       "width": 698,
       "height": 488,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Gustav Eek / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-foerschi",
       "caption": "Adult male. This species is less-elongated and has a relatively shorter caudal-fin compared with the closely-related B. mandor.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/404894cbc7892d24.webp",
+      "thumb": "https://media.aquatome.com/glaser/404894cbc7892d24-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-foerschi-bred/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/4f529bab47e45040.webp",
+      "thumb": "https://media.aquatome.com/glaser/4f529bab47e45040-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-foerschi-bred/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1515ce0dfe38abd2.webp",
+      "thumb": "https://media.aquatome.com/glaser/1515ce0dfe38abd2-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-foerschi-bred/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "78Yfr24dBxw",
+      "title": "Betta Foerschi Group (Wild Betta Species) | WILD BETTA",
+      "durationSec": 163,
+      "lang": "ms"
+    },
+    {
+      "youtubeId": "OsnAOCRzU90",
+      "title": "Betta Foerschi Holding in the grow out tank",
+      "durationSec": 486,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "rHYdlezSgDE",
+      "title": "Betta Foerschi breeding behavior",
+      "durationSec": 63,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "NX0uFkC8yIA",
+      "title": "Wild type Wednesday: Betta Foerschi",
+      "durationSec": 81,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -272,5 +343,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-19"
 }

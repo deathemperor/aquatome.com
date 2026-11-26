@@ -21,6 +21,7 @@ async function root() {
   await writeFile(join(r, 'content/gallery/astronotus-ocellatus.json'), JSON.stringify({ id: 'astronotus-ocellatus', photos: [photo(C500), photo(INAT)] }, null, 2) + '\n')
   await writeFile(join(r, 'content/equipment/co2.json'), JSON.stringify({ category: 'co2', types: [{ id: 'mini', photo: photo(CO2) }] }, null, 1) + '\n')
   await writeFile(join(r, 'engine-state/_photo-faces.json'), JSON.stringify({ [C1280]: 0 }))
+  await writeFile(join(r, 'engine-state/_photo-dead-owed.json'), JSON.stringify({ [C1280]: '2026-11-21' }))
   return r
 }
 
@@ -74,6 +75,8 @@ test('hot-linked photos move to our bucket once each; credit, licence, source li
   const faces = JSON.parse(await readFile(join(r, 'engine-state/_photo-faces.json'), 'utf8'))
   expect(faces[sp.photos[0].url]).toBe(0)
   expect(faces[C1280]).toBe(0)
+  // A photo the dead-fish screen still owes a look keeps waiting at its new address (faces.ts screenNewPhotos).
+  expect(JSON.parse(await readFile(join(r, 'engine-state/_photo-dead-owed.json'), 'utf8'))).toEqual({ [C1280]: '2026-11-21', [sp.photos[0].url]: '2026-11-21' })
 
   // A second run has nothing to do.
   const again = deps()
@@ -99,4 +102,29 @@ test("a guide's Commons photo moves too, keeping the section it illustrates", as
   await mirrorPhotos(r, deps().d)
   const g = JSON.parse(await read(r, 'guides/aquatome-a/entity.json'))
   expect(g.photos[0]).toMatchObject({ url: `https://media.aquatome.com/${mirrorPlan(G)!.key}`, section: { vi: 'Màu' } })
+})
+
+test('a photo off at its first verdict, waiting for its second look, is not copied: its waiting entry and its record keep one address', async () => {
+  const r = await root()
+  const why = 'dead: withheld [sha256:' + 'a'.repeat(64) + ']'
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [INAT]: { why, step: 'face detection', pages: ['species/astronotus-ocellatus'], at: '2026-11-20', off: true } }))
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [INAT]: 'waiting: withheld [sha256:' + 'a'.repeat(64) + ']' }))
+  const { d, put } = deps()
+  await mirrorPhotos(r, d)
+  expect(put).not.toContain('inaturalist/617421644.webp')
+  expect(await read(r, 'gallery/astronotus-ocellatus.json')).toContain(INAT)
+  expect(Object.keys(JSON.parse(await readFile(join(r, 'engine-state/_photo-rejected.json'), 'utf8')))).toEqual([INAT])
+  // The others still move.
+  expect(put).toContain(mirrorPlan(C1280)!.key)
+})
+
+test("a second look's clear follows its photo to our bucket, so the verdict copied with it doesn't take it off there", async () => {
+  const r = await root()
+  const rec = { why: 'dead: withheld [sha256:' + 'c'.repeat(64) + ']', step: 'the photo check', pages: ['species/astronotus-ocellatus'], at: '2026-11-20', off: true, look: { said: 'clear', by: 'the chief of staff', on: '2026-11-20' } }
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [INAT]: rec }))
+  const { d, put } = deps()
+  await mirrorPhotos(r, d)
+  expect(put).toContain('inaturalist/617421644.webp')
+  const sl = JSON.parse(await readFile(join(r, 'engine-state/_photo-second-look.json'), 'utf8'))
+  expect(sl['https://media.aquatome.com/inaturalist/617421644.webp']).toEqual(rec)
 })

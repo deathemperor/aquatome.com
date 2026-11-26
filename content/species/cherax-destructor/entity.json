@@ -1,0 +1,1136 @@
+{
+  "id": "cherax-destructor",
+  "scientificName": "Cherax destructor",
+  "order": "Decapoda",
+  "family": "Parastacidae",
+  "genus": "Cherax",
+  "group": "other",
+  "places": [
+    "oceania",
+    "australia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "AU"
+      ],
+      "regions": [],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Southern Australia.",
+          "countries": [
+            "AU"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 4417558,
+      "total": 10789,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "AU",
+          10786
+        ],
+        [
+          "CH",
+          2
+        ],
+        [
+          "IE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -9.84375,
+          52.03125,
+          1,
+          0
+        ],
+        [
+          7.03125,
+          46.40625,
+          2,
+          0
+        ],
+        [
+          113.90625,
+          -35.15625,
+          5,
+          5
+        ],
+        [
+          113.90625,
+          -29.53125,
+          79,
+          79
+        ],
+        [
+          115.3125,
+          -35.15625,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          -33.75,
+          5,
+          5
+        ],
+        [
+          115.3125,
+          -32.34375,
+          31,
+          31
+        ],
+        [
+          115.3125,
+          -30.9375,
+          3,
+          3
+        ],
+        [
+          115.3125,
+          -29.53125,
+          4,
+          4
+        ],
+        [
+          115.3125,
+          -28.125,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          -35.15625,
+          6,
+          6
+        ],
+        [
+          116.71875,
+          -33.75,
+          5,
+          5
+        ],
+        [
+          116.71875,
+          -32.34375,
+          9,
+          9
+        ],
+        [
+          116.71875,
+          -28.125,
+          1,
+          1
+        ],
+        [
+          118.125,
+          -35.15625,
+          8,
+          8
+        ],
+        [
+          118.125,
+          -33.75,
+          9,
+          9
+        ],
+        [
+          118.125,
+          -32.34375,
+          2,
+          2
+        ],
+        [
+          119.53125,
+          -35.15625,
+          1,
+          1
+        ],
+        [
+          119.53125,
+          -33.75,
+          3,
+          3
+        ],
+        [
+          119.53125,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          119.53125,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          120.9375,
+          -35.15625,
+          2,
+          2
+        ],
+        [
+          120.9375,
+          -32.34375,
+          2,
+          2
+        ],
+        [
+          122.34375,
+          -35.15625,
+          2,
+          2
+        ],
+        [
+          130.78125,
+          -25.3125,
+          4,
+          4
+        ],
+        [
+          132.1875,
+          -25.3125,
+          5,
+          5
+        ],
+        [
+          132.1875,
+          -23.90625,
+          4,
+          4
+        ],
+        [
+          133.59375,
+          -26.71875,
+          12,
+          12
+        ],
+        [
+          133.59375,
+          -23.90625,
+          4,
+          4
+        ],
+        [
+          135,
+          -35.15625,
+          18,
+          18
+        ],
+        [
+          135,
+          -33.75,
+          1,
+          1
+        ],
+        [
+          135,
+          -28.125,
+          27,
+          27
+        ],
+        [
+          135,
+          -26.71875,
+          5,
+          5
+        ],
+        [
+          136.40625,
+          -36.5625,
+          57,
+          57
+        ],
+        [
+          136.40625,
+          -33.75,
+          2,
+          2
+        ],
+        [
+          136.40625,
+          -29.53125,
+          1,
+          1
+        ],
+        [
+          137.8125,
+          -36.5625,
+          87,
+          87
+        ],
+        [
+          137.8125,
+          -35.15625,
+          57,
+          57
+        ],
+        [
+          137.8125,
+          -33.75,
+          13,
+          13
+        ],
+        [
+          137.8125,
+          -32.34375,
+          18,
+          18
+        ],
+        [
+          137.8125,
+          -30.9375,
+          3,
+          3
+        ],
+        [
+          137.8125,
+          -29.53125,
+          3,
+          3
+        ],
+        [
+          137.8125,
+          -28.125,
+          10,
+          10
+        ],
+        [
+          137.8125,
+          -25.3125,
+          2,
+          2
+        ],
+        [
+          137.8125,
+          -22.5,
+          3,
+          3
+        ],
+        [
+          139.21875,
+          -37.96875,
+          17,
+          17
+        ],
+        [
+          139.21875,
+          -36.5625,
+          22,
+          22
+        ],
+        [
+          139.21875,
+          -35.15625,
+          368,
+          368
+        ],
+        [
+          139.21875,
+          -30.9375,
+          2,
+          2
+        ],
+        [
+          139.21875,
+          -28.125,
+          12,
+          12
+        ],
+        [
+          139.21875,
+          -26.71875,
+          9,
+          9
+        ],
+        [
+          139.21875,
+          -25.3125,
+          13,
+          13
+        ],
+        [
+          139.21875,
+          -23.90625,
+          3,
+          3
+        ],
+        [
+          139.21875,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          140.625,
+          -39.375,
+          17,
+          17
+        ],
+        [
+          140.625,
+          -37.96875,
+          743,
+          743
+        ],
+        [
+          140.625,
+          -36.5625,
+          33,
+          33
+        ],
+        [
+          140.625,
+          -35.15625,
+          286,
+          286
+        ],
+        [
+          140.625,
+          -33.75,
+          2,
+          2
+        ],
+        [
+          140.625,
+          -32.34375,
+          11,
+          11
+        ],
+        [
+          140.625,
+          -28.125,
+          36,
+          36
+        ],
+        [
+          140.625,
+          -26.71875,
+          4,
+          4
+        ],
+        [
+          140.625,
+          -25.3125,
+          2,
+          2
+        ],
+        [
+          140.625,
+          -22.5,
+          2,
+          2
+        ],
+        [
+          142.03125,
+          -39.375,
+          22,
+          22
+        ],
+        [
+          142.03125,
+          -37.96875,
+          735,
+          735
+        ],
+        [
+          142.03125,
+          -36.5625,
+          137,
+          137
+        ],
+        [
+          142.03125,
+          -35.15625,
+          442,
+          442
+        ],
+        [
+          142.03125,
+          -33.75,
+          37,
+          37
+        ],
+        [
+          142.03125,
+          -32.34375,
+          2,
+          2
+        ],
+        [
+          142.03125,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          142.03125,
+          -29.53125,
+          1,
+          1
+        ],
+        [
+          142.03125,
+          -28.125,
+          4,
+          4
+        ],
+        [
+          142.03125,
+          -26.71875,
+          13,
+          13
+        ],
+        [
+          142.03125,
+          -25.3125,
+          5,
+          5
+        ],
+        [
+          143.4375,
+          -42.1875,
+          1,
+          1
+        ],
+        [
+          143.4375,
+          -40.78125,
+          3,
+          3
+        ],
+        [
+          143.4375,
+          -39.375,
+          55,
+          55
+        ],
+        [
+          143.4375,
+          -37.96875,
+          1321,
+          1321
+        ],
+        [
+          143.4375,
+          -36.5625,
+          340,
+          340
+        ],
+        [
+          143.4375,
+          -35.15625,
+          104,
+          104
+        ],
+        [
+          143.4375,
+          -30.9375,
+          6,
+          6
+        ],
+        [
+          143.4375,
+          -29.53125,
+          4,
+          4
+        ],
+        [
+          143.4375,
+          -28.125,
+          12,
+          12
+        ],
+        [
+          143.4375,
+          -26.71875,
+          22,
+          22
+        ],
+        [
+          143.4375,
+          -23.90625,
+          6,
+          6
+        ],
+        [
+          144.84375,
+          -42.1875,
+          1,
+          1
+        ],
+        [
+          144.84375,
+          -39.375,
+          75,
+          75
+        ],
+        [
+          144.84375,
+          -37.96875,
+          3308,
+          3308
+        ],
+        [
+          144.84375,
+          -36.5625,
+          340,
+          340
+        ],
+        [
+          144.84375,
+          -35.15625,
+          8,
+          8
+        ],
+        [
+          144.84375,
+          -33.75,
+          2,
+          2
+        ],
+        [
+          144.84375,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          144.84375,
+          -30.9375,
+          6,
+          6
+        ],
+        [
+          144.84375,
+          -29.53125,
+          12,
+          12
+        ],
+        [
+          144.84375,
+          -28.125,
+          15,
+          15
+        ],
+        [
+          144.84375,
+          -26.71875,
+          15,
+          15
+        ],
+        [
+          144.84375,
+          -25.3125,
+          11,
+          11
+        ],
+        [
+          144.84375,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          144.84375,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          146.25,
+          -43.59375,
+          2,
+          2
+        ],
+        [
+          146.25,
+          -42.1875,
+          3,
+          3
+        ],
+        [
+          146.25,
+          -39.375,
+          24,
+          24
+        ],
+        [
+          146.25,
+          -37.96875,
+          212,
+          212
+        ],
+        [
+          146.25,
+          -36.5625,
+          532,
+          532
+        ],
+        [
+          146.25,
+          -35.15625,
+          16,
+          16
+        ],
+        [
+          146.25,
+          -33.75,
+          10,
+          10
+        ],
+        [
+          146.25,
+          -32.34375,
+          2,
+          2
+        ],
+        [
+          146.25,
+          -30.9375,
+          9,
+          9
+        ],
+        [
+          146.25,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          146.25,
+          -25.3125,
+          11,
+          11
+        ],
+        [
+          146.25,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          147.65625,
+          -37.96875,
+          49,
+          49
+        ],
+        [
+          147.65625,
+          -36.5625,
+          54,
+          54
+        ],
+        [
+          147.65625,
+          -35.15625,
+          14,
+          14
+        ],
+        [
+          147.65625,
+          -33.75,
+          39,
+          39
+        ],
+        [
+          147.65625,
+          -32.34375,
+          21,
+          21
+        ],
+        [
+          147.65625,
+          -30.9375,
+          9,
+          9
+        ],
+        [
+          147.65625,
+          -29.53125,
+          7,
+          7
+        ],
+        [
+          147.65625,
+          -28.125,
+          14,
+          14
+        ],
+        [
+          147.65625,
+          -26.71875,
+          4,
+          4
+        ],
+        [
+          147.65625,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          147.65625,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          149.0625,
+          -37.96875,
+          2,
+          2
+        ],
+        [
+          149.0625,
+          -36.5625,
+          109,
+          109
+        ],
+        [
+          149.0625,
+          -35.15625,
+          98,
+          98
+        ],
+        [
+          149.0625,
+          -33.75,
+          60,
+          60
+        ],
+        [
+          149.0625,
+          -32.34375,
+          9,
+          9
+        ],
+        [
+          149.0625,
+          -30.9375,
+          4,
+          4
+        ],
+        [
+          149.0625,
+          -29.53125,
+          16,
+          16
+        ],
+        [
+          149.0625,
+          -28.125,
+          4,
+          4
+        ],
+        [
+          149.0625,
+          -26.71875,
+          21,
+          21
+        ],
+        [
+          149.0625,
+          -25.3125,
+          2,
+          2
+        ],
+        [
+          150.46875,
+          -35.15625,
+          35,
+          35
+        ],
+        [
+          150.46875,
+          -33.75,
+          16,
+          16
+        ],
+        [
+          150.46875,
+          -32.34375,
+          23,
+          23
+        ],
+        [
+          150.46875,
+          -30.9375,
+          41,
+          41
+        ],
+        [
+          150.46875,
+          -29.53125,
+          22,
+          22
+        ],
+        [
+          150.46875,
+          -28.125,
+          42,
+          42
+        ],
+        [
+          150.46875,
+          -26.71875,
+          6,
+          6
+        ],
+        [
+          150.46875,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          151.875,
+          -33.75,
+          5,
+          5
+        ],
+        [
+          151.875,
+          -32.34375,
+          2,
+          2
+        ],
+        [
+          151.875,
+          -30.9375,
+          6,
+          6
+        ],
+        [
+          151.875,
+          -29.53125,
+          27,
+          27
+        ],
+        [
+          151.875,
+          -28.125,
+          26,
+          26
+        ],
+        [
+          153.28125,
+          -29.53125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 25,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7.5,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 20
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 3,
+          "max": 6
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherax-destructor-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Common names: Yabby, Blue Claw, Blue Pearl</li><li>Minimum tank: 30 gallons</li><li>Keeping: easy; breeding: easy</li><li>KH: 4–6 (tolerates 2–18)</li><li>TDS: 150–300 (tolerates 100–1000)</li><li>Nitrate: less than 20 ppm</li><li>Diet: omnivore</li><li>Temperament: very aggressive</li><li>Life span: 3–6 years, with reports of up to 8 years</li><li>Colour forms: green-beige, black, blue, dirty white, light pink, orange and light brown</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherax-destructor-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Cherax destructor is considered an invasive species. In 2016 the U.S. Fish and Wildlife Service listed it as an injurious wildlife species under the Lacey Act. It is unlawful to possess, import or sell it in some US states, for example Illinois, Pennsylvania, Ohio and Michigan, and the Florida Fish and Wildlife Conservation Commission lists it as a prohibited species. Check your local laws before buying. Never release it into the wild.</p><p>It is not plant safe. It eats, cuts, shreds and uproots plants, so it cannot be kept in planted aquariums. Only floating plants are relatively safe.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherax-destructor-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Southern Australia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherax-destructor-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>This crustacean is commonly found on muddy or silted bottoms of streams, swamps, reservoirs and rivers. It is rarely found in clear water and seems to prefer moderately turbid water.</p><p>It can also survive for long periods where a body of water has dried up, lying dormant in burrows in the mud.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherax-destructor-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The minimum tank size for an adult is a 30 or 40-gallon tank (120–150 litres), and the length of the tank matters. A bigger tank is needed when housing more than one yabby, though housing several males together is not recommended. They need plenty of space with hiding places away from other crayfish.</p><p>Yabbies are good escape artists and will climb air hoses and silicone sealant, so the tank needs a fitted lid.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherax-destructor-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Cherax destructor is usually straightforward and easy to care for. It should not be put in an uncycled tank: although it is hardy and may survive cycling, there is no need to take chances. Use a water conditioner at every water change. As with all invertebrates, acclimate it before release.</p><p><strong>Molting.</strong> It must shed its exoskeleton to grow, so a moult should not be mistaken for a dead yabby. Do not discard the exoskeleton, as the crayfish may eat it to recycle calcium and other minerals. Moulting frequency depends on age and temperature: babies can moult every 5–7 days, juveniles every 3–4 weeks, and adults only 1 or 2 times a year. Metabolic activity drops before a moult, so a crayfish that stops eating as usual may be about to moult. After shedding, it needs a place to hide until the new shell hardens, as it is exhausted, stressed and vulnerable. Calcium demand is particularly high after a moult.</p><p><strong>Lost limbs.</strong> Like most crayfish, yabbies can regenerate lost limbs and claws, which are often lost in fights. They start to grow back at the next moult, but full regeneration may take several moults and slows as the animal ages.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherax-destructor-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>This is one of the hardiest crayfish. It tolerates poor water conditions and long droughts by burrowing deep into river beds or dam walls to stay moist. It also tolerates high salinity: growth stops at 8 ppt (about 25% seawater) and deaths begin at 16 ppt.</p><p>It prefers alkaline, chlorine-free water with a pH of 7.5–8.5, and tolerates pH 7.0–9.0. A pH below 7.0 increases the toxicity of dissolved metals and softens the exoskeleton, while a pH above 9.0 greatly increases the toxicity of ammonia.</p><p><strong>Temperature.</strong> The optimum range for growth is 25–28°C. It can live in temperatures from 1 to 35°C, but below 15°C it falls into partial hibernation and its metabolism and feeding nearly stop. Growth stops at 34°C and deaths begin at 36°C.</p><ul><li>GH: 6–12 (3–22 tolerated)</li><li>KH: 4–6 (2–18 tolerated)</li><li>TDS: 150–300 (100–1000 tolerated)</li><li>Nitrate: less than 20 ppm</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherax-destructor-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p><strong>Substrate.</strong> They do not burrow much unless water quality is poor, but they dig out under rocks and enlarge holes. A 5–10 cm layer of sand, soil or fine gravel allows burrowing.</p><p><strong>Filtration.</strong> Sponge filters are a bad idea, because the crayfish chip and chew on them and eventually shred them. Hang-on-back and canister filters are the options.</p><p><strong>Hiding places.</strong> Provide plenty of shelter such as hollow structures, rocks, driftwood or plants; otherwise they burrow and dig even more.</p><p><strong>Aeration.</strong> Continuous aeration is required to maintain the oxygen level in the water.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherax-destructor-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Cherax destructor is an opportunistic omnivore. Plant material and detritus often dominate the gut contents, but it eats anything it comes across: plants, algae, animal detritus, macrophytes, and dead and live animals such as snails, fish, frogs, insects, tadpoles and fingerlings. In the wild it can switch food preferences, moving to a mainly herbaceous or detrital diet when high-protein food becomes scarce.</p><p>In the aquarium it scavenges any food that rests on the bottom. Foods that can be offered:</p><ul><li>Vegetables such as boiled lettuce, cabbage, zucchini and carrots</li><li>Crustacean pellets, for example Hikari Shrimp Cuisine, Hikari Micro Wafers and Hikari Tropical Crab Cuisine</li><li>Fish or shrimp algae pellets, flakes and similar foods</li><li>Quality sinking pellets and meaty food such as fish fillets</li><li>Indian almond leaves, which help the moulting process</li><li>Plants</li></ul><p>The diet should be rich in nutrients, especially calcium: a lack of calcium in the water results in soft-shelled yabbies.</p><p>Do not overfeed. They have a small stomach and stop eating when full. Feeding is not needed every day; two small pieces of food every two to three days is enough. Remove leftovers after two hours. Young crayfish need a lot of protein to grow, and maximum growth is reached on a 35% protein diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherax-destructor-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>They are extremely efficient diggers; the name \"Destructor\" comes from the damage they cause to dam walls and levee banks by burrowing. It buries itself 0.5–2 m deep in mud or holes and can survive several months in burrows.</p><p>It is nocturnal. Feeding is mostly controlled by the amount of light filtering through the water, and activity peaks shortly before dawn and just after dusk. It is very aggressive and territorial toward its own species.</p><p><strong>Tankmates.</strong> While small, it can coexist with other aquatic animals, but over time it starts to hunt most tankmates, including fish, crustaceans and snails.</p><ul><li>Fish: yabbies are bottom dwellers and eat anything they catch, so small fish, especially bottom-dwellers, are easy prey at night. Keeping only one species in the tank is advisable.</li><li>Snails: it eats snails such as Nerite, Rabbit and Mystery snails.</li><li>Shrimp: only cheap species like Cherry shrimp can be kept if losses are acceptable. Dwarf shrimp, especially Bamboo and Vampire shrimp, which stay motionless when feeding, are easy targets.</li><li>Crayfish: it is cannibalistic, particularly when overcrowded or short of food, and recently moulted animals are most at risk. Males in particular fight and kill each other. Keep multiple animals only as one male with one female.</li><li>Frogs and tortoises: do not keep with frogs such as African dwarf frogs, which it hunts and eats, or with tortoises; yabbies showed strongly aggressive and predatory behaviour toward tortoise hatchlings in a laboratory study.</li></ul>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherax-destructor-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The sex can be determined externally:</p><ul><li>The larger yabbies are males. Their claws grow faster than the rest of the body, reaching 100 g in large males, almost a third of total weight.</li><li>According to a government report, males grow 68% faster than females. Females grow at the same rate as males until sexual maturity at about 20 g, after which their growth slows markedly.</li><li>Males have short reproductive papillae at the base of the last (fifth) pair of walking legs, while females have openings at the base of the third-last pair of legs.</li></ul>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherax-destructor-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Breeding is fairly easy and usually happens through simple cohabitation. Females become sexually mature at about 1 year old and approximately 6–10 cm in total length. The male flips the female over and deposits a sperm packet near her reproductive organs; the eggs then pass through it and are fertilised.</p><p>The female carries the fertilised eggs under her tail until they hatch 8–10 weeks later, keeping them clean and oxygenated with her pleopods. The eggs are about 2 mm long, oval and usually olive green. The average clutch is 350–450 eggs, and a large female can produce more than 1000. Incubation takes 19–40 days depending on temperature: at 20°C the eggs hatch within 40 days, and the time decreases as temperature rises until 30°C; temperatures above 30°C adversely affect hatching.</p><p>The young stay attached to the female's pleopods after hatching, and she carries them and releases them when they reach stage 3 juveniles. Newly hatched young may moult every 4–5 days. When the young leave, the female can mate again, as her ovaries are kept almost constantly ready.</p><p>Once the babies leave their mother, move them to a separate tank with many hiding places to avoid aggression from her. Alternatively, the berried female can be separated and returned later. Young need a lot of protein and quickly turn to cannibalism if food is lacking.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherax-destructor-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The name \"Yabby\" seems to derive from \"yabij\" in an Aboriginal language, used to describe the native crayfish of central Australia. The genus name Cherax is thought to be a misspelling of the Greek \"charax\", meaning a pointed stake.</p><p>Its colour is highly variable (green-beige, black, blue, dirty white, light pink, orange, and the more common light brown) and depends on water conditions, season, diet, environment and genes. The type bred for the aquarium trade is often bright blue. Yabbies reach 10–20 cm and can grow from juvenile to over 15 cm in as little as 12 months; fully grown, they weigh up to 350 g. Life span is 3–6 years, longer than most other crayfish, with reports of up to 8 years. Their sight is poor; touch and taste, perceived through the antennae and antennules, are far more important.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/3eb3ed8f5e4c6659.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/3eb3ed8f5e4c6659-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherax-destructor-crayfish-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "crfStYOowNM",
+      "title": "Cherax destructor Yabby AMAZING which attacks and eats an Earthworm",
+      "durationSec": 65,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "VZsSKp8ojmY",
+      "title": "Cherax Destructor #aquarium #reeflife #aquaticlife #fish",
+      "durationSec": 14,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "L0vPLKMFO38",
+      "title": "Singa Crayfish Deep Blue Cherax Destructor",
+      "durationSec": 21,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "x0czHHnXE5A",
+      "title": "Cherax destructor",
+      "durationSec": 47,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể kính 120 lít",
+        "bể nuôi tôm hùm đất có nắp"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng",
+        "lọc treo thành bể",
+        "sủi khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho tôm cua",
+        "thức ăn tôm hùm đất"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "sỏi mịn rải nền"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-20"
+}

@@ -48,7 +48,7 @@ const latin = '<a class="sci" href="?q=Paracheirodon+innesi">Paracheirodon innes
       // A page's other names and scientific name (aka, on species, breed and plant pages) count as much as its title.
       // Its description is only shown, never ranked: every species description ends in the same sentence
       // ("Cách nuôi, thức ăn…"), which would lift every species for "thức ăn".
-      await pf.options({ excerptLength: 24, ranking: { metaWeights: { title: 5, aka: 5, description: 0 } } })
+      await pf.options({ excerptLength: 24, ranking: { metaWeights: { title: 5, aka: 5, description: 0, full_description: 0 } } })
       return pf
     })())
 
@@ -83,7 +83,7 @@ const latin = '<a class="sci" href="?q=Paracheirodon+innesi">Paracheirodon innes
      */
     const matched = (d: Doc) => {
       const at = d.content.includes('\u200B') ? d.content.split('\u200B') : d.content.split(/[\r\n\s]+/g)
-      return d.locations.flatMap(i => { const w = words(at[i] ?? ''); return [w.join(''), ...w] }).concat(metaWords(d), words(d.meta.description ?? ''))
+      return d.locations.flatMap(i => { const w = words(at[i] ?? ''); return [w.join(''), ...w] }).concat(metaWords(d), words(d.meta.full_description ?? d.meta.description ?? ''))
     }
 
     function item(d: Doc, terms: string[]): HTMLLIElement {

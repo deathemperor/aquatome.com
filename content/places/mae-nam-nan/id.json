@@ -1,8 +1,13 @@
 {
   "slug": "mae-nam-nan",
-  "name": "Nan",
+  "name": "Sungai Nan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-19T12:50:52.566Z"
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

@@ -213,8 +213,62 @@
       }
     ]
   },
-  "sections": [],
-  "photos": [],
+  "sections": [
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/21-seahorses-and-pipefish/microphis-aculeatus-2/",
+      "html": "<p>The male can be easily recognized by the totally different shape of the body. Moreover the up to 15 cm long males (females stay a bit smaller) have a pretty red stripe along the back and a nice pattern on the snout.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/21-seahorses-and-pipefish/microphis-aculeatus-2/",
+      "html": "<p>As in all pipefish the male has to care for the eggs until they hatch. The eggs are deposited in a pouch along the belly.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/35993925ec21455e.webp",
+      "thumb": "https://media.aquatome.com/glaser/35993925ec21455e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/21-seahorses-and-pipefish/microphis-aculeatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c02d817e76593c55.webp",
+      "thumb": "https://media.aquatome.com/glaser/c02d817e76593c55-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/21-seahorses-and-pipefish/microphis-aculeatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ae9a9b481cf84cee.webp",
+      "thumb": "https://media.aquatome.com/glaser/ae9a9b481cf84cee-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/21-seahorses-and-pipefish/microphis-aculeatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/913be9bc792c376a.webp",
+      "thumb": "https://media.aquatome.com/glaser/913be9bc792c376a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/21-seahorses-and-pipefish/microphis-aculeatus-2/",
+      "source": "glaser"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "HCp0ZWBZI9U",
@@ -241,6 +295,28 @@
       "lang": "en"
     }
   ],
-  "productSlots": [],
-  "updatedAt": "2026-11-09"
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá thủy sinh 60cm",
+        "bể cá nước ngọt"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "máy lọc bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn sống cho cá",
+        "artemia đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-18"
 }

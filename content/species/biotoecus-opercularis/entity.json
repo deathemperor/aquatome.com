@@ -9,7 +9,8 @@
     "south-america",
     "brazil",
     "amazon",
-    "nam-my"
+    "nam-my",
+    "tapajos"
   ],
   "range": {
     "native": {
@@ -17,11 +18,12 @@
         "BR"
       ],
       "regions": [
+        "Amazon",
         "Madeira",
         "Tapajós",
-        "Trombetas",
         "Negro",
-        "Amazon"
+        "Trombetas",
+        "Rio Tapajos"
       ],
       "sources": [
         "seriouslyfish",
@@ -45,8 +47,16 @@
           "regions": [
             "Madeira",
             "Tapajós",
-            "Trombetas",
-            "Negro"
+            "Negro",
+            "Trombetas"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Aquarium Glaser has regularly imported this dwarf cichlid from the Rio Tapajos in Brazil for quite a while.",
+          "countries": [],
+          "regions": [
+            "Rio Tapajos"
           ]
         }
       ]
@@ -224,7 +234,7 @@
       },
       {
         "source": "glaser",
-        "value": 4
+        "value": 5
       }
     ],
     "tankCm": [
@@ -248,22 +258,16 @@
       "html": "<p>Biotoecus opercularis is a small geophagine cichlid from the middle Amazon basin in Brazil, including the lower Madeira, Tapajós and Negro. It favours shallow, slow-flowing water over sand with leaf litter and submerged wood, often stained with tannins. Several populations are traded, among them B. sp. 'rio Negro' from the rio Jauaperi and B. sp. 'Santarém' or 'Tapajós', though no scientific evidence shows them to be more than one species. It should not be mixed with other Biotoecus species or populations.</p>"
     },
     {
-      "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus-opercularis-3/",
-      "html": "<p>Biotoecus opercularis is probably the most interesting species of dwarf cichlid from Amazonia. Available size: 3–4 cm. Origin: Brazil.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus-opercularis-3/",
-      "html": "<p>The species is probably not in high demand because of its coloration. As typical sand cichlids they do not have pop-art colours, but shining pastel shades. The same phenomenon can be found in the sand-dwelling cichlids of Lake Tanganyika. Nevertheless, well-adapted animals are really beautiful. Recently imported specimens (they came via Manaus) have brilliant orange ventral fins.</p>"
-    },
-    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/biotoecus-opercularis",
       "html": "<p>Described from 'Lago Saracá' (Lake Saracá) and 'Villa Bella' (the latter a city now known as Parintins), both located between the cities of Manaus and Santarém in the middle Amazon basin, Amazonas state, Brazil. It's since recorded throughout much of the region including the lower rios Madeira, Tapajós, Trombetas and middle-to-lower Negro.</p><p>There is a form regularly exported for the aquarium hobby which is apparently collected from the rio Jauaperi, close to the confluence of the rios Branco and rio Negro, Roraima state, Brazil and normally traded as B. sp. 'rio Negro'. Some collections are also labelled \"Caicubi\", presumably in reference to the village of that name in nearby Caracaraí municipality while those originating from around Santarém and the rio Tapajós are generally referred to as B. sp. 'Santarém' or 'Tapajós'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus_sp_tapajos_new__en/",
+      "html": "<p>Aquarium Glaser has regularly imported this dwarf cichlid from the Rio Tapajos in Brazil for quite a while.</p>"
     },
     {
       "key": "habitat",
@@ -278,6 +282,12 @@
       "html": "<p>A single pair could probably be maintained in a tank with base measurements around 45 × 30 cm but most successful breeders keep mixed-sex groups in aquaria with dimensions of 90 × 30 cm or more (about 81 litres).</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus_sp_tapajos_new__en/",
+      "html": "<p>These cichlids, which only reach approx. 4–5 cm, can be kept in pairs in smaller aquariums from 50 litres upwards. If the aquarium is bigger, a larger group can be kept, but a slight surplus of females is recommended.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/biotoecus-opercularis",
@@ -290,10 +300,28 @@
       "html": "<ul><li>Temperature: 25–30°C</li><li>pH: 4.0–6.5</li><li>Hardness: 0–5 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus_sp_tapajos_new__en/",
+      "html": "<p>Unfortunately, the delicate pastel colours only show to advantage in soft and acidic water, so the fish are quite demanding regarding water conditions.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus_sp_tapajos_new__en/",
+      "html": "<p>The aquarium can be planted lushly, as the plants are neither disturbed nor eaten. The area in front of the cave entrances should be left free of plants so that the fish can dig carefree in the sand. Do not expect a desert landscape, though: given the final size of the fish, only small quantities of sand can be moved.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/biotoecus-opercularis",
       "html": "<p>Stomach contents of dissected wild specimens were found to be composed largely of small invertebrates including chironomid larvae and ostracods. The captive diet should thus contain a variety of small live and/or frozen chironomid larvae (bloodworm), Tubifex, Artemia, mosquito larvae, etc. Some success has also been had using high quality, fine-grade prepared foods though newly-imported wild specimens may initially refuse them.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus_sp_tapajos_new__en/",
+      "html": "<p>Feeding is rather easy, as long as smaller live or frozen food is offered regularly. Dry food is only accepted in very special cases.</p>"
     },
     {
       "key": "behaviour",
@@ -316,8 +344,8 @@
     {
       "key": "reproduction",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus-opercularis-3/",
-      "html": "<p>The aquarist's interest in these fish is due mainly to their unique breeding behaviour. Every enthusiast should once in a lifetime have observed the male Biotoecus building a hill from fine sand. Once this hill is erected, the male digs a pit, and the fish spawn in this pit.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus_sp_tapajos_new__en/",
+      "html": "<p>They are cave brooders.</p>"
     },
     {
       "key": "notes",
@@ -328,8 +356,8 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus-opercularis-3/",
-      "html": "<p>Lexicon: Biotoecus: ancient Greek, means \"house of life\". The authors of the genus believed Biotoecus to carry their young in their gills. opercularis: refers to the distinct black mark on the gill cover (Latin: operculum).</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus_sp_tapajos_new__en/",
+      "html": "<p>Whether Biotoecus sp. \"Tapajos-New\" is really a new species has not yet been clarified, but it seems rather likely that it is a population of Biotoecus opercularis.</p>"
     },
     {
       "key": "references",
@@ -345,7 +373,7 @@
       "width": 800,
       "height": 508,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Andrew Wood / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/biotoecus-opercularis",
       "caption": "Adult male specimen from the middle rio Negro basin.",
       "source": "seriouslyfish"
@@ -356,7 +384,7 @@
       "width": 800,
       "height": 520,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Andrew Wood / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/biotoecus-opercularis",
       "caption": "Adult female from the rio Negro.",
       "source": "seriouslyfish"
@@ -426,5 +454,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-17"
 }

@@ -1,7 +1,9 @@
 {
  "queue": [],
  "judged": [],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/glaser/c1528fae86d8a6db.webp": "cff8f8d4f6e2630a"
+ },
  "inat": {
   "taxon": 1474872,
   "pass": "done",
@@ -14,5 +16,9 @@
  "gbif": {
   "key": 2363439,
   "next": null
+ },
+ "inatNc": {
+  "after": 0,
+  "done": true
  }
 }

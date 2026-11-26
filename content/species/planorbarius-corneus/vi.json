@@ -1,0 +1,24 @@
+{
+  "slug": "oc-sung-lon",
+  "name": "Ốc sừng lớn",
+  "altNames": [
+    "Ốc ramshorn lớn",
+    "Ốc Great Ramshorn",
+    "Great Ramshorn snail"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Ốc sừng lớn (Planorbarius corneus, trước đây gọi là Planorbis corneus) đã có mặt trong bể cá và hồ ngoài vườn ngay từ thuở mới có thú chơi này. Con ốc lớn khá to, tối đa 4 cm, và không đụng tới cây sống. Máu của nó màu đỏ vì có hemoglobin, nên con bạch tạng có thân đỏ tươi.</p>",
+    "diet:glaser": "<p>Chúng chỉ ăn rêu và mùn bã hữu cơ.</p>",
+    "waterConditions:glaser": "<p>Nhiệt độ nước nên ở khoảng 12–25 °C. Độ cứng tối thiểu 10° KH, càng cao càng tốt. pH dao động từ 6,5 đến 8,5 đều được.</p>",
+    "reproduction:glaser": "<p>Ốc sừng lớn cực kỳ dễ nuôi và dễ đẻ. Đây là loài lưỡng tính, nên cứ hai con bất kỳ là thành một cặp. Các trại ở Singapore đã lai ra được dòng đỏ toàn thân và dòng màu xanh lam của loài ốc này.</p>",
+    "behaviour:glaser": "<p>Loài ốc này thở bằng phổi, nên ít nhất một phần oxy chúng cần là lấy từ không khí. Chúng sống được tối đa khoảng 3 năm, nhưng ngoài tự nhiên rất ít con sống được lâu như vậy.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  }
+}

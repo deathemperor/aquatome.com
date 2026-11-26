@@ -3,6 +3,12 @@
   "name": "หานเจียง",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-19T07:54:32.230Z",
+    "why": "หานเจียง is a Thai transliteration of Hangjiang but lacks the kind word \"แม่น้ำ\" that Thai atlases put before a river's name, so the river name is incomplete."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

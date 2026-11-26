@@ -2,13 +2,13 @@ import { denied } from './piece-admission'
 import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { GallerySchema, loadAll, type Photo } from '@aq/schema'
+import { GallerySchema, IMAGE_SWITCHES, loadAll, type Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
 import { mirrorPlan } from '../src/mirror-photos'
 import { WikimediaRefused } from '../src/wikimedia-rest'
-import { breedNames, commonsCandidates, dhash, galleries, isSetup, orderAlbums, rankGallery, screenedAt, screenTagged, VET_SCHEMA, type GalleryDeps, type GalleryPhoto, type Look, type Vet } from '../src/gallery'
+import { breedNames, commonsCandidates, dhash, galleries as albumStep, isSetup, orderAlbums, rankGallery, screenedAt, screenTagged, VET_SCHEMA, type GalleryDeps, type GalleryPhoto, type Look, type Vet } from '../src/gallery'
 import { slow } from '@aq/schema/test-time'
 import { knownNames, namedAs } from '../src/photo-named'
 
@@ -143,6 +143,8 @@ const deps = (over: Partial<GalleryDeps> = {}): GalleryDeps => ({
   now: () => new Date('2026-10-30T00:00:00Z'),
   ...over,
 })
+/** The album step with iNaturalist's non-commercial pass off, whatever its switch says: that pass's tests are non-commercial.test.ts. */
+const galleries: typeof albumStep = (r, d, o) => albumStep(r, d, { switches: { ...IMAGE_SWITCHES, inatNonCommercial: false }, ...o })
 const read = async (r: string, f: string) => JSON.parse(await readFile(join(r, f), 'utf8'))
 const urls = (g: { photos: { sourceUrl: string }[] }) => g.photos.map(p => p.sourceUrl)
 
@@ -273,6 +275,18 @@ test('gallery: a photo blocked after it moved to our bucket (a watermark) is kno
   expect(await readFile(join(r, 'content/gallery/betta-splendens.json'), 'utf8').then(t => JSON.parse(t).photos)).toEqual([])
 })
 
+test('gallery: a candidate queued before it joined the never-again list leaves the queue unscreened', async () => {
+  const r = await root()
+  const queued = { url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/78/original.jpg', thumb: 'https://inaturalist-open-data.s3.amazonaws.com/photos/78/medium.jpg', width: 1332, height: 1776, licence: 'CC BY', author: 'a', sourceUrl: 'https://www.inaturalist.org/photos/78', key: 'inat:78' }
+  await mkdir(join(r, 'engine-state/gallery'), { recursive: true })
+  await writeFile(join(r, 'engine-state/gallery/betta-splendens.json'), JSON.stringify({ queue: [queued], judged: [], hashes: {} }))
+  // Listed by our copy's address, for any page.
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [`https://media.aquatome.com/${mirrorPlan(queued.url)!.key}`]: 'people: a hand' }))
+  await galleries(r, deps(), { sheets: 5 })
+  expect(urls(await read(r, 'content/gallery/betta-splendens.json'))).not.toContain(queued.sourceUrl)
+  expect((await read(r, 'engine-state/gallery/betta-splendens.json')).queue.map((c: { key: string }) => c.key)).not.toContain('inat:78')
+})
+
 test("gallery: a photo the photo check took off this page is never put back, from the queue or a search; another page's verdict doesn't count", async () => {
   const r = await root()
   const inat1 = 'https://inaturalist-open-data.s3.amazonaws.com/photos/1/large.jpg'
@@ -292,6 +306,52 @@ test("gallery: a photo the photo check took off this page is never put back, fro
   expect(shown).not.toContain(queued.sourceUrl)
   expect(shown).not.toContain('https://www.inaturalist.org/photos/1')
   expect(shown.some(u => u.includes('commons.wikimedia.org'))).toBe(true)
+})
+
+test("gallery: a photo the check called dead here that a second look cleared may come back from the queue; one it didn't clear stays out", async () => {
+  const r = await root()
+  const cand = (n: number) => ({ url: `https://inaturalist-open-data.s3.amazonaws.com/photos/${n}/original.jpg`, thumb: `https://inaturalist-open-data.s3.amazonaws.com/photos/${n}/medium.jpg`, width: 1332, height: 1776, licence: 'CC BY', author: 'a', sourceUrl: `https://www.inaturalist.org/photos/${n}`, key: `inat:${n}` })
+  const back = cand(81), kept = cand(82)
+  await mkdir(join(r, 'engine-state/gallery'), { recursive: true })
+  await writeFile(join(r, 'engine-state/gallery/betta-splendens.json'), JSON.stringify({ queue: [back, kept], judged: [], hashes: {} }))
+  const dead = { ok: 'dead', typical: false, note: 'a fish on a board' }
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [back.url]: { 'betta-splendens': dead }, [kept.url]: { 'betta-splendens': dead } }))
+  const rec = { why: 'dead: withheld [sha256:' + 'b'.repeat(64) + ']', step: 'the photo check', pages: ['species/betta-splendens'], at: '2026-11-20', off: true }
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [back.url]: { ...rec, look: { said: 'clear', by: 'the chief of staff', on: '2026-11-20' } }, [kept.url]: rec }))
+  await galleries(r, deps(), { sheets: 5 })
+  const shown = urls(await read(r, 'content/gallery/betta-splendens.json'))
+  expect(shown).toContain(back.sourceUrl)
+  expect(shown).not.toContain(kept.sourceUrl)
+})
+
+test("gallery: a clear sets aside a photo's off verdicts only on the pages its record names: another page's verdict still keeps it out of that page's album", async () => {
+  const r = await root()
+  const cand = (n: number) => ({ url: `https://inaturalist-open-data.s3.amazonaws.com/photos/${n}/original.jpg`, thumb: `https://inaturalist-open-data.s3.amazonaws.com/photos/${n}/medium.jpg`, width: 1332, height: 1776, licence: 'CC BY', author: 'a', sourceUrl: `https://www.inaturalist.org/photos/${n}`, key: `inat:${n}` })
+  const here = cand(83), elsewhere = cand(84)
+  await mkdir(join(r, 'engine-state/gallery'), { recursive: true })
+  await writeFile(join(r, 'engine-state/gallery/betta-splendens.json'), JSON.stringify({ queue: [here, elsewhere], judged: [], hashes: {} }))
+  const other = { ok: 'other', typical: false, note: 'a betta of another species' }
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [here.url]: { 'betta-splendens': other }, [elsewhere.url]: { 'betta-splendens': other } }))
+  const rec = (page: string) => ({ why: 'rejected: withheld [sha256:' + 'c'.repeat(64) + ']', step: 'the photo check', pages: [page], at: '2026-11-20', look: { said: 'clear', by: 'the chief of staff', on: '2026-11-21' } })
+  // Cleared here, it may come back to this album; cleared on another page, this page's own verdict still keeps it out.
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [here.url]: rec('species/betta-splendens'), [elsewhere.url]: rec('species/betta-imbellis') }))
+  await galleries(r, deps(), { sheets: 5 })
+  const shown = urls(await read(r, 'content/gallery/betta-splendens.json'))
+  expect(shown).toContain(here.sourceUrl)
+  expect(shown).not.toContain(elsewhere.sourceUrl)
+})
+
+test("gallery: for a photo marked off at its first verdict, a clear answers only the dead fish on its record's pages: another fish there still keeps it out of that page's album", async () => {
+  const r = await root()
+  const cand = (n: number) => ({ url: `https://inaturalist-open-data.s3.amazonaws.com/photos/${n}/original.jpg`, thumb: `https://inaturalist-open-data.s3.amazonaws.com/photos/${n}/medium.jpg`, width: 1332, height: 1776, licence: 'CC BY', author: 'a', sourceUrl: `https://www.inaturalist.org/photos/${n}`, key: `inat:${n}` })
+  const marked = cand(85)
+  await mkdir(join(r, 'engine-state/gallery'), { recursive: true })
+  await writeFile(join(r, 'engine-state/gallery/betta-splendens.json'), JSON.stringify({ queue: [marked], judged: [], hashes: {} }))
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [marked.url]: { 'betta-splendens': { ok: 'other', typical: false, note: 'a betta of another species' } } }))
+  const rec = { why: 'rejected: withheld [sha256:' + 'd'.repeat(64) + ']', step: 'the photo check', pages: ['species/betta-splendens'], at: '2026-11-20', off: true, look: { said: 'clear', by: 'the chief of staff', on: '2026-11-21' } }
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [marked.url]: rec }))
+  await galleries(r, deps(), { sheets: 5 })
+  expect(urls(await read(r, 'content/gallery/betta-splendens.json'))).not.toContain(marked.sourceUrl)
 })
 
 test('gallery: the sheet budget stops the run; the next run continues from the queue and the cursor', async () => {
@@ -514,7 +574,7 @@ test('orderAlbums: every album in the album order, the leads that changed listed
   expect(first.leads).toEqual(['poecilia-reticulata: https://media.aquatome.com/inaturalist/340813812.webp -> https://media.aquatome.com/inaturalist/296283368.webp'])
   const g = GallerySchema.parse(await read(r, 'content/gallery/poecilia-reticulata.json'))
   expect(g.photos.map(p => p.url.split('/').at(-1))).toEqual(['296283368.webp', '340813812.webp'])
-  expect(await orderAlbums(r, {})).toEqual({ files: [], leads: [] })
+  expect(await orderAlbums(r, {})).toEqual({ files: [], leads: [], keptOut: [] })
 })
 
 const num = (p: { url: string }) => Number(/(\d+)\.webp$/.exec(p.url)![1])
@@ -566,7 +626,7 @@ test('the album step and the sweep order an album alike, from the saved verdicts
   const g = GallerySchema.parse(await read(r, 'content/gallery/betta-splendens.json'))
   expect(g.photos.length).toBeGreaterThan(9)
   expect(g.photos.filter(p => !p.unchecked).map(num)).toEqual([104, 105, 106, 107, 108, 109, 103, 101, 102])
-  expect(await orderAlbums(r, subjects)).toEqual({ files: [], leads: [] })
+  expect(await orderAlbums(r, subjects)).toEqual({ files: [], leads: [], keptOut: [] })
   // The sweep reads the same: with the answers gone, it moves them back.
   await writeFile(join(r, 'engine-state/_album-ask.json'), '{}')
   await writeFile(join(r, 'engine-state/_photo-boxes.json'), '{}')

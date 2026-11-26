@@ -12,8 +12,7 @@
       "caption": "Cá bitterling đực bơi trong bể thủy sinh",
       "best": true,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/6dd1e6644b9e524c.webp",
@@ -38,8 +37,7 @@
       "caption": "Cá bitterling đực bên rêu xanh trong bể thủy sinh",
       "best": true,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/298311385.webp",
@@ -52,8 +50,7 @@
       "caption": "Cá bitterling trưởng thành cạnh thước đo trong khay ảnh",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/97007000.webp",
@@ -66,8 +63,7 @@
       "caption": "Cá bitterling đực màu sắc rực rỡ trong bể trồng cây",
       "best": true,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/406882710.webp",
@@ -80,8 +76,7 @@
       "caption": "Cá bitterling đuôi hồng trong hộp ảnh nhỏ có thước",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/406522624.webp",
@@ -94,8 +89,7 @@
       "caption": "Cá bitterling thân bạc trong hộp ảnh có thước",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/107417740.webp",
@@ -108,8 +102,7 @@
       "caption": "Cá bitterling đực óng ánh trong bể nền tối",
       "best": false,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/e42d3ba1ca7908ef.webp",
@@ -136,18 +129,6 @@
       "kind": "pair"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/605634693.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/605634693-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY",
-      "author": "りなべる",
-      "sourceUrl": "https://www.inaturalist.org/photos/605634693",
-      "caption": "Ba con cá bitterling trong bể kính nhỏ",
-      "best": false,
-      "kind": "group"
-    },
-    {
       "url": "https://media.aquatome.com/commons/7ca6d91bb5f1da44.webp",
       "thumb": "https://media.aquatome.com/commons/7ca6d91bb5f1da44-480.webp",
       "width": 1200,
@@ -170,8 +151,7 @@
       "caption": "Cá bitterling đực đuôi đỏ trong bể chụp có thước",
       "best": false,
       "kind": "male",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/296920781.webp",
@@ -184,8 +164,7 @@
       "caption": "Cá bitterling trong hộp chụp ảnh có thước đo",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/406882689.webp",
@@ -198,8 +177,7 @@
       "caption": "Cá bitterling bơi trong hộp trong suốt có thước đo",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/406453584.webp",
@@ -212,8 +190,7 @@
       "caption": "Cá bitterling trong hộp trong suốt ngoài tự nhiên",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/406518757.webp",
@@ -226,8 +203,7 @@
       "caption": "Cá bitterling thân bạc nhìn nghiêng trong hộp có thước",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/406518819.webp",
@@ -240,8 +216,19 @@
       "caption": "Cá bitterling nhìn nghiêng trong hộp ảnh ngoài thực địa",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/605634693.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/605634693-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY",
+      "author": "りなべる",
+      "sourceUrl": "https://www.inaturalist.org/photos/605634693",
+      "caption": "Ba con cá bitterling trong bể kính nhỏ",
+      "best": false,
+      "kind": "group"
     },
     {
       "url": "https://media.aquatome.com/commons/598340fc53950ff8.webp",

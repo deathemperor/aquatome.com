@@ -6,6 +6,60 @@
   "genus": "Girardinus",
   "group": "livebearers",
   "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 2350355,
+      "total": 15,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "CU",
+          14
+        ],
+        [
+          "IN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -84.375,
+          21.09375,
+          4
+        ],
+        [
+          -84.375,
+          22.5,
+          5
+        ],
+        [
+          -82.96875,
+          21.09375,
+          1
+        ],
+        [
+          -82.96875,
+          22.5,
+          2
+        ],
+        [
+          -80.15625,
+          21.09375,
+          1
+        ],
+        [
+          -80.15625,
+          22.5,
+          1
+        ],
+        [
+          88.59375,
+          26.71875,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {
@@ -34,7 +88,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/giradinus_falcatus_en/",
       "source": "glaser"
     },
@@ -44,7 +98,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/giradinus_falcatus_en/",
       "source": "glaser"
     }

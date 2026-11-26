@@ -96,9 +96,22 @@
       "caption": "Hai cá tetra mắt đỏ bơi gần nhau trong bể",
       "best": false,
       "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/356518495.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/356518495-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Bruno R. Möller",
+      "sourceUrl": "https://www.inaturalist.org/photos/356518495",
+      "caption": "Cá tetra mắt đỏ bơi trong suối tự nhiên giữa lá rụng",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
-  "seen": 15,
-  "updatedAt": "2026-11-01",
-  "builtAt": "2026-11-01"
+  "seen": 20,
+  "updatedAt": "2026-11-24",
+  "builtAt": "2026-11-24"
 }

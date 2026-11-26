@@ -1,4 +1,46 @@
 {
   "id": "co2",
-  "en": "Carbon dioxide"
+  "en": "Carbon dioxide",
+  "refs": [
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/aquarium-co2-system",
+      "title": "How to Set Up a CO2 System for Planted Aquariums the Easy Way – Aquarium Co-Op"
+    },
+    {
+      "url": "https://www.tankarium.com/co2-in-aquarium/",
+      "title": "CO2 In Aquarium - Signs You Have Too Much And What To Do About It"
+    },
+    {
+      "url": "https://m55.vn/co2-trong-thuy-sinh-va-vai-tro-cua-no/",
+      "title": "CO2 trong thủy sinh và vai trò của nó - M55 AQuarium"
+    },
+    {
+      "url": "https://aquazonefish.vn/blogs/kien-thuc/he-thong-co2-co-that-su-can-thiet-khong",
+      "title": "Hệ Thống CO2 Cho Bể Thủy Sinh: Có Thật Sự Cần Thiết Không? - AquaZone - Siêu thị cá cảnh"
+    },
+    {
+      "url": "https://dennerle.com/en/guides/why-do-i-need-co2",
+      "title": "CO₂ im Aquarium: Warum Pflanzen CO₂ brauchen & Tipps zur Dosierung – Dennerle"
+    }
+  ],
+  "related": [
+    "ph",
+    "kh",
+    "oxy-hoa-tan",
+    "suc-khi",
+    "tao"
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/cb5c198f0238c2b8.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/cb5c198f0238c2b8-480.webp",
+      "width": 1000,
+      "height": 668,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/aquarium-co2-system",
+      "caption": "Bộ sủi CO2 bằng thủy tinh gắn trên kính bể, nhả bọt li ti.",
+      "source": "aquariumcoop"
+    }
+  ]
 }

@@ -1,17 +1,9 @@
 {
   "id": "betta-smaragdina",
   "native": {
-    "input": "ceea88d491070005",
-    "at": "2026-11-16T00:17:52.050Z",
+    "input": "cbeb2698092ef3d2",
+    "at": "2026-11-21T19:07:52.042Z",
     "claims": [
-      {
-        "code": "TH",
-        "status": "native",
-        "source": "bwaquatics",
-        "quote": "It is a hardy species from the Khorat Plateau of northeastern Thailand.",
-        "words": "Thailand",
-        "ok": true
-      },
       {
         "code": "TH",
         "status": "native",
@@ -58,13 +50,6 @@
         "name": "Mekong",
         "source": "bwaquatics",
         "quote": "Native to northeastern Thailand, Laos and parts of Cambodia in the Mekong Basin.",
-        "ok": true
-      },
-      {
-        "name": "Khorat Plateau",
-        "source": "bwaquatics",
-        "quote": "It is a hardy species from the Khorat Plateau of northeastern Thailand.",
-        "country": "TH",
         "ok": true
       },
       {

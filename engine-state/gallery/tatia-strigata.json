@@ -1,7 +1,10 @@
 {
  "queue": [],
  "judged": [
-  "flickr:5807038678"
+  "flickr:5807038678",
+  "inat:716903999",
+  "inat:716904033",
+  "inat:716904064"
  ],
  "hashes": {
   "https://media.aquatome.com/scotcat/a8900a6cef7b2023.webp": "1d1d0f0c07030707",
@@ -24,6 +27,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 391260203,
+  "done": true
  },
  "exhausted": "2026-11-15"
 }

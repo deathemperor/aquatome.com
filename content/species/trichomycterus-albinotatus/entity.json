@@ -10,6 +10,72 @@
     "brazil",
     "paraiba-do-sul"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Paraíba do Sul",
+        "Rio Preto"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Visconde de Maua, 1 kilometer west of Maromba, Rio Preto, Rio Paraiba basin, Rio de Janeiro State, Brazil, elevation above 1,100 meters.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Trichomycterus albinotatus is endemic to the Paraíba do Sul basin.",
+          "countries": [],
+          "regions": [
+            "Paraíba do Sul"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Upper course of the Rio Preto, Ribeirão Santa Clara and Córrego das Cruzes drainages, Paraíba do Sul River basin (Rio de Janeiro state, Brazil).",
+          "countries": [],
+          "regions": [
+            "Rio Preto"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342974,
+      "total": 15,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "BR",
+          15
+        ]
+      ],
+      "cells": [
+        [
+          -47.8125,
+          -21.09375,
+          4,
+          4
+        ],
+        [
+          -45,
+          -22.5,
+          11,
+          11
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -3,6 +3,12 @@
   "name": "อีวาอี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-18T18:27:27.269Z",
+    "why": "\"อีวาอี\" transliterates Ivaí but omits the Thai kind word \"แม่น้ำ\" for a river, so it reads as a bare name rather than the full river name an atlas would give."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

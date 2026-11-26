@@ -1,23 +1,46 @@
 {
   "id": "gastromyzon-punctulatus",
   "native": {
-    "input": "98a9015eb8e7f7f8",
-    "at": "2026-11-08T10:57:49.558Z",
-    "claims": [],
+    "input": "8a0ee2a72aaa0f45",
+    "at": "2026-11-16T17:28:41.839Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They are native to the Borneo region of Southeast Asia (Malaysia: Sabah and Sarawak; Indonesia: Kalimantan Barat and Kalimantan Timur; Brunei Darussalam: Temburong district).",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They are native to the Borneo region of Southeast Asia (Malaysia: Sabah and Sarawak; Indonesia: Kalimantan Barat and Kalimantan Timur; Brunei Darussalam: Temburong district).",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They are native to the Borneo region of Southeast Asia (Malaysia: Sabah and Sarawak; Indonesia: Kalimantan Barat and Kalimantan Timur; Brunei Darussalam: Temburong district).",
+        "words": "Brunei Darussalam",
+        "ok": true
+      }
+    ],
     "regions": [
       {
         "name": "Borneo",
-        "source": "glaser",
-        "quote": "In 2006 the next revision of these fishes from Borneo appeared.",
+        "source": "aquariumbreeder",
+        "quote": "Borneo suckers refer to a group of gastromyzontid loaches endemic to Borneo.",
         "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [
-        "ID"
-      ],
+      "pagesOnly": [],
       "sourcesOnly": []
     }
   },
@@ -35,8 +58,12 @@
         7
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-08T10:57:49.558Z"
+    "native": [
+      "MY",
+      "ID",
+      "BN"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T17:28:41.839Z"
   }
 }

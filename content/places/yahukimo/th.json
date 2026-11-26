@@ -3,6 +3,12 @@
   "name": "ยาฮูกีโม",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T00:44:22.966Z",
+    "why": "The Thai transliteration ยาฮูกีโม is phonetically close to Yahukimo, but it omits the kind word for a regency, which an atlas in Thailand would add as \"คาบสมุทร\"-style region words (here \"เขตการปกครองยาฮูกีโม\"), and the usual Thai rendering is ยาฮูกิโม."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

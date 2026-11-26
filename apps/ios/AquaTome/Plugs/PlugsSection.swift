@@ -62,7 +62,7 @@ struct PlugKeysSection: View {
 
   var body: some View {
     Section {
-      Button(plugs.dataCenter == nil ? String(localized: "Thiết lập ổ cắm") : String(localized: "Khóa Tuya")) { settingUp = true }
+      Button(plugs.dataCenter == nil ? String(localized: "Thiết lập ổ cắm", bundle: .app) : String(localized: "Khóa Tuya", bundle: .app)) { settingUp = true }
         .accessibilityIdentifier("plug-setup")
         .sheet(isPresented: $settingUp) { PlugSetup().ownerScreen("sheet plug-setup") }
     } header: {
@@ -80,26 +80,26 @@ struct PlugKeysSection: View {
 enum PlugProblem {
   static func text(_ e: PlugError) -> String {
     switch e {
-    case .badKeys: String(localized: "Tuya không nhận khóa này: kiểm tra Access ID, Access Secret và trung tâm dữ liệu.")
-    case .expired: String(localized: "Gói dùng thử IoT Core của dự án đã hết hạn: gia hạn trong Tuya console (Cloud → Cloud Services → IoT Core) rồi thử lại.")
-    case .notSubscribed: String(localized: "Dự án chưa bật IoT Core: bật gói dùng thử ở Cloud → Cloud Services → IoT Core.")
-    case .quota: String(localized: "Dự án đã dùng hết lượt gọi Tuya của gói lúc này: thử lại sau.")
-    case .busy: String(localized: "Tuya đang bận: thử lại sau một lát.")
-    case .clock: String(localized: "Giờ trên điện thoại lệch quá nhiều: chỉnh lại giờ rồi thử lại.")
-    case .noAccess: String(localized: "Tuya không cho dự án xem thiết bị: liên kết tài khoản Smart Life bằng mã QR (bước 4 trong phần thiết lập) và kiểm tra trung tâm dữ liệu.")
-    case .offline: String(localized: "Không có mạng hoặc Tuya không trả lời: thử lại khi có mạng.")
-    case .maker(let code): String(localized: "Tuya từ chối (mã \(code)).")
-    case .plugOffline: String(localized: "Mất kết nối")
-    case .noSuchPlug: String(localized: "Không thấy trong dự án Tuya")
-    case .badReply: String(localized: "Tuya trả lời không như mong đợi: thử lại.")
+    case .badKeys: String(localized: "Tuya không nhận khóa này: kiểm tra Access ID, Access Secret và trung tâm dữ liệu.", bundle: .app)
+    case .expired: String(localized: "Gói dùng thử IoT Core của dự án đã hết hạn: gia hạn trong Tuya console (Cloud → Cloud Services → IoT Core) rồi thử lại.", bundle: .app)
+    case .notSubscribed: String(localized: "Dự án chưa bật IoT Core: bật gói dùng thử ở Cloud → Cloud Services → IoT Core.", bundle: .app)
+    case .quota: String(localized: "Dự án đã dùng hết lượt gọi Tuya của gói lúc này: thử lại sau.", bundle: .app)
+    case .busy: String(localized: "Tuya đang bận: thử lại sau một lát.", bundle: .app)
+    case .clock: String(localized: "Giờ trên điện thoại lệch quá nhiều: chỉnh lại giờ rồi thử lại.", bundle: .app)
+    case .noAccess: String(localized: "Tuya không cho dự án xem thiết bị: liên kết tài khoản Smart Life bằng mã QR (bước 4 trong phần thiết lập) và kiểm tra trung tâm dữ liệu.", bundle: .app)
+    case .offline: String(localized: "Không có mạng hoặc Tuya không trả lời: thử lại khi có mạng.", bundle: .app)
+    case .maker(let code): String(localized: "Tuya từ chối (mã \(code)).", bundle: .app)
+    case .plugOffline: String(localized: "Mất kết nối", bundle: .app)
+    case .noSuchPlug: String(localized: "Không thấy trong dự án Tuya", bundle: .app)
+    case .badReply: String(localized: "Tuya trả lời không như mong đợi: thử lại.", bundle: .app)
     }
   }
 
   /// Keys that work, and no plug to show.
   static func empty(_ l: PlugList) -> String {
     l.others == 0
-      ? String(localized: "Dự án Tuya chưa có thiết bị nào: liên kết tài khoản Smart Life bằng mã QR (bước 4 trong phần thiết lập).")
-      : String(localized: "Dự án Tuya có \(l.others) thiết bị nhưng không có ổ cắm nào.")
+      ? String(localized: "Dự án Tuya chưa có thiết bị nào: liên kết tài khoản Smart Life bằng mã QR (bước 4 trong phần thiết lập).", bundle: .app)
+      : String(localized: "Dự án Tuya có \(l.others) thiết bị nhưng không có ổ cắm nào.", bundle: .app)
   }
 }
 
@@ -128,7 +128,7 @@ private struct PlugRows: View {
     let provider = device.brand ?? "", remoteId = device.remoteId ?? ""
     HStack {
       VStack(alignment: .leading, spacing: 2) {
-        Text(device.nickname ?? String(localized: "Ổ cắm")).font(.headline).accessibilityIdentifier("plug-name")
+        Text(device.nickname ?? String(localized: "Ổ cắm", bundle: .app)).font(.headline).accessibilityIdentifier("plug-name")
         if let s = state(provider, remoteId) {
           Text(s).font(.caption).foregroundStyle(.secondary).accessibilityIdentifier("plug-status")
         }
@@ -147,9 +147,9 @@ private struct PlugRows: View {
   private func state(_ provider: String, _ remoteId: String) -> String? {
     guard plugs.board.list != nil else { return nil }
     switch plugs.board.online(provider: provider, device: remoteId) {
-    case nil: return String(localized: "Không thấy trong dự án Tuya")
-    case true?: return String(localized: "Trực tuyến")
-    case false?: return String(localized: "Mất kết nối")
+    case nil: return String(localized: "Không thấy trong dự án Tuya", bundle: .app)
+    case true?: return String(localized: "Trực tuyến", bundle: .app)
+    case false?: return String(localized: "Mất kết nối", bundle: .app)
     }
   }
 }
@@ -186,10 +186,10 @@ private struct OutletRow: View {
           .accessibilityIdentifier("outlet-\(outlet.code)")
       }
     }
-    .confirmationDialog(asking == true ? String(localized: "Bật “\(title)”?") : String(localized: "Tắt “\(title)”?"),
+    .confirmationDialog(asking == true ? String(localized: "Bật “\(title)”?", bundle: .app) : String(localized: "Tắt “\(title)”?", bundle: .app),
                         isPresented: Binding(get: { asking != nil }, set: { if !$0 { asking = nil } }), titleVisibility: .visible) {
       if let want = asking {
-        Button(want ? String(localized: "Bật") : String(localized: "Tắt")) { send(want) }.accessibilityIdentifier("confirm-switch")
+        Button(want ? String(localized: "Bật", bundle: .app) : String(localized: "Tắt", bundle: .app)) { send(want) }.accessibilityIdentifier("confirm-switch")
       }
     } message: {
       Text(warning)
@@ -198,9 +198,9 @@ private struct OutletRow: View {
 
   private var warning: String {
     switch outlet.role {
-    case "heater": String(localized: "Ổ này cấp điện cho sưởi. Bật tắt nhầm có thể làm nước quá lạnh hoặc quá nóng.")
-    case "co2": String(localized: "Ổ này cấp điện cho CO2. Bật nhầm, nhất là ban đêm, có thể làm cá ngạt.")
-    default: String(localized: "Chưa ghi ổ này cắm gì: nếu là sưởi hay CO2, bật tắt nhầm có thể hại cá. Chọn “Cắm gì” trong Sửa để khỏi hỏi lại.")
+    case "heater": String(localized: "Ổ này cấp điện cho sưởi. Bật tắt nhầm có thể làm nước quá lạnh hoặc quá nóng.", bundle: .app)
+    case "co2": String(localized: "Ổ này cấp điện cho CO2. Bật nhầm, nhất là ban đêm, có thể làm cá ngạt.", bundle: .app)
+    default: String(localized: "Chưa ghi ổ này cắm gì: nếu là sưởi hay CO2, bật tắt nhầm có thể hại cá. Chọn “Cắm gì” trong Sửa để khỏi hỏi lại.", bundle: .app)
     }
   }
 
@@ -216,16 +216,16 @@ private struct OutletRow: View {
   private func send(_ want: Bool) { Task { await plugs.board.set(key, on: want) } }
 
   private func note(_ board: PlugBoard, _ busy: Bool) -> String? {
-    if busy { return String(localized: "Đang gửi lệnh…") }
-    if board.online(provider: key.provider, device: key.device) == false { return String(localized: "Mất kết nối") }
+    if busy { return String(localized: "Đang gửi lệnh…", bundle: .app) }
+    if board.online(provider: key.provider, device: key.device) == false { return String(localized: "Mất kết nối", bundle: .app) }
     switch board.outcome(key) {
-    case .confirmed?: return String(localized: "Đã xác nhận")
-    case .unconfirmed?: return String(localized: "Chưa xác nhận: ổ cắm chưa báo đã đổi.")
-    case .unknown?: return String(localized: "Không rõ trạng thái")
-    case .refused(let e)?: return String(localized: "Chưa gửi lệnh: \(PlugProblem.text(e))")
+    case .confirmed?: return String(localized: "Đã xác nhận", bundle: .app)
+    case .unconfirmed?: return String(localized: "Chưa xác nhận: ổ cắm chưa báo đã đổi.", bundle: .app)
+    case .unknown?: return String(localized: "Không rõ trạng thái", bundle: .app)
+    case .refused(let e)?: return String(localized: "Chưa gửi lệnh: \(PlugProblem.text(e))", bundle: .app)
     case nil: break
     }
-    if board.list?.plug(provider: key.provider, id: key.device) != nil && board.on(key) == nil { return String(localized: "Không rõ trạng thái") }
+    if board.list?.plug(provider: key.provider, id: key.device) != nil && board.on(key) == nil { return String(localized: "Không rõ trạng thái", bundle: .app) }
     return nil
   }
 }
@@ -233,7 +233,7 @@ private struct OutletRow: View {
 extension PlugOutlet {
   /// What the app calls it: the reader's name, what it powers, its Smart Life name, or its place on the strip.
   func title(number: Int, live: String?) -> String {
-    label ?? role.map(OutletRole.label) ?? live ?? String(localized: "Ổ \(number)")
+    label ?? role.map(OutletRole.label) ?? live ?? String(localized: "Ổ \(number)", bundle: .app)
   }
 }
 
@@ -241,13 +241,13 @@ extension PlugOutlet {
 enum OutletRole {
   static func label(_ role: String) -> String {
     switch role {
-    case "light": String(localized: "Đèn")
-    case "co2": String(localized: "CO2")
-    case "filter": String(localized: "Lọc")
-    case "heater": String(localized: "Sưởi")
-    case "air": String(localized: "Sủi khí")
-    case "fan": String(localized: "Quạt")
-    case "other": String(localized: "Khác")
+    case "light": String(localized: "Đèn", bundle: .app)
+    case "co2": String(localized: "CO2", bundle: .app)
+    case "filter": String(localized: "Lọc", bundle: .app)
+    case "heater": String(localized: "Sưởi", bundle: .app)
+    case "air": String(localized: "Sủi khí", bundle: .app)
+    case "fan": String(localized: "Quạt", bundle: .app)
+    case "other": String(localized: "Khác", bundle: .app)
     default: role
     }
   }

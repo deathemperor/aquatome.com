@@ -14,6 +14,91 @@
     "kenya",
     "lake-victoria"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TZ",
+        "UG",
+        "KE"
+      ],
+      "regions": [
+        "Lake Victoria",
+        "Lake Kyoga",
+        "Lake Manyara"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Africa: Lake Kyoga drainage, Lake Victoria drainage and Lake Manyara basin in Tanzania.",
+          "countries": [
+            "TZ"
+          ],
+          "regions": [
+            "Lake Victoria",
+            "Lake Kyoga",
+            "Lake Manyara"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "It occurs in the Lake Kyoga drainage and Lake Victoria affluents in Uganda and Kenya, and also in the Lake Manyara basin in Tanzania.",
+          "countries": [
+            "UG",
+            "KE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8964367,
+      "total": 50,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "KE",
+          46
+        ],
+        [
+          "UG",
+          3
+        ],
+        [
+          "TZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          33.75,
+          0,
+          39,
+          39
+        ],
+        [
+          35.15625,
+          0,
+          8,
+          8
+        ],
+        [
+          36.5625,
+          -7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -78,41 +163,7 @@
       "html": "<p>FishBase team RMCA &amp; Geelhand, D. 2016. Amphilius lujani. The IUCN Red List of Threatened Species 2016. Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org. Thomson, A.W., L.M. Page and S.A. Hilber, 2015. Revision of the Amphilius jacksonii complex (Siluriformes: Amphiliidae), with the descriptions of five new species. Zootaxa 3986(1):61-87.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/b3e3d9f3992d96a5.webp",
-      "thumb": "https://media.aquatome.com/scotcat/b3e3d9f3992d96a5-480.webp",
-      "width": 500,
-      "height": 238,
-      "licence": "dùng với sự cho phép",
-      "author": "Nathan Lujan / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_lujani.htm",
-      "caption": "Amphilius lujani: A tributary of Lake Victoria near the Kenyan border.",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/4a0a241a454286ea.webp",
-      "thumb": "https://media.aquatome.com/scotcat/4a0a241a454286ea-480.webp",
-      "width": 500,
-      "height": 210,
-      "licence": "dùng với sự cho phép",
-      "author": "Nathan Lujan / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_lujani.htm",
-      "caption": "Amphilius lujani: Dorsal view-tributary of Lake Victoria near the Kenyan border.",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/3598d3881dbaabf5.webp",
-      "thumb": "https://media.aquatome.com/scotcat/3598d3881dbaabf5-480.webp",
-      "width": 500,
-      "height": 208,
-      "licence": "dùng với sự cho phép",
-      "author": "Nathan Lujan / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_lujani.htm",
-      "caption": "Amphilius lujani: Ventral view-tributary of Lake Victoria near the Kenyan border.",
-      "source": "scotcat"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {

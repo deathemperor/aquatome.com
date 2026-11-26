@@ -1,0 +1,122 @@
+{
+  "id": "pseudobunocephalus-iheringii",
+  "native": {
+    "input": "739c60566403bf0d",
+    "at": "2026-11-20T07:13:45.828Z",
+    "claims": [
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Reported from the upper Paraná and its tributaries in Argentina.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Rio Grande do Sul, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraná",
+        "source": "scotcat",
+        "quote": "Reported from the upper Paraná and its tributaries in Argentina.",
+        "country": "AR",
+        "ok": true
+      },
+      {
+        "name": "Paraguay",
+        "source": "scotcat",
+        "quote": "South America: Atlantic, Paraguay and Uruguay River basins.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Uruguay",
+        "source": "scotcat",
+        "quote": "South America: Atlantic, Paraguay and Uruguay River basins.",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "UY",
+        "PY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudobunocephalus iheringii",
+    "status": "ACCEPTED",
+    "taxonKey": 2340579,
+    "datasets": [
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        67
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        13
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        11
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        8
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "ca5ece39-358c-4dcf-8bb8-fa28601f1be6",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "AR",
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-20T07:13:45.828Z"
+  }
+}

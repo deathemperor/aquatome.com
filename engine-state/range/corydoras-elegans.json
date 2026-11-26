@@ -1,8 +1,8 @@
 {
   "id": "corydoras-elegans",
   "native": {
-    "input": "14e57a69393bddc9",
-    "at": "2026-11-07T09:20:22.982Z",
+    "input": "75076f6aebf36789",
+    "at": "2026-11-22T12:48:24.036Z",
     "claims": [
       {
         "code": "BR",
@@ -34,6 +34,14 @@
         "source": "seriouslyfish",
         "quote": "The elegant cory, Gastrodermus elegans, long known as Corydoras elegans, is an armoured catfish from the western Amazon basin in Peru, Ecuador and Brazil.",
         "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "A color variant from the Rio Nanay in Peru stands out above all by yellow-orange tinted fins.",
+        "words": "Peru",
         "ok": true
       }
     ],
@@ -72,9 +80,10 @@
         "ok": true
       },
       {
-        "name": "Amazon",
-        "source": "planetcatfish",
-        "quote": "South America: Amazon basin, including the Middle Amazon (Solimões), Upper Amazon, Napo, Aguarico, Marañón, Ucayali, Tamaya, Ampiyacu, Nanay, Yavari and Japurá/Caquetá.",
+        "name": "Rio Nanay",
+        "source": "glaser",
+        "quote": "A color variant from the Rio Nanay in Peru stands out above all by yellow-orange tinted fins.",
+        "country": "PE",
         "ok": true
       }
     ],

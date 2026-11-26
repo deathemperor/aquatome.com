@@ -1,8 +1,8 @@
 {
   "id": "liosomadoras-oncinus",
   "native": {
-    "input": "4383f17ec54b6703",
-    "at": "2026-11-09T16:24:16.651Z",
+    "input": "3ff8f370b202e932",
+    "at": "2026-11-20T07:13:45.828Z",
     "claims": [
       {
         "code": "BR",
@@ -11,6 +11,15 @@
         "quote": "Ucayali, Amazonas and Negro river basins, Brazil.",
         "words": "Brazil",
         "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Brazil.",
+        "words": "Brazil",
+        "ok": false,
+        "why": "no sentence"
       }
     ],
     "regions": [

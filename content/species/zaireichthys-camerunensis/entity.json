@@ -12,6 +12,47 @@
     "nigeria",
     "niger"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM",
+        "NG"
+      ],
+      "regions": [
+        "Bénoué"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Bénoué basin at Lakdo, Cameroon.",
+          "countries": [
+            "CM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: only in the Niger basin, including the Upper Niger and the Bénoué (Upper Bénoué), in Nigeria and Cameroon.",
+          "countries": [
+            "NG"
+          ],
+          "regions": [
+            "Bénoué"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340783,
+      "total": 0,
+      "fetched": "2026-11-17",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -52,7 +93,24 @@
       "html": "<p>Mémoires de l'Institut français d'Afrique Noire No. 68, pp 94, Fig. 1.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/262212331.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/262212331-480.webp",
+      "width": 1024,
+      "height": 423,
+      "licence": "CC BY-NC",
+      "author": "david_taylor",
+      "sourceUrl": "https://www.inaturalist.org/photos/262212331",
+      "caption": "Cá Zaireichthys nhìn nghiêng, thân có đốm trắng trên nền cát",
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/262212331-large.webp",
+        "width": 2048,
+        "height": 846
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

@@ -6,6 +6,10 @@ import SwiftUI
 struct FishShelf: View {
   let items: [HandbookIndex.Item]
   var header: AnyView?
+  /// Under the cards, the filter's included (a chip's guides: ChipPage).
+  var footer: AnyView?
+  /// Its title big at rest, as a chip's page has it; else small.
+  var large = false
   @State private var filter = FishFilter()
   @State private var editing = false
 
@@ -13,7 +17,7 @@ struct FishShelf: View {
     let s = filter.split(items)
     FilteredGrid(fit: s.fit, unsure: s.unsure, filtering: !filter.isEmpty, clear: { filter = FishFilter() },
                  why: "Những loài này còn thiếu số liệu bạn đang lọc (nhiệt độ, pH, chiều dài bể hoặc độ khó). Số đã có thì hợp, nhưng chưa đủ để nói chắc.",
-                 header: header)
+                 header: header, footer: footer, large: large)
       .toolbar { FilterButton(active: !filter.isEmpty) { editing = true } }
       .sheet(isPresented: $editing) { FishFilterForm(filter: $filter).ownerScreen("sheet filter") }
   }
@@ -45,6 +49,8 @@ private struct FilteredGrid: View {
   let clear: () -> Void
   let why: LocalizedStringKey
   let header: AnyView?
+  var footer: AnyView?
+  var large = false
 
   var body: some View {
     ScrollView {
@@ -66,11 +72,12 @@ private struct FilteredGrid: View {
           .padding(.top, 8)
           cards(unsure)
         }
+        footer
       }
       .padding()
     }
     .accessibilityIdentifier("shelf-pages")
-    .navigationBarTitleDisplayMode(.inline)
+    .navigationBarTitleDisplayMode(large ? .large : .inline)
   }
 
   private var count: Text {

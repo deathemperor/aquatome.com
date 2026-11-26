@@ -1,0 +1,22 @@
+{
+  "slug": "ca-kiem-signum",
+  "name": "Cá kiếm signum",
+  "altNames": [
+    "Swordtail",
+    "Cá kiếm Xiphophorus signum"
+  ],
+  "sections": {
+    "beforeYouBuy:glaser": "<p>Loài cá kiếm này rất hiếm khi có bán ở tiệm. Mới nhìn qua thì dễ tưởng đây là một dòng của cá kiếm thường gặp X. hellerii, nhưng X. signum thon hơn nhiều.</p>",
+    "quickFacts:glaser": "<p>Tên khoa học của loài này lấy từ một vệt dấu trên thân (tiếng Latin signum nghĩa là dấu hiệu). Ở cá cái, vệt này luôn hiện rõ ở gốc vây đuôi. Ở cá đực thì nó bị viền sẫm của cây kiếm che mất.</p>",
+    "maintenance:glaser": "<p>Giống hầu hết các dòng cá kiếm hoang dã khác, Xiphophorus signum khá khó nuôi. Loài này cần nước trong và ít vi khuẩn.</p>",
+    "diet:glaser": "<p>Phải cho chúng ăn đầy đủ và đổi nhiều loại thức ăn, trong đó có cả đồ đông lạnh và đồ tươi sống.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  }
+}

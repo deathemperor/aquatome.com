@@ -1,14 +1,14 @@
 {
   "id": "phallichthys-tico",
   "native": {
-    "input": "5cc619a370e90b8f",
-    "at": "2026-11-12T21:02:28.514Z",
+    "input": "b0c4f96013a498f8",
+    "at": "2026-11-18T12:30:34.128Z",
     "claims": [
       {
         "code": "CR",
         "status": "native",
         "source": "glaser",
-        "quote": "The species is restricted to the upper reaches of the river San Juan in Costa Rica and Nicaragua.",
+        "quote": "Restricted to the upper reaches of the river San Juan in Costa Rica and Nicaragua.",
         "words": "Costa Rica",
         "ok": true
       },
@@ -16,7 +16,7 @@
         "code": "NI",
         "status": "native",
         "source": "glaser",
-        "quote": "The species is restricted to the upper reaches of the river San Juan in Costa Rica and Nicaragua.",
+        "quote": "Restricted to the upper reaches of the river San Juan in Costa Rica and Nicaragua.",
         "words": "Nicaragua",
         "ok": true
       }
@@ -25,7 +25,7 @@
       {
         "name": "San Juan",
         "source": "glaser",
-        "quote": "The species is restricted to the upper reaches of the river San Juan in Costa Rica and Nicaragua.",
+        "quote": "Restricted to the upper reaches of the river San Juan in Costa Rica and Nicaragua.",
         "ok": true
       }
     ],

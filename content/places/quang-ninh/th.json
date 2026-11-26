@@ -3,6 +3,12 @@
   "name": "กว๋างนิญ",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.72,
+    "at": "2026-11-20T11:56:08.273Z",
+    "why": "It is the right place, Quảng Ninh, in Thai script, but the tone mark ๋ is nonstandard, and Thai atlases usually write กวางนิญ, often with จังหวัด before it."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

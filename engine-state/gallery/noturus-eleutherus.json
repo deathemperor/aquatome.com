@@ -47,7 +47,11 @@
   "inat:673429626",
   "inat:673575178",
   "inat:673575219",
-  "inat:755762163"
+  "inat:755762163",
+  "gbif:1563257831:f38b72f1d2117d77",
+  "gbif:1563255251:fea7f5f3d393a042",
+  "gbif:1563346246:93a8a734e0e05d37",
+  "gbif:1563201922:65c3cc7a5d142775"
  ],
  "hashes": {
   "https://media.aquatome.com/scotcat/810d61163fbb9eae.webp": "00005a1717340000",
@@ -61,7 +65,6 @@
   "https://media.aquatome.com/inaturalist/605723761.webp": "f0d0c1edf5f9f79e",
   "https://media.aquatome.com/inaturalist/113721335.webp": "606161584958db60",
   "https://media.aquatome.com/inaturalist/113721354.webp": "1b9bd9b1a2f09236",
-  "https://media.aquatome.com/inaturalist/568834747.webp": "f909f9f9e1691fe9",
   "https://media.aquatome.com/inaturalist/568834813.webp": "70f46c380c644dfc",
   "https://media.aquatome.com/inaturalist/606630848.webp": "624142414b43001f",
   "https://media.aquatome.com/inaturalist/604017683.webp": "d8732323e3e322f8",
@@ -75,5 +78,9 @@
    "research": 410878159,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2341021,
+  "next": null
  }
 }

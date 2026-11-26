@@ -1,0 +1,96 @@
+{
+  "id": "arius-gigas",
+  "native": {
+    "input": "d1337777da5d7a78",
+    "at": "2026-11-18T00:54:56.623Z",
+    "claims": [
+      {
+        "code": "CI",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "This species is relatively widespread within western Africa, from Cote d'Ivoire to Cameroon.",
+        "words": "Cote d'Ivoire",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "This species is relatively widespread within western Africa, from Cote d'Ivoire to Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Niger",
+        "source": "scotcat",
+        "quote": "Africa: Ouémé and Volta rivers, and greater part of the Niger River basin, including the Benue River downstream Gauthiot Falls.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Volta",
+        "source": "scotcat",
+        "quote": "Africa: Ouémé and Volta rivers, and greater part of the Niger River basin, including the Benue River downstream Gauthiot Falls.",
+        "ok": true
+      },
+      {
+        "name": "Ouémé",
+        "source": "scotcat",
+        "quote": "Africa: Ouémé and Volta rivers, and greater part of the Niger River basin, including the Benue River downstream Gauthiot Falls.",
+        "ok": true
+      },
+      {
+        "name": "Benue",
+        "source": "scotcat",
+        "quote": "Africa: Ouémé and Volta rivers, and greater part of the Niger River basin, including the Benue River downstream Gauthiot Falls.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "NE"
+      ],
+      "sourcesOnly": [
+        "CI",
+        "CM"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Arius gigas",
+    "status": "ACCEPTED",
+    "taxonKey": 2345303,
+    "datasets": [
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        13
+      ],
+      [
+        "8e912d78-6259-44e3-8f58-debb3081a15f",
+        5
+      ],
+      [
+        "40a262b4-6627-4011-afbe-159c00ec97e7",
+        1
+      ],
+      [
+        "84dbaec2-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "fba36b75-451a-40e3-af18-297f151bcc91",
+        1
+      ]
+    ],
+    "native": [
+      "CI",
+      "CM"
+    ],
+    "requests": 11,
+    "at": "2026-11-18T00:54:56.623Z"
+  }
+}

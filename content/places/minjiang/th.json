@@ -3,6 +3,12 @@
   "name": "หมินเจียง",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T18:50:54.224Z",
+    "why": "หมินเจียง is a correct Thai transliteration of Minjiang, but it leaves out the kind word แม่น้ำ that Thai atlases use for a river."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

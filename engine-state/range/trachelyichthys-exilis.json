@@ -1,0 +1,72 @@
+{
+  "id": "trachelyichthys-exilis",
+  "native": {
+    "input": "a68d1aeb70806ae9",
+    "at": "2026-11-16T17:28:41.839Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The pygmy driftwood catfish, Trachelyichthys exilis, is a small auchenipterid catfish from the Nanay river basin in Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Nanay",
+        "source": "seriouslyfish",
+        "quote": "The pygmy driftwood catfish, Trachelyichthys exilis, is a small auchenipterid catfish from the Nanay river basin in Peru.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Trachelyichthys exilis",
+    "status": "ACCEPTED",
+    "taxonKey": 2344624,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        22
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        9
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T17:28:41.839Z"
+  }
+}

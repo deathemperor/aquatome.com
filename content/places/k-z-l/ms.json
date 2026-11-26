@@ -3,6 +3,12 @@
   "name": "Kızıl",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-17T00:04:11.320Z",
+    "why": "In the source, Kızıl is a river (the Kızılırmak), and the bare name leaves out \"Sungai\", the kind word Malay uses for rivers."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

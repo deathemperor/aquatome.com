@@ -3,6 +3,12 @@
   "name": "San Juan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T17:38:36.237Z",
+    "why": "The place is a region in Nicaragua, but the source sentences refer to the San Juan River basin; Indonesian atlases would write \"Sungai San Juan\" for the river, and for a Nicaraguan region/department \"San Juan\" is ambiguous (the Río San Juan Department is \"Río San Juan\")."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

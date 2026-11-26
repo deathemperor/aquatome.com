@@ -3,6 +3,12 @@
   "name": "เจียหลิง",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-18T12:25:23.186Z",
+    "why": "The Thai name \"เจียหลิง\" is only a bare transliteration of Jialing and omits the word for river (แม่น้ำ), which Thai atlases normally write as \"แม่น้ำเจียหลิง\"."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

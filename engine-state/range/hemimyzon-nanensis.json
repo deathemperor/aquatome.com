@@ -1,8 +1,8 @@
 {
   "id": "hemimyzon-nanensis",
   "native": {
-    "input": "dfc3fb63434ccf11",
-    "at": "2026-11-08T18:57:48.756Z",
+    "input": "9329a349979a30a4",
+    "at": "2026-11-21T19:07:52.042Z",
     "claims": [
       {
         "code": "TH",
@@ -13,17 +13,17 @@
         "ok": true
       },
       {
-        "code": "CN",
-        "status": "doubtful",
-        "source": "seriouslyfish",
-        "quote": "Known only from the upper Mae Nam Nan river basin, itself a tributary of the upper Chao Phraya system in Nan province, northern Thailand, making it the first member of the genus to be recorded outside China and Taiwan.",
-        "words": "China",
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "H. nanensis, on the other hand, is found in the upper reaches of the Chao Phraya basin in northern Thailand.",
+        "words": "Thailand",
         "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Mae Nam Nan",
+        "name": "Chao Phraya",
         "source": "seriouslyfish",
         "quote": "Known only from the upper Mae Nam Nan river basin, itself a tributary of the upper Chao Phraya system in Nan province, northern Thailand, making it the first member of the genus to be recorded outside China and Taiwan.",
         "country": "TH",
@@ -31,8 +31,8 @@
       },
       {
         "name": "Chao Phraya",
-        "source": "seriouslyfish",
-        "quote": "Known only from the upper Mae Nam Nan river basin, itself a tributary of the upper Chao Phraya system in Nan province, northern Thailand, making it the first member of the genus to be recorded outside China and Taiwan.",
+        "source": "glaser",
+        "quote": "H. nanensis, on the other hand, is found in the upper reaches of the Chao Phraya basin in northern Thailand.",
         "country": "TH",
         "ok": true
       }

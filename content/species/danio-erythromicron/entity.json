@@ -16,20 +16,29 @@
         "MM"
       ],
       "regions": [
-        "Lake Inle"
+        "Lake Inle",
+        "Shan Plateau"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "bwaquatics"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Danio erythromicron is a miniature danionin from Lake Inle and its surrounding watershed in Shan State, eastern Myanmar.",
+          "quote": "Known from the isolated mountain lake of Inlé and surrounding watershed in Shan state, eastern Myanmar, and also occurs close to Loi Kaw township in neighbouring Kayah state to the south.",
           "countries": [
             "MM"
           ],
+          "regions": []
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Danio erythromicron is found only in Lake Inle and its surrounding streams, high on the Shan Plateau in Myanmar.",
+          "countries": [],
           "regions": [
-            "Lake Inle"
+            "Lake Inle",
+            "Shan Plateau"
           ]
         }
       ]
@@ -72,14 +81,21 @@
       {
         "source": "bwaquatics",
         "value": {
-          "min": 22,
-          "max": 26
+          "min": 20,
+          "max": 25
         }
       }
     ],
     "ph": [
       {
         "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      },
+      {
+        "source": "bwaquatics",
         "value": {
           "min": 7,
           "max": 8
@@ -99,6 +115,10 @@
       {
         "source": "seriouslyfish",
         "value": 2
+      },
+      {
+        "source": "bwaquatics",
+        "value": 3
       }
     ],
     "tankCm": [
@@ -125,7 +145,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/copy-of-brevibora-dorsiocellata-emerald-eye-rasbora",
-      "html": "<p>A small schooling nano fish that is perfect for those looking to add life and color into a blackwater biotope. They have a gray body with nice iridescent blue stripes running down the body to create tiger-like stripes. They also have some orange on their fins.</p>"
+      "html": "<ul><li>Genus: Danio</li><li>IUCN Red List: Endangered (very high risk of extinction in the wild)</li><li>Origin: Tank raised</li></ul>"
     },
     {
       "key": "distribution",
@@ -134,10 +154,22 @@
       "html": "<p>Known from the isolated mountain lake of Inlé and surrounding watershed in Shan state, eastern Myanmar, and also occurs close to Loi Kaw township in neighbouring Kayah state to the south.</p><p>Type locality is given simply as 'Inlé Lake, Myanmar'.</p>"
     },
     {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/copy-of-brevibora-dorsiocellata-emerald-eye-rasbora",
+      "html": "<p>Danio erythromicron is found only in Lake Inle and its surrounding streams, high on the Shan Plateau in Myanmar.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-erythromicron",
       "html": "<p>Lake Inlé lies in a karstic valley known as the Yawnghwe basin located almost 900m above sea level in the Shan Plateau region and is home to many endemic animals including nine species of fish and numerous gastropods.</p><p>It was originally much bigger and may originally have been more than 90 metres deeper than it is now.</p><p>The water in Lake Inle is clear, shallow (2-3 metres deep in most places) and has a very fertile, loamy substrate.</p><p>It's famed for its stilted villages and local fishermen known as Intha who row their boats using only one leg.</p><p>These people, thought to have migrated from the south of Myanmar in the late 1300s, use naturally-occurring floating 'islands' consisting of tangles of various plant species as gardens.</p><p>These islands form a wide raft around the lake margins and the Intha take them as required, removing the aerial leaves and cutting them into sections.</p><p>Bamboo poles are added for support allowing fruit, vegetables, rice and flowers to be produced in commercial quantities.</p><p>The gardens rise and fall with the water level and have come to form the habitats of many fish which take shelter among the tangle of roots and plant stems at their base.</p><p>Macrophytes also grow densely in the crystal-clear water and include Ceratophyllum and Elodea-like species.</p><p>D. erythromicron is mostly collected around the margins of the lake where grass and reed-like plants proliferate and the floating islands form thick mats composed of both live and dead vegetation.</p><p>Impossible to catch with a net, fishermen use special traps placed among the plants overnight.</p><p>As the lake is situated in a karstic zone it contains neutral to slightly alkaline water with the pH value varying between 7.5 - 8.0.</p><p>Its main outlet is a seasonal stream known as the Balu Chaung which floods at certain times of year allowing the transfer of fishes to pools and ponds close to Loi Kaw.</p><p>During drier months these are disconnected, isolating small populations of several species.</p><p>Detailed information regarding these habitats has yet to be obtained, but they are expected to be characterised by similarly sluggish, clear water with dense marginal and submerged plant growth.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/copy-of-brevibora-dorsiocellata-emerald-eye-rasbora",
+      "html": "<p>Lake Inle sits in limestone country, so its water is cool, fairly hard and alkaline, not blackwater. The fish live among dense plants in the shallow, clear parts of the lake.</p>"
     },
     {
       "key": "aquariumSize",
@@ -161,7 +193,7 @@
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/copy-of-brevibora-dorsiocellata-emerald-eye-rasbora",
-      "html": "<p>Prefers low TDS, acidic water but can adapt to a wide range of conditions.</p><p>Temperature: 22–26 °C (72–78 °F).</p>"
+      "html": "<p>pH: 7.0 to 8.0. Adapts to a wide range, but does not need acidic blackwater.</p><p>Temperature: 20 to 25°C; avoid long periods above 25°C.</p>"
     },
     {
       "key": "diet",
@@ -173,7 +205,7 @@
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/copy-of-brevibora-dorsiocellata-emerald-eye-rasbora",
-      "html": "<p>Small foods such as crushed pellets and flakes; live baby brine shrimp are perfect.</p>"
+      "html": "<p>Small food such as crushed pellets and flakes, or live baby brine shrimp.</p>"
     },
     {
       "key": "behaviour",
@@ -185,7 +217,7 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/copy-of-brevibora-dorsiocellata-emerald-eye-rasbora",
-      "html": "<p>Temperament: peaceful.</p><p>They are aggressive eaters and can out-compete slower fish for food, so do not keep them with slow-moving and shy fish. Likewise, do not keep them with large fish that see them as food.</p>"
+      "html": "<p>Peaceful but can be shy. Males spar with each other. They are aggressive eaters and can out-compete slower fish for food, so do not keep with fish that are slow-moving and shy. Likewise do not keep with large fish that see them as food.</p>"
     },
     {
       "key": "dimorphism",
@@ -194,10 +226,22 @@
       "html": "<p>Adult females tend to grow slightly larger than males and be noticeably rounder in the belly, more so when gravid.</p><p>Males are more colourful, with well-defined, iridescent blue vertical bars on the flanks and red colouration in the fins.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/copy-of-brevibora-dorsiocellata-emerald-eye-rasbora",
+      "html": "<p>Body shape: small, slender danio. Fins: orange to red tinted fins, strongest in males. Dark spot at the base of the tail. Coloration: gray to orange-brown body crossed by iridescent blue-green bars. Males are more colorful; females are plainer and rounder.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-erythromicron",
       "html": "<p>Like many small cyprinids it's an egg-scattering spawner that does not exhibit parental care.</p><p>If the fish are in good condition they will spawn often and in a densely-planted, mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to increase the yield of fry a slightly more controlled approach is required.</p><p>The adult group can still be conditioned together but one or more smaller, perhaps 10-15 litre, containers should also be set up and filled with aged water.</p><p>Fill much of the available space with fine wool mops, Taxiphyllum or other fine-leaved plant. Neither lighting nor filtration is necessary although you can install a small air-powered sponge filter if you prefer.</p><p>When the adult fish are well-conditioned a single pair or group comprising one or two males and several females can then be introduced to each container, though it's worth noting that the more individuals involved the greater the risk of egg predation, plus males may distract each other from females if there's more than one in the tank.</p><p>Spawning normally presents few problems with around 30 mildly adhesive eggs deposited in a typical event.</p><p>At this point the adults are best removed as they will eat any they find, plus females need a recovery period before spawning again as they're unable to produce eggs on a daily basis.</p><p>In nature it apparently breeds year-round so you could always select another pair and work a rotation system if continuous production is the aim.</p><p>Incubation is temperature-dependant to an extent but usually takes around 72 hours with the young free-swimming 3-4 days later.</p><p>Initial food should be Paramecium or a proprietary dry food of sufficiently small (5-50 micron) grade, introducing Artemia nauplii, microworm, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/copy-of-brevibora-dorsiocellata-emerald-eye-rasbora",
+      "html": "<p>Egg scatterer that spawns among fine-leaved plants or moss. Adults eat eggs, so use a separate tank or dense moss. Fry need infusoria first.</p>"
     },
     {
       "key": "notes",
@@ -219,7 +263,7 @@
       "width": 801,
       "height": 600,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Peter Macguire / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-erythromicron",
       "caption": "Adult male in spawning condition.",
       "source": "seriouslyfish"
@@ -230,7 +274,7 @@
       "width": 800,
       "height": 600,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Peter Macguire / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-erythromicron",
       "caption": "Adult pair; female front.",
       "source": "seriouslyfish"
@@ -241,7 +285,7 @@
       "width": 900,
       "height": 675,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Peter Macguire / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-erythromicron",
       "caption": "Prior to spawning males form small, temporary territories in open water, close to the spawning medium...",
       "source": "seriouslyfish"
@@ -252,7 +296,7 @@
       "width": 900,
       "height": 675,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Peter Macguire / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-erythromicron",
       "caption": "...from where they display to ripe females.",
       "source": "seriouslyfish"
@@ -315,5 +359,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-21"
 }

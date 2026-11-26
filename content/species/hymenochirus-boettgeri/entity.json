@@ -5,12 +5,49 @@
   "family": "Pipidae",
   "genus": "Hymenochirus",
   "group": "other",
-  "places": [],
+  "places": [
+    "africa",
+    "central-african-republic",
+    "democratic-republic-of-the-congo",
+    "nigeria",
+    "gabon",
+    "equatorial-guinea",
+    "cameroon"
+  ],
   "range": {
+    "native": {
+      "countries": [
+        "CF",
+        "CD",
+        "NG",
+        "GA",
+        "GQ",
+        "CM"
+      ],
+      "regions": [],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Hymenochirus boettgeri occurs in the Central African Republic, the Democratic Republic of the Congo, Nigeria, Gabon, Equatorial Guinea and Cameroon.",
+          "countries": [
+            "CF",
+            "CD",
+            "NG",
+            "GA",
+            "GQ",
+            "CM"
+          ],
+          "regions": []
+        }
+      ]
+    },
     "records": {
       "taxonKey": 2423973,
-      "total": 43,
-      "fetched": "2026-11-08",
+      "total": 44,
+      "fetched": "2026-11-22",
       "countries": [
         [
           "CM",
@@ -22,7 +59,7 @@
         ],
         [
           "CG",
-          3
+          4
         ],
         [
           "GA",
@@ -37,88 +74,218 @@
         [
           8.4375,
           4.21875,
+          2,
           2
         ],
         [
           9.84375,
           1.40625,
+          4,
           4
         ],
         [
           9.84375,
           2.8125,
+          14,
           14
         ],
         [
           9.84375,
           4.21875,
+          1,
           1
         ],
         [
           11.25,
           -2.8125,
+          1,
           1
         ],
         [
           11.25,
           2.8125,
+          1,
           1
         ],
         [
           12.65625,
           -5.625,
+          1,
           1
         ],
         [
           12.65625,
           -2.8125,
-          4
+          5,
+          1
         ],
         [
           14.0625,
           -5.625,
+          1,
           1
         ],
         [
           14.0625,
           2.8125,
+          1,
           1
         ],
         [
           16.875,
           -1.40625,
+          1,
           1
         ],
         [
           18.28125,
           -1.40625,
+          3,
           3
         ],
         [
           22.5,
           -4.21875,
+          1,
           1
         ],
         [
           28.125,
           0,
+          7,
           7
         ],
         [
           29.53125,
           0,
+          1,
           1
         ]
       ]
     }
   },
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 7
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 8,
+          "max": 8
+        }
+      }
+    ]
+  },
   "sections": [
     {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/hymenochirus_boettgeri_gold_albino_en/",
-      "html": "<p>The most popular of all underwater frogs is the Dwarf Clawed Frog Hymenochirus boettgeri. It has been bred as an ornamental animal for years, so it was only a matter of time before albinos appeared on the market. The gold-albino form is now available.</p>"
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/african-dwarf-frogs-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Other names: Congo frog, African Dwarf Clawed Frog, West African Clawed Toad, Zaire Dwarf Clawed Frog, ADCF, ADF</li><li>Keeping: easy; breeding: medium to difficult</li><li>pH 6.5–7.5, GH 5–20, KH 4–12</li><li>Nitrate: less than 20 ppm</li><li>Diet: carnivore / omnivore</li><li>Temperament: peaceful (with caution)</li><li>Life span: up to 8 years</li><li>Colour: from olive green to brown with black spots</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/african-dwarf-frogs-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The genus Hymenochirus (order Anura) consists of four species: Hymenochirus boettgeri, H. boulengeri, H. curtipes and H. feae. They all look similar and it is hard for hobbyists to tell them apart, but in practice the most common one sold is Hymenochirus boettgeri.</p><p>African Dwarf Frogs are sometimes confused with African Clawed Frogs (Xenopus laevis), which have small claws on their feet. This mistake is extremely important to avoid: the African Clawed Frog is a voracious predator that can attack and kill fish larger than itself and also eats other frogs. Introducing it into a community tank results in a massacre. The two look similar when small, and some shops sell African Clawed Frogs as African Dwarf Frogs.</p><table><tr><th></th><th>African Dwarf Frog (H. boettgeri)</th><th>African Clawed Frog (X. laevis)</th></tr><tr><td>Colour</td><td>olive green to brown with black spots</td><td>often greenish-grey</td></tr><tr><td>Albino</td><td>no albino form confirmed</td><td>possible</td></tr><tr><td>Size</td><td>5–7 cm</td><td>12–14 cm</td></tr><tr><td>Webbing</td><td>four webbed feet</td><td>webbed hind feet, front feet have free digits</td></tr><tr><td>Skin</td><td>rough</td><td>smooth</td></tr><tr><td>Eyes</td><td>on the sides of the head</td><td>on top of the head</td></tr><tr><td>Noise</td><td>males</td><td>males and females</td></tr></table><p>Warning: the African Clawed Frog is an invasive species and is illegal to own, transport or sell without a permit in several US states; check local laws.</p><p>When choosing frogs at the store, make sure they are healthy and active; they should swim away when staff try to net them.</p><p>Health hazard: African Dwarf Frogs are a potential source of Salmonella. Use gloves, wash hands thoroughly after contact and do not clean equipment (nets, feeding dishes, etc.) in sinks where food is prepared.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/african-dwarf-frogs-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Hymenochirus boettgeri occurs in the Central African Republic, the Democratic Republic of the Congo, Nigeria, Gabon, Equatorial Guinea and Cameroon.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/african-dwarf-frogs-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>African dwarf frogs are native to tropical Central Africa, where they live in very shallow ponds, rivers, swamps and similar waters surrounded by shaded tropical forests.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/african-dwarf-frogs-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>African Dwarf Frogs need long (not tall) tanks and should be housed in a tank of at least 20 litres. The rule of \"one gallon per frog\" is nonsense; more volume also makes the aquarium easier to maintain.</p><p>They come from shallow waters (often less than 50 cm deep), so avoid tall or deep tanks, which stress them. They are poor swimmers; ideally the water should be no more than 25–30 cm deep.</p><p>Use a lid, as they are escape artists, and make sure nothing in the tank reaches high enough for the frogs to climb out.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/african-dwarf-frogs-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Clean the tank once a month like any other aquarium: clean algae inside and the outside, test water parameters and do water changes accordingly.</p><p>Substrate: you can use a bare bottom, soil, gravel or sand, each with pros and cons.</p><ul><li>A bare bottom is safe and easy to clean, but it is not attractive and does not replicate the natural habitat, which will eventually stress the frogs.</li><li>Gravel must be large enough not to be swallowed during feeding; swallowing gravel causes intestinal blockage and death. The skin is delicate, so use smooth substrate without sharp edges.</li><li>Soil or sand is generally more favourable, looks more natural, and the frogs often spit it out, so the risk of injury is limited.</li></ul><p>Plants, leaves and decorations provide a natural environment and a sense of security. Pothos plants can also be used, as their roots create a good environment. Use aquarium-safe decorations without sharp edges and quarantine anything you put in the tank for at least a week, as their skin absorbs substances readily.</p><p>Molting: they shed their skin every two to three weeks, rubbing against surfaces to speed it up. Leave the skin, as they eat it, but remove it if it is still in the tank after 24 hours, otherwise it can foul the water.</p><p>Handling: do not take them out of the aquarium; their porous skin can lead to fatal dehydration within 15–20 minutes. To transfer them use a soft net with the opening covered. Avoid touching them with bare hands; if unavoidable, hands must be clean and wet, since any residue (even soap) is absorbed through the skin. Ideally use gloves, and do not use the same gloves for different aquariums, as infection can be transferred.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/african-dwarf-frogs-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Keep pH at 6.5–7.5, KH 4–12 and GH 5–20. Temperature should be 23–26 °C. A thermometer is useful for tracking the temperature. Nitrate should stay below 20 ppm.</p><p>Heaters and other electronic equipment should be carefully hidden or placed out of the frogs' reach.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/african-dwarf-frogs-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>African dwarf frogs produce little waste, so depending on the setup you might not need a filter, for example with many plants and 30–50% water changes weekly. Filtration is still recommended, especially with fish.</p><p>These frogs prefer still or slow-moving water, and bubblers or aeration disturb the water and stress them. Because they are clumsy, they can also get stuck in intakes. Therefore:</p><ul><li>Cover intakes with sponge.</li><li>Choose filters with adjustable flow.</li><li>Use sponge filters so the frogs are not blown around.</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/african-dwarf-frogs-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Despite having no tongue or teeth, African Dwarf Frogs are scavenging carnivores. Ideally they feed at the bottom on sinking foods such as pellets, granules and wafers, but feeding is the most problematic part of their care: they are slow, inefficient eaters with poor eyesight and rely on smell and water vibrations.</p><p>They do best on a variety of raw meat: tuna, shrimp, brine shrimp, bloodworms, blackworms, earthworms, tubifex worms, trout and salmon. They readily eat daphnia, some pellet foods and, when young, flake food. Basically any fish food will do as long as it sinks. Brine shrimp can be messy.</p><p>Freeze-dried/dehydrated food may cause bloating; if so, try live food for a week or so. Bloodworms should be only a treat 1–2 times a week, as they are high in fat and can cause bloat or obesity.</p><p>Frequency: adults eat about every other day or slightly less; juveniles should be fed daily or 4–6 times a week. If food is not eaten within 30 minutes to an hour, remove it and try again a few hours later. Feeding until they stop eating may be fine 2–3 times a week, but daily it leads to obesity.</p><p>In a community tank frogs cannot compete with fish and may starve. Options: feed simultaneously in different areas of the tank; use a long syringe to feed each individually with brine shrimp and bloodworms; use a feeding dish; or net feeding, where food is placed in a net so no excess rots. Do not leave the net in for more than 5–10 minutes, as frogs can get caught and be unable to reach the surface for air.</p><p>The most important thing is variety; do not give only 1 or 2 types of food all the time.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/african-dwarf-frogs-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>African Dwarf Frogs spend their entire life underwater. They have lungs rather than gills and come to the surface for air, but need no dry surface. They are shy and often swim away, but are fairly smart and will eventually recognise their keeper. They sometimes float motionless at the surface, which is normal. They are not good swimmers and can drown if they cannot reach the surface.</p><p>They have poor eyesight and rely on smell, water vibrations and the lateral line to find food. They are clumsy.</p><p>They are calm but still predators and will try to eat anything that fits in their mouth. They are mostly nocturnal, sleeping up to 12 hours. They are not territorial; they are social and prefer to be in groups of their own kind.</p><p>Tankmates: the ideal is a species tank. Any fish under 2.5 cm will eventually be eaten, so do not keep them with small tetras, guppies or gouramis; also avoid big, aggressive or nippy fish such as goldfish, cichlids and puffers. Compatibility with bettas depends on the individual betta; there are many positive and many negative reports. They will eat all dwarf shrimp, though larger ones such as Amano and ghost shrimp (up to 5 cm) have a chance. They sometimes eat baby snails or snail eggs but usually ignore adult freshwater snails. Never keep them with crayfish, which will eat the frogs.</p><p>Diseases:</p><ul><li>Bloat (dropsy): caused by internal bacterial infection (almost always fatal) or abnormal fluid accumulation from improper metabolism (not lethal). Draining with a needle is not recommended, as it can damage organs and the bloat usually returns.</li><li>Red leg: red lesions on hind legs and swelling, a sign of the bacterium Aeromonas hydrophila; other signs are muscle spasms, lethargy and vomiting. Once it enters the blood the animal will not survive. Isolate infected animals and all they had contact with, and disinfect nets and tanks.</li><li>Fungal infections: caused by the fungus Batrachochytrium dendrobatidis; the skin thickens and blood chemistry becomes imbalanced; usually fatal. Anti-fungal solutions are sold at pet shops.</li></ul><p>If a frog has problems, remove it to a separate tank and consult a vet.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/african-dwarf-frogs-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Males are slimmer and smaller; females are often 30–40% larger when fully mature and have pear-shaped bodies as their abdomens fill with eggs.</li><li>Females have a small tail-like projection between the legs.</li><li>Males have a red/whitish bump near each armpit: breeding glands that secrete pheromones to attract females, developing at sexual maturity and enlarging in the breeding season.</li><li>Males \"sing\" or \"hum\", a buzzing noise, typically at night, which also attracts females.</li></ul>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/african-dwarf-frogs-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>They reach sexual maturity at about 9 months. When a male and a female are ready, the male clasps the female just above her hind legs as she swims (amplexus). The female lays eggs at the surface while the male fertilises them. Mating often takes a single night, sometimes longer.</p><p>Females do not lay all eggs at once; each spawning releases about a dozen eggs, and in total, depending on size, they can produce 150–700 eggs. Eggs will not hatch below 22 °C; under normal conditions they hatch within 1–2 days.</p><p>For the next 4–5 days the hatchlings hang at the surface by a mucous thread, then begin swimming. Back legs appear in about 10 days and front legs around 24 days. Fully grown tadpoles reach about 2 cm, and it takes about 1 month to transform into frogs. The tadpoles are entirely carnivorous and need micro-organisms in the first few days.</p><p>Adults are cannibalistic and usually eat all the eggs before they hatch, and also their tadpoles, so remove the eggs and raise the young separately.</p>"
     }
   ],
   "photos": [
@@ -127,15 +294,25 @@
       "thumb": "https://media.aquatome.com/commons/1306a73e1f5eb0e1-480.webp",
       "width": 1200,
       "height": 841,
-      "licence": "Public domain",
-      "author": "James Gathany",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:African_dwarf_frog.jpg",
-      "caption": "Ếch móng vuốt lùn bám trên thân cây trong bể",
       "large": {
         "url": "https://media.aquatome.com/commons/1306a73e1f5eb0e1-large.webp",
         "width": 1712,
         "height": 1200
-      }
+      },
+      "licence": "Public domain",
+      "author": "James Gathany",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:African_dwarf_frog.jpg",
+      "caption": "Ếch móng vuốt lùn bám trên thân cây trong bể"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/ebb08cc84902b6ff.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/ebb08cc84902b6ff-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/african-dwarf-frogs-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
     }
   ],
   "videos": [
@@ -180,5 +357,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-22"
 }

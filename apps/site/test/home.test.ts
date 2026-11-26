@@ -1,6 +1,6 @@
 import type { Content } from '@aq/schema'
 import { expect, test } from 'vitest'
-import { cleanPhoto, featuredSpecies, groupTiles, listOrder, nativeCards, nativeSpecies } from '../src/lib/home'
+import { cleanPhoto, easyPlants, featuredSpecies, groupTiles, listOrder, nativeCards, nativeSpecies } from '../src/lib/home'
 
 const fish = (id: string, o: { places?: string[]; indexable?: boolean; photo?: boolean } = {}) => ({
   id, places: o.places ?? ['thailand'], sections: [], photos: o.photo === false ? [] : [{ url: `https://x/${id}.jpg`, width: 800, height: 600 }],
@@ -44,6 +44,13 @@ test("a group's tile takes a photo at least 640 px wide before a smaller one, ev
   expect(groupTiles('vi', soft)[0]!.photo?.url).toBe('https://x/a-0.jpg')
 })
 
+// 22 Nov 2026: the three groups the engine accepts outside its model's list have names, but no home tile while the owner
+// decides whether characoids folds into characins (format.ts OFF_LIST_GROUPS).
+test('the groups outside the model\'s list have no home tile', () => {
+  const c = { species: ['characins', 'characoids', 'cyprinid', 'catfish'].map(group => ({ ...fish(`x-${group}`), group })) } as unknown as Content
+  expect(groupTiles('vi', c).map(t => t.group)).toEqual(['catfish'])
+})
+
 test("a photo the calendar keeps off cards leads no featured fish and no group tile; its page keeps it", () => {
   const avoid = { 'https://x/betta-splendens.jpg': 'a drawing (the chief of staff, 15 Nov)', 'https://x/a-0.jpg': 'a figure plate' }
   const c = { species: [sp('betta-splendens'), sp('rasbora-x'), sp('rasbora-y')] } as unknown as Content
@@ -56,17 +63,17 @@ test("a photo the calendar keeps off cards leads no featured fish and no group t
   expect(groupTiles('vi', g, undefined, avoid)[0]!.photo?.url).toBe('https://x/b-0.jpg')
 })
 
-test("a video guide's card picture: a photo from its sections, not a strip a card would crop to a sliver; the home page's videos have one but for at most one", async () => {
+test("a video guide's card picture is its own video's still, never a part's stock photo; the home page's videos have one but for at most one", async () => {
+  const { stillShown } = await import('@aq/schema')
   const { getContent } = await import('../src/lib/content')
   const { guideImages } = await import('../src/lib/mentions')
   const { homeVideos } = await import('../src/lib/video')
   const { pagePictures, takeRow } = await import('../src/lib/pictures')
   const c = await getContent('vi')
-  const g = c.guides.find(x => x.video?.figures?.some(f => f.photo))!
-  const photo = g.video!.figures!.find(f => f.photo)!.photo!
-  expect(guideImages(c, g)).toContain(photo)
-  const strip = { ...g, video: { ...g.video!, figures: [{ heading: 'x', moments: [], photo: { ...photo, url: 'https://x/strip.webp', width: 960, height: 267 } }] } }
-  expect(guideImages(c, strip).map(p => p.url)).not.toContain('https://x/strip.webp')
+  const g = c.guides.find(x => x.video?.figures?.some(f => f.photo) && x.video.figures.some(f => f.moments.some(stillShown)))!
+  const photo = g.video!.figures!.find(f => f.photo)!.photo!, still = g.video!.figures!.flatMap(f => f.moments).find(stillShown)!
+  expect(guideImages(c, g)[0]?.url).toBe(still.url)
+  expect(guideImages(c, g).map(p => p.url)).not.toContain(photo.url)
   // A guide with no picture at all keeps its place and draws a cover (the chief of staff and the Design Lead, 15 Nov 2026),
   // one at most in the home page's row of four.
   const bare = { ...g, id: 'bare', photos: [], mentions: [], t: { ...g.t, body: '<p>Không nhắc loài nào.</p>' }, video: { ...g.video!, figures: [], series: { ...g.video!.series!, position: 0 } } }
@@ -120,6 +127,21 @@ test("the home page's native fish: one whose photos are all strips waits", () =>
     ],
   } as unknown as Content
   expect(nativeCards('th', c, [], 4).map(s => s.id)).toEqual(['akysis-hendricksoni'])
+})
+
+test("the home page's native fish and easy plants: one led by a non-commercial photo waits, the row features them (the chief of staff's rule, 17 Nov)", () => {
+  const shot = (id: string, licence: string) => [{ url: `https://x/${id}.jpg`, width: 800, height: 600, licence }]
+  const plant = (id: string, licence: string) => ({ id, photos: shot(id, licence), light: 'low', co2: 'none', difficulty: 1, sections: [], t: { name: id } })
+  const c = {
+    places: [{ id: 'thailand', parent: 'asia', t: { name: 'ไทย' } }],
+    species: [
+      { ...fish('akysis-hendricksoni'), dataCard: {}, photos: shot('a', 'CC BY-NC 4.0'), range: { records: { countries: [['TH', 50]] } } },
+      { ...fish('trichopodus-trichopterus'), dataCard: {}, photos: shot('t', 'CC BY 4.0'), range: { records: { countries: [['TH', 20]] } } },
+    ],
+    plants: [plant('plant-nc', 'CC BY-NC-SA 4.0'), plant('plant-open', 'CC BY-SA 4.0')],
+  } as unknown as Content
+  expect(nativeCards('th', c, [], 4).map(s => s.id)).toEqual(['trichopodus-trichopterus'])
+  expect(easyPlants(c, 4).map(p => p.id)).toEqual(['plant-open'])
 })
 
 test("the home page's native fish: one kept in brackish or sea water waits, and the row still fills", () => {

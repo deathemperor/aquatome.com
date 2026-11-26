@@ -1,0 +1,142 @@
+{
+  "id": "rama-rama",
+  "scientificName": "Rama rama",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Rama",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "brahmaputra"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=156",
+      "html": "<p>Easily distinguished by its large head, short barbels, and translucent yellowish body. Maximum size 5 cm SL. Type locality: Brahmaputra River, India.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=156",
+      "html": "<p>Asia: Brahmaputra River basin in India. Indian waters, North Eastern India, Padma, Ganges.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=156",
+      "html": "<p>pH 6.0–7.0. Temperature 20–25°C. Current, if provided, should not be too strong.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=156",
+      "html": "<p>Provide ample driftwood and vegetation, as this species likes to hide in the shade.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=156",
+      "html": "<p>Shows a marked preference for live or frozen food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=156",
+      "html": "<p>Peaceful, somewhat delicate fish that should be kept in small groups of 3-4 individuals. Tankmates should not be too boisterous, and may include Colisa and smaller Rasbora species.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=156",
+      "html": "<p>Males are more slender and have an elongate genital papilla in front of the anus.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=156",
+      "html": "<p>Not reported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=156",
+      "html": "<p>An account of the fishes found in the river Ganges, pp 176, 377, Pl. 3 (fig. 55).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/fdbba78a7c41192e.webp",
+      "width": 867,
+      "height": 1001,
+      "licence": "CC BY 2.0",
+      "author": "Jean-Pierre Dalbéra from Paris, France",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:L%27exposition_%22Angkor_-_la_naissance_d%27un_mythe%22_(mus%C3%A9e_Guimet)_(11804234493).jpg",
+      "caption": "Moulage d'une section du bas-relief de la \"bataille de Lanka\" Angkor Vat, aile ouest de la galerie de la troisième enceinte (galerie des bas-reliefs), coté nord Scène du Ramayana montrant Rama debout ",
+      "thumb": "https://media.aquatome.com/commons/fdbba78a7c41192e-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/0b3296ece65c9f23.webp",
+      "width": 960,
+      "height": 1283,
+      "licence": "CC BY-SA 4.0",
+      "author": "Akashdoley13",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ram_sita_art_decoration_for_Diwali.jpg",
+      "caption": "ram sita art diwali decoration in tezpur university",
+      "thumb": "https://media.aquatome.com/commons/0b3296ece65c9f23-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc treo bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-25"
+}

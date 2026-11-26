@@ -1,0 +1,177 @@
+{
+  "id": "lithopoma-tectum",
+  "native": {
+    "input": "c3bdd2fefe564fe2",
+    "at": "2026-11-20T07:13:45.828Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Typical colonies of the Astrea snail occur in the shallows of the Caribbean Sea, the Gulf of Mexico and the Lesser Antilles, and in the Atlantic Ocean off Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lesser Antilles",
+        "source": "aquariumbreeder",
+        "quote": "Typical colonies of the Astrea snail occur in the shallows of the Caribbean Sea, the Gulf of Mexico and the Lesser Antilles, and in the Atlantic Ocean off Brazil.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MX"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lithopoma tectum",
+    "status": "ACCEPTED",
+    "taxonKey": 5190353,
+    "datasets": [
+      [
+        "a0a4d131-f53f-43b2-a1ba-254473b8a006",
+        51
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        31
+      ],
+      [
+        "0214a6a7-898f-4ee8-b888-0be60ecde81f",
+        28
+      ],
+      [
+        "005eb8d8-ed94-41be-89cf-e3115a9058e4",
+        24
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        15
+      ],
+      [
+        "3ee66eb3-4786-4bda-b7f1-c145b1a57a6b",
+        14
+      ],
+      [
+        "a4305468-d94d-4244-b146-738e52d8a6e9",
+        12
+      ],
+      [
+        "035941f6-46af-457b-9c23-bfb21ffd0904",
+        10
+      ],
+      [
+        "417f4d21-959b-4773-90a2-c38d1822d873",
+        10
+      ],
+      [
+        "6d28a527-bf84-4e58-b133-0e60987b5e7c",
+        10
+      ],
+      [
+        "a307e4d7-1de2-4adc-95d5-a0a8d5f57236",
+        7
+      ],
+      [
+        "b7ca8e9d-5609-4356-b5c3-b2ca7071cf58",
+        7
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        4
+      ],
+      [
+        "7b4ddcab-3bb1-4c28-a805-b166a550410c",
+        4
+      ],
+      [
+        "8e9974a4-12e2-475f-9aec-5abdf24a1f50",
+        4
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        4
+      ],
+      [
+        "ec0ad39f-3370-4d51-a663-cb27abd2a6bb",
+        4
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        4
+      ],
+      [
+        "f5783452-6ff5-4bef-8f30-9adfeba81bd7",
+        3
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        3
+      ],
+      [
+        "0f223a99-0331-4410-bd97-5472b2e457ec",
+        2
+      ],
+      [
+        "44bcde48-ac71-46f2-bf73-24fc3c008b6c",
+        2
+      ],
+      [
+        "0b94e07b-898e-47fc-b95f-31a5538f326b",
+        1
+      ],
+      [
+        "25e3e8f1-86ee-440c-adfc-8e63759a6505",
+        1
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        1
+      ],
+      [
+        "4e766f2f-5060-48ac-9df4-ec3b6414b022",
+        1
+      ],
+      [
+        "5199d77b-fc69-4c85-94f2-4d3e63e777ff",
+        1
+      ],
+      [
+        "56aa0680-0c60-11dd-84cd-b8a03c50a862",
+        1
+      ],
+      [
+        "85487457-e02f-4dee-95ea-8dc0d220c52d",
+        1
+      ],
+      [
+        "978f2ae7-1c5e-42fc-a61c-d4fabefdf63e",
+        1
+      ],
+      [
+        "d177566c-b032-4ad6-957d-4d8bd53f915b",
+        1
+      ],
+      [
+        "d962a7dc-2183-4824-bb88-5e0ba14ec62d",
+        1
+      ],
+      [
+        "ead6339f-39f8-46be-b059-d1c48d88ab29",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 13,
+    "at": "2026-11-20T07:13:45.828Z"
+  }
+}

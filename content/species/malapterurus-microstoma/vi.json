@@ -4,7 +4,8 @@
   "altNames": [
     "Cá trê điện",
     "Dwarf Electric Catfish",
-    "Zitterwels"
+    "Zitterwels",
+    "Electric catfish"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<p><strong>Tên khoa học:</strong> Malapterurus microstoma Poll &amp; Gosse, 1969</p><p><strong>Tên thường gọi:</strong> Dwarf Electric Catfish (cá trê điện lùn), Zitterwels (Đức)</p><p><strong>Kích thước:</strong> 55,5 cm chiều dài chuẩn (SL)</p><p><strong>Nhận dạng:</strong> Loài này dễ nhận ra nhờ mõm hẹp và các mảng răng. Vây ngực của nó có gốc nằm ngang và đặt thấp trên thân.</p>",
@@ -15,13 +16,17 @@
     "behaviour:planetcatfish": "<p>Cá có khả năng phóng điện nên tốt nhất là nuôi riêng một con.</p>",
     "reproduction:planetcatfish": "<p>Cá có thể đẻ trong hang dọc bờ sông và có thể giữ trứng, giữ con. Cá cái hình như phải đạt 40-50 cm chiều dài chuẩn mới trưởng thành sinh dục. Đến nay chưa có ghi nhận nào về việc cho sinh sản loài này.</p>",
     "notes:planetcatfish": "<p>Danh sách Đỏ IUCN xếp loài này ở mức Ít quan tâm (lần đánh giá gần nhất là năm 2009).</p><p>Nguồn gốc tên gọi. Malapterurus ghép từ ba chữ Hy Lạp là malakos (mềm), pteron (vây) và oura (đuôi). Tên này nhiều khả năng ám chỉ vây mỡ. Do cá không có vây lưng có tia nên vây mỡ càng nổi bật. Microstoma ghép từ hai chữ Hy Lạp là mikros (nhỏ) và stoma (miệng, hoặc lỗ mở), ý chỉ cái miệng nhỏ của loài này.</p>",
-    "references:planetcatfish": "<p>Bulletin de l'Institut Royal des Sciences Naturelles de Belgique v. 45 (no. 38), pp 8, Pls. 1, 2 (fig. b), 3 (fig. b).</p>"
+    "references:planetcatfish": "<p>Bulletin de l'Institut Royal des Sciences Naturelles de Belgique v. 45 (no. 38), pp 8, Pls. 1, 2 (fig. b), 3 (fig. b).</p>",
+    "quickFacts:glaser": "<p>Có một con nuôi trong bể 2.500 lít đã dài hơn 50 cm. Nhìn mõm dài và khe miệng hẹp là biết đây là <em>M. microstoma</em>.</p>",
+    "distribution:glaser": "<p>Congo có bốn loài cá trê điện: <em>Malapterurus monsembeensis</em> (tên đồng nghĩa <em>M. gossei</em>), <em>M. melanochir</em>, <em>M. microstoma</em> và <em>M. oguensis</em>. Cá trê điện từ Nigeria thường là <em>Malapterurus beninensis</em>. Đây là loài cỡ vừa, dài 20-30 cm.</p>",
+    "notes:glaser": "<p>Trước đợt sắp xếp lại phân loại lớn vào năm 2000 và 2002, người ta vẫn nghĩ cá trê điện chỉ có 2-3 loài. Hiện nay con số đó là 18 loài. Dựa vào hình dạng đầu và hoa văn trên thân có thể khoanh lại xem con cá thuộc nhóm loài nào.</p><p>Bắt hay đụng vào cá trê điện phải hết sức cẩn thận, vì chúng có thể phóng điện giật người. <em>M. microstoma</em> có lẽ dài được hơn 80 cm, vì những con dài 50-60 cm từng được kiểm tra vẫn chưa đủ lớn để đẻ.</p>"
   },
   "quality": {
-    "score": 0.95,
+    "score": 0.92,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.95
+      "planetcatfish": 0.95,
+      "glaser": 0.92
     }
   }
 }

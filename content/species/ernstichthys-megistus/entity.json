@@ -1,0 +1,285 @@
+{
+  "id": "ernstichthys-megistus",
+  "scientificName": "Ernstichthys megistus",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Ernstichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "ecuador",
+    "peru",
+    "bobonaza",
+    "maranon"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "EC",
+        "PE"
+      ],
+      "regions": [
+        "Bobonaza",
+        "Marañon",
+        "Río Pastaza",
+        "Río Madre de Dios",
+        "Apurimac River"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The type specimen was collected in Ecuador.",
+          "countries": [
+            "EC"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Other known museum specimens originate from Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Bobonaza and Marañon River basins of Ecuador and Peru.",
+          "countries": [],
+          "regions": [
+            "Bobonaza",
+            "Marañon"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Although there are few records of the species in the literature and ichthyological collections, Ernstichthys megistus seems to be potentially present in a large area, since these few records are from the Río Pastaza and Río Marañon basins in Ecuador and in the upper Río Madre de Dios and in the Apurimac River Valley in Peru.",
+          "countries": [],
+          "regions": [
+            "Río Pastaza",
+            "Río Madre de Dios",
+            "Apurimac River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340634,
+      "total": 4,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "PE",
+          3
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -78.75,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -11.25,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 7
+      },
+      {
+        "source": "scotcat",
+        "value": 6.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ernstichthys_megistus_en/",
+      "html": "<p>A very unusual catfish that was known from only 3 specimens until 1985. The small animals are hardly 2 cm long and resemble the Asian catfishes of the genus Akysis, but are actually relatives of the banjo cats. Suggested common name: Bumble bee banjo cat.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ernstichthys_megistus_en/",
+      "html": "<p>The type specimen was collected in Ecuador. Other known museum specimens originate from Peru.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/ernstichthys_megistus.htm",
+      "html": "<p>South America: Bobonaza and Marañon River basins of Ecuador and Peru. Type locality: small river off the Río Chicherota, Río Bobonaza system, Prov. Pastaza, eastern Ecuador.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ernstichthys_megistus_en/",
+      "html": "<p>Hoplomyzontini, the tribe to which this species and some close relatives belong, seem to settle on the bottom of relatively fast running waters, where they bury themselves in the ground. As most of them are very small fishes, they are hardly ever collected by usual catching methods, which is probably why they are so little known.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/ernstichthys_megistus.htm",
+      "html": "<p>Ernstichthys live among the cobble substrates of piedmont rivers gushing out of the Andes Mountains, from Venezuela to southern Peru (Lujan, N).</p><p>Although there are few records of the species in the literature and ichthyological collections, Ernstichthys megistus seems to be potentially present in a large area, since these few records are from the Río Pastaza and Río Marañon basins in Ecuador and in the upper Río Madre de Dios and in the Apurimac River Valley in Peru. There is no information on its population, habitat and ecology, but there is also no evident threat affecting the species. Thus, Ernstichthys megistus is assessed as Least Concern (LC) (IUCN 2023).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/ernstichthys_megistus.htm",
+      "html": "<p>Provide fine sand for them, which they use to bury themselves.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/ernstichthys_megistus.htm",
+      "html": "<p>Temperature: 22–24°C. pH: 6.0–8.0.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ernstichthys_megistus_en/",
+      "html": "<p>Although the imported specimens have proved quite hardy so far, it seems necessary to provide fine sand, which they use to bury themselves.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ernstichthys_megistus_en/",
+      "html": "<p>The imported specimens show a wide range of coloration, the extremes being grey ones and yellow ones. It is unknown whether this represents sexual differences.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ernstichthys_megistus_en/",
+      "html": "<p>The type specimen of Ernstichthys megistus was around 7 cm long (standard length without caudal fin). This is by far the largest size of any Hoplomyzontini known so far, which usually hardly reach half that size. The other museum specimens from Peru are much smaller (about 3 cm). Much remains to be learned about this fish, and aquarists can help with their observations to understand its life history.</p><p>Etymology: Ernstichthys is a dedication name meaning \"Fish of Ernst\"; A. Ernst worked at the Universidade Central de Venezuela. megistus is probably a latinized form of the ancient Greek word megistos, meaning \"the greatest\".</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/ernstichthys_megistus.htm",
+      "html": "<p>Etymology: the genus name Ernstichthys means \"Fish of Ernst\"; A. Ernst worked at the Universidad Central de Venezuela. The specific name megistus is probably a latinised form of the ancient Greek word megistos, meaning \"the greatest\".</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ernstichthys_megistus_en/",
+      "html": "<p>Stewart, D. J. (1985): A review of the South American catfish tribe Hoplomyzontini (Pisces, Aspredinidae), with descriptions of new species from Ecuador. Fieldiana Zoology (new series), No. 25</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/ernstichthys_megistus.htm",
+      "html": "<p>Aquarium Glaser. 16 August 2010. Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2021. FishBase. www.fishbase.org (02/2021). Lujan, Nathan, facebook page report. Stewart, D. J. (1985): A review of the South American catfish tribe Hoplomyzontini (Pisces, Aspredinidae), with descriptions of new species from Ecuador. Fieldiana Zoology (new series), No. 25. Varella, H.R. 2023. Ernstichthys megistus. The IUCN Red List of Threatened Species 2023.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/291e52fde5da24a2.webp",
+      "thumb": "https://media.aquatome.com/glaser/291e52fde5da24a2-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ernstichthys_megistus_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/74ae7eed3ace9357.webp",
+      "thumb": "https://media.aquatome.com/glaser/74ae7eed3ace9357-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ernstichthys_megistus_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/aa5a43161aa51e85.webp",
+      "thumb": "https://media.aquatome.com/glaser/aa5a43161aa51e85-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ernstichthys_megistus_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "GEzb3_57cms",
+      "title": "Ernstichthys Megistus",
+      "durationSec": 65,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "fPKileRB2tQ",
+      "title": "Ernstichthys megistus (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 22,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn thủy sinh",
+        "cát nền bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ cho bể cá",
+        "máy sục khí mini"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

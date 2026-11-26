@@ -1,0 +1,55 @@
+{
+  "id": "brochiloricaria-macrodon",
+  "native": {
+    "input": "987282806fe5e063",
+    "at": "2026-11-18T12:30:34.128Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Brochiloricaria macrodon",
+    "status": "ACCEPTED",
+    "taxonKey": 2339229,
+    "datasets": [
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-18T06:03:35.101Z"
+  },
+  "nativeFailed": {
+    "at": "2026-11-24T05:12:35.728Z",
+    "error": "claude failed (1): other"
+  }
+}

@@ -7,16 +7,20 @@
   "group": "other",
   "places": [
     "asia",
-    "thailand"
+    "thailand",
+    "tha-chin-river"
   ],
   "range": {
     "native": {
       "countries": [
         "TH"
       ],
-      "regions": [],
+      "regions": [
+        "Tha Chin River"
+      ],
       "sources": [
-        "glaser"
+        "glaser",
+        "aquariumbreeder"
       ],
       "quotes": [
         {
@@ -26,6 +30,14 @@
             "TH"
           ],
           "regions": []
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "So far it has only been found in one river, the Tha Chin River, Nakhon Chai Si District, Nakhon Pathom Province, where it inhabits the roots of water plants (hyacinths).",
+          "countries": [],
+          "regions": [
+            "Tha Chin River"
+          ]
         }
       ]
     },
@@ -42,6 +54,52 @@
       {
         "source": "glaser",
         "value": 1
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 1
+      }
+    ],
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 4,
+          "max": 15
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 4
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 1,
+          "max": 1.5
+        }
       }
     ]
   },
@@ -53,10 +111,28 @@
       "html": "<p>Described in 1991, Limnopilos naiyanetri Chuang &amp; Ng, has only just been discovered by the hobby.</p><ul><li>Origin: Thailand</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/thai-micro-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Name: Thai Micro crab</li><li>Other names: Thai Micro Spider crab, False Spider crab, Micro crab, Freshwater Spider Crab, Laos Micro Spider Crab, Pill-box crab</li><li>Scientific name: Limnopilos naiyanetri</li><li>Optimal tank size: 20 litres</li><li>Breeding: Very difficult</li><li>Size: carapace 1 cm; 2.5 cm across the leg span</li><li>Water type: freshwater</li><li>Optimal KH: 2–6</li><li>Optimal TDS: 120–180 (100–300)</li><li>Nitrate: less than 20 ppm</li><li>Diet: detritivore / omnivore</li><li>Temperament: peaceful</li><li>Colour: pale transparent to brownish grey</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/thai-micro-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Thai Micro Crab is native to Thailand. So far it has only been found in one river, the Tha Chin River, Nakhon Chai Si District, Nakhon Pathom Province, where it inhabits the roots of water plants (hyacinths).</p>"
+    },
+    {
       "key": "habitat",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/limnopilos-naiyanetri/",
       "html": "<p>Crabs are found in pure freshwater in the roots of floating vegetation, i.e. water hyacinth (Eichornia crassipes) and fine-leaved aquatic plants along the riparian zone (river banks). They have hairy bodies and appendages which collect mud and dirt and may function to trap food particles.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/thai-micro-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Thai Micro Crab is a freshwater crab and can spend its entire life underwater, making it one of the few fully aquatic crabs in the world. In the wild it hides in the roots of floating plants such as water hyacinth. Because it comes from a river, it is used to water flow and handles currents extremely well.</p>"
     },
     {
       "key": "aquariumSize",
@@ -65,19 +141,77 @@
       "html": "<p>Suitable for nano tanks, and is the first crab species available which has attributes suitable for such.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/thai-micro-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>A large tank is not needed. In large tanks you may never see them again. A colony of up to 5–6 crabs can be kept in a tank as small as 20 litres, as long as the water is filtered appropriately. A slightly larger tank is still better because water parameters are harder to keep stable in small tanks.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/thai-micro-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Freshwater, pH 6.5–7.2 (7.5 in the quick notes). Temperature 21–27°C. They suffer if the temperature gets too high, too low or fluctuates rapidly. Requirements are the same as for Crystal shrimp, but they also accept the harder water used for Neocaridina shrimp. Make sure the tank is well cycled and mature before adding them, acclimate carefully, test the water regularly and do regular water changes. Nitrate should be below 20 ppm.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/thai-micro-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>They are not particular about substrate; a colour that contrasts with their greyish-brown bodies makes them easier to spot. They like planted tanks with plenty of vegetation, mosses, Anubias and Java Fern, and many hiding places. They do not like bright light and should have a dark corner. A heater may not be needed in warmer areas. A sponge or Matten filter is best because the crabs graze on the porous sponge. Water flow and high bubble output at the surface are helpful. Be extremely careful with a net, as they are very fragile; lost limbs regrow after a molt or two.</p>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/limnopilos-naiyanetri/",
       "html": "<p>They are not carnivorous, and behave like Caridina shrimps in their scavenging behaviours, where care and feeding are probably the same.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/thai-micro-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Omnivorous scavengers. They filter microorganisms from the water with the bristles on their body, collect food from the bottom and between floating plants, and graze on algae wafers and blanched vegetables. In established tanks very little feeding is needed. They can eat wafers, pellets, flakes, sinking crab food, algae and biofilm; some observations suggest they prefer a high-fat, high-protein powder diet, and they also like daphnia (water fleas). Dwarf shrimp will outcompete them for food. Crabs need calcium.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/limnopilos-naiyanetri/",
       "html": "<p>In such tanks they will stay closely associated with mosses and fine-leaved plants.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/thai-micro-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Shy, docile and usually come out only at night. They spend their entire lives underwater and are not prone to escaping. They hide among decorations, often in the most biologically dense areas. They are peaceful, social, not territorial and males do not fight; they often share hiding places. When startled they escape or take cover; they are defenseless. They are safe with plants and are kept with adult shrimp and snails. Keep in colonies of at least 5–6.</p><p>Good tank mates: dwarf shrimp (Neocaridina and Caridina), filter shrimp (bamboo and vampire shrimp), freshwater snails, Otocinclus catfish. They may prey on tiny baby shrimp and very young snails.</p><p>Bad tank mates: larger or aggressive fish, crayfish, other crabs, and anything that might eat crabs.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/thai-micro-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Sexing is not easy because of the tiny size and fragility. Males and females are very similar in colour and appearance. The surest way is to examine the flap at the bottom with a strong magnifying glass: females have a wider flap, males a narrow, tapered one.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/thai-micro-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Breeding is a challenge and has not yet succeeded in captivity. Some hobbyists have reported hatched eggs and living baby crabs, but no surviving offspring are documented; keepers failed to raise them beyond the 9th day after hatching.</p><p>Fertilisation is internal. The female carries the egg cluster under her pleon; eggs are orange at first, then yellow, then grey, about 0.5–0.7 mm in diameter. After several weeks of incubation, the mother releases around 70 larvae. There is no brackish or seawater larval stage. Larvae always move towards light, so permanent overhead lighting is needed. The tank should have plenty of algae and biofilm. HOB or canister filters need a sponge pre-filter to prevent baby crabs being sucked in.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/thai-micro-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Adult carapace is about 1 cm, with a leg span of about 2.5 cm. Colour is brownish-grey to pale transparent, ranging to brownish-orange or light grey. The body and legs are covered in small bristles used to filter food. Lifespan in captivity is 1–1.5 years. They molt rarely; avoid invasive cleaning or rearranging during molting. The genus Limnopilos (family Hymenosomatidae) was described in 1991, later synonymised with Hymenicoides and resurrected in 2007. Species identification is not easy even for experts.</p>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/64ff2c8c569f4a5b.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/64ff2c8c569f4a5b-480.webp",
+      "width": 1200,
+      "height": 831,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/thai-micro-crab-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    },
     {
       "url": "https://media.aquatome.com/panitvong/inat-165914541.webp",
       "thumb": "https://media.aquatome.com/panitvong/inat-165914541-480.webp",
@@ -138,5 +272,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-21"
 }

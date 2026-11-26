@@ -9,7 +9,8 @@
     "asia",
     "indonesia",
     "borneo",
-    "kalimantan-selatan"
+    "kalimantan-selatan",
+    "kalimantan"
   ],
   "range": {
     "native": {
@@ -22,13 +23,12 @@
       ],
       "sources": [
         "bwaquatics",
-        "seriouslyfish",
-        "glaser"
+        "seriouslyfish"
       ],
       "quotes": [
         {
-          "source": "bwaquatics",
-          "quote": "Native to southern Borneo (Indonesia).",
+          "source": "seriouslyfish",
+          "quote": "The crossband chocolate gourami, Sphaerichthys selatanensis, is a small labyrinth fish from southern Borneo, Indonesia.",
           "countries": [
             "ID"
           ],
@@ -37,8 +37,8 @@
           ]
         },
         {
-          "source": "glaser",
-          "quote": "The species originates from Kalimantan in the southeast part of the island of Borneo.",
+          "source": "bwaquatics",
+          "quote": "It occurs in peat swamp forest in Kalimantan, Indonesia.",
           "countries": [],
           "regions": [
             "Kalimantan"
@@ -81,44 +81,37 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 25,
-          "max": 29
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 26,
           "max": 31
         }
-      }
-    ],
-    "ph": [
+      },
       {
         "source": "bwaquatics",
         "value": {
-          "min": 3.5,
-          "max": 6
+          "min": 25,
+          "max": 29
         }
-      },
+      }
+    ],
+    "ph": [
       {
         "source": "seriouslyfish",
         "value": {
           "min": 4,
           "max": 6.5
         }
-      }
-    ],
-    "gh": [
+      },
       {
         "source": "bwaquatics",
         "value": {
-          "min": 0,
-          "max": 3
+          "min": 3.5,
+          "max": 6
         }
-      },
+      }
+    ],
+    "gh": [
       {
         "source": "seriouslyfish",
         "value": {
@@ -129,23 +122,19 @@
     ],
     "sizeCm": [
       {
-        "source": "bwaquatics",
-        "value": 5
-      },
-      {
         "source": "seriouslyfish",
         "value": 4.5
       },
       {
         "source": "glaser",
         "value": 5
+      },
+      {
+        "source": "bwaquatics",
+        "value": 5
       }
     ],
     "difficulty": [
-      {
-        "source": "bwaquatics",
-        "value": 8
-      },
       {
         "source": "seriouslyfish",
         "value": 4
@@ -163,7 +152,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/crossband-chocolate-gourami-sphaerichthys-selatanensis",
-      "html": "<ul><li>IUCN Red List: Not Evaluated</li><li>Wild-caught fish; proceed with caution.</li><li>Adult size: approximately 4–5 cm (≈ 1.5–2″) total length.</li><li>Temperature: 25–29 °C (77–84 °F); consistency is critical.</li></ul>"
+      "html": "<ul><li>Genus: Sphaerichthys (chocolate gouramis)</li><li>IUCN Red List: Near Threatened</li><li>Origin: wild caught</li><li>Temperament: peaceful and shy</li><li>Max size: about 4 cm standard length (about 5 cm total length)</li></ul>"
     },
     {
       "key": "quickFacts",
@@ -178,16 +167,10 @@
       "html": "<p>With an overall length of 5 cm, Sphaerichthys selatanensis is probably the smallest representative of the chocolate gouramis. It may be recognised by its typical cross design.</p>"
     },
     {
-      "key": "beforeYouBuy",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/crossband-chocolate-gourami-sphaerichthys-selatanensis",
-      "html": "<p>Sphaerichthys selatanensis, commonly known as the Crossband Chocolate Gourami, is a rare and delicate blackwater species. Compared to other chocolate gouramis, they are often more sensitive and require very stable, carefully maintained conditions. This is a species best suited for experienced blackwater aquarists.</p>"
-    },
-    {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/crossband-chocolate-gourami-sphaerichthys-selatanensis",
-      "html": "<p>Native to southern Borneo (Indonesia).</p>"
+      "html": "<p>Sphaerichthys selatanensis was described in 1979 from near Banjarmasin in southern Borneo, and \"selatan\" means south. It occurs in peat swamp forest in Kalimantan, Indonesia.</p>"
     },
     {
       "key": "distribution",
@@ -205,7 +188,7 @@
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/crossband-chocolate-gourami-sphaerichthys-selatanensis",
-      "html": "<p>It inhabits extremely soft, acidic peat swamp forests where the water is dark with tannins, shallow, slow-moving, and heavily shaded by dense canopy. The species is distinguished by its rich chocolate-brown base coloration marked with distinct vertical crossbands.</p>"
+      "html": "<p>It lives in extremely soft, acidic peat swamp forest where the water is dark with tannins, shallow, slow-moving and heavily shaded: shaded peat swamp streams and pools.</p>"
     },
     {
       "key": "habitat",
@@ -238,10 +221,16 @@
       "html": "<p>Chocolate gouramis need much attention during acclimatization and maintenance. Natural water conditions should serve as a model; peat filtering or the use of tropical almond leaves (catappa) is recommended.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/crossband-chocolate-gourami-sphaerichthys-selatanensis",
+      "html": "<p>Use leaf litter, driftwood and botanicals, gentle flow, dense plants and dim light. Use a mature, stable blackwater tank. Very sensitive to swings in pH and hardness; acclimate slowly.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/crossband-chocolate-gourami-sphaerichthys-selatanensis",
-      "html": "<p>Extremely soft, acidic blackwater conditions are essential.</p><ul><li>pH 3.5–6.0</li><li>GH ≤ 3 °d</li><li>KH ≤ 1 °d</li><li>TDS &lt; 80–100 ppm</li><li>Temperature: 25–29 °C (77–84 °F)</li></ul><p>Use leaf litter, driftwood, and botanicals to maintain tannins.</p><p>This species is highly sensitive to parameter swings, especially pH and hardness. They do not tolerate alkaline or hard water long term. A mature, stable blackwater aquarium is strongly recommended before introduction. Acclimate slowly and avoid sudden changes.</p>"
+      "html": "<ul><li>TDS: under 80 to 100 ppm</li><li>pH: 3.5 to 6.0</li><li>Temperature: 25 to 29°C; consistency is critical</li></ul><p>It does not tolerate hard or alkaline water long term.</p>"
     },
     {
       "key": "waterConditions",
@@ -250,16 +239,10 @@
       "html": "<ul><li>Temperature: 26–31°C</li><li>pH: 4.0–6.5</li><li>Hardness: 0–3 dGH</li></ul><p>pH: Wild specimens will require a value within the range 4.0–6.5 in order to thrive, but tank-raised individuals are normally more adaptable.</p><p>Hardness: 0–3 dGH for wild fish, up to 10 dGH if captive-bred.</p>"
     },
     {
-      "key": "equipment",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/crossband-chocolate-gourami-sphaerichthys-selatanensis",
-      "html": "<p>Gentle flow and a heavily planted, dimly lit aquarium are strongly recommended.</p>"
-    },
-    {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/crossband-chocolate-gourami-sphaerichthys-selatanensis",
-      "html": "<p>Small carnivores. Prefer live and frozen foods such as baby brine shrimp, daphnia, mosquito larvae, and finely chopped bloodworms. Many wild specimens are reluctant to accept dry foods initially and require patient conditioning.</p>"
+      "html": "<p>Small carnivore. Baby brine shrimp, daphnia, mosquito larvae and finely chopped bloodworms. Many wild fish refuse dry foods at first and need patient conditioning.</p>"
     },
     {
       "key": "diet",
@@ -271,7 +254,7 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/crossband-chocolate-gourami-sphaerichthys-selatanensis",
-      "html": "<p>Best kept in a species-only setup or with very small, peaceful blackwater species such as Boraras or tiny Parosphromenus. Avoid fast, competitive feeders or boisterous fish. They prefer calm environments with dense cover and minimal disturbance. Stress, bright lighting, or aggressive tankmates can quickly lead to decline.</p>"
+      "html": "<p>Peaceful and shy. Best in a species-only tank or with very small, peaceful blackwater species such as Boraras or tiny Parosphromenus. Avoid fast, competitive feeders and boisterous fish. Stress, bright light or aggressive tankmates can cause quick decline.</p>"
     },
     {
       "key": "behaviour",
@@ -292,10 +275,16 @@
       "html": "<p>Adult males exhibit a uniformly straight lower jaw profile and an overall more acuminate head shape than females, in which the lower jaw is slightly rounded due to the presence of distensible skin that is expanded during mouthbrooding (see 'Reproduction').</p><p>Other characters such as possession of extended unpaired fins or more intense colours in males do not appear to be applicable in all cases. Such anomalies may be related to collection locality in some way, but this remains unconfirmed at present.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/crossband-chocolate-gourami-sphaerichthys-selatanensis",
+      "html": "<p>Males show a light edge on the anal and dorsal fins.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/crossband-chocolate-gourami-sphaerichthys-selatanensis",
-      "html": "<p>Sphaerichthys selatanensis are maternal mouthbrooders. After spawning, the female collects and incubates the eggs in her mouth, holding them for approximately 10–14 days. During this time, she typically does not feed. Once released, the fry are relatively large and can accept baby brine shrimp immediately. Breeding success requires extremely soft, acidic water and minimal stress. Maintaining authentic peat-swamp conditions with tannins, low light, and pristine water quality is the key to long-term success with this species.</p>"
+      "html": "<p>Mouthbrooder. After spawning, the male collects the eggs and holds them in his mouth for about 10 to 14 days without eating. Released fry are fairly large and can take baby brine shrimp right away. Breeding needs extremely soft, acidic water and minimal stress.</p>"
     },
     {
       "key": "reproduction",
@@ -322,6 +311,12 @@
       "html": "<p>Sphaerichthys: from ancient Greek, meaning \"spheric fish\"; selatanensis: after the Province of Kalimantan Selatan on Borneo, where the fish was initially discovered.</p>"
     },
     {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/crossband-chocolate-gourami-sphaerichthys-selatanensis",
+      "html": "<p>Compared with the common Chocolate Gourami, it has sharper, more distinct crossbands. Body: deep, compressed, leaf-shaped with a pointed head and rounded fins. Coloration: rich chocolate-brown with distinct pale vertical crossbands, including one running from the dorsal fin down across the body.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sphaerichthys-selatanensis",
@@ -335,7 +330,7 @@
       "width": 860,
       "height": 645,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Ste Chester / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sphaerichthys-selatanensis",
       "caption": "Female mouthbrooding - note the distended mouthparts.",
       "source": "seriouslyfish"
@@ -346,7 +341,7 @@
       "width": 861,
       "height": 645,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Ste Chester / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sphaerichthys-selatanensis",
       "caption": "Front view of brooding female.",
       "source": "seriouslyfish"
@@ -357,7 +352,7 @@
       "width": 860,
       "height": 645,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Ste Chester / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sphaerichthys-selatanensis",
       "caption": "Newly-released fry.",
       "source": "seriouslyfish"
@@ -419,5 +414,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-19"
 }

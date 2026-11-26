@@ -1,14 +1,14 @@
 {
   "id": "herichthys-cyanoguttatus",
   "native": {
-    "input": "a1251630479b23bb",
-    "at": "2026-11-10T07:58:31.896Z",
+    "input": "d7fe437321694695",
+    "at": "2026-11-23T01:48:47.136Z",
     "claims": [
       {
         "code": "US",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The only species of cichlid occuring naturally in the USA, it inhabits the Rio Grande drainage in both the southern United States and Mexico.",
+        "quote": "The Texas cichlid, Herichthys cyanoguttatus, is native to the Rio Grande drainage in the southern United States and Mexico.",
         "words": "United States",
         "ok": true
       },
@@ -16,7 +16,7 @@
         "code": "MX",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The only species of cichlid occuring naturally in the USA, it inhabits the Rio Grande drainage in both the southern United States and Mexico.",
+        "quote": "The Texas cichlid, Herichthys cyanoguttatus, is native to the Rio Grande drainage in the southern United States and Mexico.",
         "words": "Mexico",
         "ok": true
       },
@@ -24,8 +24,16 @@
         "code": "US",
         "status": "native",
         "source": "glaser",
-        "quote": "The latter is the only native cichlid of the US and the northernmost species of cichlid at all.",
-        "words": "US",
+        "quote": "It is believed that the large spotted form belongs to the species Herichthys carpinte and originates from Mexico, while H. cyanoguttatum is smaller spotted and the only species originally native to the USA (Texas).",
+        "words": "USA",
+        "ok": true
+      },
+      {
+        "code": "DE",
+        "status": "introduced",
+        "source": "glaser",
+        "quote": "The Texas cichlid was successfully introduced to Germany and bred as early as 1902.",
+        "words": "Germany",
         "ok": true
       }
     ],
@@ -33,7 +41,7 @@
       {
         "name": "Rio Grande",
         "source": "seriouslyfish",
-        "quote": "The only species of cichlid occuring naturally in the USA, it inhabits the Rio Grande drainage in both the southern United States and Mexico.",
+        "quote": "The Texas cichlid, Herichthys cyanoguttatus, is native to the Rio Grande drainage in the southern United States and Mexico.",
         "ok": true
       }
     ],

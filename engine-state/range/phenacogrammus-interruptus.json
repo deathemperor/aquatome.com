@@ -1,8 +1,8 @@
 {
   "id": "phenacogrammus-interruptus",
   "native": {
-    "input": "8777ed1b5853d44d",
-    "at": "2026-11-05T06:42:12.410Z",
+    "input": "fb67bfd6efa9bb2b",
+    "at": "2026-11-21T07:12:58.512Z",
     "claims": [
       {
         "code": "CD",
@@ -15,16 +15,10 @@
     ],
     "regions": [
       {
-        "name": "River Congo",
+        "name": "Congo",
         "source": "seriouslyfish",
         "quote": "Wild populations are endemic to parts of the River Congo drainage in the Democratic Republic of Congo.",
         "country": "CD",
-        "ok": true
-      },
-      {
-        "name": "Congo River Basin",
-        "source": "sprucepets",
-        "quote": "These African characin fish are found in the Congo River Basin.",
         "ok": true
       }
     ],

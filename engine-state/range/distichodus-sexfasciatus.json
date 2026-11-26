@@ -1,8 +1,8 @@
 {
   "id": "distichodus-sexfasciatus",
   "native": {
-    "input": "8ee6af97863c536e",
-    "at": "2026-11-16T00:17:52.050Z",
+    "input": "e797415748b0f112",
+    "at": "2026-11-17T11:42:48.614Z",
     "claims": [
       {
         "code": "CM",
@@ -27,13 +27,28 @@
         "quote": "The six-banded distichodus, Distichodus sexfasciatus, is a large citharinid from Cameroon, the Democratic Republic of Congo and Tanzania.",
         "words": "Tanzania",
         "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Distichodus sexfasciatus originates from the Congo River basin in the Democratic Republic of the Congo (formerly Zaire).",
+        "words": "Democratic Republic of the Congo",
+        "ok": true
       }
     ],
     "regions": [
       {
         "name": "Lake Tanganyika",
         "source": "seriouslyfish",
-        "quote": "Cameroon, Democratic Republic of Congo, Tanzania. It is present in Lake Tanganyika.",
+        "quote": "It is present in Lake Tanganyika.",
+        "ok": true
+      },
+      {
+        "name": "Congo River",
+        "source": "glaser",
+        "quote": "Distichodus sexfasciatus originates from the Congo River basin in the Democratic Republic of the Congo (formerly Zaire).",
+        "country": "CD",
         "ok": true
       }
     ],

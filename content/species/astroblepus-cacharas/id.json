@@ -1,0 +1,29 @@
+{
+  "slug": "cachira-climbing-catfish",
+  "name": "Cachira Climbing Catfish",
+  "altNames": [
+    "Climbing Catfish"
+  ],
+  "sections": {
+    "quickFacts:scotcat": "<ul><li>Nama umum: Cachira Climbing Catfish</li><li>Sinonim: tidak ada</li></ul>",
+    "distribution:scotcat": "<p>Amerika Selatan: bagian hulu Sungai Cáchira, daerah aliran Sungai Magdalena di Kolombia.</p>",
+    "habitat:scotcat": "<p>Ikan dari famili Astroblepidae ditemukan di sungai-sungai kecil berair tawar (pada ketinggian antara 61 dan 4.084 m di atas permukaan laut) di kawasan Andes tropis, mulai dari Panama hingga Bolivia. Ikan-ikan ini terdapat di sistem aliran sungai lereng barat yang bermuara ke Pasifik maupun lereng timur yang mengalir ke Amazon, di Amerika Selatan dan Amerika Tengah.</p><p>Astroblepid berkerabat dekat dengan Loricariid. Bahkan ada satu genus ikan (Lithogenes Eigenman, 1909) yang tampaknya berada di antara kedua famili tersebut: bentuk tubuhnya seperti Astroblepid, tetapi memiliki beberapa lempeng di tubuh dan ciri morfologi lain yang lebih dekat ke Loricariid. Saat tulisan ini dibuat, Lithogenes dimasukkan ke dalam famili Loricariidae.</p>",
+    "maintenance:scotcat": "<p>Famili lele ini tidak mudah dipelihara, jadi perlu akuarium besar dengan bebatuan dan sedikit tanaman yang sesuai. Arusnya harus deras, dan perlu tambahan oksigen lewat selang aerator yang dimasukkan ke aliran powerhead. Susun bebatuan di akuarium sedemikian rupa sehingga ada area dengan arus yang lebih tenang.</p>",
+    "diet:scotcat": "<p>Invertebrata, larva serangga, pakan tablet atau pasta spirulina, pakan berbahan dasar alga, dan cacing darah hidup kemungkinan besar menjadi pakan utamanya. Bisa juga dicoba glassworm dan blackworm (meski pakan ini biasanya tidak akan bertahan di dasar kecuali terbawa arus ke sana).</p>",
+    "notes:scotcat": "<p>Etimologi: Nama spesies cacharas diambil dari suku Cácharas, kelompok masyarakat adat yang dulu mendiami hulu Río Cácharas, Norte de Santander, Kolombia, yang merupakan lokasi tipe spesies ini.</p><p>Daftar Merah IUCN: Astroblepus cacharas baru saja dideskripsikan dan wilayah sebarannya yang diketahui terbatas; luas daerah keberadaannya kurang dari 1.000 km². Namun, spesies ini hanya diketahui dari koleksi aslinya, dan mungkin sebarannya lebih luas. Spesies lain dari genus ini sangat peka terhadap perubahan habitat, tetapi ancaman di lokasi spesies ini belum diketahui. Karena itu, statusnya adalah Data Deficient (Kurang Data), tetapi perlu diperbarui (IUCN 2016).</p>",
+    "references:scotcat": "<p>Ardila Rodríguez, Carlos A.; Five New Species of Astroblepus Fish for Colombian Andes. Universidad Metropolitana, Barranquilla, Colombia. Vol. 1, Núm. 27 (2015).</p><p>Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 06/2023 ).</p><p>Lasso, C., Mesa-Salazar, L., Sanchez-Duarte, P. &amp; Usma, S. 2016. Astroblepus cacharas. The IUCN Red List of Threatened Species 2016.</p><p>Ochoa LE, Melo BF, García-Melo JE, Maldonado-Ocampo JA, Souza CS, Albornoz-Garzón JG, Conde-Saldaña CC, Villa-Navarro F, Ortega-Lara A, Oliveira C. Species delimitation reveals an underestimated diversity of Andean catfishes of the family Astroblepidae (Teleostei: Siluriformes). Neotrop Ichthyol. 2020; 18(4).</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": true,
+    "bySource": {
+      "scotcat": 0.8
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-22"
+  }
+}

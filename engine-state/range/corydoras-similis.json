@@ -1,14 +1,22 @@
 {
   "id": "corydoras-similis",
   "native": {
-    "input": "89ec34f8a12eeb01",
-    "at": "2026-11-05T06:42:12.410Z",
+    "input": "b01c651714b30097",
+    "at": "2026-11-21T13:11:30.372Z",
     "claims": [
       {
         "code": "BR",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Found in the Rio Madeira Basin, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Described in 1991 from a tributary of the Rio Madeira near Ariquemes, Rondônia, Brazil.",
         "words": "Brazil",
         "ok": true
       }
@@ -18,6 +26,13 @@
         "name": "Rio Madeira",
         "source": "seriouslyfish",
         "quote": "Found in the Rio Madeira Basin, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Madeira",
+        "source": "bwaquatics",
+        "quote": "Described in 1991 from a tributary of the Rio Madeira near Ariquemes, Rondônia, Brazil.",
         "country": "BR",
         "ok": true
       }

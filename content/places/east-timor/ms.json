@@ -1,8 +1,13 @@
 {
   "slug": "east-timor",
-  "name": "Timor Timur",
+  "name": "Timor-Leste",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-16T17:25:49.229Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

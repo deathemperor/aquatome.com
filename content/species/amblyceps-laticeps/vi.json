@@ -7,13 +7,20 @@
     "distribution:scotcat": "<p>Châu Á: Ấn Độ, Assam, đồi Khasi. Mẫu chuẩn được thu ở núi Kasyah, Ấn Độ. Vùng phân bố của loài ở Ấn Độ và Bangladesh ước tính rộng khoảng 40.000 km².</p>",
     "habitat:scotcat": "<p>Loài này sống ở lòng sông dưới chân đồi, chỗ có nhiều khối đá tảng lớn trồi lên.</p>",
     "notes:scotcat": "<p><strong>Từ nguyên:</strong> Tên loài laticeps có nghĩa là \"đầu rộng\". Thế nhưng bản mô tả loài lại ghi A. laticeps có đầu hẹp hơn các loài khác cùng chi.</p><p><strong>Danh sách đỏ IUCN:</strong> Hiện chưa rõ quần thể loài này lớn cỡ nào, cũng chưa rõ nó đang tăng hay giảm. Lý do là cho tới nay chỉ có vài mẫu vật ít ỏi lưu trong bảo tàng. Thông tin về đặc điểm sinh học của loài và về tác động có thể có của các mối đe dọa cũng rất ít. Menon (2004) từng xếp loài này vào mức nguy cấp, nhưng đánh giá đó dựa trên dữ liệu phân bố chưa đầy đủ. Vùng phân bố của loài ước tính rộng khoảng 40.000 km². Vì vậy loài được xếp ở mức Ít quan tâm cho đến khi có thêm thông tin (IUCN 2010).</p>",
-    "references:scotcat": "<ul><li>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (04/2010).</li><li>Jayaram, K.C. 2006. Catfishes of India. Narendera Publishing House. 383p.</li><li>Ng, H.H. and M. Kottelat 2000. A review of the genus Amblyceps (Osteichthyes: Amblycipitidae) in Indochina, with descriptions of five new species. Ichthyol. Explor. Freshwat. 11(4):335-348.</li><li>Ng, H.H. 2010. Amblyceps laticeps. The IUCN Red List of Threatened Species 2010.</li></ul>"
+    "references:scotcat": "<ul><li>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (04/2010).</li><li>Jayaram, K.C. 2006. Catfishes of India. Narendera Publishing House. 383p.</li><li>Ng, H.H. and M. Kottelat 2000. A review of the genus Amblyceps (Osteichthyes: Amblycipitidae) in Indochina, with descriptions of five new species. Ichthyol. Explor. Freshwat. 11(4):335-348.</li><li>Ng, H.H. 2010. Amblyceps laticeps. The IUCN Red List of Threatened Species 2010.</li></ul>",
+    "quickFacts:planetcatfish": "<p>Amblyceps laticeps (McClelland, 1842). Tên đồng nghĩa: Olyra laticeps. Nơi thu mẫu chuẩn: Khasi Hills, Ấn Độ. Nguồn gốc tên: ghép từ hai chữ Hy Lạp amblys (tù) và kephale (đầu), ý chỉ cái mõm tù của cá. Kích thước: 42 mm SL (4,2 cm).</p>",
+    "distribution:planetcatfish": "<p>Châu Á: Bangladesh và Ấn Độ. Danh lục đỏ IUCN: Ít quan tâm (đánh giá lần cuối năm 2009).</p>",
+    "diet:planetcatfish": "<p>Loài này dễ ăn, đồ tươi sống hay thức ăn chế biến sẵn đều ăn hết.</p>",
+    "behaviour:planetcatfish": "<p>Ngoài tự nhiên, cá bắt được cùng chỗ với loài này thuộc các chi Devario, Danio, Opsarius, Garra, Rasbora, Aborichthys, Schistura, Olyra và Batasio.</p>",
+    "reproduction:planetcatfish": "<p>Chưa thấy ai cho loài này đẻ trong bể, và cũng chưa có tài liệu nào nói về chuyện sinh sản của nó.</p>",
+    "references:planetcatfish": "<p>Calcutta Journal of Natural History v. 2 (no. 8), pp 588, Pl. 21 (fig. 2).</p>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.8,
     "indexable": true,
     "bySource": {
-      "scotcat": 0.9
+      "scotcat": 0.9,
+      "planetcatfish": 0.8
     }
   }
 }

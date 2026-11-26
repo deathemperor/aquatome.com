@@ -427,6 +427,13 @@
           "min": 22,
           "max": 29
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -435,6 +442,13 @@
         "value": {
           "min": 3,
           "max": 4
+        }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 5.5,
+          "max": 7
         }
       }
     ],
@@ -445,11 +459,22 @@
           "min": 0,
           "max": 10
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 1,
+          "max": 8
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "seriouslyfish",
+        "value": 7.5
+      },
+      {
+        "source": "aquariumbreeder",
         "value": 7.5
       }
     ],
@@ -463,6 +488,19 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 3
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 3,
+          "max": 5
+        }
       }
     ]
   },
@@ -480,10 +518,22 @@
       "html": "<ul><li>Variety/population: Tefé</li><li>Origin: wild caught</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/apistogramma-agassizii-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Other names: Amazonian dwarf cichlid, Tefe dwarf cichlid, Agassiz's Dwarf Cichlid</li><li>Minimum tank: 10 gallons (40 litres)</li><li>Keeping: easy–medium; breeding: easy–medium</li><li>Dwells: middle and bottom</li><li>Nitrate: less than 60</li><li>Diet: omnivore</li><li>Temperament: conditionally peaceful/territorial</li><li>Wild colour: light brown, gray, or blue</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
       "html": "<p>The lectotype originates from Lake Manacapurú in Amazonas state, northwestern Brazil, just upstream from the city of Manaus and fed by the main Amazon river channel. The remainder of the type series was collected variously from the municipality of Codajás (Amazonas state), Curupira, near Barcelos municipality (Amazonas), Lake Maximo near Parintins city (Amazonas) and the rio Poti, a tributary of the rio Parnaíba (Piauí state).</p><p>It's currently-accepted to range throughout much of the Amazon/Solimões basin from its upper section in the Río Ucayali, Peru and into Brazil with the Capim River, a tributary of the rio Guamá which flows into the rio Pará at the city of Belém in the Amazon delta region, representing its eastern limit. Body colouration and patterning can vary considerably with locality.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/apistogramma-agassizii-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The natural distribution of Apistogramma agassizii is in South America, specifically in the Amazon River basin along the Amazon-Solimões River from Peru through Brazil to the Capim River basin. It is found in the Rio Negro, Rio Madeira, Peruvian Amazon, and the Brazilian Amazon as far east as Belem.</p>"
     },
     {
       "key": "habitat",
@@ -492,10 +542,22 @@
       "html": "<p>Tends to inhabit slower-moving tributaries, backwaters and creeks in areas where fallen leaf litter collects and these may contain black, white or clear water depending on locality or in some cases, time of year.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/apistogramma-agassizii-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Apistogramma agassizii inhabits the shorelines of small streams, pools, flooded forests, and floating meadows. In these locations, they are generally found hiding among driftwood, leaf litter, and plants.</p><p>They are never found in the open main channel of major rivers.</p><p>Although these fish live in all types of water, whether white, clear, or black, the species still prefers areas with little current and dense vegetation.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
       "html": "<ul><li>Standard length: ♂ 75 mm SL (3.0 in), ♀ 50 mm SL (2.0 in)</li><li>Aquarium base: 60 × 30 cm (24 × 12 in)</li><li>Volume: ~54 litres (~14 US gal)</li></ul><p>Base dimensions of 60 × 30 cm (24 × 12 in) or more are acceptable for a single pair with a group requiring larger quarters.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/apistogramma-agassizii-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The small size and relatively passive behavior of this fish should not mislead you when choosing a tank size. It is generally possible to keep them even in small or nano aquariums, but it depends on specific conditions.</p><p>A single fish can be kept in as little as 10 gallons (40 litres). For a pair, a minimum of 15 gallons (60 litres) is necessary. To keep 8–10 of these fish, 40 gallons (150 litres) with densely planted vegetation would be the minimum recommended.</p>"
     },
     {
       "key": "maintenance",
@@ -510,10 +572,28 @@
       "html": "<ul><li><strong>Temperature:</strong> 22–29°C (72–84°F)</li><li><strong>pH:</strong> Commercially-produced fish are relatively unfussy but some wild populations may require a value as low as 3.0–4.0 in order to breed.</li><li><strong>Hardness:</strong> 0–10 dGH, again somewhat dependent on origin, with wild fishes more likely to require negligible to low values.</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/apistogramma-agassizii-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Temperature: 22–28°C. According to a study, this species showed a high critical thermal maximum of 41°C. Another experiment showed that high temperatures reduced hierarchy stability, altered aggression patterns, and increased biting. Hypoxia led to reduced aggression in dominant fish and decreased shelter use.</p><p>pH: 5.5 to 7.0.</p><p>Hardness: GH 1 to 8 dGH; KH 1 to 6 dKH. Although this species can adapt to harder water, it will eventually reduce its lifespan.</p><p>Ammonia, nitrite, nitrate: keep at 0 ppm, 0 ppm, and below 40 ppm respectively. Monitor the water parameters regularly and do water changes every week.</p><p>Despite inhabiting \"black\", \"white\" and \"clear\" water in the wild, these fish clearly prefer biotopes with very soft, acidic water.</p><p>These fish do not tolerate ammonia, nitrites, or nitrates well, so do not introduce them as the first occupants right after cycling. Wait at least a couple of weeks until the balance is fully established.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/apistogramma-agassizii-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Lighting: Apistogramma agassizii does not like bright light; it stresses them and they start hiding. These fish enjoy staying still near the surface in dim lighting.</p><p>Water flow: still or very slow water currents are recommended.</p><p>Substrate: their natural environment is composed of mud and sand. They dig a lot (sifting through sand). Avoid coarse gravel, as its sharp edges can injure or scratch the fish as they swim in the lower regions of the tank.</p><p>Filtration: no special requirements, as long as the filter suits the size of the tank.</p><p>Decorations and plants: they require plenty of hiding places, such as caves, driftwood, twigs, tall plants, leaves, pipes, and floating plants. They may retreat to these if threatened or stressed. Placing these fish in open aquariums is a huge mistake, as an open layout is unsettling for them.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
       "html": "<p>Primarily carnivorous and apparently feeds mostly on benthic invertebrates in nature. In the aquarium live and frozen foods such as Artemia, Daphnia and chironomid larvae (bloodworm) should be offered regularly although most specimens will also learn to accept dried alternatives with pelleted products generally preferred to flake.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/apistogramma-agassizii-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>This species is an opportunistic fish with an insectivorous tendency. In the wild, it is a micropredator that feeds on small invertebrates and other zooplankton. A study of stomach contents showed a diet primarily of insect fragments, with larvae the most consumed item in pasture environments.</p><p>In the aquarium it can be fed a wide variety of live food such as brine shrimp, Artemia nauplii, daphnia, fruit flies, moina, detritus worms, vinegar eels, mosquito larvae and cyclops.</p><p>It is a diurnal omnivore and not a picky eater; it will readily eat bloodworms, blackworms, tubifex worms, etc. These can cause bloating, so give them only as a treat. Use the five-minute rule; they are not prone to gluttony. Feed at least twice a day.</p><p>They are completely safe in planted tanks and do not eat living plant material.</p>"
     },
     {
       "key": "behaviour",
@@ -522,16 +602,34 @@
       "html": "<p>Captive-raised fish are the recommended choice for the general community aquarium. Wild examples are best maintained alone or with small 'dither' fishes such as Nannostomus spp., and ideally should not be mixed with other Apistogramma.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/apistogramma-agassizii-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Apistogramma agassizii can be social, especially in groups or pairs, but can also be kept perfectly alone. Kept alone, it will in most cases not bother anybody.</p><p>Males: in small groups, males may show intraspecific aggression with serious consequences, often leaving only one male.</p><p>Females: less aggressive than males, but territorial during breeding, even towards males, and may sometimes kill them in defence of their territory.</p><p>Pairs: territorial, especially in breeding season. Males can be more aggressive when guarding a spawning site. Sudden aggression is possible even between pairs.</p><p>Groups: in larger groups, especially at least 10 individuals, aggression tends to decrease, particularly if the aquarium is spacious with ample hiding places.</p><p>Even among dwarf cichlids, it can be considered the most pugnacious, and can bully even larger fish. It is not commonly harmful through biting and is not typically a fin-nipper.</p><p>It is generally active, especially when foraging, spends most of its time checking the bottom and hovering in midwater, and likes dense vegetation or hiding places. Jumpers: yes.</p><p><strong>Tankmates:</strong> small or medium-sized fish with the same water conditions, such as neon tetras, brilliant rummynose tetra, pencilfish, harlequin rasboras and pygmy cory. Not recommended with dwarf shrimp if breeding shrimp: they prey on shrimplets and young shrimp, and even adults may be unsafe when molting. They can share a tank with freshwater snails, though snails may eat the eggs, and snails dislike soft, acidic water, which can erode their shells. Avoid large, aggressive or boisterous fish, and all crayfish and most freshwater crabs.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
       "html": "<p>Males are larger, more colourful and develop more extended fins than females.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/apistogramma-agassizii-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Apistogramma agassizii has clear sexual dimorphism.</p><ul><li>Size: males can be one and a half to two times larger than females.</li><li>Fins: males have larger, more colourful and more prolonged fins.</li><li>Belly: females may have a more rounded belly, especially when carrying eggs.</li></ul><p>Sneaker males sometimes stay incognito in early stages, resembling females, which allows them to remain in the dominant male's territory without being beaten. When isolated, these males immediately develop the long finnage and colouring of mature males.</p><p>It is typically very difficult to tell gender until 6 months of age.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
       "html": "<p>Substrate spawner which normally lays its eggs in crevices or cavities among the décor. The female is responsible for post-spawning care of eggs and fry and in smaller aquaria the male may need to be removed as she may become hyper-aggressive.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/apistogramma-agassizii-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Apistogramma agassizii is prolific with good reproductive rates. Breeding in an aquarium is not particularly challenging. According to a study, females reach first sexual maturity at 19.85 mm and males at 21.38 ± 1.08 mm standard length.</p><p>Nest: the female selects the spawning site (pipes, pots, coconuts etc.). She builds the nest by spreading substrate inside the shelter and reducing the entrance.</p><p>Spawning: they spawn in pairs, but the species is considered polygamous. The female emerges from her nest and swims back, sometimes turning upside down to display her abdomen, until the male follows her into the nest. She attaches the eggs to the surface and the male fertilises them. The female may reject the male by striking him with her tail fin, or even chasing and biting him.</p><p>Eggs: after spawning the female stays in the shelter, aerating the eggs by flapping her fins, while the male is territorial around the shelter; the female can still attack the male when he approaches the eggs or fry. Females can carry 20 to 250 eggs, averaging 120–140. The eggs are adhesive and oval. Eggs whiten as they develop; unfertilised eggs are likely eaten. Eggs will not hatch if pH is above 7.0; pH should be at least 6.8, ideally 6.2–6.6. Hard water causes deformities in the fry.</p><p>Fry: hatchability is about 60% even under optimal conditions. Larvae hatch 48–72 hours after laying, depending on temperature, and stay in the nest under the mother's care. On day 3 they become free-swimming, and after 2 weeks they are completely independent. Feed fry high-quality foods such as Artemia, rotifers, vinegar eels, microworms or infusoria.</p><p>Females eating eggs: females generally do not eat eggs or offspring; if they do, it usually means stress.</p><ul><li>Keep the breeding tank out of high-traffic areas.</li><li>Do not change water parameters during this period.</li><li>Do not put your hands in the aquarium.</li><li>Feed regularly, at least three times a day.</li><li>Remove the male after spawning.</li><li>Provide plenty of plants with nooks around the spawning site.</li></ul><p>To trigger spawning:</p><ul><li>Temperature: 25–28°C, stable.</li><li>pH: acidic, 6.2–6.6.</li><li>Hardness: soft water, GH about 1–6 dGH.</li><li>Photoperiod: consistent light-dark cycle; gradually lengthening daylight can mimic seasonal changes.</li><li>Diet: varied, nutritious live food.</li><li>Low stress.</li></ul><p>If all is well, the female will start showing breeding colours.</p>"
     },
     {
       "key": "notes",
@@ -544,6 +642,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_agassizii_tefe_en/",
       "html": "<p>Apistogramma: ancient Greek, means \"with unreliable line\". It is not known whether the lateral line organ or the pattern is meant.</p><p>agassizii: dedication name for Jean Louis Rodolphe Agassiz (1807-1873), an important naturalist.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/apistogramma-agassizii-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Apistogramma agassizii shows phenotypic plasticity in colour, pattern and body proportions. Through selective breeding, numerous colour morphs have been created, such as Blue, Bluetail, Double-Red, Red-Tail, Tefe, Santarem, Iquitos and Whitetail. Colouration is highly variable (yellow, orange, red, blue, black) and depends on mood, breeding condition, age and social status; males are more vivid. Dental pores: 4 instead of the usual 5. In the wild, no data on maximum lifespan; in aquariums they live around 3 to 5 years, sometimes longer. The genus name derives from the Greek \"apisto\" (unstable) and \"gramma\" (line); the species name honours Louis Agassiz (1807–1873).</p>"
     },
     {
       "key": "references",
@@ -559,7 +663,7 @@
       "width": 800,
       "height": 513,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Andrew Wood / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
       "caption": "Wild-collected male specimen in the aquarium exhibiting threat/aggressive mood - precise origin unknown.",
       "source": "seriouslyfish"
@@ -570,7 +674,7 @@
       "width": 1200,
       "height": 798,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Andu Huang / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
       "caption": "Adult male specimen; origin unspecified.",
       "source": "seriouslyfish"
@@ -581,7 +685,7 @@
       "width": 800,
       "height": 543,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Andrew Wood / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
       "caption": "The same specimen as in the previous image - neutral mood.",
       "source": "seriouslyfish"
@@ -592,10 +696,20 @@
       "width": 969,
       "height": 618,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Choy Chee Seng / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
       "caption": "Adult male of A. agassizi 'Alenquer'; aggressive mood.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/83a077cee2e9dffa.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/83a077cee2e9dffa-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/apistogramma-agassizii-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
     }
   ],
   "videos": [],
@@ -629,5 +743,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-23"
 }

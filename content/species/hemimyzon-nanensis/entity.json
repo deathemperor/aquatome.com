@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "thailand",
-    "nan"
+    "nan",
+    "chao-phraya"
   ],
   "range": {
     "native": {
@@ -16,11 +17,11 @@
         "TH"
       ],
       "regions": [
-        "Mae Nam Nan",
         "Chao Phraya"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -30,7 +31,6 @@
             "TH"
           ],
           "regions": [
-            "Mae Nam Nan",
             "Chao Phraya"
           ]
         }
@@ -64,6 +64,13 @@
           "min": 16,
           "max": 22
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 16,
+          "max": 22
+        }
       }
     ],
     "ph": [
@@ -88,6 +95,10 @@
       {
         "source": "seriouslyfish",
         "value": 5.7
+      },
+      {
+        "source": "glaser",
+        "value": 8
       }
     ],
     "tankCm": [
@@ -111,16 +122,34 @@
       "html": "<ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/hemimyzon-nanensis-4/",
+      "html": "<p>Hemimyzon belongs to the family of hillstream loaches (Balitoridae) and is closely related to the genus Jinshaia. Both genera differ quite well from the other Balitoridae in that in Hemimyzon and Jinshaia the pelvic fins do not merge together to form a sucking disc, but are still separate from each other. In Hemimyzon the caudal fin is straight cut off or slightly emarginated, in Jinshaia it is deeply forked.</p><p>Hemimyzon nanensis grows 6-8 cm long.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hemimyzon-nanensis",
       "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump.</li></ul><p>Since it needs stable water conditions and feeds on biofilm this species should never be added to a biologically immature set-up, and a tightly-fitting cover is necessary since it can literally climb glass.</p><p>Hemimyzon nanensis is a balitorid loach known only from the upper Mae Nam Nan river basin, part of the Chao Phraya system in northern Thailand. It was the first member of the genus recorded outside China and Taiwan. At the type locality it was collected in shallow riffles over algae-covered stones, and in the aquarium it needs clean, well-oxygenated water and a biologically mature set-up.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/hemimyzon-nanensis-4/",
+      "html": "<p>Since these are fish for specialists, only a few specimens have been imported.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hemimyzon-nanensis",
       "html": "<p>Known only from the upper Mae Nam Nan river basin, itself a tributary of the upper Chao Phraya system in Nan province, northern Thailand, making it the first member of the genus to be recorded outside China and Taiwan.</p><p>Type locality is 'Nam Wa River at Ban Nam Wa, Mae Nam Nan basin, Nan Province, northern Thailand'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/hemimyzon-nanensis-4/",
+      "html": "<p>All other species of the genus originate from China or Taiwan. H. nanensis, on the other hand, is found in the upper reaches of the Chao Phraya basin in northern Thailand.</p>"
     },
     {
       "key": "habitat",
@@ -147,16 +176,40 @@
       "html": "<ul><li>Temperature: 16–22°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/hemimyzon-nanensis-4/",
+      "html": "<p>You should not keep them too warm, 16-22°C are ideal. Very important is clear, oxygen-rich, bacteria-poor water, whose composition is otherwise rather secondary.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/hemimyzon-nanensis-4/",
+      "html": "<p>Like all hillstream loaches, H. nanensis loves strong currents. A good lighting is favourable to promote algae growth.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hemimyzon-nanensis",
       "html": "<p>Much of the natural diet is likely to be composed of benthic algae plus associated micro-organisms which are rasped from solid surfaces.</p><p>In captivity it will accept good-quality dried foods and meatier items like live or frozen bloodworm but may suffer internal problems if the diet contains excessive protein.</p><p>Home-made foods using a mixture of natural ingredients bound with gelatin are very useful since they can be tailored to contain a high proportion of fresh vegetables, Spirulina and similar ingredients.</p><p>For long-term success it's best to provide a mature aquarium with a plentiful supply of algae-covered rocks and other surfaces.</p><p>If unable to grow sufficient algae in the main tank or you have a community containing numerous herbivorous fishes which consume what's available quickly it may be necessary to maintain a separate tank in which to grow algae on rocks and switch them with those in the main tank on a cyclical basis.</p><p>Such a 'nursery' doesn't have to be very large, requires only strong lighting and in sunny climates can be kept outdoors. Algal type is also important with diatoms and softer, green varieties preferred to tougher types such as rhodophytic 'black brush' algae.</p><p>Balitorids are often seen on sale in an emaciated state which can be difficult to correct. A good dealer will have done something about this prior to sale but if you decide to take a chance with severely weakened specimens they'll initially require a constant source of suitable foods in the absence of competitors if they're to recover.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/hemimyzon-nanensis-4/",
+      "html": "<p>H. nanensis prefers to feed from solid substrate. Many microorganisms live in the algae film and are used by H. nanensis as food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hemimyzon-nanensis",
       "html": "<p>Likely to be peaceful although its environmental requirements limit the choice of suitable tankmates somewhat, so research your choices before purchase in order to be sure.</p><p>Species inhabiting similar environments include Barilius, Discherodontus, Garra, larger Devario, some Rasbora, Rhinogobius, Sicyopterus and Stiphodon gobies plus catfishes like Glyptothorax, Akysis and Oreoglanis.</p><p>Many loaches from the family Nemacheilidae, Balitoridae and Gastromyzontidae should also prove suitable although harmless squabbles may occur with the latter group in particular.</p><p>Like many loaches it's loosely territorial towards conspecifics but seems to require their presence to truly thrive. A group of four or more specimens should be the smallest considered.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/hemimyzon-nanensis-4/",
+      "html": "<p>The animals are very variable in colour and are peaceful among each other.</p>"
     },
     {
       "key": "dimorphism",
@@ -190,7 +243,7 @@
       "width": 640,
       "height": 452,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Nonn Panitvong/Siamensis.org / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hemimyzon-nanensis",
       "caption": "In Hemimyzon the pelvic fins do not form a sucking disc, unlike in many related genera.",
       "source": "seriouslyfish"
@@ -201,9 +254,20 @@
       "width": 700,
       "height": 491,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Nonn Panitvong/Siamensis.org / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hemimyzon-nanensis",
       "caption": "Specimen in its natural habitat, Nan river system, northern Thailand.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/486bab80f0786896.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/486bab80f0786896-480.webp",
+      "width": 700,
+      "height": 470,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong/Siamensis.org / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemimyzon-nanensis",
+      "caption": "Currently H. nanensis is known only from the Nan river basin.",
       "source": "seriouslyfish"
     },
     {
@@ -217,15 +281,34 @@
       "source": "panitvong"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/486bab80f0786896.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/486bab80f0786896-480.webp",
-      "width": 700,
-      "height": 470,
+      "url": "https://media.aquatome.com/glaser/24e61070a5a63971.webp",
+      "thumb": "https://media.aquatome.com/glaser/24e61070a5a63971-480.webp",
+      "width": 850,
+      "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/hemimyzon-nanensis",
-      "caption": "Currently H. nanensis is known only from the Nan river basin.",
-      "source": "seriouslyfish"
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/hemimyzon-nanensis-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/bb9d0a025a2fd8b9.webp",
+      "thumb": "https://media.aquatome.com/glaser/bb9d0a025a2fd8b9-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/general/hemimyzon-nanensis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9cf63ac07d9648e8.webp",
+      "thumb": "https://media.aquatome.com/glaser/9cf63ac07d9648e8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/general/hemimyzon-nanensis-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -284,5 +367,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-21"
 }

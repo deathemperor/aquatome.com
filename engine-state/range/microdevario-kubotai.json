@@ -1,22 +1,30 @@
 {
   "id": "microdevario-kubotai",
   "native": {
-    "input": "a5a4093cfd80aa41",
-    "at": "2026-11-05T19:44:13.099Z",
+    "input": "71bed22ac82453e0",
+    "at": "2026-11-20T17:43:20.430Z",
     "claims": [
       {
         "code": "TH",
         "status": "native",
         "source": "bwaquatics",
-        "quote": "Native to Thailand, found in the Mae Khlong and Mae Klong tributary basins.",
+        "quote": "Native to peninsular Thailand (Ranong and Phang Nga provinces) and the Ataran basin, Myanmar.",
         "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to peninsular Thailand (Ranong and Phang Nga provinces) and the Ataran basin, Myanmar.",
+        "words": "Myanmar",
         "ok": true
       },
       {
         "code": "TH",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Microdevario kubotai is a miniature cyprinid from peninsular Thailand and the Salween drainage in southern Myanmar.",
+        "quote": "Known from Ranong and Phang Nga provinces on the northwestern slope of peninsular Thailand and the Ataran River basin, a tributary within the Salween drainage in southern Myanmar which rises in Kanchanaburi province, western Thailand.",
         "words": "Thailand",
         "ok": true
       },
@@ -24,23 +32,40 @@
         "code": "MM",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Microdevario kubotai is a miniature cyprinid from peninsular Thailand and the Salween drainage in southern Myanmar.",
+        "quote": "Known from Ranong and Phang Nga provinces on the northwestern slope of peninsular Thailand and the Ataran River basin, a tributary within the Salween drainage in southern Myanmar which rises in Kanchanaburi province, western Thailand.",
         "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It originates from the southwestern province of Ranong in Thailand, which forms a border with Burma.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It originates from the southwestern province of Ranong in Thailand, which forms a border with Burma.",
+        "words": "Burma",
         "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Salween",
+        "name": "Ataran",
         "source": "seriouslyfish",
-        "quote": "Microdevario kubotai is a miniature cyprinid from peninsular Thailand and the Salween drainage in southern Myanmar.",
+        "quote": "Known from Ranong and Phang Nga provinces on the northwestern slope of peninsular Thailand and the Ataran River basin, a tributary within the Salween drainage in southern Myanmar which rises in Kanchanaburi province, western Thailand.",
         "country": "MM",
         "ok": true
       },
       {
-        "name": "Ataran River",
+        "name": "Salween",
         "source": "seriouslyfish",
         "quote": "Known from Ranong and Phang Nga provinces on the northwestern slope of peninsular Thailand and the Ataran River basin, a tributary within the Salween drainage in southern Myanmar which rises in Kanchanaburi province, western Thailand.",
+        "country": "MM",
         "ok": true
       },
       {
@@ -50,10 +75,16 @@
         "ok": true
       },
       {
-        "name": "Mae Khlong",
+        "name": "Ataran",
         "source": "bwaquatics",
-        "quote": "Native to Thailand, found in the Mae Khlong and Mae Klong tributary basins.",
-        "country": "TH",
+        "quote": "Native to peninsular Thailand (Ranong and Phang Nga provinces) and the Ataran basin, Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Thai-Malay peninsula",
+        "source": "bwaquatics",
+        "quote": "Clear forest streams of the Thai-Malay peninsula.",
         "ok": true
       }
     ],

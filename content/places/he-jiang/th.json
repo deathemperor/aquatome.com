@@ -3,6 +3,12 @@
   "name": "เหอเจียง",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T12:24:17.252Z",
+    "why": "เหอเจียง transliterates 贺江 (He Jiang) correctly, but it is a river and the name leaves out the kind word แม่น้ำ that a Thai atlas would put in front, as in แม่น้ำซีเจียง."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

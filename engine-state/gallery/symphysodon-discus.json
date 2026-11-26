@@ -34,7 +34,12 @@
   "inat:745126079",
   "inat:409250999"
  ],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/glaser/698a484a18c73ccb.webp": "c98e1713131b1f0f",
+  "https://media.aquatome.com/glaser/e5229b1f21b35051.webp": "dd3b3637bbbb9b4f",
+  "https://media.aquatome.com/glaser/2547b16460f65f85.webp": "cd0e07030303072e",
+  "https://media.aquatome.com/glaser/605a4d0290ab2a7a.webp": "658f1f1f1f1f8e4d"
+ },
  "inat": {
   "taxon": 470948,
   "pass": "done",
@@ -50,6 +55,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 0,
+  "done": true
  },
  "exhausted": "2026-11-09"
 }

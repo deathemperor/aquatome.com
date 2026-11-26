@@ -188,7 +188,7 @@ private struct FoldedText: View {
   var body: some View {
     let f = UIFont.preferredFont(forTextStyle: .body, compatibleWith: UITraitCollection(preferredContentSizeCategory: UIContentSizeCategory(size)))
     let em = f.pointSize
-    let link = ceil((String(localized: "thêm") as NSString).size(withAttributes: [.font: f]).width)
+    let link = ceil((String(localized: "thêm", bundle: .app) as NSString).size(withAttributes: [.font: f]).width)
     let line = f.lineHeight
     // Its lines and the 3 points v2 puts between them (`V2Piece`).
     let height = lines.map { CGFloat($0) * line + CGFloat(max($0 - 1, 0)) * 3 }
@@ -250,7 +250,7 @@ private struct PieceHeight {
   /// How much of a text shows in `lines` lines with "thêm" ending the last: all of it, where it fits with " thêm"; else the
   /// most, to a word's end, that fits with "… thêm".
   func cut(_ s: AttributedString, lines: Int, inset: CGFloat = 0) -> Int {
-    let chars = Array(s.characters), more = String(localized: "thêm")
+    let chars = Array(s.characters), more = String(localized: "thêm", bundle: .app)
     if count(String(chars) + " " + more, inset) <= lines { return chars.count }
     let ends = chars.indices.filter { $0 > 0 && chars[$0].isWhitespace && !chars[$0 - 1].isWhitespace }
     var best = ends.first ?? chars.count, lo = 0, hi = ends.count - 1
@@ -488,9 +488,9 @@ struct WholeParts {
   let cardPhotos: [PageDoc.Image]
 
   /// The sections a chip leads to, by their heading's key (`muc-<key>`, the site's sections.ts).
-  private static let chips: [(key: String, label: String)] = [
-    ("waterConditions", String(localized: "Nước")), ("diet", String(localized: "Cho ăn")), ("reproduction", String(localized: "Sinh sản")),
-  ]
+  private static var chips: [(key: String, label: String)] { [
+    ("waterConditions", String(localized: "Nước", bundle: .app)), ("diet", String(localized: "Cho ăn", bundle: .app)), ("reproduction", String(localized: "Sinh sản", bundle: .app)),
+  ] }
 
   init(_ doc: PageDoc) {
     let parts = PagePart.of(doc)
@@ -542,10 +542,10 @@ struct WholeParts {
     var jumps: [(label: String, part: Int)] = [], sources = false
     for (i, p) in parts.enumerated() {
       switch p {
-      case .mates: jumps.append((String(localized: "Nuôi chung"), i))
-      case .videos: jumps.append((String(localized: "Video"), i))
+      case .mates: jumps.append((String(localized: "Nuôi chung", bundle: .app), i))
+      case .videos: jumps.append((String(localized: "Video", bundle: .app), i))
       case .trust, .refs:
-        if !sources { jumps.append((String(localized: "Nguồn"), i)) }
+        if !sources { jumps.append((String(localized: "Nguồn", bundle: .app), i)) }
         sources = true
       default:
         if let key = heading(p)?.dropFirst("muc-".count), let c = Self.chips.first(where: { $0.key == key }) { jumps.append((c.label, i)) }

@@ -1,0 +1,43 @@
+{
+  "id": "rineloricaria-heteroptera",
+  "native": {
+    "input": "81ba0f087b66180f",
+    "at": "2026-11-21T19:07:52.042Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rineloricaria heteroptera",
+    "status": "ACCEPTED",
+    "taxonKey": 2339088,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        44
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        8
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        4
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-21T19:07:52.042Z"
+  }
+}

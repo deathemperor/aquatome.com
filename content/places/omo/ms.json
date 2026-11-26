@@ -3,6 +3,12 @@
   "name": "Omo",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T18:55:27.189Z",
+    "why": "Omo in Ethiopia is a river and a valley/region, and a Malay atlas would write \"Lembah Omo\" or \"Sungai Omo\", so the bare \"Omo\" leaves out the kind word."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

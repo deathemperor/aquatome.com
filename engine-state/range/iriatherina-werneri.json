@@ -1,9 +1,18 @@
 {
   "id": "iriatherina-werneri",
   "native": {
-    "input": "9a087666a7fc06dd",
-    "at": "2026-11-05T19:44:13.099Z",
+    "input": "f0c95280f1f56997",
+    "at": "2026-11-21T13:11:30.372Z",
     "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The threadfin rainbowfish, Iriatherina werneri, is a small rainbowfish from southern New Guinea, Cape York in Queensland and the Northern Territory.",
+        "words": "Queensland",
+        "ok": false,
+        "why": "\"Queensland\" is not AU"
+      },
       {
         "code": "ID",
         "status": "native",
@@ -43,20 +52,28 @@
         "quote": "Iriatherina werneri is native to tropical Australia and Papua New Guinea.",
         "words": "Papua New Guinea",
         "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Southern New Guinea and northern Australia (Cape York and the Northern Territory).",
+        "words": "Australia",
+        "ok": true
       }
     ],
     "regions": [
-      {
-        "name": "New Guinea",
-        "source": "seriouslyfish",
-        "quote": "It's distributed along a relatively short section of New Guinea's southern coast, between Merauke and the mouth of the Fly River across the border in Papua New Guinea, and in the latter watershed has been recorded over 500 km inland.",
-        "ok": true
-      },
       {
         "name": "Fly River",
         "source": "seriouslyfish",
         "quote": "It's distributed along a relatively short section of New Guinea's southern coast, between Merauke and the mouth of the Fly River across the border in Papua New Guinea, and in the latter watershed has been recorded over 500 km inland.",
         "country": "PG",
+        "ok": true
+      },
+      {
+        "name": "New Guinea",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Merauke, Irian Jaya, Indonesia' which corresponds to modern day Merauke Regency, Papua province, Indonesia, on the island of New Guinea.",
         "ok": true
       },
       {
@@ -79,9 +96,9 @@
         "ok": true
       },
       {
-        "name": "Merauke River",
-        "source": "aquariumbreeder",
-        "quote": "In New Guinea, this species can be found between the Merauke and the Fly Rivers (more than 500 km upstream from its mouth), from lakes Bosset and Kala.",
+        "name": "Lake Kala",
+        "source": "seriouslyfish",
+        "quote": "Populations are also known from Lakes Bosset and Kala.",
         "ok": false,
         "why": "its name is not in the quote"
       }

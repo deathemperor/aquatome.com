@@ -9,6 +9,7 @@ import { leadGuides, nextGuides } from './home'
 import { illustrate, seriesGuides, seriesOf, videoPhoto } from './video'
 import { pagePictures, photosOf, tilePhotos } from './pictures'
 import { PAGE } from '../scripts/filter-list'
+import { appGuideImage } from './app-index'
 
 /** A guide's photos that name their section, each under the heading this language's text gives it (else Vietnamese's). */
 export const sectionFigures = (lang: Lang, photos: GuideEntity['photos']) =>
@@ -123,8 +124,8 @@ export function guideParts(lang: Lang, c: Content, g: Localized<GuideEntity>) {
   const leads = leadGuides(c)
   const next = nextOf(() => true)
   // The app draws no cover yet (the Design Lead's app half, 15 Nov 2026): its guides to read next, a series' next parts
-  // too, are those with a picture.
-  const appNext = nextOf(x => !!guideImage(c, x))
+  // too, are those with a picture in the app's data (appGuideImage: while it has no covers, a guide keeps the picture it had).
+  const appNext = nextOf(x => !!appGuideImage(c, x))
   // Below the text, in page order: the next guides' covers, then the fish and plant cards (a page of them, fish first: a
   // listicle names a hundred or more), each with a picture the page doesn't show yet, or none.
   const covers = next.map(x => shown.take(guideImages(c, x)) ?? null)

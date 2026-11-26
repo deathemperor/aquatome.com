@@ -3,6 +3,12 @@
   "name": "เอสเซกวิโบ",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-21T19:01:53.637Z",
+    "why": "The name เอสเซกวิโบ is Thai-script and phonetically close to Essequibo, but it lacks the river word แม่น้ำ that Thai atlases use, and the usual Thai spelling is เอสเซกิโบ."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

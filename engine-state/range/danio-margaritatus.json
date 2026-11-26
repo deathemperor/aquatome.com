@@ -1,14 +1,14 @@
 {
   "id": "danio-margaritatus",
   "native": {
-    "input": "f113566de2a6f28c",
-    "at": "2026-11-06T18:08:44.169Z",
+    "input": "3965e110ba84a999",
+    "at": "2026-11-20T01:55:49.831Z",
     "claims": [
       {
         "code": "MM",
         "status": "native",
         "source": "bwaquatics",
-        "quote": "It is native to Southeast Asia, specifically the Shan State in Myanmar, and was first discovered in 2006 by a German aquarist named Tanja Schwedt.",
+        "quote": "Danio margaritatus, also known as the Celestial Pearl Danio, CPD or Galaxy Rasbora, was discovered in 2006 in small pools near Hopong, about 30 km east of Taunggyi in Shan State, Myanmar (Salween drainage), and described by Tyson Roberts in 2007.",
         "words": "Myanmar",
         "ok": true
       },
@@ -33,7 +33,15 @@
       {
         "name": "Salween",
         "source": "seriouslyfish",
-        "quote": "It's since been found in waters associated with the Salween (aka Thanlwin) River throughout southern Shan and even across the border in northern Thailand.",
+        "quote": "The celestial pearl danio, Danio margaritatus, is a miniature cyprinid from the Salween drainage in Shan State, eastern Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "bwaquatics",
+        "quote": "Danio margaritatus, also known as the Celestial Pearl Danio, CPD or Galaxy Rasbora, was discovered in 2006 in small pools near Hopong, about 30 km east of Taunggyi in Shan State, Myanmar (Salween drainage), and described by Tyson Roberts in 2007.",
+        "country": "MM",
         "ok": true
       }
     ],

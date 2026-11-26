@@ -1,8 +1,13 @@
 {
   "slug": "rio-muni",
-  "name": "Río Muni",
+  "name": "Sungai Muni",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-20T01:48:53.944Z"
+  },
   "quality": {
     "score": 0.86,
     "indexable": true

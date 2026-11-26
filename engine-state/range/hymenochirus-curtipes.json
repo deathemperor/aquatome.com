@@ -1,0 +1,72 @@
+{
+  "id": "hymenochirus-curtipes",
+  "native": {
+    "input": "9d1c5004478d9fa1",
+    "at": "2026-11-22T12:48:24.036Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It is mostly found in the Democratic Republic of the Congo and the Republic of the Congo.",
+        "words": "Democratic Republic of the Congo",
+        "ok": true
+      },
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It is mostly found in the Democratic Republic of the Congo and the Republic of the Congo.",
+        "words": "Republic of the Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo basin",
+        "source": "aquariumbreeder",
+        "quote": "Hymenochirus curtipes is native to the Congo basin of central Africa.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hymenochirus curtipes",
+    "status": "ACCEPTED",
+    "taxonKey": 2423974,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        63
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        14
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "cece4fc2-1fec-4bb5-a335-7252548e3f0b",
+        4
+      ]
+    ],
+    "native": [
+      "CD",
+      "CG"
+    ],
+    "requests": 12,
+    "at": "2026-11-22T12:48:24.036Z"
+  }
+}

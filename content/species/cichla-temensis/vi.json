@@ -4,7 +4,8 @@
   "altNames": [
     "Cá peacock bass đốm",
     "Speckled pavon",
-    "Peacock bass"
+    "Peacock bass",
+    "Cá tucunare"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Cichla temensis (speckled pavon) là một loài peacock bass cỡ lớn, sống ở các lưu vực Rio Negro, Uatumã và Orinoco thuộc Colombia, Venezuela, Guyana và Brazil. Đây là một trong những loài Cichla to nhất, có thể dài tới 99 cm. Vì vậy nó hợp với thủy cung công cộng hơn là bể nhà. Cá trưởng thành cần bể ít nhất khoảng 300 x 90 x 120 cm. Ngoài tiệm, cá thường được bán lúc còn rất nhỏ. Người ta cũng câu loài này như một loài cá thể thao.</p>",
@@ -16,13 +17,21 @@
     "behaviour:seriouslyfish": "<p>Cá có tính lãnh thổ và khá hung dữ. Bạn có thể nuôi chúng theo đàn cùng loài, hoặc nuôi chung với các loài cỡ lớn như cá rồng, cá đuối, cá da trơn lớn và các loài cichlid lớn khác. Tuy vậy, muốn nuôi chung mà ổn được phần nào thì bể phải cực lớn. Con nào trong bể đủ nhỏ để nuốt thì cá sẽ ăn thịt.</p>",
     "dimorphism:seriouslyfish": "<p>Con đực to hơn con cái. Khi trưởng thành, con đực sẽ nổi bướu trên đầu.</p>",
     "reproduction:seriouslyfish": "<p>Rất ít người chơi cá cảnh ghi nhận cho loài này sinh sản thành công.</p>",
-    "notes:seriouslyfish": "<p>Đây là một trong những loài Cichla lớn nhất. Vì cá quá to, peacock bass chỉ hợp với người chơi có kinh nghiệm và có đủ chỗ để nuôi đàng hoàng. Bù lại, cá rất khỏe và thích nghi được với nhiều điều kiện nước khác nhau. Dạo này peacock bass xuất hiện ngoài tiệm nhiều hơn hẳn. Cá thường được bán lúc mới khoảng 5 cm, trông rất dễ thương. Chính vì vậy mà nhiều người mua về rồi mới thấy không nuôi nổi lâu dài. Người ta cũng câu loài này như một loài cá thể thao.</p>"
+    "notes:seriouslyfish": "<p>Đây là một trong những loài Cichla lớn nhất. Vì cá quá to, peacock bass chỉ hợp với người chơi có kinh nghiệm và có đủ chỗ để nuôi đàng hoàng. Bù lại, cá rất khỏe và thích nghi được với nhiều điều kiện nước khác nhau. Dạo này peacock bass xuất hiện ngoài tiệm nhiều hơn hẳn. Cá thường được bán lúc mới khoảng 5 cm, trông rất dễ thương. Chính vì vậy mà nhiều người mua về rồi mới thấy không nuôi nổi lâu dài. Người ta cũng câu loài này như một loài cá thể thao.</p>",
+    "quickFacts:glaser": "<p>Cichla temensis không phải loài ai cũng nuôi được. Ngoài tự nhiên, nó có thể dài tới 1 m và nặng khoảng 10 kg, lớn nhất trong các loài cichlid.</p>",
+    "beforeYouBuy:glaser": "<p>Loài này có thể nhập từ Venezuela. Ở đó người ta chuộng nó làm cá ăn và bán dưới tên Tucunare.</p>",
+    "distribution:glaser": "<p>Venezuela, Colombia, Brazil.</p>",
+    "equipment:glaser": "<p>Bể nuôi Cichla nên bày đá to và lũa để cá có chỗ trốn. Trồng thêm vài cây to, cứng cáp cũng tốt. Đá và lũa phải đặt thẳng xuống kính đáy, vì cá to có thể húc đổ chúng làm nứt kính. Cichla nhảy rất giỏi và hay nhảy khỏi mặt nước khi bị giật mình, nên bể phải đậy thật kín.</p>",
+    "waterConditions:glaser": "<p>pH và độ cứng không quan trọng lắm, vì loài này chịu được nhiều kiểu nước khác nhau. Nó cần nước ấm, nên giữ nhiệt độ ở 23–28°C.</p>",
+    "diet:glaser": "<p>Nên cho ăn mồi tươi sống như tôm hùm đất, cá nhỏ, cá lớn, côn trùng…, thêm thức ăn đông lạnh, thức ăn sấy khô và cám viên cho cá ăn thịt.</p>",
+    "behaviour:glaser": "<p>Đây là cá săn mồi. Thứ gì cử động mà lọt miệng là nó ăn, nên cá nuôi chung phải to con. Có thể nuôi chung với cá piranha, cá pacu, cá rồng và các loài cichlid lớn khác như Crenicichla.</p>"
   },
   "quality": {
     "score": 0.82,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.82
+      "seriouslyfish": 0.82,
+      "glaser": 0.95
     }
   }
 }

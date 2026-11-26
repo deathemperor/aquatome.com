@@ -4,7 +4,8 @@
   "altNames": [
     "Cá giraffe lùn",
     "Dwarf Giraffe Catfish",
-    "Afrikanischer Tigerwels"
+    "Afrikanischer Tigerwels",
+    "Cá da trơn hươu lùn"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Notoglanidium macrostoma (Pellegrin, 1909)</li><li>Kích thước: 240 mm SL (chiều dài chuẩn, không tính vây đuôi)</li><li>Nơi thu mẫu chuẩn: sông Ogowe ở Ngomo, Gabon</li><li>Loài này ít khi được nhập về, nhưng vẫn là loài được nhập nhiều nhất trong chi.</li></ul>",
@@ -15,13 +16,20 @@
     "behaviour:planetcatfish": "<p>Cá thường giữ lãnh thổ và có bản tính săn mồi. Vì thế nó không hợp với bể cộng đồng thông thường. Nó sống tốt hơn nhiều trong bể chủ đề châu Phi, nuôi chung với những loài cá khỏe, chịu va chạm. Đừng nuôi chung với cá nhỏ.</p><p>Nếu nuôi từ hai con trở lên trong cùng một bể, bạn cần cho chúng đủ không gian và đủ chỗ trốn. Những bạn cùng bể lý tưởng gồm các loài Synodontis sống ở sông, tetra châu Phi cỡ lớn (như Brycinus hoặc Alestes), barb châu Phi như Barbus camptacanthus, cichlid châu Phi sống ở sông như Pelvicachromis và cá mang mê cung châu Phi (Ctenopoma). Do tính giữ lãnh thổ, bạn không nên nuôi nó chung với quá nhiều cá tầng đáy.</p>",
     "dimorphism:planetcatfish": "<p>Cá đực nhỏ hơn cá cái và có thể có màu sẫm hơn.</p>",
     "reproduction:planetcatfish": "<p>Loài này từng đẻ trong bể, nhưng đó là đẻ tình cờ. Vì vậy người ta vẫn chưa biết điều gì kích thích cá đẻ. Cá làm tổ ở chỗ kín, chẳng hạn dưới đá. Cá bố mẹ, nhất là cá đực, ở lại chăm trứng và con. Khoảng hai tuần sau, cá con bắt đầu tự bơi. Hiện chưa có báo cáo nào về việc cho loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Bulletin du Muséum National d'Histoire Naturelle (Série 1) v. 15 (no. 2), pp 67</p>"
+    "references:planetcatfish": "<p>Bulletin du Muséum National d'Histoire Naturelle (Série 1) v. 15 (no. 2), pp 67</p>",
+    "distribution:scotcat": "<p>Châu Phi: nam Cameroon, Gabon và hệ thống sông Congo. Nơi thu mẫu chuẩn: Ngomo (Ogôoué) [Gabon].</p>",
+    "habitat:scotcat": "<p>Đây là loài nhỏ hơn trong ba loài của cùng một giống cá châu Phi, do C. Teugels, Risch, De Vos &amp; Thys mô tả năm 1991. Hai loài kia là Anaspidoglanis akiri (Risch 1987) và Anaspidoglanis boutchangai (Thys van den Audenaerde 1965). Trước năm 1991, nó nằm trong họ Bagridae, họ cá có ở cả châu Phi lẫn châu Á. Đến năm 1991, Mo tách nhóm này ra và lập họ mới là Claroteidae, họ hàng gần với họ Bagridae.</p>",
+    "behaviour:scotcat": "<p>Loài bagrid châu Phi này đi săn vào ban đêm, cá nuôi chung phải dài hơn 7 cm mới khỏi bị nó bắt. Nó khá hay giành chỗ. Ban ngày nó cần một chỗ trốn riêng để nghỉ, chẳng hạn một hốc đá hay một mái che xếp bằng đá phiến.</p>",
+    "maintenance:scotcat": "<p>Có thể nuôi chung với các loài characin châu Phi cỡ lớn như cá neon Congo (Phenacogrammus interruptus), hoặc các loài characin châu Mỹ cỡ lớn như giống Distichodus. Những loài barb lớn như cá he đỏ (Barbus schwanefeldi) cũng có thể hợp. Ngoài ra, nó sống được trong bể cichlid nuôi chung, miễn không phải bể cichlid hồ Rift Valley. Bể kiểu đó có pH cao, nuôi lâu dài thì có thể hơi quá so với loài này. Nên thả ít cá tầng đáy chung với nó.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: tên giống Notoglanidium ghép từ otos nghĩa là lưng, có lẽ để chỉ vây lưng \"khá dài\" của N. walkeri, và glanidium, dạng nhỏ của glanis tức cá nheo (Silurus glanis). Ngày nay glanidium là chữ gọi chung cho cá da trơn. Tên loài macrostoma lấy từ tiếng Hy Lạp makros nghĩa là dài và stoma nghĩa là miệng, ý nói miệng của nó to.</p><p>Loài này trước thuộc giống Anaspidoglanis, nay đã chuyển sang giống mới Notoglanidium.</p><p>Danh sách đỏ IUCN: trong khu vực đánh giá Trung Phi, loài này phân bố rộng hoặc không gặp mối đe dọa lớn nào, nên được xếp mức Ít quan tâm, nhưng đánh giá này cần cập nhật lại (IUCN 2010).</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Moelants, T. 2010. Notoglanidium macrostoma. The IUCN Red List of Threatened Species 2010. ScotCat Factsheet no. 092. Feb. 2004. The ETYFish Project Fish Name Etymology Database.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
+      "planetcatfish": 0.8,
+      "scotcat": 0.95
     }
   }
 }

@@ -21,6 +21,8 @@ export type Item = {
   /** A species' or plant's scientific name; a video's channel. */
   sub?: string
   aka?: string[]
+  /** A glossary term's link phrases (a tool page's own words too): found by, never said as a name. */
+  words?: string[]
   path: string
   img?: string
   /** A breed: the species it is a form of, when the index lists it. */

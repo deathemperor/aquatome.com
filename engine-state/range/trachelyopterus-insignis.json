@@ -1,0 +1,158 @@
+{
+  "id": "trachelyopterus-insignis",
+  "native": {
+    "input": "8a4f09c928e0d008",
+    "at": "2026-11-16T17:28:41.839Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Río Magdalena, Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Lower Magdalena River basin, Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lower Magdalena River basin",
+        "source": "planetcatfish",
+        "quote": "South America: Lower Magdalena River basin.",
+        "ok": true
+      },
+      {
+        "name": "Lower Magdalena River basin",
+        "source": "scotcat",
+        "quote": "South America: Lower Magdalena River basin, Colombia.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Trachelyopterus insignis",
+    "status": "ACCEPTED",
+    "taxonKey": 2344660,
+    "datasets": [
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        6369
+      ],
+      [
+        "010fcd64-caa7-47dd-b1b1-c8be5a2144b6",
+        754
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        77
+      ],
+      [
+        "0c17fe57-fdea-4c15-a592-24631241215a",
+        28
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        25
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        16
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        9
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        9
+      ],
+      [
+        "0a795556-3b24-4ff7-9113-22eb1bca08a4",
+        6
+      ],
+      [
+        "13b4fdb0-92a0-4497-bc0a-16d2fdf806fd",
+        6
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "ad68e7eb-1f8c-4c48-b0b5-ffcbda299c36",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "eaad657f-7bda-4705-a181-053d9e38033f",
+        3
+      ],
+      [
+        "f442ef1d-7104-4a8c-85d6-a55181d6b265",
+        3
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "1a017764-ffb6-4880-801f-27e209a1f7e0",
+        1
+      ],
+      [
+        "28965184-3e9f-432f-8898-780e9183d526",
+        1
+      ],
+      [
+        "4d643b0b-59af-4f2a-b286-f75bb40d7516",
+        1
+      ],
+      [
+        "54c9a743-6c30-4b1f-9a42-f704d5261714",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T17:28:41.839Z"
+  }
+}

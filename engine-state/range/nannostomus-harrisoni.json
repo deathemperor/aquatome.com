@@ -1,8 +1,8 @@
 {
   "id": "nannostomus-harrisoni",
   "native": {
-    "input": "206146ad8b0b3990",
-    "at": "2026-11-10T15:58:17.469Z",
+    "input": "46db8a99c47f1b20",
+    "at": "2026-11-18T12:30:34.128Z",
     "claims": [
       {
         "code": "GY",
@@ -15,8 +15,8 @@
       {
         "code": "GY",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Type locality is 'Canal at Christianburg, Guyana' and this species appears endemic to the Demerara River basin, eastern Guyana including some its tributaries such as Haiama River, Kuruabaru River, Haiakwa Creek and Haianari Creek.",
+        "source": "glaser",
+        "quote": "The Blackstripe pencilfish was scientifically described from Guyana back in 1909.",
         "words": "Guyana",
         "ok": true
       }
@@ -25,7 +25,14 @@
       {
         "name": "Demerara River",
         "source": "seriouslyfish",
-        "quote": "Type locality is 'Canal at Christianburg, Guyana' and this species appears endemic to the Demerara River basin, eastern Guyana including some its tributaries such as Haiama River, Kuruabaru River, Haiakwa Creek and Haianari Creek.",
+        "quote": "The blackstripe pencilfish, Nannostomus harrisoni, is a lebiasinid that appears endemic to the Demerara River basin in eastern Guyana.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Demerara River",
+        "source": "glaser",
+        "quote": "The fish inhabits exclusively the Demerara river basin in Guyana.",
         "country": "GY",
         "ok": true
       }

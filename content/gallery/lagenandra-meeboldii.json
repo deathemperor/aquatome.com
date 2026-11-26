@@ -26,18 +26,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/flickr/54591454867.webp",
-      "thumb": "https://media.aquatome.com/flickr/54591454867-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-SA 2.0",
-      "author": "Dinesh Valke",
-      "sourceUrl": "https://www.flickr.com/photos/91314344@N00/54591454867",
-      "caption": "Lagenandra meeboldii mọc hoang giữa lá khô ngoài tự nhiên",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/tropica/d0d93711f69ebd2e.webp",
       "thumb": "https://media.aquatome.com/tropica/d0d93711f69ebd2e-480.webp",
       "width": 1200,
@@ -46,8 +34,7 @@
       "author": "Tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Lagenandrameeboldii'Red'(103CLP)/30579",
       "source": "tropica",
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/flickr/54592332486.webp",
@@ -120,9 +107,47 @@
       "caption": "Bụi Lagenandra meeboldii mọc ngoài tự nhiên trên nền đất",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/54591454867.webp",
+      "thumb": "https://media.aquatome.com/flickr/54591454867-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA 2.0",
+      "author": "Dinesh Valke",
+      "sourceUrl": "https://www.flickr.com/photos/91314344@N00/54591454867",
+      "caption": "Lagenandra meeboldii mọc hoang giữa lá khô ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/447250956.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/447250956-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Abhisheka Krishnagopal",
+      "sourceUrl": "https://www.inaturalist.org/photos/447250956",
+      "caption": "Hoa Lagenandra meeboldii màu tím đỏ giữa các lá xanh",
+      "best": true,
+      "kind": "flower",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/641805233.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/641805233-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Aditya Bari",
+      "sourceUrl": "https://www.inaturalist.org/photos/641805233",
+      "caption": "Lagenandra meeboldii mọc tự nhiên trên nền đất đỏ ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
-  "seen": 16,
-  "updatedAt": "2026-11-10",
-  "builtAt": "2026-11-09"
+  "seen": 18,
+  "updatedAt": "2026-11-24",
+  "builtAt": "2026-11-24"
 }

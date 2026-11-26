@@ -29,5 +29,12 @@
     "bySource": {
       "aquariumbreeder": 0.7
     }
+  },
+  "held": {
+    "checks": [
+      "elsewhere",
+      "harm"
+    ],
+    "at": "2026-11-24"
   }
 }

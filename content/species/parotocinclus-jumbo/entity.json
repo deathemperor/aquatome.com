@@ -8,13 +8,142 @@
   "lNumber": "LDA25",
   "places": [
     "south-america",
-    "brazil"
+    "brazil",
+    "paraiba-do-norte"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "São Francisco",
+        "Paraiba do Norte",
+        "Piranhas",
+        "Salgado",
+        "Mundau",
+        "Canhotinho"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "IUCN Red List: Parotocinclus jumbo is distributed in coastal rivers of the Northeast and the lower São Francisco River, being frequent and abundant.",
+          "countries": [],
+          "regions": [
+            "São Francisco"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Paraiba do Norte and Piranhas rivers in Paraiba State, Canhotinho River in Pernambuco State, a tributary of the Mundau River, flowing near the city of Maceio in Alagoas State, and Salgado River in Ceara State.",
+          "countries": [],
+          "regions": [
+            "Paraiba do Norte",
+            "Piranhas",
+            "Salgado",
+            "Mundau",
+            "Canhotinho"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340264,
+      "total": 56,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "BR",
+          56
+        ]
+      ],
+      "cells": [
+        [
+          -40.78125,
+          -8.4375,
+          1
+        ],
+        [
+          -39.375,
+          -8.4375,
+          4
+        ],
+        [
+          -39.375,
+          -7.03125,
+          1
+        ],
+        [
+          -37.96875,
+          -9.84375,
+          5
+        ],
+        [
+          -37.96875,
+          -8.4375,
+          6
+        ],
+        [
+          -37.96875,
+          -7.03125,
+          7
+        ],
+        [
+          -36.5625,
+          -9.84375,
+          18
+        ],
+        [
+          -36.5625,
+          -8.4375,
+          11
+        ],
+        [
+          -36.5625,
+          -7.03125,
+          1
+        ],
+        [
+          -35.15625,
+          -8.4375,
+          1
+        ],
+        [
+          -32.34375,
+          -9.84375,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
+        "source": "scotcat",
+        "value": 6
+      },
+      {
         "source": "glaser",
-        "value": 7
+        "value": 6
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 21,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -22,32 +151,80 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/parotocinclus_jumbo_lda_25_pitbull_pleco_en/",
-      "html": "<p>Parotocinclus jumbo is one of the largest species of the genus (maximum size is reported to be around 6-7 cm) and one of the prettiest. It is an algae eater.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/lda25-parotocinclus-jumbo-2/",
+      "html": "<p>The normal size of this fish is 5-6 cm, but 8 cm giants of the species have been known.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parotocinclus_jumbo.htm",
+      "html": "<ul><li>Common names: LDA25, Pitbull Pleco</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/lda25-parotocinclus-jumbo-2/",
+      "html": "<p>The Pitbull Pleco (Parotocinclus jumbo, formerly Hypostominae gen. sp.) was one of the most popular small sucking catfishes until about 10 years ago. Then it was accidentally forgotten on the list of Brazilian ornamental fishes allowed for export. Since then, it has only been around in breeder circles. This species, very common in the wild, was one of the most important export fish in southern Brazil. Almost all exporters had to close their farms when the export of the Pitbull Pleco was no longer possible.</p><p>Now the situation has changed fundamentally: from Brazil all fish may be exported again, if they do not enjoy protection status due to a special situation. And finally the first Pitbull Plecos have been received again. A lot of lost infrastructure still has to be rebuilt, and the bad corona situation in Brazil, combined with extreme flood events, does not make this easier, but it is expected that in the future Pitbull Plecos (LDA25) will be seen regularly in the trade again.</p>"
     },
     {
       "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parotocinclus_jumbo.htm",
+      "html": "<p>South America: Paraiba do Norte and Piranhas rivers in Paraiba State, Canhotinho River in Pernambuco State, a tributary of the Mundau River, flowing near the city of Maceio in Alagoas State, and Salgado River in Ceara State.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parotocinclus_jumbo.htm",
+      "html": "<p>Inhabits flat areas of shallow clear waters with low current and sandy and rocky bottom.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parotocinclus_jumbo.htm",
+      "html": "<p>Not a well known species but good aquarium husbandry with regular water changes and good oxygen content should suffice.</p>"
+    },
+    {
+      "key": "equipment",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/parotocinclus_jumbo_lda_25_pitbull_pleco_en/",
-      "html": "<p>Origin: Brazil.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/lda25-parotocinclus-jumbo-2/",
+      "html": "<p>The substrate should consist of fine sand at least in places, as the fish sometimes like to dig themselves in.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parotocinclus_jumbo.htm",
+      "html": "<p>Readily accepts a mixed and varied diet which includes lettuce, cucumber, courgette (zucchini), tablet foods, flake foods, granular foods, frozen bloodworm, to name but a few. Try also to provide rocks covered with algae or other methods like this for this species as they will feed on this, and also the very small microscopic animals that are found amongst the algae.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/lda25-parotocinclus-jumbo-2/",
+      "html": "<p>A very peaceful, sociable fish that should definitely be kept in groups.</p>"
     },
     {
       "key": "dimorphism",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/parotocinclus_jumbo_lda_25_pitbull_pleco_en/",
-      "html": "<p>There is very obvious sexual dichromatism in this species, which has so far not been reported in the aquarium literature. Males get wonderful shining, blueish-green saddles on the back which are missing in females. In addition, the females are much more plump than the males.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/lda25-parotocinclus-jumbo-2/",
+      "html": "<p>The males are darker colored and slimmer.</p>"
     },
     {
       "key": "reproduction",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/parotocinclus_jumbo_lda_25_pitbull_pleco_en/",
-      "html": "<p>There are some spawning reports on the species. It seems to have a positive effect if a rainy season is simulated, as is done with many Corydoras species. In practice this means large water changes with cooler and softer water than the water used for regular keeping. However, the temperature difference should not be too big; about 5°C is suitable.</p><p>The fish does not practise brood care in any way. The eggs are sticky and become attached to the glass or tank equipment – again there are many parallels to Corydoras. It is reported that raising the spawn is rather difficult and that the eggs tend to get fungus.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/lda25-parotocinclus-jumbo-2/",
+      "html": "<p>Breeding is similar to that of Corydoras. P. jumbo does not practice broodcare.</p>"
     },
     {
       "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/parotocinclus_jumbo_lda_25_pitbull_pleco_en/",
-      "html": "<p>Lexicon: Parotocinclus: ancient Greek, means \"alike Otocinclus\"; Otocinclus is another genus of catfish. jumbo: refers to the unusual size of the species compared with other members of the genus.</p>"
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parotocinclus_jumbo.htm",
+      "html": "<p>The genus Parotocinclus can readily be distinguished from Otocinclus by the presence of an adipose fin, whereas Otocinclus do not possess one. Dorsal soft rays (total): 8; anal soft rays: 6.</p><p>Etymology: the specific name jumbo pertains to the larger size and girth of this Parotocinclus species compared with the rest of the genus.</p><p>IUCN Red List: Parotocinclus jumbo is distributed in coastal rivers of the Northeast and the lower São Francisco River, being frequent and abundant. Although subject to impact caused by illegal ornamental fishing, this was not considered a significant threat to the species, therefore it was categorised as Least Concern (LC). Increased monitoring and enforcement of this illegal capture is recommended, since increased fishing pressure could affect Parotocinclus jumbo in a more concerning way (IUCN 2022).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parotocinclus_jumbo.htm",
+      "html": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Parotocinclus jumbo. The IUCN Red List of Threatened Species 2022.</p><p>Froese, R. and D. Pauly. Editors. 2008. FishBase. World Wide Web electronic publication. www.fishbase.org, version (02/2009).</p>"
     }
   ],
   "photos": [
@@ -57,7 +234,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/parotocinclus_jumbo_lda_25_pitbull_pleco_en/",
       "source": "glaser"
     },
@@ -67,7 +244,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/parotocinclus_jumbo_lda_25_pitbull_pleco_en/",
       "source": "glaser"
     },
@@ -77,8 +254,61 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/parotocinclus_jumbo_lda_25_pitbull_pleco_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/41045e2dd2231793.webp",
+      "thumb": "https://media.aquatome.com/scotcat/41045e2dd2231793-480.webp",
+      "width": 500,
+      "height": 251,
+      "licence": "dùng với sự cho phép",
+      "author": "Dave Poh / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parotocinclus_jumbo.htm",
+      "caption": "Parotocinclus jumbo",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/071cb38ba505c773.webp",
+      "thumb": "https://media.aquatome.com/scotcat/071cb38ba505c773-480.webp",
+      "width": 500,
+      "height": 231,
+      "licence": "dùng với sự cho phép",
+      "author": "Dave Poh / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parotocinclus_jumbo.htm",
+      "caption": "Parotocinclus jumbo",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b33e83f2c88e7a79.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b33e83f2c88e7a79-480.webp",
+      "width": 500,
+      "height": 256,
+      "licence": "dùng với sự cho phép",
+      "author": "Vedran Cuncic / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parotocinclus_jumbo.htm",
+      "caption": "Parotocinclus jumbo",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/8d6a513c7e6d7864.webp",
+      "thumb": "https://media.aquatome.com/glaser/8d6a513c7e6d7864-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/lda25-parotocinclus-jumbo-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/fe02600b31b9bba9.webp",
+      "thumb": "https://media.aquatome.com/glaser/fe02600b31b9bba9-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/lda25-parotocinclus-jumbo-2/",
       "source": "glaser"
     }
   ],
@@ -131,5 +361,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-16"
+  "updatedAt": "2026-11-21"
 }

@@ -1,0 +1,242 @@
+{
+  "id": "puntioplites-falcifer",
+  "scientificName": "Puntioplites falcifer",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Puntioplites",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "laos",
+    "mekong",
+    "vietnam",
+    "thailand",
+    "cambodia"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Mekong",
+        "Xe Bangfai",
+        "Nam Theun"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "P. falcifer occurs in the large southeast-asian streams Mekong, Xe Bangfai and Nam Theun.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Xe Bangfai",
+            "Nam Theun"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366495,
+      "total": 38,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "TH",
+          22
+        ],
+        [
+          "KH",
+          9
+        ],
+        [
+          "VN",
+          5
+        ],
+        [
+          "LA",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          18.28125,
+          8
+        ],
+        [
+          99.84375,
+          12.65625,
+          6
+        ],
+        [
+          101.25,
+          18.28125,
+          1
+        ],
+        [
+          104.0625,
+          14.0625,
+          2
+        ],
+        [
+          104.0625,
+          16.875,
+          1
+        ],
+        [
+          105.46875,
+          9.84375,
+          2
+        ],
+        [
+          105.46875,
+          12.65625,
+          9
+        ],
+        [
+          105.46875,
+          14.0625,
+          5
+        ],
+        [
+          106.875,
+          11.25,
+          3
+        ],
+        [
+          106.875,
+          12.65625,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 50
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/puntioplites-falcifer-2/",
+      "html": "<p>These large barbs differ from all other barb relatives by an easily recognisable external feature, namely a strong ossified anal fin spine, which can be smooth or serrated. Within the Cyprinidae in a broader sense only carp and crucian carp show this anatomical feature, but these two genera are not barbs.</p><p>So while the genus Puntioplites can be easily recognized, the species is quite different. Usually four species are recognized, two with serrated anal fin spines (P. falcifer and P. proctozysron) and two with smooth ones (P. bulu and P. waandersi). P. falcifer is probably the most attractive species, it has long, orange fins, those of P. proctozysron are said to be dark. P. bulu has a vertical banding and P. waandersi does not. All species grow 30-50 cm long and have a high amount of vegetable food on the menu.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/puntioplites-falcifer-2/",
+      "html": "<p>P. falcifer occurs in the large southeast-asian streams Mekong, Xe Bangfai and Nam Theun.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/puntioplites-falcifer-2/",
+      "html": "<p>In behaviour they are rather to be classified as calm, they completely lack the headless panic-mongering that many other larger barbs show during the acclimatisation phase.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/puntioplites-falcifer-2/",
+      "html": "<p>Not much can be said about the care of the currently 12-15 cm long animals, but they are attractive fish that are also interesting for public aquariums.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/fb3688dc67be6b31.webp",
+      "thumb": "https://media.aquatome.com/glaser/fb3688dc67be6b31-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/puntioplites-falcifer-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/fd935354a62b6d52.webp",
+      "thumb": "https://media.aquatome.com/glaser/fd935354a62b6d52-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/puntioplites-falcifer-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2ac669793ea064cf.webp",
+      "thumb": "https://media.aquatome.com/glaser/2ac669793ea064cf-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/puntioplites-falcifer-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5b3a2ded28be29a2.webp",
+      "thumb": "https://media.aquatome.com/glaser/5b3a2ded28be29a2-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/puntioplites-falcifer-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "KgSPWJ-SHbY",
+      "title": "Puntioplites falcifer",
+      "durationSec": 56,
+      "lang": "cs"
+    },
+    {
+      "youtubeId": "aBQwlYFlppQ",
+      "title": "Puntioplites falcifer @ Sicklefin Barb/Kerengkek Siam (Mekong River)",
+      "durationSec": 45,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "CI4nj-kaDt0",
+      "title": "Sicklefin barb (Puntioplites falcifer) สะกาง ,สะกางเกสูง ,กระมังกระโดงสูง",
+      "durationSec": 30,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "u6hxlTWc89s",
+      "title": "Beautiful rare sicklefin barb (Puntioplites falcifer)",
+      "durationSec": 47,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 400 lít",
+        "bể cá 600 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn thực vật cho cá",
+        "thức ăn viên cá cỡ lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-20"
+}

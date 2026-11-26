@@ -1,8 +1,13 @@
 {
   "slug": "siem-reap-river",
-  "name": "เสียมราฐ",
+  "name": "แม่น้ำเสียมราฐ",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.85,
+    "at": "2026-11-19T00:38:44.232Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

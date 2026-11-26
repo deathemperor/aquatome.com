@@ -243,6 +243,16 @@ test('image judgments use the native ephemeral flag; ordinary text calls keep th
  await call();expect(spawned.at(-1)?.args).not.toContain('--no-session-persistence')
 })
 
+// Codex's read of 21 Nov 2026: the magazine's post is in research's prompt, and a call's session is kept on disk.
+test("a call given a page no one may keep (`unkept`) keeps no session of it, research and plain calls alike; the others are as they were", async () => {
+  await claudeResearch<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {}, unkept: true })
+  expect(spawned.at(-1)?.args).toContain('--no-session-persistence')
+  await claudeCli<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {}, unkept: true })
+  expect(spawned.at(-1)?.args).toContain('--no-session-persistence')
+  await claudeResearch<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} })
+  expect(spawned.at(-1)?.args).not.toContain('--no-session-persistence')
+})
+
 // The chief of staff, 14 Nov 2026, on the owner's rule that nothing goes round a challenge: every step's web research keeps
 // off a source the engine reads only at its own pace, from the engine's own record, read again before every call.
 test('web research refuses every page of a source the engine reads only through the Archive or found blocked, in every step, and one marked since at once', async () => {

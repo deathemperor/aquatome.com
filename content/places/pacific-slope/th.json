@@ -3,6 +3,12 @@
   "name": "ลาดแปซิฟิก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-19T18:51:20.844Z",
+    "why": "\"ลาดแปซิฟิก\" is a loose translation of \"slope\" and lacks the usual Thai region wording; an atlas would write the Pacific side as \"ฝั่งแปซิฟิก\" or \"เขตลาดเอียงแปซิฟิก\", and the name doesn't read as an established Thai place name."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

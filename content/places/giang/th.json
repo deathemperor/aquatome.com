@@ -3,6 +3,12 @@
   "name": "ซาง",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-21T01:19:33.318Z",
+    "why": "\"Giang\" is a Vietnamese region/place name, and Thai atlases would typically transliterate it as \"เซียง\" or \"ซาง\" ambiguous, but the bare \"ซาง\" is a guess that reads as a different word (Sang) and lacks a kind word like จังหวัด/แคว้น."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

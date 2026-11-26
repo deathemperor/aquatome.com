@@ -240,6 +240,10 @@
       {
         "source": "seriouslyfish",
         "value": 30
+      },
+      {
+        "source": "glaser",
+        "value": 20
       }
     ],
     "tankCm": [
@@ -261,6 +265,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/andinoacara-rivulatus",
       "html": "<ul><li>Max size: 300 mm SL (12 in SL)</li><li>Aquarium size: 150 × 45 cm (60 × 18 in)</li><li>Temperature: 20–24°C (68–75°F)</li><li>pH: 6.5–8.0</li><li>Hardness: 5–25 dGH</li></ul><p>The green terror cichlid, Andinoacara rivulatus, is a large cichlid from extreme northern Peru and the coastal drainages of western Ecuador. Generally aggressive and territorial, it is best kept alone or as a mated pair unless the tank is enormous. Males grow substantially larger than females and develop a nuchal hump when mature. Fish from the northern end of its range may represent a different species.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/andinoacara-rivulatus-2/",
+      "html": "<p>Once, colourful large cichlids were so popular that imports from Ecuador were organised mainly because of them. On the Pacific side of the country live the \"Green Terror\", as the gold seam cichlid, then still named Aequidens rivulatus, was called, and the \"Red Terror\", then Cichlasoma festae, today Mesoheros festae. Both species easily become over 20 cm long (the maximum size of M. festae is even 25 cm), are extremely colourful, but can also be quite aggressive.</p><p>Those times are long past and M. festae has become almost a rarity in the trade. Almost all animals offered under this name are in reality Mayaheros urophthalmus. But Andinoacara rivulatus, as the Green Terror is now called, is still available from time to time; offspring from Indonesia have recently been obtained.</p>"
     },
     {
       "key": "distribution",
@@ -315,71 +325,132 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/andinoacara-rivulatus",
       "html": "<p>Relatively straightforward, provided you can obtain a compatible pair. Unfortunately matching adult fish is a tricky process, with males often killing females if they are simply added to the tank together. Some hobbyists have had success by inserting a clear divider in the middle of the tank and allowing the male to get used to his potential partner this way, removing the divider after a few weeks. A far more preferable and easy method is to buy at least 6 young fish and allow them to pair off naturally. Once a pair forms it's wise to remove the other fish, and tankmates of any kind are not an option beyond this point, as they will almost certainly be killed when spawning commences. The aquarium should be set up as suggested above with slightly soft and acidic water of pH 6.5-7.0 and a temperature of 24 °C (75 °F). It's best to use air-powered filtration as fry may be sucked up by power filters. A variety of flat stones will provide potential spawning sites. Feed the fish lots of live and frozen foods to bring them into condition.</p><p>The fish become sexually mature at around 4-6\" and once you have a pair they should breed without too much encouragement from you. Spawning can often be initiated by performing a large (30-50%) water change with cool water. The pair will choose and then thoroughly clean a spawning site within their territory. This may be a flat rock, large flowerpot, or a pit excavated from the substrate. Spawning occurs in a similar fashion to many other cichlids, with the female laying a line of eggs before moving away, allowing the male to take her place and fertilise them. Up to 400 eggs may be fertilised in this manner. The eggs hatch in around 3-4 days, and during this period the male will defend the spawning site while the female tends to the eggs. Upon hatching the fry are moved to a pre-excavated pit in the substrate where they remain until they become free swimming. This usually takes another 6-8 days, and at this point they can be fed microworm, brine shrimp nauplii and powdered dry foods. They should be left in with the parents until broodcare begins to diminish (usually around 6 weeks), as if they're removed the male may attempt to spawn with the female again, and if she isn't ready to do so he may turn on her.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/andinoacara-rivulatus-2/",
+      "html": "<p>The gold seam cichlid is an open breeder with a biparental family. A leading pair with juveniles is one of the most beautiful sights you can have in an aquarium.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/894420aee3b52e47.webp",
+      "thumb": "https://media.aquatome.com/commons/894420aee3b52e47-480.webp",
       "width": 960,
       "height": 682,
-      "licence": "CC0",
-      "author": "5snake5",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andinoacara_rivulatus_-_Goldsaumbuntbarsche_mit_Jungen.jpg",
-      "caption": "Ein Paar Goldsaumbuntbarsche mit Jungen im Aquarium.",
-      "thumb": "https://media.aquatome.com/commons/894420aee3b52e47-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/894420aee3b52e47-large.webp",
         "width": 1690,
         "height": 1200
-      }
+      },
+      "licence": "CC0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andinoacara_rivulatus_-_Goldsaumbuntbarsche_mit_Jungen.jpg",
+      "caption": "Ein Paar Goldsaumbuntbarsche mit Jungen im Aquarium."
     },
     {
       "url": "https://media.aquatome.com/commons/6a67ba90f863fd30.webp",
+      "thumb": "https://media.aquatome.com/commons/6a67ba90f863fd30-480.webp",
       "width": 960,
       "height": 492,
-      "licence": "CC0",
-      "author": "5snake5",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andinoacara_rivulatus_%E2%99%82_-_Goldsaumbuntbarsch.jpg",
-      "caption": "A not full grown, but adult male green terror, about 10cm length.",
-      "thumb": "https://media.aquatome.com/commons/6a67ba90f863fd30-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/6a67ba90f863fd30-large.webp",
         "width": 2340,
         "height": 1200
-      }
+      },
+      "licence": "CC0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andinoacara_rivulatus_%E2%99%82_-_Goldsaumbuntbarsch.jpg",
+      "caption": "A not full grown, but adult male green terror, about 10cm length."
     },
     {
       "url": "https://media.aquatome.com/commons/e4286ab1b51cff69.webp",
+      "thumb": "https://media.aquatome.com/commons/e4286ab1b51cff69-480.webp",
       "width": 960,
       "height": 602,
-      "licence": "CC0",
-      "author": "5snake5",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andinoacara_rivulatus_%E2%99%82_-_Goldsaumbuntbarsch_-_portrait.jpg",
-      "caption": "Andinoacara rivulatus ♂ - Goldsaumbuntbarsch - portrait",
-      "thumb": "https://media.aquatome.com/commons/e4286ab1b51cff69-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/e4286ab1b51cff69-large.webp",
         "width": 1912,
         "height": 1200
-      }
+      },
+      "licence": "CC0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andinoacara_rivulatus_%E2%99%82_-_Goldsaumbuntbarsch_-_portrait.jpg",
+      "caption": "Andinoacara rivulatus ♂ - Goldsaumbuntbarsch - portrait"
     },
     {
       "url": "https://media.aquatome.com/commons/5d6f4b08c069244b.webp",
+      "thumb": "https://media.aquatome.com/commons/5d6f4b08c069244b-480.webp",
       "width": 960,
       "height": 649,
-      "licence": "CC BY 2.5",
-      "author": "MidgleyDJ (Dr. David Midgley) at en.wikipedia.",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andinoacara_rivulatus_-_20061112.jpg",
-      "caption": "A green terror (Andinoacara rivulatus).",
-      "thumb": "https://media.aquatome.com/commons/5d6f4b08c069244b-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/5d6f4b08c069244b-large.webp",
         "width": 999,
         "height": 675
-      }
+      },
+      "licence": "CC BY 2.5",
+      "author": "MidgleyDJ (Dr. David Midgley) at en.wikipedia.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andinoacara_rivulatus_-_20061112.jpg",
+      "caption": "A green terror (Andinoacara rivulatus)."
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/6355f9d111512580.webp",
+      "thumb": "https://media.aquatome.com/glaser/6355f9d111512580-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/andinoacara-rivulatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d4396a85f0808db3.webp",
+      "thumb": "https://media.aquatome.com/glaser/d4396a85f0808db3-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/andinoacara-rivulatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2dc0aabcd6035139.webp",
+      "thumb": "https://media.aquatome.com/glaser/2dc0aabcd6035139-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/andinoacara-rivulatus-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "eZMAlObftQs",
+      "title": "𝑨𝒏𝒅𝒊𝒏𝒐𝒂𝒄𝒂𝒓𝒂 𝒓𝒊𝒗𝒖𝒍𝒂𝒕𝒖𝒔溪寶麗魚/玉面皇冠 #shorts #biotope #台灣野外紀錄 #淡水魚 #外來種 #大中小整個河道滿滿都是…",
+      "durationSec": 12,
+      "lang": "zh"
+    },
+    {
+      "youtubeId": "0wY_fP5Zmp8",
+      "title": "Wild Andinoacara rivulatus #shorts #台灣野外紀錄 #淡水魚 #外來種 #freshwater  #freshwaterfish #biotope",
+      "durationSec": 16,
+      "lang": "zh"
+    },
+    {
+      "youtubeId": "_J-0sedpjtw",
+      "title": "Aquarium Andinoacara Rivulatus ( Green Terror Fish ) With Offspring | Fish Aquarium Video",
+      "durationSec": 42897,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "_0o6JkrqsKQ",
+      "title": "Andinoacara rivulatus aquarium fish",
+      "durationSec": 26,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -409,5 +480,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-19"
 }

@@ -63,6 +63,9 @@ struct V2Photo: View {
         }
       }
       .clipped()
+      // Tapped only where it's drawn: `clipped()` hides what a covering photo lays out past its frame, but that still took
+      // taps (a wide card's photo took those of the photo line above it, Design, 17 Nov).
+      .contentShape(.rect)
       .onGeometryChange(for: CGSize.self) { $0.size } action: { points = $0; pixels = CGSize(width: $0.width * scale, height: $0.height * scale) }
       .onChange(of: phase) { if phase == .active, let src, missing == src { again += 1 } }
       .onChange(of: image?.size, initial: true) { _, s in if let shape, let s, s.height > 0 { shape(s.width / s.height) } }
@@ -366,7 +369,7 @@ struct Lockup: View {
   /// The line under a page's name: a fish's scientific name, a plant's, a video series' count, a guide's kind; none for
   /// kit, under its own heading.
   static func line(_ item: HandbookIndex.Item) -> String? {
-    if item.kind == .video, let n = item.parts { return String(localized: "\(n) video") }
+    if item.kind == .video, let n = item.parts { return String(localized: "\(n) video", bundle: .app) }
     return item.subUnderName ?? (item.kind == .equipment ? nil : item.kindTitle)
   }
 }
@@ -469,6 +472,47 @@ struct ClearUnderLargeTitle: ViewModifier {
       content
         .onScrollGeometryChange(for: Bool.self) { [titleHeight] in $0.contentOffset.y + $0.contentInsets.top > min(titleHeight, V2Fade.largeTitleAtMost) } action: { _, gone in titleGone = gone }
         .modifier(ClearUnderTopBar(shown: titleGone, ground: ground))
+    } else {
+      content
+    }
+  }
+}
+
+/// A browsing tab's header, the first rows of its page (Hôm nay, Khám phá: spec-titles.md, 12 and 13 Nov): its name big at
+/// the left, as iOS's large title and where that sat, the account button on its first line at the right, and what goes
+/// under the name. It scrolls away with the page; the tab has no bar (`.toolbar(.hidden, for: .navigationBar)`).
+struct TabHeader<Under: View>: View {
+  let title: LocalizedStringKey
+  @ViewBuilder var under: Under
+  /// The large title's first line, so the button is centred on it at every text size.
+  @ScaledMetric(relativeTo: .largeTitle) private var line: CGFloat = 41
+
+  var body: some View {
+    VStack(alignment: .leading, spacing: 4) {
+      HStack(alignment: .top, spacing: 12) {
+        Text(title).font(.largeTitle.bold())
+          .accessibilityAddTraits(.isHeader)
+          .frame(maxWidth: .infinity, alignment: .leading)
+        ProfileButton(inPage: true).frame(height: max(line, 44))
+      }
+      under
+    }
+    // Where iOS's large title sat, under the bar's row, which now holds nothing.
+    .padding(.top, 44)
+    .padding(.horizontal, 20)
+  }
+}
+
+/// `ClearUnderTopBar` for a tab with no bar: the band behind the clock once anything of the page has gone under it, gone
+/// again at the top, so a card's photo or words never pass under the clock bare (spec-titles.md).
+struct ClearUnderClock: ViewModifier {
+  @State private var under = false
+
+  func body(content: Content) -> some View {
+    if #available(iOS 18, *) {
+      content
+        .onScrollGeometryChange(for: Bool.self) { $0.contentOffset.y + $0.contentInsets.top > 0.5 } action: { _, u in under = u }
+        .modifier(ClearUnderTopBar(shown: under))
     } else {
       content
     }

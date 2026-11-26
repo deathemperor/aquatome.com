@@ -3,6 +3,12 @@
   "name": "นิวแคลิโดเนีย",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T12:47:32.531Z",
+    "why": "The Thai atlas and Royal Institute name for New Caledonia is นิวคาลิโดเนีย (ka, not kae), so นิวแคลิโดเนีย is a nonstandard spelling of the right place."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

@@ -10,7 +10,8 @@
     "democratic-republic-of-the-congo",
     "congo",
     "senegal",
-    "gambia"
+    "gambia",
+    "casamance"
   ],
   "range": {
     "native": {
@@ -900,11 +901,22 @@
       {
         "source": "scotcat",
         "value": 46
+      },
+      {
+        "source": "planetcatfish",
+        "value": 70
       }
     ],
     "tempC": [
       {
         "source": "scotcat",
+        "value": {
+          "min": 21,
+          "max": 25
+        }
+      },
+      {
+        "source": "planetcatfish",
         "value": {
           "min": 21,
           "max": 25
@@ -917,6 +929,13 @@
         "value": {
           "min": 6.5,
           "max": 7.8
+        }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.5,
+          "max": 8
         }
       }
     ]
@@ -933,6 +952,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
       "html": "<ul><li>Common name: Giraffe Catfish</li><li>IUCN Red List: Least Concern (IUCN 2025). The species has a wide distribution with no known major widespread threats.</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=149",
+      "html": "<ul><li>Scientific name: Auchenoglanis occidentalis (Valenciennes, 1840)</li><li>Common name: Giraffe Catfish</li><li>Type locality: Senegal</li><li>IUCN Red List: Least Concern (last assessed 2019)</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -953,6 +978,12 @@
       "html": "<p>Africa: Senegal, Casamance and Gambia river drainages in western Africa. Type locality: Sénégal. The species ranks among the African fish with very large distribution areas, being present from Senegal to Tanzania.</p>"
     },
     {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=149",
+      "html": "<p>African waters: Gambia, Casamance, Senegal.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
@@ -963,6 +994,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
       "html": "<p>It is very tolerant of most water parameters. It can be kept at a low pH (6.5) with larger characins or barbs, or even in a Lake Tanganyika setup with cichlids from that lake in harder water, but soft, acidic conditions are preferable for a more contented fish.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=149",
+      "html": "<ul><li>pH: 6.5–8.0</li><li>Temperature: 21–25°C</li></ul>"
     },
     {
       "key": "equipment",
@@ -983,6 +1020,12 @@
       "html": "<p>There are no reports of breeding this species in captivity, as it would need a very large tank with a number of individuals. In the wild the nested eggs are guarded by the male. The male also plays host to eggs and young of Dinotopterus cunningtoni, a member of the Clariidae catfish family, which takes advantage of the already prepared nest and feeds on the host brood.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=149",
+      "html": "<p>There is no breeding report.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/auchenoglanis_wittei_en/",
@@ -995,10 +1038,22 @@
       "html": "<p>Teugels et al. (1991) considered the genus Auchenoglanis to comprise two valid species: A. biscutatus and A. occidentalis. Work in 2010 by Michael Retzer recognised eight species, but a later re-evaluation by Geerinckx &amp; Vreven (2013), based on biometric, meristic and other morphological data, reconfirmed only two valid species. A. occidentalis was said to differ from other congeners (except A. tchadiensis) by a uniformly coloured body, and from A. tchadiensis by oval rather than triangular tooth patches on the upper jaw. A. biscutatus is distinguished from A. occidentalis by a postorbital head length greater than the preorbital head length, an adipose fin that rises abruptly, and a maxillary barbel with a tip not darker than the head colour.</p><p>A. acuticeps Pappenheim, 1914, A. tanganicanus Boulenger, 1906, A. chadiensis Pellegrin, 1909, A. sacchii (Vinciguerra, 1898) and A. wittei Giltay, 1930 are now all considered synonyms of A. occidentalis.</p><p>Etymology: the genus name Auchenoglanis is a replacement name for Auchenaspis Bleeker 1858 (preoccupied in fossil fishes); auchenos = neck and aspis = shield, referring to the broad nuchal shield; glanis = sheatfish (Silurus glanis), now used as a general term for catfish. The specific name occidentalis means western, referring to its distribution (described from Senegal) compared to the similar A. biscutatus of Egypt.</p>"
     },
     {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=149",
+      "html": "<p>The genus Auchenoglanis is diagnosed on the basis of a unique combination of characters: a deep and broad skull, narrow mouth, reduced premaxillary tooth patches, anterior nostrils on the upper lip, and three large nuchal plates, the first of which is close to the rear of the supraoccipital. Etymology: from the Greek auchenos, meaning neck, and glanis, meaning catfish, in reference to the long cranial shield.</p>"
+    },
+    {
       "key": "references",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
       "html": "<p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (10/2009). Mushagalusa, D. 2025. Auchenoglanis occidentalis. The IUCN Red List of Threatened Species 2025. Retzer, ME (2010) Taxonomy of Auchenoglanis Günther 1865 (Siluriformes: Auchenoglanididae). Zootaxa 2655, pp. 25–51. ScotCat Factsheet no. 109. July 2005. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf. Tom Geerinckx &amp; Emmanuel Vreven (2013) A re-evaluation of the species-level diversity within the catfish genus Auchenoglanis (Siluriformes: Claroteidae), Journal of Natural History, 47:47-48, 2979-3010.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=149",
+      "html": "<p>Histoire naturelle des poissons v. 15, pp 203.</p>"
     }
   ],
   "photos": [
@@ -1063,5 +1118,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-23"
 }

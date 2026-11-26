@@ -1,0 +1,19 @@
+{
+  "slug": "ca-lau-kieng-delturus-angulicauda",
+  "name": "Cá lau kiếng Delturus angulicauda",
+  "altNames": [],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Delturus angulicauda (Steindachner, 1877)</li><li>Tên đồng nghĩa: Plecostomus angulicauda</li><li>Từ nguyên: Deltos = tấm ván nhỏ (tiếng Hy Lạp) + oura = đuôi (tiếng Hy Lạp)</li><li>Danh sách Đỏ IUCN: Ít quan tâm (đánh giá lần cuối năm 2018)</li></ul>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực sông Mucuri và các sông thuộc bang Bahia. Mẫu chuẩn được thu ở sông Mucuri tại Santa Clara và ở sông Parahyba, đông nam Brazil.</p>",
+    "reproduction:planetcatfish": "<p>Sinh sản: Chưa có báo cáo. Hiện chưa có tài liệu nào nói về chuyện loài này sinh sản.</p>",
+    "references:planetcatfish": "<p>Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe v. 74 (1. Abth.) 672 [114] Pl. 12</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.9
+    },
+    "reason": "thin"
+  }
+}

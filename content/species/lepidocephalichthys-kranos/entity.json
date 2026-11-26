@@ -105,6 +105,10 @@
       {
         "source": "seriouslyfish",
         "value": 4.5
+      },
+      {
+        "source": "glaser",
+        "value": 3.5
       }
     ],
     "tankCm": [
@@ -117,6 +121,10 @@
       {
         "source": "seriouslyfish",
         "value": 2
+      },
+      {
+        "source": "glaser",
+        "value": 1
       }
     ]
   },
@@ -150,6 +158,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-kranos",
       "html": "<p>Not difficult to keep but must be provided with a soft, sandy substrate since some of its time will be spent completely buried, or with only eyes protruding. When coarser gravel is used it may become stressed or damage itself trying to dig, and feeding behaviour can be inhibited.</p><p>Other décor can include water-worn rocks and driftwood branches and tree roots arranged to form plenty of hiding places and shaded spots - add these prior to the substrate to prevent them being toppled by digging activity.</p><p>Lighting can be quite dim unless you intend to grow plants and a few handfuls of leaf litter would complement the natural effect.</p><p>As this species hails from sluggish waters high flow rates are best avoided although a degree of oxygenation is recommended.</p><p>Ensure that small specimens are unable to enter filter intakes and cover the tank well as most loaches do jump at times, especially when first introduced.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/lepidocephalichthys-kranos-2/",
+      "html": "<p>The care of these dwarfs is very easy, one should offer them soft sandy ground, otherwise one can care for the sociable little animals excellently in each community aquarium with peaceful small fish.</p>"
     },
     {
       "key": "waterConditions",
@@ -201,10 +215,40 @@
       "width": 700,
       "height": 373,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Nonn Panitvong/Siamensis.org / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-kranos",
       "caption": "Specimen from the Mun River, Thailand, type locality of the species.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/25f2191c2809740e.webp",
+      "thumb": "https://media.aquatome.com/glaser/25f2191c2809740e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/lepidocephalichthys-kranos-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/773d430d2d3b87a3.webp",
+      "thumb": "https://media.aquatome.com/glaser/773d430d2d3b87a3-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/lepidocephalichthys-kranos-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ce7441aab9ef470c.webp",
+      "thumb": "https://media.aquatome.com/glaser/ce7441aab9ef470c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/lepidocephalichthys-kranos-2/",
+      "source": "glaser"
     }
   ],
   "videos": [],
@@ -238,5 +282,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-21"
 }

@@ -1,14 +1,14 @@
 {
   "id": "labeo-calbasu",
   "native": {
-    "input": "7a52719fe3338a92",
-    "at": "2026-11-09T09:57:55.009Z",
+    "input": "32636c2ec100bc62",
+    "at": "2026-11-17T11:42:48.614Z",
     "claims": [
       {
         "code": "PK",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The orangefin labeo, Labeo calbasu, is a large cyprinid from Pakistan, Nepal, India, Bangladesh, Myanmar and southern China.",
+        "quote": "This species is extremely widespread and has been recorded from major river systems in Pakistan, Nepal, most of India, Bangladesh, Myanmar and southern China.",
         "words": "Pakistan",
         "ok": true
       },
@@ -16,7 +16,7 @@
         "code": "NP",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The orangefin labeo, Labeo calbasu, is a large cyprinid from Pakistan, Nepal, India, Bangladesh, Myanmar and southern China.",
+        "quote": "This species is extremely widespread and has been recorded from major river systems in Pakistan, Nepal, most of India, Bangladesh, Myanmar and southern China.",
         "words": "Nepal",
         "ok": true
       },
@@ -24,7 +24,7 @@
         "code": "IN",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The orangefin labeo, Labeo calbasu, is a large cyprinid from Pakistan, Nepal, India, Bangladesh, Myanmar and southern China.",
+        "quote": "This species is extremely widespread and has been recorded from major river systems in Pakistan, Nepal, most of India, Bangladesh, Myanmar and southern China.",
         "words": "India",
         "ok": true
       },
@@ -32,7 +32,7 @@
         "code": "BD",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The orangefin labeo, Labeo calbasu, is a large cyprinid from Pakistan, Nepal, India, Bangladesh, Myanmar and southern China.",
+        "quote": "This species is extremely widespread and has been recorded from major river systems in Pakistan, Nepal, most of India, Bangladesh, Myanmar and southern China.",
         "words": "Bangladesh",
         "ok": true
       },
@@ -40,7 +40,7 @@
         "code": "MM",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The orangefin labeo, Labeo calbasu, is a large cyprinid from Pakistan, Nepal, India, Bangladesh, Myanmar and southern China.",
+        "quote": "This species is extremely widespread and has been recorded from major river systems in Pakistan, Nepal, most of India, Bangladesh, Myanmar and southern China.",
         "words": "Myanmar",
         "ok": true
       },
@@ -48,7 +48,63 @@
         "code": "CN",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The orangefin labeo, Labeo calbasu, is a large cyprinid from Pakistan, Nepal, India, Bangladesh, Myanmar and southern China.",
+        "quote": "This species is extremely widespread and has been recorded from major river systems in Pakistan, Nepal, most of India, Bangladesh, Myanmar and southern China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "PK",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Pakistan, India, Bangladesh, Myanmar, Nepal, Thailand and South West China.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Pakistan, India, Bangladesh, Myanmar, Nepal, Thailand and South West China.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Pakistan, India, Bangladesh, Myanmar, Nepal, Thailand and South West China.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Pakistan, India, Bangladesh, Myanmar, Nepal, Thailand and South West China.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Pakistan, India, Bangladesh, Myanmar, Nepal, Thailand and South West China.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Pakistan, India, Bangladesh, Myanmar, Nepal, Thailand and South West China.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Pakistan, India, Bangladesh, Myanmar, Nepal, Thailand and South West China.",
         "words": "China",
         "ok": true
       }
@@ -72,7 +128,7 @@
       ],
       [
         "d8cd16ba-bb74-4420-821e-083f2bac17c2",
-        76
+        77
       ],
       [
         "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
@@ -145,9 +201,10 @@
       "IN",
       "BD",
       "MM",
-      "CN"
+      "CN",
+      "TH"
     ],
     "requests": 12,
-    "at": "2026-11-09T09:57:55.009Z"
+    "at": "2026-11-17T11:42:48.614Z"
   }
 }

@@ -1,0 +1,213 @@
+{
+  "id": "cathorops-dasycephalus",
+  "scientificName": "Cathorops dasycephalus",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Cathorops",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "north-america",
+    "costa-rica",
+    "el-salvador",
+    "ecuador",
+    "panama",
+    "gulf-of-panama"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "CR",
+        "SV",
+        "EC",
+        "PA"
+      ],
+      "regions": [
+        "Gulf of Panama"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South and Central America, in eastern Pacific drainages: Colombia, Costa Rica, El Salvador, Ecuador and Panama.",
+          "countries": [
+            "CO",
+            "CR",
+            "SV",
+            "EC",
+            "PA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Gulf of Panama, Panama.",
+          "countries": [],
+          "regions": [
+            "Gulf of Panama"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345162,
+      "total": 71,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "MX",
+          51
+        ],
+        [
+          "CO",
+          10
+        ],
+        [
+          "PA",
+          8
+        ],
+        [
+          "CR",
+          1
+        ],
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -106.875,
+          22.5,
+          2,
+          0
+        ],
+        [
+          -105.46875,
+          21.09375,
+          4,
+          0
+        ],
+        [
+          -101.25,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          -97.03125,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          -95.625,
+          15.46875,
+          11,
+          0
+        ],
+        [
+          -94.21875,
+          14.0625,
+          10,
+          0
+        ],
+        [
+          -94.21875,
+          15.46875,
+          19,
+          0
+        ],
+        [
+          -92.8125,
+          14.0625,
+          3,
+          0
+        ],
+        [
+          -85.78125,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -81.5625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -80.15625,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          -80.15625,
+          8.4375,
+          8,
+          8
+        ],
+        [
+          -78.75,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -78.75,
+          2.8125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "marine",
+    "source": "scotcat",
+    "quote": "Relatively common, marine, occasionally in estuaries, not in freshwater."
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 29
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cathorops_dasycephalus.htm",
+      "html": "<ul><li>Common name: Bigbelly sea catfish</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cathorops_dasycephalus.htm",
+      "html": "<p>South and Central America, in eastern Pacific drainages: Colombia, Costa Rica, El Salvador, Ecuador and Panama. Type locality: Gulf of Panama, Panama.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cathorops_dasycephalus.htm",
+      "html": "<p>Relatively common, marine, occasionally in estuaries, not in freshwater.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cathorops_dasycephalus.htm",
+      "html": "<p>Description: Body robust; eye 4.9-6.0 in head; head smooth to rough, with four prominent ridges extending forward, two parallel ridges in center plus two outer ridges, each diverging towards eye, ridges with coarse to sharp granules or tubercles; central groove on head narrow, long, at rear of head; bony process extending back from head shield along nape triangular, short, slightly longer than wide; 3 pairs of barbells (on chin and both jaws); gill opening restricted to sides by adhesion of gill membranes to breast; gill rakers 9, no rakers on posterior surface of first 2 arches; teeth on roof of mouth simple, in 4 patches, the inner patches well separated at midline and continuous with slightly larger and narrowly ovate outer patches, the outer patches with conical teeth, tooth patches considerably larger in females; jaw teeth in several rows, front teeth smaller than back; dorsal rays I, 7; adipose dorsal fin base longer than first dorsal fin base; anal rays 19-23; pectoral rays I, 10-11.</p><p>Colouration: Dark grey or bluish brown on back, sides grey to bluish; lower surface whitish; barbels black; fins dusky to blackish.</p><p>Etymology: The specific name dasycephalus: dasys, rough; cephalus, head, referring to the \"coarsely granulated\" crown of head.</p><p>IUCN Red List: This species is widespread in the Eastern Pacific, and is common in many parts of its range. There are no major threats to this species, and no current indication of population decline. It is listed as Least Concern, but needs updating (IUCN 2010).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-18"
+}

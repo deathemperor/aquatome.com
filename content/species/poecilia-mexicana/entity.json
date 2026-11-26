@@ -685,10 +685,34 @@
   "dataCard": {},
   "sections": [
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecila-mexicana-campeche/",
+      "html": "<p>It is very important to always add the term \"Campeche\" – the locality where the initial stock was collected – otherwise unwanted crosses cannot be excluded.</p><p>These wild-type mollys are a real challenge for hobby breeders. In contrast to Black Mollys, Silver Mollys and so on, the young fish grow extremely slowly.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecila-mexicana-campeche/",
+      "html": "<p>Wild mollies occur in Central America. The initial stock of this form was collected at Campeche. The fish offered now were bred in Southeast Asia.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecila-mexicana-campeche/",
+      "html": "<p>The adult fish reward the keeper with lively behaviour and brilliant colours. Their ability to change coloration is breathtaking: within seconds the males change from the silvery neutral pattern to the blue-black display pattern. If the fish are disturbed they can turn pale in a glimpse. After only a few days of settling, however, they hardly become disturbed any more.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecila-mexicana-campeche/",
+      "html": "<p>Within every population the males have different shapes: small and slender early-ripening males, large and deep-bodied late-ripening males, and males somewhere in between.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia-mexicana-campeche/",
-      "html": "<p>The wild mollies from Central America have always been, and will remain, an enigma for generations of scientists. In each brook the fish look somewhat different. Within every population there are also differently shaped males: small, slender, early-ripening males, large, deep-bodied, late-ripening males, and males somewhere in between. It is therefore not certain whether these fish, bred in Southeast Asia, really belong to the species P. mexicana, to P. sphenops or to P. limantouri. From a practical point of view, however, these questions are rather irrelevant.</p><p>It is very important always to add the term \"Campeche\", the locality where the initial stock was collected, since otherwise unwanted crosses cannot be excluded.</p><p>These wild-type mollies are a real challenge for hobby breeders. In contrast to Black Mollies, Silver Mollies and so on, the young fish grow extremely slowly. The adult fish, however, reward the keeper with lively behaviour and brilliant colours. Their ability to change colour is remarkable: within seconds the males change from a silvery neutral pattern to a blue-black display pattern. If the fish are disturbed, they can turn pale in an instant. After only a few days of settling in, however, they are hardly disturbed any more.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecila-mexicana-campeche/",
+      "html": "<p>The wild mollys from Central America have always been an enigma for scientists. In each brook the fish look somewhat different. It is not certain whether these fish, bred in Southeast Asia, really belong to P. mexicana, to P. sphenops or to P. limantouri. From a practical point of view these questions are rather irrelevant.</p>"
     }
   ],
   "photos": [
@@ -698,7 +722,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia-mexicana-campeche/",
       "source": "glaser"
     },
@@ -708,7 +732,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia-mexicana-campeche/",
       "source": "glaser"
     },
@@ -718,12 +742,37 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia-mexicana-campeche/",
       "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "w0GDVNL3Hes",
+      "title": "Poecilia Mexicana \"Campeche\" Shortfin Molly, Atlantic Molly",
+      "durationSec": 58,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "8mpGTT_Voy4",
+      "title": "La POECILIA MEXICANA 🐟 #peces #MundoAcuatico #mundoanimal",
+      "durationSec": 13,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "kHukHBAXRkQ",
+      "title": "Poecilia mexicana “El Azufre #1” - Cave Mollies",
+      "durationSec": 23,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "QlsAf-F94Gw",
+      "title": "Poecilia Mexicana",
+      "durationSec": 209,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -747,5 +796,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-17"
 }

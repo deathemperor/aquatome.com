@@ -3,6 +3,12 @@
   "name": "บาซีลัน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T07:53:09.824Z",
+    "why": "Thai atlases write Basilan as \"เกาะบาซิแลน\" or \"บาซิลัน\" (province \"จังหวัดบาซิลัน\"); \"บาซีลัน\" is a plausible transliteration but the vowel ี is non-standard and it lacks the kind word \"เกาะ\"/\"จังหวัด\" for an island or province."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

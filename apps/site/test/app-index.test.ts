@@ -3,12 +3,13 @@ import { expect, test } from 'vitest'
 import { CurationSchema, FIRST_GUIDES, FIRST_PLANTS, POPULAR, slugify, STAPLE_SPECIES, type Content } from '@aq/schema'
 import { pageShard, PageShard } from '@aq/schema/app-page'
 import { isVietnamese } from '@aq/schema/text'
-import { appBreeds, appEquipment, appGlossary, appGuides, appIndex, appPlants, appSeries, appSpecies, breedGroup, type AppIndex, type AppItem } from '../src/lib/app-index'
+import { appBreeds, appEquipment, appGlossary, appGuideImage, appGuides, appIndex, appPlants, appSeries, appSpecies, breedGroup, type AppIndex, type AppItem } from '../src/lib/app-index'
 import { glossaryParts } from '../src/lib/glossary-page'
 import { easyPlants, groupTiles, leadGuides } from '../src/lib/home'
 import { getContent } from '../src/lib/content'
-import { guideImage } from '../src/lib/mentions'
-import { appPath, LANGS, localizePath, OTHER_LANGS } from '../src/lib/i18n'
+import { descriptionForSearch } from '../src/lib/meta'
+import { TOOL_DESCRIPTIONS } from '../src/lib/tools'
+import { appPath, LANGS, localizePath, OTHER_LANGS, toVi, translator } from '../src/lib/i18n'
 import { appHref, appPage, DIST, page } from './dist'
 import { slow } from '@aq/schema/test-time'
 
@@ -432,19 +433,44 @@ test('every series /video/ lists is listed, one whose guides are all out of sear
 
 test('a tool carries its page\'s own title, the line under its heading and its description, all of them, so a search finds it by them', () => {
   for (const lang of LANGS) {
+    const t = translator(lang)
     for (const tool of index(lang).items.filter(i => i.kind === 'tool')) {
       const { dom } = appPage(tool.path)
-      const said = [
-        dom.querySelector('title')?.text.replace(/ — AquaTome$/, ''),
-        dom.querySelector('p.intro')?.text,
-        dom.querySelector('meta[name="description"]')?.getAttribute('content'),
-      ]
-      // Each once, and not the name it's listed by.
-      expect(tool.words, tool.path).toEqual([...new Set(said.filter((s): s is string => !!s && s !== tool.name))])
+      const descriptionKey = TOOL_DESCRIPTIONS[toVi(tool.path)]
+      expect(descriptionKey, tool.path).toBeDefined()
+      const fullDescription = t(descriptionKey!)
+      const title = dom.querySelector('title')?.text.replace(/ — AquaTome$/, '')
+      const intro = dom.querySelector('p.intro')?.text
+      const meta = dom.querySelector('meta[name="description"]')
+      const snippet = meta?.getAttribute('content')
+
+      expect(snippet, tool.path).toBe(descriptionForSearch(lang, fullDescription))
+      const clipped = snippet !== fullDescription
+      expect(meta?.getAttribute('data-pagefind-meta'), tool.path).toBe(clipped
+        ? 'description[content], full_description[data-full-description]'
+        : 'description[content]')
+      expect(meta?.getAttribute('data-full-description'), tool.path).toBe(clipped ? fullDescription : undefined)
+      const expected = [...new Set([title, intro, fullDescription].filter((s): s is string => !!s && s !== tool.name))]
+      expect(tool.words, tool.path).toEqual(expected)
     }
   }
   expect(index('vi').items.find(i => i.path === '/vi/cong-cu/the-tich-be/')?.words).toContain('Tính thể tích bể cá: lít, gallon, độ dày kính')
-  expect(index('vi').items.filter(i => i.kind !== 'tool').some(i => 'words' in i)).toBe(false)
+  expect(index('vi').items.filter(i => i.kind !== 'tool' && i.kind !== 'glossary').some(i => 'words' in i)).toBe(false)
+})
+
+// The chief of staff, 18 Nov 2026: the glossary's link phrases became a list of their own (linkNames), and the app's and
+// the chat's searches read only its other names, so "sống theo đàn" no longer found Cá đàn. Words, not names: neither
+// search shows them as one.
+test("a glossary term's link phrases are words to find it by, never among its other names", async () => {
+  const c = await getContent('vi')
+  const g = appGlossary('vi', c).find(x => x.t.slug === 'ca-dan')!
+  const term = (t: object) => appIndex('vi', { ...c, glossary: c.glossary.map(x => (x.id === g.id ? { ...x, t: { ...x.t, ...t } } : x)) }).items.find(i => i.kind === 'glossary' && i.id === g.id)!
+  expect(term({ linkNames: undefined })).not.toHaveProperty('words')
+  const linked = { altNames: ['Cá bầy'], linkNames: ['sống theo đàn', ' bơi theo đàn ', 'cá bầy', 'Sống theo đàn', ''] }
+  // Each once, in any case, and not one that is already a name.
+  expect(term(linked).words).toEqual(['sống theo đàn', 'bơi theo đàn'])
+  expect(term(linked).aka).toContain('Cá bầy')
+  expect(term(linked).aka).not.toContain('sống theo đàn')
 })
 
 test('a tool with a card on the tools page carries that card\'s name as its short name, the app\'s tiles\' word; the tools page itself none', () => {
@@ -604,7 +630,7 @@ test('a language with few of Curation\'s pages fills Khám phá\'s plants and gu
   expect(home.plants).toEqual(easy.slice(0, 6))
   // Guides: Curation's one, then the lead guides in the home's order, 7 in all; the home's row of 8 unchanged. The app's
   // keep to guides with a picture until it draws covers (the Design Lead's app half, 15 Nov 2026).
-  const leads = leadGuides(content).filter(g => guideImage(content, g)).map(g => guideAt(g.id)).filter(p => listed.has(p))
+  const leads = leadGuides(content).filter(g => appGuideImage(content, g)).map(g => guideAt(g.id)).filter(p => listed.has(p))
   expect(home.browse!.guides).toHaveLength(7)
   expect(home.browse!.guides).toEqual([guideAt(keptGuide), ...leads.filter(p => p !== guideAt(keptGuide))].slice(0, 7))
   expect(home.guides).toEqual(leads.slice(0, 8))

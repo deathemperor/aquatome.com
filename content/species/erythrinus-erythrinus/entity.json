@@ -1178,6 +1178,10 @@
       {
         "source": "seriouslyfish",
         "value": 20
+      },
+      {
+        "source": "glaser",
+        "value": 25
       }
     ],
     "tankCm": [
@@ -1195,6 +1199,12 @@
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/erythrinus_erythrinus_en/",
+      "html": "<p>Probably the most beautiful of all wolf characins. It stays at about 25 cm, a tolerable size, and has no excessive demands on water chemistry.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
@@ -1207,10 +1217,22 @@
       "html": "<p>Peru, French Guiana, Venezuela, Trinidad and Tobago and Brazil. Also recorded from Guyana and Suriname.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/erythrinus_erythrinus_en/",
+      "html": "<p>Imported from Peru.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
       "html": "<p>Small tributaries, swamps, marshes, pools, ditches and the margins of forest lakes. It is often found in very shallow water or lurking among surface vegetation.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/erythrinus_erythrinus_en/",
+      "html": "<p>In its homeland, it lives next to small streams and also in swampy zones with significantly low oxygen content.</p>"
     },
     {
       "key": "aquariumSize",
@@ -1243,6 +1265,12 @@
       "html": "<p>Despite its fearsome appearance, it can be combined with other similarly-sized species in a large tank. In order to see it act naturally, though, it's much better off when kept alone as a single specimen. Smaller fish will be eaten and it's very intolerant of conspecifics, often fighting with them to the death.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/erythrinus_erythrinus_en/",
+      "html": "<p>A markedly predatory fish, it can only be kept with fishes of about the same size.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
@@ -1255,6 +1283,12 @@
       "html": "<p>Has not been bred in the hobby.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/erythrinus_erythrinus_en/",
+      "html": "<p>Breeding success in captivity has not been known yet.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
@@ -1264,13 +1298,13 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/d131ad97e8563e19.webp",
+      "thumb": "https://media.aquatome.com/commons/d131ad97e8563e19-480.webp",
       "width": 960,
       "height": 611,
       "licence": "CC BY 2.0",
       "author": "Clinton & Charles Robertson",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erythrinus_erythrinus.jpg",
-      "caption": "Erythrinus erythrinus",
-      "thumb": "https://media.aquatome.com/commons/d131ad97e8563e19-480.webp"
+      "caption": "Erythrinus erythrinus"
     }
   ],
   "videos": [
@@ -1328,5 +1362,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-07"
+  "updatedAt": "2026-11-17"
 }

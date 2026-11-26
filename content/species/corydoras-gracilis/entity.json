@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "brazil",
-    "amazon"
+    "amazon",
+    "rio-madeira"
   ],
   "range": {
     "native": {
@@ -18,7 +19,8 @@
       "regions": [
         "Amazon",
         "Rio Madeira",
-        "Rio Juriti"
+        "Rio Juriti",
+        "Rio Juma"
       ],
       "sources": [
         "seriouslyfish"
@@ -26,20 +28,15 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Gastrodermus gracilis, long known as Corydoras gracilis, is a small armoured catfish from the central Amazon basin in Brazil, known from the rio Juriti in Pará to the rio Juma in Amazonas.",
+          "quote": "Native to the central Amazon basin in Brazil, where its known range extends from the rio Juriti in Pará state to the rio Juma, a tributary of the rio Aripuanã within the rio Madeira watershed in Amazonas state.",
           "countries": [
             "BR"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Native to the central Amazon basin in Brazil, where its known range extends from the rio Juriti in Pará state to the rio Juma, a tributary of the rio Aripuanã within the rio Madeira watershed in Amazonas state.",
-          "countries": [],
           "regions": [
             "Amazon",
             "Rio Madeira",
-            "Rio Juriti"
+            "Rio Juriti",
+            "Rio Juma"
           ]
         }
       ]
@@ -108,6 +105,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -131,10 +132,22 @@
       "html": "<p>Gastrodermus gracilis, long known as Corydoras gracilis, is a small armoured catfish from the central Amazon basin in Brazil, known from the rio Juriti in Pará to the rio Juma in Amazonas. Sometimes called 'shy cory' in the hobby, it has a lightish body with a dark arched stripe along the upper flank, a pattern shared with Brochis arcuata, C. narcissus and Hoplisoma urucu. Only in G. gracilis does the stripe end at the base of the upper caudal-fin rays. It apparently favours minor tributaries with dense riparian vegetation and acidic, tannin-stained water.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-gracilis-2/",
+      "html": "<p>That is why Corydoras gracilis is one of the rarest species of Corydoras in the trade and when it appears, it is correspondingly expensive.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-gracilis",
       "html": "<p>Native to the central Amazon basin in Brazil, where its known range extends from the rio Juriti in Pará state to the rio Juma, a tributary of the rio Aripuanã within the rio Madeira watershed in Amazonas state. The confluence of the Madeira with the Amazon is a few hundred kilometres upstream from the Juriti.</p><p>The corrected type locality (originally given as a tributary of the rio Tapajós) is 'Rio Jauna at Trans-Amazonica highway, about 6°09'S, 59°55'W, tributary of Rio Aripuaña, Amazonas, Brazil', which corresponds to the rio Juma.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-gracilis-2/",
+      "html": "<p>The habitats of Corydoras gracilis in the entry of the Rio Madeira are clearly off the beaten track of ornamental fish collectors; furthermore, the nimble little animals, which know how to hide themselves perfectly in the maze of branches that have fallen into the water, are difficult to catch one by one.</p>"
     },
     {
       "key": "habitat",
@@ -173,6 +186,12 @@
       "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-gracilis-2/",
+      "html": "<p>The 3-4 cm long Corydoras gracilis is one of the species that is much more in the open water than on the ground. If the very lively little animals rest on the ground, they stretch their bodies, put on their fins and are perfectly camouflaged as sticks.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-gracilis",
@@ -204,13 +223,68 @@
       "width": 600,
       "height": 400,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Graham Ramsay / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-gracilis",
       "caption": "Specimen from the UK aquarium trade.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2623528d4e182a4f.webp",
+      "thumb": "https://media.aquatome.com/glaser/2623528d4e182a4f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-gracilis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0c25fd029006a0c9.webp",
+      "thumb": "https://media.aquatome.com/glaser/0c25fd029006a0c9-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-gracilis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c87ec8e0494553ec.webp",
+      "thumb": "https://media.aquatome.com/glaser/c87ec8e0494553ec-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-gracilis-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "HHNggFqPLKI",
+      "title": "Corydoras gracilis",
+      "durationSec": 25,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "l3VpGHi8KBs",
+      "title": "Corydoras Gracilis schooling",
+      "durationSec": 50,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "XxF-fOncVeA",
+      "title": "鼠博館：鼠魚-迷你鼠corydoras gracilis",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ZuTlXuS4cbs",
+      "title": "Corydoras gracilis youngster",
+      "durationSec": 22,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -240,5 +314,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-19"
 }

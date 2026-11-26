@@ -19,14 +19,15 @@
         "VE"
       ],
       "regions": [
-        "Amazon",
-        "Orinoco",
         "Rio Negro",
         "Rio Xingu",
-        "Venezuelan Llanos"
+        "Orinoco",
+        "Amazon",
+        "Río Paraguaza"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -40,15 +41,6 @@
         },
         {
           "source": "seriouslyfish",
-          "quote": "Native to parts of the Amazon and Rio Orinoco basins in northern Brazil and Venezuela.",
-          "countries": [],
-          "regions": [
-            "Amazon",
-            "Orinoco"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
           "quote": "Its range covers the Rio Negro, Rio Xingu and tributaries including the Rio Cassiquiare, Rio Atabapo and Rio Cunucunuma.",
           "countries": [],
           "regions": [
@@ -58,10 +50,19 @@
         },
         {
           "source": "seriouslyfish",
-          "quote": "This species is known to inhabit quite a diverse range of biotopes, from areas of dense jungle to the tropical grasslands of the Venezuelan Llanos with their clear, sunlit water and lush growth of aquatic plants.",
+          "quote": "Native to parts of the Amazon and Rio Orinoco basins in northern Brazil and Venezuela.",
           "countries": [],
           "regions": [
-            "Venezuelan Llanos"
+            "Orinoco",
+            "Amazon"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "S. manueli was described as Pygocentrus manueli from the Río Paraguaza, middle Orinoco, Venezuela.",
+          "countries": [],
+          "regions": [
+            "Río Paraguaza"
           ]
         }
       ]
@@ -402,6 +403,10 @@
       {
         "source": "seriouslyfish",
         "value": 43.5
+      },
+      {
+        "source": "glaser",
+        "value": 35
       }
     ],
     "tankCm": [
@@ -425,10 +430,22 @@
       "html": "<p>Serrasalmus manueli, sometimes sold as the 'green tiger piranha', is a piranha from parts of the Amazon and Orinoco basins in Brazil and Venezuela. Adults are caught in deep, flowing sections of major river channels and grow to 435 mm SL. Imported fish are notoriously sensitive travellers with high mortality, and this is a species for the specialist that must be kept alone, since adults fight until only one remains.</p><ul><li>Needs a tank at least 2 m long</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-manueli-2/",
+      "html": "<p>This piranha, described from Venezuela, is easily recognizable by its characteristic pattern in connection with the head profile, but still causes great confusion, as the fish in the trade come from completely different areas and are still indistinguishable.</p><p>S. manueli is one of the largest piranha species with a maximum length of more than 35 cm. Adults of S. manueli have a round head profile, a blood-red head, a large humeral spot, a white-silvery body and a blackish tail fin.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-manueli",
       "html": "<p>Native to parts of the Amazon and Rio Orinoco basins in northern Brazil and Venezuela. Its range covers the Rio Negro, Rio Xingu and tributaries including the Rio Cassiquiare, Rio Atabapo and Rio Cunucunuma.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-manueli-2/",
+      "html": "<p>S. manueli was described as Pygocentrus manueli from the Río Paraguaza, middle Orinoco, Venezuela. Apart from the population in Venezuela, there is also a population in the Rio Negro and the Rio Xingu in Brazil.</p>"
     },
     {
       "key": "habitat",
@@ -467,6 +484,12 @@
       "html": "<p>Should only be considered as a specimen fish for the enthusiast. This species does not make a good tankmate for anything else. Similarly there is little point attempting to keep two or more of these together. Adults are not gregarious animals by nature and are liable to fight until only one remains. Given the scarcity of this species in the hobby it would seem foolish to risk the health of the fish by attempting to maintain a group.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-manueli-2/",
+      "html": "<p>Like all piranhas of the genus Serrasalmus, this species should normally be kept individually as it is a fin eater.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-manueli",
@@ -483,10 +506,72 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-manueli",
       "html": "<p>The native name for this species is Caribito Parguasero. It's sometimes sold as the \"green tiger piranha\" in the trade and is usually highly coveted and expensive when available. A notoriously sensitive traveller, mortality rates are sadly quite high among imported fish. The lack of fully-grown specimens known to the hobby is also a worry, and would suggest that the majority are not being maintained correctly. This really is a species for the specialist with the resources necessary to house it for life, and should be considered beyond the reach of most hobbyists.</p><p>There are currently 24 described species of Serrasalmus, many of which look superficially similar. Juvenile S. manueli may be confused with those of S. gouldingi, but can be distinguished by the overall greenish sheen on the body (blue in S. gouldingi), more prominent humeral spot and red markings on the operculum and lower jaw. Pictures of this species have also been erroneously identified as S. humeralis in the past, a quite different-looking species that may eventually turn out to be a Pristobrycon. It's also possible that some of the dissimilar geographical variants of S. manueli may be elevated to species status in the future.</p><p>Most experts agree that a detailed revision of Serrasalmus is necessary, as historically the genus has been viewed as something of a \"catch-all\" for similar-looking fin-biting/predatory characins. The juvenile forms of numerous species look broadly similar, characteristically developing the more distinctive adult patterning as they mature. This has resulted in new species being erected erroneously and there have been several attempts to reorganise the group. The most recent major revision was undertaken by Géry in the late 1970s, but a handful of new species have been described since then.</p><p>It's worth noting that in South America only Pygocentrus species such as the infamous red-bellied P. nattereri are known as piranha, with Serrasalmus and other related genera being referred to by other names such as Pirambeba. Serrasalmus species are therefore not considered to be \"true\" piranhas, the name being applied to them by the English-speaking world and aquatic hobby. The relationship between these genera is too complex to address here, although when observing mature fish clear morphological differences are apparent. In his 1991 revision of Pygocentrus Fink noted the following: \"Relative to other serrasalmin, Pygocentrus is diagnosable by several features, including prepelvic serrae number, morphology of the gas bladder and skull, and head width.\"</p><p>It should also be said that serrasalmids are not the fearsome \"monster fish\" often depicted by the media. Obvious care must be taken when performing tank maintenance, but these fish will usually only bite when threatened, and they can be quite skittish in an aquarium setting unless their rather specialist needs are catered for. Most also live in excess of ten years and become less active as they mature, so think carefully before buying one.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-manueli-2/",
+      "html": "<p>The first description was made in a journal which is not generally accessible and so it only became known to the scientific community through the work of Machado-Allison, especially Machado-Allison 2002. Therefore these piranhas were often misidentified before as Serrasalmus humeralis.</p><p>Two characteristics make S. manueli very special: firstly the mostly vertically extended body points and secondly the head anatomy. Only S. gouldingi has the same head shape as a juvenile fish, with the lower jaw appearing very massive and rectangular. However, S. gouldingi has no humeral spot, which is always clearly pronounced in S. manueli.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/3e214e3264894e18.webp",
+      "thumb": "https://media.aquatome.com/glaser/3e214e3264894e18-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-manueli-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0a942a24a3a13fbd.webp",
+      "thumb": "https://media.aquatome.com/glaser/0a942a24a3a13fbd-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-manueli-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0aaade25f3d39b7e.webp",
+      "thumb": "https://media.aquatome.com/glaser/0aaade25f3d39b7e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-manueli-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "I8uiXzLlqPY",
+      "title": "Serrasalmus manueli community tank. #serrasalmus #predatorfish #peacockbass",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "GvjHAbjxrZc",
+      "title": "Serrasalmus Manueli new 120 gallon aquarium",
+      "durationSec": 140,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "VSIRfrcI0HE",
+      "title": "Biggest Manueli Piranha in a tank! (53 cm, as per owner)!!",
+      "durationSec": 9,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ZjUknSzGUVU",
+      "title": "11.5 inch Serrasalmus Manueli",
+      "durationSec": 24,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -516,5 +601,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-19"
 }

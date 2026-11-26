@@ -1,0 +1,40 @@
+{
+ "at": "2026-11-22T13:19:38Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Yang ditawarkan adalah hasil penangkaran dari indukan tangkapan alam.",
+   "why": "Refers to the source shop's own stock on offer, which the reader doesn't know."
+  }
+ ],
+ "text": {
+  "slug": "betta-stiktos",
+  "name": "Betta stiktos",
+  "altNames": [
+   "Cupang stiktos",
+   "Cupang alam stiktos",
+   "Betta alam stiktos"
+  ],
+  "sections": {
+   "quickFacts:bwaquatics": "<ul><li>Anggota kompleks Betta splendens.</li><li>Daftar Merah IUCN: Data Deficient (data kurang).</li><li>Yang ditawarkan adalah hasil penangkaran dari indukan tangkapan alam.</li><li>Ukuran maksimum sekitar 5 cm.</li><li>TDS: 60–200.</li></ul>",
+   "distribution:bwaquatics": "<p>Betta stiktos adalah anggota paling langka dari kompleks Betta splendens. Ikan ini hanya ditemukan di daerah aliran Sungai Mekong di Kamboja, di sekitar Stung Treng. Spesies ini dulu sempat dianggap sudah punah, tetapi kini muncul lagi di dunia hobi berkat segelintir peternak. Statusnya di Daftar Merah IUCN adalah Data Deficient (saat ini informasinya belum cukup, tetapi kemungkinan besar sangat terancam punah di alam).</p>",
+   "habitat:bwaquatics": "<p>Hidup di sungai kecil berawa dan kolam dengan vegetasi lebat dan kadar oksigen rendah, di air tenang yang sedikit asam (pH 5–7,5) bersuhu 22–27 °C. Ikan ini memakai organ labirinnya untuk menghirup udara.</p>",
+   "waterConditions:bwaquatics": "<ul><li>TDS: 60–200 (dipelihara di air lunak dengan TDS rendah agar sesuai dengan cupang alam, tetapi ikan ini bisa menoleransi kisaran yang lebih lebar).</li><li>pH: 5,0–7,5.</li><li>Suhu: 24–29 °C (warnanya jauh lebih bagus di atas 26 °C).</li></ul>",
+   "diet:bwaquatics": "<p>Karnivora. Diberi pakan blackworm hidup, cacing darah beku, dan pelet.</p>",
+   "behaviour:bwaquatics": "<p>Jantannya sangat agresif dan sebaiknya dipelihara sendirian atau bersama teman satu akuarium yang bukan cupang jantan. Beberapa betina bisa dipelihara bersama di akuarium komunitas yang ditanami tanaman air, asalkan ruangnya cukup.</p>",
+   "dimorphism:bwaquatics": "<p>Jantan menampilkan warna hijau kebiruan yang berkilau di atas tubuh cokelat hingga hitam, kadang dengan bercak merah di siripnya. Betina lebih cokelat dengan sedikit warna hijau samar. Tutup insangnya hitam dengan pola sisik ular (snake-scale) hijau kebiruan berkilau yang mencolok dan menyebar luas, paling kuat pada jantan.</p>",
+   "reproduction:bwaquatics": "<p>Pembuat sarang busa. Jantan membangun sarang busa di bawah daun atau tanaman yang mengapung, lalu menaruh telur di dalamnya setelah memijah. Pindahkan betina setelah pemijahan selesai. Telur menetas dalam 24–48 jam, dan burayak mulai berenang bebas sekitar 3 hari kemudian. Beri mereka infusoria dulu, lalu beralih ke artemia baru menetas. Jaga permukaan air tetap tenang supaya sarang busa tidak rusak.</p>",
+   "notes:bwaquatics": "<p>Betta stiktos mirip dengan smaragdina, tetapi tubuhnya lebih kecil dan gempal, siripnya lebih pendek, dan sirip punggungnya berbintik. Tubuhnya kompak dan ramping dengan kepala yang gempal, dan mencapai panjang standar sekitar 2,8 cm. Siripnya selalu tipe roundtail, dengan sirip ekor dan sirip anal yang pendek. Pada sirip ekor terdapat hingga 9 baris garis melintang hitam, dan pada sirip punggung ada 5 baris bintik hitam bulat yang memberi spesies ini tampilan \"berbintik\". Pola sisik ularnya tidak terlalu menyebar di tubuh, tetapi lebih menonjol di wajah dan tutup insang.</p>"
+  },
+  "quality": {
+   "score": 0.75,
+   "indexable": true,
+   "bySource": {
+    "bwaquatics": 0.75
+   }
+  }
+ }
+}

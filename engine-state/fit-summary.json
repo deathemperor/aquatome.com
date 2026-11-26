@@ -1,5 +1,5 @@
 {
- "day": "2026-11-16",
+ "day": "2026-11-25",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 4388,
-   "read": 3681,
-   "wrong": 1505,
-   "pct": 41,
-   "held": 501
+   "pages": 5476,
+   "read": 5454,
+   "wrong": 1993,
+   "pct": 37,
+   "held": 730
   },
   "id": {
-   "pages": 1474,
-   "read": 1299,
-   "wrong": 367,
-   "pct": 28,
-   "held": 116
+   "pages": 1709,
+   "read": 1709,
+   "wrong": 463,
+   "pct": 27,
+   "held": 176
   },
   "th": {
-   "pages": 1463,
-   "read": 1268,
-   "wrong": 340,
-   "pct": 27,
-   "held": 102
+   "pages": 1707,
+   "read": 1707,
+   "wrong": 447,
+   "pct": 26,
+   "held": 161
   },
   "ms": {
-   "pages": 353,
-   "read": 311,
-   "wrong": 88,
+   "pages": 589,
+   "read": 589,
+   "wrong": 163,
    "pct": 28,
-   "held": 48
+   "held": 103
   }
  },
  "labels": {
@@ -58,36 +58,41 @@
  },
  "sample": [
   {
-   "lang": "th",
-   "path": "/th/plants/helanthium-bolivianum/",
-   "url": "https://aquatome.com/th/plants/helanthium-bolivianum/",
-   "title": "Echinodorus Quadricostatus",
-   "wrong": []
+   "lang": "vi",
+   "path": "/vi/ca/ca-bangana-devdevi/",
+   "url": "https://aquatome.com/ca/ca-bangana-devdevi/",
+   "title": "Cá Bangana devdevi",
+   "wrong": [
+    {
+     "check": "words",
+     "quote": "ghi nhận"
+    }
+   ]
   },
   {
-   "lang": "ms",
-   "path": "/ms/tumbuhan/echinodorus-tropica/",
-   "url": "https://aquatome.com/ms/tumbuhan/echinodorus-tropica/",
-   "title": "Echinodorus Tropica",
+   "lang": "vi",
+   "path": "/vi/ca/ca-tropheus-moorii/",
+   "url": "https://aquatome.com/ca/ca-tropheus-moorii/",
+   "title": "Cá Tropheus moorii",
    "wrong": []
   },
   {
    "lang": "vi",
-   "path": "/vi/ca/ca-brichardi-soc/",
-   "url": "https://aquatome.com/ca/ca-brichardi-soc/",
-   "title": "Cá brichardi sọc",
+   "path": "/vi/huong-dan/tu-lam-tran-pvc-cho-be-ca-khong-can-khoan-kinh/",
+   "url": "https://aquatome.com/huong-dan/tu-lam-tran-pvc-cho-be-ca-khong-can-khoan-kinh/",
+   "title": "Tự làm tràn PVC cho bể cá, không cần khoan kính",
    "wrong": [
     {
-     "check": "words",
-     "quote": "giữ lãnh thổ"
+     "check": "price",
+     "quote": "10 USD"
     },
     {
-     "check": "words",
-     "quote": "phần lớn"
+     "check": "price",
+     "quote": "15 USD"
     },
     {
-     "check": "words",
-     "quote": "Thức ăn sống"
+     "check": "price",
+     "quote": "chỉ tốn khoảng 10 USD vật tư"
     }
    ]
   }

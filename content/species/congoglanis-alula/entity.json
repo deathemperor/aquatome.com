@@ -1,0 +1,332 @@
+{
+  "id": "congoglanis-alula",
+  "scientificName": "Congoglanis alula",
+  "order": "Siluriformes",
+  "family": "Amphiliidae",
+  "genus": "Congoglanis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "congo-river",
+    "central-african-republic",
+    "angola"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD",
+        "CF",
+        "AO"
+      ],
+      "regions": [
+        "Congo River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Africa: Western and central Africa: Congo River basin, Democratic Republic of the Congo and Central African Republic, and Angola.",
+          "countries": [
+            "CD",
+            "CF",
+            "AO"
+          ],
+          "regions": [
+            "Congo River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 6168054,
+      "total": 76,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "CD",
+          51
+        ],
+        [
+          "CF",
+          11
+        ],
+        [
+          "ZM",
+          8
+        ],
+        [
+          "AO",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          12.65625,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          14.0625,
+          -5.625,
+          19,
+          19
+        ],
+        [
+          16.875,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          16.875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          19.6875,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          19.6875,
+          5.625,
+          8,
+          8
+        ],
+        [
+          21.09375,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          21.09375,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          22.5,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          22.5,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          23.90625,
+          0,
+          3,
+          3
+        ],
+        [
+          23.90625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          25.3125,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          25.3125,
+          0,
+          1,
+          1
+        ],
+        [
+          25.3125,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          26.71875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          26.71875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          26.71875,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          26.71875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          26.71875,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          28.125,
+          -11.25,
+          2,
+          0
+        ],
+        [
+          28.125,
+          -9.84375,
+          2,
+          0
+        ],
+        [
+          28.125,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          28.125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          28.125,
+          0,
+          2,
+          2
+        ],
+        [
+          28.125,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          29.53125,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          29.53125,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          29.53125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          30.9375,
+          -11.25,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 14
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/congoglanis_alula.htm",
+      "html": "<ul><li>Synonym: Doumea alula</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/congoglanis_alula.htm",
+      "html": "<p>Africa: Western and central Africa: Congo River basin, Democratic Republic of the Congo and Central African Republic, and Angola. Type locality: Stanleyville, Congo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/congoglanis_alula.htm",
+      "html": "<p>Typically found in fastest flowing portions of rivers and always associated with large rocks; appears to congregate underneath rocks near where water breaks over the rocks during the day, and will move out onto the tops of rocks at night.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/congoglanis_alula.htm",
+      "html": "<p>These catfish do not possess a swim bladder so they keep away from open waters.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/congoglanis_alula.htm",
+      "html": "<p>Congoglanis alula differs from C. inga in having a shorter maxillary barbel not reaching to vertical through anterior margin of orbit, a longer pelvic fin (24–28% of standard length vs. 19–21%), a shorter postorbital length, a relatively narrow interorbital width and shorter anal-fin rays. It differs from C. sagitta in having a longer pectoral fin, a longer pelvic fin, a shorter and deeper caudal peduncle, a narrower interorbital width, a more posteriorly placed anal fin and fewer vertebrae (36–39 vs. 39–41). Dorsal soft rays: 8; anal soft rays: 9–11.</p><p>The specific name alula means winglet, perhaps referring to flattened and expanded wing-like fins, an adaptation to fast water.</p><p>IUCN Red List: Least Concern.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/congoglanis_alula.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Ferraris, C.J. Jr., R.P. Vari and P.H. Skelton, 2011. A new genus of African loach catfish (Siluriformes: Amphiliidae) from the Congo River basin, the sister-group to all other genera of the Doumeinae, with the description of two new species. Copeia 2011(4):477-489.</p><p>Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org (04/2019).</p><p>Moelants, T. 2010. Congoglanis alula. The IUCN Red List of Threatened Species 2010.</p><p>Seegers, L. 2008 The catfishes of Africa. A handbook for identification and maintenance. Aqualog Verlag A.C.S. GmbH, Germany. 604 p.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy tạo sóng bể cá",
+        "bơm tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-16"
+}

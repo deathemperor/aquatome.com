@@ -2,7 +2,10 @@
  "queue": [],
  "judged": [],
  "hashes": {
-  "https://media.aquatome.com/glaser/f51613aad050f399.webp": "3daddc5f7b723c7c"
+  "https://media.aquatome.com/glaser/f51613aad050f399.webp": "3daddc5f7b723c7c",
+  "https://media.aquatome.com/glaser/642e862d6880eade.webp": "802423b096c6b4d8",
+  "https://media.aquatome.com/glaser/8280ddc859bdcebb.webp": "8024683ab2c6e6b4",
+  "https://media.aquatome.com/glaser/a3724c204fdc03eb.webp": "c59c8e6bd49fcf9e"
  },
  "commons": "2026-11-08",
  "inat": {
@@ -12,5 +15,9 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2352610,
+  "next": null
  }
 }

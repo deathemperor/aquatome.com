@@ -20,7 +20,9 @@
     "mali",
     "senegal",
     "sudan",
-    "gambia"
+    "gambia",
+    "chau-phi",
+    "delta-state"
   ],
   "range": {
     "native": {
@@ -40,8 +42,11 @@
         "SD",
         "GM"
       ],
-      "regions": [],
+      "regions": [
+        "Nile"
+      ],
       "sources": [
+        "glaser",
         "seriouslyfish"
       ],
       "quotes": [
@@ -65,6 +70,14 @@
             "GM"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "After returning to France, Saint-Hilaire described a very strange fish he had collected in the Nile in Egypt under the vernacular name Polyptère bichir.",
+          "countries": [],
+          "regions": [
+            "Nile"
+          ]
         }
       ]
     },
@@ -326,6 +339,10 @@
       {
         "source": "seriouslyfish",
         "value": 72
+      },
+      {
+        "source": "glaser",
+        "value": 70
       }
     ],
     "tankCm": [
@@ -343,6 +360,12 @@
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-lapradei-2/",
+      "html": "<p>Polypterus lapradei is a very close relative of P. bichir, and only a few features distinguish the two fish. Maximum length is given as up to 70 cm. The fish are mainly suited for specialized keepers of predatory fish or public aquaria.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-bichir",
@@ -353,6 +376,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-bichir",
       "html": "<p>A widespread species, it has been recorded in Egypt, Kenya, Nigeria, Cameroon, Ethiopia, Ivory Coast, Chad, Ghana, Guinea-Bissau, Burkina Faso, Mali, Senegal, Sudan and Gambia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-lapradei-2/",
+      "html": "<p>The specimens currently on offer come from Nigeria. The fish were collected near the city of Ughelli in the Delta State of Nigeria.</p>"
     },
     {
       "key": "habitat",
@@ -407,10 +436,82 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-bichir",
       "html": "<p>An incredibly hardy, nocturnal species with very poor vision, P. bichir relies on its excellent sense of smell to locate food. This species, along with others of its genus, is one of the last surviving relatives of very ancient species. Fossils of earlier relatives have been found that date back to the Triassic Period, which occurred during the early development of the dinosaurs more than 200 million years ago. They have several interesting adaptations. The swim bladder is divided into 2 parts, of which the right hand section is considerably larger. This functions as an accessory breathing organ and means the fish can survive out of water for some time, provided it is kept moist. Like anabantoid species, this fish may actually drown if it is denied access to atmospheric air. Young bichirs have amphibian-like external gills which are lost as the fish matures. This, coupled with their nocturnal mode of hunting, in which they emerge from their daytime refuges to hunt invertebrates and small fish in shallow water, clearly exhibits the link these species form between fish and amphibians.</p><p>This is one of the \"lower-jawed\" tribe of Polypterus, so called as the lower jaw protrudes in these species. P. bichir lapradei, once treated as a subspecies, is now a synonym of P. bichir.</p><p>It should be noted that most Polypterus offered for sale are wild caught and, as such, may come in carrying infections or parasites. Keeping a close eye on new fish for the first few weeks after purchase is suggested.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-lapradei-2/",
+      "html": "<p>Napoleon Bonaparte led a campaign through Egypt in 1798–1801, followed by 169 scientists, among them the zoologist Étienne Geoffroy Saint-Hilaire. After returning to France, Saint-Hilaire described a very strange fish he had collected in the Nile in Egypt under the vernacular name Polyptère bichir. The valid scientific name Polypterus bichir was given to the fish only one year later by Lacepède.</p><p>This was the first time scientists worldwide became aware of a group of fish that was already extant 60 million years ago and has hardly changed its shape since.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/7bb8bed51247c04a.webp",
+      "thumb": "https://media.aquatome.com/glaser/7bb8bed51247c04a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-lapradei-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/30e6f94d08a84f3a.webp",
+      "thumb": "https://media.aquatome.com/glaser/30e6f94d08a84f3a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-lapradei-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/3adcfe1dbd43a653.webp",
+      "thumb": "https://media.aquatome.com/glaser/3adcfe1dbd43a653-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-lapradei-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/060811f10749f730.webp",
+      "thumb": "https://media.aquatome.com/glaser/060811f10749f730-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-lapradei-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "WcF_2p0lgTw",
+      "title": "Bichirs: An Expert Guide to Polypterus - Full Care Information",
+      "durationSec": 689,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "hKaLAETqI1Q",
+      "title": "A Complete Guide to Bichers and Rope Fish",
+      "durationSec": 1369,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "8jJCC1mD7jY",
+      "title": "Polypterus bichir bichir \"Lake Turkana\"",
+      "durationSec": 14,
+      "lang": "ko"
+    },
+    {
+      "youtubeId": "Ujv-I7olw-E",
+      "title": "Hungry bichirs, polypterus fish tank",
+      "durationSec": 80,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -439,5 +540,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-18"
 }

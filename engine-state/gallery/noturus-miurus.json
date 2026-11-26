@@ -66,7 +66,8 @@
   "inat:748689253",
   "inat:748689312",
   "inat:755762269",
-  "inat:761741806"
+  "inat:761741806",
+  "gbif:1563310648:94d6d199cd61189e"
  ],
  "hashes": {
   "https://media.aquatome.com/scotcat/2347ca5a43988d44.webp": "138b491d2d3c1435",
@@ -92,5 +93,9 @@
    "research": 413845705,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2341024,
+  "next": null
  }
 }

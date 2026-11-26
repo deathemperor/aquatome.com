@@ -10,7 +10,10 @@
  ],
  "hashes": {
   "https://media.aquatome.com/inaturalist/253441009.webp": "8e1d6f63791d0e8f",
-  "https://media.aquatome.com/inaturalist/253441017.webp": "070f0be9fc0f86ec"
+  "https://media.aquatome.com/inaturalist/253441017.webp": "070f0be9fc0f86ec",
+  "https://media.aquatome.com/glaser/48d66d2793d3b7b7.webp": "7370746c343b1c38",
+  "https://media.aquatome.com/glaser/b2b3e5faa09b0355.webp": "375088ca2713e071",
+  "https://media.aquatome.com/glaser/b29d1ddc8623c8df.webp": "d1fce3c608ef7913"
  },
  "inat": {
   "taxon": 434967,
@@ -20,5 +23,9 @@
    "agree": 0
   }
  },
- "commons": "2026-11-13"
+ "commons": "2026-11-13",
+ "gbif": {
+  "key": 2224644,
+  "next": null
+ }
 }

@@ -9,7 +9,8 @@
     "south-america",
     "brazil",
     "paraguay",
-    "argentina"
+    "argentina",
+    "paraguay-river"
   ],
   "range": {
     "native": {
@@ -341,6 +342,10 @@
       {
         "source": "seriouslyfish",
         "value": 11
+      },
+      {
+        "source": "glaser",
+        "value": 12
       }
     ],
     "tankCm": [
@@ -353,6 +358,10 @@
       {
         "source": "seriouslyfish",
         "value": 2
+      },
+      {
+        "source": "glaser",
+        "value": 2
       }
     ]
   },
@@ -364,10 +373,22 @@
       "html": "<p>Rineloricaria parva is a whiptail catfish from Brazil, Paraguay and Argentina, found among leaf litter over sandy substrates. Commonly sold as a 'whiptail catfish', it is difficult to identify: the true R. parva has dark bands across the top of the body only and filaments on the top and bottom of the caudal fin. Some fish seen for sale may be hybrids with other species.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-parva-2/",
+      "html": "<p>Small whiptail catfish that usually grows to a maximum length of 12 cm. Care and breeding are easy.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-parva",
       "html": "<p>Brazil, Paraguay and Argentina.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-parva-2/",
+      "html": "<p>Paraguay. Whiptail catfishes destined for export are mostly collected from the Paraguay River not far from the capital Asunción, where R. aurata, R. lanceolata and R. parva can be expected.</p>"
     },
     {
       "key": "habitat",
@@ -388,6 +409,12 @@
       "html": "<p>A biotope setup can consist, very simply, of a layer of sand over which is scattered a layer of dried leaves (oak and beech are non-toxic and work particularly well). Some twisted branches (again, beech is good) and the occasional rounded stone can be used for effect. Provide some rock or wood caves, or lengths of pvc piping to act as potential spawning sites. It's equally at home in a well-planted tank, although in either situation it won't appreciate very bright lighting.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-parva-2/",
+      "html": "<p>Provide sandy soil in places. They are peaceful. As with all fish from southern South America, the water temperature should not be kept the same all year round: cool periods (18-22°C) should alternate with warmer ones (24-28°C) throughout the year, several months at a time.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-parva",
@@ -398,6 +425,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-parva",
       "html": "<p>Feeds on aufwuchs and small aquatic crustaceans in nature. In the aquarium it proves omnivorous and will accept both sinking dried foods, vegetable matter including blanched spinach, courgette, kale etc., and live and frozen fare, such as bloodworm or daphnia.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-parva-2/",
+      "html": "<p>A good amount of vegetable food: lettuce, spinach, dandelion etc., frozen or briefly scalded, as well as vegetable-based flake food.</p>"
     },
     {
       "key": "behaviour",
@@ -422,6 +455,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-parva",
       "html": "<p>One of the most common of the numerous species sold as 'whiptail catfish', R. parva is an excellent species for the newcomer to Loricariids or catfish breeding. It's certainly not the most active species, but when settled and housed with the correct kind of tankmates is by no means shy either.</p><p>In 2002, it was briefly placed in the resurrected genus Hemiloricaria, but this lasted less than twelve months, at which point it was transferred back to Rineloricaria. Currently only Rineloricaria is valid, but you'll still see it being referred to as Hemiloricaria quite often. It's also a difficult fish to identify correctly. The true R. parva should show a combination of dark bands across the top of the body only and filaments on the top and bottom of the caudal fin. There are also differences in the arrangement of the ventral scutes between members of the genus. It's still not easy, though, and some of the fish seen for sale may even be hybrids with other species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-parva-2/",
+      "html": "<p>No less than 65 species of Rineloricaria are currently recognized, which makes identification difficult without knowledge of their origin. For Paraguay there is a revision by Vera-Alcaraz et al. The technical differences between the species are in the number and arrangement of the body plates, but the three species are also easily recognized by colour: R. lanceolata has a dorsal fin that is darkly coloured in the anterior part, in R. parva the pectoral fins are distinctly banded, and in R. aurata both fins are without conspicuous colour markings. R. aurata was described from an atypical, solid yellow specimen; normally it has the gray-brown coloration usual for Rineloricaria with 4-5 narrow, dark bands across the back starting at the dorsal fin (much broader in R. parva). Imports consist of more than 90% R. parva with some R. lanceolata as bycatch.</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-parva-2/",
+      "html": "<p>Vera-Alcaraz, H. S., C. S. Pavanelli &amp; C. H. Zawadzki (2012): Taxonomic revision of the Rineloricaria species (Siluriformes: Loricariidae) from the Paraguay River basin. Neotropical Ichthyology v. 10 (no. 2): 285-311.</p>"
     }
   ],
   "photos": [
@@ -449,16 +494,71 @@
     },
     {
       "url": "https://media.aquatome.com/commons/b20d1bcd10a98669.webp",
+      "thumb": "https://media.aquatome.com/commons/b20d1bcd10a98669-480.webp",
       "width": 914,
       "height": 307,
       "licence": "CC BY 4.0",
       "author": "W.S.Serra",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rineloricaria_parva.jpg",
-      "caption": "Ejemplar de Rineloricaria parva capturado en el Río Uruguay, Uruguay",
-      "thumb": "https://media.aquatome.com/commons/b20d1bcd10a98669-480.webp"
+      "caption": "Ejemplar de Rineloricaria parva capturado en el Río Uruguay, Uruguay"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/db4f97314a972f68.webp",
+      "thumb": "https://media.aquatome.com/glaser/db4f97314a972f68-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-parva-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/3544834d1f4fe759.webp",
+      "thumb": "https://media.aquatome.com/glaser/3544834d1f4fe759-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-parva-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/aeb76dddd29badf6.webp",
+      "thumb": "https://media.aquatome.com/glaser/aeb76dddd29badf6-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-parva-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "yu-b3NJ8a5Q",
+      "title": "Ринелорикария парва (Rineloricaria parva [Boulenger, 1895])",
+      "durationSec": 77,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "0yk0NIixCY4",
+      "title": "LORICARIA PARVA Rineloricaria Parva",
+      "durationSec": 78,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "nV0tGq3WH_I",
+      "title": "Rineloricaria parva / Whiptail Catfish on eggs",
+      "durationSec": 45,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "9WzO3ayXToo",
+      "title": "Whiptail Catfish (Rineloricaria parva) - Underwater Cam Shots -  Animalia Kingdom Show",
+      "durationSec": 136,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -487,5 +587,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-21"
 }

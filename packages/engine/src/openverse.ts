@@ -2,7 +2,7 @@ import type { Candidate } from './gallery'
 
 /** Openverse's API: its JSON and the requests left today (x-ratelimit-available-*-sustained). */
 export type OpenverseApi = (url: string) => Promise<{ json: unknown; remaining: number }>
-type Result = { id: string; url: string; creator?: string | null; license: string; license_version?: string | null; foreign_landing_url: string; width?: number | null; height?: number | null; source: string; mature?: boolean }
+type Result = { id: string; url: string; title?: string | null; creator?: string | null; license: string; license_version?: string | null; foreign_landing_url: string; width?: number | null; height?: number | null; source: string; mature?: boolean }
 
 /**
  * Openverse's licence (`license` + `license_version`) as the site writes licences, for the open ones a commercial site
@@ -29,13 +29,16 @@ const FLICKR = /^https:\/\/(?:live|farm\d+)\.staticflickr\.com\/\d+\/(\d+)_[0-9a
  * One page of Openverse's open-licence photos matching the name; Flickr's are kept: Commons and iNaturalist are read
  * directly, and its other sources are museum objects, scanned book plates and stock photos, rarely a living fish or
  * plant. (Filtered here: Openverse's own source filter makes the query slow enough to time out.) ≥ 800 px; credited to
- * the photographer, linking the photo's Flickr page. `next`: the following page, null at the end.
+ * the photographer, linking the photo's Flickr page. `next`: the following page, null at the end. `titles`: each
+ * candidate's title as its photographer wrote it, by key, for a person who chooses by its words (the glossary search);
+ * kept off the candidate, which the album step keeps as it is.
  */
-export async function openversePage(name: string, page: number, api: OpenverseApi): Promise<{ cands: OpenverseCandidate[]; next: number | null; remaining: number }> {
+export async function openversePage(name: string, page: number, api: OpenverseApi): Promise<{ cands: OpenverseCandidate[]; titles: Record<string, string>; next: number | null; remaining: number }> {
   const q = new URLSearchParams({ q: `"${name}"`, license: 'by,by-sa,cc0,pdm', mature: 'false', page_size: String(OPENVERSE_PAGE), page: String(page) })
   const r = await api(`https://api.openverse.org/v1/images/?${q}`)
   const body = r.json as { results?: Result[]; page_count?: number }
   const cands: OpenverseCandidate[] = []
+  const titles: Record<string, string> = {}
   for (const x of body.results ?? []) {
     const licence = openverseLicence(x.license, x.license_version)
     const m = x.url.match(FLICKR)
@@ -44,6 +47,7 @@ export async function openversePage(name: string, page: number, api: OpenverseAp
       key: `flickr:${m[1]}`, url: x.url, thumb: x.url.replace(/(?:_[a-z0-9])?\.jpg$/, '_z.jpg'), width: x.width!, height: x.height!, licence,
       author: x.creator?.trim() || 'Flickr', sourceUrl: x.foreign_landing_url, openverse: x.id,
     })
+    if (x.title?.trim()) titles[`flickr:${m[1]}`] = x.title.trim()
   }
-  return { cands, next: page < (body.page_count ?? 0) ? page + 1 : null, remaining: r.remaining }
+  return { cands, titles, next: page < (body.page_count ?? 0) ? page + 1 : null, remaining: r.remaining }
 }

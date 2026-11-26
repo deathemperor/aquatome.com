@@ -3,6 +3,12 @@
   "name": "ออนโด",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-20T07:11:13.862Z",
+    "why": "Hondo in Belize (Rio Hondo, Spanish \"deep\") would be transliterated as \"ฮอนโด\" in Thai, since Spanish h is silent but atlases usually write ฮอนโด or ออนโด; the Thai name lacks a region word, and the ฮ- spelling is the common convention."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

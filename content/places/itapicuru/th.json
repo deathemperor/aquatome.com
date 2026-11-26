@@ -3,6 +3,12 @@
   "name": "อีตาปีกูรู",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T07:51:40.728Z",
+    "why": "The Thai is a plausible transliteration, but Itapicuru is a Portuguese name usually written \"อิตาปิกูรู\" in Thai, and it's a river here, so the Thai should include the word for river (แม่น้ำ)."
+  },
   "quality": {
     "score": 0.7,
     "indexable": false

@@ -9,6 +9,34 @@
     "south-america",
     "bolivia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BO"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Bujurquina oenolaemus is a very pretty species of Bujurquina from Bolivia, described scientifically in 1987 by Kullander.",
+          "countries": [
+            "BO"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2373796,
+      "total": 0,
+      "fetched": "2026-11-16",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -56,7 +84,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Thomas Weidner / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/bujurquina_oenolaemus_en/",
       "source": "glaser"
     }

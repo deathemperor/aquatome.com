@@ -13,20 +13,22 @@ struct V2Root: View {
   @Binding var tab: AquaTomeApp.Tab
   @Binding var handbookPath: NavigationPath
   @Binding var tanksPath: NavigationPath
-  @State private var selection = Pick.today
+  /// The tab in front: the app keeps it, so a language picked in the Tài khoản sheet, which draws the tabs again, leaves
+  /// it in front.
+  @Binding var selection: V2Tab
+  /// The language the tabs were drawn in: they're drawn again in another (AquaTomeApp.speak).
+  let lang: String
   @State private var todayPath = NavigationPath()
   @State private var searchPath = NavigationPath()
   @Environment(HandbookModel.self) private var handbook
-  /// Where the first of v2's own screens (FullPage) sits on `handbookPath`, which v1 shares, and on Hôm nay's: v1 has no
-  /// screen for it, so switching back cuts the path there.
+  /// Where the first of v2's own screens (FullPage, a group's page) sits on `handbookPath`, which v1 shares, and on Hôm
+  /// nay's: v1 has no screen for it, so switching back cuts the path there.
   @State private var ownFrom: Int?
   @State private var todayOwnFrom: Int?
 
-  enum Pick: Hashable { case today, browse, tanks, lights, search }
-
   var body: some View {
     TabView(selection: $selection) {
-      Tab("Hôm nay", systemImage: "sparkles", value: Pick.today) {
+      Tab("Hôm nay", systemImage: "sparkles", value: V2Tab.today) {
         TodayView(path: $todayPath)
           .environment(\.v2OpenFull) { item, at in
             if todayOwnFrom == nil { todayOwnFrom = todayPath.count }
@@ -34,20 +36,29 @@ struct V2Root: View {
           }
           .v2ClearUnderTabBar()
       }
-      Tab("Khám phá", systemImage: "square.grid.2x2", value: Pick.browse) {
+      Tab("Khám phá", systemImage: "square.grid.2x2", value: V2Tab.browse) {
         BrowseHome(path: $handbookPath, front: selection == .browse)
           .environment(\.v2OpenFull) { item, at in
             if ownFrom == nil { ownFrom = handbookPath.count }
             handbookPath.append(FullPage(item: item, at: at))
           }
+          // A group's page as it appears, if it's the path's last: pushed by a chip's own link, not through here. One
+          // drawn again as the tab comes back after a link replaced the stack (the kept pages' row) isn't on it now.
+          .environment(\.v2OwnScreen) { route in
+            guard ownFrom == nil, !handbookPath.isEmpty else { return }
+            var p = handbookPath
+            p.removeLast()
+            p.append(route)
+            if p == handbookPath { ownFrom = handbookPath.count - 1 }
+          }
           .v2ClearUnderTabBar()
       }
       // v1's screens: a fade of a set height, as their ends have no room for one that grows with the text.
-      Tab("Bể của tôi", systemImage: "fish", value: Pick.tanks) {
+      Tab("Bể của tôi", systemImage: "fish", value: V2Tab.tanks) {
         TanksView(path: $tanksPath).v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: V2Fade.height)
       }
-      Tab("Đèn", systemImage: "lightbulb", value: Pick.lights) { LightsView().v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: 10) }
-      Tab(value: Pick.search, role: .search) {
+      Tab("Đèn", systemImage: "lightbulb", value: V2Tab.lights) { LightsView().v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: 10) }
+      Tab(value: V2Tab.search, role: .search) {
         HandbookView(path: $searchPath).v2StackLinks($searchPath)
           .environment(\.v2Pages, true)
           .environment(\.v2OpenFull) { item, at in searchPath.append(FullPage(item: item, at: at)) }
@@ -61,9 +72,11 @@ struct V2Root: View {
     // Khám phá, whichever tab was in front; one on the tanks' stack, on Bể của tôi.
     .onChange(of: tab) { follow(tab) }
     // From another tab this stack changes only by a link (the kept pages' row replaces it, whatever its length).
-    .onChange(of: handbookPath) { _, new in
+    .onChange(of: handbookPath) { old, new in
       if !new.isEmpty { selection = .browse }
-      if let f = ownFrom, new.count <= f { ownFrom = nil }
+      // Popped to where v2's own began or below, or replaced by a link (the kept pages' row, from another tab, whatever its length): what was v2's own
+      // isn't on the path now, where a group's page at its root would leave the same count.
+      if let f = ownFrom, new.count <= f || !(Self.starts(new, with: old) || Self.starts(old, with: new)) { ownFrom = nil }
     }
     .onChange(of: todayPath.count) { if let f = todayOwnFrom, todayPath.count <= f { todayOwnFrom = nil } }
     .onChange(of: tanksPath) { if !tanksPath.isEmpty { selection = .tanks } }
@@ -85,6 +98,8 @@ struct V2Root: View {
     // Switched back to v1: its Tìm tab shows `handbookPath`, up to the first screen only v2 draws; with nothing open on
     // Khám phá, what Hôm nay had open, or else the search tab (which pushes only v1's own screens).
     .onDisappear {
+      // Drawn again in another language: every stack starts at its first screen, none taken over.
+      guard AppLanguageNow.shared.code == lang else { return }
       if let f = ownFrom, handbookPath.count > f { handbookPath.removeLast(handbookPath.count - f) }
       if let f = todayOwnFrom, todayPath.count > f { todayPath.removeLast(todayPath.count - f) }
       if handbookPath.isEmpty { handbookPath = todayPath.isEmpty ? searchPath : todayPath }
@@ -99,6 +114,14 @@ struct V2Root: View {
     }
   }
 
+  /// Whether `path` begins with all of `start`: a push or a pop, where a link's replacement doesn't.
+  private static func starts(_ path: NavigationPath, with start: NavigationPath) -> Bool {
+    guard start.count <= path.count else { return false }
+    var front = path
+    front.removeLast(path.count - start.count)
+    return front == start
+  }
+
   private func follow(_ tab: AquaTomeApp.Tab) {
     switch tab {
     case .tanks: selection = .tanks
@@ -107,6 +130,9 @@ struct V2Root: View {
     }
   }
 }
+
+/// v2's tabs.
+enum V2Tab: Hashable { case today, browse, tanks, lights, search }
 
 /// v2 or the old look. v2 is the app's look for everyone (the owner, 2026-11-08), installs from before too: on unless
 /// the reader turned it off by hand (a stored false), where it stays off. The Tài khoản sheet's switch offers the old
@@ -242,6 +268,9 @@ extension EnvironmentValues {
   /// A fish's or plant's page as v1 draws it (FullPage), pushed on the stack in front where v2's holds a part it can't draw
   /// ("Xem phần này ở trang đầy đủ"), counted for switching back to v1 (V2Root).
   @Entry var v2OpenFull: (HandbookIndex.Item, _ at: String?) -> Void = { _, _ in }
+  /// A screen of v2's own that v1 has no screen for (a group's page), on Khám phá's stack: it calls this with its route
+  /// as it appears, so switching back to v1 cuts the path there (V2Root's `ownFrom`).
+  @Entry var v2OwnScreen: (ChipRoute) -> Void = { _ in }
   /// On v2's search tab, whose screen is v1's (HandbookView): a fish's or plant's page opens as v2 draws it there too.
   @Entry var v2Pages = false
   /// What the tab stands on under its bar and fade, for a page whose colour reaches them (ClearUnderTabBar).
@@ -266,7 +295,8 @@ struct FootGround: Equatable {
 /// A page a Hôm nay card opens: a post, as the App Store's Today stories (the owner, 12 Nov: "for today posts they only
 /// support left edge swipe and close button"). It zooms out of its card, with no back button and a ✕ that closes it, and
 /// iOS's swipe from the left edge takes it back. A page opened from inside it pushes with iOS's own back button, and has
-/// the ✕ too, which closes the whole post.
+/// the ✕ too, which closes the whole post. One on another stack (handed to the old look's Tìm by its switch, then back to
+/// Khám phá, which shares Tìm's) is a page as any other, with iOS's back button: no ✕ closes it there.
 struct Post: Hashable {
   let item: HandbookIndex.Item
 }
@@ -289,17 +319,22 @@ private struct Destinations: ViewModifier {
       // Pushed with iOS's own push and back button: its swipe from the left edge follows the finger, as in Settings.
       .navigationDestination(for: HandbookIndex.Item.self) { page($0).modifier(ClosesPost(posts: posts, always: false, own: true)) }
       .navigationDestination(for: Post.self) { post in
-        page(post.item)
-          .navigationBarBackButtonHidden(true)
-          .environment(\.v2IsPost, true)
-          .modifier(ClosesPost(posts: posts, always: true, own: true))
-          .onAppear { posts?.open.wrappedValue = true }
-          .navigationTransition(.zoom(sourceID: post.item.path, in: zoom))
+        if posts == nil {
+          page(post.item)
+        } else {
+          page(post.item)
+            .navigationBarBackButtonHidden(true)
+            .environment(\.v2IsPost, true)
+            .modifier(ClosesPost(posts: posts, always: true, own: true))
+            .onAppear { posts?.open.wrappedValue = true }
+            .navigationTransition(.zoom(sourceID: post.item.path, in: zoom))
+        }
       }
       .navigationDestination(for: FullPage.self) {
         PageView(item: $0.item, url: handbook.url($0.item), at: $0.at).v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false, own: true))
       }
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0).v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false)) }
+      .navigationDestination(for: ChipRoute.self) { ChipPage(shelf: $0.shelf).v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false)) }
       .navigationDestination(for: VolumeTool.self) { TankVolumeView(query: $0.query).v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false)) }
       .navigationDestination(for: FishIdRoute.self) { _ in FishIdView().v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false)) }
       // Not clear of the fade: the chat hides the tab bar, and its box sits at the foot of the screen.

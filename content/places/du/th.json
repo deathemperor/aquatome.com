@@ -3,6 +3,12 @@
   "name": "ดู",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-18T12:23:12.139Z",
+    "why": "ดู is a fair phonetic rendering of Du, but the source describes the Du River drainage in Liberia, so an atlas in Thailand would normally add the kind word แม่น้ำ; bare ดู also reads as the ordinary Thai verb 'to look'."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

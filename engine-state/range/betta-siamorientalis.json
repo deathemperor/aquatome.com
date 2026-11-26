@@ -1,9 +1,25 @@
 {
   "id": "betta-siamorientalis",
   "native": {
-    "input": "b5fbe8256269728f",
-    "at": "2026-11-16T00:17:52.050Z",
+    "input": "bd8c7f2cdf124520",
+    "at": "2026-11-19T07:58:14.453Z",
     "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to eastern Thailand, western Cambodia and parts of Vietnam.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to eastern Thailand, western Cambodia and parts of Vietnam.",
+        "words": "Cambodia",
+        "ok": true
+      },
       {
         "code": "VN",
         "status": "native",
@@ -15,24 +31,8 @@
       {
         "code": "TH",
         "status": "native",
-        "source": "bwaquatics",
-        "quote": "Native to eastern Thailand, western Cambodia and parts of Vietnam.",
-        "words": "Thailand",
-        "ok": true
-      },
-      {
-        "code": "KH",
-        "status": "native",
-        "source": "bwaquatics",
-        "quote": "Native to eastern Thailand, western Cambodia and parts of Vietnam.",
-        "words": "Cambodia",
-        "ok": true
-      },
-      {
-        "code": "TH",
-        "status": "native",
         "source": "seriouslyfish",
-        "quote": "Betta siamorientalis is a small bubble-nesting labyrinth fish from eastern Thailand, western Cambodia and Vietnam.",
+        "quote": "Currently known only from Chachoengsao, Sa Kaeo, Prachin Buri and Chon Buri provinces in eastern Thailand plus Banteay Meanchey province in western Cambodia (which borders Sa Kaeo) and at least one unspecified locality in Vietnam so it appears to be quite widely-distributed.",
         "words": "Thailand",
         "ok": true
       },
@@ -40,7 +40,7 @@
         "code": "KH",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Betta siamorientalis is a small bubble-nesting labyrinth fish from eastern Thailand, western Cambodia and Vietnam.",
+        "quote": "Currently known only from Chachoengsao, Sa Kaeo, Prachin Buri and Chon Buri provinces in eastern Thailand plus Banteay Meanchey province in western Cambodia (which borders Sa Kaeo) and at least one unspecified locality in Vietnam so it appears to be quite widely-distributed.",
         "words": "Cambodia",
         "ok": true
       },
@@ -48,7 +48,7 @@
         "code": "VN",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Betta siamorientalis is a small bubble-nesting labyrinth fish from eastern Thailand, western Cambodia and Vietnam.",
+        "quote": "Currently known only from Chachoengsao, Sa Kaeo, Prachin Buri and Chon Buri provinces in eastern Thailand plus Banteay Meanchey province in western Cambodia (which borders Sa Kaeo) and at least one unspecified locality in Vietnam so it appears to be quite widely-distributed.",
         "words": "Vietnam",
         "ok": true
       },
@@ -91,5 +91,9 @@
     ],
     "requests": 11,
     "at": "2026-11-06T21:19:39.004Z"
+  },
+  "nativeFailed": {
+    "at": "2026-11-24T05:12:35.728Z",
+    "error": "claude failed (1): other"
   }
 }

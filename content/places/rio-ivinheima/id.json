@@ -1,8 +1,13 @@
 {
   "slug": "rio-ivinheima",
-  "name": "Ivinheima",
+  "name": "Sungai Ivinheima",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-18T05:55:45.379Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

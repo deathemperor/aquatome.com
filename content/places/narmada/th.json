@@ -3,6 +3,12 @@
   "name": "นรมทา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-21T19:00:26.576Z",
+    "why": "นรมทา is a plausible Thai rendering of Narmada, but the source sentence lists it as a river and the name lacks the kind word แม่น้ำ that a Thai atlas would use."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

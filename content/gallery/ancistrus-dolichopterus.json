@@ -6,30 +6,30 @@
       "thumb": "https://media.aquatome.com/commons/a724a3914555df96-480.webp",
       "width": 1200,
       "height": 900,
-      "licence": "CC BY-SA 3.0",
-      "author": "Père Igor",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ancistrus_dolichopterus_Pierrefitte-Nestalas_Aquarium.JPG",
-      "caption": "Cá lau kiếng Ancistrus đốm trắng nằm trên nền sỏi trong bể",
       "large": {
         "url": "https://media.aquatome.com/commons/a724a3914555df96-large.webp",
         "width": 1600,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Père Igor",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ancistrus_dolichopterus_Pierrefitte-Nestalas_Aquarium.JPG",
+      "caption": "Cá lau kiếng Ancistrus đốm trắng nằm trên nền sỏi trong bể"
     },
     {
       "url": "https://media.aquatome.com/commons/bfcb2df1ebf3c447.webp",
       "thumb": "https://media.aquatome.com/commons/bfcb2df1ebf3c447-480.webp",
       "width": 1200,
       "height": 900,
-      "licence": "CC BY-SA 3.0",
-      "author": "Guérin Nicolas (messages)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ancistrus_dolichopterus_(Wroclaw_zoo).JPG",
-      "caption": "Cá lau kiếng Ancistrus đốm trắng trong bể thủy sinh sỏi màu",
       "large": {
         "url": "https://media.aquatome.com/commons/bfcb2df1ebf3c447-large.webp",
         "width": 1600,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Guérin Nicolas (messages)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ancistrus_dolichopterus_(Wroclaw_zoo).JPG",
+      "caption": "Cá lau kiếng Ancistrus đốm trắng trong bể thủy sinh sỏi màu"
     },
     {
       "url": "https://media.aquatome.com/commons/97ed36b806f0a84b.webp",
@@ -60,9 +60,22 @@
       "author": "Billyhill",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ancistrus_sp._--_NOT_dolichopterus_(2).jpg",
       "caption": "Cá lau kiếng Ancistrus đốm vàng, vây lưng lớn trên nền sỏi"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/231271142.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/231271142-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC-SA",
+      "author": "Alberto Mejia-Paniagua",
+      "sourceUrl": "https://www.inaturalist.org/photos/231271142",
+      "caption": "Cá lau kiếng Ancistrus đen đốm trắng trên nền cát trong bể",
+      "best": true,
+      "kind": "other",
+      "setup": false
     }
   ],
-  "seen": 32,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 35,
+  "updatedAt": "2026-11-24",
+  "builtAt": "2026-11-24"
 }

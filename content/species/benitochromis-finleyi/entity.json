@@ -83,7 +83,24 @@
       "html": "<p>Benitochromis: named after the Benito river in Rio Muni (Equatorial Guinea). finleyi: dedication name for Lee Finley.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/408468252.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/408468252-480.webp",
+      "width": 1024,
+      "height": 689,
+      "licence": "CC BY-NC-SA",
+      "author": "jeanlouisamiet",
+      "sourceUrl": "https://www.inaturalist.org/photos/408468252",
+      "caption": "Cá Benitochromis finleyi giữa cây thủy sinh trong bể",
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/408468252-large.webp",
+        "width": 1486,
+        "height": 1000
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

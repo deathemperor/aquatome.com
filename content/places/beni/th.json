@@ -3,6 +3,12 @@
   "name": "เบนี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T06:01:14.400Z",
+    "why": "เบนี is a correct transliteration of Beni, but for a department/region Thai atlases write \"จังหวัดเบนี\" or \"departamento เบนี\" with a kind word, and the bare name is acceptable only loosely."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

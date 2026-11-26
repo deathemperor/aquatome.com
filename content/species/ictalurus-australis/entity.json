@@ -1,0 +1,44 @@
+{
+  "id": "ictalurus-australis",
+  "scientificName": "Ictalurus australis",
+  "order": "Siluriformes",
+  "family": "Ictaluridae",
+  "genus": "Ictalurus",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "mexico",
+    "panuco"
+  ],
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1560",
+      "html": "<p>Central America: Mexico. Panuco and Blanco (Mexico).</p><p>Type locality: Río Forlón, Forlón, Rio Panuco drainage, Tamaulipas, Mexico.</p><p>IUCN Red List category: Data Deficient (last assessed 2018).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1560",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1560",
+      "html": "<p>Etymology: Ictalurus comes from the Greek ichthys, meaning fish, and ailouros, meaning cat; literally \"fish cat\" (catfish). Australis means southern, reflecting the fact that this species is one of the more southern within the genus.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1560",
+      "html": "<p>Field Columbian Museum, Zoölogical Series v. 5, pp 13.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-25"
+}

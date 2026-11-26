@@ -3,7 +3,8 @@
  "judged": [
   "File:Erythrinus erythrinus Peru.jpg",
   "inat:10151674",
-  "inat:467226758"
+  "inat:467226758",
+  "flickr:5806481071"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/d131ad97e8563e19.webp": "3f3f73d1c43f3f1f"
@@ -20,5 +21,9 @@
  "gbif": {
   "key": 2352207,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-17"
 }

@@ -11,11 +11,101 @@
       "sourceUrl": "https://www.inaturalist.org/photos/556422817",
       "caption": "Đàn cá neon xanh Brazil bơi giữa cây thủy sinh ngoài tự nhiên",
       "best": true,
-      "kind": "habitat",
-      "unchecked": true
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/218043726.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/218043726-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Henry Miller Alexandre",
+      "sourceUrl": "https://www.inaturalist.org/photos/218043726",
+      "caption": "Cá neon xanh Brazil bơi giữa cây thủy sinh",
+      "best": true,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/234568711.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/234568711-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Henry Miller Alexandre",
+      "sourceUrl": "https://www.inaturalist.org/photos/234568711",
+      "caption": "Cá neon xanh Brazil ánh xanh trong bể thủy sinh",
+      "best": true,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/500310467.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/500310467-480.webp",
+      "width": 1024,
+      "height": 692,
+      "licence": "CC BY-NC",
+      "author": "edvandroabreuribeiro",
+      "sourceUrl": "https://www.inaturalist.org/photos/500310467",
+      "caption": "Cá neon xanh Brazil có sọc xanh đen trong bể chụp ảnh",
+      "best": true,
+      "kind": "other",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/500310861.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/500310861-480.webp",
+      "width": 1024,
+      "height": 666,
+      "licence": "CC BY-NC",
+      "author": "edvandroabreuribeiro",
+      "sourceUrl": "https://www.inaturalist.org/photos/500310861",
+      "caption": "Cá neon xanh Brazil bơi gần mặt nước trong bể chụp ảnh",
+      "best": false,
+      "kind": "group",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/218043704.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/218043704-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Henry Miller Alexandre",
+      "sourceUrl": "https://www.inaturalist.org/photos/218043704",
+      "caption": "Cá neon xanh Brazil bơi trong bể trồng cây",
+      "best": false,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/218043748.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/218043748-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Henry Miller Alexandre",
+      "sourceUrl": "https://www.inaturalist.org/photos/218043748",
+      "caption": "Cá neon xanh Brazil trong bể có cây lá dài",
+      "best": false,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/500310230.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/500310230-480.webp",
+      "width": 1024,
+      "height": 610,
+      "licence": "CC BY-NC",
+      "author": "edvandroabreuribeiro",
+      "sourceUrl": "https://www.inaturalist.org/photos/500310230",
+      "caption": "Cá neon xanh Brazil nhìn nghiêng trong bể chụp ảnh nhỏ",
+      "best": false,
+      "kind": "other",
+      "setup": true
     }
   ],
-  "seen": 4,
-  "updatedAt": "2026-11-10",
-  "builtAt": "2026-11-10"
+  "seen": 20,
+  "updatedAt": "2026-11-23",
+  "builtAt": "2026-11-23"
 }

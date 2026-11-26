@@ -3,6 +3,12 @@
   "name": "Kepala Burung",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-19T07:49:14.587Z",
+    "why": "Kepala Burung is a literal Malay/Indonesian translation of \"Vogelkop\" (Bird's Head); the peninsula is usually called Semenanjung Kepala Burung, and Malaysian atlases often use Vogelkop or Semenanjung Doberai, so the bare name lacks the kind word."
+  },
   "quality": {
     "score": 0.68,
     "indexable": false

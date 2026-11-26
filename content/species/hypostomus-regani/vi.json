@@ -3,7 +3,9 @@
   "name": "Cá lau kiếng đốm trắng khổng lồ",
   "altNames": [
     "Cá tỳ bà đốm trắng khổng lồ",
-    "Giant White Spot Plec"
+    "Giant White Spot Plec",
+    "Giant White Spot Pleco",
+    "Regans Shilderwels"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Cá lau kiếng đốm trắng khổng lồ (Hypostomus regani) là một loài cá da trơn miệng hút cỡ lớn, sống ở Brazil, Paraguay, Uruguay và Argentina. Loài này rất khỏe và dài tới khoảng 400 mm SL. Nó sống hòa với hầu hết cá nuôi chung, nhưng lại hay giành chỗ với những con cá đáy cùng cỡ, nhất là cá cùng loài. Muốn nuôi chung với cá da trơn lớn khác thì phải có bể rất rộng.</p>",
@@ -16,13 +18,24 @@
     "behaviour:seriouslyfish": "<p>Đây là loài hiền, nuôi chung được với nhiều loại cá: cá characin cỡ lớn, cá chép (cyprinid), cichlid hiền và các loài cá da trơn khác. Nhưng nó hay giành chỗ với bất kỳ con cá đáy nào cùng cỡ, nhất là cá cùng loài. Muốn nuôi thêm cá da trơn lớn thì bể phải rất rộng.</p>",
     "dimorphism:seriouslyfish": "<p>Chưa rõ.</p>",
     "reproduction:seriouslyfish": "<p>Chưa thấy ai cho đẻ được trong bể.</p>",
-    "notes:seriouslyfish": "<p>Một loài cá lau kiếng cỡ lớn, đẹp và rất khỏe.</p>"
+    "notes:seriouslyfish": "<p>Một loài cá lau kiếng cỡ lớn, đẹp và rất khỏe.</p>",
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Hypostomus regani (Ihering, 1905)</li><li>Tên thường gọi: Giant White Spot Pleco, Regans Shilderwels (Đức)</li><li>Tên đồng nghĩa: Plecostomus regani</li></ul>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực sông Paraná, Paraguay và Uruguay. Nơi lấy mẫu chuẩn: Rio Piracicaba, São Paulo, Brazil.</p>",
+    "waterConditions:planetcatfish": "<p>pH 6,0–7,5. Nhiệt độ 24–27°C. Nước hơi mềm thì tốt hơn.</p>",
+    "equipment:planetcatfish": "<p>Cây phải trồng chắc gốc và chèn đá quanh, kẻo cá vô tình nhổ bật lên. Đá và lũa đều hợp, nhất là đá tròn cỡ lớn. Loài này sống tốt như nhau trên nền cát hay nền sỏi hạt to cỡ hạt đậu.</p>",
+    "diet:planetcatfish": "<p>Cá ăn được đa số rau xanh, và có vẻ khoái nhất là dưa leo với bí ngòi. Nó cũng rất thích gặm xác cá chết. Khi đã quen bể, nó nhận gần hết các loại thức ăn chìm.</p>",
+    "behaviour:planetcatfish": "<p>Như đa số cá lau kiếng cỡ lớn, con này hay giành chỗ nhưng ngoài chuyện đó thì hiền. Nó dễ nuôi chung với cá nhỏ hơn các loài cá da trơn lớn khác. Khi đã đủ lớn, nó chịu được cảnh sống trong bể cichlid châu Mỹ.</p>",
+    "dimorphism:planetcatfish": "<p>Chưa rõ, nhưng xem kỹ vùng lỗ sinh dục ở một đàn cá lớn thì chắc sẽ thấy con đực, con cái khác nhau.</p>",
+    "reproduction:planetcatfish": "<p>Chưa rõ, và đây đúng là một thử thách! Đến nay chưa có ai báo lại chuyện cho loài này đẻ.</p>",
+    "notes:planetcatfish": "<p>Nhận dạng: loài này rất giống H. margaritifer sống cùng con sông. H. regani thon và dài hơn, vây lưng cũng to và cao hơn.</p>",
+    "references:planetcatfish": "<p>Annals and Magazine of Natural History (Series 7) v. 15 (no. 90) (art. 75), pp 558.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.8
+      "seriouslyfish": 0.8,
+      "planetcatfish": 0.97
     }
   }
 }

@@ -4,7 +4,10 @@
   "File:Neostethus lankesteri DSC 2968.jpg",
   "File:Gobiopterus chuno hi res.jpg"
  ],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/glaser/2cbfc1c981a4ba35.webp": "493c1e2b3f4fd3c9",
+  "https://media.aquatome.com/glaser/88745dd428bc441a.webp": "c48ec1038e3b7138"
+ },
  "commons": "2026-11-08",
  "inat": {
   "taxon": 101610,
@@ -13,5 +16,9 @@
    "research": 0,
    "agree": 244101705
   }
+ },
+ "gbif": {
+  "key": 2377305,
+  "next": null
  }
 }

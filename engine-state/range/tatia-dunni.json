@@ -1,0 +1,135 @@
+{
+  "id": "tatia-dunni",
+  "native": {
+    "input": "0c976e1d02dc25d5",
+    "at": "2026-11-17T00:14:47.070Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "T. dunni is widely distributed: there are records of the species from Brazil, Ecuador, Colombia and Peru.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "glaser",
+        "quote": "T. dunni is widely distributed: there are records of the species from Brazil, Ecuador, Colombia and Peru.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "T. dunni is widely distributed: there are records of the species from Brazil, Ecuador, Colombia and Peru.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "T. dunni is widely distributed: there are records of the species from Brazil, Ecuador, Colombia and Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Upper Amazon in Ecuador and Colombia; central Amazon in Brazil; Caquetá River drainage in Colombia.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Upper Amazon in Ecuador and Colombia; central Amazon in Brazil; Caquetá River drainage in Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Upper Amazon in Ecuador and Colombia; central Amazon in Brazil; Caquetá River drainage in Colombia.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Upper Amazon in Ecuador and Colombia; central Amazon in Brazil; Caquetá River drainage in Colombia.",
+        "ok": true
+      },
+      {
+        "name": "Caquetá River",
+        "source": "scotcat",
+        "quote": "South America: Upper Amazon in Ecuador and Colombia; central Amazon in Brazil; Caquetá River drainage in Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Purus",
+        "source": "scotcat",
+        "quote": "Large specimens from the Purus river, in central Amazonia, usually have a completely dark body or a lightly spotted colouration.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Tatia dunni",
+    "status": "ACCEPTED",
+    "taxonKey": 2344651,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        6
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "BR",
+      "EC",
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-16T17:28:41.839Z"
+  }
+}

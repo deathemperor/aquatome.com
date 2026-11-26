@@ -61,3 +61,11 @@ func repeatUntil(_ done: @autoclosure () -> Bool, times: Int, _ step: () -> Void
     step()
   }
 }
+
+/// `e`'s height as the screen draws it: on its pixel grid. XCUITest's frames carry floating-point dust (a 44-pt
+/// "Thu gọn" read 43.999999999999886 pt on GitHub's run of main, 19 Nov), never a real fraction of a pixel. Compared on
+/// the grid, a floor stays the floor: 44 pt passes, a button a pixel short (43⅔ pt at 3×) still fails.
+func heightOnPixels(_ e: XCUIElement) -> CGFloat {
+  let scale = e.screenshot().image.scale
+  return (e.frame.height * scale).rounded() / scale
+}

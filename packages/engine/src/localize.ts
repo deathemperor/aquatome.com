@@ -1,7 +1,7 @@
 import { piece } from './pieces'
-import { createHash } from 'node:crypto'
+import { createHash, randomUUID } from 'node:crypto'
 import { readFileSync } from 'node:fs'
-import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readdir, readFile, rename, rm, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { metricPage, nameKey, POPULAR, QUALITY_THRESHOLD, slugify, STAPLE_SPECIES, TranslationSchema, type Section, type SourceId, type Translation } from '@aq/schema'
 import { OTHER_LANGS, type WrittenOtherLang } from '@aq/schema/langs'
@@ -183,6 +183,24 @@ export async function translatableIn(root: string): Promise<(source: string) => 
  * (plants: localize-<lang>-plants.json) keeps each page's name confidence and the source date it was made from. Pages
  * already done are skipped unless redo.
  */
+/**
+ * The translator's record, written whole or not at all: a copy beside it, then a rename. One read while it's written (the
+ * recheck reads it to put a page back, localize-recheck.ts) gets the last record or the new one, never half of one, and a
+ * write that fails part way leaves the last record as it was (the chief of staff, 22 Nov 2026: a read of a record written
+ * in place caught it half-written in #1822's run, and the page was skipped). A copy left by a run killed between the write
+ * and the rename is ignored (.gitignore); each write has its own, so two at once don't take each other's.
+ */
+export async function writeRecord(file: string, text: string) {
+  const tmp = `${file}.${process.pid}-${randomUUID().slice(0, 8)}.tmp`
+  try {
+    await writeFile(tmp, text)
+    await rename(tmp, file)
+  } catch (e) {
+    await rm(tmp, { force: true }).catch(() => {}) // the write's own error is the one to see
+    throw e
+  }
+}
+
 export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, ids: string[], o: { redo?: boolean; model?: string; now?: () => Date; english?: (sci: string) => Promise<string>; /** Stop after this many pages made. */ limit?: number; kind?: 'species' | 'plants' } = {}) {
   const kind = o.kind ?? 'species'
   const dir = join(root, 'content', kind)
@@ -203,7 +221,7 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
   const translatable = await translatableIn(root)
   const save = async () => {
     await mkdir(join(root, 'engine-state'), { recursive: true })
-    await writeFile(stateFile, `${JSON.stringify(Object.fromEntries(Object.entries(state).sort()), null, 2)}\n`)
+    await writeRecord(stateFile, `${JSON.stringify(Object.fromEntries(Object.entries(state).sort()), null, 2)}\n`)
   }
   const report = { done: [] as string[], skipped: [] as string[], failed: [] as string[], stopped: '' }
   for (const id of ids) {
@@ -361,14 +379,14 @@ type Term = { id: string; name: string; altNames: string[]; definition: string }
 export async function localizeGlossary(root: string, llm: Llm, lang: TargetLang, o: { redo?: boolean; model?: string; batch?: number; /** Only these terms. */ only?: string[] } = {}) {
   const dir = join(root, 'content/glossary')
   const taken = new Set<string>()
-  const todo: { id: string; en: string; latin?: string; vi: { name: string; definition?: string }; slug?: string }[] = []
+  const todo: { id: string; en: string; latin?: string; vi: { name: string; definition?: string }; slug?: string; linkNames?: string[] }[] = []
   for (const id of (await readdir(dir)).sort()) {
-    const prev = JSON.parse(await readFile(join(dir, id, `${lang}.json`), 'utf8').catch(() => 'null')) as { slug: string } | null
+    const prev = JSON.parse(await readFile(join(dir, id, `${lang}.json`), 'utf8').catch(() => 'null')) as { slug: string; linkNames?: string[] } | null
     if (prev) taken.add(prev.slug)
     if ((prev && !o.redo) || (o.only && !o.only.includes(id))) continue
     const e = JSON.parse(await readFile(join(dir, id, 'entity.json'), 'utf8')) as { en: string; latin?: string }
     const vi = JSON.parse(await readFile(join(dir, id, 'vi.json'), 'utf8')) as { name: string; definition?: string }
-    todo.push({ id, en: e.en, latin: e.latin, vi, slug: prev?.slug })
+    todo.push({ id, en: e.en, latin: e.latin, vi, slug: prev?.slug, ...(prev?.linkNames?.length ? { linkNames: prev.linkNames } : {}) })
   }
   const report = { done: [] as string[], failed: [] as string[], stopped: '', /** Each batch's score and the reviewer's notes. */ reviews: [] as string[] }
   // Small batches: a batch is scored by its worst entry, so one bad term holds back only a few good ones.
@@ -405,8 +423,11 @@ export async function localizeGlossary(root: string, llm: Llm, lang: TargetLang,
         if (!name || !definition) { report.failed.push(`${x.id}: left out`); continue }
         const slug = x.slug ?? pickSlug(lang === 'th' || !slugify(name) ? x.en : name, TARGETS[lang].slugWords.term, taken)
         taken.add(slug)
+        // A redo keeps the term's link phrases, which are never its other names (the chief of staff, 18 Nov 2026).
+        const links = new Set((x.linkNames ?? []).map(n => n.toLowerCase()))
         const t = TranslationSchema.parse({
-          slug, name, altNames: [...new Set(got!.altNames.map(n => n.trim()).filter(n => n && n !== name))].slice(0, 4), sections: {}, definition,
+          slug, name, altNames: [...new Set(got!.altNames.map(n => n.trim()).filter(n => n && n !== name && !links.has(n.toLowerCase())))].slice(0, 4),
+          ...(x.linkNames?.length ? { linkNames: x.linkNames } : {}), sections: {}, definition,
           quality: { score: r.score, indexable: r.score >= QUALITY_THRESHOLD },
         })
         await writeFile(join(dir, x.id, `${lang}.json`), `${JSON.stringify(t, null, 2)}\n`)
@@ -421,11 +442,11 @@ export async function localizeGlossary(root: string, llm: Llm, lang: TargetLang,
     }
   }
   // The site links a term's names wherever they appear in running text: other names are kept only when they can't be
-  // an everyday word (several words, or an abbreviation such as NH3, dGH) and no other term has them.
+  // an everyday word (several words, or an abbreviation such as NH3, dGH) and no other term has them, as a name or a link phrase.
   const files = (await readdir(dir)).map(id => join(dir, id, `${lang}.json`))
-  const all = (await Promise.all(files.map(f => readFile(f, 'utf8').then(s => ({ f, t: JSON.parse(s) as { name: string; altNames: string[] } }), () => null)))).filter(x => x !== null)
+  const all = (await Promise.all(files.map(f => readFile(f, 'utf8').then(s => ({ f, t: JSON.parse(s) as { name: string; altNames: string[]; linkNames?: string[] } }), () => null)))).filter(x => x !== null)
   const uses = new Map<string, number>()
-  for (const { t } of all) for (const n of new Set([t.name, ...t.altNames].map(n => n.toLowerCase()))) uses.set(n, (uses.get(n) ?? 0) + 1)
+  for (const { t } of all) for (const n of new Set([t.name, ...t.altNames, ...(t.linkNames ?? [])].map(n => n.toLowerCase()))) uses.set(n, (uses.get(n) ?? 0) + 1)
   const linkable = (n: string) => (/\s/.test(n.trim()) || /[A-Z].*[A-Z0-9]|\d/.test(n)) && uses.get(n.toLowerCase()) === 1
   for (const { f, t } of all) {
     const kept = t.altNames.filter(linkable)

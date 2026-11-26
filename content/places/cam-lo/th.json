@@ -3,6 +3,12 @@
   "name": "กามโล่",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-21T01:18:01.571Z",
+    "why": "Cam Lộ is usually rendered in Thai as กามโล or กัมล็อ; \"กามโล่\" with the tone mark looks like a guess at the sound and does not match the Vietnamese pronunciation (Kam-lo, low tone), so I can't confirm it as an atlas spelling."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

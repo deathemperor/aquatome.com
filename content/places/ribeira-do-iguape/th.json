@@ -3,6 +3,12 @@
   "name": "ริเบย์รา ดู อีกวาเป",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-19T07:52:19.384Z",
+    "why": "The Thai name is a clumsy phonetic rendering that wrongly splits \"Iguape\" (อีกวาเป) and gives \"Ribeira\" as ริเบย์รา, so it doesn't match the usual Thai form for the Ribeira de Iguape river basin region, and it lacks a kind word like แอ่งแม่น้ำ or แม่น้ำ."
+  },
   "quality": {
     "score": 0.7,
     "indexable": false

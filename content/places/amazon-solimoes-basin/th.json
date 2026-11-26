@@ -1,8 +1,13 @@
 {
   "slug": "amazon-solimoes-basin",
-  "name": "ลุ่มน้ำแอมะซอน/โซลีมอยส์",
+  "name": "ลุ่มน้ำอเมซอน (แม่น้ำโซลีโมเอส)",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.8,
+    "at": "2026-11-18T05:58:32.983Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

@@ -21,10 +21,10 @@
     "references:seriouslyfish": "<ul><li>Tan, H. H. and P. K. L. Ng (2005). The labyrinth fishes (Teleostei: Anabantoidei, Channoidei) of Sumatra, Indonesia. Raffles Bulletin of Zoology Supplement 13, 115-138</li><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li><li>Tan, H. H. (1998). Description of two new species of the Betta waseri group (Teleostei: Osphronemidae). Ichthyological Exploration of Freshwaters 8(3), 281-287</li><li>Schindler, I. and J. Schmidt (2006). Review of the mouthbrooding Betta (Teleostei, Osphronemidae) from Thailand, with descriptions of two new species. Zeitschrift für Fischkunde 8(1/2), 47-69</li><li>Witte, K.-E. and J. Schmidt (1992). Betta brownorum, a new species of anabantoids (Teleostei: Belontiidae) from northwestern Borneo, with a key to the genus. Ichthyological Exploration of Freshwaters 2(4), 305-330</li></ul>"
   },
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.7
+      "seriouslyfish": 0.85
     }
   }
 }

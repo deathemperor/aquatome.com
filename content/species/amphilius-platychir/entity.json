@@ -9,8 +9,191 @@
     "africa",
     "sierra-leone",
     "guinea",
-    "cote-d-ivoire"
+    "cote-d-ivoire",
+    "little-scarcies",
+    "konkoure",
+    "senegal",
+    "nigeria",
+    "niger",
+    "gambia",
+    "zambia",
+    "luongo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "SL",
+        "GN",
+        "CI",
+        "ZM"
+      ],
+      "regions": [
+        "Corubal",
+        "Konkouré",
+        "Congo"
+      ],
+      "sources": [
+        "scotcat",
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Africa: Sierra Leone, Guinea, Côte d’Ivoire. Type locality: Sierra Leone.",
+          "countries": [
+            "SL",
+            "GN",
+            "CI"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Reported from Luongo River, Congo system, Zambia.",
+          "countries": [
+            "ZM"
+          ],
+          "regions": [
+            "Congo"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Known from the Senegal, Niger, Gambia, Corubal, Konkouré and Little Scarcies Rivers.",
+          "countries": [],
+          "regions": [
+            "Corubal",
+            "Konkouré"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340734,
+      "total": 86,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "GN",
+          46
+        ],
+        [
+          "LR",
+          32
+        ],
+        [
+          "SL",
+          3
+        ],
+        [
+          "CD",
+          1
+        ],
+        [
+          "MW",
+          1
+        ],
+        [
+          "TZ",
+          1
+        ],
+        [
+          "ZA",
+          1
+        ],
+        [
+          "ZM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -14.0625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -14.0625,
+          9.84375,
+          12,
+          12
+        ],
+        [
+          -12.65625,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -12.65625,
+          9.84375,
+          16,
+          16
+        ],
+        [
+          -12.65625,
+          11.25,
+          13,
+          13
+        ],
+        [
+          -11.25,
+          5.625,
+          3,
+          0
+        ],
+        [
+          -9.84375,
+          5.625,
+          2,
+          0
+        ],
+        [
+          -9.84375,
+          7.03125,
+          31,
+          4
+        ],
+        [
+          -8.4375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          23.90625,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          25.3125,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          29.53125,
+          -26.71875,
+          1,
+          0
+        ],
+        [
+          35.15625,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          36.5625,
+          -4.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -34,6 +217,10 @@
       {
         "source": "scotcat",
         "value": 16.5
+      },
+      {
+        "source": "planetcatfish",
+        "value": 16.7
       }
     ]
   },
@@ -43,6 +230,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_platychir.htm",
       "html": "<ul><li>Common name: Mountain barbel</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1417",
+      "html": "<ul><li>Scientific name: Amphilius platychir (Günther, 1864)</li><li>Common name: Mountain Barbel</li><li>Type locality: Sierra Leone</li><li>IUCN Red List: Least Concern (last assessed 2019)</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -57,10 +250,22 @@
       "html": "<p>Africa: Sierra Leone, Guinea, Côte d’Ivoire. Type locality: Sierra Leone.</p>"
     },
     {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1417",
+      "html": "<p>Africa: Sierra Leone, Guinea and Côte d'Ivoire. Reports from Ghana and Tanzania need confirmation. Known from the Senegal, Niger, Gambia, Corubal, Konkouré and Little Scarcies Rivers. Reported from Luongo River, Congo system, Zambia.</p>"
+    },
+    {
       "key": "habitat",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_platychir.htm",
       "html": "<p>The genus inhabits flowing waters in its natural habitat.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1417",
+      "html": "<p>Most amphiliid species are found in fast-flowing water of clear, rocky streams at high elevations or rapids of large lowland rivers. Species of Amphilius are adapted for fast flow and rocky habitats. Morphological adaptations for these habitats include expanded pectoral and pelvic fins with a thickened first ray, depressed body, dorsally directed eyes and reduced swim bladder. The large pelvic fins form, in conjunction with the body, a feeble sucking disc that enables the fish to cling to rocks.</p>"
     },
     {
       "key": "waterConditions",
@@ -81,6 +286,18 @@
       "html": "<p>Mosquito larvae, Tubifex, Cyclops, Daphnia, grindal worms, vegetable food, tablet and flake.</p>"
     },
     {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1417",
+      "html": "<p>The diet of Amphilius species has been reported to consist predominantly of benthic aquatic insects.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1417",
+      "html": "<p>There is no breeding report.</p>"
+    },
+    {
       "key": "notes",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_platychir.htm",
@@ -91,6 +308,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_platychir.htm",
       "html": "<p>Diouf, K. &amp; Entsua-Mensah, M. 2020. Amphilius platychir. The IUCN Red List of Threatened Species 2020.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Seegers, Lothar; The Catfishes of Africa. A handbook for identification and maintenance. Tetra Verlag GmbH. 604p.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1417",
+      "html": "<p>Catalogue of the fishes in the British Museum v. 5, pp 134.</p>"
     }
   ],
   "photos": [
@@ -170,5 +393,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-16"
+  "updatedAt": "2026-11-21"
 }

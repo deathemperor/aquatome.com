@@ -3,7 +3,14 @@
  "judged": [
   "File:Mausschmerle (Botia morleti).jpg",
   "File:Yasuhikotakia modesta.jpg",
-  "File:Yasuhikotakia modesta2.jpg"
+  "File:Yasuhikotakia modesta2.jpg",
+  "inat:389302539",
+  "inat:703873891",
+  "inat:752153296",
+  "inat:759546968",
+  "inat:759546987",
+  "inat:759547011",
+  "inat:759551902"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/73a2b429e0b7662d.webp": "072763d3dee2bf1f",
@@ -26,6 +33,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 412754650,
+  "done": true
  },
  "exhausted": "2026-11-09"
 }

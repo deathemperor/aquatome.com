@@ -1,8 +1,8 @@
 {
   "id": "hemigrammus-bellottii",
   "native": {
-    "input": "cc05e7be30dd0a93",
-    "at": "2026-11-10T07:58:31.896Z",
+    "input": "5ae5ed89586d8d3a",
+    "at": "2026-11-17T18:05:08.130Z",
     "claims": [
       {
         "code": "BR",
@@ -21,19 +21,19 @@
         "ok": true
       },
       {
-        "code": "BR",
+        "code": "CO",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Rio Solimoes, Negro, and Maroni basins in French Guiana and Brazil.",
-        "words": "Brazil",
+        "source": "glaser",
+        "quote": "The Golden Glowlight, Hemigrammus bellottii, is a comparatively close relative found in Colombia and Brazil.",
+        "words": "Colombia",
         "ok": true
       },
       {
-        "code": "GF",
+        "code": "BR",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Rio Solimoes, Negro, and Maroni basins in French Guiana and Brazil.",
-        "words": "French Guiana",
+        "source": "glaser",
+        "quote": "The Golden Glowlight, Hemigrammus bellottii, is a comparatively close relative found in Colombia and Brazil.",
+        "words": "Brazil",
         "ok": true
       }
     ],
@@ -192,9 +192,10 @@
     ],
     "native": [
       "BR",
-      "GF"
+      "GF",
+      "CO"
     ],
     "requests": 12,
-    "at": "2026-11-08T13:58:00.601Z"
+    "at": "2026-11-17T18:05:08.130Z"
   }
 }

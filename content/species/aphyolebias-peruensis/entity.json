@@ -9,6 +9,58 @@
     "south-america",
     "peru"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This species from Peru represents one of the most beautiful species of killifish.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2349504,
+      "total": 9,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "PE",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -73.125,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "lifeYears": [
       {
@@ -46,12 +98,6 @@
       "html": "<p>Killifish do not fit for community tanks in general, because they cannot show to advantage there.</p>"
     },
     {
-      "key": "dimorphism",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyolebias_peruensis_en/",
-      "html": "<p>The intraspecific variation is very high, and it is possible to distinguish each male from an import from another by coloration and pattern.</p>"
-    },
-    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyolebias_peruensis_en/",
@@ -71,7 +117,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyolebias_peruensis_en/",
       "source": "glaser"
     },
@@ -81,7 +127,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyolebias_peruensis_en/",
       "source": "glaser"
     }

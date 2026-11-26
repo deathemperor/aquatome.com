@@ -1,12 +1,17 @@
 {
   "id": "betta-lehi",
-  "summary": "Betta lehi (cá betta lehi) hợp người muốn nuôi một cặp hoặc nhóm nhỏ cá cỡ 6,1 cm trong bể riêng. Bể đáy 60 × 30 cm (khoảng 54 lít) là đủ. Nước cần 22–27 °C, pH 4–7, độ cứng 0–5 dGH, ánh sáng khá tối, có nhiều chỗ râm và lọc nhẹ. Độ khó 4/8, mức vừa. Khó nhất là chọn bạn cùng bể thật hiền, vì loài này không hợp bể cộng đồng thông thường.",
+  "summary": "Cá betta lehi (Betta lehi) hợp với người thích bể ánh sáng dịu, nhiều lũa và lá khô, nuôi riêng hoặc theo cặp, theo nhóm nhỏ. Cá dài 6,1 cm, cần bể tối thiểu 60 cm (đáy 60 × 30 cm, khoảng 54 lít), nước 22–27 °C, pH 4–7, độ cứng 0–5 dGH, độ khó 4/8 (mức vừa). Khó nhất là giữ nước mềm, hơi axit, chọn bạn cùng bể thật hiền và đậy nắp kín vì cá nhảy giỏi.",
   "mistakes": [
-    "Thả chung với cá to hoặc hiếu động trong bể cộng đồng thì cá bị bắt nạt và mất phần ăn; nên nuôi riêng hoặc chỉ nuôi chung với loài thật hiền.",
-    "Để bể hở nắp hoặc đổ nước đầy tới miệng thì cá dễ nhảy ra ngoài; nên đậy nắp kín và để mực nước thấp hơn miệng bể, vẫn chừa lớp không khí ẩm cho cá lên đớp.",
-    "Cho ăn quá nhiều thì cá dễ béo phì; nên cho ăn vừa phải, xen thức ăn sống hoặc đông lạnh cỡ nhỏ như bo bo, Artemia, trùng huyết."
+    "Thả chung vào bể cộng đồng thông thường: cá lớn hoặc hiếu động sẽ bắt nạt và tranh hết phần ăn, nên nuôi riêng hoặc chung với loài thật hiền.",
+    "Để bể hở hoặc đổ nước đầy tới miệng: cá nhảy rất giỏi, nên đậy nắp kín và đừng đổ nước đầy tới miệng.",
+    "Cho ăn quá nhiều: Betta dễ béo phì, nên cho ăn vừa phải và xen thức ăn sống hoặc đông lạnh cỡ nhỏ như bo bo, Artemia, trùng huyết."
   ],
   "speciesUpdatedAt": "2026-11-01",
-  "generatedAt": "2026-11-09T17:03:37.855Z",
-  "review": "approved"
+  "writtenFrom": "eca89b04613ac0b2",
+  "generatedAt": "2026-11-19T01:55:48.241Z",
+  "review": "pending",
+  "problems": [
+    "\"cá lớn hoặc hiếu động sẽ bắt nạt và tranh hết phần ăn\": the page hedges with \"nhiều khả năng sẽ bắt nạt\" (likely to bully). The summary states it as a certainty.",
+    "\"Betta dễ béo phì\": the page says \"có vẻ đặc biệt dễ bị béo phì\" (seem especially prone to obesity). The summary drops the hedge."
+  ]
 }

@@ -3,6 +3,12 @@
   "name": "ยองด็อกโอซิบ",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T00:44:50.853Z",
+    "why": "The Thai transliteration \"ยองด็อกโอซิบ\" is a phonetic rendering of \"Yongdokoship\", but it is likely a garbled form of Yeongdeok (영덕), and the name lacks a kind word, so it is not how a Thai atlas would write it."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

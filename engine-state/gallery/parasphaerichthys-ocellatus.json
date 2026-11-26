@@ -5,7 +5,9 @@
   "File:Parasphaerichthys ocellatus.png"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/d1547531f5558f87.webp": "ed2f6f6f3fbdbfff"
+  "https://media.aquatome.com/commons/d1547531f5558f87.webp": "ed2f6f6f3fbdbfff",
+  "https://media.aquatome.com/glaser/f47889ba0a86304a.webp": "8001e06c6662b487",
+  "https://media.aquatome.com/glaser/c7cbad063f45a743.webp": "2fb336d4e6063e5e"
  },
  "commons": "2026-11-02",
  "inat": {
@@ -19,5 +21,13 @@
  "gbif": {
   "key": 2393953,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 0,
+  "done": true
+ },
+ "exhausted": "2026-11-20"
 }

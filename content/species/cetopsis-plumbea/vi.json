@@ -1,0 +1,28 @@
+{
+  "slug": "ca-cetopsis-plumbea",
+  "name": "Cá Cetopsis plumbea",
+  "altNames": [
+    "Cá da trơn cá voi",
+    "Whale Cat"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Cetopsis plumbea Steindachner, 1882</li><li>Tên thường gọi: Whale Cat</li><li>Nơi thu mẫu chuẩn: Canelos, miền đông Ecuador.</li><li>Nguồn gốc tên: Cetopsis ghép từ tiếng Hy Lạp cetos (cá voi) và -opsis (giống), do con cá trông giống cá voi.</li><li>Danh sách đỏ IUCN: chưa đánh giá.</li></ul>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: thượng nguồn lưu vực sông Amazon.</p>",
+    "reproduction:planetcatfish": "<p>Sinh sản: chưa thấy ai ghi lại việc cho loài này đẻ.</p>",
+    "quickFacts:scotcat": "<p>Họ: Cetopsidae. Kích thước: 11,5 cm. Nhiệt độ: 22–28°C. pH: 6,0–7,0.</p><p>Trong phân họ Cetopsinae, muốn tách chi Cetopsis khỏi các chi còn lại thì xem nó có đủ cả ba đặc điểm sau cùng lúc hay không. Thứ nhất, cạnh vây lưng không có gai nhỏ. Thứ hai, cả vây lưng lẫn vây ngực đều không có gai. Thứ ba, xương lá mía chỉ có một hàng răng.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: thượng nguồn lưu vực sông Amazon, thuộc Ecuador và Peru. Nơi thu mẫu chuẩn: Canelos (Ecuador).</p>",
+    "habitat:scotcat": "<p>Loài này sống ở những con suối nước chảy vừa, sâu tới 1 m. Trong suối, chúng ở những đoạn đáy cát không có cây cỏ.</p>",
+    "diet:scotcat": "<p>Chúng ăn đủ loại côn trùng, cả côn trùng trên cạn lẫn côn trùng dưới nước.</p>",
+    "dimorphism:scotcat": "<p>Những con được đoán là cá đực của Cetopsis plumbea có một sợi kéo dài ở đầu tia thứ nhất của vây lưng. Cá cái và cá đực còn non không có sợi này. Ở cá đực đã lớn, tia thứ nhất của vây ngực cũng có sợi kéo dài, và tính theo tỷ lệ thì sợi này dài hơn phần kéo dài của cùng tia đó ở cá cái và cá đực non. Mép vây hậu môn của cá đực đã lớn cũng cong lồi rõ. Còn ở cá cái và cá đực non, mép vây này thẳng.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên: plumbea là tiếng Latin, nghĩa là thuộc về chì, tức có màu chì. Cái tên này lấy từ màu trắng bạc ở thân và đầu cá.</p><p>Danh lục đỏ IUCN: loài này còn ít thông tin, nhưng vùng phân bố rộng và không gặp mối đe dọa trực tiếp nào. Vì vậy IUCN xếp nó vào mức Ít quan tâm (IUCN 2023).</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Frederico, R.G. 2023. Cetopsis plumbea. The IUCN Red List of Threatened Species 2023. The ETYFish Project Fish Name Etymology Database. Vari, R. P., C. J. Ferraris Jr. &amp; M. C. C. de Pinna. 2005. The Neotropical whale catfishes (Siluriformes: Cetopsidae: Cetopsinae), a revisionary study. Neotropical Ichthyology 3:127-238.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": true,
+    "bySource": {
+      "planetcatfish": 0.85,
+      "scotcat": 0.95
+    }
+  }
+}

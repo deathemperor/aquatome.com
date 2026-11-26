@@ -1,8 +1,8 @@
 {
   "id": "rhynchodoras-woodsi",
   "native": {
-    "input": "3c11e9f27a3616b8",
-    "at": "2026-11-14T11:07:07.888Z",
+    "input": "b1b8605405193bf5",
+    "at": "2026-11-18T06:03:35.101Z",
     "claims": [
       {
         "code": "EC",
@@ -15,9 +15,25 @@
       {
         "code": "EC",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The parrot doradid, Rhynchodoras woodsi, is a doradid catfish that appears to be endemic to the Rio Marañon basin, Ecuador.",
+        "source": "glaser",
+        "quote": "Besides Ecuador, it is reported so far from the Amazon basin in Brazil (not in the rivers Xingu and Tocantins) and Guyana.",
         "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Besides Ecuador, it is reported so far from the Amazon basin in Brazil (not in the rivers Xingu and Tocantins) and Guyana.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Besides Ecuador, it is reported so far from the Amazon basin in Brazil (not in the rivers Xingu and Tocantins) and Guyana.",
+        "words": "Guyana",
         "ok": true
       }
     ],
@@ -27,6 +43,20 @@
         "source": "seriouslyfish",
         "quote": "Appears to be endemic to the Rio Marañon basin, Ecuador.",
         "country": "EC",
+        "ok": true
+      },
+      {
+        "name": "Rio Pastaza",
+        "source": "glaser",
+        "quote": "It is nevertheless very likely that these specimens belong to Rhynchodoras woodsi, a species described in 1976 from the Rio Pastaza basin in Ecuador.",
+        "country": "EC",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "Besides Ecuador, it is reported so far from the Amazon basin in Brazil (not in the rivers Xingu and Tocantins) and Guyana.",
+        "country": "BR",
         "ok": true
       }
     ],
@@ -76,9 +106,11 @@
       ]
     ],
     "native": [
-      "EC"
+      "EC",
+      "BR",
+      "GY"
     ],
     "requests": 12,
-    "at": "2026-11-14T11:07:07.888Z"
+    "at": "2026-11-18T06:03:35.101Z"
   }
 }

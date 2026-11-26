@@ -1,0 +1,292 @@
+{
+  "id": "plicofollis-nella",
+  "scientificName": "Plicofollis nella",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Plicofollis",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "bay-of-bengal",
+    "oceania",
+    "australia",
+    "philippines"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "AU",
+        "PH"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Distributed in the eastern Indian Ocean and West Pacific, from the east coast of India to the east coast of Australia, north to the Philippines.",
+          "countries": [
+            "IN",
+            "AU",
+            "PH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345111,
+      "total": 54,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "TW",
+          20
+        ],
+        [
+          "AU",
+          13
+        ],
+        [
+          "MY",
+          6
+        ],
+        [
+          "CN",
+          3
+        ],
+        [
+          "ID",
+          3
+        ],
+        [
+          "PH",
+          3
+        ],
+        [
+          "VN",
+          3
+        ],
+        [
+          "PG",
+          2
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          2.8125,
+          5,
+          0
+        ],
+        [
+          104.0625,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          -7.03125,
+          2,
+          0
+        ],
+        [
+          105.46875,
+          8.4375,
+          2,
+          0
+        ],
+        [
+          108.28125,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          108.28125,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          112.5,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          118.125,
+          5.625,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          119.53125,
+          23.90625,
+          16,
+          0
+        ],
+        [
+          120.9375,
+          23.90625,
+          4,
+          0
+        ],
+        [
+          122.34375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          129.375,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          129.375,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          130.78125,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          136.40625,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          136.40625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          139.21875,
+          -16.875,
+          2,
+          2
+        ],
+        [
+          143.4375,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          144.84375,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          146.25,
+          -19.6875,
+          4,
+          4
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7.5,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 40
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_nella.htm",
+      "html": "<p>Plicofollis nella (Valenciennes, 1840). Family: Ariidae. Size: 40 cm SL. Temperature: 20-27°C. pH: 7.5-8.5. IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_nella.htm",
+      "html": "<p>Western Pacific: Bay of Bengal, western central Pacific and northern coast of Australia. Distributed in the eastern Indian Ocean and West Pacific, from the east coast of India to the east coast of Australia, north to the Philippines.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_nella.htm",
+      "html": "<p>Inhabits coastal waters and estuaries.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_nella.htm",
+      "html": "<p>Feeds mainly on sea urchins.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_nella.htm",
+      "html": "<p>Description: D I, 7; A 14-17; P1 I, 11-12; P2 6; GR 4-5 + 9-10. Body elongated, compressed. Head depressed; head shield almost smooth, weakly striated; dorsomedian groove shallow and short, not reaching anteriorly to level of posterior end of eye; supraoccipital process rounded in adult. Palatal teeth granular or conical with blunt tips, on 2 pairs of patches longitudinally arranged; anterior patch small and oval; posterior patch elongate, slender. Inner gill rakes absent on the anterior 2 gill arches. Lateral line bifurcates behind caudal fin base.</p><p>Colouration: Body silvery; brownish dorsally; all fins blackish or dusky; adipose fin with a black margin.</p><p>Etymology: The genus name Plicofollis: plico, fold; follis, bellows or windbag, referring to creased or scalloped swim bladder characteristic of the genus. The specific name nella: derived from nalla-jella, local name for this catfish in Vizagapatam, India.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_nella.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2008. FishBase. www.fishbase.org, version (12/2008).</p><p>Kailola, P.J., 1999. Ariidae (=Tachysuridae): sea catfishes (fork-tailed catfishes). p. 1827-1879. In K.E. Carpenter and V.H. Niem (eds.) FAO species identification guide for fishery purposes. FAO, Rome.</p><p>Marceniuk, A.P. and N.A. Menezes, 2007. Systematics of the family Ariidae (Ostariophysi, Siluriformes), with a redefinition of the genera. Zootaxa 1416:1-126.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-19"
+}

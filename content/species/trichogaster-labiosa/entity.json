@@ -11,6 +11,157 @@
     "inle-lake",
     "lake-inle"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Lake Inle"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from Southern Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "The parents of these fish were collected during a private collecting trip in Burma, in Lake Inle.",
+          "countries": [],
+          "regions": [
+            "Lake Inle"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5211187,
+      "total": 64,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "MM",
+          63
+        ],
+        [
+          "TW",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          92.8125,
+          22.5,
+          2,
+          2
+        ],
+        [
+          94.21875,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          94.21875,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          94.21875,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          22.5,
+          1,
+          1
+        ],
+        [
+          95.625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          95.625,
+          16.875,
+          16,
+          16
+        ],
+        [
+          95.625,
+          18.28125,
+          3,
+          3
+        ],
+        [
+          95.625,
+          19.6875,
+          3,
+          3
+        ],
+        [
+          95.625,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          97.03125,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          16.875,
+          3,
+          3
+        ],
+        [
+          97.03125,
+          19.6875,
+          17,
+          17
+        ],
+        [
+          97.03125,
+          25.3125,
+          4,
+          4
+        ],
+        [
+          98.4375,
+          21.09375,
+          4,
+          4
+        ],
+        [
+          120.9375,
+          22.5,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -142,7 +293,24 @@
       "html": "<p>Despite its ease of keeping and peaceable nature, this species is not particularly popular in the hobby, although it is imported quite regularly. A gold or 'sunset' strain exists, in which the barred patterning is replaced by an overall orange/gold colouration. This is not a natural variation, but has been selectively bred for the trade. The female of this form is almost as colourful as the male.</p><p>Like others in the suborder Anabantoidei, the species possesses an accessory breathing organ known as the labyrinth organ. So-called due to its maze-like structure, this organ allows the fish to breathe atmospheric air to a certain extent. It is formed by a modification of the first gill arch, and consists of many highly vascularised, folded flaps of skin. The structure of the organ varies in complexity between species, tending to be more well-developed in those inhabiting particularly oxygen-deprived conditions.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/239456985.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/239456985-480.webp",
+      "width": 1024,
+      "height": 753,
+      "licence": "CC BY-NC",
+      "author": "myomyintthu",
+      "sourceUrl": "https://www.inaturalist.org/photos/239456985",
+      "caption": "Cá sặc môi dày đực màu cam vàng trong bể kính",
+      "setup": true,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/239456985-large.webp",
+        "width": 1632,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [
     {
       "youtubeId": "WIqKPCM-OGQ",

@@ -10,6 +10,46 @@
     "peru",
     "loreto"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Ampiyacu",
+        "Nanay"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The hummingbird tetra, Trochilocharax ornatus, is a tiny characid from Amazonian Peru, reaching only 17 mm SL.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the description Zarske (2010) states that there is conflicting information to the origin of the fish in the trade, with some stating it to be collected from a blackwater tributary of the río Ampiyacu near Pebas while others claim that it's native to the rio Nanay near Iquitos.",
+          "countries": [],
+          "regions": [
+            "Ampiyacu",
+            "Nanay"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5962415,
+      "total": 0,
+      "fetched": "2026-11-17",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

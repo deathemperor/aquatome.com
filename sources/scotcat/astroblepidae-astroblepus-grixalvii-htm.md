@@ -1,0 +1,29 @@
+---
+url: https://www.scotcat.com/astroblepidae/astroblepus_grixalvii.htm
+title: Astroblepus grixalvii Humboldt, 1805
+fetchedAt: 2026-11-20T23:47:30.403Z
+hash: 7d7e3108aeb73c0997f764e35d8b96a9da2c2e0cda5d48e93aef7f22349439c1
+---
+
+Astroblepus grixalvii Humboldt, 1805
+Image contributors to this species:
+Muséum national d'histoire naturelle (3)
+ScotCat Sources:
+Other Sources:
+Relevant Information:
+Astroblepids are closely related to the Loricariids, and in fact one genus of fish (Lithogenes Eigenman, 1909) seems intermediate between the two families, having the shape and form of an Astroblepid, but some plates on the body and other morphological characters closer to Loricariids. At the time of writing, Lithogenes is currently placed in Loricariidae. Aquarium Care: Not an easy family of catfishes to keep so they would have to have a large tank with rocks and some appropriate vegetation. The water would need to be fast flowing and provided with extra oxygen via an air tube fed into the powerhead flow. The tank should be set up with rocks so as to provide an area where the water current will be slower. Diet: Invertebrates, insect larvae, spirulina tablets or paste, algae based foods and live bloodworm would probably be the staple diet but you may wish to try glassworm and blackworm (although these won’t tend to stay on the substrate unless the current takes them there). Etymology: The genus name Astroblepus: astro, from aster, star; blepus, from blépos, look, i.e., stargazer, referring to dorsally placed eyes of A. grixalvii. The specific name grixalvii: in memory of Don Mariano Grixalva, a “respectable scholar” who “disseminated at Popayan [Colombia, where this catfish occurs] a taste for the physical sciences, which he himself cultivated with success” (translation).
+Common Name:
+None
+Synonyms:
+None
+Family:
+Astroblepidae
+Distribution:
+South America: Cauca and Magdalena River basins, Colombia . Type locality: Río Palacé, near Popayan, Colombia.
+Size:
+30.0cm. (12ins)
+Temp:
+15-20°c (57-67°f.)
+p.H.
+-
+IUCN Red List This species is being impacted by pollution, but given that it has a relatively wide range, is locally common and it occurs in a protected area, it does not qualify for a threatened category at present. Monitoring of its population and the local threats is recommended. Least Concern, but needs updating (IUCN 2016). Reference: Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p. Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 03/2024 ). The ETYFish Project Fish Name Etymology Database © Christopher Scharpf. Velasquez Quispe, M. & Hidalgo del Aguila, M. 2016. Astroblepus grixalvii. The IUCN Red List of Threatened Species 2016.

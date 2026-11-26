@@ -1,0 +1,12 @@
+---
+url: https://www.aquariumglaser.de/en/fisharchive/hyphessobrycon-peugeotorum-h-peugeoti-2/
+title: Hyphessobrycon peugeotorum ( = H. peugeoti) - Aquarium Glaser GmbH
+fetchedAt: 2026-11-25T01:16:42.299Z
+hash: 6e46d91801d9d2c115995dacf83feb7ffc12dc42a1cc7a62232f8c25f9ac58e7
+---
+
+It’s amazing how many new, attractive tetra species have been discovered recently! Among them is Hyphessobrycon peugeotorum, which was only scientifically described in 2013 under the name H. peugeoti. It originates from the Brazilian state of Mato Grosso (middle drainage of the Rio Juruena, upper basin of the Rio Tapajós). The unusual species name does not refer to the French car builders, but (quotation): “Hyphessobrycon peugeoti is patronymic to the Peugeot family, who invented the Peugeot pepper mill mechanism in 1842 and whose manufacturing business led to the establishment of a carbon sink reforestation project in the fazenda São Nicolau, in central Brazil, and eventually to the discovery of this new species.” According to the rules of zoological naming, in this case (naming after several individuals, not after a single individual) the Latin plural genitive must be chosen for the species name – i.e. the word ending -orum – and not, as happened, the Latin singular genitive ending in -i.
+Apart from that, Hyphessobrycon peugeotorum is a beautiful fish that we can offer as offspring. The species grows to a length of 4-5 cm and is completely peaceful. An experience in the photo tank indicates how the animal should be cared for in order to achieve optimum coloration. In our fishhouse, a male showed mating coloration and developed a black caudal fin (in normal coloration, the caudal fin is transparent and colorless). We caught the animal and some conspecifics, put them in the photo tank and waited. It shouldn’t normally take long for the now decolored animal to show mating colors again. Not so! Nine days passed and nothing happened. We warmed the water, added humic substances, fed live food, changed the water – everything you do to get tetras going. Nothing. Then we darkened the tank considerably! And now it worked. Apparently Hyphessobrycon peugeotorum likes it a bit dim. To each his own!
+For our customers: the animals have code 261499 on our stocklist. Please note that we only supply the wholesale trade.
+Text & photos. Frank Schäfer
+PS: As we have learned, an objection was raised against the change of the species name peugeoti to peugeotorum, so that the species is currently more frequently referred to as H. peugeoti again.

@@ -2,18 +2,6 @@
   "id": "crossocheilus-reticulatus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/43058d9279c38f09.webp",
-      "thumb": "https://media.aquatome.com/commons/43058d9279c38f09-480.webp",
-      "width": 1200,
-      "height": 697,
-      "licence": "CC0",
-      "author": "5snake5",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Holotylognathus_reticulatus_oder_Crossocheilus_reticulatus_-_Puzzlebarbe_(3).jpg",
-      "caption": "Hai cá bám rêu lưới giữa lá cây trong bể",
-      "best": true,
-      "kind": "pair"
-    },
-    {
       "url": "https://media.aquatome.com/commons/24e6ff1eff639d09.webp",
       "thumb": "https://media.aquatome.com/commons/24e6ff1eff639d09-480.webp",
       "width": 1200,
@@ -62,6 +50,18 @@
       "kind": "detail"
     },
     {
+      "url": "https://media.aquatome.com/commons/c7ec736f49235121.webp",
+      "thumb": "https://media.aquatome.com/commons/c7ec736f49235121-480.webp",
+      "width": 1200,
+      "height": 695,
+      "licence": "CC BY-SA 4.0",
+      "author": "Graf zu Pappenheim",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crossocheilus_reticulatus_2.jpg",
+      "caption": "Cá bám rêu lưới bơi giữa cây thủy sinh",
+      "best": false,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/b1648e94a4c7326f.webp",
       "thumb": "https://media.aquatome.com/commons/b1648e94a4c7326f-480.webp",
       "width": 1200,
@@ -74,16 +74,16 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/c7ec736f49235121.webp",
-      "thumb": "https://media.aquatome.com/commons/c7ec736f49235121-480.webp",
+      "url": "https://media.aquatome.com/commons/43058d9279c38f09.webp",
+      "thumb": "https://media.aquatome.com/commons/43058d9279c38f09-480.webp",
       "width": 1200,
-      "height": 695,
-      "licence": "CC BY-SA 4.0",
-      "author": "Graf zu Pappenheim",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crossocheilus_reticulatus_2.jpg",
-      "caption": "Cá bám rêu lưới bơi giữa cây thủy sinh",
-      "best": false,
-      "kind": "other"
+      "height": 697,
+      "licence": "CC0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Holotylognathus_reticulatus_oder_Crossocheilus_reticulatus_-_Puzzlebarbe_(3).jpg",
+      "caption": "Hai cá bám rêu lưới giữa lá cây trong bể",
+      "best": true,
+      "kind": "pair"
     }
   ],
   "seen": 14,

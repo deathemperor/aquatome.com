@@ -1,7 +1,11 @@
 {
  "queue": [],
  "judged": [
-  "inat:325924351"
+  "inat:325924351",
+  "inat:349145147",
+  "inat:360540077",
+  "inat:529750163",
+  "inat:597958026"
  ],
  "hashes": {},
  "commons": "2026-11-08",
@@ -12,5 +16,13 @@
    "research": 186492796,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2354889,
+  "next": null
+ },
+ "inatNc": {
+  "after": 329830123,
+  "done": true
  }
 }

@@ -1,0 +1,117 @@
+{
+  "id": "sciades-parkeri",
+  "native": {
+    "input": "d21602fb6754090f",
+    "at": "2026-11-19T12:55:32.239Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Atlantic: from the Gulf of Paria, Venezuela to Maranhão State, Brazil.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Atlantic: from the Gulf of Paria, Venezuela to Maranhão State, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Gulf of Paria",
+        "source": "scotcat",
+        "quote": "Western Atlantic: from the Gulf of Paria, Venezuela to Maranhão State, Brazil.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sciades parkeri",
+    "status": "ACCEPTED",
+    "taxonKey": 5712378,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        76
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        71
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        23
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        8
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "de55d6c3-248a-4f08-ba75-66dcff510f13",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "0eb4ad83-f80d-4d86-83d8-f3a55ddd216f",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "db3b4f9d-87ca-4661-a002-c868b7417878",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-19T12:55:32.239Z"
+  }
+}

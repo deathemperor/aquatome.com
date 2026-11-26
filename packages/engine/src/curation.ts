@@ -172,12 +172,15 @@ export const heldBy = (sl: SecondLooks): ((url: string) => boolean) => { const l
  * that passes, or that no check has judged yet (the site's faces don't fall back onto an unjudged photo either). `hand`:
  * the avoid list's entries a person wrote; a photo there that passes otherwise keeps the person's reason, not one of these.
  */
-export function refusedWhy(photo: Pick<Photo, 'url' | 'caption'>, page: string, v: Verdicts, hand: Record<string, string>, held: (url: string) => boolean): string | undefined {
+export function refusedWhy(photo: Pick<Photo, 'url' | 'caption'> & { licence?: string }, page: string, v: Verdicts, hand: Record<string, string>, held: (url: string) => boolean): string | undefined {
   const url = photo.url
   if (held(url)) return 'held for a second look'
   if (url in v.rejected) return 'on the never-again list'
   if (v.kept?.(url)) return "a shop's kept mark"
   if ((v.faces[url] ?? 0) > 0) return 'a face'
+  // A non-commercial head is its own page's and its own card's alone: never the day's card or any face for many fish
+  // (the chief of staff's rule, 17 Nov).
+  if (isNonCommercial(photo.licence ?? '')) return 'a non-commercial photo'
   if (cardWorthy(photo, page, v, hand)) return undefined
   const own = v.subjects[url]?.[page]
   const verdict = own && !own.guide ? own : v.legacy[url]?.ok !== 'unsure' ? v.legacy[url] : undefined
@@ -212,6 +215,29 @@ export function headAvoid(pages: { id: string; photos: Photo[] }[], v: Verdicts,
         continue
       }
       for (const url of [p.url, p.large?.url]) if (url && !(url in hand)) out[url] = `${ENGINE_AVOID}${why}`
+    }
+  }
+  return out
+}
+
+/**
+ * For each page whose head is on the avoid list (the engine's or a person's), its first own photo that passes the card
+ * rule and that the list doesn't hold, by its own address, so the site takes the photo's large copy from its record.
+ * The site's faces for more than one fish fall back to it, not to a photo no check has judged (the site has no
+ * verdicts; the Site lead, 17 Nov). A page whose head passes, or isn't judged yet, has none. `avoid`: the list as this
+ * run writes it (withEngineAvoid), since a photo another page refuses is on it too, and a person may list either address.
+ */
+export function cardPhotos(pages: { id: string; photos: Photo[] }[], v: Verdicts, hand: Record<string, string>, held: (url: string) => boolean, avoid: Record<string, string>): Record<string, string> {
+  const out: Record<string, string> = {}
+  for (const page of pages) {
+    let headRefused: boolean | undefined
+    for (const p of page.photos) {
+      if (p.generated) continue
+      // On the list: refused here, or on the list by either address, for this page or another.
+      const listed = !!refusedWhy(p, page.id, v, hand, held) || [p.url, p.large?.url].some(u => !!u && u in avoid)
+      headRefused ??= listed
+      if (!headRefused) break
+      if (!listed && cardWorthy(p, page.id, v, hand)) { out[page.id] = p.url; break }
     }
   }
   return out
@@ -338,8 +364,8 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
   }
   const known = [...STAPLE_SPECIES, ...POPULAR.filter(id => !STAPLE_SPECIES.includes(id)), ...POPULAR_BREEDS]
   const out: Candidate[] = []
-  // A non-commercial album photo stays in its album: no card shows it (the owner's yes was for albums, 10 Nov).
-  const photosOf = (id: string, own: Photo[]) => [...own, ...(c.galleries[id] ?? []).filter(p => !isNonCommercial(p.licence))]
+  // A non-commercial photo is no card for many fish, a page's head or not (the chief of staff's rule, 17 Nov).
+  const photosOf = (id: string, own: Photo[]) => [...own, ...(c.galleries[id] ?? [])].filter(p => !isNonCommercial(p.licence))
   for (const s of c.species) {
     const ok = (p: Photo) => cardWorthy(p, s.id, v, avoid)
     const all = photosOf(s.id, s.photos)

@@ -1,6 +1,8 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:106570278"
+ ],
  "hashes": {
   "https://media.aquatome.com/scotcat/824e09d38a913277.webp": "0000f4e0d0d14800",
   "https://media.aquatome.com/scotcat/5c1c2c44e80b7d1a.webp": "01006060c0e82a00",
@@ -21,6 +23,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 66147474,
+  "done": true
  },
  "exhausted": "2026-11-16"
 }

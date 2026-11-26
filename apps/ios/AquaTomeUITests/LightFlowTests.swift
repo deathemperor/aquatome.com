@@ -512,12 +512,14 @@ final class LightFlowTests: XCTestCase {
   }
 
   func testTheDayPreviewPlaysOnTheLightThenTheScheduleRunsAgain() {
-    // Forty seconds (the site's ten, slowed): the light holds full for about twelve, longer than a slow runner's look.
-    let app = launch("-preview-seconds", "40")
+    // Ninety seconds (the site's ten, slowed): the light holds full for about 26 of them (from 47 s to 73 s), and the
+    // frames read keep only the last twelve, which the evening's dimming then replaces. At forty seconds it held full
+    // for twelve, and a look on GitHub's Mac took longer: twice (16 and 17 Nov) the first try read only the dimming.
+    let app = launch("-preview-seconds", "90")
     connect(app)
     // The whole day: the light follows it to full (70%) at noon, off at 20:00, then its own schedule.
     tap(app, "play")
-    expectFrames(app, ".* 07 02 46 .*", timeout: 30)
+    expectFrames(app, ".* 07 02 46 .*", timeout: 80)
     expect(app, "play", contains: "Xem thử cả ngày trên đèn", timeout: 60)
     expectFrames(app, ".* 07 02 00 .. \\| 5a 01 08 .. .. 05 12 ff ff ..")
   }
@@ -941,38 +943,262 @@ final class LightFlowTests: XCTestCase {
   }
 
   /// The owner's Love Ecology light (13 Nov: "I cant control love exology on app"): its card is the owner's account's
-  /// alone, and off, then a colour, are each broadcast as recorded (the simulator's stand-in keeps what it was given),
-  /// the card saying what was sent.
+  /// alone. Off goes as recorded; a swatch, then a drag of Độ sáng, each go once as a colour built at the slider's level
+  /// (the simulator's stand-in keeps what it was given), the line saying what was sent without moving what's under it.
   func testTheOwnersLoveEcologyLightTakesOffThenAColour() {
     let app = launch("-fake-accounts", "on", "-reset-fake-server", "-fake-owner", "ui-apple")
     XCTAssertFalse(element(app, "lamp-off").waitForExistence(timeout: 2), "the light's card before the owner signed in")
+    XCTAssertFalse(element(app, "lamp-level").exists, "the slider before the owner signed in")
     XCTAssertFalse(element(app, "lamp-trial-off").exists, "the trial row before the owner signed in")
     app.openAccount()
     app.signInWithStandInApple()
     app.openTab("Đèn")
-    // The line is there before the first send, so sending doesn't push the cards below down.
-    expect(app, "lamp-status", contains: "Chưa gửi lệnh nào")
+    expect(app, "lamp-status", contains: "Chưa gửi lệnh nào từ máy này")
+    // Bật and Tắt are buttons, not swatches too: the eight colours and Khác.
+    XCTAssertEqual(app.buttons.matching(NSPredicate(format: "identifier IN %@", ["lamp-on", "lamp-off"])).count, 2)
+    // Scrolled to: the colour grid builds only what is on the screen, and on GitHub's iPhone 17 the card's colours start
+    // below the master button's card (17 Nov: "no Khác" on both tries, the recording showing the grid off the screen).
+    XCTAssertTrue(scrolledTo(app, "lamp-other").exists, "no Khác")
+    // Nothing sent yet: the slider rests at 100%.
+    expect(app, "lamp-level", value: "100%")
+    // The line is two lines high from the first frame, so sending moves nothing under it (the trial row).
+    let under = gap(app, "lamp-level", "lamp-trial-off")
     tap(app, "lamp-off")
-    expect(app, "lamp-sent", contains: "off")
-    expect(app, "lamp-status", contains: "Đã gửi “Tắt”")
+    expect(app, "lamp-status", contains: "Đã gửi “Tắt” lúc")
     // The time as the schedule writes it, 24-hour whatever the phone's setting.
     XCTAssertNotNil(element(app, "lamp-status").label.range(of: #"lúc \d{2}:\d{2}\.$"#, options: .regularExpression), element(app, "lamp-status").label)
-    tap(app, "lamp-blue")
-    expect(app, "lamp-sent", contains: "off blue")
-    expect(app, "lamp-status", contains: "Đã gửi “Xanh dương”")
-    // The owner's trial of commands built anew (14 Nov): each broadcast as the recorded ones are, green last to put it back.
-    // The other buttons wait while one sends (3 s), so each is sent before the next tap.
-    let trials = [("trial-white-half", "Trắng 50% (tự tạo)"), ("trial-off", "Tắt (tự tạo 1)"), ("trial-on", "Bật (tự tạo 1)"),
-                  ("trial-off-recorded", "Tắt (tự tạo 2)"), ("trial-on-recorded", "Bật (tự tạo 2)"), ("trial-green", "Xanh lá (ghi sẵn)")]
+    XCTAssertEqual(gap(app, "lamp-level", "lamp-trial-off"), under, accuracy: 0.5, "the first send moved the trial row")
+    // A swatch, tapped within the light's gap after Tắt: it waits its turn, then goes at the slider's level.
+    tap(app, "lamp-cyan")
+    expect(app, "lamp-status", contains: "Đã gửi “Xanh lơ”, 100% lúc", timeout: 15)
+    // A drag sends nothing while it moves: once, when the finger lifts, the card's colour at the new level. Aimed at 35%
+    // (1–100%), where Design drew its words while the finger is down, which the line kept for the tests holds.
+    let level = dragSlider(app, "lamp-level", to: 34.0 / 99)
+    expect(app, "lamp-lines", contains: "Ngừng kéo để gửi “Xanh lơ”, \(level)")
+    expect(app, "lamp-status", contains: "Đã gửi “Xanh lơ”, \(level) lúc", timeout: 15)
+    XCTAssertEqual(element(app, "lamp-sent").label, "off cyan@100 cyan@\(level.dropLast())")
+    // The owner's trial of on and off built anew (14 Nov), each broadcast as the recorded ones are, in turn.
+    let trials = [("trial-off", "Tắt (tự tạo 1)"), ("trial-on", "Bật (tự tạo 1)"), ("trial-off-recorded", "Tắt (tự tạo 2)"),
+                  ("trial-on-recorded", "Bật (tự tạo 2)")]
     for (id, name) in trials {
       tap(app, "lamp-" + id)
+      expect(app, "lamp-status", contains: "Đã gửi “\(name)” lúc", timeout: 15)
       expect(app, "lamp-sent", contains: id)
-      expect(app, "lamp-status", contains: "Đã gửi “\(name)”")
       expect(app, "lamp-status", contains: "Đợi 10 giây rồi bấm tiếp.")
     }
   }
 
+  /// What this phone last sent to the Love Ecology light comes back after a relaunch, with the slider where it was; and
+  /// leaving the app while a colour waits its turn cuts it off: back in the app the line says so, and "Gửi lại" sends it.
+  func testTheLoveEcologyCardKeepsWhatWasSentAndWhatLeavingCutOff() {
+    var app = launch("-fake-accounts", "on", "-reset-fake-server", "-fake-owner", "ui-apple")
+    app.openAccount()
+    app.signInWithStandInApple()
+    app.openTab("Đèn")
+    // Before any colour, the slider sends white.
+    let level = dragSlider(app, "lamp-level", to: 0.35)
+    expect(app, "lamp-status", contains: "Đã gửi “Trắng”, \(level) lúc", timeout: 15)
+    XCTAssertEqual(element(app, "lamp-sent").label, "white@\(level.dropLast())")
+    app.terminate()
+    // The light's gap made 8 s (`-lamp-gap`), and held past it until the test opens it (`-lamp-gap-held`): green still
+    // waits when the app leaves the front, however slow the taps. On 21 Nov GitHub's Mac took 11 and 13 s from red's tap
+    // to green's, past red's three seconds and the gap, so green had gone in full and the card rightly said so.
+    let gates = LampGates()
+    app = launch("-fake-accounts", "on", "-fake-owner", "ui-apple", "-lamp-gap", "8", "-lamp-gap-held", "-test-gates", gates.path,
+                 reset: false)
+    expect(app, "lamp-status", contains: "Lần cuối máy này gửi: “Trắng”, \(level) · ", timeout: 20)
+    expect(app, "lamp-level", value: level)
+    let under = gap(app, "lamp-level", "lamp-trial-off")
+    // Red goes at once; green waits for its end and the light's gap.
+    tap(app, "lamp-red")
+    tap(app, "lamp-green")
+    expect(app, "lamp-status", contains: "Đang gửi “Xanh lá”, \(level)…")
+    leaveAndComeBack(app)
+    expect(app, "lamp-status", contains: "Gửi “Xanh lá”, \(level) bị ngắt vì bạn rời ứng dụng.")
+    XCTAssertEqual(gap(app, "lamp-level", "lamp-trial-off"), under, accuracy: 0.5, "Gửi lại moved the trial row")
+    // Red alone went: green hadn't gone when the app left (held, or still in its gap on a quick run; a hold that didn't
+    // hold fails here on a slow one, never passes). The hold let go, and past the gap (8 s from red's end, a second's look
+    // at the gate) green still doesn't go: leaving dropped it, not the hold.
+    let n = level.dropLast()
+    XCTAssertEqual(element(app, "lamp-sent").label, "red@\(n)", "green went before the app left: the flow proves nothing")
+    gates.open("lamp-gap")
+    let more = expectation(for: NSPredicate(format: "label != %@", "red@\(n)"), evaluatedWith: element(app, "lamp-sent"))
+    more.isInverted = true
+    XCTAssertEqual(XCTWaiter.wait(for: [more], timeout: 12), .completed, "green went after the app left: \(element(app, "lamp-sent").label)")
+    tap(app, "lamp-again")
+    expect(app, "lamp-status", contains: "Đã gửi “Xanh lá”, \(level) lúc", timeout: 15)
+    XCTAssertEqual(element(app, "lamp-sent").label, "red@\(n) green@\(n)")
+  }
+
+  /// Khác's wheel: a drag on it sends once, when the finger lifts, its colour at the slider's level. VoiceOver reads it as
+  /// two values: the hue by its name, one name every 15° (Design's blues at 195°, 210° and 225°), and the saturation in
+  /// percent. White from its centre goes as the light took it, hue 00 00. (XCUITest can't step VoiceOver's adjustable
+  /// values on iOS: the steps themselves aren't driven here.)
+  func testKhacsWheelSendsOncePerDragAndIsTwoValuesToAdjust() {
+    let app = signedIn()
+    tap(app, "lamp-other")
+    let wheel = element(app, "lamp-wheel")
+    XCTAssertTrue(wheel.waitForExistence(timeout: 5), "no wheel")
+    let centre = wheel.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
+    // From the centre right (yellow-green), then down (cyan), each to 80%.
+    centre.press(forDuration: 0.1, thenDragTo: wheel.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.5)))
+    expect(app, "lamp-status", contains: "Đã gửi màu tự chọn, 100% lúc", timeout: 15)
+    centre.press(forDuration: 0.1, thenDragTo: wheel.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.9)))
+    element(app, "wheel-done").tap()
+    wait(app, "lamp-sent", NSPredicate(format: "label MATCHES %@", "wheel:[0-9a-f]{4}:[0-9a-f]{4}@100 wheel:[0-9a-f]{4}:[0-9a-f]{4}@100"),
+         "one send a drag", timeout: 20, file: #filePath, line: #line)
+    tap(app, "lamp-other")
+    let hue = element(app, "wheel-hue"), saturation = element(app, "wheel-saturation")
+    XCTAssertTrue(hue.waitForExistence(timeout: 5), "no hue to adjust")
+    XCTAssertEqual(hue.label, "Sắc màu")
+    XCTAssertEqual(saturation.label, "Độ đậm")
+    XCTAssertEqual(hue.value as? String, "xanh lơ")
+    XCTAssertEqual(saturation.value as? String, "80%")
+    // Round the blues near the edge, 15° apart: each its own name.
+    for (degrees, name) in [(195.0, "xanh da trời"), (210, "xanh biển"), (225, "xanh coban"), (240, "xanh dương")] {
+      let a = degrees * .pi / 180
+      wheel.coordinate(withNormalizedOffset: CGVector(dx: 0.5 + 0.45 * sin(a), dy: 0.5 - 0.45 * cos(a))).tap()
+      expect(app, "wheel-hue", value: name)
+    }
+    centre.tap()
+    expect(app, "wheel-saturation", value: "0%")
+    element(app, "wheel-done").tap()
+    wait(app, "lamp-sent", NSPredicate(format: "label ENDSWITH %@", "wheel:0000:0000@100"), "white sent as hue 00 00", timeout: 25,
+         file: #filePath, line: #line)
+  }
+
+  /// A record kept by an earlier build reads as far as it goes: one without a level still says what was last sent, the
+  /// slider at 100%; and a kept wheel colour with a hue below 0 is taken round (−30° is 330°, "hồng"), never a crash.
+  func testAKeptRecordWithoutALevelOrWithAHueBelowZeroStillReads() {
+    let kept = #"{"last":{"send":{"choice":{"recording":{"_0":"off"}}},"at":785000000},"wheel":{"hue":-30,"saturation":0.5}}"#
+    let app = signedIn("-loveEcology.sent", "\"" + kept.replacingOccurrences(of: "\"", with: "\\\"") + "\"")
+    expect(app, "lamp-status", contains: "Lần cuối máy này gửi: “Tắt” · ")
+    expect(app, "lamp-level", value: "100%")
+    tap(app, "lamp-other")
+    expect(app, "wheel-hue", value: "hồng")
+    expect(app, "wheel-saturation", value: "50%")
+  }
+
+  /// Leaving Đèn while one colour is on air and another waits its turn (the light's gap made a minute, `-lamp-gap`):
+  /// the one on air finishes, the one waiting never goes, and back on Đèn the line says what was sent.
+  func testLeavingTheLightsScreenDropsWhatWaits() {
+    let app = signedIn("-lamp-gap", "60")
+    tap(app, "lamp-red")
+    tap(app, "lamp-green")
+    expect(app, "lamp-status", contains: "Đang gửi “Xanh lá”, 100%…")
+    app.openTab("Bể của tôi")
+    app.openTab("Đèn")
+    expect(app, "lamp-status", contains: "Đã gửi “Đỏ”, 100% lúc", timeout: 15)
+    XCTAssertEqual(element(app, "lamp-sent").label, "red@100")
+  }
+
+  /// A start whose answer doesn't come (the stand-in's first, eight seconds late): after about five seconds the line says
+  /// it didn't go and the card takes the next tap; the late answer, when it comes, credits nothing.
+  func testAStartThatDoesntAnswerGivesUpAndItsLateAnswerCreditsNothing() {
+    let app = signedIn("-fake-lamp-late-first", "8")
+    tap(app, "lamp-red")
+    expect(app, "lamp-status", contains: "Không gửi được lệnh tới đèn. Thử lại.", timeout: 10)
+    tap(app, "lamp-green")
+    // On air from about seven seconds to ten, past red's late answer at eight.
+    expect(app, "lamp-status", contains: "Đã gửi “Xanh lá”, 100% lúc", timeout: 15)
+    XCTAssertEqual(element(app, "lamp-sent").label, "green@100")
+  }
+
+  /// A start Bluetooth had that never answers (`-fake-lamp-silent 1`): given up after five seconds, it may have gone out,
+  /// so the card says that isn't known, never "Không gửi được" (the phone's broadcaster tells a stopped start it had
+  /// `.cut`, Codex 18 Nov). It isn't counted as sent, and the next send goes as ever.
+  func testAStartBluetoothHadThatNeverAnswersIsNotSaidNotSent() {
+    let app = signedIn("-fake-lamp-silent", "1")
+    tap(app, "lamp-red")
+    expect(app, "lamp-status", contains: "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn.", timeout: 10)
+    expect(app, "lamp-lines", lacks: "Không gửi được lệnh tới đèn")
+    tap(app, "lamp-green")
+    expect(app, "lamp-status", contains: "Đã gửi “Xanh lá”, 100% lúc", timeout: 15)
+    XCTAssertEqual(element(app, "lamp-sent").label, "green@100", "red counted as sent")
+  }
+
+  /// A start Bluetooth had and cut before it answered (the stand-in waits 3 s for Bluetooth, then cuts it as it begins) may
+  /// have gone out: what waits after it still waits the light's gap (a minute here), as after any broadcast. Without it,
+  /// green went as soon as Bluetooth was back (Codex, 20 Nov).
+  func testWhatWaitsAfterAStartBluetoothCutStillWaitsTheGap() {
+    let app = signedIn("-fake-lamp-waits", "3", "-fake-lamp-cuts", "1", "-lamp-gap", "60")
+    tap(app, "lamp-red")
+    tap(app, "lamp-green")
+    expect(app, "lamp-status", contains: "Đang gửi “Xanh lá”")
+    // Red is cut 3 s in; green would go at once without the gap.
+    _ = XCTWaiter.wait(for: [XCTestExpectation(description: "past red's cut")], timeout: 8)
+    XCTAssertEqual(element(app, "lamp-starts").label, "1", "green went without the gap after red's cut")
+    // Red was cut, not aired: one aired for its 3 s would have been stopped at its end, and green waited after that.
+    XCTAssertEqual(element(app, "lamp-stops").label, "0", "red wasn't cut: the flow proves nothing")
+    expect(app, "lamp-status", contains: "Đang gửi “Xanh lá”")
+  }
+
+  /// Signing out while a colour waits its turn (the light's gap made a minute, `-lamp-gap`): the one waiting never goes.
+  /// Read from the phone's one broadcaster, on Đèn whoever is signed in: the card may be built anew after a sign-out.
+  func testSigningOutDropsWhatWaits() {
+    let app = signedIn("-lamp-gap", "60")
+    tap(app, "lamp-red")
+    let red = Date()
+    tap(app, "lamp-green")
+    expect(app, "lamp-status", contains: "Đang gửi “Xanh lá”, 100%…")
+    app.openAccount()
+    let out = app.descendants(matching: .any)["sign-out"].firstMatch
+    repeatUntil(out.exists && out.isHittable, times: 10) { app.swipeUp() }
+    out.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["apple-sign-in"].firstMatch.waitForExistence(timeout: 10), "not signed out")
+    XCTAssertLessThan(Date().timeIntervalSince(red), 60, "signed out after green's turn: the check proves nothing")
+    app.closeAccount()
+    // Past green's turn (red's 3 s, then the minute's gap): the lamp was started once, for red.
+    _ = XCTWaiter.wait(for: [XCTestExpectation(description: "green's turn passes")], timeout: max(0, 68 - Date().timeIntervalSince(red)))
+    wait(app, "lamp-starts", NSPredicate(format: "label == '1'"), "one broadcast, red's", file: #filePath, line: #line)
+  }
+
+  /// Signed out on another tab while the card's send is on air (held five minutes here): it stops at the sign-out, not
+  /// when its time is up, though the card isn't on screen.
+  func testSigningOutOnAnotherTabStopsTheCardsSendOnAir() {
+    let app = signedIn("-lamp-on-air", "300")
+    tap(app, "lamp-red")
+    let red = Date()
+    expect(app, "lamp-status", contains: "Đang gửi “Đỏ”, 100%…")
+    wait(app, "lamp-starts", NSPredicate(format: "label == '1'"), "red on air", file: #filePath, line: #line)
+    app.openTab("Bể của tôi")
+    app.openAccount()
+    let out = app.descendants(matching: .any)["sign-out"].firstMatch
+    repeatUntil(out.exists && out.isHittable, times: 10) { app.swipeUp() }
+    out.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["apple-sign-in"].firstMatch.waitForExistence(timeout: 10), "not signed out")
+    app.closeAccount()
+    app.openTab("Đèn")
+    wait(app, "lamp-stops", NSPredicate(format: "label == '1'"), "red stopped at the sign-out", file: #filePath, line: #line)
+    XCTAssertLessThan(Date().timeIntervalSince(red), 290, "past red's five minutes on air: the check proves nothing")
+  }
+
   // MARK: Helpers
+
+  /// The owner signed in on the stand-in server, on Đèn.
+  private func signedIn(_ args: String...) -> XCUIApplication {
+    let app = launch(["-fake-accounts", "on", "-reset-fake-server", "-fake-owner", "ui-apple"] + args)
+    app.openAccount()
+    app.signInWithStandInApple()
+    app.openTab("Đèn")
+    return app
+  }
+
+  /// A slider's thumb dragged to about `position` (0 to 1) in one movement and let go at once, and the value it landed on.
+  private func dragSlider(_ app: XCUIApplication, _ id: String, to position: CGFloat) -> String {
+    let s = scrolledTo(app, id)
+    let row = s.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0.5))
+    let x = 14 + s.normalizedSliderPosition * (s.frame.width - 28)
+    row.withOffset(CGVector(dx: x, dy: 0)).press(forDuration: 0.1, thenDragTo: row.withOffset(CGVector(dx: 14 + position * (s.frame.width - 28), dy: 0)))
+    return element(app, id).value as? String ?? ""
+  }
+
+  /// How far below the first element's top the second's is.
+  private func gap(_ app: XCUIApplication, _ above: String, _ below: String) -> CGFloat {
+    // A list builds a row only as it comes on screen: under the master card, the card's foot starts below it.
+    _ = scrolledTo(app, below)
+    return element(app, below).frame.minY - element(app, above).frame.minY
+  }
 
   /// The Week Aqua screen, its lights found (`-fake-weekaqua`).
   private func findWeekAqua(_ app: XCUIApplication) {
@@ -1036,6 +1262,10 @@ final class LightFlowTests: XCTestCase {
   /// Mac's in Vietnam time; the stand-in plug keeps Vietnam's, and a time shown in a zone not the phone's says whose.
   private func launch(_ args: String..., reset: Bool = true, indonesian: Bool = false,
                       zone: String = "Asia/Ho_Chi_Minh") -> XCUIApplication {
+    launch(args, reset: reset, indonesian: indonesian, zone: zone)
+  }
+
+  private func launch(_ args: [String], reset: Bool = true, indonesian: Bool = false, zone: String = "Asia/Ho_Chi_Minh") -> XCUIApplication {
     let app = XCUIApplication()
     app.launchEnvironment["TZ"] = zone
     let (language, locale, tab) = indonesian ? ("id", "id_ID", "Lampu") : ("vi", "vi_VN", "Đèn")
@@ -1225,7 +1455,8 @@ final class LightFlowTests: XCTestCase {
     XCUIDevice.shared.press(.home)
     let states = [XCUIApplication.State.runningBackground, .runningBackgroundSuspended].map { NSNumber(value: $0.rawValue) }
     let gone = expectation(for: NSPredicate(format: "state IN %@", states), evaluatedWith: app)
-    XCTAssertEqual(XCTWaiter.wait(for: [gone], timeout: 5), .completed, "the app didn't go to the background", file: file, line: line)
+    // Up to 30 s, not 5: on GitHub's Mac the Home press twice (16 and 17 Nov) took longer than 5 s to send the app away.
+    XCTAssertEqual(XCTWaiter.wait(for: [gone], timeout: 30), .completed, "the app didn't go to the background", file: file, line: line)
     app.activate()
   }
 
@@ -1237,5 +1468,20 @@ final class LightFlowTests: XCTestCase {
     if XCTWaiter.wait(for: [expectation(for: p, evaluatedWith: e)], timeout: timeout) != .completed, !p.evaluate(with: e) {
       XCTFail("\(id): expected \(what), got “\(e.exists ? e.label : "(missing)")”\(e.exists ? " (value “\(e.value.map { "\($0)" } ?? "")”)" : "")", file: file, line: line)
     }
+  }
+}
+
+/// The app's waits this flow moves on itself (`TestGate`), as the fish-ID flows' `Gates`: a folder of its own, where
+/// opening one writes its file. This flow's own copy: to the flow lists a helper in a flow's file is that class's alone
+/// (flow_lists.py), so one shared by several flows needs a file and a row of its own, which come with the sign-out
+/// change, whose flows hold gates too. Kept here (21 Nov) so this change and language step one, which shares the fish-ID
+/// flows' own, merge in either order.
+private struct LampGates {
+  let path = FileManager.default.temporaryDirectory.appending(path: "gates-\(UUID().uuidString)").path
+
+  init() { try? FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true) }
+
+  func open(_ name: String) {
+    XCTAssertTrue(FileManager.default.createFile(atPath: (path as NSString).appendingPathComponent(name), contents: Data()), "gate \(name) not opened")
   }
 }

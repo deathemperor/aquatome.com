@@ -3,6 +3,12 @@
   "name": "Demeni",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T17:25:38.958Z",
+    "why": "Demeni is a Latvian/Brazilian-area region name (Demini river in Amazonas, BR), and \"Demeni\" keeps the Vietnamese-style spelling without the usual Malay kind word like \"Wilayah\" or \"Sungai\", so it is uncertain and likely misspelled."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

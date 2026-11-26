@@ -98,9 +98,9 @@ final class ChatStore {
 
   /// The chat for `route`: the open one when it's the same start, by the same account, within its 24 hours; else the one
   /// kept on the phone, on the same terms (the app was closed meanwhile); else a new one.
-  func model(for route: ChatRoute, account: AccountModel, site: URL, lang: String) -> ChatModel {
+  func model(for route: ChatRoute, account: AccountModel, site: URL) -> ChatModel {
     if let current, current.route == route, current.continues(account: account.user?.id) { return current }
-    let m = ChatModel(route: route, account: account, site: site, lang: lang, store: self)
+    let m = ChatModel(route: route, account: account, site: site, store: self)
     current = m
     return m
   }
@@ -133,7 +133,12 @@ final class ChatModel {
     var resumed = false
     /// The stream's last event's data (`done` or `error`), kept with the conversation.
     var last: String?
+    /// "Báo sai" under its answer, once it's done with: true, reported; false, refused for good.
+    var reported: Bool?
   }
+
+  /// What sending a report came to.
+  enum ReportResult { case sent, failed, refused }
 
   /// For the owner's report: this conversation as the bucket has it, and the answers on the screen by their numbers (`visible`
   /// says which turns are; before iOS 18 it's empty, and the newest is taken as the one showing).
@@ -166,7 +171,6 @@ final class ChatModel {
 
   @ObservationIgnored private let account: AccountModel
   @ObservationIgnored private let site: URL
-  @ObservationIgnored private let lang: String
   @ObservationIgnored private weak var store: ChatStore?
   @ObservationIgnored private var conversation: Chat.Conversation?
   @ObservationIgnored private var running: Task<Void, Never>?
@@ -174,11 +178,10 @@ final class ChatModel {
   @ObservationIgnored private var runId = UUID()
   @ObservationIgnored private let path = NWPathMonitor()
 
-  init(route: ChatRoute, account: AccountModel, site: URL, lang: String, store: ChatStore) {
+  init(route: ChatRoute, account: AccountModel, site: URL, store: ChatStore) {
     self.route = route
     self.account = account
     self.site = site
-    self.lang = lang
     self.store = store
     if let k = Self.kept(), k.start == route.start, let user = account.user?.id, !k.conversation.ended(account: user, now: .now) {
       conversation = k.conversation
@@ -303,6 +306,30 @@ final class ChatModel {
     keep()
   }
 
+  /// "Báo sai" shows under finished answers since the conversation's last first question: a Worker that lost a
+  /// conversation starts it again at 1, so older turns share numbers with new ones.
+  func reportable(_ a: Asked) -> Bool {
+    guard a.outcome == .answered, a.reply.turn != nil, let i = index(a.id) else { return false }
+    return i >= (thread.lastIndex { $0.reply.turn?.n == 1 } ?? 0)
+  }
+
+  /// This answer reported as wrong. Refused for good (404: hidden on another device, or the turn is gone): said once, so
+  /// nobody retries forever. `already` (another device) reads as sent.
+  func report(_ id: UUID, reason: String) async -> ReportResult {
+    guard let t = index(id).flatMap({ thread[$0].reply.turn }),
+          let (data, status) = try? await account.send({
+            Chat.report(t.conversation, turn: t.n, reason: reason, site: self.site, token: $0, version: Self.version, ownCopy: Self.ownCopy)
+          })
+    else { return .failed }
+    if status == 404 {
+      if let i = index(id) { thread[i].reported = false }
+      return .refused
+    }
+    guard Chat.reported(data, status: status) != nil else { return .failed }
+    if let i = index(id) { thread[i].reported = true }
+    return .sent
+  }
+
   private func ask(_ i: Int) {
     let id = thread[i].id, run = UUID()
     runId = run
@@ -323,8 +350,11 @@ final class ChatModel {
     if first && !item.resumed { await account.sync() }
     // Left, or started over, meanwhile: the question waits, or is gone.
     guard !Task.isCancelled, index(id) != nil else { return }
+    // The app's language as the question goes (AppLanguageNow): another picked since the chat opened asks in that one,
+    // the answers before it staying as they were written.
+    let lang = AppLanguageNow.code
     let ask = { (token: String) in
-      Chat.ask(item.question, conversation: c.id, lang: self.lang, start: first ? self.route.start : nil, key: item.key, site: self.site,
+      Chat.ask(item.question, conversation: c.id, lang: lang, start: first ? self.route.start : nil, key: item.key, site: self.site,
                token: token, version: Self.version, ownCopy: Self.ownCopy)
     }
     var admitted = false

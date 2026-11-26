@@ -10,6 +10,76 @@
     "china",
     "pearl-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Pearl River",
+        "Liu River",
+        "Gui River",
+        "Dayao Mountain"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Due to their origin (China) and their black and white coloration they are called dwarf panda hillstream loaches.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "There are just three confirmed localities of which two drain into the Liu River (Liujiang) and one the Gui River (Guijiang), themselves both north bank tributaries of the much larger Pearl River (Zhujiang) system.",
+          "countries": [],
+          "regions": [
+            "Pearl River",
+            "Liu River",
+            "Gui River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Officially known only from a handful of headwater tributary streams draining the Dayao Mountain (Dayaoshan) in Jinxiu County, Guangxi Zhuang Autonomous Region, southern China.",
+          "countries": [],
+          "regions": [
+            "Dayao Mountain"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7663625,
+      "total": 2,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "CN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          25.3125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -150,7 +220,7 @@
       "width": 800,
       "height": 531,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Charles König / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/yaoshania-pachychilus",
       "caption": "Adult colour pattern is somewhat different to that of juveniles...",
       "source": "seriouslyfish"
@@ -161,7 +231,7 @@
       "width": 800,
       "height": 533,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Charles König / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/yaoshania-pachychilus",
       "caption": "...a process during which colour pattern is highly variable, for example here...",
       "source": "seriouslyfish"
@@ -172,7 +242,7 @@
       "width": 600,
       "height": 398,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Leo Chan / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/yaoshania-pachychilus",
       "caption": "Very young specimens possess particularly strong markings...",
       "source": "seriouslyfish"
@@ -183,7 +253,7 @@
       "width": 800,
       "height": 533,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Charles König / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/yaoshania-pachychilus",
       "caption": "...these becoming less so as they grow.",
       "source": "seriouslyfish"

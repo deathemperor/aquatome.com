@@ -1,0 +1,37 @@
+{
+ "at": "2026-11-20T02:19:00Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "gần đây lại có đợt",
+   "why": "a dealer's own batch or stock: news to no reader here"
+  }
+ ],
+ "text": {
+  "slug": "ca-hong-phat-van",
+  "name": "Cá hồng phát vằn",
+  "altNames": [
+   "Cá đĩa bạc vằn",
+   "Zebra silver dollar",
+   "Striped silver dollar"
+  ],
+  "sections": {
+   "quickFacts:glaser": "<p>Các loài Metynnis thường lớn tới khoảng 15 cm.</p>",
+   "distribution:glaser": "<p>Metynnis fasciatus được mô tả từ một con cá non bắt ở Brazil (Rio Capiru). Mẫu chuẩn của loài này coi như đã thất lạc.</p>",
+   "diet:glaser": "<p>Loài Metynnis nào cũng ăn thực vật.</p>",
+   "dimorphism:glaser": "<p>Muốn phân biệt đực cái thì nhìn hình dạng vây hậu môn.</p>",
+   "notes:glaser": "<p>Loài cá đẹp này thuộc họ Serrasalmidae, tức là họ hàng với cá piranha và cá pacu. Đến giờ nó vẫn là một câu đố với giới khoa học. Về mọi mặt, nó giống hệt M. hypsauchen, chỉ khác màu lúc còn nhỏ. M. fasciatus có các sọc đều và đậm, còn M. hypsauchen thường không có. Trước nay các nhà khoa học chưa thấy con trưởng thành nào mang sọc đều như vậy. Vì thế người ta từng nghĩ M. fasciatus chỉ là một dạng cá non hiếm gặp của M. hypsauchen.</p><p>Tuy nhiên, gần đây lại có đợt nhập từ Brazil những con hồng phát đặc biệt này với cỡ khá lớn (8-10 cm). Mỗi con mang một kiểu sọc riêng, nhưng con nào cũng đã phân biệt được đực cái, nên chắc chắn không còn là cá non.</p><p><strong>Giải nghĩa tên:</strong> Metynnis: tiếng Hy Lạp cổ, nghĩa là “ở giữa phần lưỡi cày” (lưỡi cày là miếng sắt sắc của chiếc cày, dùng để xẻ đất). Tên này chỉ cái gai nằm trước vây lưng. fasciatus: nghĩa là “có sọc”.</p><p><strong>Tên thường gọi:</strong> cá hồng phát sọc (tiếng Anh: Striped silver dollar)</p>"
+  },
+  "quality": {
+   "score": 0.9,
+   "indexable": false,
+   "bySource": {
+    "glaser": 0.9
+   },
+   "reason": "thin"
+  }
+ }
+}

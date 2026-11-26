@@ -58,16 +58,16 @@ struct Readout: View {
   /// What it says: plain words, then any in the warning colour.
   static func words(_ s: Schedule) -> (plain: String, warning: String?) {
     switch s.problem {
-    case .offNotAfterOn?: return ("", String(localized: "Giờ tắt phải sau giờ bật, trong cùng một ngày."))
-    case .rampOutOfRange?: return ("", String(localized: "Sáng dần, tối dần từ 0 đến 150 phút."))
-    case .rampTooLong?: return ("", String(localized: "Sáng dần, tối dần dài hơn nửa thời gian bật đèn."))
+    case .offNotAfterOn?: return ("", String(localized: "Giờ tắt phải sau giờ bật, trong cùng một ngày.", bundle: .app))
+    case .rampOutOfRange?: return ("", String(localized: "Sáng dần, tối dần từ 0 đến 150 phút.", bundle: .app))
+    case .rampTooLong?: return ("", String(localized: "Sáng dần, tối dần dài hơn nửa thời gian bật đèn.", bundle: .app))
     case nil:
       let h = s.hoursOn
       let full = Double(max(0, s.minutesLit - s.ramp * 2)) / 60
-      let lit = String(localized: "Đèn sáng \(hours(h)) tiếng mỗi ngày")
-        + (s.ramp > 0 ? String(localized: ", sáng hẳn \(hours(full)) tiếng") : "") + ". "
-      if h > 8 { return (lit, String(localized: "Trên 8 tiếng dễ lên rêu.")) }
-      return (lit + (h < 5 ? String(localized: "Dưới 5 tiếng, cây trồng lớn chậm.") : String(localized: "6–8 tiếng là vừa cho bể thủy sinh.")), nil)
+      let lit = String(localized: "Đèn sáng \(hours(h)) tiếng mỗi ngày", bundle: .app)
+        + (s.ramp > 0 ? String(localized: ", sáng hẳn \(hours(full)) tiếng", bundle: .app) : "") + ". "
+      if h > 8 { return (lit, String(localized: "Trên 8 tiếng dễ lên rêu.", bundle: .app)) }
+      return (lit + (h < 5 ? String(localized: "Dưới 5 tiếng, cây trồng lớn chậm.", bundle: .app) : String(localized: "6–8 tiếng là vừa cho bể thủy sinh.", bundle: .app)), nil)
     }
   }
 

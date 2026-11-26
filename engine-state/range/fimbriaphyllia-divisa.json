@@ -1,0 +1,119 @@
+{
+  "id": "fimbriaphyllia-divisa",
+  "native": {
+    "input": "3f9f26926f7ef321",
+    "at": "2026-11-17T11:42:48.614Z",
+    "claims": [
+      {
+        "code": "FJ",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It occurs naturally in the Indo-Pacific, Fiji, Australia, the Solomon Islands, the East China Sea, the Great Barrier Reef and the Ryukyu Islands.",
+        "words": "Fiji",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It occurs naturally in the Indo-Pacific, Fiji, Australia, the Solomon Islands, the East China Sea, the Great Barrier Reef and the Ryukyu Islands.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "SB",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It occurs naturally in the Indo-Pacific, Fiji, Australia, the Solomon Islands, the East China Sea, the Great Barrier Reef and the Ryukyu Islands.",
+        "words": "Solomon Islands",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Great Barrier Reef",
+        "source": "aquariumbreeder",
+        "quote": "It occurs naturally in the Indo-Pacific, Fiji, Australia, the Solomon Islands, the East China Sea, the Great Barrier Reef and the Ryukyu Islands.",
+        "ok": true
+      },
+      {
+        "name": "Ryukyu Islands",
+        "source": "aquariumbreeder",
+        "quote": "It occurs naturally in the Indo-Pacific, Fiji, Australia, the Solomon Islands, the East China Sea, the Great Barrier Reef and the Ryukyu Islands.",
+        "ok": true
+      },
+      {
+        "name": "East China Sea",
+        "source": "aquariumbreeder",
+        "quote": "It occurs naturally in the Indo-Pacific, Fiji, Australia, the Solomon Islands, the East China Sea, the Great Barrier Reef and the Ryukyu Islands.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "JP"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Fimbriaphyllia divisa",
+    "status": "ACCEPTED",
+    "taxonKey": 7014537,
+    "datasets": [
+      [
+        "be62fffc-d0e7-45f2-9404-d4bc4322bc57",
+        57
+      ],
+      [
+        "adb92d68-aaff-47ba-b197-d3d26f72f728",
+        28
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        18
+      ],
+      [
+        "c6ca96bc-7cf5-4fe7-ac44-d01e06394ef3",
+        16
+      ],
+      [
+        "e5d47a25-9e51-40db-9b5c-3f766be5c7b5",
+        13
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        6
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        6
+      ],
+      [
+        "44bcde48-ac71-46f2-bf73-24fc3c008b6c",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "fbe1f070-b6e4-11dd-81f6-b8a03c50a862",
+        1
+      ]
+    ],
+    "native": [
+      "FJ",
+      "AU",
+      "SB"
+    ],
+    "requests": 14,
+    "at": "2026-11-17T11:42:48.614Z"
+  }
+}

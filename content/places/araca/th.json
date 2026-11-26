@@ -3,6 +3,12 @@
   "name": "อาราคา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T05:59:10.558Z",
+    "why": "อาราคา is a plausible phonetic rendering of Aracá, but the place is a region (Aracá in Brazil, likely a state park/river area) and the name lacks a kind word, and the source gives no confirmation."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

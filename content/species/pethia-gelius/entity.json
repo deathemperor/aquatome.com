@@ -201,6 +201,13 @@
           "min": 18,
           "max": 24
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
       }
     ],
     "ph": [
@@ -225,6 +232,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "glaser",
+        "value": 2.5
       }
     ],
     "tankCm": [
@@ -246,6 +257,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pethia-gelius",
       "html": "<p>The golden dwarf barb, Pethia gelius, is a small cyprinid native to the Ganges and Brahmaputra river drainages of northern India and Bangladesh. Records suggest a wider range, including Tamil Nadu and the Ayeyarwady delta in Myanmar, though the latter may warrant investigation. Knight (2013) settled its identity, revalidating P. canius and describing P. aurea, both previously treated as phenotypes of P. gelius. Very peaceful but timid, it does best alone or with other diminutive species.</p><ul><li>Max size: 40 mm SL (1.6 in)</li><li>Aquarium size: 60 × 30 cm</li><li>Temperature: 18–24°C</li><li>pH: 6.0–7.0</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/pethia-gelius-2/",
+      "html": "<p>The golden barb (Pethia gelius) is an aquarium old-timer that found friends even before the First World War. It is one of the smallest barb species in India. Males rarely grow longer than 2.5 cm, females slightly larger. The record of 5 cm total length, which has been haunting the literature for decades, is probably due to a mix-up.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/pethia-gelius-2/",
+      "html": "<p>In fact, it has recently been found that “the” golden barb does not exist at all, but that it is a complex of species very similar to each other. The names of these species are Pethia gelius, Pethia canius and P. aurea. These three species are hard to distinguish, in the trade they are all called “P. gelius”. The more inconspicuous P. guganio also belongs to the complex.</p>"
     },
     {
       "key": "distribution",
@@ -270,6 +293,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pethia-gelius",
       "html": "<p>Best kept in a densely-planted tank and is an excellent choice for the carefully-aquascaped set-up.</p><p>The addition of some floating plants and driftwood roots or branches to diffuse the light entering the tank also seems to be appreciated and adds a more natural feel.</p><p>Filtration does not need to be particularly strong as it is likely to hail from sluggish waters and may struggle if there is a fast current.</p><p>Do not add this fish to a biologically immature tank as it can be susceptible to swings in water chemistry.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/pethia-gelius-2/",
+      "html": "<p>No matter which species of the complex you acquire, they are delightful, extremely peaceful schooling fish. You’ll be doing them a big favor with humic substances in the water (dead leaves, peat, alder cones) and you should allow some mulm in the aquarium. Otherwise they are completely undemanding little animals, which should be maintained in the temperature range between 18 and 24°C.</p>"
     },
     {
       "key": "waterConditions",
@@ -302,6 +331,12 @@
       "html": "<p>Like most small cyprinids Pethia spp. are egg-scattering free spawners exhibiting no parental care.</p><p>When in good condition they will spawn often and in a mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but a smaller aquarium should also be set up and filled with mature water.</p><p>This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles.</p><p>Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced, and spawning should take place the following morning.</p><p>An alternative is to spawn the fish in a group with half a dozen specimens of each sex being a good number, although a larger aquarium may be necessary.</p><p>In either situation the adults will probably eat the eggs given the chance and should be removed as soon as any are noticed.</p><p>These should hatch in 24-36 hours with the fry free swimming after 3-4 days.</p><p>They should be fed on an infusoria-grade food for the first few days until large enough to accept microworm, Artemia nauplii, or suchlike.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/pethia-gelius-2/",
+      "html": "<p>Common to these species is that they spawn – like the harlequin barbs – with the belly upwards under plant leaves.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pethia-gelius",
@@ -321,7 +356,7 @@
       "width": 623,
       "height": 380,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Beta Mahatvaraj / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pethia-gelius",
       "caption": "Wild individual.",
       "source": "seriouslyfish"
@@ -332,13 +367,68 @@
       "width": 800,
       "height": 456,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Mick Wright / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pethia-gelius",
       "caption": "Specimen from the U.K. aquarium trade.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/3ae4610da7ab9519.webp",
+      "thumb": "https://media.aquatome.com/glaser/3ae4610da7ab9519-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/pethia-gelius-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b0e30d4937ddd9d0.webp",
+      "thumb": "https://media.aquatome.com/glaser/b0e30d4937ddd9d0-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/pethia-gelius-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/fa96afe1cb80f9b6.webp",
+      "thumb": "https://media.aquatome.com/glaser/fa96afe1cb80f9b6-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/pethia-gelius-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "r8FrBVXY9Ac",
+      "title": "A Perfect Peaceful Small Barb? Golden Dwarf Barbs: Care Guide & Natural History of Pethia gelius.",
+      "durationSec": 1078,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "r7LKIdotqlI",
+      "title": "golden dwarf barb (pethia gelius) #aquarium #barbs",
+      "durationSec": 60,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "WUSBcCC7pOs",
+      "title": "Golden Dwarf Barb (Pethia gelius) #aquarium #plantedaquarium #barbfish #nanofish #coolfish #fishtank",
+      "durationSec": 60,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "mK8myxiYqjg",
+      "title": "Dwarf Golden Barb, Pethia gelius 😍😍😍 perfect small peaceful barb for planted aquariums!",
+      "durationSec": 13,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -369,5 +459,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-22"
 }

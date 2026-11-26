@@ -3,6 +3,12 @@
   "name": "ลาดฝั่งแอตแลนติก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-19T12:52:52.390Z",
+    "why": "\"Atlantic Slope\" in Mexico is a physiographic region (Gulf slope), and Thai atlases would write it as a word-for-word translation like \"ลาดฝั่งแอตแลนติก\" only loosely; the standard Thai form uses \"เนินเขา/ที่ลาดด้านมหาสมุทรแอตแลนติก\" rather than \"ฝั่ง\", and the name is a descriptive translation with"
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

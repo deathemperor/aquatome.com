@@ -10,6 +10,26 @@
     "mexico",
     "lake-catemaco"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 2350161,
+      "total": 2,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "MX",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -95.625,
+          18.28125,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -33,7 +53,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus_kallmani_en/",
       "source": "glaser"
     }

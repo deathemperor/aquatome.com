@@ -3,6 +3,12 @@
   "name": "Nong Bua Lamphu",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T18:55:22.146Z",
+    "why": "The name is a province, and Malay atlases write \"Wilayah Nong Bua Lamphu\" (Thai provinces take \"Wilayah\"), so the bare name omits the kind word."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

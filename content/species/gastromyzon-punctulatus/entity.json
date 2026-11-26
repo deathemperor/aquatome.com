@@ -17,17 +17,31 @@
   ],
   "range": {
     "native": {
-      "countries": [],
+      "countries": [
+        "MY",
+        "ID",
+        "BN"
+      ],
       "regions": [
         "Borneo"
       ],
       "sources": [
-        "glaser"
+        "aquariumbreeder"
       ],
       "quotes": [
         {
-          "source": "glaser",
-          "quote": "In 2006 the next revision of these fishes from Borneo appeared.",
+          "source": "aquariumbreeder",
+          "quote": "They are native to the Borneo region of Southeast Asia (Malaysia: Sabah and Sarawak; Indonesia: Kalimantan Barat and Kalimantan Timur; Brunei Darussalam: Temburong district).",
+          "countries": [
+            "MY",
+            "ID",
+            "BN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "Borneo suckers refer to a group of gastromyzontid loaches endemic to Borneo.",
           "countries": [],
           "regions": [
             "Borneo"
@@ -38,7 +52,7 @@
     "records": {
       "taxonKey": 2358893,
       "total": 18,
-      "fetched": "2026-11-08",
+      "fetched": "2026-11-16",
       "countries": [
         [
           "MY",
@@ -49,16 +63,19 @@
         [
           112.5,
           1.40625,
+          7,
           7
         ],
         [
           113.90625,
           2.8125,
+          10,
           10
         ],
         [
           115.3125,
           2.8125,
+          1,
           1
         ]
       ]

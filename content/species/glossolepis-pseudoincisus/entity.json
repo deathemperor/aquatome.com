@@ -1,0 +1,272 @@
+{
+  "id": "glossolepis-pseudoincisus",
+  "scientificName": "Glossolepis pseudoincisus",
+  "order": "Atheriniformes",
+  "family": "Melanotaeniidae",
+  "genus": "Glossolepis",
+  "group": "rainbowfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "papua",
+    "oceania",
+    "tami-river"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "New Guinea",
+        "Tami"
+      ],
+      "sources": [
+        "aquatome"
+      ],
+      "quotes": [
+        {
+          "source": "aquatome",
+          "quote": "Loài này là cá đặc hữu của tỉnh Papua thuộc Indonesia, trên đảo New Guinea.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "New Guinea"
+          ]
+        },
+        {
+          "source": "aquatome",
+          "quote": "Boeseman thu những mẫu đầu tiên vào tháng 11 năm 1954, ở một hồ móng ngựa biệt lập cạnh sông Tami.",
+          "countries": [],
+          "regions": [
+            "Tami"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5214489,
+      "total": 3,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "ID",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          139.21875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          140.625,
+          -2.8125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 22,
+          "max": 26
+        },
+        "ref": 3
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        },
+        "ref": 3
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquatome",
+        "value": 8,
+        "ref": 1
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "aquatome",
+        "value": 122,
+        "ref": 3
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquatome",
+        "value": 2,
+        "ref": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này đã có người nuôi và các tiệm cá nhiệt đới có bán. Ngoài tự nhiên nó lại dễ bị đe dọa do vùng phân bố quá hẹp.</p><p>Cá nằm trong bể tiệm trông khá nhạt. Muốn lên màu, nó cần vài tháng trong bể rộng, được ăn tốt, nước sạch và có cá đực khác để so kè. Cá dòng hồ Ifaten bắt đầu lên màu lúc khoảng ba tháng tuổi và đủ màu lúc khoảng bốn tháng. Cá táo đỏ thì mất gần một năm.</p>",
+      "refs": [
+        0,
+        3
+      ]
+    },
+    {
+      "key": "distribution",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này là cá đặc hữu của tỉnh Papua thuộc Indonesia, trên đảo New Guinea. Có chỗ ghi là Papua New Guinea, nhưng các nguồn khoa học đều xếp nó vào phần Papua của Indonesia.</p><p>Boeseman thu những mẫu đầu tiên vào tháng 11 năm 1954, ở một hồ móng ngựa biệt lập cạnh sông Tami. Hồ này cách hồ Sentani khoảng 30 km về phía đông, cách Jayapura khoảng 23 km về phía đông nam. Mẫu chuẩn của loài lấy từ chính hồ này. Có nguồn cho rằng loài chỉ được biết từ đúng đợt thu mẫu năm 1954 đó.</p><p>Tuy nhiên, các nguồn khác lại ghi nó có ở hồ Ifaten, hồ Iwom và hồ Yaniruk. Một nguồn nữa kể tên hồ Emfote, hồ Iwom và hồ Yaniruk. Nói chung loài này chỉ sống trong vài hồ nhỏ tách biệt nhau.</p>",
+      "refs": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "key": "habitat",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Đây là cá nước ngọt vùng nhiệt đới, sống ở tầng giữa và gần đáy, khoảng vĩ độ 3–4° Nam.</p><p>Hồ Ifaten là một hồ miệng núi lửa biệt lập, rộng chừng 250 m, nằm trên vùng núi gần hồ Sentani ở độ cao khoảng 300 m. Nước hồ đo được khoảng 28 °C, pH 9,0.</p>",
+      "refs": [
+        0,
+        1
+      ]
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Bể nên dài khoảng 120 cm. Cỡ bể 200 lít là hợp, dù trên mạng hay khuyên bể 150 lít.</p><p>Cá lên màu đẹp nhất trên nền tối với phông nền tối, và cần nhiều khoảng trống để bơi. Bể thủy sinh hợp với nó nhất. Đừng dùng phông nền xanh dương.</p>",
+      "refs": [
+        3
+      ]
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này dễ tính về nước. Nên giữ 22–26 °C, pH khoảng 6,5–8.</p><p>Nó thích nước hơi cứng, nước trung tính vẫn sống được, nhưng không nên nuôi trong nước quá mềm. Chưa có nguồn nào công bố con số độ cứng (dGH) cụ thể.</p>",
+      "refs": [
+        3
+      ]
+    },
+    {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Cá ăn được cám viên, cám mảnh, đồ đông lạnh và đồ tươi sống. Cho ăn đa dạng là tốt nhất.</p><p>Cổ họng của loài này hẹp, nên chỉ cho ăn cám viên thật nhỏ. Viên to có thể mắc lại trong họng và làm chết cá.</p>",
+      "refs": [
+        3
+      ]
+    },
+    {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Đây là loài cá hiền, hiếu động và lúc nào cũng khoe vây. Chúng sống theo đàn, nên nuôi từ 6 con trở lên.</p><p>Nhiều con đực sống chung được với nhau. Chúng xòe mang, khoe vây và rượt nhau một đoạn ngắn, nhưng không gây thương tích.</p><p>Cá hay va vào đá, lũa trong bể và bị vết ở miệng trông như nấm. Giữ nước sạch thì vết này tự lành.</p><p>Có thể nuôi chung với các loài cá cầu vồng khác, cá chuột, cá tetra, cá barb, cá chạch, Geophagus và cá cichlid lùn. Tránh nuôi chung với cá quá lớn.</p>",
+      "refs": [
+        3
+      ]
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Con cái nhỏ hơn con đực, dài khoảng 6 cm tính cả đuôi. Khác với nhiều loài cá cầu vồng, con cái của loài này cũng có màu đẹp. Trên thân nó có các sọc ngang ngoằn ngoèo màu vàng xen đỏ.</p><p>Con đực có những đường đỏ đan chéo nhau trên nắp mang. Hoa văn này rõ nhất khi cá được khoảng một năm tuổi.</p>",
+      "refs": [
+        0,
+        3,
+        4
+      ]
+    },
+    {
+      "key": "reproduction",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này cho đẻ trong bể khá dễ. Cá đẻ trứng lên búi len đẻ (spawning mop) hoặc lên cây. Khoảng một tuần sau thì vớt búi len ra được.</p><p>Trứng nở trong chưa tới 7 ngày. Cá con rất nhỏ, sau vài ngày đầu thì ăn được ấu trùng artemia mới nở.</p>",
+      "refs": [
+        3
+      ]
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p><em>Glossolepis pseudoincisus</em> là một loài cá cầu vồng thuộc họ Melanotaeniidae, bộ Atheriniformes. Gerald R. Allen và N. J. Cross mô tả loài này năm 1980. Đây là một trong những loài cá cầu vồng mới mà Allen mô tả từ bộ mẫu Marinus Boeseman thu ở New Guinea thuộc Hà Lan (nay là Tây Papua) trong hai năm 1954–55. Tên tiếng Anh của nó là Millennium Rainbowfish, Tami River Rainbowfish hoặc Lake Ifaten Rainbowfish.</p><p>Tên loài ghép chữ Hy Lạp \"pseudo\" (giả) với tên <em>G. incisa</em>. Ý là loài này trông giống loài họ hàng gần và sống gần nó, nhưng chỉ giống bề ngoài. Trong các danh mục phân loại, tên được viết là <em>Glossolepis pseudoincisa</em>. Dạng đúng này lại gần như lúc nào cũng bị viết sai thành <em>pseudoincisus</em>.</p><p>Người chơi hay nhầm nó với cá táo đỏ (<em>Glossolepis incisus</em>). So với cá táo đỏ, loài này nhỏ hơn, thân gọn và cao hơn, màu đỏ đậm hơn hẳn, nhất là lúc cá đã lớn. Vây lưng và vây hậu môn của nó nhọn hơn, hoa văn trên vây cũng rõ hơn. Vây ngực nhạt màu đều, vây bụng cũng chủ yếu nhạt, còn cá táo đỏ có vây sẫm. Vảy của nó nhỏ hơn và xếp theo kiểu khác.</p><p>Về đặc điểm đếm, cá có 38–43 hàng vảy dọc, 12–16 hàng vảy ngang và 26–32 lược mang trên cung mang thứ nhất. Vây lưng có 6–7 tia gai và 10–12 tia mềm. Vây hậu môn có 1 tia gai và 18–22 tia mềm. Con lớn nhất từng đo được dài 8 cm tính đến gốc đuôi.</p><p>Loài này nằm trong Sách Đỏ IUCN ở mức Sắp nguy cấp (VU, tiêu chí B1ab(iii)), đánh giá ngày 5 tháng 12 năm 2019. Tuổi thọ của nó hiện chưa có nguồn nào công bố.</p>",
+      "refs": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "pxhkIYRxa0Q",
+      "title": "The Most Underrated Rainbowfish? | Millennium Rainbowfish",
+      "durationSec": 380,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "v_5NP0xNnnA",
+      "title": "Millenium Rainbow fish (Glossolepis pseudoincisus)",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "j2JtayUBCxM",
+      "title": "Glossolepis pseudoincisus \"Lake Yaniruk\"",
+      "durationSec": 120,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "IzbXMHSU53s",
+      "title": "Glossolepis pseudoincisus und Glossolepis kabia",
+      "durationSec": 62,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-21",
+  "refs": [
+    {
+      "url": "https://rainbowfish.angfa.org.au/rainbowfish_species/glossolepis/glossolepis_pseudoincisus.html",
+      "title": "Glossolepis pseudoincisus"
+    },
+    {
+      "url": "https://fishbase.se/summary/10479",
+      "title": "Glossolepis pseudoincisa, Tami River rainbowfish"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Tami_River_rainbowfish",
+      "title": "Tami River rainbowfish"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=pxhkIYRxa0Q",
+      "title": "The Most Underrated Rainbowfish? | Millennium Rainbowfish"
+    },
+    {
+      "url": "https://www.rainbowfish.angfa.org.au/Pseudoincisus.htm",
+      "title": "Glossolepis pseudoincisus"
+    }
+  ]
+}

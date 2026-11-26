@@ -1,0 +1,47 @@
+{
+  "id": "traccatichthys-taeniatus",
+  "native": {
+    "input": "57bae3144b5766dd",
+    "at": "2026-11-16T17:28:41.839Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "VN"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Traccatichthys taeniatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2358278,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        11
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        9
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-16T17:28:41.839Z"
+  }
+}

@@ -65,53 +65,6 @@
             "sharpness": 675,
             "person": false
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/LU_y6OK2qK0/p0-b29yX2xhbXAuSlBH.webp",
-          "thumb": "https://media.aquatome.com/video/LU_y6OK2qK0/p0-b29yX2xhbXAuSlBH-480.webp",
-          "width": 960,
-          "height": 840,
-          "licence": "CC BY-SA 3.0",
-          "author": "Sokolshok",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_flood_outdoor_lamp.JPG",
-          "caption": "Đèn pha LED chip đơn vỏ xám, đặt cạnh thước để thấy kích thước."
-        }
-      },
-      {
-        "heading": "Đấu dây cho đèn",
-        "moments": [
-          {
-            "t": 315,
-            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/at315-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đèn pha LED với dây điện chưa có phích cắm.",
-            "sharpness": 467.9,
-            "person": false
-          }
-        ]
-      },
-      {
-        "heading": "Gắn đèn lên bể: cần cổ ngỗng hay nắp gỗ",
-        "moments": [
-          {
-            "t": 375,
-            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/at375-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đèn pha kẹp trên cần cổ ngỗng, chiếu xuống bể.",
-            "sharpness": 192.7,
-            "person": false
-          },
-          {
-            "t": 495,
-            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/at495-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nắp gỗ hộp treo phía trên bể, đèn gắn bên trong.",
-            "sharpness": 238.8,
-            "person": false
-          }
         ]
       },
       {
@@ -163,17 +116,58 @@
             "sharpness": 1033,
             "person": false
           }
-        ],
+        ]
+      },
+      {
+        "heading": "Vì sao đèn pha LED dùng được cho bể thủy sinh",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/LU_y6OK2qK0/p6-MzJUE5XzEwLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/LU_y6OK2qK0/p6-MzJUE5XzEwLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/LU_y6OK2qK0/p0-b29yX2xhbXAuSlBH.webp",
+          "thumb": "https://media.aquatome.com/video/LU_y6OK2qK0/p0-b29yX2xhbXAuSlBH-480.webp",
           "width": 960,
-          "height": 640,
-          "licence": "CC BY-SA 4.0",
-          "author": "Tylwyth Eldar",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oniria_-_Arowana_argent%C3%A9_10.jpg",
-          "caption": "Bể không trồng cây nuôi cá rồng châu Á bơi lội thoải mái."
+          "height": 840,
+          "licence": "CC BY-SA 3.0",
+          "author": "Sokolshok",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_flood_outdoor_lamp.JPG",
+          "caption": "Đèn pha LED chip đơn vỏ xám, đặt cạnh thước để thấy kích thước."
         }
+      },
+      {
+        "heading": "Đấu dây cho đèn thế nào",
+        "moments": [
+          {
+            "t": 315,
+            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/at315-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đèn pha LED với dây điện chưa có phích cắm.",
+            "sharpness": 467.9,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Treo đèn lên bể ra sao",
+        "moments": [
+          {
+            "t": 375,
+            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/at375-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đèn pha kẹp trên cần cổ ngỗng, chiếu xuống bể.",
+            "sharpness": 192.7,
+            "person": false
+          },
+          {
+            "t": 495,
+            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/at495-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nắp gỗ hộp treo phía trên bể, đèn gắn bên trong.",
+            "sharpness": 238.8,
+            "person": false
+          }
+        ]
       }
     ]
   }

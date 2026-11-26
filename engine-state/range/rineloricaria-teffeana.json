@@ -1,14 +1,22 @@
 {
   "id": "rineloricaria-teffeana",
   "native": {
-    "input": "ec8345d8cef4631f",
-    "at": "2026-11-14T11:07:07.888Z",
+    "input": "7742d73c82b932f5",
+    "at": "2026-11-17T18:05:08.130Z",
     "claims": [
       {
         "code": "BR",
         "status": "native",
         "source": "planetcatfish",
-        "quote": "Type locality: Amazon River near Teffé, Brazil.",
+        "quote": "Rineloricaria teffeana (Steindachner, 1879). Type locality: Amazon River near Teffé, Brazil. Etymology: Greek, rhinos = nose + Latin, lorica, loricare = cuirass of corslet of leather. Named after Tefé, its type locality. Size: 14 cm SL.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The vicinity of Tefé (written Teffe in elder publications) in Brazil is a place of wonders in aquarists' eyes.",
         "words": "Brazil",
         "ok": true
       }
@@ -22,6 +30,12 @@
       },
       {
         "name": "Madeira",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon River basin (Tefé, Middle Amazon (Solimões), Madeira).",
+        "ok": true
+      },
+      {
+        "name": "Solimões",
         "source": "planetcatfish",
         "quote": "South America: Amazon River basin (Tefé, Middle Amazon (Solimões), Madeira).",
         "ok": true
@@ -65,5 +79,9 @@
     ],
     "requests": 11,
     "at": "2026-11-14T11:07:07.888Z"
+  },
+  "nativeFailed": {
+    "at": "2026-11-24T17:11:15.551Z",
+    "error": "claude failed (1): other"
   }
 }

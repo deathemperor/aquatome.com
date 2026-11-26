@@ -1,8 +1,13 @@
 {
   "slug": "paraguay-parana",
-  "name": "Paraguay-Paraná",
+  "name": "Sistem Sungai Paraguay-Paraná",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.8,
+    "at": "2026-11-17T00:09:32.483Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

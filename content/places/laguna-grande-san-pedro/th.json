@@ -3,6 +3,12 @@
   "name": "ลากูนากรันเดซานเปโดร",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-19T12:46:23.120Z",
+    "why": "The name is a phonetic transliteration of the Spanish name, but it keeps 'Laguna' (ลากูนา) as a Spanish kind word where Thai would use ทะเลสาบ."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

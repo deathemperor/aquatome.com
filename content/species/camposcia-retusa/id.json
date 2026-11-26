@@ -25,10 +25,11 @@
     "references:aquariumbreeder": "<ul><li>Brooker, Rohan M., Enid C. Muñoz Ruiz, Tiffany L. Sih, and Danielle L. Dixson. “Shelter availability mediates decorating in the majoid crab, Camposcia retusa.” Behavioral Ecology 29, no. 1 (2018): 179-185.</li><li>Xu, Tian, Chaoshu Zeng, and Kate S. Hutson. “Morphological descriptions of the larval and first juvenile stages of the decorator crab Camposcia retusa (Latreille, 1829) from laboratory-reared material.” Zootaxa 4577, no. 2 (2019): zootaxa-4577.</li><li>Xu, Tian. “Development of captive rearing techniques for decorator crab, Camposcia retusa, for marine aquarium trade.” PhD diss., James Cook University, 2021.</li><li>Xu, Tian, and Chaoshu Zeng. “Establishing larval feeding regimens for the decorator crab Camposcia retusa: Effects of live prey types and density on larval survival and development.” Aquaculture Research 53, no. 7 (2022): 2772-2784.</li><li>Beleem, Imtiyaz, Paresh Poriya, and Bharatsinh Gohil. “First record of spider decorator crab Cmposcia retusa (Latreille, 1829) from west coast of India.” Journal of Marine Biological Association of India 59, no. 2 (2017): 122-124.</li><li>Ostroski, Audrey. “DECORATING BEHAVIOR OF MAJOID CRAB, CAMPOSCIA RETUSA, DOES NOT FACILITATE THE VISUALLY CRYPTIC CAMOUFLAGE STRATEGY OF BACKGROUND COLOR MATCHING.” PhD diss., University of Delaware, 2020.</li></ul>"
   },
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.95,
+    "indexable": true,
     "bySource": {
-      "aquariumbreeder": 0.7
+      "aquariumbreeder": 0.95,
+      "aquatome": 0.95
     }
   }
 }

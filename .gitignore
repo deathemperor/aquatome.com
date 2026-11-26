@@ -13,6 +13,10 @@ apps/site/review-results.json
 ISSUE.md
 # A video titles check's file half-written when its run was killed (packages/engine/src/video-title-check.ts writeWhole)
 content/video-titles/*.tmp
+# A gate or read pass record file's copy left when its run was killed between the write and the rename (packages/engine/src/fit.ts runFit)
+engine-state/_fit.json.*.tmp
+# The translator's record's copy left when its run was killed between the write and the rename (packages/engine/src/localize.ts writeRecord)
+engine-state/localize-*.json.*.tmp
 
 # Python bytecode (the iOS scripts run under python3)
 __pycache__/

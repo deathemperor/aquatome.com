@@ -1,0 +1,52 @@
+{
+  "id": "syntripsa-matannensis",
+  "native": {
+    "input": "eedab36620e966b1",
+    "at": "2026-11-20T17:43:20.430Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "The Matano crab is known from a number of localities around Lake Matano in South Sulawesi, Indonesia, where it appears to be evenly distributed throughout the lake and lives alongside other freshwater crabs such as the Panther crab (Parathelphusa pantherina).",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Matano",
+        "source": "aquariumbreeder",
+        "quote": "The Matano crab is known from a number of localities around Lake Matano in South Sulawesi, Indonesia, where it appears to be evenly distributed throughout the lake and lives alongside other freshwater crabs such as the Panther crab (Parathelphusa pantherina).",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Syntripsa matannensis",
+    "status": "ACCEPTED",
+    "taxonKey": 5791017,
+    "datasets": [
+      [
+        "d3dc5f22-a44c-43bb-8a2b-2a11ec596fcc",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-20T17:43:20.430Z"
+  }
+}

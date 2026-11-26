@@ -3,6 +3,12 @@
   "name": "Norway",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.15,
+    "at": "2026-11-20T07:07:16.017Z",
+    "why": "The Malay name for the country is \"Norway\" in English spelling, but Malaysian atlases write it \"Norway\" only rarely; the standard Malay form is \"Norwegia\"."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

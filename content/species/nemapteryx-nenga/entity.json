@@ -7,16 +7,28 @@
   "group": "catfish",
   "places": [
     "asia",
-    "india"
+    "india",
+    "ganges",
+    "thailand",
+    "myanmar",
+    "malaysia",
+    "indonesia"
   ],
   "range": {
     "native": {
       "countries": [
-        "IN"
+        "IN",
+        "TH",
+        "MM",
+        "MY",
+        "ID"
       ],
-      "regions": [],
+      "regions": [
+        "Ganges"
+      ],
       "sources": [
-        "glaser"
+        "glaser",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -26,13 +38,32 @@
             "IN"
           ],
           "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South and southeast Asia: India, Thailand, Myanmar, Malaysia and Indonesia.",
+          "countries": [
+            "TH",
+            "MM",
+            "MY",
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Ganges River, India.",
+          "countries": [],
+          "regions": [
+            "Ganges"
+          ]
         }
       ]
     },
     "records": {
       "taxonKey": 2344895,
       "total": 46,
-      "fetched": "2026-11-10",
+      "fetched": "2026-11-18",
       "countries": [
         [
           "MY",
@@ -112,37 +143,37 @@
           98.4375,
           11.25,
           1,
-          0
+          1
         ],
         [
           102.65625,
           2.8125,
           2,
-          0
+          2
         ],
         [
           102.65625,
           4.21875,
           1,
-          0
+          1
         ],
         [
           102.65625,
           5.625,
           3,
-          0
+          3
         ],
         [
           108.28125,
           -1.40625,
           2,
-          0
+          2
         ],
         [
           113.90625,
           2.8125,
           13,
-          0
+          13
         ]
       ]
     }
@@ -157,6 +188,28 @@
       {
         "source": "glaser",
         "value": 30
+      },
+      {
+        "source": "scotcat",
+        "value": 30
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 26,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
       }
     ]
   },
@@ -166,6 +219,18 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/nemapteryx_nenga_en/",
       "html": "<p>Nemapteryx nenga is a catfish from India, formerly placed in the genus Arius. It is not a shark, despite the name \"freshwater shark\". It reaches about 30 cm and should be kept in large aquariums only.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/kyataphisa_nenga.htm",
+      "html": "<ul><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/kyataphisa_nenga.htm",
+      "html": "<p>South and southeast Asia: India, Thailand, Myanmar, Malaysia and Indonesia. Type locality: Ganges River, India.</p>"
     },
     {
       "key": "habitat",
@@ -196,6 +261,18 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/nemapteryx_nenga_en/",
       "html": "<p>Because of its nicely shaped dorsal fin, the popular name \"whimple freshwater shark\" could be used.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/kyataphisa_nenga.htm",
+      "html": "<p>Description: Palatal tooth patches distinctly triangular, their long axes at about 70° to curve of mouth.</p><p>Etymology: The genus name Kyataphisa is a Bengali word meaning catfish. The specific name nenga is from Nenga gagora, the local Bengali name for this catfish in India.</p><p>Remarks: On some online searches this species can still be found as Nemapteryx nenga.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/kyataphisa_nenga.htm",
+      "html": "<p>Kailola, P. J. 2004 (Dec.) A phylogenetic exploration of the catfish family Ariidae (Otophysi: Siluriformes). The Beagle, Records of the Museums and Art Galleries of the Northern Territory v. 20: 87-166. Marceniuk, Alexandre P.; Menezes, Naércio A. (2007). \"Systematics of the family Ariidae (Ostariophysi, Siluriformes), with a redefinition of the genera\" Zootaxa 1416: 1–126. Marceniuk, A. P., C. Oliveira and C. J. Ferraris, Jr. 2023 (21 Aug.) A new classification of the family Ariidae (Osteichthyes: Ostariophysi: Siluriformes) based on combined analyses of morphological and molecular data. Zoological Journal of the Linnean Society Advance access: 1-51. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -205,9 +282,20 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/nemapteryx_nenga_en/",
       "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/2eaa52118c76f678.webp",
+      "thumb": "https://media.aquatome.com/scotcat/2eaa52118c76f678-480.webp",
+      "width": 500,
+      "height": 276,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/kyataphisa_nenga.htm",
+      "caption": "Kyataphisa nenga",
+      "source": "scotcat"
     }
   ],
   "videos": [],
@@ -234,5 +322,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-18"
 }

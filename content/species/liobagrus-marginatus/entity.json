@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "china",
-    "yangtze"
+    "yangtze",
+    "sichuan"
   ],
   "range": {
     "native": {
@@ -95,6 +96,10 @@
       {
         "source": "scotcat",
         "value": 13
+      },
+      {
+        "source": "planetcatfish",
+        "value": 9.3
       }
     ]
   },
@@ -106,10 +111,22 @@
       "html": "<p>Family: Amblycipitidae. Size: 13.0 cm. Temperature: 18-22°C. pH: 6.5-7.5.</p><p>Description: Dorsal fin short with a weak concealed spine. Anal fin short with about 9-18 rays. Pelvic fins have 6-7 rays. Gill openings wide and the gill membranes are free from the isthmus. Nostrils far apart; no cup-like depression below opercular flap. Adipose fin long, low and keel-like, and continuous with rounded or truncate caudal fin. 4 pairs of barbels.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1532",
+      "html": "<ul><li>Scientific name: Liobagrus marginatus (Günther, 1892)</li><li>Identification: note the lighter margin on the caudal fin.</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_marginatus.htm",
       "html": "<p>China: Changjiang River (Yangtze River), Szechwan.</p><p>This species occurs only in the mid-upper Chang Jiang basin where it is a common economic fish of high quality.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1532",
+      "html": "<p>Asia: Szechwan (Sichuan), China. Type locality: mountain streams running into the Min River, Szechwan [Sichuan], China.</p>"
     },
     {
       "key": "maintenance",
@@ -124,10 +141,22 @@
       "html": "<p>In their normal habitat they will greedily feed on aquatic insects and insect larvae. In the aquarium: Daphnia, frozen and live, with frozen foods such as bloodworm and cyclops.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1532",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
       "key": "notes",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_marginatus.htm",
       "html": "<p>Etymology: The specific name marginatus means margined, referring to white margins on all fins.</p><p>IUCN Red List: The small-sized catfish has a life history of fast growth and low fecundity, therefore vulnerable to overutilisation, although there are numerous subpopulations. River damming and water pollution (mainly from agriculture) are the major factors leading to a decline in population and habitat. In the past 10-year period, a 25-29% decline is therefore inferred. Thus, this species is listed as Near Threatened, approaching the thresholds for listing as threatened (IUCN 2024).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1532",
+      "html": "<p>Etymology: from the Greek leios, meaning smooth, and bagrus, a name usually used for catfishes; in reference to the smooth head.</p><p>Synonyms: Amblyceps marginatus, Leiobagrus marginatus.</p>"
     },
     {
       "key": "references",
@@ -183,5 +212,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-23"
 }

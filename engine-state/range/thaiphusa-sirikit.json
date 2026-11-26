@@ -1,0 +1,36 @@
+{
+  "id": "thaiphusa-sirikit",
+  "native": {
+    "input": "fd3374e3fae0194f",
+    "at": "2026-11-17T05:18:20.405Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Thailand.",
+        "words": "Thailand",
+        "ok": false,
+        "why": "no sentence"
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "TH"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Thaiphusa sirikit",
+    "status": "ACCEPTED",
+    "taxonKey": 5790527,
+    "datasets": [],
+    "native": [],
+    "requests": 2,
+    "at": "2026-11-17T05:18:20.405Z"
+  }
+}

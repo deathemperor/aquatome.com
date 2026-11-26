@@ -9,8 +9,9 @@ export type ImageSwitches = {
   publishAltered: boolean
   /**
    * iNaturalist album photos under CC BY-NC or CC BY-NC-SA (licence.ts isInatNonCommercial), research grade, ranked after
-   * the open ones and credited with their licence: the owner's yes of 10 Nov, on only when the chief of staff says. Off,
-   * none comes in, the site shows none and the sweep takes every one off (gallery.ts dropNonCommercial).
+   * the open ones and credited with their licence: the owner's yes of 10 Nov; on from 18 Nov, on the chief of staff's yes of 17 Nov.
+   * One may lead a page where it's the one way to show that fish (the chief of staff's rule, 17 Nov; lead-photo.ts).
+   * Off, none comes in, the site shows none and the sweep takes every one off, heads too (gallery.ts dropNonCommercial).
    */
   inatNonCommercial: boolean
 }
@@ -22,7 +23,7 @@ export const IMAGE_SWITCHES: Readonly<ImageSwitches> = Object.freeze({
   upscaleReal: false,
   publishGenerated: false,
   publishAltered: false,
-  inatNonCommercial: false,
+  inatNonCommercial: true,
 })
 
 /** Reader gate: update alongside the judge instruction/model; a regression test holds them together. */

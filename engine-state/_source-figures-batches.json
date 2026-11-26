@@ -793,6 +793,72 @@
     "vi/species/trigonostigma-heteromorpha": "passed"
    },
    "wrong": []
+  },
+  {
+   "at": "2026-11-17T16:30:10.459Z",
+   "keys": [
+    "id/species/elacatinus-oceanops"
+   ],
+   "outcomes": {
+    "id/species/elacatinus-oceanops": "passed"
+   },
+   "wrong": []
+  },
+  {
+   "at": "2026-11-17T20:00:41.754Z",
+   "keys": [
+    "th/species/elacatinus-oceanops"
+   ],
+   "outcomes": {
+    "th/species/elacatinus-oceanops": "passed"
+   },
+   "wrong": []
+  },
+  {
+   "at": "2026-11-19T04:46:40.587Z",
+   "keys": [
+    "vi/species/thayeria-ifati",
+    "vi/species/thayeria-obliqua",
+    "vi/species/vieja-fenestrata"
+   ],
+   "outcomes": {
+    "vi/species/thayeria-ifati": "passed",
+    "vi/species/thayeria-obliqua": "passed",
+    "vi/species/vieja-fenestrata": "passed"
+   },
+   "wrong": []
+  },
+  {
+   "at": "2026-11-19T16:15:54.407Z",
+   "keys": [
+    "id/species/epiplatys-annulatus",
+    "vi/species/lepidocephalichthys-goalparensis"
+   ],
+   "outcomes": {
+    "id/species/epiplatys-annulatus": "given its old text back for units",
+    "vi/species/lepidocephalichthys-goalparensis": "passed"
+   },
+   "wrong": []
+  },
+  {
+   "at": "2026-11-19T23:03:39.535Z",
+   "keys": [
+    "vi/species/moenkhausia-ceros"
+   ],
+   "outcomes": {
+    "vi/species/moenkhausia-ceros": "passed"
+   },
+   "wrong": []
+  },
+  {
+   "at": "2026-11-21T05:06:57.541Z",
+   "keys": [
+    "ms/plants/nymphoides-aquatica"
+   ],
+   "outcomes": {
+    "ms/plants/nymphoides-aquatica": "passed"
+   },
+   "wrong": []
   }
  ]
 }

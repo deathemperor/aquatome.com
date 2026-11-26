@@ -1,9 +1,16 @@
 {
  "queue": [],
  "judged": [
-  "File:PZSL1907Page269.png"
+  "File:PZSL1907Page269.png",
+  "inat:180641673",
+  "inat:341483436",
+  "inat:662941707",
+  "inat:662941795"
  ],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/inaturalist/180641673.webp": "edcedf9f26738d8e",
+  "https://media.aquatome.com/inaturalist/341483436.webp": "88a4698bdbe07d3f"
+ },
  "commons": "2026-11-13",
  "inat": {
   "taxon": 109713,
@@ -12,5 +19,13 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 5790708,
+  "next": null
+ },
+ "inatNc": {
+  "after": 363188472,
+  "done": true
  }
 }

@@ -1,0 +1,327 @@
+{
+  "id": "oase-biomaster-850-thermo",
+  "brand": "Oase",
+  "model": "BioMaster 850 Thermo",
+  "category": "loc",
+  "type": "thung",
+  "specs": [
+    {
+      "key": "Recommended aquarium size",
+      "value": "up to 850 l",
+      "source": 0
+    },
+    {
+      "key": "Dimensions (L x W x H)",
+      "value": "240 x 240 x 535 mm",
+      "source": 0
+    },
+    {
+      "key": "Voltage",
+      "value": "230 V / 50 Hz",
+      "source": 0
+    },
+    {
+      "key": "Power consumption",
+      "value": "32 W filter + 400 W heater",
+      "source": 0
+    },
+    {
+      "key": "Heater",
+      "value": "Integrated HeatUp adjustable heater, 400 W",
+      "source": 0
+    },
+    {
+      "key": "Max flow rate",
+      "value": "1,550 l/h",
+      "source": 0
+    },
+    {
+      "key": "Max head height",
+      "value": "2.20 m",
+      "source": 0
+    },
+    {
+      "key": "Filter media volume",
+      "value": "8 l (pre-filter 0.60 l)",
+      "source": 0
+    },
+    {
+      "key": "Hose",
+      "value": "1 x 4 m, 16/22 mm (inner/outer)",
+      "source": 0
+    },
+    {
+      "key": "Power cable length",
+      "value": "1.50 m",
+      "source": 0
+    },
+    {
+      "key": "Net weight",
+      "value": "6.90 kg",
+      "source": 0
+    },
+    {
+      "key": "Filter media supplied",
+      "value": "Hel-X bio media, filter sponges, 45 ppi pre-filter sponge",
+      "source": 0
+    },
+    {
+      "key": "Water type",
+      "value": "Freshwater and saltwater",
+      "source": 0
+    },
+    {
+      "key": "Warranty (manufacturer)",
+      "value": "3 years, plus 1 extra year on request/registration",
+      "source": 0
+    },
+    {
+      "key": "Warranty (Vietnamese shop, non-Thermo 850)",
+      "value": "1 year from receipt; removable parts not covered",
+      "source": 1
+    }
+  ],
+  "variants": [
+    {
+      "name": "BioMaster (Thermo) 250",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "900 L/h",
+          "source": 2
+        },
+        {
+          "key": "Power",
+          "value": "15 W",
+          "source": 2
+        },
+        {
+          "key": "Media volume",
+          "value": "4.4 L",
+          "source": 2
+        },
+        {
+          "key": "Tank size",
+          "value": "< 250 L",
+          "source": 2
+        },
+        {
+          "key": "Dimensions",
+          "value": "24 x 24 x 37 cm",
+          "source": 2
+        }
+      ]
+    },
+    {
+      "name": "BioMaster (Thermo) 350",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "1,100 L/h",
+          "source": 2
+        },
+        {
+          "key": "Power",
+          "value": "18 W",
+          "source": 2
+        },
+        {
+          "key": "Media volume",
+          "value": "5.6 L",
+          "source": 2
+        },
+        {
+          "key": "Tank size",
+          "value": "< 350 L",
+          "source": 2
+        },
+        {
+          "key": "Dimensions",
+          "value": "24 x 24 x 43 cm",
+          "source": 2
+        }
+      ]
+    },
+    {
+      "name": "BioMaster (Thermo) 600",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "1,250 L/h",
+          "source": 2
+        },
+        {
+          "key": "Power",
+          "value": "22 W (Thermo adds a 300 W heater)",
+          "source": 5
+        },
+        {
+          "key": "Media volume",
+          "value": "6.8 L",
+          "source": 2
+        },
+        {
+          "key": "Tank size",
+          "value": "< 600 L",
+          "source": 2
+        },
+        {
+          "key": "Dimensions",
+          "value": "24 x 24 x 48 cm",
+          "source": 2
+        }
+      ]
+    },
+    {
+      "name": "BioMaster (Thermo) 850",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "1,550 L/h",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "32 W + 400 W heater",
+          "source": 0
+        },
+        {
+          "key": "Media volume",
+          "value": "8 L",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "24 x 24 x 53.5 cm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "BioMaster² Thermo 850 (newer generation)",
+      "specs": [
+        {
+          "key": "Max flow rate",
+          "value": "1500 l/h",
+          "source": 4
+        },
+        {
+          "key": "Power",
+          "value": "32 + 400 W",
+          "source": 5
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://oase.vn/san-pham/biomaster-thermo-850/",
+      "title": "BioMaster Thermo 850 – OASE Việt Nam",
+      "kind": "manufacturer",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "http://taphoathuysinh.com/loc-thung-oase-biomaster-850-ver2-id1397.html",
+      "title": "Lọc thùng OASE BIOMASTER 850 ver2 – Tạp Hóa Thủy Sinh",
+      "kind": "shop",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "http://taphoathuysinh.com/loc-thung-oase-biomaster-250-350-600-850-id1405.html",
+      "title": "Lọc thùng OASE BIOMASTER 250 350 600 850 – Tạp Hóa Thủy Sinh",
+      "kind": "shop",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://mdaqua.com.vn/san-pham/loc-oase-biomaster-thermo-350/",
+      "title": "Lọc OASE Biomaster Thermo 350 – Mỹ Đình Aquarium",
+      "kind": "shop",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://www.oase.com/en-GB/aquarium/biomaster-thermo-850",
+      "title": "BioMaster² Thermo 850 – OASE",
+      "kind": "manufacturer",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://www.swelluk.com/oase-biomaster-2-thermo",
+      "title": "Oase BioMaster 2 Thermo – Swell UK",
+      "kind": "shop",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://www.premiumbuces.com/en/?p=33800",
+      "title": "Features OASE BioMaster Thermo – Premium Buces",
+      "kind": "shop",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://ukaps.org/forum/threads/oase-biomaster-thermo-external-filter.41568/page-18",
+      "title": "Oase BioMaster Thermo external filter – UKAPS forum",
+      "kind": "forum",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://ukaps.org/forum/threads/oase-biomaster-850-pros-cons.65489/page-2",
+      "title": "Oase BioMaster 850 pros & cons – UKAPS forum",
+      "kind": "forum",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://www.ukaps.org/forum/threads/how-noisy-should-a-biomaster-thermo-250-be.67290",
+      "title": "How noisy should a BioMaster Thermo 250 be – UKAPS forum",
+      "kind": "forum",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://www.oase.com/en/aquarium/how-to-guides/routine-aquarium-maintenance-care",
+      "title": "Routine aquarium maintenance care – OASE",
+      "kind": "manufacturer",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://ukaps.org/forum/goto/post?id=751332",
+      "title": "Pre-filter cleaning frequency – UKAPS forum",
+      "kind": "forum",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://www.oase.com/en-US/aquarium/how-to-guides/how-to-keep-your-aquarium-clean-a-complete-guide",
+      "title": "How to keep your aquarium clean – OASE",
+      "kind": "manufacturer",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "http://taphoathuysinh.com/oase-biomaster-filter-2-loc-thung-oase-cao-cap-biomaster-version-2-the-he-2-model-2025-id1572.html",
+      "title": "Oase BioMaster Filter 2 (model 2025) – Tạp Hóa Thủy Sinh",
+      "kind": "shop",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "http://taphoathuysinh.com/professionel-4-350-2273-id1062.html",
+      "title": "Eheim Professionel 4+ 350 (2273) – Tạp Hóa Thủy Sinh",
+      "kind": "shop",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ujIQ9Kb1fPo",
+      "title": "Pimp My Filter #55 - Oase Biomaster 850 Thermo Canister Filter Upgrade",
+      "kind": "video",
+      "at": "2026-11-23"
+    }
+  ],
+  "reviews": {
+    "checkedAt": "2026-11-23",
+    "videos": [
+      {
+        "youtubeId": "ujIQ9Kb1fPo",
+        "title": "Pimp My Filter #55 - Oase Biomaster 850 Thermo Canister Filter Upgrade",
+        "durationSec": 1696,
+        "lang": "en",
+        "channel": "Pondguru"
+      }
+    ]
+  },
+  "updatedAt": "2026-11-23"
+}

@@ -1,8 +1,13 @@
 {
   "slug": "tahan-river",
-  "name": "Tahan",
+  "name": "Sungai Tahan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-16T17:19:59.325Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

@@ -7,7 +7,8 @@
   "group": "tetras",
   "places": [
     "south-america",
-    "brazil"
+    "brazil",
+    "manaus"
   ],
   "range": {
     "records": {
@@ -82,30 +83,83 @@
       ]
     }
   },
-  "dataCard": {
-    "sizeCm": [
-      {
-        "source": "glaser",
-        "value": 3
-      }
-    ]
-  },
+  "dataCard": {},
   "sections": [
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-dorsalis-formerly-determined-as-h-minor/",
-      "html": "<p>Hyphessobrycon dorsalis belongs to the so-called Rosy Tetra group. It grows to about 3 cm long. The species is translucent in appearance and a bit mousy, but tetra specialists will nevertheless be glad that it is available again.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-dorsalis-2/",
+      "html": "<p>Hyphessobrycon dorsalis circulated in the hobby as \"Hyphessobrycon minor\" before its scientific description in 2014. It is the slimmest representative of the so-called \"Rosy Tetras\", which are characterised within the large group of small tetras by their white-black-white dorsal fin coloration.</p>"
     },
     {
-      "key": "notes",
+      "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-dorsalis-formerly-determined-as-h-minor/",
-      "html": "<p>The scientific description of a new species is usually based on dead specimens stored in a museum, and it is often unknown what the living animal looks like. Especially in small freshwater fish, the animals most often kept in aquaria, this method often leads to misidentifications, because preserved specimens look quite different and are defined by characters that cannot be observed in living specimens. It is therefore quite normal for new species to be discovered from imported live specimens, thanks to the aquarium hobby.</p><p>This applies to the small tetra imported once more from Brazil. Literature research led to the identification as Hyphessobrycon minor, a species described in 1909 by Marion Lee Durbin from material collected in Guyana. Only in 2014 did the ichthyologist Axel Zarske discover, on the basis of imported specimens, that the fish was not H. minor but a species new to science. He named it Hyphessobrycon dorsalis.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-dorsalis-2/",
+      "html": "<p>The fish from which the scientific description is based was imported from Brazil via Manaus.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-dorsalis-2/",
+      "html": "<p>The species is best kept as a troop of perhaps 15 or 20 specimens in a well planted community aquarium together with colourful classics such as the cardinal tetra. Its discreet, white-wine colours provide contrast and attract at least as much attention as brightly coloured relatives. In the dealer's tank there is usually nothing to be seen of these colours.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/42a199045be726e0.webp",
+      "thumb": "https://media.aquatome.com/glaser/42a199045be726e0-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-dorsalis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/53e31da26d10c04f.webp",
+      "thumb": "https://media.aquatome.com/glaser/53e31da26d10c04f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-dorsalis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d5f65a8c15b19d79.webp",
+      "thumb": "https://media.aquatome.com/glaser/d5f65a8c15b19d79-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-dorsalis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9b2d70ddd301de2e.webp",
+      "thumb": "https://media.aquatome.com/glaser/9b2d70ddd301de2e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-dorsalis-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "q3BspzUeq6E",
+      "title": "Hyphessobrycon dorsalis",
+      "durationSec": 37,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "9u07V6N8dPk",
+      "title": "Hyphessobrycon dorsalis from Rio Orinoco  #catfishlove #aquarium #aquascapegallery #aquascape #fish",
+      "durationSec": 41,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -129,5 +183,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-22"
 }

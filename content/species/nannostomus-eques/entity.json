@@ -16,7 +16,9 @@
     "venezuela",
     "orinoco",
     "guyana",
-    "essequibo"
+    "essequibo",
+    "rio-negro",
+    "ecuador"
   ],
   "range": {
     "native": {
@@ -708,6 +710,12 @@
       "html": "<p>The hockeystick pencilfish, Nannostomus eques, is a lebiasinid from the central and upper Amazon, the Orinoco drainage and rivers of Guyana. It swims at an oblique angle, a trait shared only with N. unifasciatus among congeners, and is also known as the 'rocket', 'diptail' or 'tubemouth' pencilfish. Genetic research on rio Negro populations raises the possibility that the species may be a complex of cryptic taxa.</p><ul><li>Max size: 35 mm SL (1.4 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 4.5–7.5</li><li>Hardness: 1–10 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-eques-peru-2/",
+      "html": "<p>The tetras of the genus Nannostomus, called pencil fish because of their somewhat stiff swimming style reminiscent of traveling zeppelins, have been among the most popular ornamental fish for decades. They are very beautiful, usually peaceful and remain small. Three species swim at an angle with their heads up: Nannostomus eques, N. britzkii and N. unifasciatus. While N. britzkii has never been imported in numbers, the other two are commonplace in the ornamental fish market.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-eques",
@@ -750,6 +758,12 @@
       "html": "<p>Very peaceful but does not make an ideal community fish due to its small size and rather timid nature.</p><p>In a community it's best kept with similarly-sized, peaceful characids and smaller callichthyid or loricariid catfishes.</p><p>It also makes an ideal dither fish for Apistogramma spp. and other dwarf cichlids since it tends to inhabit the middle-to-upper regions of the tank, and does not actively predate fry.</p><p>It's very much a gregarious animal so buy as many as possible, ideally 10 or more, as when kept in larger groups any aggression is spread between individuals plus the fish are bolder and exhibit more natural behaviour.</p><p>Unlike some relatives rival males rarely spar or do each other harm in any way.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-eques-peru-2/",
+      "html": "<p>Nannostomus eques is a very peaceful species, which is always a real eye-catcher due to its unusual swimming style. You should always keep these fish in a group of 10-20 specimens, because they are very social and always stay close to conspecifics in the aquarium.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-eques",
@@ -781,7 +795,7 @@
       "width": 800,
       "height": 573,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Sascha Biedermann / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-eques",
       "caption": "This species swims at a characteristic oblique angle.",
       "source": "seriouslyfish"
@@ -792,7 +806,7 @@
       "width": 640,
       "height": 480,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Steven Chester / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-eques",
       "caption": "Unlike most pencilfishes this species deposits its eggs on the underside of plant leaves.",
       "source": "seriouslyfish"
@@ -803,7 +817,7 @@
       "width": 639,
       "height": 479,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Steven Chester / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-eques",
       "caption": "Even fry adopt the characteristic oblique swimming style.",
       "source": "seriouslyfish"
@@ -814,10 +828,40 @@
       "width": 640,
       "height": 480,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Steven Chester / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-eques",
       "caption": "This fry has just become free-swimming.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2b67532c2d30c5c6.webp",
+      "thumb": "https://media.aquatome.com/glaser/2b67532c2d30c5c6-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-eques-peru-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/fe745e242ba2b470.webp",
+      "thumb": "https://media.aquatome.com/glaser/fe745e242ba2b470-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-eques-peru-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/dbbf126b57dd1728.webp",
+      "thumb": "https://media.aquatome.com/glaser/dbbf126b57dd1728-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-eques-peru-2/",
+      "source": "glaser"
     }
   ],
   "videos": [],
@@ -849,5 +893,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-23"
 }

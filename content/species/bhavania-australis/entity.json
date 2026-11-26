@@ -131,6 +131,10 @@
       {
         "source": "seriouslyfish",
         "value": 10
+      },
+      {
+        "source": "glaser",
+        "value": 9
       }
     ],
     "tankCm": [
@@ -154,10 +158,28 @@
       "html": "<p>Bhavania australis is a balitorid loach endemic to the Western Ghats mountains of southern India, recorded from Kerala, Tamil Nadu and Karnataka. An obligate dweller of shallow, fast-flowing, highly-oxygenated headwaters and minor tributaries, it has a flattened head and body and horizontally extended paired fins that form a powerful sucking cup for clinging to rocks. It is very rarely seen in the international aquarium trade but is maintained by a number of Indian aquarists.</p><ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li><li>Needs a well-established tank</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/bhavania-australis-2/",
+      "html": "<p>Bhavania australis is a hillstream loach from the Western Ghats in India. Adults reach a final size of 8–9 cm and then develop an attractive, contrasting leopard pattern.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/bhavania-australis-2/",
+      "html": "<p>Genetic investigations showed that behind the name Bhavania australis probably 7 different species are hiding, which however cannot be distinguished by external characteristics. For aquaristic practice this means that specimens from different sources should never be used for breeding. Otherwise the danger of unintentionally producing hybrids is very high.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/bhavania-australis",
       "html": "<p>Endemic to the Western Ghats mountains in southern India with records existing from the states of Kerala (Chalakudy/Chalakkudy, Periyar, Muvattapuzha, Achankovil, Pamba, Chandragiri, Bharathapuzha, Kallar, Uruttipuzha, Bhavani, Chinkannipuzha, and Chaliyar river systems), Tamil Nadu (Kaveri, Tamiraparani, Aliyar, Chittar, and Kothayar rivers) and Karnataka (Kaveri and Bhadra rivers).</p><p>Type locality is 'Mountain stream in the Walliar jungle, Nilgiris, India'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/bhavania-australis-2/",
+      "html": "<p>Along the west coast of India runs a mountain range known as the Western Ghats, a hotspot of biodiversity. An unusually large number of freshwater fish species are endemic there, i.e. found only there and nowhere else in the world. These include the two species of the genus Bhavania, namely B. annandalei and B. australis.</p>"
     },
     {
       "key": "habitat",
@@ -215,7 +237,7 @@
       "width": 800,
       "height": 383,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Beta Mahatvaraj / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/bhavania-australis",
       "caption": "Adult specimen.",
       "source": "seriouslyfish"
@@ -226,10 +248,40 @@
       "width": 800,
       "height": 549,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Beta Mahatvaraj / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/bhavania-australis",
       "caption": "Detail of head and anterior portion of body.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/75677356cdea3d5d.webp",
+      "thumb": "https://media.aquatome.com/glaser/75677356cdea3d5d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/bhavania-australis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c16b2d2b606add8b.webp",
+      "thumb": "https://media.aquatome.com/glaser/c16b2d2b606add8b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/bhavania-australis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/542c753dc44648d8.webp",
+      "thumb": "https://media.aquatome.com/glaser/542c753dc44648d8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/bhavania-australis-2/",
+      "source": "glaser"
     }
   ],
   "videos": [],
@@ -264,5 +316,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-23"
 }

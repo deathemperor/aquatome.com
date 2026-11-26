@@ -13,14 +13,22 @@
     "maintenance:scotcat": "<p>Nên trải nền cát, vì loài này thích đào bới tìm mồi nhỏ.</p>",
     "diet:scotcat": "<p>Loài này ăn thức ăn dạng viên chìm (tablet) và viên (pellet). Nó cũng ăn cả thức ăn đông lạnh như trùng huyết.</p>",
     "notes:scotcat": "<p>Mô tả: Vây lưng có tổng cộng 1 gai và 6 tia mềm. Vây hậu môn có 14-17 tia mềm. Đoạn cuối của phần môi trên kéo dài ra dài hẳn, tạo thành một chóp nhọn. Có lúc chóp nhọn này trông như một tua cuối to hơn hẳn các tua khác.</p><p>Ba ảnh nhỏ đầu tiên chụp một loài trông rất giống, nghe nói lấy từ sông Rio Nanay ở Peru, con sông chảy qua thành phố Iquitos. Loài này và một loài khác ở vùng Amazonas được gọi là 'dạng Nanay' và 'dạng Amazon'. Hai tên gọi này không tính loài thật, vốn ở Rio Negro. Cả ba dạng khác nhau về hình thái mũ miệng. Sabaj (2005) chia chúng thành ba nhóm: L. cataniai sensu stricto (Rio Negro và kênh Casiquiare), L. cf. cataniai dạng Amazon (lưu vực Amazonas, trừ Nanay và Negro) và L. cf. cataniai dạng Nanay (mẫu vật chủ yếu lấy từ Río Nanay, Peru).</p><p>Nguồn gốc tên: Tên loài cataniai đặt theo tên David Catania, để ghi công ông đã tận tụy phục vụ giới ngư học từ năm 1985 trong vai trò Quản lý bộ sưu tập cá của Viện Hàn lâm Khoa học California.</p>",
-    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Sabaj, M.H. 2005 Taxonomic assessment of Leptodoras (Siluriformes: Doradidae) with descriptions of three new species. Neotrop. Ichthyol. 3(4):637-678. The ETYFish Project Fish Name Etymology Database.</p>"
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Sabaj, M.H. 2005 Taxonomic assessment of Leptodoras (Siluriformes: Doradidae) with descriptions of three new species. Neotrop. Ichthyol. 3(4):637-678. The ETYFish Project Fish Name Etymology Database.</p>",
+    "beforeYouBuy:glaser": "<p>Leptodoras rất hiếm khi về hàng. Đây là nhóm cá lạ và dễ bị stress. Thân chúng dài khác thường, và có vẻ chúng sống ở nước chảy. Trong khi đó, nhiều loài cá da trơn có gai khác lại hay ở trong đám gỗ mục hoặc lá rụng ven bờ, chẳng hạn Platydoras và Agamyxis, hai loài người chơi hay nuôi.</p>",
+    "distribution:glaser": "<p>Leptodoras cf. cataniai có nguồn gốc từ sông Rio Nanay ở Peru. Nếu bỏ qua nơi xuất xứ thì ngoại hình của nó rất khớp với L. cataniai. Loài L. cataniai được mô tả từ sông Rio Casiquiare, con sông nối Orinoco với Rio Negro.</p>",
+    "quickFacts:glaser": "<p>Loài này có lẽ dài được khoảng 20 cm, nhưng cá về đợt này chỉ dài chừng 7 cm.</p>",
+    "equipment:glaser": "<p>Nên nuôi trong bể lớn, nền cát, ít đồ trang trí, lọc tốt và có dòng chảy.</p>",
+    "waterConditions:glaser": "<p>Nên giữ nước ở khoảng 24°C. Các chỉ số hóa học của nước không quan trọng, chỉ cần tránh những mức quá cao hoặc quá thấp.</p>",
+    "diet:glaser": "<p>Loài này ăn mọi loại thức ăn cá thông thường, miễn là cỡ vừa miệng.</p>",
+    "behaviour:glaser": "<p>Đây là loài hiền, thích sống theo bầy nhưng hơi nhát. Nên thả chung vài con cá chuột hoặc Brochis. Mấy con này điềm tĩnh, Leptodoras ở cạnh chúng cũng bình tĩnh theo và bớt rụt rè.</p>"
   },
   "quality": {
-    "score": 0.8,
+    "score": 0.75,
     "indexable": true,
     "bySource": {
       "planetcatfish": 0.8,
-      "scotcat": 0.8
+      "scotcat": 0.8,
+      "glaser": 0.75
     }
   }
 }

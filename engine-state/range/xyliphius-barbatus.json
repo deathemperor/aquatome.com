@@ -1,0 +1,75 @@
+{
+  "id": "xyliphius-barbatus",
+  "native": {
+    "input": "cd177f040653f8e3",
+    "at": "2026-11-20T07:13:45.828Z",
+    "claims": [
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "This species has been confirmed to occur in the Paraguay-Paraná River basin in Argentina and Paraguay.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "This species has been confirmed to occur in the Paraguay-Paraná River basin in Argentina and Paraguay.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "doubtful",
+        "source": "scotcat",
+        "quote": "Records from Uruguay require confirmation.",
+        "words": "Uruguay",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraguay-Paraná",
+        "source": "scotcat",
+        "quote": "South America: Paraguay-Paraná River basin.",
+        "ok": true
+      },
+      {
+        "name": "Río Paraná",
+        "source": "scotcat",
+        "quote": "Type locality: Río Paraná en Rosario, provincia de Santa Fe, Argentina.",
+        "country": "AR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Xyliphius barbatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340567,
+    "datasets": [
+      [
+        "20a7d714-b285-4a57-a35d-346d944b97ec",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "AR",
+      "PY"
+    ],
+    "requests": 11,
+    "at": "2026-11-20T07:13:45.828Z"
+  }
+}

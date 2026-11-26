@@ -3,6 +3,12 @@
   "name": "วายากา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.2,
+    "at": "2026-11-20T07:11:17.138Z",
+    "why": "วายากา reads as \"Wayaka\", which doesn't match the Spanish pronunciation of Huallaga (\"wa-ya-ga\"). The 'ga' ending is rendered with ก, which is plausible, but the name as written is not an established Thai form, and the entry gives no kind word such as แม่น้ำ for the river."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

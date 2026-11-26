@@ -41,48 +41,6 @@
     ],
     "figures": [
       {
-        "heading": "Vì sao tim bò là nguyên liệu chính",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/9Ve-eoniVlw/p0-faGVhcnRfMS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/9Ve-eoniVlw/p0-faGVhcnRfMS5qcGc-480.webp",
-          "width": 820,
-          "height": 615,
-          "licence": "CC BY 4.0",
-          "author": "donza",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beef_heart_1.jpg",
-          "caption": "Quả tim bò tươi nguyên vẹn đặt trên thớt, sẵn sàng để sơ chế làm thức ăn cho cá."
-        }
-      },
-      {
-        "heading": "Nhược điểm của tim bò và cách xử lý",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/9Ve-eoniVlw/p1-fc2tld2Vycy5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/9Ve-eoniVlw/p1-fc2tld2Vycy5qcGc-480.webp",
-          "width": 960,
-          "height": 638,
-          "licence": "CC BY-SA 2.0",
-          "author": "Carly & Art",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anticuchos_-_Grilled_Beef_Heart_skewers.jpg",
-          "caption": "Tim bò thái miếng xiên que nướng trên than hồng."
-        }
-      },
-      {
-        "heading": "Các nguyên liệu khác và công dụng",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/9Ve-eoniVlw/p2-Rfc2hyaW1wLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/9Ve-eoniVlw/p2-Rfc2hyaW1wLmpwZw-480.webp",
-          "width": 960,
-          "height": 960,
-          "licence": "CC0",
-          "author": "Fumikas Sagisavas",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frozen_cooked_shrimp.jpg",
-          "caption": "Tôm đã bóc vỏ, loại to mua ở chợ hoặc siêu thị để làm thức ăn cho cá."
-        }
-      },
-      {
         "heading": "Làm và cấp đông thế nào",
         "moments": [],
         "photo": {
@@ -106,15 +64,6 @@
             "height": 675,
             "caption": "Cá đĩa và cá nhỏ trong bể, gần rễ cây thủy sinh.",
             "sharpness": 108.6,
-            "person": false
-          },
-          {
-            "t": 900,
-            "url": "https://media.aquatome.com/video/9Ve-eoniVlw/at900-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể có cá đĩa và đàn cá nhỏ bơi cùng nhau.",
-            "sharpness": 165,
             "person": false
           }
         ]
@@ -165,6 +114,34 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Symphysodon_aequifasciatus_-_Karlsruhe_Zoo_04.jpg",
           "caption": "Cá đĩa màu cam đỏ bơi trong hồ có cây thủy sinh."
         }
+      },
+      {
+        "heading": "Vì sao chọn tim bò làm nền",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/9Ve-eoniVlw/p0-faGVhcnRfMS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/9Ve-eoniVlw/p0-faGVhcnRfMS5qcGc-480.webp",
+          "width": 820,
+          "height": 615,
+          "licence": "CC BY 4.0",
+          "author": "donza",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beef_heart_1.jpg",
+          "caption": "Quả tim bò tươi nguyên vẹn đặt trên thớt, sẵn sàng để sơ chế làm thức ăn cho cá."
+        }
+      },
+      {
+        "heading": "Loại cá nào hợp với món này",
+        "moments": [
+          {
+            "t": 900,
+            "url": "https://media.aquatome.com/video/9Ve-eoniVlw/at900-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể có cá đĩa và đàn cá nhỏ bơi cùng nhau.",
+            "sharpness": 165,
+            "person": false
+          }
+        ]
       }
     ]
   }

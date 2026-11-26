@@ -13,7 +13,8 @@
     "essequibo",
     "suriname",
     "nickerie",
-    "french-guiana"
+    "french-guiana",
+    "rio-xingu"
   ],
   "range": {
     "native": {
@@ -28,15 +29,17 @@
         "Demerara",
         "Essequibo",
         "Nickerie",
+        "Rio Xingu",
         "Ilha do Arapiranga"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Type locality is given simply as 'Amazon' by Regan and most modern reports state that this species is widely-distributed in the lower Amazon basin in Brazil plus coastal drainages of Guyana, Suriname and French Guiana including the Demerara, Essequibo, Suriname and Nickerie.",
+          "quote": "The splash tetra, Copella arnoldi, is a lebiasinid from the lower Amazon basin in Brazil and coastal drainages of Guyana, Suriname and French Guiana.",
           "countries": [
             "BR",
             "GY",
@@ -44,10 +47,25 @@
             "GF"
           ],
           "regions": [
-            "Amazon",
+            "Amazon"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is given simply as 'Amazon' by Regan and most modern reports state that this species is widely-distributed in the lower Amazon basin in Brazil plus coastal drainages of Guyana, Suriname and French Guiana including the Demerara, Essequibo, Suriname and Nickerie.",
+          "countries": [],
+          "regions": [
             "Demerara",
             "Essequibo",
             "Nickerie"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The Splashing tetra inhabits savannah creeks in the Rio Xingu basin in Brazil in the wild; however, nowadays almost exclusively bred specimens can be found in the trade.",
+          "countries": [],
+          "regions": [
+            "Rio Xingu"
           ]
         },
         {
@@ -391,6 +409,12 @@
       "html": "<p>Type locality is given simply as 'Amazon' by Regan and most modern reports state that this species is widely-distributed in the lower Amazon basin in Brazil plus coastal drainages of Guyana, Suriname and French Guiana including the Demerara, Essequibo, Suriname and Nickerie.</p><p>It exhibits a degree of variation in certain aspects of morphology and colour pattern across this range, however, and Zarske (2011) considers populations from the Guianas to represent C. carsevennensis (Regan, 1912), implying that C. arnoldi sensu stricto is restricted to the lower Amazon basin.</p><p>Zarske (2011) also designates an alternative 'type locality' of Ilha do Arapiranga which is an island in the Amazon estuary located close to the city of Belém in Pará state, eastern Brazil, from where aquarium specimens are apparently collected.</p><p>This does not appear to qualify as a neotype locality since no corresponding neotype designation is included, however.</p><p>See the 'Notes' section for further information on C. carsevennensis.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/copella-arnoldi-2/",
+      "html": "<p>The Splashing tetra inhabits savannah creeks in the Rio Xingu basin in Brazil in the wild; however, nowadays almost exclusively bred specimens can be found in the trade.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/copella-arnoldi",
@@ -439,10 +463,22 @@
       "html": "<p>Displays an interesting reproductive strategy in which spawning and egg deposition occurs on overhanging vegetation above the water surface.</p><p>In a mature set-up it's possible that small numbers of fry may start to appear without intervention but should you wish to maximise yield a more controlled approach using a separate tank is preferable.</p><p>This can be arranged very simply with an air-powered sponge filter, plenty of floating plants and a gap of around 10 cm (3.9 in) between water surface and cover.</p><p>You can also use emerse vegetation if you wish although the fish aren't fussy and will deposit their eggs on almost any suitable surface, including the side of the aquarium or cover glass.</p><p>The site is selected by the male and he may be seen repeatedly leaping out of the water as he searches for a suitable spot.</p><p>Once a site has been chosen the male attempts to attract females in the vicinity and at the climax of courtship the pair jump out of the water and cling onto the spawning site using their pelvic fins.</p><p>They may remain in place for up to 10 seconds or so as eggs and milt are released.</p><p>10-12 eggs are typically deposited during a single event and the process is repeated until the female is spent with total brood size normally 100-200.</p><p>The female now plays no further part in broodcare and can be removed but the male remains in the vicinity and keeps the eggs moist by using his caudal-fin to splash water at them, this behaviour ceasing during the hours of darkness.</p><p>On occasion a pair will deposit eggs in several places or a single male may spawn with several females and thus must maintain several batches of eggs simultaneously.</p><p>The splashing is repeated every minute or so and continues for the next 36-72 hours until the eggs hatch at which point the fry simply drop into the water.</p><p>At this point paternal care ceases and adults or fry are best moved elsewhere in order to avoid predation.</p><p>Initial food should be Paramecium or a proprietary dry food of sufficiently small (5-50 micron) grade, introducing Artemia nauplii, microworm, etc., once the fry are large enough to accept them.</p><p>As with other Copella spp. growth is very slow.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/copella-arnoldi-2/",
+      "html": "<p>The Splashing tetra (Copella arnoldi) is very famous due to its unique way of spawning. The pair jumps out of the water and deposits the eggs on the underside of plant leaves hanging over the water surface (in the aquarium they often spawn on the top glass). After spawning the male guards the clutch and splashes water at regular intervals over the eggs to avoid drying. The offspring hatches within 36 hours.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/copella-arnoldi",
       "html": "<p>This species is also known as the 'spraying', 'splashing' or 'jumping' tetra and these names are sometimes applied to its congeners although none of them exhibit a comparable spawning strategy, rather depositing their eggs among vegetation at or around the water surface.</p><p>It can be told apart from other Copella spp. by the following characters: 23-24 scales in the lateral row; presence of a dark stripe running from the tip of the snout to the eye; dorsal-fin insertion located closer to the caudal-fin base than the posterior edge of the opercle; no black triangular marking in the ventral rays of the lower caudal-fin lobe.</p><p>Some forms have more brightly-coloured fins while at least one displays a broad midlateral stripe when preserved, and those from Guyana, Suriname and French Guiana are considered to represent C. carsevennensis (Regan 1912) by Zarske (2011).</p><p>Following the latter author C. arnoldi is told apart from C. carsevennensis by: presence (vs. absence) of a silvery-white to white patch in the centre of some of the flank scales in males, particularly in the lower half of the body; presence (vs. absence) of a horizontal dark body bar in nuptial males; presence (vs. absence) of thin black margins in the dorsal, ventral and anal fins; eggs deposited outside of the water (vs. eggs deposited among submerged vegetation).</p><p>Mol (2012) considers the two species synonymous based on a personal communication although no detailed explanation is given so they are still listed separately for the time being.</p><p>The genus Copella can be told apart from the closely-related Pyrrhulina by aspects of head morphology plus possession of only one (vs. two) row of conical teeth in the premaxillary.</p><p>The family Lebiasinidae is included in the order Characiformes and sometimes split into the nominal subfamilies Lebiasininae and Pyrrhulininae, though there has not been a major review of the grouping in recent times.</p><p>All lebiasinid genera possess a relatively long, elongate body shape with 17-33 scales in the lateral series and laterosensory canal system absent or reduced to 7 scales or less.</p><p>Some species have an adipose fin while others do not, and the anal-fin has a relatively short base of 13 scales or less.</p><p>In the majority of members males have an enlarged or otherwise well-developed anal-fin used in courtship and spawning.</p><p>The frontal/parietal fontanelle is always absent, the cheek well-covered by the orbital and opercular bones, the supraoccipital crest is absent, and the scales of the dorsal body begin over the parietal bones.</p><p>Characiformes is among the most diverse orders of freshwater fishes currently including close to 2000 valid species distributed among 19 families.</p><p>This tremendous taxonomical and morphological diversity has historically impaired the ability of researchers to resolve their genetic relationships with many genera remaining incertae sedis.</p><p>A further limiting factor has been that in many cases exhaustive study of these on an individual basis is the only way to resolve such problems.</p><p>Modern molecular phylogenetic techniques have allowed some headway, though, and a research paper by Calcagnotto et al. published in 2005 revealed some interesting hypotheses.</p><p>Their results suggest that Lebiasinidae forms a trans-atlantic, monophyletic clade alongside the families Ctenoluciidae and Hepsetidae, this clade further forming a sister group to Alestidae.</p><p>Others such as Oliveira et al. (2011) have concluded that the family Erythrinidae is also closely-related to this grouping with Hepsetidae and Alestidae more distant.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/copella-arnoldi-2/",
+      "html": "<p>This fascinating behaviour is one of the \"must have seen\" events in the life of every real enthusiast. However, one tends to forget sometimes that the Splashing tetra also is a real beauty!</p>"
     },
     {
       "key": "references",
@@ -458,7 +494,7 @@
       "width": 640,
       "height": 480,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Steven Chester / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/copella-arnoldi",
       "caption": "Gravid female.",
       "source": "seriouslyfish"
@@ -469,7 +505,7 @@
       "width": 640,
       "height": 480,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Steven Chester / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/copella-arnoldi",
       "caption": "Nuptial adult male in courtship display.",
       "source": "seriouslyfish"
@@ -480,7 +516,7 @@
       "width": 640,
       "height": 480,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Steven Chester / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/copella-arnoldi",
       "caption": "Nuptial pair about to leave the water to deposit eggs and milt.",
       "source": "seriouslyfish"
@@ -491,13 +527,38 @@
       "width": 640,
       "height": 480,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Steven Chester / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/copella-arnoldi",
       "caption": "Pair spawning on the underside of a synthetic plant.",
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "6mINpHLa1Ho",
+      "title": "Der Spritzsalmler - Copella arnoldi | ADVENTdicted! Adventskalender | Türchen 14",
+      "durationSec": 707,
+      "lang": "de"
+    },
+    {
+      "youtubeId": "a8Oy_f4Ak7A",
+      "title": "Copella arnoldi/ Splash tetra breeding/spawning",
+      "durationSec": 8,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "x6NQsvA45wA",
+      "title": "Spritzsalmler (Copella arnoldi) bei der Eiablage im Aquarium",
+      "durationSec": 192,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "bknzDJ49jI4",
+      "title": "Copella Arnoldi reproducción",
+      "durationSec": 273,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -527,5 +588,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-17"
 }

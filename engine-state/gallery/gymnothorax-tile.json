@@ -11,7 +11,10 @@
   "inat:576184571"
  ],
  "hashes": {
-  "https://media.aquatome.com/inaturalist/576184543.webp": "1707070707030707"
+  "https://media.aquatome.com/inaturalist/576184543.webp": "1707070707030707",
+  "https://media.aquatome.com/glaser/937a840f018f9ee1.webp": "230f3be7ec8783c7",
+  "https://media.aquatome.com/glaser/41c9e9963f93e7f1.webp": "49493323cf5e9c2c",
+  "https://media.aquatome.com/glaser/d24e5f75d67b9b60.webp": "59730713c9c7c214"
  },
  "commons": "2026-11-08",
  "inat": {
@@ -21,5 +24,12 @@
    "research": 318785007,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2403936,
+  "next": null
+ },
+ "openverse": {
+  "next": null
  }
 }

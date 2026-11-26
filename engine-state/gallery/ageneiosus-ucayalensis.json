@@ -2,7 +2,10 @@
  "queue": [],
  "judged": [
   "File:F de Castelnau-poissonsPl17.jpg",
-  "File:Ageneiosus militaris.jpg"
+  "File:Ageneiosus militaris.jpg",
+  "inat:57517985",
+  "inat:57518011",
+  "inat:736167552"
  ],
  "hashes": {},
  "commons": "2026-11-03",
@@ -17,5 +20,13 @@
  "gbif": {
   "key": 2344542,
   "next": null
- }
+ },
+ "inatNc": {
+  "after": 401107147,
+  "done": true
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-22"
 }

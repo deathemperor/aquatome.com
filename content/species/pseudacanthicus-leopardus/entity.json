@@ -20,11 +20,13 @@
         "GY"
       ],
       "regions": [
-        "rio Negro",
-        "Rupununi River"
+        "Rio Negro",
+        "Rupununi River",
+        "Rio Branco"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -34,7 +36,7 @@
             "BR"
           ],
           "regions": [
-            "rio Negro"
+            "Rio Negro"
           ]
         },
         {
@@ -45,6 +47,14 @@
           ],
           "regions": [
             "Rupununi River"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The fish were collected in the Takutu river that belongs to the system of the upper Rio Branco.",
+          "countries": [],
+          "regions": [
+            "Rio Branco"
           ]
         }
       ]
@@ -154,14 +164,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/pseudacanthicus_leopardus_en/",
-      "html": "<p>The genus Pseudacanthicus currently comprises five described species. Three of them are known as aquarium fish. Additionally there are 16 L-numbers given for species of Pseudacanthicus which represent either species new for science or have a doubtful identity.</p><p>One of the most popular Pseudacanthicus is L114 which originates from the middle Rio Negro basin in Brazil. This cactus cat was thought to represent the described species Pseudacanthicus leopardus for a long time.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/pseudacanthicus_leopardus_en/",
-      "html": "<p>Species of Pseudacanthicus are also known under their popular name \"cactus catfish\", for the species are very spiny and it is no good idea to catch a larger specimen with bare hands. Some species of Pseudacanthicus can reach one metre in length, but there are other species that grow up only to 25 cm. As a rule one must be aware that Pseudacanthicus become bigger than many other common aquarium fish.</p><p>Available size: 6-25 cm.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudacanthicus-leopardus-lda7-4/",
+      "html": "<p>Species of Pseudacanthicus are also known under their popular name “cactus catfish”, for the species are very spiny and it is no good idea to catch a larger specimen with bare hands. Some species of Pseudacanthicus can reach one metre in length, but there are other species that grow up only to 25 cm. As a rule one must be aware that Pseudacanthicus become bigger than many other common aquarium fish.</p>"
     },
     {
       "key": "distribution",
@@ -172,8 +176,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/pseudacanthicus_leopardus_en/",
-      "html": "<p>The real P. leopardus originates from the border region of Brazil and Guyana. The fish were collected in the Takutu river that belongs to the system of the upper Rio Branco. There are only very few catchers of ornamental fish in that region.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudacanthicus-leopardus-lda7-4/",
+      "html": "<p>One of the most popular Pseudacanthicus is L114, which originates from the middle Rio Negro basin in Brazil. This cactus cat was thought to represent the described species Pseudacanthicus leopardus for a long time. However, the real P. leopardus originates from the border region of Brazil and Guyana. There are only very few catchers of ornamental fish in that region. The fish were collected in the Takutu river that belongs to the system of the upper Rio Branco.</p>"
     },
     {
       "key": "aquariumSize",
@@ -202,8 +206,8 @@
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/pseudacanthicus_leopardus_en/",
-      "html": "<p>Larger specimens are quarrelsome against congeners and so spacious tanks with a lot of hiding places are needed for Pseudacanthicus.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudacanthicus-leopardus-lda7-4/",
+      "html": "<p>Larger specimens are quarrelsome against congeners and so roomy tanks with a lot of hiding places are needed for Pseudacanthicus.</p>"
     },
     {
       "key": "dimorphism",
@@ -214,8 +218,8 @@
     {
       "key": "dimorphism",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/pseudacanthicus_leopardus_en/",
-      "html": "<p>Males are more robust than females (they have especially a broader and heavier head) and have more spines during breeding season.</p><p>Compared with L114 the fish are much flatter and have a slightly different coloration. They can be best distinguished by the fact that in larger specimens (around 20 cm) of P. leopardus the spots on the head are very small or almost vanished, whereas these spots are relatively large in L114 in all stages.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudacanthicus-leopardus-lda7-4/",
+      "html": "<p>Males are more robust than females (they have especially a broader and heavier head) and have more spines during breeding season.</p>"
     },
     {
       "key": "reproduction",
@@ -226,7 +230,7 @@
     {
       "key": "reproduction",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/pseudacanthicus_leopardus_en/",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudacanthicus-leopardus-lda7-4/",
       "html": "<p>There are reports of successful breeding of some species in the aquarium. The fish are typical cave brooders.</p>"
     },
     {
@@ -234,6 +238,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudacanthicus-cf-leopardus",
       "html": "<p>This 'species' is also traded simply as 'leopard cactus pleco'.</p><p>Etymology: Pseudacanthicus comes from the Greek ψευδής (pseudes) meaning 'false', and the generic name Acanthicus.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudacanthicus-leopardus-lda7-4/",
+      "html": "<p>Compared with L114 the fish are much flatter and have a slightly different coloration.</p><p>Almost simultaneously the numbers L114 and LDA7 were given for the same fish in different magazines. Both numbers refer to the Pseudacanthicus from the middle Rio Negro. However, when the “real” Pseudacanthicus leopardus appeared in the ornamental fish trade, the number LDA7 was used for that fish from then on. Despite this being “technically” wrong, the number LDA7 as a popular name is very well established among hobbyists for Pseudacanthicus leopardus to distinguish it from the similar L114.</p>"
     },
     {
       "key": "references",
@@ -293,10 +303,40 @@
       "width": 800,
       "height": 580,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Haakon Haagensen / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudacanthicus-cf-leopardus",
       "caption": "Adult individual.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b142948ba932e2b3.webp",
+      "thumb": "https://media.aquatome.com/glaser/b142948ba932e2b3-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudacanthicus-leopardus-lda7-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e59e2313a54636a0.webp",
+      "thumb": "https://media.aquatome.com/glaser/e59e2313a54636a0-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudacanthicus-leopardus-lda7-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/980e97e7de44f311.webp",
+      "thumb": "https://media.aquatome.com/glaser/980e97e7de44f311-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudacanthicus-leopardus-lda7-4/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -310,12 +350,6 @@
       "youtubeId": "urqaeDdvDcY",
       "title": "F1 L600  Pseudacanthicus leopardus eggs  HD - Tom's aquatic channel",
       "durationSec": 37,
-      "lang": "en"
-    },
-    {
-      "youtubeId": "fxUlaat3R8E",
-      "title": "Captive bred L600 Pseudacanthicus",
-      "durationSec": 12,
       "lang": "en"
     },
     {
@@ -352,5 +386,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-16"
+  "updatedAt": "2026-11-20"
 }

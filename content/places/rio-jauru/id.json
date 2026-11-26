@@ -1,8 +1,13 @@
 {
   "slug": "rio-jauru",
-  "name": "Jauru",
+  "name": "Sungai Jauru",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-18T05:55:47.462Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

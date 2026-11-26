@@ -1,8 +1,13 @@
 {
   "slug": "pampa",
-  "name": "Pampa",
+  "name": "Sungai Pampa",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-17T00:09:24.800Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

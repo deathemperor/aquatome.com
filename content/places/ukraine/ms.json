@@ -3,6 +3,12 @@
   "name": "Ukraine",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-17T18:01:20.097Z",
+    "why": "The Malay name for the country is \"Ukraine\" in Malaysian usage (DBP), but the given form \"Ukraine\" matches that spelling, so it is in fact correct."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

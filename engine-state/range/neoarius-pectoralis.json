@@ -1,0 +1,82 @@
+{
+  "id": "neoarius-pectoralis",
+  "native": {
+    "input": "f5d7cf1b4f3c7307",
+    "at": "2026-11-19T00:50:56.943Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Central Pacific: Irian Jaya and Australia.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Probably also occurring in southern Papua New Guinea (Port Moresby to the Kempwelch River area).",
+        "words": "Papua New Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Irian Jaya",
+        "source": "scotcat",
+        "quote": "Western Central Pacific: Irian Jaya and Australia.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Neoarius pectoralis",
+    "status": "ACCEPTED",
+    "taxonKey": 2345464,
+    "datasets": [
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        13
+      ],
+      [
+        "18c93d12-34fb-4d3f-903c-b77215a1dcc9",
+        6
+      ],
+      [
+        "d51f93a6-a5b7-4025-83a9-3f7b8525755a",
+        6
+      ],
+      [
+        "db3b4f9d-87ca-4661-a002-c868b7417878",
+        4
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        2
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        1
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        1
+      ]
+    ],
+    "native": [
+      "AU",
+      "PG"
+    ],
+    "requests": 11,
+    "at": "2026-11-19T00:50:56.943Z"
+  }
+}

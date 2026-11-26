@@ -14,7 +14,6 @@
   "inat:53146309"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/f994a48481d1a32f.webp": "8f2f4d92e4c68683",
   "https://media.aquatome.com/commons/4070688370479769.webp": "81c1e2cc3838c0a0",
   "https://media.aquatome.com/commons/f2103c4501d844ec.webp": "a5a71c1e3b994149",
   "https://media.aquatome.com/commons/06cd27e1a3623d60.webp": "839383d3a2c24bc9",
@@ -36,6 +35,9 @@
  },
  "gbif": {
   "key": 5212872,
+  "next": null
+ },
+ "openverse": {
   "next": null
  }
 }

@@ -3,6 +3,12 @@
   "name": "Ribeira do Iguape",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-17T17:59:38.210Z",
+    "why": "The name is the Portuguese form with no Malay kind word, whereas a Malaysian atlas would write \"Lembangan Sungai Ribeira do Iguape\" or \"Sungai Ribeira do Iguape\" for this river basin region."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

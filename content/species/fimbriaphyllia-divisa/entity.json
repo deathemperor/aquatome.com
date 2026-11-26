@@ -1,0 +1,507 @@
+{
+  "id": "fimbriaphyllia-divisa",
+  "scientificName": "Fimbriaphyllia divisa",
+  "order": "Scleractinia",
+  "family": "Euphylliidae",
+  "genus": "Fimbriaphyllia",
+  "group": "other",
+  "places": [
+    "oceania",
+    "australia",
+    "great-barrier-reef",
+    "fiji",
+    "solomon-islands",
+    "asia",
+    "japan",
+    "ryukyu-islands"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "FJ",
+        "AU",
+        "SB"
+      ],
+      "regions": [
+        "Great Barrier Reef",
+        "Ryukyu Islands",
+        "East China Sea"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "It occurs naturally in the Indo-Pacific, Fiji, Australia, the Solomon Islands, the East China Sea, the Great Barrier Reef and the Ryukyu Islands.",
+          "countries": [
+            "FJ",
+            "AU",
+            "SB"
+          ],
+          "regions": [
+            "Great Barrier Reef",
+            "Ryukyu Islands",
+            "East China Sea"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7014537,
+      "total": 155,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "AU",
+          121
+        ],
+        [
+          "NC",
+          15
+        ],
+        [
+          "PH",
+          9
+        ],
+        [
+          "FJ",
+          3
+        ],
+        [
+          "MY",
+          3
+        ],
+        [
+          "ID",
+          1
+        ],
+        [
+          "MV",
+          1
+        ],
+        [
+          "PG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -178.59375,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          73.125,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          5.625,
+          1,
+          0
+        ],
+        [
+          112.5,
+          -29.53125,
+          19,
+          19
+        ],
+        [
+          115.3125,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          -21.09375,
+          2,
+          2
+        ],
+        [
+          115.3125,
+          5.625,
+          1,
+          0
+        ],
+        [
+          116.71875,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          118.125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          118.125,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          119.53125,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          15.46875,
+          7,
+          0
+        ],
+        [
+          142.03125,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          142.03125,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          143.4375,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          143.4375,
+          -11.25,
+          4,
+          4
+        ],
+        [
+          144.84375,
+          -18.28125,
+          5,
+          5
+        ],
+        [
+          144.84375,
+          -16.875,
+          4,
+          4
+        ],
+        [
+          144.84375,
+          -15.46875,
+          18,
+          18
+        ],
+        [
+          144.84375,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          146.25,
+          -19.6875,
+          6,
+          6
+        ],
+        [
+          146.25,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          147.65625,
+          -21.09375,
+          35,
+          35
+        ],
+        [
+          147.65625,
+          -19.6875,
+          2,
+          2
+        ],
+        [
+          149.0625,
+          -21.09375,
+          14,
+          14
+        ],
+        [
+          150.46875,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          150.46875,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          151.875,
+          -22.5,
+          2,
+          2
+        ],
+        [
+          157.5,
+          -21.09375,
+          3,
+          0
+        ],
+        [
+          158.90625,
+          -22.5,
+          3,
+          0
+        ],
+        [
+          158.90625,
+          -19.6875,
+          2,
+          0
+        ],
+        [
+          163.125,
+          -19.6875,
+          1,
+          0
+        ],
+        [
+          164.53125,
+          -22.5,
+          1,
+          0
+        ],
+        [
+          164.53125,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          165.9375,
+          -23.90625,
+          1,
+          0
+        ],
+        [
+          165.9375,
+          -22.5,
+          2,
+          0
+        ],
+        [
+          167.34375,
+          -23.90625,
+          1,
+          0
+        ],
+        [
+          177.1875,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          178.59375,
+          -18.28125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "marine",
+    "source": "aquariumbreeder",
+    "quote": "Optimal salinity: SG 1.023–1.025"
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 8.1,
+          "max": 8.4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 100
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-frogspawn-corals/",
+      "html": "<ul><li>Name: Frogspawn coral</li><li>Scientific name: Euphyllia divisa</li><li>Minimum tank size: 120 litres</li><li>Propagation: easy to moderate</li><li>Lighting: moderate</li><li>Water flow: moderate</li><li>Optimal salinity: SG 1.023–1.025</li><li>Optimal KH: 8–12</li><li>Nitrate: less than 20 ppm</li><li>Feeding: photosynthetic</li><li>Tank placement: bottom to middle</li><li>Growth rate: slow to moderate</li><li>Toxicity: yes</li><li>Invasive: no</li><li>Temper: semi-aggressive</li><li>Colour: brown to tan, green to yellow-green and blue (rare), with cream, pink, lavender or white visible tips at the end of the tentacles</li></ul><p>Euphyllia divisa is one of the most popular large polyp stony (LPS) corals in the reef hobby, alongside its sibling species the Hammer coral (Euphyllia ancora) and the Torch coral (Euphyllia glabrescens). The name Frogspawn comes from its multi-tipped tentacles, which strongly resemble a mass of frog eggs. It is hardy, semi-aggressive and capable of rapid growth in favourable water conditions.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-frogspawn-corals/",
+      "html": "<p>This hardy LPS coral can be bought at local stores and from reputable online breeders and vendors. Inspect it or ask thoroughly about its health so as not to obtain specimens with soft tissue damage.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-frogspawn-corals/",
+      "html": "<p>Frogspawn coral is a large polyp stony coral of the family Euphylliidae, a family of zooxanthellate scleractinians. Euphyllia divisa was first described by Veron &amp; Pichon in 1979. It is also called Octopus coral, Grape coral, Honey coral and Wall coral, and is related to other well-known LPS corals such as the Torch coral and the Hammer coral.</p><p>Taxonomy: Kingdom Animalia, Phylum Cnidaria, Class Anthozoa, Order Scleractinia, Family Euphylliidae, Genus Euphyllia, Species Euphyllia divisa.</p><p>It occurs naturally in the Indo-Pacific, Fiji, Australia, the Solomon Islands, the East China Sea, the Great Barrier Reef and the Ryukyu Islands.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-frogspawn-corals/",
+      "html": "<p>Frogspawn coral can be found in a variety of reef regions. It forms colonies on reef slopes in fairly deep, turbid water down to a depth of 40 m, where it feeds on planktonic matter and receives indirect bright light.</p><p>Frogspawn corals form large colonies with corallite walls that emerge on the outer edges; these corallites are thin and sharp-edged. Some colonies reach up to 1 metre in size.</p><p>When fully extended the tentacles are very long and covered with short branches tipped with multiple small rounded knobs. Another prominent feature is a flabello-meandroid skeleton. The tentacles are thick, lumpy and long, with some branching into double skeletal or single heads, and brightly coloured tips at the ends. The polyps have a bubble-like appearance resembling a mass of frog spawn.</p><p>A relative, Euphyllia paradivisa, is known to hobbyists as the Branching Frogspawn coral. It is endemic to the waters of the Central Indo-Pacific and American Samoa. Like Euphyllia divisa it has very long tentacles ending in multiple tipped branches, but it has a branching (phaceloid) skeleton. Branching Frogspawn corals also grow a little faster and are easier to frag.</p><p>The tentacles are usually brown to tan, green to yellow-green and blue (rare), with cream, pink, lavender or white tips.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-frogspawn-corals/",
+      "html": "<p>The minimum tank size for housing Frogspawn corals is 80 litres (120 litres is given in the quick notes). A larger tank is even better, as it allows adequate spacing between corals and greater stability of water parameters.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-frogspawn-corals/",
+      "html": "<p>Carry out partial water changes of 20–25% monthly, 10–15% every two weeks, or 5% weekly to maintain good water quality and replenish trace elements.</p><p>Inspect the corals frequently to detect damage, infection or unusual behaviour in time. A sick or unhealthy coral should be separated and moved to a quarantine tank for treatment to prevent infections from spreading.</p><p>Regular inspection and a good water change schedule are essential for the health of the corals and good water chemistry.</p><h3>Placement</h3><p>Placement depends on three factors: light intensity, water flow and adequate spacing to curb aggression.</p><p>A good practice is the 15 cm rule: place other corals at least 15 cm away from Euphyllia divisa. An exception is similar Euphyllia species such as Hammer corals, which are not harmed by the Frogspawn's sweeper tentacles.</p><p>Note: although Torch corals and Frogspawn corals are different species of the same genus, Torch corals can be too aggressive towards Frogspawn corals. Keeping them together is not recommended, as they compete for space in the reef tank.</p><p>Finding the right spot takes trial and error in different areas of the tank; the coral extends its polyps fully and feeds properly once it is in a comfortable place. Avoid very fast or direct water flow, which can cause the polyps to retract and hamper filter-feeding.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-frogspawn-corals/",
+      "html": "<ul><li>Temperature: the optimal range is 24–28°C. Keeping the temperature constant (avoiding fluctuation) matters more than the actual temperature.</li><li>pH: the ideal level is 8.1–8.4. Avoid rapid swings in pH.</li><li>Hardness: 8–12 dKH.</li><li>Salinity/specific gravity: 1.023–1.025.</li><li>Calcium: 400–450 ppm.</li><li>Magnesium: 1,250–1,350 ppm.</li><li>Strontium: 8–10 ppm.</li><li>Nitrate: &lt; 1 ppm (less than 20 ppm in the quick notes).</li><li>Phosphate: &lt; 0.05 ppm.</li><li>Ammonia: 0 ppm.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-frogspawn-corals/",
+      "html": "<h3>Lighting</h3><p>Frogspawn corals tolerate a wide range of light intensity, including high light, but prefer moderate lighting for best growth and colour. Fluorescent and LED lighting are enough for their needs. Metal halides may seem a good option, but they give off too much heat, which can damage the coral's tissues. LED output of around 50–100 PAR is sufficient.</p><p>Tip: in nature these corals are commonly attached to vertical surfaces, so place them at an angle. If light cannot reach their branches, they often stop growing and the heads do not sprout at all.</p><h3>Water flow</h3><p>Water flow should be moderate, neither too weak nor too strong, enough to keep detritus from collecting on the coral. The coral should not be hit by direct flow, which can damage it or stop the polyps from extending fully.</p><p>Note: under too low flow, Frogspawn corals take in more water to inflate themselves. This leaves more space between the tissue and leads to a visible loss of colour.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-frogspawn-corals/",
+      "html": "<p>Frogspawn coral has a symbiotic relationship with algae living in its tissues, called zooxanthellae. This lets it produce food from light, though the zooxanthellae provide just enough nutrition to sustain themselves and the coral.</p><p>The coral also captures planktonic organisms and food particles suspended in the water, and absorbs organic matter.</p><p>Despite the photosynthetic zooxanthellae, it should also be fed live and meaty frozen foods. With supplemental or manual feeding the coral grows more vigorously, so the nutrition from photosynthesis should not be assumed to be enough for rapid growth and large mass.</p><p>It can be fed:</p><ul><li>mysis shrimp</li><li>krill</li><li>vitamin-enriched brine shrimp</li><li>daphnia or small fish</li><li>copepods</li><li>reef roids</li></ul><p>Frozen foods can be thawed to make it easier for the coral to eat them.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-frogspawn-corals/",
+      "html": "<p>Euphyllia corals can be quite aggressive when placed close to other corals, as they compete for space in the aquarium, so they should be spaced adequately from other corals.</p><p>Frogspawn coral is not hostile to species of its own genus, but corals of other genera in the family Euphylliidae are not exempt from its hostility.</p><p>The polyps extend during the day and only partially at night. The sweeper tentacles can extend up to 25 cm in larger colonies when the coral is hungry, which threatens nearby corals because of the powerful sting.</p><p>Some shrimp species living nearby enjoy the protection of the Frogspawn's tentacles through commensalism.</p><p>Tankmates: in the absence of sea anemones, clownfish are known to host in Frogspawn corals in reef tanks. This is not good: clownfish may accidentally damage the coral, which can lead to infections such as brown jelly. The same applies to hermit crabs, crabs and similar animals. Frogspawn corals do not like to be disturbed.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-frogspawn-corals/",
+      "html": "<p>Frogspawn corals reproduce both sexually and asexually.</p><p>In the wild they reproduce sexually by releasing gametes into the water, producing a fertilised egg that gives rise to a free-swimming planula larva. The larva then metamorphoses into a tiny polyp that begins to secrete calcium carbonate and develops into a coral.</p><p>They can also reproduce asexually. In reef aquariums a Frogspawn coral will bud off a small group of polyps with small skeletons, which usually takes a few months to become full-sized heads. They also break off individual polyps in response to stress; these relocate and start a new colony.</p><h3>Fragging</h3><p>Fragging can be tricky because there are two types of Frogspawn coral: the wall type and the branching type. The wall type is not recommended for fragging without the skill to make clean cuts with a bandsaw. The branching type is far more receptive.</p><ul><li>Make sure your hands are clean or wear gloves. Do not touch the coral with bare hands; the stings can cause a skin rash for a few days.</li><li>Use a decent-sized, healthy, lively coral.</li><li>Take out the coral and irritate it slightly so it retracts its tentacles. Frogspawn corals are quite sticky and it is easy to rip off a feeder tentacle accidentally.</li><li>With an electric bandsaw, divide the coral into several parts by cutting at least 5 cm from the top.</li><li>Attach the frag to a coral frag plug or live rock with cyanoacrylate gel or 2-part epoxy, place it back in the aquarium and provide ample water flow.</li></ul><p>Tip: soak a frag plug in water for a couple of minutes to release air bubbles from the ceramic. Tip 2: treat new frags with an iodine solution (such as Lugol's solution) to prevent disease, then attach them to live rock before returning them to the tank.</p><p>Items that may be needed depending on the method: hammer and chisel, scissors, cyanoacrylate glue, containers, scalpel or razor blade, plug pebbles or coral frag disks.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-frogspawn-corals/",
+      "html": "<h3>Potential problems</h3><p><strong>Brown jelly infection:</strong> a common coral disease, characterised by a jelly-like brown mass that appears to float on the surface of the coral. It is caused by poor water quality or tissue damage, can lead to rapid tissue necrosis and can spread to other corals in the tank.</p><p>Solution: treat the infected areas with a broad-spectrum treatment. Remove the sick colony from the main tank, scrub off and siphon any visible brown jelly. Then treat the colony in a freshwater or iodine dip (15 ppt) and keep it in a quarantine tank until it recovers before returning it to the main tank. When using Lugol's solution, do not overdose; follow the bottle instructions based on tank size.</p><p><strong>Rust brown flatworms:</strong> an acoel worm common in reef keeping. They are tan-brown or rust-coloured with a red dot and can reach about 0.6 cm. They are oval and slightly elongated, with two tail-like appendages at the rear. They multiply rapidly in tanks with high nutrient levels, often in large numbers, and attach to the coral's body and block light from reaching its tissues.</p><p>Solution: keep nutrient levels low with carbon, aggressive protein skimming and increased water flow. Quarantine new corals and other animals before placing them to reduce the risk of introducing acoels. Natural predators such as the Blue Velvet Nudibranch (Chelidonura varians) and wrasses can also help. An infected colony can be dipped in dechlorinated freshwater for 5 to 10 seconds (acoels are sensitive to salinity changes); beforehand, make sure the water has a similar pH and temperature to the aquarium water to reduce stress.</p><p><strong>Mishandling:</strong> handle the coral carefully during fragging, placement, relocation or transfer between tanks to minimise the risk of soft tissue damage. Avoid fragging with bone crushers or scissors, which can splinter the fleshy polyp area.</p><p>Solution: a band saw allows safer, more precise cuts than bone cutters and shears.</p><h3>Conclusion</h3><p>Frogspawn corals are a great addition to reef aquariums, valued for their fast growth rate, ease of care, attractive colours and the gentle sway of their long multi-tipped tentacles in the current. This lively, beginner-friendly Euphyllia coral is easy to recommend for a reef aquarium.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/b61cd5ae43609c1e.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/b61cd5ae43609c1e-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-frogspawn-corals/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "Ri1XHQ1-bR8",
+      "title": "Euphyllia divisa (HD)",
+      "durationSec": 120,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "JkpjgsxIUU4",
+      "title": "Canadianreefmaster Fragging My Euphyllia & fimbriaphyllia Coral; Fragging: Hammer, Frogspawn, Torch",
+      "durationSec": 105,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "URb-ZIiIN4Q",
+      "title": "Clown in its Euphyllia Divisa",
+      "durationSec": 21,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ASdSKW6q24M",
+      "title": "Aquário Marinho: Tudo Sobre o Frogspawn Coral (Euphyllia divisa) #reefmarinho",
+      "durationSec": 282,
+      "lang": "pt"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể hải sản 120 lít",
+        "bể reef"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn LED reef",
+        "đèn san hô LPS"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn san hô",
+        "mysis đông lạnh",
+        "artemia dinh dưỡng"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test nước biển",
+        "test KH canxi magiê"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

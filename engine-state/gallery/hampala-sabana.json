@@ -1,9 +1,32 @@
 {
  "queue": [],
  "judged": [
-  "File:Hampala sabana.jpg"
+  "File:Hampala sabana.jpg",
+  "inat:297042297",
+  "inat:297528623",
+  "inat:297658901",
+  "inat:327634735",
+  "inat:369102409",
+  "inat:433265749",
+  "inat:433265765",
+  "inat:433265770",
+  "inat:433265784",
+  "inat:433265799",
+  "inat:433265818",
+  "inat:433265840",
+  "inat:433265842",
+  "inat:433265884",
+  "inat:433265887",
+  "inat:539444564",
+  "inat:591593823",
+  "inat:735640859",
+  "inat:735640820"
  ],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/inaturalist/433265818.webp": "b8387ceef042703c",
+  "https://media.aquatome.com/inaturalist/591593823.webp": "8ececf3727613224",
+  "https://media.aquatome.com/inaturalist/539444564.webp": "83e16c7c47810921"
+ },
  "commons": "2026-11-08",
  "inat": {
   "taxon": 613021,
@@ -12,5 +35,13 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2367435,
+  "next": null
+ },
+ "inatNc": {
+  "after": 400847614,
+  "done": true
  }
 }

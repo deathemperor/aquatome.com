@@ -1,0 +1,149 @@
+{
+  "id": "astroblepus-huallagaensis",
+  "scientificName": "Astroblepus huallagaensis",
+  "order": "Siluriformes",
+  "family": "Astroblepidae",
+  "genus": "Astroblepus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "huallaga"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 15,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 5.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_huallagaensis.htm",
+      "html": "<ul><li>Common name: none</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_huallagaensis.htm",
+      "html": "<p>South America: Andes of Peru.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_huallagaensis.htm",
+      "html": "<p>Fishes of the family Astroblepidae are found in freshwater streams (between about 60 and 4,085 m above sea level) of the tropical Andes from Panama to Bolivia, and occur in both the western Pacific and eastern Amazonian slope drainage systems in South and Central America.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_huallagaensis.htm",
+      "html": "<p>Not an easy family of catfishes to keep, so they would have to have a large tank with rocks and some appropriate vegetation. The water would need to be fast flowing and provided with extra oxygen via an air tube fed into the powerhead flow. The tank should be set up with rocks so as to provide an area where the water current will be slower.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_huallagaensis.htm",
+      "html": "<p>Invertebrates, insect larvae, spirulina tablets or paste, algae based foods and live bloodworm would probably be the staple diet but you may wish to try glassworm (clear phantom midge larvae) and blackworm (although these won’t tend to stay on the substrate unless the current takes them there).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_huallagaensis.htm",
+      "html": "<p>Astroblepids are closely related to the Loricariids, and in fact one genus of fish (Lithogenes Eigenman, 1909) seems intermediate between the two families, having the shape and form of an Astroblepid, but some plates on the body and other morphological characters closer to Loricariids. At the time of writing, Lithogenes is currently placed in Loricariidae.</p><p>Description: This species is distinguished by the following characters: no spine on adipose fin; maxillary barbel extending beyond the oral disk; first pectoral radius longer than head longitude; soft branching radii 8; first radius of pelvic fin beyond the anus; premaxillary with 1-2 bicuspid and 6-7 conical teeth in the outermost row; first simple radii of caudal fin no extension; fifth cerato-branchial bone with 8 teeth; free vertebrae 26. Cross section: oval.</p><p>Etymology: The specific name huallagaensis: Named for its type locality, Río Huallaga (Perú, elevation 997 m).</p><p>Remarks: There is a phenotypic variability and variations in colouration pattern with this species.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_huallagaensis.htm",
+      "html": "<p>Ardila Rodriguez, C.A., 2013. Astroblepus hidalgoi - A. floridaensis A. huallagaensis y A. cajamarcaensis Cuatro nueva especies de los Andes del Perú. Barranquilla, Departamento del Atlántico, 25 p.</p><p>De la Sota A, Hidalgo M, Estivals G, Faustino-Fuster D, Meza-Vargas V, Caminade P, Bêche L, Britzke R R, Steinke D, Hubert N. (2026) Delimiting Andean catfish species of the families Astroblepidae and Loricariidae (Ostariophysi, Siluriformes) in the Peruvian Andes using DNA barcodes. ZooKeys 1290: 59-84.</p><p>Froese, R. and D. Pauly. Editors. 2026. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 06/2026 ).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng",
+        "máy tạo sóng bể cá",
+        "sục khí bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm lạnh nước bể cá",
+        "chiller bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn tảo spirulina cho cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-20",
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Río Huallaga",
+        "Andes"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Andes of Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Andes"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Etymology: The specific name huallagaensis: Named for its type locality, Río Huallaga (Perú, elevation 997 m).",
+          "countries": [],
+          "regions": [
+            "Río Huallaga"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11163935,
+      "total": 0,
+      "fetched": "2026-11-21",
+      "countries": [],
+      "cells": []
+    }
+  }
+}

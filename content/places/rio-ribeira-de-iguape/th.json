@@ -3,6 +3,12 @@
   "name": "ริเบรา จี อีกวาปี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-21T19:03:27.083Z",
+    "why": "The name lacks the Thai kind word \"แม่น้ำ\" and transliterates \"de Iguape\" oddly (จี instead of ดี/ดึ, อีกวาปี for Iguape), so it is not the standard Thai form."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

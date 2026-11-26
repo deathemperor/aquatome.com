@@ -1,0 +1,34 @@
+{
+  "slug": "auchenoglanis",
+  "name": "Auchenoglanis",
+  "altNames": [
+    "Nile Auchenoglanis",
+    "Giraffe Catfish",
+    "Lele jerapah"
+  ],
+  "sections": {
+    "quickFacts:scotcat": "<ul><li>Nama umum: Nile auchenoglanis</li><li>Daftar Merah IUCN: Risiko Rendah (Least Concern) (IUCN 2020). Spesies ini tersebar luas dan tidak diketahui menghadapi ancaman besar yang meluas.</li></ul>",
+    "distribution:scotcat": "<p>Afrika: Sungai Nil, Niger, Senegal, Cekungan Danau Chad, dan daerah aliran Sungai Gambia.</p>",
+    "habitat:scotcat": "<p>Umumnya ditemukan di perairan mengalir, danau, dan di antara vegetasi terendam di rawa Sudd, jarang ditemukan di vegetasi tepian.</p>",
+    "diet:scotcat": "<p>Mencari makan di dasar, berupa lumpur, serasah, serangga, terutama larva chironomid, serta moluska. (Geerinckx &amp; Vreven 2013).</p>",
+    "behaviour:glaser": "<p>Semua Auchenoglanis dapat tumbuh hingga lebih dari 40 cm, tetapi karena terutama memakan partikel pakan yang kecil, biasanya mereka sangat damai, bahkan terhadap teman satu akuarium yang jauh lebih kecil. Bibirnya yang tebal berdaging, yang berfungsi untuk mendeteksi makanan di dalam lumpur, membuat Auchenoglanis dijuluki \"kissing mouths\" (mulut pencium) di kalangan penghobi akuarium.</p>",
+    "reproduction:scotcat": "<p>Ikan yang sedang mengandung telur tercatat sepanjang tahun, dengan puncaknya pada musim kemarau.</p>",
+    "notes:glaser": "<p>Hingga belum lama ini, hanya dua spesies Auchenoglanis yang diakui sah: A. biscutatus dari Sungai Nil dan seluruh Afrika Barat, serta A. occidentalis dari Afrika Tengah. Namun pada 2010 genus ini direvisi oleh Retzer, yang mengakui total 8 spesies berbeda, 7 di antaranya sudah dideskripsikan sebelumnya dan satu spesies baru, yaitu A. senegali.</p><p>Spesies dari Sungai Niger yang diimpor ini paling mirip dengan A. wittei dari Kongo, tetapi menurut Retzer, Auchenoglanis dari Niger kemungkinan besar termasuk spesies yang secara ilmiah belum dideskripsikan. Karena alasan-alasan tersebut, ikan ini dicantumkan sebagai Auchenoglanis biscutatus.</p>",
+    "notes:scotcat": "<p>Ciri utama A. biscutatus adalah tubuh dan sirip adiposa pada ikan dewasa berwarna cokelat muda atau abu-abu, dengan bintik-bintik kecil yang jelas pada sirip-sirip berjari-jari yang tidak membentuk pita. Bentuk pelat tengkuknya (nuchal plate) juga berbeda dari semua kerabatnya dalam genus ini. Spesies pada gambar mini pertama awalnya dianggap sebagai anakan A. occidentalis.</p><p>A. biscutatus dibedakan dari A. occidentalis oleh panjang kepala di belakang mata yang lebih besar daripada panjang kepala di depan mata, sirip adiposa yang naik secara tiba-tiba, dan sungut maksila yang ujungnya tidak lebih gelap daripada warna kepala.</p><p>Teugels dkk. (1991) menganggap genus Auchenoglanis terdiri atas dua spesies sah: A. biscutatus dan A. occidentalis. Setelah penelitian Michael Retzer (2010), genus ini memiliki 8 spesies: A. acuticeps (kini dianggap sinonim A. occidentalis), A. biscutatus, A. occidentalis, A. sacchii, A. senegali (kini dianggap sinonim A. biscutatus), A. tanganicanus, A. tchadiensis, dan A. wittei. Evaluasi ulang berikutnya yang didasarkan pada data biometrik, meristik, dan morfologi lainnya kembali menegaskan hanya ada dua spesies sah dalam genus ini. A. occidentalis memiliki sebaran yang sangat luas, dari Senegal hingga Tanzania.</p><p>Etimologi: nama genus Auchenoglanis merupakan nama pengganti untuk Auchenaspis Bleeker 1858 (nama itu sudah dipakai untuk ikan fosil); auchenos berarti leher, dan aspis berarti perisai, merujuk pada perisai tengkuk yang lebar; glanis, ikan sheatfish (Silurus glanis), kini dipakai sebagai istilah umum untuk ikan lele. Nama spesies biscutatus: bi- berarti dua; scutatus berarti berperisai, merujuk pada perisai tengkuk yang terbagi menjadi dua bagian.</p>",
+    "references:scotcat": "<ul><li>Bailey, R.G. 1994 Guide to the fishes of the River Nile in the Republic of the Sudan. J. Nat. Hist. 28:937-970.</li><li>Diouf, K., Azeroual, A., Entsua-Mensah, M., Getahun, A. &amp; Lalèyè, P. 2020. Auchenoglanis biscutatus. The IUCN Red List of Threatened Species 2020.</li><li>Retzer E. Michael; Taxonomy of Auchenoglanis Günther 1865 (Siluriformes: Auchenoglanididae) Zootaxa 2655: 25–51 (2010).</li><li>The ETYFish Project Fish Name Etymology Database.</li><li>Tom Geerinckx &amp; Emmanuel Vreven (2013) A re-evaluation of the species-level diversity within the catfish genus Auchenoglanis (Siluriformes: Claroteidae), Journal of Natural History, 47:47-48, 2979-3010.</li></ul>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": true,
+    "bySource": {
+      "scotcat": 0.8,
+      "glaser": 0.8
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-19"
+  }
+}

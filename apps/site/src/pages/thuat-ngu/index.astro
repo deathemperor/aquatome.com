@@ -16,7 +16,7 @@ const anchor = (letter: string) => `chu-${letter.toLocaleLowerCase(lang)}`
 // What the search matches: the name, other names and English, without accents.
 const fold = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '').replace(/đ/gi, 'd').toLowerCase()
 ---
-<Browse title={t('Thuật ngữ')} heading={t('Thuật ngữ')} intro={t('Giải thích các thuật ngữ thủy sinh, kèm tên tiếng Anh.')}>
+<Browse title={t('Thuật ngữ')} heading={t('Thuật ngữ')} structuredBreadcrumb intro={t('Giải thích các thuật ngữ thủy sinh, kèm tên tiếng Anh.')}>
   <div class="find">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
     <input type="search" id="tm-find" placeholder={t('Tìm trong {n} thuật ngữ', { n: num(terms.length) })} aria-label={t('Tìm trong {n} thuật ngữ', { n: num(terms.length) })} autocomplete="off" />
@@ -32,7 +32,7 @@ const fold = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '').replace(/�
         {gr.terms.map(g => {
           const uses = termListing(lang, c, g).uses
           return (
-            <div data-find={fold([g.t.name, ...g.t.altNames, g.en].join(' '))}>
+            <div data-find={fold([g.t.name, ...g.t.altNames, ...(g.t.linkNames ?? []), g.en].join(' '))}>
               <dt><a href={`/vi/thuat-ngu/${g.t.slug}/`}>{g.t.name}</a> <span lang="en">{g.en}</span></dt>
               {g.t.definition && <dd>{g.t.definition}</dd>}
               {uses && <dd class="uses">{t('Dùng trong {n} trang', { n: num(uses) })}</dd>}

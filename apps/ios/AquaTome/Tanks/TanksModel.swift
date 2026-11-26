@@ -21,9 +21,9 @@ final class TanksModel {
   private(set) var problem: Problem?
   private let file: URL
   /// Readers' demand (docs/my-tanks-sync.md): where a save sends what it put on a tank without a page, and whether the
-  /// handbook has a page for one (then it isn't sent). The app sets them.
+  /// handbook has a page for one (then it isn't sent), asked once its index is read. The app sets them.
   @ObservationIgnored var wanted: Wanted?
-  @ObservationIgnored var hasPage: (UnlistedEntry) -> Bool = { _ in false }
+  @ObservationIgnored var hasPage: @MainActor (UnlistedEntry) async -> Bool = { _ in false }
   /// The app's anonymous telemetry: a tank added, or not. The app sets it.
   @ObservationIgnored var telemetry: Telemetry?
   #if DEBUG
@@ -86,8 +86,11 @@ final class TanksModel {
   /// changed later isn't new). Only the reader's own saves: not a sync, nor a page's (it sends its own).
   private func saved(_ t: Tank?, before: Tank?) {
     guard let wanted, let t else { return }
-    for e in t.unlistedAdded(since: before) where !hasPage(e) {
+    for e in t.unlistedAdded(since: before) {
       Task {
+        // Once the index is read: while it reads, which pages there are isn't known, and an entry left then was never
+        // sent (Codex, 21 Nov).
+        guard await !hasPage(e) else { return }
         #if DEBUG
         if await wanted.send(e) { wantedForTests.append(String(decoding: wanted.request(e).httpBody ?? Data(), as: UTF8.self)) }
         #else
@@ -155,7 +158,8 @@ final class TanksModel {
   // MARK: Lights, remembered as the site's light page does (a failed save shows on this tab; the light goes on working)
 
   /// The tank a light met for the first time goes on, when there is none yet.
-  static let newTankName = String(localized: "Bể của tôi")
+  /// In the app's language as a light first connects: a name kept once written, as the reader's own.
+  static var newTankName: String { String(localized: "Bể của tôi", bundle: .app) }
 
   /// A Chihiros light just connected: its saved record, or a new one on the first tank.
   func metLight(bleName: String, model: String) {
@@ -186,6 +190,13 @@ final class TanksModel {
     guard let d = try? s.metWeekAqua([(address, bleName)], model: Self.weekAquaModel, tankName: Self.newTankName).first,
           (try? s.updateDevice(d.id) { change(&$0) }) != nil else { return }
     try? commit(s)
+  }
+
+  /// The Love Ecology lamp's record, made on the first tank when the master button first takes it, so its steps can name it.
+  func keepLoveEcology() -> Device? {
+    var s = store
+    guard let d = try? s.keepLoveEcology(tankName: Self.newTankName) else { return nil }
+    return (try? commit(s)) != nil ? d : nil
   }
 
   /// Lights moved to another of the reader's tanks, the one they light (the Week Aqua screen's "Bể").
@@ -242,7 +253,7 @@ final class TanksModel {
     if args.contains("-reset-defaults") { try? fm.removeItem(at: dir) }
     guard let i = args.firstIndex(of: "-seed-tanks"), i + 1 < args.count else { return }
     switch args[i + 1] {
-    case "newer", "unreadable", "litres", "life", "many", "clash", "plug", "breed", "two":
+    case "newer", "unreadable", "litres", "life", "many", "clash", "plug", "breed", "two", "master":
       let many = (["paracheirodon-innesi"] + (1...19).map { "loai-thu-\($0)" }).map { #"{"id":"\#($0)","count":2}"# }.joined(separator: ",")
       let store = [
         "newer": #"{"v":2,"tanks":[],"devices":[]}"#,
@@ -253,6 +264,8 @@ final class TanksModel {
         "clash": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000003","name":"Bể 60","dims":{"l":60,"w":30,"h":36},"species":[{"id":"symphysodon-aequifasciatus","count":2},{"id":"paracheirodon-innesi","count":12}],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[]}"#,
         "plug": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000005","name":"Bể 60","species":[],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[{"id":"00000000-0000-4000-8000-000000000040","tankId":"00000000-0000-4000-8000-000000000005","kind":"plug","brand":"tuya","remoteId":"fake-strip-1","nickname":"Ổ cắm bể 60","outlets":[{"code":"switch_1","label":"Đèn"},{"code":"switch_2","label":"CO2"},{"code":"switch_3"}],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}]}"#,
         "breed": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000006","name":"Bể đĩa","dims":{"l":120,"w":50,"h":50},"species":[{"id":"symphysodon-aequifasciatus","count":2},{"id":"pigeon-blood-discus","count":3}],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[]}"#,
+        // The master button's flows: the stand-in strip's light, CO2 and fan outlets, and a filter on another strip.
+        "master": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000005","name":"Bể 60","species":[],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[{"id":"00000000-0000-4000-8000-000000000040","tankId":"00000000-0000-4000-8000-000000000005","kind":"plug","brand":"tuya","remoteId":"fake-strip-1","nickname":"Ổ cắm bể 60","outlets":[{"code":"switch_1","label":"Đèn","role":"light"},{"code":"switch_2","label":"CO2","role":"co2"},{"code":"switch_3","label":"Quạt","role":"fan"},{"code":"switch_4","label":"Sưởi","role":"heater"}],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"},{"id":"00000000-0000-4000-8000-000000000042","tankId":"00000000-0000-4000-8000-000000000005","kind":"plug","brand":"tuya","remoteId":"fake-strip-2","nickname":"Ổ cắm kệ","outlets":[{"code":"switch_1","label":"Lọc","role":"filter"}],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}]}"#,
         "two": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000007","name":"Bể 60","species":[],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"},{"id":"00000000-0000-4000-8000-000000000008","name":"Bể nước đen","species":[],"plants":[],"createdAt":"2026-10-02T08:00:00.000Z","updatedAt":"2026-10-02T08:00:00.000Z"}],"devices":[]}"#,
       ][args[i + 1]]!
       try? fm.createDirectory(at: dir, withIntermediateDirectories: true)
@@ -333,19 +346,19 @@ struct TankFields: Equatable {
 func litresText(_ l: Double, digits: Int? = nil) -> String {
   let style = FloatingPointFormatStyle<Double>.number.locale(.app).rounded(rule: .toNearestOrAwayFromZero)
     .precision(.fractionLength(0...(digits ?? (l < 100 ? 1 : 0))))
-  return String(localized: "\(l.formatted(style)) lít")
+  return String(localized: "\(l.formatted(style)) lít", bundle: .app)
 }
 
 /// Substrates the site lists (Known.substrate), with its labels. A value from a newer client is shown as it is.
 enum Substrate {
   static func label(_ value: String) -> String {
     switch value {
-    case "soil": String(localized: "Phân nền (aqua soil)")
-    case "sand": String(localized: "Cát")
-    case "gravel": String(localized: "Sỏi")
-    case "lava": String(localized: "Đá nham thạch")
-    case "bare": String(localized: "Không trải nền")
-    case "other": String(localized: "Nền khác")
+    case "soil": String(localized: "Phân nền (aqua soil)", bundle: .app)
+    case "sand": String(localized: "Cát", bundle: .app)
+    case "gravel": String(localized: "Sỏi", bundle: .app)
+    case "lava": String(localized: "Đá nham thạch", bundle: .app)
+    case "bare": String(localized: "Không trải nền", bundle: .app)
+    case "other": String(localized: "Nền khác", bundle: .app)
     default: value
     }
   }

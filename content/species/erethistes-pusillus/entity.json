@@ -9,18 +9,23 @@
     "asia",
     "india",
     "bengal",
-    "ganges"
+    "ganges",
+    "bangladesh",
+    "myanmar"
   ],
   "range": {
     "native": {
       "countries": [
-        "IN"
+        "IN",
+        "BD",
+        "MM"
       ],
       "regions": [
         "Ganges"
       ],
       "sources": [
-        "scotcat"
+        "scotcat",
+        "planetcatfish"
       ],
       "quotes": [
         {
@@ -32,17 +37,26 @@
           "regions": [
             "Ganges"
           ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: India, Bangladesh and Myanmar, including West Bengal.",
+          "countries": [
+            "BD",
+            "MM"
+          ],
+          "regions": []
         }
       ]
     },
     "records": {
       "taxonKey": 5202562,
-      "total": 26,
-      "fetched": "2026-11-08",
+      "total": 25,
+      "fetched": "2026-11-21",
       "countries": [
         [
           "IN",
-          16
+          15
         ],
         [
           "BD",
@@ -70,31 +84,31 @@
           87.1875,
           25.3125,
           1,
-          0
+          1
         ],
         [
           88.59375,
           23.90625,
           2,
-          0
+          2
         ],
         [
           88.59375,
           25.3125,
           2,
-          1
+          2
         ],
         [
           90,
           22.5,
           2,
-          0
+          2
         ],
         [
           91.40625,
           23.90625,
           5,
-          2
+          5
         ],
         [
           92.8125,
@@ -111,8 +125,8 @@
         [
           94.21875,
           28.125,
-          5,
-          5
+          4,
+          4
         ]
       ]
     }
@@ -126,6 +140,10 @@
       {
         "source": "scotcat",
         "value": 4
+      },
+      {
+        "source": "planetcatfish",
+        "value": 4.2
       }
     ],
     "tempC": [
@@ -135,6 +153,13 @@
           "min": 22,
           "max": 24
         }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 23
+        }
       }
     ],
     "ph": [
@@ -143,6 +168,13 @@
         "value": {
           "min": 6,
           "max": 7.5
+        }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.2,
+          "max": 6.8
         }
       }
     ]
@@ -161,10 +193,22 @@
       "html": "<ul><li>Common name: Moth Catfish</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=141",
+      "html": "<p>Erethistes pusillus Müller &amp; Troschel, 1849. Common name: Giant Moth Catfish. Type locality: Assam, India. Synonym: Hara pusillus. Size: 42 mm (4.2 cm) SL.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hara-hara-erethistes-pusillus-2/",
       "html": "<p>In India live two species of moth catfishes, which are practically impossible to distinguish in living condition. They are nevertheless sometimes even assigned to two different genera: Hara and Erethistes. The difference between the two genera lies in the structure of the vertebral body, that is, of something invisible in the living animal; according to many ichthyologists, this is not enough to distinguish two genera, and then all moth catfishes would have to be assigned the generic name Erethistes, since this is older and has priority.</p><p>The difference between the species Hara hara ( = Erethistes hara) and Erethistes pusillus is only in the way the front of the pectoral fin spine is spined. In Erethistes pusillus the spines on the front of the pectoral fin spine are two pointed, in Hara hara ( = Erethistes hara) only one pointed. So you have to look at the pectoral fin spine in high magnification and back light to be sure which of the two species you have in front of you. But this does not mean that all specimens of the import belong to this species, because Hara hara ( = Erethistes hara) and Eretisthes pusillus occur in the same distribution area and are often caught and exported together.</p><p>In the trade no practicable method has been found to distinguish the two species with certainty, and therefore all moth catfishes of the Erethistes/Hara group imported from India (Bengal) are called Hara hara, with the exception of the well recognizable species Hara horai ( = Erethistes horai) and H. jerdoni ( = Erethistes jerdoni).</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=141",
+      "html": "<p>Telling this fish apart from similar Hara species is very hard. Divergent, as opposed to convergent, serrations on the pectoral spines are the hard and fast characteristic to use, but these are nearly impossible to see with the naked eye. Experienced observers maintain it is possible to see differences in snout shape between the two (Erethistes usually has a more steeply sloping snout), and Erethistes usually has a darker base coloration than Hara (dark brown vs. more of a chestnut brown); overall it is usually quite difficult (thus unreliable) without recourse to the serrations.</p>"
     },
     {
       "key": "distribution",
@@ -179,6 +223,12 @@
       "html": "<p>Asia: India, Ganges River basin, Assam. Type locality: Assam.</p>"
     },
     {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=141",
+      "html": "<p>Asia: India, Bangladesh and Myanmar, including West Bengal. Least Concern on the IUCN Red List (last assessed 2009).</p>"
+    },
+    {
       "key": "habitat",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/sisoridae/erethistes_pusillus.htm",
@@ -191,16 +241,52 @@
       "html": "<p>A tank with a sandy bottom and rounded stones and pebbles with a good water flow, as befits an Asian hillstream setup. Good water quality is a must for this family. Keep the water temperature on the cool side of a tropical aquarium.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=141",
+      "html": "<p>pH 6.2–6.8. Temperature 20–23°C. Keep the water very clean. If top water quality is not maintained the fish will constantly shed their skin.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=141",
+      "html": "<p>Increase the oxygen levels with a powerhead or a couple of airstones. Provide a substrate of fine sand (many will burrow). A few caves made of stone will complete the set up.</p>"
+    },
+    {
       "key": "diet",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/sisoridae/erethistes_pusillus.htm",
       "html": "<p>Prefers live foods such as bloodworm, grindal worm and daphnia.</p>"
     },
     {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=141",
+      "html": "<p>Feed live and frozen foods. Some individuals will eventually take dry foods but not all will.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/sisoridae/erethistes_pusillus.htm",
       "html": "<p>Tank mates such as the zebra danio (Brachydanio rerio) and Asian fish of the same small size will make good tankmates.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=141",
+      "html": "<p>They are very peaceful, but can be out-competed by fast-moving barbs, cichlids, tetras, or even other catfishes.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=141",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=141",
+      "html": "<p>Unknown. There is no breeding report.</p>"
     },
     {
       "key": "notes",
@@ -219,6 +305,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/sisoridae/erethistes_pusillus.htm",
       "html": "<ul><li>Adrian Taylor: pers.comm.</li><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Ng, H.H. 2010. Erethistes pusillus. The IUCN Red List of Threatened Species 2010.</li><li>Talwar, P.K. and A.G. Jhingran, 1991. Inland fishes of India and adjacent countries. Volume 2. A.A. Balkema, Rotterdam.</li><li>The ETYFish Project. Fish Name Etymology Database © Christopher Scharpf.</li><li>Thomson A.W. &amp; Page L.M. 2006. Genera of the Asian Catfish Families Sisoridae and Erethistidae (Teleostei: Siluriformes) Zootaxa 1345: 1–96.</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=141",
+      "html": "<p>Horae Ichthyologicae No. 3, pp 12, Pl. 1 (fig. 2).</p>"
     }
   ],
   "photos": [
@@ -291,5 +383,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-21"
 }

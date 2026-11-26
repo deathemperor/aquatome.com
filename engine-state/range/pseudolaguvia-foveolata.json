@@ -1,0 +1,88 @@
+{
+  "id": "pseudolaguvia-foveolata",
+  "native": {
+    "input": "11b6126aed40c2c6",
+    "at": "2026-11-21T13:11:30.372Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Indian waters, north-eastern India, Padma, Jamuna, Brahmaputra, Tista and Torsha.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Brahmaputra",
+        "source": "planetcatfish",
+        "quote": "Asia: Indian waters, north-eastern India, Padma, Jamuna, Brahmaputra, Tista and Torsha.",
+        "ok": true
+      },
+      {
+        "name": "Padma",
+        "source": "planetcatfish",
+        "quote": "Asia: Indian waters, north-eastern India, Padma, Jamuna, Brahmaputra, Tista and Torsha.",
+        "ok": true
+      },
+      {
+        "name": "Jamuna",
+        "source": "planetcatfish",
+        "quote": "Asia: Indian waters, north-eastern India, Padma, Jamuna, Brahmaputra, Tista and Torsha.",
+        "ok": true
+      },
+      {
+        "name": "Tista",
+        "source": "planetcatfish",
+        "quote": "Type locality: Tista River at Tista barrage, 26°45'10\"N, 88°34'11\"E, West Bengal, India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Torsha",
+        "source": "planetcatfish",
+        "quote": "Asia: Indian waters, north-eastern India, Padma, Jamuna, Brahmaputra, Tista and Torsha.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudolaguvia foveolata",
+    "status": "ACCEPTED",
+    "taxonKey": 2341547,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "30470b8f-1655-4192-9ec6-92c5f4ba8dd8",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "a25d99ce-5c50-41d8-9da7-0bd787ec8a75",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-21T13:11:30.372Z"
+  }
+}

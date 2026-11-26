@@ -3,6 +3,12 @@
   "name": "Kolam Malebo",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-18T05:53:33.674Z",
+    "why": "Malebo Pool is a widening of the Congo River, and Indonesian atlases would typically write \"Danau Malebo\" or \"Malebo Pool\"; \"Kolam\" (pond) translates \"Pool\" literally, which is misleading."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

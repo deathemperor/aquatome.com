@@ -1,0 +1,433 @@
+{
+  "id": "sciades-herzbergii",
+  "scientificName": "Sciades herzbergii",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Sciades",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "colombia",
+    "french-guiana",
+    "guyana",
+    "suriname",
+    "venezuela"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "CO",
+        "GF",
+        "GY",
+        "SR",
+        "VE"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Caribbean and Atlantic draining rivers and estuaries from Colombia to Brazil: Brazil, Colombia, French Guiana, Guyana, Suriname and Venezuela.",
+          "countries": [
+            "BR",
+            "CO",
+            "GF",
+            "GY",
+            "SR",
+            "VE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202938,
+      "total": 322,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "GF",
+          163
+        ],
+        [
+          "BR",
+          129
+        ],
+        [
+          "VE",
+          12
+        ],
+        [
+          "MX",
+          8
+        ],
+        [
+          "GY",
+          6
+        ],
+        [
+          "CO",
+          2
+        ],
+        [
+          "SR",
+          1
+        ],
+        [
+          "TT",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -98.4375,
+          15.46875,
+          3,
+          0
+        ],
+        [
+          -95.625,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          -92.8125,
+          14.0625,
+          4,
+          0
+        ],
+        [
+          -77.34375,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          9.84375,
+          4,
+          4
+        ],
+        [
+          -70.3125,
+          11.25,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          5.625,
+          4,
+          4
+        ],
+        [
+          -59.0625,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -54.84375,
+          5.625,
+          19,
+          19
+        ],
+        [
+          -53.4375,
+          2.8125,
+          9,
+          9
+        ],
+        [
+          -53.4375,
+          4.21875,
+          116,
+          116
+        ],
+        [
+          -52.03125,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          4.21875,
+          14,
+          14
+        ],
+        [
+          -50.625,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -50.625,
+          0,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          6,
+          6
+        ],
+        [
+          -47.8125,
+          0,
+          2,
+          2
+        ],
+        [
+          -45,
+          -2.8125,
+          27,
+          27
+        ],
+        [
+          -43.59375,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -40.78125,
+          -19.6875,
+          4,
+          4
+        ],
+        [
+          -40.78125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -39.375,
+          -4.21875,
+          15,
+          15
+        ],
+        [
+          -37.96875,
+          -11.25,
+          10,
+          10
+        ],
+        [
+          -37.96875,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -36.5625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -36.5625,
+          -9.84375,
+          12,
+          12
+        ],
+        [
+          -36.5625,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -35.15625,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -35.15625,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          -35.15625,
+          -7.03125,
+          20,
+          20
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 97
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_herzbergii.htm",
+      "html": "<p>Family: Ariidae. Common name: Pemecou sea catfish. This species may be confused with Sciades couma, but it is much more frequent than S. couma.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_herzbergii.htm",
+      "html": "<p>South America: Caribbean and Atlantic draining rivers and estuaries from Colombia to Brazil: Brazil, Colombia, French Guiana, Guyana, Suriname and Venezuela. Habitat: brackish, marine.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_herzbergii.htm",
+      "html": "<p>Adults occur in turbid estuaries, mangrove-lined lagoons and lower parts of rivers, being very tolerant to changes in salinity. Found on shallow soft bottoms.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_herzbergii.htm",
+      "html": "<p>Grows too large for the home aquarium. Size: 97.0 cm TL.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_herzbergii.htm",
+      "html": "<p>Temperature: 22-26°C. pH: 7.0-8.0.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_herzbergii.htm",
+      "html": "<p>Feeds on a large variety of bottom-living and pelagic organisms including those found among the roots of mangroves.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_herzbergii.htm",
+      "html": "<p>Occurs between September and December. A female lays 20-30 eggs, with a diameter of 10-12 mm. Males incubate the eggs in their mouth. Females reach maturity at a younger age than males and grow faster. The male incubates 28-40 eggs in the mouth and 200-400 eggs that are fixed in a glutinous mass on its head. Incubation takes 10-12 days. After 50-60 days fully functional young (6-6.5 cm TL) are released.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_herzbergii.htm",
+      "html": "<p>IUCN Red List: This species is widely distributed and can be very common. It is targeted in artisanal fisheries, principally in the north and northeast of Brazil. It may be susceptible to habitat loss in mangrove, estuarine areas. At present neither habitat loss nor fishing pressure is considered a major threat to this species. It is listed as Least Concern with a recommendation to monitor its fished population and study its life history (IUCN 2010).</p><p>Etymology: The genus name Sciades: sciado-, canopy or umbrella, probably referring to the occipital process, described as a \"distinct bony helmet\" (translation). The specific name herzbergii: patronym not identified, possibly in honour of Count Ewald Friedrich von Herzberg (also spelled Hertzberg, 1725-1795), a Prussian statesman who was one of Bloch's sponsors.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_herzbergii.htm",
+      "html": "<p>Betancur, R., Marceniuk, A.P., Giarrizzo, T. &amp; Fredou, F.L. 2015. Sciades herzbergii. The IUCN Red List of Threatened Species 2015.</p><p>Chacon, J.O., M.I.M. Alves and M.S.C. de Mesquita, 1994. Alguns aspectos da reprodução do bagre branco, Selenapsis herzbergii (Bloch 1794), Pisces: Ostariophysi, Siluriformes, Ariidae. Bol. Tec. DNOCS. 47/52(1/2):43-78.</p><p>Froese, R. and D. Pauly. Editors. 2015. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 08/2016 ).</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-19"
+}

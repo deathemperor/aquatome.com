@@ -1,8 +1,8 @@
 {
   "id": "serrasalmus-manueli",
   "native": {
-    "input": "7a4d3820cf25b72f",
-    "at": "2026-11-15T00:17:46.244Z",
+    "input": "e1f26b3531ab60f0",
+    "at": "2026-11-19T07:58:14.453Z",
     "claims": [
       {
         "code": "BR",
@@ -19,21 +19,25 @@
         "quote": "Serrasalmus manueli, sometimes sold as the 'green tiger piranha', is a piranha from parts of the Amazon and Orinoco basins in Brazil and Venezuela.",
         "words": "Venezuela",
         "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This piranha, described from Venezuela, is easily recognizable by its characteristic pattern in connection with the head profile, but still causes great confusion, as the fish in the trade come from completely different areas and are still indistinguishable.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Apart from the population in Venezuela, there is also a population in the Rio Negro and the Rio Xingu in Brazil.",
+        "words": "Brazil",
+        "ok": true
       }
     ],
     "regions": [
-      {
-        "name": "Amazon",
-        "source": "seriouslyfish",
-        "quote": "Native to parts of the Amazon and Rio Orinoco basins in northern Brazil and Venezuela.",
-        "ok": true
-      },
-      {
-        "name": "Orinoco",
-        "source": "seriouslyfish",
-        "quote": "Native to parts of the Amazon and Rio Orinoco basins in northern Brazil and Venezuela.",
-        "ok": true
-      },
       {
         "name": "Rio Negro",
         "source": "seriouslyfish",
@@ -47,10 +51,29 @@
         "ok": true
       },
       {
-        "name": "Venezuelan Llanos",
+        "name": "Orinoco",
         "source": "seriouslyfish",
-        "quote": "This species is known to inhabit quite a diverse range of biotopes, from areas of dense jungle to the tropical grasslands of the Venezuelan Llanos with their clear, sunlit water and lush growth of aquatic plants.",
+        "quote": "Native to parts of the Amazon and Rio Orinoco basins in northern Brazil and Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Native to parts of the Amazon and Rio Orinoco basins in northern Brazil and Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Río Paraguaza",
+        "source": "glaser",
+        "quote": "S. manueli was described as Pygocentrus manueli from the Río Paraguaza, middle Orinoco, Venezuela.",
         "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "Apart from the population in Venezuela, there is also a population in the Rio Negro and the Rio Xingu in Brazil.",
+        "country": "BR",
         "ok": true
       }
     ],

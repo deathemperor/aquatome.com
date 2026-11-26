@@ -6,12 +6,39 @@
   "genus": "Dekeyseria",
   "group": "catfish",
   "lNumber": "L168",
-  "places": [],
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro"
+  ],
   "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Negro"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Zonancistrus brachyurus originates from the Rio Negro system in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
     "records": {
       "taxonKey": 2340170,
       "total": 33,
-      "fetched": "2026-11-07",
+      "fetched": "2026-11-18",
       "countries": [
         [
           "VE",
@@ -30,57 +57,171 @@
         [
           -68.90625,
           2.8125,
-          8
+          8,
+          0
         ],
         [
           -68.90625,
           4.21875,
-          1
+          1,
+          0
         ],
         [
           -67.5,
           1.40625,
-          3
+          3,
+          0
         ],
         [
           -67.5,
           2.8125,
-          12
+          12,
+          0
         ],
         [
           -66.09375,
           -1.40625,
+          4,
           4
         ],
         [
           -66.09375,
           2.8125,
-          1
+          1,
+          0
         ],
         [
           -64.6875,
           -1.40625,
+          2,
           2
         ],
         [
           -57.65625,
           -2.8125,
+          2,
           2
         ]
       ]
     }
   },
-  "dataCard": {},
+  "dataCard": {
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 5.5,
+          "max": 6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 15
+      }
+    ]
+  },
   "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l168-zonancistrus-brachyurus/",
+      "html": "<p>Zonancistrus brachyurus attains a maximum length of about 15 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l168-zonancistrus-brachyurus/",
+      "html": "<p>Zonancistrus brachyurus originates from the Rio Negro system in Brazil.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l168-zonancistrus-brachyurus/",
+      "html": "<p>L168 is very peaceful towards conspecifics and can be kept in larger groups.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l168-zonancistrus-brachyurus/",
+      "html": "<p>Keeping it in larger groups makes breeding attempts easier. Anyone trying to breed it is recommended to use very soft water with a pH of 5.5 to 6 and a water temperature between 26 and 28°C. L168 is a typical cave spawner.</p>"
+    },
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l168_bred_specimens_en/",
-      "html": "<p>Very pretty bred L168 have been received from a proven breeder. At the time of the report the fish were 4-5 cm long.</p><p>The scientific name of the species is Zonancistrus brachyurus. The incorrect name \"Peckoltia pulcher\" still often appears on stocklists.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l168-zonancistrus-brachyurus/",
+      "html": "<p>Due to several misidentifications this fish was initially sold in the hobby as Peckoltia pulcher, then Dekeyseria pulcher, sometimes also Zonancistrus pictus. The valid name (at least the current state of the art) is Zonancistrus brachyurus. In this case the L-number gives safer information than the scientific name. The species is often confused with the very similar L52 from the Orinoco basin.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/f004249df27e1325.webp",
+      "thumb": "https://media.aquatome.com/glaser/f004249df27e1325-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l168-zonancistrus-brachyurus/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/518c8159d9c69aee.webp",
+      "thumb": "https://media.aquatome.com/glaser/518c8159d9c69aee-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l168-zonancistrus-brachyurus/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2fce33a25cc107d0.webp",
+      "thumb": "https://media.aquatome.com/glaser/2fce33a25cc107d0-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l168-zonancistrus-brachyurus/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/422ea867d3bef022.webp",
+      "thumb": "https://media.aquatome.com/glaser/422ea867d3bef022-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l168-zonancistrus-brachyurus/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "2OexKwMxBfo",
+      "title": "Dekeyseria pulcher",
+      "durationSec": 24,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "KUPXQTsQ_Hg",
+      "title": "Candy Striped Pleco L015 Peckoltia Vitata (Lori) & Butterfly Pleco Dekeyseria Pulchra coming to feed",
+      "durationSec": 125,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "qIXamVM128Y",
+      "title": "L168 Zonancistrus brachyurus",
+      "durationSec": 80,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "S8v6kfuzp_Y",
+      "title": "L168s Spawning Footage",
+      "durationSec": 958,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -104,5 +245,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-17"
 }

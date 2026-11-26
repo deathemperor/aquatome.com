@@ -3,6 +3,12 @@
   "name": "กะลาดาน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T11:52:03.804Z",
+    "why": "Kaladan is a river (and its valley region) in India/Myanmar; the Thai transliteration กะลาดาน is phonetically fine, but it lacks a kind word such as แม่น้ำ, and Thai atlases usually write the river as แม่น้ำกะลาดาน."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

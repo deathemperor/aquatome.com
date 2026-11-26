@@ -1,0 +1,81 @@
+{
+  "id": "yasuhikotakia-splendida",
+  "native": {
+    "input": "78f68e2fa8724e5e",
+    "at": "2026-11-20T01:55:49.831Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Officially known only from a handful of localities in the Xe Pian river, a tributary system of the Xe Khong (which itself drains into the Mekong river main channel) in Champasak and Attapeu provinces, southern Laos.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "glaser",
+        "quote": "So far the species is only known from Laos (Xe Pian), but this does not mean that it does not occur in other places.",
+        "words": "Laos",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Xe Pian",
+        "source": "seriouslyfish",
+        "quote": "Officially known only from a handful of localities in the Xe Pian river, a tributary system of the Xe Khong (which itself drains into the Mekong river main channel) in Champasak and Attapeu provinces, southern Laos.",
+        "country": "LA",
+        "ok": true
+      },
+      {
+        "name": "Xe Khong",
+        "source": "seriouslyfish",
+        "quote": "Officially known only from a handful of localities in the Xe Pian river, a tributary system of the Xe Khong (which itself drains into the Mekong river main channel) in Champasak and Attapeu provinces, southern Laos.",
+        "country": "LA",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Officially known only from a handful of localities in the Xe Pian river, a tributary system of the Xe Khong (which itself drains into the Mekong river main channel) in Champasak and Attapeu provinces, southern Laos.",
+        "country": "LA",
+        "ok": true
+      },
+      {
+        "name": "Xe Pian",
+        "source": "glaser",
+        "quote": "So far the species is only known from Laos (Xe Pian), but this does not mean that it does not occur in other places.",
+        "country": "LA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Yasuhikotakia splendida",
+    "status": "ACCEPTED",
+    "taxonKey": 2367785,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "LA"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

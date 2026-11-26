@@ -1,0 +1,21 @@
+{
+  "slug": "ca-kiem-anders",
+  "name": "Cá kiếm Anders",
+  "altNames": [
+    "Cá swordtail Anders"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Xiphophorus andersi sống ở sông Rio Atoyak, bang Veracruz, Mexico. Con sông này thuộc hệ sông đổ ra Đại Tây Dương của nước Trung Mỹ này. Mãi đến năm 1980 loài này mới được mô tả khoa học, và có vẻ nó chỉ sống ở một vùng rất hẹp.</p>",
+    "maintenance:glaser": "<p>Loài này khó nuôi. Nước lúc nào cũng phải giữ ở chất lượng tốt nhất. Muốn những con cá hiếm này sống khỏe lâu dài thì phải thay nước nhiều và đều đặn, việc này không được bỏ.</p>",
+    "dimorphism:glaser": "<p>Loài này có hai kiểu cá đực: con nhỏ thành đực sớm và con to thành đực muộn.</p>",
+    "reproduction:glaser": "<p>Kinh nghiệm cho đẻ thực tế cho thấy nên giữ cả hai kiểu cá đực trong dòng cho đẻ. Nhiều người ép đẻ hay loại con đực thành đực sớm ra. Làm vậy thì có nguy cơ cả lứa con chỉ toàn một giới, mà không đoán trước được là toàn đực hay toàn cái.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  }
+}

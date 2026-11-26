@@ -72,6 +72,13 @@ export const GROUP_ORDERS: Record<string, string[]> = {
   rainbowfish: ['Atheriniformes'], shrimp: ['Decapoda'],
 }
 /**
+ * Every group the engine accepts on a page: its order table's and the two held by class alone. The site names each one in
+ * every language it serves (apps/site/test/labels.test.ts), and a page whose group is none of them fails before it
+ * publishes (real-content.test.ts): on 22 Nov 2026 the site printed "characins: 8 loài, cách nuôi" as a group page's
+ * title, for three groups this table accepted that the site had no name for.
+ */
+export const GROUPS: readonly string[] = [...new Set([...Object.keys(GROUP_ORDERS), ...Object.keys(GROUP_CLASSES)])].sort()
+/**
  * A page's group as its order allows (the chief of staff, 14 Nov 2026): the group given when its orders include the page's,
  * else the one group that has that order, else "other", which is for an order no single group has. An order shared by
  * several groups (Cypriniformes: barbs, danios, rasboras, loaches) can't place a fish by itself, and a guess would list a
@@ -80,8 +87,21 @@ export const GROUP_ORDERS: Record<string, string[]> = {
 export function pageGroup(group: string, order: string | undefined): string {
   const orders = GROUP_ORDERS[group]
   if (!order || !orders || orders.includes(order)) return group
-  const holders = Object.keys(GROUP_ORDERS).filter(g => GROUP_ORDERS[g]!.includes(order))
+  return byOrder(order)
+}
+/** The one group that has an order, else "other". */
+function byOrder(order: string | undefined): string {
+  const holders = order ? Object.keys(GROUP_ORDERS).filter(g => GROUP_ORDERS[g]!.includes(order)) : []
   return holders.length === 1 ? holders[0]! : 'other'
+}
+/**
+ * A new page's group (merge.ts, species-research.ts; a page on file keeps its own there): pageGroup's, but a word on
+ * neither table (GROUPS) is no group, and the page goes where its order puts it, as pageGroup does, or to "other" with no
+ * order. Until 22 Nov 2026 such a word stood, the site had no name for it, and the checks held the cycle's whole work for
+ * that one page (the chief of staff). The sweep's regroup (pageGroup) leaves the pages on file as they are.
+ */
+export function newPageGroup(group: string, order: string | undefined): string {
+  return GROUPS.includes(group) ? pageGroup(group, order) : byOrder(order)
 }
 
 /**

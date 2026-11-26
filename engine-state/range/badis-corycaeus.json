@@ -1,8 +1,8 @@
 {
   "id": "badis-corycaeus",
   "native": {
-    "input": "ef3eacd85b91214e",
-    "at": "2026-11-06T12:17:30.771Z",
+    "input": "4e924e605e34ac57",
+    "at": "2026-11-19T00:50:56.943Z",
     "claims": [
       {
         "code": "MM",
@@ -15,8 +15,8 @@
       {
         "code": "MM",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "To date the species is known only from the upper Ayeyarwady River basin in northern Myanmar.",
+        "source": "glaser",
+        "quote": "Myanmar (border region with China).",
         "words": "Myanmar",
         "ok": true
       }
@@ -25,7 +25,7 @@
       {
         "name": "Ayeyarwady",
         "source": "seriouslyfish",
-        "quote": "To date the species is known only from the upper Ayeyarwady River basin in northern Myanmar.",
+        "quote": "Badis corycaeus is a badid known only from the upper Ayeyarwady River basin in northern Myanmar, including nearby Lake Indawgyi.",
         "country": "MM",
         "ok": true
       },
@@ -39,7 +39,9 @@
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "CN"
+      ],
       "sourcesOnly": []
     }
   },

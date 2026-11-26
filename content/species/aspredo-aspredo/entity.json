@@ -1,0 +1,375 @@
+{
+  "id": "aspredo-aspredo",
+  "scientificName": "Aspredo aspredo",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Aspredo",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "french-guiana",
+    "guyana",
+    "suriname",
+    "trinidad-and-tobago",
+    "venezuela"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "GF",
+        "GY",
+        "SR",
+        "TT",
+        "VE"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: lower portions of coastal rivers (Brazil, French Guiana, Guyana, Suriname, Trinidad and Tobago, and Venezuela).",
+          "countries": [
+            "BR",
+            "GF",
+            "GY",
+            "SR",
+            "TT",
+            "VE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340544,
+      "total": 138,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "BR",
+          61
+        ],
+        [
+          "GF",
+          60
+        ],
+        [
+          "SR",
+          10
+        ],
+        [
+          "GY",
+          4
+        ],
+        [
+          "TT",
+          2
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -63.28125,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -59.0625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          5.625,
+          6,
+          6
+        ],
+        [
+          -56.25,
+          -2.8125,
+          6,
+          6
+        ],
+        [
+          -56.25,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          5.625,
+          14,
+          14
+        ],
+        [
+          -53.4375,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -53.4375,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -53.4375,
+          4.21875,
+          41,
+          41
+        ],
+        [
+          -52.03125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -2.8125,
+          10,
+          10
+        ],
+        [
+          -50.625,
+          0,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          9,
+          9
+        ],
+        [
+          -49.21875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -46.40625,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -45,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -45,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 38
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/aspredo_aspredo.htm",
+      "html": "<p>South America: lower portions of coastal rivers (Brazil, French Guiana, Guyana, Suriname, Trinidad and Tobago, and Venezuela). Type locality: In Americae fluviis.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/aspredo_aspredo.htm",
+      "html": "<p>Benthic fish occurring on sandy-muddy bottoms of brackish waters and coastal rivers. Found on soft bottoms of shallow turbid water near river mouths.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/aspredo_aspredo.htm",
+      "html": "<p>Prefers a secluded tank with non-aggressive tank mates and a sand substrate.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/aspredo_aspredo.htm",
+      "html": "<p>Small invertebrates and tubifex. Tablet foods are also taken.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/aspredo_aspredo.htm",
+      "html": "<p>The species has a peculiar mode of egg incubation wherein the female banjo catfish carries the eggs firmly attached to the underside of the body. This seems to be an adaptation to facilitate the oxygenation of the eggs in muddy environments. Reproduction probably occurs during the earlier part of the year.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/aspredo_aspredo.htm",
+      "html": "<p>Etymology: The genus name Aspredo: presumably tautonymous with Silurus aspredo (Scopoli [ex Gronow] did not indicate species), Latin for roughness, presumably referring to its tuberculate skin. The specific name aspredo: Latin for roughness, presumably referring to its tuberculate skin.</p><p>IUCN Red List: Least Concern due to its wide range, despite limited information available on this species (IUCN 2021).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "jtw9DM-0TH8",
+      "title": "遇鼠鼠 |  蘇利南帝王蝌蚪鯰 Aspredo aspredo",
+      "durationSec": 21,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "sGCA2K8B5y0",
+      "title": "遇鼠鼠 |  蘇利南帝王蝌蚪鯰 Aspredo aspredo",
+      "durationSec": 24,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "4DnqIH832GQ",
+      "title": "Сом Аспредо аквариумная рыбка.  Содержание.  Уход.  Размножение.",
+      "durationSec": 184,
+      "lang": "ru"
+    },
+    {
+      "youtubeId": "0moWGwOOGzs",
+      "title": "This Fish Carries Its Babies on Its Own Body",
+      "durationSec": 64,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá da trơn",
+        "nền cát bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá đáy",
+        "trùng chỉ đông lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá dài 150cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-19"
+}

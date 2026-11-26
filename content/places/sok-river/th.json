@@ -3,6 +3,12 @@
   "name": "ซก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-19T07:48:50.785Z",
+    "why": "\"ซก\" is a bare transliteration of \"Sok\" without the Thai word for river (แม่น้ำ), so it is incomplete for a river name, and \"ซก\" is not the usual Thai rendering of Malay \"Sok\" (which would be โสก/ซก with a river word)."
+  },
   "quality": {
     "score": 0.62,
     "indexable": false

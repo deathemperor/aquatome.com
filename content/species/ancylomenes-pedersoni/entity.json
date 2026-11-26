@@ -1,0 +1,626 @@
+{
+  "id": "ancylomenes-pedersoni",
+  "scientificName": "Ancylomenes pedersoni",
+  "order": "Decapoda",
+  "family": "Palaemonidae",
+  "genus": "Ancylomenes",
+  "group": "shrimp",
+  "places": [
+    "north-america",
+    "united-states",
+    "florida",
+    "bahamas",
+    "belize",
+    "netherlands-antilles",
+    "bonaire"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "US",
+        "BS",
+        "BZ"
+      ],
+      "regions": [],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Pederson cleaner shrimps occur in tropical waters from Cape Lookout, North Carolina, down the east coast of the United States and around the west coast of Florida, to the Bahamas, West Indies, Bonaire, Netherlands Antilles and Belize.",
+          "countries": [
+            "US",
+            "BS",
+            "BZ"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 6456679,
+      "total": 1011,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "GP",
+          316
+        ],
+        [
+          "US",
+          165
+        ],
+        [
+          "MQ",
+          116
+        ],
+        [
+          "PR",
+          115
+        ],
+        [
+          "BQ",
+          61
+        ],
+        [
+          "VI",
+          59
+        ],
+        [
+          "MX",
+          43
+        ],
+        [
+          "KY",
+          22
+        ],
+        [
+          "DM",
+          21
+        ],
+        [
+          "HN",
+          19
+        ],
+        [
+          "CO",
+          16
+        ],
+        [
+          "BS",
+          9
+        ],
+        [
+          "MF",
+          9
+        ],
+        [
+          "CW",
+          8
+        ],
+        [
+          "GF",
+          5
+        ],
+        [
+          "VC",
+          5
+        ],
+        [
+          "BZ",
+          4
+        ],
+        [
+          "VG",
+          4
+        ],
+        [
+          "BL",
+          3
+        ],
+        [
+          "GD",
+          3
+        ],
+        [
+          "KN",
+          3
+        ],
+        [
+          "AG",
+          1
+        ],
+        [
+          "CU",
+          1
+        ],
+        [
+          "PA",
+          1
+        ],
+        [
+          "SX",
+          1
+        ],
+        [
+          "TC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -91.40625,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          -91.40625,
+          21.09375,
+          19,
+          0
+        ],
+        [
+          -90,
+          21.09375,
+          12,
+          0
+        ],
+        [
+          -90,
+          22.5,
+          3,
+          0
+        ],
+        [
+          -88.59375,
+          16.875,
+          4,
+          4
+        ],
+        [
+          -88.59375,
+          19.6875,
+          2,
+          0
+        ],
+        [
+          -87.1875,
+          15.46875,
+          19,
+          0
+        ],
+        [
+          -87.1875,
+          19.6875,
+          6,
+          0
+        ],
+        [
+          -87.1875,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          -84.375,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          -84.375,
+          25.3125,
+          3,
+          3
+        ],
+        [
+          -84.375,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          -84.375,
+          28.125,
+          5,
+          5
+        ],
+        [
+          -82.96875,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -82.96875,
+          11.25,
+          1,
+          0
+        ],
+        [
+          -82.96875,
+          23.90625,
+          20,
+          20
+        ],
+        [
+          -82.96875,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          -82.96875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          -82.96875,
+          28.125,
+          1,
+          1
+        ],
+        [
+          -81.5625,
+          12.65625,
+          12,
+          0
+        ],
+        [
+          -81.5625,
+          18.28125,
+          21,
+          0
+        ],
+        [
+          -81.5625,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          -81.5625,
+          23.90625,
+          64,
+          64
+        ],
+        [
+          -81.5625,
+          26.71875,
+          8,
+          8
+        ],
+        [
+          -80.15625,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          -80.15625,
+          25.3125,
+          21,
+          21
+        ],
+        [
+          -80.15625,
+          26.71875,
+          40,
+          40
+        ],
+        [
+          -78.75,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          -78.75,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          33.75,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          11.25,
+          3,
+          0
+        ],
+        [
+          -73.125,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          11.25,
+          8,
+          0
+        ],
+        [
+          -68.90625,
+          11.25,
+          54,
+          0
+        ],
+        [
+          -68.90625,
+          16.875,
+          5,
+          0
+        ],
+        [
+          -67.5,
+          16.875,
+          33,
+          0
+        ],
+        [
+          -67.5,
+          18.28125,
+          75,
+          0
+        ],
+        [
+          -66.09375,
+          16.875,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          18.28125,
+          60,
+          0
+        ],
+        [
+          -64.6875,
+          18.28125,
+          4,
+          0
+        ],
+        [
+          -63.28125,
+          16.875,
+          23,
+          0
+        ],
+        [
+          -61.875,
+          11.25,
+          3,
+          0
+        ],
+        [
+          -61.875,
+          12.65625,
+          5,
+          0
+        ],
+        [
+          -61.875,
+          14.0625,
+          137,
+          0
+        ],
+        [
+          -61.875,
+          15.46875,
+          316,
+          0
+        ],
+        [
+          -61.875,
+          16.875,
+          1,
+          0
+        ],
+        [
+          -53.4375,
+          5.625,
+          5,
+          0
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "marine",
+    "source": "aquariumbreeder",
+    "quote": "Salinity should be 1.021–1.025 specific gravity."
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 8.1,
+          "max": 8.4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 2.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 1.5,
+          "max": 1.5
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pederson-cleaner-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Scientific name: Ancylomenes pedersoni (previously Periclimenes pedersoni)</li><li>Minimum tank: 20 litres</li><li>Breeding: Moderate to difficult</li><li>Salinity: SG 1.021–1.025</li><li>KH: 7–12</li><li>Nitrate: less than 20 ppm</li><li>Diet: omnivore / carnivore</li><li>Temperament: peaceful</li><li>Life span: up to 1.5 years</li><li>Colour: translucent with blue spots</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pederson-cleaner-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Pederson cleaner shrimps occur in tropical waters from Cape Lookout, North Carolina, down the east coast of the United States and around the west coast of Florida, to the Bahamas, West Indies, Bonaire, Netherlands Antilles and Belize.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pederson-cleaner-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>They can be found in coral reef systems at depths of 1 to 15 metres, where they also establish a cleaning symbiotic relationship with fishes, removing parasites, bacteria and damaged tissues.</p><p>They are symbiotic cleaner shrimp. They frequently associate with Bartholomea annulata, to a lesser extent with Condylactis gigantea, and occasionally with other anemones (for example the sun anemone Stichodactyla helianthus), which they use as the centres of cleaning stations that attract client fishes for ectoparasite removal. These shrimp also clean the anemone, removing organisms caught in its mucus.</p><p>The anemones can receive nutrients in the form of waste products (excreted ammonia and faeces) from their crustacean symbionts and visiting clients, contributing to efficient nutrient cycling on coral reefs.</p><p>Pederson shrimps do not show fidelity to a single host anemone species and can migrate and acclimate to several types of reef anemones.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pederson-cleaner-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Being small, Pederson cleaner shrimp do not need a lot of space, so nano reef tanks can be a good choice. Although they are quite resilient, they survive better in smaller tanks with less flow because they are less likely to be sucked into sumps. Minimum tank: 20 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pederson-cleaner-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Keeping Pederson cleaner shrimp is not difficult because they have no special water quality requirements. Your tank should have plenty of rocks and caves for them to hide in, which is crucial for their well-being.</p><p>Consistent water parameters are the cornerstone of any successful aquarium: keep them within a suitable range at all times and do not let them jump around.</p><p>Before putting the shrimp in your tank, acclimate it as with all invertebrates. Be careful with chemicals like copper: crabs, shrimp and crayfish do not tolerate copper-based medications or fluctuating water parameters.</p><p>Like all crustaceans, they need to molt to grow. After shedding, while the body is still soft and flexible, they pump their bodies with water and increase in size. Molting is the most important and most dangerous process in their lives; without a hard exoskeleton they are extremely vulnerable, so the tank needs plenty of hiding spaces. Depending on age, they can molt every week as juveniles or every 2–3 weeks as adults. The molt interval is several days longer in females than in males.</p><p>If the shrimp changes colour from mostly transparent to opaque for no obvious reason, it may be preparing to molt, 1–2 days before each molt.</p><p>Do not remove the old exoskeleton. It contains a lot of calcium and the shrimp will gladly eat it later. Like all invertebrates, they need calcium to harden the shell.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pederson-cleaner-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Temperature should stay in the range of 22 to 26°C, with around 24–25°C being optimal. Salinity should be 1.021–1.025 specific gravity. Keep calcium at 400 to 450, pH around 8.1 to 8.4, and alkalinity at 7 to 12 dKH. Nitrate: less than 20 ppm.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pederson-cleaner-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Although these shrimp feed on parasites and dead skin on client fish as well as detritus, they still need to be fed. The idea that they can survive on parasites and leftovers from feeding community fishes is wrong. Otherwise they can start cheating client fishes and pick up healthy skin, scales and mucus, or try to steal all the food from the corals. Provide food at least 2–3 times a week.</p><p>They are omnivores and will eat any pellet, flake and gel foods that provide animal-based nutrition. Meaty food with higher fat/protein content can accelerate growth and breeding. The diet should consist of meaty seafood or marine flake food.</p><p>In experiments, biologists fed them every other day to saturation with fish food pellets (Formula One, Formula Two Pellets, Ocean Nutrition), which made them grow rapidly, up to 2 mm of carapace per month.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pederson-cleaner-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Pederson cleaner shrimp are mainly known for their cleaning, removing parasites from fish skin and even from the mouth of a large fish such as a grouper. In nature they are found alone, in pairs or in groups of 5–6 individuals. It is still recommended to keep several in the tank; given a choice they tend to aggregate, probably reflecting their small size and limited defence.</p><p>They are completely peaceful and seem to care only about cleaning and scavenging. They are not territorial and males do not fight; males do not show sexually selected traits such as exaggerated weaponry or robust body shapes. Despite their size, they are not very shy. They are associated with anemones, which they use as cleaning stations.</p><p>They are major cleaners (even more so than cleaner fishes) of reef fishes in the tropical western Atlantic and form obligate symbioses with host sea anemones. They remove cymothoid isopods from client fishes and significantly reduce the abundance and size of monogenean parasites. Cleans lasted from a few seconds up to 11 minutes, but most lasted 20 seconds; lizardfish and groupers received the longest cleans. At least 22 fish species use cleaning services, including trumpetfish, triggerfish, left-eye flounders, moray eels, angelfish and puffer fish. Cleaning stations are dynamic because cleaner shrimps may migrate at night among host anemones and some host anemones have short life spans.</p><p>Shrimp need time to acclimate to the anemone in your tank by gradually pressing their body against its tentacles. If separated from the host, they must re-acclimate.</p><p>Compatibility: although cleaners are largely immune to predation by reef fishes, big and predatory fish should not be kept with them, as in aquariums they may end up eaten. They are practically defenceless and suited only to the most docile environments. They get along with their own kind, so a group is fine but needs more space.</p><p>Good tank mates: crabs (Boxer crabs, Porcelain anemone crab), small hermit crabs (Halloween hermit crabs, Blue Leg hermit crabs), snails (Cerith, Bumble Bee, Conch, Nassarius) and shrimp ('Sexy' shrimp, Peppermint shrimp, Camel shrimp, Skunk cleaner shrimp, Spotted anemone shrimp). Be careful and watch closely with Emerald crabs and Red Fire shrimp (especially big crabs and territorial shrimp). Do not keep them with Arrow crabs and Coral banded shrimp, which will likely prey on them. Do not keep them with clownfish, which will not tolerate them in their anemone and bully them.</p><p>They are coral safe: there are no reports of them eating SPS frags or destroying polyps.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pederson-cleaner-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>It can be difficult to sex them unless you know their age. At the same age:</p><ul><li>Size: females are bigger, reaching about 2.5 cm; males reach only about 2.0 cm.</li><li>Colour: females are more colourful.</li><li>Body structure: males have a narrow body. Females tend to have a bigger, rounder underbelly (abdomen), while males do not have a curved abdomen.</li></ul><p>The more reliable indicator is the saddle (beige oocytes visible in the cephalothorax), made of small undeveloped, unfertilised eggs forming in the female's ovaries. If you can see a saddle, you can be certain it is a mature female.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pederson-cleaner-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>This species reaches sexual maturity at about 6 months.</p><p>The female molts before mating and releases a chemical substance into the water to attract males, signalling that she is ready to spawn.</p><p>After mating, the eggs are fertilised as they pass through the sperm on the way to the brood pouch, which is formed by the pleopods and overhanging pleura of the female. Fertilised eggs are yellowish. Each female usually carries 20–60 eggs. The incubation period ranges from 14 to 20 days. Eggs increase in size during development due to water uptake, which limits the egg-carrying space and results in smaller broods, but this is normal.</p><p>The embryos hatch as pelagic larvae.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pederson-cleaner-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Interesting facts: Pederson cleaner shrimp are known for whole-body transparency; at rest they are transparent enough to read text through the body. The translucent body is covered with blue spots and white stripes running from head to tail and claws. They are easy to identify by very long slender pincers (2/3 of body length) and a distinctive hump similar to the camel shrimp (Rhynchocinetes durbanensis). They have a very fast metabolism and live no more than 1.5 years for females and slightly more than 1 year for males.</p><p>In experiments, exercise, salinity and small injuries temporarily disrupt transparency. Eliciting 16–20 tail flips to exhaustion resulted in complete opacity, with transparency returning after 20–60 minutes of inactivity. They also became opaque in under 2 minutes in hyposaline (8‰) and hypersaline (55‰) water, recovering within 10 minutes.</p><p>Aging is characterised by up to 5 processes observed 1–4 weeks before natural death: body shrinkage; change from mostly transparent to opaque (up to 1–2 weeks); reduced activity (slower, no cleaner signalling, no interaction with other shrimps); reduced feeding; reduced or ceased reproduction. The most commonly observed were colour change and reduced food consumption.</p>"
+    },
+    {
+      "key": "references",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pederson-cleaner-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Transparent anemone shrimp (Ancylomenes pedersoni) become opaque After exercise and physiological stress in correlation with increased hemolymph perfusion. Journal of Experimental Biology. (2017) 220, 4225-4233 doi:10.1242/jeb.162362.</li><li>Life-History Traits and Population Structure of Pederson Cleaner Shrimps Ancylomenes pedersoni. Department of Biological Sciences, 101 Rouse Life Sciences Building, Auburn University, 233: 190–205. (December 2017).</li><li>Ecological traits of Caribbean sea anemones and symbiotic crustaceans. Marine Ecology Progress Series. 2012 DOI: 10.3354/meps10030.</li><li>Host selection by the cleaner shrimp Ancylomenes pedersoni: Do anemone host species, prior experience or the presence of conspecific shrimp matter? Journal of Experimental Marine Biology and Ecology. 2012 DOI: 10.1016/j.jembe.2011.11.026.</li><li>Patterns of cleaning behaviour on coral reef fish by the anemone shrimp Ancylomenes pedersoni. Journal of the Marine Biological Association of the UK. 2012. DOI: 10.1017/S0025315411001822.</li><li>Effects of three Caribbean cleaner shrimps on ectoparasitic monogeneans in a semi-natural environment. Coral Reefs. 2010. DOI: 10.1007/s00338-009-0583-8.</li><li>Possible synonymy of the western Atlantic anemone shrimps Periclimenes pedersoni and P. anthophilus based on morphology. BULLETIN OF MARINE SCIENCE, 65(2): 407417, 1999.</li><li>Lack of strategic service provisioning by Pederson's cleaner shrimp (Ancylomenes pedersoni) highlights independent evolution of cleaning behaviors between ocean basins. Scientific Reports. (2019) 9:629 | DOI:10.1038/s41598-018-37418-5.</li><li>Titus BM, Vondriska C, Daly M. 2017 Comparative behavioural observations demonstrate the 'cleaner' shrimp Periclimenes yucatanicus engages in true symbiotic cleaning interactions. R. Soc. open sci. 4: 170078. http://dx.doi.org/10.1098/rsos.170078</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/ed430595bdf24451.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/ed430595bdf24451-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/pederson-cleaner-shrimp-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "Unwii8LFYj8",
+      "title": "Pederson Cleaner Shrimp  #aquarium #aquaticpets #cleanershrimp #reeftank #saltwatertank",
+      "durationSec": 5,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "kEUAuy9eXSo",
+      "title": "Coral Citizen | Pederson's Shrimp on Curlycue Anemone | 6.17.2023",
+      "durationSec": 91,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "BgrZ1akUc5g",
+      "title": "Cleaner shrimp and yellow lined goatfish",
+      "durationSec": 69,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "YIdVVwz2grI",
+      "title": "Pederson's cleaner shrimp (Ancylomenes pedersoni) - Salt Pier, Bonaire - 2022-05-31",
+      "durationSec": 102,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể nano reef 20 lít",
+        "bể biển mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho tép biển",
+        "thức ăn cá biển dạng mảnh"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "test KH nước biển",
+        "khúc xạ kế đo độ mặn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể biển",
+        "máy sưởi bể nano"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-19"
+}

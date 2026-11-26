@@ -1,0 +1,97 @@
+{
+  "id": "denticetopsis-sauli",
+  "scientificName": "Denticetopsis sauli",
+  "order": "Siluriformes",
+  "family": "Cetopsidae",
+  "genus": "Denticetopsis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "pamoni"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 2.1
+      },
+      {
+        "source": "scotcat",
+        "value": 2.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1483",
+      "html": "<p>Denticetopsis sauli Ferraris, 1996. Family Cetopsidae. Size: 21 mm SL.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/denticetopsis_sauli.htm",
+      "html": "<p>Family: Cetopsidae. Size: 2.5 cm. Temperature: 22–28°C. pH: 6.0–7.0.</p><p>IUCN Red List: Data Deficient. There is not enough information about its distribution, life history and ecology to identify any potential threat for the time being, which highlights the need for more research on this species (IUCN 2019).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1483",
+      "html": "<p>South America: around the mouth of the Pamoni River in Venezuela. Amazon, Middle Amazon (Solimoes), Negro, Upper Negro, Casiquiare, Pamoni.</p><p>Type locality: stream from series of morichales, about 5 kilometers from mouth of Río Pamoni, Estado Amazonas, Venezuela.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/denticetopsis_sauli.htm",
+      "html": "<p>South America: around the mouth of the Pamoni River, Venezuela; known only from the type series. Type locality: Venezuela, Estado Amazonas, outflow stream from a series of morichales, ca. 5.0 km from the mouth of Río Pamoni, 2º48'N, 65º53'W.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1483",
+      "html": "<p>Breeding: unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/denticetopsis_sauli.htm",
+      "html": "<p>Description: Distinguished from all of its congeners with the exception of D. royeroi by the combination of the possession of elongate, symphyseal teeth on the dentary, a reduced lateral line not extending posteriorly on the body beyond the abdomen, an edentulous vomer, a dorsal fin with only 4 segmented rays and without a spinous first fin ray, an obliquely-truncate margin on the caudal fin, and the lack of horizontally-elongate, stellate, dark chromatophores when the chromatophores are expanded.</p><p>Denticetopsis sauli is distinguished from D. royeroi by the posterior extent of the margin of the maxilla (extending at least one eye diameter past the posterior margin of the orbit versus extending only slightly beyond the posterior margin of the orbit, respectively), the body depth (17.1–19.5% of SL versus 23% of SL, respectively), and the extent of the membranous connection between the caudal and anal fins (membrane distinctly incised versus without a distinct notch, respectively).</p><p>Etymology: The specific name sauli: in honour of William G. Saul (b. 1944), collection manager of the Ichthyology Department of the Academy of Natural Sciences of Philadelphia, who participated in the collection of the type series and brought this species to the author's attention.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1483",
+      "html": "<p>Proceedings of the California Academy of Sciences v. 49 (no. 6), pp 164, Figs. 3, 11.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/denticetopsis_sauli.htm",
+      "html": "<p>Echevarría, G. 2019. Denticetopsis sauli. The IUCN Red List of Threatened Species 2019.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p><p>Vari, R.P., C.J. Ferraris, Jr. and M.C.C. de Pinna 2005 The neotropical whale catfishes (Siluriformes: Cetopsidae: Cetopsinae), a revisionary study. Neotrop. Ichthyol. 3(2):127-238.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-23"
+}

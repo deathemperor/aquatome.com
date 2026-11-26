@@ -6,77 +6,32 @@
       "thumb": "https://media.aquatome.com/inaturalist/307195233-480.webp",
       "width": 1024,
       "height": 768,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/307195233-large.webp",
+        "width": 1600,
+        "height": 1200
+      },
       "licence": "CC BY",
       "author": "Kaden Slone",
       "sourceUrl": "https://www.inaturalist.org/photos/307195233",
       "caption": "Cá thủy tinh bơi cạnh rong xanh trong bể thủy sinh",
       "best": true,
-      "kind": "other",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/307195233-large.webp",
-        "width": 1600,
-        "height": 1200
-      }
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/d1d39658f950ea46.webp",
       "thumb": "https://media.aquatome.com/commons/d1d39658f950ea46-480.webp",
       "width": 1000,
       "height": 1000,
-      "licence": "CC BY-SA 2.5",
-      "author": "Daiju Azuma",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kryptopterus_species.jpg",
-      "caption": "Đàn cá thủy tinh bơi dày đặc trong bể có cát",
       "large": {
         "url": "https://media.aquatome.com/commons/d1d39658f950ea46-large.webp",
         "width": 1000,
         "height": 1000
-      }
-    },
-    {
-      "url": "https://media.aquatome.com/commons/fca62a828bf26357.webp",
-      "thumb": "https://media.aquatome.com/commons/fca62a828bf26357-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY-SA 2.0",
-      "author": "Martin Fisch",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Glaswelse.jpg",
-      "caption": "Đàn cá thủy tinh trong suốt trong bể thủy sinh xanh",
-      "large": {
-        "url": "https://media.aquatome.com/commons/fca62a828bf26357-large.webp",
-        "width": 1800,
-        "height": 1200
-      }
-    },
-    {
-      "url": "https://media.aquatome.com/commons/782b9a10cb8a923d.webp",
-      "thumb": "https://media.aquatome.com/commons/782b9a10cb8a923d-480.webp",
-      "width": 1200,
-      "height": 762,
-      "licence": "CC0",
-      "author": "Vassil",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kryptopterus_vitreolus_(Cologne_Zoo)_2.jpg",
-      "caption": "Cá thủy tinh thân trong suốt lộ xương giữa cây thủy sinh",
-      "large": {
-        "url": "https://media.aquatome.com/commons/782b9a10cb8a923d-large.webp",
-        "width": 1890,
-        "height": 1200
-      }
-    },
-    {
-      "url": "https://media.aquatome.com/commons/7fb4ec25d9aba83d.webp",
-      "thumb": "https://media.aquatome.com/commons/7fb4ec25d9aba83d-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 2.0",
-      "author": "jacilluch",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Siluro_de_cristal_-_Glass_Catfish_(14059368040).jpg",
-      "caption": "Cá thủy tinh nhìn nghiêng, thân trong suốt thấy rõ xương",
-      "large": {
-        "url": "https://media.aquatome.com/commons/7fb4ec25d9aba83d-large.webp",
-        "width": 1600,
-        "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 2.5",
+      "author": "Daiju Azuma",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kryptopterus_species.jpg",
+      "caption": "Đàn cá thủy tinh bơi dày đặc trong bể có cát"
     },
     {
       "url": "https://media.aquatome.com/commons/1cfb7a03356e819f.webp",
@@ -89,6 +44,36 @@
       "caption": "Nhóm cá thủy tinh giữa cây thủy sinh lá đỏ"
     },
     {
+      "url": "https://media.aquatome.com/commons/fca62a828bf26357.webp",
+      "thumb": "https://media.aquatome.com/commons/fca62a828bf26357-480.webp",
+      "width": 1200,
+      "height": 800,
+      "large": {
+        "url": "https://media.aquatome.com/commons/fca62a828bf26357-large.webp",
+        "width": 1800,
+        "height": 1200
+      },
+      "licence": "CC BY-SA 2.0",
+      "author": "Martin Fisch",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Glaswelse.jpg",
+      "caption": "Đàn cá thủy tinh trong suốt trong bể thủy sinh xanh"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/782b9a10cb8a923d.webp",
+      "thumb": "https://media.aquatome.com/commons/782b9a10cb8a923d-480.webp",
+      "width": 1200,
+      "height": 762,
+      "large": {
+        "url": "https://media.aquatome.com/commons/782b9a10cb8a923d-large.webp",
+        "width": 1890,
+        "height": 1200
+      },
+      "licence": "CC0",
+      "author": "Vassil",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kryptopterus_vitreolus_(Cologne_Zoo)_2.jpg",
+      "caption": "Cá thủy tinh thân trong suốt lộ xương giữa cây thủy sinh"
+    },
+    {
       "url": "https://media.aquatome.com/commons/7c6e2c08531bcb6e.webp",
       "thumb": "https://media.aquatome.com/commons/7c6e2c08531bcb6e-480.webp",
       "width": 1200,
@@ -97,6 +82,21 @@
       "author": "Филимонова Виктория",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%A0%D1%8B%D0%B1%D0%B0-%D0%BF%D1%80%D0%B8%D0%B7%D1%80%D0%B0%D0%BA.jpg",
       "caption": "Cá thủy tinh bơi bên cạnh cây dương xỉ trong bể"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/7fb4ec25d9aba83d.webp",
+      "thumb": "https://media.aquatome.com/commons/7fb4ec25d9aba83d-480.webp",
+      "width": 1200,
+      "height": 900,
+      "large": {
+        "url": "https://media.aquatome.com/commons/7fb4ec25d9aba83d-large.webp",
+        "width": 1600,
+        "height": 1200
+      },
+      "licence": "CC BY-SA 2.0",
+      "author": "jacilluch",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Siluro_de_cristal_-_Glass_Catfish_(14059368040).jpg",
+      "caption": "Cá thủy tinh nhìn nghiêng, thân trong suốt thấy rõ xương"
     },
     {
       "url": "https://media.aquatome.com/commons/1d6d874985b49ace.webp",
@@ -143,15 +143,15 @@
       "thumb": "https://media.aquatome.com/commons/855dac639aba4b7c-480.webp",
       "width": 1200,
       "height": 800,
-      "licence": "CC BY-SA 4.0",
-      "author": "serwacy01-",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kryptopterus_vitreolus02.jpg",
-      "caption": "Hai cá thủy tinh trong suốt thấy rõ xương sống trong bể",
       "large": {
         "url": "https://media.aquatome.com/commons/855dac639aba4b7c-large.webp",
         "width": 1800,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "serwacy01-",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kryptopterus_vitreolus02.jpg",
+      "caption": "Hai cá thủy tinh trong suốt thấy rõ xương sống trong bể"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/27669619.webp",
@@ -162,9 +162,22 @@
       "author": "Lauren Gore",
       "sourceUrl": "https://www.inaturalist.org/photos/27669619",
       "caption": "Đàn cá thủy tinh bơi trong bể thủy sinh nhiều rêu và cây"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/721632052.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/721632052-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Rui",
+      "sourceUrl": "https://www.inaturalist.org/photos/721632052",
+      "caption": "Cá thủy tinh ngoài tự nhiên trên nền đáy suối",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
-  "seen": 35,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 38,
+  "updatedAt": "2026-11-23",
+  "builtAt": "2026-11-23"
 }

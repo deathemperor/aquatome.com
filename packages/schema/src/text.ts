@@ -20,6 +20,18 @@ export function markVietnameseNames(html: string): string {
   }).join('')
 }
 
+/** The five tone marks, decomposed: huyền, sắc, ngã, hỏi, nặng. */
+const TONE = '[\u0300\u0301\u0303\u0309\u0323]'
+/** The vowel pairs the old and new placings mark on different vowels: oa, oe and uy ("hòa", "hoà"; "khỏe", "khoẻ"; "thủy", "thuỷ"). */
+const PLACED = new RegExp(`o(${TONE})([ae])|u(${TONE})y`, 'gu')
+/**
+ * One key for a Vietnamese name in the old tone placing or the new: "Oxy hoà tan" and "Oxy hòa tan" are one name, as are
+ * "thuỷ" and "thủy" (the chief of staff, 19 Nov 2026, after "Oxy hoà tan" came back as Oxy hòa tan's other name). Only those
+ * pairs' mark moves, so another language's accents keep their places ("público" and "publicó" stay two: Codex, 19 Nov
+ * 2026). Case folded; every other mark stays where it is, so "hóa" and "hoa", "ô" and "o", "đ" and "d" stay apart.
+ */
+export const toneKey = (s: string) => s.normalize('NFD').toLowerCase().replace(PLACED, (_, t1: string | undefined, v: string | undefined, t2: string | undefined) => (t1 ? `o${v}${t1}` : `uy${t2}`)).normalize('NFC')
+
 /**
  * Two names a reader can't tell apart get the same key: the tank-mates picker's folding (accents off, đ → d, lower case,
  * punctuation dropped; Thai keeps its marks) with the spaces dropped too, since Thai writes one name with or without them

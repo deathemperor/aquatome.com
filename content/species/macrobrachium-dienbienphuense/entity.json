@@ -9,6 +9,70 @@
     "asia",
     "thailand"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 5863220,
+      "total": 24,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "TH",
+          13
+        ],
+        [
+          "LA",
+          11
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          18.28125,
+          3
+        ],
+        [
+          98.4375,
+          19.6875,
+          2
+        ],
+        [
+          101.25,
+          11.25,
+          2
+        ],
+        [
+          101.25,
+          15.46875,
+          3
+        ],
+        [
+          101.25,
+          19.6875,
+          2
+        ],
+        [
+          102.65625,
+          11.25,
+          1
+        ],
+        [
+          104.0625,
+          15.46875,
+          2
+        ],
+        [
+          104.0625,
+          19.6875,
+          7
+        ],
+        [
+          105.46875,
+          16.875,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -68,7 +132,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_eriocheirum_en/",
       "source": "glaser"
     },
@@ -78,7 +142,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_eriocheirum_en/",
       "source": "glaser"
     },
@@ -88,7 +152,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_eriocheirum_en/",
       "source": "glaser"
     },
@@ -98,7 +162,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_eriocheirum_en/",
       "source": "glaser"
     }

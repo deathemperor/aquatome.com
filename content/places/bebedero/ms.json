@@ -1,8 +1,13 @@
 {
   "slug": "bebedero",
-  "name": "Bebedero",
+  "name": "Sungai Bebedero",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-17T05:16:18.229Z"
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

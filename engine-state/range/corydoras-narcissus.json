@@ -1,14 +1,22 @@
 {
   "id": "corydoras-narcissus",
   "native": {
-    "input": "19a6994b8563429c",
-    "at": "2026-11-07T13:20:47.766Z",
+    "input": "a2103153d7c4b5f4",
+    "at": "2026-11-23T01:48:47.136Z",
     "claims": [
       {
         "code": "BR",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Appears to be endemic to the Rio Purus, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species comes from Brazil, more precisely from the drainage of the Rio Purus.",
         "words": "Brazil",
         "ok": true
       }
@@ -18,6 +26,13 @@
         "name": "Rio Purus",
         "source": "seriouslyfish",
         "quote": "Appears to be endemic to the Rio Purus, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Purus",
+        "source": "glaser",
+        "quote": "The species comes from Brazil, more precisely from the drainage of the Rio Purus.",
         "country": "BR",
         "ok": true
       }

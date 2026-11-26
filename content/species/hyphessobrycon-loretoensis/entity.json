@@ -24,13 +24,14 @@
       ],
       "regions": [
         "Amazon",
-        "Rio Napo",
-        "Rio Ucayali",
-        "Rio Madeira",
-        "Rio Aguarico"
+        "Napo",
+        "Ucayali",
+        "Madeira",
+        "Aguarico"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -49,8 +50,8 @@
           "countries": [],
           "regions": [
             "Amazon",
-            "Rio Napo",
-            "Rio Ucayali"
+            "Napo",
+            "Ucayali"
           ]
         },
         {
@@ -58,7 +59,7 @@
           "quote": "García-Alzate et al. (2013) report it from the Madre de Dios watershed, a tributary in the upper rio Madeira basin, which would appear to represent a significant range expansion and may indicate it to be present throughout the Peruvian Amazon; there is also an isolated record from the rio Palcazu drainage in the upper rio Ucayali basin.",
           "countries": [],
           "regions": [
-            "Rio Madeira"
+            "Madeira"
           ]
         },
         {
@@ -66,7 +67,7 @@
           "quote": "There exist numerous records from the rios Loreto-Yacu and Pichuna in Colombia, and the rio Aguarico, which forms a section of the border between Peru and Ecuador, but presumably it also occurs in other tributary systems in the region.",
           "countries": [],
           "regions": [
-            "Rio Aguarico"
+            "Aguarico"
           ]
         }
       ]

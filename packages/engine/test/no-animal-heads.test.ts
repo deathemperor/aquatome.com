@@ -73,10 +73,14 @@ test('a head the check calls "none" comes off; the photo after it leads; the run
   expect(Object.keys(await json(r, 'engine-state/_photo-rejected.json'))).toEqual([url('a-river')])
 })
 
-test('a page\'s only photo stays on the check\'s word alone, whatever the verdict: held, off the never-again list, and waiting for a second look', async () => {
+test('a page\'s only photo stays on the check\'s word alone, whatever the verdict, where it passed the check before: held, off the never-again list, and waiting for a second look', async () => {
   // The chief of staff, 2026-11-14: one night's runs took every photo off 27 fish pages, each run within the old cap of 10.
+  // Since 20 Nov a first verdict of dead or a person on a photo that never passed comes off (photo-check-unshown.test.ts);
+  // here c-dead and d-hand passed before the check asked about people, and are asked again.
   const verdicts = { 'b-river': none, 'c-dead': { ok: 'dead', typical: false, note: 'dead' }, 'd-hand': { person: true, note: 'held in a hand' } } as Record<string, Partial<PhotoVerdict>>
   const r = await root([{ id: 'bbb', photos: ['b-river'] }, { id: 'ccc', photos: ['c-dead'] }, { id: 'ddd', photos: ['d-hand'] }], { 'b-river': null })
+  const passed = { ok: 'yes', typical: true, note: 'a live fish' }
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [url('c-dead')]: { ccc: passed }, [url('d-hand')]: { ddd: passed } }))
   const out = await checkPagePhotos(r, model(verdicts), { limit: 10 })
   const stay = async () => { for (const [id, n] of [['bbb', 'b-river'], ['ccc', 'c-dead'], ['ddd', 'd-hand']] as const) expect(await photosOf(r, id)).toEqual([n]) }
   await stay()

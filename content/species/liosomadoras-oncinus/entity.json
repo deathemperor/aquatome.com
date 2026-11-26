@@ -141,6 +141,13 @@
           "min": 4.8,
           "max": 7.2
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 5.5,
+          "max": 6.5
+        }
       }
     ],
     "gh": [
@@ -156,6 +163,10 @@
       {
         "source": "seriouslyfish",
         "value": 25
+      },
+      {
+        "source": "glaser",
+        "value": 20
       }
     ],
     "tankCm": [
@@ -168,6 +179,10 @@
       {
         "source": "seriouslyfish",
         "value": 2
+      },
+      {
+        "source": "glaser",
+        "value": 7
       }
     ]
   },
@@ -179,10 +194,28 @@
       "html": "<p>The jaguar catfish, Liosomadoras oncinus, is an auchenipterid catfish from the Ucayali, Amazonas and Negro river basins in South America. Often confused with L. morrowi, it has brighter patterning and grows larger, to around 250 mm SL. Formerly placed in the Doradidae because of its opercular spines, it is nocturnal and generally peaceful but eats small fish after dark. Its water requirements depend on where it was collected.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/liosomadoras-oncinus-2/",
+      "html": "<p>The jaguar catfish (Liosomadoras oncinus) is a rarity in the aquarium. The species is only sparsely represented even in the large museum collections of the world, so knowledge about these animals is small. It is a driftwood catfish.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/liosomadoras-oncinus-2/",
+      "html": "<p>In the aquarium they are very sensitive species that only experienced aquarists should attempt to keep. The species is prone to fungal and bacterial diseases.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/liosomadoras-oncinus",
       "html": "<p>Ucayali, Amazonas and Negro river basins, Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/liosomadoras-oncinus-2/",
+      "html": "<p>Brazil.</p>"
     },
     {
       "key": "habitat",
@@ -209,10 +242,22 @@
       "html": "<ul><li>Temperature: 20–28 °C</li><li>pH: 4.8–7.2</li><li>Hardness: 0–15 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/liosomadoras-oncinus-2/",
+      "html": "<p>Both fungal and bacterial diseases can only be counteracted with optimal water care. Keeping is favourable in a soft, slightly acid environment (pH 5.5–6.5), which neither fungi nor disease-causing bacteria like.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/liosomadoras-oncinus",
       "html": "<p>Unfussy. It relishes live and frozen foods such as bloodworm, earthworms etc., as well as sinking dried foods. Add food after lights out to ensure it receives its share.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/liosomadoras-oncinus-2/",
+      "html": "<p>Jaguar catfish are not very demanding when it comes to feeding, but it can be assumed that, like other driftwood catfish, they feed on insects from the water surface at dusk in the wild.</p>"
     },
     {
       "key": "behaviour",
@@ -227,6 +272,12 @@
       "html": "<p>Males have a highly modified anal fin, which is used in a similar fashion to the gonopodium possessed by livebearers. When mature, they also develop thicker dorsal and pectoral fins than females.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/liosomadoras-oncinus-2/",
+      "html": "<p>Males can be recognised by a tubular mating organ at the beginning of the anal fin, used for internal fertilisation.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/liosomadoras-oncinus",
@@ -237,6 +288,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/liosomadoras-oncinus",
       "html": "<p>Often confused with its congener, L. morrowi, the jaguar cat can be distinguished by its more attractive, brighter patterning and larger adult size. It's an ideal and good looking bottom dweller for the larger community. Previously considered a member of the Doradidae, due to the opercular spines, it has now been reclassified. It occurs over a wide range in nature, hence its apparent tolerance to wildly different water chemistry. In reality, its requirements are determined by collection locality, so it's best to ask your dealer what water conditions they are being kept in when buying.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/liosomadoras-oncinus-2/",
+      "html": "<p>The maximum length is about 20 cm (including the caudal fin); usually they reach 12–15 cm. The pattern of each fish is very different. On the underside of the head, both sexes have a sucking structure whose function is unknown.</p>"
     }
   ],
   "photos": [
@@ -272,9 +329,64 @@
       "sourceUrl": "https://www.scotcat.com/auchenipteridae/liosomadoras_oncinus.htm",
       "caption": "Liosomadoras oncinus: head view",
       "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5786eddaf24df11b.webp",
+      "thumb": "https://media.aquatome.com/glaser/5786eddaf24df11b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/liosomadoras-oncinus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d4ecdfbf4d85c709.webp",
+      "thumb": "https://media.aquatome.com/glaser/d4ecdfbf4d85c709-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/liosomadoras-oncinus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ddf3d5fae6799872.webp",
+      "thumb": "https://media.aquatome.com/glaser/ddf3d5fae6799872-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/liosomadoras-oncinus-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "ZgojksGLzqo",
+      "title": "Jaguar Catfish (Liosomadoras oncinus)",
+      "durationSec": 81,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ubo5VCrziac",
+      "title": "Liosomadoras oncinus",
+      "durationSec": 17,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "vCb0FNKRdg4",
+      "title": "Liosomadoras oncinus (jaguar catfish) daytime feeding",
+      "durationSec": 85,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "38xNe2XrBLc",
+      "title": "Jaguar Catfish Eggs, Liosomadorus oncinus",
+      "durationSec": 36,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -304,5 +416,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-20"
 }

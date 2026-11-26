@@ -3,7 +3,9 @@
   "name": "Cá lau kiếng vây đỏ đuôi dài L11",
   "altNames": [
     "Cá lau kiếng thresher vây đỏ",
-    "Red Fin Thresher Plec"
+    "Red Fin Thresher Plec",
+    "Cá tỳ bà L11",
+    "L11"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<ul><li>Kích thước tối đa: 400 mm SL</li><li>Nhiệt độ: 25–28°C</li><li>pH: 6,4–7,2</li><li>Độ cứng: 5–10 dGH</li><li>Độ khó: 4/8 (trung bình)</li></ul><p>Cá lau kiếng vây đỏ đuôi dài, Aphanotorulus emarginatus, là một loài cá da trơn miệng hút đến từ vùng Amazon thuộc Brazil, Ecuador, Peru và Bolivia. Loài này có nhiều biến thể địa lý, trong đó bốn biến thể được gán mã L (L011, L035, L108 và L116), và tất cả đều có vây đuôi kéo dài, đây là nguồn gốc tên gọi thông thường của chúng. Thường được bán ở cỡ 7–10 cm với tên Hypostomus cf. emarginata, cá lớn đến khoảng 40 cm và cần bể rộng với nước chảy, giàu oxy.</p>",
@@ -16,13 +18,20 @@
     "behaviour:seriouslyfish": "<p>Đây là loài hiền, có thể nuôi chung với nhiều loài khác như cá characin cỡ lớn, cá cyprinid, cá cichlid hiền và các loài cá da trơn khác. Đáng ngạc nhiên là cá khá ít tính lãnh thổ, có thể nuôi theo nhóm cùng loài hoặc với các loài Loricariidae hiền khác. Cần lưu ý rằng các loài nhỏ hơn có thể bị chúng lấn át/sợ hãi vì kích thước của cá.</p>",
     "dimorphism:seriouslyfish": "<p>Chưa rõ.</p>",
     "reproduction:seriouslyfish": "<p>Chưa có báo cáo về sinh sản trong thú chơi cá cảnh.</p>",
-    "notes:seriouslyfish": "<p>Loài cá đẹp này thường được bán ở cỡ khoảng 7–10 cm (thường với tên Hypostomus cf. emarginata hoặc H. emarginatus), nhưng với kích thước trưởng thành của chúng, đây không phải lựa chọn tốt cho bể cộng đồng thông thường. Do phân bố tự nhiên rất rộng nên có nhiều biến thể địa lý đã biết, dẫn đến hiện có bốn mã L được gán cho loài này. Thực tế còn nhiều biến thể hơn thế, và tất cả đều có vây đuôi kéo dài đặc trưng, là nguồn gốc tên gọi thông thường của cá. Như mọi khi, khi mua các loài Loricariidae như thế này, hãy kiểm tra cá có bụng tròn và mắt không bị lõm, vì đây là dấu hiệu điển hình của tình trạng suy dinh dưỡng, gầy trơ xương ở cá mới nhập.</p>"
+    "notes:seriouslyfish": "<p>Loài cá đẹp này thường được bán ở cỡ khoảng 7–10 cm (thường với tên Hypostomus cf. emarginata hoặc H. emarginatus), nhưng với kích thước trưởng thành của chúng, đây không phải lựa chọn tốt cho bể cộng đồng thông thường. Do phân bố tự nhiên rất rộng nên có nhiều biến thể địa lý đã biết, dẫn đến hiện có bốn mã L được gán cho loài này. Thực tế còn nhiều biến thể hơn thế, và tất cả đều có vây đuôi kéo dài đặc trưng, là nguồn gốc tên gọi thông thường của cá. Như mọi khi, khi mua các loài Loricariidae như thế này, hãy kiểm tra cá có bụng tròn và mắt không bị lõm, vì đây là dấu hiệu điển hình của tình trạng suy dinh dưỡng, gầy trơ xương ở cá mới nhập.</p>",
+    "quickFacts:glaser": "<p>L11 là một loài cá da trơn cỡ lớn rất đẹp, hợp với những bể đủ rộng nuôi cá vùng Rio Xingu. Thả vào bể cichlid, nó ăn rêu rất giỏi.</p>",
+    "distribution:glaser": "<p>Loài cá da trơn đẹp này đến từ Rio Xingu, nhưng tên đúng của nó thì các chuyên gia vẫn còn tranh cãi. Nhiều vùng ở Nam Mỹ có những con cá da trơn trông na ná nhau. Chúng đều gần với loài được mô tả từ năm 1840 với tên Hypostomus emarginatus. Năm 2001, nhóm cá này được xếp vào chi Squaliforma, rồi đến năm 2016 thì chuyển sang chi Aphanotorulus. Nhóm này còn có vài mã L: L11 (Rio Xingu, Brazil), L108 (Ecuador, Rio Napo), L116 (Rio Trombetas, Brazil), L131 (Rio Tapajós, Brazil) và L153 (Venezuela).</p>",
+    "behaviour:glaser": "<p>Con này không ngại va chạm, nhưng vẫn hiền với đồng loại lẫn các loài cá khác.</p>",
+    "waterConditions:glaser": "<p>Cá vùng Rio Xingu cần nuôi ấm. Ngoài tự nhiên, nước ở đó khoảng 26–30 °C.</p>",
+    "aquariumSize:glaser": "<p>Nuôi trong điều kiện như vậy, L11 có thể dài tới 40 cm và sống trong bể hàng chục năm.</p>"
   },
   "quality": {
     "score": 0.68,
     "indexable": false,
     "bySource": {
-      "seriouslyfish": 0.68
-    }
+      "seriouslyfish": 0.68,
+      "glaser": 0.88
+    },
+    "reason": "score"
   }
 }

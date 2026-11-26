@@ -1,0 +1,284 @@
+{
+  "id": "oase-biomaster-600-thermo",
+  "brand": "Oase",
+  "model": "BioMaster 600 Thermo",
+  "category": "loc",
+  "type": "thung",
+  "specs": [
+    {
+      "key": "Max flow rate",
+      "value": "1,250 L/h",
+      "source": 2
+    },
+    {
+      "key": "Max head height",
+      "value": "1.8 m",
+      "source": 2
+    },
+    {
+      "key": "Filter power",
+      "value": "22 W (230 V/50 Hz); US 120 V version listed at 23 W",
+      "source": 2
+    },
+    {
+      "key": "Integrated heater",
+      "value": "OASE HeatUp 300 (300 W), adjustable, included",
+      "source": 0
+    },
+    {
+      "key": "Recommended tank size",
+      "value": "Up to 600 L (about 160 US gal)",
+      "source": 0
+    },
+    {
+      "key": "Dimensions",
+      "value": "24 × 24 × 48 cm",
+      "source": 2
+    },
+    {
+      "key": "Filter media volume",
+      "value": "6.8 L",
+      "source": 2
+    },
+    {
+      "key": "Hose / inlet-outlet size",
+      "value": "Ø16 mm",
+      "source": 2
+    },
+    {
+      "key": "Filtration",
+      "value": "4-stage: removable EasyClean pre-filter with activated-carbon foam, then foams of different porosity plus Hel-X bio media",
+      "source": 0
+    },
+    {
+      "key": "Included",
+      "value": "Heater, filter media, hoses, connectors and intake/outlet pipes",
+      "source": 0
+    },
+    {
+      "key": "Manufacturer warranty",
+      "value": "3 years, plus 1 more year with online registration",
+      "source": 0
+    },
+    {
+      "key": "Measured performance (independent test)",
+      "value": "About 456 L/h at 80 cm head; about 15.7 W draw; max head measured at about 2.12 m",
+      "source": 1
+    }
+  ],
+  "variants": [
+    {
+      "name": "BioMaster (Thermo) 250",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "900 L/h",
+          "source": 3
+        },
+        {
+          "key": "Power",
+          "value": "15 W",
+          "source": 3
+        },
+        {
+          "key": "Max head",
+          "value": "1.3 m",
+          "source": 3
+        },
+        {
+          "key": "Media volume",
+          "value": "4.4 L",
+          "source": 3
+        },
+        {
+          "key": "Tank size",
+          "value": "Up to 250 L",
+          "source": 3
+        },
+        {
+          "key": "Dimensions",
+          "value": "24×24×37 cm",
+          "source": 3
+        }
+      ]
+    },
+    {
+      "name": "BioMaster (Thermo) 350",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "1,100 L/h",
+          "source": 3
+        },
+        {
+          "key": "Power",
+          "value": "18 W",
+          "source": 3
+        },
+        {
+          "key": "Max head",
+          "value": "1.4 m",
+          "source": 3
+        },
+        {
+          "key": "Media volume",
+          "value": "5.6 L",
+          "source": 3
+        },
+        {
+          "key": "Tank size",
+          "value": "Up to 350 L",
+          "source": 3
+        },
+        {
+          "key": "Dimensions",
+          "value": "24×24×43 cm",
+          "source": 3
+        }
+      ]
+    },
+    {
+      "name": "BioMaster (Thermo) 600",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "1,250 L/h",
+          "source": 3
+        },
+        {
+          "key": "Power",
+          "value": "22 W",
+          "source": 3
+        },
+        {
+          "key": "Max head",
+          "value": "1.8 m",
+          "source": 3
+        },
+        {
+          "key": "Media volume",
+          "value": "6.8 L",
+          "source": 3
+        },
+        {
+          "key": "Tank size",
+          "value": "Up to 600 L",
+          "source": 3
+        },
+        {
+          "key": "Dimensions",
+          "value": "24×24×48 cm",
+          "source": 3
+        }
+      ]
+    },
+    {
+      "name": "BioMaster (Thermo) 850",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "1,550 L/h",
+          "source": 3
+        },
+        {
+          "key": "Power",
+          "value": "32 W",
+          "source": 3
+        },
+        {
+          "key": "Max head",
+          "value": "2.2 m",
+          "source": 3
+        },
+        {
+          "key": "Media volume",
+          "value": "8 L",
+          "source": 3
+        },
+        {
+          "key": "Tank size",
+          "value": "Up to 800 L",
+          "source": 3
+        },
+        {
+          "key": "Dimensions",
+          "value": "24×24×54 cm",
+          "source": 3
+        }
+      ]
+    },
+    {
+      "name": "Thermo vs non-Thermo",
+      "specs": [
+        {
+          "key": "Difference",
+          "value": "The Thermo models add a built-in 300 W HeatUp heater in the filter. The plain BioMaster/BioMaster 2 sold in Vietnam doesn't include a heater",
+          "source": 4
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.oase.com/gb-en/products-a-z/family/product/p/94680-biomaster2-thermo-600-gb.html",
+      "title": "BioMaster² Thermo 600 (94680) - OASE",
+      "kind": "manufacturer",
+      "at": "2026-11-18"
+    },
+    {
+      "url": "https://www.danireef.com/2020/09/21/oase-biomaster-thermo-600-external-filter-for-aquarium-review/2",
+      "title": "DaniReef – Oase BioMaster Thermo 600 review",
+      "kind": "review",
+      "at": "2026-11-18"
+    },
+    {
+      "url": "https://taphoathuysinh.com/loc-thung-oase-biomaster-600-id1402.html",
+      "title": "Lọc thùng OASE BIOMASTER 600 ver2 – Tạp Hóa Thủy Sinh",
+      "kind": "shop",
+      "at": "2026-11-18"
+    },
+    {
+      "url": "https://thuysinhbichphuong.vn/oase-biomaster-filter-loc-thung-cao-cap",
+      "title": "OASE BIOMASTER FILTER – Thủy Sinh Bích Phương",
+      "kind": "shop",
+      "at": "2026-11-18"
+    },
+    {
+      "url": "https://shrimphome.vn/loc-thung-oase-biomaster-2-filter-250-350-600-850",
+      "title": "Lọc thùng Oase BioMaster 2 Filter 250/350/600/850 – Shrimp Home",
+      "kind": "shop",
+      "at": "2026-11-18"
+    },
+    {
+      "url": "https://charterhouse-aquatics.com/blogs/help-guides/setting-up-your-oase-biomaster-thermo-step-by-step",
+      "title": "Setting Up Your Oase BioMaster² Thermo: Step-by-Step – Charterhouse Aquatics",
+      "kind": "other",
+      "at": "2026-11-18"
+    },
+    {
+      "url": "https://ukaps.org/forum/threads/oase-biomaster-600-thermo-issues.57985/",
+      "title": "UKAPS – Oase Biomaster 600 Thermo issues",
+      "kind": "forum",
+      "at": "2026-11-18"
+    },
+    {
+      "url": "https://www.desertcart.ec/products/97759218-oase-indoor-aquatics-biomaster-thermo-600",
+      "title": "Desertcart – OASE BioMaster Thermo 600 customer reviews",
+      "kind": "review",
+      "at": "2026-11-18"
+    },
+    {
+      "url": "https://www.greendeal.vn/eheim-external-filter-professionel-4-600-2275",
+      "title": "EHEIM Filter Professionel 4+ 600 – Greendeal.vn",
+      "kind": "shop",
+      "at": "2026-11-18"
+    },
+    {
+      "url": "https://www.jbl.de/en/products/detail/8028/jbl-cristalprofi-e1502-greenline?country=cy",
+      "title": "JBL CRISTALPROFI e1502 greenline",
+      "kind": "manufacturer",
+      "at": "2026-11-18"
+    }
+  ],
+  "updatedAt": "2026-11-18"
+}

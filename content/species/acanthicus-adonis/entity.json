@@ -9,7 +9,8 @@
     "south-america",
     "brazil",
     "tocantins",
-    "peru"
+    "peru",
+    "rio-tocantins"
   ],
   "range": {
     "native": {
@@ -21,7 +22,8 @@
         "Amazon"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -134,6 +136,10 @@
       {
         "source": "seriouslyfish",
         "value": 6
+      },
+      {
+        "source": "glaser",
+        "value": 2
       }
     ]
   },
@@ -145,10 +151,22 @@
       "html": "<p>The polka dot lyre tail pleco, Acanthicus adonis, is a very large loricariid catfish from the rio Tocantins in Brazil. Thought to range across much of the Amazon basin, it is traded as spotted juveniles in quite large numbers despite its patent unsuitability for aquaria. It reaches 600 mm or more, loses its spotted patterning as it matures and becomes increasingly belligerent with age, so it can only be recommended to owners of the largest private aquaria or tropical ponds.</p><p>Rated difficult because it needs a tank at least 2 m long.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/acanthicus-adonis-2/",
+      "html": "<p>Acanthicus adonis is one of the most beautiful of all loricariid catfishes. Like the god Adonis, it is a beauty only when young: the animals reach over 50 cm in length, and specimens twice that size are reported, but adults are then only monochrome black.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acanthicus-adonis",
       "html": "<p>Described from the lower rio Tocantins near the city of Cametá, Pará state, northern Brazil and occurs throughout the lower part of that system. Although definitive details are lacking, it's also thought to range throughout much of the Amazon basin with similar-looking fishes being exported from as far afield as Peru.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/acanthicus-adonis-2/",
+      "html": "<p>Acanthicus adonis was described from the Rio Tocantins in Brazil. Most animals reach the trade from Peru. They are said to differ from the Brazilian populations by a smaller eye. Occasionally the distribution of dots is cited as a difference between the two populations, but this makes little sense, since the number, arrangement and size of the white dots vary extremely from individual to individual and are as unique in each specimen as a fingerprint in a human.</p>"
     },
     {
       "key": "habitat",
@@ -169,6 +187,12 @@
       "html": "<p>Prefers dim lighting and access to refuges in the form of driftwood, large rocks or lengths of plastic piping. Juveniles can be kept in planted aquaria but adults are likely to consume or uproot any vegetation. An enormous filtration system and dedicated regime of water changes will also be required and maintenance of high dissolved oxygen levels is mandatory given the species' natural habitat and the fact that unlike some relatives it cannot respire atmospheric oxygen.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/acanthicus-adonis-2/",
+      "html": "<p>Keeping Adonis catfish is easy, but you need to be aware of the size these animals reach.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acanthicus-adonis",
@@ -185,6 +209,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acanthicus-adonis",
       "html": "<p>Juveniles tend to be quite peaceful but become more territorial and aggressive as they mature, meaning adults should be maintained singly and unless the aquarium is of public aquaria magnitude, in the absence of other substrate-dwellers. The most suitable tankmates are large, robust, pelagic fishes from genera such as Cichla, Osteoglossum, Brycon, Acestrorhynchus, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/acanthicus-adonis-2/",
+      "html": "<p>They are quite aggressive fish, both towards conspecifics and towards other species.</p>"
     },
     {
       "key": "dimorphism",
@@ -205,30 +235,30 @@
       "html": "<p>Despite its patent unsuitability as an aquarium subject attractively-coloured juvenile specimens of this species are traded in quite large numbers, although the scarcity of privately-maintained adults would suggest that most fail to reach their potential. The striking, spotted patterning also disappears as this species matures, and since it also becomes increasingly belligerent with age it can only be recommended to owners of the largest private aquaria or tropical ponds. There exists an albino form which is available from time-to-time, and another variant exhibits wave-like patterning on the body which is particularly visible on the ventral surface.</p><p>The genus Acanthicus currently comprises just two species but there exist a handful of undescribed ones, some of which have been exported for the aquarium hobby. Members are most easily characterised by lacking an adipose fin plus possessing extensive keels along the flanks as well as a greatly-extended pterotic-supracleithrum, a bony formation comprising fused pterotic, posttemporal, and supracleithrum bones and located just above the pectoral girdle. All are extremely spiny meaning extreme care should be taken when netting or otherwise handling them as they can easily become entangled in the mesh of aquarium nets or cause physical injury.</p><p>The two described taxa, A. adonis and A. hystrix, are easily distinguished when young since the latter lacks white to yellowish spots on the body. As adults they appear more similar although A. adonis tends to retain some degree of spotted patterning, most often on the fins or fin filaments.</p><p>The family Loricariidae is the largest among catfishes with over 700 species described to date and many awaiting description. The latter are typically assigned a specific 'L' number by hobbyists and scientists alike in order to provide a basic means of identification, although in some cases several species have been referred to the same number, or multiple numbers have been used for different populations of a single taxon. All loricariids are also commonly referred to as 'pleco', 'plecostomus' or 'suckermouth armoured catfishes'.</p><p>The sucking disc formed by the mouthparts is common to all representatives but both oral and dental morphology are highly variable depending on a given species' ecological adaptation(s), and some species even practice xylophagy (wood eating). Many species are also facultative air-breathers i.e. they possess the ability to respire atmospheric air if necessary.</p>"
     },
     {
-      "key": "references",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/acanthicus-adonis",
-      "html": "<ul><li>Reis, R. E., E. H. L. Pereira, and J. W. Armbruster (2006). Delturinae, a new loricariid catfish subfamily (Teleostei, Siluriformes), with revisions of Delturus and Hemipsilichthys. Zoological Journal of the Linnean Society 147(2), 277-299</li><li>Cramer, C. A., A. M. R. Liedke, S. L. Bonatto, and R. E. Reis (2008). The phylogenetic relationships of the Hypoptopomatinae and Neoplecostominae (Siluriformes: Loricariidae) as inferred from mitochondrial cytochrome c oxidase I sequences. Bulletin of Fish Biology 9, 51-59</li><li>Cramer, C. A., S. L. Bonatto, and R. E. Reis (2011). Molecular phylogeny of the Neoplecostominae and Hypoptopomatinae (Siluriformes: Loricariidae) using multiple genes. Molecular Phylogenetics and Evolution 59(1), 43-52</li><li>Armbruster, J. W. (2004). Phylogenetic relationships of the suckermouth armoured catfishes (Loricariidae) with emphasis on the Hypostominae and the Ancistrinae. Zoological Journal of the Linnean Society 141, 1-80</li></ul>"
-    },
-    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/huge_acanthicus_adonis_arrived__en/",
       "html": "<p>Acanthicus adonis is said to reach about 1 m in length and is thus one of the largest species of loricariid catfish at all.</p>",
       "fixed": true
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acanthicus-adonis",
+      "html": "<ul><li>Reis, R. E., E. H. L. Pereira, and J. W. Armbruster (2006). Delturinae, a new loricariid catfish subfamily (Teleostei, Siluriformes), with revisions of Delturus and Hemipsilichthys. Zoological Journal of the Linnean Society 147(2), 277-299</li><li>Cramer, C. A., A. M. R. Liedke, S. L. Bonatto, and R. E. Reis (2008). The phylogenetic relationships of the Hypoptopomatinae and Neoplecostominae (Siluriformes: Loricariidae) as inferred from mitochondrial cytochrome c oxidase I sequences. Bulletin of Fish Biology 9, 51-59</li><li>Cramer, C. A., S. L. Bonatto, and R. E. Reis (2011). Molecular phylogeny of the Neoplecostominae and Hypoptopomatinae (Siluriformes: Loricariidae) using multiple genes. Molecular Phylogenetics and Evolution 59(1), 43-52</li><li>Armbruster, J. W. (2004). Phylogenetic relationships of the suckermouth armoured catfishes (Loricariidae) with emphasis on the Hypostominae and the Ancistrinae. Zoological Journal of the Linnean Society 141, 1-80</li></ul>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/a995cba0e8f5e239.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a995cba0e8f5e239-480.webp",
       "width": 1024,
       "height": 417,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "311365 / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acanthicus-adonis",
       "caption": "Juvenile.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/a995cba0e8f5e239-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/scotcat/beb05fecac60a285.webp",
@@ -262,9 +292,64 @@
       "sourceUrl": "https://www.scotcat.com/loricariidae/acanthicus_adonis.htm",
       "caption": "Acanthicus adonis: Adult",
       "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d15f8aa917ddfbe4.webp",
+      "thumb": "https://media.aquatome.com/glaser/d15f8aa917ddfbe4-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/acanthicus-adonis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/96a44e4c5566eaec.webp",
+      "thumb": "https://media.aquatome.com/glaser/96a44e4c5566eaec-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/acanthicus-adonis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/33f5e8f8efa565f0.webp",
+      "thumb": "https://media.aquatome.com/glaser/33f5e8f8efa565f0-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/acanthicus-adonis-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "uaBpNYvStHM",
+      "title": "Acanthicus adonis Ballet",
+      "durationSec": 202,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "LlSP62EhPRI",
+      "title": "Elfenwels – Acanthicus adonis im Aquarium",
+      "durationSec": 42,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "CksJKnDlnuo",
+      "title": "Acanthicus Adonis L155, Oscar Fish, catfish, aquarium amazone , salvini",
+      "durationSec": 137,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "EPedUJBSvoQ",
+      "title": "Acanthicus adonis - (Loricariidae) - Adonis Pleco - Aquarium Porte Dorée - Paris-France - 21/03/2016",
+      "durationSec": 92,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -293,5 +378,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-15"
+  "updatedAt": "2026-11-22"
 }

@@ -3,6 +3,12 @@
   "name": "เอ็มปาสซา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-18T18:18:05.632Z",
+    "why": "The Thai transliteration \"เอ็มปาสซา\" renders M'Passa phonetically but omits the Thai kind word \"แม่น้ำ\" for a river, so it is incomplete as an atlas name."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

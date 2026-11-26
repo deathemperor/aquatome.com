@@ -10,13 +10,18 @@
     "maintenance:scotcat": "<p>Nuôi cá trê họ Ailiidae không hề đơn giản. Chúng cực kỳ nhạy cảm mỗi khi bị nhấc khỏi nước. Muốn giữ chúng sống thì bạn phải đáp ứng đúng một số thông số nước và điều kiện môi trường nhất định. Abhisek Mishra đã thất bại nhiều lần trước khi kiếm được cá sống của cả 4 chi có ở vùng anh sống. Sau đó anh nuôi được chúng trong bể ở nhà (Mishra, Abhisek 2023).</p>",
     "diet:scotcat": "<p>Cá ăn côn trùng, tôm, các loài giáp xác khác và cá nhỏ. Đây là loài săn mồi, vì vậy khi nuôi trong bể bạn cần cho chúng ăn thức ăn có thịt như tôm, giun đất, sâu bột và những món tương tự.</p>",
     "notes:scotcat": "<p>Người ta đánh bắt Ailia coila rất nhiều để làm thức ăn (Talwar và Jhingran 1991, Patra và cs. 2005, Mishra và cs. 2009). Nếu bị khai thác quá nặng, quần thể loài này có thể bị đe dọa. Theo Ferraris (2007), các tên Acanthonotus hardwickii, Silurus (Acanthonotus) cuvieri và Malapterus (Ailia) bengalensis của Gray (1830), cùng tên Ailia affinis của Günther (1864), hiện đều là tên đồng nghĩa của Ailia coila.</p><p>Nguồn gốc tên gọi: Tên chi Ailia là tên địa phương mà người Ấn Độ dùng để gọi A. coila (và cả Ailiichthys punctata). Ý nghĩa của tên loài coila thì không có lời giải thích. Có thể đây là dạng Latin hóa của Kajoli (đọc là \"kway-la\"), tên tiếng Assam của loài cá trê này ở Rangpur, Bangladesh.</p><p>Sách Đỏ IUCN: Ailia coila phân bố rộng. Tuy vậy, quần thể của nó đã giảm đáng kể vì bị đánh bắt quá mức để làm thức ăn ở một số nơi, thậm chí có thể là trên toàn vùng phân bố. Phân loại của loài còn nhiều chỗ chưa rõ. Kết quả từ các nghiên cứu ở từng địa phương cũng khó suy rộng ra cho cả tiểu lục địa. Vì hai lý do này mà không thể đánh giá chính xác tình trạng của loài. Bằng chứng cho thấy đánh bắt quá mức làm quần thể giảm mạnh vẫn còn ít, nên IUCN xếp loài vào mức Sắp bị đe dọa. Theo đánh giá này, số lượng cá trên toàn vùng phân bố có thể đã giảm gần 30% trong mười năm. IUCN cũng cho rằng cần khẩn trương nghiên cứu các mối đe dọa, mức khai thác và biến động quần thể của loài (IUCN 2011).</p>",
-    "references:scotcat": "<ul><li>Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, (02/2019).</li><li>Mishra, Abhisek. pers comm 2023.</li><li>Ng, H.H. &amp; Dahanukar, N. 2011. Ailia coila. The IUCN Red List of Threatened Species 2011.</li><li>Sampod, Rhaman Mabubur., pers comm, FB. 2023.</li><li>Talwar, P.K. and A.G. Jhingran, 1991. Inland fishes of India and adjacent countries. Volume 2. A.A. Balkema, Rotterdam.</li></ul>"
+    "references:scotcat": "<ul><li>Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, (02/2019).</li><li>Mishra, Abhisek. pers comm 2023.</li><li>Ng, H.H. &amp; Dahanukar, N. 2011. Ailia coila. The IUCN Red List of Threatened Species 2011.</li><li>Sampod, Rhaman Mabubur., pers comm, FB. 2023.</li><li>Talwar, P.K. and A.G. Jhingran, 1991. Inland fishes of India and adjacent countries. Volume 2. A.A. Balkema, Rotterdam.</li></ul>",
+    "quickFacts:planetcatfish": "<p>Tên khoa học: Ailia coila (Hamilton, 1822). Nơi thu mẫu chuẩn: Bengal. Cỡ tối đa: 300 mm SL (chiều dài chuẩn, đo từ mõm tới gốc đuôi). Sách đỏ IUCN xếp loài này vào nhóm Near Threatened (sắp bị đe dọa), lần đánh giá gần nhất là năm 2010.</p>",
+    "distribution:planetcatfish": "<p>Châu Á: Pakistan, Ấn Độ, Bangladesh và Nepal.</p>",
+    "reproduction:planetcatfish": "<p>Sinh sản: chưa thấy ai ghi lại.</p>",
+    "references:planetcatfish": "<p>An account of the fishes found in the river Ganges, pp 158, 375.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "scotcat": 0.8
+      "scotcat": 0.8,
+      "planetcatfish": 0.85
     }
   }
 }

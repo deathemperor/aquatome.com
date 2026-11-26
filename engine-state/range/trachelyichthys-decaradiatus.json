@@ -1,0 +1,60 @@
+{
+  "id": "trachelyichthys-decaradiatus",
+  "native": {
+    "input": "afcf8985ca67300a",
+    "at": "2026-11-16T17:28:41.839Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Rupununi River, Guyana.",
+        "words": "Guyana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rupununi River",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Rupununi River, Guyana.",
+        "country": "GY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Trachelyichthys decaradiatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344625,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        6
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        5
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        4
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ]
+    ],
+    "native": [
+      "GY"
+    ],
+    "requests": 12,
+    "at": "2026-11-16T17:28:41.839Z"
+  }
+}

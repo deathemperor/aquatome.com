@@ -1,0 +1,106 @@
+{
+  "id": "dupouyichthys-sapito",
+  "native": {
+    "input": "1a6c3875783b5c40",
+    "at": "2026-11-20T01:55:49.831Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Magdalena River and Lake Maracaibo basins: Colombia and Venezuela.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Magdalena River and Lake Maracaibo basins: Colombia and Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "This species is distributed in the upper part of the Magdalena River and Maracaibo Basin (Colombia and Venezuela) but occurs in very low densities.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "This species is distributed in the upper part of the Magdalena River and Maracaibo Basin (Colombia and Venezuela) but occurs in very low densities.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Magdalena River",
+        "source": "scotcat",
+        "quote": "South America: Magdalena River and Lake Maracaibo basins: Colombia and Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Lake Maracaibo",
+        "source": "scotcat",
+        "quote": "South America: Magdalena River and Lake Maracaibo basins: Colombia and Venezuela.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Dupouyichthys sapito",
+    "status": "ACCEPTED",
+    "taxonKey": 2340523,
+    "datasets": [
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        17
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        9
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        5
+      ],
+      [
+        "8240bd81-c05f-45d6-a1bd-f65393035392",
+        2
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        2
+      ],
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-20T01:55:49.831Z"
+  }
+}

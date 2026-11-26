@@ -1,0 +1,473 @@
+{
+  "id": "caridina-babaulti",
+  "scientificName": "Caridina babaulti",
+  "order": "Decapoda",
+  "family": "Atyidae",
+  "genus": "Caridina",
+  "group": "shrimp",
+  "places": [
+    "asia",
+    "india",
+    "madhya-pradesh",
+    "gujarat",
+    "europe",
+    "hungary",
+    "miskolctapolca",
+    "iran",
+    "iraq",
+    "malaysia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "IQ"
+      ],
+      "regions": [
+        "Shetrunji",
+        "Saurashtra"
+      ],
+      "sources": [
+        "aquariumbreeder",
+        "aquatome"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "They can be found from central India to Malaya and in the west to Iraq.",
+          "countries": [
+            "IN",
+            "IQ"
+          ],
+          "regions": []
+        },
+        {
+          "source": "aquatome",
+          "quote": "Các nhà khoa học đã xác nhận nó có ở sông Shetrunji, trên bán đảo Saurashtra thuộc bang Gujarat.",
+          "countries": [],
+          "regions": [
+            "Shetrunji",
+            "Saurashtra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5863044,
+      "total": 16,
+      "fetched": "2026-11-23",
+      "countries": [
+        [
+          "IN",
+          15
+        ],
+        [
+          "NP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          70.3125,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          78.75,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          82.96875,
+          26.71875,
+          1,
+          0
+        ],
+        [
+          90,
+          23.90625,
+          12,
+          12
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 22,
+          "max": 26
+        },
+        "ref": 6
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        },
+        "ref": 6
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 4,
+          "max": 14
+        },
+        "ref": 3
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 1.2,
+          "max": 2.5
+        },
+        "ref": 0
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 4
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquatome",
+        "value": 2,
+        "ref": 3
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 3
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 1,
+          "max": 2
+        },
+        "ref": 6
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 1,
+          "max": 2
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/caridina-cf-babaulti-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Other names: Indian zebra, Zebra, Stripes, Green, Green Neons, Malaya, Brown, Blue, Rainbow, Chameleons</li><li>Tank size (optimal): 40 litres</li><li>Breeding: Easy-Medium</li><li>KH: 3–8 (0–12)</li><li>TDS: 100–150 (50–250)</li><li>Nitrate: less than 20 ppm</li><li>Diet: algae eater/omnivore</li><li>Temperament: peaceful</li><li>Colour forms: green, brown, red, yellow, blue</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này có bán trong tiệm cá cảnh, hay gặp nhất là dạng xanh. Một tiệm ở Đức bán tép ghi tên <em>Caridina</em> cf. <em>babaulti</em> và ghi xuất xứ là Ấn Độ. Tuy vậy, một người nuôi cho biết loài này vẫn hiếm trong giới nuôi tép.</p><p>Người nuôi này cũng nói tép chịu vận chuyển kém, chết nhiều dọc đường, và khuyên mua ở tiệm hoặc từ trại.</p><p>Số tép ngoài tự nhiên ở Hungary có lẽ là do người nuôi thả ra. Nếu không bắt hết, chúng có thể tạo thành một quần thể tự duy trì ở đó.</p>",
+      "refs": [
+        2,
+        4,
+        5
+      ]
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/caridina-cf-babaulti-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Caridina cf. babaulti is a relatively new and little-known dwarf shrimp that comes in different colours (green, brown, red, yellow) and patterns (stripes and dots). It is a slightly rarer shrimp in the American shrimp hobby. Currently, the demand for this species is met by wild-caught shrimp.</p><p>The shrimp are very fragile upon import, so shipping shrimp purchased online is tricky. They seem more susceptible to this kind of stress than any other shrimp species.</p><p>Caridina cf. babaulti does not have its own scientific name yet, and its status is still controversial. The abbreviation cf. (Latin confer, \"compare\") is placed between the genus and species name to describe a specimen that is difficult to identify or to express a possible identity. The identity must be regarded as tentative. The species babaulti itself consists of two subspecies:</p><ul><li>Caridina babaulti babaulti, distributed in India but poorly known (De-Grave, 2013)</li><li>Caridina babaulti basrensis, distributed in Iran and Iraq (Gorgin, 1996)</li></ul><p>It is not known whether both subspecies represent valid species or whether a single, variable species is involved.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này có nguồn gốc ở các thủy vực nội địa miền trung, miền tây và miền nam Ấn Độ. Các nhà khoa học đã xác nhận nó có ở sông Shetrunji, trên bán đảo Saurashtra thuộc bang Gujarat.</p><p>Năm 2021, nó được tìm thấy lần đầu ngoài tự nhiên ở châu Âu, tại Miskolctapolca, Hungary. Trong 120 con tép ngoại lai thu được ở đó, có 7 con là loài này.</p>",
+      "refs": [
+        1,
+        4
+      ]
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/caridina-cf-babaulti-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>They can be found from central India to Malaya and in the west to Iraq.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Theo các tiệm bán tép, dạng xanh và dạng zebra sống ở những con sông nhỏ, nước trong ở Ấn Độ. Nước ở đó chảy chậm, cây mọc dày và đáy nhiều đá.</p>",
+      "refs": [
+        3
+      ]
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi khuyên bắt đầu từ bể khoảng 20 lít, loại bể đã chạy ổn định và có trồng cây. Một tiệm cũng đưa mức tối thiểu 20 lít cho một nhóm nhỏ. Chiều dài bể tối thiểu thì chưa có nguồn nào công bố.</p>",
+      "refs": [
+        2,
+        6
+      ]
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/caridina-cf-babaulti-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The optimal tank size is about 40 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/caridina-cf-babaulti-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Once settled in a mature tank, make them as comfortable as possible. If they survive the first few weeks, keeping them is almost as simple as Red Cherry shrimp.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi giữ loài này ở 24 °C, pH 7,4. Theo người này, quan trọng nhất là nước ổn định, đừng để thông số dao động mạnh. Người này cũng cho rằng loài này cần điều kiện giống tép cherry (<em>Neocaridina</em>) và không cần nước mềm. Khoảng nhiệt độ, pH và độ cứng xem ở bảng dữ liệu.</p>",
+      "refs": [
+        2,
+        3,
+        6
+      ]
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/caridina-cf-babaulti-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Caridina cf. babaulti are relatively hardy and tolerate a wide range of water parameters. Their water conditions are very similar to Cherry shrimp or any of the Neocaridina shrimp. They thrive in warm temperatures (21–27°C). They can have a KH from 0 to 12, a GH from 4 to 14 and TDS from 50 to 250. These are their breeding parameters; they can survive in more extreme parameters but will not breed.</p><p>Any shrimp are much less tolerant of poor water conditions than most fish. Ammonia, nitrites and nitrates will eventually kill the shrimp. If nitrate is more than 20, do a water change.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/caridina-cf-babaulti-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>It is especially important to use sponge filtration to prevent the babies from getting sucked up.</p><p>There must be adequate algae and/or biofilm in the tank for the shrimp to feed on, so the more surface area in the tank, the better. Slower-growing plants such as Java moss and Java fern work well. As for substrate, it does not matter much, but judging by their natural habitat, fine gravel and white silica sand can make them happy. They are especially effective on a sandy substrate, where they clean the sand grain by grain.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này chủ yếu gặm màng vi sinh (biofilm), rêu và vi sinh vật. Không nên cho ăn quá nhiều.</p><p>Nó ăn tạp, nhận thức ăn cho tép, thức ăn dạng vảy, viên tảo, rau trụng sơ và một ít đồ đông lạnh như bo bo. Một người nuôi còn cho thêm mai mực để bổ sung canxi.</p>",
+      "refs": [
+        2
+      ]
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/caridina-cf-babaulti-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>These shrimp require very little food. They are excellent algae eaters and sift the substrate well. Where they are present in greater numbers, algae will not cover the substrate.</p><p>They do fine on basic fish and shrimp pellets or flakes. Feed only an amount that can be eaten in one or two hours.</p><p>Many shrimp keepers put Indian almond leaves, alder cones, oak leaves, etc. in the aquarium as a food source. Soak the leaves well beforehand so most tannins leach out. The shrimp seem to feed on both the decaying leaves and the organisms that break them down.</p><p>Blanched vegetables such as zucchini, cucumber, carrots and lettuce are also good.</p><p>There must be adequate algae and/or biofilm for the fry to feed on. In tanks lacking algae or biofilm (usually newer tanks), shrimp can be fed crushed algae flakes. Calcium plays a huge role for shrimp.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Theo một người nuôi, loài này nhút nhát, thích trốn và hay tụ thành đám hơn tép cherry. Một tiệm cũng tả nó nhát hơn nhiều loài tép lùn khác, cần nhiều chỗ trốn.</p><p>Chuyện nuôi chung với cá thì phải cẩn thận. Tiệm này nói phần đông các loài cá sẽ ăn nó. Một người nuôi thì cho rằng chỉ rất ít loài cá nuôi chung được an toàn, chẳng hạn cá otto.</p>",
+      "refs": [
+        2,
+        3
+      ]
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/caridina-cf-babaulti-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>These shrimp have an extremely long, serrated rostrum. They are active, low-maintenance and fairly hardy once settled in. They can change colour very fast when startled or agitated; initially translucent, they turn orange, brown, green, etc. They can also change colour during mating or with a dark substrate. One theory is that during mating this shows potential mates that they are strong and healthy, because it requires a lot of metabolic energy. Their colours look especially lovely against a dark background. Their eyes differ from other dwarf shrimp and have a small pupil. They are a little shy until kept in bigger numbers.</p><p>Healthy shrimp skitter all over the aquarium, constantly searching for food, and scurry to the front when food is dropped in. They are excellent at cleaning aquatic plants compared to other shrimp.</p><p>They are very peaceful and do not mind living with snails such as Ramshorn, Nerite, Malaysian Trumpet, Japanese trapdoor, White Wizard and Mystery snails. Snails can suffer shell erosion when pH is under 7. They do not crossbreed with any Neocaridina species. Vampire shrimp, Bamboo shrimp, Malawa shrimp, Tangerine Tiger shrimp, Bee shrimp, Red Nose shrimp and Amano shrimp are also suitable companions.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Phân biệt đực cái ở loài này khó hơn tép cherry. Con cái có phần bụng (váy) rộng hơn để ôm trứng.</p>",
+      "refs": [
+        2
+      ]
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/caridina-cf-babaulti-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>As with Cherry shrimp, females are noticeably bigger and rounder than males. Females have a saddle, which is their visible ovaries. Males are smaller and lack the rounded abdomen.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Theo một người nuôi, trong bể con cái ôm khoảng 30–50 trứng trong chừng 30 ngày. Tép con rất nhỏ, lớn chậm và lên màu chậm. Số con sống sót có vẻ thấp hơn tép cherry.</p><p>Một tiệm cho biết loài này đẻ chậm hơn <em>Neocaridina</em>, tốc độ gần với tép ong hơn.</p><p>Ngoài tự nhiên ở Hungary, trong số tép thu được có một con cái đang ôm trứng.</p>",
+      "refs": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/caridina-cf-babaulti-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Mating usually takes place 1–3 days after males and females are placed in the same tank. The female molts before mating and releases a chemical substance into the water to attract males. Mating occurs in less than 10 seconds. The eggs are fertilised as they pass through the sperm on the way to the brood pouch, formed by the pleopods and the overhanging pleura of the female. Eggs are oval, greenish to yellowish, average length 1.19 mm.</p><p>Breeding is the same as Cherry shrimp, just a little slower. A female usually has about 40–60 eggs, more than Neocaridina but smaller; the number depends on female size. Eggs stay in the brood pouch until hatching, with an incubation period of approximately 30 days. The shrimp release fully formed miniature adults, without a planktonic larval stage. They mature at around 75 days with a total length of 2.3±0.2 cm.</p><p>The \"Malaya\" variety is different: the incubation period is short, 15–17 days, followed by 5 larval (zoea) stages lasting 5–10 days in freshwater; the larvae then molt into miniature copies (about 2 mm) of the parents. They do not require special conditions (unlike Amano shrimp). Caridina babaulti basrensis has 5 zoea stages lasting 6–10 days depending on temperature, and females lay 69 to 457 eggs.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p><em>Caridina babaulti</em> là một loài tép nước ngọt thuộc chi <em>Caridina</em>, họ Atyidae. Bouvier mô tả loài này năm 1918, dựa trên mẫu do Guy Babault thu ở Ấn Độ thuộc Anh trong hai năm 1913–1914. Mẫu chuẩn chọn (lectotype) hiện được giữ ở bảo tàng Paris (MNHN). Nơi lấy mẫu chuẩn là Majghaon, bang Madhya Pradesh, miền trung Ấn Độ. Nhãn trên các mẫu này còn ghi thêm Masegaon, thuộc bang Maharashtra.</p><p>Năm 2019, Pandya và Richard mô tả lại loài này từ chính các mẫu chuẩn và từ mẫu mới thu ở sông Shetrunji. Cũng trong bài đó, hai nhà khoa học mô tả thêm một loài họ hàng là <em>Caridina kutchi</em>.</p><p>Tên tiếng Anh của nó là Indian zebra shrimp hoặc Babaulti shrimp. Con tép có chủy dài, mép chủy có răng cưa, thân có sọc. Một số con có mắt màu cam, thấy rõ con ngươi. Chủy dài bằng hoặc ngắn hơn cuống râu thứ nhất, bằng 0,4–0,7 lần chiều dài vỏ đầu ngực và mang 14–25 răng.</p><p>Điều làm loài này đáng chú ý là màu thân hay đổi. Màu có thể thay theo ánh đèn, màu nền, mùa sinh sản, tuổi, hoặc lúc tép bị giật mình. Dải màu đi từ đỏ, cam qua nâu, xanh lá, vàng cho tới gần như xanh thép. Ngoài tiệm có hai dạng là dạng xanh và dạng zebra. Dạng zebra có nền nâu nhạt với các sọc đứng màu sẫm, còn con dạng xanh khi bị stress có thể chuyển sang cam hoặc nâu.</p><p>Danh tính của loài này chưa ngã ngũ. Vì thế tiệm thường bán nó dưới tên <em>Caridina</em> cf. <em>babaulti</em>.</p>",
+      "refs": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/caridina-cf-babaulti-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Variants: \"Green\" has noticeable small toothy appendages on the rostrum; size ranges from 2.5 cm to 3.5–4 cm. \"Stripes\" (\"Indian zebra\") resembles Caridina fernandoi but with a longer rostrum; adults are transparent with fine stripes, juveniles have 5–7 narrow black horizontal stripes and start to colour at 1 cm; stripes are wider than on Tiger shrimp. \"Malaya\" was introduced in 2000; its colour depends on gender and environment (bluish or greenish among plants, reddish-brown on driftwood, golden to brown on substrate), and size is 2–3 cm.</p><p>It is a nice addition to any planted or shrimp tank and can be recommended even for beginner shrimp keepers.</p>"
+    },
+    {
+      "key": "references",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/caridina-cf-babaulti-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Breeding and Life Cycle of Fresh Water Ornamnetal Shrimp-Stripe Shrimp, Caridina cf. Babaulti ISSN: 2319-7706 Volume 4 Number 7 (2015) pp. 794-801 (Research and Development centre, Bharathiar University, Coimbatore, India) http://www.ijcmas.com</li><li>Distribution, development, and metabolism of larval stages of the warmwater shrimp, Caridina babaulti basrensis (Decapoda, Atyidae). Article in Marine behaviour and physiology. March 2005</li><li>Caridina babaulti. Ecological Risk Screening Summary. S. Fish &amp; Wildlife Service, July 2017. Web Version, 11/17/2017</li><li>Biodiversity and Biogeography of Caridean Shrimps of Pakistan Book January 2012</li><li>Isolation and Identification of Pathogenic Bacterium Aeromonas veronii from Ornamental Shrimp Caridina cf. babaulti Article November 2016</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/efd5800b58f1b791.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/efd5800b58f1b791-480.webp",
+      "width": 1120,
+      "height": 725,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/caridina-cf-babaulti-shrimp-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "kjRB938iz0Q",
+      "title": "INDIAN ZEBRA SHRIMP SPECIES PROFILE",
+      "durationSec": 543,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "3dT-EVy71WY",
+      "title": "Green babaulti freshwater shrimp",
+      "durationSec": 8,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "DveJhETe4Lg",
+      "title": "Green babaulti shrimps. Feeding time",
+      "durationSec": 19,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "fX1cJaEMGk8",
+      "title": "Caridina Babaulti shrimp",
+      "durationSec": 36,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể tép 40 lít",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc mút xốp cho tép",
+        "máy sục khí mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho tép",
+        "lá bàng khô"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát silica trắng",
+        "nền cát thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22",
+  "refs": [
+    {
+      "url": "https://tb.plazi.org/GgServer/html/03D9236CFFF86459D7B0F927FA83FE55",
+      "title": "Caridina babaulti Bouvier, 1918"
+    },
+    {
+      "url": "https://mapress.com/zt/article/view/27188",
+      "title": "Report of Caridina babaulti Bouvier, 1918 (Crustacea: Decapoda: Caridea: Atyidae) and description of a new species Caridina kutchi sp. nov. from Gujarat, India"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=kjRB938iz0Q",
+      "title": "INDIAN ZEBRA SHRIMP SPECIES PROFILE"
+    },
+    {
+      "url": "https://www.theshrimpfarm.com/posts/caridina-babaulti-shrimp-care/",
+      "title": "Babaulti Shrimp (Caridina babaulti) | Tank Set-Up & Care"
+    },
+    {
+      "url": "https://doaj.org/article/627edd288a8d454c8f5f885332c31032",
+      "title": "First record and DNA barcodes of non-native shrimp, Caridina babaulti (Bouvier, 1918) in Europe"
+    },
+    {
+      "url": "https://www.garnelio.de/en/carrying-green-shrimp-caridinia-cf.-babaulti-green",
+      "title": "Carrying Green Shrimp - Caridinia cf. babaulti \"Green\""
+    },
+    {
+      "url": "https://riverparkaquatics.co.uk/indian-zebra-shrimp-caridina-babaulti/",
+      "title": "Indian Zebra Shrimp (Caridina babaulti)"
+    }
+  ]
+}

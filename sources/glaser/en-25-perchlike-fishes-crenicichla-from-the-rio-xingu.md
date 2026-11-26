@@ -1,0 +1,12 @@
+---
+url: https://www.aquariumglaser.de/en/25-perchlike-fishes/crenicichla-from-the-rio-xingu/
+title: Crenicichla from the Rio Xingu - Aquarium Glaser GmbH
+fetchedAt: 2026-11-21T21:22:45.401Z
+hash: 5d29f445cbe2a40a92256ee5df302b3e1cd10f733a2ca31a0d070864876eb2cb
+---
+
+In the 1990s, when the large river cichlids of Brazil experienced a certain boom, also four Crenicichla species came to Europe for the first time, which were named Crenicichla sp. Xingu I – IV due to the lack of availability of a scientific name. All four grow quite large by ornamental fish standards, you have to expect 30-40 cm in length, moreover Crencichla are robust animals that are able to assert themselves. Very large aquariums are therefore a basic requirement for the care of these animals. For a long time they were closed for export, now Brazil has released them again. Two of the species we can offer right now.
+Crenicichla sp. Xingu I is strangely not described scientifically until today. Juveniles up to 5 cm length are bright red, then they turn orange. Adult fish look quite different; the males are then brassy yellow, the females gray-green with a bright red band in the middle of the body. We have juveniles (“fries”) in the stock that are decidedly schooling fish. Kept in a school, they sometimes retain their beautiful coloration until 20 cm in length. When this size is reached, the keeper has to watch out! In the “puberty”, before they become sexually active, these fish are extremely incompatible among themselves! Only when the sexes are clearly recognizable, you can dare to try to put pairs together.
+Crenicichla sp. Xingu IV was scientifically described as C. percna in 1991. From this very rarely imported species we have only one large animal of 24-28 cm length in the stock. We do not agree about the sex, but it speaks more for a male than for a female. This fish has a real personality, watching everything that is going on in front of the aquarium very closely, and it takes quite a bit of cunning and guile to approach it for a photo. Once the animal understands what’s planned, it squats in a corner and won’t budge – if it could, it would certainly stick its tongue out at the photographer!
+For our customers: C. sp. Xingu I/Orange has code 671801 (5-7 cm) and 671802 (6-8 cm), C. percna has code 671896 on our stock list. Please note that we only supply wholesale.
+Text & photos: Frank Schäfer

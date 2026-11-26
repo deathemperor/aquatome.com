@@ -1,0 +1,56 @@
+{
+  "id": "astroblepus-verai",
+  "native": {
+    "input": "1856a3194b5eedd6",
+    "at": "2026-11-22T12:48:24.036Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "río Chucurí",
+        "source": "scotcat",
+        "quote": "Type locality: Departamento de Santander, Quebrada del Medio, afluente del río Chucurí, Vereda Chanchón, Municipio de San Vicente de Chucurí, Colombia, elevation 692 metres.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astroblepus verai",
+    "status": "ACCEPTED",
+    "taxonKey": 9279297,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-22T12:48:24.036Z"
+  }
+}

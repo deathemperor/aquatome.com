@@ -1,0 +1,35 @@
+{
+ "queue": [],
+ "judged": [
+  "inat:188674092",
+  "inat:188675097",
+  "inat:567745761",
+  "inat:567745791",
+  "inat:567745805",
+  "inat:594682442",
+  "inat:666562381",
+  "inat:666562454"
+ ],
+ "hashes": {},
+ "inat": {
+  "taxon": 52557,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "commons": "2026-11-22",
+ "gbif": {
+  "key": 2344515,
+  "next": null
+ },
+ "inatNc": {
+  "after": 365103761,
+  "done": true
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-24"
+}

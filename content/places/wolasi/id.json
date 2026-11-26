@@ -3,6 +3,12 @@
   "name": "Wolasi",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-16T17:21:13.905Z",
+    "why": "The source names the rivers Wolasi and Andambao, so the place is most likely the Wolasi River, and Indonesian atlases would write \"Sungai Wolasi\". The region record is also doubtful, since Wolasi is also a district (Kecamatan Wolasi) in South Konawe. The bare \"Wolasi\" omits the kind word \"Sungai\" if"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

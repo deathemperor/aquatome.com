@@ -300,6 +300,10 @@
       {
         "source": "seriouslyfish",
         "value": 12
+      },
+      {
+        "source": "glaser",
+        "value": 15
       }
     ],
     "tankCm": [
@@ -323,10 +327,22 @@
       "html": "<p>The clay goby, Dormitator lebretonis, is an eleotrid from coastal Western Africa, where it lives in estuaries, lagoons and mangroves. Mainly found in brackish water, it makes a peaceful addition to the brackish or hardwater community of medium-sized fish, though it will eat anything that fits in its mouth. Adults develop a pattern of reds and blues, and it was formerly placed in the defunct genus Batanga.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/batanga-or-dormitator-lebretonis-bred/",
+      "html": "<p>This is one of the gobies imported as an ornamental fish already in 1905. Since then it has always found its keepers, but was never very popular in the hobby. This is probably due to the quite impressive size that this goby can reach (up to 15 cm are given in the literature) and the fact that it is believed to have to be kept in brackish water.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dormitator-lebretonis",
       "html": "<p>Occurs throughout Western Africa. It's been recorded in Senegal, Gambia, Guinea, Cote d'Ivoire, Ghana, Benin, Nigeria, Namibia and Angola.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/batanga-or-dormitator-lebretonis-bred/",
+      "html": "<p>Widespread along the West African coast.</p>"
     },
     {
       "key": "habitat",
@@ -353,6 +369,12 @@
       "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 7.0–8.5</li><li>Hardness: 10–20 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/batanga-or-dormitator-lebretonis-bred/",
+      "html": "<p>As with most brackish water fish, it is not the salt but the pH value that is important: in principle, the pH value should not fall below 8 in such animals, even at pH 7 many specimens show discomfort already. This is known from marine aquariums, where the pH must be permanently above 8.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dormitator-lebretonis",
@@ -365,10 +387,22 @@
       "html": "<p>Peaceful enough, but don't attempt to keep it with much smaller species, as it will eat anything it can fit in its mouth. It may also nip the fins of slow-moving or long-finned species. Ideal tankmates are other hardwater or brackish species that inhabit different levels of the aquarium, such as archer fish, chromides, rainbowfish, Monos and Chanda species. It can be kept in groups provided there is enough space, as it can be a little territorial with its own kind, especially rival males.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/batanga-or-dormitator-lebretonis-bred/",
+      "html": "<p>Batanga lebretonis (in most current literature this genus is placed in synonymy with Dormitator) is an open water fish that, unlike most gobies, swims everywhere in the middle water layers. If these gobies are constantly on the ground, something is wrong. Then the health of the animals and the aquarium equipment should be subjected to a critical examination.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dormitator-lebretonis",
       "html": "<p>Males develop extended rays in the anal and second dorsal fins and often develop a nuchal hump as they mature.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/batanga-or-dormitator-lebretonis-bred/",
+      "html": "<p>The males have strongly bulging heads, as known from Tateurndina ocellicauda, black throats and ventral fins and much larger fins than the females. In addition, they are constantly performing courtship display.</p>"
     },
     {
       "key": "reproduction",
@@ -377,13 +411,66 @@
       "html": "<p>Has been achieved in the hobby but unfortunately it's not very well-documented. Apparently, it spawns in caves or plant leaves if no caves are available. There are conflicting views as to whether it requires fresh or brackish water in which to breed.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/batanga-or-dormitator-lebretonis-bred/",
+      "html": "<p>Already in the earliest literature it is reported that the species spawns readily and the young brood is very numerous and tiny. While the old authors state that spawning takes place in plants, newer authors also describe spawning in caves (common in sleeper gobies). In nature, the gobies migrate a bit upstream during the rainy season and spawn in flooded areas in pure fresh water.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dormitator-lebretonis",
       "html": "<p>Not often seen for sale, but if you can find it, it makes a peaceful addition to the brackish or hardwater community of medium-sized fish. It was previously considered a member of the now defunct genus Batanga. The fish in the picture is a young specimen. Adults develop a pleasing pattern of reds and blues and are most attractive.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/batanga-or-dormitator-lebretonis-bred/",
+      "html": "<p>The bred young of good size (4–5 cm) already appear to be sexually mature. Perhaps these Batanga gobies originate from a dwarf form not yet documented.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/54ff2d9bc3c271cc.webp",
+      "thumb": "https://media.aquatome.com/glaser/54ff2d9bc3c271cc-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/batanga-or-dormitator-lebretonis-bred/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/767fa019289af234.webp",
+      "thumb": "https://media.aquatome.com/glaser/767fa019289af234-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/batanga-or-dormitator-lebretonis-bred/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/804f10e4d573ace4.webp",
+      "thumb": "https://media.aquatome.com/glaser/804f10e4d573ace4-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/batanga-or-dormitator-lebretonis-bred/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/15e49be5f87750a1.webp",
+      "thumb": "https://media.aquatome.com/glaser/15e49be5f87750a1-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/batanga-or-dormitator-lebretonis-bred/",
+      "source": "glaser"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "6BM0q-eqD2s",
@@ -448,5 +535,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-07"
+  "updatedAt": "2026-11-20"
 }

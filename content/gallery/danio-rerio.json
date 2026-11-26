@@ -2,6 +2,36 @@
   "id": "danio-rerio",
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/8336ca3548c075d3.webp",
+      "thumb": "https://media.aquatome.com/commons/8336ca3548c075d3-480.webp",
+      "width": 1200,
+      "height": 469,
+      "licence": "Public domain",
+      "author": "Soulkeeper",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danio_rerio_port.jpg",
+      "caption": "Cá ngựa vằn trưởng thành với sọc xanh vàng, ảnh cận cảnh trong bể"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/703ff0a6d852a39a.webp",
+      "thumb": "https://media.aquatome.com/commons/703ff0a6d852a39a-480.webp",
+      "width": 1200,
+      "height": 546,
+      "licence": "CC BY-SA 2.0",
+      "author": "Oregon State University",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zebrafish_(53185086821).jpg",
+      "caption": "Cá ngựa vằn trưởng thành sọc xanh bơi trong bể nước"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/589683718.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/589683718-480.webp",
+      "width": 1024,
+      "height": 949,
+      "licence": "CC BY",
+      "author": "Nico Hernandez",
+      "sourceUrl": "https://www.inaturalist.org/photos/589683718",
+      "caption": "Cá ngựa vằn trưởng thành bơi giữa rong xanh trong bể"
+    },
+    {
       "url": "https://media.aquatome.com/flickr/8843218341.webp",
       "thumb": "https://media.aquatome.com/flickr/8843218341-480.webp",
       "width": 1024,
@@ -24,16 +54,6 @@
       "caption": "Cá ngựa vằn sọc xanh bơi giữa cây thủy sinh trong bể"
     },
     {
-      "url": "https://media.aquatome.com/commons/8336ca3548c075d3.webp",
-      "thumb": "https://media.aquatome.com/commons/8336ca3548c075d3-480.webp",
-      "width": 1200,
-      "height": 469,
-      "licence": "Public domain",
-      "author": "Soulkeeper",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danio_rerio_port.jpg",
-      "caption": "Cá ngựa vằn trưởng thành với sọc xanh vàng, ảnh cận cảnh trong bể"
-    },
-    {
       "url": "https://media.aquatome.com/commons/d7f3d7c55b3c16c9.webp",
       "thumb": "https://media.aquatome.com/commons/d7f3d7c55b3c16c9-480.webp",
       "width": 1200,
@@ -52,26 +72,6 @@
       "author": "Roundish",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leopard_danio_(cropped).jpg",
       "caption": "Cá ngựa vằn trưởng thành có đốm, bơi trong bể cá"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/703ff0a6d852a39a.webp",
-      "thumb": "https://media.aquatome.com/commons/703ff0a6d852a39a-480.webp",
-      "width": 1200,
-      "height": 546,
-      "licence": "CC BY-SA 2.0",
-      "author": "Oregon State University",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zebrafish_(53185086821).jpg",
-      "caption": "Cá ngựa vằn trưởng thành sọc xanh bơi trong bể nước"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/589683718.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/589683718-480.webp",
-      "width": 1024,
-      "height": 949,
-      "licence": "CC BY",
-      "author": "Nico Hernandez",
-      "sourceUrl": "https://www.inaturalist.org/photos/589683718",
-      "caption": "Cá ngựa vằn trưởng thành bơi giữa rong xanh trong bể"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/611688156.webp",
@@ -108,17 +108,17 @@
       "thumb": "https://media.aquatome.com/inaturalist/493931956-480.webp",
       "width": 1024,
       "height": 576,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/493931956-large.webp",
+        "width": 2048,
+        "height": 1152
+      },
       "licence": "CC BY",
       "author": "olmagon",
       "sourceUrl": "https://www.inaturalist.org/photos/493931956",
       "caption": "Đàn cá ngựa vằn bơi trong bể nền sỏi xanh",
       "best": true,
-      "kind": "group",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/493931956-large.webp",
-        "width": 2048,
-        "height": 1152
-      }
+      "kind": "group"
     },
     {
       "url": "https://media.aquatome.com/flickr/8843774696.webp",
@@ -161,15 +161,15 @@
       "thumb": "https://media.aquatome.com/commons/cd70b220e48f0234-480.webp",
       "width": 1200,
       "height": 900,
-      "licence": "CC BY-SA 3.0",
-      "author": "Pogrebnoj-Alexandroff",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danio_rerio.JPG",
-      "caption": "Đàn cá ngựa vằn bơi gần kính trong bể nuôi",
       "large": {
         "url": "https://media.aquatome.com/commons/cd70b220e48f0234-large.webp",
         "width": 1600,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Pogrebnoj-Alexandroff",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danio_rerio.JPG",
+      "caption": "Đàn cá ngựa vằn bơi gần kính trong bể nuôi"
     },
     {
       "url": "https://media.aquatome.com/commons/99289891be655364.webp",
@@ -322,16 +322,6 @@
       "caption": "Cá ngựa vằn bơi giữa cây thủy sinh xanh trong bể"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/537951317.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/537951317-480.webp",
-      "width": 1024,
-      "height": 555,
-      "licence": "CC0",
-      "author": "BHUKYA SAIKUMAR",
-      "sourceUrl": "https://www.inaturalist.org/photos/537951317",
-      "caption": "Đàn cá ngựa vằn trong cốc nhựa trong suốt"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/321173844.webp",
       "thumb": "https://media.aquatome.com/inaturalist/321173844-480.webp",
       "width": 1024,
@@ -366,9 +356,126 @@
       "caption": "Cá ngựa vằn nhỏ bơi trước bụi cây thủy sinh",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/506819650.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/506819650-480.webp",
+      "width": 1024,
+      "height": 579,
+      "licence": "CC BY-NC",
+      "author": "Amaël Borzée",
+      "sourceUrl": "https://www.inaturalist.org/photos/506819650",
+      "caption": "Cá ngựa vằn nhỏ thân vàng nhạt bơi trong khay nước",
+      "best": true,
+      "kind": "juvenile",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/588531613.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/588531613-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "mayankpandey",
+      "sourceUrl": "https://www.inaturalist.org/photos/588531613",
+      "caption": "Đàn cá ngựa vằn trong hộp nhựa chụp thực địa",
+      "best": true,
+      "kind": "group",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/388492734.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/388492734-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Wich’yanan (Jay) Limparungpatthanakij",
+      "sourceUrl": "https://www.inaturalist.org/photos/388492734",
+      "caption": "Đàn cá ngựa vằn nhỏ ở suối tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/248587826.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/248587826-480.webp",
+      "width": 1024,
+      "height": 820,
+      "licence": "CC BY-NC",
+      "author": "Amatya Sharma",
+      "sourceUrl": "https://www.inaturalist.org/photos/248587826",
+      "caption": "Cá ngựa vằn bơi trong bể nền tối",
+      "best": true,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/634145894.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/634145894-480.webp",
+      "width": 1024,
+      "height": 739,
+      "licence": "CC BY-NC",
+      "author": "Marco Pagni",
+      "sourceUrl": "https://www.inaturalist.org/photos/634145894",
+      "caption": "Cá ngựa vằn bơi trên nền cát trong suối tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/283006307.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/283006307-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Paul Antony Mangaly",
+      "sourceUrl": "https://www.inaturalist.org/photos/283006307",
+      "caption": "Cá ngựa vằn trong cốc nhựa chụp thực địa",
+      "best": true,
+      "kind": "other",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/634145928.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/634145928-480.webp",
+      "width": 1024,
+      "height": 742,
+      "licence": "CC BY-NC",
+      "author": "Marco Pagni",
+      "sourceUrl": "https://www.inaturalist.org/photos/634145928",
+      "caption": "Cá ngựa vằn có sọc xanh bơi trong nước suối đục",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/445326425.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/445326425-480.webp",
+      "width": 1024,
+      "height": 658,
+      "licence": "CC BY-NC",
+      "author": "Von Fabian B",
+      "sourceUrl": "https://www.inaturalist.org/photos/445326425",
+      "caption": "Cá ngựa vằn vằn vàng bơi trong khay nhựa đỏ",
+      "best": true,
+      "kind": "other",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/421279337.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/421279337-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY-NC",
+      "author": "Manav",
+      "sourceUrl": "https://www.inaturalist.org/photos/421279337",
+      "caption": "Cá ngựa vằn bơi gần mặt nước ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     }
   ],
-  "seen": 149,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 201,
+  "updatedAt": "2026-11-19",
+  "builtAt": "2026-11-19"
 }

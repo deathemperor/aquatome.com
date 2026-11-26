@@ -126,3 +126,29 @@ for (const path of pages) {
     expect(checkPage(path, await res.text(), await factsOnce())).toEqual([])
   })
 }
+
+// Every crab's, shrimp's and snail's page, its photos', its group's and its lines', in every language, not a sample:
+// nothing of the site's own calls it a fish, its trail ("Loài cá", the owner's report of 15 Nov, the fiddler crab's
+// page; about 100 species) or any line (the range's "có thể là cá do người thả ra", the Writing Lead, 17 Nov). Live on
+// 17 Nov, before the fix: 1,373 on 408 pages. A page a language doesn't have (404) is skipped; a dropped connection is
+// asked once more.
+test('no crab\'s, shrimp\'s or snail\'s page calls it a fish', { tag: '@page-checks' }, async ({ request }, info) => {
+  test.skip(info.project.name !== 'phone', 'the HTML is the same on every screen')
+  // The content's facts, four languages, are read first when this worker hasn't yet: on this Mac with heat taking cores
+  // (17 Nov) that read took 238 s, and the ~420 pages 70 s more, past 300 s.
+  test.setTimeout(600_000)
+  const facts = await factsOnce()
+  const paths = [...facts.notFish], read: string[] = [], found: string[] = []
+  for (let i = 0; i < paths.length; i += 8) {
+    await Promise.all(paths.slice(i, i + 8).map(async path => {
+      const get = () => request.get(path, { headers: { accept: 'text/html' } })
+      const res = await get().catch(get)
+      if ([404, 410].includes(res.status())) return
+      expect(res.status(), path).toBe(200)
+      read.push(path)
+      found.push(...checkPage(path, await res.text(), facts).filter(p => p.check === 'not-fish').map(p => `${path} ${p.detail}`))
+    }))
+  }
+  expect(read.length, 'pages read').toBeGreaterThan(0)
+  expect(found).toEqual([])
+})

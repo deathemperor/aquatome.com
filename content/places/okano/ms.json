@@ -1,8 +1,13 @@
 {
   "slug": "okano",
-  "name": "Okano",
+  "name": "Sungai Okano",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-17T00:08:52.692Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

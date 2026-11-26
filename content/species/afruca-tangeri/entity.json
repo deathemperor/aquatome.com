@@ -1,0 +1,519 @@
+{
+  "id": "afruca-tangeri",
+  "scientificName": "Afruca tangeri",
+  "order": "Decapoda",
+  "family": "Ocypodidae",
+  "genus": "Afruca",
+  "group": "other",
+  "places": [
+    "europe",
+    "portugal",
+    "africa",
+    "angola"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "PT",
+        "AO"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The eastern Atlantic from Portugal to Angola is the origin of the fiddler crab Afruca tangeri, where it inhabits sand and mangrove coasts.",
+          "countries": [
+            "PT",
+            "AO"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9476680,
+      "total": 472,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "PT",
+          255
+        ],
+        [
+          "ES",
+          80
+        ],
+        [
+          "SN",
+          32
+        ],
+        [
+          "GM",
+          23
+        ],
+        [
+          "GW",
+          15
+        ],
+        [
+          "MA",
+          10
+        ],
+        [
+          "AO",
+          8
+        ],
+        [
+          "CD",
+          8
+        ],
+        [
+          "GH",
+          6
+        ],
+        [
+          "EH",
+          5
+        ],
+        [
+          "LR",
+          5
+        ],
+        [
+          "MR",
+          5
+        ],
+        [
+          "BJ",
+          3
+        ],
+        [
+          "GA",
+          3
+        ],
+        [
+          "GN",
+          3
+        ],
+        [
+          "ST",
+          3
+        ],
+        [
+          "GQ",
+          2
+        ],
+        [
+          "NG",
+          2
+        ],
+        [
+          "CI",
+          1
+        ],
+        [
+          "CM",
+          1
+        ],
+        [
+          "CV",
+          1
+        ],
+        [
+          "SL",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -23.90625,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          -18.28125,
+          14.0625,
+          2,
+          0
+        ],
+        [
+          -18.28125,
+          19.6875,
+          3,
+          0
+        ],
+        [
+          -16.875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -16.875,
+          11.25,
+          19,
+          0
+        ],
+        [
+          -16.875,
+          12.65625,
+          32,
+          0
+        ],
+        [
+          -16.875,
+          14.0625,
+          2,
+          0
+        ],
+        [
+          -16.875,
+          15.46875,
+          13,
+          0
+        ],
+        [
+          -16.875,
+          18.28125,
+          1,
+          0
+        ],
+        [
+          -16.875,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          -16.875,
+          22.5,
+          5,
+          0
+        ],
+        [
+          -15.46875,
+          9.84375,
+          4,
+          0
+        ],
+        [
+          -14.0625,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -11.25,
+          5.625,
+          5,
+          0
+        ],
+        [
+          -9.84375,
+          36.5625,
+          20,
+          20
+        ],
+        [
+          -9.84375,
+          37.96875,
+          7,
+          7
+        ],
+        [
+          -9.84375,
+          42.1875,
+          1,
+          0
+        ],
+        [
+          -8.4375,
+          32.34375,
+          1,
+          0
+        ],
+        [
+          -8.4375,
+          36.5625,
+          249,
+          228
+        ],
+        [
+          -7.03125,
+          33.75,
+          9,
+          0
+        ],
+        [
+          -7.03125,
+          35.15625,
+          41,
+          0
+        ],
+        [
+          -7.03125,
+          36.5625,
+          10,
+          0
+        ],
+        [
+          -5.625,
+          35.15625,
+          5,
+          0
+        ],
+        [
+          -4.21875,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -4.21875,
+          39.375,
+          2,
+          0
+        ],
+        [
+          -1.40625,
+          4.21875,
+          5,
+          0
+        ],
+        [
+          -1.40625,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          1.40625,
+          5.625,
+          3,
+          0
+        ],
+        [
+          2.8125,
+          5.625,
+          1,
+          0
+        ],
+        [
+          5.625,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          7.03125,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          7.03125,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          8.4375,
+          0,
+          3,
+          0
+        ],
+        [
+          8.4375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          8.4375,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          11.25,
+          -7.03125,
+          9,
+          2
+        ],
+        [
+          11.25,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          11.25,
+          5.625,
+          1,
+          0
+        ],
+        [
+          12.65625,
+          -9.84375,
+          4,
+          4
+        ],
+        [
+          18.28125,
+          -5.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "glaser",
+    "quote": "For maintenance, the habitat should be imitated: the aquarium should have a land part with sand and gravel and a water part filled with brackish water."
+  },
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/afruca-formerly-uca-tangeri/",
+      "html": "<p>The eastern Atlantic from Portugal to Angola is the origin of the fiddler crab Afruca tangeri, where it inhabits sand and mangrove coasts. The animals are obtained from Nigeria.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/afruca-formerly-uca-tangeri/",
+      "html": "<p>In their periodically flooded habitat they inhabit muddy burrows, which they leave at ebb-tide to take in food.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/afruca-formerly-uca-tangeri/",
+      "html": "<p>For maintenance, the habitat should be imitated: the aquarium should have a land part with sand and gravel and a water part filled with brackish water. Some hiding places give them retreat possibilities.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/afruca-formerly-uca-tangeri/",
+      "html": "<p>As omnivores they are not discriminating and feed on nearly any organic matter the sea offers. In domestic care, frozen and granulated food can be fed, also different fruits and vegetables.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/afruca-formerly-uca-tangeri/",
+      "html": "<p>The major claw of the males, grown to an enormous size, is remarkable. It is used for attracting the females and for fights between rival males.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/df24671cc13f9980.webp",
+      "thumb": "https://media.aquatome.com/commons/df24671cc13f9980-480.webp",
+      "width": 960,
+      "height": 640,
+      "large": {
+        "url": "https://media.aquatome.com/commons/df24671cc13f9980-large.webp",
+        "width": 1800,
+        "height": 1200
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Charles J. Sharp",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:West_African_fiddler_crab_(Uca_tangeri)_male.jpg",
+      "caption": "West African fiddler crab (Uca tangeri) male, The Gambia"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/99abce2e8390456c.webp",
+      "thumb": "https://media.aquatome.com/commons/99abce2e8390456c-480.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 3.0",
+      "author": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boca-cava-terra.jpg",
+      "caption": "Boca-cava-terra.jpg"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e04b3705c413d306.webp",
+      "thumb": "https://media.aquatome.com/glaser/e04b3705c413d306-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/afruca-formerly-uca-tangeri/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1e1985931648b20a.webp",
+      "thumb": "https://media.aquatome.com/glaser/1e1985931648b20a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/afruca-formerly-uca-tangeri/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/14ee2213f0da3c2e.webp",
+      "thumb": "https://media.aquatome.com/glaser/14ee2213f0da3c2e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/afruca-formerly-uca-tangeri/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "MD3Kl4h0EG8",
+      "title": "Uca tangeri (cangrejo violinista europeo y norteafricano)",
+      "durationSec": 77,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UKrr1AkHbT8",
+      "title": "Male fiddler crab",
+      "durationSec": 12,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "FnuG5GSlBms",
+      "title": "Purple Fiddler Crabs.",
+      "durationSec": 71,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HPgOjBSlPpw",
+      "title": "Fiddler crab producing \"feeding balls\"",
+      "durationSec": 26,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nuôi cua",
+        "sỏi nền bể cua"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cua",
+        "thức ăn dạng hạt cho cua"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể paludarium",
+        "bể bán cạn nuôi cua"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-20"
+}

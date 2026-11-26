@@ -1,0 +1,58 @@
+{
+  "id": "centrodoras-hasemani",
+  "scientificName": "Centrodoras hasemani",
+  "order": "Siluriformes",
+  "family": "Doradidae",
+  "genus": "Centrodoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 21
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1528",
+      "html": "<ul><li>Scientific name: Centrodoras hasemani (Steindachner, 1915)</li><li>Synonym: Oxydoras amazonum hasemani</li><li>Type locality: Rio Negro, Brazil.</li><li>Etymology: Greek, kentron = sting + Greek, dora = skin</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1528",
+      "html": "<p>South America: Negro River basin, Amazon, Middle Amazon (Solimoes), Negro.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1528",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1528",
+      "html": "<p>Denkschriften der Kaiserlichen Akademie der Wissenschaften in Wien, Mathematisch-Naturwissenschaftliche Klasse. v. 93, pp68 [54].</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "IyoVo6QMLSE",
+      "title": "Centrodoras Hasemani catfish and golden Koliba",
+      "durationSec": 87,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-23"
+}

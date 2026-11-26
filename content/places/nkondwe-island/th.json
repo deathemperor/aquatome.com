@@ -3,6 +3,12 @@
   "name": "เกาะเอ็นคอนดเว",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-18T18:23:34.011Z",
+    "why": "The name has the right kind word เกาะ, but the transliteration \"เอ็นคอนดเว\" is awkward: the cluster \"นดเ\" is unnatural, and Thai usually writes Nkondwe as \"งโกนด์เว\" or \"เอ็นกอนด์เว\", so it is not the standard form."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

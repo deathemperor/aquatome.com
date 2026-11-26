@@ -12,6 +12,86 @@
     "democratic-republic-of-the-congo",
     "tanzania"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BI",
+        "CD",
+        "TZ"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the northern end of Lake Tanganyika (Burundi, DR Congo, Tanzania).",
+          "countries": [
+            "BI",
+            "CD",
+            "TZ"
+          ],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372569,
+      "total": 62,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "TZ",
+          47
+        ],
+        [
+          "BI",
+          14
+        ],
+        [
+          "CD",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          28.125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          29.53125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          29.53125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          29.53125,
+          -5.625,
+          57,
+          57
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -127,7 +207,24 @@
       "html": "<p>Like others in the genus, Tropheus brichardi is something of an enigma in the aquarium hobby, and is not a good species for the beginner. There has been much argument and discussion about how best to maintain it in the aquarium, and some of these debates still rage on. The generally accepted method of keeping the fish is given here, but in reality what works for one aquarist may not for another. One aspect which is always true is that water quality is of the utmost importance in a Tropheus tank, as they are very susceptible to \"bloat\". T. brichardi exists in numerous colour morphs. Obviously these should not be mixed in aquaria as they will hybridise freely. It is likely that some of the morphs will eventually be described as distinct species.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/11280471.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/11280471-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Martin Grimm",
+      "sourceUrl": "https://www.inaturalist.org/photos/11280471",
+      "caption": "Hai cá Tropheus brichardi sọc vằn bơi trên đáy đá cát",
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/11280471-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

@@ -1,0 +1,423 @@
+{
+  "id": "ageneiosus-lineatus",
+  "scientificName": "Ageneiosus lineatus",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Ageneiosus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "brazil",
+    "rio-negro",
+    "venezuela",
+    "orinoco"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Orinoco",
+        "Rio Negro"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Rio Negro, Rio Jaú, Novo Airã, Amazonas, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Negro"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: widely distributed throughout the Amazon and Orinoco River basins.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9237337,
+      "total": 105,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "BR",
+          95
+        ],
+        [
+          "PE",
+          5
+        ],
+        [
+          "VE",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -7.03125,
+          3,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -67.5,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          -66.09375,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          8,
+          8
+        ],
+        [
+          -66.09375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          8,
+          8
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          20,
+          20
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -63.28125,
+          -5.625,
+          12,
+          12
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -61.875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          9,
+          9
+        ],
+        [
+          -53.4375,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 20
+      },
+      {
+        "source": "scotcat",
+        "value": 16
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ageneiosus-sp-iii-green-stripe-2/",
+      "html": "<p>Update: this is the species Ageneiosus lineatus Ribeiro, Rapp Py-Daniel &amp; Walsh 2017.</p><p>The dolphin catfish were only recently revised and divided into two genera: Ageneiosus and Tympanopleura. Tympanopleura are the smaller species. They are characterized by a circular structure immediately behind the edge of the gill cover, which looks like a tympanum.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ageneiosus-sp-iii-green-stripe-2/",
+      "html": "<p>The pretty dolphin catfish imported from Peru from time to time, which is called \"Green Stripe\", was not included in the revision and apparently belongs to a scientifically undescribed species. It would rather be classified in Tympanopleura than in Ageneiosus, especially since it reaches, as far as known, only 15-20 cm length (usually over 40 cm with Ageneiosus). Among catfish friends this species is also known as sp. III. It has been (and still is) confused with Ageinosus vittatus, but this is a large species with a much rounder head profile and a different pattern.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_lineatus.htm",
+      "html": "<p>South America: widely distributed throughout the Amazon and Orinoco River basins. Type locality: Rio Negro, Rio Jaú, Novo Airã, Amazonas, Brazil.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_lineatus.htm",
+      "html": "<p>As with other members of the genus, they are fine as juveniles, but as they mature they become predatory, so they need to be kept with fish that are not too small. A large tank with plenty of swimming space is needed.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_lineatus.htm",
+      "html": "<p>Temperature: 23–26°C. pH: 6.5–7.2.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_lineatus.htm",
+      "html": "<p>Meat based.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_lineatus.htm",
+      "html": "<p>Males possess a genital papilla and, when sexually mature, have an enlarged and curved extension to the dorsal fin spine. They also grow thickened barbels to grasp the females with. These differences revert to normal when not in season.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_lineatus.htm",
+      "html": "<p>This species is well represented in scientific collections, but has commonly been misidentified as A. vittatus. Although not formally described at the time, it was observed and illustrated by Alfred Russel Wallace during his mid-1800s expedition to the Negro River. Its status as an undescribed species was first recognised by Walsh (1990), and it was also previously documented from the Orinoco River basin (Royero, 1999). In 2014, large numbers of live specimens were seen being prepared for shipment by a commercial exporter of ornamental fishes in Iquitos, Peru. This and other small Ageneiosus species are becoming increasingly popular in the aquarium trade.</p><p>Description: Ageneiosus lineatus differs from its congeners, except A. magoi, A. pardalis and A. vittatus, by having prominent dark stripes on the sides of the body (versus uniform colour with irregular dark specks or blotches). It differs from A. inermis, A. magoi, A. polystictus and A. vittatus by having a deeply forked caudal fin (versus emarginate to truncate). It differs from A. apiaka, A. dentatus, A. ucayalensis and A. uranophthalmus by having a shorter anal fin (32–38 anal-fin rays versus 39–49). It differs from A. pardalis by having a reduced and ossified gas bladder and by having epaxial musculature covering the tympanic region. It differs from A. inermis and A. ucayalensis by having fewer gill rakers on the first branchial arch (11–18, mode 13 versus 18–30, mode 22). It differs from A. militaris by having a longer pectoral fin spine (15.4–21.8 versus 10.5–14.6% SL) and longer pelvic fin (13.1–17.1 versus 9.6–13.6% SL).</p><p>Etymology: the genus name Ageneiosus means beardless, referring to the very small maxillary barbels. The specific epithet lineatus means lined or streaked.</p><p>Remarks: this genus was previously placed in its own family, Ageneiosidae, and some publications still follow this. In some online sources this species is still listed as A. vittatus or not listed at all (2021).</p><p>IUCN Red List: Least Concern, because it has a wide distribution, occurs in protected areas and has a stable population (IUCN 2022).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_lineatus.htm",
+      "html": "<p>Ribeiro, Frank Rapp Py-Daniel, Lúcia Walsh, Stephen 2017/02/01. Taxonomic revision of the South American catfish genus Ageneiosus (Siluriformes: Auchenipteridae) with the description of four new species: taxonomic revision of ageneiosus 90 10.1111/jfb.13246 Journal of Fish Biology. Sabaj, Mark Henry. Facebook report. 2021. Usma, S., Villa-Navarro, F., DoNascimiento, CD, Herrera-Collazos, E.E., Mojica, J.I. &amp; Rodríguez-Olarte, D. 2022. Ageneiosus lineatus. The IUCN Red List of Threatened Species 2022.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/291bbe97bdf81152.webp",
+      "thumb": "https://media.aquatome.com/scotcat/291bbe97bdf81152-480.webp",
+      "width": 500,
+      "height": 348,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_lineatus.htm",
+      "caption": "Ageneiosus lineatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/9c73d0ae6f516aa6.webp",
+      "thumb": "https://media.aquatome.com/scotcat/9c73d0ae6f516aa6-480.webp",
+      "width": 500,
+      "height": 280,
+      "licence": "dùng với sự cho phép",
+      "author": "Yakov Oksman / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_lineatus.htm",
+      "caption": "Ageneiosus lineatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/617f00638018264a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/617f00638018264a-480.webp",
+      "width": 500,
+      "height": 313,
+      "licence": "dùng với sự cho phép",
+      "author": "Yakov Oksman / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_lineatus.htm",
+      "caption": "Ageneiosus lineatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/81436d0729b6f619.webp",
+      "thumb": "https://media.aquatome.com/glaser/81436d0729b6f619-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ageneiosus-sp-iii-green-stripe-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a710e9edbe3b5b2d.webp",
+      "thumb": "https://media.aquatome.com/glaser/a710e9edbe3b5b2d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ageneiosus-sp-iii-green-stripe-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/262d44e6604c6109.webp",
+      "thumb": "https://media.aquatome.com/glaser/262d44e6604c6109-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ageneiosus-sp-iii-green-stripe-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "_4GidV1Kbx8",
+      "title": "Ageneiosus lineatus (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 67,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "c9N9D02mUko",
+      "title": "Ageneiosus lineatus",
+      "durationSec": 70,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá 150cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-20"
+}

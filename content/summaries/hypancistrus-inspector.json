@@ -1,12 +1,19 @@
 {
   "id": "hypancistrus-inspector",
-  "summary": "Cá snowball pleco (Hypancistrus inspector) hợp với người muốn dựng bể kiểu dòng suối và chịu thay nước đều tay. Cần bể dài tối thiểu 120 cm (120 × 45 cm, khoảng 243 lít), nhiệt độ 22–30 °C, pH 5–7,5, độ cứng 1–15 dGH, cá lớn tới 16 cm. Độ khó 4/8, khó nhất là giữ nước thật sạch và giàu oxy vì cá không chịu được chất thải hữu cơ tích tụ.",
+  "summary": "Snowball pleco L102 (Hypancistrus inspector) là loài hiền, độ khó vừa 4/8, hợp với bể dựng kiểu dòng suối. Cá dài 16 cm, cần bể tối thiểu 120 cm (đáy 120 × 45 cm, khoảng 243 lít), nhiệt độ 22–30 °C, pH 5–7,5, độ cứng 1–15 dGH, nước giàu oxy và nhiều hốc, kẽ để trú. Điểm khó nhất là giữ nước thật sạch, vì cá không chịu được chất thải hữu cơ tích tụ.",
   "mistakes": [
     "Nuôi chung với loài Hypancistrus khác dễ ra cá lai, nên mỗi bể chỉ giữ một loài Hypancistrus.",
-    "Để chất thải hữu cơ tích tụ làm cá yếu, nên thay 30–50% nước mỗi tuần và giữ nước giàu oxy, có dòng chảy nhẹ.",
-    "Bày bể trống, nhìn thông từ đầu này sang đầu kia, nên xếp đá, lũa, ống đất nung thành nhiều hốc, kẽ và góc tối."
+    "Ít thay nước thì chất thải tích tụ, cá yếu đi; nên coi việc thay 30–50% nước mỗi tuần là chuyện thường lệ.",
+    "Bày bể trống trải, nhìn thông từ đầu này sang đầu kia; nên xếp đá, lũa, ống đất nung thành nhiều hốc, kẽ và góc khuất tối."
   ],
   "speciesUpdatedAt": "2026-11-04",
-  "generatedAt": "2026-11-08T20:12:45.421Z",
-  "review": "approved"
+  "writtenFrom": "f929d83e5ccf23e2",
+  "generatedAt": "2026-11-17T19:55:43.126Z",
+  "review": "pending",
+  "problems": [
+    "\"khoảng 243 lít\" is a figure that appears in the page text (aquariumSize), so it is not a problem by itself. However, the card says minimum tank is 120 cm, which matches, so this is fine.",
+    "\"độ khó vừa 4/8\" is consistent with the card, so no issue.",
+    "Fail reason: \"nước giàu oxy\" is stated on the page, but the page says \"từ mức vừa đến cao\" and \"dòng chảy nhẹ\", so it is acceptable. The real issue is \"loài hiền\" and \"hợp với bể dựng kiểu dòng suối\", which are supported, so no problem there.",
+    "No actual fault found in the figures; the only questionable item is the mistake \"Bày bể trống trải\" with \"ống đất nung\", which the page does mention as optional decor (\"Bạn có thể bày thêm cành lũa, ống đất nung\") — presenting it as a required fix is a mild overstatement."
+  ]
 }

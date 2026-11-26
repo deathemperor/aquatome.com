@@ -1,14 +1,22 @@
 {
   "id": "desmopuntius-rhomboocellatus",
   "native": {
-    "input": "5b691c32bf34a8dd",
-    "at": "2026-11-07T16:21:07.852Z",
+    "input": "8c0bb5e6044d4f94",
+    "at": "2026-11-22T12:48:24.036Z",
     "claims": [
       {
         "code": "ID",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Endemic to southern Kalimantan, the Indonesian portion of Borneo where it's been recorded from several river systems including the Kapuas, Kepayang, Barito and Kahajan.",
+        "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Desmopuntius rhomboocellatus occurs in Kalimantan, the Indonesian part of Borneo.",
         "words": "Indonesian",
         "ok": true
       }
@@ -18,42 +26,36 @@
         "name": "Borneo",
         "source": "seriouslyfish",
         "quote": "Endemic to southern Kalimantan, the Indonesian portion of Borneo where it's been recorded from several river systems including the Kapuas, Kepayang, Barito and Kahajan.",
-        "country": "ID",
-        "ok": true
-      },
-      {
-        "name": "Kalimantan",
-        "source": "seriouslyfish",
-        "quote": "Endemic to southern Kalimantan, the Indonesian portion of Borneo where it's been recorded from several river systems including the Kapuas, Kepayang, Barito and Kahajan.",
-        "country": "ID",
         "ok": true
       },
       {
         "name": "Kapuas",
         "source": "seriouslyfish",
         "quote": "Endemic to southern Kalimantan, the Indonesian portion of Borneo where it's been recorded from several river systems including the Kapuas, Kepayang, Barito and Kahajan.",
-        "country": "ID",
         "ok": true
       },
       {
         "name": "Barito",
         "source": "seriouslyfish",
         "quote": "Endemic to southern Kalimantan, the Indonesian portion of Borneo where it's been recorded from several river systems including the Kapuas, Kepayang, Barito and Kahajan.",
-        "country": "ID",
         "ok": true
       },
       {
         "name": "Kahajan",
         "source": "seriouslyfish",
         "quote": "Endemic to southern Kalimantan, the Indonesian portion of Borneo where it's been recorded from several river systems including the Kapuas, Kepayang, Barito and Kahajan.",
-        "country": "ID",
         "ok": true
       },
       {
         "name": "Kepayang",
         "source": "seriouslyfish",
         "quote": "Endemic to southern Kalimantan, the Indonesian portion of Borneo where it's been recorded from several river systems including the Kapuas, Kepayang, Barito and Kahajan.",
-        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Kahayan",
+        "source": "bwaquatics",
+        "quote": "Desmopuntius rhomboocellatus is a rarely imported soft-water barb from southern and western Kalimantan, Borneo, recorded from the Kapuas, Kahayan, Barito and Kepayang drainages.",
         "ok": true
       }
     ],

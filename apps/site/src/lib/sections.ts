@@ -5,6 +5,7 @@ export const DISPLAY_ORDER: SectionKey[] = [
   'quickFacts', 'beforeYouBuy', 'aquariumSize', 'waterConditions', 'maintenance', 'equipment', 'diet',
   'behaviour', 'dimorphism', 'reproduction', 'distribution', 'habitat', 'notes', 'references',
 ]
+export const CARE_SECTIONS = DISPLAY_ORDER.slice(DISPLAY_ORDER.indexOf('aquariumSize'), DISPLAY_ORDER.indexOf('distribution'))
 
 /** Headings phrased as the questions a Vietnamese hobbyist asks. */
 export const QUESTION_LABELS: Record<SectionKey, string> = {

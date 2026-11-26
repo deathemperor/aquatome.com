@@ -1,14 +1,20 @@
 {
   "id": "tropheus-duboisi",
   "native": {
-    "input": "a9bafc0bd6aa16e4",
-    "at": "2026-11-05T19:44:13.099Z",
+    "input": "a50fc9e7ff931d24",
+    "at": "2026-11-20T17:43:20.430Z",
     "claims": [],
     "regions": [
       {
         "name": "Lake Tanganyika",
         "source": "seriouslyfish",
         "quote": "Endemic to Lake Tanganyika.",
+        "ok": true
+      },
+      {
+        "name": "Lake Tanganyika",
+        "source": "glaser",
+        "quote": "Like all Tropheus species, this one originates from Lake Tanganyika.",
         "ok": true
       }
     ],

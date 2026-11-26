@@ -1,0 +1,228 @@
+{
+  "id": "odonteleotris-macrodon",
+  "scientificName": "Odonteleotris macrodon",
+  "order": "Perciformes",
+  "family": "Eleotridae",
+  "genus": "Odonteleotris",
+  "group": "gobies",
+  "places": [
+    "asia",
+    "thailand",
+    "india",
+    "malaysia",
+    "indonesia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "MY",
+        "ID",
+        "TH"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This species has a very wide distribution from India to Malaysia and Indonesia.",
+          "countries": [
+            "IN",
+            "MY",
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "It also occurs in Thailand, which is not surprising but has not been reported so far in the scientific literature.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2386360,
+      "total": 32,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "AU",
+          24
+        ],
+        [
+          "IN",
+          3
+        ],
+        [
+          "PH",
+          3
+        ],
+        [
+          "PG",
+          1
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          71.71875,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          120.9375,
+          16.875,
+          3,
+          0
+        ],
+        [
+          123.75,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          126.5625,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          129.375,
+          -14.0625,
+          2,
+          0
+        ],
+        [
+          130.78125,
+          -12.65625,
+          14,
+          0
+        ],
+        [
+          132.1875,
+          -12.65625,
+          2,
+          0
+        ],
+        [
+          133.59375,
+          -15.46875,
+          2,
+          0
+        ],
+        [
+          135,
+          -12.65625,
+          2,
+          0
+        ],
+        [
+          143.4375,
+          -8.4375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "glaser",
+    "quote": "Odonteleotris macrodon is a brackish water species that is also found in pure freshwater."
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/odonteleotris-macrodon-2/",
+      "html": "<p>Odonteleotris macrodon is a brackish water species that is also found in pure freshwater. It attains a maximum length of about 30 cm and is a predatory fish. The larvae develop as far as it is known in marine environment.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/odonteleotris-macrodon-2/",
+      "html": "<p>This species has a very wide distribution from India to Malaysia and Indonesia. It also occurs in Thailand, which is not surprising but has not been reported so far in the scientific literature.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/odonteleotris-macrodon-2/",
+      "html": "<p>Five specimens about 15 cm long were obtained from Thailand. They were first thought to be Oxyeleotris urophthalmus. The genus Oxyeleotris is represented by three species in Thailand, two of them with an ocellus in the upper part of the caudal peduncle. Another very similar species with an ocellus is Bostrychus sinensis. All of them attain a length of about 20 cm. Smith (1945) gives the best identification key available for the three species. According to him, Bostrychus sinensis has very small scales, about 140 in the lateral line, and very small teeth arranged in bands. Oxyeleotris has canine teeth. O. siamensis has about 90 scales in the lateral line (about 40 predorsal scales), a small barbel on both sides of the upper jaw and an unscaled snout. O. urophthalmus has 70-75 scales in the lateral line (about 30 predorsal scales), no barbels and a scaled snout.</p><p>The fish have canine teeth, no barbels, about 75 scales in the lateral line and about 20 predorsal scales (counts made from photos) and no visible scales on the snout. The results do not fit either Oxyeleotris species, although it is difficult to get proper counts of the small scales embedded in thick mucus.</p><p>Odonteleotris macrodon also has an ocellus. Although the scale counts do not fit perfectly (this species usually has about 90 scales in the lateral line), all other external features do.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/a5269208ea520f61.webp",
+      "thumb": "https://media.aquatome.com/glaser/a5269208ea520f61-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/odonteleotris-macrodon-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/52af1e5ff52d8f44.webp",
+      "thumb": "https://media.aquatome.com/glaser/52af1e5ff52d8f44-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/odonteleotris-macrodon-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9743dbc545e7b32a.webp",
+      "thumb": "https://media.aquatome.com/glaser/9743dbc545e7b32a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/odonteleotris-macrodon-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f596f716551bc304.webp",
+      "thumb": "https://media.aquatome.com/glaser/f596f716551bc304-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/odonteleotris-macrodon-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-18"
+}

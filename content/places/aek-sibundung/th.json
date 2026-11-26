@@ -3,6 +3,12 @@
   "name": "ซีบุนดุง",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-19T18:55:49.964Z",
+    "why": "ซีบุนดุง transliterates \"Sibundung\" properly in Thai, but it omits the Thai kind word for a river (แม่น้ำ) that an atlas would include, and it drops the \"Aek\" element, which means \"river\" in Batak."
+  },
   "quality": {
     "score": 0.82,
     "indexable": true

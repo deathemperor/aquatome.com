@@ -3,6 +3,12 @@
   "name": "Ataran",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T17:36:02.750Z",
+    "why": "The place is the Ataran River drainage, and Indonesian atlases would write \"Sungai Ataran\" with the kind word, so bare \"Ataran\" omits it."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

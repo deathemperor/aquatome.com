@@ -1,0 +1,68 @@
+{
+  "id": "rineloricaria-catamarcensis",
+  "scientificName": "Rineloricaria catamarcensis",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Rineloricaria",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "argentina",
+    "catamarca-province"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 11
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1485",
+      "html": "<ul><li>Scientific name: Rineloricaria catamarcensis (Berg, 1895)</li><li>Type locality: Arroyo El Tala, Catamarca Province, Argentina</li><li>Synonym: Loricaria catamarcensis</li><li>IUCN Red List: Least Concern (last assessed 2020)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1485",
+      "html": "<p>South America: La Plata, Paraná, Salado (Santa Fe), Tala, Mar Chiquita, Dulce and Sali drainages.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1485",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1485",
+      "html": "<p>Etymology: Greek, rhinos = nose + Latin, lorica, loricare = cuirass of corslet of leather. Named for Catamarca Province, Argentina, its type locality.</p><p>Pronunciation: rhine lor ee kar ee ah.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1485",
+      "html": "<p>Anales del Museo Nacional de Historia Natural de Buenos Aires v. 4, pp 137.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/a48a1c48080f534d.webp",
+      "width": 960,
+      "height": 576,
+      "licence": "CC BY 4.0",
+      "author": "Tomás Carranza Perales",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rineloricaria_catamarcensis.jpg",
+      "caption": "Rineloricaria catamarcensis. Species of fish.",
+      "thumb": "https://media.aquatome.com/commons/a48a1c48080f534d-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-23"
+}

@@ -1,0 +1,63 @@
+{
+  "id": "pseudobagrus-tenuis",
+  "scientificName": "Pseudobagrus tenuis",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Pseudobagrus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "shanghai"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 36
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1548",
+      "html": "<ul><li>Scientific name: Tachysurus tenuis (Günther, 1873)</li><li>Type locality: Shanghai, China.</li><li>Synonyms: Macrones tenuis, Pseudobagrus tenuis</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1548",
+      "html": "<p>Asia: Shanghai, China.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1548",
+      "html": "<p>Males have an elongate genital papilla in front of the anal fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1548",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1548",
+      "html": "<p>Tachysurus can be identified by an extrascapular without a laterosensory canal, and a pterotic with a broad lateral laminar expansion. It is among the most speciose catfish groups in East Asia and its members inhabit habitats ranging from fast-flowing hillstreams to large rivers.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1548",
+      "html": "<p>Ann. Mag. Nat. Hist. (Ser. 4)v. 12 (no. 69) - pp244</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-25"
+}

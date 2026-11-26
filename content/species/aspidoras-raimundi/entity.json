@@ -153,6 +153,10 @@
       {
         "source": "seriouslyfish",
         "value": 4.5
+      },
+      {
+        "source": "glaser",
+        "value": 4.5
       }
     ],
     "tankCm": [
@@ -174,6 +178,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aspidoras-raimundi",
       "html": "<p>Aspidoras raimundi (C125) is a small armoured catfish from coastal river drainages in north and northeastern Brazil. The fish sold as A. spilotus, from Ceará state, is now treated as the same species. A peaceful, schooling species, it grows to around 45 mm SL (standard length).</p><ul><li>Max size: 45 mm SL (1.8 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 20–25°C (68–77°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li><li>Difficulty: moderate (needs a well-established tank and stable water)</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/aspidoras-raimundi-ceara-2/",
+      "html": "<p>Aspidoras raimundi is an easy to care, very cute catfish, which grows 3.5–4.5 cm long and deserves the rating \"highly recommended\".</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/aspidoras-raimundi-ceara-2/",
+      "html": "<p>The representatives of the genus Aspidoras are popularly also called loach armored catfishes, which is quite a good description. The animals are slimmer and more scurrying than one is generally used to from Corydoras. With 25 species recognized so far, the genus is quite species rich. Their identification is difficult for non-specialists, because species diagnoses are often based on skeletal features, which are not visible without elaborate preparation of preserved specimens. That is why there was quite a lot of confusion about the correct naming for a long time.</p><p>The fish imported from Ceará as Aspidoras rochai are in fact Aspidoras raimundi. In Ceará there are two species: besides A. raimundi from the Parnaíba drainage also A. rochai from the Jaguaribe drainage, mountain range of Guaramiranga (type locality of A. rochai). The animals are imported regularly, sometimes as A. spilotus, sometimes as C125, both synonyms of A. raimundi. The elongated body is typical, the pattern is highly variable.</p>"
     },
     {
       "key": "distribution",
@@ -218,10 +234,22 @@
       "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably rounder and broader-bodied than males, especially when gravid.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/aspidoras-raimundi-ceara-2/",
+      "html": "<p>After the revision by Tencatt et al., only 18 species of Aspidoras are accepted, among them one newly described. A. pauciradiatus was (provisionally) transferred to Corydoras, C. virgulatus to Scleromystax. A. eurycephalus and A. taurus were declared synonyms of A. albater, which now also includes the \"Black Phantom\" or C35. A. menezesi and A. spilotus now belong to A. raimundi, A. microgaleus and A. marianae to A. poecilus.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aspidoras-raimundi",
       "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Nijssen, H. and I. J. H. Isbrücker (1976). The South American plated catfish genus Aspidoras R. von Ihering, 1907, with descriptions of nine new species from Brazil (Pisces, Siluriformes, Callichthyidae). Bijdragen tot de Dierkunde 46(1), 107-131</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/aspidoras-raimundi-ceara-2/",
+      "html": "<p>Tencatt LFC, Britto MR, Isbruecker IJH, Pavanelli CS. Taxonomy of the armored catfish genus Aspidoras (Siluriformes: Callichthyidae) revisited, with the description of a new species. Neotrop Ichthyol. 2022; 20(3):e220040. https://doi.org/10.1590/1982-0224-2022-0040</p>"
     }
   ],
   "photos": [
@@ -279,6 +307,36 @@
       "sourceUrl": "https://www.scotcat.com/callichthyidae/aspidoras_raimundi.htm",
       "caption": "Aspidoras raimundi",
       "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/bf84c0ea96036620.webp",
+      "thumb": "https://media.aquatome.com/glaser/bf84c0ea96036620-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/aspidoras-raimundi-ceara-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/01504491c6f003e4.webp",
+      "thumb": "https://media.aquatome.com/glaser/01504491c6f003e4-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/aspidoras-raimundi-ceara-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ed82074b5c04cd7b.webp",
+      "thumb": "https://media.aquatome.com/glaser/ed82074b5c04cd7b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/aspidoras-raimundi-ceara-2/",
+      "source": "glaser"
     }
   ],
   "videos": [],
@@ -310,5 +368,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-23"
 }

@@ -1,0 +1,108 @@
+{
+  "id": "xiphophorus-montezumae",
+  "native": {
+    "input": "60a70bf0b467d3d7",
+    "at": "2026-11-21T13:11:30.372Z",
+    "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This magnificent swordtail has a comparatively limited distribution area in nature (rivers in the state of San Luis Potosí, on the Atlantic side of Mexico).",
+        "words": "Mexico",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Xiphophorus montezumae",
+    "status": "ACCEPTED",
+    "taxonKey": 2350178,
+    "datasets": [
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        36
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        34
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        10
+      ],
+      [
+        "727b83c1-e8a7-4dd9-a9a2-4c4a9ea9636c",
+        9
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        7
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        6
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        6
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        5
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        3
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        2
+      ],
+      [
+        "6a901195-ee9a-43ad-a43d-9095fd2aab0c",
+        2
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        2
+      ],
+      [
+        "e8989ab2-94dc-4570-9783-c3ab92300872",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ]
+    ],
+    "native": [
+      "MX"
+    ],
+    "requests": 12,
+    "at": "2026-11-21T13:11:30.372Z"
+  }
+}

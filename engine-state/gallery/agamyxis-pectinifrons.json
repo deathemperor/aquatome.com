@@ -2,7 +2,11 @@
  "queue": [],
  "judged": [
   "File:Dornwels.JPG",
-  "File:On the fishes of the Ambyiacu River BHL12180846.jpg"
+  "File:On the fishes of the Ambyiacu River BHL12180846.jpg",
+  "inat:102418843",
+  "inat:102418856",
+  "inat:102418876",
+  "inat:325434213"
  ],
  "hashes": {
   "https://media.aquatome.com/scotcat/90d4e71a352fdb31.webp": "2e320c154a03090a",
@@ -25,6 +29,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 186246968,
+  "done": true
  },
  "exhausted": "2026-11-08"
 }

@@ -3,6 +3,12 @@
   "name": "Gangga-Brahmaputra",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-19T07:49:42.701Z",
+    "why": "Indonesian usually writes the Ganges as \"Gangga\" (Sungai Gangga), and the Brahmaputra as \"Brahmaputra\", so the hyphenated form is plausible. However, the region/basin is a river system and an atlas would normally add the kind word \"Sungai\" or \"Daerah Aliran Sungai\" (DAS), so the bare name is incompl"
+  },
   "quality": {
     "score": 0.7,
     "indexable": false

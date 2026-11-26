@@ -7,25 +7,32 @@ import { SOURCES, type SourceConfig } from './sources'
 /**
  * Hosts that hold other copies of any page, each a way round the cycle's pace (the Writing Lead, 14 Nov 2026): the Internet
  * Archive's, archive.today's names, Google's cache, Google Translate's proxy (a host for every site) and a reader proxy. A
- * WebFetch domain rule matches its host only and "*.host" every host under it, never the host itself, so both are given.
+ * WebFetch domain rule matches its host only and "*.host" every host under it, never the host itself, so both are given:
+ * archive.fo, and the bare or sub-hosts of the proxies, were missing (Codex, 17 Nov 2026). refused-sources.ts reads the
+ * archives' copies and names the proxies' addresses, and its test holds every one of its hosts to this list.
  */
 const COPY_HOSTS = [
   'archive.org', '*.archive.org',
-  ...['archive.ph', 'archive.is', 'archive.today', 'archive.li', 'archive.md', 'archive.vn'].flatMap(h => [h, `*.${h}`]),
-  'webcache.googleusercontent.com',
-  '*.translate.goog',
-  'r.jina.ai',
+  ...['archive.ph', 'archive.is', 'archive.today', 'archive.li', 'archive.md', 'archive.vn', 'archive.fo'].flatMap(h => [h, `*.${h}`]),
+  ...['webcache.googleusercontent.com', 'translate.goog', 'r.jina.ai'].flatMap(h => [h, `*.${h}`]),
 ]
 
 /**
  * Sites refused as a source for anything new, whatever the page (the chief of staff, 16 Nov 2026): cabaymau.vn gave a guide
  * clinics no page named, a fish bag filled the wrong way round (a third oxygen), and a driftwood page that copies another
  * shop's and turns two of its meanings over. An entry already on a buying list stays (nothing drops a kept entry); research
- * for a new list, and a price check (`researchedPage`), no longer read the site. Guides drop a page of it that research cites
- * (topics.ts citedFacts), and so do glossary terms (glossary-entry.ts offLimits); the other kinds' pages don't check what
- * they cite yet.
+ * for a new list, and a price check (`researchedPage`), no longer read the site. Every kind's research drops a page of it
+ * that research cites, with the facts resting on it, and every sweep drops them from what is kept and from every page's
+ * reference list (refused-sources.ts, 17 Nov 2026).
+ *
+ * The list is a switch for the whole site (the chief of staff, 17 Nov 2026). Every research step and every sweep reads it
+ * (refused-sources.ts), and a cycle sweeps at each push: one more name here drops that site's facts and references
+ * everywhere at the next push, and the real-content check then fails, on main, for every page still resting on them,
+ * which stops every push behind it. So a site is added only in a change that carries the pass's result
+ * (`pnpm engine refused-sweep`, its files committed), the count of facts and pages it took out, and each page it leaves
+ * waiting (refused-sources.ts WAITING) with its owner and day. Nobody adds a name alone: such a change fails its own tests.
  */
-const REFUSED_SITES = ['cabaymau.vn']
+export const REFUSED_SITES = ['cabaymau.vn']
 
 /** Whether a page stands on a site refused as a source (REFUSED_SITES): the site itself or any host under it. */
 export const refusedSite = (url: string) => refused(REFUSED_SITES.flatMap(h => [h, `*.${h}`]), url)
@@ -80,6 +87,24 @@ export function refused(hosts: readonly string[], url: string): boolean {
   let h: string
   try { h = new URL(url).hostname.toLowerCase().replace(/\.$/, '') } catch { return true }
   return hosts.some(r => (r.startsWith('*.') ? h.endsWith(r.slice(1)) : h === r))
+}
+
+/**
+ * A fetch whose redirects are followed by hand, each a request, never to a copy site (the Internet Archive's is asked only
+ * through its reader, on the Mac, under its rest: Codex, 21 Nov 2026), nor where `off` says (its reason).
+ */
+export const byHand = (get: typeof fetch, ua: string, off: (url: string) => string | undefined = () => undefined) => async (u: string): Promise<Response> => {
+  for (let hop = 0, url = u; hop <= 5; hop++) {
+    if (refused(COPY_HOSTS, url)) throw new Error(`it points to a copy site, not followed: ${url}`)
+    const why = off(url)
+    if (why) throw new Error(why)
+    const res = await get(url, { redirect: 'manual', headers: { 'user-agent': ua }, signal: AbortSignal.timeout(60_000) })
+    const next = res.status >= 300 && res.status < 400 ? res.headers.get('location') : null
+    if (!next) return res
+    await res.body?.cancel().catch(() => undefined)
+    url = new URL(next, url).href
+  }
+  throw new Error('more than 5 redirects')
 }
 
 /**

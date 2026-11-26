@@ -36,8 +36,7 @@
       "caption": "Tép dọn vệ sinh trong tự nhiên ban đêm, thân trong suốt",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/c16ee9e220cb3722.webp",
@@ -52,20 +51,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/609416584.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/609416584-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC0",
-      "author": "Chris Spain",
-      "sourceUrl": "https://www.inaturalist.org/photos/609416584",
-      "caption": "Tép đỏ trắng bám trên đá rạn san hô ban đêm",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/734229328.webp",
       "thumb": "https://media.aquatome.com/inaturalist/734229328-480.webp",
       "width": 1024,
@@ -76,20 +61,7 @@
       "caption": "Tép dọn vệ sinh đỏ trắng trên nền cát ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/4b6e5c07a52aa44c.webp",
-      "thumb": "https://media.aquatome.com/commons/4b6e5c07a52aa44c-480.webp",
-      "width": 1000,
-      "height": 750,
-      "licence": "CC BY 3.0",
-      "author": "Chaloklum Diving",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Urocaridella_antonbruunii_2.jpg",
-      "caption": "Tép dọn vệ sinh trong hốc đá rạn san hô",
-      "best": false,
-      "kind": "habitat"
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/be5cf8fcd5ea41fa.webp",
@@ -104,16 +76,17 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/69b066d41a5dc559.webp",
-      "thumb": "https://media.aquatome.com/commons/69b066d41a5dc559-480.webp",
-      "width": 1200,
-      "height": 801,
-      "licence": "CC BY-SA 4.0",
-      "author": "Diego Delso",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Camar%C3%B3n_de_Bruun_(Urocaridella_antonbruunii),_Nosy_Iranja,_Madagascar,_2025-09-17,_DD_73.jpg",
-      "caption": "Tép dọn vệ sinh trên bọt biển vàng",
-      "best": false,
-      "kind": "habitat"
+      "url": "https://media.aquatome.com/inaturalist/609416584.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/609416584-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC0",
+      "author": "Chris Spain",
+      "sourceUrl": "https://www.inaturalist.org/photos/609416584",
+      "caption": "Tép đỏ trắng bám trên đá rạn san hô ban đêm",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/7f8ae180d1adfe77.webp",
@@ -126,6 +99,18 @@
       "caption": "Tép dọn vệ sinh trong bể nuôi, nhìn nghiêng",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/69b066d41a5dc559.webp",
+      "thumb": "https://media.aquatome.com/commons/69b066d41a5dc559-480.webp",
+      "width": 1200,
+      "height": 801,
+      "licence": "CC BY-SA 4.0",
+      "author": "Diego Delso",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Camar%C3%B3n_de_Bruun_(Urocaridella_antonbruunii),_Nosy_Iranja,_Madagascar,_2025-09-17,_DD_73.jpg",
+      "caption": "Tép dọn vệ sinh trên bọt biển vàng",
+      "best": false,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/ad80fe40afef6521.webp",

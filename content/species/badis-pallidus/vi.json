@@ -1,0 +1,23 @@
+{
+  "slug": "ca-badis-pallidus",
+  "name": "Cá Badis pallidus",
+  "altNames": [],
+  "sections": {
+    "notes:glaser": "<p>Loài Badis mới vẫn liên tục được phát hiện. Chỉ trong 20 năm qua, khoa học đã công nhận 23 loài mới thuộc nhóm cá này, trong khi suốt 200 năm trước đó chỉ có bốn loài. Con số này thật đáng kinh ngạc! Badis pallidus đến năm 2019 mới được mô tả. Nó là họ hàng rất gần của Badis badis, và nếu không nghiên cứu kỹ thì không thể phân biệt hai loài.</p><p>Lần đầu tiên đã có cá con cho đẻ ở Đức của loài cá tắc kè hoa nhỏ xinh này để bán. Vì quá giống Badis badis, chắc nó khó thành loài nhiều người nuôi, nhưng biết đâu được? Bangladesh không xuất khẩu cá cảnh nhiều, nên sau này muốn có loài cá này chắc sẽ rất hiếm dịp.</p>",
+    "distribution:glaser": "<p>B. pallidus là cá bản địa của Bangladesh.</p>"
+  },
+  "quality": {
+    "score": 0.72,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.72
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-23"
+  }
+}
