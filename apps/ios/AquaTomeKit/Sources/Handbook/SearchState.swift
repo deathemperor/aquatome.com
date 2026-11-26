@@ -21,6 +21,16 @@ public struct SearchState: Sendable {
   public private(set) var counts: [HandbookIndex.Kind?: Int] = [:]
   /// How many searches it has run: one a change, which the tests count.
   public private(set) var runs = 0
+  /// "Tất cả" picked and two kinds or more found: each kind's best three of all it found, past the list's 200 too, the
+  /// kinds in the order of their best (Design's videos spec, 14 Nov). Otherwise none, and the list as it was.
+  public private(set) var sections: [Section] = []
+
+  public struct Section: Sendable, Equatable {
+    public let kind: HandbookIndex.Kind
+    public let items: [HandbookIndex.Item]
+    /// All it found of the kind, as its chip says: "Xem tất cả" when more than `items`.
+    public let count: Int
+  }
   /// Every match of the kind picked, best first: a page more is the next part of it, with no search.
   private var found: [HandbookIndex.Item] = []
   private var limit: Int
@@ -43,6 +53,19 @@ public struct SearchState: Sendable {
   private mutating func run() {
     (found, counts) = search.findAndCount(query, kind: kind, limit: .max)
     results = Array(found.prefix(limit))
+    sections = kind == nil && !query.isEmpty ? Self.sections(found, counts) : []
     runs += 1
+  }
+
+  private static func sections(_ found: [HandbookIndex.Item], _ counts: [HandbookIndex.Kind?: Int]) -> [Section] {
+    guard counts.count > 2 else { return [] } // The total and at least two kinds.
+    var byKind: [HandbookIndex.Kind: [HandbookIndex.Item]] = [:]
+    var order: [HandbookIndex.Kind] = []
+    for item in found {
+      let kind = item.searchKind
+      if byKind[kind] == nil { order.append(kind) }
+      if byKind[kind, default: []].count < 3 { byKind[kind, default: []].append(item) }
+    }
+    return order.map { Section(kind: $0, items: byKind[$0, default: []], count: counts[$0, default: 0]) }
   }
 }
