@@ -456,7 +456,7 @@ test.each([
   git('add', '.'); git('commit', '-qm', 'page with the credited mirror')
 
   vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
-  onTestFinished(() => vi.unstubAllEnvs())
+  onTestFinished(() => { vi.unstubAllEnvs() })
   const { d } = deps()
   if (both) d.dead.look = async () => ({ tiles: [1, 2].map(n => ({ n, dead: true, note: '' })) })
   const out = await run(root, d)

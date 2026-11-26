@@ -346,10 +346,16 @@ async function capturePlaces(sl: SecondLooks, left: Map<string, Stood[]>, dir: s
   for (const [url, places] of left) {
     const r = has(sl, url) ? sl[url]! : undefined
     if (!r || r.off !== true || lookOf(r) || r.back) continue
-    const named = new Set((r.left ?? []).map(p => p.file))
+    const named = new Map((r.left ?? []).map(p => [p.file, p]))
     const byHost = (place: Stood) => Number(setsCookies(String(place.photo.url)))
     for (const p of [...places].sort((a, b) => byHost(a) - byHost(b))) {
-      if (named.has(p.file) || !PLACE.test(p.file)) continue
+      if (!PLACE.test(p.file)) continue
+      const earlierPlace = named.get(p.file)
+      if (earlierPlace) {
+        if (byHost(p)) continue
+        const earlier = await readKept(dir, url, r, earlierPlace)
+        if (!earlier || !byHost(earlier)) continue
+      }
       const place = { file: p.file, index: p.index, capture: randomUUID() }
       const order = p.order ? [...p.order] : undefined
       if (order) {
@@ -364,8 +370,8 @@ async function capturePlaces(sl: SecondLooks, left: Map<string, Stood[]>, dir: s
         }
       }
       await writeKept(dir, url, r, { ...p, ...place, order })
-      named.add(p.file)
-      r.left = [...(r.left ?? []), place]
+      named.set(p.file, place)
+      r.left = [...named.values()]
       const at = previous.get(p.file) ?? []
       if (!previous.has(p.file)) previous.set(p.file, at)
       at.push({ url, mark: r, place })
