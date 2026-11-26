@@ -3,6 +3,7 @@ import { join } from 'node:path'
 import type { ChangelogEntry } from '@aq/schema'
 import { expect, test } from 'vitest'
 import { langOf, localizePath } from '../src/lib/i18n'
+import { OFF_LIST_GROUPS } from '../src/lib/format'
 import { articleLd, breadcrumbLd, firstPublished } from '../src/lib/structured-data'
 import { DIST, page } from './dist'
 
@@ -48,17 +49,26 @@ test('every supported built page has the expected structured data in its own lan
     const home = path === localizePath(lang, '/vi/')
     const hub = hubs.some(key => path === section(key)) || ['phan-loai', 'nguon-goc'].some(key => path.startsWith(section(key)))
     if (!articleKind && !home && !hub) continue
-    const data = ld(readFileSync(join(DIST, file), 'utf8'))
+    const html = readFileSync(join(DIST, file), 'utf8')
+    const data = ld(html)
+    if (articleKind === 'nhom' && OFF_LIST_GROUPS.includes(path.slice(section('nhom').length, -1))) {
+      expect(data, path).toHaveLength(0)
+      continue
+    }
+    const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1]
+    expect(canonical, path).toBeDefined()
+    const site = new URL(canonical!)
+    expect(site.pathname, path).toBe(path)
+    const publisher = { ...PUBLISHER, url: new URL('/', site).href, logo: new URL('/favicon.png', site).href }
     const nodeOf = (kind: string) => data.find(x => x['@type'] === kind)
-    const canonical = new URL(path, SITE).href
     const article = nodeOf('Article')
     if (articleKind) {
-      expect(article, path).toMatchObject({ inLanguage: lang, mainEntityOfPage: canonical, publisher: PUBLISHER })
+      expect(article, path).toMatchObject({ inLanguage: lang, mainEntityOfPage: canonical, publisher })
       expect(article, path).not.toHaveProperty('author')
       covered.add(articleKind)
     }
     if (home) {
-      expect(nodeOf('WebSite'), path).toMatchObject({ name: 'AquaTome', url: canonical, inLanguage: lang, publisher: PUBLISHER })
+      expect(nodeOf('WebSite'), path).toMatchObject({ name: 'AquaTome', url: canonical, inLanguage: lang, publisher })
       covered.add('home')
     } else {
       const crumbs = nodeOf('BreadcrumbList')?.itemListElement
