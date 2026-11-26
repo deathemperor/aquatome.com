@@ -3,7 +3,7 @@ import type { Localized, SpeciesEntity } from '@aq/schema'
 import Browse from '../../layouts/Browse.astro'
 import PagedSpecies from '../../components/PagedSpecies.astro'
 import { getContent } from '../../lib/content'
-import { groupLabel } from '../../lib/format'
+import { groupLabel, OFF_LIST_GROUPS } from '../../lib/format'
 import { creditsFor } from '../../lib/credits'
 import { gridPhotos } from '../../lib/pictures'
 import { speciesLists } from '../../lib/list-data'
@@ -11,6 +11,7 @@ import { PAGE } from '../../scripts/filter-list'
 import { i18n, langOf } from '../../lib/i18n'
 import { isFish } from '../../lib/taxa-places'
 import { alternatesWhere } from '../../lib/alternates'
+import { articleLd } from '../../lib/structured-data'
 
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const lang = langOf(routePattern)
@@ -26,7 +27,13 @@ const c = await getContent(lang)
 const alternates = await alternatesWhere(Astro.url.pathname, c => c.species.some(s => s.group === group))
 // The first page as cards; every species of the group is in its data file and on its numbered pages (/vi/nhom/<group>/trang/2/…).
 const first = species.slice(0, PAGE)
+const heading = t(groupLabel(group!))
+const intro = t('{n} loài trong nhóm {group}.', { n: species.length, group: heading.toLowerCase() })
+const structuredBreadcrumb = !OFF_LIST_GROUPS.includes(group!)
+const jsonld = structuredBreadcrumb ? [articleLd(Astro.site!, lang, Astro.url.pathname, {
+  headline: heading, description: intro, about: { '@type': 'Thing', name: heading },
+})] : []
 ---
-<Browse title={t('{group}: {n} loài, cách nuôi', { group: t(groupLabel(group!)), n: species.length })} heading={t(groupLabel(group!))} crumbs={[['/vi/ca/', t(isFish({ group: group!, order: '' }) ? 'Loài cá' : 'Loài')]]} intro={t('{n} loài trong nhóm {group}.', { n: species.length, group: t(groupLabel(group!)).toLowerCase() })} credits={creditsFor(gridPhotos(c, first).map(p => p ?? undefined))} creditsLater={species.length > PAGE} alternates={alternates}>
+<Browse title={t('{group}: {n} loài, cách nuôi', { group: heading, n: species.length })} heading={heading} crumbs={[['/vi/ca/', t(isFish({ group: group!, order: '' }) ? 'Loài cá' : 'Loài')]]} intro={intro} structuredBreadcrumb={structuredBreadcrumb} jsonld={jsonld} credits={creditsFor(gridPhotos(c, first).map(p => p ?? undefined))} creditsLater={species.length > PAGE} alternates={alternates}>
   <PagedSpecies species={species} list={`nhom/${group}`} heading={t('Danh sách loài')} pages />
 </Browse>

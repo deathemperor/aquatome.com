@@ -1751,3 +1751,19 @@ test('a pending album refusal leaves glossary photos available for a clear', asy
   expect(JSON.parse(await readFile(join(root, 'content/gallery/alpha.json'), 'utf8')).photos).toEqual([dead])
   expect((await publicView()).photoWaits!(dead.url)).toBe(false)
 })
+
+test('faces durably withholds a bare original when it removes the only rejected wrapper', async () => {
+  const original = photo('bare-original')
+  const edited = { ...photo('rejected-wrapper'), altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }], original }
+  const { root, state, publicView } = await publicFixture([original], [], [original.url, edited.url])
+  const guide = join(root, 'content/guides/sample/entity.json')
+  await mkdir(join(guide, '..'), { recursive: true })
+  await writeFile(guide, JSON.stringify({ id: 'sample', photos: [edited] }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [original.url]: { dead: false } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [original.url]: 0 }))
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [edited.url]: 'logo: withheld' }))
+  await run(root, deps().d)
+  expect(JSON.parse(await readFile(guide, 'utf8')).photos).toEqual([])
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[original.url]).toMatch(/^logo:/)
+  expect((await publicView()).photoWaits!(original.url)).toBe(true)
+})

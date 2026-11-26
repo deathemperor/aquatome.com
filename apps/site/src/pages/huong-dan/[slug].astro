@@ -21,6 +21,7 @@ import BackToTop from '../../components/BackToTop.astro'
 import { guideParts } from '../../lib/guide-page'
 import { i18n, langOf, isVietnameseTitle } from '../../lib/i18n'
 import { alternatesOf } from '../../lib/alternates'
+import { articleLd, breadcrumbLd, firstPublished } from '../../lib/structured-data'
 
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
@@ -37,7 +38,17 @@ const srcset = lead && widthSrcset(lead)
 const uncarded = species.length + plants.length - cardSpecies.length - cardPlants.length
 const v = g.video
 const description = excerpt(g.t.body ?? '')
-const jsonld: object[] = []
+const back: [string, string] = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi/huong-dan/', t('Hướng dẫn')]
+const crumbs: [string, string][] = v ? [['/vi/video/', t('Video')]] : [back]
+if (v && series) crumbs.push([`/vi/video/${series.vi.slug}/`, series.vi.name])
+const cites = refs?.map(r => r.url)
+const jsonld: object[] = [
+  articleLd(Astro.site!, lang, Astro.url.pathname, {
+    headline: g.t.name, datePublished: firstPublished(c.changelog, lang, 'guide', g.id), dateModified: g.updatedAt,
+    image: ph?.url, description, citation: cites?.length ? cites : undefined,
+  }),
+  breadcrumbLd(Astro.site!, lang, [...crumbs, [Astro.url.pathname, g.t.name]]),
+]
 if (v) {
   jsonld.push({
     '@context': 'https://schema.org', '@type': 'VideoObject', name: v.title, description, thumbnailUrl: [ph?.url ?? videoPhoto(v).url], ...(v.publishedAt ? { uploadDate: v.publishedAt } : {}),
@@ -45,14 +56,9 @@ if (v) {
     author: { '@type': 'Person', name: v.channel, url: v.channelUrl },
     ...(guideChapters(v, g.t.chapters).length > 1 ? { hasPart: guideChapters(v, g.t.chapters).map(ch => ({ '@type': 'Clip', name: ch.title, startOffset: ch.start, endOffset: ch.end, url: watchUrl(v.youtubeId, ch.start) })) } : {}),
   })
-} else {
-  // A written guide: an article in the page's language, citing the pages its facts come from.
-  const cites = refs?.map(r => r.url)
-  jsonld.push({ '@context': 'https://schema.org', '@type': 'Article', headline: g.t.name, inLanguage: lang, dateModified: g.updatedAt, image: ph?.url, mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).href, description, ...(cites?.length ? { citation: cites } : {}) })
 }
 if (g.t.faq?.length) jsonld.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: g.t.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) })
 const alternates = await alternatesOf('guides', g.id)
-const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi/huong-dan/', t('Hướng dẫn')]
 ---
 <Base title={`${g.t.name} — AquaTome`} description={description} image={ph?.url} jsonld={jsonld} noindex={!g.t.quality.indexable} alternates={alternates} credits={creditsFor(credited)}>
   {/* The video's thumbnail is the page's largest image: open the connection while the page is still arriving. */}

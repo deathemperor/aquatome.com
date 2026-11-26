@@ -19,20 +19,22 @@ import { pathToFileURL } from 'node:url'
 const record = v => !!v && typeof v === 'object' && !Array.isArray(v) && typeof v.why === 'string' && typeof v.step === 'string' && Array.isArray(v.pages) && typeof v.at === 'string'
 const answered = v => !!v.look && (v.look.said === 'agree' || v.look.said === 'clear') && typeof v.look.by === 'string' && v.look.by.trim() !== '' && /^\d{4}-\d{2}-\d{2}$/.test(v.look.on ?? '')
 const placesOf = (r, field = 'left') => Array.isArray(r?.[field]) ? r[field].filter(p => typeof p?.file === 'string' && Number.isSafeInteger(p.index) && p.index >= 0) : []
+const sameReason = (a, b) => typeof a === 'string' && typeof b === 'string' && a.split(':', 1)[0] === b.split(':', 1)[0]
 const placeKey = p => p.occurrence ? `${p.file}#${p.occurrence}` : p.file
 function mergePlaces(chosen, base, ours, theirs) {
-  if (ours.off !== true || theirs.off !== true || ours.why !== theirs.why) return chosen
+  if (ours.off !== true || theirs.off !== true || !sameReason(ours.why, theirs.why)) return chosen
   const other = chosen === ours ? theirs : ours
   const at = ours.at < theirs.at ? ours.at : theirs.at
   const datedPlaces = (mark, field) => placesOf(mark, field).map(p => {
-    const { captureDay, ...place } = p
+    const { captureDay, captureWhy, ...place } = p
     const captured = captureDay ?? mark.at
-    return captured === at ? place : { ...place, captureDay: captured }
+    const reason = captureWhy ?? mark.why
+    return { ...place, ...(captured === at ? {} : { captureDay: captured }), ...(reason === chosen.why ? {} : { captureWhy: reason }) }
   })
   const settled = new Map([...datedPlaces(other, 'settled'), ...datedPlaces(chosen, 'settled')].map(p => [placeKey(p), p]))
   const original = new Map(datedPlaces(base).map(p => [placeKey(p), p]))
   const pending = new Map(datedPlaces(chosen).map(p => [placeKey(p), p]))
-  const sameCapture = (p, q) => !!p && !!q && p.capture === q.capture && p.index === q.index && p.captureDay === q.captureDay
+  const sameCapture = (p, q) => !!p && !!q && p.capture === q.capture && p.index === q.index && p.captureDay === q.captureDay && p.captureWhy === q.captureWhy
   for (const place of datedPlaces(other)) {
     const before = original.get(placeKey(place))
     const selected = pending.get(placeKey(place))
@@ -60,7 +62,7 @@ function bothChanged(base, ours, theirs, k) {
   const [o, t] = [ours[k], theirs[k]]
   if (answered(o) !== answered(t)) {
     const [a, m] = answered(o) ? [o, t] : [t, o]
-    if (m.off === true && a.look.said === 'clear' && a.why !== m.why) return { [k]: m }
+    if (m.off === true && a.look.said === 'clear' && a.why !== m.why) return { [k]: mergePlaces(m, base[k], o, t) }
     return { [k]: m.off === true && a.off !== true ? { ...m, look: a.look } : mergePlaces(a, base[k], o, t) }
   }
   if ((o.off === true) !== (t.off === true)) return o.off === true ? ours : theirs

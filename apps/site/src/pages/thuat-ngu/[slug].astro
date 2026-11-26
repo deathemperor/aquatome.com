@@ -13,6 +13,7 @@ import { creditsFor } from '../../lib/credits'
 import { fmt } from '../../lib/format'
 import { smallSrc, tileFrame } from '../../lib/img'
 import { guideImages } from '../../lib/mentions'
+import { articleLd } from '../../lib/structured-data'
 import { bodySections, glossaryParts, kindCaption, kindCredit, termTitle, tipLine, usedPictures, usedRows } from '../../lib/glossary-page'
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
@@ -55,8 +56,12 @@ const n = kinds?.items.length ?? 0
 const viewId = (id: string) => `loai-${id}`
 // Sources: the first five, the rest folded.
 const REFS_SHOWN = 5
+const jsonld = [articleLd(Astro.site!, lang, Astro.url.pathname, {
+  headline: g.t.name, description: g.t.definition, image: p.photo?.url,
+  about: { '@type': 'DefinedTerm', name: g.t.name, description: g.t.definition },
+})]
 ---
-<Browse title={glossaryTitle(lang, termTitle(g))} heading={g.t.name} description={g.t.definition} crumbs={[['/vi/thuat-ngu/', t('Thuật ngữ')]]} noindex={!g.t.quality.indexable} alternates={alternates} credits={creditsFor([p.photo, ...p.others, ...kindPhotos, ...used.flatMap(u => u.rows.map(r => r.photo))])}>
+<Browse title={glossaryTitle(lang, termTitle(g))} heading={g.t.name} description={g.t.definition} crumbs={[['/vi/thuat-ngu/', t('Thuật ngữ')]]} structuredBreadcrumb jsonld={jsonld} noindex={!g.t.quality.indexable} alternates={alternates} credits={creditsFor([p.photo, ...p.others, ...kindPhotos, ...used.flatMap(u => u.rows.map(r => r.photo))])}>
   {p.otherNames.length > 0 && <p class="aka">{t('Tên khác: {names}', { names: p.otherNames.join(', ') })}</p>}
   <p class="en">{t('Tiếng Anh:')} <span lang="en">{g.en}</span>{g.latin && sciBeside(g.en ?? '', g.latin) && <>, <span class="sci">{g.latin}</span></>}</p>
   {/* The picture before the explanation (the Design Lead's board, 16 Nov 2026): the term's photo under its names, its other photos two across under it. */}
