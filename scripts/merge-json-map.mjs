@@ -24,7 +24,8 @@ function mergePlaces(chosen, base, ours, theirs) {
   const other = chosen === ours ? theirs : ours
   const from = placesOf(other)
   if (!from.length) return chosen
-  const added = chosen.back ? from.filter(p => !placesOf(base).some(q => q.file === p.file)) : from
+  const settled = new Set((Array.isArray(chosen.settled) ? chosen.settled : []).map(p => p.file))
+  const added = from.filter(p => !settled.has(p.file) && (!chosen.back || !placesOf(base).some(q => q.file === p.file)))
   const places = new Map(placesOf(chosen).map(p => [p.file, p]))
   for (const p of added) if (!places.has(p.file)) places.set(p.file, p)
   if (!places.size) return chosen

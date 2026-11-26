@@ -383,7 +383,7 @@ async function pruneKept(root: string, dir: string, local: SecondLooks) {
     if (!k || typeof k.url !== 'string' || !day(k.at) || typeof k.why !== 'string') continue
     const mark = marks[k.url], here = local[k.url]
     const restored = mark?.back && here?.back && mark.at === k.at && mark.why === k.why && here.at === k.at && here.why === k.why &&
-      mark.settled?.some(p => p.file === k.file && p.index === k.index && p.capture === k.capture)
+      mark.settled?.some(p => p.file === k.file && p.index === k.index)
     const agreed = !mark && !here && rejected[k.url] === k.why
     if (restored || agreed) await rm(path, { force: true })
   }
@@ -555,10 +555,11 @@ export async function putBackCleared(root: string, history: History, at = today(
   const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
   const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
   let unlisted = false
-  const complete = (mark: SecondLook) => {
-    if (mark.left?.length) {
+  const complete = (mark: SecondLook, recovered: readonly LeftPlace[] = []) => {
+    if (mark.left?.length || recovered.length) {
       const settled = new Map((mark.settled ?? []).map(p => [p.file, p]))
-      for (const p of mark.left) settled.set(p.file, p)
+      for (const { file, index } of recovered) if (!settled.has(file)) settled.set(file, { file, index })
+      for (const p of mark.left ?? []) settled.set(p.file, p)
       mark.settled = [...settled.values()]
       delete mark.left
     }
@@ -595,6 +596,10 @@ export async function putBackCleared(root: string, history: History, at = today(
     const read = await history(u, sl[u]!.at, historyPlaces).catch(() => undefined)
     if (!read) { out.unread.push(u); continue }
     const fromHistory = new Map(read.map(p => [p.file, p]))
+    if (own.some(p => p.capture && !captures.has(p.file) && !fromHistory.has(p.file))) {
+      out.unread.push(u)
+      continue
+    }
     const mine: LeftPlace[] = []
     const missing: string[] = []
     for (const p of own) {
@@ -642,7 +647,7 @@ export async function putBackCleared(root: string, history: History, at = today(
       out.back.push(`${p.file}: ${address}`)
     }
     if (entry !== undefined) { delete rejected[u]; unlisted = true }
-    complete(sl[u]!)
+    complete(sl[u]!, places)
   }
   if (unlisted) await writePhotoState(rejectedFile, rejected)
   await writeSecondLook(root, sl)

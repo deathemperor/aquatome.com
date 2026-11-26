@@ -8,7 +8,7 @@ import { awaitsScreen, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadPhotoOf
 import { screenDead, type DeadScreenDeps } from './dead-screen'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
-import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, withoutSettledWaits, type Stood } from './last-photo'
+import { captureWaiting, holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, withoutSettledWaits, type Stood } from './last-photo'
 
 export type FaceDeps = { get: (url: string) => Promise<Uint8Array>; detect: (files: string[]) => Promise<number[]> }
 
@@ -112,7 +112,12 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const why = 'people: a face (face detection)'
   await holdForSecondLook(root, new Map([...last].map(([u, pages]) => [u, { why, pages }])), 'face detection')
   const left = new Map<string, Stood[]>()
-  for (const { file, e } of pages) placesIn(root, file, e, u => firstOff.has(u), left)
+  const removes = (p: Photo) => dropsStored(p) && !last.has(p.url)
+  const waiting = captureWaiting(secondLook, listed)
+  for (const { file, e } of pages) {
+    const removed = new Set((e.photos ?? []).filter(removes).map(p => p.url))
+    placesIn(root, file, e, url => removed.has(url) && (waiting(url) ?? firstOff.has(url)), left)
+  }
   await holdForSecondLook(root, new Map([...firstOff].map(([u, pages]) => [u, { why, pages, off: true as const }])), 'face detection', undefined, left)
   // A face found now, on a photo that never passed, takes it off every page and album, as the check's verdict of a person
   // does: off a page that keeps other photos, it goes on the never-again list as refused, so the sweep takes its album
@@ -130,7 +135,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const offFirst = [...firstOff].map(([u, ps]) => `${u}: ${ps.join(', ')}`)
   const removed: string[] = []
   for (const { file, e } of pages) {
-    const keep = (e.photos ?? []).filter(p => !dropsStored(p) || last.has(p.url))
+    const keep = (e.photos ?? []).filter(p => !removes(p))
     // A video section's photo the owner rejected (the images pass screened it for faces when it picked it).
     const figures = (e.video?.figures ?? []).filter(f => f.photo && listed(f.photo.url))
     if (keep.length === (e.photos ?? []).length && !figures.length) continue

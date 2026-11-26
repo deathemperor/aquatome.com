@@ -363,27 +363,37 @@ test("a run that can't read the private folder waits, unmarked, and the Mac's ne
   process.env.AQ_PUT_BACK_ENTRIES = kept
   expect((await sweep(r, { history: gitHistory(r) })).putBack).toEqual([`${A}: ${url('a-new')}`])
 
-  // Its entry lost (a run elsewhere took it off): reported, it stays off, and its waiting entry goes, as before.
+  // The named private file may be temporarily unavailable. Keep the clear and its waiting entry until it returns.
   const two = await runRepo()
   await page(two.r, 'aaa', ['a-new'])
   await screenDead(two.r, deadModel(), { limit: 48 })
   two.git('add', '-A'); two.git('commit', '-qm', 'the run')
   await two.clear()
   const lostCapture = (await json(two.r, SL))[url('a-new')].left[0].capture
-  await rm((await keptFor(url('a-new'))).find(entry => entry.entry.capture === lostCapture)!.file)
+  const path = (await keptFor(url('a-new'))).find(entry => entry.entry.capture === lostCapture)!.file
+  const saved = await readFile(path, 'utf8')
+  await rm(path)
   const lost = await sweep(two.r, { history: gitHistory(two.r) })
   expect(lost.putBack).toEqual([])
-  expect(lost.putBackOff).toEqual([`${url('a-new')}: its entry on ${A} wasn't kept here`])
+  expect(lost.putBackOff).toEqual([])
+  expect(lost.putBackUnread).toEqual([url('a-new')])
   expect(await photosOf(two.r, 'aaa')).toEqual([])
-  expect((await json(two.r, SL))[url('a-new')].back).toBe(today())
-  expect((await json(two.r, 'engine-state/_photo-rejected.json'))[url('a-new')]).toBeUndefined()
+  expect((await json(two.r, SL))[url('a-new')].back).toBeUndefined()
+  expect((await json(two.r, 'engine-state/_photo-rejected.json'))[url('a-new')]).toMatch(/^waiting:/)
+  await writeFile(path, saved, { mode: 0o600 })
+  expect((await sweep(two.r, { history: gitHistory(two.r) })).putBack).toEqual([`${A}: ${url('a-new')}`])
 })
 
-test('published cleanup covers one captured place without deleting a later place from another checkout', async () => {
+test.each(['capture', 'history'])('a place restored from %s survives a later place from another checkout', async method => {
   const { r, git, clear } = await runRepo({ aaa: [] })
   const u = url('a-new'), albumFile = 'content/gallery/aaa.json'
   await page(r, 'aaa', ['a-new'])
+  if (method === 'history') {
+    git('add', '-A'); git('commit', '-qm', 'a photo in history')
+    process.env.AQ_PUT_BACK_ENTRIES = 'off'
+  }
   await screenDead(r, deadModel(), { limit: 48 })
+  process.env.AQ_PUT_BACK_ENTRIES = kept
   git('add', '-A'); git('commit', '-qm', 'the mark')
   const mark = (await json(r, SL))[u]
   const another = await store({})
@@ -391,6 +401,7 @@ test('published cleanup covers one captured place without deleting a later place
   await notePlaces(another, new Map([[u, [{ file: albumFile, index: 0, photo: photo('a-new') }]]]))
   await clear()
   await sweep(r, { history: gitHistory(r) })
+  expect((await json(r, SL))[u].settled).toEqual([expect.objectContaining({ file: A, index: 0 })])
   git('add', '-A'); git('commit', '-qm', 'page restored')
   git('update-ref', 'refs/remotes/origin/main', 'HEAD')
   await putBackCleared(r, gitHistory(r))
@@ -601,6 +612,31 @@ test('the published capture identifies its own metadata when checkouts mark the 
   await second.clear()
   await sweep(second.r, { history: gitHistory(second.r) })
   expect((await json(second.r, A)).photos).toEqual([winning])
+  expect(await keptFor(u)).toHaveLength(2)
+  second.git('add', '-A'); second.git('commit', '-qm', 'published recovery')
+  second.git('update-ref', 'refs/remotes/origin/main', 'HEAD')
+  await putBackCleared(second.r, gitHistory(second.r))
+  expect(await keptFor(u)).toEqual([])
+})
+
+test('the face pass captures a newly added mirror on an existing waiting mark', async () => {
+  const { r, git, clear } = await runRepo()
+  const source = 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Example.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(source)!.key}`
+  const why = compactRejection('people: a face')
+  const entry = { ...photo('a-new'), url: mirror, caption: 'Sample credit' }
+  await writeFile(join(r, SL), JSON.stringify({ [source]: { why, step: 'face detection', at: today(), pages: ['species/aaa'], off: true } }))
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [source]: waitingEntry(why) }))
+  git('add', '-A'); git('commit', '-qm', 'the source is already waiting')
+  await writeFile(join(r, A), JSON.stringify({ ...await json(r, A), photos: [entry] }))
+  const none = async () => { throw new Error('The face pass needs no source or model') }
+  await dropFacePhotos(join(r, 'content'), join(r, 'engine-state/_photo-faces.json'), { get: none, detect: none }, join(r, 'engine-state/_photo-rejected.json'), r)
+  expect((await json(r, A)).photos).toEqual([])
+  expect((await keptOf(source))!.places).toEqual({ [A]: entry })
+  git('add', '-A'); git('commit', '-qm', 'the faces pass removed the new copy')
+  await clear()
+  await sweep(r, { history: gitHistory(r) })
+  expect((await json(r, A)).photos).toEqual([entry])
 })
 
 test('gallery captures the mirrored album entry before removing it for the source URL', async () => {
