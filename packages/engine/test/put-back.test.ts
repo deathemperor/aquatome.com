@@ -1524,6 +1524,8 @@ test('one clearance lifts a replayed stock exclusion on a second guide', async (
   expect((await putBackCleared(r, async () => [])).back).toHaveLength(2)
   expect((await json(r, 'engine-state/_part-photos-off.json'))[hashOf(stockPage)]).toBeUndefined()
 
+})
+
 test('a clear restores repeated album entries with their own captions and positions', async () => {
   const { r, git, clear } = await runRepo({ aaa: [] })
   const u = url('a-now')
