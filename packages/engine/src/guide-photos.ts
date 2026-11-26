@@ -1,6 +1,7 @@
 import { piece } from './pieces'
 import { compactVerdict, photoReason, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
 import { writePhotoState } from './photo-state'
+import { holdablePhotoVerdicts } from './photo-visibility'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join, relative } from 'node:path'
@@ -10,7 +11,7 @@ import { LlmError } from './claude'
 import { contactSheet, stillDone } from './video-images'
 import type { StillsState } from './video-stills'
 import { stripPhotos } from './watermarks'
-import { holdForSecondLook, lastPhotos, looks, pagesShowing, readSecondLook } from './last-photo'
+import { holdForSecondLook, looks, readSecondLook } from './last-photo'
 
 /**
  * No people and no logos in the pictures the subject check (photo-check.ts) doesn't look at: every guide's photos (the
@@ -214,7 +215,7 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
   // take it off that page too: it waits for a second look (last-photo.ts). It still leaves the guides.
   const sl = looks(await readSecondLook(root))
   const listing = new Set([...items.values()].filter(x => !!guidePhotoOff(cache[x.url], x.equipment || x.still) && sl.open(x.url)).map(x => x.url))
-  const last = new Map([...lastPhotos(await pagesShowing(content), u => listing.has(u) || u in now)].filter(([u]) => listing.has(u) && !(u in now)))
+  const last = await holdablePhotoVerdicts(root, now, listing)
   const holding = new Map<string, { why: string; pages: string[] }>()
   for (const x of items.values()) {
     const why = guidePhotoOff(cache[x.url], x.equipment || x.still)

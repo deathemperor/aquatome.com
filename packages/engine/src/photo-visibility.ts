@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, facePhotoStatus, FACES_FILE, IMAGE_SWITCHES, isOwnerCrop, mayPublish, mayPublishLicence, ownDeadPhotoUrls, ownerCropFitsPage, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoRejections, photoWaitsFor, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { lastPhotoVerdicts, pagesShowing } from './last-photo'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, facePhotoStatus, FACES_FILE, IMAGE_SWITCHES, isOwnerCrop, mayPublish, mayPublishLicence, ownDeadPhotoUrls, ownerCropFitsPage, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoRejections, photoWaitsFor, publicPhotoVersion, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
 
 const read = async <T>(root: string, name: string): Promise<Record<string, T> | undefined> => {
   const raw = await readFile(join(root, 'engine-state', name), 'utf8').catch((error: NodeJS.ErrnoException) => {
@@ -30,7 +31,7 @@ export const permittedPhotoSource = (photo: Photo, sources: Record<string, Sourc
 /** Use the public screen predicates before removing a photo that might leave its page empty. */
 export async function readPhotoWaits(
   root: string,
-  overrides: { check?: Record<string, unknown>; subjects?: Record<string, unknown>; rejected?: Record<string, string>; watermarks?: Record<string, PhotoScreenEntry> } = {},
+  overrides: { check?: Record<string, unknown>; subjects?: Record<string, unknown>; rejected?: Record<string, string>; watermarks?: Record<string, PhotoScreenEntry>; freshOwn?: boolean } = {},
 ): Promise<(url: string) => boolean> {
   const [watermarks, owed, faces, deadScreen, secondLook, rejected, check, subjects] = await Promise.all([
     overrides.watermarks ?? read<PhotoScreenEntry>(root, PHOTO_SCREEN_FILE), read(root, DEAD_OWED_FILE), read(root, FACES_FILE),
@@ -40,11 +41,28 @@ export async function readPhotoWaits(
   const content = join(root, 'content')
   const { unread, altered: flaggedAlterations } = await facePhotoStatus(content, faces)
   const unjudged = new Set<string>()
-  if (deadScreen) {
-    const looked = deadLooked({ screen: deadScreen, check, subjects, secondLook })
+  const looked = deadScreen && deadLooked({ screen: deadScreen, check, subjects, secondLook })
+  if (looked) {
     for (const url of await ownDeadPhotoUrls(content)) if (!looked(url)) unjudged.add(url)
   }
   const waits = photoWaitsFor({ watermarks, owed, unread, flaggedAlterations, faces, unjudged, deadScreen, secondLook,
     rejected: photoRejections(rejected ?? {}, watermarks) })
-  return url => setsCookies(url) || waits(url)
+  return url => setsCookies(url) || waits(url) ||
+    (overrides.freshOwn === true && ((!!looked && !looked(url)) || (!!faces && !Object.hasOwn(faces, url))))
+}
+
+/** Attribute a page's last visible photo to the pending guide or credit verdict. */
+export async function holdablePhotoVerdicts(root: string, rejected: Record<string, string>, verdicts: Set<string>) {
+  if (!verdicts.size) return new Map<string, string[]>()
+  const content = join(root, 'content')
+  const [waits, sources, marks] = await Promise.all([
+    readPhotoWaits(root, { rejected }), readPhotoSources(content), read<PhotoScreenEntry>(root, PHOTO_SCREEN_FILE),
+  ])
+  const listed = photoRejections(rejected, marks)
+  const pages = await pagesShowing(content, (p, ref, name) => {
+    const shown = publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
+    if (!shown || !permittedPhotoSource(shown, sources, ref, name)) return undefined
+    return shown.url
+  })
+  return lastPhotoVerdicts(pages, url => waits(url) || !!listed(url), [...verdicts].filter(url => !listed(url)))
 }

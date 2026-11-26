@@ -12,7 +12,7 @@ import { videoStills, type StillDeps } from '../src/video-stills'
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#468' } }).jpeg().toBuffer()
 const url = (n: string) => `https://media.example/${n}.webp`
 const name = (u: string) => u.split('/').pop()!.replace('.webp', '')
-const photo = (n: string) => ({ url: url(n), width: 1000, height: 667, licence: 'x', author: 'Aquarium Co-op', sourceUrl: 'x' })
+const photo = (n: string) => ({ url: url(n), width: 1000, height: 667, licence: 'CC BY 4.0', author: 'Aquarium Co-op', sourceUrl: 'x' })
 
 async function store(guides: Record<string, object>, equipment: Record<string, object> = {}) {
   const root = await mkdtemp(join(tmpdir(), 'guide-photos-'))
@@ -325,7 +325,9 @@ test("a guide's photo with a person in it that is also a fish page's last photo 
   // The chief of staff, 2026-11-14: a page's last photo doesn't come off on an automatic check's word alone (last-photo.ts).
   const root = await store({ 'how-to-net': { photos: [photo('netted'), photo('tank')] } })
   await mkdir(join(root, 'content/species/a'), { recursive: true })
-  await writeFile(join(root, 'content/species/a/entity.json'), JSON.stringify({ id: 'a', photos: [photo('netted')] }))
+  await writeFile(join(root, 'content/species/a/entity.json'), JSON.stringify({ id: 'a', photos: [photo('netted'), photo('waiting')] }))
+  await writeFile(join(root, 'engine-state/_dead-screen.json'), JSON.stringify({ [url('netted')]: { dead: false } }))
+  await writeFile(join(root, 'engine-state/_photo-faces.json'), JSON.stringify({ [url('netted')]: 0, [url('waiting')]: 0 }))
   const out = await screenGuidePhotos(root, model({ netted: { person: true, note: 'a hand holds the net' } }).d, { limit: 10 })
   expect(out.held).toEqual([`${url('netted')}: species/a`])
   expect(urls((await json(root, 'content/guides/how-to-net/entity.json')).photos)).toEqual(['tank'])

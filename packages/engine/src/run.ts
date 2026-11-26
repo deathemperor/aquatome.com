@@ -2,7 +2,7 @@ import { piece, PieceAdmissionError } from './pieces'
 import { createHash } from 'node:crypto'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { awaitsScreen, GuideSchema, isAllowedLicence, PHOTO_SCREEN_FILE, type PhotoScreenEntry, isOwnerCrop, mayPublish, setsCookies, ownerCropApproved, ownerCropCanonical, metricPage, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, judgeQuality, nameKey, retiredTo, slugify, speciesDepth, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
+import { awaitsScreen, GuideSchema, IMAGE_SWITCHES, isAllowedLicence, PHOTO_SCREEN_FILE, photoRejections, publicPhotoVersion, type PhotoScreenEntry, isOwnerCrop, mayPublish, setsCookies, ownerCropApproved, ownerCropCanonical, metricPage, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, judgeQuality, nameKey, retiredTo, slugify, speciesDepth, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
 import type { z } from 'zod'
 import { across, LARGE_PX } from './curation'
 import { cardGaps } from './card-fill'
@@ -27,6 +27,7 @@ import { rewriteVi, VI_WRITE } from './vi-rewrite'
 import { QUALITY_THRESHOLD, gate, reviewTranslation, steadyRead, WRITER_BAND } from './quality'
 import { logReviews, type Review } from './review-log'
 import { holdForSecondLook } from './last-photo'
+import { readPhotoWaits } from './photo-visibility'
 import { linkedPhotos, mayTake, pickSourcePhotos, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
 import { snapshotHash, writeSnapshot } from './snapshot'
 import { ARCHIVE_POLITE, archiveStops } from './archive'
@@ -108,7 +109,7 @@ export const approvedCrop = (page: string, scientificName: string, approvals?: P
  * since they turn on its switches and stored checks: an altered photo with no original while those switches are off, and
  * an approved crop whose stored checks fail. No page held either on 14 Nov 2026.
  */
-export const hiddenFromReaders = (blocked: Record<string, unknown>, sources: Partial<Record<SourceId, { publish?: boolean | 'photos'; permission?: { markRemoval?: { allowed?: boolean } } }>>) => (p: Photo) =>
+export const hiddenFromReaders = (blocked: Record<string, unknown>, sources: Partial<Record<SourceId, { publish?: boolean | 'photos'; permission?: { markRemoval?: { allowed?: boolean; date?: string } } }>>) => (p: Photo) =>
   p.url in blocked || setsCookies(p.url) || (!p.source && !isAllowedLicence(p.licence)) ||
   (!!p.source && (!mayPublish(sources[p.source], 'photos') || (isOwnerCrop(p) && sources[p.source]?.permission?.markRemoval?.allowed === false)))
 export type ReadKeeps = { owned?: (p: Photo) => boolean; gone?: (p: Photo) => boolean; waits?: (p: Photo) => boolean }
@@ -118,8 +119,19 @@ export type ReadKeeps = { owned?: (p: Photo) => boolean; gone?: (p: Photo) => bo
  */
 export const waitsForScreen = (screen: Record<string, PhotoScreenEntry> | undefined) => (p: Photo) => !!screen && awaitsScreen(p.url, screen[p.url])
 /** What a re-read of a page keeps, the same on every path that merges one (the run and the content backfill). */
-export const readKeeps = (page: string, scientificName: string, blocked: Record<string, unknown>, sources: Parameters<typeof hiddenFromReaders>[1], screen?: Record<string, PhotoScreenEntry>): ReadKeeps =>
-  ({ owned: approvedCrop(page, scientificName), gone: hiddenFromReaders(blocked, sources), waits: waitsForScreen(screen) })
+export const readKeeps = (page: string, scientificName: string, blocked: Record<string, unknown>, sources: Parameters<typeof hiddenFromReaders>[1], screen?: Record<string, PhotoScreenEntry>, photoWaits?: Awaited<ReturnType<typeof readPhotoWaits>>): ReadKeeps => {
+  const gone = hiddenFromReaders({}, sources)
+  const listed = photoRejections(blocked, screen)
+  const selected = (p: Photo) => {
+    const permission = p.source ? sources[p.source]?.permission?.markRemoval : undefined
+    return publicPhotoVersion(p, IMAGE_SWITCHES, permission && { allowed: permission.allowed === true, date: permission.date })
+  }
+  return {
+    owned: approvedCrop(page, scientificName),
+    gone: p => { const shown = selected(p); return !shown || gone(shown) || !!listed(shown.url) },
+    waits: p => { const shown = selected(p); return !!shown && (photoWaits?.(shown.url) ?? waitsForScreen(screen)(shown)) },
+  }
+}
 
 /**
  * This page's fresh photos replace its old ones; source photos first (registry order), open-licence photos after. A head
@@ -262,15 +274,16 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   const contentRoot = join(root, 'content')
   const s = store(contentRoot)
   const glossary = await glossaryTerms(s)
-  const sourceNames = (await readJson<Partial<Record<SourceId, { name: string; publish?: boolean | 'photos'; permission?: CreditTerms & { markRemoval?: { allowed?: boolean } } }>>>(join(contentRoot, 'sources.json'))) ?? {}
+  const sourceNames = (await readJson<Partial<Record<SourceId, { name: string; publish?: boolean | 'photos'; permission?: CreditTerms & { markRemoval?: { allowed?: boolean; date?: string } } }>>>(join(contentRoot, 'sources.json'))) ?? {}
   const gbifCache: Record<string, Taxon | null> = {}
   const blocked = (await readJson<Record<string, string>>(join(root, 'engine-state/_photo-rejected.json'))) ?? {}
   const screen = await readJson<Record<string, PhotoScreenEntry>>(join(root, 'engine-state', PHOTO_SCREEN_FILE))
+  const photoWaits = await readPhotoWaits(root, { rejected: blocked, watermarks: screen, freshOwn: true })
   const deadline = opts.maxMinutes ? deps.now().getTime() + opts.maxMinutes * 60_000 : Infinity
   const report: RunReport = { perSource: {}, needsHuman: [], movedToArchive: [], changed: [], errors: [], shopText: [] }
   const today = () => deps.now().toISOString().slice(0, 10)
   // What a re-read keeps of a page's photos (mergeRead): the owner's approved crops; never a never-again photo, or one whose source no longer lets us show photos.
-  const keeps = (page: string, scientificName: string): ReadKeeps => readKeeps(page, scientificName, blocked, sourceNames, screen)
+  const keeps = (page: string, scientificName: string): ReadKeeps => readKeeps(page, scientificName, blocked, sourceNames, screen, photoWaits)
   // A re-read that would leave a page with no photo keeps the old ones, each held for a person's second look (mergeRead).
   const holdLast = (held: Photo[], page: string) => holdForSecondLook(root, new Map(held.map(p => [p.url, { why: "rejected: the source's page no longer shows it", pages: [page] }])), 'the pages rewrite', today())
   // Source pages whose credits a read still has to learn (credit-reads.ts): read only on their own turn, like any page.
