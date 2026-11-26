@@ -17,7 +17,8 @@ test('a cycle sweeps again after each merge with main, before the tests', () => 
   expect(script('cycle-checks.sh')).toMatch(/if net git pull -q --rebase; then main_holds "\$run" \|\| true; return 0; fi/)
   expect(cycle).toMatch(/rebase -X theirs; then\n\s*replan_merged "\$clash"\n\s*main_holds "\$run" \|\| true\n\s*sweep_merged\n\s*verify_cycle/)
   expect(script('video-cycle.sh')).toMatch(/rebase -X theirs; then\n\s*main_holds "\$run" \|\| true\n\s*sweep_merged\n\s*verify_cycle/)
-  expect(script('video-recheck.sh')).toMatch(/rebase -X theirs; then\n\s*main_holds "\$run" \|\| true\n\s*sweep_merged\n\s*verify_cycle/)
+  expect(script('video-recheck.sh')).toContain('source scripts/video-recheck-publish.sh')
+  expect(script('video-recheck-publish.sh')).toMatch(/main_holds "\$run" \|\| true\n\s*sweep_merged[\s\S]*\n\s*if ! verify_cycle;/)
 })
 
 test('what the sweep changes after a merge is committed, and no change leaves no commit', () => {
@@ -41,7 +42,7 @@ test('what the sweep changes after a merge is committed, and no change leaves no
 // through a pull at the push that doesn't clash (merge-entity.mjs keeps an item one side changed).
 test("a clean pull that brings main's commits in is swept before the push, and the tests run again only when the sweep changed something", () => {
   // Main's holds put back on a page main read meanwhile (main_holds, push-clash-hold.test.ts) are checked again too.
-  for (const f of ['engine-cycle.sh', 'video-cycle.sh', 'video-recheck.sh']) {
+  for (const f of ['engine-cycle.sh', 'video-cycle.sh']) {
     expect(script(f)).toMatch(/main_holds "\$run" \|\| moved=1\n\s*if ! swept_pull "\$main" \|\| \[ -n "\$moved" \]; then\n\s*verify_cycle \|\|/)
   }
   // Kept work: after a pull that brought main's commits in, checked in full until it has passed; then swept, and checked
@@ -163,5 +164,45 @@ test("a video re-check sweeps its work and commits it before its tests, as the v
   const commit = s.indexOf('git commit -q -m "content: video guides checked again')
   expect(sweep).toBeGreaterThan(s.indexOf('pnpm engine videos --redo'))
   expect(commit).toBeGreaterThan(sweep)
-  expect(commit).toBeLessThan(s.indexOf('verify_cycle'))
+  expect(commit).toBeLessThan(s.indexOf('\npush_video_recheck'))
+})
+
+test.each([
+  ['before', 'code.txt', false, 'checked new main\npush\nexit 0'],
+  ['during', 'code.txt', false, 'checked old main\nchecked new main\npush\nexit 0'],
+  ['during', 'content/other.json', true, 'checked old main\nchecked new main\nkept unpublished\nexit 1'],
+])('video recheck checks main moving %s its checks with %s', (when, changed, fails, trace) => {
+  const dir = mkdtempSync(join(tmpdir(), 'aq-video-push-'))
+  const repo = join(dir, 'repo')
+  const sh = (command: string, cwd = dir) => execSync(command, { cwd, shell: '/bin/bash', encoding: 'utf8' }).trim()
+  sh('git init -q --bare --initial-branch=main origin.git && git clone -q origin.git repo 2>/dev/null')
+  sh('git config user.email a@example.com && git config user.name a && mkdir content && echo base > content/base.json && git add . && git commit -qm base && git push -q -u origin main', repo)
+  sh('git clone -q origin.git other && git -C other config user.email b@example.com && git -C other config user.name b')
+  sh('echo video > content/video.json && git add . && git commit -qm video', repo)
+
+  const run = `
+    set -euo pipefail
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    TEST_LOG=test.log
+    log() { :; }
+    net() { if [ "$2" = push ]; then echo push; fi; "$@" 2>/dev/null; }
+    main_holds() { :; }; sweep_merged() { :; }; sleep() { :; }
+    keep_unpublished() { echo "kept unpublished"; }; keep_lost_push() { echo "kept lost push"; }
+    advance() {
+      echo remote > '../other/${changed}'
+      git -C ../other add .
+      git -C ../other commit -qm remote
+      git -C ../other push -q
+    }
+    verify_cycle() {
+      if [ -f '${changed}' ]; then echo "checked new main"; return ${fails ? 1 : 0}; fi
+      echo "checked old main"
+      advance
+    }
+    ${when === 'before' ? 'advance' : ''}
+    status=0; push_video_recheck || status=$?
+    echo "exit $status"`
+  expect(sh(run, repo)).toBe(trace)
+  const remoteFiles = sh('git --git-dir=origin.git ls-tree -r --name-only main').split('\n')
+  expect(remoteFiles.includes('content/video.json')).toBe(!fails)
 })

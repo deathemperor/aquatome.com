@@ -17,6 +17,7 @@ PART="${1:-all}"
 case "$PART" in all|pages|sf|photos|rewrite) ;; *) echo "usage: $0 [pages|sf|photos|rewrite]" >&2; exit 2 ;; esac
 # One a part: the Mac runs three parts at once.
 TEST_LOG="/tmp/aquatome-engine-test-$PART.log"
+[ -n "${GITHUB_ACTIONS:-}" ] || TEST_FAILURES_DIR="$HOME/.cache/aquatome/engine-check-failures"
 # calm, checks and verify: the build and tests before publishing, on a Mac other jobs share.
 source "$REPO/scripts/cycle-checks.sh"
 part() { [ "$PART" = all ] || [[ " $* " == *" $PART "* ]]; }

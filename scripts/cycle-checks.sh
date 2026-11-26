@@ -153,6 +153,19 @@ slow_mac() {
   [ -n "$cores" ] && [ "$load" -ge "$cores" ] && echo "a busy Mac, its 5-minute load $load on $cores cores"
   return 0
 }
+# Keep each failed try's own bytes before another check can truncate the working log.
+archive_failed_try() {
+  [ -n "${TEST_FAILURES_DIR:-}" ] || return 0
+  local stem path
+  stem=${TEST_LOG##*/}
+  if mkdir -p "$TEST_FAILURES_DIR" &&
+      path=$(mktemp "$TEST_FAILURES_DIR/${stem%.log}.$(date -u +%Y%m%dT%H%M%SZ).try-$2.XXXXXX") &&
+      tail -c "+$(($1 + 1))" "$TEST_LOG" >"$path"; then
+    log "check try $2 failed, output kept at $path"
+  else
+    log "check try $2 failed, could not copy its output from $TEST_LOG"
+  fi
+}
 verify() {
   local step from first name names workers why
   : >"$TEST_LOG"
@@ -171,6 +184,7 @@ verify() {
       VITEST_MAX_WORKERS=$FIRST_TRY_WORKERS checks "export pnpm_config_workspace_concurrency=1; $step" >>"$TEST_LOG" 2>&1 && continue
     fi
     first=$from
+    archive_failed_try "$first" 1
     if ran_out "$first"; then log "tests ran out of time on a busy Mac: checking again once it is calmer"; else log "a check failed: running it once more once the Mac is calmer"; fi
     settled
     calm
@@ -184,6 +198,7 @@ verify() {
       while IFS= read -r name; do [ -z "$name" ] || log "flaky: $name"; done <<<"$names"
       continue
     fi
+    archive_failed_try "$from" 2
     ran_out "$from" && TIMED_OUT=1
     return 1
   done

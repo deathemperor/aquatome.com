@@ -627,9 +627,14 @@ test('the engine cycle and both video jobs keep unpublished work wherever they g
     const s = script(name)
     // Each "not publishing" after the checks keeps the work first: after the run's commit, after a merge on push, and
     // after the sweep on a clean pull that brought main's commits in.
-    const gaveUp = s.split('\n').filter(l => /not publishing/.test(l) && !/gate:/.test(l))
-    expect(gaveUp.length, name).toBe(3)
-    expect(s.match(new RegExp(`keep_unpublished ${job.replace(/[$"]/g, m => `\\${m}`)}`, 'g'))?.length, name).toBe(3)
+    if (name === 'video-recheck.sh') {
+      expect(s, name).toContain('\npush_video_recheck\n')
+      expect(script('video-recheck-publish.sh')).toMatch(/if ! verify_cycle; then\n\s*keep_unpublished video-recheck\n.*not publishing.*\n\s*return 1/)
+    } else {
+      const gaveUp = s.split('\n').filter(l => /not publishing/.test(l) && !/gate:/.test(l))
+      expect(gaveUp.length, name).toBe(3)
+      expect(s.match(new RegExp(`keep_unpublished ${job.replace(/[$"]/g, m => `\\${m}`)}`, 'g'))?.length, name).toBe(3)
+    }
     // Kept work is published once a run has installed and set its merge drivers, before it does its own work.
     expect(s, name).toMatch(new RegExp(`pnpm install --frozen-lockfile --silent\\npublish_kept ${job.replace(/[$"]/g, m => `\\${m}`)}\\n`))
     expect(s.indexOf('\npublish_kept '), name).toBeGreaterThan(s.indexOf('merge.entity.driver'))
@@ -813,8 +818,9 @@ test('work whose push lost to main three times is kept, never over a name alread
 })
 
 test("the pages, sf and photos cycles, the video job and the video recheck keep their work when their push loses three times", () => {
-  for (const [name, job] of [['engine-cycle.sh', '"$PART"'], ['video-cycle.sh', 'videos'], ['video-recheck.sh', 'video-recheck']] as const) {
+  for (const [name, job] of [['engine-cycle.sh', '"$PART"'], ['video-cycle.sh', 'videos']] as const) {
     expect(script(name), name).toContain(`log "push failed three times"; keep_lost_push ${job};`)
     expect(script(name).match(/push failed three times/g), name).toHaveLength(1)
   }
+  expect(script('video-recheck-publish.sh')).toMatch(/for try in 1 2 3; do[\s\S]+could not publish after three attempts"\n\s*keep_lost_push video-recheck/)
 })

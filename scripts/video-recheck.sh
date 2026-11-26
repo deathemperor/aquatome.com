@@ -13,8 +13,11 @@ case "$PWD/" in "$HOME/.local/share/aquatome/"*) ;; *) log "not an engine clone 
 # The checks as the video job runs them (cycle-checks.sh): in turn with the other jobs' builds and tests, once the Mac's
 # load has fallen, and once more when tests ran out of time.
 TEST_LOG=/tmp/aquatome-video-recheck-test.log
+TEST_FAILURES_DIR="$HOME/.cache/aquatome/engine-check-failures"
 # shellcheck disable=SC1091
 source scripts/cycle-checks.sh
+# shellcheck source=scripts/video-recheck-publish.sh
+source scripts/video-recheck-publish.sh
 # A run that outlasts the hour is left to finish: the next start finds it and goes.
 PIDFILE="$(git rev-parse --absolute-git-dir)/aquatome-engine.pid"
 # Not this run's own number: from_main starts it again as the same process.
@@ -84,30 +87,4 @@ if [ -z "$(git status --porcelain -- content engine-state docs/review)" ]; then 
 # stays in the reflog to publish by hand.
 git add content engine-state docs/review
 git commit -q -m "content: video guides checked again $(date -u +%F)"
-if ! verify_cycle; then keep_unpublished video-recheck; log "tests failed, not publishing (see $TEST_LOG)"; exit 1; fi
-# The video job and the GitHub engine push too; the files merge through their drivers. Lines both changed give way to
-# this run's, as video-cycle.sh does; then the tests run again on the merge.
-for _ in 1 2 3; do
-  # main: the commit this work sits on, not the last main fetched, which a fetch before this pull (catch_up's, stopped
-  # after its fetch) may have moved: swept_pull then sees main's commits come in (a reader's catch, 16 Nov).
-  main=$(git merge-base HEAD '@{u}' 2>/dev/null || true) run=$(git rev-parse HEAD) moved=
-  if ! git pull -q --rebase; then
-    log "another job changed the same files: $(git diff --name-only --diff-filter=U | tr '\n' ' ')"
-    git rebase --abort 2>/dev/null || true
-    if git pull -q --rebase -X theirs; then
-      main_holds "$run" || true
-      sweep_merged
-      verify_cycle || { keep_unpublished video-recheck; log "tests failed after that merge, not publishing"; exit 1; }
-    else
-      git rebase --abort 2>/dev/null || true
-    fi
-  else
-    main_holds "$run" || moved=1
-    if ! swept_pull "$main" || [ -n "$moved" ]; then
-      verify_cycle || { keep_unpublished video-recheck; log "tests failed after the sweep on main's changes, not publishing"; exit 1; }
-    fi
-  fi
-  if git push -q; then log "pushed (GitHub deploys it)"; exit 0; fi
-  sleep 30
-done
-log "push failed three times"; keep_lost_push video-recheck; exit 1
+push_video_recheck
