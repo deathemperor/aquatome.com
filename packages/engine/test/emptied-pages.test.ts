@@ -171,6 +171,30 @@ test('the working tree and Git replay find the unjudged source of a judged mirro
   expect(await listEmptied(r, '2026-11-26')).toEqual([])
 })
 
+test.each(['own photo', 'album'])('a rejection alone queues a page that loses the original from its %s', async place => {
+  const { r, put } = await store({ species: { x: [] }, albums: { x: [] } })
+  const original = photo('original')
+  const wrapper = {
+    ...photo('wrapper'),
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }],
+    original: { url: original.url, width: original.width, height: original.height },
+  }
+  const file = place === 'album' ? 'content/gallery/x.json' : 'content/species/x/entity.json'
+  const record = JSON.parse(await readFile(join(r, file), 'utf8'))
+  await put(file, { ...record, photos: [wrapper] })
+  await put(`engine-state/${schema.PHOTO_SCREEN_FILE}`, { [original.url]: { ocr: [] }, [wrapper.url]: { ocr: [] } })
+  await put(`engine-state/${schema.FACES_FILE}`, { [original.url]: 0, [wrapper.url]: 0 })
+  await put(`engine-state/${schema.DEAD_SCREEN_FILE}`, { [original.url]: { dead: false }, [wrapper.url]: { dead: false } })
+  const git = (...args: string[]) => execFileSync('git', args, { cwd: r, encoding: 'utf8' })
+  git('init', '-q', '-b', 'main'); git('config', 'user.email', 't@example.org'); git('config', 'user.name', 'Sample Tester')
+  git('add', '.'); git('commit', '-qm', 'visible original')
+  expect(await showingPhotos(['species/x'], disk(r), diskOwners(r))).toEqual(new Map([['species/x', true]]))
+
+  await put(`engine-state/${schema.PHOTO_REJECTED_FILE}`, { [original.url]: 'dead: withheld' })
+  expect(git('diff', '--name-only', '--', 'content')).toBe('')
+  expect(await listEmptied(r, '2026-11-26')).toEqual(['species/x'])
+})
+
 test('the replay locates a different page whose fallback original has a face verdict', async () => {
   const { r, put } = await store({ species: { x: [], y: [] }, albums: { x: ['u'] } })
   const file = 'content/species/y/entity.json'

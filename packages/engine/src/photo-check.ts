@@ -841,9 +841,11 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const removes = blocked(file)
     const removed = new Set<string>()
     for (const { stored, served } of photos) {
-      if (shouldStripPhoto(stored, removes, preservesOriginal)) removed.add(stored.url)
-      else if (removes(served.url)) removed.add(served.url)
-      else if (!waitsFor(served.url)) return []
+      const dropsStored = shouldStripPhoto(stored, removes, preservesOriginal)
+      const dropsServed = removes(served.url)
+      if (dropsStored) removed.add(stored.url)
+      if (dropsServed) removed.add(served.url)
+      if (!dropsStored && !dropsServed && !waitsFor(served.url)) return []
     }
     return [...removed]
   }

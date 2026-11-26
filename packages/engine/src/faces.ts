@@ -97,7 +97,8 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   })
   const unread = photoAddressSet(todo.filter(u => !Object.hasOwn(cache, u)))
   const owesLook = photoAddressSet(waitingForDead ?? [])
-  const offPage = (u: string) => face(u) || !!listed(u) || owesLook(u) ||
+  const flagged = photoAddressSet(Object.keys(cache).filter(face))
+  const offPage = (u: string) => flagged(u) || !!listed(u) || owesLook(u) ||
     (!!waitingForDead && (unread(u) || deadPhotoOff(u, screen, secondLook) || (!!watermarks && awaitsScreen(u, watermarks[u]))))
   const last = new Map([...lastPhotos(pagesToKeep, offPage)].filter(([u]) => face(u) && !listed(u)))
   // Only one that passed the check before is held; a face found now, on one that never did, takes it off, marked on both

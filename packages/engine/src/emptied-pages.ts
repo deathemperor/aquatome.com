@@ -12,7 +12,8 @@ import { DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, LANGS, l
  *
  * The sweep lists them, last, after every step of the run that writes a page: a fish page (species or breed) whose page
  * or album file differs from where the run's branch meets main (`base`), that showed a photo there and is a page with no
- * photo now. The sweep runs twice: before the run's commit, where that is the commit the run started from, and on main
+ * photo now. A new rejection can hide a fallback or its album copy without changing either file, so those pages are
+ * considered too. The sweep runs twice: before the run's commit, where that is the commit the run started from, and on main
  * after the run caught up (cycle-checks.sh sweep_merged), where it is main as it is now, so a page emptied by this run's
  * removal and another run's together is seen there (the independent reader, 21 Nov). A page the list holds already keeps
  * its first day. The one gap: a hand change that takes a page's last photo off the page itself isn't seen, as no run's
@@ -62,7 +63,9 @@ export const diskOwners = (root: string): Owners => async urls => {
 }
 
 /** Owners as commit `at` of the repository at `root` holds them: each such page whose file names one of the addresses. */
-const commitOwners = (root: string, at: string, read: Read): Owners => async urls => {
+const commitOwners = (
+  root: string, at: string, read: Read, paths = OWNER_KINDS.map(k => `content/${k}/*/entity.json`),
+): Owners => async urls => {
   const matches = new Set(urls)
   for (const url of urls) {
     const key = photoKey(url), mirrors = mirrorHosts(key)
@@ -70,7 +73,7 @@ const commitOwners = (root: string, at: string, read: Read): Owners => async url
     matches.add(`https://media.aquatome.com/${key}`)
     for (const host of mirrors) matches.add(host)
   }
-  const r = spawnSync('git', ['-C', root, 'grep', '-l', '-F', '-f', '-', at, '--', ...OWNER_KINDS.map(k => `content/${k}/*/entity.json`)], { input: [...matches].join('\n'), encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+  const r = spawnSync('git', ['-C', root, 'grep', '-l', '-F', '-f', '-', at, '--', ...paths], { input: [...matches].join('\n'), encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
   if (r.status === 1) return []
   if (r.status !== 0) throw new Error(`git grep at ${at}: ${r.stderr.trim()}`)
   const want = photoAddressSet(urls)
@@ -198,7 +201,16 @@ export async function listEmptied(root: string, at = vnDate(new Date())): Promis
   if (diff.status !== 0) return write([])
   const exists = (p: string) => access(join(root, p)).then(() => true, () => git('cat-file', '-e', `${base}:${p}`).status === 0)
   const refs = new Set<string>()
-  for (const f of diff.stdout.split('\n')) {
+  const then: Read = async p => { const r = git('show', `${base}:${p}`); return r.status === 0 ? r.stdout : undefined }
+  const now: Read = p => readFile(join(root, p), 'utf8').catch(() => undefined)
+  const rejected = `engine-state/${PHOTO_REJECTED_FILE}`
+  const prior = JSON.parse(await then(rejected) ?? '{}') as Record<string, string>
+  const updated = JSON.parse(await now(rejected) ?? '{}') as Record<string, string>
+  const rejectedUrls = Object.keys(updated).filter(url => updated[url] !== prior[url])
+  const affected = rejectedUrls.length
+    ? await commitOwners(root, base, then, ['content/species/*/entity.json', 'content/breeds/*/entity.json', 'content/gallery/*.json'])(rejectedUrls)
+    : []
+  for (const f of new Set([...diff.stdout.split('\n'), ...affected])) {
     const page = f.match(/^content\/(species|breeds)\/([a-z0-9-]+)\/entity\.json$/)
     if (page) { refs.add(`${page[1]}/${page[2]}`); continue }
     const id = f.match(/^content\/gallery\/([a-z0-9-]+)\.json$/)?.[1]
@@ -206,8 +218,6 @@ export async function listEmptied(root: string, at = vnDate(new Date())): Promis
     for (const kind of ['species', 'breeds']) if (await exists(`content/${kind}/${id}/entity.json`)) refs.add(`${kind}/${id}`)
   }
   if (!refs.size) return write([])
-  const then: Read = async p => { const r = git('show', `${base}:${p}`); return r.status === 0 ? r.stdout : undefined }
-  const now: Read = p => readFile(join(root, p), 'utf8').catch(() => undefined)
   const [before, after] = [await showingPhotos([...refs], then, commitOwners(root, base, then)), await showingPhotos([...refs], now, diskOwners(root))]
   const added: string[] = []
   // Showed a photo then, and is a page with none now: a page the loader drops (no section it may show) isn't one.

@@ -370,6 +370,36 @@ test('a stored watermark rejection cannot count its dropped original as a replac
   expect((await publicView()).species.find(p => p.id === 'alpha')?.photos.map(p => p.url)).toEqual([head.url])
 })
 
+test.each(['face detection', 'the dead-fish screen'])('a mirror being rejected by %s cannot displace a passed last photo', async step => {
+  const byFace = step === 'face detection'
+  const head = photo(byFace ? 'passed-face' : 'passed-dead')
+  const name = byFace ? 'other-face.jpg' : 'other-dead.jpg'
+  const source = `https://upload.wikimedia.org/wikipedia/commons/a/ab/${name}`
+  const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(source)!.key}` }
+  const wrapper = {
+    ...photo('wrapper-live'),
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'e'.repeat(64) }],
+    original: { url: source, width: mirror.width, height: mirror.height },
+  }
+  const { root, state, file, publicView } = await publicFixture([head, mirror], [], [head.url, mirror.url, source, wrapper.url])
+  const other = join(root, 'content/species/second')
+  await mkdir(other)
+  const entity = JSON.parse(await readFile(file, 'utf8'))
+  await writeFile(join(other, 'entity.json'), JSON.stringify({ ...entity, id: 'second', photos: [wrapper] }))
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [head.url]: { ok: 'yes', person: false, ...(byFace ? { logo: false } : {}) } }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({
+    [mirror.url]: { dead: false }, [wrapper.url]: { dead: false }, ...(byFace ? { [source]: { dead: false } } : {}),
+  }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({
+    [mirror.url]: 0, [wrapper.url]: 0, ...(byFace ? {} : { [head.url]: 0, [source]: 0 }),
+  }))
+
+  await run(root, deps().d)
+  expect((await json(root, 'engine-state/_photo-second-look.json'))[head.url])
+    .toMatchObject({ step, pages: ['species/alpha'] })
+  expect((await publicView()).species.find(p => p.id === 'alpha')?.photos.map(p => p.url)).toEqual([head.url])
+})
+
 test.each(['face detection', 'the dead-fish screen'])('a sibling waiting on its watermark result cannot displace the last passed photo in %s', async step => {
   const flagged = photo(step === 'face detection' ? 'passed-face' : 'passed-dead')
   const pending = photo('watermark-pending')
