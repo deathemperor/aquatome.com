@@ -1936,3 +1936,27 @@ test('faces durably withholds a bare original when it removes the only rejected 
   expect((await json(root, 'engine-state/_photo-rejected.json'))[original.url]).toMatch(/^logo:/)
   expect((await publicView()).photoWaits!(original.url)).toBe(true)
 })
+
+test('a mirrored album wait owned by a source review leaves when the album copy returns', async () => {
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = { ...photo('held-mirror'), url: `https://media.aquatome.com/${mirrorPlan(source)!.key}` }
+  const { root, state, file } = await albumFixture([mirror])
+  const why = 'dead: earlier look'
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [mirror.url]: waitingEntry(why) }))
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+    [source]: { why, step: 'the dead-fish screen', pages: ['species/a'], at: '2026-11-26', off: true },
+  }))
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
+  onTestFinished(() => { vi.unstubAllEnvs() })
+  expect((await screenDead(root, deps().d.dead, { limit: 0, albums: true })).albumBatches).toEqual([
+    { id: expect.any(String), urls: [mirror.url] },
+  ])
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([])
+
+  const marks = await json(root, 'engine-state/_photo-second-look.json')
+  marks[source].look = { said: 'clear', by: 'reviewer', on: '2026-11-26' }
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify(marks))
+  expect((await putBackCleared(root, async () => [])).back).toHaveLength(1)
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([mirror])
+  expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({})
+})
