@@ -2,7 +2,7 @@ import type { Content } from '@aq/schema'
 import { APP_PAGE, APP_STATE } from './app'
 import { getContent } from './content'
 import { categoriesIn } from './equipment'
-import { groupLabel } from './format'
+import { groupLabel, OFF_LIST_GROUPS } from './format'
 import { localizePath, OTHER_LANGS, PAGES, routeIn, served, translator } from './i18n'
 import { videoChannels } from './video'
 
@@ -27,7 +27,9 @@ export async function sitemapEntries(): Promise<SitemapEntry[]> {
 
     const fish = [...c.species.map(s => ({ s, folder: 'species' })), ...c.breeds.map(s => ({ s, folder: 'breeds' }))].filter(x => x.s.t.quality.indexable)
     if (served(lang, '/vi/ca/x/')) for (const { s, folder } of fish) add('fish', `/vi/ca/${s.t.slug}/`, [...text(folder, s.id), ...(folder === 'species' && lang === 'vi' ? [`summaries/${s.id}.json`] : [])], s.t.name)
-    if (served(lang, '/vi/nhom/x/')) for (const group of new Set(c.species.map(s => s.group))) add('other', `/vi/nhom/${group}/`, [], translator(lang)(groupLabel(group)))
+    if (served(lang, '/vi/nhom/x/')) for (const group of new Set(c.species.map(s => s.group))) {
+      if (!OFF_LIST_GROUPS.includes(group)) add('other', `/vi/nhom/${group}/`, [], translator(lang)(groupLabel(group)))
+    }
     const plants = c.plants.filter(p => p.t.quality.indexable)
     if (served(lang, '/vi/cay/x/')) for (const p of plants) add('plants', `/vi/cay/${p.t.slug}/`, text('plants', p.id), p.t.name)
     if (served(lang, '/vi/huong-dan/x/')) for (const g of c.guides) if (g.t.quality.indexable) add(g.video ? 'videos' : 'guides', `/vi/huong-dan/${g.t.slug}/`, text('guides', g.id), g.t.name)
