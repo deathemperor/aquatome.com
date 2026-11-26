@@ -75,6 +75,36 @@ test('a site search by scientific name finds the species first', async ({ page }
   expect(hits[0]?.href).toBe('/ca/ca-neon-vua/')
 })
 
+test('site search shows the short description and confirms matches beyond its end', async ({ page }) => {
+  const url = '/huong-dan/setup-be-thuy-sinh-dau-tien/'
+  const title = 'Bể thủy sinh đầu tiên'
+  const description = 'Chọn nơi đặt bể và chuẩn bị cây thủy sinh.'
+  const result = {
+    url, content: '', locations: [], excerpt: 'Cách pha nước khi thay nước cho bể.',
+    meta: { title, description, full_description: `${description} ${'Lắp đèn và giữ nền ẩm trước khi thêm nước. '.repeat(4)}Đo lượng khoáng.` },
+  }
+  // Keep the search hit's title and matching locations fixed so the second query can match only the full description.
+  await page.route('**/pagefind/pagefind.js', route => route.fulfill({
+    contentType: 'text/javascript',
+    body: `export const options = async () => {}; export const search = async () => ({results: [{data: async () => (${JSON.stringify(result)})}]});`,
+  }))
+
+  await page.goto(`/tim-kiem/?q=${encodeURIComponent(title)}`)
+  await expect(page.locator('[data-hits] li p')).toHaveText(description)
+
+  await page.goto('/tim-kiem/?q=kho%C3%A1ng')
+  await expect(page.locator('[data-status]')).toContainText('1 kết quả')
+  await expect(page.locator('[data-hits] li a')).toHaveAttribute('href', url)
+  await expect(page.locator('[data-hits] li p')).toHaveText(result.excerpt)
+  await expect(page.locator('[data-none]')).toBeHidden()
+})
+
+test('Pagefind retrieves the Indonesian tank tool for a term that occurs only in its full description', async ({ page }) => {
+  await page.goto('/id/cari/?q=ketebalan+kaca+disarankan+galon')
+  await expect(page.locator('[data-hits] a[href="/id/alat/volume-akuarium/"]')).toBeVisible()
+  await expect(page.locator('[data-none]')).toBeHidden()
+})
+
 for (const [path, all] of [['/tim-kiem/', '/ca/'], ['/id/cari/', '/id/ikan/'], ['/th/search/', '/th/fish/'], ['/ms/cari/', '/ms/ikan/']] as const) {
   test(`a nonsense word says there is nothing, with a way on (${path})`, async ({ page, errors }) => {
     await page.goto(`${path}?q=xyzzyq`)

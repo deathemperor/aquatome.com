@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
-import { CREDIT_HOLD_FILE, CREDIT_HOLD_REJECTION, creditHoldPhotoUrls, deadScreenPhotoUrls, photoAddressSet, type Photo, type SourceId } from '@aq/schema'
+import { CREDIT_HOLD_FILE, CREDIT_HOLD_REJECTION, creditHoldAddresses, creditHoldPhotoUrls, isVersionRejection, photoAddressSet, type Photo, type SourceId } from '@aq/schema'
 import { holdForSecondLook, looks, readSecondLook } from './last-photo'
 import type { PageImage } from './outline'
 import { creditKind } from './photo-credit'
@@ -37,7 +37,7 @@ export type HeldPlace = { file: string; path: string[]; at: number; prev?: strin
 /** A calendar day whose guide card showed a held photo. */
 export type CalendarPlace = { file: string; date: string; guide?: string }
 /** A photo a person took off readers' pages until its source page's credit read: who, when, why, and where it was. */
-export type CreditHold = { page: string; by: string; on: string; why: string; places: HeldPlace[]; calendar?: CalendarPlace[]; released?: true }
+export type CreditHold = { page: string; by: string; on: string; why: string; places: HeldPlace[]; calendar?: CalendarPlace[]; released?: true; originals?: string[] }
 
 const REJECTED = 'engine-state/_photo-rejected.json'
 /** The never-again note a credit hold puts there, the same for every held photo: how a release knows its own. */
@@ -230,7 +230,7 @@ export async function holdForCreditRead(root: string, urls: readonly string[], b
 /**
  * A credit read's answer for held photos. The site's own photographer's or illustrator's go back to every place they
  * held: after the photo each followed, else before the one it preceded, else its old place. They leave the never-again list.
- * One that list now holds for another reason stays off, as does every other kind. A held photo the read didn't find stays
+ * One with a final independent refusal stays off. A pending review keeps its own waiting entry, and every other credit kind stays off. A held photo the read didn't find stays
  * held for the page's next turn, and so does any place of a returning photo that is gone (its file, or its list), no longer
  * told apart (two lists of the same name) or taken (its calendar card shows another picture): it is `stuck`, to be said.
  * The never-again list is written first, then the pages, then the holds, so a failure at any point leaves no photo both
@@ -240,13 +240,21 @@ export async function releaseCreditHolds(root: string, credits: Record<string, P
   const holds = await readMap<CreditHold>(join(root, CREDIT_HOLDS)), rejected = await readMap<string>(join(root, REJECTED))
   const back: string[] = [], off: string[] = [], places: HeldPlace[] = [], cards: { url: string; c: CalendarPlace }[] = []
   const left = new Map<string, { places: HeldPlace[]; calendar: CalendarPlace[] }>()
-  const ownedAddresses = (url: string, hold: CreditHold) => [url, ...hold.places.flatMap(p => deadScreenPhotoUrls(p.photo))]
   for (const [u, h] of Object.entries(holds)) {
-    const addresses = ownedAddresses(u, h)
+    const addresses = creditHoldAddresses(u, h)
     const c = addresses.flatMap(url => credits[url] ?? []).sort((a, b) => RANK[b.kind] - RANK[a.kind])[0]
     if (!c) continue
-    if (c.kind !== 'own' || (u in rejected && rejected[u] !== HOLD_NOTE)) {
-      for (const url of addresses) rejected[url] ??= rejected[u] ?? HOLD_NOTE
+    if (c.kind === 'none') continue
+    if (c.kind !== 'own') {
+      const why = `rejected: ${c.kind} credit ${c.line ?? ''}`
+      for (const url of addresses) {
+        const prior = rejected[url]
+        if (!prior || prior === HOLD_NOTE || isVersionRejection(prior)) rejected[url] = why
+      }
+      off.push(u)
+      continue
+    }
+    if (rejected[u] && rejected[u] !== HOLD_NOTE && !rejected[u].startsWith('waiting:')) {
       off.push(u)
       continue
     }
@@ -257,7 +265,7 @@ export async function releaseCreditHolds(root: string, credits: Record<string, P
   const stay = (u: string) => left.get(u) ?? (left.set(u, { places: [], calendar: [] }), left.get(u)!)
   // Off the never-again list first, then back on the pages, then out of the holds: a failure at any point leaves no
   // photo shown while barred, and the hold still names what the next read's release finishes.
-  const lifted = photoAddressSet(back.flatMap(url => ownedAddresses(url, holds[url]!)))
+  const lifted = photoAddressSet(back.flatMap(url => creditHoldAddresses(url, holds[url]!)))
   for (const url of back) holds[url]!.released = true
   const stillHeld = photoAddressSet(creditHoldPhotoUrls(holds))
   for (const url of Object.keys(rejected)) {
@@ -287,7 +295,8 @@ export async function releaseCreditHolds(root: string, credits: Record<string, P
     const l = left.get(u)
     if (!l || (!l.places.length && !l.calendar.length)) { delete holds[u]; continue }
     const { calendar: _, ...h } = holds[u]!
-    holds[u] = { ...h, places: l.places, ...(l.calendar.length ? { calendar: l.calendar } : {}) }
+    const originals = creditHoldAddresses(u, h).filter(url => url !== u)
+    holds[u] = { ...h, places: l.places, ...(originals.length ? { originals } : {}), ...(l.calendar.length ? { calendar: l.calendar } : {}) }
   }
   await writeMap(join(root, CREDIT_HOLDS), holds)
   return { back, off, stuck: [...left.keys()] }

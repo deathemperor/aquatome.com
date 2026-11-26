@@ -111,9 +111,15 @@ export function deadScreenPhotoUrls(p: PhotoVersions): string[] {
 }
 
 /** An active rights hold covers the stored photo and originals carried by its saved placements. */
-export function creditHoldPhotoUrls(holds: Record<string, { released?: boolean; places?: { photo: PhotoVersions }[] }> = {}): string[] {
-  return Object.entries(holds).flatMap(([url, hold]) => hold.released ? [] :
-    [url, ...(hold.places ?? []).flatMap(place => deadScreenPhotoUrls(place.photo))])
+export type CreditHoldPhotos = { released?: boolean; originals?: string[]; places?: { photo: Pick<Photo, 'url' | 'original'> }[] }
+
+export function creditHoldAddresses(url: string, hold: CreditHoldPhotos): string[] {
+  return [...new Set([url, ...(hold.originals ?? []), ...(hold.places ?? []).flatMap(({ photo }) =>
+    photo.original?.url ? [photo.original.url] : [])])]
+}
+
+export function creditHoldPhotoUrls(holds: Record<string, CreditHoldPhotos> = {}): string[] {
+  return Object.entries(holds).flatMap(([url, hold]) => hold.released ? [] : creditHoldAddresses(url, hold))
 }
 
 /** Photo placements that carry their own publishing and attribution metadata. */

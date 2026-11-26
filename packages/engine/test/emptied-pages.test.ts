@@ -195,6 +195,20 @@ test.each(['own photo', 'album'])('a rejection alone queues a page that loses th
   expect(await listEmptied(r, '2026-11-26')).toEqual(['species/x'])
 })
 
+test('the sweep notices a fish page whose bare original is hidden by a credit hold elsewhere', async () => {
+  const { r, put } = await store({ species: { x: ['original'] } })
+  const original = photo('original')
+  const wrapper = { ...photo('wrapper'), original }
+  await put(`engine-state/${schema.PHOTO_SCREEN_FILE}`, { [original.url]: { ocr: [] } })
+  const git = (...args: string[]) => execFileSync('git', args, { cwd: r, encoding: 'utf8' })
+  git('init', '-q', '-b', 'main'); git('config', 'user.email', 't@example.org'); git('config', 'user.name', 'Sample Tester')
+  git('add', '.'); git('commit', '-qm', 'visible original')
+
+  await put(`engine-state/${schema.CREDIT_HOLD_FILE}`, { [wrapper.url]: { places: [{ photo: wrapper }] } })
+  expect(git('diff', '--name-only', '--', 'content')).toBe('')
+  expect(await listEmptied(r, '2026-11-26')).toEqual(['species/x'])
+})
+
 test('the replay locates a different page whose fallback original has a face verdict', async () => {
   const { r, put } = await store({ species: { x: [], y: [] }, albums: { x: ['u'] } })
   const file = 'content/species/y/entity.json'

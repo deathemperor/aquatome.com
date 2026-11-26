@@ -225,7 +225,7 @@ test("a copy that shows another credit, or a line the guard refuses, keeps every
   // line names two people, one from a page whose line names one. Photo 3: no conflict anywhere, named.
   const original = g(4, one)
   const named = { ...original, author: 'Bo Sample / Aquarium Glaser' }
-  const wrapper = { ...original, url: 'https://media.aquatome.com/glaser/alteration.webp', altered: [{ method: 'lanczos3-upscale' }],
+  const wrapper = { ...original, url: 'https://media.aquatome.com/glaser/crop.webp', ownerCrop: { by: 'reviewer' },
     original: { url: original.url, width: original.width, height: original.height } }
   await writeFile(at('content', 'species', 'a', 'entity.json'), `${JSON.stringify({ photos: [g(1, one, 'Male, photo: Bo Sample'), g(2, two), g(3, one, 'Female'), named] }, null, 2)}\n`)
   await writeFile(at('content', 'gallery', 'a.json'), `${JSON.stringify({ photos: [g(1, one), g(2, one), g(3, one), wrapper] }, null, 2)}\n`)
