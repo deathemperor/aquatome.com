@@ -264,7 +264,7 @@ test('a photo taken off in the run that brought it, cleared, goes back to its pl
   // The record holds the file and the place; the entry, with its credit, is in the private folder alone.
   expect((await json(r, SL))[url('a-new')].left).toEqual([capturedAt(A, 0)])
   expect(await readFile(join(r, SL), 'utf8')).not.toContain(entry.author)
-  expect((await keptOf(url('a-new'))).places).toEqual({ [A]: entry })
+  expect((await keptOf(url('a-new')))?.places).toEqual({ [A]: entry })
   git('add', '-A'); git('commit', '-qm', 'the run')
   await clear()
   const before = await stat(join(r, A))
@@ -295,7 +295,7 @@ test('each step that takes a photo off at its first verdict notes where it stood
   const out = await dropFacePhotos(join(one.r, 'content'), join(one.r, 'engine-state/_photo-faces.json'), { get: async (u: string) => new TextEncoder().encode(u), detect: async (files: string[]) => files.map(() => 1) }, join(one.r, 'engine-state/_photo-rejected.json'), one.r)
   expect(out.firstOff).toEqual([`${url('a-new')}: species/aaa`])
   expect((await json(one.r, SL))[url('a-new')].left).toEqual([capturedAt(A, 0)])
-  expect((await keptOf(url('a-new'))).places).toEqual({ [A]: entry })
+  expect((await keptOf(url('a-new')))?.places).toEqual({ [A]: entry })
   one.git('add', '-A'); one.git('commit', '-qm', 'the run')
   await one.clear()
   expect((await sweep(one.r, { history: gitHistory(one.r) })).putBack).toEqual([`${A}: ${url('a-new')}`])
@@ -311,7 +311,7 @@ test('each step that takes a photo off at its first verdict notes where it stood
   const checked = await checkPagePhotos(two.r, model, { limit: 10, emptyCap: 0 })
   expect(checked.firstOff).toEqual([`species/aaa: ${url('a-new')}`])
   expect((await json(two.r, SL))[url('a-new')].left).toEqual([capturedAt(A, 0)])
-  expect((await keptOf(url('a-new'))).places).toEqual({ [A]: entry })
+  expect((await keptOf(url('a-new')))?.places).toEqual({ [A]: entry })
   two.git('add', '-A'); two.git('commit', '-qm', 'the run')
   await two.clear()
   expect((await sweep(two.r, { history: gitHistory(two.r) })).putBack).toEqual([`${A}: ${url('a-new')}`])
@@ -342,6 +342,30 @@ test.each(['sweep', 'photo check then sweep'])('a same-cycle album copy taken of
   expect(await albumOf(r, 'aaa')).toEqual(['a-album', 'a-new'])
 })
 
+test('the photo check captures a same-cycle album mirror under the source verdict', async () => {
+  const { r, git, clear } = await runRepo({ aaa: [] })
+  const gallery = 'content/gallery/aaa.json'
+  const source = 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Example.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(source)!.key}`
+  const original = { ...photo('a-new'), url: source }
+  const albumEntry = { ...photo('a-new'), url: mirror, caption: 'Sample album caption' }
+  await writeFile(join(r, A), JSON.stringify({ ...await json(r, A), photos: [original] }))
+  await writeFile(join(r, gallery), JSON.stringify({ ...await json(r, gallery), photos: [albumEntry] }))
+  const selected: string[] = []
+  const image = await sharp({ create: { width: 64, height: 48, channels: 3, background: '#e83' } }).jpeg().toBuffer()
+  await checkPagePhotos(r, {
+    get: async url => { selected.push(url); return new Uint8Array(image) },
+    look: async () => ({ photos: [{ n: 1, ok: 'dead', typical: false, note: 'fish on a board', person: false, logo: false }] }),
+  }, { limit: 1, emptyCap: 0 })
+  expect(selected).toEqual([source, mirror])
+  expect((await json(r, gallery)).photos).toEqual([])
+  expect((await keptOf(source))?.places).toEqual({ [A]: original, [gallery]: albumEntry })
+  git('add', '-A'); git('commit', '-qm', 'the check removed both copies')
+  await clear()
+  await sweep(r, { history: gitHistory(r) })
+  expect((await json(r, gallery)).photos).toEqual([albumEntry])
+})
+
 test("a run that can't read the private folder waits, unmarked, and the Mac's next puts it back; an entry the folder lost stays off, as before", async () => {
   const { r, git, clear } = await runRepo()
   await page(r, 'aaa', ['a-new'])
@@ -366,6 +390,9 @@ test("a run that can't read the private folder waits, unmarked, and the Mac's ne
   // The named private file may be temporarily unavailable. Keep the clear and its waiting entry until it returns.
   const two = await runRepo()
   await page(two.r, 'aaa', ['a-new'])
+  two.git('add', '-A'); two.git('commit', '-qm', 'history has the older entry')
+  const newer = { ...photo('a-new'), caption: 'Sample newer caption' }
+  await writeFile(join(two.r, A), JSON.stringify({ ...await json(two.r, A), photos: [newer] }))
   await screenDead(two.r, deadModel(), { limit: 48 })
   two.git('add', '-A'); two.git('commit', '-qm', 'the run')
   await two.clear()
@@ -382,6 +409,7 @@ test("a run that can't read the private folder waits, unmarked, and the Mac's ne
   expect((await json(two.r, 'engine-state/_photo-rejected.json'))[url('a-new')]).toMatch(/^waiting:/)
   await writeFile(path, saved, { mode: 0o600 })
   expect((await sweep(two.r, { history: gitHistory(two.r) })).putBack).toEqual([`${A}: ${url('a-new')}`])
+  expect((await json(two.r, A)).photos).toEqual([newer])
 })
 
 test.each(['capture', 'history'])('a place restored from %s survives a later place from another checkout', async method => {
@@ -602,12 +630,14 @@ test('the published capture identifies its own metadata when checkouts mark the 
   for (const [run, own] of [[first, losing], [second, winning]] as const) {
     await page(run.r, 'aaa', ['a-new'])
     const entity = await json(run.r, A)
-    await writeFile(join(run.r, A), JSON.stringify({ ...entity, photos: [own] }))
-    await screenDead(run.r, deadModel(), { limit: 48 })
+    const photos = run === first ? [{ ...photo('spacer'), generated: true }, own] : [own]
+    await writeFile(join(run.r, A), JSON.stringify({ ...entity, photos }))
+    await screenDead(run.r, deadModel(), { limit: 48, photos: new Set([u]) })
   }
   const losingRecord = (await json(first.r, SL))[u]
   const winningRecord = (await json(second.r, SL))[u]
   expect(losingRecord.left[0].capture).not.toBe(winningRecord.left[0].capture)
+  expect(losingRecord.left[0].index).not.toBe(winningRecord.left[0].index)
   second.git('add', '-A'); second.git('commit', '-qm', 'published mark')
   await second.clear()
   await sweep(second.r, { history: gitHistory(second.r) })
@@ -697,7 +727,7 @@ test('places go only on a record marked off with no answer, once a file, and a r
   await notePlaces(r, new Map([[url('m'), [place('m', A, 5), place('m', 'content/gallery/aaa.json', 1)]]]))
   const sl = await json(r, SL)
   expect(sl[url('m')].left).toEqual([capturedAt(A, 2), capturedAt('content/gallery/aaa.json', 1)])
-  expect((await keptOf(url('m'))).places).toEqual({ [A]: photo('m'), 'content/gallery/aaa.json': photo('m') })
+  expect((await keptOf(url('m')))?.places).toEqual({ [A]: photo('m'), 'content/gallery/aaa.json': photo('m') })
   for (const n of ['h', 'c', 'x']) expect(await keptOf(url(n))).toBeNull()
   expect(sl[url('h')].left).toBeUndefined()
   expect(sl[url('c')].left).toBeUndefined()

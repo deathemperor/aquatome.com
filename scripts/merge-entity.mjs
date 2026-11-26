@@ -38,9 +38,17 @@ function mergeLists(base, ours, theirs, field) {
   }
   for (const [i, it] of theirs.entries()) {
     const id = idOf(it)
-    if (o.has(id) || untouched(id, it)) continue
+    if (untouched(id, it)) continue
     // A restored photo can be inserted ahead of a photo both sides kept. Preserve that position when merging a push.
     const next = field === 'photos' ? theirs.slice(i + 1).map(idOf).find(id => o.has(id) && out.some(x => idOf(x) === id)) : undefined
+    if (o.has(id)) {
+      if (!b.has(id) && next !== undefined) {
+        const position = out.findIndex(x => idOf(x) === id)
+        const anchor = out.findIndex(x => idOf(x) === next)
+        if (position > anchor) out.splice(anchor, 0, ...out.splice(position, 1))
+      }
+      continue
+    }
     if (next === undefined) out.push(it)
     else out.splice(out.findIndex(x => idOf(x) === next), 0, it)
   }

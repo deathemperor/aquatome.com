@@ -160,7 +160,9 @@ export const completedDeadVerdict = (record: unknown): record is { dead: boolean
  */
 export function deadLooked(r: DeadLookRecords): (url: string) => boolean {
   const asked = askedByCheckOf(r.check, r.subjects)
-  return url => completedDeadVerdict(r.screen[url]) || asked.has(url) || (!!r.secondLook && Object.hasOwn(r.secondLook, url) && !!photoLookAnswer(r.secondLook[url]))
+  const cleared = photoClears(r.secondLook)
+  return url => completedDeadVerdict(r.screen[url]) || asked.has(url) || cleared(url) ||
+    (!!r.secondLook && Object.hasOwn(r.secondLook, url) && !!photoLookAnswer(r.secondLook[url]))
 }
 /** Album vetting counts only a verdict from the dead-fish screen or a person's second look. */
 export function albumLooked(r: Pick<DeadLookRecords, 'screen' | 'secondLook'>): (url: string) => boolean {
@@ -175,17 +177,29 @@ export function photoLookAnswer(record: unknown): { said: 'agree' | 'clear'; by:
   return { said: look.said, by: look.by, on: look.on }
 }
 
+/** A clear applies to both source and mirror. A review recorded under the requested URL takes precedence. */
+export function photoClears(records: Record<string, unknown> = {}): (url: string) => boolean {
+  const clears = photoAddressSet(Object.keys(records).filter(url => photoLookAnswer(records[url])?.said === 'clear'))
+  return url => Object.hasOwn(records, url) ? photoLookAnswer(records[url])?.said === 'clear' : clears(url)
+}
+
 type LookMark = { why?: unknown; off?: boolean; settled?: unknown }
 
-function mayKeepPhoto(mark: LookMark | undefined) {
-  const answer = photoLookAnswer(mark)
-  return answer?.said === 'clear' || (typeof mark?.why === 'string' && !!mark.why && mark.off !== true && !answer)
+function unansweredHold(record: unknown): boolean {
+  const mark = record as LookMark | undefined
+  return typeof mark?.why === 'string' && !!mark.why && mark.off !== true && !photoLookAnswer(mark)
+}
+
+/** An unanswered hold stays with the photo when its source is mirrored. */
+export function photoHolds(records: Record<string, unknown> = {}): (url: string) => boolean {
+  const held = photoAddressSet(Object.keys(records).filter(url => unansweredHold(records[url])))
+  return url => Object.hasOwn(records, url) ? unansweredHold(records[url]) : held(url)
 }
 
 /** A face found on one version of a photo disqualifies that URL, subject to its second look. */
-export function facePhotoOff(url: string, faces?: Record<string, unknown>, secondLook?: Record<string, unknown>): boolean {
+export function facePhotoOff(url: string, faces?: Record<string, unknown>, secondLook?: Record<string, unknown>, cleared = photoClears(secondLook), held = photoHolds(secondLook)): boolean {
   const count = faces?.[url]
-  return typeof count === 'number' && count > 0 && !mayKeepPhoto(secondLook?.[url] as LookMark | undefined)
+  return typeof count === 'number' && count > 0 && !cleared(url) && !held(url)
 }
 
 /** One place has already published its clear. A later pending place must not put the whole URL back on the list. */
@@ -201,17 +215,16 @@ export function settledWaiting(reason: unknown, record: unknown): boolean {
  * file it came from still needs to preserve a different fallback version. A last-photo hold or a person's clear can
  * keep a dead verdict from taking effect.
  */
-export function deadPhotoOff(url: string, screen?: Record<string, unknown>, secondLook?: Record<string, unknown>, rejected?: PhotoRejection): boolean {
+export function deadPhotoOff(url: string, screen?: Record<string, unknown>, secondLook?: Record<string, unknown>, rejected?: PhotoRejection, cleared = photoClears(secondLook), held = photoHolds(secondLook)): boolean {
   const rejection = rejected?.(url)
   const why = rejection?.[1]
   const mark = secondLook?.[rejection?.[0] ?? url] as LookMark | undefined
   if (settledWaiting(why, mark)) return false
   if (typeof why === 'string' && (why.startsWith('dead:') || why.startsWith('people:') || why.startsWith('waiting:'))) return true
-  const look = photoLookAnswer(mark)
-  if (look?.said === 'clear') return false
+  if (cleared(rejection?.[0] ?? url)) return false
   if (mark?.off === true && typeof mark.why === 'string' && mark.why.startsWith('dead:')) return true
   const verdict = screen?.[url] as { dead?: unknown } | undefined
-  return verdict?.dead === true && !mayKeepPhoto(mark)
+  return verdict?.dead === true && !held(rejection?.[0] ?? url)
 }
 
 export type PhotoWaitRecords = {
@@ -229,13 +242,15 @@ export type PhotoWaitRecords = {
 /** The screen records that can withhold a selected photo version, wherever its address is used. */
 export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
   const owesLook = photoAddressSet([...Object.keys(r.owed ?? {}), ...(r.unjudged ?? [])])
+  const cleared = photoClears(r.secondLook)
+  const held = photoHolds(r.secondLook)
   const faceWaits = photoAddressSet([
     ...(r.unread ?? []),
-    ...[...(r.flaggedAlterations ?? [])].filter(url => facePhotoOff(url, r.faces, r.secondLook)),
+    ...[...(r.flaggedAlterations ?? [])].filter(url => facePhotoOff(url, r.faces, r.secondLook, cleared, held)),
   ])
   return url => (!!r.watermarks && awaitsScreen(url, r.watermarks[url])) ||
     owesLook(url) || faceWaits(url) ||
-    deadPhotoOff(url, r.deadScreen, r.secondLook, r.rejected)
+    deadPhotoOff(url, r.deadScreen, r.secondLook, r.rejected, cleared, held)
 }
 
 /**

@@ -7,10 +7,11 @@ import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
-import { deadScreenPhotoUrls, IMAGE_SWITCHES, LOGO_FOLDERS, logoFolder, ocrHit, type Photo } from '@aq/schema'
+import { deadScreenPhotoUrls, IMAGE_SWITCHES, LOGO_FOLDERS, logoFolder, ocrHit, publicPhotoVersion, type Photo, type SourceInfo } from '@aq/schema'
 import { rememberMarkedPhotos } from './marked-photos'
 import { compactScreen, summarizeOcr, PHOTO_MARK_KINDS, PHOTO_POSITIONS, photoFailure, photoModelStop, type CompactScreen } from './photo-observations'
 import { writePhotoState } from './photo-state'
+import { readPhotoWaits } from './photo-visibility'
 import { holdForSecondLook, lastPhotos, looks, pagesShowing, readSecondLook } from './last-photo'
 
 /** A line of text macOS Vision read on a photo: confidence 0–1, box 0–1 from the top left. */
@@ -181,7 +182,7 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
   // A screened shop's photo from its own pages is asked whose its marks are (own-mark.ts SCREENED_OWN_MARK), with the
   // shop's name and home page as we hold them. Not one already on the never-again list: a kept record would bring it back
   // (keptOwnMark), and photos listed before this rule return only by their own step, on the chief of staff's word.
-  const sources = JSON.parse(await readFile(join(root, 'content', 'sources.json'), 'utf8').catch(() => '{}')) as Record<string, { name?: string; homepage?: string }>
+  const sources = JSON.parse(await readFile(join(root, 'content', 'sources.json'), 'utf8').catch(() => '{}')) as Record<string, SourceInfo>
   const shopOf = (u: string): ShopPhoto | undefined => {
     // Nor one with a kept record already (a person's, on the chief of staff's word, or the image step's): the record
     // stands, and the screen's answer can't take it off or keep it a second way.
@@ -236,7 +237,12 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
   // page with nothing stays where it is, held for a second look (last-photo.ts), and one the second look cleared stays.
   const sl = looks(await readSecondLook(root))
   const markedNow = (u: string) => cache[u]?.watermark === true && !retainedOwnMark(u, cache[u]) && sl.open(u)
-  const held = new Map([...lastPhotos(await pagesShowing(join(root, 'content')), u => markedNow(u) || u in rejected)].filter(([u]) => markedNow(u) && !(u in rejected)))
+  const waits = await readPhotoWaits(root, { rejected })
+  const pages = await pagesShowing(join(root, 'content'), p => {
+    if (markedNow(p.url) || p.url in rejected) return p.url
+    return publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)?.url
+  })
+  const held = new Map([...lastPhotos(pages, u => markedNow(u) || u in rejected || waits(u))].filter(([u]) => markedNow(u) && !(u in rejected)))
   const marked = (u: string) => markedNow(u) && !held.has(u)
   for (const [u, pages] of held) report.held.push(`${u}: ${pages.join(', ')}`)
   await holdForSecondLook(root, new Map([...held].map(([u, pages]) => [u, { why: `watermark: ${cache[u]!.kind ?? 'unknown'}`, pages }])), 'the watermark screen')
