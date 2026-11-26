@@ -186,9 +186,9 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       readJson<Record<string, number>>(state(FACES_FILE)),
     ])
     const looked = deadLooked({ screen: cache, check, subjects, secondLook })
-    const { unread, altered: flaggedAlterations } = await facePhotoStatus(content, faces)
+    const { unread } = await facePhotoStatus(content, faces)
     const unjudged = new Set([...owned].filter(url => !looked(url)))
-    const waits = photoWaitsFor({ watermarks: watermarkCache, owed: listed, unread, flaggedAlterations, faces, unjudged, deadScreen: oldCache, secondLook })
+    const waits = photoWaitsFor({ watermarks: watermarkCache, owed: listed, unread, faces, unjudged, deadScreen: oldCache, secondLook })
     const heldForCredit = await readCreditHoldWait(root)
     const unavailable = (u: string) => !!isListed(u) || heldForCredit(u) || waits(u)
     for (const [url, refs] of lastPhotoVerdicts(pages, unavailable, going)) last.set(url, refs)

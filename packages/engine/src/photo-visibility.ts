@@ -50,14 +50,14 @@ export async function readPhotoWaits(
     readCreditHoldWait(root),
   ])
   const content = join(root, 'content')
-  const { unread, altered: flaggedAlterations } = await facePhotoStatus(content, faces)
+  const { unread } = await facePhotoStatus(content, faces)
   const unjudged = new Set<string>()
   const looked = deadScreen && deadLooked({ screen: deadScreen, check, subjects, secondLook })
   if (looked) {
     for (const url of await ownDeadPhotoUrls(content)) if (!looked(url)) unjudged.add(url)
   }
   const effective = await expandWholePhotoRejections(content, rejected ?? {}, watermarks)
-  const waits = photoWaitsFor({ watermarks, owed, unread, flaggedAlterations, faces, unjudged, deadScreen, secondLook,
+  const waits = photoWaitsFor({ watermarks, owed, unread, faces, unjudged, deadScreen, secondLook,
     rejected: photoRejections(effective, watermarks) })
   return url => setsCookies(url) || creditHeld(url) || waits(url) ||
     (overrides.freshOwn === true && ((!!looked && !looked(url)) || (!!faces && !Object.hasOwn(faces, url))))

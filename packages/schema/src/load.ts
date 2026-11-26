@@ -246,7 +246,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const rejectedForDead = screen ? photoRejections(
     await expandWholePhotoRejections(root, await stateRecord<Record<string, string>>(root, PHOTO_REJECTED_FILE) ?? {}, screen), screen,
   ) : undefined
-  const { unread, altered: flaggedAlterations } = await facePhotoStatus(root, faces)
+  const { unread } = await facePhotoStatus(root, faces)
   if (faces && opts.photoScreen === 'required') {
     const retryable = [...unread].filter(url => !rejectedForDead?.(url) && !heldForCredit(url)).length
     console.log(`${lang}: ${retryable} own photos of species, plant and guide pages wait, the face finder has never read them`)
@@ -274,7 +274,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
       if (retryable > UNJUDGED_DEAD_LIMIT) throw new Error(`${lang}: ${retryable} own photos of species and plant pages that no look has judged for a dead fish (${join(dirname(root), 'engine-state', DEAD_SCREEN_FILE)} and the photo check's records). More than ${UNJUDGED_DEAD_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) screens them.`)
     }
   }
-  const waitsForScreen = photoWaitsFor({ watermarks: screen, owed, unread, flaggedAlterations, faces, unjudged, deadScreen, secondLook, rejected: rejectedForDead })
+  const waitsForScreen = photoWaitsFor({ watermarks: screen, owed, unread, faces, unjudged, deadScreen, secondLook, rejected: rejectedForDead })
   const waitsFor = (url: string) => heldForCredit(url) || waitsForScreen(url)
   // Every picture a build takes from content asks this: a page's, an album's, a guide's and its video sections', a
   // card's, an equipment guide's. Each one's addresses (its own, its thumb's, its larger copy's) are kept by the answer,

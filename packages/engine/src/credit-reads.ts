@@ -81,6 +81,9 @@ export function pageCredits(images: PageImage[], page: string, source: SourceId,
     const key = dedupeKey(src), p = pictures.get(key) ?? { srcs: [], credits: [] }
     pictures.set(key, p)
     p.srcs.push(src)
+    for (const rendition of img.renditions ?? []) {
+      try { p.srcs.push(new URL(rendition, page).href) } catch { continue }
+    }
     const credit = img.credit ?? img.author
     if (credit) p.credits.push(credit)
   }
@@ -89,7 +92,11 @@ export function pageCredits(images: PageImage[], page: string, source: SourceId,
     const lines = p.credits.map(c => ({ c: c.trim(), k: creditReadKind(c, sourceName, terms) })).sort((a, b) => RANK[b.k] - RANK[a.k])
     const top = lines[0]
     const record: PhotoCredit = { page, kind: top?.k ?? 'none', ...(top && top.k !== 'none' ? { line: sha(top.c) } : {}), at }
-    for (const src of p.srcs) out[media.urlFor(photoKey(source, src))] = record
+    for (const src of p.srcs) {
+      const address = media.urlFor(photoKey(source, src))
+      const prior = out[address]
+      if (!prior || RANK[record.kind] >= RANK[prior.kind]) out[address] = record
+    }
   }
   return out
 }
@@ -273,15 +280,22 @@ export async function releaseCreditHolds(root: string, credits: Record<string, P
     }
     const reason = listed(u)?.[1]
     const independent = reason && reason !== HOLD_NOTE && !reason.startsWith('waiting:') ? reason : undefined
-    const returning = !independent ? h.places
-      : isVersionRejection(independent) ? h.places.filter(place => deadScreenPhotoUrls(place.photo).length > 1) : []
-    if (independent && !returning.length) {
+    const originalBarred = (url: string) => {
+      const prior = listed(url)?.[1]
+      return !!prior && prior !== HOLD_NOTE && !prior.startsWith('watermark:') && !isVersionRejection(prior)
+    }
+    const barredOriginal = addresses.some(url => url !== u && originalBarred(url))
+    const returning = h.places.filter(({ photo }) =>
+      (!photo.original || !originalBarred(photo.original.url)) &&
+      (!independent || (isVersionRejection(independent) && deadScreenPhotoUrls(photo).length > 1)),
+    )
+    if ((independent || barredOriginal) && !returning.length) {
       off.push(u)
       continue
     }
     back.push(u)
     places.push(...returning)
-    if (!independent) cards.push(...(h.calendar ?? []).map(c => ({ url: u, c })))
+    if (!independent && !barredOriginal) cards.push(...(h.calendar ?? []).map(c => ({ url: u, c })))
   }
   const stay = (u: string) => left.get(u) ?? (left.set(u, { places: [], calendar: [] }), left.get(u)!)
   // Off the never-again list first, then back on the pages, then out of the holds: a failure at any point leaves no

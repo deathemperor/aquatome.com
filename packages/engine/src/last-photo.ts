@@ -230,8 +230,8 @@ export async function listAgreed(root: string, includes: (url: string) => boolea
     raw => JSON.parse(raw) as Record<string, { retainedOwnMark?: unknown }>,
     (error: NodeJS.ErrnoException) => { if (error.code !== 'ENOENT') throw error; return undefined },
   )
-  const active = photoRejections(rejected, watermarks)
   for (const url of agreed) {
+    const active = photoRejections(rejected, watermarks)
     // A waiting entry, for this reason or another, takes the verdict's own reason, on a record marked off or not: two runs'
     // records can meet in a merge with the unmarked one kept and the waiting entry beside it (the chief of staff, 20 Nov,
     // after that night's seven). On one marked off, a mark's entry does too, which a shop's own kept mark could otherwise
