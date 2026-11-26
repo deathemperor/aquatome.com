@@ -73,7 +73,10 @@ test('the faces step screens the photos new to it for dead fish, wherever they s
   expect((await json(root, 'engine-state/_photo-second-look.json'))[m('b-dead')]).toMatchObject({ step: 'the dead-fish screen', pages: ['species/b'], off: true })
   const rejected = await json(root, 'engine-state/_photo-rejected.json')
   expect(rejected[m('b-dead')]).toMatch(/^waiting: /)
-  expectControlledRejections(Object.fromEntries(Object.entries(rejected).filter(([u]) => u !== m('b-dead'))), { [m('a-dead')]: 'dead', [m('c-face')]: 'people' })
+  // At the face pass, c's other photo is still owed. Its first face verdict takes it off with a second-look mark.
+  expect(r.faces.firstOff).toEqual([`${m('c-face')}: species/c`])
+  expect(rejected[m('c-face')]).toMatch(/^waiting: /)
+  expectControlledRejections({ [m('a-dead')]: rejected[m('a-dead')] }, { [m('a-dead')]: 'dead' })
   expect(Object.keys(await json(root, 'engine-state/_dead-screen.json')).sort()).toEqual([m('a-dead'), m('a-live'), m('a-old'), m('b-dead'), m('c-live')])
   // Each judged now, none is owed.
   expect(await owed(root)).toEqual([])
@@ -262,6 +265,30 @@ async function publicFixture(photos: object[], albums: object[], urls: string[])
   const publicView = () => loadAll({ root: content, lang: 'vi', publicBuild: true })
   return { root, state, file, publicView }
 }
+
+test.each([false, true])('the face finder holds a passed last photo while its sibling owes the dead-fish screen (original: %s)', async useOriginal => {
+  const flagged = photo('passed-face'), pending = photo('unreadable')
+  const altered = {
+    ...pending, url: m('altered-live'),
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }],
+    original: { url: pending.url, width: pending.width, height: pending.height },
+  }
+  const sibling = useOriginal ? altered : pending
+  const { root, state, publicView } = await publicFixture([flagged, sibling], [], [flagged.url, sibling.url, pending.url])
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify(useOriginal ? { [sibling.url]: { dead: false } } : {}))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [sibling.url]: 0 }))
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [flagged.url]: { ok: 'yes', person: false, logo: false } }))
+
+  const report = await run(root, deps({ unreadable: pending.url }).d)
+  expect(report.faces.held).toEqual([`${flagged.url}: species/alpha`])
+  expect(report.owed).toBe(1)
+  expect(await owed(root)).toEqual([pending.url])
+  const view = await publicView()
+  expect(view.species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([flagged.url])
+  expect(view.photoWaits!(pending.url)).toBe(true)
+  expect((await json(root, 'engine-state/_photo-second-look.json'))[flagged.url])
+    .toMatchObject({ step: 'face detection', pages: ['species/alpha'] })
+})
 
 test('a rejection write failure cannot release the album copy on retry', async () => {
   const live = photo('live'), dead = photo('second-dead')

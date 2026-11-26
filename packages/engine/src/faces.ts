@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD } from '@aq/schema'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadPhotoOff, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, publicPhotoVersion, SECOND_LOOK_RECORD, type SourceInfo } from '@aq/schema'
 import { screenDead, type DeadScreenDeps } from './dead-screen'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
@@ -30,9 +30,10 @@ export async function visionFaces(files: string[]): Promise<number[]> {
  * and any photo with a human face is dropped from its page, as is any photo the owner rejected by hand (`rejectedFile`:
  * URL → reason; hands, product packshots, English-text banners), and so is a video section's photo the owner rejected.
  * Runs each cycle, so a re-picked photo never publishes. `root`: where engine-state is, for the second look
- * (last-photo.ts). `enrol` is given the photos new to it before it writes anything, and a throw from it stops the pass.
+ * (last-photo.ts). `enrol` receives the new URLs before the face pass writes anything and returns the URLs that must
+ * wait for the dead-fish screen. A throw from it stops the pass.
  */
-export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: FaceDeps, rejectedFile?: string, root = join(contentRoot, '..'), enrol?: (fresh: string[]) => Promise<void>): Promise<{ checked: number; fresh: string[]; screened: string[]; removed: string[]; held: string[]; firstOff: string[]; failed: string[] }> {
+export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: FaceDeps, rejectedFile?: string, root = join(contentRoot, '..'), enrol?: (fresh: string[]) => Promise<ReadonlySet<string>>): Promise<{ checked: number; fresh: string[]; screened: string[]; removed: string[]; held: string[]; firstOff: string[]; failed: string[] }> {
   const cache: Record<string, number> = JSON.parse(await readFile(cacheFile, 'utf8').catch(() => '{}'))
   const rejected: Record<string, string> = rejectedFile ? JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) : {}
   const pages: { file: string; e: { photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } } }[] = []
@@ -44,7 +45,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
     }
   }
   const todo = [...new Set(pages.flatMap(p => (p.e.photos ?? []).map(x => x.url)))].filter(u => !(u in cache) && !(u in rejected))
-  await enrol?.(todo)
+  const waitingForDead = await enrol?.(todo)
   const failed: string[] = []
   // Screened in this run: its verdict is the photo's first from this step.
   const screened = new Set<string>()
@@ -67,11 +68,23 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   }
   // A face takes a photo off, unless its going would leave a species, plant or breed page with nothing: then it stays,
   // held for a second look (last-photo.ts). One the second look cleared stays too.
-  const sl = looks(await readSecondLook(root))
+  const secondLook = await readSecondLook(root)
+  const sl = looks(secondLook)
   // A hold on another reason doesn't keep a photo that never passed from a face found now, its first verdict (photo-check.ts spared).
   const passed = await readPassedBefore(root)
   const face = (u: string) => cache[u]! > 0 && (sl.open(u) || (sl.waiting(u) && screened.has(u) && !passed.has(u)))
-  const last = new Map([...lastPhotos(await pagesShowing(contentRoot), u => face(u) || u in rejected)].filter(([u]) => face(u) && !(u in rejected)))
+  const screen = waitingForDead && await readPhotoRecord(root, DEAD_SCREEN_FILE)
+  const sources: Record<string, SourceInfo> = waitingForDead
+    ? JSON.parse(await readFile(join(contentRoot, 'sources.json'), 'utf8').catch(() => '{}'))
+    : {}
+  // Use the version a sibling can show. A face verdict on the stored URL removes that whole entry.
+  const pagesToKeep = await pagesShowing(contentRoot, p => {
+    if (!waitingForDead || face(p.url) || p.url in rejected) return p.url
+    return publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)?.url
+  })
+  const offPage = (u: string) => face(u) || u in rejected || waitingForDead?.has(u) === true ||
+    (!!waitingForDead && deadPhotoOff(u, screen, secondLook))
+  const last = new Map([...lastPhotos(pagesToKeep, offPage)].filter(([u]) => face(u) && !(u in rejected)))
   // Only one that passed the check before is held; a face found now, on one that never did, takes it off, marked on both
   // lists (last-photo.ts).
   const firstOff = new Map([...last].filter(([u]) => screened.has(u) && !passed.has(u)))
@@ -112,12 +125,15 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
 /** Sheets of 12 the dead-fish screen takes in one faces step: a pages run's new photos made 11 or 12 (20 to 21 Nov 2026). */
 export const NEW_PHOTO_SHEETS = 14
 
+const readPhotoRecord = async (root: string, name: string): Promise<Record<string, unknown>> =>
+  JSON.parse(await readFile(join(root, 'engine-state', name), 'utf8').catch(() => '{}'))
+
 /**
  * The own photos of fish and plant pages, in page order, that no look has judged for a dead fish (the schema's
  * `deadLooked`, the rule the public build hides by) and the never-again list doesn't have (they leave every page anyway).
  */
 async function unjudged(root: string, contentRoot: string): Promise<string[]> {
-  const read = async (f: string) => JSON.parse(await readFile(join(root, 'engine-state', f), 'utf8').catch(() => '{}')) as Record<string, unknown>
+  const read = (name: string) => readPhotoRecord(root, name)
   const [shown, screen, check, subjects, secondLook, rejected] = await Promise.all([
     ownDeadPhotoUrls(contentRoot), read(DEAD_SCREEN_FILE), read(PHOTO_CHECK_FILE), read(PHOTO_SUBJECTS_FILE), read(SECOND_LOOK_RECORD), read(PHOTO_REJECTED_FILE),
   ])
@@ -163,6 +179,7 @@ export async function screenNewPhotos(contentRoot: string, cacheFile: string, d:
     // The photos new to the face finder are among them, and come first after those owed before.
     enrolled = await stillOwed(root, contentRoot, { ...before, ...Object.fromEntries(fresh.filter(u => !(u in before)).map(u => [u, today])) }, today)
     await write(enrolled)
+    return new Set(Object.keys(enrolled))
   })
   const owed = await stillOwed(root, contentRoot, enrolled, today)
   await write(owed)
