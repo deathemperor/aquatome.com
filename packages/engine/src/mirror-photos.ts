@@ -1,7 +1,8 @@
+import sharp from 'sharp'
 import { writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { IMAGE_SWITCHES, isInatNonCommercial, isNonCommercial, mirrorPlan, type ImageSwitches } from '@aq/schema'
+import { IMAGE_SWITCHES, isInatNonCommercial, isNonCommercial, mirrorPlan, THUMB_WIDTH, type ImageSwitches } from '@aq/schema'
 import type { Media } from './source-photos'
 import { looks, readSecondLook } from './last-photo'
 
@@ -53,10 +54,31 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
   // A photo off at its first verdict is coming off every page: it isn't copied, so its waiting entry and its record keep
   // one address (last-photo.ts; the independent reader, 20 Nov).
   const marked = looks(await readSecondLook(root)).pendingOff
+  const caches = new Map<string, Record<string, unknown>>()
+  const recorded = new Set<string>()
+  for (const name of URL_KEYED) {
+    const path = join(root, 'engine-state', name)
+    const raw = await readFile(path, 'utf8').catch((error: NodeJS.ErrnoException) => {
+      if (error.code === 'ENOENT') return undefined
+      throw error
+    })
+    if (raw === undefined) continue
+    const cache = JSON.parse(raw) as Record<string, unknown>
+    caches.set(path, cache)
+    for (const url of Object.keys(cache)) recorded.add(url)
+  }
+  const docs = new Map<string, { raw: string; data: unknown }>()
+  const placed = new Map<string, Stored>()
   for (const file of await files(join(root, 'content'))) {
     const raw = await readFile(file, 'utf8').catch(() => null)
     if (!raw) continue
     const data = JSON.parse(raw) as unknown
+    docs.set(file, { raw, data })
+    for (const { url, thumb, width, height } of photosIn(data)) {
+      if (width && height) placed.set(url, { url, ...(thumb ? { thumb } : {}), width, height })
+    }
+  }
+  for (const [file, { raw, data }] of docs) {
     let changed = false
     for (const p of photosIn(data)) {
       const plan = mirrorPlan(p.url)
@@ -66,12 +88,21 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
       if (!stored) {
         if (o.dryRun || (o.limit !== undefined && done.size >= o.limit)) { report.pending++; continue }
         try {
-          let bytes: Uint8Array | undefined
-          for (const u of plan.fetch) { bytes = await d.bytes(u).catch(() => undefined); if (bytes) break }
-          if (!bytes) throw new Error('not downloadable')
-          stored = await d.media.put(plan.key, bytes)
+          const url = d.media.urlFor(plan.key)
+          stored = placed.get(url)
+          if (!stored && recorded.has(url)) {
+            const { width, height } = await sharp(await d.bytes(url)).metadata()
+            if (!width || !height) throw new Error('the stored mirror has no dimensions')
+            stored = { url, thumb: d.media.urlFor(plan.key.replace(/\.webp$/, `-${THUMB_WIDTH}.webp`)), width, height }
+          }
+          if (!stored) {
+            let bytes: Uint8Array | undefined
+            for (const u of plan.fetch) { bytes = await d.bytes(u).catch(() => undefined); if (bytes) break }
+            if (!bytes) throw new Error('not downloadable')
+            stored = await d.media.put(plan.key, bytes)
+            await d.sleep(500) // Wikimedia asks bulk clients to go gently
+          }
           done.set(plan.key, stored)
-          await d.sleep(500) // Wikimedia asks bulk clients to go gently
         } catch (e) {
           report.failed.push(`${p.url}: ${(e as Error).message.slice(0, 120)}`)
           continue
@@ -86,14 +117,7 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
       edits.set(file, `${JSON.stringify(data, null, indent)}\n`)
     }
   }
-  if (moved.length) for (const f of URL_KEYED) {
-    const path = join(root, 'engine-state', f)
-    const raw = await readFile(path, 'utf8').catch((error: NodeJS.ErrnoException) => {
-      if (error.code === 'ENOENT') return 'null'
-      throw error
-    })
-    const cache = JSON.parse(raw) as Record<string, unknown> | null
-    if (!cache) continue
+  if (moved.length) for (const [path, cache] of caches) {
     let n = 0
     for (const [from, to] of moved) if (from in cache && !(to in cache)) {
       const value = cache[from]

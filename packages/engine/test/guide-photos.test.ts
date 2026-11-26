@@ -386,3 +386,16 @@ test('a guide refusing an alteration holds the bare original on a fish page unti
   expect(await listAgreed(root)).toEqual([wrapper.url])
   expect((await json(root, 'engine-state/_photo-rejected.json'))[original.url]).toMatch(/^watermark:/)
 })
+
+test('all whole-photo refusals on alterations sharing a sole bare original wait for a second look', async () => {
+  const original = photo('shared-bare')
+  const wrappers = ['alteration-one', 'alteration-two'].map(id => ({ ...photo(id), altered: [{ method: 'lanczos3-upscale' }], original }))
+  const root = await store({ guide: { photos: wrappers } })
+  const fish = join(root, 'content/species/only')
+  await mkdir(fish, { recursive: true })
+  await writeFile(join(fish, 'entity.json'), JSON.stringify({ id: 'only', photos: [original] }))
+  const { d } = model({ 'alteration-one': { mark: true }, 'alteration-two': { mark: true } })
+  const report = await screenGuidePhotos(root, d, { limit: 1 })
+  expect(report.held).toEqual(wrappers.map(p => `${p.url}: species/only`))
+  expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({})
+})

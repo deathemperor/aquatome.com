@@ -262,8 +262,8 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
     report.confirmed.push(u)
     if (!(u in rejected)) rejected[u] = `watermark: ${cache[u]!.kind ?? 'unknown'}`
   }
-  await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort()))
   await writePhotoState(rejectedFile, rejected)
+  await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort()))
   for (const f of files) {
     const raw = await readFile(f, 'utf8')
     const data = JSON.parse(raw) as unknown
