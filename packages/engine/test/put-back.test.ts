@@ -11,7 +11,7 @@ import { screenDead, type DeadScreenDeps } from '../src/dead-screen'
 import { dropFacePhotos, screenNewPhotos } from '../src/faces'
 import { galleries, type GalleryDeps } from '../src/gallery'
 import { mirrorPlan } from '../src/mirror-photos'
-import { gitHistory, listAgreed, notePlaces, putBackCleared, waitingEntry, type History, type LeftPlace } from '../src/last-photo'
+import { gitHistory, holdForSecondLook, listAgreed, notePlaces, putBackCleared, waitingEntry, type History, type LeftPlace } from '../src/last-photo'
 import { compactRejection } from '../src/photo-observations'
 import { checkPagePhotos, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
 import { sweep } from '../src/sweep'
@@ -865,15 +865,23 @@ test('the published capture identifies its own metadata when checkouts mark the 
   const entry = photo('a-new')
   const losing = { ...entry, caption: 'Earlier checkout' }
   const winning = { ...entry, caption: 'Published checkout' }
-  for (const [run, own] of [[first, losing], [second, winning]] as const) {
+  for (const [run, own] of [[second, winning], [first, losing]] as const) {
     await page(run.r, 'aaa', ['a-new'])
     const entity = await json(run.r, A)
     const photos = run === first ? [{ ...photo('spacer'), generated: true }, own] : [own]
     await writeFile(join(run.r, A), JSON.stringify({ ...entity, photos }))
-    await screenDead(run.r, deadModel(), { limit: 48, photos: new Set([u]) })
+    if (run === second) {
+      await screenDead(run.r, deadModel(), { limit: 48, photos: new Set([u]) })
+    } else {
+      const winning = (await json(second.r, SL))[u]
+      const yesterday = new Date(Date.now() - 86_400_000).toISOString().slice(0, 10)
+      await holdForSecondLook(run.r, new Map([[u, { why: winning.why, pages: winning.pages, off: true }]]), winning.step, yesterday)
+      await notePlaces(run.r, new Map([[u, [{ file: A, index: 1, photo: own }]]]))
+    }
   }
   const losingRecord = (await json(first.r, SL))[u]
   const winningRecord = (await json(second.r, SL))[u]
+  expect(losingRecord.at).not.toBe(winningRecord.at)
   expect(losingRecord.left[0].capture).not.toBe(winningRecord.left[0].capture)
   expect(losingRecord.left[0].index).not.toBe(winningRecord.left[0].index)
   second.git('add', '-A'); second.git('commit', '-qm', 'published mark')
