@@ -6,6 +6,8 @@ import sharp from 'sharp'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { backfillPhotos } from '../src/photo-backfill'
+import { holdForCreditRead, releaseCreditHolds } from '../src/credit-reads'
+import { photoKey } from '../src/source-photos'
 
 const URL_ = 'https://www.seriouslyfish.com/species/acanthopsoides-robertsi/'
 const page = `<html><head><title>Acanthopsoides robertsi</title></head><body><main><h1>Acanthopsoides robertsi</h1><p>${'A small sand-diving loach. '.repeat(20)}</p>
@@ -428,4 +430,26 @@ test("a re-read keeps a shown photo the page lays out small, on a fish's page an
     const e = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8'))
     expect(e.photos.map((p: { url: string }) => p.url)).toEqual([shown.url])
   }
+})
+
+test('guide backfill honors a rights hold on an original saved inside its removed wrapper', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'pb-credit-hold-'))
+  const file = join(root, 'content/guides/fish/entity.json')
+  await mkdir(join(file, '..'), { recursive: true })
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  const urlFor = (key: string) => `https://m/${key}`
+  const original = { url: urlFor(photoKey('seriouslyfish', new URL('/images/robertsi.jpg', URL_).href)), width: 600, height: 233 }
+  const wrapper = { url: 'https://m/credited-wrapper.webp', width: 1200, height: 466, licence: 'CC BY 4.0',
+    source: 'seriouslyfish', sourceUrl: URL_, author: 'Sample Tester', original, altered: [{ method: 'lanczos3-upscale' }] }
+  await writeFile(file, JSON.stringify({ source: 'seriouslyfish', sourceUrl: URL_, photos: [wrapper] }))
+  await holdForCreditRead(root, [wrapper.url], 'reviewer', '2026-11-26', 'credit unread')
+  const unused = async () => { throw new Error('the held original must not be fetched or stored') }
+
+  expect(await backfillPhotos(root, {
+    get: async () => ({ status: 200, html: page.replace(/<img src="\/images\/robertsi-2.jpg"[^>]*>/, '') }),
+    bytes: unused, media: { put: unused, urlFor }, now: () => new Date('2026-11-26'), sleep: async () => {},
+  })).toEqual({ pages: 1, added: 0, errors: [] })
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([])
+  await releaseCreditHolds(root, { [original.url]: { page: URL_, kind: 'own', at: '2026-11-26' } })
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([wrapper])
 })
