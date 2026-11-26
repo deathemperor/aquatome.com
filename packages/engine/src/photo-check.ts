@@ -48,6 +48,13 @@ export type PhotoCheckDeps = {
 /** Sheets the model failed on, each photo by `page url`, which go first in the next run (checkPagePhotos). */
 export const ASIDE_FILE = '_photo-check-aside.json'
 const VERDICTS = ['yes', 'other', 'none', 'unsure', 'dead'] as const
+const STORED_VERDICTS = new Set<unknown>([...VERDICTS, 'habitat', 'no'])
+
+export function validSubjectVerdict(value: unknown): boolean {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return false
+  const verdict = value as { ok?: unknown; guide?: unknown }
+  return STORED_VERDICTS.has(verdict.ok) && (verdict.guide === undefined || typeof verdict.guide === 'boolean')
+}
 export const PHOTO_CHECK_SCHEMA = {
   type: 'object', required: ['photos'],
   properties: { photos: { type: 'array', items: { type: 'object', required: ['n', 'ok', 'typical', 'young', 'note', 'logo', 'person'], properties: { n: { type: 'number' }, ok: { type: 'string', enum: VERDICTS }, typical: { type: 'boolean' }, young: { type: 'boolean' }, note: { type: 'string' }, logo: { type: 'boolean' }, person: { type: 'boolean' } } } } },

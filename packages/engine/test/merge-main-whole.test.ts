@@ -308,6 +308,15 @@ test('an album merge gives a concurrent restoration its saved position', () => {
     .toEqual(album([lead, tail]))
 })
 
+test('an album merge preserves distinct plain and altered additions at one address', () => {
+  const plain = photo('added', 'Plain credit')
+  const wrapper = { ...plain, author: 'Wrapper credit', altered: [{ method: 'lanczos3-upscale' }], original: photo('original', 'Original credit') }
+  const album = (photos: Photo[]) => ({ id: 'alpha', photos })
+  for (const [main, run] of [[plain, wrapper], [wrapper, plain]] as const) {
+    expect(mergeMainWhole(album([]), album([main]), album([run]), {}, 'content/gallery/alpha.json')).toEqual(album([main, run]))
+  }
+})
+
 test('the script runs as the driver through a symlinked folder too', () => {
   const dir = mkdtempSync(join(tmpdir(), 'aq-main-whole-link-'))
   symlinkSync(join(ROOT, 'scripts'), join(dir, 'scripts'))
