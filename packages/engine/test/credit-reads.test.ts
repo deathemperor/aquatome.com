@@ -59,11 +59,14 @@ test('a read page gives each photo of ours its credit kind by the address we sto
 })
 
 test("a rights hold a person decided takes even a page's last photo off, kept with its place; a credit read's own verdict on a last photo waits for a second look", async () => {
-  const only = photo('only'), first = photo('first'), second = photo('second'), lone = photo('lone')
+  const only = photo('only'), first = photo('first'), second = photo('second'), lone = photo('lone'), waiting = photo('waiting')
   const r = await root({
     'content/species/fish-a/entity.json': { id: 'fish-a', photos: [only] },
     'content/guides/list/entity.json': { id: 'list', photos: [first, second] },
-    'content/species/fish-b/entity.json': { id: 'fish-b', photos: [lone] },
+    'content/species/fish-b/entity.json': { id: 'fish-b', photos: [lone, waiting] },
+    'content/sources.json': { sprucepets: { publish: true } },
+    'engine-state/_dead-screen.json': { [lone.url]: { dead: false } },
+    'engine-state/_photo-faces.json': { [lone.url]: 0, [waiting.url]: 0 },
     'content/curation.json': { days: [{ date: '2026-11-27', guide: 'guides/list', guideImg: second.url }, { date: '2026-11-28', guideImg: 'https://media.test/other.webp' }] },
   })
   // The rights hold: the chief of staff's decision, not a step's verdict. The last-photo guard has no say.
@@ -80,7 +83,7 @@ test("a rights hold a person decided takes even a page's last photo off, kept wi
   // A credit read's verdict is the engine's: on a page's only photo it is held for a second look, not taken off.
   await recordCredits(r, { [lone.url]: { page: PAGE, kind: 'other', line: `sha256:${'a'.repeat(64)}`, at: '2026-11-28' } })
   expect(await applyCreditReads(r)).toEqual({ removed: [], held: [lone.url] })
-  expect((await json(join(r, 'content/species/fish-b/entity.json'))).photos).toEqual([lone])
+  expect((await json(join(r, 'content/species/fish-b/entity.json'))).photos).toEqual([lone, waiting])
   expect(Object.keys(await json(join(r, 'engine-state/_photo-second-look.json')))).toEqual([lone.url])
 })
 
