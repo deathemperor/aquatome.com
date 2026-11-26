@@ -237,12 +237,12 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
       await writePhotoState(file('engine-state', '_photo-watermarks.json'), Object.fromEntries(Object.entries(marks).sort()))
       await writePhotoState(file('engine-state', '_photo-rejected.json'), rejected)
       await writeFile(file('content', 'picture-hashes.json'), sortedJson(hashes))
-      await writePhotoState(file('engine-state', '_photo-guides.json'), Object.fromEntries(Object.entries(verdicts).sort()))
     }
+    // Finish earlier take-offs even when a later guide failed.
+    const took = await takeOffGuidesDead(root, dead, 'the guide photo check')
+    report.dead = took.off
+    report.bare = took.bare
+    if (changed) await writePhotoState(file('engine-state', '_photo-guides.json'), Object.fromEntries(Object.entries(verdicts).sort()))
   }
-  // After the records above, which this writes on top of.
-  const took = await takeOffGuidesDead(root, dead, 'the guide photo check')
-  report.dead = took.off
-  report.bare = took.bare
   return report
 }

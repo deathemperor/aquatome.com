@@ -513,6 +513,19 @@ test("a public build shows no own photo of a species, plant, breed or guide page
     return { fish: own(c.species, 'alpha'), album: (c.galleries.alpha ?? []).map(p => short(p.url)), plant: own(c.plants, 'moss'), guide: own(c.guides, 'g'), breed: own(c.breeds, 'b') }
   }
   expect(await shown(true)).toEqual({ fish: ['fish-read'], album: ['album'], plant: [], guide: ['guide-read'], breed: [] })
+  const breedAlbum = 'gallery/b.json'
+  const breedFile = 'breeds/b/entity.json'
+  const breed = JSON.parse(await readFile(join(store, breedFile), 'utf8'))
+  await write(breedFile, { ...breed, photos: [...breed.photos, { ...photo('generated'), generated: {
+    model: 'sample', driverModel: 'sample', date: '2026-11-26', prompt: 'example', referenceHash: 'e'.repeat(64),
+  } }] })
+  await write(breedAlbum, { id: 'b', seen: 1, updatedAt: '2026-11-26', photos: [photo('album')] })
+  expect((await shown(true)).breed).toEqual([])
+  await writeFile(facesFile, JSON.stringify({ 'https://media.test/fish-read.webp': 0, 'https://media.test/guide-read.webp': 0, 'https://media.test/album.webp': 0 }))
+  expect((await shown(true)).breed).toEqual(['album'])
+  await write(breedAlbum, { id: 'b', seen: 0, updatedAt: '2026-11-26', photos: [] })
+  await write(breedFile, breed)
+  await writeFile(facesFile, JSON.stringify({ 'https://media.test/fish-read.webp': 0, 'https://media.test/guide-read.webp': 0 }))
   // Reading a breed's photo into the face cache still leaves it owed a dead-fish verdict.
   const previousFaces = await readFile(facesFile, 'utf8')
   await writeFile(facesFile, JSON.stringify({ ...JSON.parse(previousFaces), 'https://media.test/breed.webp': 0 }))

@@ -1,3 +1,4 @@
+import { deadScreenPhotoUrls } from '@aq/schema'
 import { createHash } from 'node:crypto'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -25,7 +26,8 @@ export const GUIDE_BACKLOG_PER_SHEET = 6
 type Kind = 'photo' | 'stock' | 'frame'
 const ORDER: Kind[] = ['photo', 'stock', 'frame']
 type Place = { file: string; guide: string; kind: Kind; fig?: number; t?: number; sourceUrl?: string }
-type Guide = { photos?: { url: string }[]; video?: { figures?: { heading?: string; photo?: { url: string; sourceUrl?: string }; moments?: { url: string; t: number }[] }[] } }
+type GuidePhoto = Parameters<typeof deadScreenPhotoUrls>[0] & { sourceUrl?: string }
+type Guide = { photos?: GuidePhoto[]; video?: { figures?: { heading?: string; photo?: GuidePhoto; moments?: { url: string; t: number }[] }[] } }
 const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, () => undefined)
 const indentOf = (raw: string) => /^\{\n( +)"/.exec(raw)?.[1]?.length ?? 0
 const hashed = (s: string) => `sha256:${createHash('sha256').update(s).digest('hex')}`
@@ -38,9 +40,9 @@ async function guidePlaces(root: string): Promise<Map<string, Place[]>> {
   for (const guide of (await readdir(dir).catch(() => [] as string[])).sort()) {
     const file = join(dir, guide, 'entity.json')
     const e = await readJson<Guide>(file)
-    for (const p of e?.photos ?? []) put(p.url, { file, guide, kind: 'photo' })
+    for (const p of e?.photos ?? []) for (const url of deadScreenPhotoUrls(p)) put(url, { file, guide, kind: 'photo' })
     for (const [fig, f] of (e?.video?.figures ?? []).entries()) {
-      if (f.photo) put(f.photo.url, { file, guide, kind: 'stock', fig, sourceUrl: f.photo.sourceUrl })
+      if (f.photo) for (const url of deadScreenPhotoUrls(f.photo)) put(url, { file, guide, kind: 'stock', fig, sourceUrl: f.photo.sourceUrl })
       for (const m of f.moments ?? []) put(m.url, { file, guide, kind: 'frame', fig, t: m.t })
     }
   }

@@ -4,12 +4,13 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
-import { expect, test } from 'vitest'
+import { expect, onTestFinished, test, vi } from 'vitest'
 import { LlmError } from '../src/claude'
 import { guideSubject, screenGuidePhotos, type GuidePhotoDeps, type GuidePhotoVerdict } from '../src/guide-photos'
 import { videoStills, type StillDeps } from '../src/video-stills'
 import { DEAD_RULE, screenGuidesDead } from '../src/guides-dead'
 import type { DeadScreenDeps } from '../src/dead-screen'
+import { putBackCleared } from '../src/last-photo'
 import { readPartPhotosOff } from '../src/video-images'
 import { createHash } from 'node:crypto'
 
@@ -81,6 +82,22 @@ test.each(['own photo', 'stock photo'])('a guide %s keeps its eligible fallback 
   const guide = await json(root, 'content/guides/guide/entity.json')
   expect(stock ? guide.video.figures[0].photo : guide.photos[0]).toEqual(altered)
   expectControlledRejections(await json(root, 'engine-state/_photo-rejected.json'), { [altered.url]: 'watermark' })
+})
+
+test.each(['photo', 'stock'])('a flagged fallback original of a guide %s keeps a credited wrapper while off', async place => {
+  const original = photo('original-dead')
+  const altered = { ...photo('altered'), altered: [{ method: 'lanczos3-upscale' }], original }
+  const guide = place === 'stock' ? { video: { figures: [{ photo: altered, moments: [] }] } } : { photos: [altered] }
+  const root = await store({ guide })
+  const { d } = model({ 'original-dead': { dead: true } })
+
+  const result = await screenGuidePhotos(root, d, { limit: 1 })
+
+  expect(result.dead).toEqual([`${original.url}: guides/guide`])
+  const saved = await json(root, 'content/guides/guide/entity.json')
+  expect(place === 'stock' ? saved.video.figures[0].photo : saved.photos[0]).toEqual(altered)
+  expect((await json(root, 'engine-state/_photo-second-look.json'))[original.url]).toMatchObject({ off: true, pages: ['guides/guide'] })
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[original.url]).toMatch(/^waiting: /)
 })
 
 test('hands or a person on a guide\'s photos, a mark on a video section\'s photo and a brand on a packshot take them off the guides and onto the blocklist; a brand stays on an equipment guide', async () => {
@@ -471,13 +488,19 @@ test("a photo asked again for its subject keeps its verdict: that look's dead an
 
 test("a still whose verdict says dead isn't cleared to show until its second look clears it", async () => {
   const root = await store({ 'youtube-b1': videoGuide([], [{ heading: 'x', moments: [still(20, true)] }]) })
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
+  onTestFinished(() => vi.unstubAllEnvs())
   const frame = url('video/b1/at20-hd')
   await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({ [frame]: { person: false, mark: false, brand: false, note: '', dead: true } }))
   const person = async () => (await json(root, 'content/guides/youtube-b1/entity.json')).video.figures[0].moments[0].person
   const { d } = model({})
   expect(await screenGuidePhotos(root, d, { limit: 5 })).toMatchObject({ judged: 0, cleared: 0 })
-  expect(await person()).toBeUndefined()
-  await writeFile(join(root, 'engine-state/_photo-second-look.json'), JSON.stringify({ [frame]: { why: 'dead: withheld [sha256:' + '0'.repeat(64) + ']', step: 'the guide photo check', pages: ['guides/youtube-b1'], at: '2026-11-26', off: true, look: { said: 'clear', by: 'the chief of staff', on: '2026-11-27' }, back: '2026-11-27' } }))
+  const looksFile = 'engine-state/_photo-second-look.json'
+  const marks = await json(root, looksFile)
+  expect(marks[frame]).toMatchObject({ off: true })
+  marks[frame].look = { said: 'clear', by: 'reviewer', on: '2026-11-27' }
+  await writeFile(join(root, looksFile), JSON.stringify(marks))
+  await putBackCleared(root, async () => [])
   expect(await screenGuidePhotos(root, d, { limit: 5 })).toMatchObject({ judged: 0, cleared: 1 })
   expect(await person()).toBe(false)
 })

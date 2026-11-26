@@ -256,7 +256,7 @@ const validPlace = (p: Place) => PLACE.test(p.file) && Number.isSafeInteger(p.in
     p.path[0] === 'video' && p.path[1] === 'figures' && Number.isSafeInteger(p.path[2]) && p.path[2] >= 0 &&
     (p.path[3] === 'photo' ? p.index === -1 : p.path[3] === 'moments' && p.index >= 0))
 /** The same, with its entry there, as the step that takes it off holds it. */
-export type Stood = Place & { photo: Record<string, unknown>; order?: string[]; heading?: string }
+export type Stood = Place & { photo: Record<string, unknown>; order?: string[]; heading?: string; partOrder?: string[] }
 /** A place a photo's mark took it off, as it was just before it first left from the mark on; and how many times it left. */
 export type LeftPlace = Stood & { times: number }
 
@@ -268,21 +268,24 @@ type PhotoSlot = Omit<Stood, 'file'>
 function photoSlots(data: unknown, guide: boolean): PhotoSlot[] {
   const doc = data as { photos?: unknown; video?: { figures?: unknown } } | undefined
   const out: PhotoSlot[] = []
-  const add = (photos: unknown, path?: GuideSlot, heading?: string) => {
+  const add = (photos: unknown, path?: GuideSlot, heading?: string, partOrder?: string[]) => {
     if (!Array.isArray(photos)) return
     const order = photos.map(p => typeof p?.url === 'string' ? p.url : '')
     photos.forEach((p, index) => {
       if (typeof p?.url !== 'string') return
-      out.push({ index: path?.[3] === 'photo' ? -1 : index, photo: p, order, ...(path ? { path } : {}), ...(heading !== undefined ? { heading } : {}) })
+      out.push({ index: path?.[3] === 'photo' ? -1 : index, photo: p, order, ...(path ? { path } : {}), ...(heading !== undefined ? { heading, partOrder } : {}) })
     })
   }
   add(doc?.photos)
   const figures = doc?.video?.figures
-  if (guide && Array.isArray(figures)) figures.forEach((f, index) => {
-    const heading = typeof f?.heading === 'string' ? f.heading : undefined
-    add([f?.photo], ['video', 'figures', index, 'photo'], heading)
-    add(f?.moments, ['video', 'figures', index, 'moments'], heading)
-  })
+  if (guide && Array.isArray(figures)) {
+    const partOrder = figures.map(f => typeof f?.heading === 'string' ? f.heading : '')
+    figures.forEach((f, index) => {
+      const heading = typeof f?.heading === 'string' ? f.heading : undefined
+      add([f?.photo], ['video', 'figures', index, 'photo'], heading, partOrder)
+      add(f?.moments, ['video', 'figures', index, 'moments'], heading, partOrder)
+    })
+  }
   return out
 }
 
@@ -660,7 +663,7 @@ export async function putBackCleared(root: string, history: History, at = today(
     const missing: string[] = []
     for (const p of own) {
       const kept = captures.get(placeKey(p))
-      if (kept) mine.push({ ...p, photo: kept.photo, order: kept.order, heading: kept.heading, times: fromHistory.get(placeKey(p))?.times ?? 1 })
+      if (kept) mine.push({ ...p, photo: kept.photo, order: kept.order, heading: kept.heading, partOrder: kept.partOrder, times: fromHistory.get(placeKey(p))?.times ?? 1 })
       else if (!fromHistory.has(placeKey(p))) missing.push(`${u}: its entry on ${p.file} wasn't kept here`)
     }
     out.off.push(...missing)
@@ -700,7 +703,9 @@ export async function putBackCleared(root: string, history: History, at = today(
         const at = p.heading === undefined ? p.path[2] : figures.findIndex(f => f.heading === p.heading)
         if (at < 0 && p.heading !== undefined) {
           into = { heading: p.heading, moments: [] } as typeof into
-          figures.splice(Math.min(p.path[2], figures.length), 0, into)
+          const current = figures.map(f => typeof f.heading === 'string' ? f.heading : '')
+          const index = photoPosition(current, p.partOrder ?? [], p.path[2], p.path[2])
+          figures.splice(index, 0, into)
         } else {
           if (!figures[at]) { out.off.push(`${u}: its part of ${p.file} is gone`); continue }
           into = figures[at]!

@@ -165,7 +165,11 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
   const todo = [...items.values()].filter(x => x.wanted && !rejected(x.url) && (!(x.url in cache) || ask(x))).map((x, i) => ({ x, i })).sort((a, b) => Number(b.x.lead) - Number(a.x.lead) || Number(b.x.still) - Number(a.x.still) || Number(b.x.url in cache) - Number(a.x.url in cache) || a.i - b.i).map(({ x }) => x)
   const batch = todo.slice(0, Math.max(0, o.limit) * PER_SHEET)
   report.left = todo.length - batch.length
-  const dead = new Map<string, string>() // judged dead this run, first time asked
+  // Apply a prior verdict too if an interrupted video run left a flagged frame without its second-look record.
+  const dead = new Map([...items.values()].flatMap(x => {
+    const v = cache[x.url]
+    return v?.dead === true && !guidePhotoOff(v, x.equipment || x.still) ? [[x.url, v.note] as const] : []
+  }))
   const sheets = Array.from({ length: Math.ceil(batch.length / PER_SHEET) }, (_, i) => batch.slice(i * PER_SHEET, (i + 1) * PER_SHEET))
   const dir = await mkdtemp(join(tmpdir(), 'guide-photos-'))
   try {

@@ -249,3 +249,28 @@ test('video-stills: a frame the people check finds dead or shown as food is uplo
   expect((await s.read('engine-state/_part-photos-off.json'))[dead]).toMatchObject({ guides: ['youtube-b1'], seconds: [20] })
   expect((await s.read('engine-state/_photo-guides.json'))[dead]).toMatchObject({ dead: true, person: false })
 })
+
+
+test('a later guide failure still marks an earlier flagged frame for review', async () => {
+  const s = await site()
+  const first = await s.read('content/guides/youtube-b1/entity.json')
+  await s.put('content/guides/youtube-b2/entity.json', { ...first, id: 'youtube-b2', video: { ...first.video, youtubeId: 'b2' } })
+  let reads = 0
+  const d: StillDeps = {
+    ...s.d,
+    read: async files => {
+      if (reads++ > 0) throw new Error('Fixture text reader failed')
+      return s.d.read(files)
+    },
+    judge: async () => ({ photos: [
+      { n: 1, person: false, mark: false, brand: false, dead: true, note: 'sample' },
+      { n: 2, person: false, mark: false, brand: false, dead: false, note: 'sample' },
+    ] }),
+  }
+
+  await expect(videoStills(s.root, d)).rejects.toThrow('native text reader unavailable')
+
+  const frame = 'https://m/video/b1/at20-hd.webp'
+  expect((await s.read('engine-state/_photo-second-look.json'))[frame]).toMatchObject({ off: true, pages: ['guides/youtube-b1'] })
+  expect((await s.read('engine-state/_photo-rejected.json'))[frame]).toMatch(/^waiting: /)
+})
