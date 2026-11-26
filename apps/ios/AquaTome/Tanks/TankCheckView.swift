@@ -14,48 +14,59 @@ struct TankCheckSection: View {
   /// The chat's check of this tank, shown in place of its own while the reader looks at it.
   var trial: TankTrial?
   @Environment(HandbookModel.self) private var handbook
-  @State private var memo = Memo()
+  @State private var savedCheck = SavedTankCheck()
 
   var body: some View {
     // Worked out while drawing (an empty section never appears in the list, so it can't wait for onAppear), and kept
     // until what it reads changes.
-    let key = Key(tank: tank, pages: handbook.count, status: handbook.status, lang: handbook.lang)
-    if memo.key != key { memo.key = key; memo.check = make() }
-    return Group {
+    Group {
       if let trial, let check = trial.check {
         Section("Nuôi chung") {
           if let added = trial.added { Text("Thêm \(added), chưa lưu vào bể.").font(.subheadline).accessibilityIdentifier("trial-added").id(TankTrial.addedRow) }
           TankCheckRows(check: check)
         }
-      } else if let check = memo.check, check.verdict != nil || check.stocking != nil || check.minTank != nil || check.unsized != nil || check.unchecked != nil {
+      } else if let check = savedCheck.read(tank, handbook: handbook), check.verdict != nil || check.stocking != nil || check.minTank != nil || check.unsized != nil || check.unchecked != nil {
         Section("Nuôi chung") { TankCheckRows(check: check) }
       }
     }
   }
+}
 
-  /// What the check reads: the tank's fish and size, and the index (until it's here, nothing is checked).
-  private struct Key: Equatable { let tank: Tank; let pages: Int; let status: HandbookModel.Status; let lang: String }
-  /// The last check and what it was made from. Not observed: filling it in doesn't redraw anything.
-  private final class Memo { var key: Key?; var check: TankCheck? }
+/// The tank's own check, shared by the list warning and the detail. Cache the result for the actual inputs to the
+/// checker so replacing the handbook with one of the same size still picks up changed fish facts.
+@MainActor
+final class SavedTankCheck {
+  private struct Input: Equatable {
+    let fish: [TankCheck.Fish]
+    let size: TankCheck.Size
+    let unlisted: [String]
+    let lang: String
+  }
+  private var input: Input?
+  private var check: TankCheck?
 
-  private func make() -> TankCheck? {
+  func read(_ tank: Tank, handbook: HandbookModel) -> TankCheck? {
     guard handbook.count > 0 else { return nil }
-    var fish = tank.species.map { s in row(handbook.page(s.id), id: s.id, count: s.count) }
+    var fish = tank.species.map { s in row(handbook.page(s.id), id: s.id, count: s.count, handbook: handbook) }
     var unlisted: [String] = []
     for e in tank.unlisted where !e.isPlant {
       if let page = handbook.page(for: e) {
-        fish.append(row(page, id: page.contentId ?? page.id, count: e.count))
+        fish.append(row(page, id: page.contentId ?? page.id, count: e.count, handbook: handbook))
       } else { unlisted.append(e.name) }
     }
     guard !fish.isEmpty || !unlisted.isEmpty else { return nil }
     let size = TankCheck.Size(dims: tank.dims.map { .init(l: $0.l, w: $0.w, h: $0.h) }, litres: tank.litres)
-    // The site's check makes the rows of one page, or of a species and its breeds, one fish (TankCheck.Fish).
-    return Checkers.of(handbook.lang).check(fish, size: size, unlisted: unlisted)
+    let next = Input(fish: fish, size: size, unlisted: unlisted, lang: handbook.lang)
+    if input != next {
+      input = next
+      check = Checkers.of(next.lang).check(fish, size: size, unlisted: unlisted)
+    }
+    return check
   }
 
   /// A row of the tank as the check counts it: by its page, or a breed that is a form of a species (`of`) as that species,
   /// with its figures; a species the handbook lacks leaves the breed a fish of its own.
-  private func row(_ page: HandbookIndex.Item?, id: String, count: Int?) -> TankCheck.Fish {
+  private func row(_ page: HandbookIndex.Item?, id: String, count: Int?, handbook: HandbookModel) -> TankCheck.Fish {
     if let page, let of = page.of, let species = handbook.page(of) {
       return .init(name: page.name, facts: species.facts, count: count, key: of, species: species.name)
     }

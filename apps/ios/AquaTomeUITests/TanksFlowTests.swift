@@ -5,6 +5,26 @@ import XCTest
 final class TanksFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
+  @MainActor func testTankRowsSummarizeTheirContentsAndOpenTheTank() {
+    let app = launch("-seed-tanks", "rows")
+    let rows = app.buttons.matching(identifier: "tank")
+    let planted = rows.matching(NSPredicate(format: "label CONTAINS %@", "Bể thủy sinh phòng khách")).firstMatch
+    XCTAssertTrue(planted.waitForExistence(timeout: 5))
+    for part in ["90 × 45 × 45 cm", "24 con", "8 loại cây", "2 thiết bị"] {
+      XCTAssertTrue(planted.label.contains(part), planted.label)
+    }
+    XCTAssertFalse(planted.label.contains("Phân nền"), planted.label)
+    XCTAssertFalse(planted.label.contains("quá tải"), planted.label)
+
+    let clash = rows.matching(NSPredicate(format: "label CONTAINS %@", "Bể 60 phòng ngủ")).firstMatch
+    XCTAssertTrue(clash.waitForExistence(timeout: 5))
+    let warning = NSPredicate(format: "label CONTAINS %@", "Không nên nuôi chung · quá tải 188%")
+    XCTAssertEqual(XCTWaiter.wait(for: [XCTNSPredicateExpectation(predicate: warning, object: clash)], timeout: 8), .completed, clash.label)
+    clash.tap()
+    XCTAssertTrue(app.navigationBars["Bể 60 phòng ngủ"].waitForExistence(timeout: 5))
+    XCTAssertTrue(app.staticTexts["facts"].label.contains("Cát"))
+  }
+
   func testAddsATankWithItsSize() {
     let app = launch()
     XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5), "the empty state")

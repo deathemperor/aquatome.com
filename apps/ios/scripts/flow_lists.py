@@ -72,7 +72,8 @@ SHOTS = {
     # The light's card warning of its outlet's timer; the tab top to bottom and the Week Aqua screen, in v2, light and dark.
     'light': ['testALightsCardWarningOfItsOutletsTimer', 'testTheLightsTab', 'testTheLightsTabInTheDark',
               'testTheWeekAquaScreen', 'testTheWeekAquaScreenInTheDark'],
-    'tanks': ['testTheTanksList'],
+    'tanks': ['testTheTanksList', 'testTheTankRows', 'testTheTankRowsInTheDark', 'testTheTankRowsInTheLargestText',
+              'testTheTankRowsInTheDarkAtTheLargestText', 'testTheTankRowsSignedOut'],
     # The Tài khoản sheet signed out and signed in as the owner (whose row is on it).
     'account': ['testSigningIn', 'testSigningInInTheDark', 'testSigningInInTheLargestText', 'testTheAccountSignedIn',
                 'testTheAccountSignedInInTheDark', 'testTheAccountSignedInInTheLargestText'],

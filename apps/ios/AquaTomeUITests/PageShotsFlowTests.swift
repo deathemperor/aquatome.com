@@ -238,6 +238,28 @@ final class PageShotsFlowTests: XCTestCase {
     add(a)
   }
 
+  @MainActor func testTheTankRows() { shootTankRows("tanks-rows-light") }
+  @MainActor func testTheTankRowsInTheDark() { shootTankRows("tanks-rows-dark", dark: true) }
+  @MainActor func testTheTankRowsInTheLargestText() { shootTankRows("tanks-rows-largest", size: largest) }
+  @MainActor func testTheTankRowsInTheDarkAtTheLargestText() { shootTankRows("tanks-rows-dark-largest", dark: true, size: largest) }
+  @MainActor func testTheTankRowsSignedOut() { shootTankRows("tanks-rows-signed-out", signedOut: true) }
+
+  @MainActor private func shootTankRows(_ name: String, dark: Bool = false, size: String? = nil, signedOut: Bool = false) {
+    let seed = signedOut ? "rows-signed-out" : "rows"
+    let app = launch(dark: dark, size: size, ["-seed-tanks", seed, "-fake-accounts", "on", "-reset-fake-server"], look: .v2)
+    if !signedOut {
+      app.openAccount()
+      app.signInWithStandInApple()
+    }
+    app.openTab("Bể của tôi")
+    let clash = app.buttons.matching(identifier: "tank")
+      .matching(NSPredicate(format: "label CONTAINS %@", "Không nên nuôi chung · quá tải 188%")).firstMatch
+    XCTAssertTrue(clash.waitForExistence(timeout: 10), "the tank's warning is missing")
+    if signedOut { XCTAssertTrue(app.buttons["keep-online-hint"].waitForExistence(timeout: 10)) }
+    else if size == nil { XCTAssertFalse(app.buttons["keep-online-hint"].exists) }
+    capture(app, name, dark: dark, large: size != nil, screens: size == nil ? 5 : 8)
+  }
+
   /// The Tài khoản sheet on a new phone, signed out, with each way to sign in the stand-in server offers, screen by
   /// screen to its end (the app's settings, the site's pages about itself).
   private func shootSignIn(_ name: String, dark: Bool = false, size: String? = nil) {
