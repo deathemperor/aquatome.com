@@ -1476,7 +1476,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // album photos with it on (gallery.ts dropNonCommercial). Before the albums are ordered.
   const waitsForPhoto = await readPhotoWaits(root)
   const photoSwitches = o.switches ?? IMAGE_SWITCHES
-  const nonCommercial = await dropNonCommercial(content, photoSwitches, photo => {
+  const nonCommercial = await dropNonCommercial(content, photoSwitches, (photo, ref, name) => {
+    if (!permittedPhotoSource(photo, sources, ref, name, photoSwitches.inatNonCommercial)) return true
     const served = publicPhotoVersion(photo, photoSwitches, photo.source ? sources[photo.source]?.permission?.markRemoval : undefined)
     return !served || waitsForPhoto(served.url)
   })

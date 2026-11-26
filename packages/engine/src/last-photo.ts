@@ -1,4 +1,4 @@
-import { isNonCommercial, mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, setsCookies, settledWaiting, type Photo } from '@aq/schema'
+import { isNonCommercial, mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, PHOTO_SCREEN_FILE, photoRejections, setsCookies, settledWaiting, type Photo } from '@aq/schema'
 import { spawnSync } from 'node:child_process'
 import { createHash, randomUUID } from 'node:crypto'
 import { link, mkdir, readdir, readFile, rm, stat, writeFile } from 'node:fs/promises'
@@ -219,13 +219,20 @@ export async function listAgreed(root: string): Promise<string[]> {
   if (!agreed.length) return []
   const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
   const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
+  const watermarks = await readFile(join(root, 'engine-state', PHOTO_SCREEN_FILE), 'utf8').then(
+    raw => JSON.parse(raw) as Record<string, { retainedOwnMark?: unknown }>,
+    (error: NodeJS.ErrnoException) => { if (error.code !== 'ENOENT') throw error; return undefined },
+  )
+  const active = photoRejections(rejected, watermarks)
   for (const url of agreed) {
     // A waiting entry, for this reason or another, takes the verdict's own reason, on a record marked off or not: two runs'
     // records can meet in a merge with the unmarked one kept and the waiting entry beside it (the chief of staff, 20 Nov,
     // after that night's seven). On one marked off, a mark's entry does too, which a shop's own kept mark could otherwise
     // lift (the independent reader, 20 Nov).
-    if (rejected[url]?.startsWith('waiting:') || (sl[url]!.off && rejected[url]?.startsWith('watermark:'))) rejected[url] = sl[url]!.why
-    else rejected[url] ??= sl[url]!.why
+    const prior = rejected[url]
+    if (!prior || prior.startsWith('waiting:') || (prior.startsWith('watermark:') && (sl[url]!.off || !active(url)))) {
+      rejected[url] = sl[url]!.why
+    }
     delete sl[url]
   }
   await writePhotoState(rejectedFile, rejected)

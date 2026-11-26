@@ -214,7 +214,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     const original = version(p)
     if (!original || original.url === p.url) return false
     // The wrapper holds the original's credit and other metadata until the person's decision or next look.
-    const prior = photoRejected[original.url]
+    const prior = isListed(original.url)?.[1]
     return markedByAddress(original.url) || heldByAddress(original.url) || sl.off(original.url) || prior?.startsWith('waiting:') ||
       (!prior && !going.has(original.url))
   }
