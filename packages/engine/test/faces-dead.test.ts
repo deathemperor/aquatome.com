@@ -7,7 +7,7 @@ import { expect, test } from 'vitest'
 import { loadAll } from '@aq/schema'
 import { LlmError } from '../src/claude'
 import { screenDead, type DeadScreenDeps } from '../src/dead-screen'
-import { putBackCleared } from '../src/last-photo'
+import { putBackCleared, waitingEntry } from '../src/last-photo'
 import { sweep } from '../src/sweep'
 import { NEW_PHOTO_SHEETS, screenNewPhotos } from '../src/faces'
 
@@ -369,12 +369,13 @@ test.each(['face detection', 'the dead-fish screen'])('a sibling waiting on its 
 test('a rejection for the stored URL on another page preserves the cleared original across retries and sweep', async () => {
   const original = photo('original-clear')
   const stored = photo('stored-dead')
+  const sibling = photo('live-sibling')
   const alteration = {
     ...stored,
     altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'd'.repeat(64) }],
     original: { url: original.url, width: original.width, height: original.height },
   }
-  const { root, state, file, publicView } = await publicFixture([alteration], [alteration], [stored.url, original.url])
+  const { root, state, file, publicView } = await publicFixture([alteration, sibling], [alteration, sibling], [stored.url, original.url, sibling.url])
   const entity = JSON.parse(await readFile(file, 'utf8'))
   const other = join(root, 'content/species/second')
   await mkdir(other)
@@ -382,11 +383,23 @@ test('a rejection for the stored URL on another page preserves the cleared origi
   await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [original.url]: { ok: 'yes', person: false, logo: false } }))
   await writeFile(join(state, '_dead-screen.json'), '{}')
   expect((await run(root, deps().d)).dead?.firstOff).toContain(`${stored.url}: species/second`)
+  const rejected = await json(root, 'engine-state/_photo-rejected.json')
+  const mark = await json(root, 'engine-state/_photo-second-look.json')
+  const why = mark[stored.url].why
+  mark[original.url] = { why, step: 'the dead-fish screen', pages: ['species/alpha'], at: '2026-11-26', off: true,
+    look: { said: 'clear', by: 'reviewer', on: '2026-11-26' } }
+  rejected[original.url] = waitingEntry(why)
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify(rejected))
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify(mark))
+  await writeFile(join(state, '_photo-subjects.json'), JSON.stringify({
+    [stored.url]: { alpha: { ok: 'dead', logo: false }, second: { ok: 'dead', logo: false } },
+  }))
   await run(root, deps().d)
+  expect(JSON.parse(await readFile(file, 'utf8')).photos.map((p: { url: string }) => p.url)).toContain(stored.url)
   await sweep(root, { history: async () => [] })
   const content = await publicView()
-  expect(content.species.find(p => p.id === 'alpha')?.photos).toEqual([expect.objectContaining({ url: original.url, author: original.author })])
-  expect(content.galleries.alpha).toEqual([expect.objectContaining({ url: original.url, author: original.author })])
+  expect(content.species.find(p => p.id === 'alpha')?.photos).toEqual([expect.objectContaining({ url: original.url, author: original.author }), expect.objectContaining({ url: sibling.url })])
+  expect(content.galleries.alpha).toEqual([expect.objectContaining({ url: original.url, author: original.author }), expect.objectContaining({ url: sibling.url })])
   expect(content.photoWaits!(stored.url)).toBe(true)
 })
 

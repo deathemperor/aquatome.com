@@ -57,6 +57,13 @@ function model(table: Record<string, Partial<PhotoVerdict>>): PhotoCheckDeps {
 const dead = { ok: 'dead', typical: false, note: 'a fish lying on a board' } as const
 const hashOf = (why: string) => /\[sha256:([0-9a-f]{64})\]$/.exec(why)?.[1]
 
+test('a failed rejection write leaves the new subject verdict unpublished', async () => {
+  const r = await store({ aaa: ['a-dead', 'a-live'] })
+  await mkdir(join(r, 'engine-state/_photo-rejected.json'))
+  await expect(checkPagePhotos(r, model({ 'a-dead': dead }), { limit: 10 })).rejects.toThrow()
+  expect((await json(r, 'engine-state/_photo-subjects.json'))[url('a-dead')]).toBeUndefined()
+})
+
 test('an emptied page the fill refills with a photo the check calls dead shows nothing, and the photo waits for a second look marked on both lists; a photo that passed before is held as before', async () => {
   // aaa was emptied; this run's fill brings it a photo the check has never judged. bbb's only photo passed before. ccc
   // takes a photo of a person; ddd a photo with a logo, which stays under the rule of 14 Nov.

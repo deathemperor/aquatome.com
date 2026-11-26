@@ -152,6 +152,19 @@ test("an album photo that another page owns and no look has judged for a dead fi
   expect(await showingPhotos(['species/x'], disk(r), diskOwners(r))).toEqual(new Map([['species/x', true]]))
 })
 
+test('the replay locates a different page whose fallback original has a face verdict', async () => {
+  const { r, put } = await store({ species: { x: [], y: [] }, albums: { x: ['u'] } })
+  const file = 'content/species/y/entity.json'
+  const entity = JSON.parse(await readFile(join(r, file), 'utf8'))
+  await put(file, { ...entity, photos: [{
+    ...photo('alt'), altered: [{ method: 'lanczos3-upscale', date: '2026-11-10', originalHash: 'a'.repeat(64) }],
+    original: { url: url('u'), width: 1200, height: 800 },
+  }] })
+  await put(`engine-state/${schema.FACES_FILE}`, { [url('u')]: 1, [url('alt')]: 0 })
+  await put(`engine-state/${schema.DEAD_SCREEN_FILE}`, { [url('alt')]: { dead: false }, [url('u')]: { dead: false } })
+  expect(await showingPhotos(['species/x'], disk(r), diskOwners(r))).toEqual(new Map([['species/x', false]]))
+})
+
 test('the replay finds the owner of the original an album alteration would show', async () => {
   const { r, put } = await store({ species: { x: [], y: ['u'] }, albums: { x: ['alt'] } })
   const altered = {

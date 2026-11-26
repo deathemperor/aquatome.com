@@ -977,11 +977,12 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const kinded = Object.keys(added).filter(u => !(u in listedBefore) && added[u]!.startsWith('not ') && namedKinds.has(u) && !(u in kinds))
   for (const u of kinded) kinds[u] = namedKinds.get(u)!
   if (kinded.length) await writeKinds()
-  await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort()))
   const now = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
   // One off at its first verdict waits there marked, and isn't counted refused (last-photo.ts).
   for (const [u, why] of Object.entries(added)) if (!(u in now)) { if (firstOff.has(u)) now[u] = waitingEntry(why); else { now[u] = why; report.rejected++ } }
   await writePhotoState(rejectedFile, now)
+  // Publish removals before a completed verdict can release the same URL in a fallback or another copy.
+  await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort()))
   // One another step listed meanwhile keeps that step's reason, and no id from this run.
   const taken = kinded.filter(u => now[u] !== added[u])
   if (taken.length) { for (const u of taken) delete kinds[u]; await writeKinds() }

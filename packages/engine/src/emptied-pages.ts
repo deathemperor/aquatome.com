@@ -119,7 +119,7 @@ export async function showingPhotos(refs: string[], read: Read, owners: Owners):
     const record = await read(`engine-state/${FACES_FILE}`)
     if (record !== undefined) {
       const seen = JSON.parse(record) as Record<string, number>
-      for (const u of urls) if (!Object.hasOwn(seen, u)) waits.add(u)
+      for (const u of urls) if (!Object.hasOwn(seen, u) || seen[u]! > 0) waits.add(u)
     }
     const screen = await read(`engine-state/${DEAD_SCREEN_FILE}`)
     if (screen !== undefined) {

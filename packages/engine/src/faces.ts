@@ -86,7 +86,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
     const original = photoUrls(p)[1]
     const why = rejected[p.url]
     const versionRejection = !why || /^(?:dead|people|waiting): /.test(why)
-    return versionRejection && !!original && (!(original in rejected) || sl.off(original))
+    return versionRejection && !!original && (!(original in rejected) || rejected[original]?.startsWith('waiting:') === true)
   }
   const pagesToKeep = await pagesShowing(contentRoot, p => waitingForDead ? version(p)?.url : p.url)
   const unread = new Set(todo.filter(u => !Object.hasOwn(cache, u)))

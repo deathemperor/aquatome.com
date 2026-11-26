@@ -259,8 +259,9 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   if (lookedForDead) {
     for (const url of await ownDeadPhotoUrls(root)) if (!lookedForDead(url)) unjudged.add(url)
     if (opts.photoScreen === 'required') {
-      console.log(`${lang}: ${unjudged.size} own photos of species and plant pages wait, no look has judged them for a dead fish`)
-      if (unjudged.size > UNJUDGED_DEAD_LIMIT) throw new Error(`${lang}: ${unjudged.size} own photos of species and plant pages that no look has judged for a dead fish (${join(dirname(root), 'engine-state', DEAD_SCREEN_FILE)} and the photo check's records). More than ${UNJUDGED_DEAD_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) screens them.`)
+      const retryable = [...unjudged].filter(url => !Object.hasOwn(rejectedForDead ?? {}, url)).length
+      console.log(`${lang}: ${retryable} own photos of species and plant pages wait, no look has judged them for a dead fish`)
+      if (retryable > UNJUDGED_DEAD_LIMIT) throw new Error(`${lang}: ${retryable} own photos of species and plant pages that no look has judged for a dead fish (${join(dirname(root), 'engine-state', DEAD_SCREEN_FILE)} and the photo check's records). More than ${UNJUDGED_DEAD_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) screens them.`)
     }
   }
   const waitsFor = (url: string) => awaitsScreen(url, screen![url]) || (!!owed && Object.hasOwn(owed, url)) || unread.has(url) || (flaggedAlterations.has(url) && facePhotoOff(url, faces, secondLook)) || unjudged.has(url) || deadPhotoOff(url, deadScreen, secondLook, rejectedForDead)

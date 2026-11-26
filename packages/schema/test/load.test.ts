@@ -347,6 +347,11 @@ test("a public build shows no own photo of a species or plant page that no look 
     await state('_photo-faces.json', Object.fromEntries(named.map(n => [`https://media.test/${n}.webp`, 0])))
     await write('species/alpha/entity.json', { ...alpha, photos: [photo('by-screen'), photo('by-check'), photo('by-person'), photo('by-none'), ...many] })
     await expect(loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })).rejects.toThrow(`vi: ${UNJUDGED_DEAD_LIMIT + 1} own photos of species and plant pages that no look has judged for a dead fish`)
+    // A rejection already recorded across the queue keeps the entry off without adding to the build limit.
+    await state('_photo-rejected.json', Object.fromEntries(many.map(p => [p.url, 'people: rejected'])))
+    const allowed = await loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })
+    expect(allowed.species.find(p => p.id === 'alpha')!.photos.map(p => short(p.url))).toEqual(['by-screen', 'by-check', 'by-person'])
+    await state('_photo-rejected.json', {})
     // At the limit it builds.
     await write('species/alpha/entity.json', { ...alpha, photos: [photo('by-screen'), photo('by-check'), photo('by-person'), photo('by-none'), ...many.slice(1)] })
     await loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })
