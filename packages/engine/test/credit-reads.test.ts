@@ -221,3 +221,17 @@ test("a credit refusal on a guide alteration holds the fish page's bare original
   expect(await json(join(r, 'engine-state/_photo-rejected.json'))).toEqual({})
   expect((await json(join(r, 'engine-state/_photo-second-look.json')))[stored.url].pages).toEqual(['species/fish-a'])
 })
+
+test('the credit check excludes a bare original already refused through another placement', async () => {
+  const original = photo('refused-original'), stored = photo('refused-alteration'), last = photo('last-eligible')
+  const r = await root({
+    'content/species/fish-a/entity.json': { id: 'fish-a', photos: [last, original] },
+    'content/guides/list/entity.json': { id: 'list', photos: [{ ...stored, altered: [{ method: 'lanczos3-upscale' }], original }] },
+    'content/sources.json': { sprucepets: { publish: true } },
+    'engine-state/_photo-rejected.json': { [stored.url]: 'logo: withheld' },
+    'engine-state/_photo-watermarks.json': { [last.url]: { ocr: [] }, [original.url]: { ocr: [] } },
+  })
+  await recordCredits(r, { [last.url]: { page: PAGE, kind: 'agency', at: '2026-11-26' } })
+  expect(await applyCreditReads(r)).toEqual({ removed: [], held: [last.url] })
+  expect((await json(join(r, 'content/species/fish-a/entity.json'))).photos).toEqual([last, original])
+})

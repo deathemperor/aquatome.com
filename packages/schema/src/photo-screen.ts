@@ -136,6 +136,16 @@ export async function* photoPlacements(root: string): AsyncGenerator<Photo> {
     const album = JSON.parse(await readFile(join(galleries, file), 'utf8')) as { photos?: Photo[] }
     yield* album.photos ?? []
   }
+  const equipment = join(root, 'equipment')
+  const equipmentFiles = await readdir(equipment, { recursive: true }).catch((error: NodeJS.ErrnoException) => {
+    if (error.code !== 'ENOENT') throw error
+    return [] as string[]
+  })
+  for (const file of equipmentFiles.filter(f => f.endsWith('.json')).sort()) {
+    const guide = JSON.parse(await readFile(join(equipment, file), 'utf8')) as { hero?: Photo; types?: { photo?: Photo }[] }
+    if (guide.hero) yield guide.hero
+    for (const type of guide.types ?? []) if (type.photo) yield type.photo
+  }
 }
 
 /** Attribute a bare original to the whole-photo refusal on its altered placement. */

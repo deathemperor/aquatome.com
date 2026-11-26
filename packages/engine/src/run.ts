@@ -28,7 +28,7 @@ import { QUALITY_THRESHOLD, gate, reviewTranslation, steadyRead, WRITER_BAND } f
 import { logReviews, type Review } from './review-log'
 import { holdForSecondLook } from './last-photo'
 import { readPhotoWaits, readRecoveryRetention, versionRejection } from './photo-visibility'
-import { linkedPhotos, mayTake, pickSourcePhotos, storedSourcePhotos, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
+import { linkedPhotos, mayTake, pickSourcePhotos, sourcePhotoInventory, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
 import { snapshotHash, writeSnapshot } from './snapshot'
 import { ARCHIVE_POLITE, archiveStops } from './archive'
 import { SOURCES, sourceById, type SourceConfig } from './sources'
@@ -300,7 +300,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   const [photoWaits, pendingRefusal] = await Promise.all([
     readPhotoWaits(root, { rejected: blocked, watermarks: screen, freshOwn: true }), readRecoveryRetention(root),
   ])
-  let stored: ReturnType<typeof storedSourcePhotos> | undefined
+  let stored: ReturnType<typeof sourcePhotoInventory> | undefined
   const deadline = opts.maxMinutes ? deps.now().getTime() + opts.maxMinutes * 60_000 : Infinity
   const report: RunReport = { perSource: {}, needsHuman: [], movedToArchive: [], changed: [], errors: [], shopText: [] }
   const today = () => deps.now().toISOString().slice(0, 10)
@@ -417,8 +417,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     const sourcePhotos = async (names: string[], existing: Photo[], max?: number) => {
       const picked = pickSourcePhotos(images, url, names, max, page.kind === 'guide' ? 'guide' : 'subject', minWidth, mayTake(source, sourceName, photoDeps, existing))
       if (!picked.length) return []
-      const inventory = await (stored ??= storedSourcePhotos(join(root, 'content')))
-      return storeSourcePhotos(source, sourceName, url, picked, { ...photoDeps, stored: inventory }, existing, max ?? 4)
+      const inventory = await (stored ??= sourcePhotoInventory(root))
+      return storeSourcePhotos(source, sourceName, url, picked, { ...photoDeps, ...inventory }, existing, max ?? 4)
     }
     const log = (kind: ChangelogEntry['kind'], id: string, existed: boolean) => {
       const e: ChangelogEntry = { date: now, kind, id, source, action: existed ? 'updated' : 'new' }

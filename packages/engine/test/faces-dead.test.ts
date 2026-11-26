@@ -1,10 +1,11 @@
+import * as imageWrites from '../src/image-cache-write'
 import { execFileSync } from 'node:child_process'
 import { expectControlledRejections } from './photo-privacy-assertions'
 import { chmod, cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
 import { loadAll, mirrorPlan } from '@aq/schema'
 import { LlmError } from '../src/claude'
 import { galleries } from '../src/gallery'
@@ -1036,4 +1037,20 @@ test.each([['rejected:', false], ['logo:', false], ['rejected:', true], ['logo:'
   await sweep(root)
   expect(await json(root, 'engine-state/_photo-rejected.json')).toHaveProperty(original.url)
   expect((await publicView()).photoWaits!(original.url)).toBe(true)
+})
+
+test('an owed-list replacement failure preserves every queued URL for retry', async () => {
+  const root = await store()
+  const list = join(root, 'engine-state/_photo-dead-owed.json')
+  const previous = { [m('b-dead')]: '2026-11-26' }
+  await writeFile(list, JSON.stringify(previous))
+  const original = imageWrites.writeImageCache
+  const fail = vi.spyOn(imageWrites, 'writeImageCache').mockImplementation(async (file, bytes) => {
+    if (file === list) throw new Error('fixture interrupted the owed-list replacement')
+    return original(file, bytes)
+  })
+  try {
+    await expect(run(root, deps().d)).rejects.toThrow('fixture interrupted the owed-list replacement')
+  } finally { fail.mockRestore() }
+  expect(await json(root, 'engine-state/_photo-dead-owed.json')).toEqual(previous)
 })
