@@ -4,7 +4,7 @@ import { expect, test } from 'vitest'
 import { robotsTxt } from '../src/lib/seo'
 import { createHash } from 'node:crypto'
 import { DIST, page, sitemapText } from './dist'
-import { missingAddresses } from '../scripts/check-addresses'
+import { missingAddresses, unlinkedSitemapPages } from '../scripts/check-addresses'
 import { VI_SECTIONS } from '../worker/paths'
 import { LANGS } from '@aq/schema/langs'
 import { APP_PAGES, APP_STATE } from '../src/lib/app'
@@ -80,6 +80,10 @@ test('/sitemap.xml is the index of one sitemap per kind of page, and a page is i
 test('every page a sitemap lists, and every redirect target, is a page the build wrote', () => {
   expect(sitemapText().match(/<loc>/g)!.length).toBeGreaterThan(30)
   expect(missingAddresses(DIST)).toEqual({ sitemap: [], redirects: [] })
+})
+
+test('every sitemap address has an ordinary link from the HTML catalogue', () => {
+  expect(unlinkedSitemapPages(DIST)).toEqual([])
 })
 
 // The dates are the fixture's page-dates.json, all in the past: a page's own files, the latest of them.

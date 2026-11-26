@@ -455,7 +455,7 @@ one_name() {
 # keeps it for the run after. Then this run's own work starts from main. `publish_kept <job>`, after the run's install
 # and merge drivers. In the cloud, the job's branches come from GitHub first.
 publish_kept() {
-  local branch held why as
+  local branch held why as held_at
   engine_clone || engine_cloud || return 0
   if engine_cloud; then
     net git fetch -q origin "+refs/heads/kept/$1/*:refs/heads/kept/$1/*" "+refs/heads/held/$1/*:refs/heads/held/$1/*" || log "the kept work on GitHub couldn't be fetched: left for the next run"
@@ -479,7 +479,9 @@ publish_kept() {
     if [ -n "$KEPT_FAILED" ]; then
       # Held at the bound keeps its count, so its one more try out of time again is its last (retry_held); a real
       # failure ends the row.
-      held="held/$(uncounted "${branch#kept/}")${OUT_FAILED:+-out$OUT_FAILED}"
+      held_at=
+      [ -z "${SWEEP_FAILED:-}" ] || held_at="-on$(git rev-parse origin/main)"
+      held="held/$(uncounted "${branch#kept/}")$held_at${OUT_FAILED:+-out$OUT_FAILED}"
       why="failed its tests twice"
       if [ -n "$OUT_FAILED" ]; then
         if [ -n "${SWEEP_FAILED:-}" ]; then why="could not finish the sweep $OUT_FAILED cycles in a row"
@@ -525,12 +527,17 @@ fault_exit() {
 # time in OUT_CYCLES tries in a row (count_outs), moved to <branch>-tried, which nothing tries again. Out of time fewer
 # times, or not pushed, it stays held for the next run's try.
 retry_held() {
-  local branch base tried why as
+  local branch base tried why as held_at
   for branch in $(git for-each-ref --sort=refname --format='%(refname:short)' "refs/heads/held/$1/"); do
     case "$branch" in *-tried) continue ;; esac
     git show-ref -q --verify "refs/heads/$branch" || continue
     one_name "$branch" || continue
     base=$(git merge-base "$branch" origin/main) || continue
+    if [[ "$branch" =~ -on([a-f0-9]{40})(-out[0-9])?$ ]]; then
+      held_at="${BASH_REMATCH[1]}"
+      git cat-file -e "$held_at^{commit}" || continue
+      base="$held_at"
+    fi
     git diff --quiet "$base" origin/main -- . ':!content' ':!sources' ':!engine-state' ':!docs' ':!*.md' && continue
     log "trying $branch once more: main's code has changed since it was held"
     git reset -q --hard "$branch"

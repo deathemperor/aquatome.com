@@ -827,7 +827,7 @@ async function dropRejected(root: string, content: string, rejected: ReturnType<
     if (keep.length === g.photos.length) continue
     const stood = new Map<string, Stood[]>()
     const removed = new Set(g.photos.filter(p => !keep.includes(p)).map(p => p.url))
-    placesIn(root, file, g, url => removed.has(url) ? waiting(url) : undefined, stood)
+    placesIn(root, file, g, (url, slot) => !keep.includes(slot.photo as Photo) ? waiting(url) : undefined, stood)
     await notePlaces(root, stood)
     await recordListedAlbumTakeOffs(root, removed, rejected)
     await replacePhotoDocument(file, `${JSON.stringify({ ...g, photos: keep }, null, 2)}\n`)
