@@ -96,9 +96,9 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
     return versionRejection && !!original && (!originalRejection || originalRejection.startsWith('waiting:'))
   }
   const dropsStored = (p: Photo) => !keepsOriginal(p) && (!!listed(p.url) || face(p.url))
-  const pagesToKeep = await pagesShowing(contentRoot, p => {
+  const pagesToKeep = await pagesShowing(contentRoot, (p, ref, scientificName) => {
     if (!waitingForDead) return p.url
-    if (!permittedPhotoSource(p, sources)) return undefined
+    if (!permittedPhotoSource(p, sources, ref, scientificName)) return undefined
     if (dropsStored(p)) return p.url
     const shown = version(p)?.url
     return shown && !setsCookies(shown) ? shown : undefined

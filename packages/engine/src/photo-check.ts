@@ -840,8 +840,10 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const firstAliases = new Map<string, string>()
   const preservesOriginal = (url: string, original: string, blockedOriginal: boolean) => {
     const verdict = pendingGlobal(original)?.[0] ?? original
-    return /^(?:dead|people|waiting): /.test(rejected[url] ?? added[url] ?? '') &&
-      (!blockedOriginal || firstOff.has(firstAliases.get(verdict) ?? verdict) || !!rejected[original]?.startsWith('waiting:'))
+    const waiting = waitingAt(url)
+    const reason = rejectedAt(url)?.[1] ?? added[url] ?? (waiting && secondLook[waiting]?.why) ?? ''
+    return /^(?:dead|people|waiting): /.test(reason) &&
+      (!blockedOriginal || firstOff.has(firstAliases.get(verdict) ?? verdict) || !!waitingAt(original))
   }
   const versionOf = (photo: Photo) => {
     const p = photo as ContentPhoto
@@ -854,9 +856,11 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   }
   const shownPhotos = async (file: string) => {
     const gallery = galleryId(file)
+    const subject = byId.get(gallery ?? file.split('/').at(-2)!)
+    const ref = subject && (!gallery || subject.kind === 'species') ? `${subject.kind}/${subject.id}` : ''
     return (await ownPhotos(file)).flatMap(photo => {
       const stored = photo as ContentPhoto
-      if (!permittedPhotoSource(stored, sources)) return []
+      if (!permittedPhotoSource(stored, sources, ref, subject?.sci ?? '')) return []
       if (gallery && photo.unchecked && !albumChecked(photo.url, gallery)) return []
       const served = versionOf(stored)
       return served ? [{ stored, served }] : []

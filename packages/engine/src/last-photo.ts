@@ -1,4 +1,4 @@
-import { mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, settledWaiting, type Photo } from '@aq/schema'
+import { mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, setsCookies, settledWaiting, type Photo } from '@aq/schema'
 import { spawnSync } from 'node:child_process'
 import { createHash, randomUUID } from 'node:crypto'
 import { link, mkdir, readdir, readFile, rm, stat, writeFile } from 'node:fs/promises'
@@ -85,10 +85,10 @@ export function looks(sl: SecondLooks) {
 export type PageShows = { ref: string; own: string[]; album: string[] }
 
 /** Every species, plant and breed page, as the site shows it now. */
-export async function pagesShowing(content: string, version: (p: Photo) => string | undefined = p => p.url): Promise<PageShows[]> {
-  type Doc = { photos?: (Photo & { unchecked?: boolean })[] }
-  const urls = (d: Doc | null, album = false) => [...new Set((d?.photos ?? []).flatMap(p => {
-    const url = p?.url && !p.generated && !(album && p.unchecked) ? version(p) : undefined
+export async function pagesShowing(content: string, version: (p: Photo, ref: string, scientificName: string) => string | undefined = p => p.url): Promise<PageShows[]> {
+  type Doc = { photos?: (Photo & { unchecked?: boolean })[]; scientificName?: string }
+  const urls = (d: Doc | null, ref: string, scientificName: string, album = false) => [...new Set((d?.photos ?? []).flatMap(p => {
+    const url = p?.url && !p.generated && !(album && p.unchecked) ? version(p, ref, scientificName) : undefined
     return url ? [url] : []
   }))]
   const read = async (f: string) => JSON.parse(await readFile(f, 'utf8').catch(() => 'null')) as Doc | null
@@ -97,7 +97,10 @@ export async function pagesShowing(content: string, version: (p: Photo) => strin
     for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
       const own = await read(join(content, kind, id, 'entity.json'))
       if (!own) continue
-      out.push({ ref: `${kind}/${id}`, own: urls(own), album: urls(await read(join(content, 'gallery', `${id}.json`)), true) })
+      const ref = `${kind}/${id}`
+      const name = own.scientificName ?? ''
+      const album = await read(join(content, 'gallery', `${id}.json`))
+      out.push({ ref, own: urls(own, ref, name), album: urls(album, kind === 'species' ? ref : '', name, true) })
     }
   }
   return out
@@ -344,7 +347,8 @@ async function capturePlaces(sl: SecondLooks, left: Map<string, Stood[]>, dir: s
     const r = has(sl, url) ? sl[url]! : undefined
     if (!r || r.off !== true || lookOf(r) || r.back) continue
     const named = new Set((r.left ?? []).map(p => p.file))
-    for (const p of places) {
+    const byHost = (place: Stood) => Number(setsCookies(String(place.photo.url)))
+    for (const p of [...places].sort((a, b) => byHost(a) - byHost(b))) {
       if (named.has(p.file) || !PLACE.test(p.file)) continue
       const place = { file: p.file, index: p.index, capture: randomUUID() }
       const order = p.order ? [...p.order] : undefined
@@ -503,7 +507,9 @@ export function gitHistory(root: string): History {
         }
         const matches = photoAddressSet([url, byFile.get(file) ?? url])
         const shownAt = (p: Record<string, unknown>) => typeof p?.url === 'string' && matches(p.url)
-        const before = urls(at(`${sha}^`, file)), index = before.findIndex(shownAt)
+        const before = urls(at(`${sha}^`, file))
+        const eligible = before.findIndex(p => shownAt(p) && !setsCookies(p.url as string))
+        const index = eligible >= 0 ? eligible : before.findIndex(shownAt)
         if (index < 0 || urls(at(sha, file)).some(shownAt)) continue
         const had = out.get(file)
         if (had) had.times++

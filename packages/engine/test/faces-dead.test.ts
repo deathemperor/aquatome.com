@@ -438,11 +438,13 @@ test.each([
   expect((await publicView()).species.find(p => p.id === 'alpha')?.photos.map(p => p.url)).toEqual([mirror.url])
 })
 
-test.each([false, true])('one clear restores the credited mirror (both addresses refused: %s)', async both => {
+test.each([
+  { both: false, hotlinkAlsoOnPage: false }, { both: true, hotlinkAlsoOnPage: false }, { both: false, hotlinkAlsoOnPage: true },
+])('one clear restores the credited mirror (%j)', async ({ both, hotlinkAlsoOnPage }) => {
   const source = { ...photo('source'), url: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/prior-dead.jpg' }
   const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(source.url)!.key}`, author: 'Sample mirror credit' }
   const sibling = photo('sibling-live')
-  const { root, state, file, publicView } = await publicFixture([mirror], [], [mirror.url, source.url, sibling.url])
+  const { root, state, file, publicView } = await publicFixture(hotlinkAlsoOnPage ? [source, mirror] : [mirror], [], [mirror.url, source.url, sibling.url])
   const entity = JSON.parse(await readFile(file, 'utf8'))
   const other = join(root, 'content/species/second')
   await mkdir(other)
@@ -516,14 +518,14 @@ test.each(['face detection', 'the dead-fish screen'])('a sibling from a withdraw
   expect((await publicView()).species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([flagged.url])
 })
 
-test('a vetoed owner crop cannot replace a previously passed photo', async () => {
+test.each([false, true])('an unapproved owner crop cannot replace a passed photo (veto: %s)', async veto => {
   const flagged = photo('passed-dead')
   const crop = { ...photo('crop'), source: 'glaser', ownerCrop: { id: 'sample', pixelHash: 'a'.repeat(64) } }
   const { root, state, publicView } = await publicFixture([flagged, crop], [], [flagged.url, crop.url])
   const sources = await json(root, 'content/sources.json')
   sources.glaser = {
     name: 'Sample source', homepage: 'https://example.org', publish: 'photos',
-    permission: { date: '2026-11-26', file: 'fixture', scope: [], markRemoval: { allowed: false } },
+    permission: { date: '2026-11-26', file: 'fixture', scope: [], ...(veto ? { markRemoval: { allowed: false } } : {}) },
   }
   await writeFile(join(root, 'content/sources.json'), JSON.stringify(sources))
   await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [crop.url]: { dead: false } }))

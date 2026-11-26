@@ -276,6 +276,22 @@ test('retrying a source copy under its mirror’s wait makes no new rejection', 
   expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [mirror]: waitingEntry(mark.why) })
 })
 
+test('a durable first refusal preserves a separately eligible original when the rejection write failed', async () => {
+  const r = await store({ jjj: [] })
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(source)!.key}`
+  const original = photo('original')
+  const stored = { ...photo('altered'), url: mirror, altered: [{ method: 'lanczos3-upscale' }],
+    original: { url: original.url, width: original.width, height: original.height } }
+  const file = 'content/species/jjj/entity.json'
+  await writeFile(join(r, file), JSON.stringify(fish('jjj', [stored])))
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({
+    [source]: { why: compactRejection('dead: sample'), pages: ['species/kkk'], at: '2026-11-26', step: 'the photo check', off: true },
+  }))
+  await checkPagePhotos(r, model({}), { limit: 10 })
+  expect((await json(r, file)).photos).toEqual([stored])
+})
+
 test.each(['photo check', 'sweep'])('the %s holds the last visible album photo even with an unchecked sibling', async step => {
   const r = await store({ jjj: [] }, {
     visible: { jjj: { ...oldPass, ok: 'other', person: false, logo: false } },
