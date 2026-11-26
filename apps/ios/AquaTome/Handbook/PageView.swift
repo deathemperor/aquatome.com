@@ -470,7 +470,7 @@ private struct WebPage: UIViewRepresentable {
         archive = nil
         if let archiveHeading {
           web.callAsyncJavaScript("document.getElementById(heading)?.scrollIntoView()",
-                                  arguments: ["heading": archiveHeading], in: nil, contentWorld: .page, completionHandler: nil)
+                                  arguments: ["heading": archiveHeading], in: nil, in: .page, completionHandler: nil)
         }
         archiveHeading = nil
         return
