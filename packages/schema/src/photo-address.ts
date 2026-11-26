@@ -40,6 +40,20 @@ export function photoKey(url: string): string | undefined {
   try { return mirrorPlan(url)?.key } catch { return undefined }
 }
 
+const MIRROR_HOSTS: Partial<Record<string, string[]>> = {
+  commons: ['upload.wikimedia.org/', 'thumb.wikimedia.org/'],
+  inaturalist: ['inaturalist-open-data.s3.amazonaws.com/', 'static.inaturalist.org/'],
+  flickr: ['.staticflickr.com/'],
+  gbif: ['api.gbif.org/v1/image/cache/'],
+}
+
+/** Candidate strings for locating an address or its aliases in committed photo lists. */
+export function mirrorSearchTerms(url: string): string[] {
+  const key = photoKey(url)
+  const hosts = key && MIRROR_HOSTS[key.split('/')[0]!]
+  return hosts ? [`${OURS}${key}`, ...hosts] : []
+}
+
 /** Test whether a stored or source address belongs to the same set of photos. */
 export function photoAddressSet(urls: Iterable<string>): (url: string) => boolean {
   const addresses = new Set(urls)

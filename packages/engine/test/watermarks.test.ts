@@ -114,6 +114,18 @@ test('a model failure (usage limit) stops the run; photos not judged stay on the
   expect((await read(r, 'content/species/a/entity.json')).photos).toHaveLength(2)
 })
 
+test('the watermark pass holds a last photo while its sibling still owes the dead-fish screen', async () => {
+  const r = await site()
+  const file = 'content/species/a/entity.json'
+  await writeFile(join(r, file), JSON.stringify({ id: 'a', photos: ['glaser', 'fish'].map(photo) }))
+  await writeFile(join(r, 'engine-state/_photo-faces.json'), JSON.stringify({ [url('glaser')]: 0, [url('fish')]: 0 }))
+  await writeFile(join(r, 'engine-state/_dead-screen.json'), JSON.stringify({ [url('glaser')]: { dead: false } }))
+  const { d } = deps()
+  const result = await screenWatermarks(r, join(r, 'engine-state/_photo-watermarks.json'), join(r, 'engine-state/_photo-rejected.json'), d, { limit: 10 })
+  expect(result.held).toContain(`${url('glaser')}: species/a`)
+  expect((await read(r, file)).photos.map((p: { url: string }) => p.url)).toEqual([url('glaser'), url('fish')])
+})
+
 test('item admission stops without model calls or content changes', async () => {
   const root = await site()
   const { d, calls } = deps()

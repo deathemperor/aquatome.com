@@ -1,4 +1,4 @@
-import { photoKey, photoLookAnswer as lookOf, type Photo } from '@aq/schema'
+import { mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, type Photo } from '@aq/schema'
 import { spawnSync } from 'node:child_process'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
@@ -55,6 +55,8 @@ export async function readSecondLook(root: string): Promise<SecondLooks> {
 
 /** The second look's answers, as each step asks them. */
 export function looks(sl: SecondLooks) {
+  const cleared = photoClears(sl)
+  const held = photoHolds(sl)
   return {
     /** Cleared: no automatic verdict takes it off. */
     cleared: (url: string) => has(sl, url) && lookOf(sl[url])?.said === 'clear',
@@ -65,7 +67,7 @@ export function looks(sl: SecondLooks) {
     /** Off its pages at its first verdict, and on the never-again list as waiting, until its look (above). */
     off: (url: string) => has(sl, url) && sl[url]!.off === true && !lookOf(sl[url]),
     /** Neither waiting nor cleared: a step's verdict may act on it. */
-    open: (url: string) => !has(sl, url) || lookOf(sl[url])?.said === 'agree',
+    open: (url: string) => has(sl, url) ? lookOf(sl[url])?.said === 'agree' : !cleared(url) && !held(url),
   }
 }
 
@@ -74,9 +76,9 @@ export type PageShows = { ref: string; own: string[]; album: string[] }
 
 /** Every species, plant and breed page, as the site shows it now. */
 export async function pagesShowing(content: string, version: (p: Photo) => string | undefined = p => p.url): Promise<PageShows[]> {
-  type Doc = { photos?: Photo[] }
-  const urls = (d: Doc | null) => [...new Set((d?.photos ?? []).flatMap(p => {
-    const url = p?.url && !p.generated ? version(p) : undefined
+  type Doc = { photos?: (Photo & { unchecked?: boolean })[] }
+  const urls = (d: Doc | null, album = false) => [...new Set((d?.photos ?? []).flatMap(p => {
+    const url = p?.url && !p.generated && !(album && p.unchecked) ? version(p) : undefined
     return url ? [url] : []
   }))]
   const read = async (f: string) => JSON.parse(await readFile(f, 'utf8').catch(() => 'null')) as Doc | null
@@ -85,7 +87,7 @@ export async function pagesShowing(content: string, version: (p: Photo) => strin
     for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
       const own = await read(join(content, kind, id, 'entity.json'))
       if (!own) continue
-      out.push({ ref: `${kind}/${id}`, own: urls(own), album: urls(await read(join(content, 'gallery', `${id}.json`))) })
+      out.push({ ref: `${kind}/${id}`, own: urls(own), album: urls(await read(join(content, 'gallery', `${id}.json`)), true) })
     }
   }
   return out
@@ -109,16 +111,22 @@ export function lastPhotos(pages: PageShows[], off: (url: string, ref: string) =
 
 /** Attribute a page's loss to the address that received the verdict, even when it serves a mirror. */
 export function lastPhotoVerdicts(
-  pages: PageShows[], off: (url: string, ref: string) => boolean, verdicts: Iterable<string>,
+  pages: PageShows[], unavailable: (url: string, ref: string) => boolean, verdicts: Iterable<string>,
 ): Map<string, string[]> {
-  const addresses = new Map<string, string[]>()
+  const addresses = new Map<string, string>()
   for (const url of verdicts) {
     const key = photoKey(url) ?? url
-    addresses.set(key, [...(addresses.get(key) ?? []), url])
+    if (!addresses.has(key)) addresses.set(key, url)
   }
+  const byVerdict = (url: string) => addresses.get(photoKey(url) ?? url)
+  // Keep the last own-photo decision, and check the album as well when no own photo could have shown.
+  const candidates = pages.flatMap(page => page.own.length && page.album.length && page.own.every(url => unavailable(url, page.ref))
+    ? [page, { ...page, own: [] }]
+    : [page])
   const out = new Map<string, Set<string>>()
-  for (const [url, refs] of lastPhotos(pages, off)) {
-    for (const verdict of addresses.get(photoKey(url) ?? url) ?? []) {
+  for (const [url, refs] of lastPhotos(candidates, (url, ref) => byVerdict(url) !== undefined || unavailable(url, ref))) {
+    const verdict = byVerdict(url)
+    if (verdict) {
       const existing = out.get(verdict) ?? new Set<string>()
       for (const ref of refs) existing.add(ref)
       out.set(verdict, existing)
@@ -264,19 +272,25 @@ export function gitHistory(root: string): History {
     const at = (rev: string, file: string) => { const r = git('show', `${rev}:${file}`); try { return r.status === 0 ? JSON.parse(r.stdout) as { photos?: unknown } : undefined } catch { return undefined } }
     const urls = (d: { photos?: unknown } | undefined) => (Array.isArray(d?.photos) ? d.photos as Record<string, unknown>[] : [])
     // The places that showed it just before its mark (grep's status is 1 when none does).
-    const held = git('grep', '-l', '-F', '-e', url, parent, '--', 'content/species', 'content/plants', 'content/breeds', 'content/gallery', 'content/guides')
+    const mirrors = mirrorSearchTerms(url)
+    const samePhoto = photoAddressSet([url])
+    const shown = (p: Record<string, unknown>) => typeof p?.url === 'string' && samePhoto(p.url)
+    const terms = [url, ...mirrors].flatMap(s => ['-e', s])
+    const held = git('grep', '-l', '-F', ...terms, parent, '--', 'content/species', 'content/plants', 'content/breeds', 'content/gallery', 'content/guides')
     if (held.status !== 0 && held.status !== 1) return undefined
-    const places = held.stdout.split('\n').map(l => l.slice(parent.length + 1)).filter(f => PLACE.test(f) && urls(at(parent, f)).some(p => p?.url === url))
+    const places = held.stdout.split('\n').map(l => l.slice(parent.length + 1)).filter(f => PLACE.test(f) && urls(at(parent, f)).some(shown))
     if (!places.length) return []
-    const log = git('log', ...line, '--reverse', '--format=%H', '-S', url, `${parent}..HEAD`, '--', ...places)
+    const search = mirrors.length ? [] : ['-S', url]
+    const log = git('log', ...line, '--reverse', '--format=%H', ...search, `${parent}..HEAD`, '--', ...places)
     if (log.status !== 0) return undefined
     const out = new Map<string, LeftPlace>()
     // Oldest first: the first leaving gives the place and the entry; every leaving counts.
     for (const sha of log.stdout.split('\n').filter(Boolean)) {
-      const files = git('diff', '--name-only', '--no-renames', '-S', url, `${sha}^`, sha, '--', ...places)
+      const files = git('diff', '--name-only', '--no-renames', ...search, `${sha}^`, sha, '--', ...places)
+      if (files.status !== 0) return undefined
       for (const file of files.stdout.split('\n').filter(Boolean)) {
-        const before = urls(at(`${sha}^`, file)), index = before.findIndex(p => p?.url === url)
-        if (index < 0 || urls(at(sha, file)).some(p => p?.url === url)) continue
+        const before = urls(at(`${sha}^`, file)), index = before.findIndex(shown)
+        if (index < 0 || urls(at(sha, file)).some(shown)) continue
         const had = out.get(file)
         if (had) had.times++
         else out.set(file, { file, index, photo: before[index]!, times: 1 })
@@ -337,16 +351,24 @@ export async function putBackCleared(root: string, history: History, at = today(
       if (p.times > 1) { out.off.push(`${u}: it left ${p.file} again after it came back, and that removal stands`); continue }
       const id = p.file.match(/^content\/(?:species|plants|breeds)\/([^/]+)\/entity\.json$|^content\/gallery\/([^/]+)\.json$/)
       const page = id?.[1] ?? id?.[2]
-      if (page && refused(page, u, named.has(page) ? CLEARED_VERDICT : undefined)) { out.off.push(`${u}: the check refused it on ${page}`); continue }
+      const address = typeof p.photo.url === 'string' ? p.photo.url : u
+      const aliasRejection = address === u ? undefined : rejected[address]
+      if (aliasRejection && aliasRejection !== waitingEntry(sl[u]!.why)) {
+        out.off.push(`${u}: its copy on ${p.file} is on the never-again list as ${aliasRejection.split(':')[0]}`)
+        continue
+      }
+      const aside = page && named.has(page) ? CLEARED_VERDICT : undefined
+      if (page && (refused(page, u, aside) || (u !== address && refused(page, address, aside)))) { out.off.push(`${u}: the check refused it on ${page}`); continue }
       const file = join(root, p.file)
       const raw = await readFile(file, 'utf8').catch(() => undefined)
       if (raw === undefined) { out.off.push(`${u}: ${p.file} is gone`); continue }
       const doc = JSON.parse(raw) as { photos?: Record<string, unknown>[] }
       const photos = Array.isArray(doc.photos) ? doc.photos : (doc.photos = [])
-      if (photos.some(x => x?.url === u)) continue
+      const samePhoto = photoAddressSet([u, address])
+      if (photos.some(x => typeof x?.url === 'string' && samePhoto(x.url))) continue
       photos.splice(Math.min(p.index, photos.length), 0, p.photo)
       await writeFile(file, `${JSON.stringify(doc, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
-      out.back.push(`${p.file}: ${u}`)
+      out.back.push(`${p.file}: ${address}`)
     }
     if (entry !== undefined) { delete rejected[u]; unlisted = true }
     sl[u]!.back = at

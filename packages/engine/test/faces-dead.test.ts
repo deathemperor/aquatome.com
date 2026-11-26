@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process'
 import { expectControlledRejections } from './photo-privacy-assertions'
 import { chmod, cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -7,7 +8,8 @@ import { expect, test } from 'vitest'
 import { loadAll, mirrorPlan } from '@aq/schema'
 import { LlmError } from '../src/claude'
 import { screenDead, type DeadScreenDeps } from '../src/dead-screen'
-import { putBackCleared, waitingEntry } from '../src/last-photo'
+import { gitHistory, putBackCleared, waitingEntry } from '../src/last-photo'
+import { checkPagePhotos } from '../src/photo-check'
 import { sweep } from '../src/sweep'
 import { NEW_PHOTO_SHEETS, screenNewPhotos } from '../src/faces'
 
@@ -354,19 +356,25 @@ test.each([false, true])('a fallback original waits for its own face result, inc
   await hidden()
 })
 
-test('a stored watermark rejection cannot count its dropped original as a replacement in the face pass', async () => {
-  const head = photo('passed-face'), original = photo('original-live')
+test.each(['face detection', 'the standalone screen', 'the standalone screen with a withheld host'])('an unavailable original cannot count as a replacement in %s', async step => {
+  const byFace = step === 'face detection'
+  const byHost = step.endsWith('withheld host')
+  const head = photo(byFace ? 'passed-face' : 'passed-dead')
+  const original = { ...photo('original-live'), ...(byHost ? { url: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/sample.jpg' } : {}) }
   const altered = {
     ...original, url: m('altered-with-mark'),
     altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'd'.repeat(64) }],
     original: { url: original.url, width: original.width, height: original.height },
   }
   const { root, state, publicView } = await publicFixture([head, altered], [], [head.url, original.url, altered.url])
-  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [head.url]: { ok: 'yes', person: false, logo: false } }))
-  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [original.url]: 0 }))
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [head.url]: { ok: 'yes', person: false, ...(byFace ? { logo: false } : {}) } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [original.url]: 0, ...(byFace ? {} : { [head.url]: 0 }) }))
   await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [original.url]: { dead: false } }))
-  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [altered.url]: 'watermark: withheld' }))
-  expect((await run(root, deps().d)).faces.held).toContain(`${head.url}: species/alpha`)
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [altered.url]: byHost ? 'dead: withheld' : 'watermark: withheld' }))
+  const d = deps().d
+  const held = byFace ? (await run(root, d)).faces.held : (await screenDead(root, d.dead, { limit: 12 })).held
+  expect(held).toContain(`${head.url}: species/alpha`)
+  await sweep(root, { history: async () => [] })
   expect((await publicView()).species.find(p => p.id === 'alpha')?.photos.map(p => p.url)).toEqual([head.url])
 })
 
@@ -400,24 +408,75 @@ test.each(['face detection', 'the dead-fish screen'])('a mirror being rejected b
   expect((await publicView()).species.find(p => p.id === 'alpha')?.photos.map(p => p.url)).toEqual([head.url])
 })
 
-test.each(['face detection', 'the dead-fish screen'])('%s records a page that only serves the verdict’s mirror', async step => {
+test.each([
+  ['face detection', false], ['the dead-fish screen', false],
+  ['face detection', true], ['the dead-fish screen', true],
+] as const)('%s records a page that only serves the verdict’s mirror (album lead: %s)', async (step, albumLead) => {
   const byFace = step === 'face detection'
   const name = byFace ? 'prior-face.jpg' : 'prior-dead.jpg'
   const source = { ...photo('source'), url: `https://upload.wikimedia.org/wikipedia/commons/a/ab/${name}` }
   const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(source.url)!.key}` }
+  const sibling = photo('sibling-live')
+  const pending = photo('pending-own')
+  const unchecked = { ...photo('unchecked-sibling'), unchecked: true }
+  const generated = {
+    ...photo('generated'),
+    generated: { model: 'sample', driverModel: 'sample', date: '2026-11-26', prompt: 'example', referenceHash: 'e'.repeat(64) },
+  }
+  const { root, state, file, publicView } = await publicFixture(albumLead ? [pending, generated] : [mirror], albumLead ? [mirror, unchecked] : [], [mirror.url, source.url, sibling.url, pending.url, generated.url, unchecked.url])
+  const entity = JSON.parse(await readFile(file, 'utf8'))
+  const other = join(root, 'content/species/second')
+  await mkdir(other)
+  await writeFile(join(other, 'entity.json'), JSON.stringify({ ...entity, id: 'second', photos: [source, sibling] }))
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [mirror.url]: { ok: 'yes', person: false, ...(byFace ? { logo: false } : {}) } }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [mirror.url]: { dead: false }, [sibling.url]: { dead: false }, [generated.url]: { dead: false } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [mirror.url]: 0, [sibling.url]: 0, [generated.url]: 0, ...(byFace ? {} : { [source.url]: 0 }) }))
+
+  await run(root, deps({ unreadable: albumLead ? pending.url : undefined }).d)
+  expect((await json(root, 'engine-state/_photo-second-look.json'))[source.url]).toMatchObject({ step, pages: ['species/alpha'] })
+  expect((await publicView()).species.find(p => p.id === 'alpha')?.photos.map(p => p.url)).toEqual([mirror.url])
+})
+
+test.each([false, true])('one clear restores the credited mirror from Git (both addresses refused: %s)', async both => {
+  const source = { ...photo('source'), url: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/prior-dead.jpg' }
+  const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(source.url)!.key}`, author: 'Sample mirror credit' }
   const sibling = photo('sibling-live')
   const { root, state, file, publicView } = await publicFixture([mirror], [], [mirror.url, source.url, sibling.url])
   const entity = JSON.parse(await readFile(file, 'utf8'))
   const other = join(root, 'content/species/second')
   await mkdir(other)
   await writeFile(join(other, 'entity.json'), JSON.stringify({ ...entity, id: 'second', photos: [source, sibling] }))
-  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [source.url]: { ok: 'yes', person: false, ...(byFace ? { logo: false } : {}) } }))
-  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [mirror.url]: { dead: false }, [sibling.url]: { dead: false } }))
-  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [mirror.url]: 0, [sibling.url]: 0, ...(byFace ? {} : { [source.url]: 0 }) }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ ...(both ? {} : { [mirror.url]: { dead: false } }), [sibling.url]: { dead: false } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [mirror.url]: 0, [sibling.url]: 0, [source.url]: 0 }))
+  const git = (...args: string[]) => execFileSync('git', args, { cwd: root, encoding: 'utf8' })
+  git('init', '-q', '-b', 'main'); git('config', 'user.email', 't@example.org'); git('config', 'user.name', 'Sample Tester')
+  git('add', '.'); git('commit', '-qm', 'page with the credited mirror')
 
-  await run(root, deps().d)
-  expect((await json(root, 'engine-state/_photo-second-look.json'))[source.url]).toMatchObject({ step, pages: ['species/alpha'] })
-  expect((await publicView()).species.find(p => p.id === 'alpha')?.photos.map(p => p.url)).toEqual([mirror.url])
+  const { d } = deps()
+  if (both) d.dead.look = async () => ({ tiles: [1, 2].map(n => ({ n, dead: true, note: '' })) })
+  const out = await run(root, d)
+  expect(out.dead?.firstOff).toHaveLength(1)
+  await sweep(root, { history: gitHistory(root) })
+  expect(await urls(root, 'alpha')).toEqual([])
+  git('add', '.'); git('commit', '-qm', 'first refusal removed the mirror')
+  const marks = await json(root, 'engine-state/_photo-second-look.json')
+  expect(Object.keys(marks)).toHaveLength(1)
+  const address = Object.keys(marks)[0]!
+  if (!both) expect(address).toBe(source.url)
+  expect(marks[address].pages).toContain('species/alpha')
+  marks[address].look = { said: 'clear', by: 'reviewer', on: '2026-11-26' }
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify(marks))
+  const cleared = await sweep(root, { history: gitHistory(root) })
+  expect(cleared.putBack).toContain(`content/species/alpha/entity.json: ${mirror.url}`)
+  expect((await publicView()).species.find(p => p.id === 'alpha')?.photos).toEqual([expect.objectContaining({ url: mirror.url, author: mirror.author })])
+
+  await writeFile(join(state, '_photo-subjects.json'), JSON.stringify({
+    [mirror.url]: { alpha: { ok: 'dead', note: '', person: false, logo: false } },
+  }))
+  const unused = async () => { throw new Error('This test uses a cached photo-check verdict') }
+  await checkPagePhotos(root, { get: unused, look: unused }, { limit: 0 })
+  expect(await urls(root, 'alpha')).toEqual([mirror.url])
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[mirror.url]).toBeUndefined()
 })
 
 test.each(['face detection', 'the dead-fish screen'])('a sibling waiting on its watermark result cannot displace the last passed photo in %s', async step => {
