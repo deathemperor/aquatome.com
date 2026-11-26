@@ -5,7 +5,7 @@ import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies, THUMB_WIDTH } from './thumb'
-import { CREDIT_HOLD_FILE, creditHoldPhotoUrls, askedByCheckOf, DEAD_OWED_FILE, DEAD_SCREEN_FILE, completedDeadVerdict, deadLooked, expandWholePhotoRejections, isVersionRejection, photoClears, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, facePhotoOff, guidePhotoAllowed, guidePhotoWaits, GUIDE_LOOKS_FILE, GUIDE_UNJUDGED_LIMIT, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type PhotoScreenEntry } from './photo-screen'
+import { CREDIT_HOLD_FILE, creditHoldPhotoUrls, askedByCheckOf, DEAD_OWED_FILE, DEAD_SCREEN_FILE, completedDeadVerdict, deadLooked, expandWholePhotoRejections, isVersionRejection, photoClears, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, facePhotoOff, guidePhotoAllowed, guidePhotoWaits, GUIDE_LOOKS_FILE, GUIDE_UNJUDGED_LIMIT, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type CreditHoldPhotos, type PhotoScreenEntry } from './photo-screen'
 import { photoRejections } from './own-mark'
 import { photoAddressSet } from './photo-address'
 import { ownerCropFitsPage } from './owner-crops'
@@ -241,7 +241,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // real content needs the record.
   const faces = screen ? await stateRecord<Record<string, number>>(root, FACES_FILE) : undefined
   const heldForCredit = photoAddressSet(creditHoldPhotoUrls(publicBuild
-    ? await stateRecord<Parameters<typeof creditHoldPhotoUrls>[0]>(root, CREDIT_HOLD_FILE) : undefined))
+    ? await stateRecord<Record<string, CreditHoldPhotos>>(root, CREDIT_HOLD_FILE) : undefined))
   if (screen && !faces && opts.photoScreen === 'required') throw new Error(`${join(dirname(root), 'engine-state', FACES_FILE)}: the face finder's record is missing, so no page's own photo can be shown as read`)
   const rejectedForDead = screen ? photoRejections(
     await expandWholePhotoRejections(root, await stateRecord<Record<string, string>>(root, PHOTO_REJECTED_FILE) ?? {}, screen), screen,

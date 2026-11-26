@@ -14,7 +14,7 @@ import { dealerNotice } from './fit'
 import { droppedName, FISH_NAMES, KIND_PASSAGES, ownWords, type FishName, type KindPassage } from './names'
 import { withLNumber } from './l-numbers'
 import { pickStands, readPersonYes } from './person-yes'
-import { EMPTY_CAP, refusedOn, type PhotoVerdict } from './photo-check'
+import { EMPTY_CAP, refusedOn, validSubjectVerdict, type PhotoVerdict } from './photo-check'
 import { permittedPhotoSource, readPhotoSources, readPhotoWaits } from './photo-visibility'
 import { CAPTIONED } from './captions'
 import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmails, dropEmailsDeep, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, fixTranslation, hasEmail, isAdPoster, isMediaFile, mayHoldEmail, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
@@ -582,6 +582,11 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // clear sets aside only the verdict it answers (`aside`, last-photo.ts CLEARED_VERDICT), read there as a pass.
   const putRefused = await (async () => {
     const subjects = await readPhotoMap<Record<string, PhotoVerdict>>(join(root, 'engine-state', '_photo-subjects.json'))
+    for (const byPage of Object.values(subjects)) {
+      if (!byPage || typeof byPage !== 'object' || Array.isArray(byPage) || Object.values(byPage).some(v => !validSubjectVerdict(v))) {
+        throw new Error('Invalid verdict in _photo-subjects.json')
+      }
+    }
     const picks = await readPhotoMap<string>(join(root, 'engine-state', '_photo-head-picks.json'))
     const yes = await readPersonYes(root)
     const standing = Object.entries(picks).filter(([ref, url]) => pickStands(ref, url, subjects, yes))

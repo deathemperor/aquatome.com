@@ -1,4 +1,4 @@
-import { isNonCommercial, isVersionRejection, originalPhotoRefusals, mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, PHOTO_SCREEN_FILE, photoRejections, rejectedEntry, setsCookies, settledWaiting, type Photo } from '@aq/schema'
+import { CREDIT_HOLD_REJECTION, isNonCommercial, isVersionRejection, originalPhotoRefusals, mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, PHOTO_SCREEN_FILE, photoRejections, rejectedEntry, setsCookies, settledWaiting, type Photo } from '@aq/schema'
 import { spawnSync } from 'node:child_process'
 import { createHash, randomUUID } from 'node:crypto'
 import { link, mkdir, readdir, readFile, rm, stat, writeFile } from 'node:fs/promises'
@@ -270,7 +270,7 @@ export async function listAgreed(root: string): Promise<string[]> {
     // after that night's seven). On one marked off, a mark's entry does too, which a shop's own kept mark could otherwise
     // lift (the independent reader, 20 Nov).
     const prior = rejected[url]
-    if (!prior || prior.startsWith('waiting:') || (isVersionRejection(prior) && !isVersionRejection(sl[url]!.why)) ||
+    if (!prior || prior === CREDIT_HOLD_REJECTION || prior.startsWith('waiting:') || (isVersionRejection(prior) && !isVersionRejection(sl[url]!.why)) ||
         (prior.startsWith('watermark:') && (sl[url]!.off || !active(url)))) {
       rejected[url] = sl[url]!.why
     }
@@ -295,7 +295,7 @@ export async function listAgreed(root: string): Promise<string[]> {
     }
     for (const original of sl[url]!.originals ?? []) {
       const previous = active(original)?.[1]
-      if (!previous || isVersionRejection(previous)) rejected[original] = sl[url]!.why
+      if (!previous || previous === CREDIT_HOLD_REJECTION || isVersionRejection(previous)) rejected[original] = sl[url]!.why
     }
     delete sl[url]
   }
@@ -517,10 +517,18 @@ async function capturePlaces(sl: SecondLooks, left: Map<string, Stood[]>, dir: s
           if (!earlier?.includes(String(p.photo.url))) continue
           // Add neighbors a preceding pass removed from the same file. The current file keeps its own order.
           for (const [i, neighbor] of earlier.entries()) {
-            if (order.includes(neighbor)) continue
-            const at = photoPosition(order, earlier, i, order.length)
+            const earlierKeys = saved?.orderKeys
+            const key = earlierKeys?.[i]
+            let at: number
+            if (orderKeys && earlierKeys && key) {
+              const wanted = earlierKeys.slice(0, i + 1).filter(other => other === key).length
+              if (orderKeys.filter(other => other === key).length >= wanted) continue
+              at = photoPosition(orderKeys, earlierKeys, i, order.length)
+            } else {
+              if (order.includes(neighbor)) continue
+              at = photoPosition(order, earlier, i, order.length)
+            }
             order.splice(at, 0, neighbor)
-            const key = saved?.orderKeys?.[i]
             if (orderKeys && key) {
               orderKeys.splice(at, 0, key)
               if (at <= orderKeyIndex) orderKeyIndex++
@@ -531,8 +539,9 @@ async function capturePlaces(sl: SecondLooks, left: Map<string, Stood[]>, dir: s
       await writeKept(dir, url, r, { ...p, ...place, order, orderKeys, ...(orderKeys ? { orderKeyIndex } : {}) }, earlier)
       named.set(placeKey(p), place)
       r.left = [...named.values()]
-      const at = previous.get(placeKey(p)) ?? []
-      if (!previous.has(placeKey(p))) previous.set(placeKey(p), at)
+      const group = placeKey({ ...p, occurrence: undefined })
+      const at = previous.get(group) ?? []
+      if (!previous.has(group)) previous.set(group, at)
       at.push({ url, mark: r, place })
       changed = true
     }
@@ -648,7 +657,6 @@ export function gitHistory(root: string, tip = 'HEAD'): History {
     const previous = new Set(namedAtMark ? [] : held.stdout.split('\n').map(l => l.slice(parent.length + 1)).filter(f => PLACE.test(f) && spots(parent, f).length > 0))
     const places = [...new Set([...previous, ...captured.map(p => p.file).filter(f => PLACE.test(f))])]
     if (!places.length) return []
-    const capturedFiles = new Set(captured.map(p => p.file))
     const captureCommits = new Map<string, string>()
     for (const place of captured) {
       if (!place.capture) continue
@@ -669,7 +677,6 @@ export function gitHistory(root: string, tip = 'HEAD'): History {
       const files = git('diff', '--name-only', '--no-renames', ...search, `${sha}^`, sha, '--', ...places)
       if (files.status !== 0) return undefined
       for (const file of files.stdout.split('\n').filter(Boolean)) {
-        if (capturedFiles.size && !capturedFiles.has(file) && sha !== mark) continue
         const before = spots(`${sha}^`, file), after = spots(sha, file)
         const group = (p: PhotoSlot) => placeKey({ ...p, file, occurrence: undefined })
         for (const p of before) if (!setsCookies(String(p.photo.url))) served.add(group(p))
@@ -706,6 +713,8 @@ export function gitHistory(root: string, tip = 'HEAD'): History {
           }
           const had = out.get(key)
           const previous = saved[0] ?? captured.find(p => placeKey(p) === key) ?? had
+          // A named take-off identifies the removed occurrences. Other copies in its file may have stayed on.
+          if (namedAtMark && !previous) continue
           const former = previous?.photo
           if (former && (!photoAddressSet([String(former.url)])(String(p.photo.url)) ||
             JSON.stringify(former.altered ?? null) !== JSON.stringify(p.photo.altered ?? null))) continue

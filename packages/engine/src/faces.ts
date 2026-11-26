@@ -13,7 +13,7 @@ import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { writeImageCache } from './image-cache-write'
 import { captureWaiting, entriesDir, holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, withoutClearedWaits, withoutSettledWaits, type Stood } from './last-photo'
-import { permittedPhotoSource, readPhotoSources } from './photo-visibility'
+import { permittedPhotoSource, readCreditHoldWait, readPhotoSources } from './photo-visibility'
 
 export type FaceDeps = { get: (url: string) => Promise<Uint8Array>; detect: (files: string[]) => Promise<number[]> }
 
@@ -111,7 +111,8 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const unread = new Set(todo.filter(u => !Object.hasOwn(cache, u)))
   const waits = waitingForDead && photoWaitsFor({ watermarks, unjudged: waitingForDead, unread, deadScreen: screen, secondLook })
   const flagVerdicts = [...new Set([...screened, ...Object.keys(cache)])].filter(u => face(u) && !listed(u))
-  const unavailable = (u: string) => !!listed(u) || waits?.(u) === true
+  const heldForCredit = await readCreditHoldWait(root)
+  const unavailable = (u: string) => !!listed(u) || heldForCredit(u) || waits?.(u) === true
   const last = lastPhotoVerdicts(pagesToKeep, unavailable, flagVerdicts)
   // Only one that passed the check before is held; a face found now, on one that never did, takes it off, marked on both
   // lists (last-photo.ts).
