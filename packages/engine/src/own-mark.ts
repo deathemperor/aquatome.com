@@ -65,7 +65,11 @@ export const keptAuthorOk = (k: { by?: unknown; word?: unknown }): boolean => {
 
 /** The kept-mark photos (engine-state/_photo-watermarks.json), which an album puts after its unmarked ones (gallery.ts rankGallery). */
 export async function keptMarks(root: string): Promise<(url: string) => boolean> {
-  const marks = JSON.parse(await readFile(join(root, 'engine-state', '_photo-watermarks.json'), 'utf8').catch(() => '{}')) as Record<string, CompactScreen>
+  const raw = await readFile(join(root, 'engine-state', '_photo-watermarks.json'), 'utf8').catch((error: NodeJS.ErrnoException) => {
+    if (error.code === 'ENOENT') return '{}'
+    throw error
+  })
+  const marks = JSON.parse(raw) as Record<string, CompactScreen>
   return url => retainedOwnMark(url, marks[url])
 }
 

@@ -95,7 +95,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
     publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
   // A stored alteration and its original can have separate decisions. Keep the credited wrapper for its other version.
   const keepsOriginal = (p: Photo) => {
-    const original = photoUrls(p)[1]
+    const original = deadScreenPhotoUrls(p)[1]
     const why = listed(p.url)?.[1]
     const versionRejection = !why || /^(?:dead|people|waiting): /.test(why)
     const originalRejection = original && listed(original)?.[1]
@@ -149,7 +149,11 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   for (const { file, e } of pages) {
     const keep = (e.photos ?? []).filter(p => !removes(p))
     // A video section's photo the owner rejected (the images pass screened it for faces when it picked it).
-    const figures = (e.video?.figures ?? []).filter(f => f.photo && listed(f.photo.url))
+    const figures = (e.video?.figures ?? []).filter(f => {
+      if (!f.photo) return false
+      const entry = listed(f.photo.url)
+      return !!entry && !entry[1].startsWith('waiting:') && !keepsOriginal(f.photo)
+    })
     if (keep.length === (e.photos ?? []).length && !figures.length) continue
     const at = file.slice(contentRoot.length + 1)
     removed.push(...(e.photos ?? []).filter(p => !keep.includes(p)).map(p => `${at}: ${p.url}`), ...figures.map(f => `${at}: ${f.photo!.url}`))
