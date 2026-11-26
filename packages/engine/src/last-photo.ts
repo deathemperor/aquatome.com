@@ -1,4 +1,4 @@
-import type { Photo } from '@aq/schema'
+import { photoLookAnswer as lookOf, type Photo } from '@aq/schema'
 import { spawnSync } from 'node:child_process'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
@@ -43,11 +43,6 @@ export const SECOND_LOOK_FILE = '_photo-second-look.json'
 
 const fileOf = (root: string) => join(root, 'engine-state', SECOND_LOOK_FILE)
 const object = (x: unknown): x is Record<string, unknown> => typeof x === 'object' && x !== null && !Array.isArray(x)
-const day = (x: unknown) => typeof x === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(x)
-const lookOf = (e: unknown): Look | undefined => {
-  const l = object(e) ? e.look : undefined
-  return object(l) && (l.said === 'agree' || l.said === 'clear') && typeof l.by === 'string' && l.by.trim() !== '' && day(l.on) ? (l as Look) : undefined
-}
 const has = (sl: SecondLooks, url: string) => Object.hasOwn(sl, url)
 
 /** The record. One that can't be read stops the step that reads it: it takes nothing off rather than guess. */

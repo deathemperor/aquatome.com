@@ -279,7 +279,7 @@ test('a rejection write failure cannot release the album copy on retry', async (
   expect(content.galleries.alpha).toBeUndefined()
 })
 
-test('a first-off original stays recoverable in both copies when its alteration also fails', async () => {
+test.each(['one pass', 'two passes'])('a first-off original stays recoverable in both copies after %s', async (timing) => {
   const original = photo('original-dead')
   const altered = {
     ...original, url: m('altered-dead'),
@@ -287,8 +287,14 @@ test('a first-off original stays recoverable in both copies when its alteration 
     altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }],
   }
   const { root, state, publicView } = await publicFixture([altered], [altered], [altered.url, original.url])
-  const flagged = await run(root, deps().d)
+  const flagged = await run(root, deps({ unreadable: timing === 'two passes' ? altered.url : undefined }).d)
   expect(flagged.dead?.firstOff).toContain(`${original.url}: species/alpha`)
+  if (timing === 'two passes') {
+    expect(flagged.owed).toBe(1)
+    const retried = await run(root, deps().d)
+    expect(retried.dead?.dead).toContain(`${altered.url}: dead screen dead`)
+    expect(retried.owed).toBe(0)
+  }
   expect((await publicView()).galleries.alpha).toBeUndefined()
   const looksFile = join(state, '_photo-second-look.json')
   const marks = JSON.parse(await readFile(looksFile, 'utf8'))

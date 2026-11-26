@@ -138,13 +138,16 @@ export function askedByCheckOf(check: Record<string, unknown> = {}, subjects: Re
  */
 export function deadLooked(r: DeadLookRecords): (url: string) => boolean {
   const asked = askedByCheckOf(r.check, r.subjects)
-  // A person's look as the engine reads one (its last-photo.ts): agree or clear, by someone, on a day.
-  const person = (url: string) => {
-    const l = (r.secondLook?.[url] as { look?: { said?: unknown; by?: unknown; on?: unknown } } | undefined)?.look
-    return !!l && (l.said === 'agree' || l.said === 'clear') && typeof l.by === 'string' && l.by.trim() !== '' && typeof l.on === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(l.on)
-  }
-  return url => Object.hasOwn(r.screen, url) || asked.has(url) || (!!r.secondLook && Object.hasOwn(r.secondLook, url) && person(url))
+  return url => Object.hasOwn(r.screen, url) || asked.has(url) || (!!r.secondLook && Object.hasOwn(r.secondLook, url) && !!photoLookAnswer(r.secondLook[url]))
 }
+/** A second look is answered only with a decision, a reviewer and a dated record. */
+export function photoLookAnswer(record: unknown): { said: 'agree' | 'clear'; by: string; on: string } | undefined {
+  const look = (record as { look?: { said?: unknown; by?: unknown; on?: unknown } } | undefined)?.look
+  if (!look || (look.said !== 'agree' && look.said !== 'clear') || typeof look.by !== 'string' || !look.by.trim() ||
+      typeof look.on !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(look.on)) return undefined
+  return { said: look.said, by: look.by, on: look.on }
+}
+
 /**
  * A waiting rejection remains in force when its mark is missing. A recorded dead verdict holds its URL even if the
  * file it came from still needs to preserve a different fallback version. A last-photo hold or a person's clear can
@@ -152,14 +155,13 @@ export function deadLooked(r: DeadLookRecords): (url: string) => boolean {
  */
 export function deadPhotoOff(url: string, screen?: Record<string, unknown>, secondLook?: Record<string, unknown>, rejected?: Record<string, unknown>): boolean {
   const why = rejected?.[url]
-  const mark = secondLook?.[url] as { why?: unknown; off?: boolean; look?: { said?: string; by?: string; on?: string } } | undefined
+  const mark = secondLook?.[url] as { why?: unknown; off?: boolean } | undefined
   if (typeof why === 'string' && (why.startsWith('dead:') || why.startsWith('waiting:'))) return true
-  const look = mark?.look
-  if (look?.said === 'clear' && typeof look?.by === 'string' && look.by.trim() !== '' &&
-      typeof look.on === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(look.on)) return false
+  const look = photoLookAnswer(mark)
+  if (look?.said === 'clear') return false
   if (mark?.off === true && typeof mark.why === 'string' && mark.why.startsWith('dead:')) return true
   const verdict = screen?.[url] as { dead?: unknown } | undefined
-  return verdict?.dead === true && !(typeof mark?.why === 'string' && mark.why && mark.off !== true && !mark.look)
+  return verdict?.dead === true && !(typeof mark?.why === 'string' && mark.why && mark.off !== true && !look)
 }
 
 /**

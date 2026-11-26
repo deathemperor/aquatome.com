@@ -105,6 +105,11 @@ test('each source can revoke its altered pictures in one build; Glaser falls bac
   await writeFile(secondLook, JSON.stringify({ [original.url]: { ...mark, look: { said: 'clear', by: 'reviewer', on: '2026-11-26' } } }))
   await writeFile(rejected, '{}')
   expect((await loadAll(opts)).species[0]!.photos.map(p => p.url)).toEqual([original.url])
+  // An incomplete human reply leaves the last-photo hold in effect.
+  await writeFile(secondLook, JSON.stringify({ [original.url]: {
+    why: 'dead: withheld', look: { said: 'agree', by: '', on: '2026-11-26' },
+  } }))
+  expect((await loadAll(opts)).species[0]!.photos.map(p => p.url)).toEqual([original.url])
   await writeFile(rejected, JSON.stringify({ [original.url]: 'dead: withheld' }))
   expect((await loadAll(opts)).galleries.alpha).toBeUndefined()
 })

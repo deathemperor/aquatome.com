@@ -193,7 +193,9 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     const original = version(p)
     if (!original || original.url === p.url) return false
     // The wrapper holds the original's credit and other metadata until the person's decision or next look.
-    return firstOff.has(original.url) || held.has(original.url) || (!(original.url in photoRejected) && !going.has(original.url))
+    const prior = photoRejected[original.url]
+    return firstOff.has(original.url) || held.has(original.url) || sl.off(original.url) || prior?.startsWith('waiting:') ||
+      (!prior && !going.has(original.url))
   }
   for (const it of off) {
     const why = `dead: ${cache[it.key]!.note} (the dead-fish screen)`
