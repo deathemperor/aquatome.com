@@ -263,13 +263,16 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const sl = looks(secondLook)
   // A hold on another reason doesn't keep a photo that never passed from this, its first verdict (photo-check.ts spared).
   const passed = photoAddressSet(!o.albums && off.some(x => !x.video) ? await readPassedBefore(root) : [])
-  const going = new Set(off.filter(x => !x.video && (sl.open(x.url) || ((sl.waiting(x.url) || sl.held(x.url)) && !passed(x.url)))).map(x => x.url))
+  const clearedAlbum = photoClears(secondLook)
+  const going = new Set(off.filter(x => !x.video && (o.albums
+    ? x.rejection?.startsWith('dead:') || !clearedAlbum(x.url)
+    : !sl.pendingOff(x.url) && (sl.open(x.url) || ((sl.waiting(x.url) || sl.held(x.url)) && !passed(x.url))))).map(x => x.url))
   // Photos already listed never-again leave every page anyway (the sweep), so they count as going.
   const last = new Map<string, string[]>()
   if (!o.albums && going.size) {
     const [pages, owned, listed, faces, watermarks] = await Promise.all([
-      pagesShowing(content, p => {
-        if (!permittedPhotoSource(p, sources)) return undefined
+      pagesShowing(content, (p, ref, scientificName) => {
+        if (!permittedPhotoSource(p, sources, ref, scientificName)) return undefined
         const reason = isListed(p.url)?.[1]
         // The sweep removes the whole wrapper for a rejection that applies to the photo as a whole.
         if (reason && !/^(?:dead|people|waiting): /.test(reason)) return p.url
@@ -298,7 +301,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     : {})
   const albumHold = (url: string) => {
     const key = albumHolds(url)?.[0]
-    return key && (sl.waiting(url) || sl.held(url) || isListed(url)?.[0] === key) ? key : undefined
+    return key && (sl.waiting(url) || sl.held(url) || sl.pendingOff(url) || isListed(url)?.[0] === key) ? key : undefined
   }
   const holding = new Map<string, { why: string; pages: string[]; off?: true }>()
   type Page = PhotoDocument

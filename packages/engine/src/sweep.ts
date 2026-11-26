@@ -41,7 +41,7 @@ import { readVideoRejected } from './videos'
 import { dropNonCommercial, orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 import { rejectedEntry } from './photos'
-import { captureWaiting, entriesDir, gitHistory, holdForSecondLook, listAgreed, looks, mendWaiting, notePlaces, placesIn, putBackCleared, readSecondLook, unlistCleared, type History, type Stood } from './last-photo'
+import { captureWaiting, entriesDir, gitHistory, holdForSecondLook, listAgreed, looks, mendWaiting, notePlaces, placesIn, putBackCleared, readSecondLook, unlistCleared, withoutClearedWaits, type History, type Stood } from './last-photo'
 import { keptCapOwn, keptLast, keptMarks } from './own-mark'
 import { ageOf, grownFirst, grownHead } from './young-heads'
 import { namedOn, namedOrder, passesHead } from './photo-named'
@@ -1141,7 +1141,10 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // The glossary's too: a term shows a photo from a fish page, and one refused there stayed on the term (the independent
   // reader, 20 Nov). A kind left with no photo has no record (GlossarySchema `kinds`).
   const glossaryFiles = (await readdir(join(content, 'glossary')).catch(() => [] as string[])).sort().map(id => join(content, 'glossary', id, 'entity.json'))
-  const remember = captureWaiting(await readSecondLook(root), rejectedEntry(rejected))
+  const rejectedAt = rejectedEntry(rejected)
+  const marks = await readSecondLook(root)
+  const active = withoutClearedWaits({ ...rejected }, marks)
+  const remember = captureWaiting(marks, rejectedAt)
   const keepsVersion = (url: string, original: string, blockedOriginal: boolean) =>
     /^(?:dead|people|waiting): /.test(listedWhy(url)) && (!blockedOriginal || listedWhy(original).startsWith('waiting:'))
   for (const file of [...(await shownIn('species')), ...(await shownIn('plants')), ...(await shownIn('breeds')), ...galleryFiles, ...(await shownIn('guides')), ...(await everyJson('equipment')), ...glossaryFiles]) {
@@ -1150,10 +1153,14 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const data = JSON.parse(raw) as { photos?: unknown }
     const places = new Map<string, Stood[]>()
     const canCapture = !!entriesDir()
-    const remove = (url: string) => listed(url) && (canCapture || !remember(url))
-    placesIn(root, file, data, url => remove(url) ? remember(url) : undefined, places)
+    const remove = (url: string) => {
+      const entry = rejectedAt(url)
+      return listed(url) && (!entry || entry[0] in active) && (canCapture || !remember(url))
+    }
+    const before = { ...data }
     const removed: string[] = []
     stripPhotos(data, remove, removed, [], keepsVersion)
+    placesIn(root, file, before, url => removed.includes(url) ? remember(url) : undefined, places)
     if (!removed.length) continue
     const g = data as { kinds?: { photo?: unknown }[] }
     if (glossaryFiles.includes(file) && Array.isArray(g.kinds)) { g.kinds = g.kinds.filter(k => k.photo); if (!g.kinds.length) delete g.kinds }
@@ -1173,31 +1180,38 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const pickedOn = new Set(standing.map(([ref, url]) => `${ref.split('/')[1]}\n${url}`))
     const why = refusedOn(subjects, id => kindOf.get(id), (id, url) => pickedOn.has(`${id}\n${url}`), new Set(standing.map(([, url]) => url)))
     for (const [ref, url] of standing) if (Object.values(subjects[url] ?? {}).some(v => !v.guide && v.ok === 'none')) report.refusedPicked.push(`${ref}: ${url}`)
-    type Doc = { photos?: (Photo & { unchecked?: boolean })[] }
+    type Doc = { photos?: (Photo & { unchecked?: boolean })[]; scientificName?: string }
     const sources = JSON.parse(await readFile(join(content, 'sources.json'), 'utf8').catch(() => '{}')) as Record<string, SourceInfo>
     const shown = (p: Photo) => publicPhotoVersion(p, o.switches ?? IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
-    const own = (data: Doc, album = false, showing = false) => (data.photos ?? []).flatMap(p => {
-      const version = !p.generated && !(album && p.unchecked) && (!showing || permittedPhotoSource(p, sources)) && shown(p)
+    const own = (data: Doc, context?: { ref: string; name: string; album?: boolean }) => (data.photos ?? []).flatMap(p => {
+      const version = !p.generated && !(context?.album && p.unchecked) && (!context || permittedPhotoSource(p, sources, context.ref, context.name)) && shown(p)
       return version ? [version] : []
     })
     // A photo held for a second look, or one it cleared, stays (last-photo.ts).
     const sl = looks(await readSecondLook(root))
     const plan: { file: string; id: string; raw: string; data: Doc; off: Map<string, string> }[] = []
+    const names = new Map<string, string>()
     for (const [id, kind] of [...kindOf].sort((a, b) => a[0].localeCompare(b[0]))) for (const file of [join(content, kind, id, 'entity.json'), join(content, 'gallery', `${id}.json`)]) {
       const raw = await readFile(file, 'utf8').catch(() => null)
       if (!raw) continue
       const data = JSON.parse(raw) as Doc
+      if (file.endsWith('entity.json')) names.set(id, data.scientificName ?? '')
       const off = new Map(own(data).flatMap(p => { const w = why(id, p.url); return w && sl.open(p.url) ? [[p.url, w] as const] : [] }))
       if (off.size) plan.push({ file, id, raw, data, off })
     }
     const waitsFor = plan.length ? await readPhotoWaits(root) : () => false
-    const losesEveryPhoto = (x: (typeof plan)[number]) => !own(x.data, x.file.endsWith(`gallery/${x.id}.json`), true).some(p => !x.off.has(p.url) && !waitsFor(p.url))
+    const losesEveryPhoto = (x: (typeof plan)[number]) => {
+      const album = x.file.endsWith(`gallery/${x.id}.json`)
+      const kind = kindOf.get(x.id)
+      const ref = !album || kind === 'species' ? `${kind}/${x.id}` : ''
+      return !own(x.data, { ref, album, name: names.get(x.id) ?? '' }).some(p => !x.off.has(p.url) && !waitsFor(p.url))
+    }
     const emptying = plan.filter(x => x.file.endsWith('entity.json') && losesEveryPhoto(x))
     // A page with none of its own whose album would go whole is left with nothing too (the chief of staff, 2026-11-14).
     for (const x of plan) {
       if (!x.file.endsWith(`gallery/${x.id}.json`) || !losesEveryPhoto(x)) continue
       const page = JSON.parse(await readFile(join(content, kindOf.get(x.id)!, x.id, 'entity.json'), 'utf8').catch(() => '{}')) as Doc
-      if (!own(page, false, true).some(p => !waitsFor(p.url))) emptying.push(x)
+      if (!own(page, { ref: `${kindOf.get(x.id)}/${x.id}`, name: names.get(x.id) ?? '' }).some(p => !waitsFor(p.url))) emptying.push(x)
     }
     // The pages the check's last run held (photo-check.ts writes them, page → true), and this run's own past the cap. A
     // held file the sweep can't read holds every page: nothing comes off until a run of the check writes it again.

@@ -10,7 +10,7 @@ import { screenDead, type DeadScreenDeps } from './dead-screen'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { keptMarks } from './own-mark'
-import { captureWaiting, holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, withoutSettledWaits, type Stood } from './last-photo'
+import { captureWaiting, holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, withoutClearedWaits, withoutSettledWaits, type Stood } from './last-photo'
 import { permittedPhotoSource } from './photo-visibility'
 
 export type FaceDeps = { get: (url: string) => Promise<Uint8Array>; detect: (files: string[]) => Promise<number[]> }
@@ -39,7 +39,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const cache: Record<string, number> = JSON.parse(await readFile(cacheFile, 'utf8').catch(() => '{}'))
   const before = await readSecondLook(root)
   const rejected: Record<string, string> = rejectedFile
-    ? withoutSettledWaits(JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')), before)
+    ? withoutClearedWaits(JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')), before)
     : {}
   const rejectedAt = rejectedEntry(rejected)
   const keepMark = await keptMarks(root)
@@ -84,7 +84,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const sl = looks(secondLook)
   // A hold on another reason doesn't keep a photo that never passed from a face found now, its first verdict (photo-check.ts spared).
   const passed = photoAddressSet(await readPassedBefore(root))
-  const face = (u: string) => cache[u]! > 0 && (sl.open(u) || ((sl.waiting(u) || sl.held(u)) && screened.has(u) && !passed(u)))
+  const face = (u: string) => cache[u]! > 0 && !sl.pendingOff(u) && (sl.open(u) || ((sl.waiting(u) || sl.held(u)) && screened.has(u) && !passed(u)))
   const screen = waitingForDead && await readPhotoRecord(root, DEAD_SCREEN_FILE)
   const sources: Record<string, SourceInfo> = waitingForDead
     ? JSON.parse(await readFile(join(contentRoot, 'sources.json'), 'utf8').catch(() => '{}'))
@@ -102,9 +102,9 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
     return versionRejection && !!original && (!originalRejection || originalRejection.startsWith('waiting:'))
   }
   const dropsStored = (p: Photo) => !keepsOriginal(p) && (!!listed(p.url) || face(p.url))
-  const pagesToKeep = await pagesShowing(contentRoot, p => {
+  const pagesToKeep = await pagesShowing(contentRoot, (p, ref, scientificName) => {
     if (!waitingForDead) return p.url
-    if (!permittedPhotoSource(p, sources)) return undefined
+    if (!permittedPhotoSource(p, sources, ref, scientificName)) return undefined
     if (dropsStored(p)) return p.url
     const shown = version(p)?.url
     return shown && !setsCookies(shown) ? shown : undefined
