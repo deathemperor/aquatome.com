@@ -256,8 +256,8 @@ export const UNJUDGED_DEAD_LIMIT = 300
 export const GUIDE_LOOKS_FILE = '_photo-guides.json'
 
 /** Guide photos and stock photos have their own look. Video frames have a separate verdict. */
-export function guidePhotoUrls(guide: { photos?: PhotoVersions[]; video?: { figures?: { photo?: { url: string } }[] } }): string[] {
-  return [...(guide.photos ?? []).flatMap(deadScreenPhotoUrls), ...(guide.video?.figures ?? []).flatMap(f => f.photo ? [f.photo.url] : [])]
+export function guidePhotoUrls(guide: { photos?: PhotoVersions[]; video?: { figures?: { photo?: PhotoVersions }[] } }): string[] {
+  return [...(guide.photos ?? []).flatMap(deadScreenPhotoUrls), ...(guide.video?.figures ?? []).flatMap(f => f.photo ? deadScreenPhotoUrls(f.photo) : [])]
 }
 export async function guidePhotoUrlsIn(root: string): Promise<Set<string>> {
   const urls = new Set<string>()
@@ -272,10 +272,18 @@ export async function guidePhotoUrlsIn(root: string): Promise<Set<string>> {
   return urls
 }
 
-export function guideLooked(verdict: unknown): boolean {
+type GuideLook = { person: boolean; mark: boolean; brand: boolean; other?: Record<string, unknown> }
+
+export function guideLooked(verdict: unknown, subject?: string): verdict is GuideLook {
   if (!verdict || typeof verdict !== 'object') return false
-  const v = verdict as Record<string, unknown>
-  return typeof v.person === 'boolean' && typeof v.mark === 'boolean' && typeof v.brand === 'boolean'
+  const v = verdict as Partial<GuideLook>
+  return typeof v.person === 'boolean' && typeof v.mark === 'boolean' && typeof v.brand === 'boolean' &&
+    (!subject || typeof v.other?.[subject] === 'boolean')
+}
+
+/** A guide's own or stock photo has to pass the questions for that specific guide. */
+export function guidePhotoAllowed(verdict: unknown, subject?: string): boolean {
+  return guideLooked(verdict, subject) && !verdict.person && !verdict.mark && !verdict.brand && (!subject || verdict.other?.[subject] === false)
 }
 /**
  * More guide photos and stock photos than this with no look of the guides is a lost or damaged record, not a run's new

@@ -223,12 +223,22 @@ test('the replay finds the owner of the original an album alteration would show'
   expect(await showingPhotos(['species/x'], disk(r), diskOwners(r))).toEqual(new Map([['species/x', true]]))
 })
 
-test('an unjudged guide stock photo also waits in a fish album when the sweep replays the site', async () => {
+test.each([false, true])('an unjudged guide stock photo waits in a fish album in the replay (fallback: %s)', async fallback => {
   const { r, put } = await store({ species: { x: [] }, albums: { x: ['stock'] } })
-  await put('content/guides/g/entity.json', { photos: [], video: { figures: [{ photo: photo('stock') }] } })
+  const original = photo('stock')
+  const stock = fallback ? {
+    ...photo('altered-stock'),
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'b'.repeat(64) }],
+    original: { url: original.url, width: original.width, height: original.height },
+  } : original
+  await put('content/guides/g/entity.json', { photos: [], video: { figures: [{ photo: stock }] } })
+  await put('content/gallery/x.json', { id: 'x', photos: [stock], seen: 1, updatedAt: '2026-11-26' })
   await put(`engine-state/${schema.FACES_FILE}`, { [url('stock')]: 0 })
   await put(`engine-state/${schema.DEAD_SCREEN_FILE}`, { [url('stock')]: { dead: false } })
-  await put(`engine-state/${schema.GUIDE_LOOKS_FILE}`, { [url('stock')]: { person: false } })
+  await put(`engine-state/${schema.GUIDE_LOOKS_FILE}`, {
+    [url('stock')]: { person: false },
+    ...(fallback ? { [stock.url]: { person: false, mark: false, brand: false } } : {}),
+  })
   expect(await showingPhotos(['species/x'], disk(r), diskOwners(r))).toEqual(new Map([['species/x', false]]))
   await put(`engine-state/${schema.GUIDE_LOOKS_FILE}`, { [url('stock')]: { person: false, mark: false, brand: false } })
   expect(await showingPhotos(['species/x'], disk(r), diskOwners(r))).toEqual(new Map([['species/x', true]]))
