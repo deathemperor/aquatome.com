@@ -1,6 +1,6 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
-import type { SourceId } from '@aq/schema'
+import { deadScreenPhotoUrls, type Photo, type SourceId } from '@aq/schema'
 import type { PageImage } from './outline'
 import { creditKind } from './photo-credit'
 import { snapshotName } from './snapshot'
@@ -265,7 +265,9 @@ export async function namePictureLines(root: string, source: SourceId, sourceNam
   if (!named.size) return 0
   // A photo one of whose copies is named already, by another line: its copies credited to the publisher alone stay so.
   const files: { file: string; raw: string; data: unknown }[] = []
-  const already = (o: Record<string, unknown>) => isPhoto(o) && o.source === source && o.licence === SOURCE_PHOTO_LICENCE && named.has(o.url) && o.author.endsWith(` / ${sourceName}`) ? o.author.slice(0, -` / ${sourceName}`.length) : undefined
+  const addressOf = (photo: Record<string, unknown>) =>
+    deadScreenPhotoUrls(photo as unknown as Photo).findLast(url => named.has(url))
+  const suffix = ` / ${sourceName}`
   for (const file of await photoFiles(join(root, 'content'))) {
     const raw = await readFile(file, 'utf8').catch(() => '')
     if (![...named.keys()].some(u => raw.includes(u))) continue
@@ -275,8 +277,10 @@ export async function namePictureLines(root: string, source: SourceId, sourceNam
       if (Array.isArray(x)) return x.forEach(visit)
       if (!x || typeof x !== 'object') return
       const o = x as Record<string, unknown>
-      const name = already(o)
-      if (name !== undefined && name !== named.get(o.url as string)) named.delete(o.url as string)
+      if (isPhoto(o) && o.source === source && o.licence === SOURCE_PHOTO_LICENCE && o.author.endsWith(suffix)) {
+        const address = addressOf(o)
+        if (address && o.author.slice(0, -suffix.length) !== named.get(address)) named.delete(address)
+      }
       Object.values(o).forEach(visit)
     }
     visit(data)
@@ -288,7 +292,10 @@ export async function namePictureLines(root: string, source: SourceId, sourceNam
       if (Array.isArray(x)) return x.forEach(visit)
       if (!x || typeof x !== 'object') return
       const o = x as Record<string, unknown>
-      if (isPhoto(o) && o.source === source && o.licence === SOURCE_PHOTO_LICENCE && o.author === sourceName && named.has(o.url)) { o.author = `${named.get(o.url)} / ${sourceName}`; here++ }
+      if (isPhoto(o) && o.source === source && o.licence === SOURCE_PHOTO_LICENCE && o.author === sourceName) {
+        const address = addressOf(o)
+        if (address) { o.author = `${named.get(address)}${suffix}`; here++ }
+      }
       Object.values(o).forEach(visit)
     }
     visit(data)

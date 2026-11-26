@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto'
 import { photoAddressSet, type PhotoRejection } from './photo-address'
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
@@ -99,6 +100,8 @@ export function publicPhotoVersion<P extends Photo>(p: P, images: Readonly<Image
 
 /** These refusals apply to the version that received the verdict. */
 export const isVersionRejection = (reason: string): boolean => /^(?:dead|people|waiting): /.test(reason)
+const CREDIT_HOLD_TEXT = 'rejected: held for a credit read'
+export const CREDIT_HOLD_REJECTION = `rejected: withheld [sha256:${createHash('sha256').update(CREDIT_HOLD_TEXT).digest('hex')}]`
 
 /** The stored URL and any original the public loader can use if it withdraws an alteration. */
 export function deadScreenPhotoUrls(p: PhotoVersions): string[] {
@@ -182,8 +185,8 @@ export async function expandWholePhotoRejections(
   const added: Record<string, string> = {}
   for (const [url, causes] of originals) {
     const prior = effective(url)?.[1]
-    const cause = causes.values().next().value
-    if (cause && (!prior || isVersionRejection(prior))) added[url] = rejections[cause]!
+    const cause = [...causes].find(url => rejections[url] !== CREDIT_HOLD_REJECTION) ?? causes.values().next().value
+    if (cause && (!prior || (isVersionRejection(prior) && rejections[cause] !== CREDIT_HOLD_REJECTION))) added[url] = rejections[cause]!
   }
   return Object.keys(added).length ? { ...rejections, ...added } : rejections
 }
@@ -254,7 +257,7 @@ export function photoClears(records: Record<string, unknown> = {}): (url: string
   }
 }
 
-type LookMark = { why?: unknown; off?: boolean }
+type LookMark = { why?: unknown; off?: boolean; originals?: unknown }
 
 function unansweredHold(record: unknown): boolean {
   const mark = record as LookMark | undefined
@@ -269,10 +272,10 @@ export function photoHolds(records: Record<string, unknown> = {}): (url: string)
 
 /** A first-refusal mark is durable before its rejection entry is written. */
 function photoFirstOff(records: Record<string, unknown> = {}): (url: string) => boolean {
-  return photoAddressSet(Object.keys(records).filter(url => {
-    const mark = records[url] as LookMark | undefined
-    return mark?.off === true && typeof mark.why === 'string' && /^(?:dead|people):/.test(mark.why) &&
-      photoLookAnswer(mark)?.said !== 'clear'
+  return photoAddressSet(Object.entries(records).flatMap(([url, record]) => {
+    const mark = record as LookMark | undefined
+    if (mark?.off !== true || typeof mark.why !== 'string' || photoLookAnswer(mark)?.said === 'clear') return []
+    return [url, ...(Array.isArray(mark.originals) ? mark.originals.filter(u => typeof u === 'string') : [])]
   }))
 }
 

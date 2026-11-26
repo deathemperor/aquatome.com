@@ -184,8 +184,6 @@ export async function readPassedBefore(root: string): Promise<Set<string>> {
   const read = async (f: string) => JSON.parse(await readFile(join(root, 'engine-state', f), 'utf8').catch(() => '{}')) as Record<string, unknown>
   return passedBefore(await read('_photo-subjects.json'), await read('_photo-check.json'))
 }
-/** The verdicts a photo that never passed doesn't wait on a page under (above). */
-export const FIRST_OFF = /^(?:dead|people): /
 /** The never-again entry of a photo off at its first verdict: `waiting:` and its record's hash (above). */
 export const waitingEntry = (why: string) => compactRejection(why).replace(/^[^:]+:/, 'waiting:')
 
