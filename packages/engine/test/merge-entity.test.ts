@@ -34,6 +34,15 @@ test('replaying a restored plain photo preserves a credited wrapper sharing its 
   expect(mergeFile({ photos: [] }, { photos: [plain] }, { photos: [wrapper] }).photos).toEqual([plain, wrapper])
 })
 
+test('concurrent wrappers with different saved originals each retain their own credit', () => {
+  const photo = { url: 'https://m/shared.webp', altered: [{ method: 'lanczos3-upscale' }] }
+  const one = { ...photo, author: 'First credit', original: { url: 'https://m/one.webp' } }
+  const two = { ...photo, author: 'Second credit', original: { url: 'https://m/two.webp' } }
+  for (const [main, local] of [[one, two], [two, one]]) {
+    expect(mergeFile({ photos: [] }, { photos: [main] }, { photos: [local] }).photos).toEqual([main, local])
+  }
+})
+
 test('the same new page from two sources: both sources\' figures, places, sections, photos and videos stay', () => {
   expect(merge3(undefined, sf, glaser)).toEqual({
     id: 'pterophyllum-scalare', scientificName: 'Pterophyllum scalare', family: 'Cichlidae', places: ['south-america', 'colombia', 'brazil', 'rio-xingu'],
