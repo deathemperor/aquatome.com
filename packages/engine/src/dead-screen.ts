@@ -242,7 +242,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   // A retry can always find the owning photo until its removal or hold is durable.
   const left = new Map<string, Stood[]>()
   const newFirst = rejectedEntry(Object.fromEntries([...firstOff.keys()].map(url => [url, holding.get(url)!.why])))
-  for (const [file, edit] of edits) placesIn(root, file, edit.original, url => edit.page.photos?.some(p => p.url === url) ? undefined : newFirst(url)?.[0], left)
+  for (const [file, edit] of edits) placesIn(root, file, edit.original, (url, slot) => edit.page.photos?.includes(slot.photo as Photo) ? undefined : newFirst(url)?.[0], left)
   await holdForSecondLook(root, holding, 'the dead-fish screen', undefined, left)
   const save = (f: string, data: object) => writePhotoState(state(f), data)
   if (off.some(x => x.video)) await save('_video-rejected.json', videoRejected)
