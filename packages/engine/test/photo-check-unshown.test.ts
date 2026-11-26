@@ -66,17 +66,32 @@ test('a failed rejection write leaves the new subject verdict unpublished', asyn
   expect(await photosOf(r, 'aaa')).toEqual(['a-dead', 'a-live'])
 })
 
-test('the photo check and sweep keep a refused passed photo if its only sibling still waits', async () => {
+test.each(['dead-fish look', 'public host'])('the photo check and sweep keep a last passed photo when its sibling is withheld by the %s rule', async why => {
+  const setSibling = async (root: string) => {
+    if (why !== 'public host') return
+    const p = photo('a-pending')
+    const original = 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Sample.jpg'
+    const wrapper = {
+      ...p,
+      altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'f'.repeat(64) }],
+      original: { url: original, width: p.width, height: p.height },
+    }
+    await writeFile(join(root, 'content/species/aaa/entity.json'), JSON.stringify(fish('aaa', [photo('a-dead'), wrapper])))
+    await writeFile(join(root, 'engine-state/_dead-screen.json'), JSON.stringify({ [url('a-dead')]: { dead: false }, [p.url]: { dead: false }, [original]: { dead: false } }))
+    await writeFile(join(root, 'engine-state/_photo-rejected.json'), JSON.stringify({ [p.url]: 'dead: withheld' }))
+  }
   const r = await store({ aaa: ['a-dead', 'a-pending'] }, { 'a-dead': { aaa: oldPass } })
   const state = (name: string, record: object) => writeFile(join(r, 'engine-state', name), JSON.stringify(record))
-  await state('_photo-dead-owed.json', { [url('a-pending')]: '2026-11-26' })
+  if (why === 'dead-fish look') await state('_photo-dead-owed.json', { [url('a-pending')]: '2026-11-26' })
   await state('_dead-screen.json', { [url('a-dead')]: { dead: false } })
+  await setSibling(r)
   const out = await checkPagePhotos(r, model({ 'a-dead': dead }), { limit: 1, emptyCap: 0 })
   expect(out.heads.held).toContain(`species/aaa: ${url('a-dead')}`)
   expect(await photosOf(r, 'aaa')).toContain('a-dead')
 
   const independent = await store({ aaa: ['a-dead', 'a-pending'] }, { 'a-dead': { aaa: { ...dead, logo: false } } })
   await writeFile(join(independent, 'engine-state/_dead-screen.json'), JSON.stringify({ [url('a-dead')]: { dead: false } }))
+  await setSibling(independent)
   const swept = await sweep(independent, { history: async () => [] })
   expect(swept.refusedHeld.some(row => row.startsWith('species/aaa'))).toBe(true)
   expect(await photosOf(independent, 'aaa')).toContain('a-dead')
@@ -228,6 +243,34 @@ test('one photo on two pages, the only photo on one and one of several on the ot
   expect(Object.keys(sl)).toEqual([url('j-dead')])
   expect(sl[url('j-dead')]).toMatchObject({ step: 'the photo check', pages: ['species/jjj'], off: true })
   expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [url('j-dead')]: waitingEntry(sl[url('j-dead')].why) })
+})
+
+test('the other address of a first refusal joins the same wait even when it has a visible sibling', async () => {
+  const r = await store({ jjj: [], kkk: [] })
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(source)!.key}`
+  await writeFile(join(r, 'content/species/jjj/entity.json'), JSON.stringify(fish('jjj', [{ ...photo('mirror'), url: mirror }])))
+  await writeFile(join(r, 'content/species/kkk/entity.json'), JSON.stringify(fish('kkk', [{ ...photo('source'), url: source }, photo('live')])))
+
+  await checkPagePhotos(r, model({ [name(source)]: dead, [name(mirror)]: dead }), { limit: 10 })
+
+  const marks = await json(r, 'engine-state/_photo-second-look.json')
+  expect(marks[mirror]).toMatchObject({ pages: ['species/jjj'], off: true })
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [mirror]: waitingEntry(marks[mirror].why) })
+})
+
+test.each(['photo check', 'sweep'])('the %s holds the last visible album photo even with an unchecked sibling', async step => {
+  const r = await store({ jjj: [] }, {
+    visible: { jjj: { ...oldPass, ok: 'other', person: false, logo: false } },
+  })
+  const file = 'content/gallery/jjj.json'
+  await writeFile(join(r, file), JSON.stringify({ id: 'jjj', seen: 2, updatedAt: '2026-11-26', photos: [photo('visible'), { ...photo('pending'), unchecked: true }] }))
+
+  if (step === 'photo check') await checkPagePhotos(r, model({}), { limit: 0 })
+  else await sweep(r)
+
+  expect((await json(r, file)).photos.map((p: { url: string }) => p.url)).toEqual([url('visible'), url('pending')])
+  expect((await json(r, 'engine-state/_photo-second-look.json'))[url('visible')]).toMatchObject({ pages: ['species/jjj'] })
 })
 
 test('a dead verdict given before the rule, on a page\'s only photo, is held as before: the rule acts on new verdicts only', async () => {

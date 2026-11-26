@@ -13,6 +13,7 @@ import { cantTellOn, OFF, type PhotoVerdict } from './photo-check'
 import { namedOn, namedOrder, SPECIES, type Named } from './photo-named'
 import { keptCap, keptMarks } from './own-mark'
 import { isRejected, rejectedEntry, unfitCommons } from './photos'
+import { shouldStripPhoto } from './watermarks'
 import { captureWaiting, CLEARED_VERDICT, looks, notePlaces, placesIn, readSecondLook, withoutSettledWaits, type Stood } from './last-photo'
 import { EMPTIED_FILE, readList } from './emptied-pages'
 import { readPriorityFish } from './priority-fish'
@@ -527,7 +528,12 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   let openverseFailures = 0
   const today = d.now().toISOString().slice(0, 10)
   const days = (date: string) => (d.now().getTime() - Date.parse(date)) / 86_400_000
-  await dropRejected(root, content, rejectedPhoto, captureWaiting(sl, rejectedEntry(rejected)))
+  const listed = rejectedEntry(rejected)
+  const effectiveRejection: typeof listed = url => {
+    const entry = listed(url)
+    return entry?.[1].startsWith('watermark:') && (markKept(url) || markKept(entry[0])) ? undefined : entry
+  }
+  await dropRejected(root, content, effectiveRejection, captureWaiting(sl, effectiveRejection))
   // `shard` [i, n]: every n-th page from the i-th, so n runs can share the work (each still most popular first).
   const plan = (await galleryPlan(root)).filter((t, i) => (!o.only || t.id === o.only) && (!o.shard || i % o.shard[1] === o.shard[0]))
   const listed = new Set([...Object.keys(await readPriorityFish(root)), ...Object.keys(await readList(root, EMPTIED_FILE))])
@@ -801,14 +807,19 @@ async function pageOf(root: string, id: string): Promise<Photo[]> {
 }
 
 /** Photos the owner rejected (engine-state/_photo-rejected.json) leave every gallery, the next run after they are listed. */
-async function dropRejected(root: string, content: string, isRejected: (url: string) => boolean, waiting: (url: string) => string | undefined) {
+async function dropRejected(root: string, content: string, rejected: ReturnType<typeof rejectedEntry>, waiting: (url: string) => string | undefined) {
   for (const f of (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json'))) {
     const file = join(content, 'gallery', f)
     const g = JSON.parse(await readFile(file, 'utf8')) as { photos: Photo[] }
-    const keep = g.photos.filter(p => !isRejected(p.url))
+    const blocked = (url: string) => !!rejected(url)
+    const keep = g.photos.filter(p => !shouldStripPhoto(p, blocked, (url, original, blockedOriginal) =>
+      /^(?:dead|people|waiting): /.test(rejected(url)?.[1] ?? '') &&
+      (!blockedOriginal || rejected(original)?.[1].startsWith('waiting:') === true),
+    ))
     if (keep.length === g.photos.length) continue
     const stood = new Map<string, Stood[]>()
-    placesIn(root, file, g, url => isRejected(url) ? waiting(url) : undefined, stood)
+    const removed = new Set(g.photos.filter(p => !keep.includes(p)).map(p => p.url))
+    placesIn(root, file, g, url => removed.has(url) ? waiting(url) : undefined, stood)
     await notePlaces(root, stood)
     await writeFile(file, `${JSON.stringify({ ...g, photos: keep }, null, 2)}\n`)
   }

@@ -6,7 +6,7 @@ import { writeImageCache } from './image-cache-write'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { IMAGE_SWITCHES, isNonCommercial, photoAddressSet, photoFitsHead, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto, type SourceInfo } from '@aq/schema'
+import { IMAGE_SWITCHES, isNonCommercial, photoAddressSet, photoFitsHead, photoKey, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto, type SourceInfo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
@@ -22,7 +22,7 @@ import { readAvoid } from './curation'
 import { priorityFish } from './priority-fish'
 import { readPhotoWaits } from './photo-visibility'
 
-type Photo = { url: string; caption?: string; author?: string; authorUrl?: string; sourceUrl?: string; licence?: string; generated?: unknown }
+type Photo = { url: string; caption?: string; author?: string; authorUrl?: string; sourceUrl?: string; licence?: string; generated?: unknown; unchecked?: boolean }
 /**
  * Does the photo show its page's subject: yes (in the wild too, where it is clearly seen); another species, breed or
  * variety (`note` says which); not a photo of the subject at all (a map, chart, hands, a tank, a packshot, a landscape or
@@ -795,7 +795,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const freshBad = new Set([...judgedNow].flatMap(k => { const i = k.indexOf(' '), u = k.slice(i + 1), v = cache[u]?.[k.slice(0, i)]; return v && (v.ok === 'dead' || v.person === true) && !passedPhoto(u) ? [u] : [] }))
   // A photo held for a second look, or one it cleared, isn't taken off on a verdict; but a hold on another reason doesn't
   // keep a photo from its first verdict of dead or a person (the independent reader, 20 Nov).
-  const spared = (url: string) => !sl.open(url) && !(sl.waiting(url) && freshBad.has(url))
+  const spared = (url: string) => !sl.open(url) && !((sl.waiting(url) || sl.held(url)) && freshBad.has(url))
   for (const url of everywhere.keys()) {
     const why = url in rejected || spared(url) ? undefined : blockedFor(cache[url], keepLogo(url) || ownMarkWaits.has(url))
     if (why) { added[url] = why; report.blocked.push(`${url}: ${why}`) }
@@ -824,18 +824,30 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const waitsFor = await readPhotoWaits(root, { check: legacy, subjects: cache, rejected })
   const sources = (await readJson<Record<string, SourceInfo>>(join(content, 'sources.json'))) ?? {}
   const firstOff = new Map<string, { why: string; pages: string[]; off: true }>()
-  const preservesOriginal = (url: string, original: string, blockedOriginal: boolean) =>
-    /^(?:dead|people|waiting): /.test(rejected[url] ?? added[url] ?? '') &&
-    (!blockedOriginal || firstOff.has(pendingGlobal(original)?.[0] ?? original) || !!rejected[original]?.startsWith('waiting:'))
+  const firstAliases = new Map<string, string>()
+  const preservesOriginal = (url: string, original: string, blockedOriginal: boolean) => {
+    const verdict = pendingGlobal(original)?.[0] ?? original
+    return /^(?:dead|people|waiting): /.test(rejected[url] ?? added[url] ?? '') &&
+      (!blockedOriginal || firstOff.has(firstAliases.get(verdict) ?? verdict) || !!rejected[original]?.startsWith('waiting:'))
+  }
   const versionOf = (photo: Photo) => {
     const p = photo as ContentPhoto
     return publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
   }
-  const shownPhotos = async (file: string) => (await ownPhotos(file)).flatMap(photo => {
-    const stored = photo as ContentPhoto
-    const served = versionOf(stored)
-    return served ? [{ stored, served }] : []
-  })
+  const galleryId = (file: string) => /\/gallery\/([^/]+)\.json$/.exec(file)?.[1]
+  const albumChecked = (url: string, gallery: string) => {
+    const v = verdict(url, gallery)
+    return v && (v.person !== undefined || v.file)
+  }
+  const shownPhotos = async (file: string) => {
+    const gallery = galleryId(file)
+    return (await ownPhotos(file)).flatMap(photo => {
+      if (gallery && photo.unchecked && !albumChecked(photo.url, gallery)) return []
+      const stored = photo as ContentPhoto
+      const served = versionOf(stored)
+      return served ? [{ stored, served }] : []
+    })
+  }
   const blockedVersions = async (file: string) => {
     const urls = new Set<string>()
     for (const photo of await ownPhotos(file)) {
@@ -896,8 +908,26 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     if (!h.pages.includes(pageOf(file))) h.pages.push(pageOf(file))
     firstOff.set(url, h)
   }
-  for (const [url, h] of firstOff) report.firstOff.push(`${h.pages.join(', ')}: ${url}`)
-  report.blocked = report.blocked.filter(x => !firstOff.has(x.slice(0, x.indexOf(': '))))
+  const firstByPhoto = new Map<string, string>()
+  for (const [url, mark] of firstOff) {
+    const key = `${mark.why.split(':')[0]}\n${photoKey(url) ?? url}`
+    const prior = firstByPhoto.get(key)
+    if (prior) {
+      firstOff.get(prior)!.pages.push(...mark.pages)
+      firstAliases.set(url, prior)
+      firstOff.delete(url)
+    } else firstByPhoto.set(key, url)
+  }
+  for (const [url, why] of Object.entries(added)) {
+    if (firstOff.has(url)) continue
+    const canonical = firstByPhoto.get(`${why.split(':')[0]}\n${photoKey(url) ?? url}`)
+    if (canonical) firstAliases.set(url, canonical)
+  }
+  for (const [url, h] of firstOff) report.firstOff.push(`${[...new Set(h.pages)].join(', ')}: ${url}`)
+  report.blocked = report.blocked.filter(x => {
+    const url = x.slice(0, x.indexOf(': '))
+    return !firstOff.has(url) && !firstAliases.has(url)
+  })
   for (const file of heldPages) report.heads.held.push(`${pageOf(file)}: ${((await ownPhotos(file))[0] ?? (await ownPhotos(galleryOf(file)))[0])!.url}`)
   // Each photo a held page would have lost goes on the second look, with its reason (last-photo.ts).
   const holding = new Map<string, { why: string; pages: string[] }>()
@@ -930,13 +960,17 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const stood = new Map<string, Stood[]>()
   const edits = new Map<string, string>()
   for (const file of [...new Set(shown.map(x => x.file))]) {
+    const capture = (url: string) => {
+      const reason = blockedAs(file, url)
+      return reason && first(reason) ? (firstAliases.get(reason) ?? reason) : undefined
+    }
     if (held.has(file)) {
       // A held page keeps what passed before; a first verdict comes off it all the same.
       const raw = await readFile(file, 'utf8')
       const data = JSON.parse(raw) as { photos?: Photo[] }
       const removed: string[] = []
-      placesIn(root, file, data, first, stood)
-      stripPhotos(data, first, removed, [], preservesOriginal)
+      placesIn(root, file, data, capture, stood)
+      stripPhotos(data, url => !!capture(url), removed, [], preservesOriginal)
       if (!removed.length) continue
       report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))
       edits.set(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
@@ -946,13 +980,12 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const data = JSON.parse(raw) as { photos?: Photo[] }
     const before = real(data.photos)[0]?.url
     const removed: string[] = []
-    placesIn(root, file, data, first, stood)
+    placesIn(root, file, data, capture, stood)
     stripPhotos(data, blocked(file), removed, [], preservesOriginal)
     // A gallery photo that waited (`unchecked`): judged for this page and left on, it shows from the next build.
-    const gallery = /\/gallery\/([^/]+)\.json$/.exec(file)?.[1]
-    if (gallery) for (const p of (data.photos ?? []) as (Photo & { unchecked?: boolean })[]) {
-      const v = p.unchecked ? verdict(p.url, gallery) : undefined
-      if (v && (v.person !== undefined || v.file)) delete p.unchecked
+    const gallery = galleryId(file)
+    if (gallery) for (const p of data.photos ?? []) {
+      if (p.unchecked && albumChecked(p.url, gallery)) delete p.unchecked
     }
     const s = byId.get(file.split('/').at(-2)!)
     // A fish its source's caption calls unwell or blemished (a split fin) counts as not typical, whatever the model said:
@@ -1033,7 +1066,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   if (kinded.length) await writeKinds()
   const now = withoutSettledWaits((await readJson<Record<string, string>>(rejectedFile)) ?? {}, await readSecondLook(root))
   // One off at its first verdict waits there marked, and isn't counted refused (last-photo.ts).
-  for (const [u, why] of Object.entries(added)) if (!(u in now)) { if (firstOff.has(u)) now[u] = waitingEntry(why); else { now[u] = why; report.rejected++ } }
+  for (const [u, why] of Object.entries(added)) if (!(u in now) && !firstAliases.has(u)) { if (firstOff.has(u)) now[u] = waitingEntry(why); else { now[u] = why; report.rejected++ } }
   await writePhotoState(rejectedFile, now)
   // Keep the rejection durable during the page edits. A subject verdict may release the dead-fish wait, so
   // publish it only after every edit has succeeded.

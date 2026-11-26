@@ -39,7 +39,7 @@ export const screenedShop = (url: string, sourceUrl: string | undefined): OwnMar
  * staff's word for one photo at a time. A record says who wrote it (`by`); one a person writes from 19 Nov also says on
  * whose word and on what date (`word`), or keeps nothing (the chief of staff, 19 Nov).
  */
-export const retainedOwnMark = (url: string, entry: CompactScreen | undefined) => {
+export const retainedOwnMark = (url: string, entry: Pick<CompactScreen, 'retainedOwnMark'> | undefined) => {
   const kept = entry?.retainedOwnMark
   return !!kept && kept.owner === 'source' && isOwnMarkShop(kept.source) && typeof kept.sourceUrl === 'string'
     && url.startsWith(`https://media.aquatome.com/${kept.source}/`) && OWN_MARK_SHOPS[kept.source].test(kept.sourceUrl)
