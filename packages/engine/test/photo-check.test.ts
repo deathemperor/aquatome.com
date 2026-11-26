@@ -4,7 +4,7 @@ import { mkdir, mkdtemp, readFile, stat, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
-import { expect, test, vi } from 'vitest'
+import { expect, onTestFinished, test, vi } from 'vitest'
 import { LlmError } from '../src/claude'
 import { SpeciesSchema } from '@aq/schema'
 import { rankGallery } from '../src/gallery'
@@ -26,6 +26,8 @@ const name = (u: string) => u.split('/').pop()!.replace('.webp', '')
 type Page = { kind?: 'species' | 'plants' | 'breeds'; id: string; sci?: string; vi?: object; photos?: string[]; gallery?: string[]; extra?: object }
 async function root(pages: Page[], guides: Record<string, object> = {}) {
   const r = await mkdtemp(join(tmpdir(), 'aq-pc-'))
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(r, 'private-put-back'))
+  onTestFinished(() => { vi.unstubAllEnvs() })
   await mkdir(join(r, 'engine-state'))
   await mkdir(join(r, 'docs/review'), { recursive: true })
   await mkdir(join(r, 'content/gallery'), { recursive: true })
