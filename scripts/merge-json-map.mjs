@@ -24,7 +24,9 @@ function mergePlaces(chosen, base, ours, theirs) {
   if (ours.off !== true || theirs.off !== true) return chosen
   const other = chosen === ours ? theirs : ours
   const differentKind = chosen.why.split(':', 1)[0] !== other.why.split(':', 1)[0]
-  if (differentKind && !placesOf(other).some(p => p.capture)) return chosen
+  const competing = placesOf(other).some(p => p.capture)
+  const inheritedWaits = [...(chosen.waitingReasons ?? []), ...(other.waitingReasons ?? [])]
+  if (differentKind && !competing && !inheritedWaits.length) return chosen
   const at = ours.at < theirs.at ? ours.at : theirs.at
   const datedPlaces = (mark, field) => placesOf(mark, field).map(p => {
     const { captureDay, captureWhy, ...place } = p
@@ -53,8 +55,8 @@ function mergePlaces(chosen, base, ours, theirs) {
   }
   const { back, left, settled: _settled, ...merged } = chosen
   merged.at = at
-  if (chosen.why !== other.why && placesOf(other).some(p => p.capture)) {
-    const reasons = [...(chosen.waitingReasons ?? []), ...(other.waitingReasons ?? []), other.why]
+  if (inheritedWaits.length || (chosen.why !== other.why && competing)) {
+    const reasons = competing ? [...inheritedWaits, other.why] : inheritedWaits
     merged.waitingReasons = [...new Set(reasons.filter(reason =>
       reason !== chosen.why && /^(?:dead|people|watermark|logo): withheld \[sha256:[a-f0-9]{64}\]$/.test(reason)))].sort()
   }

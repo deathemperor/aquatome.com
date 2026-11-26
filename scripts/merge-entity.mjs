@@ -37,6 +37,14 @@ function mergeLists(base, ours, theirs, field) {
       seen.add(id)
     }
   }
+  if (field === 'photos') {
+    const before = new Set(base.map(idOf))
+    const local = new Map(theirs.map(it => [idOf(it), it]))
+    for (const it of ours) {
+      const id = idOf(it), other = local.get(id)
+      if (!before.has(id) && other && !eq(it?.altered, other.altered)) repeated.add(id)
+    }
+  }
   const key = it => {
     const id = idOf(it)
     return repeated.has(id) ? JSON.stringify([id, it?.altered ?? null]) : id

@@ -1,6 +1,6 @@
 import { compactRejection } from './photo-observations'
 import { replacePhotoDocument } from './image-cache-write'
-import { writePhotoState } from './photo-state'
+import { readPhotoMap, writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 import { parse } from 'node-html-parser'
@@ -580,8 +580,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // A page keeps the check's refusal (photo-check.ts refusedOn, with the head picks that stand); on its record's pages the
   // clear sets aside only the verdict it answers (`aside`, last-photo.ts CLEARED_VERDICT), read there as a pass.
   const putRefused = await (async () => {
-    const subjects = JSON.parse(await readFile(join(root, 'engine-state', '_photo-subjects.json'), 'utf8').catch(() => '{}')) as Record<string, Record<string, PhotoVerdict>>
-    const picks = JSON.parse(await readFile(join(root, 'engine-state', '_photo-head-picks.json'), 'utf8').catch(() => '{}')) as Record<string, string>
+    const subjects = await readPhotoMap<Record<string, PhotoVerdict>>(join(root, 'engine-state', '_photo-subjects.json'))
+    const picks = await readPhotoMap<string>(join(root, 'engine-state', '_photo-head-picks.json'))
     const yes = await readPersonYes(root)
     const standing = Object.entries(picks).filter(([ref, url]) => pickStands(ref, url, subjects, yes))
     const kindOf = new Map<string, string>()

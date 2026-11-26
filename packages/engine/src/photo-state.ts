@@ -5,6 +5,17 @@ import { compactScreen, compactVerdict, compactRejections, compactRejection, pho
 import { writeImageCache } from './image-cache-write'
 
 export const PHOTO_STATE_FILES = ['_photo-watermarks.json','_photo-rejected.json','_photo-check.json','_photo-subjects.json','_photo-guides.json','_dead-screen.json','_video-stills.json','_video-rejected.json'] as const
+
+/** Missing state is empty. A damaged or unreadable decision record must stop an edit. */
+export async function readPhotoMap<T>(file: string): Promise<Record<string, T>> {
+  const raw = await readFile(file, 'utf8').catch((error: NodeJS.ErrnoException) => {
+    if (error.code === 'ENOENT') return '{}'
+    throw error
+  })
+  const data: unknown = JSON.parse(raw)
+  if (!data || typeof data !== 'object' || Array.isArray(data)) throw new Error(`${basename(file)} must be a map`)
+  return data as Record<string, T>
+}
 /** The shared persistence boundary. Model prose and OCR strings are never serialized by these writers. */
 export function compactPhotoState(file:string,value:unknown):unknown {
   const name=basename(file),data=value as Record<string,any>
