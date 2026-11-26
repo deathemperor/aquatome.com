@@ -1,0 +1,51 @@
+{
+  "id": "leptodoras-myersi",
+  "scientificName": "Leptodoras myersi",
+  "order": "Siluriformes",
+  "family": "Doradidae",
+  "genus": "Leptodoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "amazon"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 7.7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1458",
+      "html": "<p>Leptodoras myersi Böhlke, 1970. Family Doradidae. Size: 77 mm (3 inches) SL.</p><p>Etymology: Leptodoras comes from the Greek leptos, meaning slender, and doras, meaning skin (also a word commonly used in forming generic names for doradids), in reference to the shape.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1458",
+      "html": "<p>Upper Amazon River basin. Type locality: vicinity of Iquitos, Amazon River (Marañon) between Isla Iquitos and Isla Lapuna, Peru, at depths to 12 ft (about 3.7 m).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1458",
+      "html": "<p>Breeding: unreported.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1458",
+      "html": "<p>Proc. Calif. Acad. Sci. (Ser. 4) v. 38 (no. 3) 54 Figs. 1-2</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-23"
+}

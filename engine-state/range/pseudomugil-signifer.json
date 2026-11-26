@@ -1,8 +1,8 @@
 {
   "id": "pseudomugil-signifer",
   "native": {
-    "input": "2a71d648a5f65519",
-    "at": "2026-11-16T17:28:41.839Z",
+    "input": "7f67dad70c8996b8",
+    "at": "2026-11-21T07:12:58.512Z",
     "claims": [
       {
         "code": "AU",
@@ -17,6 +17,14 @@
         "status": "native",
         "source": "glaser",
         "quote": "Eastern coastal area of Queensland and New South Wales, Australia.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Pseudomugil signifer lives along the east coast of Australia, from Cape York to New South Wales.",
         "words": "Australia",
         "ok": true
       }
@@ -47,9 +55,10 @@
         "ok": true
       },
       {
-        "name": "Herbert River",
-        "source": "seriouslyfish",
-        "quote": "Those from northern and southern localities have been considered distinct by various authors, for example, and in Queensland forms originating north and south of the Herbert River also appear dissimilar, with an intermediate form apparently native to the area around Townsville (Ross River).",
+        "name": "Cape York",
+        "source": "bwaquatics",
+        "quote": "Pseudomugil signifer lives along the east coast of Australia, from Cape York to New South Wales.",
+        "country": "AU",
         "ok": true
       }
     ],

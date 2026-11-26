@@ -12,7 +12,8 @@
     "anori",
     "solimoes",
     "peru",
-    "amazon"
+    "amazon",
+    "amazonas"
   ],
   "range": {
     "native": {
@@ -20,7 +21,7 @@
         "BR"
       ],
       "regions": [
-        "Amazon",
+        "Amazon River",
         "Rio Solimões"
       ],
       "sources": [
@@ -36,15 +37,8 @@
             "BR"
           ],
           "regions": [
+            "Amazon River",
             "Rio Solimões"
-          ]
-        },
-        {
-          "source": "planetcatfish",
-          "quote": "South America: Amazon River basin. Type locality: Amazon River at Codajás, Amazonas, Brazil.",
-          "countries": [],
-          "regions": [
-            "Amazon"
           ]
         }
       ]
@@ -152,6 +146,10 @@
       {
         "source": "planetcatfish",
         "value": 4.8
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -181,10 +179,16 @@
       "html": "<ul><li>Scientific name: Osteogaster eques (Steindachner, 1876)</li><li>Common names: CW043, Horsemans Cory</li><li>Synonym: Corydoras eques</li><li>Etymology: Latin eques, horseman, rider.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/coryoras-eques-2/",
+      "html": "<p>Corydoras eques is an armored catfish that has been known to science for a long time but rarely appears in the aquarium hobby. It becomes about 6 cm long.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_eques_en/",
-      "html": "<p>From the Brazilian state of Amazonas, a species of Corydoras that has long been known to science but is almost unknown in the hobby: Corydoras eques. It was collected near Anori.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/coryoras-eques-2/",
+      "html": "<p>Specimens were received from the Brazilian state of Amazonas, more precisely from the surroundings of the city of Anori.</p>"
     },
     {
       "key": "distribution",
@@ -223,6 +227,12 @@
       "html": "<ul><li>pH: 6.0–8.0</li><li>Temperature: 22.5–26.0°C</li><li>Hardness: 2–16 dH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/coryoras-eques-2/",
+      "html": "<p>It looks most attractive when kept in black water.</p>"
+    },
+    {
       "key": "equipment",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1351",
@@ -243,8 +253,8 @@
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_eques_en/",
-      "html": "<p>This unique and extremely colourful species is a typical schooling Corydoras. It looks best when kept in blackwater. The bright orange band over the neck helps to keep the school together in water with poor visibility.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/coryoras-eques-2/",
+      "html": "<p>This is a typical schooling Corydoras. The bright orange neck banding undoubtedly serves to keep the swarm together when underwater visibility is poor.</p>"
     },
     {
       "key": "behaviour",
@@ -370,6 +380,26 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-eques",
       "caption": "Aquarium-bred juvenile at 4 weeks of age.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5211af874b49bca0.webp",
+      "thumb": "https://media.aquatome.com/glaser/5211af874b49bca0-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/coryoras-eques-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/12381890dc9c31c0.webp",
+      "thumb": "https://media.aquatome.com/glaser/12381890dc9c31c0-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/coryoras-eques-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -420,5 +450,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-21"
 }

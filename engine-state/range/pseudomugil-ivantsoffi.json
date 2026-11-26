@@ -1,0 +1,43 @@
+{
+  "id": "pseudomugil-ivantsoffi",
+  "native": {
+    "input": "90a7b87d3600554e",
+    "at": "2026-11-20T07:13:45.828Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This blue-eye originates from the surroundings of the town Timika in the Indonesian province Papua on New Guinea.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "New Guinea",
+        "source": "glaser",
+        "quote": "This blue-eye originates from the surroundings of the town Timika in the Indonesian province Papua on New Guinea.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudomugil ivantsoffi",
+    "status": "ACCEPTED",
+    "taxonKey": 2411750,
+    "datasets": [],
+    "native": [
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-20T07:13:45.828Z"
+  }
+}

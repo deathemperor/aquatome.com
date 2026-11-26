@@ -1,0 +1,175 @@
+{
+  "id": "guyanancistrus-brevispinis",
+  "scientificName": "Guyanancistrus brevispinis",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Guyanancistrus",
+  "group": "catfish",
+  "lNumber": "L41",
+  "places": [
+    "south-america",
+    "suriname",
+    "french-guiana",
+    "guyana",
+    "nickerie",
+    "oyapock",
+    "brazil"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 14.2
+      },
+      {
+        "source": "scotcat",
+        "value": 14
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1473",
+      "html": "<ul><li>Scientific name: Guyanancistrus brevispinis (Heitmans, Nijssen &amp; Isbrücker, 1983)</li><li>Common names: L041, Fourgassie-Guyanancistrus (Germany), Kortpigget Vingesugemalle (Denmark), Shortspinned Wing Pleco</li><li>Synonyms: Lasiancistrus brevispinis, Pseudancistrus brevispinis</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/guyanancistrus_brevispinis.htm",
+      "html": "<ul><li>L-number: L041</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1473",
+      "html": "<p>South America: coastal rivers of the Guianas, in Guyana, Suriname and French Guiana, including the Marowijne, Upper Marowijne and Grand Inini. Type locality: Fallawatra River, rapid 5 kilometres southwest of Stondansie Fall, Nickerie District, Suriname.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/guyanancistrus_brevispinis.htm",
+      "html": "<p>South America: Atlantic coastal drainages of the Guianas, from Nickerie to Oyapock River basins. Type Locality: Fallawatra R., rapid 5 km southwest of Stondansie Fall, Nickerie dist., Suriname.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/guyanancistrus_brevispinis.htm",
+      "html": "<p>The most ubiquitous, frequently occurring and abundant species of this genus. Occurs in all kinds of streams where the substrate is rocky and the water is flowing. Found in great numbers in zones of plunging waters. May be found together with Lithoxus in little forest creeks as well as in rapids.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/guyanancistrus_brevispinis.htm",
+      "html": "<p>Not the easiest genera to keep as they will need clean, oxygen rich water and a strong current. Peaceful species.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/guyanancistrus_brevispinis.htm",
+      "html": "<p>Mainly vegetable foods such as lettuce, spinach, cucumber, zucchini and the addition of vegetable tablets and pleco wafers.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1473",
+      "html": "<p>There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/guyanancistrus_brevispinis.htm",
+      "html": "<p>Description: The Guyanancistrus genera are small with a flattened body and a large suckermouth. Similar to the Ancistrus genera but the edge of the snout is ossified and free of tentacles with short, bristle-like odontodes. Distinguished from the Pseudancistrus genus by the absence of much prolonged odontodes on the edge of the snout in sexually mature adults.</p><p>Etymology: The specific name brevispinis: With short fins.</p><p>Remarks: A very variable species (group) that may actually consist of several closely related species with G. brevispinis restricted to Nickerie River, its type locality.</p><p>IUCN Red List: Guyanancistrus brevispinis is widely distributed along the main river systems of Suriname and French Guiana, also in the border of Brazil. Some localities have been affected by hydroelectric dams and mining activities. However, the species has a wide distribution and these impacts are not predicted to be severe enough to threaten its persistence. It is assessed as Least Concern (LC), though a long-term monitoring program is recommended in the areas facing threats.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1473",
+      "html": "<p>Bijdragen tot de Dierkunde v. 53 (no. 1), pp 38, Figs. 4-7.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/guyanancistrus_brevispinis.htm",
+      "html": "<ul><li>Calegari, B.B. 2022. Guyanancistrus brevispinis. The IUCN Red List of Threatened Species 2022.</li><li>Froese, R. and D. Pauly. Editors. 2018. FishBase. www.fishbase.org, (10/2018).</li><li>Mol, H.A. Jan, The Freshwater Fishes of Suriname. BRILL, Leiden Boston, 2012. 889 p.</li><li>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</li><li>Silva, G.S.C., F.F. Roxo and C. Oliveira, 2015. Two new species of Pseudancistrus (Siluriformes: Loricariidae) from the Amazon basin, northern Brazil. ZooKeys 482:21-34.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/5587885.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/5587885-480.webp",
+      "width": 1024,
+      "height": 767,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/5587885-large.webp",
+        "width": 1602,
+        "height": 1200
+      },
+      "licence": "CC BY",
+      "author": "Julien Renoult",
+      "sourceUrl": "https://www.inaturalist.org/photos/5587885",
+      "caption": "Cá lau kiếng L41 dưới nước trong môi trường tự nhiên"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "xJED2l9liWI",
+      "title": "Guyanancistrus brevispinis",
+      "durationSec": 19,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "TsLUu9u-JZg",
+      "title": "Guyanancistrus brevispinis in habitat",
+      "durationSec": 25,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "QGVj0p-v0s8",
+      "title": "Guyanancistrus brevispinis",
+      "durationSec": 24,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "wOUu4Cx8SPg",
+      "title": "L041迷幻花斑豹異形 Guyanancistrus brevispinis~台南 大自然水族",
+      "durationSec": 63,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thác bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
+}

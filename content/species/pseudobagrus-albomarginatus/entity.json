@@ -1,0 +1,57 @@
+{
+  "id": "pseudobagrus-albomarginatus",
+  "scientificName": "Pseudobagrus albomarginatus",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Pseudobagrus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "anhui"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 16.7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1463",
+      "html": "<p>Tachysurus albomarginatus (Rendahl, 1928). Synonyms: Leiocassis albomarginatus, Pseudobagrus albomarginatus. Type locality: Tang-tu-hsien, Anhui, China. Size: 167 mm SL. IUCN Red List: Not Evaluated.</p><p>Tachysurus can be identified by an extrascapular without a laterosensory canal, and a pterotic with a broad lateral laminar expansion. It is among the most speciose catfish groups in East Asia and its members inhabit habitats ranging from fast-flowing hillstreams to large rivers.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1463",
+      "html": "<p>Asia: Tsien Tangtu-Hsien, China.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1463",
+      "html": "<p>Males have an elongate genital papilla in front of the anal fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1463",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1463",
+      "html": "<p>Arkiv för Zoologi v. 20 A (pt 1) (no. 1), pp 170.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-23"
+}

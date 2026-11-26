@@ -17,9 +17,12 @@
         "MY",
         "SG"
       ],
-      "regions": [],
+      "regions": [
+        "Malaysian peninsula"
+      ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -30,6 +33,14 @@
             "SG"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Barbodes dunckeri originally comes from the Malaysian peninsula.",
+          "countries": [],
+          "regions": [
+            "Malaysian peninsula"
+          ]
         }
       ]
     },
@@ -71,6 +82,13 @@
           "min": 18,
           "max": 28
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -95,6 +113,10 @@
       {
         "source": "seriouslyfish",
         "value": 12
+      },
+      {
+        "source": "glaser",
+        "value": 15
       }
     ],
     "tankCm": [
@@ -118,10 +140,22 @@
       "html": "<p>The clown barb, Barbodes dunckeri, is a cyprinid from Peninsular Malaysia, described from Singapore, where it may now be extirpated. It has been widely misidentified as B. everetti, a distinct species from Borneo, and appears under that name in most aquarium literature. B. dunckeri has much larger dark body markings, no blotch at the rear of the dorsal-fin base and 4½ scales above the lateral line. Fish entering the ornamental trade appear to be farm-raised.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbodes-dunckeri-barbus-everetti-2/",
+      "html": "<p>The clown barb, Barbodes dunckeri, is a well-known and beautiful aquarium fish, but for decades it has been incorrectly called Barbus everetti, sometimes under the generic name Puntius, which is also incorrect for this species. The wrong name is based on a mix-up; the \"real\" Barbodes everetti is unfortunately almost never on the market.</p><p>It has been reproduced for decades in commercial ornamental fish farms, from where all the animals on the market come.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/barbodes-dunckeri",
       "html": "<p>Described from 'Bukith Timah, Singapore' and also occurs throughout Peninsular Malaysia though may now be extirpated in Singapore.</p><p>Its range in Peninsular Malaysia is also unclear with records scarce, and fish entering the ornamental trade appear to be farm-raised.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbodes-dunckeri-barbus-everetti-2/",
+      "html": "<p>Barbodes dunckeri originally comes from the Malaysian peninsula.</p>"
     },
     {
       "key": "habitat",
@@ -130,10 +164,22 @@
       "html": "<p>Unconfirmed but likely to display a preference for forest streams as with related species (see 'Notes').</p>"
     },
     {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbodes-dunckeri-barbus-everetti-2/",
+      "html": "<p>It is at home in smaller jungle rivers with soft, acidic water. Due to the progressive destruction of these biotopes, the clown barb must unfortunately be counted among the species that are highly endangered by extinction.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/barbodes-dunckeri",
       "html": "<p>An aquarium with base measurements of at least 120 × 45 cm or equivalent (about 243 litres) should be the smallest considered for long-term care.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbodes-dunckeri-barbus-everetti-2/",
+      "html": "<p>The species grows to a length of 10-15 cm and should therefore be kept in a larger aquarium.</p>"
     },
     {
       "key": "maintenance",
@@ -148,16 +194,40 @@
       "html": "<ul><li>Temperature: 18–28°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbodes-dunckeri-barbus-everetti-2/",
+      "html": "<p>The water temperature should be between 20 and 28°C. Some dead leaves, peat or alder cones bring the beneficial humic substances into the water. For care, pH value and hardness hardly play a role (extremes should however be avoided).</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbodes-dunckeri-barbus-everetti-2/",
+      "html": "<p>The bottom of the aquarium should consist of fine sand at least in places, so that the barbels can dig typically for the species.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/barbodes-dunckeri",
       "html": "<p>A foraging omnivore likely to feed on a variety of worms, insects, crustaceans, plant material, and other organic debris in nature.</p><p>In the aquarium it's easily-fed but a balanced diet comprising regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia alongside good quality dried flakes and granules will bring about optimal condition and colours.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbodes-dunckeri-barbus-everetti-2/",
+      "html": "<p>As far as food is concerned, the species makes hardly any demands: dry, frozen and live food of suitable size is accepted. Soft aquatic plants are also consumed.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/barbodes-dunckeri",
       "html": "<p>This species makes an ideal addition to a peaceful community of riverine fishes such as similarly-sized Puntius, Rasbora, Devario, or Barilius species plus many botiid, nemacheilid and balitorid loaches.</p><p>If geography isn't an issue it can actually be combined with most peaceful fish of a size too large to be considered food and that have a bold enough disposition to not be intimidated by its size and active nature.</p><p>As always, thorough research is the best way to avoid problems when selecting compatible fish communities.</p><p>It's a schooling species by nature so ideally 6 or more specimens should be purchased.</p><p>Maintaining it in decent numbers will not only make the fish less skittish but will result in a more effective, natural looking display.</p><p>In addition, any aggressive behaviour will normally be contained as the fish concentrate on maintaining their hierarchical position within the group.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbodes-dunckeri-barbus-everetti-2/",
+      "html": "<p>A peaceful schooling fish.</p>"
     },
     {
       "key": "dimorphism",
@@ -170,6 +240,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/barbodes-dunckeri",
       "html": "<p>Like most small cyprinids this is an egg-scattering free spawner exhibiting no parental care.</p><p>When in good condition it should spawn often and in a mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but an aquarium with a base measuring 80 cm x 30 cm should also be set up and filled with mature water.</p><p>This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles.</p><p>Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced, and spawning should take place the following morning.</p><p>An alternative is to spawn the fish in a group with half a dozen specimens of each sex being a good number, although a larger aquarium may be necessary.</p><p>In either situation the adults will probably eat the eggs given the chance and should be removed as soon as any are noticed.</p><p>These should hatch in 24 - 48 hours with the fry free swimming around 24 hours later.</p><p>They should be fed on an infusoria-grade food for the first few days until large enough to accept microworm, Artemia nauplii, or suchlike.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbodes-dunckeri-barbus-everetti-2/",
+      "html": "<p>For breeding, natural water values must be set (pH below 6, hardness below 5°dGH).</p>"
     },
     {
       "key": "notes",
@@ -186,18 +262,62 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/4d43deba9a8e4c39.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/4d43deba9a8e4c39-480.webp",
-      "width": 640,
-      "height": 311,
+      "url": "https://media.aquatome.com/glaser/9c961689e984f2d9.webp",
+      "thumb": "https://media.aquatome.com/glaser/9c961689e984f2d9-480.webp",
+      "width": 850,
+      "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Rupert Collins / Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/barbodes-dunckeri",
-      "caption": "Another individual from the aquarium trade.",
-      "source": "seriouslyfish"
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbodes-dunckeri-barbus-everetti-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/be4e724d1d81a072.webp",
+      "thumb": "https://media.aquatome.com/glaser/be4e724d1d81a072-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbodes-dunckeri-barbus-everetti-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7bc14cd9aa84d074.webp",
+      "thumb": "https://media.aquatome.com/glaser/7bc14cd9aa84d074-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbodes-dunckeri-barbus-everetti-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "kBl0CWqr7QU",
+      "title": "Барбус-клоун - Barbodes dunckeri",
+      "durationSec": 228,
+      "lang": "ru"
+    },
+    {
+      "youtubeId": "ufHM0_ghrvE",
+      "title": "Barbodes dunckeri, Clown Barb",
+      "durationSec": 52,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Zmoj9EZsz9U",
+      "title": "#BADC2018 / Habitat of Barbodes dunckeri at Mersing, Johor, Malaysia, 108 L",
+      "durationSec": 160,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ps97PbfMJIU",
+      "title": "Natural Aquarium | Mystus Catfish | Clown Barb | Rasbora | Spotted Barb Fish | Freshwater Stream",
+      "durationSec": 331,
+      "lang": "kn"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -228,5 +348,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-21"
 }

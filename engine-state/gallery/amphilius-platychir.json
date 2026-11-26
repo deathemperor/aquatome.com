@@ -2,13 +2,22 @@
  "queue": [],
  "judged": [
   "File:Amphilius grammatophorus AUM 59508.jpg",
-  "File:Amphilius grammatophorus Guinea Nikon6 306.jpg"
+  "File:Amphilius grammatophorus Guinea Nikon6 306.jpg",
+  "inat:39290449",
+  "inat:360848092",
+  "inat:360852425",
+  "inat:360868195",
+  "inat:360993142",
+  "inat:361514205"
  ],
  "hashes": {
   "https://media.aquatome.com/scotcat/02cc2fdebe84a704.webp": "776fdfbfcfb27e7f",
   "https://media.aquatome.com/scotcat/d1c1eb9d124514c9.webp": "dbdbf74b0fafebfc",
   "https://media.aquatome.com/scotcat/44b89af2ab8e2f37.webp": "361601c70ae0f0b4",
-  "https://media.aquatome.com/scotcat/a271429994da932a.webp": "fa7274ccc879f1fa"
+  "https://media.aquatome.com/scotcat/a271429994da932a.webp": "fa7274ccc879f1fa",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/360848092/large.jpeg": "e06060c4e434fc68",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/360852425/large.jpeg": "0321e181883cf2e2",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/361514205/large.jpeg": "8ddf979cec9d1102"
  },
  "inat": {
   "taxon": 93944,
@@ -22,5 +31,13 @@
  "gbif": {
   "key": 2340734,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 204518168,
+  "done": true
+ },
+ "exhausted": "2026-11-25"
 }

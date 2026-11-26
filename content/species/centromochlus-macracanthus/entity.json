@@ -19,7 +19,8 @@
         "Rio Negro"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -120,6 +121,13 @@
           "min": 22,
           "max": 28
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 26,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -127,6 +135,13 @@
         "source": "seriouslyfish",
         "value": {
           "min": 4,
+          "max": 7
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
           "max": 7
         }
       }
@@ -144,6 +159,10 @@
       {
         "source": "seriouslyfish",
         "value": 7.1
+      },
+      {
+        "source": "scotcat",
+        "value": 7
       }
     ],
     "tankCm": [
@@ -167,10 +186,22 @@
       "html": "<p>Balroglanis macracanthus is a small driftwood catfish endemic to the upper rio Negro system in Brazil. Poorly known but occasionally available in the aquarium hobby, it shelters among submerged wood by day and forages at night. Like other auchenipterids it practises internal insemination, and females can carry eggs and sperm packets until conditions trigger fertilisation.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/balroglanis_macracanthus.htm",
+      "html": "<ul><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/balroglanis-macracanthus",
       "html": "<p>Type locality is 'São Pedro, Rio Negro, Amazonas, Brazil', and this species is considered endemic to the upper rio Negro system.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/balroglanis_macracanthus.htm",
+      "html": "<p>Brazil: Upper Negro River basin. Type locality: Brazil: Amazonas: São Pedro, Rio Negro.</p>"
     },
     {
       "key": "habitat",
@@ -191,6 +222,12 @@
       "html": "<p>Not difficult to maintain under the correct conditions; it is recommended to keep it in a tank designed to simulate a flowing stream with a substrate of variably-sized rocks, sand, fine gravel, and some water-worn boulders.</p><p>This can be further furnished with driftwood branches, terracotta pipes, plant pots, etc., arranged to form a network of nooks, crannies, and shaded spots.</p><p>Centromochlus species also enjoy sheltering among surface vegetation such as Ceratopteris spp.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/balroglanis_macracanthus.htm",
+      "html": "<p>Keeping this rare species is not too much of a problem as long as the water is kept clean and not too alkaline, with a pH of between 6.5 and 7.0. They like a planted aquarium where they hide during the day.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/balroglanis-macracanthus",
@@ -203,10 +240,22 @@
       "html": "<p>Centromochlus species will accept most sinking dried foods, but particularly relish small live and frozen varieties such as bloodworm, Tubifex, etc.</p><p>Once acclimatised they readily leave their hiding places when food is introduced and unlike most catfishes tend to actively feed at the surface.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/balroglanis_macracanthus.htm",
+      "html": "<p>In its native habitat they feed on insects, mostly ants, beetles and mayflies. In the aquarium they will eat anything offered, such as frozen bloodworm (which they will come out of hiding to feed on), catfish tablets, daphnia, white worm (sparingly) and any other worm-like foods.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/balroglanis-macracanthus",
       "html": "<p>All members of the family Auchenipteridae are thought to practise internal insemination and females can carry mature, unfertilised eggs and sperm packets inside the body for unspecified periods of time.</p><p>When conditions are satisfactory fertilisation is triggered and the eggs deposited, and there is no subsequent parental care.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/balroglanis_macracanthus.htm",
+      "html": "<p>They leave their eggs in a gelatinous mass under stones or bogwood. As in the rest of this family, the male fertilises the female internally.</p>"
     },
     {
       "key": "notes",
@@ -215,14 +264,63 @@
       "html": "<p>This species is poorly known but occasionally available in the aquarium hobby.</p><p>The genus Centromochlus is diagnosable by members having the proximal anal-fin radials enlarged and fused to each other at the base, forming a single ossified structure.</p><p>It's sometimes included in the putative subfamily Centromochlinae which also includes Gelanoglanis, Glanidium, and Tatia.</p><p>This grouping is told apart from other auchenipterids by having modified anal-fin rays and proximal pterygiophores orientated posteriorly, a male urogenital papilla emerging from a flap of skin at the anal-fin origin, and the proximal anal-fin radials at least partially joined to each other.</p><p>The family Auchenipteridae is endemic to the neotropics and members are told apart from other catfishes by the following combination of characters: absence of bony plates on body; predorsal area covered in sutured bony plates clearly visible beneath a thin epidermis; absence of nasal barbels; adipose-fin small, occasionally absent; eye without a distinct orbital rim and covered by adipose tissue.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/balroglanis_macracanthus.htm",
+      "html": "<p>Mees (1974) assigned this species to Tatia but Ferraris (2007) reverted it to the original genus, Centromochlus. In September 2019, building on earlier work by Steven Grant (2015), a new paper by Bárbara B. Calegari et al. reclassified this species (C. macracanthus), Tatia carolae Vari &amp; Ferraris, 2013 and Centromochlus schultzi Rössel, 1962 into a new genus, Balroglanis. It is still found in some online searches as Centromochlus macracanthus.</p><p>Description: dorsal spines (total): 1; dorsal soft rays (total): 5; anal soft rays: 7; vertebrae: 37. First nuchal plate absent; the supraoccipital bone sutured to the 2nd nuchal plate. First dorsal fin spine elongated, 28–35% SL. Coracoid process covered with skin, not visible externally.</p><p>Etymology: macracanthus: makrós (Gr.), long or large; acanthus (L.), from ákantha (Gr.), thorn, referring to the elongate dorsal-fin spine, 28–35% of SL.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/balroglanis-macracanthus",
       "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Soares-Porto, L. M. in Malabarba, L. R. et al.: Phylogeny and classification of Neotropical fishes (1998). Monophyly and interrelationships of the Centromochlinae (Siluriformes: Auchenipteridae). EDIPUCRS, Porto Alegre, 331-350</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/balroglanis_macracanthus.htm",
+      "html": "<p>Bárbara B Calegari, Richard P Vari, Roberto E Reis, 2019. Phylogenetic systematics of the driftwood catfishes (Siluriformes: Auchenipteridae): a combined morphological and molecular analysis, Zoological Journal of the Linnean Society, zlz036.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Grant, S., 2015: Four new subgenera of Centromochlus Kner, 1858 with comments on the boundaries of some related genera (Siluriformes: Auchenipteridae: Centromochlinae). Ichthyofile 3: 1–16.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/8cb89c351b2ab665.webp",
+      "thumb": "https://media.aquatome.com/scotcat/8cb89c351b2ab665-480.webp",
+      "width": 500,
+      "height": 347,
+      "licence": "dùng với sự cho phép",
+      "author": "Stuart Brown / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/balroglanis_macracanthus.htm",
+      "caption": "Balroglanis macracanthus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "DF1HLafWEqE",
+      "title": "2 new pairs of Centromochlus c.f. macracanthus",
+      "durationSec": 50,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "TA-dBWw4dV4",
+      "title": "Centromochlus c.f. macracanthus feeding",
+      "durationSec": 28,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "KOU-6pfrz0Q",
+      "title": "Centromochlus c.f. macracanthus (1)",
+      "durationSec": 24,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "eqzIGdHs4CA",
+      "title": "Centromochlus c.f. macracanthus (2)",
+      "durationSec": 11,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -252,5 +350,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-22"
 }

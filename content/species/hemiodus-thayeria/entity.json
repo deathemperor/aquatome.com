@@ -1,0 +1,306 @@
+{
+  "id": "hemiodus-thayeria",
+  "scientificName": "Hemiodus thayeria",
+  "order": "Characiformes",
+  "family": "Hemiodontidae",
+  "genus": "Hemiodus",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro",
+    "colombia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "CO"
+      ],
+      "regions": [
+        "Rio Negro"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Hemiodus thayeria comes from the border area of Brazil and Colombia at the Rio Negro.",
+          "countries": [
+            "BR",
+            "CO"
+          ],
+          "regions": [
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354899,
+      "total": 60,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "VE",
+          28
+        ],
+        [
+          "BR",
+          19
+        ],
+        [
+          "CO",
+          9
+        ],
+        [
+          "GY",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -71.71875,
+          0,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          0,
+          7,
+          7
+        ],
+        [
+          -68.90625,
+          1.40625,
+          4,
+          3
+        ],
+        [
+          -68.90625,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          -68.90625,
+          4.21875,
+          5,
+          0
+        ],
+        [
+          -67.5,
+          0,
+          3,
+          1
+        ],
+        [
+          -67.5,
+          1.40625,
+          5,
+          0
+        ],
+        [
+          -67.5,
+          2.8125,
+          6,
+          0
+        ],
+        [
+          -67.5,
+          4.21875,
+          5,
+          0
+        ],
+        [
+          -67.5,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -66.09375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          3,
+          0
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -54.84375,
+          -16.875,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -16.875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 11
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemiodus-thayeria-2/",
+      "html": "<p>Hemiodus thayeria comes from the border area of Brazil and Colombia at the Rio Negro. The type specimen was collected in 1925 by Carl Ternetz, but it was only worked on and named in 1955 by James Böhlke, because the feather tetras are, from a systematic point of view, a quite complicated group.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemiodus-thayeria-2/",
+      "html": "<p>In the aquarium, H. thayeria show up as very peaceful and amazingly calm representatives of their genus, whose species are known to be somewhat shy and sometimes even tend to panic reactions. The very big eye and the reddish zone over the nose-back are remarkable. Obviously, both characteristics serve species recognition, because in the photo tank both specimens were very interested in their mirror image. In the photo tank a small pocket mirror is installed in order to animate cichlids to mirror fights; other fish, above all tetras and barbs, usually ignore their mirror image, and Hemiodus thayeria are a very noteworthy exception in this context.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemiodus-thayeria-2/",
+      "html": "<p>Very similar to H. thayeria are H. tocantinensis and H. ternetzi, but in both the dark longitudinal stripe begins directly behind the eye.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/faddddd0c4cdd88e.webp",
+      "thumb": "https://media.aquatome.com/glaser/faddddd0c4cdd88e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemiodus-thayeria-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/664492cd427f8f1b.webp",
+      "thumb": "https://media.aquatome.com/glaser/664492cd427f8f1b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemiodus-thayeria-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/4cd35aa90f015317.webp",
+      "thumb": "https://media.aquatome.com/glaser/4cd35aa90f015317-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemiodus-thayeria-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a3bbb20cc5b1b5ee.webp",
+      "thumb": "https://media.aquatome.com/glaser/a3bbb20cc5b1b5ee-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemiodus-thayeria-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "oR34PgdNUtU",
+      "title": "Sims Tropical Fish - Hemiodus Thayeria",
+      "durationSec": 110,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "4xhrKfcsi1g",
+      "title": "Hemiodus thayeria Wild",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "NmTD9v-mZfg",
+      "title": "Thayeria und Hemiodus in Bolivien",
+      "durationSec": 54,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "NR9uS5t6p-M",
+      "title": "hemiodus gracilis",
+      "durationSec": 18,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá dài 120cm",
+        "bể cá 300 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn",
+        "máy tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "thức ăn khô cho cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-20"
+}

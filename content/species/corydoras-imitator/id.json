@@ -23,11 +23,11 @@
     "references:seriouslyfish": "<ul><li>Nijssen, H. and I. J. H. Isbrücker (1983). Sept espèces nouvelles de poissons-chats cuirassés du genre Corydoras Lacepède, 1803, de Guyane française, de Bolivie, d'Argentine, du Surinam et du Brésil (Pisces, Siluriformes, Callichthyidae). Revue Française d'Aquariologie Herpétologie 10(3), 73-84</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Alexandrou, M. A., C. Oliveira, M. Maillard, R. A. R. McGill, J. Newton, S. Creer, and M. I. Taylor (2011). Competition and phylogeny determine community structure in Müllerian co-mimics. Nature 469, 84-89</li><li>Britto, M. R. and F. C. T. Lima (2003). Corydoras tukano, a new species of corydoradine catfish from the rio Tiquié, upper rio Negro basin, Brazil (Ostariophysi: Siluriformes: Callichthyidae). Neotropical Ichthyology 1(2), 83-91</li></ul>"
   },
   "quality": {
-    "score": 0.72,
-    "indexable": false,
+    "score": 0.9,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.72,
-      "glaser": 0.72
+      "seriouslyfish": 0.9,
+      "glaser": 0.9
     }
   }
 }

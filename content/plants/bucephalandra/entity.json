@@ -2,8 +2,8 @@
   "id": "bucephalandra",
   "scientificName": "Bucephalandra",
   "difficulty": 1,
-  "light": "low",
-  "co2": "none",
+  "light": "medium",
+  "co2": "optional",
   "growth": "slow",
   "placement": [
     "foreground",
@@ -18,6 +18,12 @@
       "html": "<ul><li>Genus of rheophyte plants from the banks of fast-moving streams in Borneo.</li><li>Easy to care for; tolerates low to medium light and needs no substrate.</li><li>Very slow growing and more expensive than anubias.</li><li>Height: 5–10 cm for creeping types, 18–25 cm for upright types; leaves 1–10 cm long.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bucephalandra-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>Lighting: low to high</li><li>Water hardness: soft to hard</li><li>Substrate: not needed</li><li>Growth rate: slow</li><li>Growth conditions: submersed and immersed (immersed preferable)</li><li>Placement: foreground / midground</li><li>Height: 5–10 cm</li><li>CO2: not needed to low</li><li>Propagation: by rhizomes</li></ul>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/bucephalandra",
@@ -30,10 +36,22 @@
       "html": "<p>Bucephalandra grows along the banks of fast-moving streams in Borneo. It grows emersed (above water) during the dry season and submersed (below water) during the rainy season.</p>"
     },
     {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bucephalandra-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Bucephalandra is endemic to Borneo, Indonesia, the largest island in Asia. It has been known to science since 1858, although it is still an almost new genus to hobbyists. More varieties are still being discovered as collectors explore hidden parts of the island.</p><p>The genus name relates to Bucephalus, the black horse of Alexander the Great.</p>"
+    },
+    {
       "key": "habitat",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/bucephalandra",
       "html": "<p>Because of their native habitat in fast-moving rivers, bucephalandra have developed very strong roots, so they do well in tanks with high flow once established.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bucephalandra-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Bucephalandra is a reophyte adapted to fast-flowing streams, rivers and river banks. Borneo has a tropical climate with average annual temperatures above 20 °C and two seasons determined by rainfall. When the river level is high, plants growing out of the water are submerged for a couple of months, yet they keep developing and change into their submersed form. Submersed plants have a more delicate leaf structure and tend to show more intense colours.</p>"
     },
     {
       "key": "aquariumSize",
@@ -48,10 +66,22 @@
       "html": "<p>Buce are considered easy to care for: they can live in low light, do not need much fertilizer or CO2 injection, and can grow without any substrate. They grow very slowly and can be prone to algae, so growing them in shaded parts of the tank and using algae eaters to keep the leaves clean helps. Higher light may invite algae problems because of their slow growth.</p><h3>Planting</h3><p>Like anubias and java fern, buce have a rhizome, a thick stem that sprouts both leaves and roots. They do not need to be planted in substrate. Wedge them into a crack in a rock or attach them to decor with sewing thread or super glue gel. Do not smother the rhizome with too much glue.</p><p>If planting in the substrate, the rhizome must not be covered. Push the plant deep into sand or gravel so the roots and rhizome are buried, then gently pull it upwards until the rhizome is completely exposed but the roots remain in the substrate.</p><p>Another option is to leave the plant in its plastic basket with rock wool. Feed it by inserting a root tab into the rock wool so that it reaches the roots.</p><h3>Melting</h3><p>Most plant farms grow their plants emersed, so when a new buce is submerged, some leaves may melt while it adjusts. Nutrients are stored mainly in the rhizome, so do not throw it away. As long as the rhizome looks healthy, leave it in the aquarium and it will grow new shoots that form leaves and roots.</p><h3>Fertilizer</h3><p>Like most rhizome plants, buce take most of their nutrients from the water column and benefit from an all-in-one liquid fertilizer.</p><h3>Emersed growth</h3><p>Buce do well grown emersed, for example in a paludarium or terrarium with plenty of water and high humidity. They can be grown together with moss to keep their roots moist at all times.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bucephalandra-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Attach split rhizomes to stones, rocks, driftwood or porous lava rock, or plant them in the substrate without burying the rhizome, to prevent rot. Secure with rubber band, super glue or fishing line; roots will grip within a few weeks. Growth rate depends on the type: some shoot 2–3 new leaves a week, others barely 1 leaf in 2 weeks.</p><p>Nutrients and CO2 are not essential, but fertilisation improves leaf colour and health, and CO2 with proper nutrients supports growth and colouration. High CO2 and copper (found in most fertilisers) are dangerous to shrimp.</p><p>Light: low light suits ornamental use, with very slow growth and less intense colour; medium to high light gives quicker growth and better colour. Because they grow slowly, they are prone to algae; they can be grown in high light (100+ µmol just below the waterline) if the tank is very clean and the plant healthy.</p><p>Propagation: divide the rhizome with scissors into portions longer than 4 cm and attach to hardscape or plant in substrate. Healthy plants form dense clumps over time; separate clumps to keep growth good and algae down. Keep the rootstock undamaged and do not remove healthy leaves and roots from newly planted rhizomes.</p><p>Problems: newly submersed plants may lose older emersed leaves and vice versa, with leaves melting over days to weeks; new leaves follow. Fluctuating parameters or transport can also cause melting. Recovery is slow, taking weeks or months. Low light can dull colour. Algae are common due to slow growth, unstable parameters and organic waste; Amano shrimp and Nerite snails help.</p><p>In a paludarium, conditions may be less favourable, leaf colour tends to be weak, and submersed plants grow even slower.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/bucephalandra",
       "html": "<p>Buce have care requirements very similar to anubias and java fern and handle a wide range of temperatures, 21–28°C, and pH 6–8. They grow in low to medium light. Adding CO2 is not necessary, but it can speed up growth.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bucephalandra-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>Temperature: 22–28 °C</li><li>Well-filtered water with proper flow.</li><li>pH 6–8.</li><li>Some hardness is essential; GH 5 and above preferably.</li></ul><p>Bucephalandra tolerates a wide range of parameters, but soft water has a more positive effect. As it grows in fast-flowing rivers, provide sufficient water circulation, for example with a powerful external filter, placing the plants along the water flow.</p>"
     },
     {
       "key": "reproduction",
@@ -64,6 +94,12 @@
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/bucephalandra",
       "html": "<p>Bucephalandra has oblong leaves with wavy edges, though some types are rounder, narrower or have straight edges. Foliage varies from light to dark green, and some varieties have red, purple or bluish tints. Some species have small white dots on the leaves and an iridescent sheen that changes in the light. A thriving plant may produce a white or pink flower.</p><p>More than 30 species have been identified, but there are hundreds of trade names, such as green wavy, brownie blue, black pearl, mini coin, dark skeleton king, Godzilla and deep purple.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bucephalandra-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Bucephalandra grows on creeping rhizomes; the roots attach to rocks, hardscape and substrate. Leaves may be oval, long and straight, long and wavy, round and wavy or droplet-shaped, in green, blue to dark violet, often with bright white or yellow spots. Plants are 2–60 cm tall, leaves 3–5 cm long or more, petioles 15–18 cm.</p><p>More than 200 trade names exist. Many have no scientific name and are named after the place where they were collected (e.g. Kedagang, Sabah, Sintang) or after leaf shape or colour (e.g. Brownie Brown, Super Blue, Wavy Green, Titan, Godzilla, Hades, Deep Blue, Velvet).</p>"
     }
   ],
   "photos": [
@@ -135,5 +171,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-20"
 }

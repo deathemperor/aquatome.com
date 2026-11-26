@@ -17,14 +17,16 @@
       ],
       "regions": [
         "Borneo",
-        "Kalimantan",
         "Kapuas",
         "Barito",
         "Kahajan",
-        "Kepayang"
+        "Kepayang",
+        "Kahayan"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "bwaquatics",
+        "glaser"
       ],
       "quotes": [
         {
@@ -35,11 +37,18 @@
           ],
           "regions": [
             "Borneo",
-            "Kalimantan",
             "Kapuas",
             "Barito",
             "Kahajan",
             "Kepayang"
+          ]
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Desmopuntius rhomboocellatus is a rarely imported soft-water barb from southern and western Kalimantan, Borneo, recorded from the Kapuas, Kahayan, Barito and Kepayang drainages.",
+          "countries": [],
+          "regions": [
+            "Kahayan"
           ]
         }
       ]
@@ -100,6 +109,13 @@
           "min": 20,
           "max": 28
         }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -108,6 +124,13 @@
         "value": {
           "min": 4,
           "max": 7
+        }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 4.5,
+          "max": 6.5
         }
       }
     ],
@@ -124,6 +147,10 @@
       {
         "source": "seriouslyfish",
         "value": 5.5
+      },
+      {
+        "source": "bwaquatics",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -147,16 +174,40 @@
       "html": "<p>The snakeskin barb, Desmopuntius rhomboocellatus, is a cyprinid endemic to southern Kalimantan, the Indonesian portion of Borneo. It has been recorded from several river systems including the Kapuas, Kepayang and Barito. It most often inhabits peat swamps, black water streams and other still waters with submerged plants and dense riparian vegetation.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus",
+      "html": "<p>From the Desmopuntius genus (banded barbs). IUCN Red List: Least Concern (locally threatened by peat swamp habitat loss). Origin: wild caught. Temperament: peaceful schooling fish. Max size: usually 5 to 6 cm; up to about 9 cm total length.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-rhomboocellatus",
       "html": "<p>Endemic to southern Kalimantan, the Indonesian portion of Borneo where it's been recorded from several river systems including the Kapuas, Kepayang, Barito and Kahajan.</p><p>Type locality is 'Canal along the highway from Oelin to Bandjermasin, about 15 kilometers from Bandjermasin, Borneo.'</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/desmopuntius-rhomboocellatus-2/",
+      "html": "<p>Desmopuntius rhomboocellatus occurs in Kalimantan, the Indonesian part of Borneo.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus",
+      "html": "<p>Desmopuntius rhomboocellatus is a rarely imported soft-water barb from southern and western Kalimantan, Borneo, recorded from the Kapuas, Kahayan, Barito and Kepayang drainages.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-rhomboocellatus",
       "html": "<p>Most often inhabits peat swamps and associated black water streams as well as other still waters, often in areas with submerged grasses or aquatic plants and dense riparian vegetation.</p><p>The water itself is typically stained brown with humic acids and other chemicals released by decaying organic material, dissolved mineral content is generally negligible and pH as low as 3.0 or 4.0. Substrates are usually littered with fallen leaves, branches and submerged tree roots though in some places aquatic plants from genera such as Cryptocoryne or Barcalaya can be found.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus",
+      "html": "<p>It lives in slow, heavily tannin-stained peat swamp streams under forest canopy with deep leaf litter. Habitat: slow, shaded peat swamp streams with leaf litter.</p>"
     },
     {
       "key": "aquariumSize",
@@ -171,10 +222,28 @@
       "html": "<p>Will thrive in a heavily-planted or forest stream-type set-up, the latter comprising a soft substrate, dim lighting, roots, branches and leaf litter.</p><p>You could also add aquatic plants that can survive under such conditions such as Microsorum, Taxiphyllum, or Cryptocoryne spp. Filtration does not need to be particularly strong as it mostly hails from sluggish waters.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus",
+      "html": "<p>Avoid sudden changes in pH or hardness and give plenty of cover.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-rhomboocellatus",
       "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 4.0–7.0</li><li>Hardness: 1–5 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus",
+      "html": "<p>TDS: under 120 ppm. pH: 4.5 to 6.5. Temperature: 24 to 28°C. Groups kept in stable, mature blackwater show the strongest color.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus",
+      "html": "<p>Leaf litter, botanicals, driftwood and dim light. Gentle current is fine.</p>"
     },
     {
       "key": "diet",
@@ -183,10 +252,22 @@
       "html": "<p>Primarily a micropredator feeding on small insects, worms, crustaceans and other zooplankton in nature. In the aquarium it will accept dried foods of a suitable size but should not be fed these exclusively. Daily meals of small live and frozen fare such as Daphnia, Artemia and suchlike will result in the best colouration and encourage the fish to come into breeding condition.</p>"
     },
     {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus",
+      "html": "<p>Prefers small invertebrates. Live or frozen daphnia, brine shrimp, bloodworms and mosquito larvae, plus micro pellets, soft granules and small flakes.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-rhomboocellatus",
       "html": "<p>An ideal addition to a peaceful community of Southeast Asian fishes with comparably-sized cyprinids, cobitids, and certain anabantoids perhaps constituting the best choices.</p><p>Some of the more commonly-exported species from Borneo include Desmopuntius johorensis, D. hexazona, Brevibora dorsiocellata, Trigonopoma pauciperforatum, Rasbora einthovenii, and various Pangio spp. Avoid boisterous or very vigorous tankmates as they may outcompete it for food.</p><p>It's a schooling species by nature, and ideally should be kept in a group of at least 8-10 specimens. Maintaining it in decent numbers will not only make the fish less skittish but result in a more effective, natural-looking display, plus males will also display their best colours as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus",
+      "html": "<p>Peaceful schooling fish. Keep in groups of 6 to 12 or more; small groups become shy and lose color. Good with Boraras, Sundadanio, small rasboras and peaceful loaches. Avoid fin-nippers and fast, boisterous fish.</p>"
     },
     {
       "key": "dimorphism",
@@ -195,10 +276,10 @@
       "html": "<p>Adult males tend to be slightly smaller, are noticeably slimmer and exhibit more intense colouration than females.</p>"
     },
     {
-      "key": "reproduction",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_rhomboocellatus_en/",
-      "html": "<p>Keeping and breeding are comparable to the better known close relative, Barbus pentazona.</p>"
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus",
+      "html": "<p>Body shape: deep, compressed barb body. Fins: red-orange fins in adults. Coloration: orange-red to golden body covered in dark rhomboid rings in an irregular, reticulated pattern.</p>"
     },
     {
       "key": "reproduction",
@@ -207,10 +288,22 @@
       "html": "<p>Possibly unrecorded in aquaria, but recommendations for related species are as follows:</p><p>Like most small cyprinids Desmopuntius spp. are egg-scattering free spawners exhibiting no parental care. When in good condition they will spawn often and in a mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to maximise yield a more controlled approach is required. The adult group can still be conditioned together but a smaller aquarium should also be set up and filled with mature water. This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles. Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water should be of slightly acidic pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced, and spawning should take place the following morning. An alternative is to spawn the fish in a group with half a dozen specimens of each sex being a good number, although a larger aquarium may be necessary.</p><p>In either situation the adults will probably eat the eggs given the chance and should be removed as soon as any are noticed. These should hatch in 24 - 36 hours with the fry free swimming after 3-4 days. They should be fed on an infusoria-grade food for the first few days until large enough to accept microworm, Artemia nauplii, or suchlike.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/desmopuntius-rhomboocellatus",
+      "html": "<p>Egg scatterer with no parental care. Adults eat eggs, so use a separate tank with mesh or marbles on the bottom and fine plants. Eggs hatch in about 24 to 36 hours; feed infusoria first, then baby brine shrimp.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-rhomboocellatus",
       "html": "<p>D. rhomboocellatus is included in a group of closely-related, similar-looking fishes which were moved into the new genus Desmopuntius by Kottelat (2013). They were formerly included in the Puntius assemblage which was for a number of years viewed as a polyphyletic catch-all containing over 100 species of small to mid-sized cyprinid until Pethiyagoda et al. (2012) published a partial review covering South Asian members.</p><p>The majority of sub-Himalayan Puntius species were reclassified and new genera Dawkinsia, Dravidia (subsequently amended to Haludaria), and Pethia erected to accomodate some of them, with the remainder either retained in Puntius or moved to the existing Systomus assemblage, though the definition of the latter was altered meaning some Southeast Asian species formerly placed there could no longer be considered members.</p><p>Kottelat (2013) published a comprehensive nomenclatural update for Southeast Asian fishes in which the genus Desmopuntius was raised and diagnosed as follows: unique colour pattern made of 4–6 bars at least in juveniles, anterior bar across eye, 2nd bar behind gill opening, 3rd bar at dorsal-fin origin, 4th bar at anal-fin origin, 5th bar at middle of caudal peduncle, and 6th at caudal-fin base; often a black spot at posterior extremity of dorsal-fin base. In D. gemellus, D. johorensis and D. trifasciatus the barred pattern is present only in juveniles and with increasing size transforms into a striped pattern.</p><p>In addition, the following characters are useful in identification of Desmopuntius spp.: last simple dorsal-fin ray serrated posteriorly; rostral and maxillary barbels present; lips smooth and thin, postlabial groove interrupted medially; lateral line complete, with 25–27 pored scales on body; ½4/1/4½ scale rows between dorsal-fin origin and ventral midline in front of pelvic-fin base; 12 circumpeduncular scale rows; 7–11 gill rakers on first gill arch.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/desmopuntius-rhomboocellatus-2/",
+      "html": "<p>The genus name Desmopuntius means \"convict barb\" and refers to the striped pattern reminiscent of convict clothing, which all species show at least as juveniles. The genus currently includes eight species: Desmopuntius endecanalis (Kapuas River basin, Indonesian part of Borneo), D. foerschi (Kalimantan, Indonesian part of Borneo), D. gemellus (Jambi, Sumatra, Indonesia), D. hexazona (Central Sumatra, Indonesia), D. johorensis (Johore, Malaysia), D. pentazona (Sarawak, part of Borneo belonging to Malaysia), D. rhomboocellatus (Kalimantan, Indonesian part of Borneo) and D. trifasciatus (Kapuas River basin, Indonesian part of Borneo).</p><p>Due to its coloration, D. rhomboocellatus is unmistakable within the genus.</p>"
     },
     {
       "key": "references",
@@ -263,6 +356,36 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-rhomboocellatus",
       "caption": "Adult female specimen from the U.K. aquarium trade.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/de11e1ae63398c56.webp",
+      "thumb": "https://media.aquatome.com/glaser/de11e1ae63398c56-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/desmopuntius-rhomboocellatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/4c1238111cfeb236.webp",
+      "thumb": "https://media.aquatome.com/glaser/4c1238111cfeb236-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/desmopuntius-rhomboocellatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/139286a8bf6f9a94.webp",
+      "thumb": "https://media.aquatome.com/glaser/139286a8bf6f9a94-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/desmopuntius-rhomboocellatus-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -306,5 +429,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-22"
 }

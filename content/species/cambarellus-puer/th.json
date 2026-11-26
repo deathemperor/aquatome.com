@@ -24,10 +24,10 @@
     "references:aquariumbreeder": "<ul><li>Crayfishes (Decapoda : Cambaridae) of Oklahoma: identification, distributions, and natural history. Zootaxa 3717 (2): 101–157</li><li>Black, J.B. (1963) Comparison of the male reproductive cycles in the Dwarf crayfishes Cambarellus-shufeldti and Cambarellus-puer American Zoologist, 3, 524–524.</li><li>Black, J.B. (1966) Cyclic male reproductive activities in the dwarf crawfishes Cambarellus shufeldtii (Faxon) and Cambarellus puer (Hobbs). American Microscopial Society Transactions, 85, 214–232.</li><li>Crayfish Growth and Reproduction. Biology and Ecology of Crayfish (pp.62-116).</li></ul>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.75,
+    "indexable": true,
     "bySource": {
-      "aquariumbreeder": 0.6
+      "aquariumbreeder": 0.75
     }
   }
 }

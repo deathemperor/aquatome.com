@@ -31,5 +31,12 @@
       "aquariumbreeder": 0.72
     },
     "reason": "score"
+  },
+  "held": {
+    "checks": [
+      "elsewhere",
+      "harm"
+    ],
+    "at": "2026-11-24"
   }
 }

@@ -1,4 +1,5 @@
 import { ct } from './ct'
+import { optionFor } from './filter'
 
 /** Cards a list shows at a time; its HTML has the first page of them. */
 export const PAGE = 24
@@ -108,7 +109,11 @@ export function filterList<T extends { slug: string }>(prefix: string, { match, 
     $('active').hidden = on.length === 0
   }
   async function run(params: URLSearchParams) {
-    for (const [k, v] of params) { const el = form.elements.namedItem(k); if (el instanceof HTMLInputElement || el instanceof HTMLSelectElement) el.value = v }
+    for (const [k, v] of [...params]) {
+      const el = form.elements.namedItem(k)
+      if (el instanceof HTMLSelectElement) params.set(k, optionFor([...el.options].map(o => o.value), v))
+      if (el instanceof HTMLInputElement || el instanceof HTMLSelectElement) el.value = params.get(k)!
+    }
     const on = active(params)
     // A filter needs every item. Once they're in, a filter runs at once (a chip's × moves focus to the chips it leaves).
     if (on.length && !items) {

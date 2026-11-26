@@ -1,8 +1,8 @@
 {
   "id": "aphyosemion-striatum",
   "native": {
-    "input": "24e2e740deda44d3",
-    "at": "2026-11-10T04:57:39.069Z",
+    "input": "1d6cc7d5c22784ed",
+    "at": "2026-11-22T12:48:24.036Z",
     "claims": [
       {
         "code": "GQ",
@@ -17,14 +17,6 @@
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Appears restricted to the area between the lower Mitemele River, Equatorial Guinea and the lower Ogooué basin in Gabon, including coastal drainages such as the Mbei, Komo and Gabon watersheds in between.",
-        "words": "Gabon",
-        "ok": true
-      },
-      {
-        "code": "GA",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Type locality is 'Abanga River, between first and second rapids, Ogowe River system, Gabon', corresponding to the Abanga River basin, a northern tributary of the middle Ogooué system in Gabon, western Africa.",
         "words": "Gabon",
         "ok": true
       }
@@ -54,6 +46,13 @@
         "name": "Komo",
         "source": "seriouslyfish",
         "quote": "Appears restricted to the area between the lower Mitemele River, Equatorial Guinea and the lower Ogooué basin in Gabon, including coastal drainages such as the Mbei, Komo and Gabon watersheds in between.",
+        "ok": true
+      },
+      {
+        "name": "Abanga River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Abanga River, between first and second rapids, Ogowe River system, Gabon', corresponding to the Abanga River basin, a northern tributary of the middle Ogooué system in Gabon, western Africa.",
+        "country": "GA",
         "ok": true
       }
     ],

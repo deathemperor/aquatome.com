@@ -5,7 +5,11 @@
   "family": "Syngnathidae",
   "genus": "Hippichthys",
   "group": "other",
-  "places": [],
+  "places": [
+    "africa",
+    "oceania",
+    "samoa"
+  ],
   "range": {
     "records": {
       "taxonKey": 2333056,
@@ -713,13 +717,7 @@
     "sizeCm": [
       {
         "source": "bwaquatics",
-        "value": 15
-      }
-    ],
-    "difficulty": [
-      {
-        "source": "bwaquatics",
-        "value": 6
+        "value": 18
       }
     ]
   },
@@ -728,37 +726,43 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/hippichthys-spicifer-barbelly-pipefish",
-      "html": "<ul><li>Size: can grow up to 15 cm, but they are long and thin rather than big.</li><li>Temperament: very peaceful.</li><li>Temperature: 22–28°C (72–82°F).</li><li>pH: 7–8.4.</li><li>TDS: 300+ (adding salt is useful).</li></ul>"
+      "html": "<ul><li>Genus: Hippichthys (river pipefish)</li><li>IUCN Red List: Least Concern</li><li>Origin: wild caught</li><li>Max size: up to about 18 cm, but very slim</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/hippichthys-spicifer-barbelly-pipefish",
+      "html": "<p>Hippichthys spicifer, the Bellybar or Banded Freshwater Pipefish, is a relative of seahorses found across the Indo-Pacific, from the Red Sea and East Africa to Samoa.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/hippichthys-spicifer-barbelly-pipefish",
+      "html": "<p>It lives in mangroves, tidal creeks and the lower freshwater reaches of rivers, moving between fresh, brackish and marine water.</p><p>Body shape: long, thin, armored body made of bony rings, with a tube-shaped snout. Fins: small dorsal fin used for slow, upright movement; tiny tail fin. Coloration: brown to reddish above with fine mottling and pale spots, bluish below with dark bars across the belly. Some dark adults lose the bars.</p>"
     },
     {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/hippichthys-spicifer-barbelly-pipefish",
-      "html": "<p>Some keepers use a little salt, while others keep them in 100% freshwater. Adding salt is useful for the TDS of 300+.</p>"
-    },
-    {
-      "key": "equipment",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/hippichthys-spicifer-barbelly-pipefish",
-      "html": "<p>They prefer a densely planted tank. Keep the water flow low, otherwise they will have a hard time catching baby brine shrimp or other food.</p>"
+      "html": "<ul><li>TDS: 300+ ppm; a salt addition is useful. Keepers report they have done well both with a little salt and in fully fresh water.</li><li>pH: 7.0 to 8.4</li><li>Temperature: 22 to 28°C</li></ul>"
     },
     {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/hippichthys-spicifer-barbelly-pipefish",
-      "html": "<p>Pipefish are carnivorous and require a diet rich in live or frozen foods. Feed small live or frozen mysis shrimp, brine shrimp, copepods and other small invertebrates. Offer small, frequent meals. They are feeding on baby brine shrimp.</p>"
+      "html": "<p>Carnivore that needs live or frozen food. Baby brine shrimp are taken well. Also offer small mysis, copepods and other small invertebrates in small, frequent meals. Keep flow low or they will have a hard time catching food.</p>"
     },
     {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/hippichthys-spicifer-barbelly-pipefish",
-      "html": "<p>These pipefish are generally peaceful but should be kept in a species-specific tank or with other calm, non-aggressive tank mates. They are very slow moving and occupy the lower zone of the aquarium.</p>"
+      "html": "<p>Generally peaceful and very slow-moving, staying in the lower zone of a densely planted tank. Very peaceful: keep in a species-only tank or with other calm, non-aggressive tankmates that will not compete for food.</p>"
     },
     {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/hippichthys-spicifer-barbelly-pipefish",
-      "html": "<p>Males carry eggs in their pouch and give birth to live young. It is not known whether the young require saltwater to grow into adulthood.</p>"
+      "html": "<p>Males carry the eggs in a brood pouch under the tail and release live young. It is not known whether the young need brackish or salt water to grow to adulthood.</p>"
     }
   ],
   "photos": [
@@ -783,7 +787,32 @@
       "source": "bwaquatics"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "6OvAZcR-21E",
+      "title": "hippichthys spicifer",
+      "durationSec": 35,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "MJGHB7oQTOE",
+      "title": "HIPPICHTHYS SPICIFER nono76450",
+      "durationSec": 37,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "JdJ-0F_b3OM",
+      "title": "Belly Barred Pipefish - Hippichthys spicifer",
+      "durationSec": 48,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1g6reaekpCY",
+      "title": "Hippichthys spicifer 帶紋多環海龍",
+      "durationSec": 39,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "thuc-an",
@@ -808,5 +837,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-20"
 }

@@ -1,0 +1,79 @@
+{
+  "id": "bunocephalus-larai",
+  "native": {
+    "input": "ac7e1f8c3103ba07",
+    "at": "2026-11-20T01:55:49.831Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Paraná River basin, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "IUCN Red List: Bunocephalus larai is endemic to Brazil, restricted to the upper Paraná basin, in sections of the states of Minas Gerais, Mato Grosso do Sul, São Paulo, and Paraná.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraná",
+        "source": "scotcat",
+        "quote": "South America: Paraná River basin, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Piracicaba",
+        "source": "scotcat",
+        "quote": "Type locality: Rio Piracicaba, junto ao Salto; ao 20 klm abaixo (ilha das Flechas) [São Paulo, Brazil].",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Bunocephalus larai",
+    "status": "ACCEPTED",
+    "taxonKey": 2340626,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        6
+      ],
+      [
+        "bdee0f31-fe1b-4ecc-9c4f-e4db6be3152c",
+        5
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        4
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-20T01:55:49.831Z"
+  }
+}

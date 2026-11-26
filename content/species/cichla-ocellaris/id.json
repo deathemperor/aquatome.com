@@ -18,19 +18,15 @@
     "behaviour:seriouslyfish": "<p>Teritorial dan cukup agresif. Bisa dipelihara dalam kelompok sesama spesiesnya atau bersama spesies besar lain seperti arwana, pari air tawar, catfish besar, dan cichlid besar lainnya. Dibutuhkan akuarium yang sangat besar agar hal ini bisa berhasil. Akan memangsa teman setangki yang cukup kecil untuk dianggap makanan.</p>",
     "dimorphism:seriouslyfish": "<p>Jantan berukuran lebih besar dan menumbuhkan jenong (nuchal hump) di kepala seiring bertambah dewasa.</p>",
     "reproduction:seriouslyfish": "<p>Laporan keberhasilan pemijahan di kalangan hobiis masih terbatas.</p>",
-    "notes:seriouslyfish": "<p>Karena ukurannya yang besar, peacock bass sebenarnya hanya disarankan untuk pemelihara ikan berpengalaman yang mampu menyediakan tempat yang memadai. Meski begitu, ikan ini tangguh dan kuat serta bisa beradaptasi dengan berbagai kondisi. Peacock bass makin mudah didapat di kalangan hobiis dan sering dijual sebagai anakan lucu berukuran 5 cm, yang sering menggoda orang untuk membeli ikan yang tidak akan mampu mereka rawat dalam jangka panjang. Peacock bass juga menjadi ikan target pemancingan olahraga (sport fish).</p>"
+    "notes:seriouslyfish": "<p>Karena ukurannya yang besar, peacock bass sebenarnya hanya disarankan untuk pemelihara ikan berpengalaman yang mampu menyediakan tempat yang memadai. Meski begitu, ikan ini tangguh dan kuat serta bisa beradaptasi dengan berbagai kondisi. Peacock bass makin mudah didapat di kalangan hobiis dan sering dijual sebagai anakan lucu berukuran 5 cm, yang sering menggoda orang untuk membeli ikan yang tidak akan mampu mereka rawat dalam jangka panjang. Peacock bass juga menjadi ikan target pemancingan olahraga (sport fish).</p>",
+    "notes:glaser": "<p>Lima spesies yang dikenal sampai saat itu kini telah menjadi 15 spesies. Di alam pun hibrida harus selalu diperhitungkan, karena Cichla dulu dan sampai sekarang banyak dikirim ke berbagai wilayah di Amerika Selatan sebagai ikan tebar, mengingat ikan ini populer sebagai ikan konsumsi.</p>"
   },
   "quality": {
     "score": 0.9,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.9
+      "seriouslyfish": 0.9,
+      "glaser": 0.9
     }
-  },
-  "held": {
-    "checks": [
-      "elsewhere"
-    ],
-    "at": "2026-11-10"
   }
 }

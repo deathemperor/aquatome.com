@@ -141,9 +141,48 @@
       "author": "Paul Korecky",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:2018-05-31_AT_Wien_13_Hietzing,_W%C3%BCstenhaus,_Garra_rufa_(48750303373).jpg",
       "caption": "Ba con cá Garra rufa bơi trên nền đá rêu trong bể"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/147509222.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/147509222-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Shaked Bachbut",
+      "sourceUrl": "https://www.inaturalist.org/photos/147509222",
+      "caption": "Hai cá Garra rufa bơi trong bể đáy sỏi đá",
+      "best": true,
+      "kind": "pair",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/566362040.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/566362040-480.webp",
+      "width": 1024,
+      "height": 462,
+      "licence": "CC BY-NC",
+      "author": "yakov_salaviz",
+      "sourceUrl": "https://www.inaturalist.org/photos/566362040",
+      "caption": "Đàn cá Garra rufa trong khay chứa nước trên nền đá",
+      "best": true,
+      "kind": "group",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/440624291.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/440624291-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Arya Aras",
+      "sourceUrl": "https://www.inaturalist.org/photos/440624291",
+      "caption": "Cá Garra rufa bơi trên đáy đá ở suối tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     }
   ],
-  "seen": 100,
-  "updatedAt": "2026-11-08",
-  "builtAt": "2026-11-08"
+  "seen": 112,
+  "updatedAt": "2026-11-24",
+  "builtAt": "2026-11-24"
 }

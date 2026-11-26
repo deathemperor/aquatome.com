@@ -1,0 +1,148 @@
+{
+  "id": "trigonostigma-truncata",
+  "scientificName": "Trigonostigma truncata",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Trigonostigma",
+  "group": "rasboras",
+  "places": [
+    "asia",
+    "thailand"
+  ],
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/trigonostigma-truncata-2/",
+      "html": "<p>Genetic investigations have shown that there is not only one harlequin barb, but several similar forms, which still need to be scientifically investigated.</p><p>Wild-collected specimens from southern Thailand have been imported for several years. Their colouring differs significantly from \"normal\" harlequin barbs: a blue line above the wedge, an orange spot on the base of the tail, and the absence of the typical black vertical stripe behind the gill cover clearly show that these harlequin barbs are a different species.</p><p>This southern Thai species has now (May 2020) been formally described scientifically as Trigonostigma truncata.</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/trigonostigma-truncata-2/",
+      "html": "<p>Tan, H.H.(2020): Trigonostigma truncata, a new species of harlequin rasbora from Malay Peninsula (Teleostei: Danionidae). Raffles Bulletin of Zoology, 68: 421-433.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/1031d27870e8e40d.webp",
+      "thumb": "https://media.aquatome.com/glaser/1031d27870e8e40d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/trigonostigma-truncata-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0b597b2cf4d0d669.webp",
+      "thumb": "https://media.aquatome.com/glaser/0b597b2cf4d0d669-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/trigonostigma-truncata-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/bee8a8e2e5a83864.webp",
+      "thumb": "https://media.aquatome.com/glaser/bee8a8e2e5a83864-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/trigonostigma-truncata-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "ngaxoLgpaWE",
+      "title": "This HARLEQUIN RASBORA is living in my aquarium for 4 years | Trigonostigma truncata",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "YskznI8oAaQ",
+      "title": "What's Going on in THAT Tiny Mind? Cracking the Harlequin Rasbora Code!",
+      "durationSec": 5,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "GhPfAGdAWtQ",
+      "title": "I could watch these blue eyes for hours 🐠💙 #aquarium  #aquariumfish #aquascape",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "xNUY9o1bajA",
+      "title": "Trigonostigma species",
+      "durationSec": 119,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "thức ăn cá tam giác"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ cho bể 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-20",
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Wild-collected specimens from southern Thailand have been imported for several years.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11173146,
+      "total": 1,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  }
+}

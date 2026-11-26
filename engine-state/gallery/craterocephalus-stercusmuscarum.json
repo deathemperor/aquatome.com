@@ -28,7 +28,10 @@
   "https://media.aquatome.com/inaturalist/60369088.webp": "2cece161d892b15e",
   "https://media.aquatome.com/inaturalist/479381779.webp": "9a9edcf9694d963b",
   "https://media.aquatome.com/inaturalist/60369094.webp": "696f4de1f89c9533",
-  "https://media.aquatome.com/inaturalist/306705153.webp": "810392083020c385"
+  "https://media.aquatome.com/inaturalist/306705153.webp": "810392083020c385",
+  "https://media.aquatome.com/glaser/148897e92ae753c8.webp": "54d48f4b0f3e9cfc",
+  "https://media.aquatome.com/glaser/d4a76141976fefc2.webp": "4949440f1f14696b",
+  "https://media.aquatome.com/glaser/83e89d7a80f796d0.webp": "c9fdb63b6d070b0d"
  },
  "commons": "2026-11-07",
  "inat": {
@@ -41,6 +44,9 @@
  },
  "gbif": {
   "key": 4284265,
+  "next": null
+ },
+ "openverse": {
   "next": null
  }
 }

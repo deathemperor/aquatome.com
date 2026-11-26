@@ -666,6 +666,18 @@ test("the avoid list's engine entries: each page's held or refused photos up to 
   expect(u(99) in next).toBe(false)
 })
 
+test("a page led by a non-commercial photo: its head is on the engine's avoid list, whatever its verdict, and gives the faces for more than one fish no photo (the chief of staff's rule, 17 Nov)", async () => {
+  const { cardPhotos, ENGINE_AVOID, headAvoid, refusedWhy, withEngineAvoid } = await import('../src/curation')
+  const u = (n: number) => `https://media.aquatome.com/inaturalist/${n}.webp`
+  const nc = { url: u(1), width: 1600, height: 1200, licence: 'CC BY-NC 4.0', author: 'Sample Shooter', sourceUrl: 'https://www.inaturalist.org/photos/1', large: { url: u(2), width: 2400, height: 1800 } }
+  const v = { subjects: { [u(1)]: { a: { ok: 'yes', typical: true, note: '' } } }, legacy: {}, rejected: {}, faces: {} } as Awaited<ReturnType<typeof readVerdicts>>
+  // The day's card and the hero read the same reason (candidates' headFails).
+  expect(refusedWhy(nc, 'a', v, {}, () => false)).toBe('a non-commercial photo')
+  const engine = headAvoid([{ id: 'a', photos: [nc] }], v, {}, () => false)
+  expect(engine).toEqual({ [u(1)]: `${ENGINE_AVOID}a non-commercial photo`, [u(2)]: `${ENGINE_AVOID}a non-commercial photo` })
+  expect(cardPhotos([{ id: 'a', photos: [nc] }], v, {}, () => false, withEngineAvoid({}, engine))).toEqual({})
+})
+
 test("a page whose head is on avoid gives the faces for more than one fish its first photo that passes and isn't on avoid; a page whose head passes or isn't judged gives none", async () => {
   const { cardPhotos, headAvoid, withEngineAvoid } = await import('../src/curation')
   const u = (n: number) => `https://media.aquatome.com/commons/${n.toString(16).padStart(16, '0')}.webp`

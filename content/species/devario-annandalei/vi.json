@@ -1,0 +1,21 @@
+{
+  "slug": "ca-danio-duoi-mau",
+  "name": "Cá danio đuôi máu",
+  "altNames": [
+    "Cá devario đuôi đỏ",
+    "Blood tail"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Devario annandalei dài khoảng 10 cm. Đây là loài cá sống theo đàn. Phần da giữa các tia vây đuôi của nó đỏ rất nổi, vì thế mới có tên gọi \"blood tail\" (đuôi máu).</p>",
+    "distribution:glaser": "<p>Devario annandalei có nguồn gốc từ Miến Điện (Myanmar) và từ các vùng cận nhiệt đới.</p>",
+    "maintenance:glaser": "<p>Nuôi và cho đẻ loài này về cơ bản không khác gì Devario malabaricus, loài đã rất quen thuộc. Khác biệt duy nhất nằm ở nhiệt độ nước. D. annandalei đến từ vùng cận nhiệt đới, nên thỉnh thoảng cho nó ở nước mát hơn một chút (khoảng nhiệt độ phòng) thì tốt.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  }
+}

@@ -1,0 +1,44 @@
+{
+ "at": "2026-11-23T20:06:26Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Bốn mẫu vật đầu tiên trong ảnh thu nhỏ được bắt ở Mathabhanga",
+   "why": "Refers to thumbnail photos from the source site that this page does not have."
+  }
+ ],
+ "text": {
+  "slug": "ca-da-bao-erethistoides-sicula",
+  "name": "Cá da báo Erethistoides sicula",
+  "altNames": [
+   "Cheetah Catfish"
+  ],
+  "sections": {
+   "quickFacts:planetcatfish": "<p>Erethistoides sicula Ng, 2005, cá da báo (họ Sisoridae). Kích thước: 39 mm SL (chiều dài chuẩn, không tính vây đuôi). So với E. montana và E. pipri, loài này có cuống đuôi dài hơn và gai vây ngực ngắn hơn. Tên loài lấy từ chữ Latin sicula, nghĩa là dao găm, để chỉ cặp gai vây ngực ngắn của nó. Danh sách đỏ IUCN: Thiếu dữ liệu (đánh giá lần cuối năm 2009).</p>",
+   "distribution:planetcatfish": "<p>Châu Á: mới biết có ở lưu vực sông Mansai. Sông này là một nhánh của sông Brahmaputra, nằm ở phía bắc bang West Bengal, Ấn Độ. Nơi thu mẫu để mô tả loài là sông Schutunga, một nhánh của sông Mansai, tại Ansole, 26°22'24''N, 89°11'17''E, West Bengal, Ấn Độ.</p>",
+   "habitat:planetcatfish": "<p>Loài này sống ở những vùng nước nông trải rộng, nền cát và nước chảy vừa.</p>",
+   "equipment:planetcatfish": "<p>Ngoài cây thủy sinh ra thì không cần bày thêm gì trong bể.</p>",
+   "reproduction:planetcatfish": "<p>Chưa có thông tin. Chưa ai báo cáo cho loài này đẻ được.</p>",
+   "references:planetcatfish": "<p>Zootaxa No. 1021, pp 2, Fig. 1, 2a, 4a.</p>",
+   "quickFacts:scotcat": "<p>Họ: Sisoridae. Ng mô tả loài này năm 2005. Kích thước: 4,0 cm. Nhiệt độ: 18–24 °C. pH: 6,5–7,2.</p><p>Vây lưng có tổng cộng 5 tia mềm, vây hậu môn có 10–11 tia mềm, cột sống có 29–31 đốt. Erethistoides sicula khác cả E. montana lẫn E. pipri ở cuống đuôi dài hơn (19,6–22,3% SL so với 14,4–18,4) và gai vây ngực ngắn hơn (14,6–28,0% SL so với 30,7–32,1). Nó còn khác E. montana ở một mảnh xương nhô lên phía lưng trên nắp mang, nằm ngay sau mặt khớp với xương hàm móng. E. montana không có mảnh xương này. So với E. pipri thì loài này có đầu thon hơn.</p>",
+   "distribution:scotcat": "<p>Châu Á: loài này mới thấy ở lưu vực sông Mansai, một nhánh của sông Brahmaputra ở phía bắc bang West Bengal, Ấn Độ.</p>",
+   "habitat:scotcat": "<p>Bốn mẫu vật đầu tiên trong ảnh thu nhỏ được bắt ở Mathabhanga, quận Coochbehar, bang West Bengal.</p>",
+   "maintenance:scotcat": "<p>Nên set bể theo kiểu suối núi châu Á, gồm nền cát, đá tròn, sỏi và lũa, có dòng chảy khỏe. Cá họ này phải có nước sạch. Nhiệt độ nên giữ ở mức mát so với bể cá nhiệt đới.</p>",
+   "diet:scotcat": "<p>Cá thích đồ tươi sống như trùng huyết, giun grindal và bo bo.</p>",
+   "behaviour:scotcat": "<p>Có thể nuôi chung với cá ngựa vằn (Brachydanio rerio) và các loài rasbora nhỏ cỡ tương tự.</p>",
+   "notes:scotcat": "<p>Nguồn gốc tên: Erethistoides ghép từ Erethistes và đuôi -oides, nghĩa là có hình dạng giống Erethistes, \"gần với chi đó ở hầu hết mọi mặt\". Khác biệt là chi này có mõm rất dẹt và kiểu răng cưa riêng dọc mép trước gai vây ngực. Tên loài sicula nghĩa là \"dao găm\", chỉ gai vây ngực ngắn của nó.</p><p>Danh sách đỏ IUCN: Erethistoides sicula được mô tả từ lưu vực sông Brahmaputra (lưu vực sông Mansai) ở West Bengal, Ấn Độ. Đến nay chỉ có mười ba mẫu vật của loài này. Người ta cũng chưa có thông tin về đặc điểm sinh học và những mối đe dọa nó có thể gặp. IUCN xếp loài này vào nhóm Thiếu dữ liệu (Data Deficient), nhưng đánh giá này cần cập nhật (IUCN 2010).</p>",
+   "references:scotcat": "<p>Adrian Taylor: pers.comm. Ng, H. H. 2005 Erethistoides sicula, a new catfish (Teleostei: Erethistidae) from India. Zootaxa 1021:1-12. Ng, H.H. 2010. Erethistoides sicula. The IUCN Red List of Threatened Species 2010. The ETYFish Project. Fish Name Etymology Database.</p>"
+  },
+  "quality": {
+   "score": 0.88,
+   "indexable": true,
+   "bySource": {
+    "planetcatfish": 0.9,
+    "scotcat": 0.88
+   }
+  }
+ }
+}

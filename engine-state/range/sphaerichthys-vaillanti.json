@@ -1,8 +1,8 @@
 {
   "id": "sphaerichthys-vaillanti",
   "native": {
-    "input": "f2520b4c7d40e61c",
-    "at": "2026-11-18T06:03:35.101Z",
+    "input": "6ceafac5c65031be",
+    "at": "2026-11-21T07:12:58.512Z",
     "claims": [
       {
         "code": "ID",
@@ -15,16 +15,16 @@
       {
         "code": "ID",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Type locality is the village of Nangah Sebroeang which lies south of the Danau Sentarum National Park within the upper Kapuas river basin, West Kalimantan (Kalimantan Barat) province in the Indonesian part of Borneo.",
+        "source": "glaser",
+        "quote": "The species originates from the Kapuas basin in the Indonesian part of the island of Borneo.",
         "words": "Indonesian",
         "ok": true
       },
       {
         "code": "ID",
         "status": "native",
-        "source": "glaser",
-        "quote": "The species originates from the Kapuas basin in the Indonesian part of the island of Borneo.",
+        "source": "bwaquatics",
+        "quote": "Sphaerichthys vaillanti appears to be endemic to the Kapuas drainage in West Kalimantan, Indonesian Borneo.",
         "words": "Indonesian",
         "ok": true
       }
@@ -34,14 +34,12 @@
         "name": "Kapuas",
         "source": "seriouslyfish",
         "quote": "Vaillant's chocolate gourami, Sphaerichthys vaillanti, is a labyrinth fish that appears to be endemic to the Kapuas drainage in Indonesian Borneo.",
-        "country": "ID",
         "ok": true
       },
       {
         "name": "Borneo",
         "source": "seriouslyfish",
         "quote": "Vaillant's chocolate gourami, Sphaerichthys vaillanti, is a labyrinth fish that appears to be endemic to the Kapuas drainage in Indonesian Borneo.",
-        "country": "ID",
         "ok": true
       },
       {
@@ -54,14 +52,18 @@
         "name": "Kapuas",
         "source": "glaser",
         "quote": "The species originates from the Kapuas basin in the Indonesian part of the island of Borneo.",
-        "country": "ID",
         "ok": true
       },
       {
         "name": "Borneo",
         "source": "glaser",
         "quote": "The species originates from the Kapuas basin in the Indonesian part of the island of Borneo.",
-        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "bwaquatics",
+        "quote": "Sphaerichthys vaillanti appears to be endemic to the Kapuas drainage in West Kalimantan, Indonesian Borneo.",
         "ok": true
       }
     ],

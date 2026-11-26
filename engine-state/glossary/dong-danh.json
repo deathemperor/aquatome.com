@@ -1,0 +1,196 @@
+{
+  "found": true,
+  "species": [
+    "Poecilia reticulata"
+  ],
+  "sources": [
+    {
+      "url": "https://www.fishbase.se/manual/fishbasethe_synonyms_table.htm",
+      "title": "The SYNONYMS Table",
+      "kind": "reference"
+    },
+    {
+      "url": "https://blog.calacademy.org/scientists/catalog-of-fishes-glossary",
+      "title": "Eschmeyer's Catalog of Fishes Glossary",
+      "kind": "reference"
+    },
+    {
+      "url": "https://www.aqueon.com/articles/whats-in-a-fishs-name",
+      "title": "What's in a Fish's Name?",
+      "kind": "maker"
+    },
+    {
+      "url": "https://vi.wikipedia.org/wiki/Cá_bảy_màu",
+      "title": "Cá bảy màu",
+      "kind": "reference"
+    },
+    {
+      "url": "https://vi.wikipedia.org/wiki/Danh_pháp_đồng_nghĩa",
+      "title": "Danh pháp đồng nghĩa",
+      "kind": "reference"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "A synonym is each of two or more scientific names of the same rank that are used for the same taxon.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Normally only one of a set of synonyms can be used as the name.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "A synonym is a scientific name for a taxon that now goes by a different scientific name.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Unlike ordinary synonyms in language, a scientific synonym cannot be used interchangeably with the correct name it is a synonym of.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "A taxon with a given definition, position and rank has only one official name at any one time, and the relevant code of nomenclature decides which name that is.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Whether a name counts as a synonym depends on taxonomic opinion: one taxonomist may treat a name as a synonym while another treats it as the valid name.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "A junior synonym is the younger of two synonyms.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Priority is seniority set by date of publication: the earliest published name has priority.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "In zoology, the senior synonym (đồng nghĩa sớm) takes priority over junior synonyms (đồng nghĩa muộn), and junior synonyms are used only in exceptional cases.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "An objective synonym is one of two or more synonyms based on the same name-bearing type.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "A subjective synonym is one of two or more synonyms based on different name-bearing types that a specialist considers to be the same taxon.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "FishBase's SYNONYMS table gives each name a status: original combination, new combination, misspelling, junior synonym, misidentification, questionable, or other.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "A new combination is the original species name moved to a different genus, with the original author shown in parentheses, for example Diaphus dumerilii (Bleeker 1856) from Scopelus dumerilii Bleeker 1856.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "A misidentification listed in a synonymy is not a true alias of the current name: it appears because two species were confused.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "As scientists learn more, especially through DNA analysis, they sometimes change a fish's genus or species.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Name changes happen often among African Rift Lake cichlids, especially those from Lake Malawi, and among newly discovered cyprinids from Myanmar and China.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "About 10% of the fish names in a given work become outdated after 10 years.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "The FishBase SYNONYMS table holds more than 70,000 synonyms, including over 25,000 valid names.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "FishBase's handling of synonyms relies on Eschmeyer's Catalog of Fishes (Eschmeyer 1998).",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Scientific names let aquarists around the world discuss a species without the confusion caused by common names, which vary from place to place.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Knowing a fish's genus helps predict its likely size, temperament, diet and breeding needs.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Poecilia reticulata (guppy) has these synonyms: Girardinus guppii Günther, 1866; Lebistes reticulatus (W. Peters, 1859); Lebistes poecilioides De Filippi, 1861; Acanthophacelus reticulatus; Girardinus reticulatus; Poecilioides reticulatus; and Acanthocephalus guppii.",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "Albert Günther named the guppy Girardinus guppii in 1866, and it was renamed Lebistes reticulatus in 1913. Because Wilhelm Peters had already described it in 1859, the earlier name takes priority, and the valid name is now Poecilia reticulata.",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "The common name \"guppy\" is still in use even though Girardinus guppii is now a synonym of Poecilia reticulata.",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"Danh pháp đồng nghĩa\"",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"Danh pháp đồng nghĩa (phân loại học)\"",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"tên đồng danh\"",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"synonym\"",
+      "source": 4,
+      "also": [
+        1
+      ]
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"đồng nghĩa muộn\"",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"đồng nghĩa sớm\"",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"junior synonym\"",
+      "source": 0,
+      "also": [
+        1
+      ]
+    }
+  ]
+}

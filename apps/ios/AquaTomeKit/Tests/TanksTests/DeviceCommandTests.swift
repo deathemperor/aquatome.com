@@ -162,7 +162,7 @@ func aCodeListedTwice() throws {
   #expect(s.strictestRole(device: p.id, outlet: "switch_3") == nil)
 }
 
-@Test("The master button's press, its CO2 held, its end, its sheet and the countdown test's offer read an outlet's role through TankStore.strictestRole")
+@Test("The master button's press, its CO2 held, its end and its sheet read an outlet's role through TankStore.strictestRole, as each command leaves")
 func theButtonReadsEveryCopysRole() throws {
   // apps/ios/AquaTomeKit/Tests/TanksTests/this file → apps/ios/AquaTome/Master.
   let master = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
@@ -174,12 +174,15 @@ func theButtonReadsEveryCopysRole() throws {
   // One record's own role, read anywhere in the button: none.
   #expect(!code.contains("?.outlets.first { $0.code == code }?.role"))
   #expect(!code.contains("role: o.role)"))
-  // The two reads, through the lookup: the role the press, CO2 held and the end go by, and the sheet's list.
+  // The two reads, through the lookup: the role each command is checked against as it leaves (Switcher.role, which the
+  // press, CO2 held, the end and the sheet go by), and the sheet's list.
   #expect(code.components(separatedBy: "strictestRole(device: c.device, outlet: code)").count - 1 == 1)
   #expect(code.components(separatedBy: "role: store.strictestRole(device: p.id, outlet: o.code))").count - 1 == 1)
-  // The countdown test's offer, which it reads again before it switches: not CO2 or a heater on any copy.
-  #expect(!code.contains("$0.role != \"co2\""))
-  #expect(code.contains("let r = switcher.tanks.store.strictestRole(device: p.id, outlet: $0.code); return r != \"co2\" && r != \"heater\""))
+  #expect(code.contains("func role(_ c: DeviceCommand) -> String? { switcher.role(c) }"))
+  // Right before each command leaves, the same reasons as when it was sent, and a record no longer on a tank refused: its
+  // role can't be read then (Fable, 19 Nov: a copy deleted mid-press, the other marking the outlet a heater).
+  #expect(code.contains("{ [unowned self] in self.withdrawal(c, still: still) == nil }"))
+  #expect(code.contains("if gone(c) != nil || !MasterButton.allows(c, role: role(c)) { return .role }"))
 }
 
 @Test("At the end each outlet goes back to how it was; one already as asked, nowhere; one not known, the other way")
@@ -223,7 +226,7 @@ func whatIsOwed() {
   #expect(run.back[1].held == true && run.back[1].problem == nil)
 }
 
-@Test("A failed step that reads as it was has nothing to put back, nor a lamp step that failed; nothing left, it ends")
+@Test("A failed step that reads as it was has nothing to put back, nor a lamp step that failed; one not known, or that may have gone, stays owed")
 func whatFailed() {
   let b = MasterButton(name: "x", steps: [lampWhite, fanOff], minutes: 60)
   let all = [MasterRun.Failed(target: lampWhite.target, line: "a"), .init(target: fanOff.target, line: "b")]
@@ -235,10 +238,12 @@ func whatFailed() {
   var none = MasterRun(b, at: m0, before: { _ in true }, lamp: nil)
   none.settle(all, now: { _ in true }, keeping: [], at: m0)
   #expect(none.back.isEmpty && !none.isRunning && none.failed == all)
-  // Not known after it (the list not read again): nothing guessed goes back.
-  var unknown = MasterRun(b, at: m0, before: { _ in nil }, lamp: nil)
+  // Not known after it (its answer and the list read again both failed): the fan, on before, may be off now. It stays
+  // owed and it runs on; the end reads it again (MasterRun.end) and sends nothing if it is on (Codex, 17 Nov: dropping it
+  // left a fan off).
+  var unknown = MasterRun(b, at: m0, before: { _ in true }, lamp: nil)
   unknown.settle(all, now: { _ in nil }, keeping: [], at: m0)
-  #expect(unknown.back.isEmpty && !unknown.isRunning)
+  #expect(unknown.back.map(\.command) == [DeviceCommand(device: plug, outlet: "switch_3", on: true)] && unknown.isRunning)
   // A lamp step half sent ("on" went, its colour didn't): it goes back.
   var half = MasterRun(b, at: m0, before: { _ in true }, lamp: nil)
   half.settle(all, now: { _ in true }, keeping: [lampWhite.target], at: m0)
@@ -251,6 +256,217 @@ func whatFailed() {
   var some = MasterRun(b, at: m0, before: { _ in true }, lamp: nil)
   some.settle([all[0]], now: { _ in false }, keeping: [], at: m0)
   #expect(some.back.map(\.command) == [DeviceCommand(device: plug, outlet: "switch_3", on: true)] && some.isRunning)
+  // The fan's answer lost or not reported, read after it as it was: counted gone, as a plug can switch late (the chief,
+  // 18 Nov). It stays owed, as asked and only guessed, and it runs on: the end reads it again.
+  var late = MasterRun(b, at: m0, before: { _ in true }, lamp: nil)
+  late.settle(all, now: { _ in true }, keeping: [], at: m0, uncertain: [fanOff.target])
+  #expect(late.back.map(\.command) == [DeviceCommand(device: plug, outlet: "switch_3", on: true)] && late.isRunning)
+  #expect(late.back[0].left == false && late.back[0].guessed == true)
+}
+
+@Test("At the end an outlet no longer as this press left it is left, whatever an earlier press owes; CO2 never back on")
+func whatTheEndDoes() throws {
+  let fanOn = MasterRun.Back(command: DeviceCommand(device: plug, outlet: "switch_3", on: true))
+  // This press's own put-back: the fan it switched off goes back on; one found on already needs nothing.
+  #expect(MasterRun.end(fanOn, now: false, left: false, role: "fan") == .send)
+  #expect(MasterRun.end(fanOn, now: true, left: false, role: "fan") == .already)
+  // Owed by an earlier press (the fan back on), and this press switched the fan on: a hand switched it off since. Left
+  // off, not switched on against the hand (Codex, 17 Nov).
+  #expect(MasterRun.end(fanOn, now: false, left: true, role: "fan") == .leave)
+  // Not read at the end: nothing sent, and it stays owed (Codex, 17 Nov: a state the phone only guessed isn't sent).
+  #expect(MasterRun.end(fanOn, now: nil, left: false, role: "fan") == .unread)
+  #expect(MasterRun.end(fanOn, now: nil, left: nil, role: "fan") == .unread)
+  // Its step didn't go, or this press didn't set it: as the put-back says.
+  #expect(MasterRun.end(fanOn, now: false, left: nil, role: "fan") == .send)
+  // CO2 back on, held at the press or CO2 now: never sent. A heater now: left, its own case (Fable, 18 Nov).
+  var held = MasterRun.Back(command: DeviceCommand(device: plug, outlet: "switch_2", on: true))
+  #expect(MasterRun.end(held, now: false, left: false, role: "co2") == .hold)
+  held.held = true
+  #expect(MasterRun.end(held, now: false, left: false, role: "light") == .hold)
+  #expect(MasterRun.end(fanOn, now: false, left: false, role: "heater") == .heater)
+  #expect(MasterRun.end(fanOn, now: nil, left: false, role: "heater") == .heater)
+  // After a put-back try that may have gone (its answer lost): that try could still land on the heater's outlet, so
+  // its own case, for the note that it isn't known (the chief, 18 Nov). Nothing sent either way.
+  var tried = fanOn
+  tried.mayHaveGone = true
+  #expect(MasterRun.end(tried, now: false, left: false, role: "heater") == .heaterAfterTry)
+  #expect(MasterRun.end(tried, now: nil, left: false, role: "heater") == .heaterAfterTry)
+  #expect(MasterRun.end(tried, now: false, left: false, role: "fan") == .send)
+  // CO2 switched off by a step whose answer was lost, read after it as still on: counted gone (the chief, 18 Nov), so
+  // it stays owed. Found off at the end, or not read: held, never sent on, whether held at the press or CO2 now; found
+  // on, nothing to send.
+  let co2Off = DeviceCommand(device: plug, outlet: "switch_2", on: false)
+  var lost = MasterRun(MasterButton(name: "x", steps: [co2Off], minutes: 60), at: m0, before: { _ in true }, lamp: nil)
+  lost.back[0].held = true
+  lost.settle([.init(target: co2Off.target, line: "b")], now: { _ in true }, keeping: [], at: m0, uncertain: [co2Off.target])
+  let co2 = try #require(lost.back.first)
+  #expect(co2.command.on && co2.left == false && co2.guessed == true && lost.isRunning)
+  for role in ["co2", "light", nil] as [String?] {
+    #expect(MasterRun.end(co2, now: false, left: co2.left, role: role) == .hold)
+    #expect(MasterRun.end(co2, now: nil, left: co2.left, role: role) == .hold)
+    #expect(MasterRun.end(co2, now: true, left: co2.left, role: role) == .already)
+  }
+  // Made a heater since: its own case, before the hold (the note says what it is now); nothing sent either way.
+  #expect(MasterRun.end(co2, now: false, left: co2.left, role: "heater") == .heater)
+  #expect(MasterRun.end(co2, now: nil, left: co2.left, role: "heater") == .heater)
+  var unheld = co2
+  unheld.held = nil
+  #expect(MasterRun.end(unheld, now: false, left: unheld.left, role: "co2") == .hold)
+  #expect(MasterRun.end(unheld, now: nil, left: unheld.left, role: "co2") == .hold)
+}
+
+@Test("How a press left each outlet goes with what it owes: as asked; lost or not reported, as asked (counted gone); refused, as it was")
+func howAPressLeftEach() {
+  let lightOff = DeviceCommand(device: plug, outlet: "switch_1", on: false)
+  let fanOn = DeviceCommand(device: plug, outlet: "switch_3", on: true)
+  let b = MasterButton(name: "x", steps: [lightOff, fanOn], minutes: 60)
+  // An earlier press owes the fan back off, and left it on.
+  var owedFan = MasterRun.Back(command: DeviceCommand(device: plug, outlet: "switch_3", on: false))
+  owedFan.left = true
+  func run() -> MasterRun { MasterRun(b, at: m0, before: { $0.outlet == "switch_1" }, lamp: nil, owed: [owedFan]) }
+  func left(_ r: MasterRun, _ c: DeviceCommand) -> Bool? { r.back.first { $0.command.target == c.target }?.left }
+  // Both went: as asked.
+  var went = run()
+  went.settle([], now: { _ in nil }, keeping: [owedFan.command.target], at: m0)
+  #expect(left(went, lightOff) == false && left(went, fanOn) == true)
+  // The fan's answer lost or not reported, read after it as not switched: counted gone, as asked, since a plug can
+  // switch late (the chief, 18 Nov); only guessed.
+  let fanFailed = [MasterRun.Failed(target: fanOn.target, line: "b")]
+  var lost = run()
+  lost.settle(fanFailed, now: { $0.target == fanOn.target ? false : nil }, keeping: [owedFan.command.target], at: m0, uncertain: [fanOn.target])
+  #expect(left(lost, fanOn) == true && lost.back[0].guessed == true)
+  // Read after it as switched: it went, not guessed.
+  var seen = run()
+  seen.settle(fanFailed, now: { $0.target == fanOn.target ? true : nil }, keeping: [owedFan.command.target], at: m0, uncertain: [fanOn.target])
+  #expect(left(seen, fanOn) == true && seen.back[0].guessed == nil)
+  // Lost and not read after it: counted gone, as asked (the end leaves an outlet found otherwise, rather than undo a hand).
+  var unread = run()
+  unread.settle(fanFailed, now: { _ in nil }, keeping: [owedFan.command.target], at: m0, uncertain: [fanOn.target])
+  #expect(left(unread, fanOn) == true && unread.back[0].guessed == true)
+  // Refused before anything went: as the earlier press left it.
+  var refused = run()
+  refused.settle(fanFailed, now: { _ in nil }, keeping: [owedFan.command.target], at: m0)
+  #expect(left(refused, fanOn) == true && left(refused, lightOff) == false)
+  // This press's own step refused (by Tuya, its role or a sign-out) and not read after it: as it was, so the end never
+  // switches it (Fable, 17 Nov). The light, on before, asked off and refused, found off at the end: a hand did it; left.
+  var ownRefused = run()
+  ownRefused.settle([.init(target: lightOff.target, line: "a")], now: { _ in nil }, keeping: [owedFan.command.target], at: m0)
+  let light = ownRefused.back.first { $0.command.target == lightOff.target }!
+  #expect(light.left == true && light.guessed == nil)
+  #expect(MasterRun.end(light, now: false, left: light.left, role: "light") == .leave)
+  // The end then: the lost step counted gone, so the fan found on (it switched late) goes back off, as owed, as where
+  // this press's step went; found off, nothing to send (the end's note says it isn't known whether the command reached
+  // it).
+  #expect(MasterRun.end(lost.back[0], now: true, left: left(lost, fanOn), role: "fan") == .send)
+  #expect(MasterRun.end(lost.back[0], now: false, left: left(lost, fanOn), role: "fan") == .already)
+  #expect(MasterRun.end(went.back[0], now: true, left: left(went, fanOn), role: "fan") == .send)
+  // An earlier press switched the fan off and still owes it back on; this press, the button edited, asks it on, its
+  // answer lost, read after still off (Fable, 18 Nov). Found off at the end: the step may never have gone, so it isn't
+  // taken as a hand's change: it goes back on, as owed. Where the step went, a hand switched it off since: left.
+  var owedOn = MasterRun.Back(command: DeviceCommand(device: plug, outlet: "switch_3", on: true))
+  owedOn.left = false
+  func again() -> MasterRun { MasterRun(MasterButton(name: "x", steps: [fanOn], minutes: 60), at: m0, before: { _ in false }, lamp: nil, owed: [owedOn]) }
+  var guessedOn = again()
+  guessedOn.settle(fanFailed, now: { _ in false }, keeping: [owedOn.command.target], at: m0, uncertain: [fanOn.target])
+  #expect(guessedOn.back.count == 1 && left(guessedOn, fanOn) == true && guessedOn.back[0].guessed == true)
+  #expect(MasterRun.end(guessedOn.back[0], now: false, left: left(guessedOn, fanOn), role: "fan") == .send)
+  var wentOn = again()
+  wentOn.settle([], now: { _ in nil }, keeping: [owedOn.command.target], at: m0)
+  #expect(MasterRun.end(wentOn.back[0], now: false, left: left(wentOn, fanOn), role: "fan") == .leave)
+}
+
+@Test("An end that sent a put-back nothing (the tanks unread) gives it a line, not a try that may have gone")
+func anEndThatSentNothing() {
+  let fanOn = DeviceCommand(device: plug, outlet: "switch_3", on: true)
+  // Never tried: its line isn't taken for a try (Fable, 18 Nov), nor once carried into the next press.
+  var never = MasterRun.Back(command: fanOn)
+  never.unsent("Các bể…")
+  #expect(!never.earlier && never.mayHaveGone == false && never.problem == "Các bể…")
+  let next = MasterRun(MasterButton(name: "x", steps: [], minutes: 60), at: m0, before: { _ in nil }, lamp: nil, owed: [never])
+  #expect(!next.back[0].earlier)
+  // So a heater found not back gets the plain heater note, not that a try of its own may still land.
+  never.guessed = true
+  #expect(MasterRun.end(never, now: false, left: false, role: "heater") == .heater)
+  // Tried before: still one that may have gone.
+  var tried = MasterRun.Back(command: fanOn)
+  _ = tried.trying(notKnown: "x")
+  tried.unsent("Các bể…")
+  #expect(tried.earlier && tried.mayHaveGone == true)
+  // Kept by build 390 with a line (no mayHaveGone): counted, as before (the over-count the chief accepted).
+  var old = MasterRun.Back(command: fanOn)
+  old.problem = "Không tới được ổ Quạt"
+  old.unsent("Các bể…")
+  #expect(old.earlier && old.mayHaveGone == nil)
+}
+
+@Test("A put-back tried again: after a try that may have gone, or one the app was closed during, a failed one says the state isn't known, never what of it didn't go")
+func aPutBackTriedAgain() throws {
+  let notKnown = "Không rõ ổ Quạt đã đổi chưa: xem trong Bể của tôi."
+  let mayHave = "Ổ Quạt chưa báo đã đổi.", notSent = "Chưa gửi vì bạn đã đăng xuất."
+  // Every run of up to five tries: one that may have reached the device, one that sent nothing, or one the app was
+  // closed during (kept as it was about to go, then read back).
+  enum Try: CaseIterable { case mayHave, notSent, closed }
+  var runs: [[Try]] = [[]]
+  for _ in 0..<5 { runs = runs.flatMap { r in Try.allCases.map { r + [$0] } } }
+  for run in runs {
+    var b = MasterRun.Back(command: fanOff)
+    var went = false
+    for (n, t) in run.enumerated() {
+      let hadLine = b.problem != nil
+      let before = b.trying(notKnown: notKnown)
+      switch t {
+      case .closed:
+        // Read back as kept while it went: a line from a try before says it isn't known; none, none.
+        b = try JSONDecoder().decode(MasterRun.Back.self, from: JSONEncoder().encode(b))
+        went = true
+        #expect(b.problem == (hadLine ? notKnown : nil), "\(run), try \(n + 1), the app closed: \(b.problem ?? "")")
+        continue
+      case .mayHave: b.failed(mayHave, mayHaveSent: true, notKnown: notKnown, before: before)
+      case .notSent: b.failed(notSent, mayHaveSent: false, notKnown: notKnown, before: before)
+      }
+      // After one that may have gone, its own line would say what of it didn't go (nothing, or the lamp's colour when
+      // only its "on" went this time), and the one before may have sent it (Codex, 18 Nov).
+      #expect(b.problem == (went ? notKnown : t == .mayHave ? mayHave : notSent), "\(run), try \(n + 1): \(b.problem ?? "")")
+      went = went || t == .mayHave
+    }
+  }
+  // A run kept before `mayHaveGone`, a line from a try before: it may have gone. Never tried: its own line.
+  let old = #"{"command":{"device":"\#(plug)","outlet":"switch_3","on":false},"done":false,"problem":"Không rõ ổ Quạt đã đổi chưa: xem trong Bể của tôi."}"#
+  var kept = try JSONDecoder().decode(MasterRun.Back.self, from: Data(old.utf8))
+  #expect(kept.mayHaveGone == nil)
+  let wasKept = kept.trying(notKnown: notKnown)
+  kept.failed(notSent, mayHaveSent: false, notKnown: notKnown, before: wasKept)
+  #expect(kept.problem == notKnown)
+  var fresh = MasterRun.Back(command: fanOff)
+  let wasFresh = fresh.trying(notKnown: notKnown)
+  fresh.failed(notSent, mayHaveSent: false, notKnown: notKnown, before: wasFresh)
+  #expect(fresh.problem == notSent && fresh.mayHaveGone == false)
+  // Owed into the next press: its line goes, and whether it may have gone stays.
+  var owed = try JSONDecoder().decode(MasterRun.Back.self, from: Data(old.utf8))
+  owed.command = DeviceCommand(device: plug, outlet: "switch_3", on: true)
+  let next = MasterRun(MasterButton(name: "x", steps: [fanOff]), at: m0, before: { _ in true }, lamp: nil, owed: [owed])
+  #expect(next.back.first?.problem == nil && next.back.first?.mayHaveGone == true)
+}
+
+@Test("The end sets a put-back's line only through Back.trying and Back.failed, or clears it; the tanks not read, the one other")
+func theEndSetsPutBackLinesByTheRule() throws {
+  // apps/ios/AquaTomeKit/Tests/TanksTests/this file → apps/ios/AquaTome/Master/MasterModel.swift.
+  let file = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
+    .deletingLastPathComponent().appendingPathComponent("AquaTome/Master/MasterModel.swift")
+  let code = try String(contentsOf: file, encoding: .utf8)
+  let sets = code.split(separator: "\n").map { $0.trimmingCharacters(in: .whitespaces) }.filter { $0.contains(".problem = ") }
+  #expect(!sets.isEmpty, "read nothing from \(file.path)")
+  for line in sets {
+    #expect(line.hasSuffix(".problem = nil") || line.hasSuffix(".problem = unread } }"), "a put-back's line set outside the rule: \(line)")
+  }
+  #expect(code.components(separatedBy: ".trying(notKnown:").count - 1 == 1 && code.components(separatedBy: "].failed(").count - 1 == 3)
+}
+
+@Test("A run kept by build 390, before `Back.left`, is read as it was")
+func aRunKeptBeforeLeft() throws {
+  let kept = #"{"started":800000000,"ends":800007200,"steps":[{"device":"\#(plug)","outlet":"switch_3","on":false}],"back":[{"command":{"device":"\#(plug)","outlet":"switch_3","on":true},"done":false,"held":false}],"failed":[]}"#
+  let r = try JSONDecoder().decode(MasterRun.self, from: Data(kept.utf8))
+  #expect(r.pending.count == 1 && r.back[0].left == nil && r.back[0].command.on && r.isRunning)
 }
 
 @Test("It's due at its end, not before; one ended on a tap never is; what's back leaves what's pending; kept as it is")

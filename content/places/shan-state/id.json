@@ -3,6 +3,12 @@
   "name": "Negara Bagian Shan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T17:38:52.289Z",
+    "why": "Indonesian atlases and Wikipedia call Myanmar's Shan State \"Negara Bagian Shan\" at times, but the more common form is \"Negara Bagian Shan\" for Myanmar's states, so it is acceptable, though \"Shan\" alone is also frequent."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

@@ -72,5 +72,11 @@
     "score": 0.8,
     "indexable": true
   },
-  "bodyFixed": true
+  "bodyFixed": true,
+  "held": {
+    "checks": [
+      "harm"
+    ],
+    "at": "2026-11-23"
+  }
 }

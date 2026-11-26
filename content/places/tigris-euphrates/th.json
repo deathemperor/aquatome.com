@@ -1,8 +1,13 @@
 {
   "slug": "tigris-euphrates",
-  "name": "ไทกริส-ยูเฟรทีส",
+  "name": "ระบบแม่น้ำไทกริส-ยูเฟรตีส",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-20T11:58:44.269Z"
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

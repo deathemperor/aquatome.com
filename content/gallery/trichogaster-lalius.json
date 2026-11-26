@@ -66,30 +66,6 @@
       "kind": "male"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/188281877.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/188281877-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Sandipan Das",
-      "sourceUrl": "https://www.inaturalist.org/photos/188281877",
-      "caption": "Cá sặc gấm đực viền xanh trong bể trồng cây",
-      "best": false,
-      "kind": "male"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/151525327.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/151525327-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Sandipan Das",
-      "sourceUrl": "https://www.inaturalist.org/photos/151525327",
-      "caption": "Cá sặc gấm đực màu xanh tím trong bể",
-      "best": false,
-      "kind": "form"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/186507763.webp",
       "thumb": "https://media.aquatome.com/inaturalist/186507763-480.webp",
       "width": 1024,
@@ -100,6 +76,18 @@
       "caption": "Cá sặc gấm trong bể thủy sinh có cây xanh",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/188281877.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/188281877-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Sandipan Das",
+      "sourceUrl": "https://www.inaturalist.org/photos/188281877",
+      "caption": "Cá sặc gấm đực viền xanh trong bể trồng cây",
+      "best": false,
+      "kind": "male"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/188704167.webp",
@@ -114,18 +102,6 @@
       "kind": "male"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/504511852.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/504511852-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "olmagon",
-      "sourceUrl": "https://www.inaturalist.org/photos/504511852",
-      "caption": "Cá sặc gấm màu cam vàng trong bể",
-      "best": false,
-      "kind": "form"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/470430345.webp",
       "thumb": "https://media.aquatome.com/inaturalist/470430345-480.webp",
       "width": 1024,
@@ -136,18 +112,6 @@
       "caption": "Cá sặc gấm đực sọc xanh bơi gần cây thủy sinh",
       "best": false,
       "kind": "male"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/545966910.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/545966910-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "olmagon",
-      "sourceUrl": "https://www.inaturalist.org/photos/545966910",
-      "caption": "Cá sặc gấm màu cam đỏ trong bể nuôi chung",
-      "best": false,
-      "kind": "form"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/545966912.webp",
@@ -262,6 +226,18 @@
       "caption": "Cá sặc gấm đực màu xanh lam trong bể thủy sinh"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/151525327.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/151525327-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Sandipan Das",
+      "sourceUrl": "https://www.inaturalist.org/photos/151525327",
+      "caption": "Cá sặc gấm đực màu xanh tím trong bể",
+      "best": false,
+      "kind": "form"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/186507841.webp",
       "thumb": "https://media.aquatome.com/inaturalist/186507841-480.webp",
       "width": 1024,
@@ -364,9 +340,98 @@
       "caption": "Cá sặc gấm màu cam nhạt bơi trong bể cảnh",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/504511852.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/504511852-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "olmagon",
+      "sourceUrl": "https://www.inaturalist.org/photos/504511852",
+      "caption": "Cá sặc gấm màu cam vàng trong bể",
+      "best": false,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/545966910.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/545966910-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "olmagon",
+      "sourceUrl": "https://www.inaturalist.org/photos/545966910",
+      "caption": "Cá sặc gấm màu cam đỏ trong bể nuôi chung",
+      "best": false,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/341628000.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/341628000-480.webp",
+      "width": 1024,
+      "height": 712,
+      "licence": "CC BY-NC",
+      "author": "Rahul kumar",
+      "sourceUrl": "https://www.inaturalist.org/photos/341628000",
+      "caption": "Cá sặc gấm đực màu cam xanh bơi trong bể kính",
+      "best": true,
+      "kind": "male",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/333186032.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/333186032-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "ARNAB KUMAR SAMANTA",
+      "sourceUrl": "https://www.inaturalist.org/photos/333186032",
+      "caption": "Cá sặc gấm cái thân bạc trong hộp nhựa",
+      "best": true,
+      "kind": "female",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/151970950.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/151970950-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "szeszeliu",
+      "sourceUrl": "https://www.inaturalist.org/photos/151970950",
+      "caption": "Cá sặc gấm đực màu đỏ cam ở môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/341628021.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/341628021-480.webp",
+      "width": 804,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Rahul kumar",
+      "sourceUrl": "https://www.inaturalist.org/photos/341628021",
+      "caption": "Cá sặc gấm đực màu xanh lam cam giữa cây thủy sinh",
+      "best": true,
+      "kind": "male",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/333185528.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/333185528-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "ARNAB KUMAR SAMANTA",
+      "sourceUrl": "https://www.inaturalist.org/photos/333185528",
+      "caption": "Cá sặc gấm cái màu bạc nhạt trong hộp nhựa trong",
+      "best": false,
+      "kind": "female",
+      "setup": true
     }
   ],
-  "seen": 73,
-  "updatedAt": "2026-11-08",
-  "builtAt": "2026-11-08"
+  "seen": 121,
+  "updatedAt": "2026-11-23",
+  "builtAt": "2026-11-23"
 }

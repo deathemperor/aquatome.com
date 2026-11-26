@@ -1,5 +1,6 @@
 ---
 import { APP_PAGE, APP_STATE } from '../lib/app'
+import { CATALOGUE_PATH } from '../lib/catalogue'
 import { partsHtml, unsplashLine } from '../lib/cite'
 import { groupCredits, type Credit } from '../lib/credits'
 import { creditLicenceUrl } from '../lib/gallery'
@@ -25,6 +26,7 @@ const groups = groupCredits(credits).map(g => ({ ...g, unsplash: isUnsplash(g.li
     {/* Links in a row that wraps, spaced apart: no separator between them to strand at a line's end on a phone. */}
     <nav class="links" aria-label={t('Thông tin')}>
       {links.map(([href, label]) => <a href={href}>{label}</a>)}
+      <a href={CATALOGUE_PATH}>{t('Mục lục')}</a>
       {APP_STATE === 'owner' && <OwnerOnly><a href={APP_PAGE}>{t('Ứng dụng iPhone, iPad')}</a></OwnerOnly>}
       {credits.length > 0 && <button type="button" class="credits-btn" popovertarget="photo-credits">{t('Nguồn ảnh ({n})', { n: credits.length })}</button>}
       {credits.length === 0 && later && <span hidden><button type="button" class="credits-btn" popovertarget="photo-credits">{t('Nguồn ảnh ({n})', { n: 0 })}</button></span>}

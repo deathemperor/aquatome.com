@@ -22,7 +22,8 @@
     "singapore",
     "pulau-ubin",
     "indonesia",
-    "kalimantan"
+    "kalimantan",
+    "orissa"
   ],
   "range": {
     "native": {
@@ -335,6 +336,10 @@
       {
         "source": "seriouslyfish",
         "value": 30
+      },
+      {
+        "source": "glaser",
+        "value": 30
       }
     ],
     "tankCm": [
@@ -358,6 +363,18 @@
       "html": "<p>The silver tiger perch, Datnioides polota, is a tiger perch widely distributed in southeastern Asia, from India and Bangladesh east to Indonesia. Mostly found in brackish habitats such as estuaries, mangroves and coastal lagoons, it has a highly variable colour pattern with up to 7 dark bars. The name D. quadrifasciatus is sometimes applied to it, but that name is a junior homonym and polota takes precedence.</p><ul><li>Difficulty: 4 of 8 (moderate); needs a very large tank</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/datnioides-polota-2/",
+      "html": "<p>Tiger perch (Datnioides) are large, magnificent fish. Datnioides species grow up to 30 cm long. Datnioides polota is a brackish water fish that is also commonly found in pure freshwater.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/datnioides-polota-2/",
+      "html": "<p>From India (Orissa) babies of the species Datnioides polota have been received. Most of the only 1-2 cm long babies still have the dark baby dress, which is only interrupted in the front third of the body by a bright band. But single animals change already into the adult dress, which is silver-colored with vertical dark bands. They roam the aquarium and are incredibly curious.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/datnioides-polota",
@@ -376,6 +393,12 @@
       "html": "<p>An aquarium with base dimensions of 180 × 60 cm should be the minimum considered (about 648 litres).</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/datnioides-polota-2/",
+      "html": "<p>Datnioides species grow up to 30 cm long. Accordingly, they need large aquariums, not so much for swimming space as for water stress. Such a large tiger perch eats quite a lot during a meal and everything that disappears through the gullet (live and frozen food of all kinds) comes converted back into the water. That is why volume is needed, otherwise there will be a water chemical catastrophe.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/datnioides-polota",
@@ -388,10 +411,22 @@
       "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 7.5–9.0</li><li>Hardness: 15–30 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/datnioides-polota-2/",
+      "html": "<p>Datnioides polota is a brackish water fish that is also commonly found in pure freshwater. Aquaristically, it has been found best to make sure that the pH does not drop below 8 on a permanent basis.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/datnioides-polota",
       "html": "<p>An efficient predator with highly protrusible mouthparts, feeding chiefly on smaller fishes and crustaceans. In the aquarium, juveniles can be offered chironomid larvae (bloodworm), small earthworms, chopped prawn, and suchlike, while adults will accept strips of fish flesh, whole prawns, mussels, live river shrimp, larger earthworms, etc. Older individuals do not require feeding on a daily basis, with 2-3 times per week sufficient.</p><p>This species should not be fed mammalian or avian meat such as beef heart or chicken since some of the lipids contained in these cannot be properly metabolised by the fish and may cause excess fat deposits and even organ degeneration. Similarly, there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish, which carry with them the risk of parasite or disease introduction and tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/datnioides-polota-2/",
+      "html": "<p>Tiger perch are predatory fish and eat live and frozen food of all kinds.</p>"
     },
     {
       "key": "behaviour",
@@ -435,9 +470,46 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/datnioides-polota",
       "caption": "Head detail.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f48fdeca3da846c5.webp",
+      "thumb": "https://media.aquatome.com/glaser/f48fdeca3da846c5-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/datnioides-polota-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/97c0dfbf2e24f6a7.webp",
+      "thumb": "https://media.aquatome.com/glaser/97c0dfbf2e24f6a7-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/datnioides-polota-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d7e75d7e0b0ca140.webp",
+      "thumb": "https://media.aquatome.com/glaser/d7e75d7e0b0ca140-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/datnioides-polota-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "hJsqcPOiBlo",
+      "title": "Datnioides Polota (American Tigerfish)",
+      "durationSec": 86,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -467,5 +539,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-23"
 }

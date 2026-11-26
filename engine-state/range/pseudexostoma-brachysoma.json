@@ -1,0 +1,71 @@
+{
+  "id": "pseudexostoma-brachysoma",
+  "native": {
+    "input": "a2dd02aa7201a173",
+    "at": "2026-11-21T19:07:52.042Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: known only from the middle and lower Nujiang (=Salween) basin, China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Salween drainage, China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Nujiang",
+        "source": "planetcatfish",
+        "quote": "Asia: known only from the middle and lower Nujiang (=Salween) basin, China.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "scotcat",
+        "quote": "Asia: Salween drainage, China.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudexostoma brachysoma",
+    "status": "ACCEPTED",
+    "taxonKey": 2341241,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        24
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-21T13:11:30.372Z"
+  }
+}

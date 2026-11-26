@@ -84,9 +84,48 @@
       "caption": "Cá trôi bơi ở vùng nước nông ngoài tự nhiên",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/49048747.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/49048747-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Tse Chung Yi",
+      "sourceUrl": "https://www.inaturalist.org/photos/49048747",
+      "caption": "Đàn cá trôi bơi dưới nước gần đá phủ rêu",
+      "best": true,
+      "kind": "group",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/1531961.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/1531961-480.webp",
+      "width": 1024,
+      "height": 696,
+      "licence": "CC BY-NC",
+      "author": "H.T.Cheng",
+      "sourceUrl": "https://www.inaturalist.org/photos/1531961",
+      "caption": "Cá trôi bơi trên nền đá trong nước suối trong",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/26667264.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/26667264-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Tommy Hui",
+      "sourceUrl": "https://www.inaturalist.org/photos/26667264",
+      "caption": "Cá trôi bơi sát đáy cát trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
-  "seen": 13,
-  "updatedAt": "2026-11-08",
-  "builtAt": "2026-11-08"
+  "seen": 33,
+  "updatedAt": "2026-11-22",
+  "builtAt": "2026-11-22"
 }

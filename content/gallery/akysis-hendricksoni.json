@@ -1,7 +1,64 @@
 {
   "id": "akysis-hendricksoni",
-  "photos": [],
-  "seen": 2,
-  "updatedAt": "2026-10-30",
-  "builtAt": "2026-10-30"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/306518339.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/306518339-480.webp",
+      "width": 768,
+      "height": 1020,
+      "licence": "CC BY-NC-SA",
+      "author": "Aiman Azmi",
+      "sourceUrl": "https://www.inaturalist.org/photos/306518339",
+      "caption": "Cá Akysis hendricksoni trong khay nhựa, chụp thực địa",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/612884187.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/612884187-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "MOHAMMAD HAZIQ BIN SABRI",
+      "sourceUrl": "https://www.inaturalist.org/photos/612884187",
+      "caption": "Cá Akysis hendricksoni thân sẫm có vằn sáng trên lưới",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/612884175.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/612884175-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "MOHAMMAD HAZIQ BIN SABRI",
+      "sourceUrl": "https://www.inaturalist.org/photos/612884175",
+      "caption": "Cá Akysis hendricksoni nhìn từ trên trên lưới chụp thực địa",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/612884205.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/612884205-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "MOHAMMAD HAZIQ BIN SABRI",
+      "sourceUrl": "https://www.inaturalist.org/photos/612884205",
+      "caption": "Cá Akysis hendricksoni thân thon, đuôi chẻ, trên lưới",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    }
+  ],
+  "seen": 12,
+  "updatedAt": "2026-11-25",
+  "builtAt": "2026-11-25"
 }

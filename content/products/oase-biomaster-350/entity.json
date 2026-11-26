@@ -1,0 +1,349 @@
+{
+  "id": "oase-biomaster-350",
+  "brand": "Oase",
+  "model": "BioMaster 350",
+  "category": "loc",
+  "type": "thung",
+  "specs": [
+    {
+      "key": "Flow rate (max)",
+      "value": "1,100 l/h",
+      "source": 4
+    },
+    {
+      "key": "Max head height",
+      "value": "1.40 m",
+      "source": 4
+    },
+    {
+      "key": "Filter media volume",
+      "value": "5.6 l",
+      "source": 4
+    },
+    {
+      "key": "Pre-filter volume",
+      "value": "0.5 l",
+      "source": 4
+    },
+    {
+      "key": "Dimensions",
+      "value": "240 x 240 x 425 mm",
+      "source": 4
+    },
+    {
+      "key": "Aquarium size",
+      "value": "up to 350 l",
+      "source": 4
+    },
+    {
+      "key": "Power consumption",
+      "value": "18 W",
+      "source": 0
+    },
+    {
+      "key": "Power supply",
+      "value": "230 V / 50 Hz",
+      "source": 0
+    },
+    {
+      "key": "Hose connection",
+      "value": "Ø16 mm (Fi 16)",
+      "source": 1
+    },
+    {
+      "key": "Origin",
+      "value": "Made in Italy, German engineering; UL certified (per shop)",
+      "source": 0
+    },
+    {
+      "key": "Included",
+      "value": "Filter sponge/wool and basic filter media; heater not included",
+      "source": 3
+    },
+    {
+      "key": "Warranty (VN shop)",
+      "value": "3 years from receipt, detachable parts excluded (Thủy sinh Bích Phương)",
+      "source": 0
+    },
+    {
+      "key": "Warranty (VN shop)",
+      "value": "1 year official warranty, detachable parts excluded (Tạp hóa thủy sinh, ShrimpHome)",
+      "source": 1
+    }
+  ],
+  "variants": [
+    {
+      "name": "BioMaster 250",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "900 l/h",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "15 W",
+          "source": 0
+        },
+        {
+          "key": "Head height",
+          "value": "1.3 m",
+          "source": 0
+        },
+        {
+          "key": "Media volume",
+          "value": "4.4 l",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "24 x 24 x 37 cm",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "under 250 l",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "BioMaster 350",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "1,100 l/h",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "18 W",
+          "source": 0
+        },
+        {
+          "key": "Head height",
+          "value": "1.4 m",
+          "source": 0
+        },
+        {
+          "key": "Media volume",
+          "value": "5.6 l",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "24 x 24 x 43 cm",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "under 350 l",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "BioMaster 600",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "1,250 l/h",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "22 W",
+          "source": 0
+        },
+        {
+          "key": "Head height",
+          "value": "1.8 m",
+          "source": 0
+        },
+        {
+          "key": "Media volume",
+          "value": "6.8 l",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "24 x 24 x 48 cm",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "under 600 l",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "BioMaster 850",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "1,550 l/h",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "32 W",
+          "source": 0
+        },
+        {
+          "key": "Head height",
+          "value": "2.2 m",
+          "source": 0
+        },
+        {
+          "key": "Media volume",
+          "value": "8 l",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "24 x 24 x 54 cm",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "under 800 l (as listed by shop)",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "BioMaster Thermo 350",
+      "specs": [
+        {
+          "key": "Heater",
+          "value": "Integrated, removable 200 W heater",
+          "source": 5
+        },
+        {
+          "key": "Rated flow",
+          "value": "300 gph at 5.9 ft head",
+          "source": 5
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://thuysinhbichphuong.vn/oase-biomaster-filter-loc-thung-cao-cap",
+      "title": "OASE BIOMASTER FILTER - Lọc thùng cao cấp (Thủy sinh Bích Phương)",
+      "kind": "shop",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "http://taphoathuysinh.com/loc-thung-oase-biomaster-350-id1403.html",
+      "title": "Lọc thùng OASE BIOMASTER 350 ver2 (Tạp hóa thủy sinh)",
+      "kind": "shop",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://mdaqua.com.vn/san-pham/loc-oase-biomaster-350/",
+      "title": "Lọc OASE Biomaster 350 - Mỹ Đình Aquarium",
+      "kind": "shop",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://shrimphome.vn/loc-thung-oase-biomaster-2-filter-250-350-600-850",
+      "title": "Lọc thùng Oase BioMaster 2 Filter 250/350/600/850 (ShrimpHome)",
+      "kind": "shop",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://www.oase.com/en/products-a-z/family/product/p/42742-biomaster-350.html",
+      "title": "OASE BioMaster 350 Technical Data",
+      "kind": "manufacturer",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://thecichlidstage.com/oase-biomaster-thermo-350-canister-review/",
+      "title": "OASE BioMaster Thermo 350 canister review - The Cichlid Stage",
+      "kind": "review",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://www.ukaps.org/forum/threads/living-with-an-oase-biomaster.74276",
+      "title": "Living with an Oase BioMaster - UKAPS",
+      "kind": "forum",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://www.ukaps.org/forum/threads/noisy-biomaster.73770/",
+      "title": "Noisy BioMaster - UKAPS",
+      "kind": "forum",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://www.oase.com/en/aquarium/inspiration-guides/aquarium-filter-troubleshooting",
+      "title": "Aquarium filter troubleshooting - OASE",
+      "kind": "manufacturer",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://www.azaqua.nl/en/filters/oase-biomaster-350",
+      "title": "Oase BioMaster 350 - Azaqua",
+      "kind": "shop",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://www.jbl.de/en-au/productsv2/detail/25193574",
+      "title": "JBL CRISTALPROFI e902 greenline",
+      "kind": "manufacturer",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://www.aquasabi.com/EHEIM-professionel-4-350",
+      "title": "EHEIM professionel 4+ 350 - Aquasabi",
+      "kind": "shop",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://mdaqua.com.vn/san-pham/loc-oase-biomaster-thermo-350/",
+      "title": "Lọc OASE Biomaster Thermo 350 - Mỹ Đình Aquarium",
+      "kind": "shop",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://www.chewy.com/eheim-classic-2215-aquarium-filter/dp/183799",
+      "title": "Eheim Classic 2215 Aquarium Filter - Chewy",
+      "kind": "shop",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=GovyH49pkUY",
+      "title": "Mở hộp lọc Oase Biomaster 350 | Unbox Oase Canister Filter | Aquadise",
+      "kind": "video",
+      "at": "2026-11-23"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=_b3RGf8n9fs",
+      "title": "Oase Biomaster 350 Unboxing, Setup 7 Review - Worth the Money?",
+      "kind": "video",
+      "at": "2026-11-23"
+    }
+  ],
+  "reviews": {
+    "checkedAt": "2026-11-23",
+    "videos": [
+      {
+        "youtubeId": "GovyH49pkUY",
+        "title": "Mở hộp lọc Oase Biomaster 350 | Unbox Oase Canister Filter | Aquadise",
+        "durationSec": 1092,
+        "lang": "vi",
+        "channel": "Aquadise Vlog - Hành trình chơi cây, cá, san hô"
+      },
+      {
+        "youtubeId": "_b3RGf8n9fs",
+        "title": "Oase Biomaster 350 Unboxing, Setup 7 Review - Worth the Money?",
+        "durationSec": 1430,
+        "lang": "en",
+        "channel": "Blake's Aquatics"
+      }
+    ]
+  },
+  "updatedAt": "2026-11-23"
+}

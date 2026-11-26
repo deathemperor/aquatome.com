@@ -1,0 +1,586 @@
+{
+  "id": "oligolepis-acutipennis",
+  "scientificName": "Oligolepis acutipennis",
+  "order": "Perciformes",
+  "family": "Gobiidae",
+  "genus": "Oligolepis",
+  "group": "gobies",
+  "places": [
+    "africa",
+    "south-africa",
+    "madagascar",
+    "asia",
+    "indonesia",
+    "japan"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "ZA",
+        "MG",
+        "ID",
+        "JP"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species is distributed from South Africa via East Africa, the Persian Gulf, Madagascar, Indonesia and along the entire coast of Southeast Asia to Japan.",
+          "countries": [
+            "ZA",
+            "MG",
+            "ID",
+            "JP"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208855,
+      "total": 332,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "JP",
+          119
+        ],
+        [
+          "ZA",
+          61
+        ],
+        [
+          "TW",
+          42
+        ],
+        [
+          "PH",
+          37
+        ],
+        [
+          "IN",
+          25
+        ],
+        [
+          "VN",
+          21
+        ],
+        [
+          "ID",
+          16
+        ],
+        [
+          "PW",
+          3
+        ],
+        [
+          "BD",
+          2
+        ],
+        [
+          "TZ",
+          2
+        ],
+        [
+          "FM",
+          1
+        ],
+        [
+          "KE",
+          1
+        ],
+        [
+          "MZ",
+          1
+        ],
+        [
+          "YE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          26.71875,
+          -33.75,
+          3,
+          3
+        ],
+        [
+          28.125,
+          -33.75,
+          1,
+          1
+        ],
+        [
+          28.125,
+          -32.34375,
+          7,
+          7
+        ],
+        [
+          29.53125,
+          -32.34375,
+          7,
+          7
+        ],
+        [
+          29.53125,
+          -30.9375,
+          12,
+          12
+        ],
+        [
+          30.9375,
+          -30.9375,
+          7,
+          7
+        ],
+        [
+          30.9375,
+          -29.53125,
+          13,
+          13
+        ],
+        [
+          32.34375,
+          -29.53125,
+          8,
+          8
+        ],
+        [
+          32.34375,
+          -28.125,
+          3,
+          3
+        ],
+        [
+          37.96875,
+          -7.03125,
+          2,
+          0
+        ],
+        [
+          39.375,
+          -15.46875,
+          1,
+          0
+        ],
+        [
+          39.375,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          42.1875,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          75.9375,
+          8.4375,
+          4,
+          0
+        ],
+        [
+          75.9375,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          78.75,
+          11.25,
+          1,
+          0
+        ],
+        [
+          80.15625,
+          12.65625,
+          2,
+          0
+        ],
+        [
+          82.96875,
+          16.875,
+          3,
+          0
+        ],
+        [
+          84.375,
+          18.28125,
+          9,
+          0
+        ],
+        [
+          84.375,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          85.78125,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          87.1875,
+          16.875,
+          1,
+          0
+        ],
+        [
+          88.59375,
+          21.09375,
+          2,
+          0
+        ],
+        [
+          91.40625,
+          21.09375,
+          2,
+          0
+        ],
+        [
+          99.84375,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          104.0625,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          -7.03125,
+          5,
+          5
+        ],
+        [
+          105.46875,
+          8.4375,
+          2,
+          0
+        ],
+        [
+          105.46875,
+          9.84375,
+          16,
+          0
+        ],
+        [
+          108.28125,
+          11.25,
+          2,
+          0
+        ],
+        [
+          115.3125,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          115.3125,
+          -8.4375,
+          5,
+          5
+        ],
+        [
+          119.53125,
+          14.0625,
+          10,
+          0
+        ],
+        [
+          119.53125,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          16.875,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          9.84375,
+          7,
+          0
+        ],
+        [
+          120.9375,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          14.0625,
+          2,
+          0
+        ],
+        [
+          120.9375,
+          16.875,
+          4,
+          0
+        ],
+        [
+          120.9375,
+          18.28125,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          22.5,
+          6,
+          0
+        ],
+        [
+          120.9375,
+          23.90625,
+          35,
+          0
+        ],
+        [
+          122.34375,
+          8.4375,
+          9,
+          0
+        ],
+        [
+          123.75,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          123.75,
+          23.90625,
+          8,
+          8
+        ],
+        [
+          125.15625,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          127.96875,
+          26.71875,
+          8,
+          8
+        ],
+        [
+          127.96875,
+          28.125,
+          7,
+          7
+        ],
+        [
+          129.375,
+          28.125,
+          54,
+          54
+        ],
+        [
+          129.375,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          129.375,
+          30.9375,
+          12,
+          12
+        ],
+        [
+          130.78125,
+          29.53125,
+          15,
+          15
+        ],
+        [
+          130.78125,
+          30.9375,
+          8,
+          8
+        ],
+        [
+          132.1875,
+          32.34375,
+          4,
+          4
+        ],
+        [
+          133.59375,
+          7.03125,
+          3,
+          0
+        ],
+        [
+          137.8125,
+          8.4375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/oligolepis-acutipennis-4/",
+      "html": "<p>Oligolepis acutipennis is one of the most widespread gobies of the Indo-West Pacific. It can grow up to 15 cm long. It is euryhaline, so it can tolerate both pure freshwater and pure seawater (and any salt content in between). The pH must never drop below 7; just above 8 is better.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/oligolepis-acutipennis-4/",
+      "html": "<p>The species is distributed from South Africa via East Africa, the Persian Gulf, Madagascar, Indonesia and along the entire coast of Southeast Asia to Japan. From this wide distribution one can conclude that the larvae of this goby develop in the sea.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/oligolepis-acutipennis-4/",
+      "html": "<p>The whole colouring of the fish indicates that sandy bottom is their preferred habitat.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/oligolepis-acutipennis-4/",
+      "html": "<p>On the sand, which should be as fine as possible, a few flat stones of about 6-8 cm diameter are placed, which become the centre of the males' territory and are undermined.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/oligolepis-acutipennis-4/",
+      "html": "<p>Everything that fits into the (big!) mouth is eaten, even small fish, but actually the big mouth is used to chew through the sand for small food particles.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/oligolepis-acutipennis-4/",
+      "html": "<p>When the males bicker – and they love to bicker – it is a fantastic sight. With their mouths wide open and their fins literally stretched to breaking, the males circle around each other until one of them gives up.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/oligolepis-acutipennis-4/",
+      "html": "<p>Females are similar in colour to the males, but have less strongly developed fins.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/88d7f27c0f483005.webp",
+      "thumb": "https://media.aquatome.com/glaser/88d7f27c0f483005-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/oligolepis-acutipennis-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/27efc05792210e0d.webp",
+      "thumb": "https://media.aquatome.com/glaser/27efc05792210e0d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/oligolepis-acutipennis-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/14abf4b49ea07195.webp",
+      "thumb": "https://media.aquatome.com/glaser/14abf4b49ea07195-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/oligolepis-acutipennis-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/71b0ed2c50cf5507.webp",
+      "thumb": "https://media.aquatome.com/glaser/71b0ed2c50cf5507-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/oligolepis-acutipennis-4/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "3LoCSKSJqpA",
+      "title": "Sharptail Goby (Oligolepis acutipennis) grazing",
+      "durationSec": 14,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "MysTEvZyPoQ",
+      "title": "Oligolepis acutipennis. The SHARPTAIL Goby! (Leopard Aquatic P036A)",
+      "durationSec": 53,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "5yB7g4-yYUM",
+      "title": "Sharptail gobies (Oligolepis acutipennis)",
+      "durationSec": 40,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "IAA5V8ern18",
+      "title": "ノボリハゼ　Sharptail goby　Oligolepis acutipennis",
+      "durationSec": 24,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn thủy sinh",
+        "cát nền bể cá"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

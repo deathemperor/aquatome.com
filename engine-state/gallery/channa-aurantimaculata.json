@@ -8,7 +8,10 @@
   "inat:169567785"
  ],
  "hashes": {
-  "https://media.aquatome.com/seriouslyfish/0f543ba19a1be9c0.webp": "726cf1d20786c33a"
+  "https://media.aquatome.com/seriouslyfish/0f543ba19a1be9c0.webp": "726cf1d20786c33a",
+  "https://media.aquatome.com/glaser/b7158fb1033b5375.webp": "dd4f6666b2498121",
+  "https://media.aquatome.com/glaser/ec796eb11d002ebd.webp": "3de55b2f61436714",
+  "https://media.aquatome.com/glaser/922c676206e0cfe2.webp": "5b1b0e06001820f9"
  },
  "inat": {
   "taxon": 97267,
@@ -25,6 +28,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 0,
+  "done": true
  },
  "exhausted": "2026-11-08"
 }

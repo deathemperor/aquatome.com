@@ -5,7 +5,9 @@
     "Cá da trơn cành cây",
     "Twig Catfish",
     "Cá cành cây Amazon",
-    "Amazon twig catfish"
+    "Amazon twig catfish",
+    "Cá kim Farlowella",
+    "Needle catfish"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Farlowella amazonum (Günther, 1864)</li><li>Tên thường gọi: Twig Catfish</li><li>Sinh sản: chưa có ghi nhận</li></ul>",
@@ -21,14 +23,18 @@
     "diet:scotcat": "<p>Cá chủ yếu ăn thực vật. Cả cá trưởng thành lẫn cá bột đều lấy tảo làm thức ăn chính, vì vậy cho ăn viên chìm nhiều thành phần rau là đủ.</p>",
     "behaviour:scotcat": "<p>Đây là loài rất nhát. Nếu nuôi chung, bạn nên tránh những loài cá hiếu động, hay quậy, như một số loài barb (ví dụ cá tứ vân). Cá họ cichlid thì nhất định không thả chung. Bạn cùng bể hợp hơn là các loài cá chuột Corydoras hiền lành, cá tetra nhỏ hoặc cá rasbora.</p>",
     "notes:scotcat": "<p>Về nguồn gốc tên gọi, tên loài amazonum (hậu tố -anum trong tiếng Latin nghĩa là \"thuộc về\") chỉ sông Amazon tại Santarém, bang Pará, Brazil. Đây là nơi thu mẫu chuẩn của loài.</p><p>Trong Catalog of Fishes của Eschmeyer, Farlowella platorynchus hiện được xem là tên đồng nghĩa của F. amazonum.</p><p>Trong Danh lục đỏ IUCN, loài này được xếp vào nhóm Ít quan tâm (IUCN 2023). Thông tin về loài còn ít, nhưng cá phân bố rộng và chưa thấy mối đe dọa rõ ràng nào.</p>",
-    "references:scotcat": "<p>Covain, R., S. Fisch-Muller, C. Oliveira, J. H. A. Mol, J. I. Montoya-Burgos and S. Dray 2015. Molecular phylogeny of the highly diversified catfish subfamily Loricariinae (Siluriformes, Loricariidae) reveals incongruences with morphological classification. Molecular Phylogenetics and Evolution v. 94 (Pt. B): 492-517.</p><p>Evers, H.-G. &amp; I. Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp. 944.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Salvador, G.N. 2023. Farlowella amazonum. The IUCN Red List of Threatened Species 2023.</p>"
+    "references:scotcat": "<p>Covain, R., S. Fisch-Muller, C. Oliveira, J. H. A. Mol, J. I. Montoya-Burgos and S. Dray 2015. Molecular phylogeny of the highly diversified catfish subfamily Loricariinae (Siluriformes, Loricariidae) reveals incongruences with morphological classification. Molecular Phylogenetics and Evolution v. 94 (Pt. B): 492-517.</p><p>Evers, H.-G. &amp; I. Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp. 944.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Salvador, G.N. 2023. Farlowella amazonum. The IUCN Red List of Threatened Species 2023.</p>",
+    "quickFacts:glaser": "<p>Cá mõm kim (Farlowella) là một trong những giống đông loài nhất trong nhóm cá da trơn đuôi roi. Hiện giống này có 30 loài được công nhận, và các loài trông rất giống nhau. Farlowella amazonum dài được hơn 20 cm.</p>",
+    "beforeYouBuy:glaser": "<p>Các loài cá mõm kim trông rất giống nhau. Chúng khác nhau chủ yếu ở cách xếp các tấm xương dọc hai bên thân và dưới bụng. Trên cá còn sống thì chi tiết này đương nhiên khó nhìn ra. Với người nuôi, xem hình dáng và màu của phần mõm dài (gọi là rostrum) thì dễ hơn. Nhưng định loài cho nhóm cá này lúc nào cũng còn chỗ không chắc.</p>",
+    "notes:glaser": "<p>Loài này biến đổi nhiều về hình dạng, và số tên đồng nghĩa cho thấy rõ điều đó. Trong lần rà soát lại giống này năm 1996, Retzer &amp; Page liệt kê không dưới sáu lần nó bị mô tả trùng thành loài khác. Nó cũng rất giống F. platorhynchus, và các tác giả gần đây đã xếp luôn F. platorhynchus thành tên đồng nghĩa của F. amazonum.</p>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
       "planetcatfish": 0.85,
-      "scotcat": 0.85
+      "scotcat": 0.85,
+      "glaser": 0.9
     }
   }
 }

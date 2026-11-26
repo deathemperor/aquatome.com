@@ -26,11 +26,11 @@
     "references:seriouslyfish": "<ul><li>Brede, N. and P. Antler (2009). Schlangenkopffische—Die Gattungen Channa und Parachanna. Natur und Tier Verlag, Münster, 62 pp.</li><li>Hamilton, F. (1822). An account of the fishes found in the river Ganges and its branches., i-vii + 1-405</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Courtenay, W. R., Jr. and J. D. Williams (2004). Snakeheads (Pisces, Channidae) - a biological synopsis and risk assessment. Circular, U. S. Department of the Interior, Geological Survey No. 1251, i-v + 1-143</li><li>Benziger, A., et al. (2011). Unraveling a 146 Years Old Taxonomic Puzzle: Validation of Malabar Snakehead, Species-Status and Its Relevance for Channid Systematics and Evolution. PLoS ONE 6(6), e21272</li><li>Vishwanath, W. and Kh. Geetakumari (2009). Diagnosis and interrelationships of fishes of the genus Channa Scopoli (Teleostei: Channidae) of northeastern India. Journal of Threatened Taxa 1(2), 97-105</li><li>Tan, H. H. and P. K. L. Ng (2005). The labyrinth fishes (Teleostei: Anabanatoidei, Channoidei) of Sumatra, Indonesia. Raffles Bulletin of Zoology Supplement 13, 115-138</li></ul>"
   },
   "quality": {
-    "score": 0.55,
-    "indexable": false,
+    "score": 0.9,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.55,
-      "seriouslyfish": 0.55
+      "glaser": 0.9,
+      "seriouslyfish": 0.9
     }
   }
 }

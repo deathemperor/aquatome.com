@@ -11,7 +11,8 @@
     "bolivia",
     "rio-itenez",
     "brazil",
-    "guapore"
+    "guapore",
+    "rio-paragua"
   ],
   "range": {
     "native": {
@@ -125,6 +126,10 @@
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "planetcatfish",
+        "value": 3.7
       }
     ],
     "difficulty": [
@@ -142,10 +147,22 @@
       "html": "<p>Hoplisoma albolineatum (C056), long known as Corydoras albolineatus, is an armoured catfish from the Río Iténez, or Guaporé, system in Bolivia and Brazil. It has a wide white longitudinal band and unmarked fins, and may be confused with the deeper-bodied H. xinguense. In the wild it forms aggregations of up to several thousand over sandy substrates and sand banks. It is not common in the hobby but is available occasionally.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1540",
+      "html": "<p>Scientific name: Hoplisoma albolineatum (Knaack, 2004). Synonym: Corydoras albolineatus. Common names: C056, Hvidstribet Pansermalle (Denmark), White Stripe Cory. Size: 37 mm (1.5 inches) SL. The specific epithet refers to the specimen's white (albus = white) stripes (lineatus = stripes or lines).</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-albolineatum",
       "html": "<p>Type locality is on the north bank of the lower Río Paraguá, Río Iténez system, Santa Cruz Department, southeastern Bolivia.</p><p>The Iténez is known as the Guaporé in Brazil and drains into the Río Mamoré, thus forming part of the upper Río Madeira system, itself a major tributary of the Amazon.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1540",
+      "html": "<p>South America: Bolivia. Amazon, Middle Amazon (Solimoes), Madeira, Mamoré, Guaporé (Iténez).</p><p>Type locality: Río Paragua, northwestern bank, river mouth area, río Itenez system, Raum Piso firme, Provincia J.M. Velasco, Departamento Santa Cruz, Bolivia.</p>"
     },
     {
       "key": "habitat",
@@ -166,10 +183,22 @@
       "html": "<ul><li>Temperature: 22–32°C</li><li>pH: 6.0–7.5</li><li>Hardness: 0–10 dGH</li></ul>"
     },
     {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1540",
+      "html": "<p>Ideally, and close to mandatory, the substrate should be sand, but rounded gravel is an imperfect alternative. Avoid rough-edged (chipped) gravel or sharp sand, which increases the risk of damage to the fish's barbels when it digs.</p><p>The substrate should be bordered with driftwood and aquatic plants, leaving an open area for them to search for food and swim. The shade provided by overhanging rockwork, arching bogwood, and tall or floating plants is all that is required to settle a group of these fish.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-albolineatum",
       "html": "<p>Corydoras spp. are foraging omnivores and will accept most sinking dried foods, as well as small live and frozen varieties such as bloodworm, Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1540",
+      "html": "<p>Readily accepts all prepared foods that reach the bottom of the aquarium, such as tablets, granules and larger flakes. Live or frozen foods such as bloodworm, white worm, grindal worm (Enchytraeus), Daphnia and Tubifex are readily accepted and are good for conditioning groups of fish for spawning.</p>"
     },
     {
       "key": "behaviour",
@@ -178,10 +207,28 @@
       "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1540",
+      "html": "<p>A peaceful, shoaling, community fish.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-albolineatum",
       "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably rounder and higher-bodied than males.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1540",
+      "html": "<p>Females grow larger and are more full-bodied, which is best observed from above. Males typically have more pointed fin tips, as opposed to more rounded ones, as they mature.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1540",
+      "html": "<p>Unreported. There is but a single breeding report.</p>"
     },
     {
       "key": "notes",
@@ -194,6 +241,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-albolineatum",
       "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Knaack, J. (2004). Beschreibung von sechs neuen Arten der Gattung Corydoras La Cépède, 1803 (Teleostei: Siluriformes: Callichthyidae). Zoologische Abhandlungen (Dresden) 54, 55-105</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1540",
+      "html": "<p>Zoologische Abhandlungen; Staatliches Museum für Tierkunde in Dresden v. 54 pp73, Figs. 13-18</p>"
     }
   ],
   "photos": [],
@@ -251,5 +304,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-25"
 }

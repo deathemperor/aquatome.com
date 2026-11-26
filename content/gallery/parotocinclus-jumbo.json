@@ -2,21 +2,6 @@
   "id": "parotocinclus-jumbo",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/aee5798dcbd18b0d.webp",
-      "thumb": "https://media.aquatome.com/commons/aee5798dcbd18b0d-480.webp",
-      "width": 1066,
-      "height": 710,
-      "licence": "CC BY-SA 3.0",
-      "author": "Haplochromis",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parotocinclus_jumbo_2.jpg",
-      "caption": "Hai cá lau kiếng Parotocinclus jumbo trên nền cát trong bể",
-      "sourceCaption": "Parotocinclus jumbo Britski & Garavello, 2002",
-      "best": true,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/commons/f7915cfb7171796c.webp",
       "thumb": "https://media.aquatome.com/commons/f7915cfb7171796c-480.webp",
       "width": 1200,
@@ -28,8 +13,21 @@
       "sourceCaption": "Parotocinclus jumbo Britski & Garavello, 2002",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/commons/aee5798dcbd18b0d.webp",
+      "thumb": "https://media.aquatome.com/commons/aee5798dcbd18b0d-480.webp",
+      "width": 1066,
+      "height": 710,
+      "licence": "CC BY-SA 3.0",
+      "author": "Haplochromis",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parotocinclus_jumbo_2.jpg",
+      "caption": "Hai cá lau kiếng Parotocinclus jumbo trên nền cát trong bể",
+      "sourceCaption": "Parotocinclus jumbo Britski & Garavello, 2002",
+      "best": true,
+      "kind": "group",
+      "setup": false
     }
   ],
   "seen": 2,

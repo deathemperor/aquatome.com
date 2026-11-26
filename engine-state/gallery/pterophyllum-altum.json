@@ -33,7 +33,11 @@
   "flickr:34181547625",
   "flickr:34181547705",
   "flickr:34141074736",
-  "flickr:33339048414"
+  "flickr:33339048414",
+  "inat:717836055",
+  "inat:717836057",
+  "inat:717863208",
+  "inat:717869540"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/74ad92ff7bac6980.webp": "f3b38c8e15064604",
@@ -48,10 +52,13 @@
   "https://media.aquatome.com/commons/4a03034a5cf34a09.webp": "152c32a677368b8b",
   "https://media.aquatome.com/inaturalist/85056963.webp": "26360206165a7c2c",
   "https://media.aquatome.com/inaturalist/145416143.webp": "0a36a1c3f3184a66",
-  "https://live.staticflickr.com/2857/34181546855_bf02d53874_b.jpg": "c632391f27a42e27",
-  "https://live.staticflickr.com/2843/34181548035_7440f6619c_b.jpg": "5d46331313d62233",
-  "https://live.staticflickr.com/2811/34181547705_f75ac2c658_b.jpg": "cb63ce8e0efc7e2f",
-  "https://live.staticflickr.com/2863/33339048414_c56a99b012_b.jpg": "6d461b131b4a5313"
+  "https://media.aquatome.com/flickr/34181546855.webp": "c632bb1f17662e27",
+  "https://media.aquatome.com/flickr/34181548035.webp": "6d4e531713d72233",
+  "https://media.aquatome.com/flickr/33339048414.webp": "6d4e1b131b4b0213",
+  "https://media.aquatome.com/flickr/34181547705.webp": "cb73ce860efe3e2f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/717836055/large.jpg": "01a19d999b5f4f37",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/717836057/large.jpg": "fdfcbf9f9bff7f7e",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/717863208/large.jpg": "24094b4b8d890c80"
  },
  "commons": "2026-11-03",
  "inat": {
@@ -68,6 +75,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 391764790,
+  "done": true
  },
  "exhausted": "2026-11-11"
 }

@@ -3,6 +3,12 @@
   "name": "Mogaung Chaung",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-20T07:05:53.019Z",
+    "why": "\"Chaung\" is the Burmese word for stream, so keeping it leaves a kind word in another language, and Malay would use \"Sungai\" instead."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

@@ -1,0 +1,310 @@
+{
+  "id": "hyphessobrycon-negodagua",
+  "scientificName": "Hyphessobrycon negodagua",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Hyphessobrycon",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "bahia",
+    "paraguacu-river-basin",
+    "rio-pratinha-iraquara-bahia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Paraguaçu",
+        "Chapada Diamantina"
+      ],
+      "sources": [
+        "aquatome"
+      ],
+      "quotes": [
+        {
+          "source": "aquatome",
+          "quote": "Loài này là cá bản địa vùng đông bắc Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "aquatome",
+          "quote": "Các mẫu đầu tiên được thu ở Rio Pratinha, một nhánh ngắn thuộc thượng nguồn lưu vực sông Paraguaçu, nằm trong vùng Chapada Diamantina ở miền đông bắc bán khô hạn của Brazil.",
+          "countries": [],
+          "regions": [
+            "Paraguaçu",
+            "Chapada Diamantina"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354535,
+      "total": 8,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "BR",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          -42.1875,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -12.65625,
+          6,
+          6
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 23,
+          "max": 27
+        },
+        "ref": 4
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 5.5,
+          "max": 7
+        },
+        "ref": 4
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 1,
+          "max": 12
+        },
+        "ref": 4
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquatome",
+        "value": 2.8,
+        "ref": 3
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquatome",
+        "value": 3,
+        "ref": 4
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 5,
+          "max": 5
+        },
+        "ref": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này mới xuất hiện trong bể cá cảnh chưa lâu. Cá bắt tự nhiên rất hiếm khi về tới tiệm, dù Aquarium Glaser đã từng chào bán sỉ.</p><p>Quần thể ngoài tự nhiên đang gặp khó. Vài chục năm gần đây, du lịch làm Rio Pratinha thay đổi nhiều. Trước kia cá có nhiều ở con sông này, giờ thì ít khi thấy, có đợt lấy mẫu gần đây còn không gặp con nào. Cũng vì vậy mà IUCN xếp nó ở mức Sắp bị đe dọa.</p>",
+      "refs": [
+        2,
+        3,
+        5,
+        6
+      ]
+    },
+    {
+      "key": "distribution",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này là cá bản địa vùng đông bắc Brazil. Các mẫu đầu tiên được thu ở Rio Pratinha, một nhánh ngắn thuộc thượng nguồn lưu vực sông Paraguaçu, nằm trong vùng Chapada Diamantina ở miền đông bắc bán khô hạn của Brazil. Nước Rio Pratinha đổ vào sông Santo Antônio, rồi chảy ra sông Paraguaçu ở vùng ven biển. Cá có ở thượng lưu sông Paraguaçu, bang Bahia.</p>",
+      "refs": [
+        0,
+        2,
+        5,
+        6
+      ]
+    },
+    {
+      "key": "habitat",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Ngoài tự nhiên, loài này sống ở các suối nước ngọt có nước mềm, hơi chua, đáy cát, rơi đầy cành con và lá cây. Nước Rio Pratinha trong đến lạ. Dòng nước chảy ra từ một hang động rồi tụ lại thành một cái hồ nhỏ. Đây là cá nước ngọt vùng nhiệt đới, hay bơi gần đáy và ở tầng giữa.</p>",
+      "refs": [
+        3,
+        5,
+        6
+      ]
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này cần nuôi theo đàn, ít nhất 6 con, chỗ rộng thì nuôi đông hơn. Có nguồn khuyên từ 8 con trở lên. Đã có người nuôi một đàn trong bể 400 lít, và đàn cá giành lấy một khu trong bể làm chỗ của mình.</p><p>Chiều dài bể tối thiểu cho loài này thì chưa nguồn nào công bố.</p>",
+      "refs": [
+        4,
+        5
+      ]
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Nên giữ nước 23–27 °C, pH 5,5–7,0, độ cứng GH 1–12. Ngoài tự nhiên cá sống trong nước mềm, hơi chua, nhưng loài này khá khỏe. Có người nuôi bằng nước máy cứng mà cá vẫn sống tốt.</p>",
+      "refs": [
+        4,
+        5
+      ]
+    },
+    {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Cá dễ cho ăn. Đây là loài ăn tạp, nhận cả cám vảy lẫn cám viên. Ngoài ra nên cho thêm đồ tươi sống, đông lạnh hoặc sấy khô như artemia, bo bo, lăng quăng và trùng huyết.</p>",
+      "refs": [
+        4,
+        5
+      ]
+    },
+    {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Đây là một trong những loài tetra bơi đàn sát nhau nhất, các con chỉ cách nhau vài centimet. Tính nó hiền. Cá đực thỉnh thoảng có gây nhau, nhưng chỉ xòe vây ra vẻ, không đánh thật. Loài này thả chung với cá hiền được, và hay bơi từ tầng đáy lên tầng giữa.</p><p>Lúc tán cái, cá đực rung vây phấp phới như cánh bướm. Vì vậy mà có người gọi nó là Butterfly Dwarf Tetra.</p>",
+      "refs": [
+        2,
+        4,
+        5
+      ]
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Cá đực đủ lớn có màu đậm và tối hơn, viền trắng ở vây lưng và vây hậu môn cũng rõ hơn. Con đực thon, còn con cái thân nặng nề hơn. Khi đã quen bể và vào mùa tán cái, cá đực chuyển sang đen, nổi bật với viền vây trắng.</p>",
+      "refs": [
+        2,
+        5
+      ]
+    },
+    {
+      "key": "reproduction",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này đẻ trứng rải, và chuyện cho đẻ thì nó cũng giống các loài tetra khác. Tuy vậy, thông tin cụ thể về cách cho đẻ còn ít.</p><p>Có thể set bể đẻ như sau:</p><ul><li>Bể để tối, có cây lá nhỏ hoặc búi sợi cho cá đẻ.</li><li>Đáy lót lưới.</li><li>Nước mềm, chua, pH 5,5–6,5.</li></ul><p>Theo một nguồn, trứng nở sau khoảng 24–36 giờ. Chừng năm ngày sau thì cá con tự bơi được và bắt đầu ăn infusoria.</p>",
+      "refs": [
+        4,
+        7
+      ]
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p><em>Hyphessobrycon negodagua</em> là một loài tetra nhỏ của Brazil, dài khoảng 2,8 cm khi lớn hết cỡ. Lima và Gerhard mô tả loài này năm 2001 trên tạp chí <em>Ichthyological Exploration of Freshwaters</em> (tập 12, số 2). Có nguồn ghi năm mô tả là 2013, nhưng năm đúng của bài mô tả gốc là 2001. Mẫu chuẩn (holotype, số MZUSP 53989) được thu ở sông Rio Pratinha, chỗ Fazenda Pratinha, thuộc khu tự quản Iraquara, bang Bahia.</p><p>Lúc mô tả, các tác giả xếp loài này vào chi <em>Hyphessobrycon</em>. Từ công trình của Melo và cộng sự năm 2024, tên hợp lệ hiện nay là <em>Hasemania negodagua</em>, còn <em>Hyphessobrycon negodagua</em> chỉ là tên đồng nghĩa. Họ của nó cũng đổi, từ Characidae sang Acestrorhamphidae.</p><p>Tên loài lấy từ Nego d'água, một sinh vật hình người trong truyền thuyết vùng trung Brazil. Chuyện kể rằng nó sống dưới đáy sông và đêm đến thì tấn công những người đánh cá sơ ý. Tên tiếng Anh của loài này gồm Nego Dagua Tetra và Bahia Black Diamond Tetra.</p><p>Hầu hết cá thể không có vây mỡ. Đây là điểm khác với đa số loài <em>Hyphessobrycon</em>. Thân cá màu xám đậm, phía đuôi có một mảng đen, vây lưng và vây hậu môn có vệt trắng. Cá mới nhập về, chưa quen bể thì trông chỉ màu bạc. Màu của nó không thuộc loại rực nhất trong các loài tetra.</p><p>Sách Đỏ IUCN xếp loài này ở mức Sắp bị đe dọa (Near Threatened).</p>",
+      "refs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "p1gcQEYnW5I",
+      "title": "Meet the Nego Dagua Tetra: A Closer Look at Hyphessobrycon negodagua",
+      "durationSec": 152,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "w7REtTPPeGs",
+      "title": "Hyphessobrycon negodagua",
+      "durationSec": 7,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "bXsN6zaSKYY",
+      "title": "Hyphessobrycon Negodagua ca26°, just nu 20L i ett försök att \"breeda\"😊",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "C5c8vTJm51A",
+      "title": "Hyphessobrycon negodauga territorial display",
+      "durationSec": 38,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-20",
+  "refs": [
+    {
+      "url": "https://researcharchive.calacademy.org/research/ichthyology/catalog/fishcatget.asp?spid=66259",
+      "title": "CAS - Eschmeyer's Catalog of Fishes"
+    },
+    {
+      "url": "https://www.aquatab.net/system/species/12152/",
+      "title": "Hasemania negodagua – tetra pratinhanská | AQUATAB"
+    },
+    {
+      "url": "https://www.aquariumglaser.de/en/fisharchive/hyphessobrycon-negodagua-4/",
+      "title": "Hyphessobrycon negodagua - Aquarium Glaser GmbH"
+    },
+    {
+      "url": "https://fishbase.se/summary/58392",
+      "title": "Hasemania negodagua (Lima & Gerhard, 2001)"
+    },
+    {
+      "url": "https://aquadiction.world/species-spotlight/nego-dagua-tetra/",
+      "title": "Nego Dagua Tetra - Hyphessobrycon negodagua Fish Profile & Care Guide"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=p1gcQEYnW5I",
+      "title": "Meet the Nego Dagua Tetra: A Closer Look at Hyphessobrycon negodagua"
+    },
+    {
+      "url": "https://bv.fapesp.br/en/publicacao/197166/ichthyofauna-of-the-remarkably-crystalline-rio-pratinha-upp",
+      "title": "Ichthyofauna of the remarkably crystalline rio Pratinha, upper rio Paraguacu basin, Chapada Diamantina, Brazil: inventory and conservation status"
+    },
+    {
+      "url": "https://www.foraquarist.com/en/news/341-the-world-of-tetras-hyphessobrycon-new-and-rare-species-of-tetras-after-2015-part-ii",
+      "title": "The world of tetras Hyphessobrycon: New and rare species of tetras after 2015 (part II.)"
+    }
+  ]
+}

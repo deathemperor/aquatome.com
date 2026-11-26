@@ -4,13 +4,18 @@
   "File:Tropheus duboisi by Alexander Langer.jpg",
   "File:Tropheus duboisi Schoenbrunn2008.jpg",
   "File:珍珠蝴蝶 Tropheus duboisi (Marlier, 1959) - panoramio.jpg",
-  "File:珍珠蝴蝶 Tropheus duboisi - panoramio.jpg"
+  "File:珍珠蝴蝶 Tropheus duboisi - panoramio.jpg",
+  "inat:11279773",
+  "inat:116732945"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/544d7ff2e7f88dbf.webp": "300d0d272f1f1f03",
   "https://media.aquatome.com/commons/7d4c2b3e6182f895.webp": "e72929ac2c31193f",
   "https://media.aquatome.com/commons/a20ac11af58e5ab0.webp": "0101003038300201",
-  "https://media.aquatome.com/commons/079b1bbe2e38f92e.webp": "03302061f1532118"
+  "https://media.aquatome.com/commons/079b1bbe2e38f92e.webp": "03302061f1532118",
+  "https://media.aquatome.com/glaser/d6241f132847486d.webp": "416146f49285a458",
+  "https://media.aquatome.com/glaser/ab10c0b0d110f53a.webp": "59581c9870e5e3e1",
+  "https://media.aquatome.com/glaser/9e5eddda40483963.webp": "74b9484cc0f2784c"
  },
  "inat": {
   "taxon": 114561,
@@ -27,6 +32,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 71686808,
+  "done": true
  },
  "exhausted": "2026-11-08"
 }

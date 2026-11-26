@@ -1,0 +1,63 @@
+{
+  "id": "pseudobagrus-gracilis",
+  "scientificName": "Pseudobagrus gracilis",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Pseudobagrus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "lijiang"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 17.3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1459",
+      "html": "<p>Tachysurus gracilis Li, Chen &amp; Chan, 2005. Size: 173 mm SL. Synonym: Pseudobagrus gracilis. IUCN Red List: Not Evaluated.</p><p>Tachysurus can be identified by an extrascapular without a laterosensory canal, and a pterotic with a broad lateral laminar expansion. It is among the most speciose catfish groups in East Asia and its members inhabit habitats ranging from fast-flowing hillstreams to large rivers.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1459",
+      "html": "<p>China. Type locality: Guilin City, Zhujiang basin, Lijiang drainage, Guangxi Province, China.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1459",
+      "html": "<p>Males have an elongate genital papilla in front of the anal fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1459",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1459",
+      "html": "<p>The genera Pelteobagrus and Pseudobagrus form a monophyletic group, but the monophyly of the two genera is uncertain. Traditionally, members of the genus Pelteobagrus have been distinguished by their forked caudal fins (vs. truncate/emarginate caudal fins in Pseudobagrus). This convention is still largely used in current literature and is adhered to here. There are some Chinese species assigned to the genus Leiocassis (longirostris, crassilabris, tenuifurcatus, virgatus and argentivittatus), but have been tentatively placed in Pseudobagrus by Mo (1991).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1459",
+      "html": "<p>Zootaxa No. 1067, pp 50, Fig. 1.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-23"
+}

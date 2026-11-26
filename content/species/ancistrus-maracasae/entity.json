@@ -1,0 +1,106 @@
+{
+  "id": "ancistrus-maracasae",
+  "scientificName": "Ancistrus maracasae",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Ancistrus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "trinidad-and-tobago",
+    "maracas-river"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 15.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1481",
+      "html": "<ul><li>Scientific name: Ancistrus maracasae Fowler, 1946</li><li>Common name: Bristlenose Catfish</li><li>Type locality: Maracas R., Trinidad I., West Indies</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1481",
+      "html": "<p>Trinidad &amp; Tobago: Maracas River, Trinidad.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1481",
+      "html": "<p>Ancistrus should be fed mainly on vegetarian foods. Prepared foods include algae wafers and spirulina based sinking food. Vegetables such as courgette/zucchini and cucumber are an excellent addition to the diet, along with the odd, small amount of more meaty foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1481",
+      "html": "<p>A good complement to most aquariums, they are not aggressive to other species. Males may fight over territory if kept in too small a tank.</p><p>Suitable tankmates: most community fish that aren't overly big or aggressive.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1481",
+      "html": "<p>Typical for the genus, with males possessing the so-called \"bushy nose\". Females may also have much smaller growths on the head, but to a much lesser extent.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1481",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1481",
+      "html": "<p>Mature males and sometimes females have soft tentacles (bushy fleshy growths) on the snout - this is unique to the genus Ancistrus. A large species endemic to the island.</p><p>Etymology: the name Ancistrus is derived from the Greek word agkistron, meaning hook, in reference to the interopercular odontodes that are hooked. The species is named after the river which is its natural habitat.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1481",
+      "html": "<p>Not. Nat. (Phila.) No. 165 - pp2 - Figs. 1-4</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/340299869.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/340299869-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Saifudeen Muhammad",
+      "sourceUrl": "https://www.inaturalist.org/photos/340299869",
+      "caption": "Cá lau kiếng nâu bò trên nền sỏi ngoài tự nhiên",
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/340299869-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "viên tảo cho cá lau kiếng",
+        "thức ăn chìm spirulina"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá cộng đồng 80 cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
+}

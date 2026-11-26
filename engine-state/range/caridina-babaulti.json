@@ -1,8 +1,8 @@
 {
   "id": "caridina-babaulti",
   "native": {
-    "input": "35a0b48e2c68d887",
-    "at": "2026-11-18T06:03:35.101Z",
+    "input": "6e74ea609e7349b1",
+    "at": "2026-11-23T01:48:47.136Z",
     "claims": [
       {
         "code": "IN",
@@ -19,6 +19,22 @@
         "source": "aquatome",
         "quote": "Năm 2021, nó được tìm thấy lần đầu ngoài tự nhiên ở châu Âu, tại Miskolctapolca, Hungary.",
         "words": "Hungary",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They can be found from central India to Malaya and in the west to Iraq.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IQ",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They can be found from central India to Malaya and in the west to Iraq.",
+        "words": "Iraq",
         "ok": true
       }
     ],
@@ -40,8 +56,9 @@
     "outranked": [],
     "origin": {
       "pagesOnly": [
-        "IN",
-        "HU"
+        "HU",
+        "IR",
+        "MY"
       ],
       "sourcesOnly": []
     }
@@ -51,10 +68,6 @@
     "status": "ACCEPTED",
     "taxonKey": 5863044,
     "datasets": [
-      [
-        "7b84c0a2-f762-11e1-a439-00145eb45e9a",
-        12
-      ],
       [
         "040c5662-da76-4782-a48e-cdea1892d14c",
         6
@@ -72,8 +85,11 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-18T06:03:35.101Z"
+    "native": [
+      "IN",
+      "IQ"
+    ],
+    "requests": 12,
+    "at": "2026-11-23T01:48:47.136Z"
   }
 }

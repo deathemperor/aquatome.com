@@ -3,6 +3,12 @@
   "name": "Cricamola",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T17:37:24.306Z",
+    "why": "The source lists Cricamola alongside the Bayano and Changuinola rivers, so it is the Cricamola River, and the bare name leaves out the kind word \"Sungai\" that an Indonesian atlas would include."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

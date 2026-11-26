@@ -60,7 +60,24 @@
       "html": "<p>Life in water makes feeding a lot easier, because on land newts are very secretive and feed only on live food, while in the water they also readily accept frozen food.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/707255331.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/707255331-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "xiangrongyan",
+      "sourceUrl": "https://www.inaturalist.org/photos/707255331",
+      "caption": "Sa giông bụng lửa với bụng cam trên đá ngoài tự nhiên",
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/707255331-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [
     {
       "youtubeId": "BAi6k17wLHE",

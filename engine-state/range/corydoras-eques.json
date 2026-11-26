@@ -1,8 +1,8 @@
 {
   "id": "corydoras-eques",
   "native": {
-    "input": "03bce68715e7f365",
-    "at": "2026-11-14T00:09:29.977Z",
+    "input": "8ac4d222b3b6580a",
+    "at": "2026-11-22T12:48:24.036Z",
     "claims": [
       {
         "code": "BR",
@@ -13,35 +13,28 @@
         "ok": true
       },
       {
-        "code": "PE",
-        "status": "doubtful",
-        "source": "seriouslyfish",
-        "quote": "Its extended range is unclear although similar-looking fish have been exported from Peru on occasion.",
-        "words": "Peru",
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Amazon River at Codajás, Amazonas, Brazil.",
+        "words": "Brazil",
         "ok": true
       },
       {
         "code": "BR",
         "status": "native",
         "source": "glaser",
-        "quote": "From the Brazilian state of Amazonas, a species of Corydoras that has long been known to science but is almost unknown in the hobby: Corydoras eques.",
+        "quote": "Specimens were received from the Brazilian state of Amazonas, more precisely from the surroundings of the city of Anori.",
         "words": "Brazilian",
-        "ok": true
-      },
-      {
-        "code": "BR",
-        "status": "native",
-        "source": "planetcatfish",
-        "quote": "South America: Amazon River basin. Type locality: Amazon River at Codajás, Amazonas, Brazil.",
-        "words": "Brazil",
         "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Amazon",
-        "source": "planetcatfish",
-        "quote": "South America: Amazon River basin. Type locality: Amazon River at Codajás, Amazonas, Brazil.",
+        "name": "Amazon River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Amazon River at Codajás, Amazonas, Brazil', which is located approximately midway between Tefé and Manaus on the rio Solimões (Amazon) main channel, western Brazil.",
+        "country": "BR",
         "ok": true
       },
       {
@@ -49,6 +42,12 @@
         "source": "seriouslyfish",
         "quote": "Type locality is 'Amazon River at Codajás, Amazonas, Brazil', which is located approximately midway between Tefé and Manaus on the rio Solimões (Amazon) main channel, western Brazil.",
         "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Amazon River",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon River basin.",
         "ok": true
       }
     ],

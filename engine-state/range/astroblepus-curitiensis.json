@@ -1,0 +1,44 @@
+{
+  "id": "astroblepus-curitiensis",
+  "native": {
+    "input": "0a5822ade49a1abc",
+    "at": "2026-11-21T01:22:16.258Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Municipio de Curiti, Dept. de Santander, Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astroblepus curitiensis",
+    "status": "ACCEPTED",
+    "taxonKey": 9300251,
+    "datasets": [
+      [
+        "eaad657f-7bda-4705-a181-053d9e38033f",
+        8
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-21T01:22:16.258Z"
+  }
+}

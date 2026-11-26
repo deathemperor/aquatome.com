@@ -439,6 +439,52 @@
       {
         "source": "glaser",
         "value": 1
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 2.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 21,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7,
+          "max": 15
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 1,
+          "max": 3
+        }
       }
     ]
   },
@@ -450,10 +496,22 @@
       "html": "<ul><li>Hermaphrodite that can fertilize itself.</li><li>Lays eggs in transparent disk-shaped clutches.</li><li>Shell diameter usually does not exceed 1 cm.</li><li>Bred in red, blue and brown (wild colour).</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ramshorn-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<table><tr><th>Name</th><td>Ramshorn snails</td></tr><tr><th>Latin name</th><td>Planorbella duryi, Planorbarius corneus</td></tr><tr><th>Family</th><td>Planorbidae</td></tr><tr><th>Tank size (optimal)</th><td>No minimum</td></tr><tr><th>Keeping</th><td>Easy</td></tr><tr><th>Breeding</th><td>Easy (hermaphrodites)</td></tr><tr><th>Size</th><td>0.5 – 2.5 cm</td></tr><tr><th>Temperature</th><td>21 to 25°C</td></tr><tr><th>Optimal pH</th><td>7 – 8</td></tr><tr><th>Optimal GH</th><td>7 – 15</td></tr><tr><th>Optimal KH</th><td>8 (5 – 15)</td></tr><tr><th>TDS (optimal)</th><td>150 – 200 (100 – 300)</td></tr><tr><th>Nitrate</th><td>Less than 20 ppm</td></tr><tr><th>Diet</th><td>Algae eater/omnivore</td></tr><tr><th>Temperament</th><td>Peaceful and solitary</td></tr><tr><th>Life span</th><td>1 – 3 years</td></tr><tr><th>Colour form</th><td>Huge variety of colours and patterns (orange, brown, red, blue, and some even have spots like a leopard)</td></tr></table>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/planorbella-duryi-2/",
       "html": "<p>Ramshorn snails have been popular since the beginning of aquaristics (around 1850), as they consume algae and eat leftovers, but usually leave the plants alone. In addition, as lung breathers, they are not additional oxygen consumers.</p><p>The Californian species differs from the native species Planorbarius corneus mainly in its small size. If you have lively reproducing ramshorn snails at home and they never get significantly larger than 1 cm in shell diameter, then it is most likely Planorbella duryi.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ramshorn-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Ramshorn snails (Planorbella duryi and Planorbarius corneus) are becoming an all-too familiar feature around tanks these days. Some aquarists deliberately put them into their tanks and raise them as pets. Some other people eventually wake up to find that this particular snail has become part of their tank.</p><p>Whether you want a Ramshorn snail as a pet or it has become an unwelcome pest that has found its way into your tank, one thing is certain – wherever there is a water tank, you are bound to see Ramshorn snails there.</p><p>Ramshorn snails are extremely prolific and adaptable snails. Under good conditions, they can grow very fast. Consider this before buying this beautiful snail. If you consider Ramshorn snails as pets, or you love to rear them for commercial purposes, there are a few important tips you need to know.</p><h3>A Healthy Addition to Tanks</h3><p>Ramshorn snails are very useful in shrimp tanks or even snail tanks. This snail makes a tank look cleaner by eating whatever has been rejected by the other aquatic animals.</p><p>They like to move from one end of a tank to another looking for food, eating decayed plants, debris, as well as algae build-ups on hard surfaces.</p><p>Ramshorn snails exist in different varieties and can be seen in pet stores. You can buy them as the regular Ramshorn snail or as Red Ramshorn snails. Some less common varieties include pink and blue Ramshorn snails.</p>"
     },
     {
       "key": "habitat",
@@ -462,10 +520,46 @@
       "html": "<p>Planorbella duryi is a thermophilic species that only occurs here and there in artificially warmed waters. However, you should never release any aquarium snails!</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ramshorn-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<h3>Size and Age of Ramshorn Snails</h3><p>Ramshorn snails exist in different sizes. At a tender age, they have transparent shells and are about 0.6 cm long. As the snail gets older, the shell becomes less transparent. One way to estimate the age of a Ramshorn snail is therefore to look at its shell. You can also expect the shell to grow in width as the snail grows in length.</p><h3>Caring for Ramshorn Snails</h3><p>Taking care of a Ramshorn snail is super easy. To get started, you only need to consider a couple of variables. These include habitat, size of the tank, growth rate, reproduction, lifespan, water parameters, and diet.</p><p>Habitat: Ramshorn snails seem to be more comfortable in an aquatic environment with living plants. They like it even more when these plants die and serve as food for them.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ramshorn-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Size of tank: Ramshorn snails do excellently well in just about any size of tank. They thrive in tanks that hold 20 – 40 litres of water or even larger.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ramshorn-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<h3>How They Fare With Living Plants</h3><p>There are two opposing views on how Ramshorn snails behave around living plants. One group believes Ramshorn snails should not be kept near living plants because they eat them. The other group believes Ramshorn snails do not harm plants.</p><p>Ramshorn snails do feed on plants, but they do it for specific reasons. They feed on plants mostly when they are not well fed, and also when the leaves of a plant are soft. If you are worried about them eating your plants, you can keep them with plants that have hard leaves, such as Anubias barteri.</p><p>The best approach is to feed them very well with leafy vegetables, and then you can worry less about them eating your live plants.</p><h3>The Lifespan of Ramshorn Snails</h3><p>Properly fed and healthy Ramshorn snails can live for up to three years. With some luck, they can live even longer. Even so, it is common for Ramshorn snails to die not long after being introduced into a tank. There are a couple of reasons why they are likely to die shortly after being put into a tank.</p><p>The stress of moving from one tank to another could be responsible for such premature deaths. Whatever the case, the fragility of these snails should be kept in mind when you start rearing them.</p><p>When a Ramshorn snail lies motionless at the bottom of a tank for a while, it is likely dead. However, sometimes they stay without moving for a short period. If this lasts longer, you can be fairly sure the snail has died.</p><p>Another sign that a Ramshorn snail is dead is that its shell begins to have holes and becomes thinner. Some breeders advise removing dead snails from a tank as fast as possible, while others suggest leaving them so that their bodies decay in the tank and serve as minerals for the living snails. It depends on the situation. For example, if you have lots of dead Ramshorn snails, they can cause an ammonia spike.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ramshorn-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Water conditions: Ramshorn snails prefer slow-moving water. They use the rotting plants in such waters for shelter and food. Slow-moving water is also less oxygenated than fast water, but that is what makes this habitat ideal for Ramshorn snails. Their bodies are designed to survive in such poorly oxygenated water, since they can also breathe atmospheric oxygen with great ease. They do best in water with a pH of 7 – 8 and a temperature of 21 – 25°C. Another important point is to always check the nitrite and ammonia levels of your water. Make sure they are always at 0 ppm.</p>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/planorbella-duryi-2/",
       "html": "<p>They consume algae and eat leftovers, but usually leave the plants alone.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ramshorn-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Algae growth: you cannot have Ramshorn snails in your tank and still have soft green algae growing there. They love to feed on soft green algae, as it is one of their favourite foods. They also like soft brown algae. Despite their love for algae, they often do not eat green spot algae because it is too tough for them. They will not eat blue-green algae either. Note: there are reports that Ramshorn snails can also eat black beard algae when hungry.</p><p>One thing that Ramshorn keepers often overlook is fresh vegetables. You will make their day by feeding spinach leaves, green lettuce leaves and slices of green zucchini. It is much better to feed Ramshorn snails in small portions.</p><p>Related articles:</p><ul><li>Snails External Anatomy</li><li>Snails Internal Anatomy</li></ul><h3>The Growth of Ramshorn Snails</h3><p>Feeding a Ramshorn snail a balanced diet of aquarium algae, debris, commercial supplements and vegetables results in healthy and steady growth. Ramshorn snails need a decent level of calcium in their food to grow well.</p><p>Among other things, calcium helps them grow strong shells. With less calcium in their food, they will grow less healthy than they should. Feeding them smaller portions also results in stunted growth.</p><p>So if you want perfect growth and a healthy set of Ramshorn snails, give them food that contains a healthy amount of calcium.</p><p>Recommended reading: the article “How to Supplement Shrimp and Snails with Calcium”.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ramshorn-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<h3>Survival Instincts of Ramshorn Snails</h3><p>Ramshorn snails may not be the most impressive creatures when it comes to escaping predators, but they do have their own way of doing things.</p><p>They sometimes swim on the water surface with their shells upside down. This is possible by using the body's floating ability to achieve balance, which they do by letting air into the shell.</p><p>At equilibrium, a Ramshorn snail can use bacterial slime or surface tension to glide on the surface of the water. Whenever they are on the surface and their movement is suddenly disrupted, they sense danger, immediately let out the air in their shells and sink to the bottom. That is how they get away from predators.</p><h3>How Ramshorn Snails Relate With Tank Mates</h3><p>Ramshorn snails are among the most peaceful creatures with regard to tank mates. They are never aggressive, and the only way they defend themselves is by retreating into the shell. They lack an operculum, unlike Gold Inca snails, which can seal their shells after retreating from an attack. Keeping Ramshorn snails with other peaceful neighbours such as Otocinclus and Cory catfish is always a good option.</p><p>You can also keep freshwater shrimp such as Amano shrimp, Bamboo shrimp, Vampire shrimp, Red cherry shrimp, Blue tiger shrimp, Snowball shrimp, Caridina cf. babaulti, Blue Velvet shrimp, Ghost shrimp, Malawa shrimp, etc.</p><p>Other snail types are also acceptable as tank mates. In that case you can keep Gold Inca snails, Mystery snails, Nerite snails, Malaysian Trumpet snails, Rabbit snails, Brotia Pagodula snails, White Wizard snails, Black Devil snails, Chopstick snails, Japanese trapdoor snails, Hairy snails and Ivory snails.</p><p>Whatever you do, do not keep them with aggressive fish such as Goldfish, Cichlids, or any fish likely to harm them. Other animals that should not be used as tank mates include aquarium crayfish (even Dwarf Mexican crayfish), Tangerine lobsters and a few others. Ramshorn snails move slowly, so they will probably not last long near such aggressive aquatic creatures.</p>"
     },
     {
       "key": "reproduction",
@@ -474,10 +568,22 @@
       "html": "<p>They are hermaphrodites that can fertilize themselves if necessary, so anyone who acquires an animal already has a breeding pair. Reproduction takes place by laying eggs. The clutches are a transparent disk that can be attached to all kinds of objects. A clutch contains up to 15 eggs, which take around 10-12 days to hatch. The duration of development depends on the temperature and is somewhat shorter at temperatures above 25°C and somewhat longer at cooler temperatures.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ramshorn-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<h3>Ramshorn Snails and Reproduction</h3><p>One of the challenges keepers have with Ramshorn snails is the way they reproduce. It only takes a while after they are introduced into a tank before they start laying eggs. They lay eggs in clutches and do so quickly, because they can be fertilised without a second partner, as they are hermaphrodites.</p><p>They lay their eggs on the walls of the tank and on leaves inside the tank. Each clutch looks like a transparent jelly-like patch with round cells. It takes 2 to 3 weeks for a little snail to develop and possibly become independent.</p><p>Since they are hermaphrodites, you can only control their reproduction by influencing their food ration. All things being equal, the more they eat, the more they are likely to reproduce.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/planorbella-duryi-2/",
       "html": "<p>In the past, the native species Planorbarius corneus was commonly kept in the tank, as it coped very well with the conditions at the time. Living rooms in the late 19th and early 20th century were only heated when necessary, so aquariums were correspondingly cool. The native ramshorn snail does not like consistently high water temperatures, especially in regularly heated tanks, and does not last long there. It has therefore gradually been replaced by the Californian species, often without aquarists being aware of it.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ramshorn-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>How well you rear your Ramshorn snails depends on how much information you have and how experienced you are. With the information above, it is easier to feed, breed and protect Ramshorn snails until they reach maturity.</p><p>Stocking and Compatibility Calculator</p><h3>Conclusion</h3><p>Ramshorn snails are often overlooked, underappreciated, and sometimes even hated within the aquarium community. They are considered great for a shrimp tank.</p><ul><li>They eat any uneaten food, so there is less stress about overfeeding.</li><li>They eat dead plants, so the tank always looks good.</li><li>Ramshorn snails are great algae eaters, so the tank looks even better and cleaner.</li><li>Their droppings are very beneficial to shrimp.</li></ul>"
     }
   ],
   "photos": [
@@ -487,7 +593,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/planorbella-duryi-2/",
       "source": "glaser"
     },
@@ -497,9 +603,19 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/planorbella-duryi-2/",
       "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/fc51848cd72f5e84.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/fc51848cd72f5e84-480.webp",
+      "width": 1162,
+      "height": 1080,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/ramshorn-snails-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
     },
     {
       "url": "https://media.aquatome.com/glaser/f30c1fadb68a45d9.webp",
@@ -507,7 +623,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/planorbella-duryi-2/",
       "source": "glaser"
     },
@@ -517,7 +633,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/planorbella-duryi-2/",
       "source": "glaser"
     }
@@ -564,5 +680,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-21"
 }

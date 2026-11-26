@@ -3,6 +3,12 @@
   "name": "Maliau",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T17:34:58.966Z",
+    "why": "In Malaysian atlases the Sabah site is \"Lembangan Maliau\" (Maliau Basin), so bare \"Maliau\" is a shortened form that omits the Malay kind word, though it is not wrong as a proper name."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

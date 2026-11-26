@@ -152,10 +152,13 @@ export function rangeParts(lang: Lang, c: Content, s: { id: string; name: string
     native?.regions.length ? `<p><strong>${esc(t('Sông, hồ, vùng:'))}</strong> ${native.regions.map(r => esc(regionName(r))).join(', ')}${marks(q => q.regions.length > 0)}</p>` : '',
   ].join('')
   // A source's sentence as it wrote it, in English; the Vietnamese names in it ("the Thái Bình, Sông Kỳ Cùng, Mã and
-  // Lam rivers") marked Vietnamese, as in a translated page's text.
-  const said = quotes?.length ? {
+  // Lam rivers") marked Vietnamese, as in a translated page's text. Never AquaTome's own (source 'aquatome', written from
+  // web research): its sentences are the page's text in Vietnamese, not a source's words, and showed on every language's
+  // page marked English (the live check on /id/ikan/tilan/, 21 Nov 2026). They still mark the lines they back.
+  const sentences = quotes?.filter(q => q.source !== 'aquatome')
+  const said = sentences?.length ? {
     title: t('Nguồn ghi gì'),
-    html: `<ul>${quotes.map(q => `<li><strong>${capitalized([...q.countries.map(code => esc(nameOf(code).name)), ...q.regions.map(r => esc(regionName(r)))].join(', '))}</strong> · ${esc(c.sources[q.source]?.name ?? q.source)}${mark(q.source)}: <span lang="en">“${markVietnameseNames(esc(q.quote))}”</span></li>`).join('')}</ul>`,
+    html: `<ul>${sentences.map(q => `<li><strong>${capitalized([...q.countries.map(code => esc(nameOf(code).name)), ...q.regions.map(r => esc(regionName(r)))].join(', '))}</strong> · ${esc(c.sources[q.source]?.name ?? q.source)}${mark(q.source)}: <span lang="en">“${markVietnameseNames(esc(q.quote))}”</span></li>`).join('')}</ul>`,
   } : undefined
 
   const inside = shown && native?.countries.length ? recordsInside(s.range!) : undefined

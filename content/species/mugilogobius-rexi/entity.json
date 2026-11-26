@@ -90,7 +90,24 @@
       "html": "<p>Mugilogobius: Latin, means \"mullet-goby\". rexi: dedication name.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/692357027.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/692357027-480.webp",
+      "width": 1024,
+      "height": 578,
+      "licence": "CC BY-NC",
+      "author": "Tse Chung Yi",
+      "sourceUrl": "https://www.inaturalist.org/photos/692357027",
+      "caption": "Cá bống vàng Towuti bơi giữa cành cây chìm trong tự nhiên",
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/692357027-large.webp",
+        "width": 2048,
+        "height": 1155
+      }
+    }
+  ],
   "videos": [
     {
       "youtubeId": "IyUn8Ek9pxc",

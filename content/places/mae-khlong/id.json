@@ -3,6 +3,12 @@
   "name": "Mae Klong",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.62,
+    "at": "2026-11-20T07:08:42.703Z",
+    "why": "\"Mae Klong\" is an acceptable Thai-derived spelling, but the source means the Mae Khlong river and its drainage, and an Indonesian atlas would write \"Sungai Mae Klong\" with the kind word."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

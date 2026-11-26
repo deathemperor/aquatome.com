@@ -1,0 +1,509 @@
+{
+  "found": true,
+  "species": [],
+  "sources": [
+    {
+      "url": "https://cvm.ncsu.edu/news/dealing-with-aquariums-and-ponds-during-power-outages/",
+      "title": "Dealing With Aquariums and Ponds During Power Outages",
+      "kind": "university"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/power-outage",
+      "title": "How to Care for Your Aquarium Fish During a Power Outage",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/vacation-fish-care",
+      "title": "How to Care for Aquarium Fish While on Vacation",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.fishkeeper.co.uk/stories/dealing-with-a-power-cut-on-your-aquarium",
+      "title": "Dealing with a power cut on your aquarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://hikariusa.com/wp/taking-care-fish-tank-power-outage/",
+      "title": "Taking Care of Your Fish Tank in a Power Outage",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.chewy.com/education/fish/general/taking-a-vacation-what-about-the-fish",
+      "title": "All The Different Ways to Feed Fish While On Vacation",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.jbl.de/en/areas/section/53/feeding-in-absence?country=id",
+      "title": "Feeding in absence",
+      "kind": "maker"
+    },
+    {
+      "url": "https://blog.tetra.net/en-en/feeding-fish-holidays/",
+      "title": "Feeding fish during the holidays",
+      "kind": "maker"
+    },
+    {
+      "url": "https://fishkeeper.co.uk/stories/caring-for-your-fish-while-you-are-away",
+      "title": "Caring for your fish while you are away",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.liveaquaria.com/blogs/aquarium-maintenance/safeguard-your-aquarium-from-power-outages",
+      "title": "Safeguard Your Aquarium from Power Outages",
+      "kind": "shop"
+    },
+    {
+      "url": "https://cacanhtailoc.com/blogs/tin-tuc/bi-mat-dien-lam-sao-de-ca-khong-bi-chet",
+      "title": "Bị mất điện làm sao để cá không bị chết ?",
+      "kind": "shop"
+    },
+    {
+      "url": "https://suckhoedoisong.vn/mien-bac-tam-thoi-du-dien-cham-dut-cat-luan-phien-tren-dien-rong-169230623090245726.htm",
+      "title": "Miền Bắc tạm thời đủ điện, chấm dứt cắt luân phiên trên diện rộng",
+      "kind": "news"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "NC State veterinary guidance says most fish can go days or even weeks without food.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Do not feed fish during a power outage.",
+      "source": 0,
+      "also": [
+        1,
+        3,
+        4
+      ]
+    },
+    {
+      "section": "what",
+      "fact": "In warm months, eating and digesting food uses up oxygen, which is one reason to skip feeding during an outage.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Uneaten food adds nitrogen pollution to the water.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Remove anything floating on the water surface to improve gas exchange during an outage.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "If warm water is low in oxygen, stirring it with a whisk can help.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "For moving fish, pure oxygen in sealed bags is better than air.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Most tropical fish tolerate the low 60s or high 50s °F for several hours. Once the water reaches the mid-50s °F, it should be warmed.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Tropical and temperate fish often tolerate water in the high 80s or low 90s °F for a day or more. If the water gets too warm, block direct sunlight.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "If the water is too cold and the fish cannot be moved, add warm dechlorinated water in small steps. A change of about 10% every one to two hours should be safe.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Fish packed in heavy-duty bags filled one-third with water and two-thirds with air or oxygen, at about five inches of fish per gallon, can survive at least 36 hours if the outside temperature is adequate.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Mixing fish from different tanks during an outage greatly raises the risk of spreading infectious disease and can cause aggression.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Test for ammonia during a long outage. If it rises above 1 ppm, do water changes of 10% to 30%.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Lighting is a low priority in an outage, since ornamental fish can survive indefinitely without it. Reef tanks are the exception.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "For the first 1-2 hours of an outage, leave the tank alone: do not feed, turn off automatic feeders, and do not change water.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "After 8 or more hours without power, run an air stone or sponge filter for 1 hour, and repeat every 8 hours.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Heavily stocked tanks, or tanks where fish gasp at the surface, may need oxygen every 4 hours instead of every 8.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Fish gasping at the surface during an outage show the tank needs aeration sooner.",
+      "source": 1
+    },
+    {
+      "section": "other",
+      "fact": "Aquarium Co-Op says a battery-backup air pump can run about 20 continuous hours, or 40+ hours in a power-save mode of 15 seconds on and 15 seconds off.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "In hot weather, move the tank to a cooler, shaded spot and use a battery-powered fan for evaporative cooling.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Floating ice in the tank is a mistake, because rapid temperature swings stress fish.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Do not pour boiling water into the tank. Mix a little hot water into tank water removed to a bucket, check it with a thermometer, then add it back.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Unplug hang-on-back and canister filters during an outage so rotting matter inside does not flush into the tank when power returns.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Some keepers move filter media from hang-on-back or canister filters into the tank during an outage, where the water holds more oxygen for the bacteria.",
+      "source": 1,
+      "also": [
+        3
+      ]
+    },
+    {
+      "section": "steps",
+      "fact": "Clean hang-on-back and canister filters before plugging them back in after an outage.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "After power returns, test for ammonia and nitrite. If either reads above 0 ppm, do water changes.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Aquarium Co-Op advises waiting 24 hours after power returns before feeding.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Hikari advises not feeding until power has been back at least two hours and conditions are normal again.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Feeding during an outage speeds up oxygen loss and increases ammonia and nitrate.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Hikari's 'rule of G': an outage longer than the tank's volume in gallons, counted in minutes, could become serious (for example 20 minutes for a 20-gallon tank).",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Hikari suggests water changes if the water cools by more than 3-4 degrees, and floating a bag of ice cubes if it warms by more than 4-5 degrees.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Hikari suggests a UPS or generator as backup power. If that is not possible, keep a battery-operated air pump and/or powerhead.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "If water stops flowing through the filter for more than an hour or so, beneficial bacteria start dying from lack of oxygen. After a long outage, recovery can take weeks.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Clean the filter impeller chamber regularly, because a dirty impeller may fail to restart after a power cut.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep a battery air pump and a small bottle of ammonia remover at home in case of power cuts.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "A lightly stocked tank produces less waste, so its filter copes better after an outage.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "After a few hours without filtration ammonia can build up. Watch for heavy breathing and cloudy water, and test the water.",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "Oxygen shortage is uncommon in a normal power cut. It becomes more likely after a few hours of rising ammonia, on warm days, or in heavily stocked tanks.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "If power returns within a couple of hours there is usually no need to panic. Check that all equipment restarts.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "After a long outage, test the water for several days. If levels are unsafe, withhold food and do small, regular partial water changes.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "After a long outage, keep feeding light for several weeks and do not add fish until ammonia and nitrite are back to safe levels.",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "LiveAquaria says oxygen depletion occurs faster in marine aquariums than in freshwater ones.",
+      "source": 9
+    },
+    {
+      "section": "firstAid",
+      "fact": "Run a battery-powered air pump with airline and airstones placed near the surface during an outage.",
+      "source": 9
+    },
+    {
+      "section": "treatment",
+      "fact": "LiveAquaria suggests a fast-acting ammonia detoxifier during long outages and again when power returns.",
+      "source": 9
+    },
+    {
+      "section": "prevention",
+      "fact": "LiveAquaria recommends ground fault circuit interrupters (GFCIs) to protect equipment when power shuts off or suddenly returns.",
+      "source": 9
+    },
+    {
+      "section": "what",
+      "fact": "Aquarium Co-Op says that for a trip of a week or less, the easiest option is not to feed healthy fish.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Not feeding is not suitable for fry, unhealthy fish, or trips longer than a week.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "A Chewy article says healthy adult fish (it names tetras and guppies) can go without food for about a week, or two weeks at most.",
+      "source": 5
+    },
+    {
+      "section": "what",
+      "fact": "Tetra's blog says fasting is 'not an option' for aquarium or pond fish, because keepers cannot control the environmental cues that help wild fish adapt to food shortages.",
+      "source": 7
+    },
+    {
+      "section": "other",
+      "fact": "Tetra says carp can draw on fat reserves for about eight days before they start breaking down protein.",
+      "source": 7
+    },
+    {
+      "section": "other",
+      "fact": "According to the Chewy article, newly hatched fish may need 3-8 feedings a day.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Use an automatic feeder for trips longer than a week or for fish that need regular meals. Mount it on the tank rim and load it with flakes or pellets.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Test an automatic feeder several days before leaving to check portion size.",
+      "source": 2,
+      "also": [
+        8
+      ]
+    },
+    {
+      "section": "mistakes",
+      "fact": "Loading an automatic feeder with heavy portions is a mistake: heavy meals build up fish waste while you are away.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "The JBL AutoFood feeder takes granules up to 3 mm, not flakes. It feeds 1 to 4 times a day and runs on three AA batteries, so it needs no mains power.",
+      "source": 6
+    },
+    {
+      "section": "steps",
+      "fact": "JBL advises switching fish from flakes to granules before using an automatic feeder, since flakes do not fall evenly. Some fish need time to adjust.",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "JBL says tablet food does not fit its automatic feeder.",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "JBL says holiday or weekend blocks can feed fish for a maximum of 2 weeks.",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "JBL PRONOVO BEL WEEKEND: each block feeds about 15 ornamental fish for three days. JBL PRONOVO BEL HOLIDAY feeds 25 fish up to 10 cm for up to 14 days.",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "Tetra says its holiday blocks hold low-nutrient food in a matrix, so uneaten food does not foul the water. TetraMin Holiday has 3% protein versus 47% in TetraMin flake.",
+      "source": 7
+    },
+    {
+      "section": "other",
+      "fact": "Tetra says TetraMin Weekend lasts up to six days and holiday blocks up to two weeks.",
+      "source": 7
+    },
+    {
+      "section": "steps",
+      "fact": "Tetra advises trying a holiday block before the trip so fish learn to accept it, since the matrix can affect water chemistry.",
+      "source": 7
+    },
+    {
+      "section": "mistakes",
+      "fact": "Aquarium Co-Op advises against vacation feeder blocks: they can cause ammonia spikes and algae blooms because they break into particles larger fish cannot eat.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "The Chewy article calls vacation feeder blocks risky because they can foul the water and fish may ignore them.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Overfeeding is the main risk with a pet sitter, especially if the sitter thinks the fish look hungry.",
+      "source": 2,
+      "also": [
+        6,
+        8
+      ]
+    },
+    {
+      "section": "mistakes",
+      "fact": "Making up for a missed feeding with extra food pollutes the water. Tell sitters not to double up.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Measure daily food portions into a pill box for the sitter.",
+      "source": 2,
+      "also": [
+        8
+      ]
+    },
+    {
+      "section": "steps",
+      "fact": "Hide the main food containers so the caretaker is not tempted to overfeed.",
+      "source": 8
+    },
+    {
+      "section": "steps",
+      "fact": "Have the caretaker visit before you leave so they learn portion sizes and how the filter and equipment normally look.",
+      "source": 8
+    },
+    {
+      "section": "steps",
+      "fact": "Frozen food can be portioned into ice-cube blocks for the sitter. This leaves fewer leftovers.",
+      "source": 2,
+      "also": [
+        8
+      ]
+    },
+    {
+      "section": "steps",
+      "fact": "For picky eaters on long trips, put live foods such as blackworms, daphnia, scuds or snails in a floating container with holes too small for the fish, so the food escapes slowly.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Doing water changes at the last minute risks forgetting a step, such as turning the filter back on. Aquarium Co-Op suggests finishing maintenance about 48 hours before leaving.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Fishkeeper advises doing water changes and filter maintenance about one week before leaving, so you can watch for problems.",
+      "source": 8
+    },
+    {
+      "section": "prevention",
+      "fact": "Do a partial water change and clean the filter before leaving.",
+      "source": 6
+    },
+    {
+      "section": "prevention",
+      "fact": "Avoid adding new fish or starting new treatments just before going away.",
+      "source": 8
+    },
+    {
+      "section": "prevention",
+      "fact": "Put lighting on a timer a few weeks before leaving, so fish and plants adjust to a regular day-night cycle.",
+      "source": 8
+    },
+    {
+      "section": "other",
+      "fact": "If unsure how much to feed, under-feeding is safer than overfeeding.",
+      "source": 8
+    },
+    {
+      "section": "other",
+      "fact": "The Chewy article says trips longer than about a week may require a water change. Leave a bucket of conditioned water so the sitter can top up evaporation.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "Aquatic vet Dr. Jessie Sanders, quoted by Chewy, suggests a professional sitter visit every other day, every few days or daily.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "Tetra's feeding guideline: about as much food as fish eat in 2-3 minutes, 2-3 times a day.",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Hà Nội aquarium shop calls battery-powered air pumps 'máy sủi khí oxy chạy pin' and lists them at about 50,000 to 1,500,000 đồng.",
+      "source": 10
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese keepers call a power cut 'mất điện' or 'cúp điện'. The same shop also suggests a generator ('máy phát điện') and wrapping the tank in a blanket ('chăn') in cold winters.",
+      "source": 10
+    },
+    {
+      "section": "vietnam",
+      "fact": "In early June 2023, rolling power cuts hit 30 provinces and cities in northern Vietnam, caused by low hydropower reservoirs and faulty thermal plants. They largely ended from 23 June 2023.",
+      "source": 11
+    },
+    {
+      "section": "vietnam",
+      "fact": "EVN warned that the northern grid had no spare capacity, so power cuts could still be needed in extreme situations.",
+      "source": 11
+    }
+  ]
+}

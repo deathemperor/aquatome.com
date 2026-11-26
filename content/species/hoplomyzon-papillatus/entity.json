@@ -1,0 +1,112 @@
+{
+  "id": "hoplomyzon-papillatus",
+  "scientificName": "Hoplomyzon papillatus",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Hoplomyzon",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "ecuador",
+    "rio-aguarico"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "EC"
+      ],
+      "regions": [
+        "Napo",
+        "Portuguesa",
+        "Rio Aguarico"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Ecuador, Napo Province, Rio Aguarico, about 1 km upstream from confluence with Rio Shushufindi, lat. 0°17'S, long. 76°25.4'W.",
+          "countries": [
+            "EC"
+          ],
+          "regions": [
+            "Rio Aguarico"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Napo and Portuguesa River basins.",
+          "countries": [],
+          "regions": [
+            "Napo",
+            "Portuguesa"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340539,
+      "total": 1,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 1.7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/hoplomyzon_papillatus.htm",
+      "html": "<ul><li>Common name: none</li><li>IUCN Red List: Data Deficient (IUCN 2021)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/hoplomyzon_papillatus.htm",
+      "html": "<p>South America: Napo and Portuguesa River basins. Type locality: Rio Aguarico, about 1 km upstream from confluence with Rio Shushufindi, lat. 0°17'S, long. 76°25.4'W.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/hoplomyzon_papillatus.htm",
+      "html": "<p>Ecuador, Napo Province, Rio Aguarico, about 1 km upstream from confluence with Rio Shushufindi, lat. 0°17'S, long. 76°25.4'W.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/hoplomyzon_papillatus.htm",
+      "html": "<p>Description: Distinguished from all known aspredinids by having five stout papillae along upper lip and mentum with two pairs of longer barbels and about 36 short, papillae-like barbels. Distinguished from all other species of Hoplomyzontini by having snout deeply emarginate at midline, appearing bilobed. Differs further from its only congener in having (1) no slender rictal barbel; (2) dorsal-fin rays i,3,i (vs. i,6); (3) maxillary barbel relatively short, not extending posterior to pectoral-fin origin (13% vs. 19.5% standard length, extending posteriorly beyond pectoral-fin origin); (4) lateral-line scutes in zig-zag pattern (vs. relatively straight line); (5) second pelvic-fin ray longest, extending posteriorly as short filament (vs. third ray longest and not extended); and (6) dorsal and anal fins attached posteriorly to body midline by membranes (vs. not attached).</p><p>Etymology: The genus name Hoplomyzon: hoplo-, armed, referring to body \"armed with six longitudinal series of bony bucklers\"; myzon, to suck, presumably referring to resemblance to Asian (Exostoma) and neotropical (Astroblepus) catfishes (as noted by Myers) that have sucker mouths (a resemblance mainly due to adnate maxillary barbels in Hoplomyzon). The specific name papillatus: from the Latin, with buds, in reference to the numerous short, papillae-like mental barbels.</p><p>IUCN Red List: This species is known from a relatively small range, much of which is possibly impacted by oil extraction. However, there are very few museum records, and in general this type of species is known to be difficult to collect. At this time, it is not possible to assess whether the species is scarce or simply difficult to catch. Also, there is no information on how the oil industry has affected (or not) the Napo River and populations of this species. Therefore, this species is assessed as Data Deficient (IUCN 2021).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/hoplomyzon_papillatus.htm",
+      "html": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Froese, R. and D. Pauly. Editors. 2022. FishBase. World Wide Web electronic publication. www.fishbase.org, version (04/2022).</p><p>Stewart, D.J. 1985. A review of the South American catfish tribe Hoplomyzontini (Pisces, Aspredinidae) with descriptions of new species from Ecuador. ResearchGate.</p><p>Taphorn, D.C., Villa-Navarro, F., Rodríguez-Olarte, D., Mojica, J.I. &amp; DoNascimiento, CD. 2021. Hoplomyzon papillatus. The IUCN Red List of Threatened Species 2021.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-19"
+}

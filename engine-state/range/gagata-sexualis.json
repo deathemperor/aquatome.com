@@ -1,0 +1,91 @@
+{
+  "id": "gagata-sexualis",
+  "native": {
+    "input": "b74039043e92946a",
+    "at": "2026-11-23T01:48:47.136Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Padma",
+        "source": "planetcatfish",
+        "quote": "Found in the Padma, Jamuna, Brahmaputra, Koel and Ganges drainages, and in West Bengal (Ichamati River).",
+        "ok": true
+      },
+      {
+        "name": "Brahmaputra",
+        "source": "planetcatfish",
+        "quote": "Found in the Padma, Jamuna, Brahmaputra, Koel and Ganges drainages, and in West Bengal (Ichamati River).",
+        "ok": true
+      },
+      {
+        "name": "Ganges",
+        "source": "planetcatfish",
+        "quote": "Found in the Padma, Jamuna, Brahmaputra, Koel and Ganges drainages, and in West Bengal (Ichamati River).",
+        "ok": true
+      },
+      {
+        "name": "Koel",
+        "source": "planetcatfish",
+        "quote": "Found in the Padma, Jamuna, Brahmaputra, Koel and Ganges drainages, and in West Bengal (Ichamati River).",
+        "ok": true
+      },
+      {
+        "name": "Jamuna",
+        "source": "planetcatfish",
+        "quote": "Found in the Padma, Jamuna, Brahmaputra, Koel and Ganges drainages, and in West Bengal (Ichamati River).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gagata sexualis",
+    "status": "ACCEPTED",
+    "taxonKey": 2341168,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 12,
+    "at": "2026-11-23T01:48:47.136Z"
+  },
+  "nativeFailed": {
+    "at": "2026-11-24T05:12:35.728Z",
+    "error": "claude failed (1): other"
+  }
+}

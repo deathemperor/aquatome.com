@@ -10,7 +10,10 @@
     "peru",
     "amazon",
     "colombia",
-    "ecuador"
+    "ecuador",
+    "yarina-cocha",
+    "rio-orteguaza",
+    "bolivia"
   ],
   "range": {
     "native": {
@@ -142,6 +145,10 @@
       {
         "source": "seriouslyfish",
         "value": 5.5
+      },
+      {
+        "source": "glaser",
+        "value": 5.5
       }
     ],
     "tankCm": [
@@ -165,10 +172,22 @@
       "html": "<ul><li>pH: not recorded</li><li>Hardness: not recorded</li></ul><p>The blackfin cory, Hoplisoma leucomelas, long known as Corydoras leucomelas, is an armoured catfish from the upper Amazon in Peru. It schools in very large numbers over soft substrates in blackwater rivers, and is exported in huge numbers, often in 'mixed' or 'spotted Corydoras' consignments with the similar Brochis agassizii, B. ambiacus, B. gomezi and H. schwartzi. An obvious dark band through the eye separates it from B. agassizii and B. ambiacus, and its dark dorsal marking extends into the upper body.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-leucomelas-2/",
+      "html": "<p>Corydoras leucomelas is one of the frequently imported species of its genus. Typical characteristics of the round-nosed species are a strongly pronounced eye band, the coloration of the dorsal fin in connection with the black dorsal spot located at the beginning of the dorsal fin, a vertical black band at the end of the caudal peduncle and the stripes of the caudal fin. The body markings are so varied in animals up to about 4 cm in length that each individual can be recognized by them; only fully grown fish develop a uniform pattern of black spots. The maximum size of the species is 5 – 5.5 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-leucomelas",
       "html": "<p>Type locality is 'Yarinacocha, cutoff lake at right bank of Río Pacaya, near Sarayacu, about 5°15'S, 74°15'W, Upper Amazon, Peru'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-leucomelas-2/",
+      "html": "<p>The main export region of Corydoras leucomelas is Peru, which is also the type locality (the place where the type specimen used for the scientific description of the species was collected): Yarina Cocha. However, C. leucomelas is quite widespread in the upper Amazon watershed, e.g. in Colombia (Rio Orteguaza), Bolivia and Ecuador.</p>"
     },
     {
       "key": "habitat",
@@ -207,6 +226,12 @@
       "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-leucomelas-2/",
+      "html": "<p>The species looks especially pretty when kept in a shoal of 10-15 specimens. The shoal cohesion of C. leucomelas is much more pronounced than in many other armored catfishes and thus often results in the very beautiful picture of such a troop foraging through the aquarium.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-leucomelas",
@@ -231,7 +256,48 @@
       "html": "<ul><li>Eigenmann, C. H. and W. R. Allen (1942). Fishes of Western South America. I. The intercordilleran and Amazonian lowlands of Peru. II. The high pampas of Peru, Bolivia, and northern Chile. With a revision of the Peruvian Gymnotidae, and of the genus Orestias. University of Kentucky, i-xv + 1-494</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Nijssen, H. and I. J. H. Isbrücker (1980). A review of the genus Corydoras Lacépède, 1803 (Pisces, Siluriformes, Callichthyidae). Bijdragen tot de Dierkunde 50(1), 190-220</li><li>Ortega, H. and R. P. Vari (1986). Annotated checklist of the freshwater fishes of Peru. Smithsonian Contributions to Zoology No. 437, iii + 1-25</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/93f40be1822e556d.webp",
+      "thumb": "https://media.aquatome.com/glaser/93f40be1822e556d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-leucomelas-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9be55a5dfa47924b.webp",
+      "thumb": "https://media.aquatome.com/glaser/9be55a5dfa47924b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-leucomelas-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/8c766b8e3165ac51.webp",
+      "thumb": "https://media.aquatome.com/glaser/8c766b8e3165ac51-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-leucomelas-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/44908d51d9232c23.webp",
+      "thumb": "https://media.aquatome.com/glaser/44908d51d9232c23-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-leucomelas-2/",
+      "source": "glaser"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "ENv4050EjS8",
@@ -286,5 +352,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-23"
 }

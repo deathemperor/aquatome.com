@@ -1,0 +1,251 @@
+{
+  "id": "brittanichthys-axelrodi",
+  "scientificName": "Brittanichthys axelrodi",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Brittanichthys",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Rio Negro"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "These interesting, rarely traded characins come from the catchment area of the Rio Negro.",
+          "countries": [],
+          "regions": [
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354254,
+      "total": 53,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "BR",
+          51
+        ],
+        [
+          "CO",
+          1
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          1.40625,
+          1
+        ],
+        [
+          -67.5,
+          2.8125,
+          1
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          12
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          6
+        ],
+        [
+          -64.6875,
+          0,
+          2
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          26
+        ],
+        [
+          -63.28125,
+          0,
+          1
+        ],
+        [
+          -61.875,
+          -2.8125,
+          2
+        ],
+        [
+          -61.875,
+          0,
+          1
+        ],
+        [
+          -61.875,
+          2.8125,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 4.5,
+          "max": 6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/brittanichthys-axelrodi-2/",
+      "html": "<p>These small treasures grow to a maximum size of 4 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/brittanichthys-axelrodi-2/",
+      "html": "<p>These interesting, rarely traded characins come from the catchment area of the Rio Negro.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/brittanichthys-axelrodi-2/",
+      "html": "<p>Brittanichthys axelrodi is a true black water fish, which should be kept at pH 4.5 – 6 and low hardness.</p><p>Filtering via peat can be very helpful here. In addition to improving the chemical parameters, the bactericidal effect of peat also reduces the bacterial pressure in the aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/brittanichthys-axelrodi-2/",
+      "html": "<p>During the acclimatisation period, small live food such as Artemia nauplii or sieved pond food should be fed. Frozen food is also accepted, and a change to dry food can also be tried.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/brittanichthys-axelrodi-2/",
+      "html": "<p>The males can be recognized by the strange glandular scales in the caudal fin, whose meaning is unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/brittanichthys-axelrodi-2/",
+      "html": "<p>There are indications of internal fertilization: during scientific research sperm have been found in females.</p><p>Peter and Martin Hoffmann published a detailed breeding report in the German magazine DATZ (Issue 3/2010, page 18).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/64831536267f41b8.webp",
+      "thumb": "https://media.aquatome.com/glaser/64831536267f41b8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/brittanichthys-axelrodi-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/51bd016b42a3e524.webp",
+      "thumb": "https://media.aquatome.com/glaser/51bd016b42a3e524-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/brittanichthys-axelrodi-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/553160b418d16d89.webp",
+      "thumb": "https://media.aquatome.com/glaser/553160b418d16d89-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/brittanichthys-axelrodi-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d25e6b0dc1e5e017.webp",
+      "thumb": "https://media.aquatome.com/glaser/d25e6b0dc1e5e017-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/brittanichthys-axelrodi-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "pUegYtr_4hs",
+      "title": "Nature's aquarium : Brittanichthys axelrodi in its natural habitat",
+      "durationSec": 111,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HofDtjiP03Q",
+      "title": "Brittaniichthys axelrodi (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 62,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Paq7j8q-5B0",
+      "title": "brittanichthys axelrodi",
+      "durationSec": 80,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "YaSjjwp4TZ4",
+      "title": "Axeroldi aquário",
+      "durationSec": 23,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể cá nhỏ",
+        "than bùn lọc nước"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia",
+        "thức ăn cá nhỏ"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "test pH nước"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-20"
+}

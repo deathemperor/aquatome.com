@@ -1,0 +1,147 @@
+{
+  "id": "cetopsis-parma",
+  "scientificName": "Cetopsis parma",
+  "order": "Siluriformes",
+  "family": "Cetopsidae",
+  "genus": "Cetopsis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "ucayali"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 17
+      },
+      {
+        "source": "scotcat",
+        "value": 17
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1450",
+      "html": "<p>Cetopsis parma Oliveira, Vari &amp; Ferraris, 2001. Family Cetopsidae. Maximum size 170 mm (6.7\") SL. Breeding: unreported.</p><p>Etymology: Cetopsis comes from the Greek cetos, meaning whale, and -opsis, meaning likeness, in reference to the whale-like appearance.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/cetopsis_parma.htm",
+      "html": "<ul><li>IUCN Red List: Data Deficient (2023)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1450",
+      "html": "<p>South America: upper Amazon River basin.</p><p>Type locality: Río Tambo, Río Ucayali basin, Pucallpa, Atalaya, 8°23'S, 74°32'W, Province Coronel Portillo, Depto de Ucayali, Peru.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/cetopsis_parma.htm",
+      "html": "<p>South America: Upper Amazon River basin. Type locality: Peru, Departamento de Ucayali, Provincia Coronel Portillo, Río Tambo, Río Ucayali basin, Pucallpa, Atalaya.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1450",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/cetopsis_parma.htm",
+      "html": "<p>The combination of the absence of a spinelet associated with the dorsal fin, the absence of spines on the dorsal and pectoral fins, and the possession of a single row of teeth on the vomer distinguishes Cetopsis from the other genera in the Cetopsinae. This species can be distinguished from all of its congeners by the combination of the presence of an eye, the conical teeth on the vomer and the dentary, the rounded posterior nares that is distinctly separated from the contralateral nares by a distance greater than the width of the posterior nares, the dark humeral spot, the pattern of a darkly pigmented pectoral and pelvic fins other than for thin, clear margins, and the possession of 23 to 25 total anal-fin rays.</p><p>Etymology: the specific name parma (L.), from párme (Gr.), a light shield or buckler, refers to the dark shield-like mark on the lateral surface of the body just above the pectoral fin.</p><p>This species is considered to be rare, with high uncertainty in its overall distribution and few records available across its known range. There is also little information on any potential threats. As such, it is considered Data Deficient (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1450",
+      "html": "<p>Proceedings of the Biological Society of Washington v. 114 (no. 3)</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/6eb8f61c2a4dd154.webp",
+      "thumb": "https://media.aquatome.com/scotcat/6eb8f61c2a4dd154-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "jonafish / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/cetopsis_parma.htm",
+      "caption": "Cetopsis parma: Ecuador",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "EJw39s1_hXQ",
+      "title": "Cetopsis parma 饅頭鮫鯨",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "WEQYFFIvVa4",
+      "title": "Cetopsis parma 饅頭鮫鯨",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "uU8j1mrxwJ8",
+      "title": "Cetopsis cf.parma…5-6cm…饅頭藍鯨",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ZIfxhUIJwLQ",
+      "title": "Cetopsis cf.parma…5-6cm…饅頭藍鯨",
+      "durationSec": 65,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
+}

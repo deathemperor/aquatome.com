@@ -1,14 +1,22 @@
 {
   "id": "yasuhikotakia-splendida",
   "native": {
-    "input": "83c1c9f3bd3b0272",
-    "at": "2026-11-17T18:05:08.130Z",
+    "input": "78f68e2fa8724e5e",
+    "at": "2026-11-20T01:55:49.831Z",
     "claims": [
       {
         "code": "LA",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Officially known only from a handful of localities in the Xe Pian river, a tributary system of the Xe Khong (which itself drains into the Mekong river main channel) in Champasak and Attapeu provinces, southern Laos.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "glaser",
+        "quote": "So far the species is only known from Laos (Xe Pian), but this does not mean that it does not occur in other places.",
         "words": "Laos",
         "ok": true
       }
@@ -36,9 +44,10 @@
         "ok": true
       },
       {
-        "name": "Bolaven Plateau",
-        "source": "seriouslyfish",
-        "quote": "According to the description by Roberts (1995) all collection localities were similar and comprised small, swiftly-running, headwater streams draining foothills of the Bolaven Plateau and contained clear water with substrates of rocks and cobbles.",
+        "name": "Xe Pian",
+        "source": "glaser",
+        "quote": "So far the species is only known from Laos (Xe Pian), but this does not mean that it does not occur in other places.",
+        "country": "LA",
         "ok": true
       }
     ],

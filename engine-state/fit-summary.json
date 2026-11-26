@@ -1,5 +1,5 @@
 {
- "day": "2026-11-19",
+ "day": "2026-11-25",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 4783,
-   "read": 4085,
-   "wrong": 1581,
-   "pct": 39,
-   "held": 544
+   "pages": 5476,
+   "read": 5454,
+   "wrong": 1993,
+   "pct": 37,
+   "held": 730
   },
   "id": {
-   "pages": 1628,
-   "read": 1469,
-   "wrong": 415,
-   "pct": 28,
-   "held": 161
+   "pages": 1709,
+   "read": 1709,
+   "wrong": 463,
+   "pct": 27,
+   "held": 176
   },
   "th": {
-   "pages": 1621,
-   "read": 1442,
-   "wrong": 382,
-   "pct": 27,
-   "held": 140
+   "pages": 1707,
+   "read": 1707,
+   "wrong": 447,
+   "pct": 26,
+   "held": 161
   },
   "ms": {
-   "pages": 496,
-   "read": 453,
-   "wrong": 133,
-   "pct": 30,
-   "held": 89
+   "pages": 589,
+   "read": 589,
+   "wrong": 163,
+   "pct": 28,
+   "held": 103
   }
  },
  "labels": {
@@ -58,46 +58,41 @@
  },
  "sample": [
   {
-   "lang": "th",
-   "path": "/th/fish/trigonopoma-gracile/",
-   "url": "https://aquatome.com/th/fish/trigonopoma-gracile/",
-   "title": "ซิวกราซิลิส",
+   "lang": "vi",
+   "path": "/vi/ca/ca-bangana-devdevi/",
+   "url": "https://aquatome.com/ca/ca-bangana-devdevi/",
+   "title": "Cá Bangana devdevi",
    "wrong": [
     {
-     "check": "source",
-     "quote": "ได้รับการนำเข้ามาอีกครั้งผ่านทางสิงคโปร์ แหล่งที่มา: สิงคโปร์ ขนาดที่มีจำหน่าย: 3–4 ซม."
+     "check": "words",
+     "quote": "ghi nhận"
     }
    ]
   },
   {
    "lang": "vi",
-   "path": "/vi/huong-dan/pha-be-cu-chuan-bi-set-be-biotope-song-rio-negro/",
-   "url": "https://aquatome.com/huong-dan/pha-be-cu-chuan-bi-set-be-biotope-song-rio-negro/",
-   "title": "Phá bể cũ, chuẩn bị set bể biotope sông Rio Negro",
-   "wrong": [
-    {
-     "check": "elsewhere",
-     "quote": "Phòng có sưởi sẵn thì không cần lo khoản này."
-    },
-    {
-     "check": "source",
-     "quote": "Bể cũ có một khối lũa lớn chìa từ trên xuống, che thành một vùng tối ở phía sau."
-    },
-    {
-     "check": "source",
-     "quote": "Nước bể cũ nhìn qua thì trong, nhưng múc ra soi lên mới thấy có khá nhiều tannin"
-    }
-   ]
+   "path": "/vi/ca/ca-tropheus-moorii/",
+   "url": "https://aquatome.com/ca/ca-tropheus-moorii/",
+   "title": "Cá Tropheus moorii",
+   "wrong": []
   },
   {
-   "lang": "id",
-   "path": "/id/ikan/betta-pallifina/",
-   "url": "https://aquatome.com/id/ikan/betta-pallifina/",
-   "title": "Betta pallifina",
+   "lang": "vi",
+   "path": "/vi/huong-dan/tu-lam-tran-pvc-cho-be-ca-khong-can-khoan-kinh/",
+   "url": "https://aquatome.com/huong-dan/tu-lam-tran-pvc-cho-be-ca-khong-can-khoan-kinh/",
+   "title": "Tự làm tràn PVC cho bể cá, không cần khoan kính",
    "wrong": [
     {
-     "check": "elsewhere",
-     "quote": "kayu beech atau oak biasa aman dipakai asalkan benar-benar kering dan kulit kayunya sudah dikupas"
+     "check": "price",
+     "quote": "10 USD"
+    },
+    {
+     "check": "price",
+     "quote": "15 USD"
+    },
+    {
+     "check": "price",
+     "quote": "chỉ tốn khoảng 10 USD vật tư"
     }
    ]
   }

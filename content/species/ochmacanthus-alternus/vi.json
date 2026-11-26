@@ -1,0 +1,17 @@
+{
+  "slug": "ca-ochmacanthus-alternus",
+  "name": "Cá Ochmacanthus alternus",
+  "altNames": [],
+  "sections": {
+    "reproduction:planetcatfish": "<p>Sinh sản: chưa thấy ai ghi lại chuyện loài này đẻ.</p>",
+    "notes:planetcatfish": "<p>Cách đọc: awk ma KANTH uss.</p><p>Nguồn gốc tên: Ochmacanthus ghép từ hai chữ Hy Lạp, ochma nghĩa là dải và akantha nghĩa là gai. Tên này chỉ cách các gai trên nắp mang và nắp mang phụ xếp thành hàng.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.8
+    },
+    "reason": "thin"
+  }
+}

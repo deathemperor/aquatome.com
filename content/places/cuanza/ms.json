@@ -3,6 +3,12 @@
   "name": "Cuanza",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-20T01:52:53.481Z",
+    "why": "\"Cuanza\" is the Portuguese spelling of the river and provinces (Cuanza Norte, Cuanza Sul), but the region is a province, and a Malay atlas would write \"Wilayah Cuanza Norte\" or \"Wilayah Cuanza Sul\" or use the Malay form \"Kwanza\"; the bare name is ambiguous and lacks the kind word."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

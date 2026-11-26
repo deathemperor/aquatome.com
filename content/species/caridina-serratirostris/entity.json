@@ -1,0 +1,645 @@
+{
+  "id": "caridina-serratirostris",
+  "scientificName": "Caridina serratirostris",
+  "order": "Decapoda",
+  "family": "Atyidae",
+  "genus": "Caridina",
+  "group": "shrimp",
+  "places": [
+    "africa",
+    "madagascar",
+    "seychelles",
+    "mauritius",
+    "comoros",
+    "asia",
+    "japan",
+    "okinawa",
+    "oceania",
+    "australia",
+    "new-caledonia",
+    "fiji",
+    "french-polynesia",
+    "tahiti"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "MG",
+        "SC",
+        "MU",
+        "KM",
+        "AU",
+        "NC",
+        "FJ",
+        "PF"
+      ],
+      "regions": [
+        "Okinawa",
+        "Tahiti",
+        "Marquesas"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "It has been recorded in the literature from Madagascar, Seychelles, Mauritius, the Comoros, Okinawa, South-East Asia, north-eastern Australia, New Caledonia, Fiji, Tahiti and the Marquesas in French Polynesia.",
+          "countries": [
+            "MG",
+            "SC",
+            "MU",
+            "KM",
+            "AU",
+            "NC",
+            "FJ",
+            "PF"
+          ],
+          "regions": [
+            "Okinawa",
+            "Tahiti",
+            "Marquesas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5799208,
+      "total": 217,
+      "fetched": "2026-11-23",
+      "countries": [
+        [
+          "RE",
+          83
+        ],
+        [
+          "ID",
+          41
+        ],
+        [
+          "AU",
+          26
+        ],
+        [
+          "JP",
+          14
+        ],
+        [
+          "SC",
+          12
+        ],
+        [
+          "SB",
+          9
+        ],
+        [
+          "PH",
+          6
+        ],
+        [
+          "YT",
+          6
+        ],
+        [
+          "FJ",
+          3
+        ],
+        [
+          "IN",
+          3
+        ],
+        [
+          "PF",
+          3
+        ],
+        [
+          "PG",
+          3
+        ],
+        [
+          "TW",
+          3
+        ],
+        [
+          "WF",
+          3
+        ],
+        [
+          "FM",
+          1
+        ],
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -177.1875,
+          -14.0625,
+          3,
+          0
+        ],
+        [
+          -150.46875,
+          -18.28125,
+          3,
+          3
+        ],
+        [
+          45,
+          -14.0625,
+          6,
+          0
+        ],
+        [
+          54.84375,
+          -22.5,
+          11,
+          0
+        ],
+        [
+          54.84375,
+          -21.09375,
+          72,
+          0
+        ],
+        [
+          54.84375,
+          -5.625,
+          12,
+          12
+        ],
+        [
+          77.34375,
+          9.84375,
+          2,
+          0
+        ],
+        [
+          92.8125,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          112.5,
+          -8.4375,
+          8,
+          0
+        ],
+        [
+          113.90625,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          -8.4375,
+          11,
+          0
+        ],
+        [
+          115.3125,
+          -9.84375,
+          14,
+          0
+        ],
+        [
+          119.53125,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          120.9375,
+          5.625,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          18.28125,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          22.5,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          23.90625,
+          1,
+          0
+        ],
+        [
+          122.34375,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          122.34375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          122.34375,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          123.75,
+          23.90625,
+          3,
+          0
+        ],
+        [
+          125.15625,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          126.5625,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          127.96875,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          127.96875,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          129.375,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          130.78125,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          130.78125,
+          -12.65625,
+          3,
+          3
+        ],
+        [
+          130.78125,
+          33.75,
+          1,
+          0
+        ],
+        [
+          132.1875,
+          33.75,
+          1,
+          0
+        ],
+        [
+          132.1875,
+          35.15625,
+          7,
+          0
+        ],
+        [
+          133.59375,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          133.59375,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          133.59375,
+          32.34375,
+          1,
+          0
+        ],
+        [
+          140.625,
+          -5.625,
+          2,
+          0
+        ],
+        [
+          144.84375,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          144.84375,
+          -18.28125,
+          7,
+          7
+        ],
+        [
+          144.84375,
+          -16.875,
+          4,
+          4
+        ],
+        [
+          144.84375,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          146.25,
+          -18.28125,
+          2,
+          2
+        ],
+        [
+          149.0625,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          156.09375,
+          -8.4375,
+          4,
+          0
+        ],
+        [
+          156.09375,
+          -7.03125,
+          4,
+          0
+        ],
+        [
+          157.5,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          157.5,
+          5.625,
+          1,
+          0
+        ],
+        [
+          177.1875,
+          -18.28125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 2,
+          "max": 14
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 2.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 3
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 1.5,
+          "max": 1.5
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ninja-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Name: Ninja shrimp</li><li>Other names: Chameleon shrimp, Christmas shrimp, Honey shrimp</li><li>Scientific name: Caridina serratirostris</li><li>Minimum tank size: 10 gallons (~40 litres)</li><li>Breeding: Difficult</li><li>Optimal KH: 1–8</li><li>Optimal TDS: 100–300</li><li>Nitrate: less than 20 ppm</li><li>Diet: algae eater/omnivore</li><li>Temperament: peaceful</li><li>Colour forms: yellow, orange, red, black, brown, cream, etc.</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ninja-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Ninja shrimp are very rare on the pet trade market and require brackish water to breed. They are pretty common as pets in Japan, but very rare in North America or Europe.</p><p>There is considerable confusion surrounding the taxonomy of many Caridina species. Several species are probably still included in what is now called Caridina serratirostris. The differences can be so small that a microscope is needed to see them. In 2006 scientists separated Caridina serratirostris and Caridina celebensis on the basis of whether a tiny arthrobranch is present at the base of the third maxilliped. Some sellers can therefore accidentally sell this species under other names.</p><p>The ecology of Caridina serratirostris is poorly researched, and there is a lot of conflicting or even false information on the Internet.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ninja-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Caridina serratirostris is widely distributed in the Indo-Pacific. It has been recorded in the literature from Madagascar, Seychelles, Mauritius, the Comoros, Okinawa, South-East Asia, north-eastern Australia, New Caledonia, Fiji, Tahiti and the Marquesas in French Polynesia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ninja-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>These shrimp are mostly found close to the sea, in the lower reaches of rivers or streams on islands. Though freshwater shrimp, they can also live in slightly brackish water. In the wild they prefer leaf litter and riverbank vegetation, and are often found hiding under rocks.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ninja-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Ninja shrimp do not require a lot of space, but it is not a good idea to keep them in small tanks, especially without shrimp-keeping experience. More water volume increases the stability of water parameters, which is very important for dwarf shrimp. A tank of at least 10 gallons (40 litres) is better; it will easily accommodate at least 40–50 shrimp.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ninja-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Caridina serratirostris is a pretty hardy species and can withstand varied ranges of water parameters. Cycle the tank before bringing shrimp home, then check water quality with a test kit.</p><p>Decorations provide hiding places and reduce stress, which is also crucial for moulting. In a community tank there should be plenty of dark areas created from rocks, driftwood, PVC pipe, plastic tunnels, plants, etc.</p><p>Acclimate the shrimp carefully and slowly over a few hours to prevent stress. Like all crustaceans, Ninja shrimp do not tolerate copper-based medications.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ninja-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Temperature: although Ninja shrimp can live in a wide range of 20–30°C, they prefer fairly warm water. The optimal temperature is 24–27°C.</p><p>pH: 6.5–8.0.</p><p>Hardness: KH 1–8 and GH 2–14.</p><p>Water type: they need only freshwater. They use brackish water only for reproduction, when releasing larvae.</p><p>The shrimp are hardy and can be kept even in tap water (like Neocaridina shrimp), but for best results RO/DI water remineralised with a GH/KH+ mineral product is recommended, as it lets you control the parameters. Tap water must be free from chlorine and chloramine, which are toxic to them; let it age for 24 hours before use. A water conditioner (such as Seachem Prime or similar) can also be used to bind heavy metals, ammonia, nitrites or nitrates for up to 48 hours.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ninja-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Lighting: Ninja shrimp are nocturnal and do not really depend on light, so lighting should be adapted to the needs of the plants in the tank.</p><p>Substrate: any substrate (soil, sand or gravel) is fine.</p><p>Filters: there are no special requirements, as long as the filter suits the tank size. Sponge or matten filters are recommended for small tanks; they are cheap, easy to maintain and clean, and provide a lot of surface to graze on.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ninja-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Like most dwarf shrimp, Ninja shrimp are scavengers and omnivores. They feed on dead animal and plant matter as well as commercial fish, shrimp and crab foods. In an aquarium they act as a clean-up crew against algae, biofilm, debris and waste.</p><p>To keep them healthy or enhance coloration, supplement their diet with vegetables and commercial foods such as Dennerle Shrimp King, Hikari Shrimp Cuisine and Glassgarden Shrimp Dinner Food Pads. Dry leaves and blanched vegetables (carrot, sprouts, spinach, cucumber, zucchini, etc.) help provide the microelements needed for moulting.</p><p>Like all crustaceans, they have a multi-layered exoskeleton hardened by calcium salts, so they must get enough calcium, by regularly feeding specialised invertebrate foods or calcium-rich vegetables.</p><p>In a matured tank (with algae and biofilm) they can be fed once every 2–3 days. It is better to underfeed than overfeed.</p><p>Ninja shrimp do not eat healthy plants and can be kept in planted tanks; they eat dying, rotting or decaying plants. Grazing on algae is often confused with eating the plant.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ninja-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Ninja shrimp can change colour incredibly fast to blend into their surroundings, also depending on mood or when stressed by the environment. According to some studies, the chromatophores in their skin expand or contract to do this. This is why they are called Ninja shrimp: the shrimp seems to vanish into the surroundings.</p><p>Despite the belligerent name, they are very peaceful and completely harmless, which makes them a great choice for a peaceful community tank.</p><p>They are very shy and spend most of their time hiding in plants or under driftwood, so they should be kept in large groups; the bigger the colony, the safer they feel and the more confident they act.</p><p>They are nocturnal. Activity starts at dusk and gradually stops before sunrise, mainly to avoid visual predators while feeding.</p><p>Tankmates: the ideal situation is a species tank, but they can be kept with carefully chosen fish; avoid large and/or aggressive fish. They are compatible with other shrimp (cherry, snowball, ghost, Amano, blue tiger, crystal, bamboo, cardinal shrimp, etc.), freshwater snails (Japanese trapdoor, ramshorn, nerite, Malaysian trumpet snails, etc.) and small peaceful fish (pygmy cory catfish, otocinclus). Keep them away from all crayfish and most freshwater crabs. Even small African dwarf frogs will try to catch the shrimp.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ninja-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Males usually do not grow larger than 2 cm, whereas females can reach 2.5 cm in length.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ninja-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>It is extremely hard to breed Ninja shrimp in captivity; there have been no reports of successful breeding of Caridina serratirostris in home aquariums, and the pet industry depends completely on wild-caught animals.</p><p>Adults inhabit and reproduce in freshwater, but their larvae require saline water for successful development. When the eggs develop into larvae, females release them to drift to the sea, where the larvae undergo metamorphosis through several moults. The juveniles then migrate back to the parental freshwater habitats.</p><ul><li>Brackish conditions are required for hatching, with salinity of 17–25 ppt. The ideal temperature for breeding is 25–27°C. Suitable rearing conditions can vary because adults have slightly different geographical distributions.</li><li>The eggs are very small (around 0.33–0.37 mm along the larger diameter), allowing hundreds of larvae to be produced.</li><li>After hatching, larvae require a special diet, for example Tetraselmis and cultured rotifers.</li><li>According to some reports, larvae moult to the juvenile stage 34–46 days after hatching. The mean survival rate is around 53%.</li><li>In one laboratory experiment, larvae died on the 14th day, trapped by the surface tension of the rearing water during moulting. The reason is unknown; some scientists suppose it is a phenomenon of shallow water in small rearing containers, so it was recommended to breed them in relatively large containers with deeper water.</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ninja-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Larval Rearing of Three Amphidromous Shrimp Species (Atyidae) under Different Feeding and Salinity Aquacultuye Science. 53(3), 3</li><li>Dietary effects of phytoplankton and zooplankton on larval survival, duration and growth of four Caridina species (Decapoda: Caridea: Atyidae) under laboratory conditions. Crustacean Research. 2020. Vol.49: 225–236</li><li>The Atyid shrimps of Fiji with description of a new species. S. C. Choy. Zool. Med. Leiden 65 (27), 24.xii.1991.</li><li>Freshwater shrimps of the family atyidae (crustacea: decapoda: caridea) from peninsular Malaysia and Singapore. The Raffles Bulletin of Zoology 2007 55(2): 277–309.</li><li>Ninja Shrimp (Caridina serratirostris). Ecological Risk Screening Summary. U.S. Fish &amp; Wildlife Service, August 2017.</li><li>Diversity of freshwater shrimp (decapoda) from bandealit rivers merubetiri national park, East Java, Indonesia. V E Susilo et al 2020.</li><li>Report on a collection of freshwater shrimps (Crustacea: Decapoda: Caridea) from the Philippines, with descriptions of four new species. The Raffles Bulletin of Zoology54(2):245-270. 2006</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/c80e8cb92bbd181a.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/c80e8cb92bbd181a-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/ninja-shrimp-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "HaxRHvL58iQ",
+      "title": "Caridina Serratirostris aka ninja shrimp this shrimp",
+      "durationSec": 46,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "xliMe_RW1pE",
+      "title": "ヒメヌマエビの一生（Caridina serratirostris）",
+      "durationSec": 154,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "xeBUz5ZSdTY",
+      "title": "Caridina serratirostris \"Ninja shrimp\" Креветка Ниндзя",
+      "durationSec": 166,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "68fIABtcn6U",
+      "title": "Креветка ніндзя ( Caridina serratirostris ). Мирний воїн)",
+      "durationSec": 104,
+      "lang": "uk"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể tép 40 lít",
+        "bể thủy sinh nuôi tép"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bọt biển nuôi tép",
+        "lọc matten"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn tép cảnh",
+        "canxi cho tép"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test nước GH KH",
+        "bút đo TDS"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

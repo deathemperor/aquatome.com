@@ -3,6 +3,12 @@
   "name": "Long An",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T17:34:26.926Z",
+    "why": "Long An is a province, and Malay atlases usually write \"Wilayah Long An\" or \"Provinsi Long An\"; the bare name leaves out the kind word, though the proper name keeps its Vietnamese spelling."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

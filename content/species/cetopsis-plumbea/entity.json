@@ -1,0 +1,131 @@
+{
+  "id": "cetopsis-plumbea",
+  "scientificName": "Cetopsis plumbea",
+  "order": "Siluriformes",
+  "family": "Cetopsidae",
+  "genus": "Cetopsis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "upper-amazon",
+    "ecuador",
+    "peru"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 11.8
+      },
+      {
+        "source": "scotcat",
+        "value": 11.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1491",
+      "html": "<ul><li>Scientific name: Cetopsis plumbea Steindachner, 1882</li><li>Common name: Whale Cat</li><li>Type locality: Canelos, eastern Ecuador.</li><li>Etymology: Cetopsis: from the Greek cetos, meaning whale, and -opsis, meaning likeness; in reference to the whale-like appearance.</li><li>IUCN Red List: Not Evaluated.</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/cetopsis_plumbea.htm",
+      "html": "<p>Family: Cetopsidae. Size: 11.5 cm. Temperature: 22–28°C. pH: 6.0–7.0.</p><p>The combination of the absence of a spinelet associated with the dorsal fin, the absence of spines on the dorsal and pectoral fins, and the possession of a single row of teeth on the vomer distinguishes Cetopsis from the other genera in the Cetopsinae.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1491",
+      "html": "<p>South America: Upper Amazon River basin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/cetopsis_plumbea.htm",
+      "html": "<p>South America: Upper Amazon River basin, Ecuador and Peru. Type locality: Canelos (Ecuador).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/cetopsis_plumbea.htm",
+      "html": "<p>It inhabits streams with moderate current and a depth of up to 1 m, occurring within such streams in areas over sand substrates but lacking vegetation.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/cetopsis_plumbea.htm",
+      "html": "<p>Feeds on a variety of terrestrial and aquatic insects.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/cetopsis_plumbea.htm",
+      "html": "<p>The presumed males of Cetopsis plumbea have a distal filament on the first ray of the dorsal fin. That filament is absent in females and immature males of the species. Mature males also have the filament on the first pectoral-fin ray proportionally more elongate than the extension of the ray present in conspecific females and immature males. Mature males have an anal-fin margin that is distinctly convex contrary to the straight anal-fin margin that is characteristic of females and immature males of the species.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1491",
+      "html": "<p>Breeding: Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/cetopsis_plumbea.htm",
+      "html": "<p>Etymology: The specific name plumbea is Latin for of or pertaining to lead, i.e., lead-coloured, referring to the silver-white body and head.</p><p>IUCN Red List: despite there being little information available on this species, it has a wide range and no direct threats; therefore it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/cetopsis_plumbea.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Frederico, R.G. 2023. Cetopsis plumbea. The IUCN Red List of Threatened Species 2023. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf. Vari, R. P., C. J. Ferraris Jr. &amp; M. C. C. de Pinna. 2005. The Neotropical whale catfishes (Siluriformes: Cetopsidae: Cetopsinae), a revisionary study. Neotropical Ichthyology 3:127-238.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát bể cá",
+        "cát mịn thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
+}

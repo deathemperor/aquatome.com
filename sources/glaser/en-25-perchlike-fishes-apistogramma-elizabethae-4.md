@@ -1,0 +1,13 @@
+---
+url: https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-elizabethae-4/
+title: Apistogramma elizabethae - Aquarium Glaser GmbH
+fetchedAt: 2026-11-21T07:32:20.725Z
+hash: a2ed004c1d2c7df98031f4f98bc689e2408afec0dcf1713d27ac140949eb3169
+---
+
+This wonderful dwarf cichlid belongs to the rarest and most wanted species of Apistogramma in the trade. Nevertheless the animals are not very difficult to keep at all. If the fish is kept under the correct conditions it belongs to the hardier species of the genus. There do exist elder reports on the fish that say the opposite, but we learned in the meantime that the limited number of specimens available at this time led to this erroneous point of view. We currently have medium sized wild collected and fully grown offspring of the “Red Belly” selection . The pictures in this post show the “Red Belly”, pictures of wild collected ones can be found here: https://www.aquariumglaser.de/en/fish-archives/apistogramma-elizabethae-2/
+The successful keeping of these beautiful fish requires the basic rules of Apistogramma keeping: clean, bacteria-poor water (this can be settled the most easy way in soft water with an pH between 5.5 and 6.5), diversified food and at least on some places in the tank fine sand on the bottom. Especially the sand is important and the meaning of it often underestimated. In fact the sand is more important than the water chemistry (hardness, pH). In the wild, these fish feed mainly on particles they find in the sand. To find them the fish takes a mouth full of sand, chews the sand and releases the sand through the gill openings. Food particles attach on special anatomical structures on the gill arches and can be swallowed subsequently. In case an Apistogramma can find no sand it comes in a situation comparably to humans that get no opportunity to clean their teeth. This may work for a while, but in most cases sooner or later one becomes sick of it.
+For our customers: the wild collected fish have code 618723, the bred ones 618704 on our stocklist. Please note that we exclusively supply the wholesale trade.
+Suggestion of a common name: Elizabeth´s Dwarf Cichlid
+Lexicon: Apistogramma: ancient Greek, means “with unreliable line”. It is not known whether the lateral line organ or the pattern is meant. elizabethae: dedication name for Elizabeth Cabot Cary Agassiz (1822-1902), the second wife of Louis Agassiz, who travelled with her husband on the famous Thayer expedition (1865-66) and wrote on the topic later. The name refers to the close relationship of A. elizabethae and A. agassizii.
+Text & photos: Frank Schäfer

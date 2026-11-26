@@ -18,8 +18,10 @@ struct MasterCard: View {
         .sheet(isPresented: $editing) { MasterSheet(button: master.button) }
         #if DEBUG
         .background {
-          // What went out, for the UI tests to read (debug builds only).
+          // What went out, for the UI tests to read (debug builds only): each step, and each of the lamp's recordings.
           Text(verbatim: master.log.joined(separator: " | ")).font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("master-log")
+          Text(verbatim: master.switcher.lamp.sent.joined(separator: "+")).font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("master-lamp-sent")
+          Text(verbatim: master.switcher.lamp.asked.joined(separator: "+")).font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("master-lamp-asked")
         }
         #endif
     }
@@ -38,10 +40,10 @@ struct MasterCard: View {
         Button { editing = true } label: { Text("Tạo nút tổng").frame(maxWidth: .infinity) }
           .buttonStyle(.bordered).controlSize(.large)
           .accessibilityIdentifier("master-create")
-        // A button deleted while its press still owed something: that stays.
+        // A button deleted while its press still owed something: that stays, and what its end says, as under the button.
         problems
         putBack
-        CountdownTrialRow()
+        endNotes
       }
       .modifier(Panel())
     }
@@ -58,18 +60,11 @@ struct MasterCard: View {
       Text(verbatim: summary).font(.subheadline).foregroundStyle(.secondary).accessibilityIdentifier("master-summary")
       Button { Task { await master.start() } } label: { sendingOr(Text("Bắt đầu"), colour: ink) }
       .buttonStyle(Filled(fill: .accentColor, words: ink, keepsLook: master.sending))
-      .disabled(master.sending || b.steps.isEmpty || master.trial.state != .idle)
+      .disabled(master.sending || b.steps.isEmpty)
       .accessibilityIdentifier("master-start")
       problems
       putBack
-      // What the last end left as it was: nothing failed, so not in the warning's style.
-      if !master.notes.isEmpty {
-        VStack(alignment: .leading, spacing: 4) { ForEach(master.notes, id: \.self) { Text(verbatim: $0) } }
-          .font(.footnote).foregroundStyle(.secondary)
-          .accessibilityElement(children: .combine)
-          .accessibilityIdentifier("master-notes")
-      }
-      CountdownTrialRow()
+      endNotes
     }
     .modifier(Panel())
     // VoiceOver reads it as one ("Ngắm bể, Đèn sáng, CO2 bật, quạt tắt, 2 giờ"), Bắt đầu and Sửa its actions.
@@ -103,7 +98,7 @@ struct MasterCard: View {
               .accessibilityIdentifier("master-since")
           }
         }
-        Text(verbatim: master.summary(run.steps) + " · " + (run.ends.map { String(localized: "kết thúc lúc \(Self.time($0))") } ?? String(localized: "đến khi bạn bấm Kết thúc")))
+        Text(verbatim: master.summary(run.steps) + " · " + (run.ends.map { String(localized: "kết thúc lúc \(Self.time($0))", bundle: .app) } ?? String(localized: "đến khi bạn bấm Kết thúc", bundle: .app)))
           .font(.subheadline).opacity(0.85)
           .accessibilityIdentifier("master-summary")
         Button { Task { await master.finish(byReader: true) } } label: { sendingOr(Text("Kết thúc"), colour: .accentColor) }
@@ -125,6 +120,17 @@ struct MasterCard: View {
       Button { Task { await master.finish(byReader: true) } } label: { Text("Trả lại").frame(maxWidth: .infinity) }
         .buttonStyle(.bordered).controlSize(.large).disabled(master.sending)
         .accessibilityIdentifier("master-put-back")
+    }
+  }
+
+  /// What the last end left as it was, and why: nothing failed, so not in the warning's style. The same rows under the
+  /// button and on the card without one (a button deleted while a put-back was owed, then Trả lại: the chief, 18 Nov).
+  @ViewBuilder private var endNotes: some View {
+    if !master.notes.isEmpty {
+      VStack(alignment: .leading, spacing: 4) { ForEach(master.notes, id: \.self) { Text(verbatim: $0) } }
+        .font(.footnote).foregroundStyle(.secondary)
+        .accessibilityElement(children: .combine)
+        .accessibilityIdentifier("master-notes")
     }
   }
 
@@ -160,14 +166,14 @@ struct MasterCard: View {
 
   /// "1 giờ", "2 giờ", or until Kết thúc.
   static func length(_ minutes: Int?) -> String {
-    guard let m = minutes else { return String(localized: "đến khi bạn bấm Kết thúc") }
-    return m % 60 == 0 ? String(localized: "\(m / 60) giờ") : String(localized: "\(m) phút")
+    guard let m = minutes else { return String(localized: "đến khi bạn bấm Kết thúc", bundle: .app) }
+    return m % 60 == 0 ? String(localized: "\(m / 60) giờ", bundle: .app) : String(localized: "\(m) phút", bundle: .app)
   }
 
   /// The time left as the card shows it: hours and minutes ("1:20"), the minute rounded up; the last minute by the second.
   static func clock(_ left: TimeInterval) -> String {
     let s = Int(left.rounded(.up))
-    if s < 60 { return String(localized: "\(s) giây") }
+    if s < 60 { return String(localized: "\(s) giây", bundle: .app) }
     let m = (s + 59) / 60
     return String(format: "%d:%02d", m / 60, m % 60)
   }
@@ -175,10 +181,10 @@ struct MasterCard: View {
   /// VoiceOver's: "còn 1 giờ 20 phút".
   static func spoken(_ left: TimeInterval) -> String {
     let s = Int(left.rounded(.up))
-    if s < 60 { return String(localized: "còn \(s) giây") }
+    if s < 60 { return String(localized: "còn \(s) giây", bundle: .app) }
     let m = (s + 59) / 60
-    if m < 60 { return String(localized: "còn \(m) phút") }
-    return m % 60 == 0 ? String(localized: "còn \(m / 60) giờ") : String(localized: "còn \(m / 60) giờ \(m % 60) phút")
+    if m < 60 { return String(localized: "còn \(m) phút", bundle: .app) }
+    return m % 60 == 0 ? String(localized: "còn \(m / 60) giờ", bundle: .app) : String(localized: "còn \(m / 60) giờ \(m % 60) phút", bundle: .app)
   }
 
   /// "21:02", as Đèn writes times, whatever the phone's 12- or 24-hour setting.
@@ -235,8 +241,8 @@ extension MasterModel {
   /// What the steps do, in a line: "Đèn sáng, CO2 bật, quạt tắt".
   func summary(_ steps: [DeviceCommand]) -> String {
     steps.enumerated().map { i, s in
-      let said = s.isLamp ? (s.on ? String(localized: "Đèn sáng") : String(localized: "Đèn tắt"))
-        : (s.on ? String(localized: "\(switcher.name(s)) bật") : String(localized: "\(switcher.name(s)) tắt"))
+      let said = s.isLamp ? (s.on ? String(localized: "Đèn sáng", bundle: .app) : String(localized: "Đèn tắt", bundle: .app))
+        : (s.on ? String(localized: "\(switcher.name(s)) bật", bundle: .app) : String(localized: "\(switcher.name(s)) tắt", bundle: .app))
       return i == 0 ? said : Self.lowerFirst(said)
     }.joined(separator: ", ")
   }

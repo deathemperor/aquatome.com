@@ -1,7 +1,37 @@
 {
  "queue": [],
- "judged": [],
- "hashes": {},
+ "judged": [
+  "inat:357602849",
+  "inat:358103777",
+  "inat:358103782",
+  "inat:407756482",
+  "inat:407756554",
+  "inat:407756562",
+  "inat:407756612",
+  "inat:407756647",
+  "inat:407762813",
+  "inat:407762798",
+  "inat:407760296",
+  "inat:407759432",
+  "inat:407764346",
+  "inat:407764356",
+  "inat:407767142",
+  "inat:407767182",
+  "inat:407767184"
+ ],
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/357602849/large.jpg": "2cbdef0f8fe96274",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/358103777/large.jpg": "a021670f07c7cc8f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/407756482/large.jpg": "85038203074a4fcc",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/407756612/large.jpg": "71b9b9ed9ed1d19b",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/407756647/large.jpg": "07cc4c8f060e98a1",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/407762798/large.jpg": "6ad3158d9999f47c",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/407759432/large.jpg": "4e06274b47e4c66f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/407764356/large.jpg": "88381e7e7b69b8f8",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/407767142/large.jpg": "1b968c2f1f599a9e",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/407767182/large.jpg": "9c9c7c1e9bcb691a",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/407767184/large.jpg": "a92baf9987b63296"
+ },
  "commons": "2026-11-09",
  "inat": {
   "taxon": 109028,
@@ -14,5 +44,13 @@
  "gbif": {
   "key": 2372921,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 229702346,
+  "done": true
+ },
+ "exhausted": "2026-11-20"
 }

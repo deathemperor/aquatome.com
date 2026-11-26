@@ -1,0 +1,57 @@
+{
+  "id": "corymbophanes-andersoni",
+  "scientificName": "Corymbophanes andersoni",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Corymbophanes",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "guyana",
+    "potaro"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 8.6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1493",
+      "html": "<p>Scientific name: Corymbophanes andersoni Eigenmann, 1909.</p><p>Type locality: Aruataima Falls, Upper Potaro R., Guyana, 5°00'05''N, 59°37'33''W.</p><p>Etymology: (Greek) Korymbos = summit, cluster of fruit or flowers + (Greek) phaino = to shine.</p><p>Size: 86 mm SL (8.6 cm).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1493",
+      "html": "<p>South America: Essequibo River drainage, upper Potaro River, upstream of Kaieteur Falls.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1493",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1493",
+      "html": "<p>Distinguished from C. kaiei by having the abdomen lightly colored, caudal fin without light bands, anal fin I,4, caudal peduncle strongly compressed, and 5 plates below adpressed pectoral fin spine. Generic characteristics: caudal fin 1, 14, 1; adipose fin replaced by low elongate postdorsal ridge formed by series of raised median unpaired plates contiguous with dorsal procurrent caudal fin spines.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1493",
+      "html": "<p>Ann. Carnegie Mus.v. 6 (no. 1) - pp5</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-23"
+}

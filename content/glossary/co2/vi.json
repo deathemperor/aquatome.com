@@ -2,12 +2,14 @@
   "slug": "co2",
   "name": "CO2",
   "altNames": [
-    "CO₂"
+    "CO₂",
+    "khí CO2"
   ],
   "sections": {},
-  "definition": "Khí cacbonic, nguồn cacbon để cây thủy sinh quang hợp. Bể cây đẹp thường được bơm thêm CO2 để cây mọc nhanh và dày; quá nhiều CO2 làm pH tụt và cá ngạt thở, nên cần theo dõi bằng drop checker và tắt CO2 khi tắt đèn.",
+  "body": "<h3>Trong bể của bạn</h3>\n<p>Ánh sáng, phân và CO2 phải cân bằng với nhau. Đèn mạnh hơn thì cần thêm phân và CO2, nếu không tảo sẽ lan.</p>\n<p>CO2 châm vào làm pH hạ xuống. Ban đêm cây hô hấp và nhả CO2 ra.</p>\n<p>Một tiệm ở Việt Nam ghi:</p>\n<ul>\n<li>Dấu hiệu thiếu CO2 gồm lá ngả vàng, cây chậm lớn, tảo hoặc vi khuẩn bùng lên.</li>\n<li>Khi CO2 quá cao và pH tụt quá sâu, cây bị căng thẳng, còn cá có thể căng thẳng nếu pH xuống quá thấp.</li>\n<li>Trang của tiệm có nêu tên dung dịch CO2 lỏng, viên CO2 và hệ thống CO2 tự động. Dung dịch CO2 lỏng không nên dùng quá liều.</li>\n</ul>\n<h3>Kiểm tra mức CO2</h3>\n<p>Một nguồn người nuôi ghi:</p>\n<ul>\n<li>Hầu hết cá và động vật không xương sống chịu được khoảng 30 ppm (mg/l) CO2.</li>\n<li>Oxy hòa tan càng nhiều thì mức CO2 an toàn càng cao.</li>\n<li>Trên drop checker, màu xanh lá là vừa, vàng là dư CO2, xanh dương đậm là thiếu. Nên nhắm màu xanh lá đậm hơn thay vì xanh ngả vàng.</li>\n<li>Bộ test pH/KH đo sai có thể che mất mức CO2 nguy hiểm.</li>\n<li>Dư CO2 còn làm cá kém ăn, thậm chí bất tỉnh. Khi CO2 dư, cách nhanh và hiệu quả nhất là thay nhiều nước đã khử clo, cùng nhiệt độ bể. Sục khí hay khuấy mặt nước cũng giúp, nhưng kém hơn thay nước.</li>\n<li>Một số bộ CO2 đẩy quá nhiều khí vào bể khi bình sắp cạn. Thay bình trước khi khí xuống rất thấp.</li>\n</ul>\n<h3>Nên làm gì</h3>\n<p>Tắt CO2 vào ban đêm.</p>\n<p>Một tiệm khác ghi rằng CO2 có thể hại cá nếu pH tụt quá nhanh hoặc nếu cách lắp đặt làm mất oxy, và ghi cách lắp và chạy CO2 từ bình:</p>\n<ol>\n<li>Vặn van điều chỉnh vào bình CO2. Không dùng bình paintball. Van điều chỉnh cần bình chuẩn có ren CGA320.</li>\n<li>Đổ nước hoặc dầu khoáng vào bộ đếm giọt CO2, rồi nối dây dẫn khí vào nắp.</li>\n<li>Dẫn dây dẫn khí tới bộ khuếch tán và đặt bộ khuếch tán càng thấp càng tốt.</li>\n<li>Nối dây điện của van điện từ vào adapter, cắm adapter vào ổ cắm hẹn giờ rồi cắm ổ cắm hẹn giờ vào ổ điện. Bật CO2 1–2 giờ trước khi bật đèn và tắt 1 giờ trước khi tắt đèn.</li>\n<li>Bắt đầu khoảng 1 bọt mỗi giây, mức cố ý để nhẹ cho cá an toàn, rồi tăng số bọt đến khi lá nhả bọt li ti. Cây cần ít nhất 24 giờ mới phản ứng, nên giữa hai lần chỉnh hãy chờ ba ngày. Bớt khuấy mặt nước để giữ CO2 cũng làm giảm oxy và cá có thể ngộp.</li>\n</ol>",
+  "definition": "CO2 là khí cây thủy sinh dùng để lớn. CO2 dư thì cá bơi lờ đờ và ngoi lên mặt nước để thở.",
   "quality": {
-    "score": 0.9,
+    "score": 1,
     "indexable": true
   }
 }

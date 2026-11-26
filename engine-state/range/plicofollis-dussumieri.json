@@ -1,70 +1,28 @@
 {
   "id": "plicofollis-dussumieri",
   "native": {
-    "input": "b6e303ec8b5b12e7",
-    "at": "2026-11-19T07:58:14.453Z",
+    "input": "c33a15d4d14d5a3d",
+    "at": "2026-11-21T13:11:30.372Z",
     "claims": [
-      {
-        "code": "MZ",
-        "status": "native",
-        "source": "scotcat",
-        "quote": "Indo-west Pacific: Mozambique and Madagascar to Sri Lanka, the east coast of India, Bangladesh, Myanmar to Sumatra.",
-        "words": "Mozambique",
-        "ok": true
-      },
-      {
-        "code": "MG",
-        "status": "native",
-        "source": "scotcat",
-        "quote": "Indo-west Pacific: Mozambique and Madagascar to Sri Lanka, the east coast of India, Bangladesh, Myanmar to Sumatra.",
-        "words": "Madagascar",
-        "ok": true
-      },
-      {
-        "code": "LK",
-        "status": "native",
-        "source": "scotcat",
-        "quote": "Indo-west Pacific: Mozambique and Madagascar to Sri Lanka, the east coast of India, Bangladesh, Myanmar to Sumatra.",
-        "words": "Sri Lanka",
-        "ok": true
-      },
       {
         "code": "IN",
         "status": "native",
-        "source": "scotcat",
-        "quote": "Indo-west Pacific: Mozambique and Madagascar to Sri Lanka, the east coast of India, Bangladesh, Myanmar to Sumatra.",
+        "source": "planetcatfish",
+        "quote": "Plicofollis dussumieri (Valenciennes in Cuvier & Valenciennes, 1840). Type locality: Malabar, India. Size: 620 mm SL. IUCN Red List status: Least Concern.",
         "words": "India",
         "ok": true
-      },
-      {
-        "code": "BD",
-        "status": "native",
-        "source": "scotcat",
-        "quote": "Indo-west Pacific: Mozambique and Madagascar to Sri Lanka, the east coast of India, Bangladesh, Myanmar to Sumatra.",
-        "words": "Bangladesh",
-        "ok": true
-      },
-      {
-        "code": "MM",
-        "status": "native",
-        "source": "scotcat",
-        "quote": "Indo-west Pacific: Mozambique and Madagascar to Sri Lanka, the east coast of India, Bangladesh, Myanmar to Sumatra.",
-        "words": "Myanmar",
-        "ok": true
       }
     ],
-    "regions": [
-      {
-        "name": "Sumatra",
-        "source": "scotcat",
-        "quote": "Indo-west Pacific: Mozambique and Madagascar to Sri Lanka, the east coast of India, Bangladesh, Myanmar to Sumatra.",
-        "ok": true
-      }
-    ],
+    "regions": [],
     "disputed": [],
     "outranked": [],
     "origin": {
       "pagesOnly": [
+        "MZ",
+        "MG",
+        "LK",
+        "BD",
+        "MM",
         "ID"
       ],
       "sourcesOnly": []
@@ -153,14 +111,9 @@
       ]
     ],
     "native": [
-      "MZ",
-      "MG",
-      "LK",
-      "IN",
-      "BD",
-      "MM"
+      "IN"
     ],
     "requests": 14,
-    "at": "2026-11-19T07:58:14.453Z"
+    "at": "2026-11-21T13:11:30.372Z"
   }
 }

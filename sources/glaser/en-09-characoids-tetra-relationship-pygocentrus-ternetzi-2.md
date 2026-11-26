@@ -1,0 +1,11 @@
+---
+url: https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus-ternetzi-2/
+title: Pygocentrus ternetzi - Aquarium Glaser GmbH
+fetchedAt: 2026-11-22T13:01:00.030Z
+hash: 1ec8da880f4e35751e4dabb5e0d346d894f99acd40816a045fa9a68bc9c14a1e
+---
+
+To say it right away: yes, we also know that the species P. ternetzi is currently seen by most ichthyologists as a synonym of P. nattereri. This assessment is based on the fact that the “true” Pygocentrus nattereri is the yellow-breasted species from the drainage of the Rio Paraguay (type locality of P. nattereri described by Kner in 1858 is Cuiabá and Mato Grosso in Brazil), while the red-breasted “common” Amazonian spiranha should be scientifically referred to as Pygocentrus altus (described in 1870 by Gill from the upper Amazon) (Géry, Mahnert & Dlouhy, 1987). However, the scientific community has so far followed the aforementioned authors only in that P. ternetzi is seen as a synonym of P. nattereri, but the name P. nattereri is applied indiscriminately to the red- and yellow-breasted piranhas, which is certainly incorrect. Therefore, the name P. ternetzi is still used in aquaristic circles to have a name available for the yellow-breasted piranha of the Rio Paraguay inlet. P. ternetzi was described by Steindachner in 1908 from the Rio Paraguay near Descalvados, Mato Grosso, Brazil.
+This yellow-breasted species is unfortunately rarely available. So we are glad to be able to import it once again from Paraguay at present. Typical for all Pygocentrus species is the more bulbous head shape compared to Serrasalmus, at least in larger animals. It is important for aquaristic practice whether a piranha belongs to Pygocentrus or Serrasalmus, because Serrasalmus species are fin eaters and are basically best kept singly, while Pygocentrus are schooling fishes that hunt larger prey. Since exporters often keep both genera together because juveniles cannot be easily distinguished, piranhas often arrive with severely mutilated fins – the work of Serrasalmus. It then takes some time for the fins to grow back.
+For our customers: Pygocentrus ternetzi has code 293104 on our stock list. Please note that we only supply wholesale.
+Text & photos: Frank Schäfer

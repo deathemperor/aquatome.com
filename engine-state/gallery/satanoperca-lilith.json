@@ -8,7 +8,10 @@
  ],
  "hashes": {
   "https://media.aquatome.com/commons/52df042636343bda.webp": "0c4eeee2c91d1d1a",
-  "https://media.aquatome.com/inaturalist/444944904.webp": "322270b066c6c8a0"
+  "https://media.aquatome.com/inaturalist/444944904.webp": "322270b066c6c8a0",
+  "https://media.aquatome.com/glaser/96ee25b1335584ae.webp": "f97d9f1ec6c76048",
+  "https://media.aquatome.com/glaser/56bf2e995e5a8bdf.webp": "8fcfc74b67160f86",
+  "https://media.aquatome.com/glaser/ff4d855ab9c165f3.webp": "cdcb3f9f1b361f71"
  },
  "commons": "2026-11-09",
  "inat": {
@@ -18,5 +21,12 @@
    "research": 248959557,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 5208458,
+  "next": null
+ },
+ "openverse": {
+  "next": null
  }
 }

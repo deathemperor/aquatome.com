@@ -2,7 +2,12 @@
  "queue": [],
  "judged": [
   "inat:94945378",
-  "File:Citharinus citharus 94945378.jpg"
+  "File:Citharinus citharus 94945378.jpg",
+  "inat:57119447",
+  "inat:57119452",
+  "inat:95685388",
+  "inat:112877512",
+  "inat:466826190"
  ],
  "hashes": {},
  "inat": {
@@ -17,5 +22,9 @@
  "gbif": {
   "key": 4287059,
   "next": null
+ },
+ "inatNc": {
+  "after": 259995857,
+  "done": true
  }
 }

@@ -1,8 +1,8 @@
 {
   "id": "akysis-pulvinatus",
   "native": {
-    "input": "ee80291beeeb8a39",
-    "at": "2026-11-06T01:44:56.709Z",
+    "input": "9cd1482857286f07",
+    "at": "2026-11-20T17:43:20.430Z",
     "claims": [
       {
         "code": "TH",
@@ -11,27 +11,19 @@
         "quote": "The Kra stream catfish, Akysis pulvinatus, is a small akysid catfish from southern Thailand.",
         "words": "Thailand",
         "ok": true
-      },
-      {
-        "code": "TH",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Described from a stream discharging into the Andaman Sea in Kapoe district, Ranong Province, southern Thailand and at time of writing is known only from a series of similar streams on the western side of the Kra Isthmus, plus the upper Tapi river basin.",
-        "words": "Thailand",
-        "ok": true
       }
     ],
     "regions": [
       {
         "name": "Kra Isthmus",
         "source": "seriouslyfish",
-        "quote": "Described from a stream discharging into the Andaman Sea in Kapoe district, Ranong Province, southern Thailand and at time of writing is known only from a series of similar streams on the western side of the Kra Isthmus, plus the upper Tapi river basin.",
+        "quote": "Known from streams on the western side of the Kra Isthmus and the upper Tapi basin, it grows to around 30 mm SL and has been exported for the hobby on an extremely limited basis.",
         "ok": true
       },
       {
         "name": "Tapi",
         "source": "seriouslyfish",
-        "quote": "Described from a stream discharging into the Andaman Sea in Kapoe district, Ranong Province, southern Thailand and at time of writing is known only from a series of similar streams on the western side of the Kra Isthmus, plus the upper Tapi river basin.",
+        "quote": "Known from streams on the western side of the Kra Isthmus and the upper Tapi basin, it grows to around 30 mm SL and has been exported for the hobby on an extremely limited basis.",
         "ok": true
       }
     ],

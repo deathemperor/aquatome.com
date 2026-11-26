@@ -187,11 +187,12 @@ export async function unitsMend(root: string, o: { limit?: number; first?: reado
     }
     if (unsourced) { leave(unsourced); continue }
     // Every part the checker reads, mended where it gives one of these volumes.
-    // A name a person fixed stays (nameFixed), and so does a body (bodyFixed), an FAQ (faqFixed) or a section marked fixed,
-    // as every writer leaves them (the chief of staff, 16 Nov 2026, after a hand-fixed guide's 340 litres became 350): the
-    // rules keep the page held if it still has a units fault.
+    // A name a person fixed stays (nameFixed), and so does a body (bodyFixed) with its summary, the body in short, as the
+    // video writer keeps them (youtube.ts), an FAQ (faqFixed) or a section marked fixed, as every writer leaves them (the
+    // chief of staff, 16 Nov 2026, after a hand-fixed guide's 340 litres became 350; the summary since 20 Nov, when the
+    // Writing Lead's lines went into two guides' summaries): the rules keep the page held if it still has a units fault.
     const fixed = await fixedParts(join(root, 'content', p.kind, p.id))
-    const byPerson = (field: string) => (field === 'body' && !!t.bodyFixed) || (field.startsWith('faq.') && !!t.faqFixed) || fixed.has(field)
+    const byPerson = (field: string) => ((field === 'body' || field.startsWith('summary.')) && !!t.bodyFixed) || (field.startsWith('faq.') && !!t.faqFixed) || fixed.has(field)
     const parts = [...(p.nameFixed || t.nameFixed ? [] : [{ field: 'name', text: p.title }]), ...readable(p).map(f => ({ field: f.field, text: f.html })), ...p.lines.map(l => ({ field: l.field, text: l.text }))].filter(x => !byPerson(x.field))
     // In a part whose source the repository keeps, a volume is mended only where that source gives the tank in gallons
     // and not the litres themselves ("Raise the fry in 75 litres" in another section stays).

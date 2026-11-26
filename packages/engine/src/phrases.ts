@@ -10,7 +10,7 @@ import { FISH_NAMES, oldNames, SWAPPED, type FishName, type SwappedName } from '
  * - the writers' prompts (VI_STYLE for Vietnamese);
  * - the `phrasing` content rule, which lists them (never a held count: a model can still write one, and only a model can
  *   mend it);
- * - the style rewrite, `rewrite-vi --match`, through phraseMatch.
+ * - the style rewrite, `rewrite-vi --phrases`, through phraseRun: each page once for each listed word it has.
  * A swap that is right in every sentence goes in sanitize.ts WORDING instead, which the sweep makes on every page.
  */
 export type Phrase = {
@@ -75,7 +75,9 @@ export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
     { say: 'viên phân nền', instead: '"phân nhét" ("phân nền" là lớp đất trải đáy bể)' }, // 15 | 0 | 0; phân nhét 19 uses
     { say: 'gỡ tay', instead: '"gỡ bằng tay", "chà rồi hút"' }, // 5.5 | 0 | 0
     { say: 'máy tạo dòng', instead: '"thổi luồng"' }, // 4.8 | 0 | 0; thổi luồng 14 uses
-    { say: 'không xương sống', instead: 'gọi tên con: "tép, ốc"' }, // species 242, guides 176 | 0.7 | 0
+    // Where the source names no animal (the Writing Lead, 22 Nov 2026): in a tank keepers mean tép and ốc; in the wild,
+    // naming any would add to the source, so the word stays there. The reviewers are told the same (quality.ts INVERTEBRATES).
+    { say: 'không xương sống', instead: 'trong bể (cá nuôi chung, thuốc, đồng, thức ăn cho chúng) gọi tên con: "tép, ốc", thêm "cua", "tôm hùm đất" khi nguồn nói; ngoài tự nhiên (cá ăn gì, trong bụng có gì) gọi tên con nguồn nói ("côn trùng", "giáp xác"), nguồn không nói con nào thì để "động vật không xương sống"' }, // species 242, guides 176 | 0.7 | 0
     { say: 'cá mê cung', find: '(?:cá|nhóm|họ|loài) mê cung', instead: 'gọi tên con: "cá sặc, cá betta"' }, // mê cung: species 263, guides 37 | 0.7 | 0
     { say: 'bơi tự do', instead: '"tự bơi được", "bơi được"' }, // species 194, guides 59 | 7 | 0
     { say: 'khẩu phần', instead: '"thức ăn", "cho ăn…"' }, // species 153, guides 117 | 14 | 0
@@ -164,6 +166,19 @@ export function ticSlips(text: string, lang: WrittenLang): string[] {
 /** How many tics a text has: each kind's uses at TIC_AT or more, and each stacked "nên". */
 export const ticCount = (text: string, lang: WrittenLang) =>
   (TICS[lang] ?? []).reduce((n, p) => { const k = occurrences(text, p, lang); return n + (k >= TIC_AT ? k : 0) }, 0) + (STACKED[lang] ? [...text.matchAll(STACKED[lang]!)].length : 0)
+
+/** Each listed word a text has, as the list matches it, lower-cased, once: what the style rewrite marks a page for. */
+export const phraseWords = (text: string, lang: WrittenLang, list?: Phrase[]) =>
+  [...new Set(listOf(lang, list).flatMap(p => [...text.matchAll(new RegExp(pattern(p, lang), 'giu'))].map(m => m[0].toLowerCase().replace(/\s+/g, ' '))))]
+
+/**
+ * The style rewrite's run for the list (`rewrite-vi --phrases`): the pages it takes up, and the words each has, which it
+ * takes the page up for once (vi-backfill.ts). Empty for an empty list.
+ */
+export const phraseRun = (lang: WrittenLang, list?: Phrase[]) => {
+  const match = phraseMatch(lang, list)
+  return match ? { match, listed: (text: string) => phraseWords(text, lang, list) } : {}
+}
 
 /** Any listed phrase: the pages the style rewrite takes up (`pnpm engine rewrite-vi --match`). Undefined for an empty list. */
 export const phraseMatch = (lang: WrittenLang, list?: Phrase[]) => {

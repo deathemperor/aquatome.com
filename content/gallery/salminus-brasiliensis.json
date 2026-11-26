@@ -38,18 +38,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/88f9f1fc1316d6d6.webp",
-      "thumb": "https://media.aquatome.com/commons/88f9f1fc1316d6d6-480.webp",
-      "width": 1200,
-      "height": 928,
-      "licence": "CC BY-SA 3.0",
-      "author": "Felipe cancian",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bonito-2.JPG",
-      "caption": "Cá dorado vàng bơi trên đáy sông trong vắt",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/386614412.webp",
       "thumb": "https://media.aquatome.com/inaturalist/386614412-480.webp",
       "width": 1024,
@@ -62,14 +50,14 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/513809444.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/513809444-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/524020540.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/524020540-480.webp",
       "width": 1024,
-      "height": 611,
+      "height": 768,
       "licence": "CC BY",
-      "author": "PampaSorro",
-      "sourceUrl": "https://www.inaturalist.org/photos/513809444",
-      "caption": "Cá dorado bơi trong dòng nước trong vắt giữa đàn cá",
+      "author": "Nicolas Olejnik",
+      "sourceUrl": "https://www.inaturalist.org/photos/524020540",
+      "caption": "Cá dorado bơi trong suối nước trong, vây đuôi vàng cam",
       "best": true,
       "kind": "habitat"
     },
@@ -98,6 +86,31 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/commons/88f9f1fc1316d6d6.webp",
+      "thumb": "https://media.aquatome.com/commons/88f9f1fc1316d6d6-480.webp",
+      "width": 1200,
+      "height": 928,
+      "licence": "CC BY-SA 3.0",
+      "author": "Felipe cancian",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bonito-2.JPG",
+      "caption": "Cá dorado vàng bơi trên đáy sông trong vắt",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/29ee331d850992c7.webp",
+      "thumb": "https://media.aquatome.com/commons/29ee331d850992c7-480.webp",
+      "width": 800,
+      "height": 450,
+      "licence": "CC0",
+      "author": "Papa Pic from Eldorado, Argentina",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:DSC1052_(9272147265).jpg",
+      "caption": "Cá dorado bơi trong nước xanh, thân vàng ánh sọc",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/651006204.webp",
       "thumb": "https://media.aquatome.com/inaturalist/651006204-480.webp",
       "width": 1024,
@@ -108,18 +121,6 @@
       "caption": "Hai cá dorado bơi trên nền cát nông",
       "best": false,
       "kind": "pair"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/355560992.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/355560992-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Rocío Esmeralda Pose",
-      "sourceUrl": "https://www.inaturalist.org/photos/355560992",
-      "caption": "Cá dorado nhìn từ trên xuống trong nước tự nhiên",
-      "best": false,
-      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/524020523.webp",
@@ -142,18 +143,6 @@
       "author": "Nicolas Olejnik",
       "sourceUrl": "https://www.inaturalist.org/photos/524020914",
       "caption": "Cá dorado bơi gần cầu gỗ trên nền cát sông",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/566734688.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/566734688-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Donald Davesne",
-      "sourceUrl": "https://www.inaturalist.org/photos/566734688",
-      "caption": "Cá dorado bơi trên nền cát trong suối",
       "best": false,
       "kind": "habitat"
     },
@@ -206,15 +195,15 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/524020540.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/524020540-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/355560992.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/355560992-480.webp",
       "width": 1024,
       "height": 768,
       "licence": "CC BY",
-      "author": "Nicolas Olejnik",
-      "sourceUrl": "https://www.inaturalist.org/photos/524020540",
-      "caption": "Cá dorado bơi trong suối nước trong, vây đuôi vàng cam",
-      "best": true,
+      "author": "Rocío Esmeralda Pose",
+      "sourceUrl": "https://www.inaturalist.org/photos/355560992",
+      "caption": "Cá dorado nhìn từ trên xuống trong nước tự nhiên",
+      "best": false,
       "kind": "habitat"
     },
     {
@@ -230,14 +219,14 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/130793818.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/130793818-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/175085575.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/175085575-480.webp",
       "width": 1024,
-      "height": 541,
-      "licence": "CC0",
-      "author": "Federico Muñoz",
-      "sourceUrl": "https://www.inaturalist.org/photos/130793818",
-      "caption": "Cá dorado bơi gần đáy sông nước đục",
+      "height": 677,
+      "licence": "CC BY",
+      "author": "Pedro Henrique Maloso Ramos",
+      "sourceUrl": "https://www.inaturalist.org/photos/175085575",
+      "caption": "Hai con cá dorado bơi trong nước trong ở sông",
       "best": true,
       "kind": "habitat"
     },
@@ -254,18 +243,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/175085575.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/175085575-480.webp",
-      "width": 1024,
-      "height": 677,
-      "licence": "CC BY",
-      "author": "Pedro Henrique Maloso Ramos",
-      "sourceUrl": "https://www.inaturalist.org/photos/175085575",
-      "caption": "Hai con cá dorado bơi trong nước trong ở sông",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/566734689.webp",
       "thumb": "https://media.aquatome.com/inaturalist/566734689-480.webp",
       "width": 1024,
@@ -276,6 +253,19 @@
       "caption": "Cá dorado vàng cận cảnh cạnh khúc gỗ trong suối",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/223170603.webp",
+      "thumb": "https://media.aquatome.com/flickr/223170603-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA 2.0",
+      "author": "treez44est",
+      "sourceUrl": "https://www.flickr.com/photos/26359577@N00/223170603",
+      "caption": "Cá dorado bơi trong dòng nước trong ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/670208925.webp",
@@ -360,9 +350,21 @@
       "caption": "Cá dorado bơi gần đáy cát và đá trong nước nông",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/130793818.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/130793818-480.webp",
+      "width": 1024,
+      "height": 541,
+      "licence": "CC0",
+      "author": "Federico Muñoz",
+      "sourceUrl": "https://www.inaturalist.org/photos/130793818",
+      "caption": "Cá dorado bơi gần đáy sông nước đục",
+      "best": true,
+      "kind": "habitat"
     }
   ],
-  "seen": 140,
-  "updatedAt": "2026-11-04",
-  "builtAt": "2026-11-04"
+  "seen": 150,
+  "updatedAt": "2026-11-21",
+  "builtAt": "2026-11-21"
 }

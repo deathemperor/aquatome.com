@@ -86,9 +86,9 @@ struct ChatComposer: View {
   private var placeholder: String {
     let s = model.route.subject
     if size.isAccessibilitySize || s.fromPhoto {
-      return s.plant ? String(localized: "Hỏi về cây này…") : s.fish ? String(localized: "Hỏi về cá này…") : String(localized: "Hỏi về loài này…")
+      return s.plant ? String(localized: "Hỏi về cây này…", bundle: .app) : s.fish ? String(localized: "Hỏi về cá này…", bundle: .app) : String(localized: "Hỏi về loài này…", bundle: .app)
     }
-    return String(localized: "Hỏi về \(ChatNames.inSentence(s.name))…")
+    return String(localized: "Hỏi về \(ChatNames.inSentence(s.name))…", bundle: .app)
   }
 
   @ViewBuilder private var above: some View {
@@ -209,14 +209,14 @@ private struct StopCard: View {
 
   /// When the day starts again, as the reader's clock reads it: "7:00 sáng mai", or "sáng nay" before it.
   static func when(_ reset: Date, now: Date = .now) -> String {
-    let time = reset.formatted(date: .omitted, time: .shortened)
+    let time = reset.formatted(Date.FormatStyle(date: .omitted, time: .shortened, locale: .app))
     let today = Calendar.current.isDate(reset, inSameDayAs: now)
     let morning = Calendar.current.component(.hour, from: reset) < 11
     return switch (today, morning) {
-    case (true, true): String(localized: "\(time) sáng nay")
-    case (false, true): String(localized: "\(time) sáng mai")
-    case (true, false): String(localized: "\(time) hôm nay")
-    case (false, false): String(localized: "\(time) ngày mai")
+    case (true, true): String(localized: "\(time) sáng nay", bundle: .app)
+    case (false, true): String(localized: "\(time) sáng mai", bundle: .app)
+    case (true, false): String(localized: "\(time) hôm nay", bundle: .app)
+    case (false, false): String(localized: "\(time) ngày mai", bundle: .app)
     }
   }
 }

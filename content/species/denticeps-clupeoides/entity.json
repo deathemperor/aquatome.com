@@ -1,0 +1,238 @@
+{
+  "id": "denticeps-clupeoides",
+  "scientificName": "Denticeps clupeoides",
+  "order": "Clupeiformes",
+  "family": "Denticipitidae",
+  "genus": "Denticeps",
+  "group": "other",
+  "places": [
+    "africa",
+    "nigeria"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It lives in larger shoals near the surface in rivers in western Africa; the specimens described here come from Nigeria.",
+          "countries": [
+            "NG"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2413676,
+      "total": 37,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "BJ",
+          20
+        ],
+        [
+          "NG",
+          16
+        ],
+        [
+          "CM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          0,
+          9.84375,
+          2,
+          0
+        ],
+        [
+          1.40625,
+          5.625,
+          14,
+          0
+        ],
+        [
+          1.40625,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          2.8125,
+          5.625,
+          6,
+          6
+        ],
+        [
+          2.8125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          2.8125,
+          11.25,
+          4,
+          0
+        ],
+        [
+          4.21875,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          5.625,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          7.03125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/06-herrings-relationship/denticeps-clupeoides-2/",
+      "html": "<p>Denticeps clupeoides is a small freshwater herring. It grows to a maximum length of 15 cm, but specimens over 8 cm in length are very rarely encountered.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/06-herrings-relationship/denticeps-clupeoides-2/",
+      "html": "<p>Herring can usually only be kept in the aquarium with enormous effort; moreover, most species live in the sea. The species is somewhat sensitive to transport because of the high oxygen demand, but is imported from time to time.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/06-herrings-relationship/denticeps-clupeoides-2/",
+      "html": "<p>It lives in larger shoals near the surface in rivers in western Africa; the specimens described here come from Nigeria.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/06-herrings-relationship/denticeps-clupeoides-2/",
+      "html": "<p>The chemical water composition is of secondary importance for the care. These fish love strong currents.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/06-herrings-relationship/denticeps-clupeoides-2/",
+      "html": "<p>Feeding is easy: any commercially available ornamental fish food, including dry food, is accepted, however Denticeps do not like to eat from the bottom.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/06-herrings-relationship/denticeps-clupeoides-2/",
+      "html": "<p>These restless swimmers are interesting aquarium fishes with much to be explored. They are peaceful animals that should only be kept together with other completely peaceful fish.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/06-herrings-relationship/denticeps-clupeoides-2/",
+      "html": "<p>Breeding reports are not available yet.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/3017785e9072dd90.webp",
+      "thumb": "https://media.aquatome.com/glaser/3017785e9072dd90-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/06-herrings-relationship/denticeps-clupeoides-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ba326f09efb6b5e7.webp",
+      "thumb": "https://media.aquatome.com/glaser/ba326f09efb6b5e7-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/06-herrings-relationship/denticeps-clupeoides-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/45d4374210353931.webp",
+      "thumb": "https://media.aquatome.com/glaser/45d4374210353931-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/06-herrings-relationship/denticeps-clupeoides-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c42c1c17564708a3.webp",
+      "thumb": "https://media.aquatome.com/glaser/c42c1c17564708a3-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/06-herrings-relationship/denticeps-clupeoides-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "PHfz_5G6K9M",
+      "title": "Denticeps clupeoides (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 76,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "2FFi_G_ShXo",
+      "title": "Denticeps clupeoides",
+      "durationSec": 95,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "máy sục khí bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn khô cho cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

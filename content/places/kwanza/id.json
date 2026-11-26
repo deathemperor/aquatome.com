@@ -1,0 +1,16 @@
+{
+  "slug": "kwanza",
+  "name": "Kwanza",
+  "altNames": [],
+  "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-23T01:41:49.301Z",
+    "why": "\"Kwanza\" is ambiguous: as a region it is not a proper unit (Angola has provinces Cuanza Norte and Cuanza Sul), and Indonesian atlases write the river as \"Sungai Kwanza\" and the provinces as \"Kwanza Utara/Selatan\", so the bare name omits the needed kind word or qualifier."
+  },
+  "quality": {
+    "score": 0.3,
+    "indexable": false
+  }
+}

@@ -2,6 +2,7 @@ import type { Photo } from '@aq/schema'
 import { HTMLElement, parse } from 'node-html-parser'
 import type { Lang } from './i18n'
 import { photoMark } from './cite'
+import { widthSrcset } from './img'
 
 /** A picture placed inside article text: a photo, its credit, and optionally what it shows (linked). */
 export type Figure = { photo: Photo; label?: string; href?: string }
@@ -10,7 +11,10 @@ const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 
 /** `small`: one of a grid of small pictures, so the photo's 480 px copy where it has one. */
 export function figureHtml(lang: Lang, { photo: p, label, href }: Figure, small = false): string {
-  const img = `<img src="${esc((small && p.thumb) || p.url)}" width="${p.width}" height="${p.height}" alt="${esc(label ?? p.caption ?? '')}" loading="lazy" decoding="async">`
+  const srcset = small ? undefined : widthSrcset(p)
+  // Use the text-column width. Auto sizes give lazy images a 300 px intrinsic box that can widen a narrow figure grid.
+  const responsive = srcset ? ` srcset="${esc(srcset)}" sizes="min(calc(100vw - 3rem), 640px)"` : ''
+  const img = `<img src="${esc((small && p.thumb) || p.url)}" width="${p.width}" height="${p.height}" alt="${esc(label ?? p.caption ?? '')}" loading="lazy" decoding="async"${responsive}>`
   const what = label ? (href ? `<a href="${esc(href)}">${esc(label)}</a>` : esc(label)) : ''
   return `<figure class="inl">${href ? `<a href="${esc(href)}" tabindex="-1">${img}</a>` : img}<figcaption>${what}${photoMark(lang, p)}</figcaption></figure>`
 }

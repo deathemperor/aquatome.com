@@ -3,6 +3,12 @@
   "name": "Hondo",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-23T01:46:00.364Z",
+    "why": "Hondo is a Belize district (Distrik Corozal's Hondo River region); an Indonesian atlas would likely write \"Sungai Hondo\" for the river, and bare \"Hondo\" omits the kind word, though as a region name it is ambiguous."
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

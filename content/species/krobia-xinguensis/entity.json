@@ -8,13 +8,37 @@
   "places": [
     "south-america",
     "brazil",
-    "xingu"
+    "xingu",
+    "rio-xingu"
   ],
   "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Xingu"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "As the name suggests, the animal originally comes from the Rio Xingu in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Xingu"
+          ]
+        }
+      ]
+    },
     "records": {
       "taxonKey": 7193200,
       "total": 6,
-      "fetched": "2026-11-19",
+      "fetched": "2026-11-21",
       "countries": [
         [
           "BR",
@@ -25,41 +49,43 @@
         [
           -53.4375,
           -4.21875,
+          3,
           3
         ],
         [
           -53.4375,
           -1.40625,
+          1,
           1
         ],
         [
           -52.03125,
           -14.0625,
+          2,
           2
         ]
       ]
     }
   },
-  "dataCard": {
-    "difficulty": [
-      {
-        "source": "glaser",
-        "value": 2
-      }
-    ]
-  },
+  "dataCard": {},
   "sections": [
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/krobia-xinguensis-2/",
-      "html": "<p>This pretty cichlid was scientifically described only in 2012. Until then it was known among hobbyists as Krobia sp. “Xingu Red Head”. A relative of Aequidens, it is an ideal cichlid species for beginners, because it is one of the most peaceful cichlids of all. The fish also have beautiful colours and stay small, under 10 cm, which makes them dwarf cichlids.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/krobia-xinguensis-4/",
+      "html": "<p>Only in 2012 this pretty cichlid was scientifically described, before that it was known in the hobby as Krobia sp. “Xingu Red Head”. As the name suggests, the animal originally comes from the Rio Xingu in Brazil. However, the species is only available as bred ones.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/krobia-xinguensis-4/",
+      "html": "<p>This beautiful Aequidens relative is the ideal cichlid for beginners: there is hardly any other cichlid species that is so peaceful. Furthermore the animals are very attractively coloured and belong with less than 10 cm final size to the dwarf cichlids. This is true at least for specimens in the wild, old aquarium fish might become bigger.</p>"
     },
     {
       "key": "reproduction",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/krobia-xinguensis-2/",
-      "html": "<p>K. xinguensis are typical open brooders with a biparental family.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/krobia-xinguensis-4/",
+      "html": "<p>K. xinguensis are typical open brooders with parent family.</p>"
     }
   ],
   "photos": [
@@ -69,7 +95,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/krobia-xinguensis-2/",
       "source": "glaser"
     },
@@ -79,7 +105,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/krobia-xinguensis-2/",
       "source": "glaser"
     },
@@ -89,7 +115,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/krobia-xinguensis-2/",
       "source": "glaser"
     },
@@ -99,8 +125,38 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/krobia-xinguensis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/53b2fc1d64102b2b.webp",
+      "thumb": "https://media.aquatome.com/glaser/53b2fc1d64102b2b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/krobia-xinguensis-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/23c0311746b030d8.webp",
+      "thumb": "https://media.aquatome.com/glaser/23c0311746b030d8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/krobia-xinguensis-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ba23a30de75f786c.webp",
+      "thumb": "https://media.aquatome.com/glaser/ba23a30de75f786c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/krobia-xinguensis-4/",
       "source": "glaser"
     }
   ],
@@ -153,5 +209,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-19"
+  "updatedAt": "2026-11-21"
 }

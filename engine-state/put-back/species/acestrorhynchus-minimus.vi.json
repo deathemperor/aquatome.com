@@ -1,0 +1,38 @@
+{
+ "at": "2026-11-21T23:11:21Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Những con trong ảnh đến từ Peru",
+   "why": "Refers to a photo from the original article that this page does not have."
+  }
+ ],
+ "text": {
+  "slug": "ca-tetra-barracuda-lun",
+  "name": "Cá tetra barracuda lùn",
+  "altNames": [
+   "Cá barracuda tetra lùn",
+   "Dwarf barracuda tetra",
+   "Cá tetra barracuda",
+   "Barracuda tetra"
+  ],
+  "sections": {
+   "quickFacts:glaser": "<p>Acestrorhynchus minimus là một loài cá tetra barracuda sống ở vùng Amazon. Cá săn mồi thường to con, nhưng loài này thì nhỏ, chỉ dài khoảng 8-10 cm.</p>",
+   "beforeYouBuy:glaser": "<p>Tiếc là loài này rất ít khi được nhập về.</p>",
+   "distribution:glaser": "<p>Cá tetra barracuda có mặt khắp Nam Mỹ, hiện có 14 loài được công nhận. Dựa trên các mẫu vật khoa học thu thập được, A. minimus có ở Brazil, Venezuela và vùng biên giới giữa Brazil với Colombia. Mẫu chuẩn của loài được thu ở hồ Lago Jacaré, thuộc sông Rio Trombetas ở Brazil. Những con trong ảnh đến từ Peru, nhưng chúng khớp với mọi đặc điểm nhận dạng của loài.</p>",
+   "aquariumSize:glaser": "<p>Các loài tetra barracuda khác chủ yếu dài tới 20-30 cm và cần bể rất lớn. A. minimus thì chỉ dài khoảng 8-10 cm, nuôi trong bể cỡ vừa, dài chừng 120 cm là rất ổn.</p>",
+   "notes:glaser": "<p>Có vài loài thân to trông giống A. minimus. Cách phân biệt chắc nhất là nhìn đốm đen: A. minimus chỉ có một đốm đen ở gốc đuôi, còn ở mép sau nắp mang thì không có đốm.</p>"
+  },
+  "quality": {
+   "score": 0.92,
+   "indexable": false,
+   "bySource": {
+    "glaser": 0.92
+   },
+   "reason": "thin"
+  }
+ }
+}

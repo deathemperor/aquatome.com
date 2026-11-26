@@ -3,6 +3,12 @@
   "name": "กัมโป-มาอาน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T18:47:17.886Z",
+    "why": "The transliteration กัมโป-มาอาน is phonetically reasonable for Campo-Ma'an, but the name is for a national park/region and has no Thai kind word like อุทยานแห่งชาติ, and the \"มาอาน\" rendering is uncertain."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

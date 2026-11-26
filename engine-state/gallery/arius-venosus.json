@@ -10,12 +10,18 @@
   "gbif:1456481520:c4587a30879e59c6",
   "gbif:1456481520:262f3955a141bda0",
   "gbif:1456481520:ad851b8e2e4b4cf8",
-  "gbif:1456481520:f2129a926d0949d1"
+  "gbif:1456481520:f2129a926d0949d1",
+  "inat:25027957",
+  "inat:25027966",
+  "inat:25027948",
+  "inat:534924190",
+  "inat:534924236",
+  "inat:534924274",
+  "inat:589258994",
+  "inat:627015427",
+  "inat:627015428"
  ],
- "hashes": {
-  "https://media.aquatome.com/scotcat/1e28837fb1488d20.webp": "1315151f3e2e34f0",
-  "https://media.aquatome.com/scotcat/660547d915e3e5f2.webp": "e7e6eec21bc591c3"
- },
+ "hashes": {},
  "inat": {
   "taxon": 608553,
   "pass": "done",
@@ -28,5 +34,13 @@
  "gbif": {
   "key": 2345242,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 344144229,
+  "done": true
+ },
+ "exhausted": "2026-11-21"
 }

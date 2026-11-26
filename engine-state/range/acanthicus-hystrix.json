@@ -1,8 +1,8 @@
 {
   "id": "acanthicus-hystrix",
   "native": {
-    "input": "917f56932ecbe610",
-    "at": "2026-11-05T22:45:18.315Z",
+    "input": "ad09c49f5797293b",
+    "at": "2026-11-22T12:48:24.036Z",
     "claims": [
       {
         "code": "BR",
@@ -27,30 +27,6 @@
         "quote": "A handful of records come from the Orinoco in Venezuela.",
         "words": "Venezuela",
         "ok": true
-      },
-      {
-        "code": "BR",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The precise type locality is unknown and given simply as 'Amazon River', although the species has subsequently been recorded throughout much of the Amazon region in Brazil and Peru, plus there exist a handful of records pertaining to the Río Orinoco drainage in Venezuela.",
-        "words": "Brazil",
-        "ok": true
-      },
-      {
-        "code": "PE",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The precise type locality is unknown and given simply as 'Amazon River', although the species has subsequently been recorded throughout much of the Amazon region in Brazil and Peru, plus there exist a handful of records pertaining to the Río Orinoco drainage in Venezuela.",
-        "words": "Peru",
-        "ok": true
-      },
-      {
-        "code": "VE",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The precise type locality is unknown and given simply as 'Amazon River', although the species has subsequently been recorded throughout much of the Amazon region in Brazil and Peru, plus there exist a handful of records pertaining to the Río Orinoco drainage in Venezuela.",
-        "words": "Venezuela",
-        "ok": true
       }
     ],
     "regions": [
@@ -61,10 +37,22 @@
         "ok": true
       },
       {
-        "name": "Río Orinoco",
+        "name": "Orinoco",
         "source": "seriouslyfish",
-        "quote": "The precise type locality is unknown and given simply as 'Amazon River', although the species has subsequently been recorded throughout much of the Amazon region in Brazil and Peru, plus there exist a handful of records pertaining to the Río Orinoco drainage in Venezuela.",
+        "quote": "A handful of records come from the Orinoco in Venezuela.",
         "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Rio Tocantins",
+        "source": "glaser",
+        "quote": "The L155 come from the Furo Maguari, a tributary of the Rio Tocantins.",
+        "ok": true
+      },
+      {
+        "name": "Rio Xingu",
+        "source": "glaser",
+        "quote": "For one of them, a form from the Rio Xingu, the L-number 155 was assigned.",
         "ok": true
       }
     ],

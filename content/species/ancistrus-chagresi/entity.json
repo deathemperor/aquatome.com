@@ -1,0 +1,107 @@
+{
+  "id": "ancistrus-chagresi",
+  "scientificName": "Ancistrus chagresi",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Ancistrus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "panama",
+    "chagres"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 19.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1503",
+      "html": "<p>Ancistrus chagresi Eigenmann &amp; Eigenmann, 1889. Common name: Bristlenose Catfish. Size: 195 mm SL. pH 6.5–7.5; temperature 24–27°C. IUCN: Least Concern.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1503",
+      "html": "<p>South America: Panama, Caribbean rivers, Chagres and Gatun. Type locality: Río Chagres, Panama Canal Zone, Panama. Habitat: Rio Ipeti, Panama.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1503",
+      "html": "<p>Ancistrus should be fed mainly on vegetarian foods. Prepared foods include algae wafers and spirulina based sinking food. Vegetables such as courgette/zucchini and (English) cucumber are an excellent addition to the diet, along with the odd, small amount of more meaty foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1503",
+      "html": "<p>A good complement to most aquariums, they are not aggressive to other species. Males may fight over territory if kept in too small a tank. Suitable with most community fish that aren't overly big or aggressive.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1503",
+      "html": "<p>Mature males and sometimes females have soft tentacles (bushy fleshy growths) on the snout, which is unique to the genus Ancistrus. Males develop soft tentacles on the head; females sometimes do too, but never to the extent seen in males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1503",
+      "html": "<p>All Ancistrus species are cave-breeders, where the male looks after the eggs and young fry. There is no breeding report for this species.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1503",
+      "html": "<p>Proceedings of the California Academy of Sciences (Series 2) v. 2, pp 47.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên rong tảo spirulina chìm"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá cộng đồng 120 lít"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
+}

@@ -1,14 +1,23 @@
 {
   "id": "apistogramma-diplotaenia",
   "native": {
-    "input": "74c8734d693dddc0",
-    "at": "2026-11-09T20:43:02.940Z",
+    "input": "3775679e186a069c",
+    "at": "2026-11-22T12:48:24.036Z",
     "claims": [],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "This unusual Apistogramma species originates from the black water of the Rio Negro, where it lives mostly over bare sandy bottoms in larger breeding colonies.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "BR"
+      ],
       "sourcesOnly": []
     }
   },

@@ -1,0 +1,407 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Power (30B III)",
+      "value": "11 W",
+      "source": 3
+    },
+    {
+      "key": "Luminous flux (30B III)",
+      "value": "820 lm",
+      "source": 3
+    },
+    {
+      "key": "Dimensions (30B III)",
+      "value": "270 × 55 × 130 mm (W × D × H)",
+      "source": 3
+    },
+    {
+      "key": "Recommended tank width (30B III)",
+      "value": "up to 36 cm",
+      "source": 4
+    },
+    {
+      "key": "LED type",
+      "value": "WRGB (white + RGB), full spectrum",
+      "source": 3
+    },
+    {
+      "key": "Housing material",
+      "value": "Aluminium",
+      "source": 3
+    },
+    {
+      "key": "Frame",
+      "value": "CNC-machined aluminium, helps heat dissipation",
+      "source": 0
+    },
+    {
+      "key": "Color temperature",
+      "value": "7500K",
+      "source": 0
+    },
+    {
+      "key": "Input voltage",
+      "value": "AC 110–240 V, 50/60 Hz",
+      "source": 1
+    },
+    {
+      "key": "Operating temperature",
+      "value": "0–35 °C",
+      "source": 1
+    },
+    {
+      "key": "LED lifespan",
+      "value": "about 30,000 hours",
+      "source": 1
+    },
+    {
+      "key": "Glass thickness for mounting",
+      "value": "under 10 mm",
+      "source": 0
+    },
+    {
+      "key": "Controller (30B III)",
+      "value": "Inline dimmer included: 7 brightness levels, 6/8/10 h timer, 10-minute sunrise/sunset",
+      "source": 4
+    },
+    {
+      "key": "Optional Bluetooth controller",
+      "value": "LightControl Standard (sold separately): 100 brightness steps, app timers, sunrise/sunset up to 60 min",
+      "source": 3
+    },
+    {
+      "key": "Origin",
+      "value": "South Korea",
+      "source": 2
+    },
+    {
+      "key": "Warranty (Greendeal, B-Line III)",
+      "value": "12 months",
+      "source": 2
+    },
+    {
+      "key": "Warranty (Shrimp Home)",
+      "value": "3 months from receipt",
+      "source": 1
+    }
+  ],
+  "variants": [
+    {
+      "name": "30B III (2025)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "11 W",
+          "source": 3
+        },
+        {
+          "key": "Luminous flux",
+          "value": "820 lm",
+          "source": 3
+        },
+        {
+          "key": "Dimensions",
+          "value": "270 × 55 × 130 mm",
+          "source": 3
+        },
+        {
+          "key": "Tank width",
+          "value": "up to 36 cm",
+          "source": 3
+        }
+      ]
+    },
+    {
+      "name": "30B (earlier B Line)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "9 W",
+          "source": 6
+        },
+        {
+          "key": "Luminous flux",
+          "value": "about 679 lm",
+          "source": 6
+        },
+        {
+          "key": "Dimensions",
+          "value": "245 × 55 × 13 mm",
+          "source": 6
+        },
+        {
+          "key": "Tank size",
+          "value": "30–40 cm, glass 1–10 mm",
+          "source": 6
+        }
+      ]
+    },
+    {
+      "name": "30B II",
+      "specs": [
+        {
+          "key": "Tank width",
+          "value": "adjustable up to 40 cm (support Q&A)",
+          "source": 5
+        },
+        {
+          "key": "Dimmer",
+          "value": "included, detachable inline",
+          "source": 5
+        }
+      ]
+    },
+    {
+      "name": "90B II",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "40 W",
+          "source": 5
+        },
+        {
+          "key": "Luminous flux",
+          "value": "2,600 lm",
+          "source": 5
+        },
+        {
+          "key": "Length",
+          "value": "848 mm",
+          "source": 5
+        },
+        {
+          "key": "Tank length",
+          "value": "approx. 900–1,000 mm",
+          "source": 5
+        }
+      ]
+    },
+    {
+      "name": "B Line range sizes",
+      "specs": [
+        {
+          "key": "Models",
+          "value": "30B, 45B, 60B, 90B, 120B",
+          "source": 2
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Greendeal",
+      "url": "https://www.greendeal.vn/twinstar-led-light-b-line-iii",
+      "variant": "30B III",
+      "vnd": 980000,
+      "source": 2
+    },
+    {
+      "shop": "Shrimp Home",
+      "url": "https://shrimphome.vn/den-led-twinstar-b-line-wrgb-30b-45b-60b-90b-120b",
+      "variant": "30B (B Line WRGB, version not stated)",
+      "vnd": 735000,
+      "source": 1
+    },
+    {
+      "shop": "Thủy Sinh Tim",
+      "url": "https://thuysinhtim.vn/den-thuy-sinh-twinstar-b-line",
+      "variant": "30B (version not stated; marked sold out)",
+      "vnd": 890000,
+      "source": 0
+    },
+    {
+      "shop": "Greendeal",
+      "url": "https://www.greendeal.vn/twinstar-led-light-b-line-iii",
+      "variant": "45B III",
+      "vnd": 1350000,
+      "source": 2
+    },
+    {
+      "shop": "Shrimp Home",
+      "url": "https://shrimphome.vn/den-led-twinstar-b-line-wrgb-30b-45b-60b-90b-120b",
+      "variant": "45B",
+      "vnd": 1020000,
+      "source": 1
+    }
+  ],
+  "fits": [
+    {
+      "fact": "The 30B suits nano and small tanks, up to about 18 inches (45 cm).",
+      "source": 9
+    },
+    {
+      "fact": "The B line is made for plants that need low to medium light, such as Anubias, Java fern and mosses.",
+      "source": 7
+    },
+    {
+      "fact": "It works well for low-tech planted tanks and freshwater tanks with fish only.",
+      "source": 8
+    },
+    {
+      "fact": "A Vietnamese shop recommends it for shrimp- or snail-only tanks, or for undemanding plants such as ferns, moss and Bucephalandra.",
+      "source": 1
+    },
+    {
+      "fact": "The light is designed to sit on rimless tanks with glass thinner than 10 mm.",
+      "source": 0
+    },
+    {
+      "fact": "The WRGB spectrum is said to suit tropical fish and plants.",
+      "source": 5
+    },
+    {
+      "fact": "The shop says the WRGB mix makes plants, fish and shrimp look more vivid without tinting the water.",
+      "source": 2
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Adjustable legs or supports let the light fit tanks of different widths.",
+      "source": 4
+    },
+    {
+      "fact": "The dimmer comes in the box but is a separate inline part, not built into the light. The maker advises using only an original Twinstar dimmer.",
+      "source": 5
+    },
+    {
+      "fact": "The B II light has no timer of its own, so support suggests plugging it into a timer socket.",
+      "source": 5
+    },
+    {
+      "fact": "On the 30B III, the bundled dimmer has 6, 8 and 10 hour timer settings and a 10-minute sunrise/sunset ramp.",
+      "source": 4
+    },
+    {
+      "fact": "The light brightens gradually when switched on so fish are not startled. This still works when it runs on a socket timer.",
+      "source": 2
+    },
+    {
+      "fact": "The shop says the output comes tuned from the factory, so no app or adjustment is needed.",
+      "source": 1
+    },
+    {
+      "fact": "For online orders, the shop suggests filming the unboxing in case you need to make a claim.",
+      "source": 1
+    }
+  ],
+  "issues": [
+    {
+      "fact": "Specs differ between versions. The earlier 30B is listed at 9 W and about 679 lm, while the 2025 30B III is 11 W and 820 lm. Check which version a shop is selling.",
+      "source": 3
+    },
+    {
+      "fact": "The 2025 redesign is said to be brighter, have a better-balanced spectrum and be better built, but no figures are given for these claims.",
+      "source": 3
+    },
+    {
+      "fact": "Vietnamese shops often don't say whether they sell version II or III, and warranties range from 3 months to 12 months.",
+      "source": 1
+    },
+    {
+      "fact": "A UK retailer's spec table lists 0–25 W and 0–32 cm, which conflicts with its own 11 W and 36 cm figures.",
+      "source": 4
+    },
+    {
+      "fact": "A forum user found the Twinstar dimmer simple to use, but noted it has no display, timer presets are chosen with a button, and the older unit had no sunset function.",
+      "source": 10
+    },
+    {
+      "fact": "I found no forum reports of noise, failures or durability problems for the 30B.",
+      "source": 10
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Chihiros",
+      "model": "C2 RGB",
+      "why": "A clip-on RGB light for nano tanks of about 20–45 cm. It has 20 W and Bluetooth app control, so it's brighter and more adjustable, but it costs more in Vietnam (about 1.7–1.95 million VND).",
+      "source": 11
+    },
+    {
+      "brand": "Week Aqua",
+      "model": "V series (V300) WRGB",
+      "why": "An aluminium WRGB light sold by Vietnamese shops in sizes from 200 to 1200. It's a common local alternative to the B Line.",
+      "source": 12
+    },
+    {
+      "brand": "Twinstar",
+      "model": "C Line III (300C)",
+      "why": "Twinstar's own C Line III WRGB range, sold at Shrimp Home. It's an option if you want to stay with Twinstar.",
+      "source": 13
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://thuysinhtim.vn/den-thuy-sinh-twinstar-b-line",
+      "title": "Đèn Thuỷ Sinh Twinstar B-Line – Thủy Sinh Tim",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shrimphome.vn/den-led-twinstar-b-line-wrgb-30b-45b-60b-90b-120b",
+      "title": "Đèn led Twinstar B Line WRGB 30B–120B – Shrimp Home",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.greendeal.vn/twinstar-led-light-b-line-iii",
+      "title": "TWINSTAR - LED Light B-Line III – Greendeal",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquaremedyireland.com/shop/lighting-systems/twinstar-b-series/twinstar-led-light-30b-iii/?v=6ec2065c526d",
+      "title": "Twinstar LED Light 30B III – Aquascaping Ireland",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.completeaquatics.co.uk/twinstar-b-line-30b",
+      "title": "Twinstar B-Line 30B III – Complete Aquatics",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquasabi.de/Twinstar-LED-Light-B-II_1",
+      "title": "Twinstar LED Light B II – Aquasabi",
+      "kind": "shop"
+    },
+    {
+      "url": "https://piscespets.com/products/twinstar-b-line-led-lights",
+      "title": "Twinstar B Line LED Lights – Pisces Pets",
+      "kind": "shop"
+    },
+    {
+      "url": "https://buceplant.com/products/twinstar-led-b-line-aquarium-light-fixture",
+      "title": "Twinstar LED - B Line Aquarium Light Fixture – Buce Plant",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shop.glassaqua.com/products/twinstar-led-b-series",
+      "title": "Twinstar Aquarium Light - B Series – Glass Aqua",
+      "kind": "shop"
+    },
+    {
+      "url": "https://armoredcataquatics.com/products/twinstar-30b",
+      "title": "TwinStar B Series – Armored Cat Aquatics",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.ukaps.org/forum/threads/new-twinstar-branded-led-dimmer-controller.71168/",
+      "title": "New Twinstar branded LED dimmer controller – UKAPS forum",
+      "kind": "forum"
+    },
+    {
+      "url": "https://thuysinh4u.com/den-chihiros-c2-rgb",
+      "title": "Đèn Chihiros C2 RGB – Thủy Sinh 4U",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shrimphome.vn/den-led-week-raptor-wrgb-v-series-v300-v450-v600-v800",
+      "title": "Đèn led Week Aqua New V series Ver.3 WRGB – Shrimp Home",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shrimphome.vn/den-led-twinstar-c-line-iii-wrgb-200c-300c-450c-600c-900c-1200c",
+      "title": "Đèn led Twinstar C Line III WRGB – Shrimp Home",
+      "kind": "shop"
+    }
+  ]
+}

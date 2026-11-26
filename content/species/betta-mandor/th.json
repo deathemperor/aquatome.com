@@ -33,11 +33,11 @@
     "references:seriouslyfish": "<ul><li>Tan, H. H. and P. K. L. Ng (2006). Six new species of fighting fish (Teleostei: Osphronemidae: Betta) from Borneo. Ichthyological Exploration of Freshwaters 17(2), 97-114</li><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li><li>Vierke, J. (1979). Betta anabatoides und Betta foerschi spec. nov., zwei Kampffische aus Borneo. Aquarium Aqua Terra 13(123), 386-390</li><li>Schaller, D. and M. Kottelat (1989). Betta strohi sp. n., ein neuer Kampffisch aus Südborneo (Osteichthyes: Belontiidae). Aquarien und Terrarien-Zeitschrift 43(1), 31, 33-37</li></ul>"
   },
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "bwaquatics": 0.7,
-      "seriouslyfish": 0.7
+      "bwaquatics": 0.85,
+      "seriouslyfish": 0.85
     }
   }
 }

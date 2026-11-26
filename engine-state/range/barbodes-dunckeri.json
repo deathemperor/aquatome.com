@@ -1,8 +1,8 @@
 {
   "id": "barbodes-dunckeri",
   "native": {
-    "input": "ffa2815c4b021cfe",
-    "at": "2026-11-06T15:17:52.851Z",
+    "input": "f0f3393c11d2b327",
+    "at": "2026-11-21T07:12:58.512Z",
     "claims": [
       {
         "code": "MY",
@@ -19,16 +19,23 @@
         "quote": "Described from 'Bukith Timah, Singapore' and also occurs throughout Peninsular Malaysia though may now be extirpated in Singapore.",
         "words": "Singapore",
         "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Barbodes dunckeri originally comes from the Malaysian peninsula.",
+        "words": "Malaysian",
+        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Peninsular Malaysia",
-        "source": "seriouslyfish",
-        "quote": "Described from 'Bukith Timah, Singapore' and also occurs throughout Peninsular Malaysia though may now be extirpated in Singapore.",
+        "name": "Malaysian peninsula",
+        "source": "glaser",
+        "quote": "Barbodes dunckeri originally comes from the Malaysian peninsula.",
         "country": "MY",
-        "ok": false,
-        "why": "a country"
+        "ok": true
       }
     ],
     "disputed": [],

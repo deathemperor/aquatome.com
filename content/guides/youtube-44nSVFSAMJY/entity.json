@@ -1,0 +1,77 @@
+{
+  "id": "youtube-44nSVFSAMJY",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=44nSVFSAMJY",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-22",
+  "video": {
+    "youtubeId": "44nSVFSAMJY",
+    "title": "What's The REAL Reason We Use Water Conditioners?",
+    "channel": "KGTropicals",
+    "channelUrl": "https://www.youtube.com/channel/UCyyGJeKITfR7Y5cq2zX4-oQ",
+    "durationSec": 1023,
+    "publishedAt": "2025-02-23",
+    "chapters": [],
+    "series": {
+      "id": "PLbk3wN8TF_D0vpChcrJcoLtO8r5TREGVt",
+      "position": 13
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/44nSVFSAMJY/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Complete",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "Seachem",
+        "model": "Prime",
+        "t": 210
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Guard",
+        "t": 626
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "7",
+        "t": 870
+      },
+      {
+        "category": "khac",
+        "brand": "API",
+        "model": "Stress Coat",
+        "t": 755
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Vì sao khử clo là để giữ vi sinh",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/44nSVFSAMJY/p1-Z2VuQ3ljbGUucG5n.webp",
+          "thumb": "https://media.aquatome.com/video/44nSVFSAMJY/p1-Z2VuQ3ljbGUucG5n-480.webp",
+          "width": 960,
+          "height": 619,
+          "licence": "CC BY 2.5",
+          "author": "w:pl:Wikipedysta:Lukas3",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium-NitrogenCycle.png",
+          "caption": "Sơ đồ chu trình nitơ trong bể: vi sinh xử lý NH3 thành NO2 rồi NO3."
+        }
+      }
+    ]
+  }
+}

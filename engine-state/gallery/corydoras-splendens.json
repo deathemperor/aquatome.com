@@ -3,12 +3,18 @@
  "judged": [
   "File:F de Castelnau-poissonsPl19.jpg",
   "File:London Zoo - Flickr - p a h (15).jpg",
-  "File:F de Castelnau-poissonsPl18-Brochis splendens.jpg"
+  "File:F de Castelnau-poissonsPl18-Brochis splendens.jpg",
+  "inat:336655532",
+  "inat:336655542",
+  "inat:336655550"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/d8d1fa9b5ce8fb68.webp": "343e7c3c3c4f8757",
   "https://media.aquatome.com/commons/32a1b8f924040a8a.webp": "4b87c7c78f1d68c4",
-  "https://media.aquatome.com/commons/4849c13c71690dee.webp": "0d4333e6de8fbf47"
+  "https://media.aquatome.com/commons/4849c13c71690dee.webp": "0d4333e6de8fbf47",
+  "https://media.aquatome.com/glaser/c3ec4dbf68568772.webp": "99b1c393274e3859",
+  "https://media.aquatome.com/glaser/8b13d34b7c46f6dd.webp": "838393666500000c",
+  "https://media.aquatome.com/glaser/c2ce5c09626e1557.webp": "0f13131f3e7e3f6f"
  },
  "inat": {
   "taxon": 810582,
@@ -25,6 +31,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 191845341,
+  "done": true
  },
  "exhausted": "2026-11-10"
 }

@@ -1,0 +1,341 @@
+{
+  "found": true,
+  "species": [
+    "Rotala",
+    "Anubias"
+  ],
+  "sources": [
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/aquarium-co2-system",
+      "title": "How to Set Up a CO2 System for Planted Aquariums the Easy Way – Aquarium Co-Op",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.tankarium.com/co2-in-aquarium/",
+      "title": "CO2 In Aquarium - Signs You Have Too Much And What To Do About It",
+      "kind": "keeper"
+    },
+    {
+      "url": "https://m55.vn/co2-trong-thuy-sinh-va-vai-tro-cua-no/",
+      "title": "CO2 trong thủy sinh và vai trò của nó - M55 AQuarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquazonefish.vn/blogs/kien-thuc/he-thong-co2-co-that-su-can-thiet-khong",
+      "title": "Hệ Thống CO2 Cho Bể Thủy Sinh: Có Thật Sự Cần Thiết Không? - AquaZone - Siêu thị cá cảnh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://dennerle.com/en/guides/why-do-i-need-co2",
+      "title": "CO₂ im Aquarium: Warum Pflanzen CO₂ brauchen & Tipps zur Dosierung – Dennerle",
+      "kind": "maker"
+    }
+  ],
+  "facts": [
+    {
+      "section": "other",
+      "fact": "Name for the term: \"khí CO2\"",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"CO2 trong thủy sinh\"",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Plants use CO2 as a basic building block for growth. Light, fertilizer and CO2 must stay in balance.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "In photosynthesis, plants turn CO2 and water into sugars and release oxygen.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Carbon makes up almost half of a plant's dry mass.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Without added CO2, an aquarium holds on average about 0.5 mg/L of CO2. Natural waters with dense plant growth can reach up to 50 mg/l.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Air contains about 400 ppm CO2, but water typically holds only about 2 to 4 mg/l, which is why plants may need extra CO2.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Some dissolved CO2 forms carbonic acid, so a moderate addition lowers the pH into the slightly acidic range.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Fish and invertebrates get rid of CO2 through their gills by diffusion. This works only if the water holds clearly less CO2 than their blood.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "At high CO2 levels, animals cannot release the gas and so cannot take up oxygen. In the worst case they suffocate even though oxygen is present.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Fast-growing plants such as Rotala need more added CO2. So do strong light and dense planting.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "A tank under 20 lít may have enough natural CO2. Tanks of 60 lít or more often lack it.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Too much CO2 in fish shows as lethargy, poor appetite, loss of consciousness and gasping at the surface.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "With too much CO2, fish swim sluggishly and rise to the surface to breathe. If this goes on, fish can die.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Signs of too little CO2 include leaves turning yellow, slowed growth, and algae or bacteria blooms.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "On a drop checker, green means the right level, yellow means too much CO2 and dark blue means too little.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Plants pearling is a sign that the water is saturated with oxygen.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "CO2 can build up from overdosing through an injection system.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "At night plants respire and release CO2, which adds to the buildup.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Some kits inject too much gas as the cylinder nears empty.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Low dissolved oxygen makes fish more sensitive to CO2.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Errors in pH/KH test kit readings can hide dangerous CO2 levels.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "CO2 can harm fish if pH drops too quickly or if the setup cuts off oxygen.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "For a CO2 overdose, do a large water change with dechlorinated water at the tank's temperature. This is the quickest and most effective fix.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "An air stone or surface agitation helps against excess CO2, but less than a water change.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Most fish and invertebrates tolerate about 30 ppm (mg/l) of CO2. The page cites an FDACS recommendation of under 32 ppm for aquatic livestock.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Safe CO2 levels are higher when dissolved oxygen is high and lower when it is low.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "pH 6.6 with 4 KH corresponds to about 32 ppm CO2.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Dennerle recommends about 20 mg/L of CO2 for planted tanks, checked with a continuous test so this limit is not exceeded.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Start a pressurized system at about 1 bubble per second, a deliberately light dose to keep fish safe, then increase the rate until plants pearl.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Plants take at least 24 hours to respond, so wait three days between bubble-rate adjustments.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquarium Co-Op does not chase 30 ppm with drop checkers. It watches how the plants respond instead.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "A pH of 6.5 to 7.5 is usually ideal for most plants and fish.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Step 1: Screw the regulator onto the CO2 cylinder.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Step 2: Fill the bubble counter with water or mineral oil and attach airline tubing to its lid.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Step 3: Run the tubing to the diffuser at the bottom of the tank.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Step 4 (optional): Fit a check valve in the line near the tank rim.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Step 5: Connect the solenoid cable to its power adapter, plug the adapter into a timer, and plug the timer into an outlet.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Turn CO2 on 1–2 hours before the light and off 1 hour before the light shuts off.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Use a two-stage regulator for steadier flow.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Cylinder sizes: 2.5–5 lb for tanks up to 20 gallons, 5 lb for 25–40 gallons, and 10 lb for 55 gallons or more.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Bio CO2 systems use microorganisms that break down organic material to make CO2. They suit tanks up to 100 liters.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Turn off CO2 at night, because plants respire then and release CO2 instead of using it.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Turn off CO2 at night, or use an automatic system that follows the time of day.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Change the CO2 cylinder before the gas runs very low.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Aim for a darker green on the drop checker rather than yellowish-green. In large tanks use more than one checker. In small tanks, move it around.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Add an air stone for surface agitation. The bubble rate may need a slight increase to make up for lost CO2.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Instead of adding CO2, keepers can grow plants that need little of it, such as Anubias.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Expecting CO2 alone to stop algae is a mistake. Too much light or fertilizer for the amount of CO2 (or the reverse) brings algae.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "More light needs more fertilizer and more CO2, or algae will spread.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Cutting surface agitation to save CO2 also cuts oxygen and can make fish gasp.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Don't use paintball cylinders. The regulator needs standard cylinders with CGA320 threads.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Mounting the diffuser high means the bubbles don't dissolve. Place it as low as possible and clean it when algae clogs it.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "CO2 slowly degrades plastic check valves, so they should not be used indefinitely.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Dennerle advises against using CO2 to force a very high pH sharply down.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Common mistakes: overdosing CO2, leaving it running at night, not monitoring the level with a meter, and ignoring refill and upkeep costs.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "If CO2 is too high and pH drops too far, plants are stressed, and fish can be stressed if pH falls too low.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Liquid CO2 (\"dung dịch CO2 lỏng\") should not be overdosed.",
+      "source": 2
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese shop pages name CO2 equipment \"bình CO2\" (cylinder), \"bộ đếm giọt CO2\" (bubble counter), \"van điều chỉnh\" (regulator) and \"máy đo nồng độ CO2 (drop checker)\".",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Products named on a Vietnamese shop's page: \"dung dịch CO2 lỏng\", \"viên CO2\" and \"hệ thống CO2 tự động\".",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "Dennerle answers \"Does my aquarium work without CO2?\" with \"yes and no\": some hardy plants manage with little CO2 but grow better with more.",
+      "source": 4
+    }
+  ]
+}

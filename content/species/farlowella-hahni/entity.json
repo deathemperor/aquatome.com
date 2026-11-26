@@ -1,0 +1,115 @@
+{
+  "id": "farlowella-hahni",
+  "scientificName": "Farlowella hahni",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Farlowella",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "argentina",
+    "parana",
+    "paraguay"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1539",
+      "html": "<ul><li><strong>Scientific name:</strong> Farlowella hahni Meinken, 1937</li><li><strong>Common name:</strong> Twig Catfish</li><li><strong>Etymology:</strong> Named after W. G. Farlow, from Harvard University.</li><li><strong>Type locality:</strong> Río Paraná, about 2 kilometres east of Ayolas, Misiones Dept., Paraguay.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1539",
+      "html": "<p>Argentina, Rio Paraná basin, La Plata.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1539",
+      "html": "<p>Suggested tankmates: smaller tetras or rasboras are suitably mannered, and perhaps hatchetfish are best. Avoid fast or \"nippy\" fishes such as danios or barbs. Will do well with Corydoras catfish, but larger catfish or cichlids are to be avoided.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1539",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1539",
+      "html": "<p>Blätter für Aquarien- und Terrarienkunde v. 48 (no. 4), pp 77, Fig. 2.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/1235d37c32359f1e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/1235d37c32359f1e-480.webp",
+      "width": 500,
+      "height": 314,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_hahni.htm",
+      "caption": "Farlowella hahni",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/39e0796a41078774.webp",
+      "thumb": "https://media.aquatome.com/scotcat/39e0796a41078774-480.webp",
+      "width": 500,
+      "height": 331,
+      "licence": "dùng với sự cho phép",
+      "author": "&nbs / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_hahni.htm",
+      "caption": "Farlowella hahni: head view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "GRFTNKdt3Ow",
+      "title": "ファロエラハーニー　Farlowella hahni",
+      "durationSec": 29,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "3obw9uxUOW8",
+      "title": "Фарловелла Хахна",
+      "durationSec": 19,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "x2GD_jXBusY",
+      "title": "Cuidados del pez farlowella",
+      "durationSec": 191,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên rau củ cho cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
+}

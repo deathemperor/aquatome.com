@@ -1,0 +1,69 @@
+{
+  "id": "panaque-titan",
+  "native": {
+    "input": "2223b0246ebe6b7e",
+    "at": "2026-11-21T13:11:30.372Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "One of the most spectacular species comes from Peru and was given the L-number 418.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Panaque titan is known only from relatively large rivers in lowland and piedmont habitats of the Napo River basin in Ecuador and possibly in the Caquetá river basin in Colombia.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "doubtful",
+        "source": "scotcat",
+        "quote": "Panaque titan is known only from relatively large rivers in lowland and piedmont habitats of the Napo River basin in Ecuador and possibly in the Caquetá river basin in Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Napo River",
+        "source": "scotcat",
+        "quote": "Panaque titan is known only from relatively large rivers in lowland and piedmont habitats of the Napo River basin in Ecuador and possibly in the Caquetá river basin in Colombia.",
+        "country": "EC",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Panaque titan",
+    "status": "ACCEPTED",
+    "taxonKey": 5961549,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ]
+    ],
+    "native": [
+      "PE",
+      "EC"
+    ],
+    "requests": 11,
+    "at": "2026-11-21T13:11:30.372Z"
+  }
+}

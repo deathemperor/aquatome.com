@@ -14,11 +14,13 @@ import BreedList from '../../components/BreedList.astro'
 import GlossaryTip from '../../components/GlossaryTip.astro'
 import { getContent } from '../../lib/content'
 import { creditsFor, VIDEO_CARDS } from '../../lib/credits'
+import { shareImage } from '../../lib/gallery'
 import { breedIsFish, breedKind, type Breed } from '../../lib/breeds'
 import { breedParts } from '../../lib/breed-page'
 import { dmy } from '../../lib/products'
 import { i18n, isVietnameseTitle, langOf } from '../../lib/i18n'
 import { alternatesOf } from '../../lib/alternates'
+import { articleLd, breadcrumbLd } from '../../lib/structured-data'
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
   return c.breeds.map(b => ({ params: { breed: b.t.slug }, props: { b } }))
@@ -28,23 +30,23 @@ const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
 // Put together with the app's copy of it (lib/breed-page.ts).
 const { key, parent, parents, card, sources, gallery, strip, lines, linePhotos, body, guides, videoGuides, videoPhotos } = breedParts(lang, c, b)
-const url = new URL(`/vi/ca/${b.t.slug}/`, Astro.site).href
 // A shrimp's line (the blue velvet shrimp, a cherry shrimp's) isn't under "Loài cá" and isn't called a fish.
 const fish = breedIsFish(c, b)
 const list = t(fish ? 'Loài cá' : 'Loài')
 const jsonld = [
-  { '@context': 'https://schema.org', '@type': 'Article', headline: b.t.name, alternativeHeadline: b.t.altNames.slice(0, 3).join(', ') || undefined, inLanguage: lang, dateModified: b.updatedAt, image: b.photos[0]?.url, mainEntityOfPage: url, description: b.t.summary?.join(' ') },
-  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
-    { '@type': 'ListItem', position: 1, name: list, item: new URL('/vi/ca/', Astro.site).href },
-    ...(parent ? [{ '@type': 'ListItem', position: 2, name: parent.name, item: new URL(parent.href, Astro.site).href }] : []),
-    { '@type': 'ListItem', position: parent ? 3 : 2, name: b.t.name, item: url },
-  ] },
+  articleLd(Astro.site!, lang, Astro.url.pathname, {
+    headline: b.t.name, alternativeHeadline: b.t.altNames.slice(0, 3).join(', ') || undefined,
+    dateModified: b.updatedAt, image: shareImage(b.photos), description: b.t.summary?.join(' '),
+  }),
+  breadcrumbLd(Astro.site!, lang, [
+    ['/vi/ca/', list], ...(parent ? [[parent.href, parent.name] as const] : []), [Astro.url.pathname, b.t.name],
+  ]),
   ...(b.t.faq?.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: b.t.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
 ]
 const title = t('{name}: nguồn gốc, cách nuôi, chọn mua', { name: b.t.name })
 const alternates = await alternatesOf('breeds', b.id)
 ---
-<Base title={`${title} — AquaTome`} description={b.t.summary?.join(' ')} image={b.photos[0]?.url} noindex={!b.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...strip, ...linePhotos, ...videoPhotos.slice(0, VIDEO_CARDS)].map(p => p ?? undefined))}>
+<Base title={`${title} — AquaTome`} description={b.t.summary?.join(' ')} image={shareImage(b.photos)} noindex={!b.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...strip, ...linePhotos, ...videoPhotos.slice(0, VIDEO_CARDS)].map(p => p ?? undefined))}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label={t('Đường dẫn')}>
     <a href="/vi/ca/">{list}</a>{parent && <> / <a href={parent.href}>{parent.name}</a></>}
@@ -66,7 +68,7 @@ const alternates = await alternatesOf('breeds', b.id)
     </div>
   </header>
 
-  {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} name={b.t.name} />}
+  {gallery.length > 0 && <GalleryStrip photos={gallery} shown={strip} name={b.t.name} />}
   {b.t.summary?.length ? <div class="wrap"><div class="verdict"><h2>{t('Tóm tắt')}</h2>{b.t.summary.map(s => <p>{s}</p>)}</div></div> : null}
   {body && <div class="wrap"><div class="prose body" set:html={body} /></div>}
 

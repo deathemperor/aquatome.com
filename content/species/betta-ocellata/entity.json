@@ -22,10 +22,12 @@
       "regions": [
         "Borneo",
         "Sebuku River",
-        "Kinabatangan"
+        "Kinabatangan",
+        "Kalimantan"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "bwaquatics"
       ],
       "quotes": [
         {
@@ -44,8 +46,23 @@
           "quote": "In Sabah it's been recorded at various localities including Bettotan, Sandokan, Kinabatangan, Lahad Datu, Tawau, Kudat, and Bongon, while in Kalimantan Timur it's known only from the Sebuku River basin.",
           "countries": [],
           "regions": [
-            "Sebuku River",
+            "Sebuku River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the Kinabatangan drainage basin B. ocellata was collected from ox-bow lakes and lowland streams with turbid water.",
+          "countries": [],
+          "regions": [
             "Kinabatangan"
+          ]
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Betta ocellata was described in 1933 and is native to Sabah in northeastern Borneo and the far north of Kalimantan, where published records come from the Sebuku River basin.",
+          "countries": [],
+          "regions": [
+            "Kalimantan"
           ]
         }
       ]
@@ -158,12 +175,6 @@
     ]
   },
   "sections": [
-    {
-      "key": "quickFacts",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-ocellata-wild-type-bettas",
-      "html": "<p>From the Betta unimaculata complex. IUCN Red List: Least Concern. This group is wild caught, supplied as coming from Malinau, North Kalimantan.</p>"
-    },
     {
       "key": "quickFacts",
       "source": "seriouslyfish",

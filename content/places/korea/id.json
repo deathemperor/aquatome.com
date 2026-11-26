@@ -3,6 +3,12 @@
   "name": "Korea",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-20T01:49:50.461Z",
+    "why": "\"Korea\" is not a country but a region; Indonesian atlases name the countries \"Korea Selatan\" and \"Korea Utara\", so the bare name is ambiguous and not the standard country name."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

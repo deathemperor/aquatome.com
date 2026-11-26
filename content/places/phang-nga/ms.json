@@ -3,6 +3,12 @@
   "name": "Phang Nga",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.7,
+    "at": "2026-11-19T18:55:28.016Z",
+    "why": "Malaysian atlases and media write the Thai province as \"Phang Nga\" or \"Phangnga\", but the name lacks the Malay kind word \"Wilayah\" or \"Daerah\" that many Malay sources use for Thai provinces, so it is only moderately certain."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

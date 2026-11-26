@@ -3,6 +3,12 @@
   "name": "Mond",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T07:05:55.578Z",
+    "why": "Mond is a river/region in Bushehr, Iran; Malay atlases would likely write \"Sungai Mond\" for the river, and the bare \"Mond\" is ambiguous as a region and lacks a kind word, though the spelling itself is the standard transliteration."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

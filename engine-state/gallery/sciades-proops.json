@@ -3,13 +3,14 @@
  "judged": [
   "inat:158930217",
   "inat:464952374",
-  "inat:464952391"
+  "inat:464952391",
+  "gbif:1456314203:e83b0adca67c9559",
+  "gbif:1456314203:069aafb69ceea579",
+  "gbif:1456111102:40962b2209523e48",
+  "gbif:1456111102:e90a655b1810ee3d"
  ],
  "hashes": {
-  "https://media.aquatome.com/scotcat/bce3fa723cbd9feb.webp": "b0fe324a0f98a2c8",
-  "https://media.aquatome.com/scotcat/0590c42777bf53e0.webp": "17999b1f0f0d434b",
-  "https://media.aquatome.com/scotcat/b344b14555997165.webp": "1356264e5d218fe6",
-  "https://media.aquatome.com/scotcat/1d9b1d8269f853b8.webp": "71133319332f7bc6"
+  "https://media.aquatome.com/scotcat/bce3fa723cbd9feb.webp": "b0fe324a0f98a2c8"
  },
  "inat": {
   "taxon": 608614,
@@ -19,5 +20,9 @@
    "agree": 0
   }
  },
- "commons": "2026-11-19"
+ "commons": "2026-11-19",
+ "gbif": {
+  "key": 5202957,
+  "next": null
+ }
 }

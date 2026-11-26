@@ -2,14 +2,13 @@
  "queue": [],
  "judged": [
   "File:Cameroon2011 7 (1) (6857661498).jpg",
-  "gbif:1265258123:eea5712e254be3e7"
+  "gbif:1265258123:eea5712e254be3e7",
+  "inat:92403043",
+  "inat:92403058",
+  "inat:184367120",
+  "inat:184367147"
  ],
- "hashes": {
-  "https://media.aquatome.com/scotcat/0a9b4c37be50a20e.webp": "232781096a4b5dd4",
-  "https://media.aquatome.com/scotcat/80a79f80f1e56e28.webp": "3f27e190f1d2c333",
-  "https://media.aquatome.com/scotcat/ddd42784f8627497.webp": "cfc6d3e890d3cf3b",
-  "https://media.aquatome.com/scotcat/1d51afadff8de750.webp": "f8c007137238d48d"
- },
+ "hashes": {},
  "inat": {
   "taxon": 99556,
   "pass": "done",
@@ -22,5 +21,13 @@
  "gbif": {
   "key": 2340797,
   "next": null
- }
+ },
+ "inatNc": {
+  "after": 109394048,
+  "done": true
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-21"
 }

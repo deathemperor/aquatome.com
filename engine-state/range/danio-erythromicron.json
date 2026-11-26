@@ -1,19 +1,41 @@
 {
   "id": "danio-erythromicron",
   "native": {
-    "input": "adb2fd8b6a809a09",
-    "at": "2026-11-07T16:21:07.852Z",
+    "input": "364e75c8cb627f9e",
+    "at": "2026-11-21T13:11:30.372Z",
     "claims": [
       {
         "code": "MM",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Danio erythromicron is a miniature danionin from Lake Inle and its surrounding watershed in Shan State, eastern Myanmar.",
+        "quote": "Known from the isolated mountain lake of Inlé and surrounding watershed in Shan state, eastern Myanmar, and also occurs close to Loi Kaw township in neighbouring Kayah state to the south.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Danio erythromicron is found only in Lake Inle and its surrounding streams, high on the Shan Plateau in Myanmar.",
         "words": "Myanmar",
         "ok": true
       }
     ],
     "regions": [
+      {
+        "name": "Lake Inle",
+        "source": "bwaquatics",
+        "quote": "Danio erythromicron is found only in Lake Inle and its surrounding streams, high on the Shan Plateau in Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Shan Plateau",
+        "source": "bwaquatics",
+        "quote": "Danio erythromicron is found only in Lake Inle and its surrounding streams, high on the Shan Plateau in Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
       {
         "name": "Lake Inle",
         "source": "seriouslyfish",

@@ -1,0 +1,20 @@
+{
+  "slug": "ca-nheo-yaqui",
+  "name": "Cá nheo Yaqui",
+  "altNames": [
+    "Yaqui Catfish"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Ictalurus pricei (Rutter, 1896)</li><li>Tên thường gọi: cá nheo Yaqui (Yaqui Catfish)</li><li>Nơi thu mẫu chuẩn: suối San Bernardino, Rio Yaqui, Arizona, Mỹ, hoặc vùng biên giới phía bắc bang Sonora, Mexico.</li><li>Sách Đỏ IUCN: Nguy cấp (đánh giá lần gần nhất năm 2018).</li></ul>",
+    "distribution:planetcatfish": "<p>Bắc Mỹ: lưu vực sông Rio Yaqui và Rio Casas Grandes ở tây bắc Mexico. Có lẽ loài này còn sống ở vùng cực đông nam bang Arizona, Mỹ.</p>",
+    "reproduction:planetcatfish": "<p>Chưa có tài liệu nào ghi lại chuyện loài này sinh sản.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.8
+    },
+    "reason": "thin"
+  }
+}

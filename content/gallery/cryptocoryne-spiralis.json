@@ -69,9 +69,61 @@
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Cryptocorynespiralis'Red'(105)/29772",
       "source": "tropica",
       "kind": "submersed"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/259053974.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/259053974-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Radha Veach",
+      "sourceUrl": "https://www.inaturalist.org/photos/259053974",
+      "caption": "Cryptocoryne spiralis mọc ngoài tự nhiên trên nền bùn đất",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/259054228.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/259054228-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Radha Veach",
+      "sourceUrl": "https://www.inaturalist.org/photos/259054228",
+      "caption": "Cây Cryptocoryne spiralis mọc giữa cỏ nhỏ trên bùn ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/259055038.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/259055038-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Radha Veach",
+      "sourceUrl": "https://www.inaturalist.org/photos/259055038",
+      "caption": "Cryptocoryne spiralis mọc trên bùn ẩm ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/108683095.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/108683095-480.webp",
+      "width": 512,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Mayuresh Kulkarni",
+      "sourceUrl": "https://www.inaturalist.org/photos/108683095",
+      "caption": "Bụi Cryptocoryne spiralis mọc dày trên cạn, lá dài hẹp",
+      "best": true,
+      "kind": "emersed",
+      "setup": false
     }
   ],
-  "seen": 3,
-  "updatedAt": "2026-11-10",
-  "builtAt": "2026-10-31"
+  "seen": 8,
+  "updatedAt": "2026-11-23",
+  "builtAt": "2026-11-23"
 }

@@ -7,7 +7,10 @@
   "group": "characins",
   "places": [
     "south-america",
-    "venezuela"
+    "venezuela",
+    "orinoco",
+    "brazil",
+    "amazon"
   ],
   "range": {
     "records": {
@@ -337,14 +340,20 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/myleus-cf-torquatus-2/",
-      "html": "<p>Adults of Myleus torquatus are expected to reach about 20–25 cm, with a silvery basic colour, yellow fins and a broad black band bordering the caudal fin (species-specific).</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/myloplus-torquatus-2/",
+      "html": "<p>Myloplus torquatus grows to approx. 25 cm. It has been known scientifically since 1858 and was at times assigned to the genera Myletes and Myleus. A very good recognition feature is the black fringe in the caudal fin, a colour feature not known in any other silver dollar species. Small juveniles look completely different.</p>"
     },
     {
-      "key": "behaviour",
+      "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/myleus-cf-torquatus-2/",
-      "html": "<p>The smallest babies, about 1.5–2 cm long, are very dark coloured and have a light blaze on the forehead. They float through the water without much movement and imitate a dead leaf. This can make the keeper pretty nervous, but is normal behaviour.</p><p>When the fish are a bit larger, 3–4 cm, they become lighter in basic colour and the blaze vanishes. A diffuse light band over the nape appears, along with an individually differing pattern of spots and stripes. The behaviour differs now, too: the fish become active swimmers and form schools with conspecifics.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/myloplus-torquatus-2/",
+      "html": "<p>Myloplus torquatus is widely distributed in tropical South America and is found in the basins of both the Amazon and Orinoco rivers. The fish described here came from Venezuela.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/myloplus-torquatus-2/",
+      "html": "<p>Animals about 7-10 cm long are already beginning to differentiate sexually. The males develop a more extensive anal fin, and their dorsal fin takes on a broader, blunted shape compared to that of the females.</p>"
     }
   ],
   "photos": [
@@ -354,7 +363,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/myleus-cf-torquatus-2/",
       "source": "glaser"
     },
@@ -364,7 +373,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/myleus-cf-torquatus-2/",
       "source": "glaser"
     },
@@ -374,7 +383,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/myleus-cf-torquatus-2/",
       "source": "glaser"
     },
@@ -384,8 +393,38 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/myleus-cf-torquatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/29c72fe2bfb1e7fe.webp",
+      "thumb": "https://media.aquatome.com/glaser/29c72fe2bfb1e7fe-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/myloplus-torquatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f770aacbbb77859d.webp",
+      "thumb": "https://media.aquatome.com/glaser/f770aacbbb77859d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/myloplus-torquatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/03f5b0a6eb198c86.webp",
+      "thumb": "https://media.aquatome.com/glaser/03f5b0a6eb198c86-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/myloplus-torquatus-2/",
       "source": "glaser"
     }
   ],
@@ -430,5 +469,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-18"
+  "updatedAt": "2026-11-22"
 }

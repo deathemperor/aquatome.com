@@ -1,17 +1,9 @@
 {
   "id": "corydoras-atropersonatus",
   "native": {
-    "input": "e2bda80dab06c60a",
-    "at": "2026-11-07T09:20:22.982Z",
+    "input": "a1f1bc3f4fefb615",
+    "at": "2026-11-21T01:22:16.258Z",
     "claims": [
-      {
-        "code": "EC",
-        "status": "native",
-        "source": "planetcatfish",
-        "quote": "Type locality: Río Conambo at mouth of River Shione, Río Tigre system, Pastaza State, Ecuador.",
-        "words": "Ecuador",
-        "ok": true
-      },
       {
         "code": "EC",
         "status": "native",
@@ -26,6 +18,30 @@
         "source": "seriouslyfish",
         "quote": "The fairy cory, Hoplisoma atropersonatum, long known as Corydoras atropersonatus, is an armoured catfish known only from the Tigre and Nanay drainages in Ecuador and Peru.",
         "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Río Conambo at mouth of River Shione, Río Tigre system, Pastaza State, Ecuador.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It looks very similar to Corydoras atropersonatus, which also comes from Peru (Rio Nanay basin), but is even more attractive.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Corydoras atropersonatus was described from specimens from Ecuador (Rio Tigre basin).",
+        "words": "Ecuador",
         "ok": true
       }
     ],
@@ -49,21 +65,23 @@
         "ok": true
       },
       {
-        "name": "Tigre",
+        "name": "Conambo",
         "source": "planetcatfish",
         "quote": "South America: Amazon, Upper Amazon, Tigre, Upper Tigre, Conambo and Nanay.",
+        "ok": true
+      },
+      {
+        "name": "Tigre",
+        "source": "glaser",
+        "quote": "Corydoras atropersonatus was described from specimens from Ecuador (Rio Tigre basin).",
+        "country": "EC",
         "ok": true
       },
       {
         "name": "Nanay",
-        "source": "planetcatfish",
-        "quote": "South America: Amazon, Upper Amazon, Tigre, Upper Tigre, Conambo and Nanay.",
-        "ok": true
-      },
-      {
-        "name": "Conambo",
-        "source": "planetcatfish",
-        "quote": "South America: Amazon, Upper Amazon, Tigre, Upper Tigre, Conambo and Nanay.",
+        "source": "glaser",
+        "quote": "It looks very similar to Corydoras atropersonatus, which also comes from Peru (Rio Nanay basin), but is even more attractive.",
+        "country": "PE",
         "ok": true
       }
     ],

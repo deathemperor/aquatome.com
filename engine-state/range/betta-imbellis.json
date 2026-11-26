@@ -1,8 +1,8 @@
 {
   "id": "betta-imbellis",
   "native": {
-    "input": "0c26a741bdf9168e",
-    "at": "2026-11-19T00:50:56.943Z",
+    "input": "fd42504dd86c3a43",
+    "at": "2026-11-22T12:48:24.036Z",
     "claims": [
       {
         "code": "TH",
@@ -56,14 +56,14 @@
     "regions": [
       {
         "name": "Sumatra",
-        "source": "bwaquatics",
-        "quote": "Found across Southeast Asia, including southern Thailand, Peninsular Malaysia, northern Sumatra and southern Vietnam.",
+        "source": "seriouslyfish",
+        "quote": "Thought to occur naturally in southern (peninsular) Thailand, Peninsular Malaysia, and northern Sumatra, but has been introduced to other areas with feral populations now established in Singapore, for example.",
         "ok": true
       },
       {
         "name": "Sumatra",
-        "source": "seriouslyfish",
-        "quote": "Thought to occur naturally in southern (peninsular) Thailand, Peninsular Malaysia, and northern Sumatra, but has been introduced to other areas with feral populations now established in Singapore, for example.",
+        "source": "bwaquatics",
+        "quote": "Found across Southeast Asia, including southern Thailand, Peninsular Malaysia, northern Sumatra and southern Vietnam.",
         "ok": true
       }
     ],

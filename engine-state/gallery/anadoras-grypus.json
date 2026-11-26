@@ -8,7 +8,10 @@
   "https://media.aquatome.com/scotcat/60ec6839ecdfb597.webp": "01110d194d27872d",
   "https://media.aquatome.com/scotcat/535e77eee24e3c11.webp": "73630b2dc1d9544c",
   "https://media.aquatome.com/scotcat/4d8096b920bb40a5.webp": "040464e7ffefe6f5",
-  "https://media.aquatome.com/scotcat/43fd46002ce9479c.webp": "03c31b0f0f1f0d0e"
+  "https://media.aquatome.com/scotcat/43fd46002ce9479c.webp": "03c31b0f0f1f0d0e",
+  "https://media.aquatome.com/glaser/763c732be22ca18c.webp": "7b19c0487813360f",
+  "https://media.aquatome.com/glaser/29aca11f8d4c2c09.webp": "d0c2909958cc7329",
+  "https://media.aquatome.com/glaser/716e94031e536ac9.webp": "d890e9ac6636381c"
  },
  "inat": {
   "taxon": 613826,
@@ -25,6 +28,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 0,
+  "done": true
  },
  "exhausted": "2026-11-11"
 }

@@ -10,7 +10,8 @@
     "colombia",
     "magdalena",
     "venezuela",
-    "lake-maracaibo"
+    "lake-maracaibo",
+    "nam-my"
   ],
   "range": {
     "native": {
@@ -225,6 +226,10 @@
       {
         "source": "seriouslyfish",
         "value": 15
+      },
+      {
+        "source": "glaser",
+        "value": 25
       }
     ],
     "tankCm": [
@@ -241,6 +246,12 @@
     ]
   },
   "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/geophagus-steindachneri-2/",
+      "html": "<p>The redhump eartheater (Geophagus steindachneri) from Colombia has had a regular place in the aquarium since it was first imported to Germany in 1972. It is very attractively colored. The males develop a red colored forehead hump, which varies very much in size. G. steindachneri can grow up to 25 cm long, but sexual maturity starts already at 6-7 cm length.</p>"
+    },
     {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
@@ -302,6 +313,12 @@
       "html": "<p>Ovophilous, maternal mouthbrooder forming weak temporary pair bonds for the duration of the spawning process, after which the female is responsible for broodcare. Males are polygamous and may breed with several females during the reproductive period.</p><p>Courtship is initiated by the male, and may last for several hours. When the ovipositor is fully extended, the female begins to lay small batches of eggs on a hard surface within the territory of the male. Each batch of eggs is collected in the mouth of the female before the male releases milt directly in front of her mouth in order to fertilise them. Once spawning is complete most breeders prefer to remove the brooding female to a separate aquarium.</p><p>The female incubates the eggs for 10-14 days, but the fry may return to her mouth for a further week or more once they are free swimming. The fry are easily-fed, accepting Artemia nauplii, microworm, etc.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/geophagus-steindachneri-2/",
+      "html": "<p>Geophagus steindachneri is considered to be the most specialized mouthbrooder of South America, because the eggs are taken into the maternal mouth immediately after spawning. Instead of egg spots in the anal fin, as found in many African mouthbrooding cichlids, G. steindachneri have orange spots in the corners of the mouth, which achieve the same effect.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-steindachneri",
@@ -347,6 +364,36 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-steindachneri",
       "caption": "Young, captive-bred adult male, aggressive posture.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/368b126ef66477a7.webp",
+      "thumb": "https://media.aquatome.com/glaser/368b126ef66477a7-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/geophagus-steindachneri-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c10a4b9b4ed25dee.webp",
+      "thumb": "https://media.aquatome.com/glaser/c10a4b9b4ed25dee-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/geophagus-steindachneri-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/eecf7689277163da.webp",
+      "thumb": "https://media.aquatome.com/glaser/eecf7689277163da-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/geophagus-steindachneri-2/",
+      "source": "glaser"
     }
   ],
   "videos": [],
@@ -379,5 +426,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-23"
 }

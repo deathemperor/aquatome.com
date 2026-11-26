@@ -1,0 +1,154 @@
+{
+  "id": "moenkhausia-hemigrammoides",
+  "native": {
+    "input": "110ef9d1a7316da6",
+    "at": "2026-11-21T01:22:16.258Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "A study published in September 2019 describes for the first time its occurrence in Colombia (rivers Ariari and Inirida, both tributaries to the Rio Guaviare in the upper Orinoco basin), which makes the occurrence of the species in Venezuela very likely.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "doubtful",
+        "source": "glaser",
+        "quote": "A study published in September 2019 describes for the first time its occurrence in Colombia (rivers Ariari and Inirida, both tributaries to the Rio Guaviare in the upper Orinoco basin), which makes the occurrence of the species in Venezuela very likely.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "A study published in September 2019 describes for the first time its occurrence in Colombia (rivers Ariari and Inirida, both tributaries to the Rio Guaviare in the upper Orinoco basin), which makes the occurrence of the species in Venezuela very likely.",
+        "ok": true
+      },
+      {
+        "name": "Rio Guaviare",
+        "source": "glaser",
+        "quote": "A study published in September 2019 describes for the first time its occurrence in Colombia (rivers Ariari and Inirida, both tributaries to the Rio Guaviare in the upper Orinoco basin), which makes the occurrence of the species in Venezuela very likely.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "GY",
+        "SR",
+        "VE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Moenkhausia hemigrammoides",
+    "status": "ACCEPTED",
+    "taxonKey": 2352584,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        52
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        51
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        42
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        21
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        18
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        14
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        10
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        5
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        5
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        4
+      ],
+      [
+        "83c9289f-0d18-42ae-98b0-2ad3621f0dfa",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "97c46b50-34bd-47e9-baa4-7a1709472af2",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "5818223b-9b8e-432c-9fca-cb4c43387e6a",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 12,
+    "at": "2026-11-21T01:22:16.258Z"
+  }
+}

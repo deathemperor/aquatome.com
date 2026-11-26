@@ -19,6 +19,7 @@
         "Rio Negro"
       ],
       "sources": [
+        "bwaquatics",
         "seriouslyfish"
       ],
       "quotes": [
@@ -69,16 +70,16 @@
   "dataCard": {
     "ph": [
       {
-        "source": "bwaquatics",
+        "source": "seriouslyfish",
         "value": {
-          "min": 6,
+          "min": 4,
           "max": 7
         }
       },
       {
-        "source": "seriouslyfish",
+        "source": "bwaquatics",
         "value": {
-          "min": 4,
+          "min": 6,
           "max": 7
         }
       }
@@ -88,6 +89,13 @@
         "source": "seriouslyfish",
         "value": {
           "min": 20,
+          "max": 26
+        }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
           "max": 26
         }
       }
@@ -105,6 +113,10 @@
       {
         "source": "seriouslyfish",
         "value": 6
+      },
+      {
+        "source": "bwaquatics",
+        "value": 5.6
       }
     ],
     "difficulty": [
@@ -119,7 +131,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/adolfos-cory-corydoras-adolfoi",
-      "html": "<p>A very cool, uncommon species of corydoras. It has a black line across its back and a black vertical mask in the eye area.</p>"
+      "html": "<p>Hoplisoma adolfoi (formerly Corydoras adolfoi), Adolfo's Cory. IUCN Red List: Not Evaluated. Maximum size about 5.6 cm. Very peaceful.</p>"
     },
     {
       "key": "quickFacts",
@@ -128,10 +140,22 @@
       "html": "<p>Max size: 60 mm SL (6 cm). Temperature: 20–26°C. pH: 4.0–7.0. Hardness: 1–5 dGH.</p><p>Adolfo's cory, Hoplisoma adolfoi, long known as Corydoras adolfoi, is an armoured catfish apparently highly endemic to the upper rio Negro near São Gabriel da Cachoeira, Brazil. One of several rio Negro Corydoras with an oblique dark bar along the back, it is most easily confused with H. duplicareum and cannot be separated from it reliably by colour. It inhabits pristine blackwater tributaries and flooded forest.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/adolfos-cory-corydoras-adolfoi",
+      "html": "<p>This is a very cool, uncommon species of corydoras. Don't keep them with big fish that can try to eat them; it will likely result in the death of both fish. Origin of the fish offered: tank raised.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-adolfoi",
       "html": "<p>Type locality is given as 'Small tributary of the upper Rio Negro on the equator near São Gabriel da Cachoeira, Brazil', and this species is apparently highly endemic there.</p><p>Some sources state that it also occurs in the rio Uaupés (known as 'Vaupés' in Colombia), a major tributary of the Negro, but official confirmation has not been obtained so far.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/adolfos-cory-corydoras-adolfoi",
+      "html": "<p>Described in 1982 and named for Manaus fish exporter Adolfo Schwartz, who first collected it. It comes from small blackwater tributaries of the upper Rio Negro near São Gabriel da Cachoeira, Brazil.</p>"
     },
     {
       "key": "habitat",
@@ -140,28 +164,28 @@
       "html": "<p>Inhabits pristine blackwater tributaries and areas of flooded forest where the water is characteristically stained dark with organic chemicals.</p><p>In the rio Negro basin such habitats typically contain tea-coloured water with very little detectable hardness, low conductivity, and a pH of 4.0-6.0, with other fishes comprising small characids, lebiasinids, and dwarf cichlids of the genus Apistogramma.</p>"
     },
     {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/adolfos-cory-corydoras-adolfoi",
+      "html": "<p>Small blackwater streams over sand.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-adolfoi",
       "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided it's kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p><p>Driftwood branches and dried leaf litter are useful additions, the latter in particular driving establishment of microbe colonies as decomposition occurs.</p><p>Such microorganisms can provide a valuable secondary food source for fry, whilst the tannins and other chemicals released by the decaying leaves are also thought beneficial and help simulate natural conditions.</p><p>Filtration need only be gentle with an air-powered sponge-style unit normally adequate, although a degree of water movement is acceptable.</p>"
     },
     {
-      "key": "waterConditions",
+      "key": "maintenance",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/adolfos-cory-corydoras-adolfoi",
-      "html": "<p>Currently kept at a pH of 6-7, but they can adapt to a variety of pH.</p>"
+      "html": "<p>Body shape: stocky, short-snouted armored catfish with an arched back. Fins are clear to white with sharp spines on the dorsal and pectoral fins. Coloration: cream to white body with an orange patch on the head, a black bar through the eye and a black stripe along the back.</p><p>Tank: soft sand to protect the barbels, shaded areas with wood and plants.</p>"
     },
     {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-adolfoi",
       "html": "<p>Temperature: 20–26°C</p><p>pH: 4.0–7.0, though wild fish may do best towards the middle and lower ends of this range.</p><p>Hardness: 1–5 dGH; notes for wild fish as per pH.</p>"
-    },
-    {
-      "key": "diet",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/adolfos-cory-corydoras-adolfoi",
-      "html": "<p>Currently fed blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "diet",
@@ -173,7 +197,7 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/adolfos-cory-corydoras-adolfoi",
-      "html": "<p>They are very peaceful and suitable for many community tanks. Do not keep them with big fish that may try to eat them, as this will likely result in the death of both fish. They are best kept in groups as they like to school here and there.</p>"
+      "html": "<p>Very peaceful and suitable for many community tanks. Best kept in groups of 5 or more, as they like to school. Small midwater fish encourage them to come out.</p>"
     },
     {
       "key": "behaviour",
@@ -192,6 +216,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-adolfoi",
       "html": "<p>Can be bred in a similar fashion to many other Corydoras species.</p><p>Use a ratio of 2 males per female if possible, and when the females are visibly full of eggs perform a large (50-70%) water change with cooler water, and increase oxygenation and flow in the tank. Repeat this daily until the fish spawn.</p><p>Eggs are normally deposited on the aquarium glass, but it's recommended to provide alternatives in the form of fine-leaved vegetation or fine spawning mops.</p><p>Once spawning is complete either adults or eggs should be removed; the latter can usually be rolled gently up the glass with a finger. The new container should contain the same water as the spawning tank and be similarly well-oxygenated.</p><p>Most breeders add a few drops of methylene blue, or an alder cone or two at this point in order to prevent the eggs developing fungus.</p><p>Incubation is normally 3-4 days and once the fry have fully-absorbed their yolk sacs they are able to accept small live foods such as microworm, Artemia nauplii, etc.</p><p>They are not the easiest to raise, requiring excellent water quality, but seem less susceptible to ailments when maintained over a thin layer of sand rather than in a bare-bottomed arrangement.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/adolfos-cory-corydoras-adolfoi",
+      "html": "<p>Spawns in the classic corydoras T-position. A cooler water change can trigger spawning. Eggs are stuck to plants or glass; move them to a separate container to protect them.</p>"
     },
     {
       "key": "notes",
@@ -219,15 +249,15 @@
       "thumb": "https://media.aquatome.com/commons/241e4896ed03734d-480.webp",
       "width": 960,
       "height": 624,
-      "licence": "CC BY-SA 4.0",
-      "author": "Corydoras-adolfoi",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras-adolfoi-alone.jpg",
-      "caption": "A single Corydoras adolfoi.",
       "large": {
         "url": "https://media.aquatome.com/commons/241e4896ed03734d-large.webp",
         "width": 1272,
         "height": 827
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Corydoras-adolfoi",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras-adolfoi-alone.jpg",
+      "caption": "A single Corydoras adolfoi."
     },
     {
       "url": "https://media.aquatome.com/commons/1f8fbe3ab3aaf383.webp",
@@ -307,5 +337,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-15"
+  "updatedAt": "2026-11-21"
 }

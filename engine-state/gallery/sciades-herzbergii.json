@@ -4,14 +4,22 @@
   "File:Sciades herzbergii\" (Bloch, 1794).jpg",
   "File:Sciades herzbergii (Bloch, 1794) 01.jpg",
   "File:Sciades herzbergii (Bloch, 1794) 02.jpg",
-  "File:Sciades Herzbergii.png"
+  "File:Sciades Herzbergii.png",
+  "gbif:1456333711:bb75cabd3807d3e8",
+  "gbif:1456333711:dcb42c81e6506b21",
+  "gbif:1455995769:4887b78942413695",
+  "gbif:1455995769:52fc415f023a1fd7",
+  "gbif:1456302544:3788ec16127099ae",
+  "gbif:1456302544:6df9ae39e6fe6af6",
+  "inat:372017704",
+  "inat:373033383",
+  "inat:373033377",
+  "inat:474723611",
+  "inat:493669869",
+  "inat:522136760",
+  "inat:522136799"
  ],
- "hashes": {
-  "https://media.aquatome.com/scotcat/074ff3c5c3f84e02.webp": "06078443438edbc3",
-  "https://media.aquatome.com/scotcat/c62b8ba666572973.webp": "5835646ce0c0c141",
-  "https://media.aquatome.com/scotcat/c49afb16d11f99cc.webp": "0000f36a078f0400",
-  "https://media.aquatome.com/scotcat/a091ad0f0e6a7287.webp": "e03a3d2c372b2b0b"
- },
+ "hashes": {},
  "inat": {
   "taxon": 317540,
   "pass": "done",
@@ -20,5 +28,17 @@
    "agree": 0
   }
  },
- "commons": "2026-11-19"
+ "commons": "2026-11-19",
+ "gbif": {
+  "key": 5202938,
+  "next": null
+ },
+ "inatNc": {
+  "after": 290258002,
+  "done": true
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-22"
 }

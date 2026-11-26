@@ -1,6 +1,9 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:39287720",
+  "inat:39288044"
+ ],
  "hashes": {},
  "inat": {
   "taxon": 618274,
@@ -14,5 +17,9 @@
  "gbif": {
   "key": 5852164,
   "next": null
+ },
+ "inatNc": {
+  "after": 25371930,
+  "done": true
  }
 }

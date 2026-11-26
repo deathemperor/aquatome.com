@@ -1,8 +1,8 @@
 {
   "id": "amphilius-platychir",
   "native": {
-    "input": "b3728029bdecb591",
-    "at": "2026-11-16T17:28:41.839Z",
+    "input": "03e6d269c170bc3e",
+    "at": "2026-11-21T13:11:30.372Z",
     "claims": [
       {
         "code": "SL",
@@ -27,13 +27,107 @@
         "quote": "Africa: Sierra Leone, Guinea, Côte d’Ivoire. Type locality: Sierra Leone.",
         "words": "Côte d’Ivoire",
         "ok": true
+      },
+      {
+        "code": "SL",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Sierra Leone",
+        "words": "Sierra Leone",
+        "ok": true
+      },
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: Sierra Leone, Guinea and Côte d'Ivoire.",
+        "words": "Guinea",
+        "ok": true
+      },
+      {
+        "code": "CI",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: Sierra Leone, Guinea and Côte d'Ivoire.",
+        "words": "Côte d'Ivoire",
+        "ok": true
+      },
+      {
+        "code": "GH",
+        "status": "doubtful",
+        "source": "planetcatfish",
+        "quote": "Reports from Ghana and Tanzania need confirmation.",
+        "words": "Ghana",
+        "ok": true
+      },
+      {
+        "code": "TZ",
+        "status": "doubtful",
+        "source": "planetcatfish",
+        "quote": "Reports from Ghana and Tanzania need confirmation.",
+        "words": "Tanzania",
+        "ok": true
+      },
+      {
+        "code": "ZM",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Reported from Luongo River, Congo system, Zambia.",
+        "words": "Zambia",
+        "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Senegal",
+        "source": "planetcatfish",
+        "quote": "Known from the Senegal, Niger, Gambia, Corubal, Konkouré and Little Scarcies Rivers.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Niger",
+        "source": "planetcatfish",
+        "quote": "Known from the Senegal, Niger, Gambia, Corubal, Konkouré and Little Scarcies Rivers.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Gambia",
+        "source": "planetcatfish",
+        "quote": "Known from the Senegal, Niger, Gambia, Corubal, Konkouré and Little Scarcies Rivers.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Corubal",
+        "source": "planetcatfish",
+        "quote": "Known from the Senegal, Niger, Gambia, Corubal, Konkouré and Little Scarcies Rivers.",
+        "ok": true
+      },
+      {
+        "name": "Konkouré",
+        "source": "planetcatfish",
+        "quote": "Known from the Senegal, Niger, Gambia, Corubal, Konkouré and Little Scarcies Rivers.",
+        "ok": true
+      },
+      {
+        "name": "Congo",
+        "source": "planetcatfish",
+        "quote": "Reported from Luongo River, Congo system, Zambia.",
+        "country": "ZM",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "SN",
+        "NG",
+        "NE",
+        "GM"
+      ],
       "sourcesOnly": []
     }
   },
@@ -90,9 +184,10 @@
     "native": [
       "SL",
       "GN",
-      "CI"
+      "CI",
+      "ZM"
     ],
     "requests": 12,
-    "at": "2026-11-16T17:28:41.839Z"
+    "at": "2026-11-21T13:11:30.372Z"
   }
 }

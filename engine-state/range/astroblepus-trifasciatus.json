@@ -1,0 +1,122 @@
+{
+  "id": "astroblepus-trifasciatus",
+  "native": {
+    "input": "8afec9bb36efd3d6",
+    "at": "2026-11-22T12:48:24.036Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Dagua River basin and Pacific coastal drainages of Colombia; also Magdalena and Cauca River basins, Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Dagua River",
+        "source": "scotcat",
+        "quote": "South America: Dagua River basin and Pacific coastal drainages of Colombia; also Magdalena and Cauca River basins, Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Magdalena",
+        "source": "scotcat",
+        "quote": "South America: Dagua River basin and Pacific coastal drainages of Colombia; also Magdalena and Cauca River basins, Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Cauca",
+        "source": "scotcat",
+        "quote": "South America: Dagua River basin and Pacific coastal drainages of Colombia; also Magdalena and Cauca River basins, Colombia.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astroblepus trifasciatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2342156,
+    "datasets": [
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        146
+      ],
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        23
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        18
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        13
+      ],
+      [
+        "35397e95-b688-4305-91f9-44d24535e27d",
+        7
+      ],
+      [
+        "b4cfbb59-5194-4e1a-aa55-fcc5e1d1e69f",
+        6
+      ],
+      [
+        "d4ba9607-189b-4c35-af5c-0b6ca3a54d50",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ],
+      [
+        "e760ba8b-f487-46ae-91a2-526fe72bbe1c",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 12,
+    "at": "2026-11-22T12:48:24.036Z"
+  }
+}

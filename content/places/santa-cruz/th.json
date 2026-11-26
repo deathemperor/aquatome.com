@@ -3,6 +3,12 @@
   "name": "ซานตาครูซ",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T11:57:23.397Z",
+    "why": "The transliteration ซานตาครูซ is the usual Thai rendering of Santa Cruz, but the place is a Bolivian department (region), and Thai atlases would write it with the kind word, as แผนกซานตาครูซ or จังหวัดซานตาครูซ, while the bare name could also be read as the city or another Santa Cruz."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

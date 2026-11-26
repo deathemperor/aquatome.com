@@ -1,0 +1,359 @@
+{
+  "id": "pseudobunocephalus-iheringii",
+  "scientificName": "Pseudobunocephalus iheringii",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Pseudobunocephalus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-grande-do-sul",
+    "argentina",
+    "parana",
+    "uruguay",
+    "uruguay-river",
+    "paraguay",
+    "paraguay-river"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 25,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_iheringii.htm",
+      "html": "<p>South America: Atlantic, Paraguay and Uruguay River basins. Reported from the upper Paraná and its tributaries in Argentina. Type locality: Rio Grande do Sul, Brazil.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_iheringii.htm",
+      "html": "<p>Very small species that can probably be kept as per other members of this family, in a quiet tank with sand and plants.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_iheringii.htm",
+      "html": "<p>Tablet foods and small live foods.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_iheringii.htm",
+      "html": "<p>Pseudobunocephalus is distinguished from all other aspredinid genera by several unique anatomical features, including mandibular teeth restricted to a patch near the symphysis of the lower jaw and the absence of gill rakers on all branchial arches. The genus name combines the Greek pseudes, meaning false or deceptive, with the aspredinid genus Bunocephalus, alluding to the fact that its members were previously mistaken for juveniles of various Bunocephalus species. The specific name iheringii honours the German-Brazilian zoologist Hermann von Ihering (1850–1930), who helped collect the type. A new species, Pseudobunocephalus timbira Leão, Carvalho, Reis &amp; Wosiacki, 2019, has been described from streams of the lower Tocantins and Mearim river drainages in northern and northeastern Brazil. IUCN Red List: Least Concern, due to its wide range, despite limited information.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_iheringii.htm",
+      "html": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p. Frederico, R.G. 2021. Pseudobunocephalus iheringii. The IUCN Red List of Threatened Species 2021. Froese, R. and D. Pauly. Editors. 2020. FishBase. World Wide Web electronic publication. www.fishbase.org, (12/2020). Loureiro M, González-Bergonzoni I, Teixeira de Mello F. 2023. Freshwater Fishes of Uruguay. Second edition. Vertebrate Zoology Laboratory, Faculty of Sciences, University of the Republic. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/880a762656b156f2.webp",
+      "thumb": "https://media.aquatome.com/scotcat/880a762656b156f2-480.webp",
+      "width": 500,
+      "height": 187,
+      "licence": "dùng với sự cho phép",
+      "author": "Peter Petersen / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_iheringii.htm",
+      "caption": "Pseudobunocephalus iheringii: Artigas Department-Northern Uruguay",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền mịn cho cá chuột",
+        "cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá đáy",
+        "trùng chỉ đông lạnh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh bể cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-19",
+  "range": {
+    "native": {
+      "countries": [
+        "AR",
+        "BR"
+      ],
+      "regions": [
+        "Paraná"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Reported from the upper Paraná and its tributaries in Argentina.",
+          "countries": [
+            "AR"
+          ],
+          "regions": [
+            "Paraná"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Rio Grande do Sul, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340579,
+      "total": 120,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "BR",
+          85
+        ],
+        [
+          "PY",
+          15
+        ],
+        [
+          "UY",
+          14
+        ],
+        [
+          "AR",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          -63.28125,
+          -23.90625,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -33.75,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          -35.15625,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -33.75,
+          2,
+          0
+        ],
+        [
+          -59.0625,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -28.125,
+          2,
+          0
+        ],
+        [
+          -57.65625,
+          -32.34375,
+          3,
+          0
+        ],
+        [
+          -57.65625,
+          -30.9375,
+          4,
+          4
+        ],
+        [
+          -57.65625,
+          -29.53125,
+          6,
+          6
+        ],
+        [
+          -57.65625,
+          -28.125,
+          2,
+          0
+        ],
+        [
+          -57.65625,
+          -26.71875,
+          4,
+          0
+        ],
+        [
+          -57.65625,
+          -25.3125,
+          2,
+          0
+        ],
+        [
+          -56.25,
+          -32.34375,
+          2,
+          0
+        ],
+        [
+          -56.25,
+          -30.9375,
+          7,
+          7
+        ],
+        [
+          -56.25,
+          -29.53125,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -28.125,
+          5,
+          5
+        ],
+        [
+          -56.25,
+          -26.71875,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -25.3125,
+          3,
+          0
+        ],
+        [
+          -54.84375,
+          -35.15625,
+          2,
+          0
+        ],
+        [
+          -54.84375,
+          -33.75,
+          4,
+          0
+        ],
+        [
+          -54.84375,
+          -32.34375,
+          8,
+          7
+        ],
+        [
+          -54.84375,
+          -30.9375,
+          7,
+          7
+        ],
+        [
+          -53.4375,
+          -33.75,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -32.34375,
+          15,
+          15
+        ],
+        [
+          -53.4375,
+          -30.9375,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -29.53125,
+          7,
+          7
+        ],
+        [
+          -52.03125,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -30.9375,
+          18,
+          18
+        ],
+        [
+          -50.625,
+          -30.9375,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -29.53125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -21.09375,
+          1,
+          1
+        ]
+      ]
+    }
+  }
+}

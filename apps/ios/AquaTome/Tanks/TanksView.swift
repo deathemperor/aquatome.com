@@ -188,7 +188,7 @@ private struct TankDetail: View {
       List {
         Section("Thông tin bể") {
           let f = facts(t)
-          Text(f.isEmpty ? String(localized: "Chưa có kích thước.") : f.joined(separator: " · ")).accessibilityIdentifier("facts")
+          Text(f.isEmpty ? String(localized: "Chưa có kích thước.", bundle: .app) : f.joined(separator: " · ")).accessibilityIdentifier("facts")
           if let n = t.notes { Text(n).accessibilityIdentifier("notes") }
         }
         // As the site lists them: fish (with how many), then plants, each opening its page (TankLife.swift).
@@ -206,7 +206,7 @@ private struct TankDetail: View {
           // On the button: iOS shows the question as a popover from the view it's on.
           Button("Xóa bể", role: .destructive) { confirmDelete = true }.accessibilityIdentifier("delete")
             .confirmationDialog(
-              lights.isEmpty ? String(localized: "Xóa bể “\(t.name)”?") : String(localized: "Xóa bể “\(t.name)” cùng \(lights.count) đèn đã lưu trên bể?"),
+              lights.isEmpty ? String(localized: "Xóa bể “\(t.name)”?", bundle: .app) : String(localized: "Xóa bể “\(t.name)” cùng \(lights.count) đèn đã lưu trên bể?", bundle: .app),
               isPresented: $confirmDelete, titleVisibility: .visible
             ) {
               Button("Xóa", role: .destructive) {
@@ -284,10 +284,10 @@ private struct LightRow: View {
 
   private var chihiros: some View {
     VStack(alignment: .leading, spacing: 2) {
-      Text(device.nickname ?? device.model ?? device.bleName ?? String(localized: "Đèn"))
+      Text(device.nickname ?? device.model ?? device.bleName ?? String(localized: "Đèn", bundle: .app))
       if let s = device.schedules.first(where: { $0.id == device.activeScheduleId }) {
         // As the site writes it: on → off · ramp · the preset's name.
-        let parts = [s.ramp > 0 ? String(localized: "sáng dần \(s.ramp) phút") : nil, s.name].compactMap { $0 }
+        let parts = [s.ramp > 0 ? String(localized: "sáng dần \(s.ramp) phút", bundle: .app) : nil, s.name].compactMap { $0 }
         Text(verbatim: (["\(s.on) → \(s.off)"] + parts).joined(separator: " · "))
           .font(.caption).foregroundStyle(.secondary)
       } else {

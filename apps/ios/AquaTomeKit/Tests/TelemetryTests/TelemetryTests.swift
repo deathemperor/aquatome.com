@@ -448,3 +448,17 @@ func theReadersSwitchOffDeletesTheInstallId() async throws {
   _ = await telemetry(fake, reader: false, install: Install(defaults: d))
   #expect(d.string(forKey: Install.idKey) == nil)
 }
+
+@Test("Another language picked while the app runs: what was recorded before is sent first, in the language it was seen in, and what comes after is in the new one")
+func eventsGoInTheLanguageTheyWereSeenIn() async {
+  let fake = FakeCollector()
+  let t = await telemetry(fake)
+  t.record(.view(.handbook))
+  await t.speaks("th").value
+  t.record(.view(.lights))
+  await t.flush()
+  let sent = fake.received.filter { $0.path.hasSuffix("/events") }.map { (json($0.body)["lang"] as? String, events($0).map { $0["screen"] as? String }) }
+  #expect(sent.count == 2)
+  #expect(sent.first?.0 == "vi" && sent.first?.1 == ["handbook"])
+  #expect(sent.last?.0 == "th" && sent.last?.1 == ["lights"])
+}

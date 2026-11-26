@@ -3,6 +3,12 @@
   "name": "Rondônia",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T07:09:19.435Z",
+    "why": "Indonesian atlases and Wikipedia write the Brazilian state as \"Rondônia\" (often with \"Negara Bagian\" kind word), and the bare name is the proper-name spelling, so it's acceptable but lacks the kind word."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

@@ -40,6 +40,17 @@ let named: string | undefined
 /** The engine's command, as cli.ts parsed it: the name its calls are counted under, wherever it stood among the options. */
 export const nameStep = (step: string | undefined) => { named = step }
 
+/** The video job's photo check, counted on a line of its own (`stepFor`). */
+export const VIDEO_CHECK = 'check-photos-videos'
+/**
+ * The name a command's calls are counted under: the command, but the photo check the video job runs counts as
+ * `VIDEO_CHECK`, told by the cost log the job names (scripts/video-cycle.sh), so its cycle script needn't change. The video
+ * job's sheets have their own line and the photos runs keep theirs whole (the chief of staff, 20 Nov 2026): on the days the
+ * check's line ran out, the video job judged nothing in 3 to 5 of its runs.
+ */
+export const stepFor = (cmd: string | undefined, env: NodeJS.ProcessEnv = process.env): string | undefined =>
+  cmd === 'check-photos' && basename(env.ENGINE_COST_LOG ?? '') === 'aquatome-cost-videos.jsonl' ? VIDEO_CHECK : cmd
+
 /**
  * The name a call is counted under, and the one its line in the cost log has: the engine's command, as its own parser
  * read it (`nameStep`), or for a script run by itself, the script's name. Never empty, so a logged call always has a

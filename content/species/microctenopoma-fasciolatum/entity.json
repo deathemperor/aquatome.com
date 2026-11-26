@@ -15,12 +15,13 @@
   "range": {
     "native": {
       "countries": [
+        "CM",
         "CG",
-        "CD",
-        "CM"
+        "CD"
       ],
       "regions": [
-        "Congo basin"
+        "Congo basin",
+        "Lac Mai Ndombe"
       ],
       "sources": [
         "seriouslyfish",
@@ -29,14 +30,29 @@
       "quotes": [
         {
           "source": "seriouslyfish",
+          "quote": "The banded ctenopoma, Microctenopoma fasciolatum, is an anabantoid from the Congo basin and a handful of rivers in Cameroon.",
+          "countries": [
+            "CM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
           "quote": "Known from the Congo basin in both the Republic of Congo and Democratic Republic of Congo, as well as a handful of rivers in Cameroon.",
           "countries": [
             "CG",
-            "CD",
-            "CM"
+            "CD"
           ],
           "regions": [
             "Congo basin"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Wild catches have recently been received from the area around Lac Mai Ndombe in Central Congo.",
+          "countries": [],
+          "regions": [
+            "Lac Mai Ndombe"
           ]
         }
       ]
@@ -187,6 +203,13 @@
           "min": 24,
           "max": 28
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
       }
     ],
     "ph": [
@@ -214,7 +237,7 @@
       },
       {
         "source": "glaser",
-        "value": 9
+        "value": 8
       }
     ],
     "tankCm": [
@@ -240,8 +263,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_fasciolatum_en/",
-      "html": "<p>Microctenopoma fasciolatum, the Striped bushfish, is a dwarf bushfish that is found only very rarely in the trade. It is imported from the D.R. Congo. Maximum length is around 8–9 cm.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/microctenopoma-fasciolatum-2/",
+      "html": "<p>This beautiful bushfish grows about 8 cm long.</p>"
     },
     {
       "key": "distribution",
@@ -252,8 +275,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_fasciolatum_en/",
-      "html": "<p>D.R. Congo.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/microctenopoma-fasciolatum-2/",
+      "html": "<p>Microctenopoma fasciolatum is widely distributed in the Congo basin. Wild catches have recently been received from the area around Lac Mai Ndombe in Central Congo.</p>"
     },
     {
       "key": "habitat",
@@ -268,6 +291,12 @@
       "html": "<p>Standard length: 80 mm SL</p><p>Aquarium base: 75 × 30 cm</p><p>Volume: ~68 litres</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/microctenopoma-fasciolatum-2/",
+      "html": "<p>You should offer bushfish well planted, richly structured aquariums. It is best to keep them in the company of medium sized barbs or congo tetras.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-fasciolatum",
@@ -280,6 +309,12 @@
       "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 6.5–7.5</li><li>Hardness: 4–20 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/microctenopoma-fasciolatum-2/",
+      "html": "<p>The water temperature for maintenance should be not too high, preferably between 22 and 26°C, for breeding the temperature should be increased by 2-3°C.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-fasciolatum",
@@ -288,8 +323,8 @@
     {
       "key": "diet",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_fasciolatum_en/",
-      "html": "<p>In the wild it feeds on small insects, crustaceans etc. In the aquarium it feeds on all types of dried, frozen and live food.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/microctenopoma-fasciolatum-2/",
+      "html": "<p>All usual fish food is eaten, preferably frozen and live food. Plants are neglected by bushfish.</p>"
     },
     {
       "key": "behaviour",
@@ -300,8 +335,8 @@
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_fasciolatum_en/",
-      "html": "<p>In care and behaviour it can be compared best with the gouramis of the genera Colisa and Trichogaster. It is a peaceful fish and becomes only a bit quarrelsome during the breeding period, when the bubble nest is built and defended.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/microctenopoma-fasciolatum-2/",
+      "html": "<p>In the single species tank they are often shy and you will not see them often.</p>"
     },
     {
       "key": "dimorphism",
@@ -312,20 +347,14 @@
     {
       "key": "dimorphism",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_fasciolatum_en/",
-      "html": "<p>Males and females can be distinguished best by the coloration of the fins, which are spotted in males and plain in females. The coloration differs drastically depending on mood. For example, sometimes the fish show a cream white horizontal stripe which cannot be spotted at all in other mood-dependent patterns.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/microctenopoma-fasciolatum-2/",
+      "html": "<p>Males and females differ mainly in the colouring of the fins: Males have spots in the caudal, dorsal, and anal fin which are missing in the females.</p>"
     },
     {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-fasciolatum",
       "html": "<p>Has been achieved in captivity. Bubblenester. A dimly-lit, well-planted aquarium with lots of floating plants and soft, acidic water is required to spawn these fish. Condition them with live food. The male will build a fairly complex bubblenest amongst floating vegetation or under a broad leaf. Spawning occurs under the nest in a typical anabantoid embrace. The eggs hatch in around 24 hours and become free-swimming in 2-3 days. It is best to remove the parents after hatching. The fry are tiny and should be fed infusoria for the first week, after which they will accept brine shrimp nauplii.</p>"
-    },
-    {
-      "key": "reproduction",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_fasciolatum_en/",
-      "html": "<p>The fish become sexually mature at about 5 cm total length. Males build and defend a bubble nest.</p>"
     },
     {
       "key": "notes",
@@ -336,12 +365,68 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_fasciolatum_en/",
-      "html": "<p>Lexicon: Microctenopoma means \"small Ctenopoma\"; Ctenopoma is another genus of bushfish. fasciolatum means \"striped\".</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/microctenopoma-fasciolatum-2/",
+      "html": "<p>Within the African labyrinth fishes, the so-called bushfishes, one can roughly differentiate between two groups: those that do not care for their brood and those in which the males build a foam or bubble nest, into which they are spawned and which is guarded by the male until the young fish are independent. The latter group was separated from the other bushfish (Ctenopoma) as a second genus Microctenopoma. At present 12 species are scientifically known, but only four of them are occasionally kept in the aquarium, including Microctenopoma fasciolatum.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/3c0c9533275aa091.webp",
+      "thumb": "https://media.aquatome.com/glaser/3c0c9533275aa091-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/microctenopoma-fasciolatum-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/6dc953a4ea5c180c.webp",
+      "thumb": "https://media.aquatome.com/glaser/6dc953a4ea5c180c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/microctenopoma-fasciolatum-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/05c60146a2f03d73.webp",
+      "thumb": "https://media.aquatome.com/glaser/05c60146a2f03d73-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/microctenopoma-fasciolatum-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "t3d_oCoR3Zk",
+      "title": "Microctenopoma fasciolatum",
+      "durationSec": 38,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "fJAoI20D6FM",
+      "title": "Microctenopoma fasciolatum",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "vqOKizVqSwg",
+      "title": "Microctenopoma fasciolatum (Banded bushfish) - adult female",
+      "durationSec": 23,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "m1XLzwBeaQI",
+      "title": "Microctenopoma fasciolatum",
+      "durationSec": 147,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -370,5 +455,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-11"
+  "updatedAt": "2026-11-20"
 }

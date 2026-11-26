@@ -1,0 +1,87 @@
+{
+  "id": "hypostomus-borellii",
+  "scientificName": "Hypostomus borellii",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "pilcomayo"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 16.1
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1534",
+      "html": "<ul><li>Scientific name: Hypostomus borellii (Boulenger, 1897)</li><li>Synonym: Plecostomus borellii</li><li>Type locality: Misión de San Francisco, Río Pilcomayo, Bolivia.</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1534",
+      "html": "<p>South America: Upper and middle Pilcomayo River basin (La Plata, Paraná, Paraguay, Pilcomayo).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1534",
+      "html": "<p>Breeding: Unreported.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1534",
+      "html": "<p>Bollettino dei Musei di Zoologia ed Anatomia Comparata della R. Università di Torino v. 12 (no. 279), pp 2.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/93fd0487d0bf02d1.webp",
+      "thumb": "https://media.aquatome.com/scotcat/93fd0487d0bf02d1-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_borellii.htm",
+      "caption": "Hypostomus borellii",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/73d89a8977cebef0.webp",
+      "thumb": "https://media.aquatome.com/scotcat/73d89a8977cebef0-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_borellii.htm",
+      "caption": "Hypostomus borellii",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn nuôi cá lau kiếng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
+}

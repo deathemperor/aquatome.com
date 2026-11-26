@@ -12,7 +12,7 @@ import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
 import { galleryPlan } from './gallery-plan'
 import { pickStands, readPersonYes } from './person-yes'
-import { holdForSecondLook, looks, readSecondLook } from './last-photo'
+import { FIRST_OFF, holdForSecondLook, looks, passedBefore, readSecondLook, waitingEntry } from './last-photo'
 import { contactSheet } from './video-images'
 import { keptOwnMark, LOGO_FOLDERS, retainedOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 import { keptLast, screenedShop } from './own-mark'
@@ -26,10 +26,12 @@ type Photo = { url: string; caption?: string; author?: string; authorUrl?: strin
  * Does the photo show its page's subject: yes (in the wild too, where it is clearly seen); another species, breed or
  * variety (`note` says which); not a photo of the subject at all (a map, chart, hands, a tank, a packshot, a landscape or
  * stream where it can't be picked out); a dead fish or fish as food (`dead`: a market, a plate, a catch landed or held, a
- * preserved or museum specimen); or can't tell. `no` is the first check's verdict (before 2026-11-02), which didn't tell
+ * fish on a hook or a line, in the water or not (the chief of staff, 20 Nov 2026), a preserved or museum specimen); or
+ * can't tell. `no` is the first check's verdict (before 2026-11-02), which didn't tell
  * the two apart; `habitat` is the check's before 2026-11-07, "its wild place, with or without it", kept on the page, so a
  * lake with no fish led the firemouth's page and cards. `logo`: a stamp, logo or mark added on the photo, which the
- * watermark step's text reader can miss (since 2026-11-05). `person`: a person or any part of one in the photo; every
+ * watermark step's text reader can miss (since 2026-11-05). `person`: a person or any part of one in the photo, or one
+ * seen reflected in the glass where a person can be made out (the chief of staff, 20 Nov 2026); every
  * verdict since 2026-11-07 has it, so one without it is from before the check asked about people, and is asked again.
  * `guide`: judged against a guide photo's caption, which lets other fish into the shot, so it doesn't stand for the page's
  * own stricter look. `file`: "other" from the photo's Commons file name, which names another species with a page
@@ -143,14 +145,14 @@ export const subjectPrompt = (s: Subject, captions: (string | undefined)[] = [])
     : 'its colour forms, sexes and young count as it')
   return `Numbered photos from the page about ${what} in an aquarium handbook.
 For each photo n:
-- ok: "dead" if it shows a dead fish or other animal, or fish as food, whatever the species: at a market or fishmonger's, on ice; on a plate, cooked, fillets; a catch landed or held up, a fish lying on a tray, a board or the floor; a preserved, mounted, museum or lab specimen (for a snail, an empty museum shell; for a plant, a pressed herbarium sheet). When you can't tell whether it is alive, it is "dead". Not "dead": a drawing, painting or engraved plate (that is "none"; a photo of a preserved specimen is "dead", however old); a live fish held briefly in a net or a bag.
+- ok: "dead" if it shows a dead fish or other animal, or fish as food, whatever the species: at a market or fishmonger's, on ice; on a plate, cooked, fillets; a catch landed or held up, a fish lying on a tray, a board or the floor; a preserved, mounted, museum or lab specimen (for a snail, an empty museum shell; for a plant, a pressed herbarium sheet). A fish on a hook or a line, in the water or not, is a catch: dead. When you can't tell whether it is alive, it is "dead". Not "dead": a drawing, painting or engraved plate (that is "none"; a photo of a preserved specimen is "dead", however old); a live fish on no hook or line, held briefly in a net or a bag.
   "yes" if it clearly shows the page's subject as the main subject (a group of it counts, and so does it in the wild where it is clearly seen; ${form}).
   "other" if the main subject is a different species, breed or variety. Look-alikes count: tell them apart by their marks (neon tetra from green neon or cardinal tetra, cherry barb from rosy or tiger barb).
   "none" if it is not a photo of the subject at all: a map, chart, diagram or drawing, hands or people, a landscape or wild place (a river, stream, lake, swamp or shore) where it can't be picked out, a tank or aquascape where it can't be picked out, equipment, a product packshot.
   "unsure" if you cannot tell (a species you do not know well, a poor or distant view, a look-alike you cannot rule out).
 - typical: true if it shows the ordinary look of the subject (adult, clear view; for a species, the wild type); false otherwise, and for "dead".
 - young: true if the main subject is young: fry, a juvenile, or one still in its young colours or shape, not yet grown; false if grown, if you cannot tell its age, and for a plant.
-- person: true if a person or any part of one is in the photo: a hand or fingers (holding it, planting it, in the shot), an arm, a foot, a face, a diver, even small, cut off at the edge, blurred or behind the glass; false if not.
+- person: true if a person or any part of one is in the photo: a hand or fingers (holding it, planting it, in the shot), an arm, a foot, a face, a diver, even small, cut off at the edge, blurred or behind the glass; a person seen reflected in the glass, where a person can be made out; false if not.
 - logo: true if a logo, stamp, watermark, signature or text was added on top of the photo after it was taken, even small or faint, round, in a corner, in any script, with or without readable letters; false if not. Text in the scene (a label on a tank, a specimen tag) is not added.
 - note: a few words on what it shows (for "other": what it is instead, e.g. "neon tetra: red stripe runs only half the body"; for "dead": what makes it so, e.g. "dead fish on ice at a market"; with a person, what of them, e.g. "fish held in a hand"; with a logo, what and where, e.g. "round logo bottom left").${captions.some(Boolean) ? `
 Some photos are from a guide, with this caption: ${captions.flatMap((c, i) => (c ? [`${i + 1}: "${c.slice(0, 160)}"`] : [])).join('; ')}. Judge these against their caption instead: "yes" if the photo shows what the caption says about the page's subject (any form of it counts, other fish or plants may be in the shot too); "other" only if it shows a different fish or plant where the caption names the subject; "unsure" if the caption is about something else. "dead", person and logo hold for these as for any photo.` : ''}`
@@ -228,6 +230,13 @@ const norm = (s: string) => s.normalize('NFC').toLowerCase().replace(/['‘’"]
  */
 export function captionSubject(caption: string, index: Map<string, string>, genera = new Map<string, Set<string>>()): string | undefined {
   const c = norm(caption)
+  const ids = [...new Set(nameHits(c, index).map(h => h.id))]
+  if (ids.length !== 1) return undefined
+  return c.split(/[^\p{L}]+/u).some(w => genera.get(w) && !genera.get(w)!.has(ids[0]!)) ? undefined : ids[0]
+}
+
+/** Where each name of `index` stands in `c` (normalised), plural or not, a name inside a longer one giving way. */
+function nameHits(c: string, index: Map<string, string>) {
   const hits: { id: string; from: number; to: number }[] = []
   for (const [name, id] of index) {
     let i = c.indexOf(name)
@@ -238,10 +247,39 @@ export function captionSubject(caption: string, index: Map<string, string>, gene
       i = c.indexOf(name, i + 1)
     }
   }
-  const kept = hits.filter(h => !hits.some(o => o !== h && o.from <= h.from && o.to >= h.to && o.to - o.from > h.to - h.from))
-  const ids = [...new Set(kept.map(h => h.id))]
-  if (ids.length !== 1) return undefined
-  return c.split(/[^\p{L}]+/u).some(w => genera.get(w) && !genera.get(w)!.has(ids[0]!)) ? undefined : ids[0]
+  return hits.filter(h => !hits.some(o => o !== h && o.from <= h.from && o.to >= h.to && o.to - o.from > h.to - h.from))
+}
+
+/** Words that deny the page's own name right after them: "Bbb fish, not Aaa fish", "isn't a Y" (norm drops the apostrophe). */
+const DENIED = /\b(?:not|isnt|arent|wasnt|doesnt|rather than|instead of|unlike)\s+(?:(?:an?|the)\s+)?$/
+/** Words that put any name in doubt wherever they stand: a denial, a lookalike, a cross. */
+const DOUBT = /\b(?:not?|nor|neither|never|none|isnt|arent|wasnt|werent|doesnt|dont|didnt|cant|cannot|couldnt|excluded?|dismiss\w*|unlikely|rather|instead|unlike|without|except|apart|besides|other than|differ\w*|distinct|doubt\w*|unsure|uncertain|confus\w*|mistak\w*|similar|resembl\w*|look-?alikes?|relatives?|related|hybrids?|cross(?:es|ed)?|out|nope|wrong|incorrect|false|kind of|sort of|-a?like)\b/
+
+/**
+ * The page an "another fish" answer names: a name of exactly one other species or plant page, as `captionSubject` reads
+ * a caption, in an answer with no doubt about it. The judged page's own kind (for a breed, its species too) may be named
+ * only to deny it, right before its name ("Bbb fish, not Aaa fish" on Aaa's page); that denial and that name leave the
+ * reading. Any other answer names none: two other kinds, a word of denial or doubt anywhere else ("Bbb fish is ruled
+ * out", "not Aaa fish, nor Bbb fish", "could be confused with Bbb fish"), or the page's own kind not denied ("Aaa fish
+ * or Bbb fish"). The own kind stays in the reading, so a name inside one of its names gives way ("neon tetra" in "green
+ * neon tetra"). Its genus names no other kind. Its id, never the answer's words. The id is for an offer that judges the
+ * photo again as that fish on that page (the chief of staff, 20 Nov), so an answer in doubt gives none.
+ */
+export function namedKind(note: string, page: Pick<Subject, 'id' | 'sci'>, index: { names: Map<string, string>; genera: Map<string, Set<string>> }): string | undefined {
+  const parts = page.sci.split('×').map(p => norm(p).split(' ').slice(0, 2))
+  const own = new Set([page.id, ...parts.map(p => index.names.get(p.join(' '))).filter((x): x is string => !!x)])
+  const ownGenera = new Set(parts.map(p => p[0]))
+  const c = norm(note)
+  const hits = nameHits(c, index.names)
+  let rest = c
+  for (const h of hits.filter(h => own.has(h.id))) {
+    const denial = DENIED.exec(c.slice(0, h.from))
+    if (!denial) return undefined
+    rest = rest.slice(0, denial.index) + ' '.repeat(h.to - denial.index) + rest.slice(h.to)
+  }
+  const others = [...new Set(hits.filter(h => !own.has(h.id)).map(h => h.id))]
+  if (others.length !== 1 || DOUBT.test(rest)) return undefined
+  return rest.split(/[^\p{L}]+/u).some(w => !ownGenera.has(w) && index.genera.get(w) && !index.genera.get(w)!.has(others[0]!)) ? undefined : others[0]
 }
 
 function nameIndex(all: Subject[]) {
@@ -342,8 +380,9 @@ const sameUploader = (a: Shown, b: Shown) =>
  * 2. photos that wait (`unchecked`) on a page with no photo of its own, which they would fill;
  * 3. the other photos that wait;
  * 4. non-commercial album photos that wait (iNaturalist's, IMAGE_SWITCHES.inatNonCommercial): they rank last in their
- *    album and never give a page its head, so they wait behind every other photo, a page with none too (the chief of
- *    staff, 2026-11-17, with up to 1,200 of them a cycle), but for those on a page that shows no strip (below).
+ *    album, so they wait behind every other photo (the chief of staff, 2026-11-17, with up to 1,200 of them a cycle), but
+ *    for those on a page with no photo of its own, which one may lead where it's the one way to show that fish, and
+ *    those on a page that shows no strip (below).
  *
  * Before all of them, a share of each run (`fill` sheets): a permitted source's own photos in the gallery of a page that
  * has none, which give that page its first photo once judged (Tropica's on the plant pages with none: the chief of
@@ -352,7 +391,8 @@ const sameUploader = (a: Shown, b: Shown) =>
  * And before the turns (the chief of staff, 2026-11-11, after the owner found a parasite paper's plate as a page's only
  * photo, which the check had not reached in three days): a page's lead that neither check has looked at, from Flickr and
  * Commons first, then from the other sources; then the gallery of a page with no photo of its own, which gives it one
- * once judged. A lead's sheet is filled with its page's other photos, as any sheet is.
+ * once judged, its open photos and then its non-commercial ones (the chief of staff's rule, 17 Nov: the first-photo
+ * turn). A lead's sheet is filled with its page's other photos, as any sheet is.
  *
  * Then, still before the turns (the chief of staff, 2026-11-19): the photos that wait on a page that shows no strip, its
  * album showing fewer than ALBUM photos, which may give it one once judged, the open ones first, then the non-commercial
@@ -399,18 +439,30 @@ export const turn = (x: Pick<Shown, 'waits' | 'bare' | 'source' | 'nc'>): 0 | 1 
  * out part empty.
  * `limit`: model calls this run, but for an uploader's album photos (above); stops on a model failure (usage limit, the
  * step's daily line), and the rest wait. `fill`: how many of them go
- * first to a source's photos that fill a page with none (`turn`).
+ * first to a source's photos that fill a page with none (`turn`). `ncShare`: at most this many of a run's sheets go to
+ * the non-commercial photos on pages with no photo of their own (`bareNc`, BARE_NC_SHARE).
  * `recheck`: with it, only these photos are judged, where their verdict is from before the check asked about people
  * (`recheckCandidates`).
  */
-export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limit: number; fill?: number; parallel?: number; only?: string; today?: string; recheck?: Set<string>; emptyCap?: number; retryAfterMs?: number }) {
+/**
+ * A run's share for the non-commercial photos that wait on pages with no photo of their own (`bareNc`), built like the
+ * first-photo share: the rest of the run goes on to the strip pages and the turns. Each such page takes a sheet of its
+ * own, and the album step tops them up every cycle, so with no share they could take every sheet left, run after run
+ * (a reader's point; the chief of staff, 20 Nov).
+ */
+export const BARE_NC_SHARE = 20
+
+export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limit: number; fill?: number; ncShare?: number; parallel?: number; only?: string; today?: string; recheck?: Set<string>; emptyCap?: number; retryAfterMs?: number }) {
   const content = join(root, 'content')
   const cacheFile = join(root, 'engine-state/_photo-subjects.json')
   const rejectedFile = join(root, 'engine-state/_photo-rejected.json')
+  const kindsFile = join(root, 'engine-state/_photo-other-kinds.json')
   const rawCache = (await readJson<Record<string, Record<string, PhotoVerdict>>>(cacheFile)) ?? {}
   const cache = Object.fromEntries(Object.entries(rawCache).map(([u,by])=>[u,Object.fromEntries(Object.entries(by).map(([id,v])=>[id,compactVerdict(v)]))]))
   const rawLegacy = (await readJson<Record<string, PhotoVerdict>>(join(root, 'engine-state/_photo-check.json'))) ?? {}
   const legacy=Object.fromEntries(Object.entries(rawLegacy).map(([u,v])=>[u,compactVerdict(v)]))
+  // The photos that passed the check before this run (last-photo.ts): its verdicts as the run found them.
+  const passed = passedBefore(cache, legacy)
   const rejected = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
   // A photo held for a second look, or one it cleared, isn't taken off on a verdict (last-photo.ts).
   const sl = looks(await readSecondLook(root))
@@ -429,6 +481,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     uploaderPhotos: 0,
     /** A page's head that changed, `kind/id: old -> new`; a page left with no photo of its own, `kind/id: old`; one held by EMPTY_CAP. */
     heads: { moved: [] as string[], emptied: [] as string[], held: [] as string[], named: [] as string[] },
+    /** First verdicts of dead or a person the hold would have kept, off and waiting for a second look, `pages: url` (last-photo.ts). */
+    firstOff: [] as string[],
     /** A head a person picked that the check calls "none": it stays, listed for a person each run. */
     picked: [] as string[],
     /** A sheet the model failed on for a reason not its limit, each try's kind (modelFailureKind) and what answered. */
@@ -469,9 +523,10 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       let place = 0
       for (const [i, p] of photos.entries()) {
         const origin = p.source ?? site(p.sourceUrl)
-        // A non-commercial album photo fills no page that has none: it can't be a head (turn).
+        // A non-commercial album photo fills a page that has none only where it's the one way to show that fish
+        // (lead-photo.ts): it is judged in the first-photo turn, after that page's open ones (`bareNc`).
         const nc = file.includes('/gallery/') && isNonCommercial(p.licence ?? '')
-        shown.push({ file, url: p.url, page: s.id, ...(p.author ? { author: p.author } : {}), ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), ...(p.sourceUrl ? { source: p.sourceUrl } : {}), ...(origin ? { origin } : {}), ...(file.includes('/gallery/') && place >= STRIP ? { galleryOnly: true } : {}), ...(p.unchecked ? { waits: true, ...(short ? { short: true } : {}) } : {}), ...(nc ? { nc: true } : {}), ...(i === 0 && file.endsWith('entity.json') ? { lead: true } : {}), ...(bare && file.includes('/gallery/') && !nc ? { bare: true, ...(p.source ? { sourced: true } : {}) } : {}) })
+        shown.push({ file, url: p.url, page: s.id, ...(p.author ? { author: p.author } : {}), ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), ...(p.sourceUrl ? { source: p.sourceUrl } : {}), ...(origin ? { origin } : {}), ...(file.includes('/gallery/') && place >= STRIP ? { galleryOnly: true } : {}), ...(p.unchecked ? { waits: true, ...(short ? { short: true } : {}) } : {}), ...(nc ? { nc: true } : {}), ...(i === 0 && file.endsWith('entity.json') ? { lead: true } : {}), ...(bare && file.includes('/gallery/') ? { bare: true, ...(p.source ? { sourced: true } : {}) } : {}) })
         // A photo that waits is on no page, so it takes no place in the strip.
         if (p.unchecked !== true) place++
       }
@@ -531,26 +586,30 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const only = o.only ? new Set(o.only.split(',').map(x => x.trim()).filter(Boolean)) : undefined
   const onPage = new Map<string, Shown[]>()
   for (const x of shown) if (x.page) onPage.set(x.page, [...(onPage.get(x.page) ?? []), x])
+  // Sheets this run has given the non-commercial photos on pages with no photo of their own, across both queues.
+  let ncTaken = 0
   const queue = (want: (x: Shown) => boolean, fill = 0) => {
     const from = sheets.length
     // `first`: the share for a source's photos that fill a page with none. Then the leads nothing has looked at
-    // (`lead0`: Flickr's and Commons', `lead1`: the rest), the pages with no photo of their own (`bare`), the photos
-    // that wait on a page with no strip (`short`: the open ones, `shortNc`: the non-commercial ones), and each turn in
-    // order.
-    const phase = (x: Shown, now: 'aside' | 'noAnimal' | 'first' | 'lead0' | 'lead1' | 'bare' | 'short' | 'shortNc' | 0 | 1 | 2 | 3 | 4) =>
+    // (`lead0`: Flickr's and Commons', `lead1`: the rest), the pages with no photo of their own (`bare`: the open ones,
+    // `bareNc`: the non-commercial ones, the chief of staff's rule of 17 Nov), the photos that wait on a page with no
+    // strip (`short`: the open ones, `shortNc`: the non-commercial ones), and each turn in order.
+    const phase = (x: Shown, now: 'aside' | 'noAnimal' | 'first' | 'lead0' | 'lead1' | 'bare' | 'bareNc' | 'short' | 'shortNc' | 0 | 1 | 2 | 3 | 4) =>
       now === 'aside' ? `${x.page} ${x.url}` in asideBefore
       : now === 'noAnimal' ? noAnimal(x)
       : now === 'first' ? !!x.sourced
       : now === 'lead0' || now === 'lead1' ? !!x.lead && unseen(x) && (turn(x) === 0) === (now === 'lead0')
-      : now === 'bare' ? !!x.bare
-      : now === 'short' || now === 'shortNc' ? !!x.short && !!x.nc === (now === 'shortNc')
+      : now === 'bare' || now === 'bareNc' ? !!x.bare && !!x.nc === (now === 'bareNc')
+      // A non-commercial photo on a page with no photo of its own is judged in its share (`bareNc`) or in the last turn,
+      // never here, past its share (a reader's point, 20 Nov).
+      : now === 'short' || now === 'shortNc' ? !!x.short && !!x.nc === (now === 'shortNc') && !(x.nc && x.bare)
       : turn(x) === now
     // A sheet set aside last run goes first (the chief of staff, 19 Nov); then a head with no animal in it, before the
     // rest: a page whose head is a river should not wait (the chief of staff, 2026-11-12). The source's share (`fill`) counts from where its own turn starts.
     let firstAt = from
-    for (const now of ['aside', 'noAnimal', 'first', 'lead0', 'lead1', 'bare', 'short', 'shortNc', 0, 1, 2, 3, 4] as const) for (const later of [false, true]) for (const s of all) {
+    for (const now of ['aside', 'noAnimal', 'first', 'lead0', 'lead1', 'bare', 'bareNc', 'short', 'shortNc', 0, 1, 2, 3, 4] as const) for (const later of [false, true]) for (const s of all) {
       if (now === 'first' && !later && s === all[0]) firstAt = sheets.length
-      if (sheets.length >= o.limit || (now === 'first' && sheets.length - firstAt >= fill)) break
+      if (sheets.length >= o.limit || (now === 'first' && sheets.length - firstAt >= fill) || (now === 'bareNc' && ncTaken >= (o.ncShare ?? BARE_NC_SHARE))) break
       if (only && !only.has(s.id)) continue
       const open = (onPage.get(s.id) ?? []).filter(x => !(x.url in rejected) && want(x) && !queued.has(`${s.id}\n${x.url}`))
       const mine = [...new Set(open.filter(x => phase(x, now) && !!x.galleryOnly === later).map(x => x.url))]
@@ -568,8 +627,14 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       const album = (x: Shown) => Number(!lead || !x.file.endsWith('entity.json'))
       const more = [...new Set(open.filter(x => !first.includes(x.url)).sort((a, b) => album(a) - album(b) || turn(a) - turn(b) || Number(!!a.galleryOnly) - Number(!!b.galleryOnly)).map(x => x.url))].slice(0, room)
       const todo = [...first, ...more]
-      for (const u of todo) queued.add(`${s.id}\n${u}`)
-      for (let i = 0; i < todo.length && sheets.length < o.limit; i += PER_SHEET) sheets.push({ s, urls: todo.slice(i, i + PER_SHEET) })
+      // The share ends at its last sheet, a page's next sheets too. A photo is taken for this run only with its sheet, so
+      // one a share leaves out still comes in its later turn (a reader's point, 20 Nov).
+      for (let i = 0; i < todo.length && sheets.length < o.limit && !(now === 'bareNc' && ncTaken >= (o.ncShare ?? BARE_NC_SHARE)); i += PER_SHEET) {
+        const urls = todo.slice(i, i + PER_SHEET)
+        for (const u of urls) queued.add(`${s.id}\n${u}`)
+        sheets.push({ s, urls })
+        if (now === 'bareNc') ncTaken++
+      }
     }
     return sheets.slice(from).map((x, i) => ({ ...x, i: from + i }))
   }
@@ -585,6 +650,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   })
   const logos = new Set<string>() // photos this run found a logo on
   const others = new Set<string>() // `page\nurl` the model answered "another fish" for, this run, on the page itself
+  const namedKinds = new Map<string, string>() // url → the page ("species/<id>") such an answer named, this run (namedKind)
   const dir = await mkdtemp(join(tmpdir(), 'photo-check-'))
   const judge = (batch: { s: Subject; urls: string[]; i: number | string }[]) =>
     pool(batch, o.parallel ?? 1, async ({ s, urls, i }) => {
@@ -648,7 +714,11 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
         if (!x || !(VERDICTS as readonly string[]).includes(p.ok)) continue
         cache[x.url] = { ...cache[x.url], [s.id]: compactVerdict({ ok: p.ok, typical: !!p.typical && p.ok !== 'dead', note: String(p.note ?? '').slice(0, 120), logo: !!p.logo, person: !!p.person, ...(p.ok === 'yes' && !captions[p.n - 1] ? { young: !!p.young } : {}), ...(captions[p.n - 1] ? { guide: true } : {}) }) }
         if (p.logo) logos.add(x.url)
-        if (p.ok === 'other' && !captions[p.n - 1]) others.add(`${s.id}\n${x.url}`)
+        if (p.ok === 'other' && !captions[p.n - 1]) {
+          others.add(`${s.id}\n${x.url}`)
+          const kind = namedKind(String(p.note ?? ''), s, index)
+          if (kind && !namedKinds.has(x.url)) namedKinds.set(x.url, `${byId.get(kind)!.kind}/${kind}`)
+        }
         judgedNow.add(`${s.id} ${x.url}`)
         report.judged++
       }
@@ -718,21 +788,34 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // the chief of staff, 16 Nov). The check runs before the screen in a cycle, and a logo listed here never reaches that
   // question. No public build shows the photo meanwhile (photo-screen.ts awaitsScreen). Dead fish and people still list it.
   const ownMarkWaits = new Set(shown.filter(x => marks[x.url]?.watermark === undefined && screenedShop(x.url, x.source ?? (x.guide ? guideFrom.get(x.url) : undefined))).map(x => x.url))
+  // This run's own verdicts of dead or a person on a photo that never passed the check: a first verdict (last-photo.ts).
+  // A verdict cached from before doesn't count, nor does this run's verdict of anything else.
+  const freshBad = new Set([...judgedNow].flatMap(k => { const i = k.indexOf(' '), u = k.slice(i + 1), v = cache[u]?.[k.slice(0, i)]; return v && (v.ok === 'dead' || v.person === true) && !passed.has(u) ? [u] : [] }))
+  // A photo held for a second look, or one it cleared, isn't taken off on a verdict; but a hold on another reason doesn't
+  // keep a photo from its first verdict of dead or a person (the independent reader, 20 Nov).
+  const spared = (url: string) => !sl.open(url) && !(sl.waiting(url) && freshBad.has(url))
   for (const url of everywhere.keys()) {
-    const why = url in rejected || !sl.open(url) ? undefined : blockedFor(cache[url], keepLogo(url) || ownMarkWaits.has(url))
+    const why = url in rejected || spared(url) ? undefined : blockedFor(cache[url], keepLogo(url) || ownMarkWaits.has(url))
     if (why) { added[url] = why; report.blocked.push(`${url}: ${why}`) }
   }
   // Not one its file name took off: a photo of the species it names, which that species' page may still take.
   const named = (url: string) => Object.values(cache[url] ?? {}).some(v => v.file)
   for (const [url, xs] of onPages) if (!(url in rejected) && !(url in added) && !named(url) && everywhere.get(url)!.every(off)) added[url] = `not ${label(xs[0]!.page!)}: ${verdict(url, xs[0]!.page!, !xs[0]!.guide)!.note}`
+  // The hold protects a photo that passed the check before (the chief of staff, 20 Nov 2026). This run's first verdict of
+  // dead or a person, on a photo that never passed, isn't held: it comes off, even as a page's last photo, and waits for
+  // its look marked on both lists (last-photo.ts), as does one already marked.
+  const first = (url: string) => sl.off(url) || (FIRST_OFF.test(added[url] ?? '') && freshBad.has(url))
   const offAt = new Set(shown.filter(off).map(x => `${x.file}\n${x.url}`))
-  const blocked = (file: string) => (url: string) => (url in rejected && !keepLogo(url)) || url in added || offAt.has(`${file}\n${url}`)
+  // One marked off at its first verdict is off wherever it shows, its never-again entry there or not (last-photo.ts).
+  const blocked = (file: string) => (url: string) => (url in rejected && !keepLogo(url)) || url in added || offAt.has(`${file}\n${url}`) || sl.off(url)
   // Pages this run would leave with no photo of their own: more than the cap, and none of them loses any.
   const real = (ps: Photo[] | undefined) => (ps ?? []).filter(p => !p.generated)
   const ownPhotos = async (file: string) => real((await readJson<{ photos?: Photo[] }>(file))?.photos)
   const pageFiles = [...new Set(shown.filter(x => !x.guide && x.file.endsWith('entity.json')).map(x => x.file))]
   const emptying: string[] = []
-  for (const file of pageFiles) { const ps = await ownPhotos(file); if (ps.length && ps.every(p => blocked(file)(p.url))) emptying.push(file) }
+  // What would leave each of them with nothing.
+  const emptyBy = new Map<string, string[]>()
+  for (const file of pageFiles) { const ps = await ownPhotos(file); if (ps.length && ps.every(p => blocked(file)(p.url))) { emptying.push(file); emptyBy.set(file, ps.map(p => p.url)) } }
   // A page with none of its own whose album would go whole is left with nothing too (the chief of staff, 2026-11-14).
   const galleryOf = (file: string) => join(content, 'gallery', `${file.split('/').at(-2)}.json`)
   for (const g of [...new Set(shown.filter(x => !x.guide && /\/gallery\/[^/]+\.json$/.test(x.file)).map(x => x.file))]) {
@@ -741,19 +824,34 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const file = join(content, s.kind, s.id, 'entity.json')
     if (emptying.includes(file) || (await ownPhotos(file)).length) continue
     const ps = await ownPhotos(g)
-    if (ps.length && ps.every(p => blocked(g)(p.url))) emptying.push(file)
+    if (ps.length && ps.every(p => blocked(g)(p.url))) { emptying.push(file); emptyBy.set(file, ps.map(p => p.url)) }
   }
   // A cap that isn't a whole number (a typo) is the usual one: it never lets a run through unheld.
   const cap = Number.isInteger(o.emptyCap) && o.emptyCap! >= 0 ? o.emptyCap! : EMPTY_CAP
-  const heldPages = emptying.length > cap ? emptying : []
+  // The hold, where a person hasn't released it: a page left with nothing only by first verdicts isn't held.
+  const holdOn = emptying.length > cap
+  const heldPages = holdOn ? emptying.filter(f => emptyBy.get(f)!.some(u => !first(u))) : []
   // A held page keeps its album too.
   const held = new Set([...heldPages, ...heldPages.map(galleryOf)])
   const pageOf = (file: string) => file.slice(content.length + 1).split('/').slice(0, 2).join('/')
+  // Each first verdict on a page left with nothing waits for its look, marked: the page's own and its album's, whether or
+  // not the page is held. On a page only first verdicts empty, the album's first-verdict photos are its last hope of a
+  // picture, as its own are (the chief of staff, 21 Nov 2026).
+  const firstOff = new Map<string, { why: string; pages: string[]; off: true }>()
+  for (const file of holdOn ? emptying : []) for (const f of [file, galleryOf(file)]) for (const p of await ownPhotos(f)) {
+    if (!first(p.url) || sl.off(p.url)) continue
+    const h = firstOff.get(p.url) ?? { why: added[p.url]!, pages: [], off: true as const }
+    if (!h.pages.includes(pageOf(file))) h.pages.push(pageOf(file))
+    firstOff.set(p.url, h)
+  }
+  for (const [url, h] of firstOff) report.firstOff.push(`${h.pages.join(', ')}: ${url}`)
+  report.blocked = report.blocked.filter(x => !firstOff.has(x.slice(0, x.indexOf(': '))))
+  await holdForSecondLook(root, firstOff, 'the photo check')
   for (const file of heldPages) report.heads.held.push(`${pageOf(file)}: ${((await ownPhotos(file))[0] ?? (await ownPhotos(galleryOf(file)))[0])!.url}`)
   // Each photo a held page would have lost goes on the second look, with its reason (last-photo.ts).
   const holding = new Map<string, { why: string; pages: string[] }>()
   for (const file of heldPages) for (const f of [file, galleryOf(file)]) for (const p of await ownPhotos(f)) {
-    if (p.url in rejected || !blocked(f)(p.url)) continue
+    if (p.url in rejected || !blocked(f)(p.url) || first(p.url)) continue
     const id = file.split('/').at(-2)!
     const h = holding.get(p.url) ?? { why: added[p.url] ?? `not ${label(id)}: ${verdict(p.url, id)?.note ?? ''}`, pages: [] }
     h.pages.push(pageOf(file))
@@ -773,12 +871,22 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   await writeHeld({ ...Object.fromEntries(heldKeys.map(k => [k, true as const])), ...heldNow })
   // Not onto the never-again list either, or a later run would take them off through that, unseen.
   for (const file of held) for (const p of await ownPhotos(file)) {
-    if (!(p.url in added)) continue
+    if (!(p.url in added) || first(p.url)) continue
     delete added[p.url]
     report.blocked = report.blocked.filter(x => !x.startsWith(`${p.url}: `))
   }
   for (const file of [...new Set(shown.map(x => x.file))]) {
-    if (held.has(file)) continue
+    if (held.has(file)) {
+      // A held page keeps what passed before; a first verdict comes off it all the same.
+      const raw = await readFile(file, 'utf8')
+      const data = JSON.parse(raw) as { photos?: Photo[] }
+      const removed: string[] = []
+      stripPhotos(data, first, removed, [])
+      if (!removed.length) continue
+      report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))
+      await writeFile(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
+      continue
+    }
     const raw = await readFile(file, 'utf8')
     const data = JSON.parse(raw) as { photos?: Photo[] }
     const before = real(data.photos)[0]?.url
@@ -857,10 +965,23 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   }
 
   // 3. Verdicts, the blocklist (re-read, so entries another step added meanwhile stay) and the review file.
+  // A photo this run lists as another fish, whose answer named a kind we have a page for, keeps that page's id beside
+  // the list, the id only, never the answer's words (the chief of staff, 20 Nov). Added to, never rewritten. Written
+  // before the verdicts: once a verdict is kept, no later run asks again, and the answer's words are gone.
+  const kinds = (await readJson<Record<string, string>>(kindsFile)) ?? {}
+  const writeKinds = () => writeImageCache(kindsFile, `${JSON.stringify(Object.fromEntries(Object.entries(kinds).sort()), null, 2)}\n`)
+  const listedBefore = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
+  const kinded = Object.keys(added).filter(u => !(u in listedBefore) && added[u]!.startsWith('not ') && namedKinds.has(u) && !(u in kinds))
+  for (const u of kinded) kinds[u] = namedKinds.get(u)!
+  if (kinded.length) await writeKinds()
   await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort()))
   const now = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
-  for (const [u, why] of Object.entries(added)) if (!(u in now)) { now[u] = why; report.rejected++ }
+  // One off at its first verdict waits there marked, and isn't counted refused (last-photo.ts).
+  for (const [u, why] of Object.entries(added)) if (!(u in now)) { if (firstOff.has(u)) now[u] = waitingEntry(why); else { now[u] = why; report.rejected++ } }
   await writePhotoState(rejectedFile, now)
+  // One another step listed meanwhile keeps that step's reason, and no id from this run.
+  const taken = kinded.filter(u => now[u] !== added[u])
+  if (taken.length) { for (const u of taken) delete kinds[u]; await writeKinds() }
   // This run's hold alone, once its pages, verdicts and never-again list are written (above).
   await writeHeld(heldNow)
   const left = new Map<string, number>()

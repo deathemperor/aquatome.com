@@ -1,5 +1,16 @@
 import type { T } from './i18n'
 
+// Tool pages use these descriptions for web metadata and for all the words the app searches.
+export const TOOL_DESCRIPTIONS: Readonly<Record<string, string>> = {
+  '/vi/cong-cu/': 'Kiểm tra cá nuôi chung, thả bao nhiêu con là vừa, tính thể tích bể, lượng nền cần mua, công suất sưởi và liều phân nước.',
+  '/vi/cong-cu/nuoi-chung/': 'Các loài cá có nuôi chung được không: so nhiệt độ, pH, độ cứng, kích thước và tính cách, rồi ước thả bao nhiêu con là vừa bể.',
+  '/vi/cong-cu/the-tich-be/': 'Tính thể tích bể cá 12 kiểu (chữ nhật, lục giác, trụ tròn, bể góc, chữ L) ra lít và gallon, kèm lượng nước thực tế, cân nặng và độ dày kính nên dùng.',
+  '/vi/cong-cu/du-toan-be/': 'Dự toán chi phí set bể cá, bể thủy sinh 30–120 cm: giá bể, chân, lọc, sưởi, đèn, phân nền, CO₂, bộ test và ổ cắm thông minh theo ba mức đầu tư, cộng tiền điện và tiền nuôi mỗi tháng.',
+  '/vi/cong-cu/den-chihiros/': 'Điều khiển đèn thủy sinh Chihiros (WRGB II, Slim, Pro, A II, C II, Universal) qua Bluetooth trên Chrome: đặt lịch bật tắt có sáng dần, tối dần, chỉnh độ sáng từng màu, lịch mẫu cho bể mới và bể bị rêu.',
+  '/vi/cong-cu/nhan-dien-ca/': 'Nhận diện cá cảnh, tép, ốc và cây thủy sinh từ một tấm ảnh: tên loài, dòng (betta halfmoon, guppy koi…) và hồ sơ cách nuôi trong cẩm nang AquaTome.',
+  '/vi/cong-cu/be-cua-toi/': 'Sổ bể cá miễn phí: lưu kích thước, thể tích, loại nền, cá, cây, ghi chú và lịch đèn Chihiros của từng bể ngay trên trình duyệt, không cần tài khoản.',
+}
+
 export type ToolCard = { href: string; name: string; what: string; icon: string }
 
 /**

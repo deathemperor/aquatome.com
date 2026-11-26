@@ -1,0 +1,288 @@
+{
+  "id": "pseudolithoxus-kelsorum",
+  "scientificName": "Pseudolithoxus kelsorum",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Pseudolithoxus",
+  "group": "catfish",
+  "lNumber": "L189",
+  "places": [
+    "south-america",
+    "venezuela",
+    "orinoco"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 25,
+          "max": 29
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 10
+      },
+      {
+        "source": "scotcat",
+        "value": 15
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 122
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudolithoxus-kelsorum-l189-2/",
+      "html": "<p>This interesting catfish from Venezuela is offered only very rarely. With a maximum length of 10 cm (only very rarely do some specimens reach this size; the normal size is 6-7 cm) the species remains relatively small.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudolithoxus_kelsorum.htm",
+      "html": "<p>Similar to P. nicoi but this species has white edging to the dorsal and caudal fins.</p><p>The genus Pseudolithoxus now includes six species, P. anthrax, P. dumus, P. kelsorum, P. nicoi, and P. kinja. Previously described as the Lasiancistrus anthrax group. They are characterized by evertible cheek plates, a very dorsoventrally flattened body, extremely hypertrophied odontodes (integumentary teeth) on elongated pectoral spines and along the snout margin, and 3 rows of plates on the caudal peduncle. In addition, it appears as if females as well as males develop hypertrophied snout and pectoral-fin odontodes, traits normally restricted to nuptial males in other Loricariids.</p><p>Dorsal spines (total): 2; Dorsal soft rays (total): 7; Anal spines: 1; Anal soft rays: 5. Body and head with numerous black bars. Lateral line plates 23-24; dorsal plates 7-8; interdorsal plates 4-5; adipose-caudal plates 7-8; folded dorsal fin plates 11-12; and postanal plates 11-12.</p><p>Colouration: Pseudolithoxus kelsorum is diagnosed from all other Pseudolithoxus by having dark brown to black base colour with eight to 11 (usually nine) light yellowish vertical or oblique (tilted dorsoanteriorly) transversal bands between orbits and caudal fin, bands wide and rarely but sometimes incomplete or contorted as swirls; vs. dark brown to black base color with 18 or more thin, light yellow, frequently contorted transversal bands between orbits and caudal fin in P. tigris, black base colour with small white spots in P. anthrax and P. nicoi; and light brown base colour with dark brown to black spots in P. dumus.</p><p>Family: Loricariidae. Size: 15 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudolithoxus-kelsorum-l189-2/",
+      "html": "<p>It lives in the tributaries of the middle Orinoco in Venezuela.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudolithoxus_kelsorum.htm",
+      "html": "<p>South America: Venezuela, Amazonas State, Orinoco River drainage. Known only from a single site on the Orinoco River just above the Maipures rapids and approximately 60 km south of the Atures rapids.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudolithoxus_kelsorum.htm",
+      "html": "<p>A minimum size of 122 x 46 x 46 cm is suggested for one or two of these catfish, with plenty of hiding places amongst bogwood and plants.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudolithoxus_kelsorum.htm",
+      "html": "<p>The ideal aquarium substrate is aquarium sand. Water quality and general husbandry are very important, and a minimum of 25% of the water should be changed weekly. This fish has similar requirements to other loricariids, so should do well under normal aquarium conditions.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudolithoxus-kelsorum-l189-2/",
+      "html": "<p>The flat body structure indicates that this species is adapted to stronger water currents. They should be offered temperatures in the range of 26-30°C, whereby one must pay attention to good oxygen saturation.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudolithoxus_kelsorum.htm",
+      "html": "<ul><li>Temperature: 25-29°C</li><li>pH: 6.0-7.0</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudolithoxus-kelsorum-l189-2/",
+      "html": "<p>They are typical Aufwuchs feeders.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudolithoxus_kelsorum.htm",
+      "html": "<p>Omnivore: vegetable and animal foods such as green foods, vegetable tablets, live and frozen foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudolithoxus-kelsorum-l189-2/",
+      "html": "<p>Pseudolithoxus species are all quite flat, but P. kelsorum especially. Besides the flat shape and appealing pattern, L189 has another characteristic that makes it particularly suitable for the aquarium: it is also very active during the day and by far not as addicted to hiding as many other L-catfish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudolithoxus_kelsorum.htm",
+      "html": "<p>Females have a narrower head with a larger body while males possess odontodes on the edge of the snout, behind the gill cover and to the pectoral fin spine.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudolithoxus-kelsorum-l189-2/",
+      "html": "<p>No successful breeding of this species has been reported yet, but this is surely only due to the rare imports.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudolithoxus_kelsorum.htm",
+      "html": "<p>Etymology: The specific name kelsorum is for the Winemiller Aquatic Ecology Lab which facilitated important ichthyological discoveries, including this new species.</p><p>IUCN Red List: Pseudolithoxus kelsorum is known from a single site and has an area of occupancy (AOO) of 212 km2 and an extent of occurrence (EOO) of 212 km2. Habitat that is likely to be suitable for the species may actually be much smaller than that even if the species is found at the Raudales Atures, a large rapids complex near Puerto Ayacucho, Venezuela. This region of the Orinoco has been pretty well explored, and so the small area occupied by the species may be genuine. The species is vulnerable to exploitation by the aquarium industry, and there is ongoing mining in the region. There is a single location based on these threats, and an inferred continuing decline in habitat based on mining. Therefore, this species is assessed as Endangered (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudolithoxus_kelsorum.htm",
+      "html": "<p>Armbruster, J.W. 2023. Pseudolithoxus kelsorum. The IUCN Red List of Threatened Species 2023.</p><p>Froese, R. and D. Pauly. Editors. 2018. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 02/2018 ).</p><p>Lujan, N.K. and J.N.O. Birindelli, 2011. A new distinctively banded species of Pseudolithoxus (Siluriformes: Loricariidae) from the upper Orinoco River. Zootaxa 2941:38-46.</p><p>www.suedamerikafans.de</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/585db507eacc72b8.webp",
+      "thumb": "https://media.aquatome.com/scotcat/585db507eacc72b8-480.webp",
+      "width": 500,
+      "height": 281,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudolithoxus_kelsorum.htm",
+      "caption": "Pseudolithoxus kelsorum",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5218015b00a043bc.webp",
+      "thumb": "https://media.aquatome.com/glaser/5218015b00a043bc-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudolithoxus-kelsorum-l189-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/4dd13703d7349d6b.webp",
+      "thumb": "https://media.aquatome.com/glaser/4dd13703d7349d6b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudolithoxus-kelsorum-l189-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1e0292ae9065f200.webp",
+      "thumb": "https://media.aquatome.com/glaser/1e0292ae9065f200-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudolithoxus-kelsorum-l189-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "Ene59bsDQ7k",
+      "title": "Pseudolithoxus kelsorum (L189 pleco) released in stream tank",
+      "durationSec": 104,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HSQLcXq_bd0",
+      "title": "Pseudolithoxus kelsorum",
+      "durationSec": 103,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "aTguTFjPCFk",
+      "title": "Pseudolithoxus kelsorum (L189 pleco)",
+      "durationSec": 90,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc bể cá",
+        "sục khí bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "thức ăn dạng viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21",
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Orinoco"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This interesting catfish from Venezuela is offered only very rarely.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "It lives in the tributaries of the middle Orinoco in Venezuela.",
+          "countries": [],
+          "regions": [
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 6167984,
+      "total": 6,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "VE",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          -68.90625,
+          4.21875,
+          6,
+          6
+        ]
+      ]
+    }
+  }
+}

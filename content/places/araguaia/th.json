@@ -3,6 +3,12 @@
   "name": "อารากัวยา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.74,
+    "at": "2026-11-21T01:16:46.751Z",
+    "why": "อารากัวยา is a proper Thai transliteration of Araguaia in Thai script, but the source describes the river basin, where Thai usually adds the kind word แม่น้ำ (and often spells it อารากวยา)."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

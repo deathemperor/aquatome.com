@@ -1,0 +1,325 @@
+{
+  "id": "anodus-orinocensis",
+  "scientificName": "Anodus orinocensis",
+  "order": "Characiformes",
+  "family": "Hemiodontidae",
+  "genus": "Anodus",
+  "group": "other",
+  "places": [
+    "south-america",
+    "venezuela",
+    "orinoco"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Orinoco"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Anodus orinocensis comes from Venezuela, in the Orinoco.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5204562,
+      "total": 67,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "VE",
+          39
+        ],
+        [
+          "BR",
+          24
+        ],
+        [
+          "CO",
+          3
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          0,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          1.40625,
+          2,
+          1
+        ],
+        [
+          -67.5,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -67.5,
+          5.625,
+          7,
+          7
+        ],
+        [
+          -67.5,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          -66.09375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          2,
+          0
+        ],
+        [
+          -64.6875,
+          7.03125,
+          15,
+          15
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          8.4375,
+          5,
+          5
+        ],
+        [
+          -61.875,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          3,
+          0
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          3,
+          0
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -56.25,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -52.03125,
+          -15.46875,
+          2,
+          0
+        ],
+        [
+          -50.625,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -50.625,
+          -4.21875,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/anodus-orinocensis-2/",
+      "html": "<p>Anodus orinocensis was imported from Venezuela for the first time. With a final length of a good 30 cm it becomes considerably larger than Hemiodus gracilis. It is peaceful.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/anodus-orinocensis-2/",
+      "html": "<p>Anodus orinocensis comes from Venezuela, in the Orinoco.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/anodus-orinocensis-2/",
+      "html": "<p>The water composition is not important, but like so many species from the Orinoco, A. orinocensis needs warmth and should be kept in the range of 24-30°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/anodus-orinocensis-2/",
+      "html": "<p>Anodus is an Aufwuchs eater and also filters the water for small organisms. It requires an attentive diet with the smallest possible food (cyclops, fine flake food, small granules).</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/anodus-orinocensis-2/",
+      "html": "<p>As a young fish A. orinocensis often lives in mixed shoals with Hemiodus gracilis. The two species look amazingly similar, but Anodus swims mostly in a \"normal\" horizontal position, while H. gracilis is a small animal eater and almost always swims in a slanting head-up position. They are peaceful animals.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/bb41689df602b4bd.webp",
+      "thumb": "https://media.aquatome.com/glaser/bb41689df602b4bd-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/anodus-orinocensis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/537fbb1155148b6c.webp",
+      "thumb": "https://media.aquatome.com/glaser/537fbb1155148b6c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/anodus-orinocensis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/484031bb3382f175.webp",
+      "thumb": "https://media.aquatome.com/glaser/484031bb3382f175-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/anodus-orinocensis-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 300 lít"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên nhỏ cho cá",
+        "thức ăn mảnh cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

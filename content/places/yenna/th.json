@@ -3,6 +3,12 @@
   "name": "เยนนา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.72,
+    "at": "2026-11-19T18:54:40.880Z",
+    "why": "เยนนา is a plausible Thai transliteration of Yenna, but the place is a river basin (Yenna River, near Mahabaleshwar), so a Thai atlas would add the kind word แม่น้ำ, and the bare name omits it."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

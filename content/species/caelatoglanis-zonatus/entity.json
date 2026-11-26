@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "myanmar",
-    "ataran"
+    "ataran",
+    "kayin-state"
   ],
   "range": {
     "native": {
@@ -72,7 +73,14 @@
       ]
     }
   },
-  "dataCard": {},
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 3.9
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
@@ -81,16 +89,34 @@
       "html": "<p>Caelatoglanis zonatus is an erethistid catfish known only from the Ataran River system in Kayin state, Myanmar, part of the Salween drainage. The name zonatus refers to its barred colour pattern.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1492",
+      "html": "<ul><li>Scientific name: Caelatoglanis zonatus Ng &amp; Kottelat, 2005</li><li>IUCN Red List: Not Evaluated</li><li>Breeding: no breeding report</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/caelatoglanis-zonatus",
       "html": "<p>Known only from the Ataran River system in Kayin state, Myanmar.</p><p>The Ataran forms the headwaters of part of the larger Salween drainage, and some of its tributaries extend across the nearby border into Thailand, where it is known as the Kasat.</p><p>Type locality is 'Stream Chon Son between Kyondaw and Phadaw, about 20 kilometers northwest of Payathouzu (at border with Thailand), 15°25'N, 98°15'E, Kayin State, Myanmar'.</p>"
     },
     {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1492",
+      "html": "<p>Asia: Myanmar. Type locality: stream 'Chon Son' between Kyondaw and Phadaw, about 20 kilometres northwest of Payathouzu (at the border with Thailand), Kayin State, Myanmar.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/caelatoglanis-zonatus",
       "html": "<p>Images of the Ataran depict flowing sections of forest-shaded, seemingly well-oxygenated headwaters containing clear water, a mixed sand/rock substrate and lots of submerged driftwood and leaf litter.</p><p>Other fish species inhabiting the Ataran include Acanthocobitis pictilis, Botia kubotai, Schistura vinciguerrae, S. robertsi, Garra sp. 'redtail', and Mastacembelus armatus plus unidentified Devario, Scaphiodonichthys, Tor, Neolissochilus, Garra and Schistura spp.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1492",
+      "html": "<p>Ichthyological Exploration of Freshwaters v. 16 (no. 1), pp14 Figs. 1-2</p>"
     }
   ],
   "photos": [
@@ -181,5 +207,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-23"
 }

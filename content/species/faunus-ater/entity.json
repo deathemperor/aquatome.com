@@ -7,13 +7,65 @@
   "group": "snails",
   "places": [
     "asia",
-    "thailand"
+    "thailand",
+    "sri-lanka",
+    "india",
+    "myanmar",
+    "malaysia",
+    "singapore",
+    "philippines",
+    "indonesia",
+    "oceania",
+    "papua-new-guinea",
+    "australia",
+    "china"
   ],
   "range": {
+    "native": {
+      "countries": [
+        "LK",
+        "IN",
+        "MM",
+        "TH",
+        "MY",
+        "SG",
+        "PH",
+        "ID",
+        "AU",
+        "CN"
+      ],
+      "regions": [
+        "New Guinea"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "They have been reported from Sri Lanka, India, Myanmar, Thailand, Malaysia, Singapore, the Philippines, Indonesia, New Guinea, northern Australia and China.",
+          "countries": [
+            "LK",
+            "IN",
+            "MM",
+            "TH",
+            "MY",
+            "SG",
+            "PH",
+            "ID",
+            "AU",
+            "CN"
+          ],
+          "regions": [
+            "New Guinea"
+          ]
+        }
+      ]
+    },
     "records": {
       "taxonKey": 5857723,
-      "total": 63,
-      "fetched": "2026-11-10",
+      "total": 64,
+      "fetched": "2026-11-20",
       "countries": [
         [
           "PH",
@@ -48,160 +100,200 @@
           1
         ],
         [
+          "RU",
+          1
+        ],
+        [
           "VN",
           1
         ]
       ],
       "cells": [
         [
+          54.84375,
+          53.4375,
+          1,
+          0
+        ],
+        [
           75.9375,
           8.4375,
+          10,
           10
         ],
         [
           78.75,
           5.625,
+          2,
           2
         ],
         [
           80.15625,
           5.625,
+          1,
           1
         ],
         [
           80.15625,
           7.03125,
+          2,
           2
         ],
         [
           98.4375,
           7.03125,
+          1,
           1
         ],
         [
           101.25,
           11.25,
+          2,
           2
         ],
         [
           102.65625,
           2.8125,
+          1,
           1
         ],
         [
           102.65625,
           5.625,
+          3,
           3
         ],
         [
           108.28125,
           11.25,
-          1
+          1,
+          0
         ],
         [
           109.6875,
           -8.4375,
+          6,
           6
         ],
         [
           111.09375,
           5.625,
+          1,
           1
         ],
         [
           113.90625,
           -8.4375,
+          1,
           1
         ],
         [
           115.3125,
           -9.84375,
+          1,
           1
         ],
         [
           119.53125,
           12.65625,
+          2,
           2
         ],
         [
           119.53125,
           14.0625,
+          1,
           1
         ],
         [
           120.9375,
           14.0625,
+          1,
           1
         ],
         [
           122.34375,
           9.84375,
+          1,
           1
         ],
         [
           123.75,
           7.03125,
+          2,
           2
         ],
         [
           123.75,
           8.4375,
+          9,
           9
         ],
         [
           125.15625,
           7.03125,
+          1,
           1
         ],
         [
           125.15625,
           8.4375,
+          1,
           1
         ],
         [
           126.5625,
           0,
+          3,
           3
         ],
         [
           127.96875,
           -2.8125,
+          1,
           1
         ],
         [
           127.96875,
           0,
+          1,
           1
         ],
         [
           130.78125,
           -1.40625,
+          1,
           1
         ],
         [
           133.59375,
           -1.40625,
+          2,
           2
         ],
         [
           142.03125,
           -4.21875,
-          1
+          1,
+          0
         ],
         [
           154.6875,
           -8.4375,
-          1
+          1,
+          0
         ],
         [
           158.90625,
           -9.84375,
-          1
+          1,
+          0
         ],
         [
           160.3125,
           -9.84375,
-          2
+          2,
+          0
         ]
       ]
     }
@@ -211,6 +303,52 @@
       {
         "source": "glaser",
         "value": 6
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 9
+      }
+    ],
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 3,
+          "max": 18
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6,
+          "max": 6
+        }
       }
     ]
   },
@@ -222,10 +360,46 @@
       "html": "<p>An attractive snail about 6 cm long. It is a relative of the well known Malayan trumpet snail.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/black-devil-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Common names: Black Devil Spike Snail, Black Spike Snail, Black Devil Snail, Lava Snail, Spike Live Snail</li><li>Minimum tank size: 40 litres</li><li>Keeping: easy; breeding: difficult</li><li>Optimal pH: 7.0–8.5; GH 3–18; KH 3–12; TDS 100–300</li><li>Nitrate: less than 20 ppm</li><li>Diet: omnivore / algae eater</li><li>Temperament: peaceful</li><li>Colour: black to brown</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/black-devil-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The distribution of Black Devil Snails is limited to the tropical Indo-west Pacific region. They have been reported from Sri Lanka, India, Myanmar, Thailand, Malaysia, Singapore, the Philippines, Indonesia, New Guinea, northern Australia and China.</p>"
+    },
+    {
       "key": "habitat",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/faunus_ater_en/",
       "html": "<p>In the wild this animal occurs in the lowest reaches of rivers on muddy bottoms and is thus very tolerant against salt. So it is possible to keep it in freshwater tanks as well as in brackish water aquaria.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/black-devil-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Black Devil Snails prefer tropical brackish or freshwater habitats such as mangroves, intertidal areas, lagoons, ditches, streams, river mouths and estuaries with a brackish influence, at depths of 0.3 to 1.5 m.</p><p>In the wild, the salinity of the water where they live ranges from slightly brackish water to full-strength seawater (specific gravity 1.002–1.025).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/black-devil-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Black Devil Snails do well in larger tanks and can grow up to 9 cm. It is best to keep them in an established 40-litre tank, which gives them enough space to move and eat.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/black-devil-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Although these snails are hardy, avoid rapid changes in water parameters. They prefer to live in brackish water in the wild, but can be kept in freshwater tanks. They are not particularly salt tolerant, as is sometimes claimed.</p><p>Keep the water hard and the pH above 7.0; ideally pH 7.0–8.0. Their shells dissolve in water that is not hard enough. Cracked, eroded, thin or pitted shells are a sign of low pH and low calcium.</p><p>They prefer warm water, so a heater may be needed. At a room temperature of about 21–22°C they will still be OK, but their metabolism slows down and they become sluggish. They need careful acclimation like all invertebrates.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/black-devil-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The substrate should be sand (coarse and fine) or soil with a little gravel and silt clay. Hard substrates such as pebbles or gravel make it hard for them to bury themselves.</p>"
     },
     {
       "key": "diet",
@@ -234,9 +408,27 @@
       "html": "<p>In nature, these snails feed probably on silt and mud. They do not work as algae-eaters, but need detritus and similar material for food.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/black-devil-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Black Devil Snails are omnivorous and great scavengers. In the wild they are attracted to mud and garbage and are found in areas with human impact.</p><p>They are also good algae eaters, but do not expect them to clean the glass; they are too heavy. In the aquarium they feed mostly on the substrate, on leftover shrimp or fish food such as pills, flakes, pellets, algae/Spirulina wafers and frozen foods.</p><p>Shell deterioration is common; adding calcium supplements can help keep shells strong and healthy.</p><p>They usually do not feed on live plants if other food is available, so keep them well fed. Provide a variety of leaf litter and blanched vegetables regularly. Their droppings in the substrate also fertilise plants.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/black-devil-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Black Devil Snails are diggers and nocturnal. They spend most of the time buried in the substrate, which prevents gas pockets building up. From time to time they climb to the top of the tank and slide down the glass or fall to the bottom. They can potentially uproot plants with weak roots.</p><p>They are peaceful and safe with non-aggressive freshwater fish and dwarf shrimp, and can be combined with other snails. They have small, thin antennae, so avoid fish that nip. Do not keep them with crayfish and crabs that can break their thick shells. If a predator is around, they hide in the shell and close the operculum.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/faunus_ater_en/",
+      "html": "<p>Males and females cannot be distinguished by external features.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/black-devil-snail-detailed-guide-care-diet-and-breeding/",
       "html": "<p>Males and females cannot be distinguished by external features.</p>"
     },
     {
@@ -246,10 +438,22 @@
       "html": "<p>In contrast to the Malayan trumpet snail, which is a livebearing species, Faunus ater is an egglayer. The larvae can develop in marine environment only, so it is impossible that an unwanted proliferation occurs in the tank.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/black-devil-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The reproductive biology is largely unknown. Black Devil Snails are oviparous and their wide distribution suggests an extended free-swimming larval stage. They do not breed in freshwater; the larvae can develop in a marine environment only.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/faunus_ater_en/",
       "html": "<p>Faunus: a Roman god, patron of farming and livestock; corresponding to the Greek Pan. It is not known why this generic name was chosen. ater: Latin, means \"black\".</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/black-devil-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The shell is up to 9 cm long, usually 5–6 cm, and 0.5–2 cm wide. It is black in juveniles, turning mahogany as it grows. It is elongate and smooth with around 6 to 20 whorls; adult shells often have eroded apical whorls. The aperture is white and ovate. The operculum is corneous, ovoid, thick and black, and falls off when the snail dies.</p><p>The genus Faunus is monotypic. It resembles Rabbit snails but is not closely related and cannot interbreed with them, nor is it related to Malaysian Trumpet Snails. Its higher classification has been confusing, but recent studies place Faunus in the family Pachychilidae.</p><p>Colour morphs sold in shops, such as \"Cappuccino\", are doubtful: scientific studies say Faunus ater is always dark.</p>"
     }
   ],
   "photos": [
@@ -262,6 +466,16 @@
       "author": "serwacy01-",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Faunus_aterr.jpg",
       "caption": "Ốc Faunus đen bò trên kính, thấy rõ nắp miệng ốc"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/5ec97ea114704858.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/5ec97ea114704858-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/black-devil-snail-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
     }
   ],
   "videos": [
@@ -312,5 +526,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-20"
 }

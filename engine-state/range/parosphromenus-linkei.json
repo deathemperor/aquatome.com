@@ -1,14 +1,14 @@
 {
   "id": "parosphromenus-linkei",
   "native": {
-    "input": "b29d76e6494512d5",
-    "at": "2026-11-19T07:58:14.453Z",
+    "input": "db61cf5df40228f2",
+    "at": "2026-11-20T01:55:49.831Z",
     "claims": [
       {
         "code": "ID",
         "status": "native",
-        "source": "bwaquatics",
-        "quote": "Parosphromenus linkei (“Linke’s Licorice Gourami” / “Moonspot Licorice Gourami”) is a distinctive blackwater labyrinth fish native to Central Kalimantan, Indonesian Borneo.",
+        "source": "seriouslyfish",
+        "quote": "Parosphromenus linkei is a liquorice gourami from Central Kalimantan province in Indonesian Borneo, described from creeks near Sukamara.",
         "words": "Indonesian",
         "ok": true
       },
@@ -16,8 +16,8 @@
         "code": "ID",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Parosphromenus linkei is a liquorice gourami from Central Kalimantan province in Indonesian Borneo, described from creeks near Sukamara.",
-        "words": "Indonesian",
+        "quote": "Described from 'Creeks in Pudukuali, 2 kilometers north of Sukamara and Tarantang, Kalimantan Tengah, Borneo', which refers to the village of Pudu in Sukumara district, West Kotawaringin Regency, Central Kalimantan province, Indonesia (Borneo).",
+        "words": "Indonesia",
         "ok": true
       },
       {
@@ -32,20 +32,22 @@
     "regions": [
       {
         "name": "Borneo",
-        "source": "bwaquatics",
-        "quote": "Parosphromenus linkei (“Linke’s Licorice Gourami” / “Moonspot Licorice Gourami”) is a distinctive blackwater labyrinth fish native to Central Kalimantan, Indonesian Borneo.",
-        "ok": true
-      },
-      {
-        "name": "Borneo",
         "source": "seriouslyfish",
         "quote": "Parosphromenus linkei is a liquorice gourami from Central Kalimantan province in Indonesian Borneo, described from creeks near Sukamara.",
+        "country": "ID",
         "ok": true
       },
       {
         "name": "Borneo",
         "source": "glaser",
         "quote": "Parosphromenus linkei comes from the Indonesian part of Borneo, from the province of Kalimantan Tengah.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "bwaquatics",
+        "quote": "Parosphromenus linkei, Linke's licorice gourami, was described in 1991 and comes from Central Kalimantan, Borneo.",
         "ok": true
       }
     ],

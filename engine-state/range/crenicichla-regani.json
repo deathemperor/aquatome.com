@@ -1,14 +1,14 @@
 {
   "id": "crenicichla-regani",
   "native": {
-    "input": "3baf5e772be1871d",
-    "at": "2026-11-16T00:17:52.050Z",
+    "input": "78079db80e2e1790",
+    "at": "2026-11-21T01:22:16.258Z",
     "claims": [],
     "regions": [
       {
         "name": "Amazonia",
         "source": "glaser",
-        "quote": "The species Crenicichla regani has a very wide distribution in Amazonia.",
+        "quote": "The species Crenicichla regani is widely distributed in Amazonia.",
         "ok": true
       }
     ],
@@ -17,7 +17,8 @@
     "origin": {
       "pagesOnly": [
         "BR",
-        "VE"
+        "VE",
+        "CO"
       ],
       "sourcesOnly": []
     }

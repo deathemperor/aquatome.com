@@ -1,10 +1,12 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:142698416"
+ ],
  "hashes": {
   "https://media.aquatome.com/scotcat/644bd59318d5365f.webp": "45c746e0b0164470",
   "https://media.aquatome.com/scotcat/87dfdf71e7bb797e.webp": "7363654c58195df8",
-  "https://media.aquatome.com/scotcat/743da36e0d205733.webp": "87b72727774f3f4f"
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/142698416/large.jpg": "0e3665e2b0f4e290"
  },
  "inat": {
   "taxon": 609712,
@@ -21,6 +23,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 86604446,
+  "done": true
  },
  "exhausted": "2026-11-10"
 }

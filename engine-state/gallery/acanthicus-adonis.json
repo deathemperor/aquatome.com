@@ -2,14 +2,18 @@
  "queue": [],
  "judged": [
   "File:Acanthicus adonis1.jpg",
-  "File:Acanthicus adonis2.jpg"
+  "File:Acanthicus adonis2.jpg",
+  "inat:238772616"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/a995cba0e8f5e239.webp": "b38e93b22ab868cc",
   "https://media.aquatome.com/scotcat/beb05fecac60a285.webp": "f79ef2d8e8e8c881",
   "https://media.aquatome.com/scotcat/acccf24f0f3a1b76.webp": "9b9b9f1965c9c90d",
   "https://media.aquatome.com/scotcat/ecc4c4df7bae45fb.webp": "e0e0e0c2e2e21203",
-  "https://media.aquatome.com/commons/bb94c4734b25dd31.webp": "b1bb787078dbc348"
+  "https://media.aquatome.com/commons/bb94c4734b25dd31.webp": "b1bb787078dbc348",
+  "https://media.aquatome.com/glaser/d15f8aa917ddfbe4.webp": "7871d02060cf9ccc",
+  "https://media.aquatome.com/glaser/96a44e4c5566eaec.webp": "c0e68292e08f7fc0",
+  "https://media.aquatome.com/glaser/33f5e8f8efa565f0.webp": "5ad6cc9ccca0c040"
  },
  "commons": "2026-11-03",
  "inat": {
@@ -26,6 +30,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 139584974,
+  "done": true
  },
  "exhausted": "2026-11-15"
 }

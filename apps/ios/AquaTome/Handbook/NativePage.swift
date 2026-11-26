@@ -1094,7 +1094,7 @@ struct ReadersPart: View {
           // None at all: hidden ones the note below says.
           if photos?.isEmpty == true { Text("Chưa có ảnh nào. Bạn nuôi \(name)? Gửi một tấm ảnh cho mọi người cùng xem.").foregroundStyle(.secondary) }
         } else {
-          GalleryRow(title: String(localized: "Ảnh bạn đọc"), note: "", photos: shownPhotos.map(PageDoc.Image.init(reader:)),
+          GalleryRow(title: String(localized: "Ảnh bạn đọc", bundle: .app), note: "", photos: shownPhotos.map(PageDoc.Image.init(reader:)),
                      strip: Array(shownPhotos.indices), all: "readers-all", readers: shownPhotos.map(ReaderItem.init), grid: grid)
         }
         if open { Button("Gửi ảnh \(name) của bạn") { posting = .photo }.buttonStyle(.bordered).accessibilityIdentifier("post-photo") }
@@ -1171,7 +1171,7 @@ struct ReadersPart: View {
     out += styled("  " + Readers.day(c.createdAt, lang: handbook.lang), .footnote, secondary: true)
     if c.helpful {
       // The site's mark, in the page's green: a mark on the answer, not a heading over it.
-      var mark = styled("  " + String(localized: "Trả lời hay"), .footnote.weight(.semibold))
+      var mark = styled("  " + String(localized: "Trả lời hay", bundle: .app), .footnote.weight(.semibold))
       mark.foregroundColor = .accentColor
       out += mark
     }

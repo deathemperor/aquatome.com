@@ -3,6 +3,12 @@
   "name": "เมินดาเริม",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T18:50:48.222Z",
+    "why": "Mendarem is a Brunei locality (Malay \"Mendaram\"), and the Thai transliteration เมินดาเริม is a plausible but uncertain rendering that doesn't clearly match the usual เมินดาเรม/เมินดารัม pattern."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

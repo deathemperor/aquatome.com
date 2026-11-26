@@ -1,0 +1,240 @@
+{
+  "id": "auchenipterus-dentatus",
+  "scientificName": "Auchenipterus dentatus",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Auchenipterus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "suriname",
+    "corantijn",
+    "french-guiana",
+    "sinnamary"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "SR",
+        "GF"
+      ],
+      "regions": [
+        "Corantijn",
+        "Oyapock",
+        "Sinnamary",
+        "Arataye"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "IUCN Red List: this species is relatively widespread across Suriname and French Guiana with an extent of occurrence (EOO) approaching 100,000 km2.",
+          "countries": [
+            "SR",
+            "GF"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: northern coastal rivers of South America: Corantijn, Suriname, Arataye, Sinnamary and Oyapock rivers.",
+          "countries": [],
+          "regions": [
+            "Corantijn",
+            "Oyapock",
+            "Sinnamary",
+            "Arataye"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344576,
+      "total": 39,
+      "fetched": "2026-11-23",
+      "countries": [
+        [
+          "GF",
+          18
+        ],
+        [
+          "SR",
+          16
+        ],
+        [
+          "GY",
+          4
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -60.46875,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          4.21875,
+          5,
+          5
+        ],
+        [
+          -57.65625,
+          5.625,
+          6,
+          5
+        ],
+        [
+          -56.25,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -54.84375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -53.4375,
+          2.8125,
+          9,
+          9
+        ],
+        [
+          -53.4375,
+          4.21875,
+          7,
+          7
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 12
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_dentatus.htm",
+      "html": "<p>Family: Auchenipteridae. Size: 12 cm. Temperature: 23–26°C. pH: 6.5–7.2. Common name: none. Synonym: Euanemus colymbetes. The genus Auchenipterus is closely related and similar to Epapterus and Pseudepapterus.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_dentatus.htm",
+      "html": "<p>South America: northern coastal rivers of South America: Corantijn, Suriname, Arataye, Sinnamary and Oyapock rivers. Type locality: sent from Cayenne [apparently originating from the vicinity of Paramaribo, Suriname].</p><p>IUCN Red List: this species is relatively widespread across Suriname and French Guiana with an extent of occurrence (EOO) approaching 100,000 km2. Rivers in French Guiana and Suriname have been suffering impacts from small-scale gold mining. Further research into the population status is recommended. However, given the widespread distribution, this species is assessed as Least Concern (IUCN 2022).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_dentatus.htm",
+      "html": "<p>Appears to inhabit the more upstream parts of rivers where it occupies the upper part of the water column.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_dentatus.htm",
+      "html": "<p>Active at dusk, feeding mainly on insects and small crustaceans.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_dentatus.htm",
+      "html": "<p>First sexual maturity occurs at a length of 16 cm. Reproduction begins at the start of the rainy season. Fertilisation is internal, the female being capable of keeping the sperm in the epithelium of its genital tract. Fecundity is approximately 15,000 eggs.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_dentatus.htm",
+      "html": "<p>Etymology: the specific name dentatus means \"with teeth; serrated\", Latin for toothed, referring to velvety teeth on both jaws.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_dentatus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Ferraris, C.J. Jr., 1999. The South American catfish genus Auchenipterus Valenciennes, 1840 (Ostariophysi: Siluriformes: Auchenipteridae) : monopoly and relationships, with a revisionary study. Zoological Journal. Vol. 126, Part 4, 1999. Froese, R. and D. Pauly. Editors. 2021. FishBase. www.fishbase.org. Mesa-Salazar, L. 2022. Auchenipterus dentatus. The IUCN Red List of Threatened Species 2022. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

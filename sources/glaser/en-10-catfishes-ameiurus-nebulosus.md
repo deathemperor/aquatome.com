@@ -1,0 +1,12 @@
+---
+url: https://www.aquariumglaser.de/en/10-catfishes/ameiurus-nebulosus/
+title: Ameiurus melas - Aquarium Glaser GmbH
+fetchedAt: 2026-11-22T10:19:18.325Z
+hash: accc771373cc151d44f001644efea1f363f851866d07cec0d1a47b0320fa781e
+---
+
+Among the aquarium fishes that have been kept already in the 1890ies belong the two species of bullhead catfish Ameiurus melas and A. nebulosus. Both species are very similar to each other and even specialists have problems to tell them apart. Initially bullhead catfish were brought to Europe as foodfish in the 1880ies from the USA, together with rainbow trout, pumkinseed, and brook trout. But the bullheads don´t grow as large here as they do in the original home country. They tend to reproduce early and develop mass populations of dwarfish animals that stop or at least reduce) growing after the first spawning. So the bullheads are considered to be unwanted invaders in European waters and as pests. One should never release unwanted aquarium kept bullheads, but one should never release any type of fish at all, may it be native or not.
+But anyway: we are interested in keeping the fish in tanks or garden ponds, not in releasing them. Of course one may ask after a first examination of the fish, why a hobbyist should keep such a dull colored, predatory, large (over 20 cm) and basically night active species? But the bullheads have a fan community on their own. For example Nobel Prize winner Karl von Frisch studied the abilty of fish to hear on bullheads. Bullheads become tame and can be trained for sounds (for example a whistle). Once they are trained they leave their hiding place at any time of the day when they hear the whistle to search for food. Anyone who likes to keep an animal with character that is completely undemanding in respect of food (virtually any type of fish food is taken readily) or water chemistry (in fact a tank for bullheads needs no technical features at all) makes a good choice with bullheads.
+Barring another miracle, the trade in bullheads will be banned throughout the EU from May 2022. The species is considered invasive (which is quite true) and it is expected from a trade ban that the number of feral catfish will decrease noticeably (which is almost impossible). So if you are interested in catfish, you should stock up on the specimens you need as soon as possible, as long as it is still legally possible.
+For our customers: the fsh have code 820103 on our stocklist. Please note that we exclusively supply the wholesale trade.
+Text & photos: Frank Schäfer

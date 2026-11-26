@@ -136,7 +136,24 @@
       "html": "<ul><li>Ryan, J. R. and Y. B. Esa (2006). Phylogenetic Analysis of Hampala Fishes (Subfamily Cyprininae) in Malaysia Inferred from Partial Mitochondrial Cytochrome b DNA Sequences. Zoological Science 23(10), 893-901</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Inger, R. F. and P. K. Chin (1962). The fresh-water fishes of North Borneo. Fieldiana Zoology v.45, 1-268</li><li>Martin-Smith, K. M. and H. H. Tan (1998). Diversity of freshwater fishes from eastern Sabah: annotated checklist for Danum Valley and a consideration of inter- and intra-catchment variability. Raffles Bulletin of Zoology 46(2), 573-604</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/433265818.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/433265818-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Moses J. Michelsohn",
+      "sourceUrl": "https://www.inaturalist.org/photos/433265818",
+      "caption": "Cá hampala sabana bơi giữa đá ở suối tự nhiên",
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/433265818-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [],
   "updatedAt": "2026-11-04"

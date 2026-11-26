@@ -10,9 +10,7 @@
   "File:Pecheur de machoiron 8.jpg",
   "File:Pecheur de machoiron 4.jpg"
  ],
- "hashes": {
-  "https://media.aquatome.com/scotcat/f40728e04691a96b.webp": "e088a86bd89c4210"
- },
+ "hashes": {},
  "inat": {
   "taxon": 608536,
   "pass": "done",
@@ -25,5 +23,13 @@
  "gbif": {
   "key": 2345275,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 0,
+  "done": true
+ },
+ "exhausted": "2026-11-21"
 }

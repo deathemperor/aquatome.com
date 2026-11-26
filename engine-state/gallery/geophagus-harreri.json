@@ -1,7 +1,14 @@
 {
  "queue": [],
- "judged": [],
- "hashes": {},
+ "judged": [
+  "inat:624237856",
+  "inat:624237867",
+  "inat:624237862"
+ ],
+ "hashes": {
+  "https://media.aquatome.com/glaser/3973239915faf3b3.webp": "5bc70c1f1f1cc06f",
+  "https://media.aquatome.com/inaturalist/624237867.webp": "3f1f1f0f0f474fdf"
+ },
  "inat": {
   "taxon": 605349,
   "pass": "done",
@@ -14,5 +21,9 @@
  "gbif": {
   "key": 5208428,
   "next": null
+ },
+ "inatNc": {
+  "after": 342769929,
+  "done": true
  }
 }

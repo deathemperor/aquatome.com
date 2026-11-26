@@ -1,0 +1,267 @@
+{
+  "id": "ancistrus-patronus",
+  "scientificName": "Ancistrus patronus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Ancistrus",
+  "group": "catfish",
+  "lNumber": "L125",
+  "places": [
+    "south-america",
+    "venezuela",
+    "orinoco"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Río Orinoco",
+        "Río Casiquiare"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Present in the upper Río Orinoco from the Río Cinaruco upstream and in the Río Casiquiare.",
+          "countries": [],
+          "regions": [
+            "Río Orinoco",
+            "Río Casiquiare"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 10202289,
+      "total": 21,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "VE",
+          21
+        ]
+      ],
+      "cells": [
+        [
+          -68.90625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          4.21875,
+          8,
+          8
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          4.21875,
+          5,
+          5
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 8.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_patronus.htm",
+      "html": "<p>Family: Loricariidae. Size: 8.5 cm. Temperature: 24–28°C. pH: 6.0–7.5. IUCN status: Least Concern.</p><p>Body and fins jet black with tiny white dots. The first dorsal-fin membrane has dark pigment near the base. The upper and lower tips of the caudal fin are sometimes white or cream coloured.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_patronus.htm",
+      "html": "<p>South America: Venezuela. Present in the upper Río Orinoco from the Río Cinaruco upstream and in the Río Casiquiare.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_patronus.htm",
+      "html": "<p>Ancistrus patronus occurs across a wide range in mostly unimpacted regions. It is one of the more common Ancistrus species in its distribution and is found in a variety of habitats. There appear to be no major threats to the species, and it is considered Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_patronus.htm",
+      "html": "<p>Ancistrus make good community fish where they do not grow too big for the aquarium. Some species have different requirements in the aquarium, so it is best to read up on the species you have, for example whether they need higher oxygen levels, or whether they prefer cooler water if they originate from the southern parts of South America rather than from further north.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_patronus.htm",
+      "html": "<p>Vegetable foods such as cucumber and courgette, as well as tablet and meaty foods.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_patronus.htm",
+      "html": "<p>The female lays her eggs as a cluster in a cave or crevice that the male has chosen and cleaned. The male usually then guards the eggs after driving the female away. The fry cling to the sides of the cave and, when they have used up their yolk sac after around four to seven days, are ready to feed on infusoria, vegetable matter, brine shrimp nauplii or micro worms. In a community tank a few will survive if enough hiding places are provided.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-patronus-and-ancistrus-sp-rio-tocantins/",
+      "html": "<p>Ancistrus patronus is one of the numerous white dotted, black species of bristle-nose catfish. Before its scientific description in February 2019 it was known in the hobby as Ancistrus sp. “Puerto Ayacucho” and A. sp. “Rio Parucito”. The numbers L125 and L150 were given to imported animals without exact knowledge of their origin; it is assumed in catfish circles that they are also A. patronus.</p><p>A second, related form, Ancistrus sp. “Rio Tocantins”, never received an L-number, although it is very strikingly coloured. It is easily recognizable by its honeycomb pattern and occurs in nature together with the Ancistrus species L156. Apart from the different coloration, it is also much flatter than most other Ancistrus species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_patronus.htm",
+      "html": "<p>Etymology: the specific name patronus means \"named for good fathers\". Patronus is Latin for protector or defender and is derived from pater, father.</p><p>Ancistrus patronus differs from all other Ancistrus in the region except A. lithurgicus, A. macrophthalmus, A. maximus and A. nudiceps by having an entirely black body with tiny white to golden dots. It differs from A. nudiceps by reaching a much smaller maximum size (86 vs. 138 mm SL), and from A. leoni, A. lithurgicus and A. macrophthalmus by being deep-bodied (vs. flattened) and by having the eyes laterally placed.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_patronus.htm",
+      "html": "<p>Armbruster, J.W. 2023. Ancistrus patronus. The IUCN Red List of Threatened Species 2023.</p><p>Souza, LS de; Taphorn, DC &amp; Armbruster, JW, 2019 \"Review of Ancistrus (Siluriformes: Loricariidae) from the northwestern Guiana Shield, Orinoco Andes, and adjacent basins with description of six new species\" (Zootaxa, Vol. 4552 No. 1).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/66fd3db8220f1f31.webp",
+      "thumb": "https://media.aquatome.com/scotcat/66fd3db8220f1f31-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Nathan Lujan / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_patronus.htm",
+      "caption": "Ancistrus patronus: head view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f73ea8f347870bc1.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f73ea8f347870bc1-480.webp",
+      "width": 500,
+      "height": 379,
+      "licence": "dùng với sự cho phép",
+      "author": "Nathan Lujan / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_patronus.htm",
+      "caption": "Ancistrus patronus: dorsal head view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a4dc047b4502b2f0.webp",
+      "thumb": "https://media.aquatome.com/glaser/a4dc047b4502b2f0-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-patronus-and-ancistrus-sp-rio-tocantins/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "x6A5FVsEUAg",
+      "title": "Ancistrus patronus aka Ancistrus Rio Paruzito",
+      "durationSec": 33,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "MNYBW_9OOJM",
+      "title": "Ancistrus patronus und L46",
+      "durationSec": 25,
+      "lang": "de"
+    },
+    {
+      "youtubeId": "Cpfn8IyUkSQ",
+      "title": "Nachwuchs Ancistrus Patronus und Ancistrus Spec Honeycomb 1 Tag alt",
+      "durationSec": 46,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "eGLOaixn52k",
+      "title": "Ancistrus patronus a",
+      "durationSec": 67,
+      "lang": "de"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên chìm cho cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-20"
+}

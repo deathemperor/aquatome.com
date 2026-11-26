@@ -3,6 +3,12 @@
   "name": "กันยากุมารี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T18:49:20.086Z",
+    "why": "Thai usage typically writes the place as กันยากุมารี (Kanyakumari) and this is a valid transliteration, but a Thai atlas would more likely use กันยากูมารี, and the entry gives no kind word for a town/cape."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

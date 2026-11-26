@@ -16,13 +16,19 @@
     "behaviour:seriouslyfish": "<p>Loài này khá nhát, chỉ nên nuôi chung với cá hiền. Tetra nhỏ, cá barb và cá chuột là hợp nhất.</p>",
     "dimorphism:seriouslyfish": "<p>Con đực nhỏ hơn con cái. Con cái có thêm một sọc phụ chạy song song với sọc chính dọc thân, còn con đực thì không có. Khi vào độ đẻ, màu con cái sẫm đi nhiều.</p>",
     "reproduction:seriouslyfish": "<p>Nếu so với các loài cichlid khác thì cho loài này đẻ khó ở mức vừa. Cá nhát nên khó làm chúng yên tâm đủ để chịu đẻ. Thả chung trong bể nuôi chung thì chúng khó đẻ, tốt nhất là dùng bể đẻ riêng. Muốn vỗ cá thì cho ăn thật nhiều đồ tươi sống, nhất là trùng huyết vì cá đặc biệt thích món này. Vỗ đủ rồi thì cặp cá bắt đầu khoe dáng với nhau đúng kiểu cichlid lùn. Chúng đẻ trong một hang nhỏ hoặc trong chậu cây úp ngược có lỗ nhỏ. Con cái đẻ trứng lên thành hang hoặc thành chậu, sau đó con đực tới thụ tinh. Đẻ xong, con cái ở trong hang canh trứng, còn con đực lo canh cả khu rộng hơn bên ngoài. Tùy nhiệt độ, trứng nở sau 2 - 4 ngày. Khoảng 4 ngày sau đó thì cá bột tự bơi được. Lúc đầu cho cá bột ăn artemia mới nở và thức ăn tán thật mịn.</p>",
-    "notes:seriouslyfish": "<p>Tiệm cá ít khi bán Nannacara taenia, chủ yếu vì trông nó khá bình thường, màu lại ngả nâu xỉn. Muốn có loài này thì tìm qua chỗ chuyên bán cichlid hoặc người chơi tự nuôi sẽ dễ hơn.</p>"
+    "notes:seriouslyfish": "<p>Tiệm cá ít khi bán Nannacara taenia, chủ yếu vì trông nó khá bình thường, màu lại ngả nâu xỉn. Muốn có loài này thì tìm qua chỗ chuyên bán cichlid hoặc người chơi tự nuôi sẽ dễ hơn.</p>",
+    "quickFacts:glaser": "<p>Nannacara taenia dài tối đa 5 cm tính cả đuôi, thuộc hàng nhỏ nhất trong các loài cichlid. Loài này lại hoàn toàn hiền, nên rất hợp để thả chung với cá hiền.</p>",
+    "distribution:glaser": "<p>Loài này được mô tả năm 1911 từ cá cảnh, mà người ta nghĩ là xuất đi qua Manaus. Nhưng về sau không ai bắt lại được nó ở vùng Rio Negro quanh Manaus, dù vùng này bị đánh bắt rất nhiều. Phải đến năm 1987 người ta mới tìm thấy lại nó ở hạ lưu sông Amazon. Sau đó nó còn được tìm thấy ở thêm vài nhánh sông Amazon trong vùng này.</p>",
+    "dimorphism:glaser": "<p>Khó phân biệt con đực với con cái. Nghe nói chỉ con cái thỉnh thoảng hiện sọc dọc, nhưng chuyện này cũng tùy lúc cá đang ra sao.</p>",
+    "reproduction:glaser": "<p>Như mọi loài Nannacara khác, loài này đẻ trứng trên mặt phẳng hở, không cần hang. Tốt nhất là mua một đàn 10–12 con rồi để chúng tự bắt cặp.</p>",
+    "notes:glaser": "<p>Tiếc là N. taenia rất hiếm người nuôi, nên khó nói được điều gì chung về cách nuôi và cho đẻ loài này.</p>"
   },
   "quality": {
-    "score": 0.95,
+    "score": 0.8,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.95
+      "seriouslyfish": 0.95,
+      "glaser": 0.8
     }
   }
 }

@@ -3,6 +3,12 @@
   "name": "เมซกิตาล",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T18:50:53.444Z",
+    "why": "Mezquital is Spanish /mesˈkital/, which Thai usually renders เมสกิตัล (ส for Spanish s/z, ตัล for -tal), so เมซกิตาล is a plausible transliteration but not the usual form, and it lacks a kind word such as เขต or อำเภอ."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

@@ -8,7 +8,8 @@
   "places": [
     "africa",
     "cameroon",
-    "nigeria"
+    "nigeria",
+    "cross-river"
   ],
   "range": {
     "native": {
@@ -16,8 +17,11 @@
         "CM",
         "NG"
       ],
-      "regions": [],
+      "regions": [
+        "Cross River"
+      ],
       "sources": [
+        "glaser",
         "seriouslyfish"
       ],
       "quotes": [
@@ -29,6 +33,14 @@
             "NG"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Only much later it was found out that F. scheeli has only a small distribution area at the lower Cross River in southeastern Nigeria.",
+          "countries": [],
+          "regions": [
+            "Cross River"
+          ]
         }
       ]
     },
@@ -104,6 +116,10 @@
       {
         "source": "seriouslyfish",
         "value": 6
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -121,16 +137,34 @@
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/fundulopanchax-scheeli-4/",
+      "html": "<p>Within the genus Fundulopanchax, which was established already in 1924, but then was seen as a synonym to Aphyosemion for a very long time, there are very large species, like F. sjostedti, which can reach 12 cm, but also many small species, which do not grow longer than 6 cm. Among the latter is Fundulopanchax scheeli. This small beauty was described in 1970 from aquarium specimens of unknown origin.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/fundulopanchax-scheeli",
       "html": "<p>Needs a tight-fitting lid as this species is known to jump. This species is an accomplished jumper so the cover must be very tight fitting.</p><p>Fundulopanchax scheeli is a killifish from Cameroon and Nigeria, living in small streams and ponds in a few areas of coastal rainforest. It occurs only in permanent water and is not an annual species. Very peaceful and shy, it is easily outcompeted by more vigorous fish and needs carefully chosen tankmates.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/fundulopanchax-scheeli-4/",
+      "html": "<p>This killi is relatively popular because of its good breedability and beauty. It can be recommended, similar to the “Cape Lopez” even with restrictions for community aquariums. However, the company in such a case must be selected very carefully. In a colorful “teeming tank” or with aggressive fishes F. scheeli must not be housed under any circumstances.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/fundulopanchax-scheeli",
       "html": "<p>Cameroon, Nigeria.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/fundulopanchax-scheeli-4/",
+      "html": "<p>Only much later it was found out that F. scheeli has only a small distribution area at the lower Cross River in southeastern Nigeria.</p>"
     },
     {
       "key": "habitat",
@@ -155,6 +189,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/fundulopanchax-scheeli",
       "html": "<ul><li>Temperature: 23–26°C</li><li>pH: 6.0–7.5</li><li>Hardness: 3–15 dGH</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/fundulopanchax-scheeli-4/",
+      "html": "<p>They need calm, densely planted aquariums with soft, dark substrate (peat fibers) to feel safe. In such an aquarium you will have a lot of fun with the animals.</p>"
     },
     {
       "key": "diet",
@@ -184,13 +224,43 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/ab2440aacd5b1e8f.webp",
+      "thumb": "https://media.aquatome.com/commons/ab2440aacd5b1e8f-480.webp",
       "width": 844,
       "height": 605,
       "licence": "CC BY-SA 3.0",
       "author": "Violaine2, France",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fundulopanchax_scheeli.png",
-      "caption": "Fundulopanchax scheeli (male)",
-      "thumb": "https://media.aquatome.com/commons/ab2440aacd5b1e8f-480.webp"
+      "caption": "Fundulopanchax scheeli (male)"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7b41ea4ae9dc9ac0.webp",
+      "thumb": "https://media.aquatome.com/glaser/7b41ea4ae9dc9ac0-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/fundulopanchax-scheeli-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/25580d7825f801d4.webp",
+      "thumb": "https://media.aquatome.com/glaser/25580d7825f801d4-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/fundulopanchax-scheeli-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/068651265cbbad4c.webp",
+      "thumb": "https://media.aquatome.com/glaser/068651265cbbad4c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/fundulopanchax-scheeli-4/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -248,5 +318,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-22"
 }

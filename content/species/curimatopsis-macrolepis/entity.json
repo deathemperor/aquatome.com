@@ -1,0 +1,594 @@
+{
+  "id": "curimatopsis-macrolepis",
+  "scientificName": "Curimatopsis macrolepis",
+  "order": "Characiformes",
+  "family": "Curimatidae",
+  "genus": "Curimatopsis",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "venezuela"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 2355086,
+      "total": 449,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "BR",
+          237
+        ],
+        [
+          "PE",
+          97
+        ],
+        [
+          "VE",
+          56
+        ],
+        [
+          "CO",
+          21
+        ],
+        [
+          "EC",
+          17
+        ],
+        [
+          "BO",
+          11
+        ],
+        [
+          "GY",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -1.40625,
+          1
+        ],
+        [
+          -77.34375,
+          -5.625,
+          1
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          9
+        ],
+        [
+          -75.9375,
+          -5.625,
+          1
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          12
+        ],
+        [
+          -75.9375,
+          0,
+          1
+        ],
+        [
+          -75.9375,
+          1.40625,
+          1
+        ],
+        [
+          -74.53125,
+          -8.4375,
+          2
+        ],
+        [
+          -74.53125,
+          -7.03125,
+          5
+        ],
+        [
+          -74.53125,
+          -5.625,
+          11
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          46
+        ],
+        [
+          -74.53125,
+          -2.8125,
+          2
+        ],
+        [
+          -73.125,
+          -8.4375,
+          4
+        ],
+        [
+          -73.125,
+          -5.625,
+          4
+        ],
+        [
+          -73.125,
+          -4.21875,
+          15
+        ],
+        [
+          -73.125,
+          -2.8125,
+          4
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          9
+        ],
+        [
+          -71.71875,
+          -2.8125,
+          3
+        ],
+        [
+          -71.71875,
+          1.40625,
+          1
+        ],
+        [
+          -70.3125,
+          -5.625,
+          2
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          6
+        ],
+        [
+          -70.3125,
+          7.03125,
+          1
+        ],
+        [
+          -68.90625,
+          1.40625,
+          2
+        ],
+        [
+          -68.90625,
+          2.8125,
+          4
+        ],
+        [
+          -68.90625,
+          5.625,
+          1
+        ],
+        [
+          -67.5,
+          -15.46875,
+          3
+        ],
+        [
+          -67.5,
+          -14.0625,
+          2
+        ],
+        [
+          -67.5,
+          -4.21875,
+          3
+        ],
+        [
+          -67.5,
+          -2.8125,
+          2
+        ],
+        [
+          -67.5,
+          -1.40625,
+          2
+        ],
+        [
+          -67.5,
+          0,
+          3
+        ],
+        [
+          -67.5,
+          1.40625,
+          13
+        ],
+        [
+          -67.5,
+          2.8125,
+          18
+        ],
+        [
+          -67.5,
+          5.625,
+          2
+        ],
+        [
+          -66.09375,
+          -11.25,
+          2
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          4
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          15
+        ],
+        [
+          -66.09375,
+          1.40625,
+          2
+        ],
+        [
+          -64.6875,
+          -15.46875,
+          1
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          1
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          1
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          3
+        ],
+        [
+          -64.6875,
+          -4.21875,
+          1
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          6
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          2
+        ],
+        [
+          -64.6875,
+          5.625,
+          1
+        ],
+        [
+          -64.6875,
+          7.03125,
+          1
+        ],
+        [
+          -63.28125,
+          -15.46875,
+          1
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          2
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          6
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          6
+        ],
+        [
+          -63.28125,
+          0,
+          1
+        ],
+        [
+          -63.28125,
+          5.625,
+          1
+        ],
+        [
+          -63.28125,
+          7.03125,
+          5
+        ],
+        [
+          -63.28125,
+          8.4375,
+          4
+        ],
+        [
+          -61.875,
+          -14.0625,
+          1
+        ],
+        [
+          -61.875,
+          -9.84375,
+          2
+        ],
+        [
+          -61.875,
+          -5.625,
+          2
+        ],
+        [
+          -61.875,
+          -4.21875,
+          5
+        ],
+        [
+          -61.875,
+          -2.8125,
+          3
+        ],
+        [
+          -61.875,
+          -1.40625,
+          2
+        ],
+        [
+          -61.875,
+          0,
+          3
+        ],
+        [
+          -61.875,
+          1.40625,
+          1
+        ],
+        [
+          -61.875,
+          2.8125,
+          3
+        ],
+        [
+          -61.875,
+          8.4375,
+          3
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          97
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          1
+        ],
+        [
+          -60.46875,
+          -1.40625,
+          1
+        ],
+        [
+          -60.46875,
+          1.40625,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          1
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          5
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1
+        ],
+        [
+          -59.0625,
+          4.21875,
+          1
+        ],
+        [
+          -59.0625,
+          5.625,
+          6
+        ],
+        [
+          -59.0625,
+          7.03125,
+          2
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          3
+        ],
+        [
+          -57.65625,
+          -1.40625,
+          1
+        ],
+        [
+          -56.25,
+          -16.875,
+          1
+        ],
+        [
+          -56.25,
+          -7.03125,
+          3
+        ],
+        [
+          -56.25,
+          -5.625,
+          4
+        ],
+        [
+          -56.25,
+          -4.21875,
+          8
+        ],
+        [
+          -56.25,
+          -2.8125,
+          6
+        ],
+        [
+          -54.84375,
+          -4.21875,
+          2
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          16
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          1
+        ],
+        [
+          -47.8125,
+          -4.21875,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/curimatopsis-macrolepis-3/",
+      "html": "<p>The genus Curimatopsis comprised five described species until 2009 – now (2021) there are more than twice as many, namely 11. Curimatopsis can be divided into two major groups: the C. macrolepis group with 6 species and the C. evelynae group with 5 species. The best distinguishing feature of the two groups is the mouth position. In the species of the C. macrolepis group the lower jaw is longer than the upper jaw, i.e. it protrudes slightly, in the C. evelynae group both halves of the jaw are of equal length.</p><p>Curimatopsis macrolepis grows to a maximum length of 6 cm, but at 4 cm it is fully sexually differentiated and coloured.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/curimatopsis-macrolepis-3/",
+      "html": "<p>The mouth of Curimatopsis is toothless, a peculiarity among the tetras; accordingly, they are to be fed with soft foods. In nature they eat mainly detritus, that is, the \"mulm\" consisting of rotting plants and microorganisms. Live plants are not on the menu. Artemia nauplii, adult Artemia, cyclops and flake food are the optimal diet for the fish in the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/curimatopsis-macrolepis-3/",
+      "html": "<p>Curimatopsis macrolepis is a very peaceful fish, which is ideal for a community aquarium. It is most beautiful in water coloured slightly yellow by peat or leaves; then sometimes a neon green stripe shines along the body flank.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/curimatopsis-macrolepis-3/",
+      "html": "<p>The males can be recognised by their clearly higher tail and the quite differently shaped tail spot. This is round or lengthways-oval in females, whereas in the male it is extended at the end into a stripe that runs through the entire tail fin. Depending on the social rank within the group, a red tail spot shines with different intensity. Only the males have this colour characteristic. That means every animal with a red tail spot is a male, but not every individual without this spot is a female. Socially weak males also do not show the spot, or only indistinctly.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/cb32aae337f656bf.webp",
+      "thumb": "https://media.aquatome.com/glaser/cb32aae337f656bf-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/curimatopsis-macrolepis-3/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/350067f708f2f808.webp",
+      "thumb": "https://media.aquatome.com/glaser/350067f708f2f808-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/curimatopsis-macrolepis-3/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d7d5c66f5b889497.webp",
+      "thumb": "https://media.aquatome.com/glaser/d7d5c66f5b889497-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/curimatopsis-macrolepis-3/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/fe14a8c5dddd40cb.webp",
+      "thumb": "https://media.aquatome.com/glaser/fe14a8c5dddd40cb-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/curimatopsis-macrolepis-3/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "kxpxBYDzvEc",
+      "title": "Curimatopsis macrolepis (Shinyscaled Curimata) - Adults",
+      "durationSec": 37,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "g83T7RI7e6g",
+      "title": "Curimatopsis macrolepis (Shinyscaled Curimata) - Adults in the shadow",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "0klKwEU1xyM",
+      "title": "Curimatopsis macrolepis (Shinyscaled Curimata) - Adults",
+      "durationSec": 45,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia",
+        "cyclops đông lạnh",
+        "thức ăn vảy cho cá nhỏ"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá cộng đồng 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

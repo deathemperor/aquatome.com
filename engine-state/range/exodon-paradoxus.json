@@ -1,8 +1,8 @@
 {
   "id": "exodon-paradoxus",
   "native": {
-    "input": "d5b2fc97707b24cf",
-    "at": "2026-11-17T05:18:20.405Z",
+    "input": "499738f5a5a933bc",
+    "at": "2026-11-21T13:11:30.372Z",
     "claims": [
       {
         "code": "GY",
@@ -40,6 +40,13 @@
         "name": "Orinoco",
         "source": "glaser",
         "quote": "It can be found in Guyana and the whole Amazon and Orinoco basins.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Widespread throughout the Brazilian Amazon and has also been recorded in the Rio Branco, Guyana.",
+        "country": "BR",
         "ok": true
       },
       {

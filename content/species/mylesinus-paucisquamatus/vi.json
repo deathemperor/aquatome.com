@@ -1,0 +1,25 @@
+{
+  "slug": "ca-pacu-mylesinus-paucisquamatus",
+  "name": "Cá pacu Mylesinus paucisquamatus",
+  "altNames": [
+    "Pacu"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Mylesinus paucisquamatus là một loài cá pacu, lớn tới khoảng 20-25 cm.</p>",
+    "distribution:glaser": "<p>Lô cá này đến từ Rio Tocantins. Lúc đầu ai cũng tưởng chúng từ Rio Xingu, nhưng hỏi kỹ lại bên cung cấp thì mới biết chúng đến từ Rio Tocantins.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-22"
+  }
+}

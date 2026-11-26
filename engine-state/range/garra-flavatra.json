@@ -1,8 +1,8 @@
 {
   "id": "garra-flavatra",
   "native": {
-    "input": "5e26c069801c4eea",
-    "at": "2026-11-17T11:42:48.614Z",
+    "input": "dffa2b4fa6c914ff",
+    "at": "2026-11-20T01:55:49.831Z",
     "claims": [
       {
         "code": "MM",
@@ -42,6 +42,25 @@
         "source": "seriouslyfish",
         "quote": "Endemic to the Rakhine Yoma/Arakan mountain range in Rakhine state, western Myanmar, which forms a natural barrier cutting off the state from the remainder of the country.",
         "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Rakhine mountain range",
+        "source": "aquariumbreeder",
+        "quote": "The Panda Garra is native to the Rakhine mountain range in Western Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Kamyit Chaung",
+        "source": "seriouslyfish",
+        "quote": "In the Kamyit Chaung river it was collected alongside Opsarius barna, Rasbora daniconius, R. rasbora, Aplocheilus panchax, Lepidocephalichthys berdmorei, Batasio elongatus, Awaous personatus, Sicyopterus punctatus plus unidentified Danio, Eleotris, Redigobius, Mastacembelus and Microphis species as well as G. propulvinus, another previously unknown congener.",
+        "ok": true
+      },
+      {
+        "name": "Baw Di Chaung",
+        "source": "seriouslyfish",
+        "quote": "The Baw Di Chaung is the third locality covered in the paper.",
         "ok": true
       }
     ],

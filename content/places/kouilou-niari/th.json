@@ -3,6 +3,12 @@
   "name": "กวีลู-นียารี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.7,
+    "at": "2026-11-21T01:19:58.207Z",
+    "why": "The name is a Thai transliteration of Kouilou-Niari and refers to the right place, but \"กวีลู\" and \"นียารี\" are loose renderings of the French \"Kouilou\" (กุยลู) and \"Niari\" (เนียรี), and it has no kind word."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

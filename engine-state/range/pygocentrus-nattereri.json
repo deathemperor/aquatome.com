@@ -1,17 +1,9 @@
 {
   "id": "pygocentrus-nattereri",
   "native": {
-    "input": "ec0b0089d6ec4702",
-    "at": "2026-11-13T11:20:11.221Z",
+    "input": "214fecd7076d3d27",
+    "at": "2026-11-22T00:38:58.151Z",
     "claims": [
-      {
-        "code": "BR",
-        "status": "native",
-        "source": "glaser",
-        "quote": "The fish originate from the area around the city of Manacapuru (catchment of the Rio Negro), Brazil.",
-        "words": "Brazil",
-        "ok": true
-      },
       {
         "code": "BR",
         "status": "native",
@@ -96,6 +88,12 @@
     "regions": [
       {
         "name": "Amazon",
+        "source": "glaser",
+        "quote": "Present throughout the Amazon River basin.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
         "source": "seriouslyfish",
         "quote": "The red bellied piranha, Pygocentrus nattereri, occurs through much of the Amazon basin and south into the Paraná and Uruguay river systems.",
         "ok": true
@@ -117,13 +115,6 @@
         "name": "Essequibo",
         "source": "seriouslyfish",
         "quote": "Currently accepted to occur throughout much of the Amazon basin (Brazil, Ecuador, Peru, Bolivia, and questionably Colombia), as well as the Río Essequibo (Guyana and Venezuela), some smaller, coastal drainages in north-east Brazil/the Guianas, and further south in the Río Paraná (Brazil, Paraguay, and Argentina) and Río Uruguay (Brazil, Uruguay, and Argentina).",
-        "ok": true
-      },
-      {
-        "name": "Rio Negro",
-        "source": "glaser",
-        "quote": "The fish originate from the area around the city of Manacapuru (catchment of the Rio Negro), Brazil.",
-        "country": "BR",
         "ok": true
       }
     ],

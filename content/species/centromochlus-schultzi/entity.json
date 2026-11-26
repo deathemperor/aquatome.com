@@ -1,0 +1,423 @@
+{
+  "id": "centromochlus-schultzi",
+  "scientificName": "Centromochlus schultzi",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Centromochlus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-xingu",
+    "xingu"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Xingu",
+        "Rio Tocantins",
+        "Xingu",
+        "Tocantins",
+        "Madeira",
+        "Tapajós"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Balroglanis (formerly Centromochlus) schultzi originates from the upper reaches of the Rio Xingu and Rio Tocantins in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Xingu",
+            "Rio Tocantins"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "It is endemic to Brazil and widely distributed in the Xingu, Tocantins, upper Madeira and upper Tapajós river basins.",
+          "countries": [],
+          "regions": [
+            "Xingu",
+            "Tocantins",
+            "Madeira",
+            "Tapajós"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344770,
+      "total": 47,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "BR",
+          45
+        ],
+        [
+          "GY",
+          1
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -63.28125,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          -9.84375,
+          8,
+          8
+        ],
+        [
+          -56.25,
+          -11.25,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -14.0625,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -50.625,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -47.8125,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 10
+      },
+      {
+        "source": "scotcat",
+        "value": 10
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "scotcat",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/balroglanis-schultzi-formerly-centromochlus-s/",
+      "html": "<p>The species grows to about 10 cm long; each specimen has an individual dot pattern. The downward pointing eyes are covered with a protective skin, which makes the eye appear clouded. The sense of this anatomical peculiarity is unknown.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/balroglanis-schultzi-formerly-centromochlus-s/",
+      "html": "<p>Balroglanis (formerly Centromochlus) schultzi originates from the upper reaches of the Rio Xingu and Rio Tocantins in Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/balroglanis_schultzi.htm",
+      "html": "<p>Brazil: Upper Xingu and Tocantins River basins. Type locality: Brasilien, oberer Rio Xingu.</p><p>It is endemic to Brazil and widely distributed in the Xingu, Tocantins, upper Madeira and upper Tapajós river basins. It is naturally common but infrequent, occurring in small and medium-sized streams. Despite several hydroelectric projects in the region, it has been recorded upstream of the Lajeado hydroelectric plant reservoir. Because no significant threats to its population have been detected, it has been classified as Least Concern (LC) (IUCN 2022).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/balroglanis_schultzi.htm",
+      "html": "<p>Keeping this species is not too much of a problem as long as the water is kept clean and not too alkaline, with a pH between 6.5 and 7.0. They like a planted aquarium where they hide during the day. Also provide pipework for this genus as a choice of hiding places.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/balroglanis_schultzi.htm",
+      "html": "<p>In its native habitat they feed on insects, mostly ants, beetles and mayflies. In the aquarium they will eat anything offered, such as frozen bloodworm, which they will come out of hiding to feed on, catfish tablets, daphnia, white worm (sparingly) and any other worm-like foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/balroglanis-schultzi-formerly-centromochlus-s/",
+      "html": "<p>Most driftwood catfishes are active at night or twilight. Many species are known to hunt land insects that have fallen into the water by swimming just below the water surface.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/balroglanis-schultzi-formerly-centromochlus-s/",
+      "html": "<p>The driftwood catfishes enjoy an increasing popularity, since it succeeds regularly to reproduce them. All species have – as far as known – an internal fertilization, the females spawn later without the presence of a male.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/balroglanis_schultzi.htm",
+      "html": "<p>They leave their eggs in a gelatinous mass under stones or bogwood. As in the rest of the family, the male fertilises the female internally.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/balroglanis_schultzi.htm",
+      "html": "<p>Mees (1974) assigned this species to Tatia but Ferraris (2007) reverted it to the original genus Centromochlus. In September 2019, building on earlier work by Steven Grant (2015), a paper by Bárbara B. Calegari et al. reclassified this species, Tatia carolae Vari &amp; Ferraris, 2013 and C. macracanthus Soares-Porto, 2000 into a new genus, Balroglanis. It is still found in some online searches as Centromochlus schultzi.</p><p>Etymology: Balroglanis means \"Balrog Catfish\", derived from the Balrog Durin's Bane in J. R. R. Tolkien's legendarium. The specific name schultzi honours Brazilian ethnographer and fish collector Harald Schultz (1909–1966), who collected the holotype.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/balroglanis_schultzi.htm",
+      "html": "<p>Bárbara B Calegari, Richard P Vari, Roberto E Reis, 2019. Phylogenetic systematics of the driftwood catfishes (Siluriformes: Auchenipteridae): a combined morphological and molecular analysis, Zoological Journal of the Linnean Society, zlz036.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Grant, S., 2015: Four new subgenera of Centromochlus Kner, 1858 with comments on the boundaries of some related genera (Siluriformes: Auchenipteridae: Centromochlinae). Ichthyofile 3: 1–16.</p><p>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2022. Centromochlus (Balroglanis) schultzi. The IUCN Red List of Threatened Species 2022.</p><p>Sarmento-Soares, Luisa Maria; Martins-Pinheiro, Ronaldo Fernando A systematic revision of Tatia (Siluriformes: Auchenipteridae: Centromochlinae) Neotropical Ichthyology, 6(3):495-542, 2008.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/6516dc9e3cc99154.webp",
+      "thumb": "https://media.aquatome.com/scotcat/6516dc9e3cc99154-480.webp",
+      "width": 500,
+      "height": 336,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/balroglanis_schultzi.htm",
+      "caption": "Balroglanis schultzi",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/0d30f9f155eb3c1c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/0d30f9f155eb3c1c-480.webp",
+      "width": 500,
+      "height": 220,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/balroglanis_schultzi.htm",
+      "caption": "Balroglanis schultzi",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/a3d9dff3a561e549.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a3d9dff3a561e549-480.webp",
+      "width": 500,
+      "height": 337,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/balroglanis_schultzi.htm",
+      "caption": "Centromochlus schultzi: head view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/afb86a8e3a642bea.webp",
+      "thumb": "https://media.aquatome.com/glaser/afb86a8e3a642bea-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/balroglanis-schultzi-formerly-centromochlus-s/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d7183871a3398f19.webp",
+      "thumb": "https://media.aquatome.com/glaser/d7183871a3398f19-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/balroglanis-schultzi-formerly-centromochlus-s/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/3441fc45c42e281c.webp",
+      "thumb": "https://media.aquatome.com/glaser/3441fc45c42e281c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/balroglanis-schultzi-formerly-centromochlus-s/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "fPlKgdNdsGY",
+      "title": "Centromochlus schultzi eggs!",
+      "durationSec": 241,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "wxZVnh52lKE",
+      "title": "Centromochlus schultzi fry",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "FvXe7h4yNFE",
+      "title": "Centromochlus schultzi feeding on the new prototype Repashy Super Gel Foods",
+      "durationSec": 121,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "zJBsrmAiJZY",
+      "title": "Centromochlus schultzi update",
+      "durationSec": 121,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc treo"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

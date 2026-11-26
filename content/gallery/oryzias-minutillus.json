@@ -1,7 +1,112 @@
 {
   "id": "oryzias-minutillus",
-  "photos": [],
-  "seen": 2,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/688526113.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/688526113-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "muangpaisuetrong",
+      "sourceUrl": "https://www.inaturalist.org/photos/688526113",
+      "caption": "Cá medaka lùn đực cận cảnh, vây đuôi rõ nét",
+      "best": true,
+      "kind": "male",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/483404961.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/483404961-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Niran Anurakpongsathorn",
+      "sourceUrl": "https://www.inaturalist.org/photos/483404961",
+      "caption": "Nhóm cá medaka lùn bơi trong bể ảnh nhỏ",
+      "best": false,
+      "kind": "group",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/485815222.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/485815222-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Sila Viriyautsahakul",
+      "sourceUrl": "https://www.inaturalist.org/photos/485815222",
+      "caption": "Cá medaka lùn bơi trong bể nền tối",
+      "best": false,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/347918198.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/347918198-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Tse Chung Yi",
+      "sourceUrl": "https://www.inaturalist.org/photos/347918198",
+      "caption": "Cá medaka lùn cái bơi trong bể ảnh nhỏ",
+      "best": true,
+      "kind": "female",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/347918210.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/347918210-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Tse Chung Yi",
+      "sourceUrl": "https://www.inaturalist.org/photos/347918210",
+      "caption": "Cá medaka lùn bơi nghiêng trong bể ảnh nhỏ",
+      "best": true,
+      "kind": "other",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/483404935.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/483404935-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Niran Anurakpongsathorn",
+      "sourceUrl": "https://www.inaturalist.org/photos/483404935",
+      "caption": "Hai cá medaka lùn bơi cạnh nhau trong bể ảnh nhỏ",
+      "best": false,
+      "kind": "pair",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/483404989.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/483404989-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Niran Anurakpongsathorn",
+      "sourceUrl": "https://www.inaturalist.org/photos/483404989",
+      "caption": "Cá medaka lùn màu nhạt bơi trong bể ảnh nhỏ",
+      "best": false,
+      "kind": "other",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/589669323.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/589669323-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "kritadi",
+      "sourceUrl": "https://www.inaturalist.org/photos/589669323",
+      "caption": "Hai cá medaka lùn bơi trong bể ảnh nhỏ",
+      "best": false,
+      "kind": "pair",
+      "setup": true
+    }
+  ],
+  "seen": 42,
+  "updatedAt": "2026-11-23",
+  "builtAt": "2026-11-23"
 }

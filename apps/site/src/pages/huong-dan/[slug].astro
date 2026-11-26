@@ -11,7 +11,9 @@ import Comments from '../../components/Comments.astro'
 import { getContent } from '../../lib/content'
 import { GUIDE_KIND_LABELS } from '../../lib/format'
 import { creditsFor } from '../../lib/credits'
-import { excerpt } from '../../lib/meta'
+import { descriptionForSearch, guideDescription } from '../../lib/meta'
+import { widthSrcset } from '../../lib/img'
+import { borrowedGuidePhotoName } from '../../lib/mentions'
 import GearList from '../../components/GearList.astro'
 import { categoryLabel } from '../../lib/format'
 import VideoPlayer from '../../components/VideoPlayer.astro'
@@ -20,6 +22,7 @@ import BackToTop from '../../components/BackToTop.astro'
 import { guideParts } from '../../lib/guide-page'
 import { i18n, langOf, isVietnameseTitle } from '../../lib/i18n'
 import { alternatesOf } from '../../lib/alternates'
+import { articleLd, breadcrumbLd, firstPublished } from '../../lib/structured-data'
 
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
@@ -32,10 +35,23 @@ const c = await getContent(lang)
 // A page of cards for the fish and plants the guide names, fish first: a listicle names a hundred or more (2026-11-01,
 // one was 2,203 page elements). The text links each by name.
 const { m, species, plants, ph, lead, gear, toc, prose, minutes, series, inSeries, pos, next, refs, covers, cardSpecies, cardPlants, speciesPhotos, plantPhotos, credited } = guideParts(lang, c, g)
+const srcset = lead && widthSrcset(lead)
+const leadAlt = !g.video && lead ? borrowedGuidePhotoName(c, g, lead) ?? '' : ''
 const uncarded = species.length + plants.length - cardSpecies.length - cardPlants.length
 const v = g.video
-const description = excerpt(g.t.body ?? '')
-const jsonld: object[] = []
+const fullDescription = guideDescription(g.t.body ?? '', g.t.summary) || g.t.name
+const description = descriptionForSearch(lang, fullDescription)
+const back: [string, string] = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi/huong-dan/', t('Hướng dẫn')]
+const crumbs: [string, string][] = v ? [['/vi/video/', t('Video')]] : [back]
+if (v && series) crumbs.push([`/vi/video/${series.vi.slug}/`, series.vi.name])
+const cites = refs?.map(r => r.url)
+const jsonld: object[] = [
+  articleLd(Astro.site!, lang, Astro.url.pathname, {
+    headline: g.t.name, datePublished: firstPublished(c.changelog, lang, 'guide', g.id), dateModified: g.updatedAt,
+    image: ph?.url, description, citation: cites?.length ? cites : undefined,
+  }),
+  breadcrumbLd(Astro.site!, lang, [...crumbs, [Astro.url.pathname, g.t.name]]),
+]
 if (v) {
   jsonld.push({
     '@context': 'https://schema.org', '@type': 'VideoObject', name: v.title, description, thumbnailUrl: [ph?.url ?? videoPhoto(v).url], ...(v.publishedAt ? { uploadDate: v.publishedAt } : {}),
@@ -43,16 +59,11 @@ if (v) {
     author: { '@type': 'Person', name: v.channel, url: v.channelUrl },
     ...(guideChapters(v, g.t.chapters).length > 1 ? { hasPart: guideChapters(v, g.t.chapters).map(ch => ({ '@type': 'Clip', name: ch.title, startOffset: ch.start, endOffset: ch.end, url: watchUrl(v.youtubeId, ch.start) })) } : {}),
   })
-} else {
-  // A written guide: an article in the page's language, citing the pages its facts come from.
-  const cites = refs?.map(r => r.url)
-  jsonld.push({ '@context': 'https://schema.org', '@type': 'Article', headline: g.t.name, inLanguage: lang, dateModified: g.updatedAt, image: ph?.url, mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).href, description, ...(cites?.length ? { citation: cites } : {}) })
 }
 if (g.t.faq?.length) jsonld.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: g.t.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) })
 const alternates = await alternatesOf('guides', g.id)
-const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi/huong-dan/', t('Hướng dẫn')]
 ---
-<Base title={`${g.t.name} — AquaTome`} description={description} image={ph?.url} jsonld={jsonld} noindex={!g.t.quality.indexable} alternates={alternates} credits={creditsFor(credited)}>
+<Base title={`${g.t.name} — AquaTome`} description={fullDescription} image={ph?.url} jsonld={jsonld} noindex={!g.t.quality.indexable} alternates={alternates} credits={creditsFor(credited)}>
   {/* The video's thumbnail is the page's largest image: open the connection while the page is still arriving. */}
   {v && <link slot="head" rel="preconnect" href="https://i.ytimg.com" />}
   <Nav slot="header" current={v ? '/vi/video/' : undefined} />
@@ -62,7 +73,7 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi
       <p class="kind">{t(GUIDE_KIND_LABELS[g.kind])} · {v && <>{t('video {time}', { time: clock(v.durationSec) })} · </>}{t('đọc khoảng {n} phút', { n: minutes })}{series && pos >= 0 && <> · {t('phần {i}/{n}', { i: pos + 1, n: inSeries.length })}</>}</p>
       <h1>{g.t.name}</h1>
       <SourceCredit source={g.source} url={g.sourceUrl} sources={c.sources} video={v} refs={refs} />
-      {v ? <VideoPlayer video={v} chapters={g.t.chapters} cover={g.t.cover} /> : lead && <img class="lead" src={lead.url} width={lead.width} height={lead.height} alt="" />}
+      {v ? <VideoPlayer video={v} chapters={g.t.chapters} cover={g.t.cover} /> : lead && <img class="lead" src={lead.url} srcset={srcset} sizes={srcset ? 'min(calc(100vw - 3rem), 640px)' : undefined} width={lead.width} height={lead.height} alt={leadAlt} />}
       {g.t.summary && g.t.summary.length > 0 && (
         <section class="takeaways" aria-labelledby="sum-h">
           <h2 id="sum-h">{t('Tóm tắt nhanh')}</h2>

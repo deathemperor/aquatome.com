@@ -1,0 +1,179 @@
+{
+  "id": "oligolepis-acutipennis",
+  "native": {
+    "input": "74bbac275554358e",
+    "at": "2026-11-21T19:07:52.042Z",
+    "claims": [
+      {
+        "code": "ZA",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is distributed from South Africa via East Africa, the Persian Gulf, Madagascar, Indonesia and along the entire coast of Southeast Asia to Japan.",
+        "words": "South Africa",
+        "ok": true
+      },
+      {
+        "code": "MG",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is distributed from South Africa via East Africa, the Persian Gulf, Madagascar, Indonesia and along the entire coast of Southeast Asia to Japan.",
+        "words": "Madagascar",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is distributed from South Africa via East Africa, the Persian Gulf, Madagascar, Indonesia and along the entire coast of Southeast Asia to Japan.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is distributed from South Africa via East Africa, the Persian Gulf, Madagascar, Indonesia and along the entire coast of Southeast Asia to Japan.",
+        "words": "Japan",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Oligolepis acutipennis",
+    "status": "ACCEPTED",
+    "taxonKey": 5208855,
+    "datasets": [
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        103
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        31
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        30
+      ],
+      [
+        "5da288d0-94ca-4355-a438-11890b726f5b",
+        24
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        20
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        17
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        17
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        15
+      ],
+      [
+        "c6859214-65a4-4563-8d17-d464541af191",
+        12
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        9
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        8
+      ],
+      [
+        "cd6fe3a0-eee9-4066-8420-e36313ed833d",
+        7
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        6
+      ],
+      [
+        "84899ff6-f762-11e1-a439-00145eb45e9a",
+        6
+      ],
+      [
+        "1b18bab9-abdb-41b4-83c8-368ca2e6d391",
+        5
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        3
+      ],
+      [
+        "2a47dd25-4813-4d3c-99c1-1bc1aeb774e7",
+        2
+      ],
+      [
+        "9b5577ee-34f9-4d09-9ce2-c70fd03ee6cd",
+        2
+      ],
+      [
+        "d71e908c-f944-4fdd-9872-178754a00805",
+        2
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        2
+      ],
+      [
+        "18896efa-22df-4fbd-9782-42f47257e753",
+        1
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "878298f7-6182-4a72-bdf6-9dd480d89713",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "a4202e55-050a-46a2-9c56-8b8507015ce7",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "fe100feb-3973-4d88-bdea-f3a216c9fb7d",
+        1
+      ]
+    ],
+    "native": [
+      "ZA",
+      "MG",
+      "ID",
+      "JP"
+    ],
+    "requests": 14,
+    "at": "2026-11-21T19:07:52.042Z"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "pethia-bandula",
+  "native": {
+    "input": "3f2e3cffaac90d0d",
+    "at": "2026-11-20T17:43:20.430Z",
+    "claims": [
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Sri Lanka. In nature the species inhabits an area of only 4 km².",
+        "words": "Sri Lanka",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pethia bandula",
+    "status": "ACCEPTED",
+    "taxonKey": 8080041,
+    "datasets": [],
+    "native": [
+      "LK"
+    ],
+    "requests": 2,
+    "at": "2026-11-20T17:43:20.430Z"
+  }
+}

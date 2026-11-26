@@ -11,7 +11,8 @@
     "negro",
     "venezuela",
     "orinoco",
-    "atabapo"
+    "atabapo",
+    "rio-negro"
   ],
   "range": {
     "native": {
@@ -22,11 +23,12 @@
       "regions": [
         "Rio Negro",
         "Orinoco",
-        "Rio Atabapo"
+        "Negro River"
       ],
       "sources": [
         "seriouslyfish",
-        "glaser"
+        "glaser",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -48,11 +50,11 @@
           ]
         },
         {
-          "source": "glaser",
-          "quote": "According to a report by Roland Numrich, who spotted the fish while snorkelling in the Rio Atabapo during an expedition to Venezuela, this catfish lives in rock crevices, from which it emerges with considerable speed to grab its prey, before disappearing again.",
+          "source": "scotcat",
+          "quote": "South America: Orinoco and Negro River basins. Type locality: Marabitanos, Brazil.",
           "countries": [],
           "regions": [
-            "Rio Atabapo"
+            "Negro River"
           ]
         }
       ]
@@ -153,6 +155,13 @@
           "min": 22,
           "max": 28
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -160,6 +169,13 @@
         "source": "seriouslyfish",
         "value": {
           "min": 5,
+          "max": 7
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
           "max": 7
         }
       }
@@ -180,6 +196,10 @@
       },
       {
         "source": "glaser",
+        "value": 25
+      },
+      {
+        "source": "scotcat",
         "value": 25
       }
     ],
@@ -210,6 +230,12 @@
       "html": "<ul><li>Origin: Venezuela</li><li>Described by Kner, 1858</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/asterophysus_batrachus.htm",
+      "html": "<p>Family: Auchenipteridae. Size: 25 cm. Temperature: 23-28°C. pH: 6.0-7.0.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/asterophysus_batrachus_en/",
@@ -226,6 +252,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/asterophysus_batrachus_en/",
       "html": "<p>According to the Check List of the Freshwater fishes of South and Central America, Asterophysus batrachus is distributed not only in the Orinoco basin (to which the Atabapo belongs), but also in the upper Rio Negro.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/asterophysus_batrachus.htm",
+      "html": "<p>South America: Orinoco and Negro River basins. Type locality: Marabitanos, Brazil.</p>"
     },
     {
       "key": "habitat",
@@ -270,10 +302,22 @@
       "html": "<p>The fish feed readily on feeder fish. In the wild it preys on altum angels (Pterophyllum altum). The imported specimens were initially difficult to get to feed, but after about 10 days they abandoned their hunger strike without needing to be fed on altum angels. Feeder fishes are essential. The individuals will even feed from the hand of their keeper.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/asterophysus_batrachus.htm",
+      "html": "<p>Krill, shrimp, earthworms, daphnia and fish. As they get older they will need to be fed less as they will regurgitate their food if fed too much.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/asterophysus-batrachus",
       "html": "<p>Capable of consuming fishes almost twice as large as itself and thus not recommended for the community aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/asterophysus_batrachus.htm",
+      "html": "<p>The mouth of this species is reminiscent of the Salmonidae (Salmon) family which is a good identification indicator. Very predatory which is unusual for a member of the Auchenipteridae family. You would need to choose tank mates very carefully as they will attack fish that are even larger than them and try and take them into their large expanding mouth. Would probably be better in species tank on their own.</p>"
     },
     {
       "key": "dimorphism",
@@ -294,13 +338,47 @@
       "html": "<p>This species is also referred to as 'ogre catfish'.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/asterophysus_batrachus.htm",
+      "html": "<p>Etymology: The specific name batrachus: From 'batrachus', a frog; frog-like.</p><p>IUCN Red List: This species occurs in the Orinoco and Negro River basins. It is widely distributed, therefore, it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/asterophysus-batrachus",
       "html": "<ul><li>Kner, R. (1858). Ichthyologische Beiträge. II. Abtheilung. Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe v. 26 (s. 373), 373-448</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/asterophysus_batrachus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2003. Auchenipteridae (Driftwood catfishes). p. 470-482. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil. Frederico, R.G. 2023. Asterophysus batrachus. The IUCN Red List of Threatened Species 2023. Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 12/2019 ).</p>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/909bd49ea8f73c31.webp",
+      "thumb": "https://media.aquatome.com/scotcat/909bd49ea8f73c31-480.webp",
+      "width": 500,
+      "height": 334,
+      "licence": "dùng với sự cho phép",
+      "author": "Daniel Blom / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/asterophysus_batrachus.htm",
+      "caption": "Asterophysus batrachus: Showing the wide gape mouth",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/5d178338d4a77269.webp",
+      "thumb": "https://media.aquatome.com/scotcat/5d178338d4a77269-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Daniel Blom / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/asterophysus_batrachus.htm",
+      "caption": "Asterophysus batrachus: Showing the Salmon shaped mouth",
+      "source": "scotcat"
+    },
     {
       "url": "https://media.aquatome.com/scotcat/0c90019ddd411d0a.webp",
       "thumb": "https://media.aquatome.com/scotcat/0c90019ddd411d0a-480.webp",
@@ -321,28 +399,6 @@
       "author": "Allan James / ScotCat",
       "sourceUrl": "https://www.scotcat.com/auchenipteridae/asterophysus_batrachus.htm",
       "caption": "Asterophysus batrachus",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/5d178338d4a77269.webp",
-      "thumb": "https://media.aquatome.com/scotcat/5d178338d4a77269-480.webp",
-      "width": 500,
-      "height": 333,
-      "licence": "dùng với sự cho phép",
-      "author": "Daniel Blom / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/auchenipteridae/asterophysus_batrachus.htm",
-      "caption": "Asterophysus batrachus: Showing the Salmon shaped mouth",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/909bd49ea8f73c31.webp",
-      "thumb": "https://media.aquatome.com/scotcat/909bd49ea8f73c31-480.webp",
-      "width": 500,
-      "height": 334,
-      "licence": "dùng với sự cho phép",
-      "author": "Daniel Blom / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/auchenipteridae/asterophysus_batrachus.htm",
-      "caption": "Asterophysus batrachus: Showing the wide gape mouth",
       "source": "scotcat"
     }
   ],
@@ -399,5 +455,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-22"
 }

@@ -1221,6 +1221,33 @@
   ],
   "vi/glossary/ca-bot": [
     {
+      "at": "2026-11-19T18:46:30Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Cá bột là cá con vừa nở.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Chúng cần thức ăn vừa miệng và nước sạch.\" (not \"Miệng và dạ dày chúng rất nhỏ nên mỗi ngày chúng cần ăn nhiều bữa nhỏ.\": Rules 4 and 12: \"Miệng và dạ dày chúng rất nhỏ nên mỗi ngày chúng cần ăn nhiều bữa nhỏ.\" in the definition: THIS TERM sets the meaning word for word, and its third sentence is \"Chúng c…",
+        "Loose, reworded: \"Cám vảy nghiền bột tuy dễ kiếm nhưng không phải thức ăn tốt nhất cho cá bột.\" → \"Cám vảy nghiền bột tuy phổ biến nhưng không phải thức ăn tốt nhất cho cá bột.\" (supported)"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-19T18:46:30Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 0.92,
+      "notes": [
+        "\"Cho ăn quá tay có thể làm chết cá bột; bể ương ít nước mà cho ăn nhiều bữa thì nước xuống cấp rất nhanh.\": the facts don't carry it (unsupported, unsupported, unsupported): 'rất nhanh' stronger than 'quickly' / 'rất nhanh' is stronger than the source's 'quickly' / 'rất nhanh' (very quickly) is stronger than the source's 'quickly'",
+        "\"Cho ăn quá tay làm bẩn nước.\": the facts don't carry it (uncredited, uncredited, uncredited): only aquariumcoop says overfeeding fouls water; no credit / Only aquariumcoop says overfeeding fouls water; stated without credit / Only aquariumcoop.com says overfeeding fouls water; no credit in this section",
+        "Rule 12: The last item under \"Một bài khác ghi:\" reads \"Cho ăn quá tay có thể làm chết cá bột; bể ương ít nước mà cho ăn nhiều bữa thì nước xuống cấp rất nhanh.\" THIS TERM requires this wording exactly: \"Cho ăn quá tay có thể làm chết cá bột; bể ương ít nước mà cho ăn nhiều bữa thì nước xuống cấp nhanh.\" Fact 33 says \"quickly\", so \"rất\" must go.",
+        "Rule 12: Under \"Sai lầm hay gặp\", the entry has \"Cho ăn quá tay làm bẩn nước.\" with no source named. Only one page gives this (fact 33), and THIS TERM requires it word for word as \"Bài khác ấy cũng ghi: cho ăn quá tay làm bẩn nước.\" As it stands, a one-page claim reads as plain fact."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-19T01:39:27Z",
       "model": "sonnet",
       "cli": "2.1.327",
@@ -1269,31 +1296,6 @@
       "notes": [
         "Rules 1 and 12: The definition is not the required wording. It reads \"Lúc đầu chúng sống nhờ túi noãn hoàng, hết noãn hoàng mới tìm mồi. Từ lúc đó chúng cần thức ăn vừa miệng và nước sạch.\" It should read \"Cá bột là cá con vừa nở. Lúc mới nở chúng còn mang túi noãn hoàng và chưa bơi đi tìm mồi được. Chúng cần thức ăn vừa miệng và nước sạch.\" The phrase \"hết noãn hoàng mới tìm mồi\" (they look for …",
         "Rules 4 and 12: The last item under \"Một bài khác ghi:\" says \"Cho ăn quá tay làm bẩn nước và có thể làm chết cá bột; ...\". The words \"làm bẩn nước\" (fouls the water) repeat the plain line under \"Sai lầm hay gặp\". The required wording is \"Cho ăn quá tay có thể làm chết cá bột; bể ương ít nước mà cho ăn dày thì nước xuống cấp rất nhanh.\""
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-18T18:35:51Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 1,
-      "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Từ lúc đó chúng cần thức ăn vừa miệng và nước sạch.\" (not \"Từ lúc đó, vì miệng và dạ dày còn rất nhỏ, chúng cần được cho ăn nhiều bữa nhỏ mỗi ngày.\": Rule 12: \"vì miệng và dạ dày còn rất nhỏ, chúng cần được cho ăn nhiều bữa nhỏ mỗi ngày\" in the definition gives the tiny mouths and stomachs as plain fact, …",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cá bột rất nhỏ của nhiều loài đẻ trứng lúc đầu chưa nuốt nổi artemia mới nở.\" (not \"Cá bột của các loài đẻ trứng như cá killi, cá cầu vồng và cá tetra lúc đầu quá nhỏ, chưa nuốt nổi artemia mới nở.\": Rule 6: \"cá killi\" in \"Cá bột của các loài đẻ trứng như cá killi, cá cầu vồng và cá tetra lúc đầu quá nhỏ,…"
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-18T18:35:51Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 1,
-      "notes": [
-        "Rule 12: \"Ở loài không giữ con, tách cá bột khỏi cá trưởng thành hoặc vớt cá bố mẹ ra sau khi đẻ.\" applies the magazine's limit to species that don't guard their fry (fact 32) to the shop's advice and states it as plain fact. It also leaves out that brood-caring species can stay with their fry. THIS TERM requires two items here, word for word: \"Tách cá bột khỏi cá trưởng thành.\" and then \"Theo bà…",
-        "Rule 12: \"Dùng lọc nhẹ và giữ dòng chảy yếu.\" is in the plain list, but each half comes from only one page: gentle filtration from source 0 (fact 30) and low flow from the magazine (fact 31). A claim only one page makes has to say whose it is, so these belong under \"Một tiệm ghi:\" and \"Một bài tạp chí ghi:\" and not in the plain list.",
-        "Rule 12: \"Chia cá bột theo cỡ, vì con lớn nhanh có thể ăn con nhỏ hoặc giành hết mồi.\" uses \"chia\", which the entry also uses for portioning food. THIS TERM requires \"Tách cá bột theo cỡ, vì con lớn nhanh có thể ăn con nhỏ hoặc giành hết mồi.\""
       ],
       "attempt": "rewrite",
       "kept": false
@@ -1370,6 +1372,1726 @@
       ],
       "attempt": "rewrite",
       "kept": false
+    }
+  ],
+  "vi/glossary/vay-hau-mon": [
+    {
+      "at": "2026-11-20T08:12:40Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T08:12:40Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Ở cá đẻ con, cá đực có vây hậu môn hình que, dùng để thụ tinh trong bụng cá cái.\" is the old sentence. The Fri 20 Nov evening batch replaces it word for word with \"Ở cá đẻ con, cá đực có vây hậu môn hình que, dùng để thụ tinh trong cơ thể cá cái.\"",
+        "Rule 12: \"Có thể thêm muối hồ cá để sát khuẩn nhẹ trong lúc vây lành (liều và cách dùng: xem bài hướng dẫn chữa bệnh).\" is the old wording. It points to \"bài hướng dẫn chữa bệnh\", which is not a page, and the medicine line forbids that. The evening batch replaces it word for word with \"Có thể thêm muối hồ cá để sát khuẩn nhẹ trong lúc vây đang lành lại. Liều và cách dùng: xem bài Cá bị thối vây, …",
+        "Rule 12: \"Để phòng vây bị rách: bỏ đồ trang trí sắc, bọc đầu hút lọc, tách riêng hoặc bỏ bớt cá dữ.\" is the old wording. The evening batch replaces it word for word with \"Để phòng vây bị rách: bỏ đồ trang trí sắc, bọc đầu hút lọc, tách riêng hoặc đưa cá hung hăng ra khỏi bể.\" The next sentence, \"Một bể bệnh riêng cũng có thể giúp ích.\", stays as it is."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T04:40:14Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T04:40:14Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The definition opens \"Vây hậu môn (anal fin) là một trong các vây của cá.\" THIS TERM gives the meaning word for word as \"Vây hậu môn là một vây lẻ ở mặt dưới thân cá. Ở cá bảy màu, vây này của cá đực biến thành gonopodium, còn cá cái giữ vây hậu môn bình thường.\" The \"(anal fin)\" has to go, and the fin's place from fact 2 (\"một vây lẻ ở mặt dưới thân cá\") is missing.",
+        "Rule 12: \"Nước bẩn có thể để vi khuẩn nhiễm vào chỗ vây rách, làm vây rách tưa thành thối vây.\" THIS TERM replaces this sentence word for word with \"Nước kém có thể để vi khuẩn nhiễm vào chỗ vây rách, làm vây rách tưa thành thối vây.\" Fact 22 says \"poor water quality\".",
+        "Rule 12: \"Có thể thêm muối hột để sát khuẩn nhẹ trong lúc vây lành (liều và cách dùng: xem bài hướng dẫn chữa bệnh).\" Fact 24 names aquarium salt, and coarse salt (\"muối hột\") is another product. THIS TERM gives the sentence word for word as \"Có thể thêm muối hồ cá để sát khuẩn nhẹ trong lúc vây lành (liều và cách dùng: xem bài hướng dẫn chữa bệnh).\"",
+        "Rule 12: \"Để phòng lại, bỏ đồ trang trí sắc, bọc đầu hút lọc, tách riêng hoặc bỏ bớt cá dữ. Có thêm bể bệnh riêng cũng tốt.\" THIS TERM replaces both sentences word for word with \"Để phòng vây bị rách: bỏ đồ trang trí sắc, bọc đầu hút lọc, tách riêng hoặc bỏ bớt cá dữ. Một bể bệnh riêng cũng có thể giúp ích.\" This keeps fact 25's aim and its \"can help\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-19T18:06:06Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Có thể thêm muối hột để sát khuẩn nhẹ trong lúc vây lành (liều và cách dùng: xem bài hướng dẫn chữa bệnh).\" (not \"Để sát khuẩn nhẹ trong lúc vây lành, có thể dùng muối dành cho bể cá, một muỗng canh cho mỗi 5 gallon (khoảng 19 lít) nước.\": Rule 12: \"một muỗng canh cho mỗi 5 gallon (khoảng 19 lít) nước\": \"…",
+        "Rules 4 and 12: \"Có thể thêm muối hột để sát khuẩn nhẹ trong lúc vây lành (liều và cách dùng: xem bài hướng dẫn chữa bệnh)\": the FACTS give the dose themselves (one tablespoon per five gallons of aquarium salt), but the entry drops it and sends the keeper to a treatment guide the FACTS don't mention. That asks for advice the FACTS don't give. It also changes the fact's \"aquarium salt\" into \"muối …"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-19T18:06:06Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 0.9,
+      "notes": [
+        "\"Ở cá bảy màu, vây này của cá đực biến thành gonopodium, còn cá cái giữ vây hậu môn bình thường, nên nhìn vây này là phân biệt được đực cái.\": the facts don't carry it (loose, unsupported, loose, unsupported, unsupported, loose): Sexing by the fin is implied by the facts, but the age limit is left to later sentences / Drops the age limit: juveniles often can't be sexed reliably / Sexing by the fi…",
+        "\"Ở một số loài đẻ con lớn hơn thì muộn hơn một chút.\": the facts don't carry it (unsupported, unsupported, unsupported): Adds the hedge 'some' to 'larger livebearers' / Adds 'some'; fact covers larger livebearers generally / Adds 'some'; the fact covers larger livebearers in general",
+        "Rule 12: \"nên nhìn vây này là phân biệt được đực cái\" in the definition uses \"nên\" to join the guppy anal-fin fact to a conclusion about sexing. No single fact makes that link. It should be a separate sentence, or joined with \"và\" only to what a fact says.",
+        "Rule 4: \"Ở cá bảy màu, vây hậu môn của cá đực biến thành gonopodium, còn cá cái giữ vây hậu môn bình thường\" says the same thing in the definition and again as the first paragraph of the body. It should be said once, in one place."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
+  ],
+  "vi/glossary/vay-duoi": [
+    {
+      "at": "2026-11-20T08:16:45Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Mép đuôi rách nham nhở, ửng đỏ, viền trắng đục hoặc xám là dấu hiệu cần để ý.\" (not \"Một hội nuôi cá ghi: mép vây sờn rách và vây đuôi ửng đỏ, rồi đầu vây ngả xám là những dấu hiệu cần để ý.\": Rule 12: Under the heading \"Mép đuôi rách, nham nhở: dấu hiệu cần để ý\", the sentence the line requires word for …",
+        "The entry is 446 words: hold it to about 400, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T08:16:45Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: the definition \"Vây đuôi là vây ở cuối thân cá, gắn với cuống đuôi.\" should be the required wording: \"Vây đuôi là vây ở cuối cuống đuôi.\"",
+        "Rule 12: the opening paragraph \"Lời tả các dáng đuôi dưới đây lấy từ một nguồn người nuôi và một tiệm; mỗi dòng ghi rõ câu nào của bên nào:\" is missing the required \", trừ chỗ hai bên cùng ghi\". It should end \"mỗi dòng ghi rõ câu nào của bên nào, trừ chỗ hai bên cùng ghi:\".",
+        "Rule 12: the Halfmoon item \"tiệm ghi đuôi to, xòe khoảng 180 độ.\" should read \"Halfmoon: đuôi xòe khoảng 180 độ. Tiệm ghi đuôi to.\" The 180-degree spread stands without a credit because two sites give it, and only \"đuôi to\" is the shop's.",
+        "Rule 12: the Đuôi hoa item still says \"vây, đuôi quá to nên cá hay bơi khó\". It should say \"vây, đuôi rất to\" in place of \"quá to\".",
+        "Rule 12: \"Cá dễ bị thối vây hơn khi nước kém hoặc bị cá khác cắn rỉa.\" should be the required wording: \"Cá dễ bị thối vây hơn khi nước kém hoặc bị cá khác bắt nạt, cắn vây.\"",
+        "Rule 12: the second keeper's line says \"nặng dần qua nhiều tuần\". It should say \"tiến triển qua nhiều tuần\".",
+        "Rule 12: \"Nếu cần dùng thuốc, liều và cách dùng: xem bài hướng dẫn chữa bệnh.\" points to \"bài hướng dẫn chữa bệnh\", which is not a page. It should be replaced with \"Cách chữa thối vây: xem bài Cá bị thối vây, thối đuôi.\"",
+        "Rule 12: \"Nguồn người nuôi viết về Betta tự cắn đuôi cũng ghi cách chăm trong lúc đuôi lành:\" should read \"cũng ghi cách chăm cho đuôi bị cắn lành lại:\".",
+        "Rule 12: \"Nguồn người nuôi này cũng ghi cách phòng:\" should read \"Nguồn người nuôi này cũng ghi cách phòng Betta cắn đuôi:\".",
+        "The entry is 434 words: hold it to about 400, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T05:02:08Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Mép đuôi rách nham nhở, ửng đỏ, viền trắng đục hoặc xám là dấu hiệu cần để ý.\" (not \"Một hội cá cảnh ghi: mép vây sờn rách và vây đuôi ửng đỏ, rồi chóp vây ngả xám, là dấu hiệu bệnh thường bắt đầu.\": Rule 12: The sentence that THIS TERM requires under the signs heading is missing. It must appear word for …",
+        "The entry is 434 words: hold it to about 400, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T05:02:08Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Betta nuôi được chia dòng theo dáng đuôi.\" should have been replaced. THIS TERM requires \"Các dáng đuôi Betta\" to open word for word with \"Lời tả các dáng đuôi dưới đây lấy từ một nguồn người nuôi và một tiệm; mỗi dòng ghi rõ câu nào của bên nào:\". No fact gives the old sentence.",
+        "Rule 12: the veiltail item, \"một nguồn người nuôi ghi đuôi cân, gốc rộng, mép dài ra. Một tiệm ghi đuôi dài, rủ xuống.\", is not the required wording. It should read \"người nuôi ghi đuôi cân đối, gốc rộng, mép dài ra; tiệm ghi đuôi dài, rủ xuống.\" The entry also drops \"đối\" from \"cân đối\" and splits the item into two sentences.",
+        "Rule 12: the Delta, superdelta item, \"nguồn người nuôi trên ghi delta có đuôi hình tam giác…\", should begin \"người nuôi ghi delta có đuôi hình tam giác…\" word for word. The added \"trên\" also points back to an earlier source, which the standing line forbids.",
+        "Rule 12: the Halfmoon item, \"tiệm trên ghi đuôi to, xòe khoảng 180 độ.\", should be \"tiệm ghi đuôi to, xòe khoảng 180 độ.\"",
+        "Rule 12: the roundtail item, \"nguồn người nuôi trên ghi đuôi tròn…\", should be \"người nuôi ghi đuôi tròn, hay xuất hiện trong các dòng delta, superdelta và halfmoon.\"",
+        "Rule 12: the rosetail item, \"nguồn người nuôi trên ghi đây là dòng chọn từ halfmoon có tia vây phân nhánh. Tiệm trên ghi vây rộng…\", should be one sentence with a semicolon, word for word: \"người nuôi ghi đây là dòng chọn từ halfmoon có tia vây phân nhánh; tiệm ghi vây rộng tới mức mép nhăn lại, và vây, đuôi quá to nên cá hay bơi khó.\"",
+        "Rule 12: the crowntail item, \"nguồn người nuôi trên ghi tia vây dài vượt khỏi mép đuôi. Tiệm trên ghi đuôi tách thành nhiều mũi nhọn…\", should be \"người nuôi ghi tia vây dài vượt khỏi mép đuôi; tiệm ghi đuôi tách thành nhiều mũi nhọn, và dòng này dễ bị bệnh đuôi hơn, hơi dữ hơn các dòng khác.\"",
+        "Rule 12: the Combtail item, \"tiệm trên ghi trông giống đuôi tưa…\", should be \"tiệm ghi trông giống đuôi tưa, nhưng phần chẻ không dài quá nửa đuôi.\"",
+        "Rule 12: the Plakat item, \"đuôi ngắn. Tiệm trên ghi thân cá gọn.\", should be \"đuôi ngắn. Tiệm ghi thân cá gọn.\"",
+        "Rule 12: the rare-forms item, \"nguồn người nuôi trên ghi đuôi ba thùy (tripletail)…\", should begin \"người nuôi ghi đuôi ba thùy (tripletail)…\" word for word."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-19T18:18:20Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 1,
+      "notes": [
+        "Loose, rewording would take the entry past its length, old wording kept for the reader: \"Betta nuôi được chia dòng theo dáng đuôi.\" (not \"Nhiều dòng Betta nuôi được gọi tên theo dáng đuôi.\")",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Mép đuôi tưa, ửng đỏ, viền trắng đục hoặc xám là dấu hiệu cần để ý.\" (not \"Một hội cá cảnh ghi: bệnh thường bắt đầu bằng mép vây tưa và vây đuôi ửng đỏ, sau đó chóp vây chuyển xám.\": Rule 12: The entry credits four pages, but the limit is three: \"một nguồn người nuôi ghi\" (the keeper page on tail shapes),…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Nguồn người nuôi khác ở trên ghi cách chăm Betta cắn đuôi: thay 25–30% nước mỗi 3–4 ngày, cho ăn nhiều đạm, giữ amoniac và nitrit bằng 0, lọc êm, có cây và chỗ trốn.\" (not \"Nguồn người nuôi khác ở trên ghi: trong lúc đuôi Betta lành lại sau khi bị cắn, thay 25–30% nước mỗi 3–4 ngày và cho ăn nhiều đạm.\": …",
+        "Rule 12: \"Mép đuôi tưa, rách: dấu hiệu cần để ý\" and \"Mép đuôi tưa, ửng đỏ, viền trắng đục hoặc xám là dấu hiệu cần để ý\": \"đuôi tưa\" is the entry's own name for the crowntail shape (\"Đuôi tưa (crowntail)\"). Using the same words for a frayed, sick tail mixes a tail-shape name with a sign of disease. Tail shapes should be named only as keepers or the site write them, so the frayed edge needs other…",
+        "Rule 12: \"Nếu cần dùng thuốc, liều và cách dùng: xem bài hướng dẫn chữa bệnh.\": the FACTS set the condition as antimicrobials being recommended if fish are dying, chosen by sensitivity testing where possible. \"Nếu cần\" drops that condition, which breaks the rule that a fact's hedges stay as given. The step also sends the keeper to a treatment guide that no FACT names.",
+        "The entry is 408 words: hold it to about 400, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-19T18:18:20Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 0.64,
+      "notes": [
+        "\"Vây đuôi là vây ở cuối thân cá, gắn với cuống đuôi, và cá quẫy nó sang hai bên để bơi tới.\": the facts don't carry it (unsupported, unsupported, unsupported): drops 'in most fish groups' qualifier on propulsion / Drops 'in most fish groups' for side-to-side propulsion / Drops 'in most fish groups' from the propulsion claim",
+        "\"Vây đuôi nằm ở cuối cuống đuôi.\": the facts don't carry it (uncredited, uncredited, uncredited): only wikipedia gives it / Only wikipedia gives this",
+        "\"Mép đuôi có thể tròn, gần thẳng đứng, hơi lõm vào như ở Cyprinus carpio, chẻ đôi hoặc cong hình lưỡi liềm.\": the facts don't carry it (unsupported, uncredited, uncredited): drops homocercal-only limit on these shapes / Tail shapes come only from wikipedia",
+        "\"Đuôi voan, đuôi màn (veiltail): đuôi dài, gốc rộng, rủ xuống.\": the facts don't carry it (uncredited, loose, uncredited): wide base only from one site, drooping only from another; uncredited / Joins two sites' descriptions / Wide base is only on one site, drooping only on the other; joined with no credit",
+        "\"Đuôi hoa (rosetail): tia vây phân nhánh, vây rộng tới mức mép nhăn lại.\": the facts don't carry it (uncredited, loose, uncredited): branching rays and wrinkled edges each from a single site, uncredited / Joins two sites' descriptions / Branching rays (one site) and wrinkled edges (another) are each stated without credit",
+        "\"Các dáng hiếm: nguồn người nuôi trên ghi có đuôi quạt (roundtail), đuôi ba thùy (tripletail), đuôi tim (hearttail), đuôi dính (fusetail), và vây dính (fusefin) là cực hiếm.\": the facts don't carry it (contradicts, contradicts, unsupported): roundtail not rare; source says it often appears in delta/halfmoon lines / Roundtail often turns up, so it is not rare / Roundtail isn't called rare; the fac…",
+        "\"Một nguồn người nuôi khác ghi: cá betta tự cắn đuôi thì để lại vết cắn gọn, mép trơn, có khi hiện ra chỉ trong một ngày, còn thối vây thì mép nham nhở, viền trắng, xám hoặc đen, nặng dần qua nhiều tuần.\": the facts don't carry it (unsupported, supported, supported, unsupported, unsupported, unsupported): drops 'often' on white/grey/black border / Drops the \"often\" hedge on the white, grey or bla…",
+        "\"Nếu phát hiện sớm thì có thể chỉ cần vậy là đủ.\": the facts don't carry it (uncredited, uncredited, uncredited): only fishdoc says early removal may suffice / Only fishdoc says early removal may be enough",
+        "\"Cân nhắc kỹ trước khi dùng kháng sinh.\": the facts don't carry it (uncredited, uncredited, uncredited): only angfa advises considering antibiotics carefully / Only angfa says to consider antibiotics carefully / Only angfa gives this advice",
+        "Rule 12: \"cá quẫy nó sang hai bên để bơi tới\" drops the fact's hedge. The fact says the caudal fin is used this way \"in most fish groups\", but the entry states it for all fish."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/glossary/bo-bo": [
+    {
+      "at": "2026-11-20T08:32:32Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The entry is 527 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T08:32:32Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Con trưởng thành dài 700–1.000 µm, con non dưới 400 µm.\" the figure 700, the figure 1.000, the figure 400, the advice \"Con trưởng thành dài 700–1.000 µm\", the advice \"con non dưới 400 µm\", and nothing lets that sentence go: write it as it was, word for word.",
+        "The entry is 519 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T08:32:32Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The definition still has \"người nuôi có thể tự gây nuôi trong thùng, chậu ở nhà.\" It should read exactly \"Đây là mồi sống hợp với cá bột, và người nuôi có thể tự gây nuôi trong thùng, chậu.\" No fact says 'at home'.",
+        "Rule 12: The keeper's sentence still has \"cho cá betta (cá xiêm) bột ăn bo bo\". It should read exactly \"Một nguồn người nuôi ghi chỉ nên cho cá betta bột ăn bo bo khi chúng được ít nhất một tuần tuổi, lúc miệng đã đủ lớn.\" A name in brackets under a page's credit must be that page's own word, and fact 72 says only betta.",
+        "Rule 12: The list item \"Moina to mà thả dày có thể làm phiền cá bột hoặc làm chúng bị thương, nên cần canh lượng cho ăn.\" was not replaced. It should read exactly \"Moina quá to mà thả dày có thể làm phiền cá bột hoặc làm chúng bị thương, nên cần canh lượng cho ăn.\"",
+        "Rule 12: \"Một tiệm ghi rằng bo bo hợp với cá miệng nhỏ như Poecilia, Betta và Paracheirodon.\" was not replaced. It should read exactly \"Một tiệm ghi rằng bo bo hợp với cá cảnh miệng nhỏ như Poecilia, Betta và Paracheirodon.\"",
+        "Rule 12: \"Bo bo nhợt màu là dấu hiệu đang thiếu ăn.\" is written as plain fact. Only the keeper gives this (fact 26), so it needs the keeper's credit (for example \"Nguồn người nuôi này ghi …\") and should say only what fact 26 says. The university's sentence after it stays word for word.",
+        "The entry is 522 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T08:21:52Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.97,
+      "notes": [
+        "\"Bo bo nhợt màu là dấu hiệu đang thiếu ăn.\": the facts don't carry it (uncredited, supported, supported, uncredited, supported, uncredited): only keeper blog says pale means underfed; university says poor conditions or underfed / Only the keeper blog (source 2) says outright that pale bo bo are underfed. The university page says pale Moina with empty guts mean poor conditions or too little food, …",
+        "The entry is 522 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T08:21:52Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The definition says \"người nuôi có thể tự gây nuôi trong thùng, chậu ở nhà.\" THIS TERM requires exactly \"Đây là mồi sống hợp với cá bột, và người nuôi có thể tự gây nuôi trong thùng, chậu.\" Cut \"ở nhà\": no fact says the culture is kept at home.",
+        "Rule 12: The entry has \"Một nguồn người nuôi ghi chỉ nên cho cá betta (cá xiêm) bột ăn bo bo khi chúng được ít nhất một tuần tuổi, lúc miệng đã đủ lớn.\" THIS TERM requires exactly \"… cho cá betta bột ăn bo bo …\". Fact 72 says only betta, and a bracket under a page's credit must be that page's own word.",
+        "Rule 12: The entry has \"Moina to mà thả dày có thể làm phiền cá bột hoặc làm chúng bị thương, nên cần canh lượng cho ăn.\" The evening batch requires exactly \"Moina quá to mà thả dày có thể làm phiền cá bột hoặc làm chúng bị thương, nên cần canh lượng cho ăn.\"",
+        "Rule 12: The entry has \"Một tiệm ghi rằng bo bo hợp với cá miệng nhỏ như Poecilia, Betta và Paracheirodon.\" The evening batch requires exactly \"Một tiệm ghi rằng bo bo hợp với cá cảnh miệng nhỏ như Poecilia, Betta và Paracheirodon.\"",
+        "The entry is 522 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T04:56:25Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The entry is 522 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    }
+  ],
+  "vi/glossary/suc-khi": [
+    {
+      "at": "2026-11-20T08:55:40Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T08:55:40Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: definition \"Sục khí là đưa không khí vào bể bằng máy sủi, dây dẫn khí và đá sủi khí hoặc lọc mút, cho oxy hòa vào nước.\" should read, word for word: \"Sục khí là đưa không khí vào bể bằng máy sủi, dây dẫn khí và một đầu ra khí như đá sủi khí hoặc lọc mút.\" Fact 0's \"such as\" stays, and the purpose isn't part of fact 0.",
+        "Rule 12: \"Oxy trong không khí hòa vào nước ở mặt nevertheless\" — correction: \"Oxy trong không khí hòa vào nước ở mặt nước, và CO2 cũng thoát ra ở đó.\" is stated plainly, but only the first shop gives it (fact 1). It should go into that shop's list as \"trao đổi khí diễn ra ở mặt nước: CO2 thoát ra và oxy từ không khí hòa vào\".",
+        "Rules 10 and 12: \"Mặt nước càng gợn mạnh thì trao đổi khí càng tốt.\" turns the facts' 'best' into a sliding scale. It should read \"Mặt nước gợn mạnh cho trao đổi khí tốt nhất.\"",
+        "Rule 12: \"Thiếu oxy thì cá thở mang nhanh và nổi lên mặt nước đớp khí, gọi là piping.\" should read \"Dấu hiệu thiếu oxy gồm cá thở mang nhanh và đớp khí ở mặt nước.\" Facts 12 and 13 give signs, not a certainty, and \"piping\" is the farm page's word for dying fish.",
+        "Rule 12: the list opens \"Một tiệm ghi thêm:\". It should open \"Một tiệm ghi:\".",
+        "Rule 12: \"Một số thuốc và hóa chất trị bệnh là nguyên nhân hay gặp làm tụt oxy.\" should read \"Một số thuốc hoặc cách xử lý bằng hóa chất là nguyên nhân hay gặp làm tụt oxy.\" Fact 15 has no \"trị bệnh\".",
+        "Rule 12: \"Mặt nước phẳng lặng chỉ cho khoảng 5% lượng khí so với mặt nước gợn sóng cùng diện tích.\" should read \"Mặt nước phẳng lặng chỉ cho khoảng 5% mức sục khí của mặt nước gợn sóng cùng diện tích.\" Fact 3 talks about aeration, not an amount of air.",
+        "Rule 12: \"Bọt khí sục khí được là nhờ làm mặt nước cuộn lên khi nổi tới đó.\" should read \"Bọt khí nổi lên làm mặt nước gợn mạnh, và đó là cách chúng sục khí.\"",
+        "Rule 12: \"Máy nhỏ bán kèm bộ bể hay bán ngoài tiệm sục được ít khí.\" should read \"Máy sủi nhỏ bán kèm bộ bể hay bán ở tiệm sục được ít khí.\"",
+        "Rule 12: \"Tiệm này còn ghi rằng lúc cá thiếu oxy gấp\" comes right after a heading, and the keeper was the last page named. It should read \"Tiệm thứ nhất còn ghi rằng lúc cá thiếu oxy gấp\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T06:27:10Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Tiệm thứ nhất cũng ghi là để cây nổi phủ kín mặt nước sẽ cản trao đổi khí. Trong một lần thử của tiệm này, cây nổi phủ mặt một bể 55 gallon làm oxy thấp hơn hẳn.\" These are two claims in a row from the same shop, but each sentence has its own opening (\"Tiệm thứ nhất cũng ghi\", then \"Trong một lần thử của tiệm này\"). Put them under one opening, either as a list or as one sentence with se…",
+        "Rule 12: \"Mặt nước phẳng lặng chỉ cho khoảng 5% lượng khí so với mặt nước gợn sóng cùng diện tích\". The fact says about 5% of the aeration (the amount of air mixed into the water). \"lượng khí\" means 'amount of air', so the claim no longer names what its fact names. Say \"khoảng 5% mức sục khí\" or similar."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T06:27:10Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.96,
+      "notes": [
+        "\"Cá thiếu oxy còn hay nằm đáy và kém ăn.\": the facts don't carry it (unsupported, unsupported, unsupported): adds 'often' (hay); fact only lists these as signs / adds 'often' hedge to listed signs / adds 'often' (hay); fact only lists signs",
+        "Rule 12: \"cây nổi phủ mặt một bể 200 lít\" changes the fact's \"55-gallon tank\" into a rounded figure in another unit. Every number must keep the unit its fact gives, and amounts are never rounded, so it should read \"bể 55 gallon\".",
+        "Rule 12: \"Cá thiếu oxy còn hay nằm đáy và kém ăn.\" adds the hedge \"hay\" (often). The shop's fact only lists resting on the bottom and low appetite as signs. A fact's hedges are never added.",
+        "Rule 4: \"Bể low-tech ít cá có thể bỏ sục khí, còn bể nuôi vừa phải thì cần.\" is followed by \"Với bể nuôi vừa hay nuôi dày, chỉ trông vào khí tự khuếch tán qua mặt nước là không đủ.\" Both say that moderately stocked tanks need aeration. It should be said once.",
+        "Rule 12: \"dây oxy\" in \"bằng máy sủi, dây oxy và đá sủi khí hoặc lọc mút\" (also in \"trên dây oxy\" and \"vào dây oxy và máy sủi\") names the airline tubing after oxygen. The tubing carries air, not oxygen, and no fact gives this name. A tool is named as its fact names it (airline tubing, for example \"dây dẫn khí\").",
+        "Rule 12: \"Thiếu oxy thì cá có thể ngạt, nhất là ở bể nuôi dày hoặc khi nước ấm.\" in the definition says what oxygen does for fish, which is in Oxy hòa tan's entry (\"Khi oxy tụt, cá ngạt\"). THIS TERM says that entry is linked for what oxygen does, not repeated here."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/glossary/ca-dan": [
+    {
+      "at": "2026-11-20T08:47:42Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T08:47:42Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The definition still reads \"Cá đàn là những loài cá sống thành nhóm. Nuôi quá ít con thì cá căng thẳng, nhát và nhạt màu.\" The required wording is \"Cá đàn là cá tụ lại với nhau thành nhóm. Nuôi ít con thì cá căng thẳng, nhát và nhạt màu.\"",
+        "Rule 12: The heading \"Trong bể của bạn\" was not changed. It must be \"Tụ nhóm và bơi đồng loạt\".",
+        "Rule 12: \"Một đàn cá tụ lại khá lỏng.\" must be replaced word for word with \"Cá tụ lại thành nhóm lỏng.\"",
+        "Rule 12: \"... school là lúc cả nhóm bơi đồng loạt, cùng tốc độ, cùng hướng và cùng lúc.\" must be replaced with \"... school là lúc cả nhóm bơi đồng loạt, cùng tốc độ và cùng hướng.\" This drops \"và cùng lúc\".",
+        "Rule 12: \"Vài loài cá đàn quen thuộc: cá neon xanh, cá mũi đỏ, cá tam giác, cá trâm và cá tứ vân.\" must be replaced with \"Vài loài cá đàn: cá neon xanh, cá mũi đỏ và cá tam giác.\"",
+        "Rule 12: \"Cá neon xanh và cá kim tơ nuôi nhóm lớn thì ít lao vụt và ít đánh nhau hơn.\" must end \"ít lao vụt và ít hung hăng hơn.\"",
+        "Rule 12: The list item \"cần nuôi ít nhất 5–6 con, nuôi 8–15 con thì cả nhóm bơi đồng loạt rõ nhất\" must be \"cần nuôi ít nhất 5–6 con; nuôi 8–15 con là lý tưởng để cả nhóm bơi đồng loạt rõ ràng\".",
+        "Rule 12: The list item \"cá đàn nhỏ cần bể dài khoảng 40–60 cm, cá đàn cỡ lớn cần bể dài 90 cm đến 1,5 m\" must be \"cá đàn cỡ nhỏ cần bể dài khoảng 40–60 cm, cá đàn cỡ lớn cần bể 90 cm đến 1,5 m\".",
+        "Rule 12: The list item \"bể quá nhỏ hoặc thả quá dày thì cá không còn chỗ bơi đồng loạt\" must end \"chỗ bơi cùng nhau\".",
+        "Rule 12: The list item \"thả chung với cá lớn hoặc cá dữ thì cá đàn bị rượt đuổi và thôi bơi đồng loạt\" must say \"cá hung hăng\" in place of \"cá dữ\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T08:44:55Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Trong bể của bạn\" the advice \"Trong bể của bạn\", and nothing lets that sentence go: write it as it was, word for word."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T08:44:55Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Trong bể của bạn\" the advice \"Trong bể của bạn\", and nothing lets that sentence go: write it as it was, word for word."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T08:44:55Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The heading \"Trong bể của bạn\" was not changed. THIS TERM says it becomes \"Tụ nhóm và bơi đồng loạt\".",
+        "Rule 12: The definition still reads \"Cá đàn là những loài cá sống thành nhóm. Nuôi quá ít con thì cá căng thẳng, nhát và nhạt màu.\" It should be replaced word for word with \"Cá đàn là cá tụ lại với nhau thành nhóm. Nuôi ít con thì cá căng thẳng, nhát và nhạt màu.\"",
+        "Rule 12: \"Một đàn cá tụ lại khá lỏng.\" was not replaced. It should read \"Cá tụ lại thành nhóm lỏng.\"",
+        "Rule 12: \"school là lúc cả nhóm bơi đồng loạt, cùng tốc độ, cùng hướng và cùng lúc\" was not replaced. It should read \"…cùng tốc độ và cùng hướng.\" as THIS TERM gives it.",
+        "Rule 12: \"Vài loài cá đàn quen thuộc: cá neon xanh, cá mũi đỏ, cá tam giác, cá trâm và cá tứ vân.\" was not replaced. It should read \"Vài loài cá đàn: cá neon xanh, cá mũi đỏ và cá tam giác.\"",
+        "Rule 12: \"Cá neon xanh và cá kim tơ nuôi nhóm lớn thì ít lao vụt và ít đánh nhau hơn.\" was not replaced. It should end \"ít hung hăng hơn.\"",
+        "Rule 12: The list item \"cần nuôi ít nhất 5–6 con, nuôi 8–15 con thì cả nhóm bơi đồng loạt rõ nhất\" was not replaced. It should read \"cần nuôi ít nhất 5–6 con; nuôi 8–15 con là lý tưởng để cả nhóm bơi đồng loạt rõ ràng\".",
+        "Rule 12: The list item \"cá đàn nhỏ cần bể dài khoảng 40–60 cm, cá đàn cỡ lớn cần bể dài 90 cm đến 1,5 m\" was not replaced. It should read \"cá đàn cỡ nhỏ cần bể dài khoảng 40–60 cm, cá đàn cỡ lớn cần bể 90 cm đến 1,5 m\".",
+        "Rule 12: The list item \"bể quá nhỏ hoặc thả quá dày thì cá không còn chỗ bơi đồng loạt\" was not replaced. It should end \"chỗ bơi cùng nhau\".",
+        "Rule 12: The list item \"thả chung với cá lớn hoặc cá dữ thì cá đàn bị rượt đuổi và thôi bơi đồng loạt\" was not replaced. It should say \"cá hung hăng\" instead of \"cá dữ\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T05:28:39Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"còn school là lúc cả nhóm bơi đồng loạt, cùng tốc độ, cùng hướng và cùng lúc\": Two sites say a school swims at the same speed and in the same direction, so that part can stand plain. Only the maker's page (source 0) adds \"at the same time\". \"cùng lúc\" is a one-site part joined into the plain sentence. It should go in its own sentence under that site's credit, or be left out.",
+        "Rule 12: \"bể quá nhỏ hoặc thả quá dày thì cá không còn chỗ bơi đồng loạt\": The entry uses \"bơi đồng loạt\" for schooling (same speed, direction and time). Here the shop's fact only says there is no room for the fish to \"swim as a group\". One word now stands for two different things. This line needs a plain word of its own, such as \"bơi thành nhóm\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    }
+  ],
+  "vi/glossary/co2": [
+    {
+      "at": "2026-11-20T08:59:17Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T08:59:17Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The definition still has \"Nước bể thường chỉ hòa được ít CO2, nên cây có thể cần châm thêm.\" The Glossary lead's line says to cut this sentence because fact 6 comes from the keeper alone.",
+        "Rule 12: The definition has \"Nhưng châm dư thì cá bơi lờ đờ và ngoi lên mặt nước để thở.\" It must read \"CO2 dư thì cá bơi lờ đờ và ngoi lên mặt nước để thở.\" The facts speak of too much CO2, not of adding too much.",
+        "Rule 12: \"Ánh sáng, phân và CO2 phải cân nhau.\" must be written word for word as \"Ánh sáng, phân và CO2 phải cân bằng với nhau.\"",
+        "Rule 12: \"Ban đêm cây hô hấp và nhả CO2 ra thay vì dùng nó.\" must read \"Ban đêm cây hô hấp và nhả CO2 ra.\" The words \"thay vì dùng nó\" come from the first shop alone.",
+        "Rule 12: The item \"Thiếu CO2 thì lá ngả vàng, cây chậm lớn, tảo hoặc vi khuẩn bùng lên.\" must read \"Dấu hiệu thiếu CO2 gồm lá ngả vàng, cây chậm lớn, tảo hoặc vi khuẩn bùng lên.\" This keeps fact 14's \"signs … include\".",
+        "Rule 12: \"Dung dịch CO2 lỏng không nên châm quá liều.\" must read \"Dung dịch CO2 lỏng không nên dùng quá liều.\" The word \"châm\" says the product adds CO2, and no fact says that.",
+        "Rule 12: \"Nên nhắm màu xanh lá đậm thay vì xanh ngả vàng.\" must read \"Nên nhắm màu xanh lá đậm hơn thay vì xanh ngả vàng.\" This keeps fact 45's \"darker green\".",
+        "Rule 12: \"Khi đó, thay nhiều nước đã khử clo, cùng nhiệt độ bể là cách nhanh và hiệu quả nhất, hơn cả sục khí.\" must be replaced, word for word, by \"Khi CO2 dư, cách nhanh và hiệu quả nhất là thay nhiều nước đã khử clo, cùng nhiệt độ bể. Sục khí hay khuấy mặt nước cũng giúp, nhưng kém hơn thay nước.\"",
+        "Rule 12: \"Một số bộ bơm quá nhiều khí khi bình sắp cạn.\" must read \"Một số bộ CO2 đẩy quá nhiều khí vào bể khi bình sắp cạn.\"",
+        "Rule 12: \"Thay bình trước khi khí xuống quá thấp.\" must read \"Thay bình trước khi khí xuống rất thấp.\" This keeps fact 44's \"very low\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T06:38:11Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"dây\" means two different things in the same list. In \"Đổ nước hoặc dầu khoáng vào bộ đếm giọt CO2, rồi nối dây vào nắp\" and \"Dẫn dây tới bộ khuếch tán\" it is the airline tubing. In \"Nối dây van điện từ vào adapter\" it is the solenoid's power cable. The cable needs its own plain word.",
+        "Rule 12: \"bình CO2\" is the site's word for the cylinder, but \"ghi cách lắp và chạy bình CO2\" uses it for the whole pressurized setup (regulator, bubble counter, tubing, diffuser, solenoid, timer). The setup needs a word of its own.",
+        "Rule 12: \"Van\" on its own stands for the regulator in \"Van cần bình chuẩn có ren CGA320\", and \"van điện từ\" is the solenoid in \"Nối dây van điện từ vào adapter\". Each needs a word the other doesn't share. For example, the regulator could keep its full name, \"van điều chỉnh\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T06:38:11Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.97,
+      "notes": [
+        "\"CO2 châm vào làm pH hạ xuống, và châm vừa phải thì pH xuống mức hơi chua.\": the facts don't carry it (uncredited, uncredited, uncredited): moderate dose to slightly acidic pH only from dennerle.com / slightly acidic range only from dennerle, no credit / moderate dose reaching slightly acidic pH is only from dennerle.com",
+        "Rule 12: \"và để lâu thì cá có thể chết\" in \"Nhưng châm dư thì cá bơi lờ đờ, ngoi lên mặt nước để thở, và để lâu thì cá có thể chết.\": only one shop (source 3) says fish can die. The sentence joins this to the part two sites give (sluggish swimming, rising to the surface to breathe) and states it as plain fact with no credit. It should go in its own sentence under that shop's credit, or be left ou…",
+        "Rule 12: \"và châm vừa phải thì pH xuống mức hơi chua\" in \"CO2 châm vào làm pH hạ xuống, và châm vừa phải thì pH xuống mức hơi chua.\": only the maker (source 4) says a moderate amount brings pH into the slightly acidic range. The sentence joins this to the two-site claim that CO2 lowers pH and states it as plain fact with no credit. It needs its own credited sentence. Because the entry already cre…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T06:38:11Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.89,
+      "notes": [
+        "\"CO2 hòa vào nước làm pH hạ xuống. pH tụt quá nhanh hoặc xuống quá thấp đều có hại cho cá.\": the facts don't carry it (unsupported, unsupported, unsupported): drops 'can' hedge on harm to fish",
+        "\"Bình CO2: khí trong bình đi qua van điều chỉnh và bộ đếm giọt CO2 rồi mới vào bể.\": the facts don't carry it (uncredited, uncredited, uncredited): gas flow path only from Aquarium Co-Op steps / gas path through regulator and counter only from aquariumcoop",
+        "\"Dư CO2 còn làm cá bỏ ăn, thậm chí bất tỉnh.\": the facts don't carry it (unsupported, loose, unsupported): 'poor appetite' made into refusing food / 'bỏ ăn' slightly stronger than poor appetite / poor appetite stated as refusing food",
+        "\"Hai lỗi hay gặp là châm CO2 quá tay và để CO2 chạy suốt đêm.\": the facts don't carry it (uncredited, uncredited, uncredited): 'common mistakes' list only from aquazonefish.vn / 'common mistakes' list only from aquazonefish, stated as plain fact / 'common mistakes' only from aquazonefish",
+        "Rule 4: The definition and the body say the same things twice. \"Nước bể thường chỉ hòa được ít CO2, nên cây có thể cần châm thêm\" comes back as \"Nước bể thường chỉ hòa được ít khí này, nên cây có thể cần châm thêm\". \"cá bơi lờ đờ, ngoi lên mặt nước để thở và có thể chết\" comes back as \"cá bơi lờ đờ và ngoi lên mặt nước để thở. Để lâu thì cá có thể chết\". \"CO2 là khí cây thủy sinh dùng để lớn\" com…",
+        "Rule 12: In the definition, \"và có thể chết\" drops the fact's own condition (\"If this goes on, fish can die\"), so the hedge is lost.",
+        "Rule 11: \"rêu hại\" in \"nếu không rêu hại sẽ lan\" uses 'rêu' (moss) for algae. It should be \"tảo\".",
+        "Rule 11: \"rêu\" in \"rêu hoặc vi khuẩn bùng lên\" uses 'rêu' (moss) for algae. It should be \"tảo\".",
+        "Rule 12: \"CO2 hòa vào nước làm pH hạ xuống\" drops the fact's limits. The fact says some dissolved CO2 forms carbonic acid and a moderate addition lowers pH into the slightly acidic range.",
+        "Rule 12: \"pH tụt quá nhanh hoặc xuống quá thấp đều có hại cho cá\" is plain but joins two one-site claims. 'Too quickly' is only the first shop's claim, and 'too low' is only the Vietnamese shop's. Each part needs its own sentence with that site's credit. Also, \"đều có hại\" drops the facts' 'can' and turns the Vietnamese shop's 'stressed' into 'harm'."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/glossary/tao": [
+    {
+      "at": "2026-11-20T09:07:29Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The entry is 504 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T09:07:29Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Nó mọc khi sắt trên 0,15 ppm. Có thể gỡ tảo ra.\" (Rêu tóc) has not been replaced with the required wording: \"Sắt trên 0,15 ppm là một nguyên nhân làm nó mọc. Gỡ bỏ các sợi tảo.\" As written, the iron level reads as the only cause.",
+        "Rule 12: \"Tiệm này cũng ghi: ở bể mới thì chờ 4–6 tuần cho nó tự ổn, hoặc chà đi. Hội này cũng ghi: Otocinclus ăn tảo nâu.\" (Tảo nâu) has not been replaced with the required item. \"Otocinclus ăn tảo nâu.\" should be a plain sentence placed before the shop's claim, and the \"Hội này cũng ghi:\" credit should go.",
+        "Rule 12: \"Dư sắt làm nó mọc.\" (Rêu chùm đen) should read \"Dư sắt là một nguyên nhân làm nó mọc.\" This is the only sentence in that item that changes.",
+        "Rule 12: \"Hội này khuyên châm phosphate lên 0,5–2,0 ppm.\" (Rêu đốm xanh) should read \"Châm phosphate lên 0,5–2,0 ppm.\" with no credit.",
+        "Rule 12: \"Hội này ghi: dùng nửa liều cũng diệt được.\" (Rêu nhớt xanh) gives a part of a dose for a medicine named in the entry (erythromycin), which the rules don't allow. It should be replaced with \"Liều và cách dùng: theo nhãn thuốc.\"",
+        "Rule 12: \"Tiệm này cũng xếp mấy việc sau vào sai lầm hay gặp: dùng oxy già quá tay, bật đèn suốt ngày đêm, cho ăn quá nhiều và thay 100% nước.\" should open with \"Tiệm thứ hai cũng xếp…\". Two shops are named on the page, so under a new heading the shop has to be named again as the second one, not called \"Tiệm này\".",
+        "The entry is 504 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T08:26:16Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.97,
+      "notes": [
+        "\"Liều và cách dùng: theo nhãn thuốc.\": the facts don't carry it (unsupported, unsupported, unsupported): facts give specific doses (packet per 10 gal, half dosage), not 'follow label' / 'follow the label' advice not in facts; sources give specific doses (packet/10 gal, half dosage) / follow-label advice not in facts; sources give specific doses",
+        "The entry is 504 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T08:26:16Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Tiệm này cũng xếp mấy việc sau vào sai lầm hay gặp: dùng oxy già quá tay, bật đèn suốt ngày đêm, cho ăn quá nhiều và thay 100% nước.\" is still in the entry. The evening batch replaces it word for word with \"Tiệm thứ hai cũng xếp mấy việc sau vào sai lầm hay gặp: dùng oxy già quá tay, bật đèn suốt ngày đêm, cho ăn quá nhiều và thay 100% nước.\" Two shops are named by this point, so \"Tiệm …",
+        "Rule 12: \"Kháng sinh erythromycin cũng diệt được nó. Hội này ghi: dùng nửa liều cũng diệt được.\" gives a part of a dose (\"nửa liều\") for a medicine named in the entry, which the line on medicines doesn't allow. It must be replaced word for word with \"Kháng sinh erythromycin cũng diệt được nó. Liều và cách dùng: theo nhãn thuốc.\"",
+        "Rule 12: The Tảo nâu item still reads \"... Tiệm này cũng ghi: ở bể mới thì chờ 4–6 tuần cho nó tự ổn, hoặc chà đi. Hội này cũng ghi: Otocinclus ăn tảo nâu.\" It must be replaced word for word with \"Tảo nâu (diatom): lớp nâu nhớt bám lỏng trên kính, đá và lũa. Silicat và phosphate cao nuôi nó. Otocinclus ăn tảo nâu. Tiệm này cũng ghi: ở bể mới thì chờ 4–6 tuần cho nó tự ổn, hoặc chà đi.\"",
+        "Rule 12: The Rêu đốm xanh item still reads \"Hội này khuyên châm phosphate lên 0,5–2,0 ppm.\" It must be replaced word for word with \"Châm phosphate lên 0,5–2,0 ppm.\"",
+        "Rule 12: The Rêu tóc item still reads \"Nó mọc khi sắt trên 0,15 ppm. Có thể gỡ tảo ra.\" This presents iron as the only cause. It must be replaced word for word with \"Sắt trên 0,15 ppm là một nguyên nhân làm nó mọc. Gỡ bỏ các sợi tảo.\"",
+        "Rule 12: The Rêu chùm đen item ends \"Dư sắt làm nó mọc.\" This presents iron as the only cause, when the facts give it as one of several. It must be replaced word for word with \"Dư sắt là một nguyên nhân làm nó mọc.\"",
+        "The entry is 504 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T04:44:11Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The entry is 504 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T04:44:11Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: Rêu nước xanh's item ends \"Số ngày tắt đèn thì mỗi nguồn ghi một khác: 5 ngày, 5–7 ngày, hoặc ít nhất một tuần.\" The line must be word for word \"Số ngày tắt đèn thì các nguồn ghi khác nhau: 5 ngày, 5–7 ngày, hoặc ít nhất một tuần.\" \"mỗi nguồn ghi một khác\" is the wording that was ruled out, because two pages give the same five days.",
+        "Rule 12: Rêu tóc's item still says \"Có thể gỡ bằng tay và bớt châm sắt.\" It must be written word for word as \"Có thể gỡ tảo ra.\" Only one site gives removing it by hand, and the sites give less iron in different ways. Neither part can take a credit, since neither page is one the entry names.",
+        "The entry is 508 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
+  ],
+  "vi/glossary/nen-cat": [
+    {
+      "at": "2026-11-20T09:15:42Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cát làm nền có nhiều loại, khác nhau về màu và cỡ hạt.\" (not \"Cát làm nền có nhiều loại: có loại trắng, có loại pha lẫn hạt màu, cỡ hạt từ mịn như bột đến hạt to.\": Rule 12: \"Cát làm nền có nhiều loại: có loại trắng, có loại pha lẫn hạt màu, cỡ hạt từ mịn như bột đến hạt to.\" is not the required sentence.…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T09:15:42Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Cát làm nền được bán thành nhiều loại, khác nhau về màu và cỡ hạt.\" must be replaced word for word with \"Cát làm nền có nhiều loại, khác nhau về màu và cỡ hạt.\" Only one shop (fact 20) says 'sold'.",
+        "Rule 12: \"Trên cát màu trắng, chất thải lộ rõ.\" must be replaced word for word with \"Trên cát màu trắng, chất thải lộ rõ nếu không hút nền thường xuyên.\" Fact 14's limit has to sit beside the claim.",
+        "Rule 12: \"Một tiệm ghi rằng Corydoras bới cát tìm mồi và nhờ đó giữ cát sạch hơn.\" and \"Tiệm này ghi rằng cát có thể bị yếm khí; nền yếm khí làm hại cây có rễ; …\" must become the one prescribed sentence under one opening: \"Một tiệm ghi rằng Corydoras bới cát tìm mồi và nhờ đó giúp giữ cát sạch; cát có thể bị yếm khí; nền yếm khí làm hại cây trồng dưler nền; dấu hiệu là những mảng sẫm màu dưới đá …",
+        "Rules 4 and 12: \"Các nguồn nói khác nhau về chuyện cát bị yếm khí.\" must go. The keeper's next sentence, with 'thì ghi rằng', already shows that the sources disagree.",
+        "Rule 12: \"Ngoài ra còn có tiệm bán cát nắng vàng.\" must be cut. It would be a fourth named page, it is one shop's claim, and a keeper can't act on it.",
+        "Rule 12: \"Hút nền đều để lấy xác hữu cơ ra.\" must be replaced word for word with \"Hút nền thường xuyên để lấy xác hữu cơ ra.\"",
+        "Rule 12: \"Tiệm này cũng ghi:\" is the first sentence under the heading 'Sai lầm hay gặp', and it comes back to a source after two shops have been named. It must name the source again as \"Tiệm thứ nhất cũng ghi:\". This list is from fact source 2, the first shop, so 'tiệm này' is not allowed here.",
+        "Rule 12: \"Cát xây dựng thường lẫn vôi, làm tăng pH và độ cứng, lại làm đục nước.\" must be replaced word for word with \"Cát xây dựng thường lẫn vôi. Vôi làm tăng pH và độ cứng, lại làm đục nước.\"",
+        "Rule 12: \"Cát bãi biển và cát trong hố chơi của trẻ con không dùng được, vì chúng chứa silicat làm tảo mọc.\" must be replaced word for word with \"Cát bãi biển và cát trong hố chơi của trẻ con không phù hợp làm nền, vì chúng chứa silicat làm tảo mọc.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T06:52:21Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, reworded and still loose: \"Tiệm cá bán nhiều loại cát, khác nhau về màu và cỡ hạt.\" → \"Cát làm nền được bán thành nhiều loại, khác nhau về màu và cỡ hạt.\" (loose, supported, loose)",
+        "Rule 12: \"Một tiệm ghi rằng Corydoras bới cát tìm mồi và nhờ đó giữ cát sạch hơn.\" and \"Tiệm này ghi rằng cát có thể bị yếm khí; nền yếm khí làm hại cây có rễ; dấu hiệu là những mảng sẫm màu…\" are claims from the same shop (Swell UK, source 2) that sit next to each other. Only the line \"Các nguồn nói khác nhau về chuyện cát bị yếm khí.\" comes between them. Each gets its own opening, but the stand…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T06:52:21Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.95,
+      "notes": [
+        "\"Dấu hiệu là những mảng sẫm màu dưới đá và đồ trang trí, khuấy lên thì bốc mùi trứng thối.\": the facts don't carry it (uncredited, uncredited, uncredited): only Swell UK gives anaerobic signs; credit ended in prior sentence / only swelluk.com gives the anaerobic signs; credit ended at the previous sentence / anaerobic signs only from swelluk.com; credit ended at previous sentence",
+        "Rules 4 and 12: \"Dấu hiệu là những mảng sẫm màu dưới đá và đồ trang trí, khuấy lên thì bốc mùi trứng thối.\" Only one shop gives this (source 2, Swell UK), but it stands as its own sentence with no credit, so it reads as plain fact. It should go under the same opening as \"Tiệm này ghi rằng cát có thể bị yếm khí…\", in one sentence with semicolons. Written plainly, it also sides with that shop on th…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T06:52:21Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rules 1 and 12: \"Cát trắng: cát biển, dễ ố bẩn nên phải vệ sinh bể thường hơn.\" This is the shop's \"Cát trắng\" item (fact 27, a sand from the sea), which the Glossary lead said to leave out. Next to \"Cát bãi biển và cát trong hố chơi của trẻ con không dùng được\", the entry reads as contradicting itself.",
+        "Rule 12: \"Trên cát trắng, chất thải lộ rõ.\" uses \"cát trắng\" for white sand in general, but the list later uses \"Cát trắng\" as the name of one kind of sand, the sea sand. One word is used for two different things.",
+        "Rule 12: \"Rửa kỹ mọi loại cát trước khi cho vào bể, khuấy đảo dưới nước máy đến khi nước trong.\" Only \"rửa kỹ cát trước khi cho vào bể\" may stand plain. Fact 35 says to stir under tap water until the water runs clear, but only for new inert substrates and only from one site. That part needs its own sentence, under that site's credit and limited to inert substrates. Here it is joined to the plain …",
+        "Rule 12: \"Tiệm thứ hai ghi rằng cát có thể bị yếm khí...\" The shop is named again right after \"Một tiệm khác ghi rằng Corydoras bới cát...\", so it is still the last shop named and should be \"tiệm này\", not \"Tiệm thứ hai\".",
+        "Rule 12: \"Một tiệm ghi rằng cát trơ được trải thẳng vào bể, dày khoảng 3–5 cm.\" This shop's claims are split up: the shop comes back later with \"Tiệm thứ nhất cũng ghi về các loại cát nó bán:\". The order allows keeping its claims together.",
+        "Rule 12: \"Tiệm thứ nhất cũng ghi về các loại cát nó bán:\" No fact says this shop sells these sands. Its facts only describe them, so \"nó bán\" adds something no fact gives."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-19T18:29:15Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 1,
+      "notes": [
+        "Rule 1: \"Cát trắng: cát biển\" is listed as a sand sold for tanks, but later \"Cát bãi biển và cát trong hố chơi của trẻ con không dùng được\" says beach sand can't be used. The two lines contradict each other, and the second appears to take a side against the first.",
+        "Rule 12: \"Rửa kỹ mọi loại cát trước khi cho vào bể, khuấy đảo dưới nước máy đến khi nước trong\" joins two facts and widens one of them. The step of stirring under tap water until the water runs clear comes from one shop (Swell UK), and only for new inert substrates. Here it is applied to every sand and given as plain fact. Rinsing steps must be given only as the facts give them.",
+        "Rule 12: \"còn cá hay đào thì trộn lẫn hai lớp\" names a group of fish by a made-up phrase. With no page or scientific name for them, it must say \"một số loài cá hay đào\".",
+        "Rule 12: \"Loại này hợp với cá nước mềm như Corydoras\" names a group of fish (soft-water fish) without a page or scientific name. It should read \"một số loài cá nước mềm\", using the fact's own widest word."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "draft": "5d71cd965fc8069b424180fc5012c2fe0e1a43d1f8e89a7cb1dfedef7be60f0e"
+    }
+  ],
+  "vi/glossary/duong-ben": [
+    {
+      "at": "2026-11-20T08:52:00Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T08:52:00Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Nên làm gì\" the advice \"Nên làm gì\", and nothing lets that sentence go: write it as it was, word for word."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T08:52:00Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Đường bên là cơ quan cảm giác của cá, thường chạy dọc hai bên thân.\" drops fact 2's \"one of\". The term's line asks for \"Đường bên là một trong các cơ quan cảm giác của cá, thường chạy dọc hai bên thân.\"",
+        "Rules 5 and 12: altNames is empty. \"Lateral line\" is the term's English name and the term's line says it stays as an other name.",
+        "Rule 12: \"Chúng nằm trên mặt da và trong những ống chứa nhớt chạy dọc hai bên thân.\" should be written word for word as \"Chúng nằm trên bề mặt cơ thể và trong những ống chứa chất nhầy chạy dọc hai bên thân.\"",
+        "Rule 12: \"Sóng dội lại từ thành bể có thể làm cá khó chịu, vì đường bên của chúng rất nhạy.\" should be written word for word as \"Sóng dội lại từ thành bể có thể làm cá căng thẳng, vì đường bên của chúng rất nhạy.\"",
+        "Rule 12: \"Có thể đặt lũa và cây trong bể để phá những luồng nước dội lại này.\" should be written word for word as \"Có thể thêm những vật như khúc gỗ và cây để phá những luồng nước dội lại từ thành bể.\" Fact 12 says \"structures such as logs\", which is not driftwood (lũa).",
+        "Rule 12: \"Bệnh thủng đầu (hole-in-the-head, HLLE) thường bắt đầu bằng những lỗ, hố hay vết tổn thương nhỏ trên đầu và dọc đường bên.\" should be written word for word as \"Lỗ, hố hay vết tổn thương nhỏ trên đầu hoặc dọc đường bên là dấu hiệu cần để ý. Bệnh thủng đầu (hole-in-the-head, HLLE) thường bắt đầu như vậy.\"",
+        "Rule 12: \"Căng thẳng có trong các nguyên nhân mà các tiệm kể.\" should be \"Căng thẳng nằm trong các nguyên nhân được kể.\" (plain, with no page named).",
+        "Rules 4 and 12: \"Giữ nước sạch và cho ăn đa dạng, đủ vitamin và khoáng, không cho một món ngày nào cũng như ngày nào.\" is to be cut. It joins one site's parts to two sites' parts in one plain sentence, and the shop's prevention item says the varied diet again.",
+        "Rule 12: \"Bỏ than hoạt tính ra khỏi lọc.\" is to be cut. It is written as plain fact without fact 37's \"while treating\" or fact 25's \"closed marine systems\".",
+        "Rule 12: \"Nếu cá có dấu hiệu bệnh thì các nguồn nêu cách chữa bằng thuốc có metronidazole.\" is to be cut. The disease is only a sign to watch: no medicine and no treatment. Once the three items under \"Nên làm gì\" are cut, that heading has nothing under it."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T06:20:08Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, reworded and still loose: \"Những lỗ, hố hay vết loét nhỏ, thường mọc trên đầu rồi lan dọc đường bên, là dấu hiệu cần theo dõi vì có thể là bệnh thủng đầu (hole-in-the-head, HLLE).\" → \"Bệnh thủng đầu (hole-in-the-head, HLLE) thường bắt đầu bằng những lỗ, hố hay vết tổn thương nhỏ trên đầu và dọc đường bên.\" (loose, loose, loose)",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Giữ nước sạch và cho ăn đa dạng, đủ vitamin và khoáng, không cho một món ngày nào cũng như ngày nào.\" (not \"Một tiệm ghi: cho cá ăn đa dạng, giàu vitamin và khoáng.\": Rule 12: \"Bỏ than hoạt tính ra khỏi lọc.\" is written as plain fact. Only one shop (the Vietnamese discus shop) gives it broadly. Aquarium C…",
+        "Rule 4: The tapping warning appears twice. The plain sentence \"Gõ vào kính có thể làm cá hoảng.\" is followed straight away by the keeper's item \"Rung động này có thể đủ mạnh để làm cá hoảng, kể cả khi gõ ở tận phía bên kia bể.\" It should appear only once, in one place.",
+        "Rule 12: The line for this term allows a disease along the lateral line only as a sign to watch, never as a diagnosis. \"Nếu cá có dấu hiệu bệnh thì các nguồn nêu cách chữa bằng thuốc có metronidazole\" goes from spotting signs straight to treating the disease. The same applies to the shop's \"Nên cách ly cá bệnh để chữa\".",
+        "Rule 12: The fact's words are changed. The fact says to remove aggressive tankmates, but \"Hãy bớt cá dữ trong bể\" says only to reduce them. This narrows the fact's step."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T06:20:08Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.96,
+      "notes": [
+        "\"Gõ kính gửi rung động qua nước, và rung động này đủ mạnh kể cả khi gõ ở tận phía bên kia bể.\": the facts don't carry it (unsupported, unsupported, unsupported): drops 'can be' hedge and what it is strong enough for / drops 'can' hedge and 'to panic fish'; stated as always strong enough / drops 'can' hedge; vibrations 'can be' strong enough to panic fish",
+        "Rule 12: \"Người nuôi cũng hay gặp chữ này trong tên bệnh HLLE.\" No fact says keepers often come across the word. The facts only give the name Head and lateral line erosion (HLLE). The definition should say what the term is only as the facts give it.",
+        "Rule 12: \"Một bài báo nói thêm:\" names the news report again as if it were a new article. It was already credited in the definition (\"Một bài báo nói nó gồm tế bào…\") and is still the last report named, so it should be \"Bài báo này nói thêm:\".",
+        "Rule 12: \"Khi xem cá bệnh, đường bên là chỗ nên để ý.\" This is plain advice that no fact gives, and no source supports it.",
+        "Rule 12: \"rung động này đủ mạnh kể cả khi gõ ở tận phía bên kia bể\" drops the fact's hedge. The fact says the vibrations \"can be strong enough\" to panic fish. It also leaves out what they are strong enough to do."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T06:20:08Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.81,
+      "notes": [
+        "\"Để lâu không chữa, các vết này có thể to và sâu thêm.\": the facts don't carry it (uncredited, uncredited, uncredited): untreated lesions growing only from seriouslyfish, no credit / untreated lesions growing only from seriouslyfish / Untreated lesions growing comes only from seriouslyfish, stated without credit",
+        "\"Nguyên nhân bệnh chưa được xác nhận.\": the facts don't carry it (uncredited, uncredited, uncredited): cause unconfirmed only from seriouslyfish / Only seriouslyfish says the cause is unconfirmed",
+        "\"Nước bẩn và thức ăn thiếu chất làm bệnh nặng thêm, và căng thẳng cũng có trong các nguyên nhân mà các tiệm kể.\": the facts don't carry it (uncredited, uncredited, uncredited): poor water/nutrition worsening only seriouslyfish; others list as causes / poor water/nutrition worsening only from seriouslyfish / 'Makes it worse' comes only from seriouslyfish and is not credited",
+        "\"Không dùng riêng nước RO hay nước cất mà phải pha với nước máy.\": the facts don't carry it (unsupported, unsupported, unsupported): drops mineral-product alternative; makes tap-water mixing mandatory / drops mineral-product alternative; 'must' mix with tap water / Leaves out the other choice of adding a mineral product; says mixing with tap water is required",
+        "\"Gõ vào kính gửi rung động qua nước và có thể làm cá hoảng.\": the facts don't carry it (supported, uncredited, supported, uncredited, uncredited, uncredited): vibrations through water only from fishtanksetups, uncredited sentence / Vibration-through-water claim only from fishtanksetups.com; credit comes after, not covering this sentence. / Only fishtanksetups.com says tapping sends vibrations thr…",
+        "Rule 12: \"gồm tế bào và dây thần kinh trong da\" in \"Đường bên là cơ quan cảm giác gồm tế bào và dây thần kinh trong da, thường chạy dọc hai bên thân cá.\": only the news article (source 0) says the lateral line is made of cells and nerves in the skin. That one-site part is joined to the two-site definition in one plain sentence. It should be its own sentence under the article's credit.",
+        "Rule 4: \"Nhờ đường bên, cá cảm nhận được rung động trong nước.\" repeats the definition's \"Cá dùng nó để cảm nhận rung động trong nước.\" The fact should be said once.",
+        "Rule 12: \"Nguyên nhân bệnh chưa được xác nhận.\": only one site (the reference, source 1) says the cause of HLLE is not confirmed, but the sentence stands as plain fact with no credit.",
+        "Rule 12: \"Liều và cách dùng: xem bài hướng dẫn chữa bệnh.\": a pointer must take the form \"<what>: xem mục <entry>.\" and name an entry the site has. \"bài hướng dẫn chữa bệnh\" is not \"xem mục\" and is not an entry in TERMS.",
+        "Rule 4: \"Ở cá đĩa, bệnh thường bắt đầu bằng lỗ nhỏ trên đầu và đường bên\" repeats the sign already given in \"Những lỗ, hố hay vết loét nhỏ, thường mọc trên đầu rồi lan dọc đường bên\". The sign should be said once."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/glossary/thay-nuoc": [
+    {
+      "at": "2026-11-20T09:28:16Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Thay nước là hút bớt một phần nước cũ trong bể cùng chất bẩn dưới nền, rồi châm nước mới vào; nước máy thì phải khử clo trước.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Nước máy thường có clo hoặc cloramin, đều độc với cá.\" (not \"Một cẩm nang thú y ghi: nước máy thành phố có clo hoặc cloramin, đều độc với cá.\": Rule 12: \"Một cẩm nang thú y ghi: nước máy thành phố có clo hoặc cloramin, đều độc với cá.\" breaks the tap-water line. It must read word for word \"Nước máy thường…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Châm nước mới từ từ, không dội thẳng vào cá, và chỉnh dần nhiệt độ nước mới cho bằng nhiệt độ bể.\" (not \"Châm nước mới từ từ, không dội thẳng vào cá, và chỉnh nhiệt độ cho khớp dần dần.\": Rule 12: In the first shop's step 5, \"Châm nước mới từ từ, không dội thẳng vào cá, và chỉnh nhiệt độ cho khớp dần dần.…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T09:28:16Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Tiệm này còn ghi rằng muốn bỏ clo mà không dùng chất xử lý nước thì sục khí mạnh 1–2 giờ, hoặc để nước ngoài nắng 24 giờ.\" is still in the entry. THIS TERM says to cut this sentence and put nothing in its place, because the shops' times are several times apart and standing water does not remove chloramine. It also uses \"Tiệm này\" after two shops have been named.",
+        "The entry is 526 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T09:04:16Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Thay nước là hút bớt một phần nước cũ trong bể cùng chất bẩn dưới nền, rồi châm nước mới vào; nước máy thì phải khử clo trước.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Nước máy thường có clo hoặc cloramin, đều độc với cá.\" (not \"Một cẩm nang thú y ghi: nước máy có clo hoặc cloramin, đều độc với cá.\": Rule 12: \"Một cẩm nang thú y ghi: nước máy có clo hoặc cloramin, đều độc với cá.\" doesn't follow the tap-water line. That line asks for this exact sentence, plain and witho…",
+        "The entry is 526 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T09:04:16Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.97,
+      "notes": [
+        "\"Nước máy có clo, độc với cá.\": the facts don't carry it (unsupported, loose, loose, unsupported, unsupported, unsupported): Drops 'usually' and 'chlorine or chloramine' hedges / merges 'usually chlorine' and 'chlorine or chloramine' from two sites / Joins two sources; drops 'usually' and chloramine / Drops the hedge: the shop says tap water \"usually\" has chlorine, and Merck says \"chlorine or chl…",
+        "Rule 12: The definition \"Thay nước là hút bớt một phần nước cũ trong bể cùng chất bẩn dưới nền, rồi châm nước mới đã khử clo vào.\" was not replaced. It should read word for word: \"Thay nước là hút bớt một phần nước cũ trong bể cùng chất bẩn dưới nền, rồi châm nước mới vào; nước máy thì phải khử clo trước.\"",
+        "Rule 12: The heading \"Trong bể của bạn\" should be \"Nước dùng để thay\".",
+        "Rule 12: \"Nước máy có clo, độc với cá.\" should be \"Nước máy thường có clo hoặc cloramin, đều độc với cá.\" It drops fact 43's \"thường\" and fact 28's \"hoặc cloramin\".",
+        "Rule 12: \"Sục khí cũng khử được clo.\" should be removed. In its place, the first Vietnamese shop's own claims should carry fact 36 in its words: \"muốn bỏ clo mà không dùng chất xử lý nước thì sục khí mạnh 1–2 giờ, hoặc để nước ngoài nắng 24 giờ\". That claim is missing.",
+        "Rule 12: \"Vi khuẩn nitrat hóa dùng dần cacbonat và bicacbonat, tức phần KH giữ pH ổn định.\" should be \"Vi khuẩn nitrat hóa dùng hết cacbonat và bicacbonat, chất đệm giữ pH.\" No fact links this to KH, and fact 7 says \"use up\".",
+        "Rules 3 and 12: \"không bù được KH\" uses KH where the magazine's fact says alkalinity. It should say \"độ kiềm\".",
+        "Rules 3 and 12: \"Nếu nước máy ít KH thì có thể thêm san hô vụn hoặc cát aragonite.\" uses KH for alkalinity. It should say \"độ kiềm\".",
+        "Rules 3 and 12: \"Khi KH cạn dần thì pH tụt\" uses KH for alkalinity. It should say \"độ kiềm\".",
+        "Rule 12: \"Mỗi nguồn ghi một mức thay khác nhau:\" should be \"Ba nguồn ghi ba mức thay khác nhau:\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T06:46:25Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Thay nước là hút bớt một phần nước cũ trong bể cùng chất bẩn dưới nền, rồi châm nước mới đã khử clo vào.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Nước máy có clo, độc với cá.\" (not \"Một cẩm nang thú y ghi: nước máy có clo hoặc cloramin, cả hai đều độc với cá.\": Rule 12: The entry credits four pages: \"Một cẩm nang thú y\" (source 1), \"Một tạp chí cá cảnh\" (source 3), \"Một tiệm ở Việt Nam\" (source 4) and \"Một tiệm khác ở Việt Nam\" (source 5). The limi…",
+        "Rule 12: \"Nước máy có clo, độc với cá.\" is the plain \"Nước máy có clo\" that the Glossary lead's line forbids. It drops the hedge \"thường\" from fact 43 (a Vietnamese shop), which says tap water usually contains chlorine. It also drops \"clo hoặc cloramin\" from fact 28.",
+        "Rule 12: \"Sục khí cũng khử được clo.\" comes straight after a sentence that names chlorine only and never mentions chloramine. It reads as if aerating were enough to treat tap water. The line says no sentence may read that way for chloramine, because aging doesn't remove it (fact 27). The \"cũng\" (also) has nothing before it to refer to: no way of removing chlorine was given earlier.",
+        "Rule 12: \"Tạp chí trên: muốn giữ chất dinh dưỡng và KH trong tầm…\" and \"Tạp chí trên cảnh báo về hội chứng bể cũ\" refer back with \"trên\" (above). Words of the \"ở trên\" kind are not used. While it is still the last magazine named, the source should be \"tạp chí này\".",
+        "Rule 12: \"Tiệm thứ nhất ghi các bước như sau:\", \"Tiệm thứ nhất ghi rằng thay 100% nước…\" and \"Tiệm thứ hai ghi:\" bring a shop back after another shop was named. The required form is \"Tiệm thứ nhất / Tiệm thứ hai cũng ghi:\".",
+        "Rule 4: Adding new water slowly is said twice: \"Châm nước mới từ từ, không dội thẳng vào cá\" (step 5 of the first shop) and \"Châm nước mới nhẹ tay để không khuấy nền\" (the second shop). It should be said once, in one place.",
+        "Rule 12: \"Cá căng thẳng sau khi chuyển bể hay thay nước có thể có các dấu hiệu như đổi màu, ít bơi, bỏ ăn, đỏ mắt.\" adds a hedge (\"có thể\") that the fact doesn't give. The fact says the signs of stress include these, and a fact's hedges are never added."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-19T17:47:08Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 0.97,
+      "notes": [
+        "\"Nước máy có clo, độc với cá.\": the facts don't carry it (loose, loose, unsupported, unsupported, unsupported, loose): Sources say tap water usually has chlorine, or has chlorine or chloramine / Leaves out chloramine and one source's 'usually' / Drops 'usually' and 'or chloramine' / Drops the hedge: one source says tap water \"usually\" has chlorine, the other says chlorine \"or\" chloramine; the sen…",
+        "Rule 12: \"Nước máy có clo, độc với cá.\" drops the facts' hedges. One page says tap water \"usually\" contains chlorine, and the other says \"chlorine or chloramine\". Written this way, it states plainly that all tap water has chlorine and leaves out chloramine. The next line, \"Sục khí cũng khử được clo.\", then reads as if aerating were enough, though one fact says aging the water does not remove chlo…"
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "draft": "3bcdb3866ef0140cc699e7de6d2518065d0b9470d0688bb90f0f545d204345ec"
+    }
+  ],
+  "vi/glossary/tinh-lanh-tho": [
+    {
+      "at": "2026-11-20T10:55:04Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T10:55:04Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rules 6 and 12: \"cá tứ vân\" in \"Tiệm này cũng ghi: bày lại bể khi thả cá mới để cá mới không phải bắt đầu mà chưa có lãnh thổ; cá tứ vân là cá đàn không giữ lãnh thổ, và nuôi từ 6 con trở lên thì chúng ít có khả năng rỉa vây cá khác hơn.\": fact 32 says only \"tiger barbs\". Three species pages carry that name, and no fact says which one is meant. THIS TERM asks for this sentence word for word with …",
+        "Rule 12: \"Tiệm này ghi rằng cứ vớt cá ra rồi thả vào nhiều lần thì ít khi giải quyết được chuyện đánh nhau lâu dài.\" is the saved sentence that THIS TERM says to replace word for word with \"Tiệm này ghi rằng cứ vớt cá ra nhiều lần thì ít khi giải quyết được chuyện đánh nhau lâu dài.\". Fact 40 says netting fish apart, repeatedly, and not that they are put back, so \"rồi thả vào\" must be cut."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T10:52:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Cá bị thương nặng thì chuyển sang bể cách ly, chẳng hạn bể trơn 19 hoặc 38 lít, có nắp và lọc mút.\" the advice \"38 lít\", and nothing lets that sentence go: write it as it was, word for word."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T10:52:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Cá bị thương nặng thì chuyển sang bể cách ly, chẳng hạn bể trơn 19 hoặc 38 lít, có nắp và lọc mút.\" the advice \"38 lít\", and nothing lets that sentence go: write it as it was, word for word."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T10:52:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"cá tứ vân là cá đàn không giữ lãnh thổ\" in \"Tiệm này cũng ghi: bày lại bể khi thả cá mới để cá mới không phải bắt đầu mà chưa có lãnh thổ; cá tứ vân là cá đàn không giữ lãnh thổ, và nuôi từ 6 con trở lên thì chúng ít có khả năng rỉa vây cá khác hơn.\": THIS TERM gives a word-for-word replacement for this sentence that uses \"cá tiger barb\". Fact 32 only says \"tiger barbs\", and three speci…",
+        "Rule 12: \"Tiệm này ghi rằng cứ vớt cá ra rồi thả vào nhiều lần thì ít khi giải quyết được chuyện đánh nhau lâu dài.\": THIS TERM cuts \"rồi thả vào\" and gives the sentence word for word as \"Tiệm này ghi rằng cứ vớt cá ra nhiều lần thì ít khi giải quyết được chuyện đánh nhau lâu dài.\" Fact 40 says the fish are netted apart again and again, not that they are put back.",
+        "Rule 12: \"bể trơn 19 hoặc 38 lít\" in \"Cá bị thương nặng thì chuyển sang bể cách ly, chẳng hạn bể trơn 19 hoặc 38 lít, có nắp và lọc mút.\": fact 23 gives \"5- or 10-gallon\". Every number has to keep the unit its fact gives, and an amount is never rounded. Changing to litres swaps the unit and rounds the figures (18.9 and 37.85 litres)."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T10:12:02Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    }
+  ],
+  "vi/glossary/trung-huyet": [
+    {
+      "at": "2026-11-20T09:35:24Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T09:35:24Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Trùng huyết là ấu trùng màu đỏ của muỗi lắc (họ Chironomidae), không phải giun.\" must be replaced word for word with \"Trùng huyết là ấu trùng của muỗi lắc (họ Chironomidae), không phải giun thật sự.\" The red colour belongs to fact 5, and fact 4 says \"true worms\".",
+        "Rule 12: \"Tiệm cá ở Việt Nam có bán trùng huyết đông lạnh làm thức ăn cho cá.\" adds to the definition, but the meaning must be fact 4 alone.",
+        "Rule 12: the heading \"Trong bể của bạn\" must become \"Đặc điểm và dinh dưỡng\".",
+        "Rule 12: the credit \"Một tài liệu của hội người nuôi cá ghi:\" adds \"người nuôi cá\", which no research gives. It should open with \"hội\" and nothing added.",
+        "Rule 12: \"Màu đỏ đến từ một sắc tố máu (erythrocruorin), giúp ấu trùng sống được trong nước thiếu oxy.\" should leave the society's list and stand as a plain sentence, because two sites give it (fact 5).",
+        "Rule 12: \"Đạm chiếm 47,7–62,5% trọng lượng khô, béo 4,9–28,6%, và đây là nguồn sắt tốt.\" must be replaced with \"Đạm chiếm 47,7–62,5% trọng lượng khô, béo 4,9–28,6%. Trùng huyết cũng là nguồn sắt tốt.\"",
+        "Rule 12: \"Trùng huyết đông lạnh có lượng đạm ngang trùng chỉ sống, nên dùng thay trùng chỉ được.\" must be replaced with \"Trùng huyết đông lạnh có lượng đạm ngang trùng chỉ sống, nên có thể dùng thay trùng chỉ sống.\"",
+        "Rule 12: the heading \"Nên làm gì\" over the allergy must become \"Dị ứng trùng huyết\".",
+        "Rule 12: \"Tài liệu của hội này ghi các triệu chứng dị ứng trùng huyết gặp ở người nuôi: viêm kết mạc, …\" drops fact 46's \"include\". It must read \"…gặp ở người nuôi gồm viêm kết mạc, viêm mũi có hoặc không kèm hen, và nổi mề đay.\"",
+        "Rule 12: the credit \"Một tạp chí cá cảnh ghi:\" adds \"cá cảnh\", which no research gives. It should be \"tạp chí\" with nothing added."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T06:43:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 6: \"muỗi lắc\" in \"Ấu trùng muỗi lắc còn có con màu trắng, xanh lá và vàng.\" (also in \"ăn ấu trùng muỗi lắc đã lớn và nhộng\"): this group has no line in PAGES, so it should be called by the scientific name the FACTS use (Chironomidae, or chironomid larvae). It should not get a Vietnamese common name.",
+        "Rules 4 and 12: The allergy is stated in two places. One is the society paragraph \"Tài liệu của hội này ghi các triệu chứng dị ứng trùng huyết gặp ở người nuôi: viêm kết mạc, viêm mũi có hoặc không kèm hen, và nổi mề đay.\" The other is the magazine's \"Huyết sắc tố của trùng huyết gây dị ứng ở một số người…\". THIS TERM says the allergy is said once, so it should be stated in one place, with the sy…",
+        "Rule 12: In \"Đã có ca cá bột cá trê đi bộ 4–5 ngày tuổi chết sau khi ăn ấu trùng muỗi lắc đã lớn và nhộng.\" the fact's hedge is dropped. The fact says these deaths \"were reported\" (\"có báo cáo\"), but \"Đã có ca … chết\" states them as plain fact.",
+        "Rule 12: In \"Tài liệu của hội này ghi các triệu chứng dị ứng…: viêm kết mạc, viêm mũi có hoặc không kèm hen, và nổi mề đay.\" the fact's hedges are dropped. The fact says these are \"reported\" allergies that \"include\" these symptoms, but the sentence presents the list as certain and complete."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T06:43:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rules 6 and 12: \"cá cầu vồng\" in \"Một bác sĩ thú y khuyên không cho cá discus, cá cầu vồng và một số loài cá tetra ăn trùng huyết cỡ lớn.\": rainbowfish is a group with no page, and the FACTS give no scientific name for it. The line on group names asks for the fact's own word, which here is \"rainbowfish\". The Glossary lead's line on fact 40 also names the group \"rainbowfish\". \"Cá cầu vồng\" is a Vi…",
+        "Rule 12: \"Tài liệu của hội này cũng cảnh báo về trùng huyết cỡ lớn:\" opens a list that ends with \"Cá bột mới nở chưa có men tiêu hóa được kitin. Đã có ca cá bột cá trê đi bộ 4–5 ngày tuổi chết sau khi ăn ấu trùng muỗi lắc đã lớn và nhộng.\" That fact is about late-stage larvae and pupae, not the larger bloodworms that fact 40 warns against. It is also a reported cause, not a warning. Putting it un…"
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "draft": "6247fc7184bfc0874fdaa2cd80142d951f37f6d89cb73f990295f7e7d108c936"
+    },
+    {
+      "at": "2026-11-20T06:43:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 4: The claim that bloodworms are midge larvae and not worms appears twice. The definition says \"Trùng huyết là ấu trùng màu đỏ của muỗi lắc (họ Chironomidae), không phải giun\" with no credit. The society list says it again: \"Trùng huyết là ấu trùng của muỗi lắc (họ Chironomidae), không phải giun, vì nó có vỏ ngoài và chân nhỏ có móc\". It should be said once, in one place.",
+        "Rule 4: The point that Vietnamese shops sell frozen bloodworms appears twice: \"Tiệm cá ở Việt Nam có bán trùng huyết đông lạnh làm thức ăn cho cá\" in the definition, and \"có bán ở tiệm cá Việt Nam\" in the frozen item.",
+        "Rule 4: The live-bloodworm item gives the cleaning step twice, once as \"phải làm sạch\" and again as \"phải xả thật kỹ trước khi cho ăn để loại ký sinh trùng\".",
+        "Rules 7 and 12: The live item, \"Trùng huyết sống\", also carries facts about the frozen form: \"loại đông lạnh tiện hơn, để được lâu hơn, an toàn hơn, dễ chia phần hơn\". Each form must be said with its own facts, in its own item.",
+        "Rule 12: The freeze-dried item, \"Trùng huyết đông khô: cách cất và cho ăn xem mục thức ăn khô\", says more than the required pointer. It should read exactly \"Trùng huyết đông khô: xem mục Thức ăn khô.\"",
+        "Rule 12: \"Tài liệu của hội người nuôi cá nói ở trên ghi các triệu chứng dị ứng…\" uses \"nói ở trên\", which is not allowed. The society is the last society named, so it should be \"hội này\".",
+        "Rule 12: \"Tiệm ở Việt Nam nói ở trên cũng ghi rằng cá ăn quá nhiều trùng huyết có thể bị sình bụng\" uses \"nói ở trên\", which is not allowed. This shop is the last shop named, so it should be \"tiệm này\".",
+        "Rule 12: \"Tài liệu của hội người nuôi cá nói ở trên cũng cảnh báo về trùng huyết cỡ lớn\" uses \"nói ở trên\", which is not allowed. It should be \"hội này\".",
+        "Rule 12: \"Một bác sĩ thú y khuyên không cho cá đĩa ăn trùng huyết cỡ lớn\" drops two of fact 40's three groups. The warning must keep all three: discus, rainbowfish and \"một số loài cá tetra\".",
+        "Rule 6: \"cá đĩa\" in \"Một bác sĩ thú y khuyên không cho cá đĩa ăn trùng huyết cỡ lớn\": the fact means discus as a whole group. \"Cá đĩa\" is the name of one species page (Symphysodon aequifasciatus). The group should be named by the fact's own word, discus, not by a single species page."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-19T17:15:12Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 0.96,
+      "notes": [
+        "\"Một bác sĩ thú y khuyên không cho cá đĩa Heckel, cá đĩa, một số loài cá cầu vồng và một số loài tetra ăn trùng huyết cỡ lớn.\": the facts don't carry it (unsupported, unsupported, unsupported): adds Heckel discus; narrows rainbowfish to 'some'",
+        "Rule 6: \"muỗi lắc\" in \"Ấu trùng muỗi lắc còn có con màu trắng, xanh lá và vàng.\" and in \"Đã có ca cá bột cá trê đi bộ 4–5 ngày tuổi chết sau khi ăn ấu trùng muỗi lắc đã lớn và nhộng.\": the midges have no line in PAGES, and the FACTS call them only Chironomidae / chironomid. These sentences use the Vietnamese name \"muỗi lắc\" alone, without the scientific name. They should say \"ấu trùng Chironomida…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
+  ],
+  "vi/glossary/be-cong-dong": [
+    {
+      "at": "2026-11-20T09:54:00Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Chạy bể có bật lọc cho xong chu trình nitơ rồi mới thả cá.\" (not \"Chạy bể trước rồi mới thả cá.\": Rule 12: \"Chạy bể trước rồi mới thả cá.\" does not follow the line under THIS TERM, which sets the cycling step word for word as \"Chạy bể có bật lọc cho xong chu trình nitơ rồi mới thả cá.\" The entry uses its …"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T09:54:00Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: Under \"Nên làm gì\", the quarantine and acclimation steps are still two separate items: \"Tạp chí cá cảnh này ghi: cách ly cá mới trong bể riêng trước khi thả vào bể đã nuôi sẵn.\" and \"Cho cá mới quen dần với nhiệt độ và nước bể.\" THIS TERM says they must be one step, written word for word as \"Tạp chí cá cảnh này ghi: cách ly cá mới trong bể riêng trước khi thả vào bể đã nuôi sẵn, rồi cho …"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T09:38:53Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T09:38:53Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The magazine's quarantine step \"Cách ly cá mới trong bể riêng trước khi thả vào bể đã nuôi sẵn.\" is still in the list under \"Tạp chí cá cảnh này ghi:\" in \"Sai lầm hay gặp\", where a reader takes it as a mistake. The line under THIS TERM says it should leave that list and become its own step in \"Nên làm gì\", right before \"Cho cá mới quen dần với nhiệt độ và nước bể.\", word for word: \"Tạp c…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T09:31:37Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T09:31:37Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Hay gặp trong bể chung có Corydoras, cá neon xanh, cá ember tetra, cá mún, cá bảy màu, cá molly, cá tam giác và cá anh đào.\" uses \"bể chung\", but the term must be named \"bể cộng đồng\". Replace the sentence word for word with \"Các loài được xem là hợp bể cộng đồng gồm Corydoras, cá neon xanh, cá ember tetra, cá mún, cá bảy màu, cá molly, cá tam giác và cá anh đào.\"",
+        "Rules 4 and 12: \"Về số cá một bể chứa được, các nguồn không thống nhất.\" must be cut. No fact says the sources disagree.",
+        "Rule 12: \"Một nguồn thú y đưa quy tắc ước chừng khoảng 2,5 cm cá trưởng thành cho mỗi 3,8 lít nước, và lấy ví dụ bể 38 lít nuôi được hai đàn, mỗi đàn 5 con cá dưới 2,5 cm.\" must be replaced word for word with \"Một nguồn thú y đưa quy tắc chung “1 inch cá trưởng thành cho mỗi gallon nước” (khoảng 2,5 cm cho mỗi 3,8 lít); ví dụ bể 38 lít chứa hai đàn, mỗi đàn 5 con cá dưới 2,5 cm.\"",
+        "Rule 12: \"nhu cầu sống đàn\" in \"Một bài viết bác quy tắc \"1 cm cá cho 1 lít\" và tính số cá theo cỡ cá lúc lớn, nhu cầu sống đàn, …\" must read \"nhu cầu sống theo đàn\", as the line gives it.",
+        "Rules 3 and 12: \"Nguồn thú y khuyên đợt đầu chọn loài khỏe và không giành chỗ, rồi chia cá theo tầng mặt, tầng giữa và tầng đáy cho cân.\" says \"không giành chỗ\" for non-territorial, which goes against the term Tính lãnh thổ. It also joins fact 20's tiers, which two sites give, to the vet's claim. Replace it with \"Nguồn thú y này khuyên bắt đầu bằng loài khỏe, không có tính lãnh thổ, vài tuần sau …",
+        "Rule 12: \"Cho bể chạy lọc qua chu trình nitơ rồi mới thả cá.\" must be replaced with \"Chạy bể có bật lọc cho xong chu trình nitơ rồi mới thả cá.\"",
+        "Rules 12 and 4: \"Nguồn thú y ghi chạy 1–2 tuần, đo nước mỗi ngày, và bỏ bước này thì có nguy cơ gặp hội chứng bể mới.\" puts a claim two sites give (fact 38) under the vet's credit. It must become \"Nguồn thú y này ghi chạy 1–2 tuần, đo nước mỗi ngày.\" plus the plain sentence \"Bỏ qua bước chạy bể này có nguy cơ gặp hội chứng bể mới.\"",
+        "Rule 12: \"Bài viết ghi khoảng 2–6 tuần, dùng vi sinh mồi hoặc một chút thức ăn làm nguồn amoniac.\" must read \"Bài viết này ghi khoảng 2–6 tuần, dùng vi sinh mồi hoặc một chút thức ăn làm nguồn amoniac.\"",
+        "Rules 4 and 12: \"Thả cá từng đợt, mỗi đợt cách nhau vài tuần.\" is a plain step, but only the article gives it (fact 15). The article's list also repeats the staging in \"Thả cá đáy và cá đàn trước, cá betta (cá xiêm) sau cùng.\" Both must be replaced by one item in the article's list: \"Thả cá từng đợt cách nhau vài tuần: cá đáy và cá đàn trước, cá betta sau cùng.\"",
+        "Rules 3 and 12: \"Với cá betta (cá xiêm), nên chọn con mái hoặc dòng plakat, vì con trống hay giành chỗ là mối lo chính.\" has two problems. \"(cá xiêm)\" is not the article's word. \"hay giành chỗ\" stands for \"territorial\" against the term Tính lãnh thổ. It must read \"Với cá betta, nên chọn con mái hoặc dòng plakat, vì con trống có tính lãnh thổ là mối lo chính.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
+  ],
+  "vi/glossary/la-kho": [
+    {
+      "at": "2026-11-20T09:57:05Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T09:57:05Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Một bài tạp chí kể tên các cá cho bể lót lá khô, trong đó có Betta hoang dã, Apistogramma, Badis, cá đĩa và cá Uaru fernandezyepezi.\" must be the exact wording given: \"Tạp chí này kể tên các cá cho bể lót lá khô, trong đó có Betta hoang dã, Apistogramma, Badis, cá đĩa và cá Uaru fernandezyepezi.\" The magazine is one site and has already been named, so it should not be brought in again a…",
+        "Rule 12: The plain step \"Lá còn nổi thì có thể chặn cho lá nằm xuống đáy.\" should not stand alone without a credit. It should be merged with the pH-monitoring step into one step, the last item of \"Nên làm gì\", credited to the magazine and written exactly as: \"Tạp chí này ghi: chặn cho lá nằm xuống đáy, và theo dõi pH cho tới khi pH ổn định.\" (fact 21 comes from the magazine alone).",
+        "Rule 12: \"Sau khi thả lá, theo dõi pH cho tới khi pH ổn định.\" is a step, but it sits in the magazine's list under the \"Sai lầm cần tránh\" heading, where a reader would take it for a mistake. Steps never go under the mistakes heading. It belongs in the merged final step of \"Nên làm gì\": \"Tạp chí này ghi: chặn cho lá nằm xuống đáy, và theo dõi pH cho tới khi pH ổn định.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T09:49:22Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.96,
+      "notes": [
+        "\"Nếu nước ngả nâu rất đậm thì vớt lá ra và thay 10–15% nước.\": the facts don't carry it (uncredited, uncredited, uncredited): only aquasetup.com gives the 10–15% change; no credit / only aquasetup gives this; credit ended at previous sentence / only aquasetup.com gives it; the credit in sentence 15 ends at its full stop",
+        "Rule 12: \"Tạp chí này ghi: lá còn nổi thì có thể chặn cho lá nằm xuống đáy.\" and \"Tạp chí này ghi: theo dõi pH cho tới khi pH ổn định.\" are two of the magazine's claims in a row, and each has its own opening. Under the standing line, claims in a row from one source go under one opening, as a list or as one sentence with semicolons.",
+        "Rule 12: \"Tạp chí này ghi: lá còn nổi thì có thể chặn cho lá nằm xuống đáy.\" does not keep the magazine's fact as given. Fact 20 says to weigh the leaves down in the tank, or to soak them in RO water for a few days. The condition \"lá còn nổi\" is not in the magazine's fact, which puts the line under the magazine's credit when it is not the magazine's words, and \"có thể\" adds a hedge the fact does …"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T09:49:22Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Chỉ nhặt lá đã chết, rụng và khô.\" (not \"Chỉ nhặt lá đã chết, rụng vào mùa thu.\": it drops the advice \"khô\")",
+        "Rule 12: \"Một bài tạp chí kể tên các cá cho bể lót lá khô, trong đó có Betta hoang dã, Apistogramma, Badis, cá đĩa và cá Uaru fernandezyepezi.\" must be written word for word as \"Tạp chí này kể tên các cá cho bể lót lá khô, …\". The magazine is already named in the sentence before it, and its two pages count as one site, so it should not be brought in again as \"Một bài tạp chí\".",
+        "Rule 12: \"Nếu nước ngả nâu rất đậm thì tiệm khuyên vớt lá ra và thay 10–15% nước.\" adds \"tiệm khuyên\". The line asks for this sentence word for word with no word added: \"Nếu nước ngả nâu rất đậm thì vớt lá ra và thay 10–15% nước.\"",
+        "Rule 12: \"Sau khi thả lá, theo dõi pH cho tới khi pH ổn định.\" is a step to do, but it sits in the magazine's list under the heading \"Sai lầm cần tránh\". The line asks for it as the last step of \"Nên làm gì\", word for word: \"Tạp chí này ghi: theo dõi pH cho tới khi pH ổn định.\" That step is missing from \"Nên làm gì\".",
+        "Rule 12: \"Lá còn nổi thì có thể chặn cho lá nằm xuống đáy.\" is printed as plain fact. For leaf litter in general, only the magazine says to weigh the leaves down (fact 21). The other weigh-down facts are about Indian almond leaves (lá bàng) alone, and what one leaf does is never said of another. As a one-site claim, it needs the magazine's credit."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T09:42:48Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Nếu nước ngả nâu rất đậm thì tiệm khuyên vớt lá ra và thay 10–15% nước.\" This step was to be written word for word under the shop's credit as \"nếu nước ngả nâu rất đậm thì vớt lá ra và thay 10–15% nước\". The entry adds \"tiệm khuyên\".",
+        "Rule 12: \"Sau khi thả lá, theo dõi pH cho tới khi pH ổn định.\" This item was to go into the magazine's list word for word as \"theo dõi pH cho tới khi pH ổn định\". The entry adds \"Sau khi thả lá,\", which the line does not give."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T09:42:48Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.97,
+      "notes": [
+        "\"Thả quá nhiều lá thì nước ngả nâu đậm.\": the facts don't carry it (uncredited, supported, uncredited): only seriouslyfish says too many leaves turn water brown; uncredited / only seriouslyfish links too many leaves to brown water",
+        "Rules 4 and 12: \"Khi mục, lá nhả tanin làm pH hạ, và lớp lá là chỗ cá bột kiếm ăn.\" in the definition must be cut. Only fact 3 defines leaf litter, and the body already says both of these things.",
+        "Rule 12: The magazine's limit from fact 8 is missing right after \"Khi mục dần, lá khô nhả tanin và pH trong bể hạ xuống.\" It must say, under the magazine's credit, that the pH effect is mild and gradual (\"nhẹ và từ từ\").",
+        "Rule 12: \"Một lớp lá khô dưới đáy làm nước ngả vàng nâu nhạt.\" must be cut. Only one site gives it, and the yellow tint belongs to lá bàng alone.",
+        "Rules 3 and 12: \"Vi khuẩn và nấm phân hủy lá, phủ lên lá một lớp màng sinh học nhầy, và cá bột gặm lớp màng này.\" must read \"Vi khuẩn và nấm phân hủy lá và tạo ra chất nhầy mà cá bột gặm.\" Fact 6 gives a slime, not a biofilm (màng sinh học).",
+        "Rules 10 and 12: \"Một bài tạp chí kể tên những cá hợp với bể lót lá khô: Betta hoang dã, Apistogramma, Badis, cá đĩa và cá Uaru fernandezyepezi.\" must read \"Một bài tạp chí kể tên các cá cho bể lót lá khô, trong đó có Betta hoang dã, Apistogramma, Badis, cá đĩa và cá Uaru fernandezyepezi.\" Fact 39 says \"include\" and says nothing of fish that suit (\"hợp\") the tank.",
+        "Rule 12: \"Người nuôi còn dùng trái thông alder (Alnus glutinosa) để hạ pH.\" must be cut. \"trái thông alder\" is the shop's own word, and the pH use is the magazine's claim alone, here written as plain fact.",
+        "Rule 6: \"Betta\" in \"Lá chuối khô dùng được như lá bàng khô, cho bể tép hoặc bể Betta.\": the betta is not called by its page's name, \"Cá betta (cá xiêm)\" (in lower case here: \"cá betta (cá xiêm)\").",
+        "Rule 12: \"Lá ổi khô cứng hơn hầu hết các lá, tan chậm nên nhả tanin từ từ.\" must read, word for word, \"Lá ổi khô cứng hơn phần lớn các lá, tan chậm nên nhả tanin từ từ.\"",
+        "Rule 12: \"Lá cọ khô (lá dừa khô) là lá cứng, phân hủy trong nước chậm hơn đa số lá khác.\" must read \"Lá cọ khô (hay lá dừa khô) là lá cứng, phân hủy trong nước chậm hơn phần lớn lá khác.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
+  ],
+  "vi/glossary/thuc-an-song": [
+    {
+      "at": "2026-11-20T11:03:13Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T11:03:13Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The mosquito-larvae item is still in the shop's list: \"Muốn có lăng quăng thì đặt một xô 19 lít nước đã khử clo cho muỗi đẻ, rồi vớt bằng vợt mịn mỗi ngày. Không vớt hằng ngày thì lăng quăng sẽ thành muỗi.\" THIS TERM says to cut both sentences and not to write \"lăng quăng\" anywhere in the entry. Setting out standing water for mosquitoes to breed is not advice for Vietnam.",
+        "Rule 12: The first item under \"Sai lầm hay gặp\" should be fact 10's sentence that live food not washed well can carry parasites. It is missing. It should be written as one credited sentence (\"Một … ghi rằng …\") that names source 9 by its kind. It must not be written as plain fact or said of one food alone. Right now the section opens with \"Cho ăn mãi một loại thức ăn thì cá có thể thiếu chất.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T11:00:29Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.94,
+      "notes": [
+        "\"Thức ăn sống không rửa kỹ có thể mang ký sinh trùng.\": the facts don't carry it (uncredited, uncredited, uncredited): parasite claim only from hanoizoo.com, not credited / parasite claim only from hanoizoo.com, no credit / only hanoizoo.com says unwashed live food carries parasites; stated as plain fact",
+        "Rule 12: \"Thức ăn sống không rửa kỹ có thể mang ký sinh trùng.\" stands as plain fact without a credit, but only one site says live food carries parasites (source 9: fact 10, and fact 23 for trùn chỉ). Fact 31 (bo bo) says bacteria and fact 24 (Tubifex) says diseases, not parasites, so neither is a second site for this claim. The line under THIS TERM says it is plain only if two sites carry it, so…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T11:00:29Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The mosquito-larvae item is still in the shop's list: \"Muốn có lăng quăng thì đặt một xô 19 lít nước đã khử clo cho muỗi đẻ, rồi vớt bằng vợt mịn mỗi ngày. Không vớt hằng ngày thì lăng quăng sẽ thành muỗi.\" THIS TERM cuts both sentences and says \"lăng quăng\" must not appear in this entry at all. Setting out standing water for mosquitoes to breed is not advice for Vietnam, where the healt…",
+        "Rule 12: The first item under \"Sai lầm hay gặp\" is missing. THIS TERM puts fact 10's sentence back there in its own plain words: live food that is not washed well can carry parasites. It stands plain, because facts 31 and 24 (bo bo and Tubifex) give some of the cases it covers, and it must never be said of one food alone. The list now opens with \"Cho ăn mãi một loại thức ăn thì cá có thể thiếu ch…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T10:16:49Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T10:16:49Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rules 12 and 3: the definition \"Thức ăn sống là mồi còn sống cho cá ăn, như ấu trùng artemia, bo bo hay trùng chỉ. Mồi cựa quậy làm cá chịu ăn và cho cá vận động cả thân lẫn đầu óc. Đây cũng là cách nhanh để vỗ cá trước khi cho đẻ.\" must be replaced word for word with \"Thức ăn sống là thức ăn còn sống, còn cử động, nên làm cá muốn ăn. Nó còn kích thích cá cả về thể chất lẫn tinh thần, và là cách …",
+        "Rule 12: the heading \"Trong bể của bạn\" must go. Its two pointers (\"Thức ăn đông lạnh: xem mục Thức ăn đông lạnh.\" and \"Thức ăn khô: xem mục Thức ăn khô.\") belong with the other four (\"Artemia: xem mục Artemia.\", \"Bo bo: xem mục Bo bo.\", \"Trùng chỉ: xem mục Trùng chỉ.\", \"Trùng cỏ: xem mục Trùng cỏ.\"), each as it is, under one heading \"Xem thêm\" at the end of the entry. The four are now under \"Các…",
+        "Rules 12 and 4: the Tubifex block must be cut: its opening \"Một tài liệu tham khảo ghi về giun Tubifex:\" and all three items (\"Giun rất béo và thiếu một số axit amin thiết yếu...\", \"Giun vớt từ cống, từ nguồn nước ngoài trời hay từ trại nuôi có thể mang nhiều bệnh...\", \"Giữ giun dưới vòi nước chảy mạnh...\"). Tubifex is Trùng chỉ's Latin name, so it is said once in a line and linked (\"Trùng chỉ: x…",
+        "Rule 12: \"Cá mồi mua ở tiệm dễ đem bệnh vào bể hơn, mà người nuôi thường không cách ly chúng.\" must read \"Cá mồi mua ở tiệm dễ đem bệnh vào bể hơn, mà phần lớn người nuôi không cách ly chúng.\" (fact 11 says \"most keepers\").",
+        "Rule 12: \"Cá vàng bán làm cá mồi chứa nhiều thiaminase.\" must read \"Cá vàng và cá minnow bán làm cá mồi chứa nhiều thiaminase.\" Fact 12 names both goldfish and minnows, never goldfish alone.",
+        "Rule 12: \"Nhiều người ép đẻ coi đây là cách tốt nhất để vỗ Corydoras.\" must read \"Nhiều người nhân giống cá coi blackworm là cách tốt nhất để vỗ Corydoras.\"",
+        "Rule 12: \"Cách giữ là để trong hộp nông, ngập nước lạnh đã khử clo không quá 1,3 cm, rồi cất tủ lạnh.\" puts the 1,3 cm on the water, but fact 54 gives it as the container's depth. It must read \"Cách giữ là để trong hộp nông, sâu không quá 1,3 cm, ngập nước lạnh đã khử clo, rồi cất tủ lạnh.\"",
+        "Rule 12: \"Không vớt hằng ngày thì lăng quăng sẽ nở thành muỗi.\" must read \"Không vớt hằng ngày thì lăng quăng sẽ thành muỗi.\"",
+        "Rules 12 and 10: \"Vinegar eel, micro worm, grindal worm và white worm đều tự nuôi ở nhà được.\" must be cut. No fact says any of them is raised at home, and none gives the culture for grindal or white worms. The substrate sentence after it stays.",
+        "Rule 12: \"Cho ăn mãi một loại thức ăn thì cá dễ thiếu chất.\" must read \"Cho ăn mãi một loại thức ăn thì cá có thể thiếu chất.\" (fact 5 says \"can\")."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
+  ],
+  "vi/glossary/an-tap": [
+    {
+      "at": "2026-11-20T11:06:50Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T11:06:50Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rules 4 and 12: \"Cá ăn tạp ăn được cả thức ăn của cá săn mồi lẫn của cá ăn tảo.\" is still in the shop's list under \"Sai lầm hay gặp\". THIS TERM says to cut it: it isn't a mistake, so under that heading it reads like one, and the next item, \"Cá ăn tạp ăn gần như mọi thứ, kể cả cơm, nên người nuôi dễ cho ăn sai.\", already says the same thing."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T10:29:18Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T10:29:18Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The definition \"Ăn tạp là kiểu ăn của những loài cá cần cả thức ăn động vật lẫn thực vật.\" is the old sentence. THIS TERM gives this wording, word for word: \"Ăn tạp là kiểu ăn của những loài cá ăn cả thức ăn động vật lẫn thực vật.\" Only fact 4 says \"need\", and the meaning rests on two sites.",
+        "Rule 12: \"Cá cảnh chủ yếu là cá ăn tạp, như cá bảy màu và cá molly.\" should be replaced, word for word, with \"Phần lớn cá cảnh là cá ăn tạp, như cá bảy màu và cá molly.\"",
+        "Rules 4 and 12: \"Cá ăn tạp rất dễ dãi chuyện ăn uống.\" should be cut from the keeper's list. The shop's \"Cá ăn tạp ăn gần như mọi thứ …\" already says this.",
+        "Rule 12: \"Cá betta (cá xiêm), cá kiếm xanh và cá vàng cũng là cá ăn tạp.\" should be \"Cá betta, cá kiếm xanh và cá vàng cũng là cá ăn tạp.\" with \"(cá xiêm)\" cut. The keeper's fact says bettas, and a name in brackets under a page's credit must be that page's own word.",
+        "Rules 6 and 12: \"cá gặm tảo bám\" in \"Hầu như loài cá gặm tảo bám nào thật ra cũng ăn tạp, và chúng ăn nhiều đạm động vật. Trong nghề nuôi cá cảnh không có loài nào thật sự chỉ ăn thực vật.\": the writer made up this group name. THIS TERM gives the wording word for word: \"Đúng ra thì hầu như mọi loài cá grazer đều là cá ăn tạp, và chúng ăn nhiều đạm động vật. Trong thú chơi cá cảnh không có loài nà…",
+        "Rule 12: \"Rau cho cá ăn có thể là rau củ luộc, như dưa leo.\" should be replaced, word for word, with \"Cá ăn tạp có thể ăn rau củ luộc, như dưa leo.\" Facts 16 and 18 say this of omnivores, not of all fish.",
+        "Rule 12: \"Cho ăn nhiều loại, có cả thức ăn sống lẫn thức ăn bán sẵn, giúp cá đủ chất và không quen chỉ ăn một thứ.\" should end \"… và không phải ăn mãi một thứ.\", as THIS TERM gives it.",
+        "Rule 12: \"Cá tầng đáy cần thức ăn chìm nhanh, còn cá ăn trên mặt nước cần thức ăn nổi.\" should be \"Cá tầng đáy nên được cho ăn thức ăn chìm nhanh, còn cá ăn trên mặt nước nên được cho ăn thức ăn nổi.\" This keeps fact 23's \"should get\".",
+        "Rule 12: \"Trông cho cá tầng đáy như loricariid và Corydoras sống nhờ thức ăn thừa của cá khác là không được. Phải cho chúng ăn riêng.\" should be replaced, word for word, with \"Trông chờ cá tầng đáy như loricariid và Corydoras sống nhờ thức ăn thừa của cá khác là không được. Phải có thức ăn dành riêng cho chúng.\"",
+        "Rules 10 and 12: \"Lấy kiểu ăn của một loài áp cho loài trông giống nhưng không họ hàng là nguy hiểm.\" should have \"trông\" cut, giving \"… áp cho loài giống nhưng không họ hàng là nguy hiểm.\" Fact 30 says similar, not similar-looking."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T05:43:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, reworded: \"Cá cảnh thường cần được cho ăn ít nhất mỗi ngày một lần.\" → \"Phần lớn cá cảnh nên được cho ăn ít nhất mỗi ngày một lần.\" (supported)",
+        "Rules 4 and 12: \"Cá ăn tạp rất dễ dãi chuyện ăn uống.\" (under the keeper's credit) and \"Cá ăn tạp ăn gần như mọi thứ, kể cả cơm, nên người nuôi dễ cho ăn sai.\" (under the shop's credit) make the same point twice. Two sites carry it (source 1 says 'very flexible', source 2 says 'eat almost anything'), so it should appear once, as a plain sentence, not under two separate credits.",
+        "Rule 12: \"Với cá ăn tạp, có thể cho ăn khoảng hai lần mỗi tuần.\" leaves out the limit the fact gives ('for omnivores such as guppies and mollies'). That makes the claim wider than the fact. Right after it, \"Cá vàng ... càng dễ bị ảnh hưởng nếu ăn cơm thường xuyên\" talks about goldfish, which are also omnivores. Say the fact's examples (cá bảy màu, cá molly) beside the claim.",
+        "Rule 12: \"Lấy kiểu ăn của một loài áp cho loài trông giống nhưng không họ hàng là nguy hiểm.\" narrows the fact. It says 'a similar but unrelated species'; 'trông giống' limits 'similar' to looks, which the fact doesn't say."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T05:43:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.89,
+      "notes": [
+        "\"Cá ăn tạp ăn được cả mồi của cá săn mồi lẫn thức ăn của cá ăn rêu.\": the facts don't carry it (uncredited, uncredited, uncredited): only aquasetup.com says this, and the sentence has no credit / only aquasetup.com says this; no credit given / only aquasetup.com says this, and the sentence gives no credit",
+        "\"Cá non cần ít nhất 40% đạm (tốt hơn là trên 50%) và ít nhất 10% chất béo.\": the facts don't carry it (unsupported, unsupported, unsupported): the source says juveniles 'benefit from' this, but 'cần' (need) makes it stronger / fact says juveniles 'benefit from' this; sentence says they 'need' it / 'benefit from' made stronger as 'need'",
+        "\"Corydoras và cá lau kiếng không sống được nhờ thức ăn thừa của cá khác.\": the facts don't carry it (unsupported, loose, loose, unsupported, unsupported, unsupported): the source says relying on leftovers is 'not acceptable', not that the fish can't survive on them / fact says relying on leftovers is 'not acceptable'; sentence says they 'cannot survive' on them / 'not acceptable to expect' reword…",
+        "Rule 12: \"Cá ăn tạp ăn được cả mồi của cá săn mồi lẫn thức ăn của cá ăn rêu.\" is written as plain fact, but only one site (source 2, a shop) gives it. It needs that shop's credit and belongs with the shop's other claims.",
+        "Rule 11: \"cá ăn rêu\" in \"…lẫn thức ăn của cá ăn rêu\" uses \"rêu\" (moss) for algae. The fact says algae eaters, so it should use \"tảo\".",
+        "Rule 11: \"cá gặm rêu bám\" in \"Hầu như loài cá gặm rêu bám nào thật ra cũng ăn tạp\" uses \"rêu\" for the periphyton (algae film) that grazers eat. Algae is \"tảo\".",
+        "Rule 4: Guppies and mollies are given as example omnivores three times: in the definition (\"như cá bảy màu và cá molly\"), in \"Cá bảy màu và cá molly đều thuộc nhóm này.\", and again in the rice item (\"Với cá ăn tạp như cá bảy màu và cá molly\"). This should be said once.",
+        "Rule 4: Varied feeding is said twice: \"Cho cá ăn đa dạng, kết hợp thức ăn khô với thức ăn đông lạnh hoặc thức ăn sống.\" and the vet item \"Cho ăn nhiều loại, có cả thức ăn sống lẫn thức ăn bán sẵn…\". It should be said in one place.",
+        "Rule 12: \"Cá non cần ít nhất 40% đạm (tốt hơn là trên 50%) và ít nhất 10% chất béo\" turns the fact's hedge \"juveniles benefit from\" into \"cần\" (need). The fact's hedge must stay as given.",
+        "Rule 6: \"cá lau kiếng\" in \"Corydoras và cá lau kiếng không sống được nhờ thức ăn thừa của cá khác.\" names a group that has no line in PAGES with a Vietnamese name the fact doesn't give. The fact's own word is \"loricariids\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/glossary/dong-danh": [
+    {
+      "at": "2026-11-21T17:28:26Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T17:28:26Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The definition \"Tên đồng nghĩa là một trong hai hay nhiều tên khoa học cùng bậc phân loại dùng cho cùng một loài hay nhóm sinh vật. Thường chỉ một tên trong số đó được dùng làm tên.\" does not match the required wording. It must read word for word: \"Tên đồng nghĩa là một tên khoa học khác của cùng một loài hay nhóm sinh vật. Thường chỉ một trong các tên ấy được dùng làm tên chính thức.\"",
+        "Rules 4 and 12: The body's first sentence \"Một loài hay một nhóm sinh vật có thể mang hai tên khoa học trở lên ở cùng bậc phân loại.\" says the meaning again and was supposed to be cut.",
+        "Rule 12: \"Tên công bố sớm nhất được ưu tiên và gọi là đồng nghĩa sớm (senior synonym).\" must read word for word \"Tên công bố sớm nhất được ưu tiên.\" No fact calls the earliest name the senior synonym, and only one site names the senior synonym.",
+        "Rule 12: The list under \"Một tài liệu tham khảo ghi thêm:\" is missing its required first item, word for word: \"trong động vật học, đồng nghĩa sớm (senior synonym) được ưu tiên hơn đồng nghĩa muộn, và đồng nghĩa muộn chỉ được dùng trong trường hợp ngoại lệ;\"",
+        "Rule 12: The item \"bộ luật danh pháp liên quan quyết định tên nào là tên chính thức của một loài với định nghĩa, vị trí và bậc phân loại xác định.\" must read word for word \"mỗi loài hay nhóm sinh vật với định nghĩa, vị trí và bậc phân loại xác định chỉ có một tên chính thức tại một thời điểm, và bộ luật danh pháp liên quan quyết định tên nào là tên đó.\" Fact 4 speaks of a taxon, not a species, an…",
+        "Rule 12: \"tên thường gọi \\\"guppy\\\" vẫn còn dùng, dù <em>Girardinus guppii</em> nay chỉ là tên đồng nghĩa.\" adds \"chỉ\", which fact 23 does not have. It must read \"… nay là tên đồng nghĩa.\"",
+        "Rule 12: The heading \"Tên định danh nhầm và tên lỗi thời\" must be written \"Định danh nhầm và tên lỗi thời\". Fact 13 gives a misidentification, not a name.",
+        "Rule 12: The item \"tên định danh nhầm nằm trong danh sách đồng nghĩa không thật sự là tên khác của loài, nó có mặt ở đó là do hai loài từng bị nhầm với nhau;\" must read word for word \"một trường hợp định danh nhầm nằm trong danh sách đồng nghĩa không thật sự là tên khác của loài, nó có mặt ở đó là do hai loài từng bị nhầm với nhau;\"",
+        "Rule 12: \"khoảng 10% tên cá trong một tài liệu trở nên lỗi thời sau 10 năm.\" uses \"tài liệu\" for fact 16's \"a given work\", but the entry already uses \"tài liệu\" for the source in its credits. It must read \"… trong một công trình …\".",
+        "Rule 12: \"biết chi của một con cá thì đoán được cá có lẽ lớn cỡ nào, tính nết ra sao, ăn gì và cần gì để đẻ.\" overstates fact 20, which only says knowing the genus helps predict these things. It must read word for word \"biết chi của một con cá giúp đoán cá có lẽ lớn cỡ nào, tính nết ra sao, ăn gì và cần gì để đẻ.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T17:14:32Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tên công bố sớm nhất được ưu tiên và gọi là đồng nghĩa sớm (senior synonym).\" (not \"Tên công bố sớm nhất được ưu tiên.\": it drops the advice \"gọi là đồng nghĩa sớm (senior synonym)\")",
+        "Rule 4: \"Một loài hay một nhóm sinh vật có thể mang hai tên khoa học trở lên ở cùng bậc phân loại.\" repeats what the definition already says (\"một trong hai hay nhiều tên khoa học cùng bậc phân loại dùng cho cùng một loài hay nhóm sinh vật\"). It should be said only once.",
+        "Rule 12: \"Tên công bố sớm nhất được ưu tiên và gọi là đồng nghĩa sớm (senior synonym)\" is written as plain fact with no limit. One fact gives priority generally (calacademy.org). The other limits it to zoology (\"In zoology, the senior synonym takes priority…\", wikipedia.org). The sentence must either say \"trong động vật học\" or carry calacademy.org's credit, since that is the site that gives it b…",
+        "Rule 12: \"bộ luật danh pháp liên quan quyết định tên nào là tên chính thức của một loài với định nghĩa, vị trí và bậc phân loại xác định\" changes the fact's \"taxon\" to \"một loài\", which narrows it. The entry elsewhere renders taxon as \"loài hay nhóm sinh vật\". The sentence also drops the fact's \"only one official name at any one time\".",
+        "Rule 12: \"biết chi của một con cá thì đoán được cá có lẽ lớn cỡ nào…\" drops the fact's hedge \"helps predict\". The sentence makes a firm claim that knowing the genus lets you predict, while the fact only says it helps."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T17:14:32Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.78,
+      "notes": [
+        "\"Tên đồng nghĩa là một tên khoa học khác của cùng một loài hay nhóm sinh vật, thường là tên cũ mà nay loài đó mang tên khác.\": the facts don't carry it (unsupported, loose, loose, unsupported, loose, unsupported): adds 'usually' hedge; 'old name' not stated / 'usually an old name' blends two sources' definitions loosely / Joins two sources' definitions; 'usually an old name' generalizes source 4 …",
+        "\"Wilhelm Peters đã mô tả loài này từ năm 1859, nên tên sớm hơn được ưu tiên.\": the facts don't carry it (uncredited, uncredited, uncredited): only wikipedia; credit ended previous sentence / only wikipedia; credit ended at previous sentence / Only wikipedia gives this; the sentence has no credit",
+        "\"Tên hợp lệ bây giờ là Poecilia reticulata.\": the facts don't carry it (uncredited, uncredited, uncredited): only wikipedia, uncredited / only wikipedia, stated as plain fact / Only wikipedia gives this; the sentence has no credit",
+        "\"Tên thường gọi \"guppy\" vẫn còn dùng, dù Girardinus guppii nay chỉ là tên đồng nghĩa.\": the facts don't carry it (uncredited, uncredited, uncredited): only wikipedia, uncredited / only wikipedia, stated as plain fact / Only wikipedia gives this; the sentence has no credit",
+        "Rule 4: The entry says three times that only one name is official. The definition says \"thường chỉ một tên được dùng làm tên chính thức\". The first paragraph of the body says it again: \"Thường chỉ một trong các tên đó được dùng làm tên chính thức\". The list item \"chỉ có một tên chính thức\" says it a third time. It should be said once, in one place.",
+        "Rule 12: The definition says \"thường là tên cũ mà nay loài đó mang tên khác\". This adds a hedge (\"thường\") that the fact does not give. The fact says plainly that a synonym is a name for a taxon that now goes by a different name. A hedge is never added.",
+        "Rule 12: Under \"Ví dụ ở cá bảy màu\", the entry says \"Tài liệu tham khảo này ghi rằng…\". This credits the guppy facts to the Wikipedia page already quoted (source 4). They actually come from a different page of the same site (source 3). A second page of one site must be credited apart, as \"Một bài khác ghi:\".",
+        "Rule 12: Two sentences give claims that only one site's page (source 3) makes, but they stand as plain fact outside the opening: \"Wilhelm Peters đã mô tả loài này từ năm 1859, nên tên sớm hơn được ưu tiên. Tên hợp lệ bây giờ là Poecilia reticulata.\" and \"Tên thường gọi \\\"guppy\\\" vẫn còn dùng, dù Girardinus guppii nay chỉ là tên đồng nghĩa.\" Claims in a row from one page belong under one opening, …",
+        "Rule 12: \"các loài cá họ chép mới phát hiện ở Myanmar và Trung Quốc\" uses \"các loài\", which widens the fact. The fact speaks of the group (\"newly discovered cyprinids\"), so the sentence should use the fact's own word for the group, without \"các loài\".",
+        "Rule 15: The heading \"Vì sao tên cá thay đổi\" sits over two items that are not about why names change: \"tên khoa học giúp người chơi khắp thế giới nói về một loài mà không bị rối…\" and \"biết chi của một con cá thì đoán được cá có lẽ lớn cỡ nào…\". The section should be headed by what it holds."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/glossary/dac-huu": [
+    {
+      "at": "2026-11-21T17:55:00Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T17:55:00Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.92,
+      "notes": [
+        "\"Cá neon Việt Nam (Tanichthys micagemmae) chỉ được biết ở hệ sông Bến Hải, vùng Bắc Trung Bộ, chủ yếu ở tỉnh Quảng Trị.\": the facts don't carry it (unsupported, unsupported, unsupported): name 'Cá neon Việt Nam' not in facts; sources give 'Vietnamese minnow' etc. / name 'Cá neon Việt Nam' not given in facts / name 'Cá neon Việt Nam' not in facts",
+        "Rule 12: The first section, \"Cá chỉ được biết ở một nơi tại Việt Nam\", has to follow the set wording exactly. That wording leaves out Tanichthys micagemmae (facts 34 to 36). The entry still has the item \"Cá neon Việt Nam (Tanichthys micagemmae) chỉ được biết ở hệ sông Bến Hải, vùng Bắc Trung Bộ, chủ yếu ở tỉnh Quảng Trị. Các mẫu chuẩn của loài lấy ở tỉnh Quảng Bình.\" under \"Một tài liệu tham khảo…",
+        "Rule 12: In the first section, the Annamia cf. thuathienensis item sits under \"Một bài khác ghi:\". The set wording puts it as the only item straight under \"Một tài liệu tham khảo ghi:\". The section should be just the heading, then \"Một tài liệu tham khảo ghi:\", then the one item \"Annamia cf. thuathienensis được mô tả từ sông Bô ở tỉnh Thừa Thiên Huế, miền Trung Việt Nam, và không có ghi chép nào …"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T17:48:01Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rules 6 and 12: \"Tanichthys micagemmae\" in \"Tanichthys micagemmae chỉ được biết ở hệ sông Bến Hải, vùng Bắc Trung Bộ, chủ yếu ở tỉnh Quảng Trị.\": this fish has a page, so it should be called by that page's name, \"Cá neon Việt Nam\". THIS TERM also says this item must be written word for word as \"Cá neon Việt Nam (Tanichthys micagemmae) chỉ được biết ở hệ sông Bến Hải, vùng Bắc Trung Bộ, chủ yếu ở …"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T17:48:01Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.92,
+      "notes": [
+        "\"Cá neon Việt Nam (Tanichthys micagemmae) chỉ được biết ở hệ sông Bến Hải, vùng Bắc Trung Bộ, chủ yếu ở tỉnh Quảng Trị.\": the facts don't carry it (unsupported, unsupported, unsupported): Name 'cá neon Việt Nam' not among the trade names in the facts / name 'Cá neon Việt Nam' not in facts / name 'cá neon Việt Nam' not among given trade names"
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "draft": "eab899a39695e3c93bb7fd854ca28e7935c2fa74ede709263d5369cd64c6de1a"
+    },
+    {
+      "at": "2026-11-21T17:48:01Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.89,
+      "notes": [
+        "\"Cá chạch suối Annamia thuathienensis được mô tả từ sông Bô ở tỉnh Thừa Thiên Huế, và chưa có ghi chép nào ở nơi khác.\": the facts don't carry it (unsupported, unsupported, unsupported): adds common name 'cá chạch suối' and drops 'cf.' / adds common name 'cá chạch suối' not in facts; drops 'cf.' / drops 'cf.' and adds common name 'cá chạch suối' not in facts",
+        "\"Có những loài cá đã tuyệt chủng ngoài tự nhiên mà nay vẫn còn, vì người nuôi giữ và cho chúng đẻ trong bể.\": the facts don't carry it (loose, unsupported, uncredited): 'many' softened to 'some'; 'only because' generalised / 'many' species softened to 'some' / only phys.org says this; stated as plain fact",
+        "Rule 12: The heading \"Ví dụ ở Việt Nam\" must be \"Cá chỉ được biết ở một nơi tại Việt Nam\". Facts 34 and 37 say each fish is known only from its place. They never say endemic.",
+        "Rule 12: Under \"Ví dụ ở Việt Nam\", the section must be written word for word: \"Một tài liệu tham khảo ghi:\" with only the Cá neon Việt Nam item, then \"Một bài khác ghi:\" with only the Annamia cf. thuathienensis item. The draft puts three items under one \"Một tài liệu tham khảo ghi:\". Because of this, the second seriouslyfish page (fact 37) is not credited apart as \"Một bài khác ghi:\".",
+        "Rules 6 and 12: \"Tanichthys micagemmae\" in \"Tanichthys micagemmae mới chỉ thấy ở hệ sông Bến Hải, vùng Bắc Trung Bộ, chủ yếu ở tỉnh Quảng Trị.\": the fish has a page, so it should be called \"Cá neon Việt Nam (Tanichthys micagemmae)\", as the line under THIS TERM writes it.",
+        "Rules 12 and 4: \"mới chỉ thấy ở hệ sông Bến Hải\" adds a hedge (\"mới\") that fact 34 doesn't give. It should be \"chỉ được biết ở hệ sông Bến Hải\". Also, \"Mẫu chuẩn của loài lấy ở tỉnh Quảng Bình\" should be \"Các mẫu chuẩn của loài lấy ở tỉnh Quảng Bình\", word for word.",
+        "Rule 12: The item \"Tanichthys sp. 'Vietnam' mới chỉ thấy ở tỉnh Đà Nẵng, miền Trung. Người ta thu được nó lần đầu năm 2009, và có thể nó là loài chưa được mô tả. Vây bụng và vây hậu môn của nó vàng tươi, còn ở Tanichthys micagemmae các vây này ngả đỏ.\" must be left out. Facts 31 and 32 are about a fish that may be undescribed. The item also adds the hedge \"mới\".",
+        "Rule 6: \"Tanichthys micagemmae\" in \"Vây bụng và vây hậu môn của nó vàng tươi, còn ở Tanichthys micagemmae các vây này ngả đỏ.\": the fish has a page and should be called \"cá neon Việt Nam\".",
+        "Rules 6 and 12: \"Cá chạch suối Annamia thuathienensis\" in \"Cá chạch suối Annamia thuathienensis được mô tả từ sông Bô ở tỉnh Thừa Thiên Huế, và chưa có ghi chép nào ở nơi khác.\": fact 37 is about \"Annamia cf. thuathienensis\". That page's hedge \"cf.\" must stay, with the scientific name as the fact writes it. The item also drops \"miền Trung Việt Nam\". It changes \"không có ghi chép nào khác được liệ…",
+        "Rule 12: The section \"Ví dụ ở nơi khác\" and its sentence \"Một bài báo nói Glossolepis wanamensis là loài bản địa của một hồ ở Papua New Guinea và đang cực kỳ nguy cấp.\" must be cut. Fact 25 says native, not endemic, and \"bản địa\" is never given as an example of endemic."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T17:25:46Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.76,
+      "notes": [
+        "\"Một tài liệu tham khảo ghi cá neon Việt Nam mới chỉ thấy ở hệ sông Bến Hải, vùng Bắc Trung Bộ, chủ yếu ở tỉnh Quảng Trị.\": the facts don't carry it (unsupported, unsupported, unsupported): name 'cá neon Việt Nam' not given; trade names are 'Vietnamese minnow' etc. / name 'cá neon Việt Nam' not given; facts say 'Vietnamese minnow' / name 'cá neon Việt Nam' not given in facts",
+        "\"Mẫu chuẩn của loài lấy ở tỉnh Quảng Bình.\": the facts don't carry it (uncredited, uncredited, uncredited): single site (seriouslyfish), credit ended at previous full stop / type locality only from seriouslyfish, sentence not credited / one site only, credit ended at prior sentence",
+        "\"Người ta thu được nó lần đầu năm 2009, và có thể nó là loài chưa được mô tả.\": the facts don't carry it (uncredited, uncredited, uncredited): single site (seriouslyfish), not credited in this sentence / only seriouslyfish, credit ended with previous sentence / one site only, stands under no credit",
+        "\"Vây bụng và vây hậu môn của nó vàng tươi, còn ở cá neon Việt Nam các vây này ngả đỏ.\": the facts don't carry it (unsupported, unsupported, unsupported): uses name 'cá neon Việt Nam' not in facts for T. micagemmae / uses name 'cá neon Việt Nam' not in facts; also single-site and uncredited / uses name 'cá neon Việt Nam' not in facts",
+        "Rule 12: \"Mẫu chuẩn của loài lấy ở tỉnh Quảng Bình.\" is a claim from only one site (seriouslyfish), but it stands as its own sentence after the credited one, so it reads as plain fact. It should go under the same opening (\"Một tài liệu tham khảo ghi …\"), joined with a semicolon or as a list.",
+        "Rule 12: \"Người ta thu được nó lần đầu năm 2009, và có thể nó là loài chưa được mô tả.\" is a one-site claim written as plain fact, outside the opening \"Một bài khác ghi …\". Same-page claims in a row belong under one opening, as a list or one sentence with semicolons.",
+        "Rule 12: \"Vây bụng và vây hậu môn của nó vàng tươi, còn ở cá neon Việt Nam các vây này ngả đỏ.\" is also a one-site claim that sits outside its credit and reads as plain fact. It should be carried under the same opening.",
+        "Rule 6: \"Annamia cf. thuathienensis\" in \"Một bài khác ghi Annamia cf. thuathienensis được mô tả từ sông Bô ở tỉnh Thừa Thiên Huế, và chưa có ghi chép nào ở nơi khác.\": this fish has a line in PAGES, so it should be called by its page's name, \"cá chạch suối Annamia thuathienensis\", not by the scientific name alone."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
+  ],
+  "vi/glossary/de-con": [
+    {
+      "at": "2026-11-21T19:52:45Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T19:52:45Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rules 12 and 15: under \"Loài hay nuôi và sinh sản\", the vet list still ends with \"Chỉ một con cá cái có bầu cũng có thể làm bể chật cá nhanh, và chỉ vài tháng là bể có thể có mấy thế hệ nối nhau.\" and \"Nuôi riêng cá đực với cá cái thì không có lứa ngoài ý muốn.\" These two items are a warning and how to prevent it, which that heading doesn't cover. Sun 22 Nov's line moves them word for word under …",
+        "Rule 12: the pointer \"Cá đẻ trứng rải rác: xem mục đẻ trứng rải rác.\" must be written word for word as \"Đẻ trứng rải rác: xem mục Đẻ trứng rải rác.\" and stay under \"Loài hay nuôi và sinh sản\".",
+        "Rule 12: the pointer \"Vây của cá đực: xem mục vây hậu môn.\" must be written word for word as \"Vây của cá đực: xem mục Vây hậu môn.\" It should also move out of \"Loài hay nuôi và sinh sản\" and go after the list under \"Tránh lứa ngoài ý muốn\".",
+        "Rule 12: the pointer \"Cách nuôi cá con: xem mục cá bột.\" must be written word for word as \"Cách nuôi cá con: xem mục Cá bột.\" (the entry by its own name).",
+        "Rule 12: under \"Nhận ra cá cái sắp đẻ\", \"Cá bơi chậm, cụp đuôi, hay trốn và hầu như bỏ ăn.\" must be written word for word as \"Cá bơi chậm, cụp đuôi, đi trốn và hầu như bỏ ăn.\" Fact 12 says the fish hides, not that it often hides.",
+        "Rule 12: under \"Nên làm gì\", \"Sau khoảng 3–5 ngày mới tăng đạm lại.\" must be written word for word as \"Sau khoảng 3–5 ngày thì có thể tăng đạm lại.\" Fact 25 says protein can be increased again; it doesn't say only after 3–5 days.",
+        "Rules 12 and 14: the first sentence under \"Sai lầm cần tránh\", \"Nguồn thú y coi chuyện lai cận huyết bừa bãi là đáng lo, chẳng hạn ở cá bảy màu “designer”.\", goes back to the vet source already named. Only one vet source has been named, so it must read \"Nguồn thú y này coi chuyện lai cận huyết bừa bãi là đáng lo, chẳng hạn ở cá bảy màu “designer”.\"",
+        "Rule 12: altNames is empty (\"altNames\":[]). THIS TERM gives \"cá đẻ con\" as the term's other name, and the entry doesn't give it as one."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T19:35:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T19:35:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.91,
+      "notes": [
+        "\"Cá cái có bầu có một đốm tối gần vây hậu môn, và đốm này sẫm dần khi gần ngày đẻ.\": the facts don't carry it (uncredited, uncredited, supported): only liveaquaria gives this generally; the guppy-only source's limit isn't next to it / general claim only from liveaquaria; other shop's guppy limit not adjacent",
+        "\"Nuôi riêng cá đực với cá cái thì không có lứa ngoài ý muốn.\": the facts don't carry it (uncredited, uncredited, uncredited): only the vet site says this, and the credit ended with the previous sentence / only vet source; credit ended at previous sentence / only cafishvet says this, and the credit stopped at the previous sentence's full stop",
+        "Rule 15: Under \"Nên làm gì\", the sentence \"Nguồn thú y cũng ghi rằng chỉ một con cá cái có bầu cũng có thể làm bể chật cá nhanh, và chỉ vài tháng là bể có thể có mấy thế hệ nối nhau.\" is background, not something the reader does. It belongs under a heading that says what it holds, or should be cut back to the action.",
+        "Rule 12: \"Nuôi riêng cá đực với cá cái thì không có lứa ngoài ý muốn.\" comes from the vet source alone but is written as plain fact in its own sentence, outside the credit \"Nguồn thú y cũng ghi rằng…\". The vet's two claims in a row should go under one opening, as a list or as one sentence with semicolons, and not as a credited sentence followed by a plain one.",
+        "Rule 12: The first shop's claims are split under \"Nên làm gì\": \"Tiệm thứ nhất ghi:\" (breeding tank, moving the fry), then the second shop and the vet, then \"Tiệm thứ nhất cũng ghi:\" (sponge over the filter intake, floating cuttings). Nothing in the order stops these from being kept together under one opening.",
+        "Rule 4: The difference from egg-laying fish is said twice: in the definition (\"lúc ra đời đã là cá con chứ không phải trứng\") and again in the vet list (\"Cá đẻ con thụ tinh trong bụng cá mẹ, khác với cá đẻ trứng.\"). It should be said once, in one place.",
+        "Rule 12: \"Nguồn thú y coi chuyện cho cá bảy màu lai cận huyết bừa bãi là đáng lo.\" narrows the fact. The fact calls reckless inbreeding a concern in general and gives 'designer' guppies only as an example ('as with'). The entry makes it about cá bảy màu alone and drops 'designer'.",
+        "Rule 12: Under \"Sai lầm cần tránh\", the second shop comes back after the first shop has been named, so it should open \"Tiệm thứ hai cũng ghi:\", as the Thu 19 line has it, and not \"Tiệm thứ hai ghi về cá bảy màu:\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T19:35:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.86,
+      "notes": [
+        "\"Người nuôi cần nhận ra lúc cá cái sắp đẻ, vì một số cá lớn ăn cá con mới đẻ.\": the facts don't carry it (unsupported, unsupported, unsupported): No fact gives recognising birth as advice tied to fry-eating / The facts never advise recognizing that a birth is near for this reason / The need to spot imminent birth is not given as advice; the cause is joined from separate facts",
+        "\"Chỉ một con cá cái có bầu cũng có thể làm bể chật cá rất nhanh, và chỉ vài tháng là bể có mấy thế hệ nối nhau.\": the facts don't carry it (unsupported, unsupported, unsupported): 'rất nhanh' is stronger than 'quickly' / 'rất nhanh' is stronger than the source's 'quickly' / 'rất nhanh' overstates 'quickly'; drops 'can' on generations building up",
+        "\"Với cá bảy màu và cá Xiphophorus, đẻ xong thì phải tách cá mẹ ra.\": the facts don't carry it (uncredited, loose, uncredited): Each kind's claim comes from a single site (hanoizoo, chothuysinh) but is stated as plain fact / Joins the swordtail rule with the guppy source's implied separation / Guppy claim only from chothuysinh, Xiphophorus claim only from hanoizoo; no credit given",
+        "\"Cá bảy màu mẹ vừa đẻ xong thì không thả ngay về bể cũ.\": the facts don't carry it (uncredited, uncredited, uncredited): Only mayaqua.vn gives this, and it is stated as plain fact / Only mayaqua says this, and the sentence gives no credit / Only mayaqua.vn says this; stated with no credit",
+        "Rule 12: \"Người nuôi cần nhận ra lúc cá cái sắp đẻ, vì một số cá lớn ăn cá con mới đẻ\" uses \"vì\" to join two things that no single fact joins. No fact says the keeper needs to spot a female close to birth. The claim that some adults eat newborn fry comes only from liveaquaria.com, but it stands as plain fact without that shop's credit.",
+        "Rule 12: \"Cá đẻ con là cá mà cá mẹ giữ trứng trong bụng\" (definition) and \"Ở cá đẻ con, cá mẹ giữ trứng trong bụng\" (body) say all livebearers keep eggs inside. The fact says only \"Most Poeciliidae\" are ovoviviparous, so its hedge is dropped. It also says some livebearers (splitfins, halfbeaks) are viviparous and feed their embryos through placenta-like structures, and that limit is not given.",
+        "Rule 12: \"Ở cá đẻ con, cá mẹ giữ trứng trong bụng, và cá con lớn lên ngay trong bụng mẹ trước khi ra đời\" is a plain sentence that joins two claims each given by only one site. Keeping the eggs inside comes from wikipedia.org; the fry developing inside the mother comes from cafishvet.com. Each should be its own sentence under its own credit.",
+        "Rule 4: the egg-keeping trait (\"cá mẹ giữ trứng trong bụng\") is said twice, once in the definition and again as the first sentence of \"Trong bể của bạn\".",
+        "Rule 15: under \"Trong bể của bạn\" the section holds what a livebearer is, example species, pregnancy lengths, how broods build up and the inbreeding worry (\"Cho cá bảy màu lai cận huyết bừa bãi là chuyện đáng lo\"). None of this is what the fish does in the tank or its signs there. The section should get a heading that says what it holds.",
+        "Rule 4: the darkening gravid spot is said twice: \"đốm này sẫm dần khi gần ngày đẻ\" and again in \"đốm bầu sẫm và to hơn\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/glossary/di-hinh-gioi-tinh": [
+    {
+      "at": "2026-11-21T19:23:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Dị hình giới tính là khi con đực và con cái của cùng một loài trông khác nhau, như ở cỡ thân, màu hay vây.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Gần hậu môn cá cái có một đốm sẫm (gravid spot), và đốm này hiện rõ khi cá đã mang bầu.\" (not \"Một tiệm ghi: gần hậu môn cá cái có một đốm sẫm (gravid spot), và đốm này sẫm màu hơn khi cá mang bầu.\": Rule 12: \"Một tiệm ghi: gần hậu môn cá cái có một đốm sẫm (gravid spot), và đốm này sẫm màu hơn khi cá man…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T19:23:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: under \"Xem đực cái Betta thế này\", the first list still opens with \"Một tiệm ghi:\". THIS TERM says to write it as \"Một tiệm khác ghi:\" (source 9), because a shop (source 7) is already named in the Corydoras item.",
+        "Rule 12: under \"Xem đực cái Betta thế này\", the second list still opens with \"Một tiệm khác ghi:\". THIS TERM says to write it as \"Một tiệm thứ ba ghi:\" (source 8).",
+        "Rule 12: under \"Xem đực cái Cichlidae thế này\", the list still opens with \"Một tiệm thứ ba ghi:\". These claims come back to source 7, the shop first named in the Corydoras item. THIS TERM says to write it as \"Tiệm thứ nhất cũng ghi:\".",
+        "Rule 12: \"Các đặc điểm này chỉ là so sánh giữa các con với nhau chứ không phải quy tắc tuyệt đối.\" still has \"chỉ\". THIS TERM says to write it as \"Các đặc điểm này là so sánh giữa các con với nhau chứ không phải quy tắc tuyệt đối.\" (fact 40 has no \"only\")."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T18:56:02Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Dị hình giới tính là khi con đực và con cái của cùng một loài trông khác nhau, như ở cỡ thân, màu hay vây.\"",
+        "Rule 12: \"Một tiệm thứ ba ghi:\" opens the Cichlidae list, but that list comes from the same shop as the Corydoras item, \"một tiệm ghi cá cái to và đầy thân hơn cá đực\" (both are source 7, aquaplantshub). It is not a third shop. Since it comes back after other shops, it should read \"Tiệm thứ nhất cũng ghi:\". The Betta list then opens a second shop with \"Một tiệm ghi:\", which should be \"Một tiệm kh…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T18:56:02Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.96,
+      "notes": [
+        "\"Riêng các dòng cao cấp như Full Red và Koi thì cá cái cũng lên màu đẹp.\": the facts don't carry it (uncredited, uncredited, uncredited): Only caguppy.com gives this, and the list opening credits no page / only caguppy.com says this; not credited / Only caguppy.com says this, and the sentence gives no credit",
+        "Rule 12: in the definition, \"Loài nào khác nhau rõ thì nhìn là biết đực cái, còn loài khác ít thì khó nhận ra hơn.\" must be written word for word as \"Loài nào đực cái khác nhau rõ thì dễ phân biệt hơn, còn loài khác ít thì khó nhận ra hơn.\" Fact 4 says only that how hard it is depends on how visibly the sexes differ. \"nhìn là biết\" says more than that.",
+        "Rule 12: under \"Dấu hiệu ở các loài này\", the opening \"Dấu hiệu thì mỗi loài một khác:\" must go. No fact says it, and the list should stand under its heading.",
+        "Rule 12: in the Cá bảy màu item, \"cá cái to hơn cá đực và ít màu hơn.\" must be written word for word as \"cá cái to hơn cá đực.\" (facts 11, 12 and 14).",
+        "Rule 12: in the Cá bảy màu item, \"Riêng các dòng cao cấp như Full Red và Koi thì cá cái cũng lên màu đẹp.\" must go. Only one site gives it (fact 17), and that site would be a fourth past the three the entry credits.",
+        "Rule 12: in the Corydoras item, \"cá cái to và đầy thân hơn cá đực.\" is a claim only one site gives (fact 28, aquaplantshub.com, a shop). It is written as plain fact with no credit such as \"Một tiệm ghi …\".",
+        "Rule 12: in the Betta item, \"vây cá đực dài và to hơn vây cá cái.\" must be written word for word as \"vây hậu môn cá đực dài và to hơn cá cái.\" Facts 20 and 21 agree on the anal fin only.",
+        "Rule 12: in the first shop's list under \"Xem đực cái Betta thế này\", \"Betta bắt đầu trổ mã từ 2–3 tháng tuổi.\" must be written word for word as \"Betta bắt đầu có dấu hiệu trưởng thành từ 2–3 tháng tuổi.\"",
+        "Rule 12: \"Tiệm này chỉ dùng các đặc điểm phân đực cái của cá trưởng thành cho cá từ 4 tháng tuổi trở lên.\" adds \"chỉ\", a hedge fact 19 doesn't have. It must be written as \"Tiệm này dùng các đặc điểm phân đực cái của cá trưởng thành cho cá từ 4 tháng tuổi trở lên.\"",
+        "Rule 12: \"Cá cái đầu thuôn, bụng tròn và có sọc.\" must be written word for word as \"Cá cái đầu thuôn, bụng đầy đặn và có sọc.\" (fact 38: plump)."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T18:18:37Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.96,
+      "notes": [
+        "\"Riêng các dòng cao cấp như Full Red và Koi thì cá cái cũng lên màu đẹp.\": the facts don't carry it (uncredited, uncredited, uncredited): only caguppy.com gives this; no credit / Full Red/Koi female colour comes only from caguppy.com / only caguppy.com, list opening credits no page",
+        "Rule 12: \"Riêng các dòng cao cấp như Full Red và Koi thì cá cái cũng lên màu đẹp.\" Only one site gives this: caguppy.com, a shop. The standing line says a claim only one site gives must say whose it is, for example \"Một tiệm ghi …\". Here it is written as plain fact, and it sits in the same item as the two-site claims about guppies (cá bảy màu)."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "draft": "2dbbad6bffe2fd82756843bfe3d56b6199b37e7b0832739d73f014a33da2f45f"
+    },
+    {
+      "at": "2026-11-21T18:18:37Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.92,
+      "notes": [
+        "\"Ở cá chuột đồng, cá cái có xu hướng to hơn, và cá cái đã đến tuổi đẻ tròn, rộng thân hơn hẳn cá đực, nhất là khi mang trứng.\": the facts don't carry it (supported, uncredited, uncredited): bronze cory detail only from seriouslyfish.com, no credit / bronze cory claim only from seriouslyfish.com, stated as plain fact",
+        "\"Khi xem thì soi cá dưới ánh sáng tốt.\": the facts don't carry it (uncredited, uncredited, supported): good-light advice only from aquariumcare.vn, stated without credit / good-light advice only from aquariumcare.vn, no credit",
+        "Rule 12: \"Ở cá chuột đồng, cá cái có xu hướng to hơn, và cá cái đã đến tuổi đẻ tròn, rộng thân hơn hẳn cá đực, nhất là khi mang trứng.\" Only one site gives this (seriouslyfish.com, a reference site), but it is written as plain fact with no credit. Crediting it would make seriouslyfish a fourth named source, after the three shops already named. The claim is background that a keeper can't act on, s…",
+        "Rule 4: \"cá cái to và đầy thân hơn cá đực\" and \"cá cái có xu hướng to hơn\" in the Corydoras item both say that females are bigger. The second sentence repeats the first, so this should be said once.",
+        "Rule 12: \"cá cái to hơn cá đực và thường ít màu hơn\" in the guppy item. The fact that says females are less colourful has no hedge, so \"thường\" adds one. Another fact limits the claim: in high-end lines such as Full Red and Koi, the females also colour up well. That limit isn't said beside the claim. It should be stated, or the claim should take the credit of the site that gives it broadly."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
+  ],
+  "vi/glossary/nitrat": [
+    {
+      "at": "2026-11-21T19:11:58Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Các nguồn ghi mức an toàn khác nhau khá xa.\" (not \"Mức khuyên giữ nitrat trong bể cá đi từ 5–10 ppm tới dưới 80–100 ppm.\": it drops the advice \"Các nguồn ghi mức an toàn khác nhau khá xa\")",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Về lâu dài: cho ăn ít đi, bớt cá và vớt lá cây chết.\" (not \"Về lâu dài: cho ăn ít đi và bớt cá.\": Rule 12: Under \"Nên làm gì\", the second step's first sentence reads \"Về lâu dài: cho ăn ít đi và bớt cá.\", but the line asks for it word for word as \"Về lâu dài: cho ăn ít đi, bớt cá và vớt lá cây chết.\" The …",
+        "Rule 4: The warning that low nitrate harms plants appears three times: \"ở 0–20 ppm cây có thể gặp vấn đề\", \"Nitrat thấp không hại cá, ốc hay tép, chỉ hại cây\" (both in the shop's list under \"Mức nitrat các nguồn ghi\") and again under \"Sai lầm cần tránh\" in \"ép nitrat xuống thấp nhất có thể, làm hại cây\". It should be said once, in one place."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T19:11:58Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The definition's first sentence \"Nitrat (NO3) là chất cuối cùng của chu trình nitơ, do vi khuẩn chuyển từ nitrit mà ra.\" was not changed to the required wording \"Nitrat (NO3) là sản phẩm phụ của chu trình nitơ, do vi khuẩn chuyển từ nitrit mà ra.\" Three sites call nitrate a byproduct. Only one uncredited site calls it the end product.",
+        "Rule 12: Under \"Trong bể của bạn\", \"Nitrat tăng khi cho ăn quá tay, khi thả quá nhiều cá và khi để lá cây mục trong bể.\" should read \"Nitrat tăng khi cho ăn quá tay và khi để lá cây mục trong bể.\" Overstocking as a cause comes from only one site, which would be a fourth source past the three the entry credits.",
+        "Rule 12: Under \"Nguồn thú y ghi:\", \"Cá ngộ độc nitrat từ từ, và thường chỉ lộ ra khi đã có triệu chứng: lờ đờ, kém ăn, da kích ứng hoặc đỏ lên, thở nhanh và chết đột ngột.\" should be the two sentences \"Cá ngộ độc nitrat từ từ, và thường chỉ lộ ra khi đã có triệu chứng. Triệu chứng gồm lờ đờ, kém ăn, da kích ứng hoặc đỏ lên, thở nhanh và chết đột ngột.\" The source says the signs include these, so …",
+        "Rule 12: Under \"Mức nitrat các nguồn ghi\", \"Nguồn thú y ghi hầu hết các loài cá chịu được tới 20 mg/l, có loài đã có triệu chứng ở mức thấp hơn, và cá nước ngọt thường chịu nitrat tốt hơn cá biển, tùy loài.\" should read \"Hai nguồn cùng lấy 20 mg/l làm mốc. Nguồn thú y ghi hầu hết cá chịu được tới mức đó, một số loài có triệu chứng ở mức thấp hơn, và cá nước ngọt thường chịu nitrat tốt hơn cá biển…",
+        "Rule 12: In the keeper source's list, \"… trên 10 hay 20 ppm là hại cá không có cơ sở trong tài liệu khoa học.\" should end \"… trên 10 hay 20 ppm là hại cá không được tài liệu khoa học ủng hộ.\" The fact says \"not supported\".",
+        "Rule 12: Under \"Nên làm gì\", first step, \"Nguồn thú y ghi thay tới 50%, nước mới khớp pH, nhiệt độ với bể.\" should read \"Nguồn thú y ghi thay tới 50%, nước mới đã khử clo và khớp pH, nhiệt độ với bể.\" The fact says the new water is dechlorinated.",
+        "Rule 12: Under \"Nên làm gì\", first step, \"Tiệm này ghi thay 30–50%, và khi nitrat quá cao thì chia ra thay trong nhiều ngày.\" should be \"Tiệm này ghi thay 30–50%. Khi nitrat rất cao, chia việc thay nước ra nhiều ngày.\" Two sites give the second part, so it stands plain in its own sentence.",
+        "Rule 12: Under \"Nên làm gì\", second step, \"Cho ăn ít đi, bớt cá và vớt lá cây chết.\" should read \"Về lâu dài: cho ăn ít đi, bớt cá và vớt lá cây chết.\" The fact frames this as long-term advice.",
+        "Rule 12: Under \"Sai lầm cần tránh\", \"Thay quá nhiều nước một lần có thể làm cá sốc.\" should read \"Thay nước quá nhiều có thể làm cá sốc.\" The fact says nothing about \"một lần\" (in one go).",
+        "Rule 12: Under \"Sai lầm cần tránh\", \"Bỏ châm phân cho nitrat thấp, làm cây thiếu các chất khác.\" should read \"Bỏ châm phân để giữ nitrat thấp, làm cây thiếu các chất khác.\" The fact itself links the two: fertiliser is skipped to keep nitrate down."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T19:05:54Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Nitrat (NO3) là chất cuối cùng của chu trình nitơ, do vi khuẩn chuyển từ nitrit mà ra.\" the advice \"do vi khuẩn chuyển từ nitrit mà ra\", and nothing lets that sentence go: write it as it was, word for word.",
+        "The rewrite dropped from \"Cá ngộ độc nitrat từ từ, và thường chỉ lộ ra khi đã có triệu chứng: lờ đờ, kém ăn, da kích ứng hoặc đỏ lên, thở nhanh và chết đột ngột.\" the advice \"thường chỉ lộ ra khi đã có triệu chứng\", and nothing lets that sentence go: write it as it was, word for word.",
+        "The rewrite dropped from \"Dưới khoảng 80 ppm thì chưa thấy cá bị ảnh hưởng rõ, nhưng tép và sa giông axolotl có thể bị ảnh hưởng từ khoảng 40 ppm.\" the name Sa giông axolotl, and nothing lets that sentence go: write it as it was, word for word.",
+        "The rewrite dropped from \"Nguồn thú y khuyên đo nitrat mỗi tháng, và đo mỗi tuần khi thêm cá, cây, tép, ốc, khi đổi thức ăn hay đổi lọc.\" the advice \"ốc\", and nothing lets that sentence go: write it as it was, word for word.",
+        "Rule 6: \"axolotl\" in \"Dưới khoảng 80 ppm thì chưa thấy cá bị ảnh hưởng rõ, nhưng tép và axolotl có thể bị ảnh hưởng từ khoảng 40 ppm.\": the animal has a page, so it should be called by that page's name, written mid-sentence as \"sa giông axolotl\". The THIS TERM line from Sun 22 Nov 2026 asks for \"tép và axolotl\" word for word, so that line clashes with this rule.",
+        "Rule 4: the warning that low nitrate harms plants appears three times: \"còn ở 0–20 ppm cây có thể gặp vấn đề\" and \"Nitrat thấp không hại cá, ốc hay tép, chỉ hại cây\" under \"Một tiệm ghi:\", and again under \"Sai lầm cần tránh\" as \"ép nitrat xuống thấp nhất có thể, làm hại cây\". It should be said once, in one place."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T19:05:54Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Nitrat (NO3) là chất cuối cùng của chu trình nitơ, do vi khuẩn chuyển từ nitrit mà ra.\" the advice \"do vi khuẩn chuyển từ nitrit mà ra\", and nothing lets that sentence go: write it as it was, word for word.",
+        "The rewrite dropped from \"Cá ngộ độc nitrat từ từ, và thường chỉ lộ ra khi đã có triệu chứng: lờ đờ, kém ăn, da kích ứng hoặc đỏ lên, thở nhanh và chết đột ngột.\" the advice \"thường chỉ lộ ra khi đã có triệu chứng\", and nothing lets that sentence go: write it as it was, word for word.",
+        "The rewrite dropped from \"Dưới khoảng 80 ppm thì chưa thấy cá bị ảnh hưởng rõ, nhưng tép và sa giông axolotl có thể bị ảnh hưởng từ khoảng 40 ppm.\" the name Sa giông axolotl, and nothing lets that sentence go: write it as it was, word for word.",
+        "The rewrite dropped from \"Nguồn thú y khuyên đo nitrat mỗi tháng, và đo mỗi tuần khi thêm cá, cây, tép, ốc, khi đổi thức ăn hay đổi lọc.\" the advice \"ốc\", and nothing lets that sentence go: write it as it was, word for word.",
+        "Rule 6: \"axolotl\" in \"Dưới khoảng 80 ppm thì chưa thấy cá bị ảnh hưởng rõ, nhưng tép và axolotl có thể bị ảnh hưởng từ khoảng 40 ppm.\": the animal has a line in PAGES, so it should be called by that page's name, \"sa giông axolotl\". This wording follows the Glossary lead's word-for-word line under THIS TERM (Sun 22 Nov 2026), which conflicts with Rule 6. The lead needs to decide which one applies.",
+        "Rule 4: the warning that low nitrate harms plants appears three times. It is in \"còn ở 0–20 ppm cây có thể gặp vấn đề\", in \"Nitrat thấp không hại cá, ốc hay tép, chỉ hại cây\" and in \"Cho rằng cứ trên 0 ppm là có vấn đề rồi ép nitrat xuống thấp nhất có thể, làm hại cây\". It should be said once, in one place."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T19:05:54Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Các nguồn ghi mức an toàn khác nhau khá xa.\" (not \"Mức nitrat cá chịu được khác nhau tùy loài.\": it drops the advice \"Các nguồn ghi mức an toàn khác nhau khá xa\")",
+        "Rule 12: The definition's first sentence \"Nitrat (NO3) là chất cuối cùng của chu trình nitơ, do vi khuẩn chuyển từ nitrit mà ra.\" must read word for word \"Nitrat (NO3) là sản phẩm phụ của chu trình nitơ.\"",
+        "Rule 12: Under \"Trong bể của bạn\", \"Nitrat tăng khi cho ăn quá tay, khi thả quá nhiều cá và khi để lá cây mục trong bể.\" must read word for word \"Nitrat tăng khi cho ăn quá tay và khi để lá cây mục trong bể.\" Overstocking as a cause comes from a fourth site only.",
+        "Rule 12: Under \"Nguồn thú y ghi:\", \"Cá ngộ độc nitrat từ từ, và thường chỉ lộ ra khi đã có triệu chứng: lờ đờ, kém ăn, da kích ứng hoặc đỏ lên, thở nhanh và chết đột ngột.\" must read word for word \"Cá ngộ độc nitrat từ từ và thường không ai để ý cho tới khi có triệu chứng. Triệu chứng gồm lờ đờ, kém ăn, da kích ứng hoặc đỏ lên, thở nhanh và chết đột ngột.\" The fact says the signs \"include\" these.",
+        "Rule 12: Under \"Mức nitrat các nguồn ghi\", \"Nguồn thú y ghi hầu hết các loài cá chịu được tới 20 mg/l, có loài đã có triệu chứng ở mức thấp hơn, và cá nước ngọt thường chịu nitrat tốt hơn cá biển, tùy loài.\" must read word for word \"Hai nguồn cùng lấy 20 mg/l làm mốc. Nguồn thú y ghi hầu hết cá chịu được tới mức đó, một số loài có triệu chứng ở mức thấp hơn, và cá nước ngọt thường chịu nitrat tốt…",
+        "Rule 12: In the keeper source's list, \"Dưới khoảng 80 ppm thì chưa thấy cá bị ảnh hưởng rõ, nhưng tép và sa giông axolotl có thể bị ảnh hưởng từ khoảng 40 ppm.\" must read word for word \"Dưới khoảng 80 ppm thì chưa thấy cá bị ảnh hưởng rõ, nhưng tép và axolotl có thể bị ảnh hưởng từ khoảng 40 ppm.\"",
+        "Rule 12: In the keeper source's list, the sentence ending \"… trên 10 hay 20 ppm là hại cá không có cơ sở trong tài liệu khoa học.\" must end word for word \"… trên 10 hay 20 ppm là hại cá không được tài liệu khoa học ủng hộ.\" The fact says \"not supported\".",
+        "Rule 12: Under \"Nên làm gì\", first step, \"Nguồn thú y ghi thay tới 50%, nước mới khớp pH, nhiệt độ với bể.\" must read word for word \"Nguồn thú y ghi thay tới 50%, nước mới đã khử clo và khớp pH, nhiệt độ với bể.\"",
+        "Rule 12: Under \"Nên làm gì\", first step, \"Tiệm này ghi thay 30–50%, và khi nitrat quá cao thì chia ra thay trong nhiều ngày.\" must read word for word \"Tiệm này ghi thay 30–50%. Khi nitrat rất cao, chia việc thay nước ra nhiều ngày.\" Two sites give the second part, so it stands plain.",
+        "Rule 12: Under \"Nên làm gì\", the second step's \"Cho ăn ít đi, bớt cá và vớt lá cây chết.\" must read word for word \"Về lâu dài: cho ăn ít đi, bớt cá và vớt lá cây chết.\""
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T18:34:01Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Các nguồn ghi mức an toàn khác nhau khá xa.\" (not \"Mức nitrat cá chịu được khác nhau tùy loài.\": Rule 4: the point that nitrate tolerance depends on the species comes twice in a row. It opens with \"Mức nitrat cá chịu được khác nhau tùy loài.\" and comes back at the end of the vet source's next sentence (\"……",
+        "Rule 12: \"Nitrat (NO3) là chất cuối cùng của chu trình nitơ\" states as plain fact something only one site gives. Only Cá Dĩa Đại Phát calls nitrate the end product of the cycle; PetMD only calls it a byproduct. This part needs that site's credit, in its own sentence.",
+        "Rules 4 and 12: \"do vi khuẩn chuyển từ nitrit mà ra\" in the definition gives a step of the nitrogen cycle as where nitrate comes from. The body then says it again with the pointer \"Nitrat đến từ đâu: xem mục Chu trình nitơ.\" THIS TERM says the Chu trình nitơ entry is linked for where nitrate comes from and its steps aren't repeated, so this should be said once.",
+        "Rule 12: \"Nitrat tăng khi cho ăn quá tay, khi thả quá nhiều cá và khi để lá cây mục trong bể\" puts overstocking in a plain sentence with the other causes. Only Therium gives overstocking as a cause, so it needs its own sentence under that shop's credit and can't be joined to the parts two sites give.",
+        "Rule 12: \"hầu hết các loài cá chịu được tới 20 mg/l\" widens the fact's \"most fish\" with \"các loài\". The standing line never allows \"các loài\" for a group, so it should keep the fact's own word (\"hầu hết cá\")."
+      ],
+      "attempt": "rewrite",
+      "kept": true
     }
   ]
 }

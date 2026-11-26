@@ -42,3 +42,27 @@ export const logoFolder = (url: string) => LOGO_FOLDERS.some(f => url.includes(`
  */
 export const awaitsScreen = (url: string, entry: PhotoScreenEntry | undefined): boolean =>
   !entry || (entry.watermark === undefined && (ocrHit(entry.ocr) || logoFolder(url)))
+
+/**
+ * The photos the dead-fish screen owes a look, in engine-state (address → the day first owed): each photo new to a fish
+ * or plant page that the faces step's screen hasn't judged, past its sheets, on a failed sheet or after a stop (the
+ * engine's faces.ts `screenNewPhotos`). Such a photo waits as one the watermark screen owes does: a public build doesn't
+ * show it (load.ts). It shows by itself once the screen or the photo check has judged it and a faces step has taken it
+ * off the list. The chief of staff told the owner the screen sees every new photo before it can show (21 Nov 2026).
+ */
+export const DEAD_OWED_FILE = '_photo-dead-owed.json'
+
+/**
+ * The face finder's record, in engine-state (address → faces found): every own photo of a species, plant or guide page
+ * it has read (the engine's faces.ts `dropFacePhotos`). A public build shows no such photo it hasn't read, whatever put it
+ * there: a faces step that failed, a job with no faces step, a step after it, a hand run, the image step (load.ts; the
+ * chief of staff, 21 Nov 2026). It shows by itself once a faces step reads it. A breed's photos aren't the face finder's.
+ */
+export const FACES_FILE = '_photo-faces.json'
+/**
+ * More own photos than this that the face finder hasn't read is a lost or damaged record, not a run's new photos: the
+ * site's build fails rather than publish its pages without them. A normal run leaves 0 to 2 (main, 19 to 21 Nov); a
+ * pages run whose faces step failed, 128 to 138; a lost record, about 7,100. One failed pages run must not stop every
+ * deploy, a lost record must (the chief of staff's ruling, 21 Nov).
+ */
+export const UNREAD_FACES_LIMIT = 300

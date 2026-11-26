@@ -3,6 +3,12 @@
   "name": "หลีเจียง",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-21T01:20:15.928Z",
+    "why": "หลีเจียง is a correct Thai transliteration of Li Jiang, but it leaves out the kind word แม่น้ำ that a Thai atlas would put before the name."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

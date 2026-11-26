@@ -9,7 +9,8 @@
   "places": [
     "south-america",
     "peru",
-    "ampiyacu"
+    "ampiyacu",
+    "pebas"
   ],
   "range": {
     "native": {
@@ -21,7 +22,8 @@
         "Amazon"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -130,6 +132,12 @@
       "html": "<p>Current knowledge indicates that this species may be endemic to the Ampiyacu River system, an affluent of the Amazon mainstream in northeastern Peru. The type locality is given as 'Peru, Departamento Loreto, Province Mariscal Ramon Castilla, District Pebas, in the vicinity of El Pozo, small forest creek tributing to the río Ampiyacu-system (about 71°55'W/03°10'S)'.</p><p>Two non-sympatric populations have been identified. One possesses red markings on the head and an overall darker colour pattern (red form), while the other lacks red markings and is generally paler (white form).</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-barlowi-sp-mouthbrooder/",
+      "html": "<p>Apistogramma barlowi originates from the Pebas district in Peru.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-barlowi",
@@ -178,10 +186,22 @@
       "html": "<p>One of only two Apistogramma spp. known to be facultative, biparental, larviphorous mouthbrooders with A. sp. 'Kelleri' the other.</p><p>This behaviour is not only remarkable for its rarity but also its plasticity.</p><p>Either a single or both parents may be involved in the mouthbrooding process, or the eggs and fry may instead be maintained in a shallow pit excavated from the substrate throughout broodcare.</p><p>Selection of a precise strategy may well be influenced by environmental conditions with laboratory observations of A. barlowi recording a greater percentage of females than males mouthbrooding over substrates of fine sand, while under strong water flow it was exclusively males that did so.</p><p>Norwegian aquarist Tom Christoffersen maintained one pair of A. 'sp. Kelleri' without tankmates and another alongside a group of Nannostomus marginatus and pair of Copella vilmae with other conditions basically identical.</p><p>In the former pair the female was solely responsible for mouthbrooding, while in the latter no such behaviour was observed and the eggs were deposited into a shallow depression in the substrate where they remained until free-swimming.</p><p>Additional observations suggest that substrate size also plays a part with the adults often picking up the eggs immediately over fine sand whereas when gravel is used they tend do so after several days or not at all.</p><p>Courtship behaviour is also interesting with males constructing small sand piles as part of the ritual, possibly demonstrating the size of the mouth to rivals plus their fry-carrying capability to females.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-barlowi-sp-mouthbrooder/",
+      "html": "<p>The first reports about the brood care behavior of this dwarf cichlid in the early 2000s were a sensation. Mouthbrooding Apistogramma – one had never heard of it before. Later it turned out that things are complicated. Some of the females of A. barlowi, as this species is now called, show quite normal Apistogramma brood care behavior. They spawn in burrows, the male guards the territory with his harem, and the female cares for spawn and young. However, some of the females take the young into their mouths after hatching and keep them there until they are independent. These females are thus so-called larvophilic mouthbrooders. And in isolated cases it even happened that also the male takes parts of the brood into the mouth and takes part in the brood care!</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-barlowi",
       "html": "<p>This species has been assigned the code A174 under the DATZ system, and is also known by the trade names A. sp. 'Maulbrüter/mouthbrooder', A. sp. 'Glaser' (these referring to the 'red' colour form) and A. sp. 'Hauswell' (referring to the 'white' colour form).</p><p>It can be told apart from other members of the genus most easily by possession of 3 infraorbital pores plus the disproportionately-sized head and mouthparts with enormous jaws and hypertrophied lips in adult males.</p><p>Apistogramma is among the most speciose of South American cichlid genera with around 70 species valid at present but many more awaiting description.</p><p>In addition many species exist in two or more geographical colour forms which may or may not turn out to be distinct in the future.</p><p>Hobbyists tend to label these with collection data if available in order to avoid mixing them and the potential of hybridisation.</p><p>Member species have also been organised into a series of species lineages, complexes and groups by authors in order to better separate them.</p><p>Such lists have been augmented by fish that have appeared in the aquarium trade and are in a state of near-constant flux.</p><p>The A. barlowi complex is contained within the A. atahualpa group within the larger A. trifasciata lineage, for example.</p><p>Apistogramma and a number of related genera are often included in the putative subfamily Geophaginae.</p><p>Kullander (1998) conducted a morphology-based phylogenetic study in which the neotropical Cichlidae was divided into six subfamilies of which the Geophaginae contained 16 genera divided among three 'tribes':</p><ul><li>Acarichthyini - Acarichthys and Guianacara.</li><li>Crenicaratini - Biotoecus, Crenicara, Dicrossus and Mazarunia.</li><li>Geophagini - Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Satanoperca, Biotodoma, Apistogramma, Apistogrammoides and Taeniacara.</li></ul><p>Later molecular studies by Farias et al. (1999, 2000, 2001) resulted in the additions of Crenicichla and Teleocichla to the Geophaginae, a result supported by López-Fernández et al. (2005) who conducted the most detailed molecular analysis of the grouping to date including 16 of the 18 genera and 30 species.</p><p>However their conclusions regarding interrelationships between genera did vary somewhat from previous hypotheses and can be summarised by the following loosely-defined groups:</p><ul><li>a weakly-supported sister group relationship between Acarichthys and Guianacara.</li><li>a well-supported \"Satanoperca clade\" comprising Satanoperca, Apistogramma, Apistogrammoides and Taeniacara.</li><li>a \"big clade\" with Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Biotodoma, Crenicara and Dicrossus.</li><li>a \"crenicarine clade\" with Biotoecus and Crenicichla.</li></ul><p>No representatives of Teleocichla or Mazarunia were included in the study but the former is well-established as sister to Crenicichla while the latter has grouped closely with Dicrossus and Crenicara in earlier works.</p><p>The other main conclusions of the paper are confirmation that Geophaginae is a monophyletic group exhibiting strong signs of having undergone rapid adaptive radiation.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-barlowi-sp-mouthbrooder/",
+      "html": "<p>So with Apistogramma barlowi one can make really exciting observations. It is by no means understood yet if brood care behavior is inherited or if it is a plastic behavior linked to certain environmental factors (yet to be explored).</p>"
     },
     {
       "key": "references",
@@ -193,17 +213,72 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/63bcc754c62c5231.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/63bcc754c62c5231-480.webp",
       "width": 1024,
       "height": 685,
       "licence": "dùng với sự cho phép",
       "author": "Khor Harn Sheng / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-barlowi",
       "caption": "Young adult male; unspecified origin.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/63bcc754c62c5231-480.webp"
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7701facaf92353c2.webp",
+      "thumb": "https://media.aquatome.com/glaser/7701facaf92353c2-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-barlowi-sp-mouthbrooder/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c034f786ba3913b5.webp",
+      "thumb": "https://media.aquatome.com/glaser/c034f786ba3913b5-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-barlowi-sp-mouthbrooder/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/992ea76410023f40.webp",
+      "thumb": "https://media.aquatome.com/glaser/992ea76410023f40-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-barlowi-sp-mouthbrooder/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "UyZ8Sah3q-0",
+      "title": "Apistogramma Barlowi và tập tính chăm con kỳ lạ | Cá phượng hoàng hoang dã",
+      "durationSec": 622,
+      "lang": "vi"
+    },
+    {
+      "youtubeId": "dYeChcQXkVs",
+      "title": "Apistogramma Barlowi with her new fry..",
+      "durationSec": 55,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "zf3oQARUI5Y",
+      "title": "Apistogramma Barlowi (Formally sp Maulbruter)",
+      "durationSec": 22,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "yTLt85QYu9I",
+      "title": "Apistogramma Barlowi..with fry. Mouthbrooding Apistogramma",
+      "durationSec": 66,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -234,5 +309,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-22"
 }

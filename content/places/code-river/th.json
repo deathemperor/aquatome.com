@@ -3,6 +3,12 @@
   "name": "โจเด",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.2,
+    "at": "2026-11-19T18:47:50.304Z",
+    "why": "\"โจเด\" is a loose transliteration of \"Code\" that doesn't match the Thai rendering \"โกเด\" (Kode), and it omits the kind word \"แม่น้ำ\" for a river."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

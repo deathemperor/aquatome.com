@@ -1,6 +1,5 @@
 import type { Content } from '@aq/schema'
 import { localizePath } from './i18n'
-import { albumOf, hasAlbum } from './photo-page'
 
 /**
  * Renamed Vietnamese pages: each earlier address (a page's `redirectFrom`) → the page now, with ?tu=<old slug>. An old
@@ -8,14 +7,8 @@ import { albumOf, hasAlbum } from './photo-page'
  * An old address with no name (a page that was another animal's, page-folds.ts) forwards bare: no note, and its slug
  * never shows in the address the reader lands on.
  */
-export function renamedPages(c: Pick<Content, 'species' | 'breeds' | 'plants' | 'guides' | 'galleries' | 'pictureHashes'>): Record<string, string> {
+export function renamedPages(c: Pick<Content, 'species' | 'breeds' | 'plants' | 'guides'>): Record<string, string> {
   const out: Record<string, string> = {}
-  // The pages whose album had a photo page of its own until 18 Nov (hasAlbum), by their address's start and id.
-  const photoPages = new Set([
-    ...c.species.filter(x => hasAlbum(albumOf(c, 'species', x))).map(x => `ca/${x.id}`),
-    ...c.breeds.filter(b => hasAlbum(albumOf(c, 'breeds', b))).map(b => `ca/${b.id}`),
-    ...c.plants.filter(x => hasAlbum(albumOf(c, 'plants', x))).map(x => `cay/${x.id}`),
-  ])
   const kinds = [['ca', c.species], ['ca', c.breeds], ['cay', c.plants], ['huong-dan', c.guides]] as const
   const live = new Set(kinds.flatMap(([prefix, xs]) => xs.map(x => `${prefix}/${x.t.slug}`)))
   for (const [prefix, xs] of kinds)
@@ -23,7 +16,7 @@ export function renamedPages(c: Pick<Content, 'species' | 'breeds' | 'plants' | 
       out[localizePath('vi', `/vi/${prefix}/${r.slug}/`)] = localizePath('vi', `/vi/${prefix}/${x.t.slug}/${r.name ? `?tu=${r.slug}` : ''}`)
       // Its photo page's old address (one Google keeps) goes to the page itself, whose album opens over it: in one step,
       // where the Worker's own forward (worker/paths.ts galleryParent) would find no page at the old slug.
-      if (photoPages.has(`${prefix}/${x.id}`)) out[localizePath('vi', `/vi/${prefix}/${r.slug}/anh/`)] = localizePath('vi', `/vi/${prefix}/${x.t.slug}/`)
+      if (prefix !== 'huong-dan') out[localizePath('vi', `/vi/${prefix}/${r.slug}/anh/`)] = localizePath('vi', `/vi/${prefix}/${x.t.slug}/`)
     }
   return out
 }

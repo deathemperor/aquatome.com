@@ -1,19 +1,16 @@
 {
   "id": "parotocinclus-jumbo",
   "native": {
-    "input": "3b3f54581bc8144f",
-    "at": "2026-11-17T00:14:47.070Z",
-    "claims": [
-      {
-        "code": "BR",
-        "status": "native",
-        "source": "glaser",
-        "quote": "Origin: Brazil.",
-        "words": "Brazil",
-        "ok": true
-      }
-    ],
+    "input": "c8f1b75ce6f9d0b1",
+    "at": "2026-11-22T00:38:58.151Z",
+    "claims": [],
     "regions": [
+      {
+        "name": "São Francisco",
+        "source": "scotcat",
+        "quote": "IUCN Red List: Parotocinclus jumbo is distributed in coastal rivers of the Northeast and the lower São Francisco River, being frequent and abundant.",
+        "ok": true
+      },
       {
         "name": "Paraiba do Norte",
         "source": "scotcat",
@@ -27,34 +24,30 @@
         "ok": true
       },
       {
-        "name": "Canhotinho River",
+        "name": "Salgado",
         "source": "scotcat",
         "quote": "South America: Paraiba do Norte and Piranhas rivers in Paraiba State, Canhotinho River in Pernambuco State, a tributary of the Mundau River, flowing near the city of Maceio in Alagoas State, and Salgado River in Ceara State.",
         "ok": true
       },
       {
-        "name": "Mundau River",
+        "name": "Mundau",
         "source": "scotcat",
         "quote": "South America: Paraiba do Norte and Piranhas rivers in Paraiba State, Canhotinho River in Pernambuco State, a tributary of the Mundau River, flowing near the city of Maceio in Alagoas State, and Salgado River in Ceara State.",
         "ok": true
       },
       {
-        "name": "Salgado River",
+        "name": "Canhotinho",
         "source": "scotcat",
         "quote": "South America: Paraiba do Norte and Piranhas rivers in Paraiba State, Canhotinho River in Pernambuco State, a tributary of the Mundau River, flowing near the city of Maceio in Alagoas State, and Salgado River in Ceara State.",
-        "ok": true
-      },
-      {
-        "name": "São Francisco River",
-        "source": "scotcat",
-        "quote": "IUCN Red List: Parotocinclus jumbo is distributed in coastal rivers of the Northeast and the lower São Francisco River, being frequent and abundant.",
         "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "BR"
+      ],
       "sourcesOnly": []
     }
   },
@@ -76,10 +69,8 @@
         8
       ]
     ],
-    "native": [
-      "BR"
-    ],
-    "requests": 11,
-    "at": "2026-11-16T17:28:41.839Z"
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-22T00:38:58.151Z"
   }
 }

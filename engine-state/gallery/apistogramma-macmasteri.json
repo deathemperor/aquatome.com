@@ -3,7 +3,8 @@
  "judged": [
   "File:Macmast.jpg",
   "File:AMacMasteri.jpg",
-  "File:ApistogrammaMacmasteri.jpg"
+  "File:ApistogrammaMacmasteri.jpg",
+  "inat:160510891"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/361c1f1820cf7370.webp": "341ffbf4c6c7e4d8",
@@ -29,6 +30,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 96611674,
+  "done": true
  },
  "exhausted": "2026-11-13"
 }

@@ -1,7 +1,7 @@
 ---
 url: https://bwaquatics.com/products/imbellis-4xyd2-mz7hr
 title: Betta Imbellis True Wild - Vietnam | Wild Type Bettas – BWAquatics
-fetchedAt: 2026-11-19T14:12:20.403Z
+fetchedAt: 2026-11-19T17:12:23.892Z
 hash: d49815141d678a94d4931cb32204617117aaa7fde72a38528cc505929fdc6c8f
 ---
 

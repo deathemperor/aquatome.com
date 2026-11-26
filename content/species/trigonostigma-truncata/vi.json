@@ -1,0 +1,19 @@
+{
+  "slug": "ca-tam-giac-nam-thai",
+  "name": "Cá tam giác Nam Thái",
+  "altNames": [
+    "Harlequin rasbora"
+  ],
+  "sections": {
+    "notes:glaser": "<p>Các nghiên cứu di truyền cho thấy cá tam giác không phải chỉ có một loài. Có nhiều dạng trông na ná nhau, và giới khoa học vẫn còn phải nghiên cứu thêm về chúng.</p><p>Vài năm nay đã có cá bắt tự nhiên ở miền nam Thái Lan được nhập về. Màu của chúng khác hẳn cá tam giác \"thường\". Phía trên mảng hình nêm có một đường xanh lam, gốc đuôi có một đốm cam, và sau nắp mang không có vạch đen dọc như cá tam giác thường. Mấy điểm này cho thấy rõ đây là một loài khác.</p><p>Đến nay (tháng 5/2020), loài ở miền nam Thái Lan này đã có mô tả khoa học chính thức với tên Trigonostigma truncata.</p>",
+    "references:glaser": "<p>Tan, H.H.(2020): Trigonostigma truncata, a new species of harlequin rasbora from Malay Peninsula (Teleostei: Danionidae). Raffles Bulletin of Zoology, 68: 421-433.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  }
+}

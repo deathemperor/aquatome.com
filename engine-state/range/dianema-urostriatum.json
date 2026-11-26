@@ -1,14 +1,14 @@
 {
   "id": "dianema-urostriatum",
   "native": {
-    "input": "a857f402d188b964",
-    "at": "2026-11-08T03:17:10.020Z",
+    "input": "5476f2b7adbbb470",
+    "at": "2026-11-20T17:43:20.430Z",
     "claims": [
       {
         "code": "BR",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Parts of the Brazilian Amazon basin.",
+        "quote": "The flagtail catfish, Dianema urostriatum, is a peaceful callichthyid catfish from parts of the Brazilian Amazon basin.",
         "words": "Brazilian",
         "ok": true
       },
@@ -25,12 +25,12 @@
       {
         "name": "Amazon",
         "source": "seriouslyfish",
-        "quote": "Parts of the Brazilian Amazon basin.",
+        "quote": "The flagtail catfish, Dianema urostriatum, is a peaceful callichthyid catfish from parts of the Brazilian Amazon basin.",
         "country": "BR",
         "ok": true
       },
       {
-        "name": "Amazon River",
+        "name": "Amazon",
         "source": "planetcatfish",
         "quote": "South America: Amazon River basin.",
         "ok": true

@@ -242,6 +242,7 @@
     "Hypothalmus dawalla",
     "Silurus inermis"
   ],
+  "Ageneiosus lineatus": [],
   "Ageneiosus magoi": [],
   "Ageneiosus marmoratus": [
     "Ageneiosus barranquenensis"
@@ -618,6 +619,9 @@
   "Ancharius fuscus": [
     "Arius fuscus"
   ],
+  "Anchoviella alleni": [
+    "Amplova alleni"
+  ],
   "Ancistrus cirrhosus": [
     "Chaetostomus cirrhosus",
     "Hypostomus cirrhosus"
@@ -632,9 +636,15 @@
   "Ancistrus macrophthalmus": [
     "Xenocara macrophthalma"
   ],
+  "Ancistrus patronus": [],
   "Ancistrus pirareta": [],
   "Ancistrus ranunculus": [],
   "Ancistrus triradiatus": [],
+  "Ancylomenes pedersoni": [
+    "Ancylomenes anthophilus",
+    "Periclimenes anthophilus",
+    "Periclimenes pedersoni"
+  ],
   "Andinoacara latifrons": [
     "Acara latifrons",
     "Aequidens latifrons"
@@ -944,11 +954,16 @@
   "Apistogramma pantalone": [],
   "Apistogramma paulmuelleri": [],
   "Apistogramma personata": [],
+  "Apistogramma regani": [],
   "Apistogramma rupununi": [],
   "Apistogramma steindachneri": [
     "Apistogramma ornatipinnis",
     "Apistogramma wickleri",
     "Heterogramma steindachneri"
+  ],
+  "Apistogramma taeniata": [
+    "Heterogramma taeniatum",
+    "Mesops taeniatus"
   ],
   "Apistogramma trifasciata": [
     "Apistogramma maciliense",
@@ -2213,12 +2228,37 @@
   ],
   "Bucephalandra sordidula": [],
   "Bujurquina oenolaemus": [],
+  "Bunocephalus amaurus": [
+    "Dysichthys amaurus"
+  ],
+  "Bunocephalus chamaizelus": [
+    "Dysichthys chamaizelus"
+  ],
   "Bunocephalus colombianus": [],
   "Bunocephalus coracoideus": [
     "Bunocephalus bicolor",
     "Bunocephalus haggini",
     "Dysichthys bicolor",
     "Dysichthys coracoideus"
+  ],
+  "Bunocephalus doriae": [
+    "Bunocephalus doriai",
+    "Bunocephalus retropinnis",
+    "Dysichthys doriae"
+  ],
+  "Bunocephalus knerii": [],
+  "Bunocephalus larai": [],
+  "Bunocephalus verrucosus": [
+    "Agmus lyriformis",
+    "Agmus scabriceps",
+    "Aspredo gronovii",
+    "Aspredo verrucosa",
+    "Bunocephalichthys gronovii",
+    "Bunocephalichthys verrucosus",
+    "Bunocephalus gronovii",
+    "Bunocephalus scabriceps",
+    "Platystacus verrucosus",
+    "Silurus verrucosus"
   ],
   "Butis amboinensis": [
     "Butis ambionensis",
@@ -2254,6 +2294,13 @@
     "Pelmatochromis macrops",
     "Pelmatochromis xenotilapiaformis",
     "Tylochromis macrophthalmus"
+  ],
+  "Callochromis pleurospilus": [
+    "Callochromis rhodostigma",
+    "Callochromis stappersii",
+    "Pelmatochromis pleurospilus",
+    "Pelmatochromis rhodostigma",
+    "Pelmatochromis stappersii"
   ],
   "Caloglossa beccarii": [],
   "Cambarellus diminutus": [],
@@ -2429,6 +2476,11 @@
   "Centrochir crocodili": [
     "Doras crocodili",
     "Doras longispinis"
+  ],
+  "Centrodoras brachiatus": [
+    "Doras brachiatus",
+    "Oxydoras amazonum",
+    "Rhinodoras amazonum"
   ],
   "Centromochlus heckelii": [
     "Auchenipterus heckelii",
@@ -2733,6 +2785,7 @@
     "Tetrodon dissutidens",
     "Tetrodon patoca"
   ],
+  "Cherax alyciae": [],
   "Cherax boesemani": [],
   "Cherax holthuisi": [],
   "Cherax lorentzi": [
@@ -2869,6 +2922,13 @@
     "Cichlasoma gordonsmithi",
     "Cichlasoma mojarra",
     "Heros trimaculatus"
+  ],
+  "Ciliopagurus strigatus": [
+    "Aniculus strigatus",
+    "Cancer strigatus",
+    "Pagurus annulipes",
+    "Pagurus strigatus",
+    "Trizopagurus strigatus"
   ],
   "Cincelichthys bocourti": [
     "Cichlasoma bocourti",
@@ -3903,6 +3963,9 @@
   "Devario affinis": [
     "Perilampus affinis"
   ],
+  "Devario annandalei": [
+    "Danio annandalei"
+  ],
   "Devario apogon": [
     "Danio apogon"
   ],
@@ -4091,6 +4154,9 @@
   ],
   "Duopalatinus peruanus": [
     "Duopalatinus puruanus"
+  ],
+  "Dupouyichthys sapito": [
+    "Dupuoyichthys sapito"
   ],
   "Echinodorus angustifolia": [],
   "Echinodorus cordifolius": [
@@ -4660,6 +4726,9 @@
     "Fundulus caeruleus",
     "Fundulus sjostedti",
     "Fundulus zimmeri"
+  ],
+  "Fundulopanchax spoorenbergi": [
+    "Aphyosemion spoorenbergi"
   ],
   "Fundulopanchax walkeri": [
     "Aphyosemion litoriseborus",
@@ -5542,6 +5611,7 @@
   "Hoplias aimara": [
     "Macrodon aimara"
   ],
+  "Hoplias curupira": [],
   "Hoplias macrophthalmus": [],
   "Hoplias malabaricus": [
     "Erythrinus macrodon",
@@ -5557,6 +5627,8 @@
   "Hoplias teres": [
     "Macrodon teres"
   ],
+  "Hoplomyzon papillatus": [],
+  "Hoplomyzon sexpapilostoma": [],
   "Hoplosternum magdalenae": [],
   "Hoplosternum punctatum": [],
   "Horabagrus brachysoma": [
@@ -5883,6 +5955,7 @@
   "Hypostomus regani": [
     "Plecostomus regani"
   ],
+  "Hypostomus rhantos": [],
   "Hypostomus roseopunctatus": [],
   "Hypostomus sculpodon": [],
   "Hypostomus soniae": [],
@@ -6335,6 +6408,18 @@
   "Leiocassis micropogon": [
     "Bagrus micropogon"
   ],
+  "Leiodon cutcutia": [
+    "Leisomus cutcutia",
+    "Leisomus marmoratus",
+    "Monotreta gularis",
+    "Monotrete cutcutia",
+    "Monotretus cutcutia",
+    "Tetracon cutcutia",
+    "Tetraodon cutcutia",
+    "Tetrodon caria",
+    "Tetrodon cutcutia",
+    "Tetrodon gularis"
+  ],
   "Lentipes ikeae": [],
   "Lepidiolamprologus attenuatus": [
     "Lamprologus attenuatus",
@@ -6634,6 +6719,18 @@
   "Lestradea perspicax": [
     "Lestradea perpicax"
   ],
+  "Leucaspius delineatus": [
+    "Aspius ovsianka",
+    "Aspius owsianka",
+    "Cyprinus fischeri",
+    "Cyprinus pallasii",
+    "Leucaspius abruptus",
+    "Leucaspius relictus",
+    "Leuciscus pigmeus",
+    "Owsianka czernayi",
+    "Phoxinellus thracicus",
+    "Squalius delineatus"
+  ],
   "Lilaeopsis brasiliensis": [
     "Lilaeopsis minor",
     "Crantzia brasiliensis"
@@ -6743,6 +6840,17 @@
     "Lisomadoras oncinus"
   ],
   "Listrura nematopteryx": [],
+  "Lithopoma tectum": [
+    "Astraea imbricata",
+    "Astraea olfersii",
+    "Astralium guadeloupense",
+    "Astralium imbricata",
+    "Trochus corolla",
+    "Trochus imbricatus",
+    "Trochus olfersii",
+    "Trochus tectus",
+    "Trochus tuberosus"
+  ],
   "Lithoxus lithoides": [],
   "Littorella uniflora": [
     "Litorella lacustris",
@@ -7444,6 +7552,9 @@
   "Micranthemum glomeratum": [
     "Hemianthus glomeratus"
   ],
+  "Micranthemum tweedei": [
+    "Micranthemum tweediei"
+  ],
   "Micranthemum tweediei": [
     "Micranthemum tweedei"
   ],
@@ -7602,6 +7713,9 @@
   "Moema quiii": [],
   "Moenkhausia agnesae": [],
   "Moenkhausia ceros": [],
+  "Moenkhausia copei": [
+    "Tetragonopterus copei"
+  ],
   "Moenkhausia costae": [
     "Tetragonopterus costae"
   ],
@@ -7617,6 +7731,9 @@
   ],
   "Moenkhausia sanctaefilomenae": [
     "Tetragonopterus sanctaefilomenae"
+  ],
+  "Moenkhausia simulata": [
+    "Astyanax simulatus"
   ],
   "Mogurnda adspersa": [
     "Eleotris adspersa"
@@ -8105,6 +8222,11 @@
     "Labeobarbus stracheyi",
     "Tor stracheyi"
   ],
+  "Neopetrolisthes maculatus": [
+    "Neopetrolisthes ohshimai",
+    "Petrolisthes ohshimai",
+    "Porcellana maculata"
+  ],
   "Neoplecostomus microps": [
     "Plecostomus microps"
   ],
@@ -8229,6 +8351,14 @@
     "Aphyosemion guentheri",
     "Fundulus guentheri",
     "Notobranchius guentheri"
+  ],
+  "Nothobranchius palmqvisti": [
+    "Fundulopanchax palmquisti",
+    "Fundulus palmquisti",
+    "Fundulus palmqvisti",
+    "Nothobranchius palmquesti",
+    "Nothobranchius palmquisti",
+    "Notobranchius palmquisti"
   ],
   "Nothobranchius pienaari": [],
   "Nothobranchius rachovii": [
@@ -8923,6 +9053,10 @@
   "Paracheirodon simulans": [
     "Cheirodon simulans",
     "Hyphessobrycon simulans"
+  ],
+  "Parachromis loisellei": [
+    "Cichlasoma loisellei",
+    "Nandopsis loisellei"
   ],
   "Parachromis managuensis": [
     "Cichlasoma managuense",
@@ -9960,6 +10094,24 @@
     "Bunocephalus amazonicus",
     "Dysichthys amazonicus"
   ],
+  "Pseudobunocephalus bifidus": [
+    "Bunocephalus bifidus",
+    "Dysichthys bifidus"
+  ],
+  "Pseudobunocephalus iheringii": [
+    "Bunocephalus carvalhoi",
+    "Bunocephalus hildebrandi",
+    "Bunocephalus iheringi",
+    "Bunocephalus minutus",
+    "Bunocephalus salathei",
+    "Dysichthys carvalhoi",
+    "Dysichthys minutus"
+  ],
+  "Pseudobunocephalus quadriradiatus": [
+    "Bunocephalus quadriradiatus",
+    "Dysichthys quadriradiatus"
+  ],
+  "Pseudobunocephalus timbira": [],
   "Pseudochalceus kyburzi": [],
   "Pseudocrenilabrus multicolor": [
     "Chromis multicolor",
@@ -10026,6 +10178,7 @@
     "Popondichthys furcatus"
   ],
   "Pseudomugil gertrudae": [],
+  "Pseudomugil ivantsoffi": [],
   "Pseudomugil luminatus": [],
   "Pseudomugil pellucidus": [],
   "Pseudomugil signifer": [
@@ -10127,6 +10280,10 @@
     "Bunocephalus albifasciatus",
     "Bunocephalus albofasciatus",
     "Bunocephalus depressus"
+  ],
+  "Pterobunocephalus dolichurus": [
+    "Bunocephalus dolichurus",
+    "Petacara dolichurus"
   ],
   "Pterodoras granulosus": [
     "Doras granulosus",
@@ -10519,6 +10676,7 @@
     "Rhodeus pingi",
     "Rhodeus wangkinfui"
   ],
+  "Rhynchocinetes durbanensis": [],
   "Rhynchodoras woodsi": [
     "Rhyncodoras woodsi"
   ],
@@ -11017,6 +11175,12 @@
   ],
   "Serrasalmus geryi": [],
   "Serrasalmus gouldingi": [],
+  "Serrasalmus humeralis": [
+    "Salmo tizoura",
+    "Serrasalmo humeralis",
+    "Serrasalmo iridopsis",
+    "Serrasalmus iridopsis"
+  ],
   "Serrasalmus maculatus": [
     "Pygocentrus melanurus",
     "Serrasalmus aesopus"
@@ -11602,6 +11766,10 @@
   "Thiara cancellata": [
     "Melania setosa"
   ],
+  "Thor amboinensis": [
+    "Hippolyte amboinensis",
+    "Thor discosomatis"
+  ],
   "Thoracocharax stellatus": [
     "Gasteropelecus stellatus",
     "Gastropelecus stellatus",
@@ -11651,12 +11819,16 @@
     "Sciaena jaculatrix",
     "Toxotes jaculator"
   ],
+  "Toxotes siamensis": [],
   "Traccatichthys taeniatus": [
     "Micronemacheilus taeniatus",
     "Micronoemacheilus taeniatus"
   ],
   "Trachelyichthys decaradiatus": [],
   "Trachelyichthys exilis": [],
+  "Trachelyopterichthys taeniatus": [
+    "Trachelyopterus taeniatus"
+  ],
   "Trachelyopterus fisheri": [
     "Parauchenipterus fisheri",
     "Trachycorystes fisheri"
@@ -12177,7 +12349,14 @@
   "Xiurenbagrus xiurenensis": [
     "Liobagrus xiurenensis"
   ],
+  "Xyliphius barbatus": [
+    "Xyliphius labrosus",
+    "Xyliphius lombarderoi"
+  ],
   "Xyliphius lepturus": [],
+  "Xyliphius melanopterus": [
+    "Xiliphius melanopterus"
+  ],
   "Yaoshania pachychilus": [
     "Protomyzon pachychilus"
   ],

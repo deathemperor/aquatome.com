@@ -1,0 +1,61 @@
+{
+  "id": "youtube-aeFihDELYM8",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=aeFihDELYM8",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-24",
+  "video": {
+    "youtubeId": "aeFihDELYM8",
+    "title": "AQUARIUMS ARE STUPID! But They Don't Have To Be! Here's How! T.O.O.L. Ep. 1",
+    "channel": "KGTropicals",
+    "channelUrl": "https://www.youtube.com/channel/UCyyGJeKITfR7Y5cq2zX4-oQ",
+    "durationSec": 601,
+    "publishedAt": "2020-01-05",
+    "chapters": [],
+    "series": {
+      "id": "PLbk3wN8TF_D0ryKutiv7U8FCu9loq_PSI",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/aeFihDELYM8/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Pterygoplichthys sp."
+    ],
+    "gear": [
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Turbo Start",
+        "t": 232
+      },
+      {
+        "category": "khac",
+        "brand": "API",
+        "model": "Quick Start",
+        "t": 232
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Vi sinh làm gì trong bể",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/aeFihDELYM8/p1-Z2VuQ3ljbGUucG5n.webp",
+          "thumb": "https://media.aquatome.com/video/aeFihDELYM8/p1-Z2VuQ3ljbGUucG5n-480.webp",
+          "width": 960,
+          "height": 619,
+          "licence": "CC BY 2.5",
+          "author": "w:pl:Wikipedysta:Lukas3",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium-NitrogenCycle.png",
+          "caption": "Sơ đồ chu trình đạm trong bể: amoniac thành nitrit rồi nitrat, cây hút nitrat."
+        }
+      }
+    ]
+  }
+}

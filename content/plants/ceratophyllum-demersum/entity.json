@@ -3,11 +3,11 @@
   "scientificName": "Ceratophyllum demersum",
   "difficulty": 1,
   "light": "medium",
-  "co2": "none",
+  "co2": "optional",
   "growth": "fast",
   "placement": [
-    "floating",
-    "background"
+    "background",
+    "floating"
   ],
   "sections": [
     {
@@ -23,6 +23,12 @@
       "html": "<p>Hornwort is a popular aquatic plant for both fish tanks and outdoor ponds because of its fluffy-looking stems, extremely fast growth, and ability to consume excess nutrients from the water. Ceratophyllum demersum is known by many common names, such as rigid hornwort, hornwart (a frequent misspelling), and coontail. It grows very tall in the wild and will easily reach the top of an aquarium or pond. Normally it is found floating at the water surface, but when planted in the substrate, it looks like a fluffy underwater bush with many long branches or side stems. The bright green leaves are thin and rigid, similar to pine needles. Much like water sprite and java moss, hornwort has dense foliage that provides excellent protection for baby fish and shrimp.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/hornwort-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>Common name: Hornwort (also Foxtail)</li><li>Scientific name: Ceratophyllum demersum</li><li>Minimum tank size: 60 litres</li><li>Lighting: Medium</li><li>Water hardness: very soft to very hard (3–17 dGH for optimal growth)</li><li>Substrate: not needed</li><li>Growth rate: moderate to high</li><li>Placement: background / floating</li><li>Height: up to 1–2 m</li><li>Fertilizer: not needed to low</li><li>CO2: not needed to low</li><li>Propagation: side shoots and cuttings</li></ul>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "aquatome",
       "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
@@ -30,6 +36,12 @@
       "refs": [
         0
       ]
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/hornwort-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Hornwort is widely available in most pet and aquarium stores and is inexpensive. One bunch should be enough for a 60-litre tank; there is no need to buy a lot, because in a month or two you will have more than enough.</p><ul><li>Healthy Hornwort is bushy, with stems thickly covered in needles, and bright and vibrant. Avoid plants with few, sparse needles.</li><li>Leaves should be uniformly green. Avoid plants with discoloration or brown or yellow patches.</li></ul><p>Quarantine or sterilize new plants before putting them in the tank (bleach to get rid of parasites and alum to eliminate snails). They can carry parasites, pests such as snails, or even predators (dragonfly and damselfly nymphs and so on), and may have been treated with pesticides, which are extremely poisonous to fish, shrimp and other invertebrates. Never treat Hornwort with peroxide, as it will shed all its needles at once, although it should survive.</p>"
     },
     {
       "key": "distribution",
@@ -47,6 +59,24 @@
       ]
     },
     {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/hornwort-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Ceratophyllum demersum is native to North America and has spread to all other continents (Africa, Asia, Australia, Europe and South America) except Antarctica. It is a cosmopolitan, completely submersed plant found in freshwaters, commonly in ponds, lakes, ditches and quiet streams with moderate to high nutrient levels. It belongs to the family Ceratophyllaceae (order Ceratophyllales).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/hornwort-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Hornwort inhabits slow-moving waters – streams, marshes, ditches, lakes, ponds and other wetlands or humid areas. It can be seen growing on tree trunks and bark in tropical rainforests. It is a perennial, hardy plant that tolerates a wide range of water conditions.</p><p>In recent times it has been declared an invasive species because it spreads easily. In New Zealand, for example, it has out-competed native plants and is known to disrupt hydroelectric power plants.</p><p>In the wild, during autumn Hornwort develops buds that sink to the bottom and grow into new plants in spring. In nature it tolerates large pH fluctuations (from 6.5 to 10.2, with high values in spring and summer).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/hornwort-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Hornwort is not a good option for nano tanks. The recommended minimum tank size is 60 litres. A larger tank is better because the plant grows fast and can get out of control; in a small tank it will outgrow the tank and can 'choke' other plants.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/hornwort-care",
@@ -62,6 +92,12 @@
       ]
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/hornwort-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Hornwort grows extremely fast, so trim it regularly to stop it spreading everywhere and overstuffing the tank. Trim overgrown stems with trimming scissors and dispose of the trimmings or keep them for replanting.</p><p>Because it absorbs a lot of nutrients, liquid fertilizer is recommended to make up for its high requirements. Keep the plant away from the filter so dropped needles do not get stuck in it. Collect dropped needles during regular water changes; leaving them in the tank disrupts the water chemistry and can breed harmful organisms. Watch for signs of nutrient deficiency and address them accordingly.</p><p>Hornwort can be planted floating on the surface (free-floating) or 'rooted'. Although it produces no roots, near the bottom it forms modified leaves that anchor it to the sediment, and sometimes it forms dense mats just below the surface. Do not try to root it in the substrate: the buried part decays and, at best, you get bare strings with bushy tops. It does much better floating in large bunches. To float it, simply place it in the water and give it time to settle and grow; suction cups can hold it on the tank walls.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "aquatome",
       "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
@@ -71,16 +107,40 @@
       ]
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/hornwort-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Temperature: the plant survives a wide range of temperatures, but temperature is one of the most important factors for growth. Hornwort can grow 1–2 cm a day. For the best growth, keep the water at about 18–30°C, with around 24–27°C optimal. Check it regularly with a thermometer.</p><p>pH: optimal pH is between 6.0 and 8.0. Test it with a pH test kit at least once a week.</p><p>Hardness: Hornwort thrives in soft to hard water; for optimal growth keep hardness at 3–17 dGH.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/hornwort-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Lighting: under proper light Hornwort grows visibly fast. It thrives best under medium lighting; avoid too weak or too strong light. LED lighting is the best choice, for about 10–12 hours per day.</p><p>Substrate: Hornwort does not need any substrate. Keeping it in the substrate can be a real problem, especially if the plant has not developed its 'anchors' yet. Do not push the stems into sand or soil, as that part will simply rot away. You can weigh the plant down with something else or use suction cups.</p><p>Fertilizer and CO2: because it grows so fast, the plant takes up a lot of nutrients and depletes the tank's supply, so weekly fertilizer is recommended. It appreciates nitrogen- and iron-based fertilizers most. Adding CO2 is not compulsory but helps the Hornwort and other plants; do not overdo it.</p><p>If you keep shrimp, note that a high level of CO2 and copper (most fertilizers contain copper) is extremely dangerous to shrimp. Hornwort is also sensitive to copper, so choose shrimp-safe plant fertilizers.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/hornwort-care",
       "html": "<p>Aquarium snails are detritivores and do not eat healthy plants but rather dying leaves and other organic debris. In general, plant-eating animals (such as goldfish, koi, African cichlids and turtles) do not eat hornwort. Possible reasons are the slightly serrated leaves, hard texture, or taste. The leaves have small bumps that give a slightly spiky texture.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/hornwort-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Hornwort is a big plant that usually floats and blocks a lot of light, so it is compatible only with plants that survive in low light, for example Java moss, American water weed, Anubias, Java fern, Vallisneria and Sagittaria. Other floating plants are not recommended alongside it, to avoid overcrowding and competition; duckweed can even outcompete Hornwort for light and nutrients.</p><p>It is suitable for community tanks with freshwater fish and invertebrates. The leaves are hardy and not smooth, so animals have a difficult time nibbling them, and fish use the plant for egg-laying, mating, hiding and so on. It can be kept with:</p><ul><li>Fish, for example bettas, tetras, mollies, zebra danios, platies and guppies.</li><li>Snails, for example ramshorn, nerite, Malaysian trumpet, Japanese trapdoor and mystery snails.</li><li>Shrimp: all Neocaridina varieties (red cherry, blue velvet, snowball, black rose, orange sakura, green jade, rili and others) and Caridina species (crystal red, Caridina cf. babaulti, blue tiger and others), amano, ghost, bamboo and vampire shrimp.</li></ul><p>Avoid keeping it with gouramis, oscars, goldfish and herbivorous cichlids, which can damage the plant.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/hornwort-care",
       "html": "<p>In the wild, hornwort can form little buds that drop to the ground during the cold season and sprout when the weather warms. In aquariums, the most common method of propagation is to cut off a side shoot or trim off the top of a tall stem. Any segment of hornwort will quickly become a new plant if left to float at the surface or planted in the ground.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/hornwort-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Hornwort propagates by vegetative fragmentation: part of the parent plant separates and grows into a new independent plant, and the main stem also grows side shoots or buds that may detach and keep growing. In the aquarium, cut off stems and let them float on the surface; stems from regular trimmings can be used. After some time they develop into new plants. It does not matter where you cut: you can cut it into 2 or 3 parts and it will still survive.</p>"
     },
     {
       "key": "notes",
@@ -93,6 +153,12 @@
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/hornwort-care",
       "html": "<p>Hornwort sheds needles whenever there is a major change in water parameters or it is kept in an unfavorable environment, such as strong currents, not enough light (especially at the base of planted stems), lack of nutrients, or dosing of certain chemicals like liquid carbon. This most often happens when first added to a tank. Don't throw away the plant; wait for it to recover and it will quickly grow new leaves and shoots. Gravel vacuum the fallen leaves to prevent excess nutrients building up.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/hornwort-care-guide-planting-growing-and-propagation/",
+      "html": "<p>The name Ceratophyllum demersum comes from the Greek 'keras' (horn) and 'phyllon' (leaf), and the Latin 'demersus', meaning underwater.</p><p>Hornwort is green to yellowish, with needle-like filamentous leaves on tall, slender stems about 2 mm in diameter. It has no true roots; the base bears root-like leaves, and rhizoids help anchor it. In nature it can grow 1–3 m tall. Leaves are small and produced in whorls of six up to a dozen. Male and female flowers occur on the same plant; they are tiny and inconspicuous (about 2 mm) with brown petals, and give rise to an ovoid fruit about 4 mm in size.</p><p>Benefits in the aquarium:</p><ul><li>Aquascape: not suitable for an Iwagumi layout, but an excellent decorative addition to a jungle aquascape.</li><li>Removes excess nutrients: absorbs nitrate, CO2, ammonia and phosphates from fish waste, decaying plant matter and tap water, and absorbs heavy metals. In experiments it reduced ammonium and nitrate by more than 62% and 41.66% in 6–18 days; young plants remove nutrients more efficiently than older ones.</li><li>Clears cloudy water.</li><li>Helps control algae: it excretes substances that inhibit blue-green algae and phytoplankton.</li><li>Provides cover and shade for fish, fry, shrimp and shrimplets.</li><li>Acts as a foraging place rich in biofilm, an ideal first food for newly hatched fry and shrimplets.</li><li>Oxygenates and aerates the water.</li></ul><p>It is also used as a model organism in plant physiology studies.</p><p>Common problems:</p><ul><li>Turning brown: brown, bronze or copper tips are often due to too much light. Reduce the light, trim affected leaves and check that the water is not hotter than 30°C.</li><li>Needle shedding: often happens when the plant is first introduced and gradually decreases. If it lasts a long time, it may be due to a lack of nutrients or excessive light.</li><li>Brittle leaves: the leaves are easily damaged during maintenance.</li><li>Yellow leaves: caused by a lack of soluble iron or insufficient light.</li><li>Overgrowth: the plant fills the tank easily and needs regular trimming.</li><li>Do not use aquarium salt, or the plant loses all its needles. Hornwort is also very sensitive to peroxide, which makes it shed all its needles at once, although it should survive.</li></ul><p>Some aquarists report that Hornwort starts dying right after purchase. Possible causes: transplant shock (give it time); a lack of nutrients in the water; or 'wild' Hornwort collected from a nearby lake or pond, which can behave strangely and sometimes cannot adapt to the aquarium.</p>"
     }
   ],
   "photos": [
@@ -206,7 +272,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09",
+  "updatedAt": "2026-11-20",
   "refs": [
     {
       "url": "https://www.youtube.com/watch?v=5K1_KCFudYM",

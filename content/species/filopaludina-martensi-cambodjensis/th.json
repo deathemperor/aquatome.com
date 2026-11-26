@@ -1,0 +1,31 @@
+{
+  "slug": "filopaludina-martensi-cambodjensis",
+  "name": "Filopaludina martensi cambodjensis",
+  "altNames": [
+    "หอยขม",
+    "หอยขมไทย",
+    "Thai Trapdoor Snail",
+    "Trapdoor Snail",
+    "Filopaludina"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>หอยในวงศ์ Viviparidae ทั่วไปที่มีลักษณะเฉพาะของวงศ์นี้ครบถ้วน Filopaludina (Siamopaludina) martensi cambodjensis โตได้ยาวประมาณ 4 ซม.</p>",
+    "diet:glaser": "<p>หอยชนิดนี้ไม่ได้เป็นหอยกินตะไคร่โดยตรง แต่กินสิ่งมีชีวิตและคราบที่เกาะตามพื้นผิว (Aufwuchs) และเศษตะกอนอินทรีย์ (detritus) ในตู้เลี้ยง อาหารเม็ดสำหรับปลาสวยงามเป็นอาหารที่ให้หอยชนิดนี้ได้อย่างวางใจได้</p>",
+    "dimorphism:glaser": "<p>หอยชนิดนี้มีเพศผู้และเพศเมียแยกกัน เพศผู้สังเกตได้จากหนวดข้างหนึ่งที่มีรูปร่างเปลี่ยนไป</p>",
+    "reproduction:glaser": "<p>หอยชนิดนี้ออกลูกเป็นตัว</p>",
+    "notes:glaser": "<p>หอยชนิดนี้หายใจด้วยเหงือก ไม่ได้หายใจด้วยปอด จึงใช้ออกซิเจนที่ละลายอยู่ในน้ำในการหายใจเช่นเดียวกับปลา นับเป็นครั้งแรกที่มีการนำเข้าหอยชนิดนี้จากประเทศไทย</p>"
+  },
+  "quality": {
+    "score": 0.7,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.7
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-22"
+  }
+}

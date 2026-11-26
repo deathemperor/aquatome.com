@@ -3,6 +3,12 @@
   "name": "ควังโก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T11:52:40.031Z",
+    "why": "ควังโก is a Thai transliteration of Kwango, but it omits the kind word for a region/province, which Thai atlases write as \"จังหวัด\" (ควังโก is a province of the DR Congo), and the source sentence refers to the Kwango River, not the region."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

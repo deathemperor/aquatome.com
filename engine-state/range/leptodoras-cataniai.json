@@ -1,8 +1,8 @@
 {
   "id": "leptodoras-cataniai",
   "native": {
-    "input": "d115b39d46e3fea3",
-    "at": "2026-11-09T16:24:16.651Z",
+    "input": "678ce060d746623a",
+    "at": "2026-11-21T01:22:16.258Z",
     "claims": [
       {
         "code": "BR",
@@ -35,6 +35,14 @@
         "quote": "South America: Rio Negro/Casiquiare Canal in Brazil and Venezuela.",
         "words": "Venezuela",
         "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "doubtful",
+        "source": "glaser",
+        "quote": "Leptodoras cf. cataniai originates from the Rio Nanay in Peru.",
+        "words": "Peru",
+        "ok": true
       }
     ],
     "regions": [
@@ -45,28 +53,24 @@
         "ok": true
       },
       {
-        "name": "Casiquiare Canal",
+        "name": "Casiquiare",
         "source": "planetcatfish",
         "quote": "South America: Rio Negro/Casiquiare Canal in Brazil and Venezuela.",
         "ok": true
       },
       {
-        "name": "Rio Negro",
-        "source": "scotcat",
-        "quote": "South America: Rio Negro/Casiquiare Canal in Brazil and Venezuela.",
-        "ok": true
-      },
-      {
-        "name": "Casiquiare Canal",
-        "source": "scotcat",
-        "quote": "South America: Rio Negro/Casiquiare Canal in Brazil and Venezuela.",
+        "name": "Rio Casiquiare",
+        "source": "glaser",
+        "quote": "Except for the area of origin, the appearance fits very well to L. cataniai, which was described from the Rio Casiquiare, the connecting river of Orinoco and Rio Negro.",
         "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "PE"
+      ],
       "sourcesOnly": []
     }
   },

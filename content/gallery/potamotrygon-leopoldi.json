@@ -62,6 +62,18 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/514023049.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/514023049-480.webp",
+      "width": 1024,
+      "height": 680,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/514023049",
+      "caption": "Cá đuối Black Diamond non nằm yên trên cát",
+      "best": false,
+      "kind": "juvenile"
+    },
+    {
       "url": "https://media.aquatome.com/commons/b214fc58344319df.webp",
       "thumb": "https://media.aquatome.com/commons/b214fc58344319df-480.webp",
       "width": 1000,
@@ -72,6 +84,18 @@
       "caption": "Cá đuối Black Diamond đốm vòng vàng trên nền cát",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/514023048.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/514023048-480.webp",
+      "width": 1024,
+      "height": 680,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/514023048",
+      "caption": "Cá đuối Black Diamond non đốm vàng trên nền cát",
+      "best": false,
+      "kind": "juvenile"
     },
     {
       "url": "https://media.aquatome.com/commons/c9c69b6db3c6732f.webp",
@@ -98,18 +122,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/514023049.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/514023049-480.webp",
-      "width": 1024,
-      "height": 680,
-      "licence": "CC BY",
-      "author": "Matthew Inabinett",
-      "sourceUrl": "https://www.inaturalist.org/photos/514023049",
-      "caption": "Cá đuối Black Diamond non nằm yên trên cát",
-      "best": false,
-      "kind": "juvenile"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/423975534.webp",
       "thumb": "https://media.aquatome.com/inaturalist/423975534-480.webp",
       "width": 1024,
@@ -122,18 +134,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/514023048.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/514023048-480.webp",
-      "width": 1024,
-      "height": 680,
-      "licence": "CC BY",
-      "author": "Matthew Inabinett",
-      "sourceUrl": "https://www.inaturalist.org/photos/514023048",
-      "caption": "Cá đuối Black Diamond non đốm vàng trên nền cát",
-      "best": false,
-      "kind": "juvenile"
-    },
-    {
       "url": "https://media.aquatome.com/commons/2696edf68c0d775d.webp",
       "thumb": "https://media.aquatome.com/commons/2696edf68c0d775d-480.webp",
       "width": 1200,
@@ -144,6 +144,19 @@
       "caption": "Cá đuối Black Diamond đốm vàng trong bể ánh xanh",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/3649554702.webp",
+      "thumb": "https://media.aquatome.com/flickr/3649554702-480.webp",
+      "width": 1024,
+      "height": 681,
+      "licence": "CC BY 2.0",
+      "author": "Just chaos",
+      "sourceUrl": "https://www.flickr.com/photos/7326810@N08/3649554702",
+      "caption": "Nhóm cá đuối Black Diamond đốm trắng trong bể nuôi",
+      "best": true,
+      "kind": "group",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/11721610.webp",
@@ -254,6 +267,19 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/flickr/2113034876.webp",
+      "thumb": "https://media.aquatome.com/flickr/2113034876-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA 2.0",
+      "author": "Ryan Somma",
+      "sourceUrl": "https://www.flickr.com/photos/14405058@N08/2113034876",
+      "caption": "Cá đuối Black Diamond nằm trên nền sỏi trong bể kính",
+      "best": true,
+      "kind": "other",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/commons/d03c9c191cc38367.webp",
       "thumb": "https://media.aquatome.com/commons/d03c9c191cc38367-480.webp",
       "width": 1200,
@@ -266,7 +292,7 @@
       "kind": "other"
     }
   ],
-  "seen": 40,
-  "updatedAt": "2026-11-04",
-  "builtAt": "2026-11-04"
+  "seen": 44,
+  "updatedAt": "2026-11-20",
+  "builtAt": "2026-11-20"
 }

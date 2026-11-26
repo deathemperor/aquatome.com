@@ -3,6 +3,12 @@
   "name": "กาตาลุญญา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.35,
+    "at": "2026-11-21T01:18:14.934Z",
+    "why": "The standard Thai name for Catalonia is \"กาตาลุญญา\" in Royal Institute usage? Atlases in Thailand typically write \"กาตาลุญญา\" or \"คาตาลุญญา\"; the form given is a plausible transliteration, but the usual Thai form is \"กาตาลุญญา\"/\"กาตาโลเนีย\", so confidence is moderate."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

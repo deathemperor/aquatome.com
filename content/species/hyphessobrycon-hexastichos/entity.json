@@ -1,0 +1,158 @@
+{
+  "id": "hyphessobrycon-hexastichos",
+  "scientificName": "Hyphessobrycon hexastichos",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Hyphessobrycon",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-tapajos"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tapajós"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "H. hexastichos occurs exclusively in the upper catchment area of the Rio Tapajós in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Tapajós"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354630,
+      "total": 13,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "BR",
+          13
+        ]
+      ],
+      "cells": [
+        [
+          -60.46875,
+          -14.0625,
+          13,
+          13
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-hexastichos-2/",
+      "html": "<p>This pretty tetra is a double of the very similarly colored species Moenkhausia agnesae. It remains however with 5.5 cm length smaller than M. agnesae, which becomes nearly 7 cm long.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-hexastichos-2/",
+      "html": "<p>H. hexastichos occurs exclusively in the upper catchment area of the Rio Tapajós in Brazil.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-hexastichos-2/",
+      "html": "<p>H. hexastichos is not as quarrelsome as M. agnesae.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/2a224ab33cb797d0.webp",
+      "thumb": "https://media.aquatome.com/glaser/2a224ab33cb797d0-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-hexastichos-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/3f5be6e0a9f7d6ae.webp",
+      "thumb": "https://media.aquatome.com/glaser/3f5be6e0a9f7d6ae-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-hexastichos-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/6eb1c0ef8f7653ef.webp",
+      "thumb": "https://media.aquatome.com/glaser/6eb1c0ef8f7653ef-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-hexastichos-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/4b16be27f905c989.webp",
+      "thumb": "https://media.aquatome.com/glaser/4b16be27f905c989-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-hexastichos-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "2xqXwZBDDDY",
+      "title": "Hyphessobrycon hexastichos",
+      "durationSec": 44,
+      "lang": "de-DE"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá thủy sinh 60cm",
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá tetra",
+        "thức ăn cá nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-20"
+}

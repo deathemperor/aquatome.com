@@ -3,6 +3,12 @@
   "name": "Lembah Retakan Yordan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-23T01:46:36.165Z",
+    "why": "Indonesian usage is \"Lembah Rift Yordan\" (also \"Lembah Retakan Yordan\" is a rare calque); \"Retakan\" translates \"Rift\" word by word, whereas atlases keep the term \"Rift\" or use \"Lembah Celah Yordan\"."
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

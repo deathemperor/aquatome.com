@@ -21,15 +21,16 @@
     "native": {
       "countries": [
         "ID",
-        "MY",
-        "TH"
+        "TH",
+        "MY"
       ],
       "regions": [
-        "Solo",
         "Java",
         "Sumatra",
         "Borneo",
-        "Rajang"
+        "Rajang",
+        "Mahakam",
+        "Solo"
       ],
       "sources": [
         "seriouslyfish",
@@ -43,16 +44,17 @@
             "ID"
           ],
           "regions": [
-            "Solo",
-            "Rajang"
+            "Rajang",
+            "Mahakam",
+            "Solo"
           ]
         },
         {
           "source": "seriouslyfish",
           "quote": "The Asian banjo catfish, Acrochordonichthys rugosus, is an akysid catfish from Java, Sumatra, Borneo, Peninsular Malaysia and southern Thailand.",
           "countries": [
-            "MY",
-            "TH"
+            "TH",
+            "MY"
           ],
           "regions": [
             "Java",
@@ -213,6 +215,18 @@
       "html": "<ul><li>Family: Akysidae</li><li>Size: 12.0 cm</li><li>Temperature: 18-24°C</li><li>pH: 6.7-7.2</li><li>IUCN Red List: Least Concern (2019)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/acrochordonichthys-rugosus-2/",
+      "html": "<p>Acrochordonichthys rugosus is a moth catfish (Akysidae) from Southeast Asia. It is widespread and has long been known to science, but is only rarely exported as an aquarium fish. It is polychromatic: many different patterns occur within the same population. This is neither a sexual characteristic nor a question of age, but simply individual.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/acrochordonichthys-rugosus-2/",
+      "html": "<p>When transporting A. rugosus one should be a little careful. Strongly stressed animals can secrete a milky secretion from a gland, which has a poisonous effect on some fish and can possibly be fatal in the comparatively small water volume of a transport bag. However, there is no observation of deaths in community aquariums in which A. rugosus is kept. The secretion therefore probably serves to ward off predators.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acrochordonichthys-rugosus",
@@ -235,6 +249,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/akysidae/acrochordonichthys_rugosus.htm",
       "html": "<p>Inhabits clear, swiftly flowing forested streams with pH of 7 and sandy or rocky bottoms. Hides under submerged logs or rocks with some leaf litter in the swifter parts of the stream.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/acrochordonichthys-rugosus-2/",
+      "html": "<p>The fish has only small, barely functional eyes and is strictly nocturnal in nature, living hidden in dead leaves in dark waters. It can therefore be assumed that the colouring plays no role in intraspecific communication.</p>"
     },
     {
       "key": "aquariumSize",
@@ -271,6 +291,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acrochordonichthys-rugosus",
       "html": "<p>There is an inherent chemical risk in maintaining members of this genus alongside other species (see 'notes') and smaller tankmates will obviously be consumed, so they aren't particularly recommendable community fishes. Larger set-ups containing schools of sufficiently-sized, non-aggressive species which enjoy slightly cool, flowing water such as many members of Devario or the Rasbora sumatrana species group thus constitute the most sensible choices. Other substrate-dwellers can also be kept provided they're large enough to evade predation and non-territorial. Though not really gregarious this species is not aggressive towards conspecifics too large to swallow and can therefore be maintained in a group.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/acrochordonichthys-rugosus-2/",
+      "html": "<p>In behaviour A. rugosus resembles the banjo catfish. Often the fish rest for hours and days at the same spot. If the keeper is worried and pushes the animals to see if they are still alive, they show the same defensive behaviour as banjo catfish: they place the tail fin at the tip of the snout.</p><p>The close relationship of the banjo catfish (Aspredinidae) and the moth catfish (Akysidae), to which A. rugosus belongs, is obvious, but South America and Southeast Asia separated 100 million years ago, and in Africa in between there is no catfish known that is closely related to the two groups.</p>"
     },
     {
       "key": "dimorphism",
@@ -314,6 +340,36 @@
       "sourceUrl": "https://www.scotcat.com/akysidae/acrochordonichthys_rugosus.htm",
       "caption": "Acrochordonichthys rugosus",
       "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/242e56bbe0a0414c.webp",
+      "thumb": "https://media.aquatome.com/glaser/242e56bbe0a0414c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/acrochordonichthys-rugosus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ad331c7f0f25170f.webp",
+      "thumb": "https://media.aquatome.com/glaser/ad331c7f0f25170f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/acrochordonichthys-rugosus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/01952c7eb0f0e806.webp",
+      "thumb": "https://media.aquatome.com/glaser/01952c7eb0f0e806-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/acrochordonichthys-rugosus-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -371,5 +427,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-19"
 }

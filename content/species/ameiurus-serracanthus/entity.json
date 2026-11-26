@@ -212,7 +212,24 @@
       "html": "<p>Copeia 1968 (no. 2), pp 373, Fig. 4.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/650575712.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/650575712-480.webp",
+      "width": 1024,
+      "height": 721,
+      "licence": "CC BY-NC",
+      "author": "Curtis Hart",
+      "sourceUrl": "https://www.inaturalist.org/photos/650575712",
+      "caption": "Cá nheo đốm Mỹ bơi dưới nước trong môi trường tự nhiên",
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/650575712-large.webp",
+        "width": 1705,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

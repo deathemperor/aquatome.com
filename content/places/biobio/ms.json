@@ -3,6 +3,12 @@
   "name": "Biobío",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T18:54:49.626Z",
+    "why": "\"Biobío\" is the correct proper name, but a Malaysian atlas would write the region with the Malay kind word, \"Wilayah Biobío\" (or \"Region Biobío\"), and the bare name omits it."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

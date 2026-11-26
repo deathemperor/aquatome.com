@@ -13,13 +13,16 @@
     "behaviour:seriouslyfish": "<p>Đây là loài cá hiền và thích sống thành đàn. Bạn nên nuôi chúng theo nhóm ít nhất 4–6 con.</p>",
     "dimorphism:seriouslyfish": "<p>Cá cái có thân tròn và bè hơn hẳn cá đực, nhất là khi đang mang trứng. Cá cái cũng lớn hơn cá đực khoảng 5 mm.</p>",
     "notes:seriouslyfish": "<p>So với phần lớn các loài cùng chi trông na ná nó, cách nhận biết loài này là cặp râu nhỏ ở khóe miệng.</p><p>Tiếc là hiện chưa thể nêu thêm đặc điểm định loại nào khác. Lý do là chưa tìm được bản mô tả gốc, và từ khi loài này được công bố đến nay cũng có rất ít tài liệu viết về nó.</p><p>Màu sắc của cá có thể khác nhau khá nhiều tùy nơi bắt. Trước đây, một số dạng từng bị nhận nhầm thành loài khác.</p><p>Những con có vệt sẫm hai bên thân đôi khi được gọi là Corydoras sp. 'olga'.</p><p>Chi Corydoras từng có hơn 150 loài hợp lệ. Đến năm 2024, Dias và cs. đã tách chi này thành năm chi.</p><p>Loài này thuộc họ Callichthyidae. Các loài trong họ này thường được gọi chung là cá da trơn 'có giáp', vì trên thân chúng có các tấm xương thay cho vảy.</p><p>Phân loại của nhóm cá này khá rối, và nhiều khả năng vẫn còn nhiều loài chưa được mô tả.</p><p>Vì thế, những con cá chưa xác định rõ loài khi vào giới chơi cá cảnh thường được gán một mã số 'C' hoặc 'CW' để tiện tra cứu và sắp xếp.</p><p>Chúng có thể thở bằng khí trời khi cần, dù không phụ thuộc hoàn toàn vào cách thở này. Ruột của chúng đã biến đổi và có rất nhiều mạch máu, nhờ vậy chúng hấp thụ được oxy từ không khí và sống sót được ở nơi nước thiếu oxy. Trong bể, thỉnh thoảng bạn sẽ thấy chúng ngoi lên mặt nước để đớp khí.</p><p>Gai vây ngực của chúng rất cứng và có thể đâm xuyên da người. Bị gai 'đốt' thì có thể rất đau, nên khi bắt cá bạn cần cẩn thận.</p><p>Người ta còn cho rằng chất tiết từ tuyến nách ở gốc mỗi gai có thể có độc nhẹ.</p>",
-    "references:seriouslyfish": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li></ul>"
+    "references:seriouslyfish": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li></ul>",
+    "distribution:glaser": "<p>Corydoras simulatus có nguồn gốc từ Colombia. Ngoài tự nhiên, loài này sống chung sông với Corydoras metae, loài cá chuột mõm tròn, cụ thể là sông Rio Meta và các nhánh của nó.</p>",
+    "notes:glaser": "<p>C. metae đã được biết đến từ lâu. Vì thế, những người mô tả C. simulatus đặt cho nó tên loài \"simulatus\", ý là \"chỉ trông giống metae\". C. simulatus có mõm dài, khác hẳn đầu của C. metae. Ngoài ra, râu của nó cũng khác, và vây đuôi có hoa văn, thứ mà C. metae không bao giờ có.</p><p>Thật ra nhiều con C. simulatus có màu giống hệt C. metae. Nhưng cũng có một biến thể màu mang vệt sẫm hình nêm ở hông, kiểu vệt mà C. metae không bao giờ có. Giữa hai kiểu màu này còn có những dạng trung gian. Nuôi trong bể thì thấy mọi biến thể màu của C. simulatus đều bắt cặp với nhau, và cá con lai ra vẫn đẻ tiếp được. Vậy chúng thật sự chỉ là các biến thể màu, không phải các loài khác nhau.</p>"
   },
   "quality": {
     "score": 0.82,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.82
+      "seriouslyfish": 0.82,
+      "glaser": 0.9
     }
   }
 }

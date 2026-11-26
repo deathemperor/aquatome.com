@@ -40,7 +40,9 @@
           "countries": [
             "PE"
           ],
-          "regions": []
+          "regions": [
+            "Itaya"
+          ]
         },
         {
           "source": "planetcatfish",
@@ -50,8 +52,7 @@
           ],
           "regions": [
             "Amazon",
-            "Marowijne",
-            "Itaya"
+            "Marowijne"
           ]
         },
         {
@@ -262,6 +263,10 @@
       {
         "source": "scotcat",
         "value": 5
+      },
+      {
+        "source": "glaser",
+        "value": 5
       }
     ],
     "tempC": [
@@ -297,6 +302,12 @@
       "html": "<ul><li>Common name: none</li><li>IUCN Red List: Least Concern. Despite the little information available on this species, it is assessed as Least Concern due to its wide range and many occurrences (IUCN 2023).</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/general/tatia-gyrina-2/",
+      "html": "<p>Tatia gyrina is a rather small, very rarely offered driftwood catfish imported from Peru. The largest specimens are about 5 cm long (including the caudal fin).</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1102",
@@ -327,16 +338,34 @@
       "html": "<p>As with most members of this family they are very secretive and will stay hidden for most of the day. Dim lighting will see them come out for food, which they eat with gusto. They will have no problem with most tankmates but will eat small fish/fry in the aquarium.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/general/tatia-gyrina-2/",
+      "html": "<p>In spite of their largely nocturnal nature, the driftwood catfishes have gathered a small fan community behind them, which enthusiastically cultivate and breed them.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1102",
       "html": "<p>Sexual dimorphism in males appears at a length of 3.5-4.0 cm.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/general/tatia-gyrina-2/",
+      "html": "<p>The males are recognizable by the modified anal fin, which has been transformed into a mating organ. In addition, they are clearly slimmer and somewhat bigger than the females.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1102",
       "html": "<p>Unreported. There is but a single breeding report.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/general/tatia-gyrina-2/",
+      "html": "<p>These catfishes have internal fertilization, so females can sometimes produce a fertilized clutch without direct intervention of a male, since the fertilization already took place days or weeks before. This behaviour fascinates many breeders.</p>"
     },
     {
       "key": "notes",
@@ -385,6 +414,36 @@
       "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_gyrina.htm",
       "caption": "Tatia gyrina: Showing lateral line pores",
       "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/650c3762a854788d.webp",
+      "thumb": "https://media.aquatome.com/glaser/650c3762a854788d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/general/tatia-gyrina-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1b2cdc8ace69062a.webp",
+      "thumb": "https://media.aquatome.com/glaser/1b2cdc8ace69062a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/general/tatia-gyrina-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0e986b270c19a475.webp",
+      "thumb": "https://media.aquatome.com/glaser/0e986b270c19a475-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/general/tatia-gyrina-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -428,5 +487,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-20"
 }

@@ -1,0 +1,81 @@
+{
+  "id": "ageneiosus-intrusus",
+  "native": {
+    "input": "e4caf131a1444029",
+    "at": "2026-11-22T12:48:24.036Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Middle and lower Amazon River and probably the Orinoco River. Type locality: Rio Solimões, Paraná do Rei, Amazonas, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "This species is widely distributed in South America, where it is present in the Amazon, Essequibo and Orinoco basins.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "This species is widely distributed in South America, where it is present in the Amazon, Essequibo and Orinoco basins.",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "scotcat",
+        "quote": "This species is widely distributed in South America, where it is present in the Amazon, Essequibo and Orinoco basins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "VE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ageneiosus intrusus",
+    "status": "ACCEPTED",
+    "taxonKey": 9544030,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        9
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        7
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        3
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-22T12:48:24.036Z"
+  }
+}

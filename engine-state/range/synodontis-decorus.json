@@ -1,14 +1,14 @@
 {
   "id": "synodontis-decorus",
   "native": {
-    "input": "8acb38af346a9574",
-    "at": "2026-11-15T05:39:34.625Z",
+    "input": "7fa99cb8e0ea4c5b",
+    "at": "2026-11-21T01:22:16.258Z",
     "claims": [
       {
         "code": "CD",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The clown Synodontis, Synodontis decorus, is a large catfish from the Democratic Republic of Congo, Cameroon and the Republic of Congo.",
+        "quote": "Democratic Republic of Congo, Cameroon, Republic of Congo.",
         "words": "Democratic Republic of Congo",
         "ok": true
       },
@@ -16,7 +16,7 @@
         "code": "CM",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The clown Synodontis, Synodontis decorus, is a large catfish from the Democratic Republic of Congo, Cameroon and the Republic of Congo.",
+        "quote": "Democratic Republic of Congo, Cameroon, Republic of Congo.",
         "words": "Cameroon",
         "ok": true
       },
@@ -24,12 +24,19 @@
         "code": "CG",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The clown Synodontis, Synodontis decorus, is a large catfish from the Democratic Republic of Congo, Cameroon and the Republic of Congo.",
+        "quote": "Democratic Republic of Congo, Cameroon, Republic of Congo.",
         "words": "Republic of Congo",
         "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Congo",
+        "source": "glaser",
+        "quote": "One of the most beautiful squeaker catfish (Synodontis) comes from the Congo: Synodontis decorus.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

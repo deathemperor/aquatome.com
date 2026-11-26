@@ -3,6 +3,12 @@
   "name": "Nam Leuk",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T18:55:18.035Z",
+    "why": "\"Nam Leuk\" is the Lao river name, but the place is a river (Sungai) and Malay atlases would write \"Sungai Nam Leuk\", so the bare name omits the kind word."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

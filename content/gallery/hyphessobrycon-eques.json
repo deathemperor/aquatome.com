@@ -6,51 +6,51 @@
       "thumb": "https://media.aquatome.com/inaturalist/552749189-480.webp",
       "width": 1024,
       "height": 768,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/552749189-large.webp",
+        "width": 1600,
+        "height": 1200
+      },
       "licence": "CC BY",
       "author": "olmagon",
       "sourceUrl": "https://www.inaturalist.org/photos/552749189",
       "caption": "Đàn cá hồng nhung bơi trong bể thủy sinh rêu xanh",
       "best": true,
-      "kind": "group",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/552749189-large.webp",
-        "width": 1600,
-        "height": 1200
-      }
+      "kind": "group"
     },
     {
       "url": "https://media.aquatome.com/commons/551d0bdb3f541228.webp",
       "thumb": "https://media.aquatome.com/commons/551d0bdb3f541228-480.webp",
       "width": 1200,
       "height": 800,
+      "large": {
+        "url": "https://media.aquatome.com/commons/551d0bdb3f541228-large.webp",
+        "width": 1800,
+        "height": 1200
+      },
       "licence": "CC BY-SA 2.5",
       "author": "Faucon",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Serpae_tetra.JPG",
       "caption": "Cá hồng nhung màu đỏ cam, vây lưng đen, trong bể",
       "best": true,
-      "kind": "other",
-      "large": {
-        "url": "https://media.aquatome.com/commons/551d0bdb3f541228-large.webp",
-        "width": 1800,
-        "height": 1200
-      }
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/347048436.webp",
       "thumb": "https://media.aquatome.com/inaturalist/347048436-480.webp",
       "width": 1024,
       "height": 735,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/347048436-large.webp",
+        "width": 1673,
+        "height": 1200
+      },
       "licence": "CC BY",
       "author": "Douglas Lopes",
       "sourceUrl": "https://www.inaturalist.org/photos/347048436",
       "caption": "Cặp cá hồng nhung trong bể nuôi",
       "best": false,
-      "kind": "pair",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/347048436-large.webp",
-        "width": 1673,
-        "height": 1200
-      }
+      "kind": "pair"
     },
     {
       "url": "https://media.aquatome.com/commons/117f7e3709f3c801.webp",
@@ -69,20 +69,46 @@
       "thumb": "https://media.aquatome.com/inaturalist/651012788-480.webp",
       "width": 1024,
       "height": 576,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/651012788-large.webp",
+        "width": 1563,
+        "height": 879
+      },
       "licence": "CC BY",
       "author": "Nicola Crockford",
       "sourceUrl": "https://www.inaturalist.org/photos/651012788",
       "caption": "Cá hồng nhung đỏ bơi giữa đá và rễ cây",
       "best": false,
-      "kind": "other",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/651012788-large.webp",
-        "width": 1563,
-        "height": 879
-      }
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/190360265.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/190360265-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "CC BY-NC",
+      "author": "raul_pereira",
+      "sourceUrl": "https://www.inaturalist.org/photos/190360265",
+      "caption": "Đàn cá hồng nhung giữa cành cây chìm trong suối tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/132914676.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/132914676-480.webp",
+      "width": 1024,
+      "height": 577,
+      "licence": "CC BY-NC",
+      "author": "Rogerio Dias",
+      "sourceUrl": "https://www.inaturalist.org/photos/132914676",
+      "caption": "Cá hồng nhung bơi giữa rong trong môi trường tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     }
   ],
-  "seen": 28,
-  "updatedAt": "2026-11-07",
-  "builtAt": "2026-11-07"
+  "seen": 58,
+  "updatedAt": "2026-11-23",
+  "builtAt": "2026-11-23"
 }

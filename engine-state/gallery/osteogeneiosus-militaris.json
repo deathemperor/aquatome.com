@@ -13,12 +13,46 @@
   "File:Osteog milit 250728-133909 mark.jpg",
   "File:Osteog milit 250728-134639 mark.jpg",
   "File:Osteog milit 250728-135059 mark.jpg",
-  "File:Osteog milit 260426-080240 mark.jpg"
+  "File:Osteog milit 260426-080240 mark.jpg",
+  "gbif:1455997425:8ede250d60ddf61c",
+  "gbif:1455997425:d60c266f3da19285",
+  "gbif:1455997425:82747a30fed64a92",
+  "gbif:1455997425:ef9893628e21db78",
+  "gbif:1455997425:6023aeb269f8a8f4",
+  "gbif:1455997425:fde8a9b23e97209e",
+  "gbif:1456389417:a59a033fbeacf073",
+  "gbif:1456389417:7b3cb6f25195024f",
+  "gbif:1456389417:6780026300643f66",
+  "gbif:1456389417:52f3374284a49735",
+  "gbif:1456389417:7a79d816d81894a4",
+  "gbif:1456372917:bfbf1a1fd992634d",
+  "gbif:1456372917:7bd6abd697ec70f6",
+  "gbif:1456372917:5ecd3d6514513e7e",
+  "gbif:1456372917:e05e61b5a652bb30",
+  "gbif:1456372917:4a9ca0aade0858d4",
+  "gbif:1456391195:b0bc9fb4d34ac02a",
+  "gbif:1456391195:2b9759fea4a03125",
+  "gbif:1456391195:deb2a7f343235874",
+  "gbif:1456391195:3e65d900e2dccfa1",
+  "gbif:1456434753:fa717cef38941aa5",
+  "gbif:1456434753:742854aac3cf5887",
+  "gbif:1456434753:f0d04f5e42fe2939",
+  "gbif:1456434753:f8427bcaf84f3ec9",
+  "inat:62868147",
+  "inat:62868141",
+  "inat:62869527",
+  "inat:437588586",
+  "inat:437588615",
+  "inat:464088243",
+  "inat:589259134",
+  "inat:589259140",
+  "inat:589259135",
+  "inat:597219661",
+  "inat:627029666",
+  "inat:627029664",
+  "inat:627029682"
  ],
- "hashes": {
-  "https://media.aquatome.com/scotcat/a04b10ffe3bf192d.webp": "2058981d0f66f0f8",
-  "https://media.aquatome.com/scotcat/68bac95cfec8cee1.webp": "03119f0707068420"
- },
+ "hashes": {},
  "inat": {
   "taxon": 608604,
   "pass": "done",
@@ -27,5 +61,17 @@
    "agree": 0
   }
  },
- "commons": "2026-11-19"
+ "commons": "2026-11-19",
+ "gbif": {
+  "key": 2345388,
+  "next": null
+ },
+ "inatNc": {
+  "after": 344151565,
+  "done": true
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-22"
 }

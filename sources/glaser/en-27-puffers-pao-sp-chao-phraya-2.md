@@ -1,0 +1,13 @@
+---
+url: https://www.aquariumglaser.de/en/27-puffers/pao-sp-chao-phraya-2/
+title: Pao sp. Chao Phraya - Aquarium Glaser GmbH
+fetchedAt: 2026-11-22T04:00:19.979Z
+hash: 8904b124383e8c83597e25cc3accd7430ac66d11f28db3bb460db6903b9eeb0e
+---
+
+The cockade pufferfishes are a very complex group of freshwater pufferfishes. Formerly they were called the “Tetraodon-leiurus group”, but since 2013 they are in the genus Pao. The genus name Tetraodon is now only applied to the freshwater puffers of Africa.
+Throughout Southeast Asia (Thailand, Laos, Cambodia, Vietnam, Malaysia, Singapore, Indonesia), Pao freshwater puffers can be found. They are predatory fish, usually very incompatible with each other, and are quite variable in color. Many have a prominent eyespot or ocellus below the dorsal fin that looks like a cockade – hence the popular name. Exactly how many species of cockaded puffers there are is disputed. Before about 1990, all cockaded puffers were called Tetraodon leiurus or T. leiurus brevirostris. Several species were synonymized, which are now seen as valid again. A very distinctively marked cockaded puffer was described as Tetraodon barbatus from the Mekong River in 1996. Special recognition feature of this species are the dark spots on the lips (barbatus = the bearded one). Already a short time later this species was declared as synonym to the species Tetraodon cambodgiensis, also originating from the Mekong. Only in 2013 a re-description of the species T. barbatus, the transfer into the newly created genus Pao and the validation of P. barbatus took place.
+We have now received very nice cockaded puffers from Thailand, but not from the Mekong, but from the Chao Phraya. Therefore our exporter called them Pao sp. Chao Phraya. But apart from the “wrong” distribution they fit perfectly to P. barbatus, both concerning the coloration – including the “beard” – and concerning the anatomical detail that the caudal peduncle has no spines. This is the most important difference between Pao barbatus and P. cambodgiensis.
+Pao sp. Chao Phraya has one peculiarity: the “cockade spot” is extraordinarily large. At least for a short time Pao sp. Chao Phraya get along well with each other, a pleasant difference to many other cockaded puffers, which are often downright biting among themselves. The maximum size of P. barbatus is given with about 12 cm, it can be assumed that also Pao sp. Chao Phraya reaches about this size. The photographed animals are between 8 and 10 cm long.
+For our customers: the fish have code 462613 on our stocklist. Please note that we only supply wholesale.
+Text & photos: Frank Schäfer

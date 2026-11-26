@@ -15,7 +15,7 @@ import { figureHtml } from './figures'
 import { cardRows } from './card-rows'
 import { nameAndSci, sciBeside } from './sci'
 import { FIELD_LABELS, fmt, GUIDE_KIND_LABELS } from './format'
-import { galleryNote } from './gallery'
+import { APP_GALLERY_MIN, galleryNote } from './gallery'
 import { glossaryParts, USED_IN_SHOWN } from './glossary-page'
 import { guideParts } from './guide-page'
 import { cleanPhoto } from './home'
@@ -117,8 +117,7 @@ export function sectionBlocks(lang: Lang, c: Content, props: SectionProps): { bl
         blocks.push({ t: 'p', c: [`${t('Thông số ở đầu trang ghi khác đoạn này:')} ${figures}.`] })
       }
     }
-    const f = figAfter.get(i)
-    if (f) prose(figureHtml(lang, f))
+    for (const f of figAfter.get(i) ?? []) prose(figureHtml(lang, f))
   })
   if (wild && wildAt === groups.length) wildBlocks(wild)
   if (refs.length) {
@@ -199,7 +198,7 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
   const t = translator(lang)
   const { num } = fmt(lang)
   const at = (viPath: string) => appPath(lang, viPath)
-  const p = await speciesParts(lang, c, s)
+  const p = await speciesParts(lang, c, s, { app: true })
   const lead = headImage(lang, headPhoto(s.photos), nameAndSci(s.t.name, s.scientificName))
   const sources = [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', ')
   const { blocks: text } = sectionBlocks(lang, c, { sections: p.text.sections, t: p.text.t, self: `species:${s.id}`, selfNames: [s.scientificName, s.t.name, ...s.t.altNames], figures: p.figures.map(photo => ({ photo })), card: s.dataCard, range: { id: s.id, name: s.t.name, range: s.range }, refs: s.refs })
@@ -245,7 +244,9 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
       ...trustBlock(t, lang, p.card as SpeciesEntity['dataCard'], p.sources),
       mates,
       ...(p.vn ? climateBlock(t, s.dataCard) : []),
-      ...galleryBlock(lang, c.sources, s.t.name, p.gallery, p.strip, p.galleryPath),
+      // A fish's or a plant's album shows in the app from six photos (APP_GALLERY_MIN), though the site's strip shows a
+      // shorter one; a breed's shows whenever its strip does, as before (Design, 20 Nov 2026).
+      ...(p.gallery.length >= APP_GALLERY_MIN ? galleryBlock(lang, c.sources, s.t.name, p.gallery, p.strip, p.galleryPath) : []),
       ...summary,
       ...text,
       ...breeds,
@@ -312,7 +313,7 @@ export function breedDoc(lang: Lang, c: Content, b: Breed, listed: Set<string>):
  */
 export function plantDoc(lang: Lang, c: Content, p: Localized<PlantEntity>, listed: Set<string>): PageDoc {
   const t = translator(lang)
-  const parts = plantParts(lang, c, p)
+  const parts = plantParts(lang, c, p, { app: true })
   const lead = headImage(lang, headPhoto(p.photos), nameAndSci(p.t.name, p.scientificName))
   const { blocks: text } = sectionBlocks(lang, c, { sections: p.sections, t: p.t, self: `plant:${p.id}`, selfNames: [p.scientificName, p.t.name, ...p.t.altNames], figures: parts.figures.map(photo => ({ photo })), co2: p.co2, refs: p.refs })
   return {
@@ -325,7 +326,7 @@ export function plantDoc(lang: Lang, c: Content, p: Localized<PlantEntity>, list
     ...(lead ? { lead } : {}),
     talk: { comments: commentsKey(lang, `plant:${p.id}`) },
     blocks: [
-      ...galleryBlock(lang, c.sources, p.t.name, parts.gallery, parts.strip, parts.galleryPath),
+      ...(parts.gallery.length >= APP_GALLERY_MIN ? galleryBlock(lang, c.sources, p.t.name, parts.gallery, parts.strip, parts.galleryPath) : []),
       ...text,
       ...pagesBlock(lang, listed, t('Bài viết nhắc đến cây này'), parts.guides.map(g => `/vi/huong-dan/${g.t.slug}/`), 8),
       ...pagesBlock(lang, listed, t('Có trong video hướng dẫn'), parts.videoGuides.map(g => `/vi/huong-dan/${g.t.slug}/`), 6),

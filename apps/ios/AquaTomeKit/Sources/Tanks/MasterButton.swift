@@ -36,8 +36,49 @@ public struct MasterRun: Sendable, Equatable, Codable {
     /// Never sent by the phone, by the outlet's role when pressed: CO2 back on (the chief, 15 Nov). nil in runs kept
     /// before it.
     public var held: Bool?
+    /// How the last press that set the outlet left it (`MasterRun.settle`): the end leaves an outlet no longer so. nil
+    /// when no press set it, its step was refused before anything went, or in runs kept before it (Codex, 17 Nov).
+    public var left: Bool?
+    /// `left` is only as the step asked: its answer was lost or not reported, and the outlet not read after it as
+    /// switched, so whether it went isn't known. The end then says so, and what it did (the chief, 18 Nov). nil when not.
+    public var guessed: Bool?
+    /// A try to put it back may have reached the device (its answer lost or not confirmed, the lamp's cut): nil when
+    /// none did, or in runs kept before it.
+    public var mayHaveGone: Bool?
 
     public init(command: DeviceCommand) { self.command = command }
+
+    /// Whether a try before may have reached the device: as kept, or, in a run kept before `mayHaveGone`, whether a try
+    /// before left a line (Codex, 18 Nov).
+    public var earlier: Bool { mayHaveGone ?? (problem != nil) }
+
+    /// A line from an end that sent it nothing (the tanks on the phone unread): a put-back never tried, with no line
+    /// yet, is kept as one no try of which may have gone, so the line isn't taken for one (Fable, 18 Nov). One tried, or
+    /// kept by build 390 with a line, stays as it was.
+    public mutating func unsent(_ line: String) {
+      if mayHaveGone == nil && problem == nil { mayHaveGone = false }
+      problem = line
+    }
+
+    /// A try to put it back is about to go: kept so (the app saves and shows the run then) until its answer, it counts as
+    /// one that may have gone if the app is closed before it, and a line from a try before reads as not known
+    /// (`notKnown`), never as not sent (Codex, 18 Nov). One with no line yet gets none: a put-back that goes back as it
+    /// should says nothing on the card. Whether one before it may have, for `failed`.
+    public mutating func trying(notKnown: String) -> Bool {
+      let was = earlier
+      mayHaveGone = true
+      if problem != nil { problem = notKnown }
+      return was
+    }
+
+    /// A try to put it back failed, saying `line`, and any of it may have reached the device (`mayHaveSent`) or not;
+    /// `before`: whether one before it may have (from `trying`, or `earlier` for one that sent nothing). After one that
+    /// may have, the try says the device's state isn't known (`notKnown`), never its own line, which would say what of
+    /// it didn't go: nothing (Fable, 18 Nov), or the lamp's colour, when an earlier try's colour may have (Codex, 18 Nov).
+    public mutating func failed(_ line: String, mayHaveSent: Bool, notKnown: String, before: Bool) {
+      mayHaveGone = mayHaveSent || before
+      problem = before ? notKnown : line
+    }
   }
 
   public var started: Date
@@ -71,7 +112,9 @@ public struct MasterRun: Sendable, Equatable, Codable {
     ends = button.minutes.map { now.addingTimeInterval(TimeInterval($0 * 60)) }
     steps = button.steps
     let owedTargets = Set(owed.map(\.command.target))
-    back = owed.map { var b = $0; b.problem = nil; return b } + button.steps.filter { !owedTargets.contains($0.target) }.compactMap { step in
+    // An owed one's line goes; whether a try of it may have gone stays (one kept before `mayHaveGone`, with a line: it
+    // may have).
+    back = owed.map { var b = $0; if b.earlier { b.mayHaveGone = true }; b.problem = nil; return b } + button.steps.filter { !owedTargets.contains($0.target) }.compactMap { step in
       if step.isLamp {
         let last = lamp.map { DeviceCommand(device: step.device, on: $0.on, colour: $0.on ? $0.colour : nil) }
         if let last, last.on == step.on, last.colour == step.colour { return nil }
@@ -82,19 +125,73 @@ public struct MasterRun: Sendable, Equatable, Codable {
     }
   }
 
-  /// The steps that didn't go (`failed`), with the outlets as read after them (`now`): a plug that didn't answer may
-  /// still have switched. Only one that reads as the step asked goes back: one as it was, or not known, has nothing to
-  /// put back (never a state the phone only guessed), nor a lamp step that failed before sending anything. `keeping`:
-  /// what goes back whatever (owed by an earlier press, a lamp step half sent). When every step failed and nothing is
-  /// left, it ends at `t`.
-  public mutating func settle(_ failed: [Failed], now: (DeviceCommand) -> Bool?, keeping: Set<DeviceTarget>, at t: Date) {
+  /// The steps that didn't go (`failed`), with the outlets as read after them (`now`). One that failed before anything
+  /// of it went and reads as it was has nothing to put back, nor a lamp step that failed before sending anything. One
+  /// whose command may have reached the plug (`uncertain`: its answer lost, or not reported) counts as gone however it
+  /// reads after, as a plug can switch late (the chief, 18 Nov): it stays owed, and so does one not read after it. The
+  /// end reads each again: one already back gets nothing (no state the phone only guessed is sent), one as the step
+  /// asked goes back, CO2 never on, a heater never. `keeping`: what goes back whatever (owed by an earlier press, a
+  /// lamp step half sent). When every step failed and nothing is left, it ends at `t`.
+  ///
+  /// How this press left each outlet it set goes with its put-back (`Back.left`), for the end: a step that went, or
+  /// may have, as it asked (the end then leaves the outlet only if it changed from that since); one refused before
+  /// anything went, as it was (an earlier press's, when one owes it).
+  public mutating func settle(_ failed: [Failed], now: (DeviceCommand) -> Bool?, keeping: Set<DeviceTarget>, at t: Date,
+                              uncertain: Set<DeviceTarget> = []) {
     self.failed = failed
     let missed = Set(failed.map(\.target))
     back.removeAll { b in
-      guard missed.contains(b.command.target), !keeping.contains(b.command.target) else { return false }
-      return b.command.isLamp || now(b.command) != !b.command.on
+      guard missed.contains(b.command.target), !keeping.contains(b.command.target), !uncertain.contains(b.command.target) else { return false }
+      return b.command.isLamp || now(b.command) == b.command.on
+    }
+    for step in steps where !step.isLamp {
+      let t = step.target
+      // Refused, this press's own put-back: as it was, so the end never switches it (Fable, 17 Nov: unset, the end
+      // undid a hand's change). An earlier press's keeps how that press left it.
+      let left: Bool? = !missed.contains(t) || uncertain.contains(t) ? step.on
+        : keeping.contains(t) ? nil : back.first(where: { $0.command.target == t })?.command.on
+      if let left, let i = back.firstIndex(where: { $0.command.target == t }) {
+        back[i].left = left
+        // Not known whether it went: not read after it as switched (as it was, or not read).
+        back[i].guessed = uncertain.contains(t) && now(step) != step.on ? true : nil
+      }
     }
     if missed.isSuperset(of: steps.map(\.target)), back.isEmpty { ended = t }
+  }
+
+  /// What the end does with an outlet's put-back.
+  public enum End: Sendable, Equatable {
+    /// It reads as it goes back already: nothing to send.
+    case already
+    /// Switched by a hand or its schedule since this press left it: left as it is, and said so.
+    case leave
+    /// Made a heater since the press: the button never switches one, so left as it is, and said so (Fable, 18 Nov); before
+    /// CO2's hold, so the note says what the outlet is now (Codex, 18 Nov).
+    case heater
+    /// The same, after a put-back try of its own that may have gone (`Back.earlier`): that try could still land on the
+    /// heater's outlet, so the note says it isn't known whether the command reached it, and to look (the chief, 18 Nov).
+    case heaterAfterTry
+    /// CO2 back on, which the phone never sends: left off, and said so.
+    case hold
+    /// Not read at the end: nothing sent, and it stays owed for Trả lại (Codex, 17 Nov: the phone sends no state it only
+    /// guessed).
+    case unread
+    case send
+  }
+
+  /// What the end does with `b`, an outlet's put-back, by how the outlet reads now (`now`, nil when not read), how the
+  /// last press to set it left it (`left`: `Back.left`) and the outlet's role now. One no
+  /// longer as this press left it is left as it is, whatever an earlier press still owes for it: what goes back is the
+  /// state from before both, and switching it would undo a hand's change. Not one only guessed (`Back.guessed`): its
+  /// step may never have gone, so it goes back as owed (Fable, 18 Nov; a hand's change undone is the cost the chief took).
+  public static func end(_ b: Back, now: Bool?, left: Bool?, role: String?) -> End {
+    let c = b.command
+    if now == c.on { return .already }
+    if let now, let left, now != left, b.guessed != true { return .leave }
+    if role == "heater" { return b.earlier ? .heaterAfterTry : .heater }
+    if c.on && (b.held == true || role == "co2") { return .hold }
+    if now == nil { return .unread }
+    return .send
   }
 
   public var isRunning: Bool { ended == nil }

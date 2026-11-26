@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "brazil",
-    "guama"
+    "guama",
+    "amazon"
   ],
   "range": {
     "native": {
@@ -88,6 +89,10 @@
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "glaser",
+        "value": 5
       }
     ],
     "tankCm": [
@@ -111,10 +116,22 @@
       "html": "<p>The striped dwarf cichlid, Nannacara taenia, is known only from the area around Belém in Pará state, Brazil. A fairly shy fish of small, densely planted streams, it tends towards a drab brown and is rarely seen in shops, so it is more often obtained through specialist cichlid dealers or amateur enthusiasts. The female guards the eggs in a small cave while the male guards the wider territory.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nannacara-taenia/",
+      "html": "<p>Nannacara taenia is with a maximum of 5 cm total length one of the smallest cichlids at all. Additionally it is absolutely peaceful and therefore an ideal fish for community aquariums.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannacara-taenia",
       "html": "<p>Known only from the area around Belém in the state of Pará, Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nannacara-taenia/",
+      "html": "<p>The species was described in 1911 from aquarium fishes believed to have been exported via Manaus. However, these animals were never found again in the much fished Rio Negro area around Manaus. It was not until 1987 that they were rediscovered in the lower Amazon and subsequently found in several more Amazon tributaries in this region.</p>"
     },
     {
       "key": "habitat",
@@ -159,20 +176,104 @@
       "html": "<p>Male is the smaller fish. Female has a secondary line running parallel to the main lateral marking. This is absent in the male. The female adopts much darker colouration when in breeding condition.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nannacara-taenia/",
+      "html": "<p>It is difficult to distinguish the sexes. It is said that only the females – but this is also due to mood – show vertical stripes from time to time.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannacara-taenia",
       "html": "<p>Moderately difficult for a cichlid; due to their shy nature it can be a challenge to make the fish feel at ease enough to breed. Unlikely to breed in a community setup, therefore a breeding tank is best used. Bring the fish into condition by feeding an abundance of live foods - bloodworm is particularly relished. Once conditioned, the pair will begin displaying to each other in typical dwarf cichlid fashion. Spawning takes place in a small cave or an inverted plant pot with a small hole. Eggs are laid on the wall of the cave or plant pot and are then fertilised by the male. After spawning, the female guards the eggs within the cave and the male assumes responsibility for guarding the wider territory. Depending on temperature, the eggs hatch in 2 - 4 days and the fry are free swimming around 4 days later. Initial foods offered to the fry should be newly hatched brine shrimp and finely powdered foods.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nannacara-taenia/",
+      "html": "<p>Like all Nannacara species the species is an open breeder. Best is to buy a troop of 10-12 animals and just let the pairs find themselves.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannacara-taenia",
       "html": "<p>Nannacara taenia is rarely seen for sale in local aquatic stores, largely because it is a fairly unremarkable fish, tending towards a drab brown appearance. You are more likely to obtain this fish through specialist cichlid dealers or amateur enthusiasts.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nannacara-taenia/",
+      "html": "<p>Unfortunately, N. taenia is so rarely kept that general statements on breeding and care are difficult to make.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/445523476314aab2.webp",
+      "thumb": "https://media.aquatome.com/glaser/445523476314aab2-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nannacara-taenia/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a175daf898f5eb6e.webp",
+      "thumb": "https://media.aquatome.com/glaser/a175daf898f5eb6e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nannacara-taenia/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/44402bfaa90b6ae2.webp",
+      "thumb": "https://media.aquatome.com/glaser/44402bfaa90b6ae2-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nannacara-taenia/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9706190f78ac5855.webp",
+      "thumb": "https://media.aquatome.com/glaser/9706190f78ac5855-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nannacara-taenia/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "4YtfBln2j2M",
+      "title": "Nannacara taenia - Balz",
+      "durationSec": 384,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "fF-B6mezGx4",
+      "title": "Nannacara taenia",
+      "durationSec": 48,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "bN1MNH8FmEw",
+      "title": "Nannacara taenia - spawning",
+      "durationSec": 86,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "FXB3YteYDF4",
+      "title": "Nannacara Taenia",
+      "durationSec": 89,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -202,5 +303,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-21"
 }

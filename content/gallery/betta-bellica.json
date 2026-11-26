@@ -12,22 +12,7 @@
       "caption": "Cá betta bellica cái màu nâu vàng trong bể thủy sinh",
       "best": true,
       "kind": "female",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/385394070.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/385394070-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "jerome_1",
-      "sourceUrl": "https://www.inaturalist.org/photos/385394070",
-      "caption": "Hai cá betta bellica cái có sọc nâu trong bể ảnh nhỏ",
-      "best": true,
-      "kind": "pair",
-      "setup": true,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/110661853.webp",
@@ -40,8 +25,20 @@
       "caption": "Cá betta bellica cái bơi giữa rong trong bể trồng cây",
       "best": true,
       "kind": "female",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/385394070.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/385394070-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "jerome_1",
+      "sourceUrl": "https://www.inaturalist.org/photos/385394070",
+      "caption": "Hai cá betta bellica cái có sọc nâu trong bể ảnh nhỏ",
+      "best": true,
+      "kind": "pair",
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/385394108.webp",
@@ -54,8 +51,7 @@
       "caption": "Cá betta bellica cái màu nâu cam trong bể ảnh nhỏ",
       "best": false,
       "kind": "female",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/286143774.webp",
@@ -68,8 +64,7 @@
       "caption": "Cá betta bellica màu nhạt trong hộp nhựa trong",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     }
   ],
   "seen": 29,

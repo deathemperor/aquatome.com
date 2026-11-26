@@ -4,10 +4,7 @@
   "gbif:1456217458:4f99d1443671d397",
   "gbif:1456217458:a0e593b09d46996f"
  ],
- "hashes": {
-  "https://media.aquatome.com/scotcat/713dc9512511c681.webp": "2564e7a2a4c2f1f3",
-  "https://media.aquatome.com/scotcat/7de7bc40e51a8929.webp": "0b17ceccb0e0c3c3"
- },
+ "hashes": {},
  "inat": {
   "taxon": 1511943,
   "pass": "done",
@@ -20,5 +17,13 @@
  "gbif": {
   "key": 2345507,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 0,
+  "done": true
+ },
+ "exhausted": "2026-11-21"
 }

@@ -5,8 +5,6 @@
  ],
  "hashes": {
   "https://media.aquatome.com/glaser/8cdcc085638fb07f.webp": "d2bbb32ece1c2e42",
-  "https://media.aquatome.com/glaser/b5a7d7f7bd441445.webp": "a5b9341e070349c1",
-  "https://media.aquatome.com/glaser/72177aac9d5f1d29.webp": "dd1f2fa71c3b3ae1",
   "https://media.aquatome.com/glaser/a6f6a67fbc848119.webp": "02183b350b210326"
  },
  "inat": {
@@ -17,5 +15,9 @@
    "agree": 308183229
   }
  },
- "commons": "2026-11-16"
+ "commons": "2026-11-16",
+ "gbif": {
+  "key": 2339518,
+  "next": null
+ }
 }

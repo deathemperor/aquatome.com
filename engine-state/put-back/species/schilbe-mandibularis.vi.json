@@ -1,0 +1,39 @@
+{
+ "at": "2026-11-23T02:01:37Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Ảnh tem thu nhỏ của loài này hình như in con cá bị lộn ngược.",
+   "why": "Refers to the source site's thumbnail photo, which this page does not have."
+  }
+ ],
+ "text": {
+  "slug": "ca-schilbe-mandibularis",
+  "name": "Cá schilbe mandibularis",
+  "altNames": [],
+  "sections": {
+   "quickFacts:planetcatfish": "<p>Schilbe mandibularis (Günther, 1867). Họ Schilbeidae. Nơi thu mẫu mô tả loài: sông Bossumprah, Ghana. Cỡ tối đa 45 cm SL. Sách đỏ IUCN xếp loài này ở mức Ít quan tâm.</p>",
+   "distribution:planetcatfish": "<p>Châu Phi: loài này sống từ sông St. Paul ở Liberia đến sông Prah ở Ghana, gồm cả các sông St. John, Farmington, Nipoué, Cavally, Néro, Sassandra, Boubo, Bandama, Agnébi, Comoé và Tano.</p>",
+   "diet:planetcatfish": "<p>Loài này chủ yếu ăn côn trùng trên cạn rơi hoặc bị cuốn xuống nước (bộ Cánh màng, bộ Cánh nửa, bộ Cánh cứng) và ấu trùng phù du.</p>",
+   "reproduction:planetcatfish": "<p>Chưa có tài liệu nào nói về cách loài này sinh sản.</p>",
+   "quickFacts:scotcat": "<p>Loài này giống S. multitaeniatus, hai loài chỉ khác nhau đôi chút. Nó luôn có vây mỡ, trong khi một số loài cùng họ có thể có hoặc không có vây này. Vây lưng có tổng cộng 1 gai. Đây là loài lớn, chiều dài chuẩn (SL) tới 300 mm hoặc hơn. Hai lỗ mũi trước không bao giờ nằm gần nhau hơn hai lỗ mũi sau. Mép trong của gai vây ngực có răng cưa nhỏ. Vây hậu môn có 39-70 tia phân nhánh. Nhánh dưới của cung mang thứ nhất có 8-15 lược mang. Hàm dưới dài bằng hoặc ngắn hơn hàm trên một chút. Hai bên thân và vây hậu môn có các sọc dọc màu nâu. Thân hình thoi, dáng bình thường, mặt cắt ngang dẹt bên.</p><p>Họ: Schilbeidae. Kích thước: 45 cm. Nhiệt độ: 23-26 °C. pH: 6,5-7,2.</p>",
+   "distribution:scotcat": "<p>Loài này sống ở Tây Phi, châu Phi, từ sông St. Paul đến sông Prah. Nơi thu mẫu chuẩn: sông Bossumprah, Gold Coast.</p>",
+   "habitat:scotcat": "<p>Loài này sống ở sông và hồ. Nó ưa nước ngọt, nhưng cũng từng gặp ở các đầm phá nước lợ, nơi nước ngọt pha nước mặn. Đây là loài ăn thịt và ăn tham.</p><p>Theo Danh sách Đỏ IUCN, loài này phân bố rộng khắp vùng Tây Phi và chưa thấy mối đe dọa lớn nào trên diện rộng. Vì thế nó được xếp vào mức Ít quan tâm (IUCN 2020).</p>",
+   "diet:scotcat": "<p>Lúc còn nhỏ, chúng chủ yếu ăn côn trùng trên cạn bị cuốn xuống nước (Hymenoptera, Hemiptera, Coleoptera) và ấu trùng phù du. Lớn hơn thì chúng ăn cả cá.</p>",
+   "reproduction:scotcat": "<p>Loài này đẻ trứng và không canh trứng. Mỗi năm chúng đẻ một lần. Một con cái nặng khoảng 100 gram có thể đẻ trung bình 17.600 trứng, nhưng có con đẻ tới 217.000 trứng/kg.</p>",
+   "notes:scotcat": "<p>Nguồn gốc tên: tên loài mandibularis lấy từ chữ Latin \"mandibula\" (hàm dưới), có lẽ là do bộ râu ở hàm dưới khá phát triển.</p><p>Ghi chú: Ảnh tem thu nhỏ của loài này hình như in con cá bị lộn ngược.</p>",
+   "references:scotcat": "<p>Burgess, W.E. 1989 An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Dankwa, H. &amp; Entsua-Mensah, M. 2020. Schilbe mandibularis. The IUCN Red List of Threatened Species 2020.</p><p>De Vos, L. 1995 A systematic revision of the African Schilbeidae (Teleostei, Siluriformes). With an annotated bibliography. Ann. Mus. R. Afr. Centr., Sci. Zool., 271:1-450.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p>"
+  },
+  "quality": {
+   "score": 0.9,
+   "indexable": true,
+   "bySource": {
+    "planetcatfish": 0.9,
+    "scotcat": 0.92
+   }
+  }
+ }
+}

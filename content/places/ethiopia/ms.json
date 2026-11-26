@@ -3,6 +3,12 @@
   "name": "Ethiopia",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.2,
+    "at": "2026-11-20T07:05:00.714Z",
+    "why": "Malay (Malaysia) writes this country as \"Ethiopia\" in English style, but the standard Malay spelling in atlases and by DBP is \"Ethiopia\"; however the common Malay form is \"Ethiopia\" with variant \"Habsyah\" historically, so the given form is acceptable."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

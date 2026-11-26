@@ -1,0 +1,20 @@
+{
+  "slug": "chi-phi-thuc-te-khi-chay-may-lam-lanh-chiller-cho-be-thuy",
+  "name": "Chi phí thực tế khi chạy máy làm lạnh (chiller) cho bể thủy sinh ở vùng nhiệt đới",
+  "altNames": [],
+  "sections": {},
+  "body": "<p>Bể thủy sinh giữ ở 24–26 °C thì dễ chăm hơn nhiều. Nước mát giữ được nhiều CO2 và O2 hơn nên trao đổi khí tốt hơn, còn cây thì trao đổi chất chậm lại. Bể mát cũng thường dễ trị rêu hơn, và cây hay mọc gọn hơn.</p><p>Ở xứ nhiệt đới, nước trong bể thường nóng hơn hẳn, khoảng 28–30 °C, nhất là khi dùng đèn tỏa nhiều nhiệt. Muốn hạ nhiệt thì có hai cách: gắn chiller (máy làm lạnh nước) hoặc đặt bể trong phòng máy lạnh. Cái người ta ngại nhất là tiền. Chiller đã đắt, lại còn tốn điện. Phần dưới đây chỉ tính tiền điện khi để chiller chạy suốt.</p><p>Ở vùng nhiệt đới, đặt chiller ở 25 °C (dung sai +1 °C) là mức cân bằng tốt nhất giữa tiền bỏ ra và cái được. Hạ dưới 25 °C thì kính bể đọng hơi nước, có thể làm hỏng thiết bị. Tiền điện cũng tăng theo cấp số nhân khi khoảng chênh giữa nhiệt độ nước và nhiệt độ cần làm lạnh càng lớn. Giữ 25 °C là đã đủ để cây khỏe lên rõ rệt.</p><h3>Tiền chạy chiller ở Singapore (số liệu do Darren Low thu thập)</h3><p>Một người chơi ở Singapore ước tính tiền chạy chiller bằng cách ghi lại thời điểm máy bật và tắt trong 4 giờ, từ 11 giờ sáng đến 3 giờ chiều, là lúc nóng nhất trong ngày. Bể của người này để tự nhiên, không làm mát, thì nước khoảng 30 °C, nhiệt độ phòng cũng khoảng 30 °C. Chiller được đặt ở 25 °C, tức là máy tắt khi nước xuống 25 °C và bật lại khi nước lên 26 °C. Máy dùng là Hailea HC100a, công suất 1/20 HP, 150 W.</p><p>Bể là cỡ ADA 60p tiêu chuẩn, 60x30x36 cm (65 lít). Từ tỷ lệ thời gian máy chạy (41%), người này tính ra tiền điện trung bình mỗi tháng theo giá điện ở Singapore. Con số này có lẽ rẻ hơn nhiều so với hầu hết mọi người nghĩ. Có lẽ tiền điện không phải chuyện đáng lo nhất khi dùng chiller.</p><p>Nhưng chiller vẫn có vài nhược điểm cần tính trước. Nó làm lưu lượng lọc giảm khá nhiều, nên phải dùng lọc lớn hơn. Chiller cũng làm căn phòng đặt nó ấm lên một chút.</p><h3>Ghi chú thêm: nhiệt từ thiết bị ảnh hưởng nhiều</h3><p>Đèn T5, đèn LED tản nhiệt kém (dòng Chihiros A) và các thiết bị gắn thêm (lọc quá cỡ, thổi luồng, skimmer) tỏa ra khá nhiều nhiệt. Khi đó chiller phải chạy lâu hơn, lên tới 60% thời gian, vì nước lâu nguội mà lại nhanh nóng: mỗi lần bật thì chạy lâu hơn, mỗi lần tắt thì nghỉ ngắn hơn. Người này đổi sang đèn LED ít tỏa nhiệt (BuildMyLED) và bỏ bớt thiết bị thừa, thế là lượng điện tiêu thụ giảm 47%.</p><p>Số liệu ghi lại thời điểm chiller bật (nhiệt độ bể giảm dần) và tắt (nhiệt độ bể tăng lại). Phần so sánh cho thấy tiền điện chênh nhau thế nào giữa lúc dùng đèn \"nóng\" (T5 + Chihiros) và lúc dùng đèn mát hơn (BML).</p>",
+  "quality": {
+    "score": 0.88,
+    "indexable": true,
+    "bySource": {
+      "2hraquarist": 0.88
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-23"
+  }
+}

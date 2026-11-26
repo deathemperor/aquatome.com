@@ -1,13 +1,16 @@
 {
   "id": "piaractus-brachypomus",
-  "summary": "Cá hồng bụng đỏ (Piaractus brachypomus) chỉ hợp người có chỗ đặt bể khổng lồ, dài 300 cm, vì cá trưởng thành dài tới 88 cm. Nước khá dễ tính: 23–28 °C, pH 4,8–7,5, độ cứng 0–15 dGH. Độ khó 6/8, khó nhất là lo đủ chỗ và hệ lọc đủ mạnh cho con cá thải rất nhiều chất bẩn.",
+  "summary": "Cá hồng bụng đỏ (Piaractus brachypomus) hợp với người có chỗ đặt bể khổng lồ, đáy dài 300 cm, vì cá trưởng thành tới 88 cm. Nước dễ tính: 23–28 °C, pH 4,8–7,5, độ cứng 0–15 dGH. Độ khó 6/8. Khó nhất là bể và lọc, vì cá bơi suốt, thải rất nhiều chất bẩn và lớn nhanh khi cho ăn đủ. Cá hiền với loài to hơn nhưng sẽ ăn cá nhỏ.",
   "mistakes": [
-    "Mua cá con rồi nuôi tạm bể nhỏ: nên chuẩn bị sẵn bể tối thiểu 300 × 90 × 90 cm, vì cá ăn đủ thì lớn rất nhanh và \"bể nhỏ cá lớn vừa bể\" là chuyện hoang đường.",
-    "Dùng lọc yếu cho con cá thải nhiều chất bẩn: làm lọc sinh học lớn và mạnh, nên là lọc sump, rồi thay nước nhiều và đều đặn.",
-    "Trồng cây hoặc đặt đồ nhẹ, sưởi thủy tinh trong bể: cá ăn sạch cây và xô đồ, nên chỉ để đá cuội, lũa nặng cố định chắc, và đặt thiết bị ra ngoài bể qua sump."
+    "Mua cá con vì dễ thương rồi nuôi bể nhỏ. Hãy chuẩn bị bể tối thiểu 300 × 90 × 90 cm ngay từ đầu, vì chuyện bể nhỏ thì cá chỉ lớn vừa bể là lời đồn.",
+    "Trồng cây hoặc bày nhiều đồ trang trí. Cá ăn sạch cây, nên để bể thoáng. Món nào cần đặt thì chọn đồ đủ nặng hoặc cố định chắc vào bể.",
+    "Dùng lọc nhỏ và để sưởi thủy tinh, nhiệt kế trong bể. Nên làm lọc sump với hệ lọc sinh học lớn để đặt thiết bị ra ngoài, và thay nước nhiều, đều đặn."
   ],
   "speciesUpdatedAt": "2026-11-03",
-  "generatedAt": "2026-11-14T23:58:18.827Z",
-  "review": "approved",
-  "writtenFrom": "bf93aec4161ba827"
+  "writtenFrom": "9fd4670cb8417101",
+  "generatedAt": "2026-11-20T20:01:47.647Z",
+  "review": "pending",
+  "problems": [
+    "\"nhưng sẽ ăn cá nhỏ\": the page hedges with \"Cá nhỏ chắc là sẽ bị ăn\" (probably eaten). The summary turns that into a certainty."
+  ]
 }

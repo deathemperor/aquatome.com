@@ -3,21 +3,25 @@
   "name": "Cá paro Juelinae",
   "altNames": [
     "Cá thiên đường lùn Juelinae",
-    "Juelinae liquorice gourami"
+    "Juelinae liquorice gourami",
+    "Cá sặc cam thảo",
+    "Licorice gourami"
   ],
   "sections": {
-    "quickFacts:bwaquatics": "<p>Parosphromenus juelinae là một loài cá nước ngọt cỡ nhỏ thuộc họ Osphronemidae.</p>",
-    "aquariumSize:bwaquatics": "<p>Loài này hợp nuôi theo nhóm nhỏ 3-6 con trong bể khoảng 20-40 lít. Bạn có thể nuôi chung với các loài cá nước đen nhỏ như Boraras, hoặc với các loài betta ấp trứng bằng miệng như Albimarginata và Channoides.</p>",
-    "waterConditions:bwaquatics": "<ul><li>Nhiệt độ: 22 – 28 °C</li><li>pH: 3,0 – 6,5</li><li>Độ cứng: 18 – 72 ppm</li></ul>",
-    "diet:bwaquatics": "<p>Đây là loài ăn tạp. Chúng ăn đủ loại động vật không xương sống nhỏ và ấu trùng côn trùng.</p>",
-    "behaviour:bwaquatics": "<p>Nhìn chung cá khá hiền và nhút nhát. Chúng thích núp trong đám cây hoặc sau những chỗ trú khác trong bể.</p>",
-    "notes:bwaquatics": "<p>Tình trạng bảo tồn: Parosphromenus juelinae chưa có tên trong danh sách của Liên minh Bảo tồn Thiên nhiên Quốc tế (IUCN). Tuy vậy, môi trường sống của loài này đang mất dần và xuống cấp vì nạn phá rừng, việc chuyển đổi đất và ô nhiễm. Vì thế người ta nghi rằng nó cũng đang ở tình cảnh tương tự các loài Parosphromenus khác đã bị xếp vào nhóm Nguy cấp hoặc Cực kỳ nguy cấp.</p>"
+    "quickFacts:bwaquatics": "<ul><li>Giống: Parosphromenus (cá sặc cam thảo).</li><li>Danh sách đỏ IUCN: chưa đánh giá (loài mới mô tả năm 2021). Parosphromenus Project đã đề xuất xếp vào mức Cực kỳ nguy cấp.</li><li>Nguồn gốc: cá bắt ngoài tự nhiên.</li><li>Dáng thân: nhỏ và thon.</li><li>Vây: vây đuôi tròn. Gốc các vây lẻ màu đen, còn dải ánh kim phía trong đứt ra thành một vòng cung gồm những đốm không đều. Sợi vây bụng màu xanh lam nhạt.</li><li>Màu sắc: thân có các sọc nâu sẫm chạy dọc, phần còn lại phủ những đốm đỏ đậm lan tới tận gốc vây. Nhìn hai bên sườn đỏ là phân biệt được loài này với P. bintan và P. deissneri.</li></ul>",
+    "distribution:bwaquatics": "<p>Parosphromenus juelinae được mô tả năm 2021. Thật ra người ta đã bắt được nó từ năm 1993, nhưng lúc đó nhầm thành Parosphromenus bintan. Đến nay loài này mới chỉ thấy ở vài con suối và đầm lầy trong rừng, cùng thuộc một hệ thống sông trên đảo Bangka, Indonesia.</p>",
+    "habitat:bwaquatics": "<p>Loài này sống ở suối rừng có bóng râm và đầm lầy than bùn. Nước ở đó trong, màu nước trà, mọc dày Cryptocoryne và Utricularia. Trên đảo Bangka, khai mỏ, trồng cọ dầu và dân lập làng đã tàn phá nhiều vùng đất thấp nơi loài này sống.</p>",
+    "aquariumSize:bwaquatics": "<p>Một cặp nuôi trong bể 20 lít là đủ. Nếu nuôi nhóm 3 đến 6 con thì dùng bể 40 lít. Bể cần có nhiều hang và rải nhiều lá khô.</p>",
+    "waterConditions:bwaquatics": "<ul><li>TDS: 0 đến 50</li><li>pH: 4,0 đến 6,0</li><li>Nhiệt độ: 22 đến 28°C</li></ul>",
+    "behaviour:bwaquatics": "<p>Cá hiền và nhát. Có thể nuôi chung với các loài cá nước đen nhỏ xíu, tính điềm như Boraras, hoặc với các loài betta nhỏ ngậm trứng như albimarginata và channoides. Tuyệt đối không nuôi chung các loài Parosphromenus khác nhau vì chúng có thể lai với nhau.</p>",
+    "reproduction:bwaquatics": "<p>Cá đẻ trong hang. Lúc ve vãn, con đực nằm ngang hoặc chúc đầu xuống. Cách chăm cho đẻ giống các loài cá sặc cam thảo khác, nhưng những báo cáo đầu tiên cho thấy loài này có thể hơi khó cho đẻ hơn các loài cùng nhóm một chút. Con đực canh trứng và cá bột cho tới khi cá con tự bơi được.</p>",
+    "notes:bwaquatics": "<p>Kích thước tối đa: khoảng 3,6 cm. Con số này chưa được công bố, chỉ là ước tính dựa trên các loài họ hàng gần.</p>"
   },
   "quality": {
-    "score": 0.8,
+    "score": 0.85,
     "indexable": true,
     "bySource": {
-      "bwaquatics": 0.8
+      "bwaquatics": 0.85
     }
   }
 }

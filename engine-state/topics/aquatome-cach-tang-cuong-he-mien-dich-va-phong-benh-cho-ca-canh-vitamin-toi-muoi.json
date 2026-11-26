@@ -1,0 +1,297 @@
+{
+  "found": true,
+  "species": [
+    "Corydoras aeneus",
+    "Lates calcarifer",
+    "Symphysodon spp."
+  ],
+  "sources": [
+    {
+      "url": "https://www.merckvetmanual.com/exotic-and-laboratory-animals/aquarium-fishes/nutritional-diseases-of-fish",
+      "title": "Nutritional Diseases of Fish",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.merckvetmanual.com/management-and-nutrition/nutrition-exotic-and-zoo-animals/nutrition-in-fish",
+      "title": "Nutrition in Fish",
+      "kind": "vet"
+    },
+    {
+      "url": "https://ask.ifas.ufl.edu/publication/VM007",
+      "title": "The Use of Salt in Aquaculture",
+      "kind": "university"
+    },
+    {
+      "url": "https://ask.ifas.ufl.edu/publication/fa005",
+      "title": "Stress—Its Role in Fish Disease",
+      "kind": "university"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/aquarium-salt",
+      "title": "Aquarium Salt: When and How to Use It Properly",
+      "kind": "shop"
+    },
+    {
+      "url": "https://phys.org/news/2013-09-garlic-fanged-fish-parasites.html",
+      "title": "Garlic keeps fanged fish parasites away",
+      "kind": "news"
+    },
+    {
+      "url": "https://nippyfish.net/?p=77",
+      "title": "Treating Tropical Fish with Garlic",
+      "kind": "keeper"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/cach-phong-benh-ca-la-han-trong-mua-lanh.47621/",
+      "title": "Cách phòng bệnh cá La Hán trong mùa lạnh.",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.vin.com/doc/?id=3981357",
+      "title": "Salt Tolerance in the Callichthyid Catfish (Corydoras aeneus)",
+      "kind": "paper"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Long-lasting stress severely weakens the fish immune system, which gives pathogens more chances to cause disease.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Cold stress can completely stop the activity of the immune system's 'killer cells'.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "UF/IFAS frames disease prevention as good management: good water quality, good nutrition and sanitation.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Poor nutrition can cause poor growth, deformities, a depressed immune system, hepatic lipidosis and impaired metabolism.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Fish need ascorbic acid (vitamin C) delivered in their feed, and most fish foods should contain a stabilized form of it.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Merck recommends adding vitamins to fish diets, including vitamin E, vitamin B1 and stabilized vitamin C.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Vitamin C deficiency is called 'broken back disease' by some farmers and hobbyists. Severe cases show extreme scoliosis.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Milder vitamin C deficiency can show as bent or deformed gill cartilage, seen on a wet mount of gill tissue under a 10× objective.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Hepatic lipidosis can result from starvation, a diet too high in carbohydrate or lipid, or rancid feed.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Store dry feed in a pest-proof container in a cool, low-humidity place. Heat and humidity degrade the diet, promote mold and possible mycotoxins, and cause rancidity.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Discard an opened feed container kept at room temperature after 2 months, and commercial feed stored in the freezer after 6 months.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Commercial frozen foods (brine shrimp, bloodworms, mysids, glassworms) should be discarded after 1 year. Thawed frozen feed should not be refrozen.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Combining live feeds with varied commercial feeds helps meet nutritional needs and keeps fish from eating only one food type.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Adult fish need about 3% of body weight in food daily for maintenance, and fry and fingerlings up to 5%.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Leaving pellets to dissolve in the water before fish eat them pollutes the water.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "A 3 percent salt dip removes protozoa from the skin, gills and fins of freshwater fish and increases mucus production.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "If a dip is not feasible, freshwater fish may be kept in a 1 percent salt (brackish water) solution for 30 minutes up to several hours.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using too little salt makes a salt treatment ineffective. The concentration has to match the treatment's duration.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquarium Co-Op's level 1 salt dose is 1 Tbsp per 3 gallons, used for 4–5 days for mild bacterial and fungal infections, then increased if there is no improvement.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquarium Co-Op's level 2 salt dose is 1 Tbsp per 2 gallons. It is used for 10 days against ich, with the dose raised if symptoms worsen after 5 days.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquarium Co-Op's level 3 salt dose is 1 Tbsp per 1 gallon, kept for when lower levels fail. It is very hard on sensitive fish.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Aquarium Co-Op suggests salt level 1 (1 Tbsp per 3 gallons) for 2 weeks during quarantine.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "To end a salt treatment once fish look healthy, do a 30% water change without salt and watch for a week. Then do another 30% unsalted change and watch for another week.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Salt does not evaporate or filter out. During treatment, replace only the share removed by a water change (for a 20% change, add 20% of the original dose).",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Most live aquarium plants and most snails cannot tolerate aquarium salt. Anchor catfish cannot take even Aquarium Co-Op's level 1.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Scaleless fish and other sensitive species struggle at salt level 3. Caridina crystal shrimp have not been tested.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquarium Co-Op lists rasboras, danios, tetras, silver dollars, livebearers, most cichlids (including fry) and Neocaridina cherry shrimp as fairly tolerant of level 3 salt.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Use plain aquarium salt or NaCl rock salt, not table salt, marine salt or Epsom salt.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Overdosing salt can kill everything in the tank, not just the pathogens.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using salt daily as a preventative can lead to resistant diseases, according to Aquarium Co-Op.",
+      "source": 4
+    },
+    {
+      "section": "myths",
+      "fact": "Aquarium Co-Op calls it a myth that fish need salt daily for electrolytes, and says to use salt only when needed.",
+      "source": 4
+    },
+    {
+      "section": "myths",
+      "fact": "Aquarium Co-Op says salt is not a cure-all, because some microorganisms withstand higher salinity.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "A study on Corydoras aeneus tested salt tolerance and considered 1.0–2.0 ppt therapeutic, but it used artificial sea salt.",
+      "source": 8
+    },
+    {
+      "section": "other",
+      "fact": "In a James Cook University study, barramundi were fed garlic-enriched diets for 30 days before exposure to the marine flatworm parasite Neobenedenia.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "Half the garlic-fed barramundi stayed completely free of infection, while 100% of fish on the unenriched diet became infected.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "The barramundi ate more of the garlic-enriched feed, unlike bitter commercial treatments that fish often spit out.",
+      "source": 5
+    },
+    {
+      "section": "myths",
+      "fact": "NippyFish found no solid scientific backing for garlic in aquarium fish. The popular claim traces to a 1999 Tropical Fish Hobbyist report on parasite-infected discus.",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "In that report, discus fed garlic-oil-soaked food had fewer internal parasites after 6 weeks. Fresh garlic puree reduced parasites over 5 weeks but did not kill the worms.",
+      "source": 6
+    },
+    {
+      "section": "myths",
+      "fact": "NippyFish says the idea that garlic stimulates appetite probably grew from one article saying discus ate the treated food 'eagerly'.",
+      "source": 6
+    },
+    {
+      "section": "myths",
+      "fact": "NippyFish says Seachem's Garlic Guard is marketed as an appetite and flavor enhancer, not as a medicine.",
+      "source": 6
+    },
+    {
+      "section": "myths",
+      "fact": "Forum contributors quoted by NippyFish said garlic cannot cure fin rot directly.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "NippyFish warns that garlic is toxic to many animals (dogs, cats, birds) and only tentatively suggests a conservative dose is safe for fish.",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "Several keepers commenting on NippyFish reported that their bettas refused garlic-treated food.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese flowerhorn (cá La Hán) keeper says moving from 32–33°C in summer to 27–28°C at the season change can trigger fungal problems.",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "The same keeper keeps the tank at 30°C during the season change, then lowers it gradually to about 28°C.",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "The keeper suggests about 200–300 W of heater for 60–100 L tanks and 300–600 W for 100–250 L tanks.",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "The keeper warns that a cold-weather water change can drop tank temperature 3–4°C when outdoor temperatures reach 6–7°C, so new water should be warmed first.",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "During the season change, the keeper changes 20% of the water twice a week, keeps each change to 15% or less, and insulates the tank.",
+      "source": 7
+    }
+  ]
+}

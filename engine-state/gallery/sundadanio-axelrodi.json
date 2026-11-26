@@ -1,10 +1,18 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:358135996",
+  "inat:390369375",
+  "inat:390369336",
+  "inat:390369412"
+ ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/a35e0a75156ada02.webp": "9b93073d66cde9f5",
   "https://media.aquatome.com/seriouslyfish/2395a075ae4601b6.webp": "3f3e3f3fa6b396e7",
-  "https://media.aquatome.com/bwaquatics/90b99c99ef09416d.webp": "fbf0f2f9e17979b9"
+  "https://media.aquatome.com/bwaquatics/90b99c99ef09416d.webp": "fbf0f2f9e17979b9",
+  "https://media.aquatome.com/glaser/9d950d9c7c3f3ac6.webp": "7ceccca4f08f8f0f",
+  "https://media.aquatome.com/glaser/7c7845071fba671c.webp": "f0d0361b0c1c0c7c",
+  "https://media.aquatome.com/glaser/0aaa986a60f91943.webp": "f0f0e0c6a0c1830f"
  },
  "inat": {
   "taxon": 613700,
@@ -18,5 +26,13 @@
  "gbif": {
   "key": 2360276,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 220484295,
+  "done": true
+ },
+ "exhausted": "2026-11-24"
 }

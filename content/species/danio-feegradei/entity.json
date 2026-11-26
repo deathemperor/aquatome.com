@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "myanmar",
-    "rakhine"
+    "rakhine",
+    "thandwe"
   ],
   "range": {
     "native": {
@@ -16,10 +17,12 @@
         "MM"
       ],
       "regions": [
-        "Rakhine Yoma"
+        "Rakhine Yoma",
+        "Thandwe river"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -30,6 +33,14 @@
           ],
           "regions": [
             "Rakhine Yoma"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Danio feegradei was first described by the Indian ichthyologist S. L. Hora in 1937 from a single specimen originating from the Thandwe river in Myanmar (former Burma).",
+          "countries": [],
+          "regions": [
+            "Thandwe river"
           ]
         }
       ]
@@ -115,10 +126,22 @@
       "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump. The aquarium must have a very tightly-fitting cover as members of this genus are accomplished jumpers and can fit through surprisingly small gaps.</li></ul><p>The Yoma danio, Danio feegradei, is a cyprinid considered endemic to the western slopes of the Rakhine Yoma in western Myanmar. Seen in the hobby since around 2005, it is traded under names such as 'Danio sp. Yoma', 'D. sp. gold laser' and 'D. sp. rocket'. The spot-like markings on the flanks vary, and some specimens lack them entirely. It inhabits small, seasonal forest streams, and its constant activity suits it to larger tanks with similarly sized fishes.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio-feegradei-2/",
+      "html": "<p>Only in 2007 was this beautiful fish imported and made available to the dedicated aquarium hobbyist.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-feegradei",
       "html": "<p>Currently considered endemic to the Rakhine Yoma/Arakan mountains in Rakhine state, western Myanmar; this range forms a natural barrier which cuts the state off from the remainder of the country.</p><p>Type locality is 'roadside drains, Sandoway, lower Myanmar', Sandoway being the former name of modern-day Thandwe in Rakhine state.</p><p>D. feegradei occurs only on the western slopes and has been recorded both to the north and south of Thandwe city; this area is home to a number of endemic fish species including Danio aesculapii, Devario xyrops, Channa pulchra, Akysis vespertinus, Hara spinulosus and Batasio elongatus plus several Garra species including G. flavatra and G. spilota.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio-feegradei-2/",
+      "html": "<p>Danio feegradei was first described by the Indian ichthyologist S. L. Hora in 1937 from a single specimen originating from the Thandwe river in Myanmar (former Burma). Since then no reports have been published about new findings in the same river nor in other areas.</p>"
     },
     {
       "key": "habitat",
@@ -157,6 +180,12 @@
       "html": "<p>Not an aggressive fish but may upset very slow-moving or timid tankmates with its constant activity and vigorous feeding behaviour so can only be considered appropriate for larger tanks containing robust, similarly-sized fishes.</p><p>There are plenty of suitable choices including many cyprinids, loaches, cichlids, catfish and characins although as always when selecting a compatible community of fish proper research is essential.</p><p>Other species from the Rakhine Yoma available in the trade include Rasbora daniconius, R. rasbora, Garra flavatra, G. spilota, Lepidocephalichthys berdmorei, Opsarius barna and Devario xyrops.</p><p>Though gregarious by nature it's a shoaling rather than schooling fish which only groups together very tightly when threatened, while at other times rival males spar regularly.</p><p>Maintaining it in numbers of 10 or more will allow sub-dominant fish of both sexes some respite from the alpha individual(s) which can be quite aggressive at times.</p><p>It's not uncommon to see nipped fins in lesser fish and some hobbyists who have kept it have even experienced losses of otherwise healthy specimens; another reason to keep this species only in larger aquaria.</p><p>Alpha males are clearly distinguishable by their brighter, more intense colouration.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio-feegradei-2/",
+      "html": "<p>As with all representatives of the Danio family, D. feegradei is a schooling fish and therefore should ideally be kept in a group of at least 6 individuals of the same species. It is a beautiful, peaceful and fast swimming fish.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-feegradei",
@@ -181,8 +210,74 @@
       "html": "<ul><li>Conway, K. W., W.-J. Chen and R. L. Mayden (2008). The 'Celestial Pearl danio' is a miniature Danio (s.s) (Ostariophysi: Cyprinidae): evidence from morphology and molecules. Zootaxa 1686, 1-28</li><li>Fang, F. (2003). Phylogenetic Analysis of the Asian Cyprinid Genus Danio (Teleostei, Cyprinidae). Copeia 2003(4), 714-728</li><li>Fang, F. and S. O. Kullander (2009). Devario xyrops, a new species of danionine fish from south-western Myanmar (Teleostei: Cyprinidae). Zootaxa 2164, 33-40</li><li>Fang, F., M. Norén, T. Y. Liao, M. Källersjö and S. O. Kullander (2009). Molecular phylogenetic interrelationships of the south Asian cyprinid genera Danio, Devario and Microrasbora (Teleostei, Cyprinidae, Danioninae). Zoologica Scripta 38(1), 1-20</li><li>Mayden, R. L., K. L. Tang, K. W. Conway, J. Freyhof, S. Chamberlain, M. Haskins, L. Schneider, M. Sudkamp, R. M. Wood, M. Agnew, A. Bufalino, Z. Sulaiman, M. Miya, K. Saitoh, S. He (2007). Phylogenetic relationships of Danio within the order Cypriniformes: a framework for comparative and evolutionary studies of a model species. Journal of Experimental Zoology, Molecular Development and Evolution 308B, 642-654</li><li>Roberts, T. R. (2007). The 'Celestial Pearl Danio', a new genus and species of colourful minute cyprinid fish from Myanmar (Pisces: Cypriniformes). Raffles Bulletin of Zoology 55(1), 131-140</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Hora, S. L. (1937). Notes on fishes in the Indian Museum. XXXI. On a small collection of fish from Sandoway, Lower Burma. Records of the Indian Museum (Calcutta) v. 39 (pt 4), 323-331</li></ul>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/6096c6051de337a1.webp",
+      "thumb": "https://media.aquatome.com/glaser/6096c6051de337a1-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio-feegradei-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0dcf464c5c980000.webp",
+      "thumb": "https://media.aquatome.com/glaser/0dcf464c5c980000-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio-feegradei-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/8aba9e457d706b6c.webp",
+      "thumb": "https://media.aquatome.com/glaser/8aba9e457d706b6c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio-feegradei-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d6c9142cc10ba4e7.webp",
+      "thumb": "https://media.aquatome.com/glaser/d6c9142cc10ba4e7-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio-feegradei-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "CZg4bSvlovs",
+      "title": "Yoma Danio - Danio feegradei",
+      "durationSec": 41,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "JpKhWYA5Bbc",
+      "title": "Danio Feegradei- wild type Danio!",
+      "durationSec": 45,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Ye44ss6u25U",
+      "title": "Yoma Danios (Danio feegradei)",
+      "durationSec": 30,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Ct8BOzlWY5Q",
+      "title": "Yoma Danios - Danio feegradei",
+      "durationSec": 22,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -214,5 +309,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-20"
 }

@@ -1,9 +1,17 @@
 {
   "id": "sundadanio-axelrodi",
   "native": {
-    "input": "6d7d2d957d8fdb4b",
-    "at": "2026-11-15T05:39:34.625Z",
+    "input": "ab11ac9c4aa79c65",
+    "at": "2026-11-20T01:55:49.831Z",
     "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "It occurs in the ancient peat swamp forests of Borneo, Bangka and Sumatra, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
       {
         "code": "ID",
         "status": "native",
@@ -24,6 +32,20 @@
     "regions": [
       {
         "name": "Borneo",
+        "source": "bwaquatics",
+        "quote": "It occurs in the ancient peat swamp forests of Borneo, Bangka and Sumatra, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "bwaquatics",
+        "quote": "It occurs in the ancient peat swamp forests of Borneo, Bangka and Sumatra, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
         "source": "seriouslyfish",
         "quote": "Supposedly native to the Greater Sunda Islands of Borneo and Sumatra as well as the Riau Archipelago and Bangka Island off the east coast of Sumatra, but the only collection/locality details available refer to Bornean populations.",
         "ok": true
@@ -41,21 +63,9 @@
         "ok": true
       },
       {
-        "name": "Bangka Island",
+        "name": "Bangka",
         "source": "seriouslyfish",
         "quote": "Supposedly native to the Greater Sunda Islands of Borneo and Sumatra as well as the Riau Archipelago and Bangka Island off the east coast of Sumatra, but the only collection/locality details available refer to Bornean populations.",
-        "ok": true
-      },
-      {
-        "name": "Borneo",
-        "source": "bwaquatics",
-        "quote": "They are native to the blackwater peat swamps of Borneo and Sumatra in Southeast Asia.",
-        "ok": true
-      },
-      {
-        "name": "Sumatra",
-        "source": "bwaquatics",
-        "quote": "They are native to the blackwater peat swamps of Borneo and Sumatra in Southeast Asia.",
         "ok": true
       }
     ],
@@ -98,5 +108,9 @@
     ],
     "requests": 12,
     "at": "2026-11-15T05:39:34.625Z"
+  },
+  "nativeFailed": {
+    "at": "2026-11-24T23:11:38.206Z",
+    "error": "claude failed (1): other"
   }
 }

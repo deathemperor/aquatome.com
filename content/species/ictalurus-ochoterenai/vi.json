@@ -1,0 +1,22 @@
+{
+  "slug": "ca-da-tron-chapala",
+  "name": "Cá da trơn Chapala",
+  "altNames": [
+    "Chapala Catfish"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Ictalurus ochoterenai (de Buen, 1946)</li><li>Tên thường gọi: Chapala Catfish (cá da trơn Chapala)</li><li>Nơi thu mẫu chuẩn: Lago de Chapala, Isla Patos, Mexico.</li><li>Tên đồng nghĩa: Haustor ochoterenai</li><li>Sách đỏ IUCN: Chưa đánh giá</li></ul>",
+    "distribution:planetcatfish": "<p>Trung Mỹ: loài này chỉ có ở lưu vực sông Lerma, Mexico.</p>",
+    "reproduction:planetcatfish": "<p>Sinh sản: chưa có ai báo cáo cho loài này đẻ.</p>",
+    "notes:planetcatfish": "<p>Nguồn gốc tên gọi: Ictalurus ghép từ hai chữ Hy Lạp, ichthys là cá và ailouros là mèo. Nghĩa đen của nó là \"cá mèo\", tức cá da trơn. Tên loài đặt để vinh danh Isaac Ochoterena, người sáng lập Viện Sinh học của Đại học Tự trị Quốc gia México.</p>",
+    "references:planetcatfish": "<p>Anales del Instituto de Biologia de la Universidad de Mexico v. 17 (nos 1-2), pp 271, Fig. 1.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.85
+    },
+    "reason": "thin"
+  }
+}

@@ -8,7 +8,9 @@
   "places": [
     "asia",
     "malaysia",
-    "tatau"
+    "tatau",
+    "indonesia",
+    "borneo"
   ],
   "range": {
     "native": {
@@ -83,6 +85,10 @@
       {
         "source": "seriouslyfish",
         "value": 5.5
+      },
+      {
+        "source": "glaser",
+        "value": 5
       }
     ],
     "tankCm": [
@@ -106,10 +112,22 @@
       "html": "<ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/gastromyzon-viriosus-4/",
+      "html": "<p>This charming zebra hillstream loach was imported from Indonesia. The species can attain a maximum length of about 5 cm.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gastromyzon-viriosus",
       "html": "<p>Needs a tight-fitting lid as this species is known to jump. Since it needs stable water conditions and feeds on biofilm this species should never be added to a biologically immature set-up, and a tightly-fitting cover is necessary since it can literally climb glass.</p><p>Gastromyzon viriosus is a hillstream loach known only from the Tatau River drainage in central Sarawak, Malaysian Borneo. A dark brown body with 8-10 complete vertical cream bars and a thin, cream, reticulated pattern on the head identify it. It is occasionally seen in the trade, most often in mixed shipments labelled 'Borneo sucker', 'Hong Kong pleco' or 'butterfly loach' regardless of species.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/gastromyzon-viriosus-4/",
+      "html": "<p>The determination of the numerous species of Gastromyzon from Borneo (more than 30 different species are known from the island) is quite tricky, many species look quite similar to each other. So the possibility cannot be excluded that the imported fish will prove to be a different species. The imported fish were still youngsters, only 2.5 cm long.</p>"
     },
     {
       "key": "distribution",
@@ -160,6 +178,12 @@
       "html": "<p>Adult females are noticeably heavier-bodied and often a little larger than males; these differences are more apparent when viewing the fish from above or below.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/gastromyzon-viriosus-4/",
+      "html": "<p>Despite the small size of the fish the sexes can be quite easily told apart. The males have a broader head, are darker in coloration and have axillary pores above the pectoral fins; these pores are lacking (or not visible with the bare eye) in females.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gastromyzon-viriosus",
@@ -170,6 +194,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gastromyzon-viriosus",
       "html": "<p>G. viriosus is occasionally seen in the trade, most often in mixed shipments which may also contain other Gastromyzon spp. or related fishes like Beaufortia kweichowensis. These are typically labelled as 'Borneo sucker', 'Hong Kong pleco', 'butterfly loach', etc., regardless of species.</p><p>It can be distinguished from congeners by the following combination of characters: body colour dark brown with 8-10 vertical cream bars, with bars complete on flanks; dorsal surface of head dark brown with thin, cream, reticulated pattern; sublacrymal groove present; secondary rostrum absent; postoral pouch absent; subopercular groove present and continuing to pectoral-fin origin; gill opening angular; snout rounded when viewed dorsally; no scales on abdomen; 63-67 lateral line scales; pelvic-fin not overlapping anal-fin origin; adpressed dorsal-fin not overlapping level of anal-fin origin.</p><p>Gastromyzon spp. are placed into various species groups (putative assemblages of species which may or may not be monophyletic) for ease of reference, and G. viriosus is included in the G. pariclavis group which also includes G. pariclavis, G. embalohensis, G. venustus, G. spectabilis and G. russulus.</p><p>Members are defined by a combination of characters including: a relatively elongate snout; a rounded, 'protruding' head when viewed from above; a clearly-visible subopercular groove running parallel with the pectoral-fin orgin; no secondary rostrum; no postoral pouch (a flap of skin with an opening just behind and running parallel along the mouth in some spp.); absence of scales on the abdomen; small, densely-packed, non-branching papillae on the lower lip.</p><p>The current arrangement of species groups is as follows:</p><ul><li>G. borneensis group: G. borneensis, G. monticola, G. ornaticauda, G. cranbrooki, G. cornusaccus, G. extrorsus, G. introrsus, G. bario.</li><li>G. punctulatus group: G. aeroides, G. punctulatus, G. katibasensis.</li><li>G. fasciatus group: G. fasciatus, G. praestans.</li><li>G. contractus group: G. contractus, G. megalepis, G. umbrus.</li><li>G. ctenocephalus group: G. ctenocephalus, G. scitulus.</li><li>G. lepidogaster group: G. lepidogaster, G. psiloetron.</li><li>G. ridens group: G. ridens, G. crenastus, G. stellatus, G. zebrinus.</li><li>G. danumensis group: G. danumensis, G. aequabilis, G. ingeri.</li><li>G. pariclavis group: G. pariclavis, G. embalohensis, G. venustus, G. spectabilis, G. russulus, G. viriosus.</li><li>G. ocellatus group: G. ocellatus, G. farragus.</li><li>G. auronigrus group: G. auronigrus.</li></ul><p>Gastromyzon spp. have specialised morphology adapted to life in fast-flowing water. The paired fins are orientated horizontally, head and body flattened, and pelvic fins fused together.</p><p>These features form a powerful sucking cup which allows the fish to cling tightly to solid surfaces. The ability to swim in open water is greatly reduced and they instead 'crawl' their way over and under rocks.</p><p>The family Gastromyzontidae is currently considered valid as per Kottelat (2012).</p><p>It contains a number of genera which had formerly been included in several families and subfamilies, most recently Balitoridae, of which the most well-known in the aquarium hobby include Beaufortia, Formosania, Gastromyzon, Pseudogastromyzon, Hypergastromyzon, Liniparhomaloptera, Sewellia, and Vanmanenia.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/gastromyzon-viriosus-4/",
+      "html": "<p>It is known from G. viriosus that the fish develop bright yellow fins when fully grown.</p>"
     },
     {
       "key": "references",
@@ -280,5 +310,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-19"
 }

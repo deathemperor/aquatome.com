@@ -1,10 +1,45 @@
 {
   "id": "caridina-dennerli",
   "native": {
-    "input": "58d13e1426d45722",
-    "at": "2026-11-08T22:57:48.089Z",
-    "claims": [],
-    "regions": [],
+    "input": "a104a09072a33ba1",
+    "at": "2026-11-23T01:48:47.136Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "The cardinal shrimp entered the hobbyists' books in late 2007 and is native to the Sulawesi region of Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Matano",
+        "source": "aquariumbreeder",
+        "quote": "It lives in Lake Matano.",
+        "ok": true
+      },
+      {
+        "name": "Lake Poso",
+        "source": "aquariumbreeder",
+        "quote": "Shrimps are caught from several lakes in the region, including Lake Poso and the five-lake Malili system, all of which have similar flora, fauna and water values.",
+        "ok": true
+      },
+      {
+        "name": "Malili",
+        "source": "aquariumbreeder",
+        "quote": "Shrimps are caught from several lakes in the region, including Lake Poso and the five-lake Malili system, all of which have similar flora, fauna and water values.",
+        "ok": true
+      },
+      {
+        "name": "Sulawesi",
+        "source": "aquariumbreeder",
+        "quote": "The cardinal shrimp entered the hobbyists' books in late 2007 and is native to the Sulawesi region of Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
@@ -18,16 +53,18 @@
     "taxonKey": 6454959,
     "datasets": [
       [
-        "7b84c0a2-f762-11e1-a439-00145eb45e9a",
-        20
-      ],
-      [
         "5221e970-757c-43cb-bdd4-2f085bf36ae4",
         16
+      ],
+      [
+        "7b84c0a2-f762-11e1-a439-00145eb45e9a",
+        15
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-08T22:57:48.089Z"
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-23T01:48:47.136Z"
   }
 }

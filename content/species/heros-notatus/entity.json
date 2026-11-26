@@ -19,21 +19,16 @@
         "Rio Negro"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The spotted severum, Heros notatus, is a cichlid endemic to the Rio Negro basin in Brazil, where it inhabits blackwater rivers and tributaries.",
+          "quote": "Endemic to the Rio Negro basin, Brazil.",
           "countries": [
             "BR"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Endemic to the Rio Negro basin, Brazil.",
-          "countries": [],
           "regions": [
             "Rio Negro"
           ]
@@ -183,6 +178,12 @@
       "html": "<p>The spotted severum, Heros notatus, is a cichlid endemic to the Rio Negro basin in Brazil, where it inhabits blackwater rivers and tributaries. Rarely seen, it is occasionally offered by specialist cichlid or South American dealers. Not a particularly aggressive species, though males may squabble with conspecifics, it suits a larger cichlid community, and much smaller fish will almost certainly be eaten.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/heros-notatus-brazil-wild-2/",
+      "html": "<p>Wild Heros notatus from Brazil. A typical feature of this species is the dark spots in the lower half of the body.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/heros-notatus",
@@ -231,10 +232,22 @@
       "html": "<p>Male is bigger, has more defined reddish markings on the gill covers and tends to develop longer extensions to the dorsal and anal fins.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/heros-notatus-brazil-wild-2/",
+      "html": "<p>As with all Heros the sexes differ by the head colouring, however, it is not always easy to distinguish a strongly coloured female from a male standing far below in the hierarchy. To avoid getting constantly in trouble with the dominant male, low-ranking males assume female coloration. This is also called \"Sneaker\" behaviour. Sneaker males frequently appear in cichlids.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/heros-notatus",
       "html": "<p>Limited reports of breeding in the hobby, as the fish is not often seen for sale. Breeding is likely to follow similar patterns to Heros severus where the pair will select a flat stone, or sometimes excavate a pit. Once the breeding area is prepared, eggs will be deposited by the female and then fertilised by the male. Both fish guard the eggs and when the fry hatch two to three days later, they are transferred to a pit where the parents keep them until they become free-swimming. This is usually 3–4 days after hatching. Both fish assume parental duties but can be easily spooked often leading to them eating the fry. It is advisable that the breeding tank be placed in a quiet location and disturbed as little as possible. Fry can be fed on newly-hatched brineshrimp and powdered fry foods until large enough to take bigger foods.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/heros-notatus-brazil-wild-2/",
+      "html": "<p>In nature, sneaker males \"take revenge\" for the humiliation by the territorial, dominant male by joining the spawning couple during the spawning process and fertilizing many eggs on that occasion. In this way they can pass on their genes to the next generation without having spent energy on building up the territory, defending it and courtship display in front of the female.</p>"
     },
     {
       "key": "notes",
@@ -246,38 +259,68 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/088d3927003c8b22.webp",
+      "thumb": "https://media.aquatome.com/commons/088d3927003c8b22-480.webp",
       "width": 960,
       "height": 720,
-      "licence": "CC BY-SA 3.0",
-      "author": "Ferrari2503 at English Wikipedia",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Heros_notatus01.jpg",
-      "caption": "Heros notatus, also known as \"spotted severum\"",
-      "thumb": "https://media.aquatome.com/commons/088d3927003c8b22-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/088d3927003c8b22-large.webp",
         "width": 1600,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Ferrari2503 at English Wikipedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Heros_notatus01.jpg",
+      "caption": "Heros notatus, also known as \"spotted severum\""
     },
     {
       "url": "https://media.aquatome.com/commons/136061f57f5aab16.webp",
+      "thumb": "https://media.aquatome.com/commons/136061f57f5aab16-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 3.0",
       "author": "User:Ferrari2503",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Severum_2.JPG",
-      "caption": "Heros notatus. Photo by Grant Kendrick",
-      "thumb": "https://media.aquatome.com/commons/136061f57f5aab16-480.webp"
+      "caption": "Heros notatus. Photo by Grant Kendrick"
     },
     {
       "url": "https://media.aquatome.com/commons/1a347bdfa6d74068.webp",
+      "thumb": "https://media.aquatome.com/commons/1a347bdfa6d74068-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 3.0",
       "author": "Wikimedia Commons",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Purple_fish_with_red_eyes_in_aquarium.jpg",
-      "caption": "Purple fish with red eyes in aquarium.jpg",
-      "thumb": "https://media.aquatome.com/commons/1a347bdfa6d74068-480.webp"
+      "caption": "Purple fish with red eyes in aquarium.jpg"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0aa3d9687986d059.webp",
+      "thumb": "https://media.aquatome.com/glaser/0aa3d9687986d059-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/heros-notatus-brazil-wild-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c7a8b8f321fb5f1c.webp",
+      "thumb": "https://media.aquatome.com/glaser/c7a8b8f321fb5f1c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/heros-notatus-brazil-wild-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/4034df9012d5f005.webp",
+      "thumb": "https://media.aquatome.com/glaser/4034df9012d5f005-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/heros-notatus-brazil-wild-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -334,5 +377,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-19"
 }

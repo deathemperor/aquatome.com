@@ -1,8 +1,13 @@
 {
   "slug": "han",
-  "name": "Han",
+  "name": "Sungai Han",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-23T01:45:56.697Z"
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

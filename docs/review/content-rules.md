@@ -5,8 +5,8 @@ the site serves (`packages/engine/src/content-rules.ts`, docs/governance.md). A 
 a rule can fix safely is fixed whenever the engine writes a page, and on every page each cycle before the build
 (`pnpm engine sweep`; the real-content test holds those rules at zero); the rest is listed here, each page once per rule.
 
-Pages checked: 8831 (Vietnamese 4879, Indonesian 1697, Thai 1690, Malay 565). Imperial units
-beside a metric figure: feet 1, gallon 18.
+Pages checked: 9759 (Vietnamese 5547, Indonesian 1778, Thai 1776, Malay 658). Imperial units
+beside a metric figure: feet 1, gallon 22, inch 1, °F 1.
 
 ## Numbered headings broken or miscounted (2)
 
@@ -39,12 +39,13 @@ A heading at the end of its text or over one that isn't its sub-section (an empt
 
 - none
 
-## A heading twice on a page (2)
+## A heading twice on a page (3)
 
 The same heading twice on one page. Listed: which of the two sections to keep is a person's call.
 
 - [vi · Cây thủy sinh thật và cây giả: ưu và nhược điểm](https://aquatome.com/huong-dan/cay-thuy-sinh-that-va-cay-gia-uu-va-nhuoc-diem/) — "ưu điểm của cây giả" twice; "nhược điểm của cây giả" twice
 - [vi · Hành vi của tép: Vì sao chúng cứ bơi lòng vòng?](https://aquatome.com/huong-dan/hanh-vi-cua-tep-vi-sao-chung-cu-boi-long-vong/) — "cách xử lý" twice
+- [vi · Phân hạng tép Crystal Red (CRS) và Crystal Black (CBS) kèm hình ảnh](https://aquatome.com/huong-dan/phan-hang-tep-crystal-red-crs-va-crystal-black-cbs-kem-hinh/) — "tép crystal red hạng sss (hoặc k14)" twice; "tép crystal red hạng ss (hoặc k8 – k10)" twice; "tép crystal red hạng s (hoặc k6)" twice
 
 ## The source site's comments or related posts (0)
 
@@ -74,13 +75,15 @@ Labels such as "Sai lầm 1", "Mẹo 2", "Bước 3" whose numbers neither count
 - [vi · Cá lau kiếng bristlenose](https://aquatome.com/ca/ca-lau-kieng-bristlenose/) — "Trang cũng nêu kích thước bể tối thiểu là 150 lít; bể 75 lít có thể nuôi hai co…"; "Trang lưu ý rằng chúng không thực sự làm sạch bể: chúng ăn tảo trên kính nhưng…"
 - [vi · Bể cá bị nóng mùa hè: cách hạ nhiệt an toàn và giữ bể mát](https://aquatome.com/huong-dan/be-ca-bi-nong-mua-he/) — "Trang này cũng khuyên tăng sủi hoặc tăng dòng chảy mặt nước, nhất là vào ban đê…"
 
-## Text naming a video, a channel or a reviewer (3)
+## Text naming a video, a channel or a reviewer (5)
 
 A page written from videos (a video guide, a product's reviews) whose text names one of its channels or talks about the video or who made it ("trong video", "người review", "theo tác giả"): the page's source list carries that. Listed; a product's review summary never publishes with one (product-reviews.ts).
 
+- [vi · 5 lý do người chơi bỏ nuôi cá cảnh và cách để không bỏ cuộc](https://aquatome.com/huong-dan/5-ly-do-nguoi-choi-bo-nuoi-ca-canh-va-cach-de-khong-bo-cuoc/) — "kênh youtube"
 - [vi · Những nguồn tham khảo hữu ích để học chơi thủy sinh](https://aquatome.com/huong-dan/hoc-choi-thuy-sinh-o-dau-dien-dan-website-cuoc-thi-va-kenh/) — "kênh youtube"
 - [vi · Nuôi và cho cá nhiệt đới sinh sản trong hồ nhỏ ngoài trời](https://aquatome.com/huong-dan/nuoi-va-cho-ca-nhiet-doi-sinh-san-trong-thung-ho-mini-ngoai/) — "anh ấy"
 - [vi · Đèn LED thủy sinh Chihiros C II](https://aquatome.com/san-pham/chihiros-c-ii/) — "người đánh giá"
+- [vi · Lọc thùng Oase BioMaster 350](https://aquatome.com/san-pham/oase-biomaster-350/) — "người đánh giá"
 
 ## A product AquaTome doesn't control, said to be controlled (0)
 
@@ -88,11 +91,12 @@ A product page saying AquaTome controls it, when the code doesn't (@aq/schema co
 
 - none
 
-## Markdown, HTML or entities left in the text (1)
+## Markdown, HTML or entities left in the text (2)
 
 **bold**, "## heading", [link](…), `code` or a tag written out as text; "&amp;" in a title, summary or FAQ, or an entity escaped twice in the text (both fixed when the engine writes the page, listed until then).
 
 - [id · Warna Ikan Hias Pudar: Pakan Penambah Warna, Vitamin C & Cara Memberi Pakan](https://aquatome.com/id/panduan/warna-ikan-hias-pudar/) — "\<h3\>"; "\</h3\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<ul\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\<em\>"; "\</em\>"; "\</li\>"; "\</ul\>"; "\<p\>"; "\<em\>"; "\</em\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<h3\>"; "\</h3\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\<em\>"; "\</em\>"; "\</p\>"; "\<p\>"; "\<em\>"; "\</em\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<ul\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\</ul\>"; "\<h3\>"; "\</h3\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\</p\>"; "\<ul\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\</ul\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<p\>"; "\</p\>"; "\<ul\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\</ul\>"; "\<p\>"; "\<em\>"; "\</em\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<ul\>"; "\<li\>"; "\<em\>"; "\</em\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\</ul\>"
+- [ms · Beri Makan Ikan Berapa Kali Sehari? Kuantiti Cukup & Pilihan Makanan](https://aquatome.com/ms/panduan/beri-makan-ikan-berapa-kali-sehari-kuantiti-cukup-pilihan/) — "\<h3\>"; "\</h3\>"; "\<p\>"; "\</p\>"; "\<ul\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\</ul\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<p\>"; "\</p\>"; "\<ul\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\</ul\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<h3\>"; "\</h3\>"; "\<p\>"; "\<strong\>"; "\</strong\>"; "\</p\>"; "\<ul\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\</ul\>"; "\<p\>"; "\<strong\>"; "\</strong\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<ul\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\</ul\>"; "\<h3\>"; "\</h3\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<p\>"; "\</p\>"
 
 ## A paragraph repeated on the page (0)
 
@@ -131,67 +135,67 @@ A Loricariidae fish with an L or LDA number on record whose name in a language g
 
 - none
 
-## Words hobbyists rarely write (2948)
+## Words hobbyists rarely write (3071)
 
 Words and turns the engine writes far more often than the language's hobbyists do, each with what they write instead (packages/engine/src/phrases.ts; docs/review/phrases.md has the counts). The writers' prompts carry the list, and the style rewrite takes the pages that have them up a batch a cycle. Counted, never held: only a model can mend one in its sentence.
 
-- vi · "dù vậy" → "nhưng", "tuy nhiên": 1670 pages, 3932 times
-- vi · "phần lớn" → "thường", "chủ yếu", hoặc bỏ: 1643 pages, 3705 times
-- vi · "bạn nên" → "nên", "cần", hoặc nói thẳng việc cần làm ("Thay 30% nước mỗi tuần"): 1590 pages, 3979 times
-- vi · "ghi nhận" → "có ở", "gặp ở", "thấy ở" (nguồn nói chưa ai thấy thì giữ ý đó): 1101 pages, 2145 times
-- vi · "nhiều khả năng" → "chắc là", "có lẽ" (giữ đúng mức chắc chắn của nguồn): 1001 pages, 1594 times
-- vi · "thức ăn sống" → "thức ăn tươi sống", "đồ tươi": 946 pages, 1448 times
-- vi · "bể cộng đồng" → "nuôi chung", "thả chung với cá hiền": 847 pages, 1302 times
-- vi · "gần như không" → "hầu như không", "ít khi", hoặc nói thẳng: 596 pages, 827 times
-- vi · "bạn cùng bể" → "cá nuôi chung", "nuôi chung với…": 571 pages, 760 times
-- vi · "lý tưởng" → "hợp nhất", "tốt nhất", hoặc nói thẳng con số ("nên giữ 24–26 °C"): 559 pages, 765 times
-- vi · "không xương sống" → gọi tên con: "tép, ốc": 541 pages, 627 times
-- vi · "giới chơi" → "người chơi", hoặc bỏ: 536 pages, 785 times
-- vi · "nhờ vậy" → để câu sau tự nói; "thế là" chỉ khi đúng là chuyện xảy ra tiếp: 506 pages, 617 times
+- vi · "dù vậy" → "nhưng", "tuy nhiên": 1689 pages, 3926 times
+- vi · "phần lớn" → "thường", "chủ yếu", hoặc bỏ: 1659 pages, 3712 times
+- vi · "bạn nên" → "nên", "cần", hoặc nói thẳng việc cần làm ("Thay 30% nước mỗi tuần"): 1590 pages, 3953 times
+- vi · "ghi nhận" → "có ở", "gặp ở", "thấy ở" (nguồn nói chưa ai thấy thì giữ ý đó): 1093 pages, 2123 times
+- vi · "nhiều khả năng" → "chắc là", "có lẽ" (giữ đúng mức chắc chắn của nguồn): 992 pages, 1576 times
+- vi · "thức ăn sống" → "thức ăn tươi sống", "đồ tươi": 942 pages, 1442 times
+- vi · "bể cộng đồng" → "nuôi chung", "thả chung với cá hiền": 839 pages, 1286 times
+- vi · "gần như không" → "hầu như không", "ít khi", hoặc nói thẳng: 629 pages, 876 times
+- vi · "không xương sống" → trong bể (cá nuôi chung, thuốc, đồng, thức ăn cho chúng) gọi tên con: "tép, ốc", thêm "cua", "tôm hùm đất" khi nguồn nói; ngoài tự nhiên (cá ăn gì, trong bụng có gì) gọi tên con nguồn nói ("côn trùng", "giáp xác"), nguồn không nói con nào thì để "động vật không xương sống": 562 pages, 643 times
+- vi · "bạn cùng bể" → "cá nuôi chung", "nuôi chung với…": 558 pages, 742 times
+- vi · "lý tưởng" → "hợp nhất", "tốt nhất", hoặc nói thẳng con số ("nên giữ 24–26 °C"): 553 pages, 756 times
+- vi · "giới chơi" → "người chơi", hoặc bỏ: 532 pages, 778 times
+- vi · "nhờ vậy" → để câu sau tự nói; "thế là" chỉ khi đúng là chuyện xảy ra tiếp: 508 pages, 619 times
 - vi · "lý do là" → "vì", "là do": 487 pages, 535 times
-- vi · "nhìn chung" → "thường", hoặc bỏ: 430 pages, 580 times
-- vi · "hung hăng" → "dữ", "hung dữ": 385 pages, 613 times
-- vi · "dân chơi" → thường bỏ được ("gọi là…", "hay nuôi…"); "người chơi" khi cần nói ai: 373 pages, 489 times
-- vi · "bơi tự do" → "tự bơi được", "bơi được": 340 pages, 400 times
-- vi · "khẩu phần" → "thức ăn", "cho ăn…": 330 pages, 409 times
-- vi · "bắt buộc phải" → "phải": 322 pages, 363 times
-- vi · "giữ lãnh thổ" → "hay đuổi cá khác khỏi chỗ của nó", "hay giành chỗ": 321 pages, 432 times
-- vi · "thị trường cá cảnh" → "tiệm cá", "trên thị trường": 316 pages, 434 times
-- vi · "được xem là" → nói thẳng ("CO2 coi như bắt buộc", "cây khó giữ lâu"), đừng đổi sang "được coi là": 315 pages, 398 times
-- vi · "chỗ trú" → "chỗ trốn": 304 pages, 359 times
-- vi · "được cho là" → đúng mức chắc của nguồn: chắc thì nói thẳng, nguồn còn ngờ thì "có lẽ", "nghe nói": 257 pages, 315 times
-- vi · "bể trồng cây" → "bể thủy sinh", "đèn thủy sinh": 193 pages, 264 times
+- vi · "nhìn chung" → "thường", hoặc bỏ: 423 pages, 572 times
+- vi · "hung hăng" → "dữ", "hung dữ": 387 pages, 614 times
+- vi · "dân chơi" → thường bỏ được ("gọi là…", "hay nuôi…"); "người chơi" khi cần nói ai: 371 pages, 486 times
+- vi · "bơi tự do" → "tự bơi được", "bơi được": 334 pages, 394 times
+- vi · "bắt buộc phải" → "phải": 330 pages, 371 times
+- vi · "khẩu phần" → "thức ăn", "cho ăn…": 329 pages, 408 times
+- vi · "giữ lãnh thổ" → "hay đuổi cá khác khỏi chỗ của nó", "hay giành chỗ": 318 pages, 428 times
+- vi · "thị trường cá cảnh" → "tiệm cá", "trên thị trường": 314 pages, 431 times
+- vi · "được xem là" → nói thẳng ("CO2 coi như bắt buộc", "cây khó giữ lâu"), đừng đổi sang "được coi là": 310 pages, 391 times
+- vi · "chỗ trú" → "chỗ trốn": 300 pages, 355 times
+- vi · "được cho là" → đúng mức chắc của nguồn: chắc thì nói thẳng, nguồn còn ngờ thì "có lẽ", "nghe nói": 255 pages, 312 times
+- vi · "bể trồng cây" → "bể thủy sinh", "đèn thủy sinh": 197 pages, 267 times
 - vi · "thủ phạm" → "nguyên nhân", "là do": 169 pages, 199 times
-- vi · "cá mê cung" → gọi tên con: "cá sặc, cá betta": 137 pages, 184 times
+- vi · "cá mê cung" → gọi tên con: "cá sặc, cá betta": 132 pages, 179 times
 - vi · "loricariid" → "cá lau kiếng", "cá tỳ bà", "pleco": 132 pages, 154 times
 - vi · "máy tạo dòng" → "thổi luồng": 130 pages, 140 times
-- vi · "rất nên" → "nên", "tốt nhất là": 129 pages, 144 times
-- vi · "tốt nhất bạn nên" → "nên", "tốt nhất là": 120 pages, 135 times
-- vi · "lọc bọt biển" → "lọc mút", "lọc bio" (lọc mút chạy sủi): 109 pages, 185 times
-- vi · "khuyến nghị" → "nên", "khuyên": 89 pages, 112 times
-- vi · "dưới đèn" → "đèn mạnh thì…", "đèn yếu thì…": 87 pages, 124 times
-- vi · "trưởng thành sinh dục" → "đủ lớn để đẻ", "bắt cặp được": 84 pages, 98 times
+- vi · "rất nên" → "nên", "tốt nhất là": 126 pages, 140 times
+- vi · "tốt nhất bạn nên" → "nên", "tốt nhất là": 117 pages, 131 times
+- vi · "lọc bọt biển" → "lọc mút", "lọc bio" (lọc mút chạy sủi): 107 pages, 183 times
+- vi · "dưới đèn" → "đèn mạnh thì…", "đèn yếu thì…": 93 pages, 131 times
+- vi · "khuyến nghị" → "nên", "khuyên": 83 pages, 106 times
+- vi · "trưởng thành sinh dục" → "đủ lớn để đẻ", "bắt cặp được": 83 pages, 97 times
 - vi · "thành phần thực vật" → "có rau", "có tảo": 77 pages, 77 times
 - vi · "được chuộng" → "nhiều người nuôi", "dễ kiếm", hoặc nói thẳng vì sao: 74 pages, 81 times
-- vi · "cá nhân giống" → "cá trại", "cá cho đẻ trong bể" (dễ đọc nhầm thành "cá nhân"): 65 pages, 93 times
-- vi · "một cách + tính từ" → bỏ "một cách": "làm cẩn thận", "cho đơn giản": 47 pages, 49 times
-- vi · "cây thân đứng" → "cây cắt cắm": 46 pages, 64 times
+- vi · "cá nhân giống" → "cá trại", "cá cho đẻ trong bể" (dễ đọc nhầm thành "cá nhân"): 62 pages, 88 times
+- vi · "một cách + tính từ" → bỏ "một cách": "làm cẩn thận", "cho đơn giản": 51 pages, 53 times
+- vi · "cây thân đứng" → "cây cắt cắm": 47 pages, 65 times
 - vi · "dựng bể" → "set bể": 39 pages, 49 times
+- vi · "việc đầu tiên là" → "đầu tiên là", "trước tiên", hoặc làm việc đó luôn: 36 pages, 40 times
 - vi · "gầy rộc" → "gầy", "gầy đi": 35 pages, 36 times
-- vi · "việc đầu tiên là" → "đầu tiên là", "trước tiên", hoặc làm việc đó luôn: 34 pages, 38 times
 - vi · "cột nước" → "trong nước": 33 pages, 46 times
-- vi · "lọc sponge" → "lọc mút", "lọc bio": 33 pages, 37 times
+- vi · "lọc sponge" → "lọc mút", "lọc bio": 32 pages, 36 times
+- vi · "nhắm tới" → "để…", "dành cho…": 32 pages, 40 times
 - vi · "quả sủi" → "cục sủi": 32 pages, 71 times
-- vi · "nhắm tới" → "để…", "dành cho…": 31 pages, 39 times
 - vi · "keo siêu dính" → "keo 502": 21 pages, 37 times
 - vi · "viên phân nền" → "phân nhét" ("phân nền" là lớp đất trải đáy bể): 19 pages, 59 times
 - vi · "nuôi thương mại" → "cá nuôi", "cá trại": 18 pages, 27 times
 - vi · "người cho đẻ" → "trại", "người ép đẻ": 17 pages, 19 times
 - vi · "xao động" → "làm mặt nước gợn", "khuấy mặt nước": 16 pages, 22 times
-- vi · "dây hơi" → "dây oxy": 14 pages, 55 times
+- vi · "dây hơi" → "dây oxy": 15 pages, 56 times
 - vi · "muối bể cá" → "muối hột": 10 pages, 17 times
+- vi · "nền trồng cây" → "phân nền": 10 pages, 20 times
 - vi · "cá ram" → "cá phượng hoàng" (Mikrogeophagus ramirezi): 9 pages, 40 times
-- vi · "nền trồng cây" → "phân nền": 9 pages, 19 times
 - vi · "chỗ bắt đầu" → "để tham khảo": 7 pages, 7 times
 - vi · "gỡ tay" → "gỡ bằng tay", "chà rồi hút": 7 pages, 9 times
 - vi · "sản xuất hàng loạt" → "nuôi đại trà", "nuôi hàng loạt": 7 pages, 11 times
@@ -209,14 +213,18 @@ Letters only Vietnamese uses, outside the Vietnamese names the site marks as suc
 
 - none
 
-## Imperial figures (4)
+## Imperial figures (8)
 
 A figure in °F, inches, feet, gallons or pounds (`pnpm engine metric` converts fish, plant, breed and guide pages before each build). Imperial figures beside a metric one are counted at the top.
 
 - [vi · Phân nền thủy sinh ADA Amazonia](https://aquatome.com/san-pham/ada-amazonia/) — "5 gal"; "15 gal"; "4 in"
 - [vi · Đèn LED thủy sinh Chihiros C II](https://aquatome.com/san-pham/chihiros-c-ii/) — "2–7 gallon"
 - [vi · Lọc thùng Fluval FX6](https://aquatome.com/san-pham/fluval-fx6/) — "1 lb"; "2 lb"
+- [vi · Lọc thùng Oase Biomaster 250](https://aquatome.com/san-pham/oase-biomaster-250/) — "70 gallon Mỹ"
+- [vi · Lọc thùng Oase BioMaster 350](https://aquatome.com/san-pham/oase-biomaster-350/) — "138 gph"; "300 gph"
 - [vi · Lọc thùng Oase BioMaster](https://aquatome.com/san-pham/oase-biomaster/) — "162 GPH"; "40–55 gallon"
+- [vi · Lọc chìm Sicce Shark ADV](https://aquatome.com/san-pham/sicce-shark-adv/) — "10–35 gallon"; "47,5 gallon"; "106 GPH"; and 1 more
+- [vi · Đèn LED thủy sinh Twinstar 30B](https://aquatome.com/san-pham/twinstar-30b/) — "18 inch"
 
 ## A photo of a fish its source calls unwell, on a page with another photo (0)
 
@@ -230,14 +238,16 @@ A species or plant photo whose caption names another species the site has a page
 
 - none
 
-## A photo caption that may name another fish (14)
+## A photo caption that may name another fish (16)
 
 A caption naming a Latin name in a genus the site has, that no page has, or another page's species with words saying the fish may still be the page's ("in a batch of", "here with"). Listed, not removed: `pnpm engine check-photos --only <id>` looks again. Checked on the Vietnamese page.
 
 - [vi · Cá anh đào](https://aquatome.com/ca/ca-anh-dao/) — Rasboroides vaterifloris: "Putative wild-collected adult male imported to Singapore among a shipment of Ra…"
+- [vi · Cá bống Mugilogobius mertoni](https://aquatome.com/ca/ca-bong-mugilogobius-mertoni/) — Mugilogobius abei: "Abehaze, Mugilogobius abei"
 - [vi · Cá chì sọc xanh](https://aquatome.com/ca/ca-chi-soc-xanh/) — Paracheirodon axelrodi: "...but is sometimes exported as bycatch among shipments of the cardinal tetra,…"
 - [vi · Cá chuột sọc nói](https://aquatome.com/ca/ca-chuot-soc-noi/) — Platydoras costatus: "Young specimen of Platydoras costatus"
 - [vi · Cá đầu chúc sọc](https://aquatome.com/ca/ca-dau-chuc-soc/) — Anostomus brevior: "Anostomus brevior in French Guiana"
+- [vi · Cá Gagata gagata](https://aquatome.com/ca/ca-gagata-gagata/) — Nangra ichthya: "A fresh water fish species from Kathani river of Wainganga basin from the Gadch…"
 - [vi · Cá Garra rakhinica](https://aquatome.com/ca/ca-garra-rakhinica/) — Garra flavatra: "Specimen from the Thai aquarium trade, imported as a contaminant in a batch of…"
 - [vi · Cá hàm răng Salda](https://aquatome.com/ca/ca-ham-rang-salda/) — Aphanius splendens: "Male of Aphanius splendens."
 - [vi · Cá he vàng](https://aquatome.com/ca/ca-he-vang/) — Barbonymus schwanenfeldii: "Barbonymus schwanenfeldii by OpenCage.jpg"

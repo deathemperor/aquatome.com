@@ -1,0 +1,272 @@
+{
+  "id": "sturisoma-barbatum",
+  "scientificName": "Sturisoma barbatum",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Sturisoma",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "paraguay",
+    "rio-paraguay",
+    "brazil",
+    "paraguay-river"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 16,
+          "max": 26
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 25
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 90
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_barbatum.htm",
+      "html": "<ul><li>Common name: Long-Nosed Whiptail</li><li>Synonyms: Loricaria barbata, Oxyloricaria barbata, Sturisoma robustum</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/the-sturgeon-catfishes-of-paraguay-sturisoma-barbatum-or-s-robustum/",
+      "html": "<p>Wonderful, partly very large sturgeon catfishes (Sturisoma) are imported from Paraguay. Two Sturisoma species are known from the Rio Paraguay: S. barbatum, described in 1853 by Kner, and S. robustum, described in 1904 by Regan.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_barbatum.htm",
+      "html": "<p>South America: Brazil, Paraguay River basin. Type locality: Rio Cuiabá, Cujaba-Fluss, Brazil.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/the-sturgeon-catfishes-of-paraguay-sturisoma-barbatum-or-s-robustum/",
+      "html": "<p>Sturgeon catfishes are fantastic aquarium fishes that grow large and require appropriately large aquariums.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_barbatum.htm",
+      "html": "<p>A tank at least 3' 0\" (90 cm) long, as this species can get quite large and needs plenty of room in an under-stocked tank.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_barbatum.htm",
+      "html": "<p>Provide large flat stones or roots, as this species likes to \"sprawl\" out full length. A good water current and filtration is called for, giving a high oxygen content. It will be seen during the daylight hours.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_barbatum.htm",
+      "html": "<p>Due to the southern catchment area, they need to be kept at not too high a temperature. Temperature: 22–24°C. pH: 6.5–7.2.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/the-sturgeon-catfishes-of-paraguay-sturisoma-barbatum-or-s-robustum/",
+      "html": "<p>The diet is varied with a clear emphasis on plant foods.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_barbatum.htm",
+      "html": "<p>Algae, peas (without skins), cucumber and algae tablets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_barbatum.htm",
+      "html": "<p>In common with the Sturisoma genus it is very peaceful, so it should not be mixed with any fin-nipping species, as the long filaments of the caudal fin can attract this behaviour.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/the-sturgeon-catfishes-of-paraguay-sturisoma-barbatum-or-s-robustum/",
+      "html": "<p>Males are easily recognized by their distinctive whiskers during the breeding season, but even outside of the spawning season it is not difficult to distinguish between the sexes.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_barbatum.htm",
+      "html": "<p>Males can be differentiated from females by having cheek and head bristles, while females look a bit heavier.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/the-sturgeon-catfishes-of-paraguay-sturisoma-barbatum-or-s-robustum/",
+      "html": "<p>When kept with the seasonal temperature changes, they usually breed willingly. They like to spawn at the front glass of the aquarium; the male guards the spawn and the newly hatched young.</p><p>For rearing the young it is necessary to feed them the excrement of the parents, because they need the bacteria and fungi (endosymbionts) living in the intestine to be able to digest plant food. If this is not observed, the young starve to death in spite of a full stomach after the change from meat food (Artemia nauplii etc.), which they need as initial food, to plant food.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_barbatum.htm",
+      "html": "<p>Not yet known, but it is sure to be similar to Sturisomatichthys aureus, where eggs are usually placed on the glass sides of the tank, and the male guards and cleans them for up to 8 days. When released from their egg cases, the fry are ignored by the parents. A good first food is greens and brine shrimp.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/the-sturgeon-catfishes-of-paraguay-sturisoma-barbatum-or-s-robustum/",
+      "html": "<p>The two species differ from each other only insignificantly. The most important anatomical feature distinguishing them is the structure of the nuchal and anterior dorsal shields. In S. barbatum they consist essentially of three massive bone claspers (plus two smaller bone plates), whereas in S. robustum they consist of 17 bone plates.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_barbatum.htm",
+      "html": "<p>The work of Covain et al. 2016 confines the genus Sturisoma to east of the Andes (cis-Andean), and the genus Sturisomatichthys to the west of the Andes (trans-Andean).</p><p>Etymology: the specific name barbatum means \"bearded\", alluding to bristles.</p><p>Remarks: According to the latest paper by Cardoso, Y. et al. (2023), this species is now considered a senior synonym of Sturisoma robustum. The study asks how many species of Sturisoma catfishes inhabit the La Plata Basin. Until now two species were recognised, S. barbatum and S. robustum, but the study indicates they are an intraspecific variation within a single species, with S. barbatum as the valid species. Therefore S. barbatum and S. robustum are the same species.</p><p>IUCN Red List: despite the little information available on this species, it has a wide range and no apparent threats, so it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_barbatum.htm",
+      "html": "<p>Baensch, H.A. and R. Riehl 1985 Aquarien atlas. Band 2. Mergus, Verlag für Natur- und Heimtierkunde GmbH, Melle, Germany. 1216 p.</p><p>Cardoso, Y, S Bogan, F Agnolin, FDF Petean, 2023. How many species of Sturisoma (Siluriformes: Loricariinae) inhabit the La Plata Basin? Zootaxa 5360: 515–530.</p><p>Covain, R., S. Fisch-Muller, C. Oliveira, J.H. Mol, J.I. Montoya-Burgos and S. Dray, 2015. Molecular phylogeny of the highly diversified catfish subfamily Loricariinae (Siluriformes, Loricariidae) reveals incongruences with morphological classification. Mol. Phylogenet. Evol. 94:492-517.</p><p>Salvador, G.N. 2023. Sturisoma barbatum. The IUCN Red List of Threatened Species 2023.</p><p>ScotCat Factsheet no. 23. May 1998.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/34c2cf252f684916.webp",
+      "thumb": "https://media.aquatome.com/scotcat/34c2cf252f684916-480.webp",
+      "width": 500,
+      "height": 297,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_barbatum.htm",
+      "caption": "Sturisoma barbatum",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/1fab17259467c9ba.webp",
+      "thumb": "https://media.aquatome.com/scotcat/1fab17259467c9ba-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_barbatum.htm",
+      "caption": "Sturisoma barbatum: showing nose",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/80fe0e5c72792633.webp",
+      "thumb": "https://media.aquatome.com/scotcat/80fe0e5c72792633-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisoma_barbatum.htm",
+      "caption": "Sturisoma barbatum",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7def52242ee3f6f2.webp",
+      "thumb": "https://media.aquatome.com/glaser/7def52242ee3f6f2-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/the-sturgeon-catfishes-of-paraguay-sturisoma-barbatum-or-s-robustum/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1afa5abc37146bba.webp",
+      "thumb": "https://media.aquatome.com/glaser/1afa5abc37146bba-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/the-sturgeon-catfishes-of-paraguay-sturisoma-barbatum-or-s-robustum/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/70316ade52a4c90d.webp",
+      "thumb": "https://media.aquatome.com/glaser/70316ade52a4c90d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/the-sturgeon-catfishes-of-paraguay-sturisoma-barbatum-or-s-robustum/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "wOsIbY7m7Bk",
+      "title": "Sturisoma barbatum - Long Nose Whiptail Catfish",
+      "durationSec": 12,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UCuH4hbnrUM",
+      "title": "Long Nose Whiptail Catfish (Sturisoma barbatum)",
+      "durationSec": 36,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "2XgW6-SIWe8",
+      "title": "Sturisoma barbatum",
+      "durationSec": 37,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Yr3OZRdaVns",
+      "title": "AMAZING EGG STURISOMA BARBATUM / BREED",
+      "durationSec": 134,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên rau củ cho cá da trơn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy sưởi bể cá",
+        "quạt làm mát bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

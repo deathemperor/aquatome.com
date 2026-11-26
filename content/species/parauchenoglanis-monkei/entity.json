@@ -1,0 +1,130 @@
+{
+  "id": "parauchenoglanis-monkei",
+  "scientificName": "Parauchenoglanis monkei",
+  "order": "Siluriformes",
+  "family": "Claroteidae",
+  "genus": "Parauchenoglanis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "benin",
+    "oueme-river",
+    "cameroon",
+    "sanaga-river",
+    "democratic-republic-of-the-congo",
+    "congo-river"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.2,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_monkei.htm",
+      "html": "<p>Family: Auchenoglanididae. Size: 15 cm. Temperature: 22–26°C. pH: 6.2–7.5.</p><p>Description: Dorsal spines (total): 2; dorsal soft rays (total): 7; anal spines: 0; anal soft rays: 7–8. Diagnosis: caudal peduncle short and broad, its depth more than 2 times the horizontal distance between anal and adipose fin bases, rarely even deeper; anterior edge of pectoral spine coarsely serrated, with numerous small serrations, more numerous than those along the posterior edge. Barbels generally short: maxillary barbel reaching a little beyond pectoral spine base, external mandibular barbel not reaching tip of spine but up to level of dorsal-fin spine, and inner mandibular barbel up to beginning of opercula, but some juvenile specimens have slightly longer barbels. Adipose fin not always high and solid; colour pattern usually with 5–7 vertical bands.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_monkei.htm",
+      "html": "<p>Africa: Ouémé River, Benin, to the Sanaga River, Cameroon. Also present in the middle Congo River basin in Democratic Republic of the Congo. Type locality: In einem Kleinen Bache im Urwald 2 km südlich von Logobaba (4º2'N, 9º45'Ö), Kamerun.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_monkei.htm",
+      "html": "<p>Favours rocky habitats or marginal vegetation in slow-flowing rivers and lagoons, often taking shelter under trees.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_monkei.htm",
+      "html": "<p>In its natural habitat its diet consists of small fishes and invertebrates like snails, shrimps and insects. In the aquarium it will eat a variety of foods: tablet and pellet foods with a good quality flake and frozen bloodworms. Also relishes live worms such as the common garden worm, making sure that there has been no weedkiller on the premises, and white worm.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_monkei.htm",
+      "html": "<p>Not a predator as such so should be safe to house with smaller species. Peaceful catfish which will do well in company of larger characins from Africa and large barbs. 'Grunts' when taken out of the water.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_monkei.htm",
+      "html": "<p>Eggs are large and relatively few, suggesting parental care, but no details are known.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_monkei.htm",
+      "html": "<p>This genus, which includes another 8 species, is quite difficult to identify, and juveniles can have different markings and colouration to the adults. First transferred into Parauchenoglanis by Skelton in 1993.</p><p>Etymology: The genus name Parauchenoglanis: para-, near, referring to similarity and/or close relationship with Auchenoglanis. The specific name monkei is in honour of Dr. H. Monke, who collected the type specimen.</p><p>IUCN Red List: The species is only known from two localities on the Nyong River. It is threatened by logging in the area of the Upper Nyong River. Both the EOO and AOO qualify for the Endangered status, but need updating (IUCN 2010).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/a0edb688c82db1b1.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a0edb688c82db1b1-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_monkei.htm",
+      "caption": "Parauchenoglanis monkei",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "tJlkFb6mFB0",
+      "title": "Parauchenoglanis guttatus and punctatus",
+      "durationSec": 25,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

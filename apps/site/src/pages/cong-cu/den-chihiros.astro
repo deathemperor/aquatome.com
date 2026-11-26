@@ -1,4 +1,5 @@
 ---
+import { TOOL_DESCRIPTIONS } from '../../lib/tools'
 import Browse from '../../layouts/Browse.astro'
 import { getContent } from '../../lib/content'
 import { SUPPORTED } from '../../scripts/chihiros'
@@ -41,7 +42,7 @@ const faq = [
 const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }]
 const HOURS = [0, 3, 6, 9, 12, 15, 18, 21, 24]
 ---
-<Browse title={t('Điều khiển đèn Chihiros trên trình duyệt: hẹn giờ, độ sáng')} heading={t('Đèn Chihiros')} intro={APP_STATE === 'on' ? t('Hẹn giờ bật tắt có sáng dần, tối dần, pha màu và chỉnh giờ cho đèn Chihiros qua Bluetooth, ngay trên Chrome hoặc Edge ở điện thoại Android và máy tính. Trang nhớ đèn và lịch của bạn trên máy này.') : t('Hẹn giờ bật tắt có sáng dần, tối dần, pha màu và chỉnh giờ cho đèn Chihiros qua Bluetooth, ngay trên trình duyệt, không cần cài ứng dụng. Trang nhớ đèn và lịch của bạn trên máy này.')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t('Điều khiển đèn thủy sinh Chihiros (WRGB II, Slim, Pro, A II, C II, Universal) qua Bluetooth trên Chrome: đặt lịch bật tắt có sáng dần, tối dần, chỉnh độ sáng từng màu, lịch mẫu cho bể mới và bể bị rêu.')} jsonld={jsonld}>
+<Browse title={t('Điều khiển đèn Chihiros trên trình duyệt: hẹn giờ, độ sáng')} heading={t('Đèn Chihiros')} intro={APP_STATE === 'on' ? t('Hẹn giờ bật tắt có sáng dần, tối dần, pha màu và chỉnh giờ cho đèn Chihiros qua Bluetooth, ngay trên Chrome hoặc Edge ở điện thoại Android và máy tính. Trang nhớ đèn và lịch của bạn trên máy này.') : t('Hẹn giờ bật tắt có sáng dần, tối dần, pha màu và chỉnh giờ cho đèn Chihiros qua Bluetooth, ngay trên trình duyệt, không cần cài ứng dụng. Trang nhớ đèn và lịch của bạn trên máy này.')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t(TOOL_DESCRIPTIONS['/vi/cong-cu/den-chihiros/'])} jsonld={jsonld}>
   <div class="app">
     <div class="side">
       <section id="ch-light" class="card" aria-labelledby="light-h" data-state="idle">

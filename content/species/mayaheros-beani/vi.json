@@ -1,0 +1,28 @@
+{
+  "slug": "ca-mayaheros-beani",
+  "name": "Cá Mayaheros beani",
+  "altNames": [
+    "Mojarra verde"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Xuất xứ: Rio San Christobal = Laguna El Camalote, San Blas, Nayarit, Mexico.</p><p>San Blas là một thị trấn nhỏ, nằm ở chỗ sông Rio San Christobal đổ ra Thái Bình Dương. Người ta coi đây là điểm cực bắc có khí hậu nhiệt đới trên bờ Thái Bình Dương của Mexico. Cái tên Laguna El Camalote lúc đầu chỉ một vùng đầm lầy ở phía đông nam cửa sông, nhưng giờ cũng dùng để gọi vịnh biển phía nam San Blas.</p>",
+    "habitat:glaser": "<p>Cá sống từ vùng nước lợ ở cửa sông và rừng ngập mặn ngược lên tới thượng nguồn sông suối. Chúng còn có ở đầm lầy, hồ chứa, ao và mương thủy lợi.</p><p>Nhiệt độ nước ở những nơi này dao động từ 16 đến 34 °C. Độ khoáng và pH cũng chênh nhau nhiều, tùy chỗ và tùy mùa.</p>",
+    "behaviour:glaser": "<p>Dòng Mayaheros beani này vào mùa sinh sản lên màu đen trắng rất tương phản. Màu của nó có thể đổi nhiều theo tâm trạng của cá và theo hướng ánh sáng chiếu vào. Ngoài mùa sinh sản thì chúng có màu xanh lục lam, nên người bản địa gọi là Mojarra verde.</p>",
+    "quickFacts:glaser": "<p>Trong bể, con đực có thể dài tới 30 cm, con cái tới 25 cm. Sớm nhất thì cá dài khoảng 6 cm đã đủ lớn để đẻ.</p>",
+    "beforeYouBuy:glaser": "<p>Cá này có nguồn gốc từ chương trình nhân giống bảo tồn của DCG (Arbeitskreis Großcichliden, số sổ phả hệ 07702020). Chúng là con cháu của cá lấy từ ba điểm trên dòng chảy ra từ suối La Tovara, mỗi điểm cách nhau khoảng 1–3 km. Con sông nhỏ này đổ vào Rio San Christobal ở San Blas.</p>"
+  },
+  "quality": {
+    "score": 0.93,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.93
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-22"
+  }
+}

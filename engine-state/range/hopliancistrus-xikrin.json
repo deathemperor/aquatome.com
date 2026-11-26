@@ -1,0 +1,69 @@
+{
+  "id": "hopliancistrus-xikrin",
+  "native": {
+    "input": "be079633066e3eca",
+    "at": "2026-11-21T19:07:52.042Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Bacajá, about 2 km upstream from the confluence with Rio Xingu, Rio Xingu basin, Altamira, Pará, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Brazil, Rio Iriri.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Xingu",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Bacajá, about 2 km upstream from the confluence with Rio Xingu, Rio Xingu basin, Altamira, Pará, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Iriri",
+        "source": "scotcat",
+        "quote": "South America: Brazil, Rio Iriri.",
+        "ok": true
+      },
+      {
+        "name": "Rio Bacajá",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Bacajá, about 2 km upstream from the confluence with Rio Xingu, Rio Xingu basin, Altamira, Pará, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hopliancistrus xikrin",
+    "status": "ACCEPTED",
+    "taxonKey": 11178069,
+    "datasets": [
+      [
+        "a75b2ed4-f805-42ba-a965-dca3541aee24",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-21T13:11:30.372Z"
+  }
+}

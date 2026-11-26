@@ -1,22 +1,14 @@
 {
   "id": "betta-stiktos",
   "native": {
-    "input": "80d238a3648155d6",
-    "at": "2026-11-19T07:58:14.453Z",
+    "input": "4615c107213ebe0f",
+    "at": "2026-11-22T12:48:24.036Z",
     "claims": [
       {
         "code": "KH",
         "status": "native",
         "source": "bwaquatics",
-        "quote": "Found only in the Mekong River basin in Cambodia, around Stung Treng.",
-        "words": "Cambodia",
-        "ok": true
-      },
-      {
-        "code": "KH",
-        "status": "native",
-        "source": "bwaquatics",
-        "quote": "Native to the Mekong drainage in Stung Treng, Cambodia.",
+        "quote": "Betta stiktos is the rarest member of the Betta splendens complex, found only in the Mekong River basin in Cambodia around Stung Treng.",
         "words": "Cambodia",
         "ok": true
       }
@@ -25,7 +17,7 @@
       {
         "name": "Mekong",
         "source": "bwaquatics",
-        "quote": "Found only in the Mekong River basin in Cambodia, around Stung Treng.",
+        "quote": "Betta stiktos is the rarest member of the Betta splendens complex, found only in the Mekong River basin in Cambodia around Stung Treng.",
         "country": "KH",
         "ok": true
       }

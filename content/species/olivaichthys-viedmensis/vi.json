@@ -1,0 +1,21 @@
+{
+  "slug": "ca-da-nhung-olivaichthys",
+  "name": "Cá da nhung Olivaichthys",
+  "altNames": [
+    "Velvety Catfish"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Olivaichthys viedmensis (MacDonagh, 1931)</li><li>Tên thường gọi: Velvety Catfish</li><li>Tên đồng nghĩa: Diplomystes viedmensis</li><li>Nguồn gốc tên: tiếng Latin oliva là quả ô liu, tiếng Hy Lạp ichthys là cá.</li><li>Sinh sản: chưa có báo cáo.</li></ul>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: sông Negro và các sông nhánh ở Argentina. Nơi thu mẫu chuẩn là sông Río Negro, gần Viedma, tỉnh Río Negro, Argentina.</p>",
+    "reproduction:planetcatfish": "<p>Chưa có báo cáo. Đến nay chưa có tài liệu nào ghi lại loài này sinh sản.</p>",
+    "references:planetcatfish": "<p>Notas Preliminares del Museo de La Plata v. 1 - pp65</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.9
+    },
+    "reason": "thin"
+  }
+}

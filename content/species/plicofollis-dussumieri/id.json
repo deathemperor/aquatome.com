@@ -13,13 +13,19 @@
     "habitat:scotcat": "<p>Ditemukan di sepanjang pesisir. Masuk ke bagian hilir sungai-sungai di pantai timur Afrika.</p>",
     "diet:scotcat": "<p>Memakan invertebrata dan ikan-ikan kecil. Dijual dalam bentuk segar maupun asin kering. Gelembung renangnya dimanfaatkan untuk membuat isinglass.</p>",
     "notes:scotcat": "<p>Etimologi: Nama genus Plicofollis: plico, lipatan; follis, ubub atau kantong udara, merujuk pada gelembung renang yang berkerut atau bergelombang, ciri khas genus ini. Nama spesies dussumieri: untuk menghormati Jean-Jacques Dussumier (1792-1883), penjelajah dan pedagang asal Prancis, yang melaporkan ikan ini dari perairan lepas pantai Malabar, India.</p><p>Daftar Merah IUCN: Spesies ini dinilai berstatus Least Concern (Risiko Rendah) karena sebarannya yang sangat luas dan tidak adanya ancaman besar yang meluas yang diketahui. Meskipun ikan ini dimanfaatkan, saat ini belum ada bukti bahwa pemanfaatan tersebut menjadi ancaman besar bagi spesies ini; namun, penelitian lebih lanjut mengenai tingkat penangkapannya akan bermanfaat untuk memastikan hal ini (IUCN 2017).</p>",
-    "references:scotcat": "<ul><li>Froese, R. and D. Pauly. Editors. 2008. FishBase. World Wide Web electronic publication. www.fishbase.org, version (12/2008).</li><li>Sparks, J.S., Kaymaram, F., Bishop, J., Al-Husaini, M., Almukhtar, M. &amp; Alam, S. 2017. Plicofollis dussumieri. The IUCN Red List of Threatened Species 2017.</li><li>The ETYFish Project Fish Name Etymology Database.</li></ul>"
+    "references:scotcat": "<ul><li>Froese, R. and D. Pauly. Editors. 2008. FishBase. World Wide Web electronic publication. www.fishbase.org, version (12/2008).</li><li>Sparks, J.S., Kaymaram, F., Bishop, J., Al-Husaini, M., Almukhtar, M. &amp; Alam, S. 2017. Plicofollis dussumieri. The IUCN Red List of Threatened Species 2017.</li><li>The ETYFish Project Fish Name Etymology Database.</li></ul>",
+    "quickFacts:planetcatfish": "<p>Plicofollis dussumieri (Valenciennes in Cuvier &amp; Valenciennes, 1840). Lokasi tipe: Malabar, India. Ukuran: 620 mm SL. Status Daftar Merah IUCN: Least Concern (Risiko Rendah).</p><p>Identifikasi: Ikan ini memiliki tulang etmoid lateral yang menonjol dan membentuk semacam \"rak\" di antara mata dan lubang hidung, dua pasang pelat gigi vomer, serta pangkal sirip lemak (adiposa) yang sangat pendek. Tubuh cokelat gelap, bagian bawah tubuh seluruhnya tertutup bintik-bintik pigmen cokelat yang halus.</p>",
+    "distribution:planetcatfish": "<p>Samudra Hindia. Juga ditemukan di bagian hilir sungai-sungai yang bermuara ke laut, dari Mozambik dan Madagaskar hingga Sri Lanka, pantai timur India, Bangladesh, serta dari Myanmar hingga Sumatra.</p>",
+    "diet:planetcatfish": "<p>Memakan invertebrata dan ikan-ikan kecil.</p>",
+    "reproduction:planetcatfish": "<p>Belum ada laporan.</p>",
+    "references:planetcatfish": "<p>Hist. Nat. Poiss.v. 15 - pp84</p>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
-      "scotcat": 0.85
+      "scotcat": 0.85,
+      "planetcatfish": 0.9
     }
   }
 }

@@ -12,13 +12,18 @@
     "diet:seriouslyfish": "<p>Cá thích thức ăn sống hoặc đông lạnh cỡ nhỏ như bo bo hay trùng huyết. Dù vậy, phần lớn trường hợp chúng vẫn chịu ăn cám mảnh loại tốt.</p>",
     "behaviour:seriouslyfish": "<p>F. scheeli vẫn nuôi chung trong bể cộng đồng được, miễn là bạn chọn bạn cùng bể cẩn thận. Đây là loài rất hiền và nhút nhát. Gặp cá khỏe, nhanh nhẹn hơn thì chúng dễ bị lấn át. Hợp nhất là các loài characin nhỏ, rasbora, cichlid lùn, cá chuột Corydoras, Loricariid nhỏ và các loài Anabantoid hiền. Loài này không hợp với bể cộng đồng thông thường.</p>",
     "dimorphism:seriouslyfish": "<p>Cá đực có màu sặc sỡ hơn cá cái.</p>",
-    "notes:seriouslyfish": "<p>Đây không phải loài killi theo mùa (annual). Chúng chỉ sống ở những vùng nước có quanh năm.</p>"
+    "notes:seriouslyfish": "<p>Đây không phải loài killi theo mùa (annual). Chúng chỉ sống ở những vùng nước có quanh năm.</p>",
+    "quickFacts:glaser": "<p>Chi Fundulopanchax được lập từ năm 1924, nhưng suốt một thời gian rất dài sau đó người ta coi nó là tên đồng nghĩa của Aphyosemion. Chi này có những loài rất lớn như F. sjostedti, dài tới 12 cm, nhưng cũng có nhiều loài nhỏ, không dài quá 6 cm. Fundulopanchax scheeli là một trong những loài nhỏ đó. Loài cá nhỏ xinh này được mô tả năm 1970 từ những con nuôi trong bể, không rõ gốc gác ở đâu.</p>",
+    "distribution:glaser": "<p>Mãi về sau người ta mới biết F. scheeli chỉ sống trong một vùng nhỏ ở hạ lưu sông Cross, đông nam Nigeria.</p>",
+    "beforeYouBuy:glaser": "<p>Loài killi này khá nhiều người nuôi vì đẹp và dễ cho đẻ. Cũng như con \"Cape Lopez\", nó nuôi chung được với cá khác, nhưng có điều kiện. Khi nuôi chung thì phải chọn cá đi cùng thật kỹ. Tuyệt đối không thả F. scheeli vào bể thập cẩm đông nghịt cá đủ màu, hay nuôi chung với cá dữ.</p>",
+    "equipment:glaser": "<p>Muốn chúng thấy an toàn thì bể phải yên tĩnh, trồng cây dày và có nền mềm, tối màu (sợi than bùn). Set được bể như vậy thì nuôi chúng sẽ rất vui.</p>"
   },
   "quality": {
-    "score": 0.85,
+    "score": 0.8,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.85
+      "seriouslyfish": 0.85,
+      "glaser": 0.8
     }
   }
 }

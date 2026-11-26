@@ -1,0 +1,24 @@
+{
+  "slug": "ca-cephalosilurus-nigricaudus",
+  "name": "Cá Cephalosilurus nigricaudus",
+  "altNames": [
+    "Cá da trơn thạch",
+    "Jelly Catfish"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<p>Tên khoa học: Lophiosilurus nigricauda (Mees, 1974). Tên thường gọi: Jelly Catfish. Họ: Pseudopimelodidae. Nơi thu mẫu chuẩn: Sipaliwini, Suriname.</p><p>Nguồn gốc tên: ghép từ hai chữ Hy Lạp, lophos là mào và silouros là cá da trơn. Tên chi nghĩa là cá da trơn có mào.</p>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực sông Sipaliwini, Suriname. Loài này còn có tên trong danh sách cá của vùng nước Guyana, các sông ven biển vùng Guianas, các sông ven biển Suriname và Corintijns.</p><p>Sách Đỏ IUCN: Ít quan tâm (đánh giá lần gần nhất năm 2021).</p>",
+    "aquariumSize:planetcatfish": "<p>Cỡ tối đa 350 mm SL (đo từ mõm tới gốc đuôi).</p>",
+    "reproduction:planetcatfish": "<p>Chưa có thông tin. Đến nay chưa ai báo cáo cho loài này đẻ.</p>",
+    "notes:planetcatfish": "<p>Xem thêm Ros, Wolfgang (2008): Cephalosilurus nigricaudus und seine Abgrenzung zu Cephalosilurus apurensis, \"Aquaristik Fachmaganzin &amp; Aquarium heute\" (AF) 40 (1), Nr. 199, 34-36.</p>",
+    "references:planetcatfish": "<p>Zoologische Verhandelingen (Leiden) No. 132, pp 218, Figs. 37d, 38d; Pls. 11-12.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.85
+    },
+    "reason": "thin"
+  }
+}

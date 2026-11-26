@@ -1,0 +1,395 @@
+{
+  "id": "bunocephalus-verrucosus",
+  "scientificName": "Bunocephalus verrucosus",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Bunocephalus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "amazon",
+    "guyana",
+    "suriname",
+    "french-guiana"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Amazon River basin"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Rivers of the Guianas and throughout the Amazon River basin.",
+          "countries": [],
+          "regions": [
+            "Amazon River basin"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340604,
+      "total": 125,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "BR",
+          62
+        ],
+        [
+          "GY",
+          29
+        ],
+        [
+          "PE",
+          19
+        ],
+        [
+          "SR",
+          6
+        ],
+        [
+          "EC",
+          5
+        ],
+        [
+          "GF",
+          3
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -1.40625,
+          1
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          4
+        ],
+        [
+          -74.53125,
+          -5.625,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          9
+        ],
+        [
+          -73.125,
+          -8.4375,
+          1
+        ],
+        [
+          -73.125,
+          -4.21875,
+          5
+        ],
+        [
+          -71.71875,
+          -8.4375,
+          2
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          1
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          4
+        ],
+        [
+          -68.90625,
+          -9.84375,
+          1
+        ],
+        [
+          -67.5,
+          -4.21875,
+          5
+        ],
+        [
+          -67.5,
+          -2.8125,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          5
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          5
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          2
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          12
+        ],
+        [
+          -61.875,
+          -4.21875,
+          2
+        ],
+        [
+          -61.875,
+          -2.8125,
+          3
+        ],
+        [
+          -61.875,
+          0,
+          5
+        ],
+        [
+          -61.875,
+          1.40625,
+          3
+        ],
+        [
+          -61.875,
+          2.8125,
+          2
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          6
+        ],
+        [
+          -60.46875,
+          1.40625,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          15
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          2
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1
+        ],
+        [
+          -59.0625,
+          2.8125,
+          1
+        ],
+        [
+          -59.0625,
+          4.21875,
+          7
+        ],
+        [
+          -59.0625,
+          5.625,
+          4
+        ],
+        [
+          -57.65625,
+          -1.40625,
+          1
+        ],
+        [
+          -57.65625,
+          4.21875,
+          6
+        ],
+        [
+          -57.65625,
+          5.625,
+          1
+        ],
+        [
+          -53.4375,
+          -7.03125,
+          1
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          1
+        ],
+        [
+          -53.4375,
+          2.8125,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 5.8,
+          "max": 7.6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_verrucosus.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern. Despite the limited information available on this species, it is assessed as Least Concern due to its wide range and lack of direct threats (IUCN 2021).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_verrucosus.htm",
+      "html": "<p>South America: Rivers of the Guianas and throughout the Amazon River basin.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_verrucosus.htm",
+      "html": "<p>Very peaceful species which will do well in a quiet community tank where the tank mates are non-aggressive. Does not bury itself in the substrate as much as other species of this family. Provide a sand substrate and a planted dark area to make them feel more secure in their surroundings.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_verrucosus.htm",
+      "html": "<p>Live and frozen foods such as mosquito larvae, tubifex and small crustacea. Tablet foods and sunken flake that lies on the bottom is also taken. It is better to feed at lights out or in a dimly lit tank so they can get their share of any foodstuffs.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_verrucosus.htm",
+      "html": "<p>Etymology: The genus name Bunocephalus: buno-, mound or knob; cephalus, head, referring to rounded cusps or bumps on head. The specific name verrucosus: covered with verrucae, or warts, the skin \"covered everywhere with very small granules or tubercles\".</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_verrucosus.htm",
+      "html": "<p>Baensch, H.A. and R. Riehl 1991 Aquarien atlas. Bd. 3. Melle: Mergus, Verlag für Natur- und Heimtierkunde, Germany. 1104 p. Frederico, R.G. 2021. Bunocephalus verrucosus. The IUCN Red List of Threatened Species 2021. ScotCat Factsheet no. 190. April 2012.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/25da8d4050fa4868.webp",
+      "thumb": "https://media.aquatome.com/scotcat/25da8d4050fa4868-480.webp",
+      "width": 500,
+      "height": 248,
+      "licence": "dùng với sự cho phép",
+      "author": "Klaus Dreymann / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_verrucosus.htm",
+      "caption": "Bunocephalus verrucosus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4bc614660708da19.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4bc614660708da19-480.webp",
+      "width": 500,
+      "height": 277,
+      "licence": "dùng với sự cho phép",
+      "author": "Klaus Dreymann / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_verrucosus.htm",
+      "caption": "Bunocephalus verrucosus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/9c046442264966e8.webp",
+      "thumb": "https://media.aquatome.com/scotcat/9c046442264966e8-480.webp",
+      "width": 500,
+      "height": 397,
+      "licence": "dùng với sự cho phép",
+      "author": "Klaus Dreymann / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_verrucosus.htm",
+      "caption": "Bunocephalus verrucosus: front head view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "ho5ISzKNepQ",
+      "title": "South American catfishes Tenellus Hassar wilderi Bunocephalus verrucosus Platystacus cotylephorus",
+      "durationSec": 101,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "kno1tYXSHU0",
+      "title": "600 Bunocephalus verrucosus Буноцефалус",
+      "durationSec": 154,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "SgCCUdF539o",
+      "title": "How to care for the Banjo Catfish, Bunocephalus sp.",
+      "durationSec": 339,
+      "lang": "en-GB"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nền bể",
+        "cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá đáy",
+        "trùng chỉ đông lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-19"
+}

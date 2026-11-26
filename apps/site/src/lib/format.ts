@@ -41,8 +41,25 @@ export const goLink = (network: (typeof SHOPS)[number], keyword: string, categor
 export const GROUP_LABELS: Record<string, string> = {
   tetras: 'Cá tetra', cichlids: 'Cá cichlid', danios: 'Cá danio', rasboras: 'Cá rasbora', shrimp: 'Tép', loaches: 'Cá chạch', catfish: 'Cá da trơn', labyrinth: 'Cá mê cung',
   barbs: 'Cá barb', killifish: 'Cá killi', gobies: 'Cá bống', livebearers: 'Cá đẻ con', rainbowfish: 'Cá cầu vồng', snails: 'Ốc', other: 'Loài khác',
+  characins: 'Cá piranha và họ hàng', characoids: 'Cá piranha và họ hàng', cyprinid: 'Họ cá chép',
 }
+/**
+ * The groups the engine's table accepts outside its model's list (gbif.ts GROUP_ORDERS), named by the Writing Lead on 22
+ * Nov 2026. characins and characoids share a name: one option in the fish list's filter (groupOptions). While the owner
+ * decides whether characoids folds into characins, none has a home tile, and the app doesn't have them (APP_GROUP_LABELS).
+ */
+export const OFF_LIST_GROUPS: readonly string[] = ['characins', 'characoids', 'cyprinid']
+/**
+ * The groups the app's index gives words for (app-index.ts): all but OFF_LIST_GROUPS, whose fish stay under "other" in the
+ * app as before. The app's "Nhóm cá" row adds a chip for every group it has words for (Shelves.swift), and these would come
+ * with no photo and no design read (the chief of staff, 22 Nov 2026).
+ */
+export const APP_GROUP_LABELS: Record<string, string> = Object.fromEntries(Object.entries(GROUP_LABELS).filter(([g]) => !OFF_LIST_GROUPS.includes(g)))
 export const groupLabel = (g: string) => GROUP_LABELS[g] ?? g
+/** The first group with a group's name: groups with one name are one choice to a reader (groupOptions). */
+export const sameNameGroup = (g: string) => Object.keys(GROUP_LABELS).find(k => GROUP_LABELS[k] === GROUP_LABELS[g]) ?? g
+/** The fish list's filter options (ca/index.astro): groups with one name are one option, which holds each of them. */
+export const groupOptions = (groups: string[]) => [...new Set(groups.map(sameNameGroup))].map(first => groups.filter(g => sameNameGroup(g) === first))
 
 export const PLANT_LABELS = {
   difficulty: { 1: 'Dễ', 2: 'Trung bình', 3: 'Khó' } as Record<number, string>,

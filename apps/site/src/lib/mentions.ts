@@ -1,4 +1,4 @@
-import { fitsCard, linkTerms, stillShown, THUMB_WIDTH, thumbOf, unmarked, type Content, type LinkTarget, type Localized, type GuideEntity, type Photo, type PlantEntity, type SpeciesEntity, type BreedEntity } from '@aq/schema'
+import { fitsCard, heldPhrase, isNonCommercial, linkTerms, stillShown, THUMB_WIDTH, thumbOf, unmarked, type Content, type LinkTarget, type Localized, type GuideEntity, type Photo, type PlantEntity, type SpeciesEntity, type BreedEntity } from '@aq/schema'
 import { categoriesIn } from './equipment'
 import { GROUP_LABELS } from './format'
 import { taxonHref } from './taxa-places'
@@ -72,7 +72,8 @@ export function linkTargets(c: Content): LinkTarget[] {
   }
   out.push(...taxa.values())
   // Glossary before equipment: "CO2" explains the term rather than selling the kit.
-  for (const g of c.glossary) out.push({ key: `glossary:${g.id}`, href: `/vi/thuat-ngu/${g.t.slug}/`, names: [g.t.name, ...g.t.altNames, ...(g.t.linkNames ?? [])], cls: 'gl', ...(g.t.definition ? { tip: { term: g.t.name, text: g.t.definition } } : {}) })
+  // A phrase held until the chief of staff rules (glossary-held.ts) isn't linked; it stays the term's.
+  for (const g of c.glossary) out.push({ key: `glossary:${g.id}`, href: `/vi/thuat-ngu/${g.t.slug}/`, names: [g.t.name, ...g.t.altNames, ...(g.t.linkNames ?? [])].filter(n => !heldPhrase(g.id, n)), cls: 'gl', ...(g.t.definition ? { tip: { term: g.t.name, text: g.t.definition } } : {}) })
   const groups = new Set(c.species.map(s => s.group))
   for (const [g, names] of Object.entries(GROUP_TERMS)) if (groups.has(g) && GROUP_LABELS[g]) out.push({ key: `group:${g}`, href: `/vi/nhom/${g}/`, names })
   // Continents and countries have pages; a region or river links to the country it lies in.
@@ -290,7 +291,9 @@ function stillPhoto(v: Video, m: NonNullable<Video['figures']>[number]['moments'
 /** The photos the calendar keeps off cards (content/curation.json `avoid`: its photo → why), set as the site loads its
  * content (content.ts), as withVietnameseHeads sets the Vietnamese. */
 const OFF_CARDS = new WeakMap<Content, Readonly<Record<string, string>>>()
-const offCards = (c: Content) => { const off = OFF_CARDS.get(c) ?? {}; return (p: Photo) => Object.hasOwn(off, p.url) }
+// A non-commercial photo is off them too, a plant's as well as a fish's: the engine's list holds fish and breeds only (the
+// chief of staff's rule, 17 Nov).
+const offCards = (c: Content) => { const off = OFF_CARDS.get(c) ?? {}; return (p: Photo) => Object.hasOwn(off, p.url) || isNonCommercial(p.licence ?? '') }
 export function withOffCards(c: Content, avoid: Readonly<Record<string, string>>): Content {
   OFF_CARDS.set(c, avoid)
   return c
@@ -355,3 +358,9 @@ function refOf(c: Content, x: Named): string {
 
 /** A guide's card picture (guideImages): its own photo or a still of its own video, else the first fish, plant or breed its title names. */
 export const guideImage = (c: Content, g: Localized<GuideEntity>): Photo | undefined => guideImages(c, g)[0]
+
+/** The localized name of the fish, plant or breed that supplied this guide's lead photo. */
+export function borrowedGuidePhotoName(c: Content, g: Localized<GuideEntity>, photo: Photo): string | undefined {
+  if (g.photos.includes(photo)) return undefined
+  return heads(c, g).find(page => page.photos.includes(photo))?.t.name
+}

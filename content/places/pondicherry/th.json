@@ -3,6 +3,12 @@
   "name": "พอนดิเชอร์รี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-19T18:51:46.750Z",
+    "why": "Thai atlases and the Royal Institute write Pondicherry as ปอนดิเชอร์รี (ปอ-, not พอ-), and a union territory would take a kind word such as เขตปกครองสหภาพ or the city name, so พอนดิเชอร์รี is a nonstandard spelling."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

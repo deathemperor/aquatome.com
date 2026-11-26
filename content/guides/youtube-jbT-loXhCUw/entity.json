@@ -1,0 +1,44 @@
+{
+  "id": "youtube-jbT-loXhCUw",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=jbT-loXhCUw",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-22",
+  "video": {
+    "youtubeId": "jbT-loXhCUw",
+    "title": "Aquarium Nightmares ( Fish Tank Leaking)",
+    "channel": "KGTropicals",
+    "channelUrl": "https://www.youtube.com/channel/UCyyGJeKITfR7Y5cq2zX4-oQ",
+    "durationSec": 705,
+    "publishedAt": "2022-11-13",
+    "chapters": [],
+    "series": {
+      "id": "PLbk3wN8TF_D3mItEJ8GQDmujL3JTwCH_l",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/jbT-loXhCUw/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "brand": "Aqueon",
+        "model": "14 gallon rimless cube",
+        "t": 186
+      },
+      {
+        "category": "khac",
+        "brand": "DAP",
+        "t": 316
+      }
+    ],
+    "figures": []
+  }
+}

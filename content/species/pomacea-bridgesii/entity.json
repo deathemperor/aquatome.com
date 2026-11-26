@@ -1,0 +1,322 @@
+{
+  "id": "pomacea-bridgesii",
+  "scientificName": "Pomacea bridgesii",
+  "order": "Architaenioglossa",
+  "family": "Ampullariidae",
+  "genus": "Pomacea",
+  "group": "snails",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "paraguay",
+    "bolivia",
+    "beni"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PY",
+        "BO"
+      ],
+      "regions": [],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "They are common in Brazil, Paraguay and Bolivia.",
+          "countries": [
+            "BR",
+            "PY",
+            "BO"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2292581,
+      "total": 11,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "BR",
+          3
+        ],
+        [
+          "GF",
+          3
+        ],
+        [
+          "US",
+          2
+        ],
+        [
+          "CN",
+          1
+        ],
+        [
+          "EC",
+          1
+        ],
+        [
+          "PR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -82.96875,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          -81.5625,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          -78.75,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          16.875,
+          1,
+          0
+        ],
+        [
+          -53.4375,
+          2.8125,
+          3,
+          0
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -35.15625,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          23.90625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7,
+          "max": 18
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 6.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 1,
+          "max": 3
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/mystery-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Common names: Apple snail, Spike-topped apple snail, Miracle snail, Golden snail, Cherry snail, Inca snail</li><li>Minimum tank size: 20 litres</li><li>Keeping: easy; breeding: easy</li><li>pH: 7.0–8.0; GH: 7–18; KH: 8 (3–18)</li><li>TDS: 100–250 (100–400)</li><li>Nitrate: less than 20 ppm</li><li>Diet: algae eater/omnivore</li><li>Temperament: peaceful and solitary</li><li>Colour form: species-dependent (huge variety of colours and patterns)</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/mystery-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The genus Pomacea contains many pest species that should be avoided. Several have been introduced outside their native ranges and have become serious agricultural pests, damaging crops, predominantly wetland rice, in their native ranges and the USA. At least three exotic species (Pomacea insularum, Pomacea canaliculata and Marisa cornuarietis) are invasive pests. Pomacea canaliculata is on the list of the world's worst 100 invasive alien species (and top 40 in Europe), due to its potential effect on the ecosystem and huge economic losses, especially in Asia.</p><p>Pomacea canaliculata feeds voraciously on aquatic vegetation, and high population densities can consume entire aquatic plants within very short periods. It also fails to eat algae. Regulatory changes have banned live Pomacea spp. from any United States trade, with the exception of Pomacea bridgesii (often a misidentification of Pomacea diffusa).</p><p>Unlike Pomacea canaliculata, Pomacea bridgesii and Pomacea diffusa do not feed on plants but do eat algae, which is why these Mystery snails became the primary snails in the American aquarium industry.</p><p>Taxonomy: Pomacea bridgesii (Reeve, 1856) and Pomacea diffusa (Blume, 1957) were long considered a single species, but recent DNA analysis shows they are distinct species. Pomacea bridgesii is relatively rare in the hobby and inhabits a small range (the Rio Grande, Reyes River at Beni). Pomacea diffusa is much more common, inhabits almost the entire Amazon river system and is more common in the aquarium trade. The main visible difference is size: Pomacea bridgesii is a little bigger.</p><p>Why \"Mystery\" snails? One theory is that when pet stores first started selling them, they had no idea what kind of snails they were: some could completely destroy planted tanks while others were great at cleaning algae. Aquarists were confused and simply called them Mystery snails. Nobody knows for sure.</p><p>Before buying, observe the snails in the store and choose ones that are moving or attached to a surface. Avoid snails with a damaged or cracked shell.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/mystery-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>They are common in Brazil, Paraguay and Bolivia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/mystery-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>In nature they are found in rivers, swamps and ponds, where they eat dead and decomposing plants. They live up to 3–4 years in the wild and clean the environment, allowing nutrients trapped in detritus to return to the ecosystem.</p><p>They are amphibious. Juveniles and adults use both aerial and aquatic respiration, allowing them to inhabit waters low in dissolved oxygen and to withstand some crowding. The mantle cavity holds a gill on the right side and a lung (pulmonary sac) on the left; the lung is used for aerial gas exchange and the gill for aquatic exchange. Lung ventilation is obligatory, so they regularly come to the surface and extend a breathing tube above the water to take in air.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/mystery-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Minimum tank size is 20 litres. Although they can live in almost any size of tank, a 40-litre tank is recommended. They spend much of their time moving around, so the more surface area available, the better. Use a tight-fitting lid so the snails do not crawl away.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/mystery-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Mystery snails are usually hardy, but avoid rapid changes in water conditions. Like shrimp, snails are super sensitive to copper; watch for traces of copper, especially if tap water is used. As with all invertebrates, acclimate them carefully before adding them to the tank.</p><p>Thin, pitted, pale and cracked shells indicate low pH and low calcium levels. Add calcium supplements to keep shells healthy and strong.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/mystery-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Mystery snails are very adaptable. In experiments the upper lethal temperature was about 40°C when snails were exposed for 1–4 hours, while the species can survive at 10°C and goes into hibernation in really cold water. Pomacea bridgesii tolerates salinity levels of 0–6.8 ppt, with over 80% survival after 3 days of exposure. These extremes are not conditions in which they thrive or reproduce.</p><p>They enjoy highly oxygenated, moderately moving water. Keep pH at 7.0–8.0, temperature at 20–28°C and water at around 8 KH.</p><p>Snail shells are 95–99.9% calcium carbonate. Low pH dissolves the calcium carbonate in the shell, leaving the snails open to harm from fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/mystery-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Mystery snails are scavengers and not fussy. They will eat almost anything: dead fish, dead shrimp or shellfish, dead or rotting plant matter, algae and anything else they find. Keep a medium to high level of vegetation so snails have a natural food source; shed leaves are the best food in addition to algae.</p><p>They prefer decomposed animal food or dead and rotting plants over fresh green ones. They show no interest in aquatic plants as food and can even starve if no other food is provided. They eat algae growing on glass, sand and rocks, and their grazing tracks can be seen.</p><p>Supplements such as flakes, feeder tablets or pellets keep them healthy. They love softly blanched vegetables. Whatever they are fed, they must have plenty of calcium, both in food and in the water.</p><p>Calcium sources: cuttlebone (which sinks, releases calcium into the water and is chewed by the snails), crushed coral (raises hardness), wonder shells and blanched spinach, kale or broccoli.</p><p>Quantity: some recommend feeding as much as they eat in 1–3 minutes, but this is considered wrong. Mystery snails are big and need a lot of food; they should always have something to chew (at least algae). Feed enough that it takes them several hours to eat it; if leftovers remain 12 hours later, feed less next time. Snails cannot eat fast, and aquarists report that they do not breed well without enough food.</p><p>Mystery snails have a very inefficient digestive tract with many microorganisms in the intestines. These stick to the faeces, which get stuck in the slime spread over the aquarium. This partially digested food is an excellent food for fish fry or shrimp.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/mystery-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>They are very peaceful: if attacked by an aggressive fish, they simply hide inside the shell. Keep them with peaceful fish so they are not scared most of the time and stay active, cleaning the tank effectively.</p><p>They are quite quick for snails. They are active during the day but more active at night, and prefer dim light.</p><p>If a snail escapes or has been out of the water for several hours, it retreats into its shell and looks dead. Do not throw it away; put it back in the tank and there is a good chance it will come back out.</p><p>Mystery snails can float: they go to the surface and form a funnel with the foot through which surface water flows. On sand substrate they may burrow. They sometimes climb to the top of the tank and fall to the bottom, but they can flip themselves over if they land on their back.</p><p>Tank mates: Mystery snail is solitary and does not care much about other snails. Suitable tank mates are equally peaceful: Japanese trapdoor snails, ramshorn snails, nerite snails, Malaysian trumpet snails, black devil snails, white wizard snails, Brotia pagodula snails, chopstick snails, hairy snails and rabbit snails. Freshwater shrimp such as Amano shrimp, bamboo shrimp, red cherry shrimp, ghost shrimp, vampire shrimp, blue tiger shrimp, snowball shrimp, Caridina cf. babaulti and blue velvet shrimp are also good choices.</p><p>Do not keep them with Botia lohachata, cichlids, loaches and goldfish. Also keep them away from all crayfish (even dwarf Mexican crayfish) and predatory shrimp such as the Macrobrachium family, which can be very aggressive towards snails. Some fish do not eat the snails but nip the exposed eyestalks or tentacles; check for this kind of damage and remove the affected snails.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/mystery-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>There is no visible sexual dimorphism, but in all copulations observed, males were smaller than females. This is not completely reliable and is easy to confuse. The reproductive organ is sometimes mistaken for the lung; it can be seen sticking out on the left side of the snail, while the sex organs themselves lie much further inside the body.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/mystery-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>These snails are gonochoristic: both a female and a male are needed to reproduce. To improve the odds of getting both sexes, keep a group of 5–6, although two can be enough with luck.</p><p>The male usually approaches the female from behind, crawls over her shell and, at the last whorl, searches for the genital aperture, grasping with his penial sheath and inserting it. Copulation can last 1–5 hours; the female usually crawls around feeding while the male retracts into his shell. Females can store sperm for months and so can keep laying eggs for quite some time.</p><p>They mate without help or any altered tank conditions. The female lays egg masses above the water surface, which in the wild protects the eggs from fish and other aquatic animals. Laying occurs mainly at night or in the evening. Each clutch contains 50–200 eggs, depending mainly on female size. The female crawls out of the water and deposits eggs on the tank wall, then descends the glass backward and finally lets herself fall into the water. Fresh egg masses are soft, milky pink and conspicuous; after 24 hours the eggs become white and hard. The clutch has a calcareous covering which may serve as a source of calcium for the embryos.</p><p>The air around the clutch should be moist. Eggs hatch 15–24 days after laying at 23°C (the higher the temperature, the faster they hatch), and hatching within one clutch can last up to 20 hours. If after 3–4 weeks no dark spots (baby snails inside the eggs) are visible, the clutch can be removed.</p><p>Development is direct and juveniles hatch at a shell length of 2.4 mm as tiny copies of the adults. They fall to the bottom of the tank and eat the same food as the parents.</p><p>Tips: lower the water level by 7–10 cm so there is enough room for egg laying. A tight-fitting lid keeps the air humid; otherwise the eggs dry out.</p><p>Newly hatched snails depend heavily on algae: survival during the first 8 days was 90.8% with only algal film, 88.9% with algal film and crushed food, and 64.4% with only crushed food. Mystery snails grow quickly, gaining weight at 1.7% per day at 27.6°C under laboratory conditions, especially in the first four to six weeks, and can reach about 1.3–1.9 cm within 5–6 months.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/mystery-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Appearance: colours include gold, blue, purple, orange, dark greenish, black, white, ivory, albino (white body with brown stripes) and brown, with varied shell patterns. The shell is 40–50 mm wide and 45–65 mm long. The whorls have a distinctive stair-like appearance; the spire is sharp and high with about 5 to 6 whorls. The head has two big tentacles to find food and sense the environment, with the eyes directly behind them. The operculum closes the shell opening: it does not close properly if something is wrong with the snail and falls off once the snail dies.</p><p>Mystery snails are plant safe and suit both beginners and experts. In a planted tank with too little food they tend to starve.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/9891faa03158ae36.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/9891faa03158ae36-480.webp",
+      "width": 1200,
+      "height": 831,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/mystery-snail-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "IWZs4O56ffM",
+      "title": "Mystery snail for a nano aquarium ecosystem",
+      "durationSec": 12,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "4a5L48ZOVuE",
+      "title": "7 Reasons Why I Like Mystery Snails (and 3 Reasons Why I Don't)",
+      "durationSec": 370,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "IYvIkw240a8",
+      "title": "Mystery Snail Care and Breeding : 1000 Babies Made!",
+      "durationSec": 462,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "gWWx2JU_JEo",
+      "title": "Mystery Snail Care and Breeding: Your Friendly Neighborhood Algae Eater!",
+      "durationSec": 734,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho ốc",
+        "viên thức ăn cho ốc mystery",
+        "rau củ cho ốc"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể thủy sinh 40 lít",
+        "bể nuôi ốc có nắp"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "test KH GH",
+        "bộ test nước"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể thủy sinh",
+        "san hô vụn bổ sung canxi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

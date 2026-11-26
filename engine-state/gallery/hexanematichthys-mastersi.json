@@ -2,11 +2,11 @@
  "queue": [],
  "judged": [
   "gbif:1456256895:3a077b19d4e9a5d4",
-  "gbif:1456256895:7ee8d42471afa4f7"
+  "gbif:1456256895:7ee8d42471afa4f7",
+  "inat:726952954",
+  "inat:726952953"
  ],
- "hashes": {
-  "https://media.aquatome.com/scotcat/6e1d34948f5dae79.webp": "006068ca8ad00000"
- },
+ "hashes": {},
  "inat": {
   "taxon": 1538843,
   "pass": "done",
@@ -19,5 +19,13 @@
  "gbif": {
   "key": 2344940,
   "next": null
- }
+ },
+ "inatNc": {
+  "after": 396396718,
+  "done": true
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-22"
 }

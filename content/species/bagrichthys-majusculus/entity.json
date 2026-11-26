@@ -138,6 +138,10 @@
       {
         "source": "seriouslyfish",
         "value": 17.7
+      },
+      {
+        "source": "planetcatfish",
+        "value": 16
       }
     ],
     "tankCm": [
@@ -155,6 +159,12 @@
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1563",
+      "html": "<ul><li>Scientific name: Bagrichthys majusculus Ng, 2002</li><li>IUCN Red List: Data Deficient (last assessed 2011)</li><li>Breeding: unreported</li></ul>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/bagrichthys-majusculus",
@@ -167,10 +177,22 @@
       "html": "<p>Described from the Mun River, Ubon Ratchathani Province, eastern Thailand, a tributary of the Mekong River, and is known only from the Mekong and Chao Phraya systems. It has been recorded from Mekong tributaries in Laos and presumably occurs in Cambodia as well.</p>"
     },
     {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1563",
+      "html": "<p>Asia: Thailand. Found in the Chao Phraya, Mekong and Bang Pakong basins. Type locality: Mun River at Ban Dan, 3 kilometers upstream from the Mekong River confluence, Khong Chiam district, Ubon Ratchathani Province, Thailand.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/bagrichthys-majusculus",
       "html": "<p>Typically inhabits large, turbid rivers with muddy substrates and slow flow and moves into flooded riparian zones to spawn during the wet season.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1563",
+      "html": "<p>Members of the genus Bagrichthys Bleeker, 1858 live in large muddy rivers throughout Southeast Asia.</p>"
     },
     {
       "key": "aquariumSize",
@@ -221,10 +243,22 @@
       "html": "<p>The vernacular name 'lancer' is derived from the extended dorsal spine possessed by several members of the genus, which currently contains 7 species.</p><p>Among them B. majusculus is most similar to B. macracanthus and B. vaillantii but can be told apart from both by possession of longer pectoral-fin spines (length 15.8 - 20.7 % SL vs. 11.5 - 16.2 %), from the former by possession of a larger adipose fin (length of base 46.0 - 50.7 % SL vs. 38.8 - 45.8 %), plus deeper caudal peduncle (depth 7.1 - 7.5 % SL vs. 5.6 - 7.0 %), and from the latter by possession of a longer dorsal-fin spine (length 24.4 - 32.5 % SL vs. 18.2 - 21.9 %), a less-deep head (depth 14.0 - 16.1 % SL vs. 16.2 - 19.0 %) and deeper adipose-fin (depth 9.9 - 10.5 % SL vs. 8.2 - 9.5 %).</p>"
     },
     {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1563",
+      "html": "<p>Bagrichthys are highly specialized, unusually-shaped bagrid catfish characterised by an elongate and laterally compressed caudal peduncle, dorsally-directed serrations on the posterior edge of the dorsal-fin spine, gill membranes united but free from the isthmus, and a long adipose fin without a free posterior margin (Roberts, 1989).</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/bagrichthys-majusculus",
       "html": "<ul><li>Ng, H. H. (2002). Bagrichthys majusculus, a new catfish from Indochina (Teleostei, Bagridae). Folia Zoologica 51(1), 49-54</li><li>Linder, R. S. and H. H. Ng (2002). Notes on the Lancers of the Genus Bagrichthys (Teleostei, Bagridae) Cat Chat: The Official Journal of The Catfish Study Group 3(3)</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1563",
+      "html": "<p>Folia Zoologica: international journal of vertebrate zoology. v. 51 (no. 1), pp 50, Fig. 1.</p>"
     }
   ],
   "photos": [
@@ -240,7 +274,20 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "BE_qxb6eS6s",
+      "title": "Bagrichthys majusculus @ Black Lancer Catfish/Baung Tikus (Malaysia)",
+      "durationSec": 62,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "cTt3ymnID0E",
+      "title": "ត្រីចេកទុំខ្មៅ | Bagrichthys majusculus |#shortvideo",
+      "durationSec": 59,
+      "lang": "en-US"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -269,5 +316,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-25"
 }

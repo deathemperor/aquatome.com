@@ -1,0 +1,16 @@
+{
+  "slug": "cachira-river",
+  "name": "กาชีรา",
+  "altNames": [],
+  "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-21T18:58:14.837Z",
+    "why": "กาชีรา is a Thai transliteration of Cachira but omits the river word แม่น้ำ that Thai atlases use, so it reads as a bare name that could also be the town."
+  },
+  "quality": {
+    "score": 0.6,
+    "indexable": false
+  }
+}

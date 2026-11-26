@@ -1,0 +1,50 @@
+{
+  "id": "rhamdioglanis-transfasciatus",
+  "scientificName": "Rhamdioglanis transfasciatus",
+  "order": "Siluriformes",
+  "family": "Heptapteridae",
+  "genus": "Rhamdioglanis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 19
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1545",
+      "html": "<p>Scientific name: Rhamdioglanis transfasciatus Miranda Ribeiro, 1908</p><p>Type locality: Rio Bethary of Rio Ribeira, Brazil.</p><p>Size: 190 mm SL. Fishbase lists 40 mm TL.</p><p>IUCN Red List category: Not Evaluated</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1545",
+      "html": "<p>South America: coastal streams in Brazil, from Rio de Janeiro to Santa Catarina.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1545",
+      "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1545",
+      "html": "<p>Kosmos, Rio de Janeiro. Rev. Art. Sci. Litt. v. 5 (no. 2) (for 1907), pp [3].</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-25"
+}
