@@ -458,5 +458,25 @@ test('a reread keeps the credited original of a durable first refusal before its
   }))
   const keeps = readKeeps('species/a', 'Example fish', {}, { [source]: { publish: true } }, undefined,
     url => url === original.url, await readRecoveryRetention(root))
-  expect(mergeRead([stored], source, page, [fresh], keeps).photos).toEqual([fresh, stored])
+  expect(mergeRead([stored], source, page, [fresh, { ...fresh, url: original.url }], keeps).photos).toEqual([fresh, stored])
+})
+
+test('a reread keeps the eligible iNaturalist head while its replacement awaits a look', () => {
+  const old: Photo = { ...photo('sole-inat'), licence: 'CC BY-NC 4.0', sourceUrl: 'https://www.inaturalist.org/photos/1' }
+  const source = 'bwaquatics'
+  const page = 'https://x/source'
+  const fresh: Photo = { ...photo('new-photo'), source, sourceUrl: page }
+  const options = readKeeps('species/a', 'Example fish', {}, { [source]: { publish: true } }, undefined, url => url === fresh.url)
+  expect(new Set(mergeRead([old], source, page, [fresh], options).photos)).toEqual(new Set([old, fresh]))
+})
+
+test('a reread keeps one credited wrapper when it brings in its original before screening', () => {
+  const source = 'bwaquatics'
+  const page = 'https://x/source'
+  const original = { ...photo('waiting'), licence: 'CC BY 4.0' }
+  const stored: Photo = { ...photo('stored'), source, sourceUrl: page,
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }], original }
+  const fresh: Photo = { ...original, source, sourceUrl: page }
+  const options = readKeeps('species/a', 'Example fish', {}, { [source]: { publish: true } }, undefined, url => url === original.url)
+  expect(mergeRead([stored], source, page, [fresh], options).photos).toEqual([stored])
 })

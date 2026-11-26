@@ -5,7 +5,7 @@ import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies, THUMB_WIDTH } from './thumb'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, guidePhotoAllowed, guidePhotoWaits, GUIDE_LOOKS_FILE, GUIDE_UNJUDGED_LIMIT, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type PhotoScreenEntry } from './photo-screen'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, expandWholePhotoRejections, isVersionRejection, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, guidePhotoAllowed, guidePhotoWaits, GUIDE_LOOKS_FILE, GUIDE_UNJUDGED_LIMIT, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type PhotoScreenEntry } from './photo-screen'
 import { photoRejections } from './own-mark'
 import { ownerCropFitsPage } from './owner-crops'
 import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
@@ -237,7 +237,9 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // real content needs the record.
   const faces = screen ? await stateRecord<Record<string, number>>(root, FACES_FILE) : undefined
   if (screen && !faces && opts.photoScreen === 'required') throw new Error(`${join(dirname(root), 'engine-state', FACES_FILE)}: the face finder's record is missing, so no page's own photo can be shown as read`)
-  const rejectedForDead = screen ? photoRejections(await stateRecord<Record<string, string>>(root, PHOTO_REJECTED_FILE) ?? {}, screen) : undefined
+  const rejectedForDead = screen ? photoRejections(
+    await expandWholePhotoRejections(root, await stateRecord<Record<string, string>>(root, PHOTO_REJECTED_FILE) ?? {}, screen), screen,
+  ) : undefined
   const { unread, altered: flaggedAlterations } = await facePhotoStatus(root, faces)
   if (faces && opts.photoScreen === 'required') {
     const retryable = [...unread].filter(url => !rejectedForDead?.(url)).length
@@ -331,6 +333,11 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
       return valid && !veto ? [p] : []
     }
     const shown = publicPhotoVersion(p, images, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
+    const storedReason = shown && shown.url !== p.url ? rejectedForDead?.(p.url)?.[1] : undefined
+    if (shown && storedReason && !isVersionRejection(storedReason)) {
+      for (const url of [shown.url, shown.thumb, shown.large?.url]) if (url) waiting.add(url)
+      return []
+    }
     return shown ? [shown] : []
   }).filter(p => {
     if (publicBuild && setsCookies(p.url)) return false

@@ -3,7 +3,7 @@ import { createHash } from 'node:crypto'
 import { replacePhotoDocument } from './image-cache-write'
 import { compactRejection, compactVerdict, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
-import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
@@ -52,19 +52,22 @@ Answer every tile, by its number.`
 const PER_SHEET = 12
 const ALBUM_RETRY_FILE = '_photo-album-dead-retry.json'
 const ALBUM_TAKEOFFS_FILE = '_photo-album-dead-takeoffs.json'
+const ALBUM_ACK_DIR = 'album-takeoff-acks'
 type TakeOffReceipt = true | { batch: string; acknowledged?: true }
 
 export async function acknowledgeAlbumTakeOffs(root: string, batch: string): Promise<number> {
-  const path = join(root, 'engine-state', ALBUM_TAKEOFFS_FILE)
-  const receipts = await readJson<Record<string, TakeOffReceipt>>(path) ?? {}
-  let count = 0
-  for (const receipt of Object.values(receipts)) {
-    if (receipt === true || receipt.batch !== batch || receipt.acknowledged) continue
-    receipt.acknowledged = true
-    count++
-  }
-  if (count) await writePhotoState(path, receipts)
-  return count
+  if (!/^[a-f0-9]{64}$/.test(batch)) throw new Error('Invalid album take-off batch ID')
+  const state = join(root, 'engine-state')
+  const receipts = await readJson<Record<string, TakeOffReceipt>>(join(state, ALBUM_TAKEOFFS_FILE)) ?? {}
+  const count = Object.values(receipts).filter(r => r !== true && r.batch === batch && !r.acknowledged).length
+  if (!count) return 0
+  const dir = join(state, ALBUM_ACK_DIR)
+  await mkdir(dir, { recursive: true })
+  // Each acknowledged batch has its own receipt, independent of the writer currently screening albums.
+  return writeFile(join(dir, batch), '', { flag: 'wx' }).then(() => count, (error: NodeJS.ErrnoException) => {
+    if (error.code === 'EEXIST') return 0
+    throw error
+  })
 }
 
 export const thumbnail = (youtubeId: string) => `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`
@@ -154,9 +157,13 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     }
     // The same batch is available if the process stops before the CLI reports it.
     if (changed) await writePhotoState(state(ALBUM_TAKEOFFS_FILE), receipts)
+    const acknowledged = new Set(await readdir(state(ALBUM_ACK_DIR)).catch((error: NodeJS.ErrnoException) => {
+      if (error.code !== 'ENOENT') throw error
+      return [] as string[]
+    }))
     const batches = new Map<string, string[]>()
     for (const [url, receipt] of Object.entries(receipts)) {
-      if (receipt === true || receipt.acknowledged) continue
+      if (receipt === true || receipt.acknowledged || acknowledged.has(receipt.batch)) continue
       const urls = batches.get(receipt.batch) ?? []
       urls.push(url)
       batches.set(receipt.batch, urls)
@@ -176,6 +183,9 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     const agreedDead = rejectedEntry(Object.fromEntries(Object.entries(initialLooks)
       .filter(([, mark]) => mark.why.startsWith('dead:') && photoLookAnswer(mark)?.said === 'agree')
       .map(([url, mark]) => [url, mark.why])))
+    const waits = rejectedEntry(Object.fromEntries(Object.entries(initialLooks)
+      .filter(([, mark]) => !photoLookAnswer(mark) || mark.off)
+      .map(([address, mark]) => [address, waitingEntry(mark.why)])))
     const albums = await readdir(join(content, 'gallery'))
     for (const name of albums.filter(f => f.endsWith('.json')).sort()) {
       const file = join(content, 'gallery', name)
@@ -184,13 +194,14 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       for (const url of new Set(album.photos.flatMap(deadScreenPhotoUrls))) {
         if (!url) continue
         const entry = isListed(url)
-        const record = entry && initialLooks[entry[0]]
+        const review = entry && waits(url)
+        const record = review && review[1] === entry?.[1] ? initialLooks[review[0]] : undefined
         const rejection = entry && (entry[1].startsWith('dead:') ||
           (entry[1].startsWith('waiting:') && record && !cleared(url) &&
             ((record.off && record.why.startsWith('dead:')) || cache[url]?.dead === true || receipts[url] === true))) ? entry[1] : undefined
         if (entry && !rejection) continue
         const agreement = rejection?.startsWith('dead:') ? undefined : agreedDead(url)
-        const alreadyDead = !!rejection || !!agreement || (cache[url]?.dead === true && !cleared(url))
+        const alreadyDead = !!rejection || !!agreement || ((cache[url]?.dead === true || receipts[url] === true) && !cleared(url))
         if (!alreadyDead && looked(url)) continue
         const take = alreadyDead ? knownDead : photos
         const it = take.get(url) ?? { key: url, url, files: [], rejection, agreement }
@@ -450,16 +461,16 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     const reviewUrl = albumHold(url)
     return newFirst(url)?.[0] ?? (reviewUrl && holding.has(reviewUrl) ? reviewUrl : undefined)
   }, left)
-  await holdForSecondLook(root, holding, 'the dead-fish screen', undefined, left)
   const save = (f: string, data: object) => writePhotoState(state(f), data)
-  if (off.some(x => x.video)) await save('_video-rejected.json', videoRejected)
-  if (off.some(x => !x.video && going.has(x.url) && !heldByAddress(x.url))) await save('_photo-rejected.json', photoRejected)
-  if (report.judged) await save('_dead-screen.json', cache)
-  // Keep receipts before editing either album. A retry can report a take-off even if its last entry is already gone.
+  // Record the planned take-off before either a rejection or an off mark could cause another step to strip it.
   if (applied.size) {
     for (const url of applied.keys()) receipts[url] ??= true
     await save(ALBUM_TAKEOFFS_FILE, receipts)
   }
+  await holdForSecondLook(root, holding, 'the dead-fish screen', undefined, left)
+  if (off.some(x => x.video)) await save('_video-rejected.json', videoRejected)
+  if (off.some(x => !x.video && going.has(x.url) && !heldByAddress(x.url))) await save('_photo-rejected.json', photoRejected)
+  if (report.judged) await save('_dead-screen.json', cache)
   // While a linked page still needs an edit, keep its album entry so a retry finds the take-off again.
   const galleryDir = join(content, 'gallery') + '/'
   const writes = [...edits].sort(([a], [b]) => Number(a.startsWith(galleryDir)) - Number(b.startsWith(galleryDir)))

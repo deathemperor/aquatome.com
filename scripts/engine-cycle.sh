@@ -42,14 +42,14 @@ push() {
       if net git pull -q --rebase -X theirs; then
         replan_merged "$clash"
         main_holds "$run" || true
-        sweep_merged
+        sweep_merged "$run"
         verify_cycle || { keep_unpublished "$PART"; log "build/tests failed after that merge, not publishing"; return 1; }
       else
         git rebase --abort 2>/dev/null || true
       fi
     else
       main_holds "$run" || moved=1
-      if ! swept_pull "$main" || [ -n "$moved" ]; then
+      if ! swept_pull "$main" "$run" || [ -n "$moved" ]; then
         verify_cycle || { keep_unpublished "$PART"; log "build/tests failed after the sweep on main's changes, not publishing"; return 1; }
       fi
     fi
