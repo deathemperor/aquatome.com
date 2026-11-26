@@ -12,7 +12,8 @@ import { recordAlbumTakeOffs } from '../src/album-takeoffs'
 import { LlmError } from '../src/claude'
 import { acknowledgeAlbumTakeOffs, screenDead, type DeadScreenDeps } from '../src/dead-screen'
 import { galleries, type GalleryDeps } from '../src/gallery'
-import { gitHistory, putBackCleared, waitingEntry } from '../src/last-photo'
+import { gitHistory, putBackCleared, unlistCleared, waitingEntry } from '../src/last-photo'
+import { holdForCreditRead, releaseCreditHolds } from '../src/credit-reads'
 import { checkPagePhotos } from '../src/photo-check'
 import { sweep } from '../src/sweep'
 import { dropFacePhotos, NEW_PHOTO_SHEETS, screenNewPhotos } from '../src/faces'
@@ -291,6 +292,35 @@ async function publicFixture(photos: object[], albums: object[], urls: string[])
   const publicView = () => loadAll({ root: content, lang: 'vi', publicBuild: true })
   return { root, state, file, publicView }
 }
+
+test('clearing an independent review leaves the bare original hidden until its rights hold releases', async () => {
+  const original = photo('original')
+  const wrapper = { ...photo('wrapper'), altered: [{ method: 'lanczos3-upscale' }], original }
+  const { root, state, publicView } = await publicFixture([original], [original], [original.url, wrapper.url])
+  const guide = join(root, 'content/guides/sample/entity.json')
+  await mkdir(join(guide, '..'), { recursive: true })
+  await writeFile(guide, JSON.stringify({ id: 'sample', photos: [wrapper] }))
+  const why = 'dead: withheld'
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [original.url]: waitingEntry(why) }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [original.url]: { dead: false } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [original.url]: 0 }))
+  await holdForCreditRead(root, [wrapper.url], 'reviewer', '2026-11-26', 'credit unread')
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+    [original.url]: { why, at: '2026-11-26', off: true, pages: ['species/alpha'], step: 'the photo check',
+      look: { said: 'clear', on: '2026-11-26', by: 'reviewer' } },
+  }))
+  expect(await unlistCleared(root)).toEqual([original.url])
+
+  const held = await publicView()
+  expect(held.photoWaits!(original.url)).toBe(true)
+  expect(held.species.find(page => page.id === 'alpha')?.photos ?? []).toEqual([])
+  expect(held.galleries.alpha ?? []).toEqual([])
+
+  await releaseCreditHolds(root, { [original.url]: { kind: 'own', page: original.sourceUrl, at: '2026-11-26' } })
+  const released = await publicView()
+  expect(released.photoWaits!(original.url)).toBe(false)
+  expect(released.species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([original.url])
+})
 
 test.each([false, true])('the face finder holds a passed last photo while its sibling owes the dead-fish screen (original: %s)', async useOriginal => {
   const flagged = photo('passed-face'), pending = photo('unreadable')

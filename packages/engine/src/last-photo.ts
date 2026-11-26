@@ -7,7 +7,7 @@ import { dirname, join, relative } from 'node:path'
 import { machine } from './ceiling'
 import { compactRejection } from './photo-observations'
 import { replacePhotoDocument, writeImageCache } from './image-cache-write'
-import { writePhotoState } from './photo-state'
+import { readPhotoMap, writePhotoState } from './photo-state'
 
 /**
  * A page's last photo doesn't come off on an automatic check's word alone (the chief of staff, 2026-11-14, after one
@@ -310,7 +310,7 @@ export async function unlistCleared(root: string, deferred: ReadonlySet<string> 
 export type Place = { file: string; index: number; occurrence?: number; capture?: string; captureDay?: string; captureWhy?: string }
 const placeKey = (p: Place) => p.occurrence ? `${p.file}#${p.occurrence}` : p.file
 /** The same, with its entry there, as the step that takes it off holds it. */
-export type Stood = Place & { photo: Record<string, unknown>; order?: string[]; orderKeys?: string[] }
+export type Stood = Place & { photo: Record<string, unknown>; order?: string[]; orderKeys?: string[]; orderKeyIndex?: number }
 const placementHash = (p: Record<string, unknown>) => createHash('sha256').update(JSON.stringify(p ?? null)).digest('hex')
 /** A place a photo's mark took it off, as it was just before it first left from the mark on; and how many times it left. */
 export type LeftPlace = Stood & { times: number }
@@ -419,18 +419,27 @@ async function capturePlaces(sl: SecondLooks, left: Map<string, Stood[]>, dir: s
       }
       const place = { file: p.file, index: p.index, ...(p.occurrence ? { occurrence: p.occurrence } : {}), capture: randomUUID() }
       const order = p.order ? [...p.order] : undefined
+      let orderKeys = p.orderKeys ? [...p.orderKeys] : undefined
+      let orderKeyIndex = p.orderKeyIndex ?? p.index
       if (order) {
         for (const prior of previous.get(p.file) ?? []) {
-          const earlier = (await readKept(dir, prior.url, prior.mark, prior.place))?.order
+          const saved = await readKept(dir, prior.url, prior.mark, prior.place)
+          const earlier = saved?.order
           if (!earlier?.includes(String(p.photo.url))) continue
           // Add neighbors a preceding pass removed from the same file. The current file keeps its own order.
           for (const [i, neighbor] of earlier.entries()) {
             if (order.includes(neighbor)) continue
-            order.splice(photoPosition(order, earlier, i, order.length), 0, neighbor)
+            const at = photoPosition(order, earlier, i, order.length)
+            order.splice(at, 0, neighbor)
+            const key = saved?.orderKeys?.[i]
+            if (orderKeys && key) {
+              orderKeys.splice(at, 0, key)
+              if (at <= orderKeyIndex) orderKeyIndex++
+            } else orderKeys = undefined
           }
         }
       }
-      await writeKept(dir, url, r, { ...p, ...place, order }, earlier)
+      await writeKept(dir, url, r, { ...p, ...place, order, orderKeys, ...(orderKeys ? { orderKeyIndex } : {}) }, earlier)
       named.set(placeKey(p), place)
       r.left = [...named.values()]
       const at = previous.get(p.file) ?? []
@@ -548,10 +557,12 @@ export function gitHistory(root: string, tip = 'HEAD'): History {
     const terms = [url, ...mirrors].flatMap(s => ['-e', s])
     const held = git('grep', '-l', '-F', ...terms, parent, '--', 'content/species', 'content/plants', 'content/breeds', 'content/gallery', 'content/guides')
     if (held.status !== 0 && held.status !== 1) return undefined
-    const previous = new Set(held.stdout.split('\n').map(l => l.slice(parent.length + 1)).filter(f => PLACE.test(f) && urls(at(parent, f)).some(shown)))
+    const namedAtMark = recordAt(mark)?.[url]?.left?.some(p => p.capture)
+    const previous = new Set(namedAtMark ? [] : held.stdout.split('\n').map(l => l.slice(parent.length + 1)).filter(f => PLACE.test(f) && urls(at(parent, f)).some(shown)))
     const places = [...new Set([...previous, ...captured.map(p => p.file).filter(f => PLACE.test(f))])]
     if (!places.length) return []
     const byFile = new Map(captured.map(p => [p.file, p.photoUrl ?? url]))
+    const hasCaptures = captured.some(p => p.capture)
     const captureCommits = new Map<string, string>()
     for (const place of captured) {
       if (!place.capture) continue
@@ -573,6 +584,7 @@ export function gitHistory(root: string, tip = 'HEAD'): History {
       const files = git('diff', '--name-only', '--no-renames', ...search, `${sha}^`, sha, '--', ...places)
       if (files.status !== 0) return undefined
       for (const file of files.stdout.split('\n').filter(Boolean)) {
+        if (hasCaptures && !byFile.has(file) && sha !== mark) continue
         const capturedAt = captureCommits.get(file)
         if (capturedAt && capturedAt !== mark && capturedAt !== sha) {
           const afterCapture = git('merge-base', '--is-ancestor', capturedAt, sha)
@@ -798,10 +810,7 @@ export async function putBackCleared(root: string, history: History, at = today(
   const l = looks(sl)
   const due = Object.keys(sl).filter(u => sl[u]!.off === true && l.cleared(u) && !sl[u]!.back)
   const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
-  const rejected = due.length ? JSON.parse(await readFile(rejectedFile, 'utf8').catch((error: NodeJS.ErrnoException) => {
-    if (error.code === 'ENOENT') return '{}'
-    throw error
-  })) as Record<string, string> : {}
+  const rejected = due.length ? await readPhotoMap<string>(rejectedFile) : {}
   const rebased = await reconcileRebasedPlaces(root, sl, dir)
   out.off.push(...rebased.off)
   out.back.push(...rebased.back)
@@ -864,7 +873,7 @@ export async function putBackCleared(root: string, history: History, at = today(
     const missing: string[] = []
     for (const p of own) {
       const kept = captures.get(placeKey(p))
-      if (kept) mine.push({ ...p, photo: kept.photo, order: kept.order, orderKeys: kept.orderKeys, times: fromHistory.get(placeKey(p))?.times ?? 1 })
+      if (kept) mine.push({ ...p, photo: kept.photo, order: kept.order, orderKeys: kept.orderKeys, orderKeyIndex: kept.orderKeyIndex, times: fromHistory.get(placeKey(p))?.times ?? 1 })
       else if (!fromHistory.has(placeKey(p))) missing.push(`${u}: its entry on ${p.file} wasn't kept here`)
     }
     out.off.push(...missing)
@@ -936,7 +945,7 @@ export async function putBackCleared(root: string, history: History, at = today(
       const position = order.findIndex(url => url === address && occurrence-- === 0)
       const currentKeys = photos.map(placementHash)
       const index = p.orderKeys?.some(key => currentKeys.includes(key))
-        ? photoPosition(currentKeys, p.orderKeys, p.index, p.index)
+        ? photoPosition(currentKeys, p.orderKeys, p.orderKeyIndex ?? p.index, p.index)
         : photoPosition(photos.map(photo => String(photo.url)), order, position >= 0 ? position : p.index, p.index)
       photos.splice(index, 0, p.photo)
       await replacePhotoDocument(file, `${JSON.stringify(doc, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)

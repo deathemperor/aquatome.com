@@ -30,6 +30,8 @@ test('replaying a restored plain photo preserves a credited wrapper sharing its 
   const main = { photos: [wrapper, neighbor, added] }
   const local = { photos: [wrapper, neighbor, plain] }
   expect(mergeFile(base, main, local).photos).toEqual([wrapper, neighbor, added, plain])
+  expect(mergeFile({ photos: [] }, { photos: [wrapper] }, { photos: [plain] }).photos).toEqual([wrapper, plain])
+  expect(mergeFile({ photos: [] }, { photos: [plain] }, { photos: [wrapper] }).photos).toEqual([plain, wrapper])
 })
 
 test('the same new page from two sources: both sources\' figures, places, sections, photos and videos stay', () => {
