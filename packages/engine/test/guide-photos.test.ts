@@ -46,7 +46,7 @@ function model(table: Record<string, Partial<Omit<GuidePhotoVerdict, 'other'>> &
       return { photos: photos.map((p, i) => {
         const { other, ...rest } = table[p] ?? {}
         const asked = prompt.includes(`- Photo ${i + 1} (`)
-        return { n: i + 1, person: false, mark: false, brand: false, note: p, ...rest,
+        return { n: i + 1, person: false, mark: false, brand: false, dead: false, note: p, ...rest,
           other: typeof other === 'function' ? other(prompt) : other ?? (asked ? false : undefined) }
       }) }
     },
@@ -197,7 +197,7 @@ test('a video still with hands, a person or a mark leaves its guide for good, an
     faces: async files => files.map(() => 0),
     read: async files => files.map(() => []),
     look: async () => { throw new Error('no text to judge') },
-    judge: async () => ({ photos: [{ n: 1, person: false, mark: false, brand: false, note: 'a tank' }] }),
+    judge: async () => ({ photos: [{ n: 1, person: false, mark: false, brand: false, dead: false, note: 'a tank' }] }),
     media: { urlFor: k => url(k.replace('.webp', '')), put: async k => ({ url: url(k.replace('.webp', '')), width: 1200, height: 675 }) },
     now: () => new Date('2026-11-07T12:00:00Z'),
   }
@@ -290,7 +290,7 @@ test('a guide about one fish: in the same call as the people check, a picture of
   expect(seen[0]!.prompt).not.toContain('- Photo 2 ')
   expect(urls((await json(root, `content/guides/${id}/entity.json`)).photos)).toEqual(['platy', 'html-gone'])
   expect(urls((await json(root, 'content/guides/aquariumcoop-blogs-setup-a-tank/entity.json')).photos)).toEqual(['neon'])
-  expect(r.subject).toEqual([`content/guides/${id}/entity.json: ${url('arowana')}: guide photo`])
+  expect(r.subject).toEqual([`content/guides/${id}/entity.json: ${url('arowana')}: dead screen clear`])
   expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({})
   expect((await json(root, 'engine-state/_photo-guides.json'))[url('arowana')].other).toEqual({ platy: true })
 
@@ -329,6 +329,21 @@ test('a missing guide subject answer leaves that question queued', async () => {
   await screenGuidePhotos(root, partial, { limit: 1 })
   expect(seen.map(s => s.photos)).toEqual([['shared'], ['shared']])
   expect((await json(root, 'engine-state/_photo-guides.json'))[url('shared')].other).toEqual({ platy: false })
+})
+
+test('a new guide photo stays owed when its first answer omits the dead-fish question', async () => {
+  const root = await store({ guide: { photos: [photo('shared')] } })
+  const { d, seen } = model({})
+  let calls = 0
+  const partial: GuidePhotoDeps = { ...d, look: async (file, prompt) => {
+    const answer = await d.look(file, prompt)
+    if (calls++ === 0) for (const tile of answer.photos) delete tile.dead
+    return answer
+  } }
+  expect((await screenGuidePhotos(root, partial, { limit: 1 })).judged).toBe(0)
+  expect((await json(root, 'engine-state/_photo-guides.json'))[url('shared')]).toBeUndefined()
+  expect((await screenGuidePhotos(root, partial, { limit: 1 })).judged).toBe(1)
+  expect(seen.map(s => s.photos)).toEqual([['shared'], ['shared']])
 })
 
 test('a photo judged before the subject was asked is asked once, ahead of photos not judged, and keeps its verdict; a still is not asked', async () => {
@@ -416,12 +431,10 @@ test("the dead-or-food question, asked at a picture's first look: a dead guide p
   expect(name((await json(root, 'content/equipment/thuc-an.json')).hero.url)).toBe('pellets')
   const verdicts = await json(root, 'engine-state/_photo-guides.json')
   expect(verdicts[url('pellets')].dead).toBe(true)
-  // An answer with no dead in it keeps its people and marks verdict, and the faces step's backlog asks it; nothing else.
-  expect(verdicts[url('lead')]).toMatchObject({ person: false, mark: false, brand: false })
-  expect(verdicts[url('lead')].dead).toBeUndefined()
+  expect(verdicts[url('lead')]).toMatchObject({ person: false, mark: false, brand: false, dead: false })
   const backlog: string[] = []
   await screenGuidesDead(root, asked(backlog), { limit: 100 })
-  expect(backlog).toEqual(['lead', 'at20-hd'])
+  expect(backlog).toEqual([])
   // Judged once: the next run asks nothing and takes nothing.
   const again = await screenGuidePhotos(root, { ...d, look: async () => { throw new Error('judged twice') } }, { limit: 10 })
   expect(again).toMatchObject({ judged: 0, dead: [], bare: [] })

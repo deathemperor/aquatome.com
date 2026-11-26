@@ -59,7 +59,7 @@ export type GuidePhotoDeps = {
 }
 export const GUIDE_PHOTO_SCHEMA = {
   type: 'object', required: ['photos'],
-  properties: { photos: { type: 'array', items: { type: 'object', required: ['n', 'person', 'mark', 'brand', 'note'], properties: { n: { type: 'number' }, person: { type: 'boolean' }, mark: { type: 'boolean' }, brand: { type: 'boolean' }, note: { type: 'string' }, other: { type: 'boolean' }, dead: { type: 'boolean' } } } } },
+  properties: { photos: { type: 'array', items: { type: 'object', required: ['n', 'person', 'mark', 'brand', 'dead', 'note'], properties: { n: { type: 'number' }, person: { type: 'boolean' }, mark: { type: 'boolean' }, brand: { type: 'boolean' }, note: { type: 'string' }, other: { type: 'boolean' }, dead: { type: 'boolean' } } } } },
 }
 export const GUIDE_PHOTO_PROMPT = `Numbered photos and video frames from an aquarium handbook's guides. For each photo n:
 - person: true if a person or any part of one is in it: a hand or fingers (planting, holding, pointing, working in the tank), an arm, a foot, a face, a body seen from behind, even small, cut off at the edge, blurred or behind the glass; false if not.
@@ -96,9 +96,9 @@ export async function judgeGuidePhotos(images: Buffer[], sheet: string, look: Gu
   const asked = subjects.flatMap((s, i) => (s ? [`- Photo ${i + 1} (${s.subject}): "${s.title}"`] : []))
   const prompt = asked.length ? `${GUIDE_PHOTO_PROMPT}\n${GUIDE_SUBJECT_PROMPT}\n${asked.join('\n')}` : GUIDE_PHOTO_PROMPT
   for (const p of (await look(sheet, prompt)).photos ?? []) {
-    if (!(p.n - 1 in out) || typeof p.person !== 'boolean' || typeof p.mark !== 'boolean' || typeof p.brand !== 'boolean') continue
+    if (!(p.n - 1 in out) || typeof p.person !== 'boolean' || typeof p.mark !== 'boolean' || typeof p.brand !== 'boolean' || typeof p.dead !== 'boolean') continue
     const about = subjects[p.n - 1]
-    out[p.n - 1] = compactVerdict({ person: p.person, mark: p.mark, brand: p.brand, note: String(p.note ?? '').slice(0, 120), ...(about && typeof p.other === 'boolean' ? { other: { [about.subject]: p.other } } : {}), ...(typeof p.dead === 'boolean' ? { dead: p.dead } : {}) })
+    out[p.n - 1] = compactVerdict({ person: p.person, mark: p.mark, brand: p.brand, note: String(p.note ?? '').slice(0, 120), ...(about && typeof p.other === 'boolean' ? { other: { [about.subject]: p.other } } : {}), dead: p.dead })
   }
   return out
 }

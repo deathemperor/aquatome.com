@@ -51,7 +51,7 @@ async function site(over: Partial<StillDeps> = {}) {
     faces: async files => files.map(f => (f.endsWith('-60.png') ? 1 : 0)), // t54's frame
     read: async files => files.map(f => (f.endsWith('-30.png') ? [line('SERA flore')] : f.endsWith('-40.png') ? [line('TEST_ONLY_CHANNEL')] : [])), // t27's and t36's
     look: async () => { calls.looks++; return { photos: [{ n: 1, watermark: true, kind: 'credit', what: 'TEST_ONLY_CHANNEL, bottom' }] } },
-    judge: async () => ({ photos: [1, 2, 3, 4, 5, 6].map(n => ({ n, person: false, mark: false, brand: false, note: 'a tank' })) }),
+    judge: async () => ({ photos: [1, 2, 3, 4, 5, 6].map(n => ({ n, person: false, mark: false, brand: false, dead: false, note: 'a tank' })) }),
     media: { urlFor: k => `https://m/${k}`, put: async k => { calls.puts.push(k); return { url: `https://m/${k}`, width: 1200, height: 675 } } },
     now: () => new Date('2026-11-06T12:00:00Z'),
     ...over,
@@ -191,17 +191,17 @@ test('video-stills: YouTube throttling or a model failure stops the run and leav
 
 test('video-stills: a frame with hands or an added mark is dropped before upload and blocklisted; one with no answer waits for the next run; one that passes carries its verdict', async () => {
   // A tile's smudge hid the hands; the Site Lead's sample of 30 frames (2026-11-09) found them in 14.
-  const passes = { person: false, mark: false, brand: false, note: 'a tank' }
+  const passes = { person: false, mark: false, brand: false, dead: false, note: 'a tank' }
   const hands = await site({ judge: async () => ({ photos: [{ n: 1, ...passes, person: true, note: 'hands planting' }, { n: 2, ...passes }] }) })
   const r = await videoStills(hands.root, hands.d)
-  expect(r.dropped).toContain('youtube-b1 t20: people: guide photo; person')
+  expect(r.dropped).toContain('youtube-b1 t20: people: dead screen clear; person')
   expect(hands.calls.puts).toEqual(['video/b1/at30-hd.webp'])
   expect((await hands.read('engine-state/_photo-rejected.json'))[old(18)]).toMatch(/^people: withheld \[sha256:[a-f0-9]{64}\]$/)
-  expect(await hands.read('engine-state/_photo-guides.json')).toMatchObject({ 'https://m/video/b1/at30-hd.webp': {person:false,mark:false,brand:false,note:'guide photo',noteHash:expect.stringMatching(/^[a-f0-9]{64}$/)} })
+  expect(await hands.read('engine-state/_photo-guides.json')).toMatchObject({ 'https://m/video/b1/at30-hd.webp': {person:false,mark:false,brand:false,dead:false,note:'dead screen clear',noteHash:expect.stringMatching(/^[a-f0-9]{64}$/)} })
   expect((await hands.read('content/guides/youtube-b1/entity.json')).video.figures[0].moments.map((m: { url: string; person?: boolean }) => [m.url, m.person])).toEqual([['https://m/video/b1/at30-hd.webp', false]])
 
   const marked = await site({ judge: async () => ({ photos: [{ n: 1, ...passes }, { n: 2, ...passes, mark: true, note: 'channel mark, corner' }] }) })
-  expect((await videoStills(marked.root, marked.d)).dropped).toContain('youtube-b1 t30: watermark: guide photo; mark')
+  expect((await videoStills(marked.root, marked.d)).dropped).toContain('youtube-b1 t30: watermark: dead screen clear; mark')
   expect(marked.calls.puts).toEqual(['video/b1/at20-hd.webp'])
 
   const silent = await site({ judge: async () => ({ photos: [{ n: 2, ...passes }] }) })
@@ -222,7 +222,7 @@ test('video-stills: three grabs failing in a row stop the run', async () => {
 
 test('video-still OCR and both model replies never persist or report their synthetic lettering',async()=>{
  const trip=['PRIVACY','STILL','TEST','ONLY'].join('_')
- const s=await site({read:async files=>files.map(()=>[line(trip)]),look:async(_f,p)=>{expect(p).not.toContain(trip);return {photos:[1,2,3,4,5,6].map(n=>({n,watermark:false,kind:'none' as const,locations:[],what:trip}))}},judge:async()=>({photos:[1,2,3,4,5,6].map(n=>({n,person:false,mark:false,brand:false,note:trip}))})})
+ const s=await site({read:async files=>files.map(()=>[line(trip)]),look:async(_f,p)=>{expect(p).not.toContain(trip);return {photos:[1,2,3,4,5,6].map(n=>({n,watermark:false,kind:'none' as const,locations:[],what:trip}))}},judge:async()=>({photos:[1,2,3,4,5,6].map(n=>({n,person:false,mark:false,brand:false,dead:false,note:trip}))})})
  const report=await videoStills(s.root,s.d)
  expect(s.calls.puts.length).toBeGreaterThan(0);expect(JSON.stringify(report)).not.toContain(trip)
  for(const file of ['_photo-watermarks.json','_photo-rejected.json','_photo-guides.json','_video-stills.json'])expect(await readFile(join(s.root,'engine-state',file),'utf8')).not.toContain(trip)
@@ -231,7 +231,7 @@ test('video-still OCR and both model replies never persist or report their synth
 
 test('video-stills: a frame the people check finds dead or shown as food is uploaded without the tile\'s verdict and comes off its guide at once, held for a second look, its second kept off the part', async () => {
   // The chief of staff, 22 Nov 2026: the dead-or-food question rides the people check.
-  const s = await site({ judge: async () => ({ photos: [{ n: 1, person: false, mark: false, brand: false, note: 'a fish lying flat in a bottle', dead: true }, { n: 2, person: false, mark: false, brand: false, note: 'a tank', dead: false }] }) })
+  const s = await site({ judge: async () => ({ photos: [{ n: 1, person: false, mark: false, brand: false, note: 'a fish lying flat in a bottle', dead: true }, { n: 2, person: false, mark: false, brand: false, dead: false, note: 'a tank' }] }) })
   // The tile at 20 s showed before (its own verdict); the frame's verdict is the frame's.
   const file = join(s.root, 'content/guides/youtube-b1/entity.json')
   const e = JSON.parse(await readFile(file, 'utf8'))
