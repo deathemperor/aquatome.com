@@ -111,6 +111,10 @@ test('only the content-hashed Astro directory gets immutable caching', () => {
   ])
 })
 
+test('the immutable Astro directory is reserved for generated files', () => {
+  expect(existsSync(new URL('../public/_astro', import.meta.url)), 'public/_astro would bypass content hashing').toBe(false)
+})
+
 test('every file in the Astro asset directory has a content hash in its name', () => {
   const files = readdirSync(join(DIST, '_astro'), { recursive: true, withFileTypes: true }).filter(file => file.isFile())
   expect(files.length).toBeGreaterThan(0)
