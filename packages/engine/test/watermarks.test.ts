@@ -126,6 +126,28 @@ test('the watermark pass holds a last photo while its sibling still owes the dea
   expect((await read(r, file)).photos.map((p: { url: string }) => p.url)).toEqual([url('glaser'), url('fish')])
 })
 
+test.each([false, true])('watermark holds use the album and this pass’s decisions (own photo waiting: %s)', async ownWaiting => {
+  const r = await site()
+  const ownFile = 'content/species/a/entity.json'
+  const albumFile = 'content/gallery/a.json'
+  await writeFile(join(r, ownFile), JSON.stringify({ id: 'a', photos: (ownWaiting ? ['fish'] : ['glaser', 'box']).map(photo) }))
+  await writeFile(join(r, albumFile), JSON.stringify({ id: 'a', photos: ownWaiting ? [photo('glaser')] : [] }))
+  await writeFile(join(r, 'engine-state/_photo-faces.json'), JSON.stringify({ [url('glaser')]: 0, [url('fish')]: 0, [url('box')]: 0 }))
+  await writeFile(join(r, 'engine-state/_dead-screen.json'), JSON.stringify({ [url('glaser')]: { dead: false }, [url('box')]: { dead: false } }))
+  const cache = join(r, 'engine-state/_photo-watermarks.json')
+  await writeFile(cache, '{}')
+
+  const result = await screenWatermarks(r, cache, join(r, 'engine-state/_photo-rejected.json'), deps().d, { limit: 10 })
+
+  if (ownWaiting) {
+    expect(result.held).toContain(`${url('glaser')}: species/a`)
+    expect((await read(r, albumFile)).photos).toEqual([photo('glaser')])
+  } else {
+    expect(result.held).toEqual([])
+    expect((await read(r, ownFile)).photos).toEqual([photo('box')])
+  }
+})
+
 test('item admission stops without model calls or content changes', async () => {
   const root = await site()
   const { d, calls } = deps()

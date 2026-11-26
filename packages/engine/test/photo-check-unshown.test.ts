@@ -245,6 +245,34 @@ test('one photo on two pages, the only photo on one and one of several on the ot
   expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [url('j-dead')]: waitingEntry(sl[url('j-dead')].why) })
 })
 
+test('the other address of a first refusal joins the same wait even when it has a visible sibling', async () => {
+  const r = await store({ jjj: [], kkk: [] })
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(source)!.key}`
+  await writeFile(join(r, 'content/species/jjj/entity.json'), JSON.stringify(fish('jjj', [{ ...photo('mirror'), url: mirror }])))
+  await writeFile(join(r, 'content/species/kkk/entity.json'), JSON.stringify(fish('kkk', [{ ...photo('source'), url: source }, photo('live')])))
+
+  await checkPagePhotos(r, model({ [name(source)]: dead, [name(mirror)]: dead }), { limit: 10 })
+
+  const marks = await json(r, 'engine-state/_photo-second-look.json')
+  expect(marks[mirror]).toMatchObject({ pages: ['species/jjj'], off: true })
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [mirror]: waitingEntry(marks[mirror].why) })
+})
+
+test.each(['photo check', 'sweep'])('the %s holds the last visible album photo even with an unchecked sibling', async step => {
+  const r = await store({ jjj: [] }, {
+    visible: { jjj: { ...oldPass, ok: 'other', person: false, logo: false } },
+  })
+  const file = 'content/gallery/jjj.json'
+  await writeFile(join(r, file), JSON.stringify({ id: 'jjj', seen: 2, updatedAt: '2026-11-26', photos: [photo('visible'), { ...photo('pending'), unchecked: true }] }))
+
+  if (step === 'photo check') await checkPagePhotos(r, model({}), { limit: 0 })
+  else await sweep(r)
+
+  expect((await json(r, file)).photos.map((p: { url: string }) => p.url)).toEqual([url('visible'), url('pending')])
+  expect((await json(r, 'engine-state/_photo-second-look.json'))[url('visible')]).toMatchObject({ pages: ['species/jjj'] })
+})
+
 test('a dead verdict given before the rule, on a page\'s only photo, is held as before: the rule acts on new verdicts only', async () => {
   // A verdict the check kept from an earlier run (it asked about people, so it isn't asked again).
   const r = await store({ rrr: ['r-dead'] }, { 'r-dead': { rrr: { ok: 'dead', typical: false, person: false, logo: false, note: 'on ice' } } })

@@ -7,12 +7,12 @@ import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
-import { deadScreenPhotoUrls, IMAGE_SWITCHES, LOGO_FOLDERS, logoFolder, ocrHit, publicPhotoVersion, type Photo, type SourceInfo } from '@aq/schema'
+import { deadScreenPhotoUrls, IMAGE_SWITCHES, LOGO_FOLDERS, logoFolder, ocrHit, photoAddressSet, publicPhotoVersion, type Photo, type SourceInfo } from '@aq/schema'
 import { rememberMarkedPhotos } from './marked-photos'
 import { compactScreen, summarizeOcr, PHOTO_MARK_KINDS, PHOTO_POSITIONS, photoFailure, photoModelStop, type CompactScreen } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { readPhotoWaits } from './photo-visibility'
-import { holdForSecondLook, lastPhotos, looks, pagesShowing, readSecondLook } from './last-photo'
+import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, readSecondLook } from './last-photo'
 
 /** A line of text macOS Vision read on a photo: confidence 0–1, box 0–1 from the top left. */
 export type TextLine = { t: string; c: number; x: number; y: number; w: number; h: number }
@@ -237,13 +237,15 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
   // page with nothing stays where it is, held for a second look (last-photo.ts), and one the second look cleared stays.
   const sl = looks(await readSecondLook(root))
   const markedNow = (u: string) => cache[u]?.watermark === true && !retainedOwnMark(u, cache[u]) && sl.open(u)
-  const waits = await readPhotoWaits(root, { rejected })
+  const waits = await readPhotoWaits(root, { rejected, watermarks: cache })
   const pages = await pagesShowing(join(root, 'content'), p => {
     if (markedNow(p.url) || p.url in rejected) return p.url
     return publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)?.url
   })
-  const held = new Map([...lastPhotos(pages, u => markedNow(u) || u in rejected || waits(u))].filter(([u]) => markedNow(u) && !(u in rejected)))
-  const marked = (u: string) => markedNow(u) && !held.has(u)
+  const newMarks = [...urls].filter(u => markedNow(u) && !(u in rejected))
+  const held = lastPhotoVerdicts(pages, u => u in rejected || waits(u), newMarks)
+  const heldByAddress = photoAddressSet(held.keys())
+  const marked = (u: string) => markedNow(u) && !heldByAddress(u)
   for (const [u, pages] of held) report.held.push(`${u}: ${pages.join(', ')}`)
   await holdForSecondLook(root, new Map([...held].map(([u, pages]) => [u, { why: `watermark: ${cache[u]!.kind ?? 'unknown'}`, pages }])), 'the watermark screen')
   for (const u of urls) if (marked(u)) {

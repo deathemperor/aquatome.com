@@ -545,6 +545,25 @@ test('the standalone screen asks about the displayed original even when the stor
   expect(sent).toEqual([original.url])
 })
 
+test('a first dead verdict on a mirror takes effect through a watermark hold at the source', async () => {
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(source)!.key}` }
+  const { root, state, publicView } = await publicFixture([mirror], [mirror], [mirror.url])
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [mirror.url]: 0 }))
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+    [source]: { why: 'watermark: logo', pages: ['species/alpha'], at: '2026-11-26', step: 'the watermark screen' },
+  }))
+  const { d } = deps()
+  d.dead.look = async () => ({ tiles: [{ n: 1, dead: true, note: 'fish on a board' }] })
+
+  await run(root, d)
+
+  const mark = (await json(root, 'engine-state/_photo-second-look.json'))[mirror.url]
+  expect(mark).toMatchObject({ off: true })
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[mirror.url]).toBe(waitingEntry(mark.why))
+  expect((await publicView()).photoWaits!(mirror.url)).toBe(true)
+})
+
 test('an unjudged owned source keeps its album mirror off until the source is judged', async () => {
   const source = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Sample.jpg/1280px-Sample.jpg'
   const mirrored = `https://media.aquatome.com/${mirrorPlan(source)!.key}`

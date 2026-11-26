@@ -13,10 +13,10 @@ const read = async <T>(root: string, name: string): Promise<Record<string, T> | 
 /** Use the public screen predicates before removing a photo that might leave its page empty. */
 export async function readPhotoWaits(
   root: string,
-  overrides: { check?: Record<string, unknown>; subjects?: Record<string, unknown>; rejected?: Record<string, string> } = {},
+  overrides: { check?: Record<string, unknown>; subjects?: Record<string, unknown>; rejected?: Record<string, string>; watermarks?: Record<string, PhotoScreenEntry> } = {},
 ): Promise<(url: string) => boolean> {
   const [watermarks, owed, faces, deadScreen, secondLook, rejected, check, subjects] = await Promise.all([
-    read<PhotoScreenEntry>(root, PHOTO_SCREEN_FILE), read(root, DEAD_OWED_FILE), read(root, FACES_FILE),
+    overrides.watermarks ?? read<PhotoScreenEntry>(root, PHOTO_SCREEN_FILE), read(root, DEAD_OWED_FILE), read(root, FACES_FILE),
     read(root, DEAD_SCREEN_FILE), read(root, SECOND_LOOK_RECORD), overrides.rejected ?? read<string>(root, PHOTO_REJECTED_FILE),
     overrides.check ?? read(root, PHOTO_CHECK_FILE), overrides.subjects ?? read(root, PHOTO_SUBJECTS_FILE),
   ])

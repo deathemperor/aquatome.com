@@ -238,7 +238,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const sl = looks(secondLook)
   // A hold on another reason doesn't keep a photo that never passed from this, its first verdict (photo-check.ts spared).
   const passed = photoAddressSet(!o.albums && off.some(x => !x.video) ? await readPassedBefore(root) : [])
-  const going = new Set(off.filter(x => !x.video && (sl.open(x.url) || (sl.waiting(x.url) && !passed(x.url)))).map(x => x.url))
+  const going = new Set(off.filter(x => !x.video && (sl.open(x.url) || ((sl.waiting(x.url) || sl.held(x.url)) && !passed(x.url)))).map(x => x.url))
   // Photos already listed never-again leave every page anyway (the sweep), so they count as going.
   const last = new Map<string, string[]>()
   if (!o.albums && going.size) {
