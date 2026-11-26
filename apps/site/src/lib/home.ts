@@ -1,5 +1,5 @@
 import { cleanPhoto, fitsCard, isNonCommercial, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, type Content, type GuideEntity, type Localized, type Photo, type PictureSet, type PlantEntity, type SpeciesEntity } from '@aq/schema'
-import { GROUP_LABELS } from './format'
+import { GROUP_LABELS, OFF_LIST_GROUPS } from './format'
 import { mentionIndex } from './mentions'
 import { LANG, type Lang } from './i18n'
 
@@ -116,7 +116,7 @@ export function groupTiles(lang: Lang, c: Content, pics?: PictureSet, avoid: Off
       const photos = [...all.filter(p => p.width >= 640), ...all.filter(p => p.width < 640)]
       return { group, label, count: members.length, photos }
     })
-    .filter(g => g.count > 0 && g.group !== 'other')
+    .filter(g => g.count > 0 && g.group !== 'other' && !OFF_LIST_GROUPS.includes(g.group))
     .sort((a, b) => b.count - a.count)
     .map(({ photos, ...g }) => ({ ...g, photo: pics ? pics.take(photos) : photos[0] }))
 }

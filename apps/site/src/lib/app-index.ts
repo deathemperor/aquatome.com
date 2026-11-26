@@ -5,7 +5,7 @@ import { breedFigures, speciesOf, type BreedFigures } from './breeds'
 import { photoCredit } from './cite'
 import { curationFor, loopOf, type AppCuration } from './curation'
 import { categoriesIn } from './equipment'
-import { categoryLabel, GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
+import { APP_GROUP_LABELS, categoryLabel, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
 import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder, type OffCards } from './home'
 import { resizeOf, sameShape, smallSrc } from './img'
 import { appPath, served, translator, type Lang } from './i18n'
@@ -389,7 +389,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   const guideAt = new Map<string, string>(), guideLead = new Map<string, string>()
   const words = (labels: Record<string | number, string>) => Object.fromEntries(Object.entries(labels).map(([k, v]) => [k, t(v)]))
   const labels: AppLabels = {
-    group: words(GROUP_LABELS), section: words(GUIDE_KIND_LABELS), ...(Object.fromEntries(Object.entries(PLANT_LABELS).map(([k, v]) => [k, words(v)])) as Pick<AppLabels, keyof typeof PLANT_LABELS>),
+    group: words(APP_GROUP_LABELS), section: words(GUIDE_KIND_LABELS), ...(Object.fromEntries(Object.entries(PLANT_LABELS).map(([k, v]) => [k, words(v)])) as Pick<AppLabels, keyof typeof PLANT_LABELS>),
     taxon: words({ title: RANKS[0], order: RANKS[1], family: RANKS[2], genus: RANKS[3], intro: TAXON_INTRO }),
     origin: words({ title: ORIGINS, intro: PLACE_INTRO }),
     placeTitle: words(PLACE_TITLES), placeIntro: words(PLACE_INTROS),
@@ -405,8 +405,8 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   const regionName = regionNames(c.placeNames)
   const taxa = served(lang, '/vi/phan-loai/x/')
   if (served(lang, '/vi/ca/x/')) {
-    // A group the site has no word for (a handful of fish) is "Loài khác", as the app shows it.
-    const groupOf = new Map(everySpecies.map(s => [s.id, s.group in GROUP_LABELS ? s.group : 'other']))
+    // A group the app has no word for (a handful of fish, format.ts APP_GROUP_LABELS) is "Loài khác", as the app shows it.
+    const groupOf = new Map(everySpecies.map(s => [s.id, s.group in APP_GROUP_LABELS ? s.group : 'other']))
     // The same species the app gets pages of.
     for (const s of appSpecies(lang, c)) {
       const f = toIndexItem(s, traits.get(s.id))
