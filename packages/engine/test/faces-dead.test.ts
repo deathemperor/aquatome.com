@@ -8,6 +8,7 @@ import { expect, test, vi } from 'vitest'
 import { loadAll, mirrorPlan } from '@aq/schema'
 import { LlmError } from '../src/claude'
 import { screenDead, type DeadScreenDeps } from '../src/dead-screen'
+import { galleries, type GalleryDeps } from '../src/gallery'
 import { gitHistory, putBackCleared, waitingEntry } from '../src/last-photo'
 import { sweep } from '../src/sweep'
 import { NEW_PHOTO_SHEETS, screenNewPhotos } from '../src/faces'
@@ -772,20 +773,41 @@ test('an album pass applies a held page verdict once and preserves its recovery 
   } finally { vi.unstubAllEnvs() }
 })
 
-test('a dead alteration with an eligible album original is reported once', async () => {
-  const original = photo('original-live')
+test.each([false, true])('a dead alteration is reported once and its album original survives gallery cleanup (kept mark: %s)', async keptMark => {
+  const original = { ...photo('original-live'), ...(keptMark ? { url: 'https://media.aquatome.com/glaser/sample.webp' } : {}) }
   const altered = {
     ...photo('stored-dead'),
     altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'b'.repeat(64) }],
     original: { url: original.url, width: original.width, height: original.height },
   }
   const { root, state, file } = await albumFixture([altered])
+  await cp(new URL('../../schema/test/fixtures/store/sources.json', import.meta.url), join(root, 'content/sources.json'))
   await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [original.url]: { dead: false }, [altered.url]: { dead: true } }))
+  if (keptMark) {
+    await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [original.url]: 'watermark: withheld' }))
+    await writeFile(join(state, '_photo-watermarks.json'), JSON.stringify({ [original.url]: {
+      ocr: [], watermark: true, retainedOwnMark: { owner: 'source', source: 'glaser', sourceUrl: 'https://www.aquariumglaser.de/sample/' },
+    } }))
+  }
   const { d, sent } = deps()
   expect((await screenDead(root, d.dead, { limit: 12, albums: true })).dead).toEqual([expect.stringContaining(altered.url)])
   expect((await json(root, 'engine-state/_photo-rejected.json'))[altered.url]).toMatch(/^dead: /)
   expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([altered])
   expect(await screenDead(root, d.dead, { limit: 12, albums: true })).toMatchObject({ sheets: 0, judged: 0, left: 0, dead: [] })
+  expect(sent).toEqual([])
+  const unused = async () => { throw new Error('Gallery cleanup needs no source or model') }
+  const cleanup: GalleryDeps = { get: unused, http: unused, look: unused, faces: unused, sleep: unused, now: () => new Date() }
+  await galleries(root, cleanup, { sheets: 0, only: 'missing' })
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([altered])
+})
+
+test('an unreadable album reports a failed count rather than a cleared backlog', async () => {
+  const { root } = await albumFixture([])
+  await mkdir(join(root, 'content/gallery/unreadable.json'))
+  const { d, sent } = deps()
+  const result = await run(root, d)
+  expect(result.albums).toBeUndefined()
+  expect(result.albumsFailed).toBeDefined()
   expect(sent).toEqual([])
 })
 

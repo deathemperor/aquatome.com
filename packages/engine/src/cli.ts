@@ -151,6 +151,7 @@ const UA = 'aquatome-engine/0.1 (https://aquatome.com)'
 const archiveReader = () => new ArchiveFetcher({ fetch, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)), ua: UA, restFile: join(homedir(), '.cache/aquatome/archive-rest.json'), lock: () => macLock(ARCHIVE_LOCK_PORT, { log: line => console.log(`archive: ${line}`) }) })
 // Every Wikimedia read in this process asks as the engine and rests after a refusal (wikimedia-rest.ts).
 globalThis.fetch = restingFetch(globalThis.fetch, { restFile: join(homedir(), '.cache/aquatome/wikimedia-rest.json'), now: () => new Date(), ua: UA })
+globalThis.fetch = restingUnsplashPhotos(globalThis.fetch, { restFile: join(homedir(), '.cache/aquatome/unsplash-image-rest.json'), now: () => new Date(), ua: UA })
 const http = async (url: string) => {
   const r = await fetch(url, { headers: { 'user-agent': UA, accept: 'application/json' } })
   if (!r.ok) throw new Error(`HTTP ${r.status} for ${new URL(url).host}`)
@@ -217,13 +218,10 @@ const galleryDeps = (): GalleryDeps => ({
   look: (file, prompt) => claudeVision<Vet>({ system: 'You pick photos for a fish or plant photo gallery. Reply only with JSON.', prompt, schema: GALLERY_VET, file }),
 })
 /** The dead-fish screen's fetch and look (dead-screen.ts), for its own command and the faces step. */
-const deadScreenDeps = (): DeadScreenDeps => {
-  const fetchPhoto = restingUnsplashPhotos(fetch, { restFile: join(homedir(), '.cache/aquatome/unsplash-image-rest.json'), now: () => new Date(), ua: UA })
-  return {
-    get: async u => { const res = await fetchPhoto(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
-    look: (file, prompt) => claudeVision({ system: 'You look at pictures for an aquarium handbook. Reply only with JSON.', prompt, schema: DEAD_SCREEN_SCHEMA, file, model: process.env.DEAD_SCREEN_MODEL ?? 'sonnet' }),
-  }
-}
+const deadScreenDeps = (): DeadScreenDeps => ({
+  get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
+  look: (file, prompt) => claudeVision({ system: 'You look at pictures for an aquarium handbook. Reply only with JSON.', prompt, schema: DEAD_SCREEN_SCHEMA, file, model: process.env.DEAD_SCREEN_MODEL ?? 'sonnet' }),
+})
 const cmd = positionals[0]
 // The command, wherever it stood among the options, is the name its model calls are counted under (ceiling.ts stepFor).
 nameStep(stepFor(cmd))

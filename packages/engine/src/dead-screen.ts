@@ -7,7 +7,7 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
-import { keptOwnMark } from './watermarks'
+import { keptOwnMark, type WatermarkEntry } from './watermarks'
 import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, type Stood } from './last-photo'
 
 /**
@@ -104,11 +104,16 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const keptAlbumMarks = new Set<string>()
   if (o.albums) {
     const looked = albumLooked({ screen: cache, secondLook: initialLooks })
-    const kept = keptOwnMark(photoRejected, (await readJson<Record<string, PhotoScreenEntry>>(state(PHOTO_SCREEN_FILE))) ?? {})
-    for (const name of (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort()) {
+    const kept = keptOwnMark(photoRejected, (await readJson<Record<string, Pick<WatermarkEntry, 'retainedOwnMark'>>>(state(PHOTO_SCREEN_FILE))) ?? {})
+    const albums = await readdir(join(content, 'gallery')).catch((error: NodeJS.ErrnoException) => {
+      if (error.code === 'ENOENT') return []
+      throw error
+    })
+    for (const name of albums.filter(f => f.endsWith('.json')).sort()) {
       const file = join(content, 'gallery', name)
-      const album = await readJson<{ photos?: Photo[] }>(file)
-      for (const url of new Set((album?.photos ?? []).flatMap(deadScreenPhotoUrls))) {
+      const album = JSON.parse(await readFile(file, 'utf8')) as { photos?: Photo[] }
+      if (!Array.isArray(album?.photos)) throw new Error(`Album photo inventory unavailable: ${name}`)
+      for (const url of new Set(album.photos.flatMap(deadScreenPhotoUrls))) {
         if (!url) continue
         const entry = isListed(url)
         if (entry && !kept(entry[0]) && !(entry[1].startsWith('watermark:') && kept(url))) continue
@@ -280,7 +285,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     // The wrapper holds the original's credit and other metadata until the person's decision or next look.
     const prior = photoRejected[original.url]
     return firstOff.has(original.url) || held.has(original.url) || albumHolds.has(original.url) || sl.off(original.url) || prior?.startsWith('waiting:') ||
-      (!prior && !going.has(original.url))
+      ((!prior || keptAlbumMarks.has(original.url)) && !going.has(original.url))
   }
   for (const it of off) {
     const why = `dead: ${cache[it.key]!.note} (the dead-fish screen)`
