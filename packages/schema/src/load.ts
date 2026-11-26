@@ -5,7 +5,7 @@ import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies, THUMB_WIDTH } from './thumb'
-import { CREDIT_HOLD_FILE, creditHoldPhotoUrls, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, expandWholePhotoRejections, isVersionRejection, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, guidePhotoAllowed, guidePhotoWaits, GUIDE_LOOKS_FILE, GUIDE_UNJUDGED_LIMIT, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type CreditHoldPhotos, type PhotoScreenEntry } from './photo-screen'
+import { CREDIT_HOLD_FILE, creditHoldPhotoUrls, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, expandWholePhotoRejections, isVersionRejection, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, guidePhotoAllowed, guidePhotoWaits, guideUseKey, GUIDE_LOOKS_FILE, GUIDE_UNJUDGED_LIMIT, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type CreditHoldPhotos, type PhotoScreenEntry } from './photo-screen'
 import { photoAddressSet } from './photo-address'
 import { photoRejections } from './own-mark'
 import { ownerCropFitsPage } from './owner-crops'
@@ -425,7 +425,8 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const guidePages = (await loadKind(root, 'guides', GuideSchema, lang, leaveOutHeld)).filter(g => allowed(g.source))
   const guides = guidePages.map(g => {
     const subject = guideWaits?.subjects.get(g.id)
-    const guidePasses = (p: Photo) => !guideLooks || guidePhotoAllowed(guideLooks[p.url], subject)
+    const guidePasses = (p: Photo) => !guideLooks || guidePhotoAllowed(guideLooks[p.url], subject,
+      !!subject && guideWaits?.pendingLegacy.has(guideUseKey(g.id, subject, p.url)))
     const photos = cleanPhotos(g.photos).filter(guidePasses)
     if (!g.video?.figures) return { ...g, photos }
     const figures = g.video.figures.map(f => {

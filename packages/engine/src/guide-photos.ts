@@ -1,3 +1,4 @@
+import { writeImageCache } from './image-cache-write'
 import { piece } from './pieces'
 import { compactVerdict, photoReason, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
 import { recordPhotoRefusals, writePhotoState } from './photo-state'
@@ -6,7 +7,7 @@ import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join, relative } from 'node:path'
 import sharp from 'sharp'
-import { deadScreenPhotoUrls, guideLooked, GUIDE_LOOKS_FILE, PHOTO_SCREEN_FILE, photoAddressSet, rejectedEntry, retainedOwnMark, stillShown, subjectForGuide, type Photo, type PhotoScreenEntry } from '@aq/schema'
+import { deadScreenPhotoUrls, guideLooked, GUIDE_LEGACY_USES_FILE, guidePhotoWaits, GUIDE_LOOKS_FILE, keepGuideLegacyUses, readGuideLegacyUses, PHOTO_SCREEN_FILE, photoAddressSet, rejectedEntry, retainedOwnMark, stillShown, subjectForGuide, type Photo, type PhotoScreenEntry } from '@aq/schema'
 export { guideSubject } from '@aq/schema'
 import { LlmError } from './claude'
 import { contactSheet, stillDone } from './video-images'
@@ -152,7 +153,7 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
 
   // 1. The model judges photos not judged yet, leads first, then video stills, then photos it judged before their guide's
   // subject was asked, then the rest; `limit` sheets this run.
-  const ask = (x: Item) => x.subjects.find(s => typeof cache[x.url]?.other?.[s.subject] !== 'boolean')
+  const ask = (x: Item) => x.subjects.find(s => !guideLooked(cache[x.url], s.subject))
   const todo = [...items.values()].filter(x => x.wanted && !rejected(x.url) && (!(x.url in cache) || ask(x))).map((x, i) => ({ x, i })).sort((a, b) => Number(b.x.lead) - Number(a.x.lead) || Number(b.x.still) - Number(a.x.still) || Number(b.x.url in cache) - Number(a.x.url in cache) || a.i - b.i).map(({ x }) => x)
   const batch = todo.slice(0, Math.max(0, o.limit) * PER_SHEET)
   report.left = todo.length - batch.length
@@ -255,5 +256,11 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     await writeFile(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
   }
   await writePhotoState(state(GUIDE_LOOKS_FILE), Object.fromEntries(Object.entries(cache).sort()))
+  const legacy = await readGuideLegacyUses(content)
+  if (legacy.length) {
+    const { pendingLegacy } = await guidePhotoWaits(content, cache)
+    const keep = keepGuideLegacyUses(legacy, pendingLegacy)
+    if (keep.length < legacy.length) await writeImageCache(join(content, GUIDE_LEGACY_USES_FILE), keep.length ? `[\n${keep.map(use => '  ' + JSON.stringify(use)).join(',\n')}\n]\n` : '[]\n')
+  }
   return report
 }

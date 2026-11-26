@@ -408,11 +408,34 @@ export async function guidePhotoUrlsIn(root: string): Promise<Set<string>> {
   return urls
 }
 
+export const GUIDE_LEGACY_USES_FILE = 'guide-legacy-photo-uses.json'
+type LegacyGuideUse = [guide: string, subject: string, url: string]
+export const guideUseKey = (id: string, subject: string, url: string) => JSON.stringify([id, subject, url])
+
+export async function readGuideLegacyUses(root: string): Promise<LegacyGuideUse[]> {
+  const raw = await readFile(join(root, GUIDE_LEGACY_USES_FILE), 'utf8').catch((error: NodeJS.ErrnoException) => {
+    if (error.code === 'ENOENT') return '[]'
+    throw error
+  })
+  const uses: unknown = JSON.parse(raw)
+  if (!Array.isArray(uses) || uses.some(use => !Array.isArray(use) || use.length !== 3 || use.some(part => typeof part !== 'string'))) {
+    throw new Error('Invalid legacy guide photo uses')
+  }
+  return uses as LegacyGuideUse[]
+}
+
+/** Remove only existing exceptions whose guide use has ended or has an explicit subject answer. */
+export function keepGuideLegacyUses(uses: LegacyGuideUse[], waiting: ReadonlySet<string>): LegacyGuideUse[] {
+  return uses.filter(([id, subject, url]) => waiting.has(guideUseKey(id, subject, url)))
+}
+
 /** Per-guide subject decisions and distinct URLs awaiting any applicable answer. */
 export async function guidePhotoWaits(root: string, looks: Record<string, unknown>) {
   const subjects = new Map<string, string>()
   const unlooked = new Set<string>()
   const pendingSubjects = new Set<string>()
+  const pendingLegacy = new Set<string>()
+  const legacy = new Set((await readGuideLegacyUses(root)).map(use => guideUseKey(...use)))
   for await (const { guide, id } of guidesWithPhotos(root)) {
     const raw = await readFile(join(root, 'guides', id, 'vi.json'), 'utf8').catch((e: NodeJS.ErrnoException) => {
       if (e.code === 'ENOENT') return '{}'
@@ -423,10 +446,14 @@ export async function guidePhotoWaits(root: string, looks: Record<string, unknow
     if (subject) subjects.set(id, subject)
     for (const url of guidePhotoUrls(guide)) {
       if (!guideLooked(looks[url])) unlooked.add(url)
-      else if (subject && !guideLooked(looks[url], subject)) pendingSubjects.add(url)
+      else if (subject && !guideLooked(looks[url], subject)) {
+        const key = guideUseKey(id, subject, url)
+        if (legacy.has(key)) pendingLegacy.add(key)
+        else pendingSubjects.add(url)
+      }
     }
   }
-  return { subjects, unlooked, pendingSubjects }
+  return { subjects, unlooked, pendingSubjects, pendingLegacy }
 }
 
 type GuideLook = { person: boolean; mark: boolean; brand: boolean; other?: Record<string, unknown>; answeredSubjects?: string[] }
@@ -435,12 +462,13 @@ export function guideLooked(verdict: unknown, subject?: string): verdict is Guid
   if (!verdict || typeof verdict !== 'object') return false
   const v = verdict as Partial<GuideLook>
   return typeof v.person === 'boolean' && typeof v.mark === 'boolean' && typeof v.brand === 'boolean' &&
-    (!subject || typeof v.other?.[subject] === 'boolean')
+    (!subject || (Array.isArray(v.answeredSubjects) && v.answeredSubjects.includes(subject) && typeof v.other?.[subject] === 'boolean'))
 }
 
 /** A guide's own or stock photo has to pass the questions for that specific guide. */
-export function guidePhotoAllowed(verdict: unknown, subject?: string): boolean {
-  return guideLooked(verdict, subject) && !verdict.person && !verdict.mark && !verdict.brand && (!subject || verdict.other?.[subject] === false)
+export function guidePhotoAllowed(verdict: unknown, subject?: string, legacy = false): boolean {
+  return guideLooked(verdict, legacy ? undefined : subject) && !verdict.person && !verdict.mark && !verdict.brand &&
+    (!subject || verdict.other?.[subject] === false)
 }
 /**
  * More guide photos and stock photos than this with no look of the guides is a lost or damaged record, not a run's new

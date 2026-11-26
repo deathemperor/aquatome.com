@@ -426,10 +426,24 @@ test("a public build shows no guide photo or stock photo the guides' own look ha
     await write('guides/g/entity.json', guide([photo('guide-looked'), photo('guide-new'), ...many]))
     await write('guides/g/vi.json', { ...alphaVi, slug: 'trang-g', name: 'Hướng dẫn nuôi cá platy' })
     await state('_photo-guides.json', Object.fromEntries(named.map(n => [
-      photo(n).url, { person: false, mark: false, brand: false, ...(n.startsWith('stock-') ? { other: { platy: false } } : {}) },
+      photo(n).url, { person: false, mark: false, brand: false, ...(n.startsWith('stock-') ? { other: { platy: false }, answeredSubjects: ['platy'] } : {}) },
     ])))
     await expect(loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' }))
       .rejects.toThrow(`vi: ${GUIDE_UNJUDGED_LIMIT + 1} guide photos and stock photos the guides' own look hasn't judged`)
+    await write('guide-legacy-photo-uses.json', [['g', 'platy', photo('guide-looked').url]])
+    const legacy = await loadAll({ root: store, lang: 'vi', publicBuild: true })
+    expect(legacy.guides.find(x => x.id === 'g')?.photos).toEqual([])
+    await state('_photo-guides.json', {
+      [photo('guide-looked').url]: { person: false, mark: false, brand: false, other: { platy: false } },
+      [photo('guide-new').url]: { person: false, mark: false, brand: false, other: { platy: false } },
+    })
+    expect((await shown(true)).own).toEqual(['guide-looked'])
+    await write('guide-legacy-photo-uses.json', [['g', 'guppy', photo('guide-looked').url]])
+    expect((await shown(true)).own).toEqual([])
+    await state('_photo-guides.json', {
+      [photo('guide-looked').url]: { person: false, mark: false, brand: false, other: { platy: false }, answeredSubjects: ['platy'] },
+    })
+    expect((await shown(true)).own).toEqual(['guide-looked'])
     await write('guides/g/vi.json', { ...alphaVi, slug: 'trang-g' })
   } finally {
     said.mockRestore()
