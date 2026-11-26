@@ -6,7 +6,7 @@ import { writeImageCache } from './image-cache-write'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { IMAGE_SWITCHES, isNonCommercial, photoAddressSet, photoFitsHead, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto, type SourceInfo } from '@aq/schema'
+import { IMAGE_SWITCHES, isNonCommercial, photoAddressSet, photoFitsHead, photoKey, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto, type SourceInfo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
@@ -824,9 +824,12 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const waitsFor = await readPhotoWaits(root, { check: legacy, subjects: cache, rejected })
   const sources = (await readJson<Record<string, SourceInfo>>(join(content, 'sources.json'))) ?? {}
   const firstOff = new Map<string, { why: string; pages: string[]; off: true }>()
-  const preservesOriginal = (url: string, original: string, blockedOriginal: boolean) =>
-    /^(?:dead|people|waiting): /.test(rejected[url] ?? added[url] ?? '') &&
-    (!blockedOriginal || firstOff.has(pendingGlobal(original)?.[0] ?? original) || !!rejected[original]?.startsWith('waiting:'))
+  const firstAliases = new Map<string, string>()
+  const preservesOriginal = (url: string, original: string, blockedOriginal: boolean) => {
+    const verdict = pendingGlobal(original)?.[0] ?? original
+    return /^(?:dead|people|waiting): /.test(rejected[url] ?? added[url] ?? '') &&
+      (!blockedOriginal || firstOff.has(firstAliases.get(verdict) ?? verdict) || !!rejected[original]?.startsWith('waiting:'))
+  }
   const versionOf = (photo: Photo) => {
     const p = photo as ContentPhoto
     return publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
@@ -896,8 +899,21 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     if (!h.pages.includes(pageOf(file))) h.pages.push(pageOf(file))
     firstOff.set(url, h)
   }
-  for (const [url, h] of firstOff) report.firstOff.push(`${h.pages.join(', ')}: ${url}`)
-  report.blocked = report.blocked.filter(x => !firstOff.has(x.slice(0, x.indexOf(': '))))
+  const firstByPhoto = new Map<string, string>()
+  for (const [url, mark] of firstOff) {
+    const key = `${mark.why.split(':')[0]}\n${photoKey(url) ?? url}`
+    const prior = firstByPhoto.get(key)
+    if (prior) {
+      firstOff.get(prior)!.pages.push(...mark.pages)
+      firstAliases.set(url, prior)
+      firstOff.delete(url)
+    } else firstByPhoto.set(key, url)
+  }
+  for (const [url, h] of firstOff) report.firstOff.push(`${[...new Set(h.pages)].join(', ')}: ${url}`)
+  report.blocked = report.blocked.filter(x => {
+    const url = x.slice(0, x.indexOf(': '))
+    return !firstOff.has(url) && !firstAliases.has(url)
+  })
   await holdForSecondLook(root, firstOff, 'the photo check')
   for (const file of heldPages) report.heads.held.push(`${pageOf(file)}: ${((await ownPhotos(file))[0] ?? (await ownPhotos(galleryOf(file)))[0])!.url}`)
   // Each photo a held page would have lost goes on the second look, with its reason (last-photo.ts).
@@ -1029,7 +1045,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   if (kinded.length) await writeKinds()
   const now = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
   // One off at its first verdict waits there marked, and isn't counted refused (last-photo.ts).
-  for (const [u, why] of Object.entries(added)) if (!(u in now)) { if (firstOff.has(u)) now[u] = waitingEntry(why); else { now[u] = why; report.rejected++ } }
+  for (const [u, why] of Object.entries(added)) if (!(u in now) && !firstAliases.has(u)) { if (firstOff.has(u)) now[u] = waitingEntry(why); else { now[u] = why; report.rejected++ } }
   await writePhotoState(rejectedFile, now)
   // Keep the rejection durable during the page edits. A subject verdict may release the dead-fish wait, so
   // publish it only after every edit has succeeded.

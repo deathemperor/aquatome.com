@@ -66,17 +66,32 @@ test('a failed rejection write leaves the new subject verdict unpublished', asyn
   expect(await photosOf(r, 'aaa')).toEqual(['a-dead', 'a-live'])
 })
 
-test('the photo check and sweep keep a refused passed photo if its only sibling still waits', async () => {
+test.each(['dead-fish look', 'public host'])('the photo check and sweep keep a last passed photo when its sibling is withheld by the %s rule', async why => {
+  const setSibling = async (root: string) => {
+    if (why !== 'public host') return
+    const p = photo('a-pending')
+    const original = 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Sample.jpg'
+    const wrapper = {
+      ...p,
+      altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'f'.repeat(64) }],
+      original: { url: original, width: p.width, height: p.height },
+    }
+    await writeFile(join(root, 'content/species/aaa/entity.json'), JSON.stringify(fish('aaa', [photo('a-dead'), wrapper])))
+    await writeFile(join(root, 'engine-state/_dead-screen.json'), JSON.stringify({ [url('a-dead')]: { dead: false }, [p.url]: { dead: false }, [original]: { dead: false } }))
+    await writeFile(join(root, 'engine-state/_photo-rejected.json'), JSON.stringify({ [p.url]: 'dead: withheld' }))
+  }
   const r = await store({ aaa: ['a-dead', 'a-pending'] }, { 'a-dead': { aaa: oldPass } })
   const state = (name: string, record: object) => writeFile(join(r, 'engine-state', name), JSON.stringify(record))
-  await state('_photo-dead-owed.json', { [url('a-pending')]: '2026-11-26' })
+  if (why === 'dead-fish look') await state('_photo-dead-owed.json', { [url('a-pending')]: '2026-11-26' })
   await state('_dead-screen.json', { [url('a-dead')]: { dead: false } })
+  await setSibling(r)
   const out = await checkPagePhotos(r, model({ 'a-dead': dead }), { limit: 1, emptyCap: 0 })
   expect(out.heads.held).toContain(`species/aaa: ${url('a-dead')}`)
   expect(await photosOf(r, 'aaa')).toContain('a-dead')
 
   const independent = await store({ aaa: ['a-dead', 'a-pending'] }, { 'a-dead': { aaa: { ...dead, logo: false } } })
   await writeFile(join(independent, 'engine-state/_dead-screen.json'), JSON.stringify({ [url('a-dead')]: { dead: false } }))
+  await setSibling(independent)
   const swept = await sweep(independent, { history: async () => [] })
   expect(swept.refusedHeld.some(row => row.startsWith('species/aaa'))).toBe(true)
   expect(await photosOf(independent, 'aaa')).toContain('a-dead')

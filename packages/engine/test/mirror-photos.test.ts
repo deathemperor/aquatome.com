@@ -1,7 +1,8 @@
-import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, rmdir, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
+import { photoWaitsFor } from '@aq/schema'
 import { mirrorPhotos, mirrorPlan, type MirrorDeps } from '../src/mirror-photos'
 
 const C1280 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Oscar_%281%29.jpg/1280px-Oscar_%281%29.jpg?utm_source=commons.wikimedia.org'
@@ -96,6 +97,38 @@ test('dry run counts what would move; limit caps the uploads in one run', async 
   const one = deps()
   expect(await mirrorPhotos(r, one.d, { limit: 1 })).toMatchObject({ mirrored: 1 })
   expect(one.put).toHaveLength(1)
+})
+
+test('an unanswered source hold still applies to the copied mirror verdict', async () => {
+  const r = await root()
+  const path = (name: string) => join(r, 'engine-state', name)
+  const hold = { why: 'dead: withheld', step: 'the dead-fish screen', at: '2026-11-26', pages: ['species/astronotus-ocellatus'] }
+  await writeFile(path('_dead-screen.json'), JSON.stringify({ [C1280]: { dead: true } }))
+  await writeFile(path('_photo-second-look.json'), JSON.stringify({ [C1280]: hold }))
+  await mirrorPhotos(r, deps().d)
+  const mirrored = `https://media.aquatome.com/${mirrorPlan(C1280)!.key}`
+  const deadScreen = JSON.parse(await readFile(path('_dead-screen.json'), 'utf8'))
+  const secondLook = JSON.parse(await readFile(path('_photo-second-look.json'), 'utf8'))
+  expect(deadScreen[mirrored]).toMatchObject({ dead: true })
+  expect(photoWaitsFor({ deadScreen, secondLook })(mirrored)).toBe(false)
+  expect(Object.keys(secondLook)).toEqual([C1280])
+})
+
+test('a failed mirror verdict transfer leaves the source available on retry', async () => {
+  const r = await root()
+  const file = join(r, 'engine-state/_dead-screen.json')
+  const staged = await readFile(file, 'utf8')
+  const { unlink } = await import('node:fs/promises')
+  await unlink(file)
+  await mkdir(file)
+  await expect(mirrorPhotos(r, deps().d)).rejects.toThrow()
+  expect(JSON.parse(await read(r, 'species/astronotus-ocellatus/entity.json')).photos[0].url).toBe(C1280)
+  await rmdir(file)
+  await writeFile(file, staged)
+  await mirrorPhotos(r, deps().d)
+  const mirrored = `https://media.aquatome.com/${mirrorPlan(C1280)!.key}`
+  expect(JSON.parse(await readFile(file, 'utf8'))[mirrored]).toMatchObject({ dead: false })
+  expect(JSON.parse(await read(r, 'species/astronotus-ocellatus/entity.json')).photos[0].url).toBe(mirrored)
 })
 
 test("a guide's Commons photo moves too, keeping the section it illustrates", async () => {

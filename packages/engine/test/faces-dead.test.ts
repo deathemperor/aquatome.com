@@ -418,11 +418,12 @@ test.each([
   const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(source.url)!.key}` }
   const sibling = photo('sibling-live')
   const pending = photo('pending-own')
+  const unchecked = { ...photo('unchecked-sibling'), unchecked: true }
   const generated = {
     ...photo('generated'),
     generated: { model: 'sample', driverModel: 'sample', date: '2026-11-26', prompt: 'example', referenceHash: 'e'.repeat(64) },
   }
-  const { root, state, file, publicView } = await publicFixture(albumLead ? [pending, generated] : [mirror], albumLead ? [mirror] : [], [mirror.url, source.url, sibling.url, pending.url, generated.url])
+  const { root, state, file, publicView } = await publicFixture(albumLead ? [pending, generated] : [mirror], albumLead ? [mirror, unchecked] : [], [mirror.url, source.url, sibling.url, pending.url, generated.url, unchecked.url])
   const entity = JSON.parse(await readFile(file, 'utf8'))
   const other = join(root, 'content/species/second')
   await mkdir(other)
@@ -436,7 +437,7 @@ test.each([
   expect((await publicView()).species.find(p => p.id === 'alpha')?.photos.map(p => p.url)).toEqual([mirror.url])
 })
 
-test('a first refusal on the source can be cleared to restore the mirror’s original credit from Git', async () => {
+test.each([false, true])('one clear restores the credited mirror from Git (both addresses refused: %s)', async both => {
   const source = { ...photo('source'), url: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/prior-dead.jpg' }
   const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(source.url)!.key}`, author: 'Sample mirror credit' }
   const sibling = photo('sibling-live')
@@ -445,19 +446,25 @@ test('a first refusal on the source can be cleared to restore the mirror’s ori
   const other = join(root, 'content/species/second')
   await mkdir(other)
   await writeFile(join(other, 'entity.json'), JSON.stringify({ ...entity, id: 'second', photos: [source, sibling] }))
-  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [mirror.url]: { dead: false }, [sibling.url]: { dead: false } }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ ...(both ? {} : { [mirror.url]: { dead: false } }), [sibling.url]: { dead: false } }))
   await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [mirror.url]: 0, [sibling.url]: 0, [source.url]: 0 }))
   const git = (...args: string[]) => execFileSync('git', args, { cwd: root, encoding: 'utf8' })
   git('init', '-q', '-b', 'main'); git('config', 'user.email', 't@example.org'); git('config', 'user.name', 'Sample Tester')
   git('add', '.'); git('commit', '-qm', 'page with the credited mirror')
 
-  const out = await run(root, deps().d)
-  expect(out.dead?.firstOff).toContain(`${source.url}: species/alpha`)
+  const { d } = deps()
+  if (both) d.dead.look = async () => ({ tiles: [1, 2].map(n => ({ n, dead: true, note: '' })) })
+  const out = await run(root, d)
+  expect(out.dead?.firstOff).toHaveLength(1)
   await sweep(root, { history: gitHistory(root) })
   expect(await urls(root, 'alpha')).toEqual([])
   git('add', '.'); git('commit', '-qm', 'first refusal removed the mirror')
   const marks = await json(root, 'engine-state/_photo-second-look.json')
-  marks[source.url].look = { said: 'clear', by: 'reviewer', on: '2026-11-26' }
+  expect(Object.keys(marks)).toHaveLength(1)
+  const address = Object.keys(marks)[0]!
+  if (!both) expect(address).toBe(source.url)
+  expect(marks[address].pages).toContain('species/alpha')
+  marks[address].look = { said: 'clear', by: 'reviewer', on: '2026-11-26' }
   await writeFile(join(state, '_photo-second-look.json'), JSON.stringify(marks))
   const cleared = await sweep(root, { history: gitHistory(root) })
   expect(cleared.putBack).toContain(`content/species/alpha/entity.json: ${mirror.url}`)

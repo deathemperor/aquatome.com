@@ -49,6 +49,7 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
   const report = { mirrored: 0, files: 0, pending: 0, failed: [] as string[] }
   const done = new Map<string, Stored>()
   const moved: [string, string][] = []
+  const edits = new Map<string, string>()
   // A photo off at its first verdict is coming off every page: it isn't copied, so its waiting entry and its record keep
   // one address (last-photo.ts; the independent reader, 20 Nov).
   const marked = looks(await readSecondLook(root)).off
@@ -82,13 +83,16 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
     }
     if (changed) {
       const indent = raw.match(/^\{\n( +)/)?.[1]?.length ?? 2
-      await writeFile(file, `${JSON.stringify(data, null, indent)}\n`)
-      report.files++
+      edits.set(file, `${JSON.stringify(data, null, indent)}\n`)
     }
   }
   if (moved.length) for (const f of URL_KEYED) {
     const path = join(root, 'engine-state', f)
-    const cache = JSON.parse(await readFile(path, 'utf8').catch(() => 'null')) as Record<string, unknown> | null
+    const raw = await readFile(path, 'utf8').catch((error: NodeJS.ErrnoException) => {
+      if (error.code === 'ENOENT') return 'null'
+      throw error
+    })
+    const cache = JSON.parse(raw) as Record<string, unknown> | null
     if (!cache) continue
     let n = 0
     for (const [from, to] of moved) if (from in cache && !(to in cache)) { cache[to] = cache[from]; n++ }
@@ -99,9 +103,12 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
     const sl = await readSecondLook(root)
     const cleared = looks(sl).cleared
     let n = 0
-    for (const [from, to] of moved) if (cleared(from) && !(to in sl)) { sl[to] = sl[from]!; n++ }
+    for (const [from, to] of moved) if (sl[from] && cleared(from) && !(to in sl)) { sl[to] = sl[from]; n++ }
     if (n) await writeSecondLook(root, sl)
   }
+  // Keep a source reference available for retry until its transferred records are durable.
+  for (const [file, raw] of edits) await writeFile(file, raw)
+  report.files = edits.size
   report.mirrored = done.size
   return report
 }
