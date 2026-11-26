@@ -305,3 +305,13 @@ test("an agree's sweep meets a run that marked the photo off before the agree: t
   expect(await listAgreed(r.dir)).toEqual([])
   expect(await mendWaiting(r.dir)).toEqual({ back: [], other: [], alone: [] })
 })
+
+test('a concurrent manual stock exclusion keeps its ownership beside a pending automatic hold', () => {
+  const manual = { source: { why: 'manual', guides: ['g'] } }
+  const automatic = { source: { why: 'dead: withheld', guides: ['g'], holds: { photo: ['g'] } } }
+  for (const [ours, theirs] of [[manual, automatic], [automatic, manual]]) {
+    expect(mergeMaps({}, ours, theirs).source).toMatchObject({
+      guides: ['g'], manualGuides: ['g'], holds: { photo: ['g'] },
+    })
+  }
+})

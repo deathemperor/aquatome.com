@@ -57,3 +57,12 @@ test('no blurry still is shown: under the sharpness bar, or not yet measured, it
   expect(none.querySelector('.vfigs')).toBeNull()
   expect(none.querySelector('p')!.textContent).toBe('Dán lũa.')
 })
+
+test('repeated headings show the figures from their own occurrence, including after an empty slot', () => {
+  const still = (t: number) => ({ t, url: `https://media.aquatome.com/video/x/at${t}-hd.webp`, width: 1200, height: 675,
+    caption: `Cảnh ${t}.`, sharpness: 400, person: false })
+  const source = '<h3>Keo</h3><p>First.</p><h3>Keo</h3><p>Second.</p><h3>Keo</h3><p>Third.</p>'
+  const figures = [{ heading: 'Keo', moments: [still(10)] }, { heading: 'Keo', moments: [] }, { heading: 'Keo', moments: [still(30)] }]
+  const html = parse(illustrate('vi', source, { ...video([]), figures }))
+  expect(html.querySelectorAll('p').filter(p => p.parentNode === html).map(p => p.nextElementSibling?.querySelector('button')?.getAttribute('data-t'))).toEqual(['10', undefined, '30'])
+})

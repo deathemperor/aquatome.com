@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
-import { deadScreenPhotoUrls, IMAGE_SWITCHES, LOGO_FOLDERS, logoFolder, ocrHit, photoAddressSet, publicPhotoVersion, rejectedEntry, type Photo, type SourceInfo } from '@aq/schema'
+import { deadScreenPhotoUrls, IMAGE_SWITCHES, LOGO_FOLDERS, logoFolder, ocrHit, photoAddressSet, publicPhotoVersion, rejectedEntry, type Photo, type SourceInfo, keepFigureSlots } from '@aq/schema'
 import { rememberMarkedPhotos } from './marked-photos'
 import { compactScreen, summarizeOcr, PHOTO_MARK_KINDS, PHOTO_POSITIONS, photoFailure, photoModelStop, type CompactScreen } from './photo-observations'
 import { writePhotoState } from './photo-state'
@@ -150,7 +150,7 @@ export function stripPhotos(x: unknown, blocked: (url: string) => boolean, remov
   const drop = (p: unknown) => isRef(p) && shouldStripPhoto(p as Photo, blocked, preserveOriginal) && removed.push(p.url) > 0
   for (const k of ['photos', 'moments']) if (Array.isArray(o[k])) o[k] = (o[k] as unknown[]).filter(p => !drop(p))
   if (drop(o.photo)) delete o.photo
-  if (Array.isArray(o.figures)) o.figures = (o.figures as { moments?: unknown[]; photo?: unknown }[]).filter(f => f.moments?.length || f.photo)
+  if (Array.isArray(o.figures)) o.figures = keepFigureSlots(o.figures as { heading?: string; moments?: unknown[]; photo?: unknown }[])
   if (isRef(o.hero) && blocked(o.hero.url)) {
     const next = Array.isArray(o.types) ? (o.types as { photo?: unknown }[]).map(t => t.photo).find(isRef) : undefined
     if (next) { removed.push(o.hero.url); o.hero = { ...next } } else kept.push(o.hero.url)

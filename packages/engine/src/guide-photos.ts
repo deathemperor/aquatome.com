@@ -221,6 +221,9 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     await rm(dir, { recursive: true, force: true })
   }
 
+  // Save the first look before a take-off that may need to resume.
+  await writePhotoState(state(GUIDE_LOOKS_FILE), Object.fromEntries(Object.entries(cache).sort()))
+
   // A dead one off its guides, held for its second look.
   const took = await takeOffGuidesDead(root, dead, 'the guide photo check')
   report.dead = took.off
@@ -273,7 +276,6 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     report.removed.push(...removed.map(u => `${relative(root, file)}: ${u}`))
     await writeFile(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
   }
-  await writePhotoState(state(GUIDE_LOOKS_FILE), Object.fromEntries(Object.entries(cache).sort()))
   await writePhotoState(state('_photo-rejected.json'), now)
   return report
 }

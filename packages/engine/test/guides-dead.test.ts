@@ -7,7 +7,13 @@ import { expect, onTestFinished, test, vi } from 'vitest'
 import { LlmError } from '../src/claude'
 import type { DeadScreenDeps } from '../src/dead-screen'
 import { GUIDE_DEAD_PROMPT, screenGuidesDead, takeOffGuidesDead } from '../src/guides-dead'
+import { writeImageCache } from '../src/image-cache-write'
 import { readPartPhotosOff } from '../src/video-images'
+
+vi.mock('../src/image-cache-write', async importOriginal => {
+  const mod = await importOriginal<typeof import('../src/image-cache-write')>()
+  return { ...mod, writeImageCache: vi.fn(mod.writeImageCache) }
+})
 
 // The dead-fish question on guides' photos, stock photos and frames (the chief of staff, 22 Nov 2026).
 const m = (name: string) => `https://m/${name}.webp`
@@ -91,7 +97,7 @@ test("the guides' screen takes at most its pictures a run, in its order; a stop 
   expect(few.sent).toEqual([m('g-live'), m('g-dead'), m('stock-dead')])
   const stopped = deps({ stop: true })
   const before = await readFile(join(root, 'content/guides/g/entity.json'), 'utf8')
-  expect(await screenGuidesDead(root, stopped.d, { limit: 100 })).toMatchObject({ judged: 0, left: 0, stopped: expect.any(String), off: [] })
+  expect(await screenGuidesDead(root, stopped.d, { limit: 100 })).toMatchObject({ judged: 0, left: 2, stopped: expect.any(String), off: [] })
   expect(await readFile(join(root, 'content/guides/g/entity.json'), 'utf8')).toBe(before)
   const rest = deps()
   await screenGuidesDead(root, rest.d, { limit: 100 })
@@ -114,4 +120,57 @@ test('an agreed guide refusal is not requested again when its wrapper still exis
 
   expect(await takeOffGuidesDead(root, new Map([[flag, 'sample']]), 'the guide photo check')).toEqual({ off: [], bare: [] })
   await expect(readFile(join(root, 'engine-state/_photo-second-look.json'), 'utf8')).rejects.toMatchObject({ code: 'ENOENT' })
+})
+
+test('conflicting backlog answers stay owed while a separate tile is saved once', async () => {
+  const root = await store()
+  const { d } = deps()
+  d.look = async () => ({ tiles: [
+    { n: 1, dead: true, note: '' }, { n: 1, dead: false, note: '' },
+    { n: 2, dead: true, note: '' }, { n: 2, dead: true, note: '' },
+  ] })
+  const report = await screenGuidesDead(root, d, { limit: 2 })
+  expect(report).toMatchObject({ sheets: 1, judged: 1, left: 4, off: [`${m('g-dead')}: guides/g`] })
+  expect(await json(root, 'engine-state/_dead-screen.json')).not.toHaveProperty(m('g-live'))
+})
+
+test('an interrupted exclusion write replays the saved flag without judging the stock again', async () => {
+  const root = await store()
+  const write = vi.mocked(writeImageCache)
+  const base = write.getMockImplementation()!
+  write.mockImplementation(async (file, data) => {
+    if (file.endsWith('_part-photos-off.json')) throw new Error('write interrupted')
+    await base(file, data)
+  })
+  try {
+    await expect(screenGuidesDead(root, deps().d, { limit: 3 })).rejects.toThrow('write interrupted')
+  } finally {
+    write.mockImplementation(base)
+  }
+  const u = m('stock-dead')
+  expect((await json(root, 'engine-state/_dead-screen.json'))[u]).toMatchObject({ dead: true })
+  expect((await json(root, 'engine-state/_photo-second-look.json'))[u]).toMatchObject({ off: true })
+  const next = deps()
+  expect(await screenGuidesDead(root, next.d, { limit: 0 })).toMatchObject({ judged: 0, off: expect.arrayContaining([`${u}: guides/g`]) })
+  expect(next.sent).toEqual([])
+  expect((await json(root, 'content/guides/g/entity.json')).video.figures[0].photo).toBeUndefined()
+  const parts = await readPartPhotosOff(join(root, 'content'))
+  expect(Object.values(parts)).toContainEqual(expect.objectContaining({ guides: ['g'] }))
+})
+
+test('an unavailable private capture keeps the first flag and raw placement for retry', async () => {
+  const root = await store()
+  const blocked = join(root, 'blocked')
+  await writeFile(blocked, '')
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', blocked)
+  await expect(screenGuidesDead(root, deps().d, { limit: 3 })).rejects.toThrow()
+  const u = m('stock-dead')
+  expect((await json(root, 'engine-state/_dead-screen.json'))[u]).toMatchObject({ dead: true })
+  expect((await json(root, 'engine-state/_photo-second-look.json'))[u]).toMatchObject({ off: true })
+  expect((await json(root, 'content/guides/g/entity.json')).video.figures[0].photo.url).toBe(u)
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
+  const next = deps()
+  expect(await screenGuidesDead(root, next.d, { limit: 0 })).toMatchObject({ sheets: 0, judged: 0 })
+  expect(next.sent).toEqual([])
+  expect((await json(root, 'content/guides/g/entity.json')).video.figures[0].photo).toBeUndefined()
 })

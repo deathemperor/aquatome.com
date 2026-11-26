@@ -207,9 +207,16 @@ export function photoHolds(records: Record<string, unknown> = {}): (url: string)
 function photoFirstOff(records: Record<string, unknown> = {}): (url: string) => boolean {
   return photoAddressSet(Object.keys(records).filter(url => {
     const mark = records[url] as LookMark | undefined
-    return mark?.off === true && typeof mark.why === 'string' && /^(?:dead|people):/.test(mark.why) &&
+    return mark?.off === true && typeof mark.why === 'string' && /^(?:dead|people|flagged by the backlog's look):/.test(mark.why) &&
       photoLookAnswer(mark)?.said !== 'clear'
   }))
+}
+
+/** Empty repeated-heading slots preserve the correspondence between pictures and the guide text. */
+export function keepFigureSlots<T extends { heading?: string; photo?: unknown; moments?: unknown[] }>(figures: T[]): T[] {
+  const counts = new Map<string, number>()
+  for (const { heading } of figures) if (heading !== undefined) counts.set(heading, (counts.get(heading) ?? 0) + 1)
+  return figures.filter(f => !!f.photo || !!f.moments?.length || (f.heading !== undefined && (counts.get(f.heading) ?? 0) > 1))
 }
 
 /** A face found on one version of a photo disqualifies that URL, subject to its second look. */

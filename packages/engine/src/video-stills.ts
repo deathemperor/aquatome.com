@@ -3,7 +3,7 @@ import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { GuideSchema, type GuideEntity } from '@aq/schema'
+import { GuideSchema, type GuideEntity, keepFigureSlots } from '@aq/schema'
 import { LlmError } from './claude'
 import { dhash } from './gallery'
 import type { Media } from './source-photos'
@@ -224,7 +224,8 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
         if (verdict.dead) delete still.person // the tile's verdict isn't the frame's
         swap.set(m, still)
       }
-      if (swap.size || drop.size || retimed) await save(figures.map(f => ({ ...f, moments: f.moments.filter(m => !drop.has(m)).map(m => swap.get(m) ?? m) })).filter(f => f.moments.length || f.photo))
+      if (swap.size) await writePhotoState(file('engine-state', '_photo-guides.json'), Object.fromEntries(Object.entries(verdicts).sort()))
+      if (swap.size || drop.size || retimed) await save(keepFigureSlots(figures.map(f => ({ ...f, moments: f.moments.filter(m => !drop.has(m)).map(m => swap.get(m) ?? m) }))))
       if (swap.size || drop.size) changed = true
       state[id] = record()
       worked = true
@@ -242,7 +243,6 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
     const took = await takeOffGuidesDead(root, dead, 'the guide photo check')
     report.dead = took.off
     report.bare = took.bare
-    if (changed) await writePhotoState(file('engine-state', '_photo-guides.json'), Object.fromEntries(Object.entries(verdicts).sort()))
   }
   return report
 }

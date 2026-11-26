@@ -5,7 +5,7 @@ import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies, THUMB_WIDTH } from './thumb'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, facePhotoOff, guidePhotoAllowed, guidePhotoWaits, GUIDE_LOOKS_FILE, GUIDE_UNJUDGED_LIMIT, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type PhotoScreenEntry } from './photo-screen'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, completedDeadVerdict, deadLooked, photoClears, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, facePhotoOff, guidePhotoAllowed, guidePhotoWaits, GUIDE_LOOKS_FILE, GUIDE_UNJUDGED_LIMIT, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type PhotoScreenEntry } from './photo-screen'
 import { photoRejections } from './own-mark'
 import { ownerCropFitsPage } from './owner-crops'
 import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
@@ -250,7 +250,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // build of the real content needs the record.
   const deadScreen = screen ? await stateRecord<Record<string, unknown>>(root, DEAD_SCREEN_FILE) : undefined
   if (screen && !deadScreen && opts.photoScreen === 'required') throw new Error(`${join(dirname(root), 'engine-state', DEAD_SCREEN_FILE)}: the dead-fish screen's record is missing, so no photo can be shown as judged for a dead fish`)
-  const secondLook = deadScreen || faces ? await stateRecord<Record<string, { why?: string; off?: boolean; look?: { said?: string } }>>(root, SECOND_LOOK_RECORD) : undefined
+  const secondLook = deadScreen || faces || screen ? await stateRecord<Record<string, { why?: string; off?: boolean; look?: { said?: string } }>>(root, SECOND_LOOK_RECORD) : undefined
   const lookedForDead = deadScreen ? deadLooked({
     screen: deadScreen,
     check: await stateRecord<Record<string, unknown>>(root, PHOTO_CHECK_FILE),
@@ -283,6 +283,11 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // card's, an equipment guide's. Each one's addresses (its own, its thumb's, its larger copy's) are kept by the answer,
   // for what names a picture by address alone (the calendar: `photoWaits`).
   const shown = new Set<string>(), waiting = new Set<string>()
+  const guideClear = photoClears(secondLook)
+  const refusedByGuideLook = (url: string) => {
+    const verdict = guideLooks?.[url]
+    return completedDeadVerdict(verdict) && verdict.dead && !guideClear(url)
+  }
   const screened = (p: { url: string; thumb?: string; large?: { url: string } }): boolean => {
     if (!screen) return true
     const waits = waitsFor(p.url)
@@ -411,13 +416,13 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const guidePages = (await loadKind(root, 'guides', GuideSchema, lang, leaveOutHeld)).filter(g => allowed(g.source))
   const guides = guidePages.map(g => {
     const subject = guideWaits?.subjects.get(g.id)
-    const guidePasses = (p: Photo) => !guideLooks || guidePhotoAllowed(guideLooks[p.url], subject)
+    const guidePasses = (p: Photo) => !refusedByGuideLook(p.url) && (!guideLooks || guidePhotoAllowed(guideLooks[p.url], subject))
     const photos = cleanPhotos(g.photos).filter(guidePasses)
     if (!g.video?.figures) return { ...g, photos }
     const figures = g.video.figures.map(f => {
       const version = f.photo && publicPhotoVersion(f.photo, images, f.photo.source ? sources[f.photo.source]?.permission?.markRemoval : undefined)
       const photo = version && screened(version) && guidePasses(version) ? boxed(version) : undefined
-      return { ...f, moments: f.moments.filter(screened), photo }
+      return { ...f, moments: f.moments.filter(m => !refusedByGuideLook(m.url) && screened(m)), photo }
     })
     return { ...g, photos, video: { ...g.video, figures } }
   })

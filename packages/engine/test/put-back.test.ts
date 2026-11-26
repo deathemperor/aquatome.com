@@ -17,6 +17,7 @@ import { takeOffGuidesDead } from '../src/guides-dead'
 import { compactRejection } from '../src/photo-observations'
 import { checkPagePhotos, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
 import { sweep } from '../src/sweep'
+import { stripPhotos } from '../src/watermarks'
 
 // A photo off at its first verdict that the second look cleared goes back where it was, once (the chief of staff, 20 Nov
 // 2026): every page and album it left, at its place there, from the repository's history.
@@ -1130,6 +1131,52 @@ test('distinct surviving frames identify both repeated stock-photo slots', async
 
   expect((await putBackCleared(r, async () => [])).back).toHaveLength(2)
   expect((await json(r, G)).video.figures).toEqual(figures)
+})
+
+test('separate take-offs and cleanup keep both repeated part slots identifiable on clear', async () => {
+  const r = await store({})
+  const G = 'content/guides/ggg/entity.json'
+  const later = { ...frame, url: url('later-frame'), t: 90 }
+  const figures = [{ heading: 'Same', moments: [frame] }, { heading: 'Same', moments: [later] }]
+  await mkdir(join(r, G, '..'), { recursive: true })
+  await writeFile(join(r, G), JSON.stringify({ ...guideBefore, video: { ...guideBefore.video, figures } }))
+  for (const m of [frame, later]) {
+    await takeOffGuidesDead(r, new Map([[m.url, 'sample']]), 'the guide photo check')
+    const raw = await json(r, G)
+    stripPhotos(raw, () => false, [], [])
+    await writeFile(join(r, G), JSON.stringify(raw))
+  }
+  const marks = await json(r, SL)
+  for (const m of [frame, later]) {
+    marks[m.url].look = { said: 'clear', by: 'reviewer', on: today() }
+    await writeFile(join(r, SL), JSON.stringify(marks))
+    expect((await putBackCleared(r, async () => [])).back).toEqual([`${G}: ${m.url}`])
+  }
+  expect((await json(r, G)).video.figures).toEqual(figures)
+})
+
+test('an original remains available for clearance after both guide versions were flagged', async () => {
+  const r = await store({})
+  const G = 'content/guides/ggg/entity.json'
+  const original = { ...stock, url: url('unmodified'), author: 'Sample original credit' }
+  const wrapper = { ...stock, altered: [{ method: 'lanczos3-upscale' }], original }
+  await mkdir(join(r, G, '..'), { recursive: true })
+  await writeFile(join(r, G), JSON.stringify({ ...guideBefore, photos: [wrapper], video: { ...guideBefore.video,
+    figures: [{ heading: 'part', photo: wrapper, moments: [] }] } }))
+  await takeOffGuidesDead(r, new Map([[original.url, 'sample'], [wrapper.url, 'sample']]), 'the guide photo check')
+  const marks = await json(r, SL)
+  marks[original.url].look = { said: 'clear', by: 'reviewer', on: today() }
+  marks[wrapper.url].look = { said: 'agree', by: 'reviewer', on: today() }
+  await writeFile(join(r, SL), JSON.stringify(marks))
+
+  await listAgreed(r)
+  await putBackCleared(r, async () => [])
+  const result = await json(r, G)
+  expect(result.photos).toEqual([wrapper])
+  expect(result.video.figures[0].photo).toEqual(wrapper)
+  const rejected = await json(r, 'engine-state/_photo-rejected.json')
+  expect(rejected[wrapper.url]).toMatch(/^dead:/)
+  expect(rejected[original.url]).toBeUndefined()
 })
 
 test('a stock clear lifts its own hash and keeps a manual source exclusion', async () => {

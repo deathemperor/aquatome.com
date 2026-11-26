@@ -1,11 +1,11 @@
-import { deadScreenPhotoUrls, rejectedEntry, type Photo } from '@aq/schema'
+import { completedDeadVerdict, deadScreenPhotoUrls, rejectedEntry, type Photo } from '@aq/schema'
 import { createHash } from 'node:crypto'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { LlmError } from './claude'
 import { askedByCheck, type DeadScreenDeps, type DeadVerdict } from './dead-screen'
-import { entriesDir, holdForSecondLook, looks, placesIn, readSecondLook, waitingEntry, type Stood } from './last-photo'
+import { entriesDir, holdForSecondLook, looks, notePlaces, placesIn, readSecondLook, waitingEntry, type Stood } from './last-photo'
 import { compactRejection, compactVerdict, GUIDE_BACKLOG_FLAG, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { replacePhotoDocument, writeImageCache } from './image-cache-write'
@@ -29,7 +29,10 @@ const ORDER: Kind[] = ['photo', 'stock', 'frame']
 type Place = { file: string; guide: string; kind: Kind; fig?: number; t?: number; sourceUrl?: string }
 type GuidePhoto = Parameters<typeof deadScreenPhotoUrls>[0] & { sourceUrl?: string }
 type Guide = { photos?: GuidePhoto[]; video?: { figures?: { heading?: string; photo?: GuidePhoto; moments?: { url: string; t: number }[] }[] } }
-const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, () => undefined)
+const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, (error: NodeJS.ErrnoException) => {
+  if (error.code !== 'ENOENT') throw error
+  return undefined
+})
 const indentOf = (raw: string) => /^\{\n( +)"/.exec(raw)?.[1]?.length ?? 0
 const hashed = (s: string) => `sha256:${createHash('sha256').update(s).digest('hex')}`
 
@@ -69,14 +72,21 @@ export async function takeOffGuidesDead(root: string, dead: Map<string, string>,
   const report = { off: [] as string[], bare: [] as string[] }
   if (!dead.size) return report
   const state = (f: string) => join(root, 'engine-state', f)
-  const sl = looks(await readSecondLook(root))
+  const reviews = await readSecondLook(root)
+  const sl = looks(reviews)
   const where = await guidePlaces(root)
   const asked = await askedByCheck(root)
   const rejected = (await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {}
   const isListed = rejectedEntry(rejected)
   const going = [...dead].filter(([u]) => {
+    if (!where.has(u) || asked.has(u)) return false
     const existing = isListed(u)?.[1]
-    return where.has(u) && sl.open(u) && !asked.has(u) && (!existing || existing.startsWith('watermark:'))
+    const review = reviews[u]
+    const allowed = !existing || existing.startsWith('watermark:')
+    if (!review?.off) return sl.open(u) && allowed
+    const guideReview = (review.step === 'the guide photo check' && review.why.startsWith('dead:')) ||
+      (review.step === 'the dead-fish screen' && review.why.startsWith(`${GUIDE_BACKLOG_FLAG}:`))
+    return guideReview && sl.off(u) && !sl.clearedPhoto(u) && (allowed || existing === waitingEntry(review.why))
   })
   if (!going.length) return report
   const partsFile = state('_part-photos-off.json')
@@ -86,11 +96,12 @@ export async function takeOffGuidesDead(root: string, dead: Map<string, string>,
   let partsChanged = false
   for (const [url, note] of going) {
     const places = where.get(url)!
-    const why = `${reason}: ${note} (${step})`
+    const prior = sl.off(url) ? reviews[url] : undefined
+    const why = prior?.why ?? `${reason}: ${note} (${step})`
     const guides = [...new Set(places.map(p => p.guide))].sort()
     hold.set(url, { why, pages: guides.map(g => `guides/${g}`), off: true })
     rejected[url] ??= waitingEntry(why)
-    report.off.push(`${url}: ${guides.map(g => `guides/${g}`).join(', ')}`)
+    if (!prior) report.off.push(`${url}: ${guides.map(g => `guides/${g}`).join(', ')}`)
     for (const p of places) {
       files.set(p.file, [...(files.get(p.file) ?? []), p])
       const key = p.kind === 'stock' ? (p.sourceUrl ? hashed(p.sourceUrl) : undefined) : p.kind === 'frame' ? url : undefined
@@ -101,16 +112,20 @@ export async function takeOffGuidesDead(root: string, dead: Map<string, string>,
       const had = parts[key]
       const photoKey = hashed(url)
       const holds = { ...had?.holds, [photoKey]: [...new Set([...(had?.holds?.[photoKey] ?? []), p.guide])].sort() }
-      const manualGuides = had?.manualGuides ?? (!had?.holds ? had?.guides : undefined)
+      const manualGuides = had?.manualGuides ?? (!had?.holds && !had?.agreedGuides ? had?.guides : undefined)
       parts[key] = {
         ...had, why: had?.why ?? compactRejection(why), holds,
         ...(manualGuides?.length ? { manualGuides } : {}),
         ...(had && !had.guides ? {} : { guides: [...new Set([...(had?.guides ?? []), p.guide])].sort() }),
         ...(p.kind === 'frame' ? { seconds: [...new Set([...(had?.seconds ?? []), p.t!])].sort((a, b) => a - b) } : {}),
       }
-      partsChanged = true
+      partsChanged ||= JSON.stringify(parts[key]) !== JSON.stringify(had)
     }
   }
+  // A flag and the source exclusion must survive even if the private entry cannot be written yet.
+  await holdForSecondLook(root, hold, step)
+  await writePhotoState(state('_photo-rejected.json'), rejected)
+  if (partsChanged) await writeImageCache(partsFile, `${JSON.stringify(parts, null, 2)}\n`)
   const off = new Set(going.map(([u]) => u))
   const recovery = new Map<string, Stood[]>()
   const edits = new Map<string, string>()
@@ -119,9 +134,10 @@ export async function takeOffGuidesDead(root: string, dead: Map<string, string>,
     const raw = await readFile(file, 'utf8')
     const e = JSON.parse(raw) as Guide
     const remove = (photo: GuidePhoto) => shouldStripPhoto(photo as Photo, url => off.has(url), (_stored, original, blocked) =>
-      !blocked && (!rejected[original] || rejected[original].startsWith('waiting:')),
+      off.has(original) || sl.pendingOff(original) || (!blocked && (!isListed(original) || sl.clearedPhoto(original))),
     )
     placesIn(root, file, e, (url, slot) => slot.path?.[3] === 'moments' ? off.has(url) : remove(slot.photo as Photo), recovery)
+    const before = JSON.stringify(e)
     if (e.photos) e.photos = e.photos.filter(p => !remove(p))
     for (const fig of new Set(places.flatMap(p => p.fig === undefined ? [] : [p.fig]))) {
       const f = e.video?.figures?.[fig]
@@ -130,11 +146,12 @@ export async function takeOffGuidesDead(root: string, dead: Map<string, string>,
       if (f.moments) f.moments = f.moments.filter(m => !off.has(m.url))
       if (!f.photo && !f.moments?.length) report.bare.push(`guides/${places[0]!.guide}: part ${fig + 1}`)
     }
-    edits.set(file, `${JSON.stringify(e, null, indentOf(raw))}\n`)
+    if (before !== JSON.stringify(e)) edits.set(file, `${JSON.stringify(e, null, indentOf(raw))}\n`)
   }
-  await holdForSecondLook(root, hold, step, undefined, recovery)
-  await writePhotoState(state('_photo-rejected.json'), rejected)
-  if (partsChanged) await writeImageCache(partsFile, `${JSON.stringify(parts, null, 2)}\n`)
+  await notePlaces(root, recovery)
+  for (const [url, stood] of recovery) {
+    if (sl.off(url)) report.off.push(`${url}: ${[...new Set(stood.map(place => place.file.split('/').slice(1, 3).join('/')))].join(', ')}`)
+  }
   for (const [file, data] of edits) await replacePhotoDocument(file, data)
   return report
 }
@@ -160,19 +177,18 @@ export async function screenGuidesDead(root: string, d: DeadScreenDeps, o: { lim
   const report = { sheets: 0, judged: 0, off: [] as string[], bare: [] as string[], failed: [] as string[], left: 0, stopped: '', reserved: false }
 
   const kindOf = (places: Place[]) => ORDER.find(k => places.some(p => p.kind === k))!
-  const todo = [...(await guidePlaces(root))]
-    .filter(([url]) => !(url in cache) && !(url in rejected) && !asked.has(url) && typeof looked[url]?.dead !== 'boolean')
+  const places = await guidePlaces(root)
+  const todo = [...places]
+    .filter(([url]) => !completedDeadVerdict(cache[url]) && !(url in rejected) && !asked.has(url) && typeof looked[url]?.dead !== 'boolean')
     .map(([url, places]) => ({ url, kind: kindOf(places) }))
     .sort((a, b) => ORDER.indexOf(a.kind) - ORDER.indexOf(b.kind))
   const batch = todo.slice(0, Math.max(0, o.limit))
-  report.left = todo.length - batch.length
-
-  const dead = new Map<string, string>()
+  const dead = new Map([...places.keys()].flatMap(url => cache[url]?.dead === true ? [[url, cache[url]!.note] as const] : []))
   const tmp = await mkdtemp(join(tmpdir(), 'guides-dead-'))
   try {
     for (let i = 0; i < batch.length && !report.stopped; i += GUIDE_BACKLOG_PER_SHEET) {
       // `more`: room for another sheet (faces.ts keeps the new photos' share of the line).
-      if (o.more && !o.more()) { report.left += batch.length - i; report.reserved = true; break }
+      if (o.more && !o.more()) { report.reserved = true; break }
       const ok: { url: string; b: Buffer }[] = []
       for (const it of batch.slice(i, i + GUIDE_BACKLOG_PER_SHEET)) {
         try { ok.push({ url: it.url, b: Buffer.from(await d.get(it.url)) }) } catch (err) { report.failed.push(`${it.url}: ${photoFailure(err)}`) }
@@ -183,12 +199,20 @@ export async function screenGuidesDead(root: string, d: DeadScreenDeps, o: { lim
         await writeFile(sheet, await contactSheet(ok.map(x => x.b), 400, 260, 4, 'contain'))
         const v = await d.look(sheet, GUIDE_DEAD_PROMPT)
         report.sheets++
+        const answers = new Map<number, { dead: boolean; note: string }>()
+        const conflicts = new Set<number>()
         for (const t of v.tiles ?? []) {
-          const x = ok[t.n - 1]
-          if (!x || typeof t.dead !== 'boolean') continue
-          cache[x.url] = compactVerdict({ dead: t.dead, note: String(t.note ?? '').slice(0, 120) })
+          if (!Number.isInteger(t.n) || !ok[t.n - 1] || typeof t.dead !== 'boolean') continue
+          const prior = answers.get(t.n)
+          if (prior && prior.dead !== t.dead) conflicts.add(t.n)
+          else if (!prior) answers.set(t.n, { dead: t.dead, note: String(t.note ?? '').slice(0, 120) })
+        }
+        for (const [n, answer] of answers) {
+          if (conflicts.has(n)) continue
+          const { url } = ok[n - 1]!
+          cache[url] = compactVerdict(answer)
           report.judged++
-          if (t.dead) dead.set(x.url, cache[x.url]!.note)
+          if (answer.dead) dead.set(url, cache[url]!.note)
         }
       } catch (err) {
         if (err instanceof LlmError) report.stopped = photoModelStop(err)
@@ -198,7 +222,8 @@ export async function screenGuidesDead(root: string, d: DeadScreenDeps, o: { lim
   } finally {
     await rm(tmp, { recursive: true, force: true })
   }
-  Object.assign(report, await takeOffGuidesDead(root, dead, 'the dead-fish screen', GUIDE_BACKLOG_FLAG))
+  report.left = todo.length - report.judged
   if (report.judged) await writePhotoState(state('_dead-screen.json'), cache)
+  Object.assign(report, await takeOffGuidesDead(root, dead, 'the dead-fish screen', GUIDE_BACKLOG_FLAG))
   return report
 }

@@ -7,7 +7,7 @@ import { join } from 'node:path'
 import { parse } from 'node-html-parser'
 import sharp from 'sharp'
 import { frameSharpness } from './still-sharpness'
-import { GuideSchema, type GuideEntity, type Photo, type Translation } from '@aq/schema'
+import { GuideSchema, type GuideEntity, type Photo, type Translation, keepFigureSlots } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import type { Media } from './source-photos'
 import { WikimediaRefused } from './wikimedia-rest'
@@ -194,9 +194,10 @@ async function figuresFor(e: GuideEntity, vi: Translation, d: ImageDeps, dir: st
   // The seconds a person took this guide's frames off at (the list's `seconds`, for the guides it names).
   const barred = new Set(Object.values(off).flatMap(o => (o.seconds && o.guides?.includes(e.id) ? o.seconds : [])))
   for (const [i, s] of secs.entries()) {
+    const fig: Figure = { heading: s.heading, moments: [] }
+    out.push(fig)
     const p = plan[i]
     if (!p) continue
-    const fig: Figure = { heading: s.heading, moments: [] }
 
     // Video moments: stills around each planned time, the model picks, no faces.
     const times = [...new Set((p.times ?? []).filter(t => t >= 0 && t <= v.durationSec).slice(0, 3).flatMap(t => [t - 5, t, t + 5, t + 10]))]
@@ -244,9 +245,8 @@ async function figuresFor(e: GuideEntity, vi: Translation, d: ImageDeps, dir: st
         }
       }
     }
-    if (fig.moments.length || fig.photo) out.push(fig)
   }
-  return out
+  return out.some(f => f.moments.length || f.photo) ? keepFigureSlots(out) : []
 }
 
 /** Pictures for video guides that have none yet (entity.video.figures absent). */
