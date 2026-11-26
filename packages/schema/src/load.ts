@@ -5,8 +5,7 @@ import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies, THUMB_WIDTH } from './thumb'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, guideLooked, guidePhotoAllowed, guidePhotoUrlsIn, GUIDE_LOOKS_FILE, GUIDE_UNJUDGED_LIMIT, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type PhotoScreenEntry } from './photo-screen'
-import { subjectForGuide } from './guide-subject'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, guidePhotoAllowed, guidePhotoWaits, GUIDE_LOOKS_FILE, GUIDE_UNJUDGED_LIMIT, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type PhotoScreenEntry } from './photo-screen'
 import { rejectedEntry } from './photo-address'
 import { ownerCropApproved, ownerCropCanonical } from './owner-crops'
 import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
@@ -272,14 +271,12 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // With no record beside the root none waits for it; the site's build of the real content needs the record.
   const guideLooks = screen ? await stateRecord<Record<string, unknown>>(root, GUIDE_LOOKS_FILE) : undefined
   if (screen && !guideLooks && opts.photoScreen === 'required') throw new Error(`${join(dirname(root), 'engine-state', GUIDE_LOOKS_FILE)}: the guides' own look's record is missing, so no guide photo can be shown as looked at`)
-  const unlooked = new Set<string>()
-  if (guideLooks) {
-    for (const url of await guidePhotoUrlsIn(root)) if (!guideLooked(guideLooks[url])) unlooked.add(url)
-    if (opts.photoScreen === 'required') {
-      const retryable = [...unlooked].filter(url => !rejectedForDead?.(url)).length
-      console.log(`${lang}: ${retryable} guide photos and stock photos wait, the guides' own look hasn't judged them`)
-      if (retryable > GUIDE_UNJUDGED_LIMIT) throw new Error(`${lang}: ${retryable} guide photos and stock photos the guides' own look hasn't judged (${join(dirname(root), 'engine-state', GUIDE_LOOKS_FILE)}). More than ${GUIDE_UNJUDGED_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the guides without them. A photos run's guide look (pnpm engine guide-photos) judges them.`)
-    }
+  const guideWaits = guideLooks ? await guidePhotoWaits(root, guideLooks) : undefined
+  const unlooked = guideWaits?.unlooked ?? new Set<string>()
+  if (guideWaits && opts.photoScreen === 'required') {
+    const retryable = [...new Set([...unlooked, ...guideWaits.pendingSubjects])].filter(url => !rejectedForDead?.(url)).length
+    console.log(`${lang}: ${retryable} guide photos and stock photos wait, the guides' own look hasn't judged them`)
+    if (retryable > GUIDE_UNJUDGED_LIMIT) throw new Error(`${lang}: ${retryable} guide photos and stock photos the guides' own look hasn't judged (${join(dirname(root), 'engine-state', GUIDE_LOOKS_FILE)}). More than ${GUIDE_UNJUDGED_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the guides without them. A photos run's guide look (pnpm engine guide-photos) judges them.`)
   }
   const waitsFor = photoWaitsFor({ watermarks: screen, owed, unread, flaggedAlterations, faces, unjudged: new Set([...unjudged, ...unlooked]), deadScreen, secondLook, rejected: rejectedForDead })
   // Every picture a build takes from content asks this: a page's, an album's, a guide's and its video sections', a
@@ -412,9 +409,8 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     .map(p => cleanQuality({ ...p, sections: cleanSections(p.sections), photos: pagePhotos(p.photos) }))
     .filter(p => p.sections.length > 0)
   const guidePages = (await loadKind(root, 'guides', GuideSchema, lang, leaveOutHeld)).filter(g => allowed(g.source))
-  const guides = await Promise.all(guidePages.map(async g => {
-    const vi = guideLooks && JSON.parse(await readFile(join(root, 'guides', g.id, 'vi.json'), 'utf8').catch(() => '{}')) as { name?: string } | undefined
-    const subject = subjectForGuide(g, g.id, vi?.name)
+  const guides = guidePages.map(g => {
+    const subject = guideWaits?.subjects.get(g.id)
     const guidePasses = (p: Photo) => !guideLooks || guidePhotoAllowed(guideLooks[p.url], subject)
     const photos = cleanPhotos(g.photos).filter(guidePasses)
     if (!g.video?.figures) return { ...g, photos }
@@ -424,7 +420,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
       return { ...f, moments: f.moments.filter(screened), photo }
     })
     return { ...g, photos, video: { ...g.video, figures } }
-  }))
+  })
 
   const changelogPath = join(root, 'changelog.json')
   const changelog = (await exists(changelogPath) ? await readJson(changelogPath, ChangelogSchema) : []).filter(e => allowed(e.source))

@@ -43,7 +43,7 @@ import { holdForSecondLook, lastPhotos, looks, pagesShowing, readSecondLook } fr
  * a re-read brings it back). The owner's report (2026-11-10): arowanas and a corydoras on the platy guide. A photo judged
  * before this was asked is asked again, once, keeping its verdict. A still isn't asked: it's the guide's own video.
  */
-export type GuidePhotoVerdict = { person: boolean; mark: boolean; brand: boolean; note: string; noteHash?:string; hints?:PhotoHints; other?: Record<string, boolean> }
+export type GuidePhotoVerdict = { person: boolean; mark: boolean; brand: boolean; note: string; noteHash?:string; hints?:PhotoHints; other?: Record<string, boolean>; answeredSubjects?: string[] }
 export type GuidePhotoDeps = {
   get: (url: string) => Promise<Uint8Array>
   look: (sheet: string, prompt: string) => Promise<{ photos: ({ n: number; other?: boolean } & Omit<GuidePhotoVerdict, 'other'>)[] }>
@@ -88,7 +88,9 @@ export async function judgeGuidePhotos(images: Buffer[], sheet: string, look: Gu
   for (const p of (await look(sheet, prompt)).photos ?? []) {
     if (!(p.n - 1 in out) || typeof p.person !== 'boolean' || typeof p.mark !== 'boolean' || typeof p.brand !== 'boolean') continue
     const about = subjects[p.n - 1]
-    out[p.n - 1] = compactVerdict({ person: p.person, mark: p.mark, brand: p.brand, note: String(p.note ?? '').slice(0, 120), ...(about && typeof p.other === 'boolean' ? { other: { [about.subject]: p.other } } : {}) })
+    out[p.n - 1] = compactVerdict({ person: p.person, mark: p.mark, brand: p.brand, note: String(p.note ?? '').slice(0, 120),
+      ...(about && typeof p.other === 'boolean' ? { other: { [about.subject]: p.other }, answeredSubjects: [about.subject] } : {}),
+    })
   }
   return out
 }
@@ -174,7 +176,12 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
           if (!v) return
           const url = ok[j]!.url, before = cache[url]
           // Asked again for its subject, a photo keeps the verdict that was acted on; the note says what a true found.
-          cache[url] = compactVerdict(before ? { ...before, other: { ...before.other, ...v.other }, ...(Object.values(v.other ?? {}).some(Boolean) ? { note: v.note, noteHash:v.noteHash, hints:v.hints } : {}) } : v)
+          cache[url] = compactVerdict(before ? {
+            ...before,
+            other: { ...before.other, ...v.other },
+            answeredSubjects: [...new Set([...(before.answeredSubjects ?? []), ...(v.answeredSubjects ?? [])])],
+            ...(Object.values(v.other ?? {}).some(Boolean) ? { note: v.note, noteHash:v.noteHash, hints:v.hints } : {}),
+          } : v)
           report.judged++
         })
       } catch (err) {
@@ -211,7 +218,7 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     const subject = subjectOf.get(file)
     const another = (url: string) => !!subject && cache[url]?.other?.[subject] === true
     const remove = (url: string) => sl.open(url) && (!!guidePhotoOff(cache[url], equipment || !!items.get(url)?.still) || another(url))
-    stripPhotos(data, remove, removed, report.kept)
+    stripPhotos(data, remove, removed, report.kept, (_stored, _original, blockedOriginal) => !blockedOriginal)
     const stock = (data.video?.figures ?? []).flatMap(f => f.photo ? [f.photo] : [])
     for (const p of [...(data.photos ?? []), ...stock]) {
       if (p.original && deadScreenPhotoUrls(p).includes(p.original.url) && remove(p.original.url)) {

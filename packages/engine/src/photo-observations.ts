@@ -69,6 +69,14 @@ export function compactVerdict<T extends Record<string,any>>(v:T):T & {note:stri
     if(!['ok','q','other'].includes(k)&&typeof x!=='boolean')throw new Error('invalid photo verdict flag')
     out[k]=x
   }
+  if (v.answeredSubjects !== undefined) {
+    if (!Array.isArray(v.answeredSubjects) || v.answeredSubjects.some(subject =>
+      typeof subject !== 'string' || !/^[a-z]+(?: [a-z]+)*$/.test(subject) ||
+      !v.other || typeof v.other[subject] !== 'boolean',
+    )) throw new Error('invalid guide subject answer record')
+    const subjects = [...new Set(v.answeredSubjects)]
+    if (subjects.length) out.answeredSubjects = subjects
+  }
   const note=photoReason(v),old=typeof v.note==='string'?v.note:''
   return {...out,note,noteHash:old===note&&digest(v.noteHash)?v.noteHash:observationHash(old),hints:photoHints(v)} as T & {note:string;noteHash:string;hints:PhotoHints}
 }
