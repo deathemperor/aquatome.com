@@ -12,7 +12,7 @@ import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
 import { galleryPlan } from './gallery-plan'
 import { pickStands, readPersonYes } from './person-yes'
-import { FIRST_OFF, holdForSecondLook, looks, passedBefore, placesIn, readSecondLook, waitingEntry, withoutSettledWaits, type Stood } from './last-photo'
+import { FIRST_OFF, holdForSecondLook, looks, passedBefore, placesIn, readSecondLook, waitingEntry, withoutClearedWaits, withoutSettledWaits, type Stood } from './last-photo'
 import { contactSheet } from './video-images'
 import { keptOwnMark, LOGO_FOLDERS, retainedOwnMark, shouldStripPhoto, stripPhotos, type WatermarkEntry } from './watermarks'
 import { keptLast, screenedShop } from './own-mark'
@@ -466,7 +466,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const passed = passedBefore(cache, legacy)
   // A photo held for a second look, or one it cleared, isn't taken off on a verdict (last-photo.ts).
   const secondLook = await readSecondLook(root)
-  const rejected = withoutSettledWaits((await readJson<Record<string, string>>(rejectedFile)) ?? {}, secondLook)
+  const rejected = withoutClearedWaits((await readJson<Record<string, string>>(rejectedFile)) ?? {}, secondLook)
   const sl = looks(secondLook)
   const rejectedAt = rejectedEntry(rejected)
   const markedAt = rejectedEntry(Object.fromEntries(Object.entries(secondLook)
@@ -983,8 +983,9 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       const raw = await readFile(file, 'utf8')
       const data = JSON.parse(raw) as { photos?: Photo[] }
       const removed: string[] = []
-      placesIn(root, file, data, capture, stood)
+      const before = { ...data }
       stripPhotos(data, url => !!capture(url), removed, [], preservesOriginal)
+      placesIn(root, file, before, url => removed.includes(url) ? capture(url) : undefined, stood)
       if (!removed.length) continue
       report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))
       edits.set(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
@@ -994,8 +995,9 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const data = JSON.parse(raw) as { photos?: Photo[] }
     const before = real(data.photos)[0]?.url
     const removed: string[] = []
-    placesIn(root, file, data, capture, stood)
+    const beforeEdit = { ...data }
     stripPhotos(data, blocked(file), removed, [], preservesOriginal)
+    placesIn(root, file, beforeEdit, url => removed.includes(url) ? capture(url) : undefined, stood)
     // A gallery photo that waited (`unchecked`): judged for this page and left on, it shows from the next build.
     const gallery = galleryId(file)
     if (gallery) for (const p of data.photos ?? []) {

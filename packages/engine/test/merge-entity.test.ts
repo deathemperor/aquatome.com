@@ -30,6 +30,12 @@ test('the same new page from two sources: both sources\' figures, places, sectio
   })
 })
 
+test('a concurrently added recovery returns behind its saved preceding neighbor', () => {
+  const head = { url: 'head' }, tail = { url: 'restored' }
+  const base = { photos: [head] }
+  expect(merge3(base, { photos: [tail, head] }, { photos: [head, tail] })).toEqual({ photos: [head, tail] })
+})
+
 test('a restored lead and its next photo stay together before their shared anchor', () => {
   const lead = { url: 'lead' }, next = { url: 'next' }, tail = { url: 'tail' }
   const base = { photos: [tail] }

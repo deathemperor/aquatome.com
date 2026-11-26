@@ -27,6 +27,7 @@ function mergePlaces(chosen, base, ours, theirs) {
   const pending = new Map(placesOf(chosen).filter(p => !settled.has(p.file)).map(p => [p.file, p]))
   for (const p of added) if (!settled.has(p.file) && !pending.has(p.file)) pending.set(p.file, p)
   const { back, left, ...merged } = chosen
+  if ((settled.size || pending.size) && record(ours) && record(theirs)) merged.pages = [...new Set([...ours.pages, ...theirs.pages])].sort()
   if (settled.size) merged.settled = [...settled.values()]
   if (pending.size) return { ...merged, left: [...pending.values()] }
   const completed = back ?? other.back

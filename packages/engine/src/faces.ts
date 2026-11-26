@@ -9,7 +9,7 @@ import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, IMAG
 import { screenDead, type DeadScreenDeps } from './dead-screen'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
-import { captureWaiting, holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, withoutSettledWaits, type Stood } from './last-photo'
+import { captureWaiting, holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, withoutClearedWaits, withoutSettledWaits, type Stood } from './last-photo'
 import { permittedPhotoSource } from './photo-visibility'
 
 export type FaceDeps = { get: (url: string) => Promise<Uint8Array>; detect: (files: string[]) => Promise<number[]> }
@@ -38,7 +38,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const cache: Record<string, number> = JSON.parse(await readFile(cacheFile, 'utf8').catch(() => '{}'))
   const before = await readSecondLook(root)
   const rejected: Record<string, string> = rejectedFile
-    ? withoutSettledWaits(JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')), before)
+    ? withoutClearedWaits(JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')), before)
     : {}
   const listed = rejectedEntry(rejected)
   const pages: { file: string; e: { photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } } }[] = []
