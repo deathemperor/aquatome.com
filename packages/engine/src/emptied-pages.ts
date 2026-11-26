@@ -46,7 +46,6 @@ function ownedAddresses(file: string, raw: string): string[] {
   return file.startsWith('content/guides/') ? guidePhotoUrls(page) : (page.photos ?? []).flatMap(deadScreenPhotoUrls)
 }
 
-
 /** Owners as the working tree at `root` holds them: each page whose own photos hold one of the addresses. */
 export const diskOwners = (root: string): Owners => async urls => {
   const want = photoAddressSet(urls), out: string[] = []

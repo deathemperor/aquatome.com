@@ -423,6 +423,14 @@ test("a public build shows no guide photo or stock photo the guides' own look ha
     await rm(join(site, 'engine-state', '_photo-rejected.json'))
     await write('guides/g/entity.json', guide([photo('guide-looked'), photo('guide-new'), ...many.slice(1)]))
     await loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })
+    await write('guides/g/entity.json', guide([photo('guide-looked'), photo('guide-new'), ...many]))
+    await write('guides/g/vi.json', { ...alphaVi, slug: 'trang-g', name: 'Hướng dẫn nuôi cá platy' })
+    await state('_photo-guides.json', Object.fromEntries(named.map(n => [
+      photo(n).url, { person: false, mark: false, brand: false, ...(n.startsWith('stock-') ? { other: { platy: false } } : {}) },
+    ])))
+    await expect(loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' }))
+      .rejects.toThrow(`vi: ${GUIDE_UNJUDGED_LIMIT + 1} guide photos and stock photos the guides' own look hasn't judged`)
+    await write('guides/g/vi.json', { ...alphaVi, slug: 'trang-g' })
   } finally {
     said.mockRestore()
   }

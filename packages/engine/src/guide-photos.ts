@@ -52,7 +52,7 @@ import { DEAD_RULE, takeOffGuidesDead } from './guides-dead'
  * are the photo's for good). An equipment guide's photo is asked too, and its answer kept, but only a guide's pictures
  * come off. A still whose verdict says dead isn't cleared to show until its second look clears it.
  */
-export type GuidePhotoVerdict = { person: boolean; mark: boolean; brand: boolean; note: string; noteHash?:string; hints?:PhotoHints; other?: Record<string, boolean>; dead?: boolean }
+export type GuidePhotoVerdict = { person: boolean; mark: boolean; brand: boolean; note: string; noteHash?:string; hints?:PhotoHints; other?: Record<string, boolean>; dead?: boolean; answeredSubjects?: string[] }
 export type GuidePhotoDeps = {
   get: (url: string) => Promise<Uint8Array>
   look: (sheet: string, prompt: string) => Promise<{ photos: ({ n: number; other?: boolean; dead?: boolean } & Omit<GuidePhotoVerdict, 'other' | 'dead'>)[] }>
@@ -98,7 +98,9 @@ export async function judgeGuidePhotos(images: Buffer[], sheet: string, look: Gu
   for (const p of (await look(sheet, prompt)).photos ?? []) {
     if (!(p.n - 1 in out) || typeof p.person !== 'boolean' || typeof p.mark !== 'boolean' || typeof p.brand !== 'boolean' || typeof p.dead !== 'boolean') continue
     const about = subjects[p.n - 1]
-    out[p.n - 1] = compactVerdict({ person: p.person, mark: p.mark, brand: p.brand, note: String(p.note ?? '').slice(0, 120), ...(about && typeof p.other === 'boolean' ? { other: { [about.subject]: p.other } } : {}), dead: p.dead })
+    out[p.n - 1] = compactVerdict({ person: p.person, mark: p.mark, brand: p.brand, dead: p.dead, note: String(p.note ?? '').slice(0, 120),
+      ...(about && typeof p.other === 'boolean' ? { other: { [about.subject]: p.other }, answeredSubjects: [about.subject] } : {}),
+    })
   }
   return out
 }
@@ -185,7 +187,12 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
           if (!v) return
           const url = ok[j]!.url, before = cache[url]
           // Asked again for its subject, a photo keeps the verdict that was acted on; the note says what a true found.
-          cache[url] = compactVerdict(before ? { ...before, other: { ...before.other, ...v.other }, ...(Object.values(v.other ?? {}).some(Boolean) ? { note: v.note, noteHash:v.noteHash, hints:v.hints } : {}) } : v)
+          cache[url] = compactVerdict(before ? {
+            ...before,
+            other: { ...before.other, ...v.other },
+            answeredSubjects: [...new Set([...(before.answeredSubjects ?? []), ...(v.answeredSubjects ?? [])])],
+            ...(Object.values(v.other ?? {}).some(Boolean) ? { note: v.note, noteHash:v.noteHash, hints:v.hints } : {}),
+          } : v)
           report.judged++
           const x = items.get(url)!
           if (!before && v.dead === true && !guidePhotoOff(v, x.equipment || x.still)) dead.set(url, v.note)
@@ -229,7 +236,7 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     const subject = subjectOf.get(file)
     const another = (url: string) => !!subject && cache[url]?.other?.[subject] === true
     const remove = (url: string) => sl.open(url) && (!!guidePhotoOff(cache[url], equipment || !!items.get(url)?.still) || another(url))
-    stripPhotos(data, remove, removed, report.kept)
+    stripPhotos(data, remove, removed, report.kept, (_stored, _original, blockedOriginal) => !blockedOriginal)
     const stock = (data.video?.figures ?? []).flatMap(f => f.photo ? [f.photo] : [])
     for (const p of [...(data.photos ?? []), ...stock]) {
       if (p.original && deadScreenPhotoUrls(p).includes(p.original.url) && remove(p.original.url)) {

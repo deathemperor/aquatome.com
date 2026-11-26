@@ -71,6 +71,18 @@ test.each(['own photo', 'stock photo'])('a guide %s alteration needs a complete 
   expectControlledRejections(await json(root, 'engine-state/_photo-rejected.json'), { [altered.original.url]: 'people' })
 })
 
+test.each(['own photo', 'stock photo'])('a guide %s keeps its eligible fallback when the stored version is refused', async place => {
+  const altered = { ...photo('altered'), altered: [{ method: 'lanczos3-upscale' }], original: photo('original') }
+  const stock = place === 'stock photo'
+  const root = await store({ guide: stock ? { video: { figures: [{ photo: altered, moments: [] }] } } : { photos: [altered] } })
+  const { d, seen } = model({ altered: { mark: true } })
+  await screenGuidePhotos(root, d, { limit: 1 })
+  expect(seen.map(s => s.photos)).toEqual([['altered', 'original']])
+  const guide = await json(root, 'content/guides/guide/entity.json')
+  expect(stock ? guide.video.figures[0].photo : guide.photos[0]).toEqual(altered)
+  expectControlledRejections(await json(root, 'engine-state/_photo-rejected.json'), { [altered.url]: 'watermark' })
+})
+
 test('hands or a person on a guide\'s photos, a mark on a video section\'s photo and a brand on a packshot take them off the guides and onto the blocklist; a brand stays on an equipment guide', async () => {
   // Found by a design review (2026-11-07): hands planting led "Cách trồng cây…", a person siphoning led "Bao lâu phải
   // vệ sinh…", and the betta setup guide showed an Aquarium Co-op test-strip bottle. None had had a model look.
@@ -328,7 +340,8 @@ test('a missing guide subject answer leaves that question queued', async () => {
   expect((await json(root, 'engine-state/_photo-guides.json'))[url('shared')].other?.platy).toBeUndefined()
   await screenGuidePhotos(root, partial, { limit: 1 })
   expect(seen.map(s => s.photos)).toEqual([['shared'], ['shared']])
-  expect((await json(root, 'engine-state/_photo-guides.json'))[url('shared')].other).toEqual({ platy: false })
+  expect((await json(root, 'engine-state/_photo-guides.json'))[url('shared')])
+    .toMatchObject({ other: { platy: false }, answeredSubjects: ['platy'] })
 })
 
 test('a new guide photo stays owed when its first answer omits the dead-fish question', async () => {

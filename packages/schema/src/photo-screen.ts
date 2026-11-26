@@ -1,3 +1,4 @@
+import { subjectForGuide } from './guide-subject'
 import { photoAddressSet, type PhotoRejection } from './photo-address'
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
@@ -275,20 +276,46 @@ export const GUIDE_LOOKS_FILE = '_photo-guides.json'
 export function guidePhotoUrls(guide: { photos?: PhotoVersions[]; video?: { figures?: { photo?: PhotoVersions }[] } }): string[] {
   return [...(guide.photos ?? []).flatMap(deadScreenPhotoUrls), ...(guide.video?.figures ?? []).flatMap(f => f.photo ? deadScreenPhotoUrls(f.photo) : [])]
 }
-export async function guidePhotoUrlsIn(root: string): Promise<Set<string>> {
-  const urls = new Set<string>()
+type GuideWithPhotos = Parameters<typeof guidePhotoUrls>[0] & Parameters<typeof subjectForGuide>[0]
+
+async function* guidesWithPhotos(root: string): AsyncGenerator<{ id: string; guide: GuideWithPhotos }> {
   for (const id of await readdir(join(root, 'guides')).catch(() => [] as string[])) {
     const raw = await readFile(join(root, 'guides', id, 'entity.json'), 'utf8').catch((e: NodeJS.ErrnoException) => {
       if (e.code === 'ENOENT') return undefined
       throw e
     })
-    if (raw === undefined) continue
-    for (const url of guidePhotoUrls(JSON.parse(raw) as Parameters<typeof guidePhotoUrls>[0])) urls.add(url)
+    if (raw !== undefined) yield { id, guide: JSON.parse(raw) as GuideWithPhotos }
   }
+}
+
+export async function guidePhotoUrlsIn(root: string): Promise<Set<string>> {
+  const urls = new Set<string>()
+  for await (const { guide } of guidesWithPhotos(root)) for (const url of guidePhotoUrls(guide)) urls.add(url)
   return urls
 }
 
-type GuideLook = { person: boolean; mark: boolean; brand: boolean; other?: Record<string, unknown> }
+/** Per-guide subject decisions and distinct URLs awaiting any applicable answer. */
+export async function guidePhotoWaits(root: string, looks: Record<string, unknown>) {
+  const subjects = new Map<string, string>()
+  const unlooked = new Set<string>()
+  const pendingSubjects = new Set<string>()
+  for await (const { guide, id } of guidesWithPhotos(root)) {
+    const raw = await readFile(join(root, 'guides', id, 'vi.json'), 'utf8').catch((e: NodeJS.ErrnoException) => {
+      if (e.code === 'ENOENT') return '{}'
+      throw e
+    })
+    const text = JSON.parse(raw) as { name?: string }
+    const subject = subjectForGuide(guide, id, text.name)
+    if (subject) subjects.set(id, subject)
+    for (const url of guidePhotoUrls(guide)) {
+      if (!guideLooked(looks[url])) unlooked.add(url)
+      else if (subject && !guideLooked(looks[url], subject)) pendingSubjects.add(url)
+    }
+  }
+  return { subjects, unlooked, pendingSubjects }
+}
+
+type GuideLook = { person: boolean; mark: boolean; brand: boolean; other?: Record<string, unknown>; answeredSubjects?: string[] }
 
 export function guideLooked(verdict: unknown, subject?: string): verdict is GuideLook {
   if (!verdict || typeof verdict !== 'object') return false
