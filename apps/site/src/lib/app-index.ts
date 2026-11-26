@@ -489,7 +489,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     const g = c.equipment.find(e => e.category === u.category)
     items.push(clean({ kind: 'equipment', id: u.category, name: g?.name ?? t(categoryLabel(u.category)), path: at(`/vi/thiet-bi/${u.category}/`), img: g && cardSrc(g.hero), imgBox: boxOf(g?.hero) }))
   }
-  for (const [vi, name, own, short] of TOOLS) {
+  for (const [vi, name, own, short] of APP_TOOL_PAGES) {
     if (served(lang, vi)) items.push(clean({ kind: 'tool', name: t(name), path: at(vi), words: own.map(w => t(w)), short: short && t(short) }))
   }
   // Only what the index lists: a row's worth of each, for Tìm and Hôm nay.
@@ -614,7 +614,7 @@ export function breedGroup(b: Pick<BreedEntity, 'basedOn' | 'parents'>, groupOf:
  * them to the built pages), so a search for "thể tích bể" finds "Bể bao nhiêu lít?". Then, for a tool with a card on
  * the tools page, the short name the card has (the same string, so the same translations), which the app's tiles show.
  */
-const TOOLS: readonly (readonly [string, string, readonly string[], string?])[] = [
+export const APP_TOOL_PAGES: readonly (readonly [string, string, readonly string[], string?])[] = [
   ['/vi/cong-cu/', 'Công cụ', ['Kiểm tra cá nuôi chung, thả bao nhiêu con là vừa, tính thể tích bể, lượng nền cần mua, công suất sưởi và liều phân nước.']],
   ['/vi/cong-cu/nuoi-chung/', 'Nuôi chung được không? Thả bao nhiêu con?', [
     'Kiểm tra cá nuôi chung: hợp nước, hợp tính, thả bao nhiêu con',

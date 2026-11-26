@@ -49,3 +49,14 @@ test('a sentence ending exactly at the character limit still fits before a separ
   const text = two + ' Thêm một ít cây vào bể.'
   expect(descriptionForSearch('vi', text, [...two].length)).toBe(two)
 })
+
+test('a long name containing its scientific name keeps the common name that fits', () => {
+  const sci = 'Limnobium laevigatum'
+  const common = 'Bèo tây Nam Mỹ'
+  const detail = 'giống lá nhỏ dành cho hồ thủy sinh có nhiều cây nổi'
+  expect(plantTitle('vi', `${common} (${sci}), ${detail}`, sci)).toBe(`${common} (${sci})`)
+  const scienceFirst = plantTitle('vi', `${sci} (${common} ${detail})`, sci)
+  expect(scienceFirst).toContain(common)
+  expect(scienceFirst).toContain(sci)
+  expect([...scienceFirst].length).toBeLessThanOrEqual(70)
+})

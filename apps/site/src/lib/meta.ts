@@ -1,7 +1,7 @@
 import { resolveDataCard, type SpeciesEntity } from '@aq/schema'
 import { fmt } from './format'
 import { translator, type Lang } from './i18n'
-import { saysSci } from './sci'
+import { saysSci, sciWords } from './sci'
 
 const TITLE_LENGTH = 70
 const DESCRIPTION_LENGTH = 160
@@ -65,7 +65,12 @@ const named = (lang: Lang, key: string, name: string, sci: string) => {
   if (core && length(core) <= TITLE_LENGTH) return core
   const label = withSci(name, sci)
   if (length(label) <= TITLE_LENGTH) return label
-  const shortened = !nameIncluded && clip(name, lang, TITLE_LENGTH - length(sci) - 3, 'word')
+  const binomial = nameIncluded ? sciWords(sci).exec(name) : null
+  const common = binomial
+    ? name.slice(0, binomial.index).replace(/[\s(,–—-]+$/, '') ||
+      name.slice(binomial.index + binomial[0].length).replace(/^[\s(,),–—-]+/, '')
+    : name
+  const shortened = clip(common, lang, TITLE_LENGTH - length(sci) - 3, 'word')
   return shortened ? withSci(shortened, sci) : clip(sci, lang, TITLE_LENGTH, 'grapheme')
 }
 export const speciesTitle = (lang: Lang, name: string, sci: string) => named(lang, 'Cách nuôi {name} ({sci}): bể, nước, nuôi chung', name, sci)

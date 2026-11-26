@@ -3,12 +3,12 @@ import { expect, test } from 'vitest'
 import { CurationSchema, FIRST_GUIDES, FIRST_PLANTS, POPULAR, slugify, STAPLE_SPECIES, type Content } from '@aq/schema'
 import { pageShard, PageShard } from '@aq/schema/app-page'
 import { isVietnamese } from '@aq/schema/text'
-import { appBreeds, appEquipment, appGlossary, appGuideImage, appGuides, appIndex, appPlants, appSeries, appSpecies, breedGroup, type AppIndex, type AppItem } from '../src/lib/app-index'
+import { APP_TOOL_PAGES, appBreeds, appEquipment, appGlossary, appGuideImage, appGuides, appIndex, appPlants, appSeries, appSpecies, breedGroup, type AppIndex, type AppItem } from '../src/lib/app-index'
 import { glossaryParts } from '../src/lib/glossary-page'
 import { easyPlants, groupTiles, leadGuides } from '../src/lib/home'
 import { getContent } from '../src/lib/content'
 import { descriptionForSearch } from '../src/lib/meta'
-import { appPath, LANGS, localizePath, OTHER_LANGS } from '../src/lib/i18n'
+import { appPath, LANGS, localizePath, OTHER_LANGS, toVi, translator } from '../src/lib/i18n'
 import { appHref, appPage, DIST, page } from './dist'
 import { slow } from '@aq/schema/test-time'
 
@@ -432,25 +432,21 @@ test('every series /video/ lists is listed, one whose guides are all out of sear
 
 test('a tool carries its page\'s own title, the line under its heading and its description, all of them, so a search finds it by them', () => {
   for (const lang of LANGS) {
+    const t = translator(lang)
     for (const tool of index(lang).items.filter(i => i.kind === 'tool')) {
       const { dom } = appPage(tool.path)
-      const shown = [dom.querySelector('title')?.text.replace(/ — AquaTome$/, ''), dom.querySelector('p.intro')?.text]
-      const visible = [...new Set(shown.filter((s): s is string => !!s && s !== tool.name))]
-      const description = dom.querySelector('meta[name="description"]')?.getAttribute('content')
-      const words = tool.words ?? []
-      expect(words.slice(0, visible.length), tool.path).toEqual(visible)
-      // The app keeps the full tool description for matching. The page emits its search snippet.
-      const remaining = words.slice(visible.length)
-      if (description && description !== tool.name && !visible.includes(description)) {
-        expect(remaining, tool.path).toHaveLength(1)
-        expect(descriptionForSearch(lang, remaining[0]!), tool.path).toBe(description)
-      } else {
-        expect(remaining, tool.path).toEqual([])
-      }
+      const definition = APP_TOOL_PAGES.find(([path]) => path === toVi(tool.path))
+      expect(definition, tool.path).toBeDefined()
+      const fullDescription = t(definition![2].at(-1)!)
+      const title = dom.querySelector('title')?.text.replace(/ — AquaTome$/, '')
+      const intro = dom.querySelector('p.intro')?.text
+      const snippet = dom.querySelector('meta[name="description"]')?.getAttribute('content')
+
+      expect(snippet, tool.path).toBe(descriptionForSearch(lang, fullDescription))
+      const expected = [...new Set([title, intro, fullDescription].filter((s): s is string => !!s && s !== tool.name))]
+      expect(tool.words, tool.path).toEqual(expected)
     }
   }
-  const budget = index('vi').items.find(i => i.path === '/vi/cong-cu/du-toan-be/')
-  expect(budget?.words).toContain('Dự toán chi phí set bể cá, bể thủy sinh 30–120 cm: giá bể, chân, lọc, sưởi, đèn, phân nền, CO₂, bộ test và ổ cắm thông minh theo ba mức đầu tư, cộng tiền điện và tiền nuôi mỗi tháng.')
   expect(index('vi').items.find(i => i.path === '/vi/cong-cu/the-tich-be/')?.words).toContain('Tính thể tích bể cá: lít, gallon, độ dày kính')
   expect(index('vi').items.filter(i => i.kind !== 'tool' && i.kind !== 'glossary').some(i => 'words' in i)).toBe(false)
 })
