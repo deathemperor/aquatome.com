@@ -1,4 +1,4 @@
-import { albumLooked, askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, photoLookAnswer, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoWaitsFor, publicPhotoVersion, rejectedEntry, facePhotoStatus, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { albumLooked, askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, photoLookAnswer, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoClears, photoWaitsFor, publicPhotoVersion, rejectedEntry, facePhotoStatus, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
 import { compactVerdict, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
@@ -104,6 +104,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const keptAlbumMarks = new Set<string>()
   if (o.albums) {
     const looked = albumLooked({ screen: cache, secondLook: initialLooks })
+    const cleared = photoClears(initialLooks)
     const kept = keptOwnMark(photoRejected, (await readJson<Record<string, Pick<WatermarkEntry, 'retainedOwnMark'>>>(state(PHOTO_SCREEN_FILE))) ?? {})
     const albums = await readdir(join(content, 'gallery')).catch((error: NodeJS.ErrnoException) => {
       if (error.code === 'ENOENT') return []
@@ -118,7 +119,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
         const entry = isListed(url)
         if (entry && !kept(entry[0]) && !(entry[1].startsWith('watermark:') && kept(url))) continue
         if (entry) keptAlbumMarks.add(url)
-        const alreadyDead = cache[url]?.dead === true && !photoLookAnswer(initialLooks[url])
+        const alreadyDead = cache[url]?.dead === true && !cleared(url) && !photoLookAnswer(initialLooks[url])
         if (!alreadyDead && looked(url)) continue
         const take = alreadyDead ? knownDead : photos
         const it = take.get(url) ?? { key: url, url, files: [] }
@@ -267,9 +268,10 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const firstOff = new Map([...last].filter(([u]) => !passed(u)))
   const heldByAddress = photoAddressSet(held.keys())
   const markedByAddress = photoAddressSet(firstOff.keys())
-  const albumHolds = new Map(o.albums ? off.flatMap(({ url }) =>
-    sl.waiting(url) && secondLook[url] ? [[url, secondLook[url]!] as const] : [],
-  ) : [])
+  const albumHolds = rejectedEntry(o.albums
+    ? Object.fromEntries(Object.entries(secondLook).filter(([url]) => sl.waiting(url)).map(([url, record]) => [url, record.why]))
+    : {})
+  const albumHold = (url: string) => sl.waiting(url) || sl.held(url) ? albumHolds(url)?.[0] : undefined
   const holding = new Map<string, { why: string; pages: string[]; off?: true }>()
   type Page = { photos?: Photo[]; videos?: { youtubeId: string }[] }
   const edits = new Map<string, { raw: string; original: Page; page: Page }>()
@@ -287,7 +289,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     if (!original || original.url === p.url) return false
     // The wrapper holds the original's credit and other metadata until the person's decision or next look.
     const prior = photoRejected[original.url]
-    return markedByAddress(original.url) || heldByAddress(original.url) || albumHolds.has(original.url) || sl.off(original.url) || prior?.startsWith('waiting:') ||
+    return markedByAddress(original.url) || heldByAddress(original.url) || albumHold(original.url) || sl.off(original.url) || prior?.startsWith('waiting:') ||
       ((!prior || keptAlbumMarks.has(original.url)) && !going.has(original.url))
   }
   for (const it of off) {
@@ -307,11 +309,12 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
         return true
       })
     }
-    const pending = albumHolds.get(it.url)
-    if (pending) {
-      // The album comes off now. Keep the existing unanswered review and record the places it can restore.
-      holding.set(it.url, { why: pending.why, pages: pending.pages, off: true })
-      photoRejected[it.url] = waitingEntry(pending.why)
+    const reviewUrl = albumHold(it.url)
+    if (reviewUrl) {
+      // Keep the existing unanswered review, including its source address, and record the places it can restore.
+      const pending = secondLook[reviewUrl]!
+      holding.set(reviewUrl, { why: pending.why, pages: pending.pages, off: true })
+      photoRejected[reviewUrl] = waitingEntry(pending.why)
       report.dead.push(`${it.key}: ${cache[it.key]!.note}`)
     } else if (!it.video && firstOff.has(it.url)) {
       holding.set(it.url, { why, pages: firstOff.get(it.url)!, off: true })
@@ -330,8 +333,10 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   // A retry can always find the owning photo until its removal or hold is durable.
   const left = new Map<string, Stood[]>()
   const newFirst = rejectedEntry(Object.fromEntries([...firstOff.keys()].map(url => [url, holding.get(url)!.why])))
-  for (const [file, edit] of edits) placesIn(root, file, edit.original, url => newFirst(url)?.[0] ??
-    (albumHolds.has(url) && !edit.page.photos?.some(p => p.url === url) ? url : undefined), left)
+  for (const [file, edit] of edits) placesIn(root, file, edit.original, url => {
+    const reviewUrl = albumHold(url)
+    return newFirst(url)?.[0] ?? (reviewUrl && holding.has(reviewUrl) && !edit.page.photos?.some(p => p.url === url) ? reviewUrl : undefined)
+  }, left)
   await holdForSecondLook(root, holding, 'the dead-fish screen', undefined, left)
   const save = (f: string, data: object) => writePhotoState(state(f), data)
   if (off.some(x => x.video)) await save('_video-rejected.json', videoRejected)

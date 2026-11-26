@@ -784,8 +784,10 @@ async function albumFixture(photos: ReturnType<typeof photo>[]) {
   return { root, state, file }
 }
 
-test('an album pass applies a held page verdict once and preserves its recovery if the reviewer clears it', async () => {
-  const dead = photo('held-dead')
+test.each([false, true])('an album pass applies a held verdict and preserves recovery (source hold: %s)', async sourceHold => {
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const dead = { ...photo('held-dead'), ...(sourceHold ? { url: `https://media.aquatome.com/${mirrorPlan(source)!.key}` } : {}) }
+  const reviewUrl = sourceHold ? source : dead.url
   const { root, state, file } = await albumFixture([dead])
   const markFile = join(state, '_photo-second-look.json')
   await cp(new URL('../../schema/test/fixtures/store/sources.json', import.meta.url), join(root, 'content/sources.json'))
@@ -793,7 +795,7 @@ test('an album pass applies a held page verdict once and preserves its recovery 
   await writeFile(join(root, 'content/species/a/entity.json'), JSON.stringify({ id: 'a', photos: [dead] }))
   await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [dead.url]: { dead: true, note: '' } }))
   await writeFile(markFile, JSON.stringify({
-    [dead.url]: { why: 'dead: withheld', step: 'the dead-fish screen', at: '2026-11-26', pages: ['species/a'] },
+    [reviewUrl]: { why: 'dead: withheld', step: 'the dead-fish screen', at: '2026-11-26', pages: ['species/a'] },
   }))
   const { d, sent } = deps()
   vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
@@ -805,11 +807,11 @@ test('an album pass applies a held page verdict once and preserves its recovery 
     expect(await urls(root, 'a')).toEqual([])
 
     const marks = await json(root, 'engine-state/_photo-second-look.json')
-    expect(marks[dead.url]).toMatchObject({ off: true, left: expect.arrayContaining([
+    expect(marks[reviewUrl]).toMatchObject({ off: true, left: expect.arrayContaining([
       expect.objectContaining({ file: 'content/species/a/entity.json', index: 0 }),
       expect.objectContaining({ file: 'content/gallery/a.json', index: 0 }),
     ]) })
-    marks[dead.url].look = { said: 'clear', by: 'reviewer', on: '2026-11-26' }
+    marks[reviewUrl].look = { said: 'clear', by: 'reviewer', on: '2026-11-26' }
     await writeFile(markFile, JSON.stringify(marks))
     await sweep(root, { history: async () => [] })
     expect(await urls(root, 'a')).toEqual([dead.url])
