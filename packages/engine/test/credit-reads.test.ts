@@ -205,3 +205,19 @@ test("a release that fails while writing the never-again list leaves no photo sh
   expect(await json(join(r, 'engine-state/_photo-rejected.json'))).toEqual({})
   expect(await json(join(r, CREDIT_HOLDS))).toEqual({})
 })
+
+test("a credit refusal on a guide alteration holds the fish page's bare original", async () => {
+  const original = photo('only-original'), stored = photo('guide-alteration')
+  const r = await root({
+    'content/species/fish-a/entity.json': { id: 'fish-a', photos: [original] },
+    'content/guides/list/entity.json': { id: 'list', photos: [{ ...stored, altered: [{ method: 'lanczos3-upscale' }], original }] },
+    'content/sources.json': { sprucepets: { publish: true } },
+    'engine-state/_photo-watermarks.json': { [original.url]: { ocr: [] } },
+    'engine-state/_dead-screen.json': { [original.url]: { dead: false } },
+    'engine-state/_photo-faces.json': { [original.url]: 0 },
+  })
+  await recordCredits(r, { [stored.url]: { page: PAGE, kind: 'agency', at: '2026-11-26' } })
+  expect(await applyCreditReads(r)).toEqual({ removed: [], held: [stored.url] })
+  expect(await json(join(r, 'engine-state/_photo-rejected.json'))).toEqual({})
+  expect((await json(join(r, 'engine-state/_photo-second-look.json')))[stored.url].pages).toEqual(['species/fish-a'])
+})

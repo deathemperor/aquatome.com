@@ -1537,3 +1537,26 @@ test("a head the calendar holds off cards stays behind the photo the lead step p
   await chmod(join(c, 'curation.json'), 0o644)
   expect(await readAvoid(await mkdtemp(join(tmpdir(), 'sweep-')))).toEqual({})
 })
+
+test('a fresh plate refusal follows a bare original after the sweep removes its wrapper', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'sweep-plate-original-'))
+  const content = join(root, 'content')
+  const put = async (path: string, data: unknown) => {
+    await mkdir(join(root, path, '..'), { recursive: true })
+    await writeFile(join(root, path), JSON.stringify(data))
+  }
+  await mkdir(content, { recursive: true })
+  await copyFile(new URL('../../../content/sources.json', import.meta.url), join(content, 'sources.json'))
+  await put('engine-state/_photo-rejected.json', {})
+  const original = photo('https://media.aquatome.com/commons/plate-original.webp', 'Sample')
+  const plate = { ...photo('https://media.aquatome.com/commons/plate-altered.webp', 'Figure 1; (a) the whole fish, (b) its scales'),
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Paper_Figure_1.jpg', altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }], original }
+  const { altered: _altered, original: _original, ...barePlate } = plate
+  const live = photo('https://media.aquatome.com/commons/plate-sibling.webp', 'Adult male')
+  await put('content/species/plate-fish/entity.json', species('plate-fish', 'Plate fish', { photos: [barePlate, plate, live] }))
+  await put('content/species/plate-fish/vi.json', vi('Cá chạch suối', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await put('content/gallery/plate-fish.json', { id: 'plate-fish', photos: [original], seen: 1, updatedAt: '2026-11-01' })
+  await sweep(root)
+  expect((await json(root, 'content/species/plate-fish/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([live.url])
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[original.url]).toBeDefined()
+})

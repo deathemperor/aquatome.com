@@ -2,7 +2,7 @@
 import type { Photo } from '@aq/schema'
 import { i18n } from '../lib/i18n'
 import { photoMark } from '../lib/cite'
-import { fishFrame } from '../lib/img'
+import { fishFrame, widthSrcset } from '../lib/img'
 /**
  * `fish`: a fish's or a breed's page, whose head is framed by the fish's box (fishFrame): at 4:3, and on a phone at 16:9
  * too when `phone` (the species page draws its head wider there).
@@ -11,6 +11,8 @@ interface Props { photos: Photo[]; alt: string; fish?: boolean; phone?: boolean 
 const { photos, alt, fish = false, phone = false } = Astro.props
 const [main] = photos // the rest are placed between sections (Sections.astro)
 const { lang } = i18n(Astro.url)
+const srcset = main && widthSrcset(main)
+const sizes = srcset ? '(max-width: 860px) calc(100vw - 4rem), min(51vw, 580px)' : undefined
 // A head no crop can frame without cutting the fish (`headFit: "contain"`) keeps its own shape, whole, at any width.
 const whole = main?.headFit === 'contain'
 // Where a frame would cut the fish: its crop moved onto it (`--pos`), or the photo whole in its own shape (`--ar`).
@@ -20,7 +22,7 @@ const framed = [wide.pos && `--pos: ${wide.pos}`, narrow.pos && `--pos-phone: ${
 ---
 {main && (
   <figure class="gallery">
-    <div class:list={['plate', { phone }]}><img src={main.url} width={main.width} height={main.height} alt={alt} fetchpriority="high" data-fit={whole ? 'contain' : undefined} data-wide={wide.whole && 'whole'} data-phone={narrow.whole && 'whole'} style={whole ? `aspect-ratio: ${main.width} / ${main.height}` : framed || undefined} /></div>
+    <div class:list={['plate', { phone }]}><img src={main.url} srcset={srcset} sizes={sizes} width={main.width} height={main.height} alt={alt} fetchpriority="high" data-fit={whole ? 'contain' : undefined} data-wide={wide.whole && 'whole'} data-phone={narrow.whole && 'whole'} style={whole ? `aspect-ratio: ${main.width} / ${main.height}` : framed || undefined} /></div>
     <figcaption><Fragment set:html={photoMark(lang, main)} /></figcaption>
   </figure>
 )}

@@ -845,7 +845,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const verdict = pendingGlobal(original)?.[0] ?? original
     const waiting = waitingAt(url)
     const pending = pendingGlobal(url)?.[0]
-    const reason = rejectedAt(url)?.[1] ?? added[url] ?? (pending && added[pending]) ?? (waiting && secondLook[waiting]?.why) ?? ''
+    const canonical = firstAliases.get(url) ?? pending
+    const reason = (canonical && firstOff.get(canonical)?.why) ?? rejectedAt(url)?.[1] ?? added[url] ?? (pending && added[pending]) ?? (waiting && secondLook[waiting]?.why) ?? ''
     return /^(?:dead|people|waiting): /.test(reason) &&
       (!blockedOriginal || firstOff.has(firstAliases.get(verdict) ?? verdict) || !!waitingAt(original))
   }
@@ -995,7 +996,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   for (const file of [...new Set(shown.map(x => x.file))]) {
     const capture = (url: string) => {
       const reason = blockedAs(file, url)
-      return reason && first(reason) ? (firstAliases.get(reason) ?? reason) : undefined
+      return reason && first(reason) ? (firstAliases.get(reason) ?? reason) : firstByPhoto.get(photoKey(url) ?? url)
     }
     if (held.has(file)) {
       // A held page keeps what passed before; a first verdict comes off it all the same.

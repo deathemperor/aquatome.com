@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto'
 import sharp from 'sharp'
-import { deadScreenPhotoUrls, type Photo, type SourceId } from '@aq/schema'
+import { deadScreenPhotoUrls, photoPlacements, type Photo, type SourceId } from '@aq/schema'
 import { parse } from 'node-html-parser'
 import { archiveStops } from './archive'
 import { dropEmails, type PageImage } from './outline'
@@ -188,6 +188,19 @@ export const mayTake = (source: SourceId, sourceName: string, deps: CreditTerms 
 /** A stored photo and the source heading it sat under (guide-sections.ts turns that into the guide's own heading). */
 export type SourcePhoto = Photo & { heading?: string }
 
+/** Media addresses are shared by publisher and image, including originals kept inside an alteration. */
+export async function storedSourcePhotos(content: string): Promise<Map<string, Photo>> {
+  const stored = new Map<string, Photo>()
+  for await (const p of photoPlacements(content)) {
+    if (!p.source || p.generated || p.ownerCrop) continue
+    const original = p.altered?.length ? p.original : p
+    if (!original || stored.has(original.url)) continue
+    const { url, thumb, width, height } = original
+    stored.set(url, { url, thumb, width, height, licence: p.licence, author: p.author, sourceUrl: p.sourceUrl, source: p.source })
+  }
+  return stored
+}
+
 /**
  * Copy picked photos to our media bucket (once per image) and credit the source page. `blocked`: photos taken off the
  * site before (engine-state/_photo-rejected.json: watermarks, other species), skipped so a re-read doesn't bring them back.
@@ -195,7 +208,7 @@ export type SourcePhoto = Photo & { heading?: string }
  */
 export async function storeSourcePhotos(
   source: SourceId, sourceName: string, pageUrl: string, picked: Picked[],
-  deps: CreditTerms & { bytes: (url: string, referer: string) => Promise<Uint8Array>; media: Media; size?: (bytes: Uint8Array) => Promise<{ width?: number; height?: number }>; blocked?: Record<string, string> }, existing: Photo[], max = Infinity,
+  deps: CreditTerms & { bytes: (url: string, referer: string) => Promise<Uint8Array>; media: Media; size?: (bytes: Uint8Array) => Promise<{ width?: number; height?: number }>; blocked?: Record<string, string>; stored?: Map<string, Photo> }, existing: Photo[], max = Infinity,
 ): Promise<SourcePhoto[]> {
   const out: SourcePhoto[] = []
   let extra = 0
@@ -221,10 +234,17 @@ export async function storeSourcePhotos(
       if (extraRequest !== extraTurn) continue
       const key = keyFor(img.src)
       if (deps.blocked?.[deps.media.urlFor(key)]) { group.done = true; break }
-      const known = existingByUrl.get(deps.media.urlFor(key))
+      const url = deps.media.urlFor(key)
+      const nearby = existingByUrl.get(url)
+      const known = nearby ?? deps.stored?.get(url)
       // A photo stored already keeps its credit here: only the sweep and the line-read list name a stored one, since they
       // read every copy of it first (publisher-credits.ts; found in Codex's read, 20 Nov 2026).
-      if (known) { out.push(img.heading ? { ...known, heading: img.heading } : known); group.done = true; break }
+      if (known) {
+        const placed = !nearby && img.alt ? { ...known, caption: img.alt.slice(0, 200) } : known
+        out.push(img.heading ? { ...placed, heading: img.heading } : placed)
+        group.done = true
+        break
+      }
       if (extraRequest) {
         if (extra >= EXTRA_DOWNLOADS) continue
         extra++
@@ -240,7 +260,9 @@ export async function storeSourcePhotos(
       const { width = 0, height = 0 } = await (deps.size ?? (b => sharp(b).metadata()))(bytes).catch(() => ({ width: 0, height: 0 }))
       if (width < (img.minWidth ?? MIN_WIDTH) || !okShape(width, height)) continue
       const stored = await deps.media.put(key, bytes) // storage failures (token, bucket) fail the page so it is retried
-      out.push({ ...stored, licence: SOURCE_PHOTO_LICENCE, author: line(img) ? `${line(img)} / ${sourceName}` : sourceName, sourceUrl: pageUrl, ...(img.alt ? { caption: img.alt.slice(0, 200) } : {}), source, ...(img.heading ? { heading: img.heading } : {}) })
+      const credited = { ...stored, licence: SOURCE_PHOTO_LICENCE, author: line(img) ? `${line(img)} / ${sourceName}` : sourceName, sourceUrl: pageUrl, source }
+      deps.stored?.set(url, credited)
+      out.push({ ...credited, ...(img.alt ? { caption: img.alt.slice(0, 200) } : {}), ...(img.heading ? { heading: img.heading } : {}) })
       group.done = true
       break
     }

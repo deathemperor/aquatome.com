@@ -28,7 +28,7 @@ import { QUALITY_THRESHOLD, gate, reviewTranslation, steadyRead, WRITER_BAND } f
 import { logReviews, type Review } from './review-log'
 import { holdForSecondLook } from './last-photo'
 import { readPhotoWaits, readRecoveryRetention, versionRejection } from './photo-visibility'
-import { linkedPhotos, mayTake, pickSourcePhotos, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
+import { linkedPhotos, mayTake, pickSourcePhotos, storedSourcePhotos, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
 import { snapshotHash, writeSnapshot } from './snapshot'
 import { ARCHIVE_POLITE, archiveStops } from './archive'
 import { SOURCES, sourceById, type SourceConfig } from './sources'
@@ -297,8 +297,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   const gbifCache: Record<string, Taxon | null> = {}
   const blocked = (await readJson<Record<string, string>>(join(root, 'engine-state/_photo-rejected.json'))) ?? {}
   const screen = await readJson<Record<string, PhotoScreenEntry>>(join(root, 'engine-state', PHOTO_SCREEN_FILE))
-  const [photoWaits, pendingRefusal] = await Promise.all([
-    readPhotoWaits(root, { rejected: blocked, watermarks: screen, freshOwn: true }), readRecoveryRetention(root),
+  const [photoWaits, pendingRefusal, stored] = await Promise.all([
+    readPhotoWaits(root, { rejected: blocked, watermarks: screen, freshOwn: true }), readRecoveryRetention(root), storedSourcePhotos(join(root, 'content')),
   ])
   const deadline = opts.maxMinutes ? deps.now().getTime() + opts.maxMinutes * 60_000 : Infinity
   const report: RunReport = { perSource: {}, needsHuman: [], movedToArchive: [], changed: [], errors: [], shopText: [] }
@@ -412,7 +412,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     const minWidth = sourceById(source).minPhotoWidth
     const sourceName = sourceNames[source]?.name ?? source
     const terms = sourceNames[source]?.permission
-    const photoDeps = { bytes, media: deps.media, blocked, refusedCredits: terms?.refusedCredits, coveredCredits: terms?.coveredCredits }
+    const photoDeps = { bytes, media: deps.media, blocked, stored, refusedCredits: terms?.refusedCredits, coveredCredits: terms?.coveredCredits }
     const sourcePhotos = (names: string[], existing: Photo[], max?: number) =>
       storeSourcePhotos(source, sourceName, url, pickSourcePhotos(images, url, names, max, page.kind === 'guide' ? 'guide' : 'subject', minWidth, mayTake(source, sourceName, photoDeps, existing)), photoDeps, existing, max ?? 4)
     const log = (kind: ChangelogEntry['kind'], id: string, existed: boolean) => {

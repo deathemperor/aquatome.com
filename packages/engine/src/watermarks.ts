@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
-import { deadScreenPhotoUrls, IMAGE_SWITCHES, LOGO_FOLDERS, logoFolder, ocrHit, photoAddressSet, publicPhotoVersion, rejectedEntry, type Photo } from '@aq/schema'
+import { deadScreenPhotoUrls, IMAGE_SWITCHES, LOGO_FOLDERS, logoFolder, ocrHit, originalPhotoRefusals, photoAddressSet, publicPhotoVersion, rejectedEntry, type Photo } from '@aq/schema'
 import { rememberMarkedPhotos } from './marked-photos'
 import { compactScreen, summarizeOcr, PHOTO_MARK_KINDS, PHOTO_POSITIONS, photoFailure, photoModelStop, type CompactScreen } from './photo-observations'
 import { writePhotoState } from './photo-state'
@@ -251,7 +251,9 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
     return publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)?.url
   })
   const newMarks = [...urls].filter(u => markedNow(u) && !listed(u))
-  const held = lastPhotoVerdicts(pages, u => listed(u) || waits(u), newMarks)
+  const newByAddress = rejectedEntry(Object.fromEntries(newMarks.map(url => [url, 'watermark'])))
+  const originals = newMarks.length ? await originalPhotoRefusals(join(root, 'content'), url => newByAddress(url)?.[0]) : undefined
+  const held = lastPhotoVerdicts(pages, u => listed(u) || waits(u), newMarks, () => true, originals)
   const heldByAddress = photoAddressSet(held.keys())
   const marked = (u: string) => markedNow(u) && !heldByAddress(u)
   for (const [u, pages] of held) report.held.push(`${u}: ${pages.join(', ')}`)
@@ -260,6 +262,8 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
     report.confirmed.push(u)
     if (!(u in rejected)) rejected[u] = `watermark: ${cache[u]!.kind ?? 'unknown'}`
   }
+  await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort()))
+  await writePhotoState(rejectedFile, rejected)
   for (const f of files) {
     const raw = await readFile(f, 'utf8')
     const data = JSON.parse(raw) as unknown
@@ -270,7 +274,5 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
     report.removed.push(...removed.map(u => `${relative(root, f)}: ${u}`))
     await writeFile(f, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
   }
-  await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort()))
-  await writePhotoState(rejectedFile, rejected)
   return report
 }

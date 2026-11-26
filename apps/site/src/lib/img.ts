@@ -1,4 +1,4 @@
-import { photoFitsCard, subjectFrame, thumbOf, type Photo } from '@aq/schema'
+import { MEDIA_HOST, THUMB_WIDTH, photoFitsCard, subjectFrame, thumbOf, type Photo } from '@aq/schema'
 
 /** Commons hands back the original file as the "thumb" when it is no wider than the size asked for: its 500px size instead. */
 function commonsThumb(p: Photo) {
@@ -9,6 +9,12 @@ function commonsThumb(p: Photo) {
 
 /** Card/thumbnail source: our recorded 480px thumb, Wikimedia's 500px size, else the full photo. */
 export const smallSrc = (p: Photo) => (p.thumb !== p.url ? p.thumb : undefined) ?? (new URL(p.url).host.endsWith('wikimedia.org') ? thumbOf(p.url) ?? commonsThumb(p) : undefined) ?? p.url
+
+/** A recorded first-party thumbnail and its full photo, at their actual widths. */
+export function widthSrcset(p: Photo): string | undefined {
+  if (!p.thumb || p.width <= THUMB_WIDTH || new URL(p.url).host !== MEDIA_HOST || p.thumb !== thumbOf(p.url)) return undefined
+  return `${p.thumb} ${THUMB_WIDTH}w, ${p.url} ${p.width}w`
+}
 
 /**
  * Whether `address` is the photo itself or a copy of it only resized, never reframed: what may carry the photo's box (the
