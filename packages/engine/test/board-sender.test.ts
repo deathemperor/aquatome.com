@@ -2,12 +2,13 @@ import { existsSync } from 'node:fs'
 import { mkdtemp, readFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
+import { DatabaseSync } from 'node:sqlite'
 import { expect, test, vi } from 'vitest'
 import { clientFor } from '../../../apps/site/worker/fishid/claude'
 import { memoryHealth } from '../../../apps/site/worker/fishid/keys'
 import { Billed, BilledLimit, BILLED_STEP, billedCost, billedWorst } from '../src/billed'
 import { CEILINGS, type Ceilings } from '../src/ceiling'
-import { boardSender } from '../scripts/board-stream'
+import { boardSender, tokensOf } from '../scripts/board-stream'
 
 // The board's sender (chat-board.ts) on a fake transport: a real client whose requests go to a fetch of the test's, so
 // nothing leaves this Mac, and a billed log of the test's own (Codex's read of the billed line, 17 Nov).
@@ -36,6 +37,47 @@ test('with no allowance left no request leaves: the run stops at the line before
   expect(fetch).not.toHaveBeenCalled()
   expect(existsSync(log)).toBe(false)
   expect(billed.stopped).toMatch(/billed calls stopped at chat-board-billed's line/)
+})
+
+test('ledger contention past the turn deadline sends nothing and holds nothing', async () => {
+  const log = await logIn()
+  const lock = new DatabaseSync(`${log}.lock.sqlite`)
+  lock.exec('BEGIN IMMEDIATE')
+  vi.useFakeTimers({ toFake: ['Date'] })
+  vi.setSystemTime(NOW)
+  try {
+    const fetch = vi.fn(async () => sse(opening + ending))
+    let entered!: () => void
+    const entering = new Promise<void>(resolve => { entered = resolve })
+    const billed = new Billed(BILLED_STEP, log, line(10), () => NOW)
+    const sender = boardSender({
+      billed, healthy: KEYS, store: memoryHealth(),
+      clientFor: async k => { entered(); return clientFor(k, fetch) },
+    })
+    const settled = sender(BODY, { ...OPTS, writingMs: 8000 }).catch((e: unknown) => e)
+    await entering
+    await new Promise<void>(resolve => setImmediate(resolve))
+    vi.setSystemTime(NOW.getTime() + OPTS.timeoutMs + 1)
+    const out = await settled
+    expect(out).toBeInstanceOf(Error)
+    expect((out as Error).message).toMatch(/out of time/)
+    expect(fetch).not.toHaveBeenCalled()
+    expect(existsSync(log)).toBe(false)
+    expect(billed.stopped).toBeUndefined()
+  } finally {
+    vi.useRealTimers()
+    lock.close()
+  }
+})
+
+test('missing usage counts at the held amount, while explicit zeros may settle at zero', async () => {
+  const log = await logIn()
+  const billed = new Billed(BILLED_STEP, log, line(10), () => NOW)
+  for (const usage of [{}, { input_tokens: 1 }, { output_tokens: 1 }, { input_tokens: 0, output_tokens: 0 }]) {
+    await billed.call({ body: BODY }, async () => ({ value: 'ok', tokens: tokensOf(usage) }))
+  }
+  const worst = billedWorst(BODY)
+  expect((await rows(log)).filter(r => r.settles).map(r => r.cost)).toEqual([worst, worst, worst, 0])
 })
 
 test('every key it tries is a billed call: held before its request, settled after, a refusal at nothing', async () => {

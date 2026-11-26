@@ -57,6 +57,20 @@ test('a call whose worst would pass the line stops the run before it goes, and e
   expect((await lines(log)).length).toBe(4)
 })
 
+test('a refusal stops the next admission on the same run even when their promises overlap', async () => {
+  const log = join(await dirOf(), 'aquatome-billed.jsonl')
+  const billed = new Billed(BILLED_STEP, log, LINE, () => NOW)
+  let sent = 0
+  const send = async () => { sent++; return answer(0)() }
+  const [large, small] = await Promise.allSettled([
+    billed.call({ body: ask(11) }, send),
+    billed.call({ body: ask(1) }, send),
+  ])
+  expect(large).toMatchObject({ status: 'rejected', reason: expect.any(BilledLimit) })
+  expect(small).toMatchObject({ status: 'rejected', reason: expect.objectContaining({ message: billed.stopped }) })
+  expect([sent, existsSync(log)]).toEqual([0, false])
+})
+
 test('the calls in the air are held in the log: at once, only what fits goes, another run sees them, and once settled the day holds what they cost', async () => {
   const log = join(await dirOf(), 'aquatome-billed.jsonl')
   const b = new Billed(BILLED_STEP, log, LINE, () => NOW)

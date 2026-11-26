@@ -136,6 +136,15 @@ export function worstOf(body: { max_tokens: number }, price: { input: number; ou
 /** A run stopped at its billed line, or unable to count what it spends. */
 export class BilledLimit extends Error {}
 
+/** The caller ran out of time before it could send. This does not stop other turns. */
+export class BilledDeadline extends Error {
+  constructor() { super('out of time: the deadline passed before the request was sent') }
+}
+
+function checkDeadline(deadline: number | undefined) {
+  if (deadline !== undefined && Date.now() >= deadline) throw new BilledDeadline()
+}
+
 export type Tokens = { input: number; output: number; cacheRead?: number; cacheWrite?: number }
 const usd = (n: number) => `$${n.toFixed(2)}`
 /** The API answered and refused: nothing ran, nothing billed. */
@@ -150,7 +159,8 @@ const LOCK_WAIT_MS = 10_000
  * SQLite holds the process-owned write lock. Its file stays beside the JSONL ledger; a paused process retains its
  * lock and an exited process releases it. Only the lock is in SQLite. The ledger stays in JSONL.
  */
-async function locked<T>(log: string, work: () => T): Promise<T> {
+async function locked<T>(log: string, work: () => T, deadline?: number): Promise<T> {
+  checkDeadline(deadline)
   let lock: DatabaseSync
   try {
     lock = new DatabaseSync(`${log}.lock.sqlite`, { timeout: 0 })
@@ -160,6 +170,7 @@ async function locked<T>(log: string, work: () => T): Promise<T> {
   try {
     const until = performance.now() + LOCK_WAIT_MS
     for (;;) {
+      checkDeadline(deadline)
       try {
         lock.exec('BEGIN IMMEDIATE')
         break
@@ -167,7 +178,7 @@ async function locked<T>(log: string, work: () => T): Promise<T> {
         if ((e as { errcode?: number }).errcode !== 5) throw new BilledLimit(`billed calls stopped: the billed line's lock can't be taken (${(e as Error).message.slice(0, 120)})`)
       }
       if (performance.now() >= until) throw new BilledLimit(`billed calls stopped: another run held the billed line's lock for ${LOCK_WAIT_MS / 1000} s`)
-      await delay(10)
+      await delay(Math.min(10, deadline === undefined ? 10 : Math.max(0, deadline - Date.now())))
     }
     return work()
   } finally {
@@ -185,8 +196,12 @@ export class Billed {
    * `body`, the request: its worst held to the line, at the chat's list prices (`billedWorst`). `run`'s `tokens` missing:
    * the API's usage didn't come, and the call counts at its worst.
    */
-  async call<T, B extends { model: string; max_tokens: number }>(c: { body: B; key?: string; onCost?: (usd: number) => void }, run: () => Promise<{ value: T; tokens?: Tokens }>): Promise<T> {
+  async call<T, B extends { model: string; max_tokens: number }>(
+    c: { body: B; key?: string; deadline?: number; onCost?: (usd: number) => void },
+    run: () => Promise<{ value: T; tokens?: Tokens }>,
+  ): Promise<T> {
     if (this.stopped) throw new BilledLimit(this.stopped)
+    checkDeadline(c.deadline)
     const model = c.body.model
     const worst = billedWorst(c.body)
     if (worst === undefined) throw new BilledLimit(this.stopped = `billed calls stopped: ${model} has no price in the chat's list (fishid/claude.ts PRICES), so what it spends can't be counted`)
@@ -197,21 +212,27 @@ export class Billed {
     const id = randomUUID()
     const base = await locked(log, () => {
       if (this.stopped) throw new BilledLimit(this.stopped)
-      // Admission can wait across midnight. The hold and its settlement both use the day of admission.
-      const now = this.clock()
-      const line = billedLine(this.step, log, this.ceilings, now)
-      if (worst > line.left) {
-        throw new BilledLimit(`billed calls stopped at ${this.step}'s line: ${usd(line.spent)} of ${usd(line.cap)} spent or held today, and the next call could cost ${usd(worst)}. Raise the day's line (ceilings.json, api) to go on.`)
-      }
-      const row = { at: now.toISOString(), step: this.step, ...(c.key ? { key: c.key } : {}), model }
       try {
-        appendFileSync(log, `${JSON.stringify({ ...row, usd: worst, held: id })}\n`)
+        // Admission can wait across midnight. The hold and its settlement both use the day of admission.
+        const now = this.clock()
+        const line = billedLine(this.step, log, this.ceilings, now)
+        checkDeadline(c.deadline)
+        if (worst > line.left) {
+          throw new BilledLimit(`billed calls stopped at ${this.step}'s line: ${usd(line.spent)} of ${usd(line.cap)} spent or held today, and the next call could cost ${usd(worst)}. Raise the day's line (ceilings.json, api) to go on.`)
+        }
+        const row = { at: now.toISOString(), step: this.step, ...(c.key ? { key: c.key } : {}), model }
+        try {
+          appendFileSync(log, `${JSON.stringify({ ...row, usd: worst, held: id })}\n`)
+        } catch (e) {
+          throw new BilledLimit(`billed calls stopped: their log can't be written, so what they spend would never be counted (${(e as Error).message.slice(0, 120)})`)
+        }
+        return row
       } catch (e) {
-        throw new BilledLimit(`billed calls stopped: their log can't be written, so what they spend would never be counted (${(e as Error).message.slice(0, 120)})`)
+        if (e instanceof BilledLimit) this.stopped ??= e.message
+        throw e
       }
-      return row
-    }).catch(e => {
-      if (e instanceof BilledLimit) this.stopped = e.message
+    }, c.deadline).catch(e => {
+      if (e instanceof BilledLimit) this.stopped ??= e.message
       throw e
     })
     const started = Date.now()
@@ -229,9 +250,10 @@ export class Billed {
     }
     let result: Awaited<ReturnType<typeof run>>
     try {
+      checkDeadline(c.deadline)
       result = await run()
     } catch (e) {
-      await settle(refused(e) ? 0 : worst, undefined, true)
+      await settle(e instanceof BilledDeadline || refused(e) ? 0 : worst, undefined, true)
       throw e
     }
     await settle((result.tokens && billedCost(model, result.tokens)) ?? worst, result.tokens, false)
