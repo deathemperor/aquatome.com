@@ -125,8 +125,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
     (!listed(p.url)?.[1].startsWith('waiting:') || (canCapture && !!waiting(p.url)))
   const newFirst = rejectedEntry(Object.fromEntries([...firstOff.keys()].map(url => [url, why])))
   for (const { file, e } of pages) {
-    const removed = new Set((e.photos ?? []).filter(removes).map(p => p.url))
-    placesIn(root, file, e, url => removed.has(url) && (waiting(url) ?? newFirst(url)?.[0]), left)
+    placesIn(root, file, e, (url, slot) => removes(slot.photo as Photo) && (waiting(url) ?? newFirst(url)?.[0]), left)
   }
   await holdForSecondLook(root, new Map([...firstOff].map(([u, pages]) => [u, { why, pages, off: true as const }])), 'face detection', undefined, left)
   // A face found now, on a photo that never passed, takes it off every page and album, as the check's verdict of a person

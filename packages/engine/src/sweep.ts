@@ -1168,7 +1168,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const before = { ...data }
     const removed: string[] = []
     stripPhotos(data, remove, removed, [], keepsVersion)
-    placesIn(root, file, before, url => removed.includes(url) ? remember(url) : undefined, places)
+    placesIn(root, file, before, (url, slot) => !(data.photos as unknown[] | undefined)?.includes(slot.photo) ? remember(url) : undefined, places)
     if (!removed.length) continue
     const g = data as { kinds?: { photo?: unknown }[] }
     if (glossaryFiles.includes(file) && Array.isArray(g.kinds)) { g.kinds = g.kinds.filter(k => k.photo); if (!g.kinds.length) delete g.kinds }

@@ -825,8 +825,7 @@ async function dropRejected(root: string, content: string, why: (url: string) =>
     const removing = g.photos.filter(remove)
     if (!removing.length) continue
     const stood = new Map<string, Stood[]>()
-    const removed = new Set(removing.map(photo => photo.url))
-    placesIn(root, file, g, url => removed.has(url) ? waiting(url) : undefined, stood)
+    placesIn(root, file, g, (url, slot) => removing.includes(slot.photo as Photo) ? waiting(url) : undefined, stood)
     await notePlaces(root, stood)
     await replacePhotoDocument(file, `${JSON.stringify({ ...g, photos: g.photos.filter(p => !removing.includes(p)) }, null, 2)}\n`)
   }
