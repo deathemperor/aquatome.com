@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
-import { deadScreenPhotoUrls, IMAGE_SWITCHES, LOGO_FOLDERS, logoFolder, ocrHit, originalPhotoRefusals, photoAddressSet, publicPhotoVersion, rejectedEntry, type Photo, keepFigureSlots } from '@aq/schema'
+import { deadScreenPhotoUrls, expandWholePhotoRejections, IMAGE_SWITCHES, isVersionRejection, LOGO_FOLDERS, logoFolder, ocrHit, originalPhotoRefusals, photoAddressSet, photoRejections, publicPhotoVersion, rejectedEntry, type Photo, keepFigureSlots } from '@aq/schema'
 import { rememberMarkedPhotos } from './marked-photos'
 import { compactScreen, summarizeOcr, PHOTO_MARK_KINDS, PHOTO_POSITIONS, photoFailure, photoModelStop, type CompactScreen } from './photo-observations'
 import { writePhotoState } from './photo-state'
@@ -116,8 +116,10 @@ const isRef = (x: unknown): x is { url: string } => !!x && typeof x === 'object'
  */
 function urlsIn(x: unknown, out: Set<string>, from: Map<string, Set<string>>) {
   const add = (p: { url: string; sourceUrl?: unknown }) => {
-    out.add(p.url)
-    if (typeof p.sourceUrl === 'string') (from.get(p.url) ?? from.set(p.url, new Set()).get(p.url)!).add(p.sourceUrl)
+    for (const url of deadScreenPhotoUrls(p as Photo)) {
+      out.add(url)
+      if (typeof p.sourceUrl === 'string') (from.get(url) ?? from.set(url, new Set()).get(url)!).add(p.sourceUrl)
+    }
   }
   if (Array.isArray(x)) for (const v of x) urlsIn(v, out, from)
   else if (x && typeof x === 'object') {
@@ -237,31 +239,34 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
   // page with nothing stays where it is, held for a second look (last-photo.ts), and one the second look cleared stays.
   const sl = looks(await readSecondLook(root))
   const markedNow = (u: string) => cache[u]?.watermark === true && !retainedOwnMark(u, cache[u]) && sl.open(u)
-  const waits = await readPhotoWaits(root, { rejected, watermarks: cache })
-  const rejectedAt = rejectedEntry(rejected)
-  const kept = keptOwnMark(rejected, cache)
-  const listed = (url: string) => {
-    const entry = rejectedAt(url)
-    return !!entry && !(entry[1].startsWith('watermark:') && (kept(url) || kept(entry[0])))
-  }
-  const pages = await pagesShowing(join(root, 'content'), (p, ref, scientificName) => {
+  const content = join(root, 'content')
+  const effective = await expandWholePhotoRejections(content, rejected, cache)
+  const waits = await readPhotoWaits(root, { rejected: effective, watermarks: cache })
+  const listed = photoRejections(effective, cache)
+  const pages = await pagesShowing(content, (p, ref, scientificName) => {
     if (!permittedPhotoSource(p, sources, ref, scientificName)) return undefined
-    const rejection = rejectedAt(p.url)?.[1] ?? ''
-    if (markedNow(p.url) || (listed(p.url) && !/^(?:dead|people|waiting): /.test(rejection))) return p.url
+    const rejection = listed(p.url)?.[1]
+    if (rejection && !isVersionRejection(rejection)) return undefined
     return publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)?.url
   })
-  const newMarks = [...urls].filter(u => markedNow(u) && !listed(u))
+  const newMarks = [...urls].filter(u => {
+    const rejection = listed(u)?.[1]
+    return markedNow(u) && (!rejection || isVersionRejection(rejection))
+  })
   const newByAddress = rejectedEntry(Object.fromEntries(newMarks.map(url => [url, 'watermark'])))
-  const originals = newMarks.length ? await originalPhotoRefusals(join(root, 'content'), url => newByAddress(url)?.[0]) : undefined
-  const held = lastPhotoVerdicts(pages, u => listed(u) || waits(u), newMarks, () => true, originals)
+  const originals = newMarks.length ? await originalPhotoRefusals(content, url => newByAddress(url)?.[0]) : undefined
+  const held = lastPhotoVerdicts(pages, u => !!listed(u) || waits(u), newMarks, () => true, originals)
   const heldByAddress = photoAddressSet(held.keys())
-  const marked = (u: string) => markedNow(u) && !heldByAddress(u)
+  const refused = newMarks.filter(url => !heldByAddress(url))
+  const refusedByAddress = rejectedEntry(Object.fromEntries(refused.map(url => [url, `watermark: ${cache[url]!.kind ?? 'unknown'}`])))
+  const marked = (u: string) => !heldByAddress(u) && (markedNow(u) || !!refusedByAddress(u))
   for (const [u, pages] of held) report.held.push(`${u}: ${pages.join(', ')}`)
   await holdForSecondLook(root, new Map([...held].map(([u, pages]) => [u, { why: `watermark: ${cache[u]!.kind ?? 'unknown'}`, pages }])), 'the watermark screen')
-  for (const u of urls) if (marked(u)) {
-    report.confirmed.push(u)
-    if (!(u in rejected)) rejected[u] = `watermark: ${cache[u]!.kind ?? 'unknown'}`
+  for (const u of new Set([...refused, ...Object.keys(rejected)])) {
+    const reason = refusedByAddress(u)?.[1]
+    if (reason && (!rejected[u] || isVersionRejection(rejected[u]))) rejected[u] = reason
   }
+  report.confirmed.push(...[...urls].filter(marked))
   await writePhotoState(rejectedFile, rejected)
   await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort()))
   for (const f of files) {

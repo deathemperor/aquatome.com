@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
-import { photoAddressSet, type Photo, type SourceId } from '@aq/schema'
+import { isVersionRejection, photoAddressSet, type Photo, type SourceId } from '@aq/schema'
 import { holdForSecondLook, looks, readSecondLook } from './last-photo'
 import type { PageImage } from './outline'
 import { creditKind } from './photo-credit'
@@ -115,7 +115,13 @@ export async function applyCreditReads(root: string, step = 'the credit read'): 
   await holdForSecondLook(root, new Map([...held].map(([u, pages]) => [u, { why: `rejected: ${credits[u]!.kind} credit ${credits[u]!.line ?? ''}`, pages }])), step)
   const heldAddress = photoAddressSet(held.keys())
   const gone = (u: string) => off(u) && !heldAddress(u)
-  for (const u of Object.keys(credits)) if (gone(u) && !(u in rejected)) rejected[u] = compactRejection(`rejected: ${credits[u]!.kind} credit ${credits[u]!.line ?? ''}`)
+  for (const u of Object.keys(credits).filter(gone)) {
+    const refusal = compactRejection(`rejected: ${credits[u]!.kind} credit ${credits[u]!.line ?? ''}`)
+    const addresses = photoAddressSet([u])
+    for (const key of [u, ...Object.keys(rejected).filter(addresses)]) {
+      if (!rejected[key] || isVersionRejection(rejected[key])) rejected[key] = refusal
+    }
+  }
   await writePhotoState(rejectedFile, rejected)
   const removed: string[] = []
   for (const f of (await readdir(content, { recursive: true })).filter(f => f.endsWith('.json')).map(f => join(content, f))) {

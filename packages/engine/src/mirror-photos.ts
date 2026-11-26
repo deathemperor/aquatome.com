@@ -6,8 +6,8 @@ import { IMAGE_SWITCHES, isInatNonCommercial, isNonCommercial, mirrorPlan, THUMB
 import type { Media } from './source-photos'
 import { looks, readSecondLook } from './last-photo'
 
-type Photo = { url: string; thumb?: string; width: number; height: number; licence: string; author: string; sourceUrl: string }
 type Stored = Awaited<ReturnType<Media['put']>>
+type Photo = Stored & { licence: string; author: string; sourceUrl: string; original?: Stored }
 export type MirrorDeps = { bytes: (url: string) => Promise<Uint8Array>; media: Media; sleep: (ms: number) => Promise<void> }
 
 export { mirrorPlan } from '@aq/schema'
@@ -23,8 +23,8 @@ function photosIn(x: unknown, out: Photo[] = []): Photo[] {
 /** Content files that hold photos: species, plant and breed pages, guides, galleries, equipment guides. */
 async function files(content: string) {
   const out: string[] = []
-  for (const kind of ['species', 'plants', 'breeds', 'guides']) for (const id of await readdir(join(content, kind)).catch(() => [] as string[])) out.push(join(content, kind, id, 'entity.json'))
-  for (const kind of ['gallery', 'equipment']) for (const f of await readdir(join(content, kind)).catch(() => [] as string[])) if (f.endsWith('.json')) out.push(join(content, kind, f))
+  for (const kind of ['species', 'plants', 'breeds', 'guides', 'glossary']) for (const id of await readdir(join(content, kind)).catch(() => [] as string[])) out.push(join(content, kind, id, 'entity.json'))
+  for (const kind of ['gallery', 'equipment']) for (const f of await readdir(join(content, kind), { recursive: kind === 'equipment' }).catch(() => [] as string[])) if (f.endsWith('.json')) out.push(join(content, kind, f))
   return out
 }
 
@@ -50,6 +50,7 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
   const report = { mirrored: 0, files: 0, pending: 0, failed: [] as string[] }
   const done = new Map<string, Stored>()
   const moved: [string, string][] = []
+  const uploaded = new Set<string>()
   const edits = new Map<string, string>()
   // A photo off at its first verdict is coming off every page: it isn't copied, so its waiting entry and its record keep
   // one address (last-photo.ts; the independent reader, 20 Nov).
@@ -74,7 +75,10 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
     if (!raw) continue
     const data = JSON.parse(raw) as unknown
     docs.set(file, { raw, data })
-    for (const { url, thumb, width, height } of photosIn(data)) {
+    for (const p of photosIn(data)) for (const version of [p, p.original]) {
+      if (!version?.url) continue
+      const { url, thumb, width, height } = version
+      recorded.add(url)
       if (width && height) placed.set(url, { url, ...(thumb ? { thumb } : {}), width, height })
     }
   }
@@ -100,6 +104,7 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
             for (const u of plan.fetch) { bytes = await d.bytes(u).catch(() => undefined); if (bytes) break }
             if (!bytes) throw new Error('not downloadable')
             stored = await d.media.put(plan.key, bytes)
+            uploaded.add(stored.url)
             await d.sleep(500) // Wikimedia asks bulk clients to go gently
           }
           done.set(plan.key, stored)
@@ -119,9 +124,11 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
   }
   if (moved.length) for (const [path, cache] of caches) {
     let n = 0
+    const refusals = basename(path) === '_photo-rejected.json'
     for (const [from, to] of moved) if (from in cache && !(to in cache)) {
+      if (!uploaded.has(to) && !refusals) continue
       const value = cache[from]
-      if (basename(path) === '_photo-rejected.json' && typeof value === 'string' && value.startsWith('waiting:')) continue
+      if (refusals && typeof value === 'string' && value.startsWith('waiting:')) continue
       cache[to] = value
       n++
     }

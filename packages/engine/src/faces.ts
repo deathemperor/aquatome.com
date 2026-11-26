@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoRejections, photoWaitsFor, publicPhotoVersion, rejectedEntry, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, expandWholePhotoRejections, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoRejections, photoWaitsFor, publicPhotoVersion, rejectedEntry, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
 import { PER_SHEET, screenDead, type DeadScreenDeps } from './dead-screen'
 import { costLog, leftToday, stepName } from './ceiling'
 import { GUIDE_BACKLOG_PER_SHEET, screenGuidesDead } from './guides-dead'
@@ -47,7 +47,8 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
     raw => JSON.parse(raw) as Record<string, PhotoScreenEntry>,
     (error: NodeJS.ErrnoException) => { if (error.code !== 'ENOENT') throw error; return undefined },
   )
-  const listed = photoRejections(rejected, marks)
+  const effective = await expandWholePhotoRejections(contentRoot, rejected, marks)
+  const listed = photoRejections(effective, marks)
   const pages: { file: string; e: { photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } } }[] = []
   for (const kind of ['species', 'plants', 'breeds', 'guides']) {
     for (const id of await readdir(join(contentRoot, kind)).catch(() => [] as string[])) {
@@ -127,8 +128,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
     (!listed(p.url)?.[1].startsWith('waiting:') || (canCapture && !!waiting(p.url)))
   const newFirst = rejectedEntry(Object.fromEntries([...firstOff.keys()].map(url => [url, why])))
   for (const { file, e } of pages) {
-    const removed = new Set((e.photos ?? []).filter(removes).map(p => p.url))
-    placesIn(root, file, e, url => removed.has(url) && (waiting(url) ?? newFirst(url)?.[0]), left)
+    placesIn(root, file, e, (url, slot) => removes(slot.photo as Photo) && (waiting(url) ?? newFirst(url)?.[0]), left)
   }
   await holdForSecondLook(root, new Map([...firstOff].map(([u, pages]) => [u, { why, pages, off: true as const }])), 'face detection', undefined, left)
   // A face found now, on a photo that never passed, takes it off every page and album, as the check's verdict of a person
@@ -136,7 +136,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   // copies and no step brings it back (the independent reader, 20 Nov).
   // Only where it is given the list to write, as the engine's own call always is.
   const refusedNow = rejectedFile ? [...screened].filter(u => face(u) && !passed(u) && !markedByAddress(u) && !heldByAddress(u)) : []
-  if (firstOff.size || refusedNow.length) {
+  if (firstOff.size || refusedNow.length || effective !== rejected) {
     const file = rejectedFile ?? join(root, 'engine-state', '_photo-rejected.json')
     const now = withoutSettledWaits(JSON.parse(await readFile(file, 'utf8').catch(() => '{}')), secondLook)
     const active = photoRejections(now, marks)

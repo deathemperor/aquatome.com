@@ -107,7 +107,16 @@ export function deadScreenPhotoUrls(p: PhotoVersions): string[] {
   return p.altered?.length && !p.generated && !isOwnerCrop(p) && mayFallBack(p) ? [p.url, p.original!.url] : [p.url]
 }
 
-async function* entityPhotos(root: string, kinds: readonly string[], includeFigures = false): AsyncGenerator<Photo> {
+/** Photo placements that carry their own publishing and attribution metadata. */
+export function* documentPhotos(doc: {
+  photos?: Photo[]; video?: { figures?: { photo?: Photo }[] }; kinds?: { photo?: Photo }[]; hero?: Photo; types?: { photo?: Photo }[]
+}): Generator<Photo> {
+  yield* doc.photos ?? []
+  if (doc.hero) yield doc.hero
+  for (const item of [...(doc.video?.figures ?? []), ...(doc.kinds ?? []), ...(doc.types ?? [])]) if (item.photo) yield item.photo
+}
+
+async function* entityPhotos(root: string, kinds: readonly string[], includeLinked = false): AsyncGenerator<Photo> {
   for (const kind of kinds) {
     const ids = await readdir(join(root, kind)).catch((error: NodeJS.ErrnoException) => {
       if (error.code !== 'ENOENT') throw error
@@ -119,16 +128,15 @@ async function* entityPhotos(root: string, kinds: readonly string[], includeFigu
         throw e
       })
       if (raw === undefined) continue
-      const page = JSON.parse(raw) as { photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } }
-      yield* page.photos ?? []
-      if (includeFigures) for (const f of page.video?.figures ?? []) if (f.photo) yield f.photo
+      const page = JSON.parse(raw) as Parameters<typeof documentPhotos>[0]
+      yield* includeLinked ? documentPhotos(page) : page.photos ?? []
     }
   }
 }
 
-/** Photos shared across page, album, and guide placements. */
+/** Photos shared across pages, albums, guides and glossary terms. */
 export async function* photoPlacements(root: string): AsyncGenerator<Photo> {
-  yield* entityPhotos(root, ['species', 'plants', 'breeds', 'guides'], true)
+  yield* entityPhotos(root, ['species', 'plants', 'breeds', 'guides', 'glossary'], true)
   const galleries = join(root, 'gallery')
   const files = await readdir(galleries).catch((error: NodeJS.ErrnoException) => {
     if (error.code !== 'ENOENT') throw error
@@ -144,9 +152,7 @@ export async function* photoPlacements(root: string): AsyncGenerator<Photo> {
     return [] as string[]
   })
   for (const file of equipmentFiles.filter(f => f.endsWith('.json')).sort()) {
-    const guide = JSON.parse(await readFile(join(equipment, file), 'utf8')) as { hero?: Photo; types?: { photo?: Photo }[] }
-    if (guide.hero) yield guide.hero
-    for (const type of guide.types ?? []) if (type.photo) yield type.photo
+    yield* documentPhotos(JSON.parse(await readFile(join(equipment, file), 'utf8')) as Parameters<typeof documentPhotos>[0])
   }
 }
 

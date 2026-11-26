@@ -68,7 +68,10 @@ export async function holdablePhotoVerdicts(root: string, rejected: Record<strin
     if (storedReason && !isVersionRejection(storedReason)) return undefined
     return shown.url
   })
-  const pending = [...verdicts].filter(url => !listed(url))
+  const pending = [...verdicts].filter(url => {
+    const prior = listed(url)?.[1]
+    return !prior || (removesWrapper(url) && isVersionRejection(prior))
+  })
   const whole = pending.filter(removesWrapper)
   const byAddress = rejectedEntry(Object.fromEntries(whole.map(url => [url, 'whole'])))
   const originals = whole.length ? await originalPhotoRefusals(content, url => byAddress(url)?.[0]) : undefined

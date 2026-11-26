@@ -26,7 +26,7 @@ const first = species.slice(0, PAGE), firstPhotos = photos.slice(0, PAGE)
 // until asked for, so the page's elements stay under Lighthouse's budget however many breeds there are (e2e/lighthouse.spec.ts).
 const BREEDS = 10
 ---
-<Browse title={t('Tất cả loài')} heading={t('Tất cả loài')} intro={t('{n} hồ sơ loài cá, tép và ốc. Lọc theo bể và nước của bạn.', { n: c.species.length })} credits={creditsFor([...breedPhotos.slice(0, BREEDS), ...firstPhotos].map(p => p ?? undefined))} creditsLater>
+<Browse title={t('Tất cả loài')} heading={t('Tất cả loài')} structuredBreadcrumb intro={t('{n} hồ sơ loài cá, tép và ốc. Lọc theo bể và nước của bạn.', { n: c.species.length })} credits={creditsFor([...breedPhotos.slice(0, BREEDS), ...firstPhotos].map(p => p ?? undefined))} creditsLater>
   <FilterBox id="filter-box" prefix="species" summary={t('Lọc theo bể và nước')}>
     <label>{t('Tên')} <input name="q" type="search" placeholder={t('neon, Corydoras…')} /></label>
     <label>{t('Nhóm')}

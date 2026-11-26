@@ -107,6 +107,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const lookedBefore = deadLooked({ screen: cache, check, subjects, secondLook: initialLooks })
   // `firstOff`: a page's last photo the hold doesn't keep, its first verdict on a photo that never passed the check (last-photo.ts).
   const report = { sheets: 0, judged: 0, dead: [] as string[], pendingTakeOffs: 0, albumBatches: [] as { id: string; urls: string[] }[], held: [] as string[], firstOff: [] as string[], failed: [] as string[], left: 0, stopped: '' }
+  const galleryDir = join(content, 'gallery') + '/'
 
   const receipts: Record<string, TakeOffReceipt> = o.albums ? await albumReceipts(root) : {}
   const applied = new Map<string, string>()
@@ -140,6 +141,23 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     const waits = rejectedEntry(Object.fromEntries(Object.entries(initialLooks)
       .filter(([, mark]) => !photoLookAnswer(mark) || mark.off)
       .map(([address, mark]) => [address, waitingEntry(mark.why)])))
+    const knownTakeOff = (url: string): Item | undefined => {
+      const entry = isListed(url)?.[1]
+      const agreement = entry?.startsWith('dead:') ? undefined : agreedDead(url)
+      const review = waits(url)
+      const record = review && review[1] === entry ? initialLooks[review[0]] : undefined
+      const waiting = entry?.startsWith('waiting:')
+      const cached = !cleared(url) && (cache[url]?.dead === true || receipts[url] === true)
+      if (waiting && !cleared(url) && !agreement && !record && cached && !deferred.has(url)) {
+        deferred.add(url)
+        report.pendingTakeOffs++
+      }
+      if (entry?.startsWith('dead:') || (waiting && record && !cleared(url) && ((record.off && record.why.startsWith('dead:')) || cached)) ||
+          (!entry && cached) || agreement || (receipts[url] === true && !waiting && !cleared(url))) {
+        return { key: url, url, files: [], rejection: entry, agreement }
+      }
+      return undefined
+    }
     const albums = await readdir(join(content, 'gallery'))
     for (const name of albums.filter(f => f.endsWith('.json')).sort()) {
       const file = join(content, 'gallery', name)
@@ -147,31 +165,18 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       if (!Array.isArray(album?.photos)) throw new Error(`Album photo inventory unavailable: ${name}`)
       for (const url of new Set(album.photos.flatMap(deadScreenPhotoUrls))) {
         if (!url) continue
-        const entry = isListed(url)
-        const review = entry && waits(url)
-        const record = review && review[1] === entry?.[1] ? initialLooks[review[0]] : undefined
-        const rejection = entry && (entry[1].startsWith('dead:') ||
-          (entry[1].startsWith('waiting:') && record && !cleared(url) &&
-            ((record.off && record.why.startsWith('dead:')) || cache[url]?.dead === true || receipts[url] === true))) ? entry[1] : undefined
-        if (entry && !rejection) {
-          if (entry[1].startsWith('waiting:') && !cleared(url) && (cache[url]?.dead === true || receipts[url] === true)) {
-            if (!deferred.has(url)) report.pendingTakeOffs++
-            deferred.add(url)
-          }
-          continue
-        }
-        const agreement = rejection?.startsWith('dead:') ? undefined : agreedDead(url)
-        const alreadyDead = !!rejection || !!agreement || ((cache[url]?.dead === true || receipts[url] === true) && !cleared(url))
-        if (!alreadyDead && looked(url)) continue
-        const take = alreadyDead ? knownDead : photos
-        const it = take.get(url) ?? { key: url, url, files: [], rejection, agreement }
+        const dead = knownDead.get(url) ?? knownTakeOff(url)
+        if (!dead && (isListed(url) || looked(url))) continue
+        const take = dead ? knownDead : photos
+        const it = dead ?? photos.get(url) ?? { key: url, url, files: [] }
         it.files.push(file)
         take.set(url, it)
       }
     }
     for (const [url, receipt] of Object.entries(receipts)) {
-      if (receipt !== true || knownDead.has(url) || deferred.has(url) || (cleared(url) && !isListed(url)?.[1].startsWith('dead:'))) continue
-      knownDead.set(url, { key: url, url, files: [], rejection: isListed(url)?.[1] })
+      if (receipt !== true || knownDead.has(url)) continue
+      const dead = knownTakeOff(url)
+      if (dead) knownDead.set(url, dead)
     }
     if (!knownDead.size && (!o.limit || !photos.size)) {
       await reportAlbumTakeOffs()
@@ -284,16 +289,6 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     })
   } finally {
     await rm(dir, { recursive: true, force: true })
-  }
-
-  if (o.albums) {
-    const remaining = todo.filter(it => !completedDeadVerdict(cache[it.key]))
-    report.left = remaining.length
-    const now = Date.now()
-    const attempts = Object.fromEntries(remaining.flatMap(({ url }) =>
-      attempted.has(url) ? [[url, now]] : Object.hasOwn(retry, url) ? [[url, retry[url]!]] : [],
-    ))
-    if (Object.keys(attempts).length || Object.keys(retry).length) await writePhotoState(state(ALBUM_RETRY_FILE), attempts)
   }
 
   // Off the lists and off the pages that show them. A photo whose going would leave a page with nothing stays, held for
@@ -441,12 +436,24 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   if (off.some(x => !x.video && going.has(x.url) && !heldByAddress(x.url))) await save('_photo-rejected.json', photoRejected)
   if (report.judged) await save('_dead-screen.json', cache)
   // While a linked page still needs an edit, keep its album entry so a retry finds the take-off again.
-  const galleryDir = join(content, 'gallery') + '/'
   const writes = [...edits].sort(([a], [b]) => Number(a.startsWith(galleryDir)) - Number(b.startsWith(galleryDir)))
   for (const [file, { raw, page }] of writes) {
     const next = `${JSON.stringify(page, null, indentOf(raw))}\n`
     if (next !== raw) await replacePhotoDocument(file, next)
   }
-  if (o.albums) await reportAlbumTakeOffs()
+  if (o.albums) {
+    const placed = new Map(writes.filter(([file]) => file.startsWith(galleryDir)).map(([file, edit]) =>
+      [file, new Set((edit.page.photos ?? []).flatMap(deadScreenPhotoUrls))]))
+    const listed = photoRejections(photoRejected, watermarkCache)
+    const remaining = todo.filter(it => !completedDeadVerdict(cache[it.key]) && !listed(it.url) &&
+      it.files.some(file => file.startsWith(galleryDir) && (placed.get(file)?.has(it.url) ?? true)))
+    report.left = remaining.length
+    const now = Date.now()
+    const attempts = Object.fromEntries(remaining.flatMap(({ url }) =>
+      attempted.has(url) ? [[url, now]] : Object.hasOwn(retry, url) ? [[url, retry[url]!]] : [],
+    ))
+    if (Object.keys(attempts).length || Object.keys(retry).length) await writePhotoState(state(ALBUM_RETRY_FILE), attempts)
+    await reportAlbumTakeOffs()
+  }
   return report
 }
