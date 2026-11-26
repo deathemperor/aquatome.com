@@ -10,7 +10,7 @@ import { LlmError } from '../src/claude'
 import { screenDead, type DeadScreenDeps } from '../src/dead-screen'
 import { gitHistory, putBackCleared, waitingEntry } from '../src/last-photo'
 import { sweep } from '../src/sweep'
-import { NEW_PHOTO_SHEETS, screenNewPhotos } from '../src/faces'
+import { BACKLOG_SHEETS, NEW_PHOTO_RESERVE, NEW_PHOTO_SHEETS, screenNewPhotos } from '../src/faces'
 
 // The faces step screens the photos new to it for dead fish too, before the push (the chief of staff, 21 Nov 2026).
 const m = (name: string) => `https://m/${name}.webp`
@@ -55,8 +55,8 @@ function deps(o: { stop?: boolean; unreadable?: string } = {}) {
   }
 }
 const owed = async (root: string) => Object.keys(await json(root, 'engine-state/_photo-dead-owed.json'))
-const run = (root: string, d: ReturnType<typeof deps>['d']) =>
-  screenNewPhotos(join(root, 'content'), join(root, 'engine-state/_photo-faces.json'), d, join(root, 'engine-state/_photo-rejected.json'), root)
+const run = (root: string, d: ReturnType<typeof deps>['d'], o: { albumSheets?: number; backlog?: number; room?: () => number | null } = {}) =>
+  screenNewPhotos(join(root, 'content'), join(root, 'engine-state/_photo-faces.json'), d, join(root, 'engine-state/_photo-rejected.json'), root, o)
 
 test('the faces step screens the photos new to it for dead fish, wherever they stand on the page, and nothing else; a dead one is off at this push', async () => {
   const root = await store()
@@ -835,4 +835,65 @@ test('an album photo whose shop watermark was kept still owes the dead-fish scre
   expect(sent).toEqual([])
   expect(await screenDead(root, d.dead, { limit: 12, albums: true })).toMatchObject({ judged: 1, left: 0 })
   expect(sent).toEqual([p.url])
+})
+
+test("a breed page's new photo is the face finder's and the screen's: read, owed until judged, and a dead one that is the page's only photo off at its first verdict, marked", async () => {
+  const root = await store()
+  await mkdir(join(root, 'content/breeds/r'), { recursive: true })
+  await writeFile(join(root, 'content/breeds/r/entity.json'), JSON.stringify({ id: 'r', photos: [photo('r-dead')] }))
+  const { d, sent } = deps()
+  const r = await run(root, d)
+  expect(sent).toContain(m('r-dead'))
+  expect(await json(root, 'engine-state/_photo-faces.json')).toHaveProperty([m('r-dead')], 0)
+  expect(r.dead!.firstOff).toContain(`${m('r-dead')}: breeds/r`)
+  expect((await json(root, 'content/breeds/r/entity.json')).photos).toEqual([])
+  expect((await json(root, 'engine-state/_photo-second-look.json'))[m('r-dead')]).toMatchObject({ step: 'the dead-fish screen', pages: ['breeds/r'], off: true })
+  expect(await owed(root)).toEqual([])
+})
+
+test("after the new photos, the faces step asks the guides' pictures nothing has asked about a dead fish, its sheets a run; none by default, none after the screen stopped; a hand run takes more", async () => {
+  // None a run until the chief of staff's word (faces.ts BACKLOG_SHEETS); the rest of this test gives it 12, as a hand run would.
+  const ON = 12
+  const withGuide = async () => {
+    const root = await store()
+    const frames = Array.from({ length: ON * 6 + 2 }, (_, i) => ({ url: m(`f${String(i).padStart(3, '0')}-live`), t: i, width: 1280, height: 720 }))
+    await mkdir(join(root, 'content/guides/g'), { recursive: true })
+    await writeFile(join(root, 'content/guides/g/entity.json'), JSON.stringify({ id: 'g', photos: [], video: { figures: [{ heading: 'x', moments: frames }] } }))
+    return root
+  }
+  expect(BACKLOG_SHEETS).toBe(0)
+  const none = deps()
+  expect((await run(await withGuide(), none.d)).guides).toBeUndefined()
+  expect(none.sent.filter(u => u.includes('-live') && u.startsWith(m('f')))).toEqual([])
+  const root = await withGuide()
+  const { d, sent } = deps()
+  const r = await run(root, d, { backlog: ON })
+  expect(sent.slice(0, 4)).toEqual([m('a-dead'), m('a-live'), m('b-dead'), m('c-live')])
+  expect(sent[4]).toBe(m('f000-live'))
+  expect(r.guides).toMatchObject({ sheets: ON, judged: ON * 6, left: 2, off: [] })
+  const withAlbum = await withGuide()
+  await mkdir(join(withAlbum, 'content/gallery'), { recursive: true })
+  await writeFile(join(withAlbum, 'content/gallery/a.json'), JSON.stringify({ id: 'a', photos: [photo('album-live')] }))
+  const waiting = await run(withAlbum, deps().d, { backlog: ON })
+  expect(waiting.albums).toMatchObject({ left: 1 })
+  expect(waiting.guides).toBeUndefined()
+  const resumed = await run(withAlbum, deps().d, { albumSheets: 1, backlog: ON })
+  expect(resumed.albums).toMatchObject({ left: 0 })
+  expect(resumed.guides).toMatchObject({ sheets: ON })
+  // A stop at the line in the new photos' screen: the guides wait for a run with room.
+  const stopped = await run(await withGuide(), deps({ stop: true }).d, { backlog: ON })
+  expect(stopped.dead?.stopped).toBeTruthy()
+  expect(stopped.guides).toBeUndefined()
+  // A hand run with more sheets takes the rest.
+  const hand = deps()
+  expect((await run(root, hand.d, { backlog: 300 })).guides).toMatchObject({ judged: 2, left: 0 })
+  // The backlog leaves the new photos their share of the step's line: a sheet goes only while more than it is left.
+  let left = NEW_PHOTO_RESERVE + 0.8
+  const kept = deps()
+  const spending = { ...kept.d, dead: { ...kept.d.dead, look: async (f: string, p: string) => { left -= 0.3; return kept.d.dead.look(f, p) } } satisfies DeadScreenDeps }
+  const reserved = await run(await withGuide(), spending, { backlog: ON, room: () => left })
+  expect(reserved.guides).toMatchObject({ sheets: 2, reserved: true, left: ON * 6 + 2 - 12 })
+  expect(left).toBeLessThanOrEqual(NEW_PHOTO_RESERVE)
+  // No line to count against (no cost log, or no ceiling): it takes its sheets.
+  expect((await run(await withGuide(), deps().d, { backlog: ON, room: () => null })).guides).toMatchObject({ sheets: ON, reserved: false })
 })

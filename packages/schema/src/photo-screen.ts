@@ -59,10 +59,11 @@ export const awaitsScreen = (url: string, entry: PhotoScreenEntry | undefined): 
 export const DEAD_OWED_FILE = '_photo-dead-owed.json'
 
 /**
- * The face finder's record, in engine-state (address → faces found): every own photo of a species, plant or guide page
- * it has read (the engine's faces.ts `dropFacePhotos`). A public build shows no such photo it hasn't read, whatever put it
- * there: a faces step that failed, a job with no faces step, a step after it, a hand run, the image step (load.ts; the
- * chief of staff, 21 Nov 2026). It shows by itself once a faces step reads it. A breed's photos aren't the face finder's.
+ * The face finder's record, in engine-state (address → faces found): every own photo of a species, plant, breed or
+ * guide page it has read (the engine's faces.ts `dropFacePhotos`). A public build shows no such photo it hasn't read,
+ * whatever put it there: a faces step that failed, a job with no faces step, a step after it, a hand run, the image step
+ * (load.ts; the chief of staff, 21 Nov 2026). It shows by itself once a faces step reads it. A breed page's own photos
+ * are the face finder's too (the chief of staff, 21 Nov).
  */
 export const FACES_FILE = '_photo-faces.json'
 /**
@@ -115,14 +116,14 @@ async function* entityPhotos(root: string, kinds: readonly string[]): AsyncGener
   }
 }
 
-export async function ownDeadPhotoUrls(root: string, kinds: readonly string[] = ['species', 'plants']): Promise<Set<string>> {
+export async function ownDeadPhotoUrls(root: string, kinds: readonly string[] = ['species', 'plants', 'breeds']): Promise<Set<string>> {
   const urls = new Set<string>()
   for await (const photo of entityPhotos(root, kinds)) for (const url of deadScreenPhotoUrls(photo)) urls.add(url)
   return urls
 }
 
 /** The loader can still use a fallback after a face verdict blocks the stored alteration. */
-export async function facePhotoStatus(root: string, faces?: Record<string, unknown>, kinds: readonly string[] = ['species', 'plants', 'guides']) {
+export async function facePhotoStatus(root: string, faces?: Record<string, unknown>, kinds: readonly string[] = ['species', 'plants', 'breeds', 'guides']) {
   const unread = new Set<string>(), altered = new Set<string>()
   if (!faces) return { unread, altered }
   for await (const photo of entityPhotos(root, kinds)) {

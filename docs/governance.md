@@ -689,7 +689,8 @@ The layers above still check the result.
     the most-kept fish 40, pages two or more sources write about 30 (a breed: two or more sites), every other page 20.
     The most popular pages go first, `GALLERY_SHEETS` model calls a cycle (`scripts/engine-cycle.sh`). A gallery is
     never padded: a page whose sources run dry stays short and is listed in `docs/review/galleries.md`, then read again
-    a month later. Candidates a person found (`pnpm engine gallery-seed --from <file>`, by pull request) go to the front
+    a month later, or a week later where the two priority lists take it first (the owner's fish and the pages our
+    removals left with no photo: `LISTED_RETRY_DAYS`, the chief of staff, 22 Nov). Candidates a person found (`pnpm engine gallery-seed --from <file>`, by pull request) go to the front
     of the page's queue and are screened like the step's own. A page whose sources ran dry is tried again, and a full
     album is read for those candidates alone, never its sources' finds, growing at most 3 past its target (the chief of
     staff, 2026-11-12: the weather loach's album was full and its head can't reach the card's size, so a card-size
@@ -731,7 +732,9 @@ The layers above still check the result.
     iNaturalist album one only while it's on). Photos a source gave permission for (`content/sources.json`) and Unsplash photos join through
     their own steps. Each source is read at the pace it asks for (iNaturalist about one request a second; Openverse 200
     a day without a key), and each page keeps its place in `engine-state/gallery/<id>.json`, so the next cycle continues
-    there.
+    there. A change that allows a source carries its own wake: the pages whose sources ran dry before it are read for
+    that source at the next run, not after their rest, as the non-commercial switch woke every dry page for its pass
+    alone (the chief of staff, 22 Nov).
     Each fish's older scientific names from GBIF are kept as well (`pnpm engine fish-synonyms`, 300 fish a cycle, each
     asked once, in `engine-state/_gbif-synonyms.json` beside the plants'). `fishOlderNames` (`fish-synonyms.ts`) leaves
     out a name any page has as its own (a fish's or a plant's, or a plant's synonym) and one GBIF gives two of our fish:

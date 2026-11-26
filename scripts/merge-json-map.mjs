@@ -18,16 +18,18 @@ import { pathToFileURL } from 'node:url'
 // and main's unmarked records won: the chief of staff, 20 Nov 2026); else ours.
 const record = v => !!v && typeof v === 'object' && !Array.isArray(v) && typeof v.why === 'string' && typeof v.step === 'string' && Array.isArray(v.pages) && typeof v.at === 'string'
 const answered = v => !!v.look && (v.look.said === 'agree' || v.look.said === 'clear') && typeof v.look.by === 'string' && v.look.by.trim() !== '' && /^\d{4}-\d{2}-\d{2}$/.test(v.look.on ?? '')
-const placesOf = r => Array.isArray(r?.left) ? r.left.filter(p => typeof p?.file === 'string' && Number.isSafeInteger(p.index) && p.index >= 0) : []
+const placeKey = p => `${p.file}:${JSON.stringify(p.path ?? [])}`
+const placesOf = r => Array.isArray(r?.left) ? r.left.filter(p => typeof p?.file === 'string' &&
+  Number.isSafeInteger(p.index) && (p.index >= 0 || p.index === -1 && p.path?.[3] === 'photo')) : []
 function mergePlaces(chosen, base, ours, theirs) {
   if (ours.off !== true || theirs.off !== true || ours.at !== theirs.at || ours.why !== theirs.why) return chosen
   const other = chosen === ours ? theirs : ours
   const from = placesOf(other)
   if (!from.length) return chosen
-  const settled = new Set((Array.isArray(chosen.settled) ? chosen.settled : []).map(p => p.file))
-  const added = from.filter(p => !settled.has(p.file) && (!chosen.back || !placesOf(base).some(q => q.file === p.file)))
-  const places = new Map(placesOf(chosen).map(p => [p.file, p]))
-  for (const p of added) if (!places.has(p.file)) places.set(p.file, p)
+  const settled = new Set((Array.isArray(chosen.settled) ? chosen.settled : []).map(placeKey))
+  const added = from.filter(p => !settled.has(placeKey(p)) && (!chosen.back || !placesOf(base).some(q => placeKey(q) === placeKey(p))))
+  const places = new Map(placesOf(chosen).map(p => [placeKey(p), p]))
+  for (const p of added) if (!places.has(placeKey(p))) places.set(placeKey(p), p)
   if (!places.size) return chosen
   const { back: _back, ...pending } = chosen
   return { ...pending, left: [...places.values()] }
@@ -60,6 +62,22 @@ const waitingAndFinal = (o, t) => typeof o === 'string' && typeof t === 'string'
 const LISTED = /^(species|breeds)\/[a-z0-9-]+$/, DAY = /^\d{4}-\d{2}-\d{2}$/
 const listedDays = (k, o, t) => LISTED.test(k) && typeof o === 'string' && typeof t === 'string' && DAY.test(o) && DAY.test(t)
 
+// A part photo's entry (engine-state/_part-photos-off.json, packages/engine/src/video-images.ts): a Commons file's page or a
+// frame's address to `why`, the guides it is off for (none: every guide) and, for a frame, the seconds the picture step
+// doesn't cut. Where both sides changed one, it stays off for every guide and second either side named: keeping one side
+// whole would bring the photo back on the other's guide at its next rewrite. The reason is ours. Told by its shape: `why`
+// and only `guides` and `seconds` beside it, one of them on at least one side (a test holds that no other file the
+// driver merges has one).
+const partOff = v => !!v && typeof v === 'object' && !Array.isArray(v) && typeof v.why === 'string' && Object.keys(v).every(k => k === 'why' || k === 'guides' || k === 'seconds') && (v.guides === undefined || Array.isArray(v.guides)) && (v.seconds === undefined || Array.isArray(v.seconds))
+const partsOff = (o, t) => partOff(o) && partOff(t) && [o, t].some(v => v.guides || v.seconds)
+function bothOff(o, t) {
+  const union = (a, b) => [...new Set([...(a ?? []), ...(b ?? [])])]
+  const seconds = o.seconds || t.seconds ? union(o.seconds, t.seconds).sort((a, b) => a - b) : undefined
+  // Every guide where either side says so, but a frame's seconds always name their guides.
+  const guides = (o.guides && t.guides) || seconds ? union(o.guides, t.guides).sort() : undefined
+  return { why: o.why, ...(guides ? { guides } : {}), ...(seconds ? { seconds } : {}) }
+}
+
 export function mergeMaps(base, ours, theirs) {
   const same = (side, k) => (k in side) === (k in base) && JSON.stringify(side[k]) === JSON.stringify(base[k])
   const out = {}
@@ -69,6 +87,7 @@ export function mergeMaps(base, ours, theirs) {
     const side = both ? bothChanged(base, ours, theirs, k)
       : changed && k in ours && k in theirs && waitingAndFinal(ours[k], theirs[k]) ? (WAITING.test(ours[k]) ? theirs : ours)
       : changed && k in ours && k in theirs && listedDays(k, ours[k], theirs[k]) ? (theirs[k] < ours[k] ? theirs : ours)
+      : changed && k in ours && k in theirs && partsOff(ours[k], theirs[k]) ? { [k]: bothOff(ours[k], theirs[k]) }
       : !same(ours, k) ? ours : !same(theirs, k) ? theirs : base
     if (side && k in side) out[k] = side[k]
   }

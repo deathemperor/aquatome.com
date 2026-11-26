@@ -228,3 +228,24 @@ test('video-still OCR and both model replies never persist or report their synth
  for(const file of ['_photo-watermarks.json','_photo-rejected.json','_photo-guides.json','_video-stills.json'])expect(await readFile(join(s.root,'engine-state',file),'utf8')).not.toContain(trip)
  await assertPhotoPrivacy(s.root)
 })
+
+test('video-stills: a frame the people check finds dead or shown as food is uploaded without the tile\'s verdict and comes off its guide at once, held for a second look, its second kept off the part', async () => {
+  // The chief of staff, 22 Nov 2026: the dead-or-food question rides the people check.
+  const s = await site({ judge: async () => ({ photos: [{ n: 1, person: false, mark: false, brand: false, note: 'a fish lying flat in a bottle', dead: true }, { n: 2, person: false, mark: false, brand: false, note: 'a tank', dead: false }] }) })
+  // The tile at 20 s showed before (its own verdict); the frame's verdict is the frame's.
+  const file = join(s.root, 'content/guides/youtube-b1/entity.json')
+  const e = JSON.parse(await readFile(file, 'utf8'))
+  e.video.figures[0].moments[0].person = false
+  await writeFile(file, `${JSON.stringify(e, null, 2)}\n`)
+  const r = await videoStills(s.root, s.d)
+  const dead = 'https://m/video/b1/at20-hd.webp'
+  expect(s.calls.puts).toContain('video/b1/at20-hd.webp')
+  expect(r.dead).toEqual([`${dead}: guides/youtube-b1`])
+  const figs = (await s.read('content/guides/youtube-b1/entity.json')).video.figures
+  expect(figs[0].moments.map((m: { url: string; person?: boolean }) => [m.url, m.person])).toEqual([['https://m/video/b1/at30-hd.webp', false]])
+  expect((await s.read('engine-state/_photo-second-look.json'))[dead]).toMatchObject({ step: 'the guide photo check', pages: ['guides/youtube-b1'], off: true })
+  expect((await s.read('engine-state/_photo-rejected.json'))[dead]).toMatch(/^waiting: withheld \[sha256:[0-9a-f]{64}\]$/)
+  expect(Object.keys(await s.read('engine-state/_photo-rejected.json'))).toContain(old(72)) // the step's own entries stay
+  expect((await s.read('engine-state/_part-photos-off.json'))[dead]).toMatchObject({ guides: ['youtube-b1'], seconds: [20] })
+  expect((await s.read('engine-state/_photo-guides.json'))[dead]).toMatchObject({ dead: true, person: false })
+})

@@ -341,13 +341,13 @@ test("a public build shows no own photo of a species or plant page that no look 
   const said = vi.spyOn(console, 'log').mockImplementation(() => {})
   try {
     await loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })
-    expect(said.mock.calls.map(a => String(a[0])).filter(l => l.includes('dead fish'))).toEqual(['vi: 2 own photos of species and plant pages wait, no look has judged them for a dead fish'])
+    expect(said.mock.calls.map(a => String(a[0])).filter(l => l.includes('dead fish'))).toEqual(['vi: 2 own photos of species, plant and breed pages wait, no look has judged them for a dead fish'])
     const many = Array.from({ length: UNJUDGED_DEAD_LIMIT - 1 }, (_, i) => photo(`many-${i}`))
     const named = [...all, ...many.map(p => short(p.url))]
     await state('_photo-watermarks.json', Object.fromEntries(named.map(n => [`https://media.test/${n}.webp`, { ocr: [] }])))
     await state('_photo-faces.json', Object.fromEntries(named.map(n => [`https://media.test/${n}.webp`, 0])))
     await write('species/alpha/entity.json', { ...alpha, photos: [photo('by-screen'), photo('by-check'), photo('by-person'), photo('by-none'), ...many] })
-    await expect(loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })).rejects.toThrow(`vi: ${UNJUDGED_DEAD_LIMIT + 1} own photos of species and plant pages that no look has judged for a dead fish`)
+    await expect(loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })).rejects.toThrow(`vi: ${UNJUDGED_DEAD_LIMIT + 1} own photos of species, plant and breed pages that no look has judged for a dead fish`)
     // A rejection already recorded across the queue keeps the entry off without adding to the build limit.
     await state('_photo-rejected.json', Object.fromEntries(many.map(p => [p.url, 'people: rejected'])))
     const allowed = await loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })
@@ -462,7 +462,7 @@ test("a public build shows no guide photo or stock photo the guides' own look ha
   expect(await shown(true)).toEqual({ own: ['guide-looked', 'guide-new'], stock: ['stock-looked', 'stock-new'] })
 })
 
-test("a public build shows no own photo of a species, plant or guide page the face finder has never read: it waits there, in an album and by address, shows once read, and the site's build counts them and fails past the limit", async () => {
+test("a public build shows no own photo of a species, plant, breed or guide page the face finder has never read: it waits there, in an album and by address, shows once read, and the site's build counts them and fails past the limit", async () => {
   const { mkdir } = await import('node:fs/promises')
   const site = await mkdtemp(join(tmpdir(), 'aq-unread-'))
   const store = join(site, 'content')
@@ -479,7 +479,7 @@ test("a public build shows no own photo of a species, plant or guide page the fa
   for (const [kind, id, e] of [
     ['plants', 'moss', { id: 'moss', scientificName: 'Mossus testus', difficulty: 1, light: 'low', co2: 'none', growth: 'slow', placement: ['foreground'], sections: alpha.sections, photos: [photo('plant-unread')], productSlots: [], updatedAt: '2026-11-21' }],
     ['guides', 'g', { id: 'g', kind: 'care', source: alpha.sections[0].source, sourceUrl: 'https://x/g', html: '<p>x</p>', photos: [photo('guide-read'), photo('guide-unread')], mentions: [], updatedAt: '2026-11-21' }],
-    // The face finder doesn't read a breed's photos: they don't wait for it.
+    // A breed page's own photos are the face finder's too: an unread one waits.
     ['breeds', 'b', { id: 'b', kind: 'hybrid', parents: [], care: {}, photos: [photo('breed')], sources: [], updatedAt: '2026-11-21' }],
   ] as const) {
     await mkdir(join(store, kind, id), { recursive: true })
@@ -504,24 +504,33 @@ test("a public build shows no own photo of a species, plant or guide page the fa
     const own = (xs: { id: string; photos: { url: string }[] }[], id: string) => xs.find(x => x.id === id)!.photos.map(p => short(p.url))
     return { fish: own(c.species, 'alpha'), album: (c.galleries.alpha ?? []).map(p => short(p.url)), plant: own(c.plants, 'moss'), guide: own(c.guides, 'g'), breed: own(c.breeds, 'b') }
   }
-  expect(await shown(true)).toEqual({ fish: ['fish-read'], album: ['album'], plant: [], guide: ['guide-read'], breed: ['breed'] })
+  expect(await shown(true)).toEqual({ fish: ['fish-read'], album: ['album'], plant: [], guide: ['guide-read'], breed: [] })
+  // Reading a breed's photo into the face cache still leaves it owed a dead-fish verdict.
+  const previousFaces = await readFile(facesFile, 'utf8')
+  await writeFile(facesFile, JSON.stringify({ ...JSON.parse(previousFaces), 'https://media.test/breed.webp': 0 }))
+  await judgedAll(all.filter(name => name !== 'breed'))
+  expect((await shown(true)).breed).toEqual([])
+  await judgedAll(all)
+  expect((await shown(true)).breed).toEqual(['breed'])
+  await writeFile(facesFile, previousFaces)
+
   // The engine's own reads see every photo.
   expect(await shown(false)).toEqual({ fish: ['fish-read', 'fish-unread'], album: ['fish-unread', 'album'], plant: ['plant-unread'], guide: ['guide-read', 'guide-unread'], breed: ['breed'] })
   // By address too (the calendar), a thumb's and a larger copy's.
   const c = await loadAll({ root: store, lang: 'vi', publicBuild: true })
   expect(['fish-unread', 'fish-unread-480', 'fish-unread-large', 'fish-read', 'breed'].filter(n => c.photoWaits!(`https://media.test/${n}.webp`)))
-    .toEqual(['fish-unread', 'fish-unread-480', 'fish-unread-large'])
+    .toEqual(['fish-unread', 'fish-unread-480', 'fish-unread-large', 'breed'])
   // The site's build (the real content) says how many wait.
   const said = vi.spyOn(console, 'log').mockImplementation(() => {})
   try {
     await loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })
-    expect(said.mock.calls.map(a => String(a[0])).filter(l => l.includes('face finder'))).toEqual(['vi: 3 own photos of species, plant and guide pages wait, the face finder has never read them'])
+    expect(said.mock.calls.map(a => String(a[0])).filter(l => l.includes('face finder'))).toEqual(['vi: 4 own photos of species, plant, breed and guide pages wait, the face finder has never read them'])
     // Past the limit it is a lost or damaged record: the site's build fails. An engine step's public read still hides them.
-    const many = Array.from({ length: UNREAD_FACES_LIMIT - 2 }, (_, i) => photo(`many-${i}`))
+    const many = Array.from({ length: UNREAD_FACES_LIMIT - 3 }, (_, i) => photo(`many-${i}`))
     await write('species/alpha/entity.json', { ...alpha, photos: [photo('fish-read'), photo('fish-unread'), ...many] })
     await writeFile(join(site, 'engine-state', '_photo-watermarks.json'), JSON.stringify(Object.fromEntries([...all, ...many.map(p => short(p.url))].map(n => [`https://media.test/${n}.webp`, { ocr: [] }]))))
     await judgedAll([...all, ...many.map(p => short(p.url))])
-    await expect(loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })).rejects.toThrow(`vi: ${UNREAD_FACES_LIMIT + 1} own photos of species, plant and guide pages the face finder has never read`)
+    await expect(loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })).rejects.toThrow(`vi: ${UNREAD_FACES_LIMIT + 1} own photos of species, plant, breed and guide pages the face finder has never read`)
     expect((await shown(true)).fish).toEqual(['fish-read'])
     // A listed URL cannot be retried by faces and still stays off the page.
     const rejectedFile = join(site, 'engine-state', '_photo-rejected.json')
@@ -538,7 +547,7 @@ test("a public build shows no own photo of a species, plant or guide page the fa
   }
   // Read (a faces step has run): each shows by itself in the next build.
   await write('species/alpha/entity.json', { ...alpha, photos: [photo('fish-read'), photo('fish-unread')] })
-  await writeFile(facesFile, JSON.stringify(Object.fromEntries(['fish-read', 'fish-unread', 'plant-unread', 'guide-read', 'guide-unread'].map(n => [`https://media.test/${n}.webp`, n === 'fish-unread' ? 2 : 0]))))
+  await writeFile(facesFile, JSON.stringify(Object.fromEntries(['fish-read', 'fish-unread', 'plant-unread', 'guide-read', 'guide-unread', 'breed'].map(n => [`https://media.test/${n}.webp`, n === 'fish-unread' ? 2 : 0]))))
   expect(await shown(true)).toEqual({ fish: ['fish-read', 'fish-unread'], album: ['fish-unread', 'album'], plant: ['plant-unread'], guide: ['guide-read', 'guide-unread'], breed: ['breed'] })
   // With no record beside the real content, the site's build fails: it can't tell a read photo from one never read.
   const { rm } = await import('node:fs/promises')

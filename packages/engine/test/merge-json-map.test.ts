@@ -39,6 +39,35 @@ test('a clear keeps recovery places added for the same mark in a concurrent chec
   expect(mergeMaps(base, checked, { u: { ...captured.u, why: 'people: withheld' } })).toEqual({ u: { ...captured.u, why: 'people: withheld' } })
 })
 
+test("a part photo's entry both sides changed stays off for every guide and second either side named; the reason is ours", () => {
+  const page = 'https://commons.wikimedia.org/wiki/File:X.jpg', frame = 'https://media.aquatome.com/guides/g/at60-hd.webp'
+  // Two runs take one Commons file off two guides' parts.
+  expect(mergeMaps({ [page]: { why: 'a', guides: ['g1'] } }, { [page]: { why: 'b', guides: ['g1', 'g2'] } }, { [page]: { why: 'c', guides: ['g1', 'g3'] } }))
+    .toEqual({ [page]: { why: 'b', guides: ['g1', 'g2', 'g3'] } })
+  // Off for every guide on one side: every guide.
+  expect(mergeMaps({}, { [page]: { why: 'b', guides: ['g2'] } }, { [page]: { why: 'c' } })).toEqual({ [page]: { why: 'b' } })
+  // A frame's seconds, each side's, and their guides.
+  expect(mergeMaps({}, { [frame]: { why: 'b', guides: ['g'], seconds: [60] } }, { [frame]: { why: 'c', guides: ['h'], seconds: [55, 60] } }))
+    .toEqual({ [frame]: { why: 'b', guides: ['g', 'h'], seconds: [55, 60] } })
+  // Not a part photo's entry (another key beside `why`): ours, as before.
+  expect(mergeMaps({}, { k: { why: 'b', step: 's' } }, { k: { why: 'c', guides: ['g'] } })).toEqual({ k: { why: 'b', step: 's' } })
+})
+
+test("the part-photo list merges by key through the map driver, and no other file the driver merges holds a part photo's entry", async () => {
+  const repo = fileURLToPath(new URL('../../../', import.meta.url))
+  expect(execFileSync('git', ['check-attr', 'merge', '--', 'engine-state/_part-photos-off.json'], { cwd: repo, encoding: 'utf8' }).trim()).toBe('engine-state/_part-photos-off.json: merge: jsonmap')
+  const attrs = (await readFile(join(repo, '.gitattributes'), 'utf8')).split('\n').filter(l => / merge=jsonmap$/.test(l)).map(l => l.split(' ')[0]!)
+  const files = execFileSync('git', ['ls-files', '--', ...attrs], { cwd: repo, encoding: 'utf8' }).split('\n').filter(Boolean)
+  const partOff = (v: unknown) => !!v && typeof v === 'object' && !Array.isArray(v) && typeof (v as { why?: unknown }).why === 'string' && Object.keys(v).every(k => ['why', 'guides', 'seconds'].includes(k)) && Object.keys(v).length > 1
+  const shaped: string[] = []
+  for (const f of files) {
+    let d: unknown
+    try { d = JSON.parse(await readFile(join(repo, f), 'utf8')) } catch { continue }
+    if (d && typeof d === 'object' && !Array.isArray(d) && Object.values(d).some(partOff)) shaped.push(f)
+  }
+  expect(shaped).toEqual(['engine-state/_part-photos-off.json'])
+})
+
 test('as a git merge driver: two engine jobs that both append to a photo cache rebase cleanly', async () => {
   const dir = await mkdtemp(join(tmpdir(), 'jm-'))
   const git = (...a: string[]) => execFileSync('git', a, { cwd: dir, encoding: 'utf8' })

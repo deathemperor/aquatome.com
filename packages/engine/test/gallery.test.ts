@@ -387,6 +387,34 @@ test('gallery: a page short of target is read again only after 30 days; then iNa
   expect(urls(await read(r, 'content/gallery/betta-splendens.json'))).toContain('https://www.inaturalist.org/photos/40')
 })
 
+test("gallery: a page on either priority list is read again a week after its sources ran dry; any other page waits the month", async () => {
+  let calls = 0
+  const on = (day: string) => deps({ http: async u => { calls++; return deps().http(u) }, now: () => new Date(`${day}T00:00:00Z`) })
+  for (const list of ['_priority-fish.json', '_priority-emptied.json']) {
+    const listed = await root()
+    // The plan asks the site's loader whether an emptied list's page shows a photo: it reads the sources and a whole page.
+    await cp(new URL('../../../content/sources.json', import.meta.url), join(listed, 'content/sources.json'))
+    await writeFile(join(listed, 'content/species/betta-splendens/entity.json'), JSON.stringify({ id: 'betta-splendens', scientificName: 'Betta splendens', order: 'O', family: 'F', genus: 'Betta', group: 'g', places: [], dataCard: {}, sections: [{ key: 'habitat', source: 'seriouslyfish', sourceUrl: 'https://example.org/b', html: '<p>A fish.</p>' }], photos: [{ url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/5/large.jpg', width: 1200, height: 800, licence: 'CC BY 4.0', author: 'Sample Tester', sourceUrl: 'https://www.inaturalist.org/photos/5' }], videos: [], productSlots: [], updatedAt: '2026-11-01' }))
+    await writeFile(join(listed, 'content/species/betta-splendens/vi.json'), JSON.stringify({ slug: 'ca-betta', name: 'Cá betta', altNames: [], sections: {}, quality: { score: 0.9, indexable: true } }))
+    await writeFile(join(listed, 'engine-state', list), JSON.stringify({ 'species/betta-splendens': '2026-10-30' }))
+    await galleries(listed, deps(), { sheets: 5 })
+    expect((await read(listed, 'engine-state/gallery/betta-splendens.json')).exhausted).toBe('2026-10-30')
+    calls = 0
+    await galleries(listed, on('2026-11-05'), { sheets: 5 })
+    expect(calls, list).toBe(0)
+    await galleries(listed, on('2026-11-06'), { sheets: 5 })
+    expect(calls, list).toBeGreaterThan(0)
+  }
+  const other = await root()
+  await galleries(other, deps(), { sheets: 5 })
+  calls = 0
+  await galleries(other, on('2026-11-06'), { sheets: 5 })
+  await galleries(other, on('2026-11-28'), { sheets: 5 })
+  expect(calls).toBe(0)
+  await galleries(other, on('2026-11-29'), { sheets: 5 })
+  expect(calls).toBeGreaterThan(0)
+})
+
 test('gallery: a page is not called dry while iNaturalist is unread (its requests ran out this run)', async () => {
   const r = await root()
   await galleries(r, deps(), { sheets: 5, budget: { inat: 0 } })

@@ -14,6 +14,8 @@ import { namedOn, namedOrder, SPECIES, type Named } from './photo-named'
 import { keptCap, keptMarks } from './own-mark'
 import { isRejected, rejectedEntry, unfitCommons } from './photos'
 import { captureWaiting, CLEARED_VERDICT, looks, notePlaces, placesIn, readSecondLook, withoutSettledWaits, type Stood } from './last-photo'
+import { EMPTIED_FILE, readList } from './emptied-pages'
+import { readPriorityFish } from './priority-fish'
 import { contactSheet } from './video-images'
 import { authorText } from './wiki-author'
 import { WikimediaRefused } from './wikimedia-rest'
@@ -387,6 +389,12 @@ export const SEED_OVER = 3
 /** Requests a run may make to each source (iNaturalist asks for about one a second and under 10,000 a day; Openverse lets anonymous clients make 200 a day). */
 export type SourceBudget = { inat: number; gbif: number; openverse: number }
 const RETRY_DAYS = 30
+/**
+ * A page on either priority list (the owner's fish, engine-state/_priority-fish.json, and the pages our removals left with
+ * no photo, _priority-emptied.json) rests a week once its sources run dry, not a month (the chief of staff, 22 Nov 2026).
+ * A run's request budgets stay as they are.
+ */
+export const LISTED_RETRY_DAYS = 7
 const UNSPLASH = 'Unsplash License'
 /** The source a candidate key came from, for the report. */
 export const sourceOfKey = (key: string) => (key.startsWith('inat:') ? 'iNaturalist' : key.startsWith('flickr:') ? 'Openverse (Flickr)' : key.startsWith('gbif:') ? 'GBIF' : 'Wikimedia Commons')
@@ -522,6 +530,7 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   await dropRejected(root, content, rejectedPhoto, captureWaiting(sl, rejectedEntry(rejected)))
   // `shard` [i, n]: every n-th page from the i-th, so n runs can share the work (each still most popular first).
   const plan = (await galleryPlan(root)).filter((t, i) => (!o.only || t.id === o.only) && (!o.shard || i % o.shard[1] === o.shard[0]))
+  const listed = new Set([...Object.keys(await readPriorityFish(root)), ...Object.keys(await readList(root, EMPTIED_FILE))])
   // Each source's requests: counted against the run's budget, at the pace the source asks for (shared by n shards).
   const runs = o.shard?.[1] ?? 1
   const paced = (name: keyof SourceBudget, gap: number) => async (url: string) => {
@@ -578,7 +587,7 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
     if (ncRound && (t.kind === 'breeds' || (st.inatNc?.done && !ncQueued) || !ncReady(t, st))) continue
     // A page dry before the non-commercial switch went on has never read that pass: it is read now, not in a month.
     const ncUnread = ncRound && !st.inatNc
-    const due = !st.exhausted || !!o.only || days(st.exhausted) >= RETRY_DAYS
+    const due = !st.exhausted || !!o.only || days(st.exhausted) >= (listed.has(`${t.kind}/${t.id}`) ? LISTED_RETRY_DAYS : RETRY_DAYS)
     if (!due && !ncUnread) continue
     // Read for that pass alone: the open sources stay dry from the day they ran dry, so their month isn't put back.
     const drySince = due ? undefined : st.exhausted

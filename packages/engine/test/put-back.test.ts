@@ -1,4 +1,5 @@
 import { execFileSync } from 'node:child_process'
+import { createHash } from 'node:crypto'
 import { copyFile, mkdir, mkdtemp, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -9,6 +10,7 @@ import { dropFacePhotos, screenNewPhotos } from '../src/faces'
 import { galleries, type GalleryDeps } from '../src/gallery'
 import { mirrorPlan } from '../src/mirror-photos'
 import { gitHistory, listAgreed, notePlaces, putBackCleared, waitingEntry, type History, type LeftPlace } from '../src/last-photo'
+import { takeOffGuidesDead } from '../src/guides-dead'
 import { compactRejection } from '../src/photo-observations'
 import { checkPagePhotos, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
 import { sweep } from '../src/sweep'
@@ -777,4 +779,97 @@ test("the history, along main's own line: a place that showed it at the mark and
   four.git('mv', 'content/species/aaa', 'content/species/aab')
   await four.put('content/species/aab/entity.json', ent(['a1', 'a2', 'a3'])); await four.put(SL, marked()); four.git('add', '.'); four.git('commit', '-qm', 'renamed, and off at its first verdict')
   expect.soft(await gitHistory(four.r)(url('g-dead'), today)).toMatchObject([{ file: 'content/species/aaa/entity.json', index: 3, photo: photo('g-dead'), times: 1 }])
+})
+
+// A guide's part photo and frame the guides' dead-fish screen took off (guides-dead.ts), cleared by a person's look.
+const stockPage = 'https://commons.wikimedia.org/wiki/File:Example.jpg'
+const stock = { ...photo('s-dead'), sourceUrl: stockPage }
+const frame = { url: url('f-dead'), t: 60, width: 1280, height: 720 }
+const guideAfter = { id: 'ggg', photos: [], video: { figures: [{ heading: 'one', moments: [{ url: url('f-live'), t: 30, width: 1280, height: 720 }] }, { heading: 'two', moments: [] }] } }
+const guideBefore = { id: 'ggg', photos: [], video: { figures: [{ heading: 'one', photo: stock, moments: [{ url: url('f-live'), t: 30, width: 1280, height: 720 }] }, { heading: 'two', moments: [frame] }] } }
+const hashOf = (s: string) => `sha256:${createHash('sha256').update(s).digest('hex')}`
+
+test("a guide's part photo and frame a person cleared go back to their parts, and leave the part-photo list for that guide; an entry for every guide stays", async () => {
+  const r = await store({})
+  const G = 'content/guides/ggg/entity.json'
+  await mkdir(join(r, 'content/guides/ggg'), { recursive: true })
+  await writeFile(join(r, G), `${JSON.stringify(guideAfter, null, 2)}\n`)
+  const rec = { why, step: 'the dead-fish screen', pages: ['guides/ggg'], at: '2026-11-26', off: true, look: { said: 'clear', by: 'the chief of staff', on: '2026-11-27' } }
+  await writeFile(join(r, SL), JSON.stringify({ [stock.url]: rec, [frame.url]: rec }))
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [stock.url]: waitingEntry(why), [frame.url]: waitingEntry(why) }))
+  const byHand = 'https://commons.wikimedia.org/wiki/File:Other.jpg'
+  await writeFile(join(r, 'engine-state/_part-photos-off.json'), JSON.stringify({ [hashOf(stockPage)]: { why, guides: ['ggg', 'hhh'] }, [frame.url]: { why, guides: ['ggg'], seconds: [60] }, [byHand]: { why: 'by hand' } }))
+  const history: History = async u => (u === stock.url
+    ? [{ file: G, index: -1, photo: stock, times: 1, path: ['video', 'figures', 0, 'photo'] }]
+    : [{ file: G, index: 0, photo: frame, times: 1, path: ['video', 'figures', 1, 'moments'] }])
+  const out = await putBackCleared(r, history, '2026-11-27')
+  expect(out.back.sort()).toEqual([`${G}: ${frame.url}`, `${G}: ${stock.url}`].sort())
+  expect(await json(r, G)).toEqual(guideBefore)
+  expect(await json(r, 'engine-state/_part-photos-off.json')).toEqual({ [hashOf(stockPage)]: { why, guides: ['hhh'] }, [byHand]: { why: 'by hand' } })
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({})
+  // A part that's gone (the guide written again) is reported, and nothing is put in its place.
+  await writeFile(join(r, G), `${JSON.stringify({ id: 'ggg', photos: [], video: { figures: [] } }, null, 2)}\n`)
+  await writeFile(join(r, SL), JSON.stringify({ [frame.url]: rec }))
+  expect((await putBackCleared(r, history, '2026-11-27')).off).toEqual([`${frame.url}: its part of ${G} is gone`])
+})
+
+test("a guide's part is found by its heading: one a step dropped once it had no picture comes back at its place, and a part that moved up takes its own picture back", async () => {
+  const r = await store({})
+  const G = 'content/guides/ggg/entity.json'
+  await mkdir(join(r, 'content/guides/ggg'), { recursive: true })
+  // Part two, left with no picture, was dropped (stripPhotos), and part three moved up to its place.
+  const three = { url: url('f-three'), t: 90, width: 1280, height: 720 }
+  const now = { id: 'ggg', photos: [], video: { figures: [{ heading: 'one', moments: [] }, { heading: 'three', moments: [] }] } }
+  await writeFile(join(r, G), `${JSON.stringify(now, null, 2)}\n`)
+  const rec = { why, step: 'the guide photo check', pages: ['guides/ggg'], at: '2026-11-26', off: true, look: { said: 'clear', by: 'the chief of staff', on: '2026-11-27' } }
+  await writeFile(join(r, SL), JSON.stringify({ [frame.url]: rec, [three.url]: rec }))
+  const history: History = async u => (u === frame.url
+    ? [{ file: G, index: 0, photo: frame, times: 1, path: ['video', 'figures', 1, 'moments'], heading: 'two' }]
+    : [{ file: G, index: 0, photo: three, times: 1, path: ['video', 'figures', 2, 'moments'], heading: 'three' }])
+  expect((await putBackCleared(r, history, '2026-11-27')).back).toHaveLength(2)
+  expect((await json(r, G)).video.figures).toEqual([{ heading: 'one', moments: [] }, { heading: 'two', moments: [frame] }, { heading: 'three', moments: [three] }])
+})
+
+test("a same-cycle stock photo and frame return from private recovery even if their original part was dropped", async () => {
+  // Taken off in the run that brought them: no commit showed them, so history has no place for either.
+  const r = await store({})
+  const G = 'content/guides/ggg/entity.json'
+  await mkdir(join(r, 'content/guides/ggg'), { recursive: true })
+  await writeFile(join(r, G), `${JSON.stringify(guideBefore, null, 2)}\n`)
+  // Another guide's entry on the same stock photo stays.
+  await writeFile(join(r, 'engine-state/_part-photos-off.json'), JSON.stringify({ [hashOf(stockPage)]: { why, guides: ['hhh'] } }))
+  await takeOffGuidesDead(r, new Map([[stock.url, 'a fish on a board'], [frame.url, 'a fish on a board']]), 'the dead-fish screen')
+  const marked = await json(r, SL)
+  expect(marked[stock.url].parts).toEqual([hashOf(stockPage)])
+  expect(marked[frame.url].parts).toEqual([frame.url])
+  expect(Object.keys(await json(r, 'engine-state/_part-photos-off.json')).sort()).toEqual([frame.url, hashOf(stockPage)].sort())
+  expect(marked[stock.url].left).toEqual([{ ...capturedAt(G, -1), path: ['video', 'figures', 0, 'photo'] }])
+  expect(marked[frame.url].left).toEqual([{ ...capturedAt(G, 0), path: ['video', 'figures', 1, 'moments'] }])
+  expect(await readFile(join(r, SL), 'utf8')).not.toContain(stock.author)
+  await writeFile(join(r, G), JSON.stringify({ ...guideAfter, video: { figures: [guideAfter.video.figures[0]] } }))
+  const on = new Date().toISOString().slice(0, 10)
+  for (const u of [stock.url, frame.url]) marked[u].look = { said: 'clear', by: 'the chief of staff', on }
+  await writeFile(join(r, SL), JSON.stringify(marked))
+  const out = await putBackCleared(r, async () => [])
+  expect(out.back.sort()).toEqual([`${G}: ${frame.url}`, `${G}: ${stock.url}`].sort())
+  expect(await json(r, G)).toEqual(guideBefore)
+  expect(await json(r, 'engine-state/_part-photos-off.json')).toEqual({ [hashOf(stockPage)]: { why, guides: ['hhh'] } })
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({})
+})
+
+test("the history from git finds a guide's part photo and frame where they stood, by their part", async () => {
+  const { r, git, put } = await repo('aq-put-back-guide-')
+  const G = 'content/guides/ggg/entity.json'
+  await put(G, guideBefore); await put(SL, {})
+  git('add', '.'); git('commit', '-qm', 'guide')
+  const today = new Date().toISOString().slice(0, 10)
+  const rec = { why, step: 'the dead-fish screen', pages: ['guides/ggg'], at: today, off: true }
+  await put(G, guideAfter); await put(SL, { [stock.url]: rec, [frame.url]: rec }); git('commit', '-qam', 'off')
+  expect(await gitHistory(r)(stock.url, today)).toMatchObject([{ file: G, index: -1, photo: stock, times: 1, path: ['video', 'figures', 0, 'photo'], heading: 'one' }])
+  expect(await gitHistory(r)(frame.url, today)).toMatchObject([{ file: G, index: 0, photo: frame, times: 1, path: ['video', 'figures', 1, 'moments'], heading: 'two' }])
+  // A later step drops the part left with no picture; once cleared, the frame goes back under its heading.
+  await put(G, { ...guideAfter, video: { figures: [guideAfter.video.figures[0]] } }); git('commit', '-qam', 'empty part dropped')
+  await put(SL, { [frame.url]: { ...rec, look: { said: 'clear', by: 'the chief of staff', on: today } } }); git('commit', '-qam', 'cleared')
+  expect((await putBackCleared(r, gitHistory(r), today)).back).toEqual([`${G}: ${frame.url}`])
+  expect((await json(r, G)).video.figures).toEqual([guideAfter.video.figures[0], { heading: 'two', moments: [frame] }])
 })

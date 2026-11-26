@@ -8,6 +8,7 @@ import { LlmError } from './claude'
 import { dhash } from './gallery'
 import type { Media } from './source-photos'
 import { guidePhotoOff, judgeGuidePhotos, PER_SHEET, type GuidePhotoDeps, type GuidePhotoVerdict } from './guide-photos'
+import { takeOffGuidesDead } from './guides-dead'
 import { sharpFrame, stillDone, tileTime, type ImageDeps, type VideoFrames } from './video-images'
 import { frameSharpness } from './still-sharpness'
 import { judgeSheet, ocrHit, ocrOf, type WatermarkDeps, type WatermarkEntry } from './watermarks'
@@ -50,13 +51,17 @@ const sortedJson = (o: Record<string, unknown>) => `${JSON.stringify(Object.from
  *   `_photo-watermarks.json` under the new address, so the watermark step doesn't read it again;
  * - a person, hands included, or a mark added on it (guide-photos.ts's question, which a tile's smudge hid): the still
  *   leaves the page and goes onto `_photo-rejected.json`. A frame that passes carries its verdict (`person: false`, which
- *   a still needs to show) and is in `_photo-guides.json`, so guide-photos doesn't judge it again.
+ *   a still needs to show) and is in `_photo-guides.json`, so guide-photos doesn't judge it again;
+ * - a dead fish or fish as food (the same question's `dead`, the chief of staff, 22 Nov 2026): the frame is uploaded and
+ *   swapped in without `person`, so it doesn't show, and once the guides are written it comes off as guides-dead.ts's
+ *   `takeOffGuidesDead` takes it, held for its second look and restorable until a person has looked.
  * A frame that doesn't show the tile's moment leaves the tile for good (`_video-stills.json`); a grab or a read that
  * fails leaves it for the next run. YouTube throttling, a model failure or three grabs failing in a row stop the run, and
  * the guide in hand is left as it was. `limit`: guides this run.
  */
 export async function videoStills(root: string, d: StillDeps, o: { limit?: number; only?: string[] } = {}) {
-  const report = { done: [] as string[], dropped: [] as string[], kept: [] as string[], failed: [] as string[], stopped: '' }
+  const report = { done: [] as string[], dropped: [] as string[], kept: [] as string[], failed: [] as string[], stopped: '', dead: [] as string[], bare: [] as string[] }
+  const dead = new Map<string, string>()
   const file = (...p: string[]) => join(root, ...p)
   const json = async <T>(path: string): Promise<T> => JSON.parse(await readFile(path, 'utf8').catch(() => '{}')) as T
   const state = await json<StillsState>(file('engine-state', '_video-stills.json'))
@@ -212,8 +217,12 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
         const s = await d.media.put(`video/${v.youtubeId}/at${t}-hd.webp`, hd)
         marks[s.url] = entry
         hashes[s.url] = await dhash(hd)
-        verdicts[s.url] = compactVerdict(judged.get(m)!)
-        swap.set(m, { ...m, t, url: s.url, width: s.width, height: s.height, sharpness: await frameSharpness(hd), person: false })
+        const verdict = judged.get(m)!
+        verdicts[s.url] = compactVerdict(verdict)
+        if (verdict.dead) dead.set(s.url, verdict.note)
+        const still: Moment = { ...m, t, url: s.url, width: s.width, height: s.height, sharpness: await frameSharpness(hd), person: false }
+        if (verdict.dead) delete still.person // the tile's verdict isn't the frame's
+        swap.set(m, still)
       }
       if (swap.size || drop.size || retimed) await save(figures.map(f => ({ ...f, moments: f.moments.filter(m => !drop.has(m)).map(m => swap.get(m) ?? m) })).filter(f => f.moments.length || f.photo))
       if (swap.size || drop.size) changed = true
@@ -231,5 +240,9 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
       await writePhotoState(file('engine-state', '_photo-guides.json'), Object.fromEntries(Object.entries(verdicts).sort()))
     }
   }
+  // After the records above, which this writes on top of.
+  const took = await takeOffGuidesDead(root, dead, 'the guide photo check')
+  report.dead = took.off
+  report.bare = took.bare
   return report
 }

@@ -8,6 +8,10 @@ import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
 import { guideSubject, screenGuidePhotos, type GuidePhotoDeps, type GuidePhotoVerdict } from '../src/guide-photos'
 import { videoStills, type StillDeps } from '../src/video-stills'
+import { DEAD_RULE, screenGuidesDead } from '../src/guides-dead'
+import type { DeadScreenDeps } from '../src/dead-screen'
+import { readPartPhotosOff } from '../src/video-images'
+import { createHash } from 'node:crypto'
 
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#468' } }).jpeg().toBuffer()
 const url = (n: string) => `https://media.example/${n}.webp`
@@ -369,4 +373,85 @@ test("a guide's photo with a person in it that is also a fish page's last photo 
   expect(urls((await json(root, 'content/guides/how-to-net/entity.json')).photos)).toEqual(['tank'])
   expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json').catch(() => ({})))).not.toContain(url('netted'))
   expect((await json(root, 'engine-state/_photo-second-look.json'))[url('netted')]).toMatchObject({ step: 'the guide photo check', pages: ['species/a'] })
+})
+
+// The dead-or-food question rides the people check (the chief of staff, 22 Nov 2026).
+const stockPage = 'https://commons.wikimedia.org/wiki/File:Example.jpg'
+const asked = (record: string[]) => { const d: DeadScreenDeps = { get: async u => { record.push(name(u)); return new Uint8Array(await jpeg) }, look: async () => ({ tiles: [] }) }; return d }
+
+test("the dead-or-food question, asked at a picture's first look: a dead guide photo, part photo and frame leave their guides at that verdict, held for a second look; a person on one takes it off for good; an equipment photo's answer is kept and it stays", async () => {
+  const root = await store({
+    'how-to-feed': { photos: [photo('lead'), photo('cut-fish'), photo('dead-hands')] },
+    'youtube-b1': videoGuide([], [
+      { heading: 'Một', moments: [still(20, true), still(30, true)], photo: { ...photo('stock-dead'), sourceUrl: stockPage } },
+      { heading: 'Hai', moments: [still(40, true)] },
+    ]),
+  }, { 'thuc-an': { hero: photo('pellets') } })
+  const { d, seen } = model({
+    'cut-fish': { dead: true, note: 'cut fish fillets as food' },
+    'dead-hands': { dead: true, person: true, note: 'a hand holds a dead fish' },
+    'stock-dead': { dead: true, note: 'a preserved specimen' },
+    'at30-hd': { dead: false },
+    'at40-hd': { dead: true, note: 'a fish lying flat in a bottle' },
+    pellets: { dead: true, note: 'pellets' },
+  })
+  const r = await screenGuidePhotos(root, d, { limit: 10 })
+  // One call, the rule in the people check's own words (guides-dead.ts), after its other questions.
+  expect(seen).toHaveLength(2)
+  expect(seen[0]!.prompt).toContain(`- ${DEAD_RULE}\nAnswer every photo, by its number.`)
+  expect(r.dead.sort()).toEqual([`${url('cut-fish')}: guides/how-to-feed`, `${url('stock-dead')}: guides/youtube-b1`, `${url('video/b1/at40-hd')}: guides/youtube-b1`].sort())
+  expect(urls((await json(root, 'content/guides/how-to-feed/entity.json')).photos)).toEqual(['lead'])
+  // Part two kept no picture; the people check's strip, writing the guide for its cleared stills, drops the empty part.
+  expect(r.bare).toEqual(['guides/youtube-b1: part 2'])
+  expect(await stillsOf(root)).toEqual([{ heading: 'Một', moments: ['at20-hd', 'at30-hd'] }])
+  // A person wins: on the never-again list for good. The dead ones wait for their look, restorable.
+  expectControlledRejections(Object.fromEntries(Object.entries(await json(root, 'engine-state/_photo-rejected.json')).map(([u, w]) => [name(u), w])), { 'dead-hands': 'people', 'cut-fish': 'waiting', 'stock-dead': 'waiting', 'at40-hd': 'waiting' })
+  const sl = await json(root, 'engine-state/_photo-second-look.json')
+  expect(Object.keys(sl).map(name).sort()).toEqual(['at40-hd', 'cut-fish', 'stock-dead'])
+  for (const u of Object.keys(sl)) expect(sl[u]).toMatchObject({ step: 'the guide photo check', off: true, why: expect.stringMatching(/^dead: withheld \[sha256:[0-9a-f]{64}\]$/) })
+  const parts = await readPartPhotosOff(join(root, 'content'))
+  expect(Object.keys(parts).sort()).toEqual([`sha256:${createHash('sha256').update(stockPage).digest('hex')}`, url('video/b1/at40-hd')].sort())
+  expect(parts[url('video/b1/at40-hd')]).toMatchObject({ guides: ['youtube-b1'], seconds: [40] })
+  // The equipment guide keeps its photo; its answer is kept.
+  expect(name((await json(root, 'content/equipment/thuc-an.json')).hero.url)).toBe('pellets')
+  const verdicts = await json(root, 'engine-state/_photo-guides.json')
+  expect(verdicts[url('pellets')].dead).toBe(true)
+  // An answer with no dead in it keeps its people and marks verdict, and the faces step's backlog asks it; nothing else.
+  expect(verdicts[url('lead')]).toMatchObject({ person: false, mark: false, brand: false })
+  expect(verdicts[url('lead')].dead).toBeUndefined()
+  const backlog: string[] = []
+  await screenGuidesDead(root, asked(backlog), { limit: 100 })
+  expect(backlog).toEqual(['lead', 'at20-hd'])
+  // Judged once: the next run asks nothing and takes nothing.
+  const again = await screenGuidePhotos(root, { ...d, look: async () => { throw new Error('judged twice') } }, { limit: 10 })
+  expect(again).toMatchObject({ judged: 0, dead: [], bare: [] })
+})
+
+test("a photo asked again for its subject keeps its verdict: that look's dead answer neither stands nor takes it off, and the backlog asks it", async () => {
+  const id = 'aquariumcoop-platy-care'
+  const root = await store({ [id]: { kind: 'care', source: 'aquariumcoop', photos: [photo('lead'), photo('old')] } })
+  const verdict = { person: false, mark: false, brand: false, note: 'a platy, from before' }
+  await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({ [url('lead')]: { ...verdict, other: { platy: false } }, [url('old')]: verdict }))
+  const { d, seen } = model({ old: { dead: true, note: 'a dead platy' } })
+  const r = await screenGuidePhotos(root, d, { limit: 1 })
+  expect(seen[0]!.photos).toEqual(['old'])
+  expect(r.dead).toEqual([])
+  expect(urls((await json(root, `content/guides/${id}/entity.json`)).photos)).toEqual(['lead', 'old'])
+  expect((await json(root, 'engine-state/_photo-guides.json'))[url('old')].dead).toBeUndefined()
+  const backlog: string[] = []
+  await screenGuidesDead(root, asked(backlog), { limit: 100 })
+  expect(backlog).toEqual(['lead', 'old'])
+})
+
+test("a still whose verdict says dead isn't cleared to show until its second look clears it", async () => {
+  const root = await store({ 'youtube-b1': videoGuide([], [{ heading: 'x', moments: [still(20, true)] }]) })
+  const frame = url('video/b1/at20-hd')
+  await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({ [frame]: { person: false, mark: false, brand: false, note: '', dead: true } }))
+  const person = async () => (await json(root, 'content/guides/youtube-b1/entity.json')).video.figures[0].moments[0].person
+  const { d } = model({})
+  expect(await screenGuidePhotos(root, d, { limit: 5 })).toMatchObject({ judged: 0, cleared: 0 })
+  expect(await person()).toBeUndefined()
+  await writeFile(join(root, 'engine-state/_photo-second-look.json'), JSON.stringify({ [frame]: { why: 'dead: withheld [sha256:' + '0'.repeat(64) + ']', step: 'the guide photo check', pages: ['guides/youtube-b1'], at: '2026-11-26', off: true, look: { said: 'clear', by: 'the chief of staff', on: '2026-11-27' }, back: '2026-11-27' } }))
+  expect(await screenGuidePhotos(root, d, { limit: 5 })).toMatchObject({ judged: 0, cleared: 1 })
+  expect(await person()).toBe(false)
 })

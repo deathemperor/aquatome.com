@@ -232,7 +232,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // A new photo the dead-fish screen still owes a look waits the same way (photo-screen.ts DEAD_OWED_FILE). No list beside
   // the root (the fixture build, a test's store): none waits for it.
   const owed = screen ? await stateRecord<Record<string, string>>(root, DEAD_OWED_FILE) : undefined
-  // So does an own photo of a species, plant or guide page that the face finder has never read (photo-screen.ts
+  // So does an own photo of a species, plant, breed or guide page that the face finder has never read (photo-screen.ts
   // FACES_FILE), wherever it shows. Every such page on disk counts, as the face finder reads every one: one with no text
   // in this language or held back still owns its photos, which another page's album can show. The site's build of the
   // real content needs the record.
@@ -242,10 +242,10 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const { unread, altered: flaggedAlterations } = await facePhotoStatus(root, faces)
   if (faces && opts.photoScreen === 'required') {
     const retryable = [...unread].filter(url => !rejectedForDead?.(url)).length
-    console.log(`${lang}: ${retryable} own photos of species, plant and guide pages wait, the face finder has never read them`)
-    if (retryable > UNREAD_FACES_LIMIT) throw new Error(`${lang}: ${retryable} own photos of species, plant and guide pages the face finder has never read (${join(dirname(root), 'engine-state', FACES_FILE)}). More than ${UNREAD_FACES_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) reads them.`)
+    console.log(`${lang}: ${retryable} own photos of species, plant, breed and guide pages wait, the face finder has never read them`)
+    if (retryable > UNREAD_FACES_LIMIT) throw new Error(`${lang}: ${retryable} own photos of species, plant, breed and guide pages the face finder has never read (${join(dirname(root), 'engine-state', FACES_FILE)}). More than ${UNREAD_FACES_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) reads them.`)
   }
-  // And an own photo of a species or plant page that no look has judged for a dead fish (photo-screen.ts deadLooked),
+  // And an own photo of a species, plant or breed page that no look has judged for a dead fish (photo-screen.ts deadLooked),
   // owed or not: the list is the engine's queue, and one that is behind can't let a photo through (the chief of staff,
   // 22 Nov 2026). With no screen record beside the root (the fixture build, a test's store) none waits for it; the site's
   // build of the real content needs the record.
@@ -263,8 +263,8 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     for (const url of await ownDeadPhotoUrls(root)) if (!lookedForDead(url)) unjudged.add(url)
     if (opts.photoScreen === 'required') {
       const retryable = [...unjudged].filter(url => !rejectedForDead?.(url)).length
-      console.log(`${lang}: ${retryable} own photos of species and plant pages wait, no look has judged them for a dead fish`)
-      if (retryable > UNJUDGED_DEAD_LIMIT) throw new Error(`${lang}: ${retryable} own photos of species and plant pages that no look has judged for a dead fish (${join(dirname(root), 'engine-state', DEAD_SCREEN_FILE)} and the photo check's records). More than ${UNJUDGED_DEAD_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) screens them.`)
+      console.log(`${lang}: ${retryable} own photos of species, plant and breed pages wait, no look has judged them for a dead fish`)
+      if (retryable > UNJUDGED_DEAD_LIMIT) throw new Error(`${lang}: ${retryable} own photos of species, plant and breed pages that no look has judged for a dead fish (${join(dirname(root), 'engine-state', DEAD_SCREEN_FILE)} and the photo check's records). More than ${UNJUDGED_DEAD_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) screens them.`)
     }
   }
   // And a guide's own photo or a video guide's part's stock photo the guides' own look hasn't judged (photo-screen.ts
@@ -464,13 +464,12 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // A newly passed real album photo immediately leads a formerly generated-only page, even before lead-photos runs.
   // Preserve explicitly fitted heads; add a fitted fallback only after ordinary publication admission.
   const fitsHead = (p: Photo) => p.headFit === 'contain' || photoFitsHead(p)
-  const fishAndPlants = new Set<SpeciesEntity | PlantEntity | BreedEntity>([...species, ...plants])
   for (const page of [...species, ...plants, ...breeds]) if (page.photos.some(p=>p.headFit==='contain'||!photoFitsHead(p)) || page.photos[0]?.generated || (!page.photos.length && (generatedPages.has(page.id) || (galleries[page.id]??[]).some(p=>!p.generated&&photoFitsWholeHead(p))))) {
     // A non-commercial album photo isn't put first here: the engine's lead step does that, only where it's the one way to
     // show that fish (lead-photo.ts), and one that leads gives way to any open photo here (ncAlone).
     // Promotion turns an album photo into the page's own photo. Keep the ordinary album under its own rule.
     const albumHeads = (galleries[page.id] ?? []).filter(p => !isNonCommercial(p.licence) &&
-      (!lookedForDead || !fishAndPlants.has(page) || lookedForDead(p.url)))
+      (!lookedForDead || lookedForDead(p.url)))
     const all=realPhotosFirst([...new Map([...page.photos,...albumHeads].map(p=>[p.url,p])).values()])
     const albumOnly=page.photos.filter(p=>!fitsHead(p))
     if(albumOnly.length)galleries[page.id]=realPhotosFirst([...new Map([...(galleries[page.id]??[]),...albumOnly].map(p=>[p.url,p])).values()])

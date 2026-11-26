@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url'
 import { parseArgs, isDeepStrictEqual } from 'node:util'
 import { awaitsScreen, ocrHit, validOcrSummary } from '@aq/schema'
 import { compactPhotoState, PHOTO_STATE_FILES } from './photo-state'
-import { photoReason, observationHash, PHOTO_MARK_KINDS, PHOTO_POSITIONS } from './photo-observations'
+import { isCompactRejection, photoReason, observationHash, PHOTO_MARK_KINDS, PHOTO_POSITIONS } from './photo-observations'
 import { writeImageCache } from './image-cache-write'
 import { recheckCandidates } from './photo-check'
 
@@ -23,7 +23,6 @@ function decisions(name:string,data:Record<string,any>):unknown {
  if(name==='_video-stills.json')return mapValues(data,v=>({...v,...(v.failed!==undefined?{failed:!!v.failed}:{}),...(v.kept?{kept:mapValues(v.kept,why=>!!why)}:{})}))
  return mapValues(data,verdict)
 }
-const rejectedPattern=/^(?:watermark|people|dead|logo|face|faces|subject|too poor to show|unwell|rejected|waiting): withheld \[sha256:[a-f0-9]{64}\]$/
 const previousOwnerNote='Two independent original species passes; crop preserves all retained pixels.'
 export function photoPrivacyViolations(file:string,data:unknown):{code:string;locationHash:string}[] {
  const out:{code:string;locationHash:string}[]=[],name=basename(file),add=(code:string,path:string)=>out.push({code,locationHash:observationHash(path)})
@@ -48,7 +47,7 @@ export function photoPrivacyViolations(file:string,data:unknown):{code:string;lo
   for(const[k,x]of Object.entries(v))walk(x,path+'/'+k)
  }
  walk(data,'')
- if(name==='_photo-rejected.json'&&data&&typeof data==='object')for(const[u,v]of Object.entries(data))if(v!==''&&(typeof v!=='string'||!rejectedPattern.test(v)))add('free rejection explanation',u)
+ if(name==='_photo-rejected.json'&&data&&typeof data==='object')for(const[u,v]of Object.entries(data))if(v!==''&&(typeof v!=='string'||!isCompactRejection(v)))add('free rejection explanation',u)
  if(name==='_video-stills.json'&&data&&typeof data==='object')for(const[id,v]of Object.entries(data) as [string,any][]){
   if(!v||typeof v!=='object'||Array.isArray(v)){add('invalid still state record',id);continue}
   if(Object.keys(v).some(k=>!['at','timed','failed','kept'].includes(k)))add('uncontrolled still field',id)
@@ -59,7 +58,7 @@ export function photoPrivacyViolations(file:string,data:unknown):{code:string;lo
   if(v.kept!==undefined&&(!v.kept||typeof v.kept!=='object'||Array.isArray(v.kept)))add('invalid kept still decisions',id+'/kept')
   else for(const[t,why]of Object.entries(v.kept??{}))if(!/^\d+(?:\.\d+)?$/.test(t)||why!=='rejected'&&!safe(why))add('free kept still explanation',id+'/kept/'+t)
  }
- if(name==='_video-rejected.json'&&data&&typeof data==='object')for(const[u,v]of Object.entries(data))if(typeof v==='string'&&/^(?:watermark|people|dead|logo):/.test(v)&&!rejectedPattern.test(v))add('free image/video rejection explanation',u)
+ if(name==='_video-rejected.json'&&data&&typeof data==='object')for(const[u,v]of Object.entries(data))if(typeof v==='string'&&/^(?:watermark|people|dead|logo):/.test(v)&&!isCompactRejection(v))add('free image/video rejection explanation',u)
  return out
 }
 const controlledOutcome=/^(?:subject (?:yes|other|none|habitat|unsure|dead|no)|guide photo|dead screen (?:dead|clear))(?:; (?:person|logo|mark|brand|poor|unwell))*$/
