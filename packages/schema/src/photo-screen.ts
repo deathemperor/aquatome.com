@@ -100,8 +100,7 @@ export function deadScreenPhotoUrls(p: PhotoVersions): string[] {
   return p.altered?.length && !p.generated && !isOwnerCrop(p) && mayFallBack(p) ? [p.url, p.original!.url] : [p.url]
 }
 
-export async function ownDeadPhotoUrls(root: string, kinds: readonly string[] = ['species', 'plants']): Promise<Set<string>> {
-  const urls = new Set<string>()
+async function* entityPhotos(root: string, kinds: readonly string[]): AsyncGenerator<PhotoVersions> {
   for (const kind of kinds) {
     for (const id of (await readdir(join(root, kind)).catch(() => [] as string[])).sort()) {
       const raw = await readFile(join(root, kind, id, 'entity.json'), 'utf8').catch((e: NodeJS.ErrnoException) => {
@@ -110,10 +109,26 @@ export async function ownDeadPhotoUrls(root: string, kinds: readonly string[] = 
       })
       if (raw === undefined) continue
       const page = JSON.parse(raw) as { photos?: PhotoVersions[] }
-      for (const url of (page.photos ?? []).flatMap(deadScreenPhotoUrls)) urls.add(url)
+      yield* page.photos ?? []
     }
   }
+}
+
+export async function ownDeadPhotoUrls(root: string, kinds: readonly string[] = ['species', 'plants']): Promise<Set<string>> {
+  const urls = new Set<string>()
+  for await (const photo of entityPhotos(root, kinds)) for (const url of deadScreenPhotoUrls(photo)) urls.add(url)
   return urls
+}
+
+/** The loader can still use a fallback after a face verdict blocks the stored alteration. */
+export async function facePhotoStatus(root: string, faces?: Record<string, unknown>, kinds: readonly string[] = ['species', 'plants', 'guides']) {
+  const unread = new Set<string>(), altered = new Set<string>()
+  if (!faces) return { unread, altered }
+  for await (const photo of entityPhotos(root, kinds)) {
+    if (!Object.hasOwn(faces, photo.url)) unread.add(photo.url)
+    else if (typeof faces[photo.url] === 'number' && Number(faces[photo.url]) > 0 && deadScreenPhotoUrls(photo).length > 1) altered.add(photo.url)
+  }
+  return { unread, altered }
 }
 
 export type DeadLookRecords = { screen: Record<string, unknown>; check?: Record<string, unknown>; subjects?: Record<string, unknown>; secondLook?: Record<string, unknown> }
@@ -127,6 +142,9 @@ export function askedByCheckOf(check: Record<string, unknown> = {}, subjects: Re
   return asked
 }
 
+export const completedDeadVerdict = (record: unknown): record is { dead: boolean } =>
+  typeof (record as { dead?: unknown } | null | undefined)?.dead === 'boolean'
+
 /**
  * Whether a look has judged a photo for a dead fish (the chief of staff, 22 Nov 2026): the dead-fish screen's verdict, a
  * photo-check verdict that asked (`askedByCheckOf`), or a person's look on its second-look record (a clear counts). How
@@ -138,7 +156,7 @@ export function askedByCheckOf(check: Record<string, unknown> = {}, subjects: Re
  */
 export function deadLooked(r: DeadLookRecords): (url: string) => boolean {
   const asked = askedByCheckOf(r.check, r.subjects)
-  return url => Object.hasOwn(r.screen, url) || asked.has(url) || (!!r.secondLook && Object.hasOwn(r.secondLook, url) && !!photoLookAnswer(r.secondLook[url]))
+  return url => completedDeadVerdict(r.screen[url]) || asked.has(url) || (!!r.secondLook && Object.hasOwn(r.secondLook, url) && !!photoLookAnswer(r.secondLook[url]))
 }
 /** A second look is answered only with a decision, a reviewer and a dated record. */
 export function photoLookAnswer(record: unknown): { said: 'agree' | 'clear'; by: string; on: string } | undefined {
@@ -148,6 +166,19 @@ export function photoLookAnswer(record: unknown): { said: 'agree' | 'clear'; by:
   return { said: look.said, by: look.by, on: look.on }
 }
 
+type LookMark = { why?: unknown; off?: boolean }
+
+function mayKeepPhoto(mark: LookMark | undefined) {
+  const answer = photoLookAnswer(mark)
+  return answer?.said === 'clear' || (typeof mark?.why === 'string' && !!mark.why && mark.off !== true && !answer)
+}
+
+/** A face found on one version of a photo disqualifies that URL, subject to its second look. */
+export function facePhotoOff(url: string, faces?: Record<string, unknown>, secondLook?: Record<string, unknown>): boolean {
+  const count = faces?.[url]
+  return typeof count === 'number' && count > 0 && !mayKeepPhoto(secondLook?.[url] as LookMark | undefined)
+}
+
 /**
  * A waiting rejection remains in force when its mark is missing. A recorded dead verdict holds its URL even if the
  * file it came from still needs to preserve a different fallback version. A last-photo hold or a person's clear can
@@ -155,13 +186,13 @@ export function photoLookAnswer(record: unknown): { said: 'agree' | 'clear'; by:
  */
 export function deadPhotoOff(url: string, screen?: Record<string, unknown>, secondLook?: Record<string, unknown>, rejected?: Record<string, unknown>): boolean {
   const why = rejected?.[url]
-  const mark = secondLook?.[url] as { why?: unknown; off?: boolean } | undefined
+  const mark = secondLook?.[url] as LookMark | undefined
   if (typeof why === 'string' && (why.startsWith('dead:') || why.startsWith('waiting:'))) return true
   const look = photoLookAnswer(mark)
   if (look?.said === 'clear') return false
   if (mark?.off === true && typeof mark.why === 'string' && mark.why.startsWith('dead:')) return true
   const verdict = screen?.[url] as { dead?: unknown } | undefined
-  return verdict?.dead === true && !(typeof mark?.why === 'string' && mark.why && mark.off !== true && !look)
+  return verdict?.dead === true && !mayKeepPhoto(mark)
 }
 
 /**

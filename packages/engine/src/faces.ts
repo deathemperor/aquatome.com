@@ -4,14 +4,13 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadPhotoOff, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, publicPhotoVersion, SECOND_LOOK_RECORD, type SourceInfo } from '@aq/schema'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadPhotoOff, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, publicPhotoVersion, SECOND_LOOK_RECORD, type Photo, type SourceInfo } from '@aq/schema'
 import { screenDead, type DeadScreenDeps } from './dead-screen'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { holdForSecondLook, lastPhotos, looks, pagesShowing, readPassedBefore, readSecondLook, waitingEntry } from './last-photo'
 
 export type FaceDeps = { get: (url: string) => Promise<Uint8Array>; detect: (files: string[]) => Promise<number[]> }
-type Photo = { url: string }
 
 /** Human faces per image via macOS Vision (the engine runs on the home Mac); -1 = unreadable. */
 export async function visionFaces(files: string[]): Promise<number[]> {
@@ -77,13 +76,22 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const sources: Record<string, SourceInfo> = waitingForDead
     ? JSON.parse(await readFile(join(contentRoot, 'sources.json'), 'utf8').catch(() => '{}'))
     : {}
-  // Use the version a sibling can show. A face verdict on the stored URL removes that whole entry.
+  // A face verdict is for the stored version. Keep the wrapper when it supplies a different, allowed original.
+  const version = (p: Photo) =>
+    publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
+  const fallback = (p: Photo) => {
+    const visible = version(p)
+    return waitingForDead && visible && visible.url !== p.url ? visible : undefined
+  }
+  const retained = new Set(pages.flatMap(({ e }) => (e.photos ?? [])
+    .filter(p => face(p.url) && fallback(p)).map(p => p.url)))
   const pagesToKeep = await pagesShowing(contentRoot, p => {
-    if (!waitingForDead || face(p.url) || p.url in rejected) return p.url
-    return publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)?.url
+    if (!waitingForDead || (face(p.url) && !fallback(p)) || p.url in rejected) return p.url
+    return version(p)?.url
   })
+  const unread = new Set(todo.filter(u => !Object.hasOwn(cache, u)))
   const offPage = (u: string) => face(u) || u in rejected || waitingForDead?.has(u) === true ||
-    (!!waitingForDead && deadPhotoOff(u, screen, secondLook))
+    (!!waitingForDead && (unread.has(u) || deadPhotoOff(u, screen, secondLook)))
   const last = new Map([...lastPhotos(pagesToKeep, offPage)].filter(([u]) => face(u) && !(u in rejected)))
   // Only one that passed the check before is held; a face found now, on one that never did, takes it off, marked on both
   // lists (last-photo.ts).
@@ -96,7 +104,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   // does: off a page that keeps other photos, it goes on the never-again list as refused, so the sweep takes its album
   // copies and no step brings it back (the independent reader, 20 Nov).
   // Only where it is given the list to write, as the engine's own call always is.
-  const refusedNow = rejectedFile ? [...screened].filter(u => face(u) && !passed.has(u) && !firstOff.has(u) && !last.has(u)) : []
+  const refusedNow = rejectedFile ? [...screened].filter(u => face(u) && !passed.has(u) && !firstOff.has(u) && !last.has(u) && !retained.has(u)) : []
   if (firstOff.size || refusedNow.length) {
     const file = rejectedFile ?? join(root, 'engine-state', '_photo-rejected.json')
     const now = JSON.parse(await readFile(file, 'utf8').catch(() => '{}')) as Record<string, string>
@@ -108,7 +116,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const offFirst = [...firstOff].map(([u, ps]) => `${u}: ${ps.join(', ')}`)
   const removed: string[] = []
   for (const { file, e } of pages) {
-    const keep = (e.photos ?? []).filter(p => !(face(p.url) && !last.has(p.url)) && !(p.url in rejected))
+    const keep = (e.photos ?? []).filter(p => !(face(p.url) && !last.has(p.url) && !fallback(p)) && !(p.url in rejected))
     // A video section's photo the owner rejected (the images pass screened it for faces when it picked it).
     const figures = (e.video?.figures ?? []).filter(f => f.photo && f.photo.url in rejected)
     if (keep.length === (e.photos ?? []).length && !figures.length) continue

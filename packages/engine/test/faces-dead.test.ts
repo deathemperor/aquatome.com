@@ -290,6 +290,55 @@ test.each([false, true])('the face finder holds a passed last photo while its si
     .toMatchObject({ step: 'face detection', pages: ['species/alpha'] })
 })
 
+test.each(['face detection', 'the dead-fish screen'])('an unseen sibling cannot displace the last photo flagged by %s', async step => {
+  const flagged = photo(step === 'face detection' ? 'passed-face' : 'passed-dead')
+  const pending = photo('face-fetch-fails')
+  const { root, state, publicView } = await publicFixture([flagged, pending], [], [flagged.url, pending.url])
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [pending.url]: { dead: false } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify(step === 'face detection' ? {} : { [flagged.url]: 0 }))
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [flagged.url]: {
+    ok: 'yes', person: false, ...(step === 'face detection' ? { logo: false } : {}),
+  } }))
+  await run(root, deps({ unreadable: pending.url }).d)
+  const view = await publicView()
+  expect(view.species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([flagged.url])
+  expect(view.photoWaits!(pending.url)).toBe(true)
+  expect((await json(root, 'engine-state/_photo-second-look.json'))[flagged.url]).toMatchObject({ step, pages: ['species/alpha'] })
+})
+
+test('a face flagged on a stored alteration leaves the passing original in the page and album', async () => {
+  const original = photo('passed-original')
+  const flagged = {
+    ...original, url: m('altered-face'),
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'b'.repeat(64) }],
+    original: { url: original.url, width: original.width, height: original.height },
+  }
+  const { root, state, publicView } = await publicFixture([flagged], [flagged], [flagged.url, original.url])
+  await writeFile(join(state, '_dead-screen.json'), '{}')
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [original.url]: { ok: 'yes', person: false, logo: false } }))
+  await run(root, deps().d)
+  const view = await publicView()
+  const page = view.species.find(p => p.id === 'alpha')!
+  expect(page.photos).toEqual([expect.objectContaining({ url: original.url, author: original.author })])
+  expect(view.galleries.alpha).toEqual([expect.objectContaining({ url: original.url, author: original.author })])
+  expect(view.photoWaits!(flagged.url)).toBe(true)
+})
+
+test('an incomplete cached verdict waits on the site and gets a fresh screen', async () => {
+  const candidate = photo('missing-verdict')
+  const { root, state, publicView } = await publicFixture([candidate], [candidate], [candidate.url])
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [candidate.url]: {} }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [candidate.url]: 0 }))
+  const before = await publicView()
+  expect(before.photoWaits!(candidate.url)).toBe(true)
+  expect(before.galleries.alpha).toBeUndefined()
+
+  const { d, sent } = deps()
+  expect((await run(root, d)).owed).toBe(0)
+  expect(sent).toEqual([candidate.url])
+  expect((await publicView()).species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([candidate.url])
+})
+
 test('a rejection write failure cannot release the album copy on retry', async () => {
   const live = photo('live'), dead = photo('second-dead')
   const { root, state, file, publicView } = await publicFixture([live, dead], [dead], [live.url, dead.url])

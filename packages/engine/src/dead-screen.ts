@@ -1,4 +1,4 @@
-import { askedByCheckOf, DEAD_OWED_FILE, deadLooked, deadPhotoOff, deadScreenPhotoUrls, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, publicPhotoVersion, type Photo, type SourceInfo } from '@aq/schema'
+import { askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadPhotoOff, deadScreenPhotoUrls, facePhotoOff, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, publicPhotoVersion, facePhotoStatus, type Photo, type SourceInfo } from '@aq/schema'
 import { compactVerdict, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
@@ -75,7 +75,8 @@ export async function askedByCheck(root: string): Promise<Set<string>> {
 export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: number; parallel?: number; backCheck?: boolean; photos?: ReadonlySet<string> }) {
   const content = join(root, 'content')
   const state = (f: string) => join(root, 'engine-state', f)
-  const oldCache = (await readJson<Record<string, DeadVerdict>>(state('_dead-screen.json'))) ?? {}
+  const records = (await readJson<Record<string, DeadVerdict>>(state('_dead-screen.json'))) ?? {}
+  const oldCache = Object.fromEntries(Object.entries(records).filter(([, verdict]) => completedDeadVerdict(verdict)))
   const cache=Object.fromEntries(Object.entries(oldCache).map(([u,v])=>[u,compactVerdict(v)]))
   const videoRejected = (await readJson<Record<string, string>>(state('_video-rejected.json'))) ?? {}
   const photoRejected = (await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {}
@@ -83,7 +84,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     readJson<Record<string, unknown>>(state(PHOTO_CHECK_FILE)),
     readJson<Record<string, unknown>>(state(PHOTO_SUBJECTS_FILE)),
   ])
-  const asked = askedByCheckOf(check, subjects)
+  const lookedBefore = deadLooked({ screen: cache, check, subjects, secondLook: await readSecondLook(root) })
   // `firstOff`: a page's last photo the hold doesn't keep, its first verdict on a photo that never passed the check (last-photo.ts).
   const report = { sheets: 0, judged: 0, dead: [] as string[], held: [] as string[], firstOff: [] as string[], failed: [] as string[], left: 0, stopped: '' }
 
@@ -103,7 +104,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       }
       const urls = o.photos ? [...new Set((e?.photos ?? []).flatMap(deadScreenPhotoUrls))].filter(u => o.photos!.has(u)) : [e?.photos?.[0]?.url]
       for (const url of urls) {
-        if (!url || url in cache || url in photoRejected || asked.has(url)) continue
+        if (!url || url in photoRejected || lookedBefore(url)) continue
         const it = photos.get(url) ?? { key: url, url, files: [] }
         it.files.push(file)
         photos.set(url, it)
@@ -166,13 +167,16 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const sources = going.size ? (await readJson<Record<string, SourceInfo>>(join(content, 'sources.json')) ?? {}) : {}
   const version = (p: Photo) => publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
   if (going.size) {
-    const [pages, owned, listed] = await Promise.all([
+    const [pages, owned, listed, faces] = await Promise.all([
       pagesShowing(content, p => version(p)?.url),
       ownDeadPhotoUrls(content),
       o.photos ? undefined : readJson<Record<string, string>>(state(DEAD_OWED_FILE)),
+      readJson<Record<string, number>>(state(FACES_FILE)),
     ])
     const looked = deadLooked({ screen: cache, check, subjects, secondLook })
-    const offPage = (u: string) => going.has(u) || u in photoRejected || deadPhotoOff(u, oldCache, secondLook) || !!listed?.[u] || (owned.has(u) && !looked(u))
+    const { unread, altered: flaggedAlterations } = await facePhotoStatus(content, faces)
+    const offPage = (u: string) => going.has(u) || u in photoRejected || deadPhotoOff(u, oldCache, secondLook) ||
+      !!listed?.[u] || (owned.has(u) && !looked(u)) || unread.has(u) || (flaggedAlterations.has(u) && facePhotoOff(u, faces, secondLook))
     for (const [url, refs] of lastPhotos(pages, offPage)) if (going.has(url)) last.set(url, refs)
   }
   // Only one that passed the check before is held; this verdict, on one that never did, takes it off, marked (last-photo.ts).
