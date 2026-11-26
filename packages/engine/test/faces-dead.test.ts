@@ -311,7 +311,31 @@ test.each([false, true])('an agreement stays effective across an own-credit rele
   expect(view.photoWaits!(stored.url)).toBe(true)
 })
 
-test('a non-own credit read supersedes a waived shop watermark on the bare original', async () => {
+test('a credit release applies an agreement recorded on another alteration of the original', async () => {
+  const original = photo('shared-original')
+  const first = { ...photo('first-wrapper'), altered: [{ method: 'lanczos3-upscale' }], original }
+  const second = { ...first, url: m('second-wrapper') }
+  const { root, state, publicView } = await publicFixture([original], [original], [original.url, first.url, second.url])
+  const guide = join(root, 'content/guides/sample/entity.json')
+  await mkdir(join(guide, '..'), { recursive: true })
+  await writeFile(guide, JSON.stringify({ id: 'sample', photos: [first, second] }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [original.url]: 0 }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [original.url]: { dead: false } }))
+  await holdForCreditRead(root, [second.url], 'reviewer', '2026-11-26', 'credit unread')
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+    [first.url]: { why: 'logo: withheld', step: 'the guide photo check', pages: ['species/alpha'], at: '2026-11-26',
+      originals: [original.url], look: { said: 'agree', by: 'reviewer', on: '2026-11-26' } },
+  }))
+
+  await releaseCreditHolds(root, { [original.url]: { page: original.sourceUrl, kind: 'own', at: '2026-11-26' } })
+  expect(await json(root, 'engine-state/_photo-second-look.json')).toEqual({})
+  const view = await publicView()
+  expect(view.species.find(p => p.id === 'alpha')?.photos).toEqual([])
+  expect(view.galleries.alpha ?? []).toEqual([])
+  expect(view.photoWaits!(original.url)).toBe(true)
+})
+
+test.each([false, true])('the agency refusal survives a watermark waiver (waived before read: %s)', async waived => {
   const sourceUrl = 'https://www.aquariumglaser.de/example/'
   const original = { ...photo('original'), url: 'https://media.aquatome.com/glaser/example.webp', sourceUrl }
   const wrapper = { ...photo('wrapper'), altered: [{ method: 'lanczos3-upscale' }], original }
@@ -321,13 +345,17 @@ test('a non-own credit read supersedes a waived shop watermark on the bare origi
   await writeFile(guide, JSON.stringify({ id: 'sample', photos: [wrapper] }))
   await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [original.url]: 0 }))
   await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [original.url]: { dead: false } }))
-  await writeFile(join(state, '_photo-watermarks.json'), JSON.stringify({
+  const keepMark = () => writeFile(join(state, '_photo-watermarks.json'), JSON.stringify({
     [original.url]: { ocr: [], watermark: true, retainedOwnMark: { owner: 'source', source: 'glaser', sourceUrl } },
   }))
   await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [original.url]: 'watermark: withheld' }))
-  expect((await publicView()).species.find(p => p.id === 'alpha')?.photos.map(p => p.url)).toEqual([original.url])
+  if (waived) {
+    await keepMark()
+    expect((await publicView()).species.find(p => p.id === 'alpha')?.photos.map(p => p.url)).toEqual([original.url])
+  }
   await holdForCreditRead(root, [wrapper.url], 'reviewer', '2026-11-26', 'credit unread')
   await releaseCreditHolds(root, { [original.url]: { page: sourceUrl, kind: 'agency', at: '2026-11-26' } })
+  if (!waived) await keepMark()
   expectControlledRejections(await json(root, 'engine-state/_photo-rejected.json'), { [original.url]: 'rejected', [wrapper.url]: 'rejected' })
   const view = await publicView()
   expect(view.species.find(p => p.id === 'alpha')?.photos).toEqual([])

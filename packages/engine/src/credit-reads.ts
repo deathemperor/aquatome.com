@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
-import { CREDIT_HOLD_FILE, CREDIT_HOLD_REJECTION, creditHoldAddresses, creditHoldPhotoUrls, deadScreenPhotoUrls, isVersionRejection, PHOTO_SCREEN_FILE, photoAddressSet, photoRejections, type Photo, type PhotoScreenEntry, type SourceId } from '@aq/schema'
+import { CREDIT_HOLD_FILE, CREDIT_HOLD_REJECTION, creditHoldAddresses, creditHoldPhotoUrls, deadScreenPhotoUrls, isVersionRejection, PHOTO_SCREEN_FILE, photoAddressSet, photoPlacements, photoRejections, type Photo, type PhotoScreenEntry, type SourceId } from '@aq/schema'
 import { holdForSecondLook, listAgreed, looks, readSecondLook } from './last-photo'
 import type { PageImage } from './outline'
 import { creditKind } from './photo-credit'
@@ -42,6 +42,8 @@ export type CreditHold = { page: string; by: string; on: string; why: string; pl
 const REJECTED = 'engine-state/_photo-rejected.json'
 /** The never-again note a credit hold puts there, the same for every held photo: how a release knows its own. */
 export const HOLD_NOTE = CREDIT_HOLD_REJECTION
+const mayReplaceWithCreditRefusal = (reason: string | undefined) =>
+  !reason || reason === HOLD_NOTE || reason.startsWith('watermark:') || isVersionRejection(reason)
 const readMap = async <T>(file: string): Promise<Record<string, T>> => JSON.parse(await readFile(file, 'utf8').catch((e: NodeJS.ErrnoException) => { if (e.code === 'ENOENT') return '{}'; throw e })) as Record<string, T>
 const writeMap = (file: string, v: Record<string, unknown>) => writeImageCache(file, `${JSON.stringify(Object.fromEntries(Object.entries(v).sort(([a], [b]) => a.localeCompare(b))), null, 2)}\n`)
 export const readCreditReads = (root: string) => readMap<CreditRead>(join(root, CREDIT_READS))
@@ -109,20 +111,28 @@ export async function applyCreditReads(root: string, step = 'the credit read'): 
   const rejectedFile = join(root, 'engine-state/_photo-rejected.json')
   const rejected = await readMap<string>(rejectedFile)
   const sl = looks(await readSecondLook(root))
-  const off = (u: string) => (credits[u]?.kind === 'agency' || credits[u]?.kind === 'other') && sl.open(u)
   const content = join(root, 'content')
-  const held = await holdablePhotoVerdicts(root, rejected, new Set(Object.keys(credits).filter(off)), () => true)
-  await holdForSecondLook(root, new Map([...held].map(([u, pages]) => [u, { why: `rejected: ${credits[u]!.kind} credit ${credits[u]!.line ?? ''}`, pages }])), step)
+  const refusals = new Map(Object.entries(credits).flatMap(([url, credit]) =>
+    credit.kind === 'agency' || credit.kind === 'other' ? [[url, `rejected: ${credit.kind} credit ${credit.line ?? ''}`] as const] : []))
+  if (!refusals.size) return { removed: [], held: [] }
+  // A selection of different pixels cannot change the publisher's credit. Include an approved crop of the refused original.
+  for await (const photo of photoPlacements(content)) {
+    const reason = photo.original?.url && refusals.get(photo.original.url)
+    if (reason && !refusals.has(photo.url)) refusals.set(photo.url, reason)
+  }
+  for (const url of refusals.keys()) if (!sl.open(url)) refusals.delete(url)
+  const held = await holdablePhotoVerdicts(root, rejected, new Set(refusals.keys()), () => true)
+  await holdForSecondLook(root, new Map([...held].map(([url, pages]) => [url, { why: refusals.get(url)!, pages }])), step)
   const heldAddress = photoAddressSet(held.keys())
-  const gone = (u: string) => off(u) && !heldAddress(u)
-  await recordPhotoRefusals(rejectedFile, rejected, new Map(Object.keys(credits).filter(gone).map(u =>
-    [u, `rejected: ${credits[u]!.kind} credit ${credits[u]!.line ?? ''}`],
-  )))
+  const gone = (url: string) => refusals.has(url) && !heldAddress(url)
+  const next = new Map([...refusals].filter(([url]) => gone(url)))
+  for (const [url, reason] of next) if (mayReplaceWithCreditRefusal(rejected[url])) rejected[url] = reason
+  await recordPhotoRefusals(rejectedFile, rejected, next)
   await writePhotoState(rejectedFile, rejected)
   const removed: string[] = []
   for (const f of (await readdir(content, { recursive: true })).filter(f => f.endsWith('.json')).map(f => join(content, f))) {
     const raw = await readFile(f, 'utf8')
-    if (!Object.keys(credits).some(u => raw.includes(u))) continue
+    if (![...next.keys()].some(url => raw.includes(url))) continue
     const data = JSON.parse(raw) as unknown, here: string[] = []
     stripPhotos(data, gone, here, [])
     if (!here.length) continue
@@ -256,7 +266,7 @@ export async function releaseCreditHolds(root: string, credits: Record<string, P
       const why = `rejected: ${c.kind} credit ${c.line ?? ''}`
       for (const url of addresses) {
         const prior = listed(url)?.[1]
-        if (!prior || prior === HOLD_NOTE || isVersionRejection(prior)) rejected[url] = why
+        if (mayReplaceWithCreditRefusal(prior)) rejected[url] = why
       }
       off.push(u)
       continue

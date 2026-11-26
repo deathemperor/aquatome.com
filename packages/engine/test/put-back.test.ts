@@ -1507,3 +1507,57 @@ test('a later named album capture preserves a legacy page removal after the mark
   expect(await photosOf(r, 'aaa')).toEqual([photoId])
   expect((await json(r, album)).photos).toEqual([entry])
 })
+
+test('successive same-cycle removals keep both distinct placements at the same address', async () => {
+  const { r, clear } = await runRepo()
+  const file = join(r, A)
+  const plain = photo('a-now')
+  const wrapper = { ...plain, altered: [{ method: 'lanczos3-upscale' }], original: photo('original') }
+  const mark = { why, pages: ['species/aaa'], off: true as const }
+  await writeFile(file, JSON.stringify(fish('aaa', [plain, wrapper])))
+  for (const photo of [plain, wrapper]) {
+    const data = await json(r, A)
+    const places = new Map<string, Stood[]>()
+    placesIn(r, file, data, (_url, slot) => slot.index === 0, places)
+    if (photo === plain) await holdForSecondLook(r, new Map([[plain.url, mark]]), 'the photo check', today(), places)
+    else await notePlaces(r, places)
+    await writeFile(file, JSON.stringify({ ...data, photos: data.photos.slice(1) }))
+    expect((await keptFor(photo.url)).map(p => p.entry.photo)).toContainEqual(photo)
+  }
+  expect((await json(r, SL))[plain.url].left).toHaveLength(2)
+  await clear()
+
+  expect((await putBackCleared(r, gitHistory(r))).back).toHaveLength(2)
+  expect((await json(r, A)).photos).toEqual([plain, wrapper])
+})
+
+test('an editor replacing a returned photo at the same address leaves the saved plain entry off', async () => {
+  const { r, git, clear } = await runRepo()
+  const plain = photo('a-now')
+  const wrapper = { ...plain, altered: [{ method: 'lanczos3-upscale' }], original: photo('original') }
+  await holdForSecondLook(r, new Map([[plain.url, { why, pages: ['species/aaa'], off: true }]]), 'the photo check', today(),
+    new Map([[plain.url, [{ file: A, index: 0, photo: plain }]]]))
+  git('add', '-A'); git('commit', '-qm', 'a first take-off')
+  await writeFile(join(r, A), JSON.stringify(fish('aaa', [plain])))
+  git('add', '-A'); git('commit', '-qm', 'photo reappears')
+  await writeFile(join(r, A), JSON.stringify(fish('aaa', [wrapper])))
+  git('add', '-A'); git('commit', '-qm', 'editor replaces the plain entry')
+  await clear()
+
+  expect((await putBackCleared(r, gitHistory(r))).back).toEqual([])
+  expect((await json(r, A)).photos).toEqual([wrapper])
+})
+
+test('one wrapper does not settle a captured wrapper carrying a different original', async () => {
+  const { r, clear } = await runRepo()
+  const plain = photo('a-now')
+  const one = { ...plain, altered: [{ method: 'lanczos3-upscale' }], original: photo('original-one') }
+  const two = { ...one, original: photo('original-two') }
+  await holdForSecondLook(r, new Map([[plain.url, { why, pages: ['species/aaa'], off: true }]]), 'the photo check', today(),
+    new Map([[plain.url, [{ file: A, index: 0, photo: one }]]]))
+  await writeFile(join(r, A), JSON.stringify(fish('aaa', [two])))
+  await clear()
+
+  expect((await putBackCleared(r, gitHistory(r))).back).toHaveLength(1)
+  expect((await json(r, A)).photos).toEqual([one, two])
+})
