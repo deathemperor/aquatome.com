@@ -1,7 +1,7 @@
 import sharp from 'sharp'
 import { writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { basename, join } from 'node:path'
 import { IMAGE_SWITCHES, isInatNonCommercial, isNonCommercial, mirrorPlan, THUMB_WIDTH, type ImageSwitches } from '@aq/schema'
 import type { Media } from './source-photos'
 import { looks, readSecondLook } from './last-photo'
@@ -121,7 +121,7 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
     let n = 0
     for (const [from, to] of moved) if (from in cache && !(to in cache)) {
       const value = cache[from]
-      if (f === '_photo-rejected.json' && typeof value === 'string' && value.startsWith('waiting:')) continue
+      if (basename(path) === '_photo-rejected.json' && typeof value === 'string' && value.startsWith('waiting:')) continue
       cache[to] = value
       n++
     }
