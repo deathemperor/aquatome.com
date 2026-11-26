@@ -7,7 +7,7 @@ import { expect, test } from 'vitest'
 import { ArchiveRefused } from '../src/archive'
 import { LockBusy } from '../src/mac-lock'
 import { htmlToOutline } from '../src/outline'
-import { linkedPhotos, mayTake, photoKey, pickSourcePhotos, storedSourcePhotos, storeSourcePhotos } from '../src/source-photos'
+import { linkedPhotos, mayTake, photoKey, pickSourcePhotos, sourcePhotoInventory, storedSourcePhotos, storeSourcePhotos } from '../src/source-photos'
 
 const jpeg = (width = 800, height = 600) => sharp({ create: { width, height, channels: 3, background: 'gray' } }).jpeg().toBuffer()
 
@@ -599,4 +599,23 @@ test('a different source page reuses the bytes and credit of an already stored o
   const fresh = await storeSourcePhotos(source, 'Source', 'https://source.example/new', [{ src, alt: '', width: 1000, height: 700 }],
     { bytes: unused, media: { urlFor: mediaUrl, put: unused }, stored }, [])
   expect(fresh).toEqual([{ ...original, ...credit, sourceUrl: 'https://source.example/new' }])
+})
+
+test('an unplaced publisher image with a verdict reuses the stored bytes', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'source-verdict-'))
+  await mkdir(join(root, 'engine-state'))
+  const src = 'https://source.example/screened.jpg'
+  const source = 'seriouslyfish'
+  const mediaUrl = (key: string) => `https://media.test/${key}`
+  const url = mediaUrl(photoKey(source, src))
+  await writeFile(join(root, 'engine-state/_dead-screen.json'), JSON.stringify({ [url]: { dead: false } }))
+  const inventory = await sourcePhotoInventory(root)
+  const seen: string[] = []
+  const photos = await storeSourcePhotos(source, 'Site', 'https://source.example/page',
+    [{ src, alt: '', width: 1000, height: 700 }], {
+      ...inventory, bytes: async address => { seen.push(address); return jpeg(1000, 700) },
+      media: { urlFor: mediaUrl, put: async () => { throw new Error('a screened image must not be overwritten') } },
+    }, [])
+  expect(seen).toEqual([url])
+  expect(photos).toMatchObject([{ url, width: 1000, height: 700 }])
 })

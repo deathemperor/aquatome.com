@@ -1085,7 +1085,7 @@ test('independent checkouts keep different private places for the same marked ph
   expect((await json(two, SL))[u].left).toEqual([capturedAt(album.file, 2)])
 })
 
-test('a published hotlink settlement preserves a newer mirror capture and restores its saved lead position', async () => {
+test.each([false, true])('a published hotlink settlement preserves a newer mirror capture and restores its saved lead position with a replacement chain: %s', async chained => {
   const { r, git } = await runRepo()
   const another = await store({})
   const u = 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Sample.jpg'
@@ -1098,6 +1098,8 @@ test('a published hotlink settlement preserves a newer mirror capture and restor
   const base = await json(r, SL)
   await writeFile(join(another, SL), JSON.stringify(base))
   await notePlaces(another, new Map([[u, [{ file: A, index: 0, photo: mirror, order: [mirror.url, neighbor.url] }]]]))
+  const saved = chained ? { ...mirror, caption: 'Corrected caption in the later capture' } : mirror
+  if (chained) await notePlaces(another, new Map([[u, [{ file: A, index: 0, photo: saved, order: [saved.url, neighbor.url] }]]]))
   const updated = await json(another, SL)
   const captured = updated[u].left[0].capture
   const completed = {
@@ -1116,7 +1118,7 @@ test('a published hotlink settlement preserves a newer mirror capture and restor
   expect(merged[u].back).toBeUndefined()
   await writeFile(join(r, SL), JSON.stringify(merged))
   expect((await putBackCleared(r, async () => [])).back).toEqual([`${A}: ${mirror.url}`])
-  expect((await json(r, A)).photos).toEqual([mirror, neighbor])
+  expect((await json(r, A)).photos).toEqual([saved, neighbor])
 })
 
 test('a waiting rejection with a missing mark leaves its album entry available for recovery', async () => {
@@ -1250,4 +1252,52 @@ test('a clear restores repeated album entries with their own captions and positi
   await clear()
   await sweep(r, { history: gitHistory(r) })
   expect((await json(r, file)).photos).toEqual([one, between, two])
+})
+
+test('a take-off captures the plain occurrence while an altered copy keeps its original', async () => {
+  const { r, git, clear } = await runRepo()
+  const plain = { ...photo('a-dead'), caption: 'Plain placement credit' }
+  const original = photo('live-original')
+  const wrapper = { ...plain, caption: 'Other credited placement', altered: [{ method: 'lanczos3-upscale', date: today(), originalHash: 'a'.repeat(64) }], original }
+  const other = 'content/species/bbb/entity.json'
+  await mkdir(join(r, other, '..'), { recursive: true })
+  await writeFile(join(r, other), JSON.stringify(fish('bbb', [plain])))
+  await writeFile(join(r, A), JSON.stringify(fish('aaa', [plain, wrapper])))
+  await writeFile(join(r, 'engine-state/_dead-screen.json'), JSON.stringify({ [original.url]: { dead: false } }))
+  await screenDead(r, deadModel(), { limit: 48, photos: new Set([plain.url]) })
+  expect((await json(r, A)).photos).toEqual([wrapper])
+  const captured = await keptFor(plain.url)
+  // The last-photo selection has a surviving original on this page, so a second page made the same first refusal recoverable.
+  expect(captured.map(p => p.entry.photo)).toContainEqual(plain)
+  git('add', '-A'); git('commit', '-qm', 'the take-off')
+  await clear()
+  await putBackCleared(r, gitHistory(r))
+  expect((await json(r, A)).photos).toContainEqual(plain)
+})
+
+test('a separate clear places an album photo between two occurrences of another address', async () => {
+  const { r, git } = await runRepo({ aaa: [] })
+  const file = 'content/gallery/aaa.json'
+  const first = { ...photo('first-dead'), caption: 'First occurrence' }
+  const second = { ...first, caption: 'Second occurrence' }
+  const middle = photo('middle-dead')
+  const write = (photos: unknown[]) => writeFile(join(r, file), JSON.stringify({ id: 'aaa', photos }))
+  const mark = { why: compactRejection('dead: sample'), pages: ['species/aaa'], off: true, at: today(), step: 'the photo check' }
+  const answer = { said: 'clear', by: 'reviewer', on: today() }
+  await write([first, middle, second])
+  git('add', '-A'); git('commit', '-qm', 'album before take-offs')
+  await writeFile(join(r, SL), JSON.stringify({ [first.url]: mark }))
+  await write([middle])
+  git('add', '-A'); git('commit', '-qm', 'first take-off')
+  await writeFile(join(r, SL), JSON.stringify({ [first.url]: { ...mark, look: answer }, [middle.url]: mark }))
+  await write([])
+  git('add', '-A'); git('commit', '-qm', 'second take-off and first clear')
+  await putBackCleared(r, gitHistory(r))
+  expect((await json(r, file)).photos).toEqual([first, second])
+  git('add', '-A'); git('commit', '-qm', 'first restored')
+  const marks = await json(r, SL)
+  marks[middle.url].look = answer
+  await writeFile(join(r, SL), JSON.stringify(marks))
+  await putBackCleared(r, gitHistory(r))
+  expect((await json(r, file)).photos).toEqual([first, middle, second])
 })
