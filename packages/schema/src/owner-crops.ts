@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto'
 import approvals from './owner-crops.json' with {type:'json'}
 import type { Photo } from './types'
 export type OwnerCropApproval = { id: string; approved: boolean; page: string; scientificName: string; date: string; authority: string; originalHash: string; pixelHash: string; recordHash: string; creditMismatch?: boolean; screenRecordHash?: string }
@@ -14,4 +15,9 @@ export function ownerCropApproved(p: Photo, page: string, scientificName: string
   const a=entries.find(a=>a.approved && a.id===p.ownerCrop?.id && a.page===page && a.scientificName===scientificName)
   const alteration=p.altered?.[0]
   return !!a && !!alteration && a.recordHash===recordHash && a.pixelHash===p.ownerCrop?.pixelHash && !p.generated && p.altered?.length===1 && alteration.method==='mark-crop' && a.originalHash===alteration.originalHash && !!p.original && !p.large
+}
+
+/** The current page and stored photo must still match the reviewed crop. */
+export function ownerCropFitsPage(p: Photo, page: string, scientificName: string): boolean {
+  return ownerCropApproved(p, page, scientificName, createHash('sha256').update(ownerCropCanonical(p, page, scientificName)).digest('hex'))
 }

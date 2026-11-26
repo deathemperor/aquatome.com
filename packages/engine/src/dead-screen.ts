@@ -172,8 +172,8 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const last = new Map<string, string[]>()
   if (going.size) {
     const [pages, owned, listed, faces, watermarks] = await Promise.all([
-      pagesShowing(content, p => {
-        if (!permittedPhotoSource(p, sources)) return undefined
+      pagesShowing(content, (p, ref, scientificName) => {
+        if (!permittedPhotoSource(p, sources, ref, scientificName)) return undefined
         const reason = isListed(p.url)?.[1]
         // The sweep removes the whole wrapper for a rejection that applies to the photo as a whole.
         if (reason && !/^(?:dead|people|waiting): /.test(reason)) return p.url

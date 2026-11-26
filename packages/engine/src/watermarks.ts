@@ -244,9 +244,10 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
     const entry = rejectedAt(url)
     return !!entry && !(entry[1].startsWith('watermark:') && (kept(url) || kept(entry[0])))
   }
-  const pages = await pagesShowing(join(root, 'content'), p => {
-    if (!permittedPhotoSource(p, sources)) return undefined
-    if (markedNow(p.url) || listed(p.url)) return p.url
+  const pages = await pagesShowing(join(root, 'content'), (p, ref, scientificName) => {
+    if (!permittedPhotoSource(p, sources, ref, scientificName)) return undefined
+    const rejection = rejectedAt(p.url)?.[1] ?? ''
+    if (markedNow(p.url) || (listed(p.url) && !/^(?:dead|people|waiting): /.test(rejection))) return p.url
     return publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)?.url
   })
   const newMarks = [...urls].filter(u => markedNow(u) && !listed(u))
