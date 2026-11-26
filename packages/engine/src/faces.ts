@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
-import { awaitsScreen, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadPhotoOff, deadScreenPhotoUrls, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, publicPhotoVersion, rejectedEntry, SECOND_LOOK_RECORD, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoWaitsFor, publicPhotoVersion, rejectedEntry, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
 import { screenDead, type DeadScreenDeps } from './dead-screen'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
@@ -96,34 +96,36 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const dropsStored = (p: Photo) => !keepsOriginal(p) && (!!listed(p.url) || face(p.url))
   const pagesToKeep = await pagesShowing(contentRoot, p => {
     if (!waitingForDead || dropsStored(p)) return p.url
-    return version(p)?.url
+    const shown = version(p)?.url
+    return shown && !setsCookies(shown) ? shown : undefined
   })
-  const unread = photoAddressSet(todo.filter(u => !Object.hasOwn(cache, u)))
-  const owesLook = photoAddressSet(waitingForDead ?? [])
-  const flagVerdicts = Object.keys(cache).filter(u => face(u) && !listed(u))
-  const flagged = photoAddressSet(flagVerdicts)
-  const offPage = (u: string) => flagged(u) || !!listed(u) || owesLook(u) ||
-    (!!waitingForDead && (unread(u) || deadPhotoOff(u, screen, secondLook) || (!!watermarks && awaitsScreen(u, watermarks[u]))))
-  const last = lastPhotoVerdicts(pagesToKeep, offPage, flagVerdicts)
+  const unread = new Set(todo.filter(u => !Object.hasOwn(cache, u)))
+  const waits = waitingForDead && photoWaitsFor({ watermarks, unjudged: waitingForDead, unread, deadScreen: screen, secondLook })
+  const flagVerdicts = [...new Set([...screened, ...Object.keys(cache)])].filter(u => face(u) && !listed(u))
+  const unavailable = (u: string) => !!listed(u) || waits?.(u) === true
+  const last = lastPhotoVerdicts(pagesToKeep, unavailable, flagVerdicts)
   // Only one that passed the check before is held; a face found now, on one that never did, takes it off, marked on both
   // lists (last-photo.ts).
   const firstOff = new Map([...last].filter(([u]) => screened.has(u) && !passed(u)))
   for (const u of firstOff.keys()) last.delete(u)
+  const heldByAddress = photoAddressSet(last.keys())
+  const markedByAddress = photoAddressSet(firstOff.keys())
   const why = 'people: a face (face detection)'
   await holdForSecondLook(root, new Map([...last].map(([u, pages]) => [u, { why, pages }])), 'face detection')
   const left = new Map<string, Stood[]>()
-  const removes = (p: Photo) => dropsStored(p) && !last.has(p.url)
+  const removes = (p: Photo) => dropsStored(p) && !heldByAddress(p.url)
   const waiting = captureWaiting(secondLook, listed)
+  const newFirst = rejectedEntry(Object.fromEntries([...firstOff.keys()].map(url => [url, why])))
   for (const { file, e } of pages) {
     const removed = new Set((e.photos ?? []).filter(removes).map(p => p.url))
-    placesIn(root, file, e, url => removed.has(url) && (waiting(url) ?? firstOff.has(url)), left)
+    placesIn(root, file, e, url => removed.has(url) && (waiting(url) ?? newFirst(url)?.[0]), left)
   }
   await holdForSecondLook(root, new Map([...firstOff].map(([u, pages]) => [u, { why, pages, off: true as const }])), 'face detection', undefined, left)
   // A face found now, on a photo that never passed, takes it off every page and album, as the check's verdict of a person
   // does: off a page that keeps other photos, it goes on the never-again list as refused, so the sweep takes its album
   // copies and no step brings it back (the independent reader, 20 Nov).
   // Only where it is given the list to write, as the engine's own call always is.
-  const refusedNow = rejectedFile ? [...screened].filter(u => face(u) && !passed(u) && !firstOff.has(u) && !last.has(u)) : []
+  const refusedNow = rejectedFile ? [...screened].filter(u => face(u) && !passed(u) && !markedByAddress(u) && !heldByAddress(u)) : []
   if (firstOff.size || refusedNow.length) {
     const file = rejectedFile ?? join(root, 'engine-state', '_photo-rejected.json')
     const now = withoutSettledWaits(JSON.parse(await readFile(file, 'utf8').catch(() => '{}')), secondLook)
