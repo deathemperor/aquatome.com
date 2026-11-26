@@ -8,13 +8,13 @@ import { isViPage, withoutVi } from '../paths'
 import type { Excluded, Readers } from '../readers'
 import { CHOOSER_FROM, CHOOSER_OUR_RUNS, CHOOSER_SCRIPT_FROM, type LangAsks } from '../lang-ask'
 import type { Wanted } from '../wanted'
-import { chipHtml, chipOf, dayChart, dayLabel, dayName, deltaOf, esc, fmt, lastDays, rankTable, spark, tiles, usd, type Chip, type DayChart, type Ranked, type Tile } from './chart'
+import { chipHtml, chipOf, countryLabel, dayChart, dayLabel, dayName, deltaOf, detailCard, esc, fmt, lastDays, rankTable, spark, tiles, usd, type Chip, type DayChart, type Ranked, type Tile } from './chart'
 import { chart, failedNote, figures, heading, note, rankBlock, table, tableHtml, textOf, type Action, type Block, type Cell, type PhotoItem, type RankRow, type Section, type TextTone } from './blocks'
 import type { AccountStats, Waiting } from './data'
 import type { ContentStats, Snapshot } from './content'
 import { inLang, items as itemCount, KIND as PAGE_KIND, LANG_NAME, MAIN, perDay, writtenPerDay } from './content-page'
 import { FISH_PERIOD_KEYS, fishSpan, periodTotals, RECENT_MAX, type Call, type FishIdStats, type FishPeriodKey, type FishSpan, type Totals } from './fishid'
-import { failedBox, ICON, isFailed, page, REPORT_NAME, REPORT_PATH, SCOREBOARD_PATH, type Soft } from './shell'
+import { countingNotes, failedBox, ICON, isFailed, page, REPORT_NAME, REPORT_PATH, SCOREBOARD_PATH, type Soft } from './shell'
 import { clock, HOME_TZ, hourMinute, localDay, mondayOf, sameClock, timeTag, timeText, zoneName } from './time'
 import { OUR_RUNS } from './ae'
 
@@ -440,11 +440,12 @@ export function fishIdPage(f: FishPage): string {
   const menu = `<nav class="filters periods" aria-label="Period"><details class="pmenu"><summary>${esc(p.span.label)}</summary><div>${links}</div></details><span class="seg">${links}</span></nav>`
   let body = `<h1>Fish ID</h1>${menu}`
   if (isFailed(f.stats)) body += failedBox('the fish ID log', f.stats)
-  else body += `<h3>${esc(p.span.heading)}</h3>${tiles(p.figures!)}<div class="charts">${dayChart({ ...p.chart!, bare: true })}</div><p class="note">${esc(p.chartNote)}</p>`
+  else body += `<h3>${esc(p.span.heading)}</h3>${detailCard(p.figures!, dayChart({ ...p.chart!, bare: true }))}`
   body += `<h2 id="key">Anthropic keys</h2>${isFailed(f.keys) ? failedBox('the keys’ state', f.keys) : !p.keys ? `<p class="muted">${NO_KEYS}</p>` : `${tableHtml(p.keys.table)}${tableHtml(p.keys.detail)}${p.keys.bad ? `<p class="failed">${esc(p.keys.bad)}</p>` : ''}`}`
   if (p.unmatched) body += `<h2>Guessed often, no page yet</h2>${rankTable(p.unmatched, UNMATCHED_HEAD)}`
   if (p.folded.length) body += `<h2>More figures</h2>${p.folded.map(x => tableHtml(x, { wide: true })).join('')}`
   body += `<p><a href="${RUNS_PATH}">Each run: what Claude thought and looked up (kept 365 days) →</a></p>`
+  if (!isFailed(f.stats)) body += countingNotes(`<p class="note">${esc(p.chartNote)}</p>`)
   return page(path, 'Fish ID', body, f.now, p.tz)
 }
 
@@ -574,28 +575,36 @@ const asksParts = (a: LangAsks, now: Date) => {
 
 export function readersPage(now: Date, r: Soft<Readers> | undefined, tz = HOME_TZ, asks?: Soft<LangAsks>): string {
   let body = '<h1>Readers</h1>'
+  const notes: string[] = []
   if (!r) body += `<p class="muted">${NO_AE}</p>`
   else if (isFailed(r)) body += failedBox('readers (Analytics Engine)', r)
   else {
     const p = readersParts(now, r, tz)
-    body += `<p class="lede">${p.lede}</p>
-${tiles(p.tiles)}
-<h2>By day and source</h2><div class="charts">${dayChart(p.chart)}
-<figure class="chart" aria-labelledby="r-src"><figcaption><h3 id="r-src">Sources</h3></figcaption>${rankTable(p.sources, SOURCE_HEAD, undefined, { part: 'Readers' })}</figure></div>
+    const countries = r.countries.map(c => ({ label: esc(countryLabel(c.cc)), value: c.readers }))
+    notes.push(`<p class="note">${p.lede}</p>`)
+    body += `<p class="lede">The last ${r.days} days · ${esc(dayName(localDay(now, tz)))} so far</p>
+${detailCard([{ ...p.tiles[1]!, unit: `of ${fmt(r.sessions)} tabs` }])}
+<h2>By day and source</h2><div class="charts">${dayChart(p.chart)}</div>
+<section aria-labelledby="r-src"><h3 id="r-src">Sources</h3>${rankTable(p.sources, SOURCE_HEAD, undefined, { shareOf: r.sessions })}</section>
 <div class="split"><section><h2>Most read pages</h2>${rankTable(p.pages, PAGE_VIEWS_HEAD)}</section>
-<section><h2>Readers’ countries</h2>${rankTable(p.countries, COUNTRY_HEAD)}</section></div>`
+<section><h2>Readers’ countries</h2>${rankTable(countries, COUNTRY_HEAD, undefined, { shareOf: r.readers })}</section></div>`
     const back = backParts(r)
-    if (back) body += `<h2>${BACK_TITLE}</h2><p class="lede">${back.lede}</p>${tiles(back.tiles)}${returnWeeks(now, r, tz)}${rankTable(back.pages, BACK_HEAD)}`
+    if (back) {
+      body += `<h2>${BACK_TITLE}</h2>${detailCard(back.tiles)}${returnWeeks(now, r, tz)}${rankTable(back.pages, BACK_HEAD)}`
+      notes.push(`<p class="note">${back.lede}</p>`)
+    }
     const o = leftOutParts(r, tz, now)
-    body += `<h2>${SIDE_TITLE}</h2><p class="lede">${o.sideNote}</p>${rankTable(o.side, SIDE_HEAD)}
-<h2>${LEFT_OUT_TITLE}</h2><p class="lede">${o.lede}</p>${rankTable(o.rows, LEFT_OUT_HEAD)}${o.bursts.length ? `<ul>${o.bursts.map(b => `<li>${b}</li>`).join('')}</ul>` : ''}`
+    body += `<h2>${SIDE_TITLE}</h2>${rankTable(o.side, SIDE_HEAD)}
+<h2>${LEFT_OUT_TITLE}</h2>${rankTable(o.rows, LEFT_OUT_HEAD)}${o.bursts.length ? `<ul>${o.bursts.map(b => `<li>${b}</li>`).join('')}</ul>` : ''}`
+    notes.push(`<p class="note">${o.sideNote}</p>`, `<p class="note">${o.lede}</p>`)
   }
   if (asks && isFailed(asks)) body += `<h2>${ASKS_TITLE}</h2>${failedBox('the language chooser (Analytics Engine)', asks)}`
   else if (asks) {
     const a = asksParts(asks, now)
-    body += `<h2>${ASKS_TITLE}</h2><p class="lede">${a.lede}</p>${rankTable(a.rows, ASKS_HEAD)}`
+    body += `<h2>${ASKS_TITLE}</h2>${rankTable(a.rows, ASKS_HEAD)}`
+    notes.push(`<p class="note">${a.lede}</p>`)
   }
-  return page('/_ab/doc-gia/', 'Readers', body, now, tz)
+  return page('/_ab/doc-gia/', 'Readers', body + (notes.length ? countingNotes(...notes) : ''), now, tz)
 }
 
 export function readersSection(now: Date, r: Soft<Readers> | undefined, tz = HOME_TZ, asks?: Soft<LangAsks>): Section {
@@ -641,10 +650,13 @@ function affiliateParts(clicks: Soft<Clicks>, a: Soft<AffSummary>, now: Date, tz
 export function affiliatePage(clicks: Soft<Clicks>, a: Soft<AffSummary>, now = new Date(), tz = HOME_TZ): string {
   const p = affiliateParts(clicks, a, now, tz)
   const chartHtml = isFailed(p.chart) ? failedBox('clicks by day', p.chart) : dayChart(p.chart)
-  const tables = isFailed(p.tables) ? failedBox('the affiliate tables', p.tables) : `<div class="split"><section><h2>By shop · 14 days</h2>${rankTable(p.tables.networks, NETWORK_HEAD)}</section>
+  const tables = isFailed(p.tables) ? failedBox('the affiliate tables', p.tables) : `<div class="split"><section><h2>By shop · 14 days</h2>${rankTable(p.tables.networks, NETWORK_HEAD, undefined, { shareOf: p.tables.networks.reduce((sum, row) => sum + row.value, 0) })}</section>
 <section><h2>Pages that send the most · 14 days</h2>${rankTable(p.tables.top, TOP_HEAD)}</section></div>
 <p class="note">${p.tables.products}</p>`
-  return page('/_ab/affiliate/', 'Affiliate', `<h1>Affiliate</h1><p class="lede">${p.lede}</p><h2>By day</h2><div class="charts">${chartHtml}</div>${tables}`, now, tz)
+  const window = `The last 30 days · ${esc(dayName(localDay(now, HOME_TZ)))} so far`
+  const total = isFailed(clicks) ? '' : `<p class="fig">${fmt(clicks.clicks.reduce((sum, n) => sum + n, 0))} <small>clicks to the shops in 30 days</small></p>`
+  const byDay = isFailed(clicks) ? chartHtml : `<div class="card detail-card">${total}${chartHtml}</div>`
+  return page('/_ab/affiliate/', 'Affiliate', `<h1>Affiliate</h1><p class="lede">${window}</p><h2>By day</h2>${byDay}${tables}${countingNotes(`<p class="note">${p.lede}</p>`)}`, now, tz)
 }
 
 export function affiliateSection(clicks: Soft<Clicks>, a: Soft<AffSummary>, now = new Date(), tz = HOME_TZ): Section {
@@ -730,7 +742,7 @@ const photoActions = (id: string, approve: boolean): Action[] => [
 ]
 
 export function photosPage(xs: Soft<RecentPhoto[] | undefined>, waiting?: Soft<WaitingPhoto[] | undefined>, now = new Date(), tz = HOME_TZ): string {
-  let body = `<h1>Reader photos</h1><p class="lede">${PHOTOS_LEDE}</p>`
+  let body = '<h1>Reader photos</h1>'
   // Sent but not yet through the moderation pass (hourly): each with its picture (the upload, served to the owner alone,
   // tapped to see it whole), Approve (the next pass publishes it without its checks) and Remove.
   if (waiting && !isFailed(waiting) && waiting.length) {
@@ -749,7 +761,7 @@ export function photosPage(xs: Soft<RecentPhoto[] | undefined>, waiting?: Soft<W
     const rows = xs.map(p => photoRow(p, `<img class="thumb" src="${esc(p.thumb)}" alt="" width="96" loading="lazy">`, '', '', now, tz)).join('')
     body += `<div class="scroll"><table><tbody>${rows || `<tr><td colspan="2" class="none">${NO_PHOTOS}</td></tr>`}</tbody></table></div>`
   }
-  return page('/_ab/anh-ban-doc/', 'Reader photos', body, now, tz)
+  return page('/_ab/anh-ban-doc/', 'Reader photos', body + countingNotes(`<p class="note">${PHOTOS_LEDE}</p>`), now, tz)
 }
 
 export function photosSection(xs: Soft<RecentPhoto[] | undefined>, waiting?: Soft<WaitingPhoto[] | undefined>, now = new Date(), tz = HOME_TZ): Section {
@@ -773,7 +785,7 @@ const keptWho = (p: KeptRow) => p.account ?? 'anon'
 
 /** Fish-ID photos readers let us keep (fishid/kept.ts): only here are they seen. Newest first; each goes 6 months on. */
 export function keptPage(xs: Soft<KeptRow[] | undefined>, now = new Date(), tz = HOME_TZ): string {
-  let body = `<h1>Kept photos</h1><p class="lede">${KEPT_LEDE}</p>`
+  let body = '<h1>Kept photos</h1>'
   if (isFailed(xs)) body += failedBox('the kept photos', xs)
   else if (!xs) body += `<p class="muted">${KEPT_OFF}</p>`
   else {
@@ -785,7 +797,7 @@ export function keptPage(xs: Soft<KeptRow[] | undefined>, now = new Date(), tz =
     }).join('')
     body += `<div class="scroll"><table><thead><tr><th></th><th>Answer</th><th>Sent</th><th>Language</th><th>When</th><th></th></tr></thead><tbody>${rows || `<tr><td colspan="6" class="none">${NO_PHOTOS}</td></tr>`}</tbody></table></div>`
   }
-  return page('/_ab/anh-nhan-dien/', 'Kept photos', body, now, tz)
+  return page('/_ab/anh-nhan-dien/', 'Kept photos', body + countingNotes(`<p class="note">${KEPT_LEDE}</p>`), now, tz)
 }
 
 export function keptSection(xs: Soft<KeptRow[] | undefined>, now = new Date(), tz = HOME_TZ): Section {
@@ -812,7 +824,7 @@ const NO_HIDDEN = 'No hidden pages.'
 const newestHidden = (h: Hidden) => Object.entries(h).sort(([, a], [, b]) => b.at.localeCompare(a.at))
 
 export function hiddenPage(h: Soft<Hidden>, now = new Date(), tz = HOME_TZ): string {
-  let body = `<h1>Hidden pages</h1><p class="lede">${HIDDEN_LEDE}</p>
+  let body = `<h1>Hidden pages</h1>
 <form class="inline" method="post" action="/_ab/hidden"><input name="url" required placeholder="https://aquatome.com/ca/..." aria-label="Page address"><input name="note" placeholder="Why (optional)" aria-label="Why"><button class="go" name="action" value="hide">Hide</button></form>`
   if (isFailed(h)) body += failedBox('the hidden pages', h)
   else {
@@ -820,7 +832,7 @@ export function hiddenPage(h: Soft<Hidden>, now = new Date(), tz = HOME_TZ): str
       `<tr><th><a href="${esc(path)}">${esc(path)}</a></th><td class="l">${esc(v.note ?? '')}</td><td>${timeTag(v.at, tz, now)}</td><td><form method="post" action="/_ab/hidden"><input type="hidden" name="url" value="${esc(path)}"><button name="action" value="unhide">Show again</button></form></td></tr>`).join('')
     body += `<div class="scroll"><table><thead><tr><th>Page</th><th>Why</th><th>When</th><th></th></tr></thead><tbody>${rows || `<tr><td colspan="4" class="none">${NO_HIDDEN}</td></tr>`}</tbody></table></div>`
   }
-  return page('/_ab/an-trang/', 'Hidden pages', body, now, tz)
+  return page('/_ab/an-trang/', 'Hidden pages', body + countingNotes(`<p class="note">${HIDDEN_LEDE}</p>`), now, tz)
 }
 
 export function hiddenSection(h: Soft<Hidden>, now = new Date(), tz = HOME_TZ): Section {
@@ -861,13 +873,14 @@ function accountsParts(a: AccountStats) {
 }
 
 export function accountsPage(a: Soft<AccountStats>, now = new Date(), tz = HOME_TZ): string {
-  let body = `<h1>Accounts</h1><p class="lede">${accountsLede(now, tz)}</p>`
-  if (isFailed(a)) return page('/_ab/tai-khoan/', 'Accounts', body + failedBox('the figures', a), now, tz)
+  let body = `<h1>Accounts</h1><p class="lede">${esc(dayName(localDay(now, tz)))} so far</p>`
+  const notes = countingNotes(`<p class="note">${accountsLede(now, tz)}</p>`)
+  if (isFailed(a)) return page('/_ab/tai-khoan/', 'Accounts', body + failedBox('the figures', a) + notes, now, tz)
   const p = accountsParts(a)
-  body += tiles(p.tiles)
+  body += detailCard(p.tiles.slice(0, 2)) + tiles(p.tiles.slice(2))
   body += `<h2>By day</h2><div class="charts">${dayChart(p.charts[0]!)}</div>
-<h2>How they sign in</h2>${rankTable(p.credentials, CRED_HEAD)}`
-  return page('/_ab/tai-khoan/', 'Accounts', body, now, tz)
+<h2>How they sign in</h2>${rankTable(p.credentials, CRED_HEAD, undefined, { shareOf: p.credentials.reduce((sum, row) => sum + row.value, 0) })}`
+  return page('/_ab/tai-khoan/', 'Accounts', body + notes, now, tz)
 }
 
 export function accountsSection(a: Soft<AccountStats>, now = new Date(), tz = HOME_TZ): Section {

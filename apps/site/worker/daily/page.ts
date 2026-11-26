@@ -1,6 +1,6 @@
 import { failedNote, heading, note, table, type Action, type Block, type Section, type TextTone } from '../admin/blocks'
 import { esc, fmt } from '../admin/chart'
-import { failedBox, ICON, isFailed, page, REPORT_NAME, REPORT_PATH, soft, type Soft } from '../admin/shell'
+import { countingNotes, failedBox, ICON, isFailed, page, REPORT_NAME, REPORT_PATH, soft, type Soft } from '../admin/shell'
 import { HOME_TZ, timeTag, timeText } from '../admin/time'
 import { getReport, listReports, type ReportMeta } from './log'
 import { apnsKeys, devices, type LiveSessions, type PushEnv } from './push'
@@ -90,7 +90,7 @@ export function reportsPage({ now, tz, delivery, xs }: ReportsData): string {
   const list = isFailed(xs) ? failedBox('the reports', xs) : xs.length
     ? `<ul class="areas">${xs.map(r => `<li><a class="area" href="${REPORT_PATH}${esc(r.id)}/"><span><span class="name">${esc(r.subject)}</span> <span class="sub">${timeTag(r.when, tz, now)} · ${statusHtml(r)} · ${fmt(r.care)} to handle</span></span><span></span>${ICON.chevron}</a></li>`).join('')}</ul>`
     : `<p class="muted">${NO_REPORTS}</p>`
-  return page(REPORT_PATH, REPORT_NAME, `<h1>${REPORT_NAME}</h1><p class="lede">${LEDE}</p><h2>${HOW}</h2>${how}<h2>${LIST}</h2>${list}`, now, tz)
+  return page(REPORT_PATH, REPORT_NAME, `<h1>${REPORT_NAME}</h1><h2>${HOW}</h2>${how}<h2>${LIST}</h2>${list}${countingNotes(`<p class="note">${LEDE}</p>`)}`, now, tz)
 }
 
 /** The page as blocks, for the app: the state and its two buttons, then the reports, each opening its page. */

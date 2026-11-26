@@ -14,6 +14,8 @@ import { localDay } from './time'
 export const esc = (s: string) => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!)
 /** The dashboard's numbers, in English: 1,234 and 12.5. */
 export const fmt = (n: number, d = 0) => n.toLocaleString('en-US', { maximumFractionDigits: d, minimumFractionDigits: d })
+const REGIONS = new Intl.DisplayNames('en', { type: 'region', fallback: 'none' })
+export const countryLabel = (cc: string) => /^[A-Z]{2}$/.test(cc) ? REGIONS.of(cc) ?? cc : cc === '??' ? 'Unknown' : cc
 /** USD: cents from a dollar up, four places below a cent (one identification costs about $0.01). */
 export const usd = (n: number) => `$${fmt(n, n !== 0 && Math.abs(n) < 0.01 ? 4 : 2)}`
 const MONTH = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -82,6 +84,8 @@ export type DayChart = {
    * stack keeps its key, without totals (the figures above the chart give them).
    */
   bare?: boolean
+  /** The content page gives each series its own row and shares one selected day across the rows. */
+  lanes?: 'growth' | 'translations'
 }
 
 /**
@@ -99,8 +103,10 @@ export function dayChart(c: DayChart): string {
   const series = c.series.slice(0, 3)
   const all = c.whole ? [...series, c.whole] : series
   const at = (s: Series, i: number) => (known(s.values[i]) ? s.values[i]! : null)
+  const laneMax = c.lanes ? series.map(s => Math.max(1, ...s.values.map(v => known(v) ? Math.abs(v) : 0))) : []
   const head = `<h3 id="${c.id}-t">${esc(c.title)}</h3>`
-  if (!n || !all.some(s => c.days.some((_, i) => at(s, i)))) return `<figure class="chart" aria-labelledby="${c.id}-t"><figcaption>${head}</figcaption><p class="empty">${esc(c.empty ?? 'No figures in this period yet.')}</p></figure>`
+  const hasFigures = all.some(s => c.days.some((_, i) => c.lanes ? at(s, i) !== null : Boolean(at(s, i))))
+  if (!n || !hasFigures) return `<figure class="chart" aria-labelledby="${c.id}-t"><figcaption>${head}</figcaption><p class="empty">${esc(c.empty ?? 'No figures in this period yet.')}</p></figure>`
 
   // The scale: zero, the round top above the tallest stack (or whole), and as far below as a negative day reaches.
   const sum = (i: number, sign: 1 | -1) => series.reduce((t, s) => t + Math.max(0, sign * (at(s, i) ?? 0)), 0)
@@ -145,6 +151,11 @@ export function dayChart(c: DayChart): string {
     let above = 0
     let below = 0
     vals.forEach((v, k) => {
+      if (c.lanes) {
+        const height = v === null ? 0 : f2(100 * Math.abs(v) / laneMax[k]!)
+        marks += `<span class="lane">${v === null ? '' : `<i class="${v < 0 ? 'negative' : ''}" style="--size:${height}%"></i>`}</span>`
+        return
+      }
       if (!v) return
       const cls: string[] = [series[k]!.tone ?? `s${k + 1}`]
       // A part above (or below) another keeps 2px of the panel between them; the outermost part has the round end.
@@ -162,7 +173,8 @@ export function dayChart(c: DayChart): string {
       }
     })
     const cls = [i === now ? 'today' : '', unrecorded(i) && !toCome(i) ? 'miss' : ''].filter(Boolean).join(' ')
-    return `<li${cls ? ` class="${cls}"` : ''} data-d="${esc(when(i))}" data-v="${esc(all.map(s => shown(at(s, i))).join('|'))}"${tip(i)}>${marks}</li>`
+    const values = c.lanes ? shown(unrecorded(i) ? null : vals.reduce<number>((sum, v) => sum + (v ?? 0), 0)) : all.map(s => shown(at(s, i))).join('|')
+    return `<li${cls ? ` class="${cls}"` : ''} data-d="${esc(when(i))}" data-v="${esc(values)}"${tip(i)}>${marks}</li>`
   }).join('')
 
   // Every seventh day back from the last (the overview's weeks), or every fourth week, and the first when it stands clear of them.
@@ -178,21 +190,25 @@ export function dayChart(c: DayChart): string {
 
   const totals = all.map(s => c.days.reduce((t, _, i) => t + (at(s, i) ?? 0), 0))
   const key = (s: Series, k: number) => (all.length > 1 ? `<i class="key ${s === c.whole ? 'whole' : s.tone ?? `s${k + 1}`}"></i>` : '')
-  const readout = `<p class="readout${all.length > 1 ? ' multi' : ''}${weekly ? ' wk' : ''}" aria-live="polite"><span class="when">${n} ${per}${n === 1 ? '' : 's'}</span>${all.map((s, k) => `<span class="v">${key(s, k)}<b>${esc(format(totals[k]!))}</b>${all.length > 1 ? ` ${esc(s.label)}` : ''}</span>`).join('')}<span class="hint" aria-hidden="true"></span></p>`
+  const readValues = c.lanes ? `<span class="v"><b>${esc(format(totals.reduce((sum, v) => sum + v, 0)))}</b> ${esc(c.lanes === 'translations' ? 'translated' : 'added')}</span>`
+    : all.map((s, k) => `<span class="v">${key(s, k)}<b>${esc(format(totals[k]!))}</b>${all.length > 1 ? ` ${esc(s.label)}` : ''}</span>`).join('')
+  const readout = `<p class="readout${all.length > 1 && !c.lanes ? ' multi' : ''}${weekly ? ' wk' : ''}" aria-live="polite"><span class="when">${n} ${per}${n === 1 ? '' : 's'}</span>${readValues}<span class="hint" aria-hidden="true"></span></p>`
 
   const heights = c.whole ? whole : up
   const peak = heights.indexOf(Math.max(...heights))
   const gaps = c.days.filter((_, i) => unrecorded(i)).length
   const desc = `${n} ${per}${n === 1 ? '' : 's'}, from ${dm(0)} to ${dm(last)}. ${all.map((s, k) => `${s.label}: ${format(totals[k]!)} in all`).join('; ')}. Highest: ${weekly ? `the week of ${dm(peak)}` : dm(peak)}.${gaps ? ` ${fmt(gaps)} ${per}${gaps === 1 ? '' : 's'} not recorded.` : ''} The arrow keys read each ${per}.`
   const tipLine = bare ? '<p class="tip" aria-live="polite"><b></b><span></span></p>' : ''
-  const plot = `<div class="plot${named7 ? ' named' : ''}" data-plot role="group" tabindex="0" style="--n:${n};--gut:${gutter}" aria-labelledby="${c.id}-t" aria-describedby="${c.id}-d">${tipLine}<div class="yax" aria-hidden="true">${yAxis}</div><div class="area" aria-hidden="true"><div class="grid">${grid}</div><ol class="cols">${cols}</ol></div><div class="xax" aria-hidden="true">${xAxis}</div></div><p class="vh" id="${c.id}-d">${esc(desc)}</p>`
+  const plot = c.lanes
+    ? `<div class="plot lanes" data-plot data-start="${now}" role="group" tabindex="0" style="--n:${n};--lanes:${series.length}" aria-labelledby="${c.id}-t" aria-describedby="${c.id}-d"><div class="lane-labels" aria-hidden="true">${series.map(s => `<span>${esc(s.label)}</span>`).join('')}</div><div class="area" aria-hidden="true"><ol class="cols">${cols}</ol></div><div class="lane-totals" aria-hidden="true">${totals.map(v => `<b>${esc(format(v))}</b>`).join('')}</div><div class="xax" aria-hidden="true">${xAxis}</div></div>`
+    : `<div class="plot${named7 ? ' named' : ''}" data-plot role="group" tabindex="0" style="--n:${n};--gut:${gutter}" aria-labelledby="${c.id}-t" aria-describedby="${c.id}-d">${tipLine}<div class="yax" aria-hidden="true">${yAxis}</div><div class="area" aria-hidden="true"><div class="grid">${grid}</div><ol class="cols">${cols}</ol></div><div class="xax" aria-hidden="true">${xAxis}</div></div>`
 
   const listed = [...all, ...(c.also ?? [])]
   const rows = c.days.map((d, i) => [d, i] as const).reverse().filter(([, i]) => !toCome(i)).map(([d, i]) => `<tr><th>${esc(dayLabel(d))}${i === now ? (c.lastSays ? ` (${esc(c.lastSays)})` : weekly ? ' (this week)' : ' (today)') : ''}</th>${listed.map(s => `<td>${esc(shown(at(s, i)))}</td>`).join('')}</tr>`).join('')
   const table = `<details><summary>The figures</summary><div class="scroll"><table><thead><tr><th>${weekly ? 'Week' : 'Day'}</th>${listed.map(s => `<th>${esc(s.label)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div></details>`
   // Bare: a stack's key under the bars, without totals; one series needs none (the title, or the figure above, names it).
   const legend = bare && all.length > 1 ? `<p class="legend" aria-hidden="true">${all.map((s, k) => `<span>${key(s, k)}${esc(s.label)}</span>`).join('')}</p>` : ''
-  return `<figure class="chart${bare ? ' bare' : ''}" aria-labelledby="${c.id}-t"><figcaption>${head}${bare ? '' : readout}</figcaption>${plot}${legend}${table}</figure>`
+  return `<figure class="chart${bare ? ' bare' : ''}" aria-labelledby="${c.id}-t"><figcaption>${head}${bare ? '' : readout}</figcaption>${plot}<p class="vh" id="${c.id}-d">${esc(desc)}</p>${legend}${table}</figure>`
 }
 
 export type Readout = { title: string; detail: string }
@@ -237,7 +253,7 @@ export type Ranked = { label: string; value: number; cells?: string[]; /** The p
  * numbers line up in their own column. A negative value draws to the left of a zero mark. `label` and `cells` are HTML,
  * escaped by the caller; `head`: the label's column, the value's, then one per cell; `part` names what `part` counts.
  */
-export function rankTable(rows: Ranked[], head: string[], format: (n: number) => string = n => fmt(n), opts: { part?: string } = {}): string {
+export function rankTable(rows: Ranked[], head: string[], format: (n: number) => string = n => fmt(n), opts: { part?: string; shareOf?: number } = {}): string {
   const vals = rows.map(r => r.value).filter(Number.isFinite)
   const hi = Math.max(0, ...vals)
   const lo = Math.min(0, ...vals)
@@ -250,8 +266,11 @@ export function rankTable(rows: Ranked[], head: string[], format: (n: number) =>
     return `<span class="bar${r.value < 0 ? ' neg' : ''}${part ? ' parts' : ''}" style="--x:${f2(r.value < 0 ? zero - w : zero)};--w:${f2(w)}">${part}</span>`
   }
   const track = (r: Ranked) => `<span class="track${lo < 0 ? ' signed' : ''}"${lo < 0 ? ` style="--z:${f2(zero)}"` : ''} aria-hidden="true">${bar(r)}</span>`
-  const body = rows.map(r => `<tr><th><span class="lb">${r.label}</span>${track(r)}</th><td>${esc(format(r.value))}</td>${(r.cells ?? []).map(c => `<td>${c}</td>`).join('')}</tr>`).join('')
-  const key = opts.part && rows.some(r => known(r.part)) ? `<caption><span><i class="key s1"></i>${esc(opts.part)}</span><span><i class="key whole"></i>${esc(head[1] ?? '')}</span></caption>` : ''
+  const body = rows.map(r => {
+    const share = opts.shareOf ? ` class="share" style="--share:${f2(100 * Math.min(1, Math.max(0, r.value / opts.shareOf)))}%"` : ''
+    return `<tr${share}><th><span class="lb">${r.label}</span>${share ? '' : track(r)}</th><td>${esc(format(r.value))}</td>${(r.cells ?? []).map(c => `<td>${c}</td>`).join('')}</tr>`
+  }).join('')
+  const key = !opts.shareOf && opts.part && rows.some(r => known(r.part)) ? `<caption><span><i class="key s1"></i>${esc(opts.part)}</span><span><i class="key whole"></i>${esc(head[1] ?? '')}</span></caption>` : ''
   return `<div class="scroll"><table class="rank">${key}<thead><tr>${head.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${body || `<tr><td colspan="${head.length}" class="none">None yet.</td></tr>`}</tbody></table></div>`
 }
 
@@ -279,10 +298,20 @@ export function deltaHtml(d: Delta): string {
   return `<span class="delta${tone ? ` ${tone}` : ''}">${esc(text)}</span>`
 }
 
-export type Tile = { label: string; value: string; sub?: string; delta?: Delta; href?: string; /** A share of a whole, 0–1, drawn as a meter under the figure. */ meter?: number }
+export type Tile = { label: string; value: string; unit?: string; sub?: string; delta?: Delta; href?: string; /** A share of a whole, 0–1, drawn as a meter under the figure. */ meter?: number }
 /** KPI tiles: a label, the figure, its meter, then its change or a note. */
 export function tiles(xs: Tile[]): string {
-  return `<dl class="kpis">${xs.map(t => `<div class="kpi"><dt>${t.href ? `<a href="${esc(t.href)}">${esc(t.label)}</a>` : esc(t.label)}</dt><dd class="v">${esc(t.value)}</dd>${t.meter !== undefined && Number.isFinite(t.meter) ? `<dd>${meter(t.meter)}</dd>` : ''}${t.delta ? `<dd>${deltaHtml(t.delta)}</dd>` : ''}${t.sub ? `<dd class="sub">${esc(t.sub)}</dd>` : ''}</div>`).join('')}</dl>`
+  return `<dl class="kpis">${xs.map(t => {
+    const label = t.href ? `<a href="${esc(t.href)}">${esc(t.label)}</a>` : esc(t.label)
+    const value = t.unit ? `<span class="number">${esc(t.value)}</span> <small>${esc(t.unit)}</small>` : esc(t.value)
+    const bar = t.meter !== undefined && Number.isFinite(t.meter) ? `<dd>${meter(t.meter)}</dd>` : ''
+    return `<div class="kpi"><dt>${label}</dt><dd class="v">${value}</dd>${bar}${t.delta ? `<dd>${deltaHtml(t.delta)}</dd>` : ''}${t.sub ? `<dd class="sub">${esc(t.sub)}</dd>` : ''}</div>`
+  }).join('')}</dl>`
+}
+
+/** The measures and, when present, their chart in one dashboard panel. */
+export function detailCard(measures: Tile[], chart = ''): string {
+  return `<div class="card detail-card">${tiles(measures)}${chart}</div>`
 }
 
 /**

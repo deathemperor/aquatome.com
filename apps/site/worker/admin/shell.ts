@@ -280,6 +280,16 @@ summary:hover{color:var(--ink)}
 .cols i.neg.cap{border-radius:0 0 4px 4px}
 .cols .today i{opacity:.45}
 .cols .today.on i{opacity:.7}
+.plot.lanes{grid-template-columns:minmax(4rem,.4fr) minmax(0,1fr) max-content;grid-template-rows:calc(var(--lanes) * 28px) 24px;column-gap:8px}
+.lane-labels,.lane-totals,.lanes .cols li{display:grid;grid-template-rows:repeat(var(--lanes),minmax(0,1fr));align-items:stretch}
+.lane-labels,.lane-totals{line-height:1.15}
+.lane-labels span,.lane-totals b{align-content:center}
+.lane-labels{grid-area:1/1}
+.lane-totals{grid-area:1/3;text-align:right;color:var(--ink)}
+.lanes .lane{position:relative;border-bottom:1px solid var(--grid)}
+.lanes .lane i{bottom:5px;width:min(14px,calc(100% - 2px));height:max(2px,calc(var(--size) * .75));border-radius:2px;background:var(--mute);opacity:1}
+.lanes .lane i.negative{bottom:auto;top:calc(100% - 5px);height:max(2px,calc(var(--size) * .18))}
+.lanes .on i,.lanes .cols:not(:has(li.on)) .today i{background:var(--s1);opacity:1}
 /* A section's main chart (chart.ts bare): no axis, each day named under its bar, a tap or the pointer shows the day over
    the bars; the tip moves with its bar and stays inside the chart (it shifts by as much of its width as the bar is across) */
 .bare .plot{grid-template-columns:0 minmax(0,1fr);grid-template-rows:140px 26px;position:relative;margin-top:8px}
@@ -391,6 +401,15 @@ i.sci{font-style:italic}
 .first-screen{display:grid;gap:10px;margin-top:14px}
 .first-screen>div{display:grid;gap:10px;align-content:start}
 .card{position:relative;background:var(--plate);border:1px solid var(--rule);border-radius:14px;padding:12px 14px}
+.detail-card>.kpis,.detail-card>.chart{background:none;border:0;border-radius:0;margin:0;padding:0}
+.detail-card>.chart{margin-top:10px}
+.detail-card .kpi{padding:4px 14px 8px 0;box-shadow:none}
+.detail-card>.fig small,.detail-card .kpi .v small{font:500 .85rem/1.5 var(--sans);color:var(--muted)}
+.quality-table td:last-child{white-space:normal;max-width:42ch;overflow-wrap:anywhere}
+.rank .share{background:linear-gradient(to right,color-mix(in srgb,var(--s1) 14%,transparent) var(--share),transparent var(--share))}
+.counting-notes{margin-top:24px}
+.counting-notes h2{margin-top:0}
+.counting-notes p:last-child{margin-bottom:0}
 .first-screen .card>h2{font:600 14.5px/1.35 var(--sans);margin:0 0 4px;display:flex;align-items:center;gap:6px}
 .card>h2>a{color:inherit;text-decoration:none;flex:1;min-width:0}
 .card>h2>a:after{content:'';position:absolute;inset:0;border-radius:inherit}
@@ -527,18 +546,20 @@ try{if(document.cookie.includes(c)&&sessionStorage.getItem('aq_tz')!==z){session
 const CHART_JS = `(()=>{document.documentElement.classList.add('js');let first=true
 for(const p of document.querySelectorAll('[data-plot]')){const tip=p.querySelector('.tip'),out=tip||p.closest('figure').querySelector('.readout'),area=p.querySelector('.area'),when=out.querySelector('.when'),bs=[...out.querySelectorAll('b')],cols=[...p.querySelectorAll('.cols li')],init=tip?[]:[when.textContent,...bs.map(b=>b.textContent)]
 if(first&&!tip){out.classList.add('first');first=false}
-let on=-1,down=-1,was=-1
+const start=Number(p.dataset.start??-1);let on=-1,down=-1,was=-1,pinned=start
 const pick=i=>{cols[on]?.classList.remove('on');on=i;const li=cols[i];out.classList.toggle('sel',!!li)
 if(tip){if(li){li.classList.add('on');bs[0].textContent=li.dataset.t;tip.lastChild.textContent=li.dataset.x;tip.style.setProperty('--i',i)}return}
 if(!li){when.textContent=init[0];bs.forEach((b,k)=>{b.textContent=init[k+1]});return}
 li.classList.add('on');when.textContent=li.dataset.d;const v=li.dataset.v.split('|');bs.forEach((b,k)=>{b.textContent=v[k]??'—'})}
+if(start>=0)pick(start)
 const at=e=>{const r=area.getBoundingClientRect();return Math.max(0,Math.min(cols.length-1,Math.floor((e.clientX-r.left)/r.width*cols.length)))}
-area.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse')return;const i=at(e);was=on;down=i;pick(i===on?-1:i)})
-area.addEventListener('pointercancel',()=>pick(was))
-area.addEventListener('pointermove',e=>{if(e.pointerType==='mouse')return pick(at(e));if(e.buttons&&at(e)!==down){down=-2;pick(at(e))}})
-area.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')pick(-1)})
-p.addEventListener('keydown',e=>{const l=cols.length-1,k=e.key,i=k==='ArrowRight'?(on<0?0:Math.min(l,on+1)):k==='ArrowLeft'?(on<0?l:Math.max(0,on-1)):k==='Home'?0:k==='End'?l:k==='Escape'?-1:null
-if(i===null)return;e.preventDefault();pick(i)})}
+area.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&start<0)return;const i=at(e);was=start<0?on:pinned;down=i
+if(start>=0){pinned=i===pinned?start:i;pick(pinned)}else pick(i===on?-1:i)})
+area.addEventListener('pointercancel',()=>{if(start>=0)pinned=was;pick(was)})
+area.addEventListener('pointermove',e=>{if(e.pointerType==='mouse')return pick(at(e));const i=at(e);if(e.buttons&&i!==down){down=-2;if(start>=0)pinned=i;pick(i)}})
+area.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')pick(pinned)})
+p.addEventListener('keydown',e=>{const l=cols.length-1,k=e.key,i=k==='ArrowRight'?(on<0?0:Math.min(l,on+1)):k==='ArrowLeft'?(on<0?l:Math.max(0,on-1)):k==='Home'?0:k==='End'?l:k==='Escape'?start:null
+if(i===null)return;e.preventDefault();if(start>=0)pinned=i;pick(i)})}
 let cur=null
 for(const s of document.querySelectorAll('[data-spark]')){const svg=s.querySelector('svg'),out=s.querySelector('.so'),d=s.dataset.d.split('|'),v=s.dataset.v.split('|')
 let on=-1,down=-1,touch=false
@@ -550,6 +571,11 @@ s.addEventListener('pointerdown',e=>{touch=e.pointerType!=='mouse';if(!touch)ret
 s.addEventListener('pointermove',e=>{if(e.pointerType==='mouse')return pick(at(e));if(e.buttons&&at(e)!==down){down=-2;pick(at(e))}})
 s.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')pick(-1)})
 s.addEventListener('click',e=>{if(touch)e.preventDefault()})}})()`
+
+/** Explanations at the bottom of a dashboard screen. Entries are rendered dashboard HTML. */
+export function countingNotes(...entries: string[]): string {
+  return `<section class="card counting-notes" aria-labelledby="how-counted"><h2 id="how-counted">How it’s counted</h2>${entries.filter(Boolean).join('')}</section>`
+}
 
 /** An admin page: the bar, the areas (a rail on a computer, chips on a phone), then the page's own content. */
 export function page(current: WebPath, title: string, body: string, now = new Date(), tz = HOME_TZ): string {

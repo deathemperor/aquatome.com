@@ -5,7 +5,7 @@ import { accountsPage, fishIdPage, NEED_TITLE_MAX, photosPage } from '../worker/
 import { scoreboardPage, summariseScoreboard, weeksTo } from '../worker/admin/scoreboard'
 import { viewerZone } from '../worker/admin/time'
 import { todayJson, todayPage } from '../worker/admin/today'
-import { FISH, LOW_CONTENT, SPENDING, STATS, TODAY } from '../worker/test/owner-sample'
+import { CONTENT, FISH, LOW_CONTENT, SPENDING, STATS, TODAY } from '../worker/test/owner-sample'
 import { expect, test } from './fixtures'
 import { LIVE } from './pages'
 
@@ -291,6 +291,26 @@ test('the content page\'s pages out of search: a page\'s notes open on a tap or 
 
 test.describe('in Vietnam', () => {
   test.use({ timezoneId: 'Asia/Ho_Chi_Minh' })
+
+  test('growth and translation rows share one selected day and retain their totals', async ({ page, errors }) => {
+    test.skip(LIVE, 'the live dashboard opens only to the owner')
+    await serve(page, '/_ab/noi-dung/', tz => contentPage({ ...CONTENT, tz }))
+    await page.goto('/_ab/noi-dung/')
+    for (const id of ['n-added', 'n-langs']) {
+      const plot = page.locator(`figure[aria-labelledby="${id}-t"] .lanes`)
+      const totals = await plot.locator('.lane-totals b').allTextContents()
+      expect(totals).toHaveLength(3)
+      await expect(plot.locator('li.on')).toHaveClass(/\btoday\b/)
+      await plot.focus()
+      await page.keyboard.press('ArrowLeft')
+      await expect(plot.locator('li.on')).not.toHaveClass(/\btoday\b/)
+      await expect(plot.locator('li.on .lane')).toHaveCount(3)
+      expect(await plot.locator('.lane-totals b').allTextContents()).toEqual(totals)
+      await page.keyboard.press('Escape')
+      await expect(plot.locator('li.on')).toHaveClass(/\btoday\b/)
+    }
+    expect(errors).toEqual([])
+  })
 
   test('a chart\'s columns read out their day on a tap, a hover or the arrow keys; the totals come back after', async ({ page, errors, isMobile }) => {
     test.skip(LIVE, 'the live dashboard opens only to the owner')

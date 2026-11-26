@@ -3,7 +3,7 @@ import { querySessions, type Session } from '../readers'
 import type { Wanted } from '../wanted'
 import { COUNTED, EVENTS, eventsSql, num } from './ae'
 import { cellOf, figures, heading, note, table, textOf, type Block } from './blocks'
-import { esc, fmt, tiles, type Tile } from './chart'
+import { detailCard, esc, fmt, type Tile } from './chart'
 import { pageIndex, pagePathOf, type PageInfo } from './content'
 import type { ContentStats } from './content-shape'
 
@@ -258,14 +258,14 @@ const gapRows = (xs: QualityGap[]) => xs.map(g => [esc(g.name), g.source === 'se
 const empty = (id: string) => (id === 'gaps' ? 'No gap with enough demand yet.' : 'No page has enough data yet.')
 
 export function qualityHtml(q: Quality | { failed: string } | undefined): string {
-  let out = `<h2 id="chat-luong">${QUALITY_TITLE}</h2><p class="lede">${esc(HELP)}</p>`
+  let out = `<h2 id="chat-luong">${QUALITY_TITLE}</h2>`
   if (!q) return `${out}<p class="muted">Not loaded: no Analytics Engine or content.json.</p>`
   if ('failed' in q) return `${out}<p class="muted">Couldn’t load: ${esc(q.failed)}</p>`
-  out += tiles(parts(q).tilesOf)
+  out += detailCard(parts(q).tilesOf)
   for (const [id, title, sub] of LISTS) {
     const xs = id === 'gaps' ? gapRows(q.gaps) : rowsOf(q[id])
     out += `<h3 id="q-${id}">${title}</h3><p class="muted">${esc(sub)}</p>`
-    out += xs.length ? `<div class="scroll"><table class="wide"><thead><tr>${(id === 'gaps' ? GAP_HEAD : HEAD).map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${xs.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>` : `<p class="muted">${empty(id)}</p>`
+    out += xs.length ? `<div class="scroll"><table class="quality-table"><thead><tr>${(id === 'gaps' ? GAP_HEAD : HEAD).map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${xs.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>` : `<p class="muted">${empty(id)}</p>`
   }
   return out
 }

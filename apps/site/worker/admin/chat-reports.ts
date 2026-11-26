@@ -3,7 +3,7 @@ import type { FiledClash } from '../chat/clashes'
 import { listAll, REPORT_PREFIX } from '../chat/store'
 import type { Role } from '../fishid/ledger'
 import { failedNote, note, table, tableHtml, type Block, type Section } from './blocks'
-import { failedBox, isFailed, page, type Soft } from './shell'
+import { countingNotes, failedBox, isFailed, page, type Soft } from './shell'
 import { HOME_TZ, timeText } from './time'
 
 /** A report of one chat answer as wrong (chat/past.ts), as it's kept in R2; `role`, who made it, missing on older ones. */
@@ -36,11 +36,11 @@ const clashesTable = (list: FiledClash[], now: Date, tz: string) =>
 const newestOf = (d: ChatReports) => (d.total > d.rows.length ? `The newest ${d.rows.length} of ${d.total}.` : '')
 
 export function chatReportsPage(d: Soft<ChatReports | undefined>, now = new Date(), tz = HOME_TZ): string {
-  let body = `<h1>${TITLE}</h1><p class="lede">${LEDE}</p>`
+  let body = `<h1>${TITLE}</h1>`
   if (isFailed(d)) body += failedBox('the chat reports', d)
   else if (!d) body += `<p class="muted">${OFF}</p>`
   else body += `${newestOf(d) ? `<p class="muted">${newestOf(d)}</p>` : ''}<div class="reports">${tableHtml(reportsTable(d, now, tz))}</div>${d.clashes ? `<h2>${CLASHES}</h2><p class="lede">${CLASHES_LEDE}</p><div class="reports">${tableHtml(clashesTable(d.clashes, now, tz))}</div>` : ''}`
-  return page('/_ab/bao-sai/', TITLE, body, now, tz)
+  return page('/_ab/bao-sai/', TITLE, body + countingNotes(`<p class="note">${LEDE}</p>`), now, tz)
 }
 
 export function chatReportsSection(d: Soft<ChatReports | undefined>, now = new Date(), tz = HOME_TZ): Section {
