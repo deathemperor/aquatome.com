@@ -33,9 +33,9 @@ const c = await getContent(lang)
 // A page of cards for the fish and plants the guide names, fish first: a listicle names a hundred or more (2026-11-01,
 // one was 2,203 page elements). The text links each by name.
 const { m, species, plants, ph, lead, gear, toc, prose, minutes, series, inSeries, pos, next, refs, covers, cardSpecies, cardPlants, speciesPhotos, plantPhotos, credited } = guideParts(lang, c, g)
+const srcset = lead && widthSrcset(lead)
 const uncarded = species.length + plants.length - cardSpecies.length - cardPlants.length
 const v = g.video
-const srcset = lead && widthSrcset(lead)
 const description = excerpt(g.t.body ?? '')
 const jsonld: object[] = []
 if (v) {
