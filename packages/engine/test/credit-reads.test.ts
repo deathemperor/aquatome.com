@@ -223,7 +223,8 @@ test("a credit refusal on a guide alteration holds the fish page's bare original
 })
 
 test.each(['none', 'before', 'after'])('a credit release lifts only its own hold (independent refusal: %s)', async independent => {
-  const original = photo('held-original')
+  const picture = 'https://www.example-pets.test/fish.jpg'
+  const original = photo('held-original', { url: media.urlFor(photoKey('sprucepets', picture)) })
   const wrapper = photo('held-alteration', { original, altered: [{ method: 'lanczos3-upscale' }] })
   const file = 'content/species/fish-e/entity.json'
   const r = await root({ [file]: { id: 'fish-e', photos: [wrapper] } })
@@ -231,9 +232,11 @@ test.each(['none', 'before', 'after'])('a credit release lifts only its own hold
   const reason = 'waiting: withheld [sha256:' + 'a'.repeat(64) + ']'
   if (independent === 'before') await writeFile(rejected, JSON.stringify({ [original.url]: reason }))
   await holdForCreditRead(r, [wrapper.url], 'the chief of staff', '2026-11-14', 'credits unread')
-  expect(await json(rejected)).toEqual({ [wrapper.url]: HOLD_NOTE, [original.url]: independent === 'before' ? reason : HOLD_NOTE })
+  expect(await json(rejected)).toEqual({ [wrapper.url]: HOLD_NOTE, ...(independent === 'before' ? { [original.url]: reason } : {}) })
   if (independent === 'after') await writeFile(rejected, JSON.stringify({ [wrapper.url]: HOLD_NOTE, [original.url]: reason }))
-  const read = { [wrapper.url]: { page: PAGE, kind: 'own', at: '2026-11-28' } satisfies PhotoCredit }
+  const read = pageCredits([{ src: picture, alt: '', credit: SITE }], PAGE, 'sprucepets', SITE, terms, media, '2026-11-28')
+  expect(Object.keys(read)).toEqual([original.url])
+  expect(read[original.url]?.kind).toBe('own')
 
   expect(await releaseCreditHolds(r, read)).toEqual({ back: [wrapper.url], off: [], stuck: [] })
   expect((await json(join(r, file))).photos).toEqual([wrapper])

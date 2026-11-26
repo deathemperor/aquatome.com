@@ -460,6 +460,27 @@ test('a guide logo refusal follows the bare original even when the same verdict 
   expect((await json(root, 'content/guides/guide/entity.json')).photos).toEqual([])
 })
 
+test('a retained shop mark does not waive the guide’s independent person verdict', async () => {
+  const marked = { ...photo('shop'), url: 'https://media.aquatome.com/glaser/p.webp', source: 'glaser',
+    sourceUrl: 'https://www.aquariumglaser.de/example/' }
+  const root = await store({ guide: { photos: [marked] } })
+  await mkdir(join(root, 'content/species/sample'), { recursive: true })
+  await writeFile(join(root, 'content/species/sample/entity.json'), JSON.stringify({ photos: [marked, photo('spare')] }))
+  await writeFile(join(root, 'content/sources.json'), JSON.stringify({ glaser: { publish: true } }))
+  await writeFile(join(root, 'engine-state/_photo-watermarks.json'), JSON.stringify({
+    [marked.url]: { ocr: [], watermark: true, retainedOwnMark: { source: 'glaser', sourceUrl: marked.sourceUrl, owner: 'source' } },
+    [url('spare')]: { ocr: [] },
+  }))
+  await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({
+    [marked.url]: { person: true, mark: true, brand: false, note: '' },
+  }))
+
+  await screenGuidePhotos(root, model({}).d, { limit: 0 })
+
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[marked.url]).toMatch(/^people:/)
+  expect((await json(root, 'content/guides/guide/entity.json')).photos).toEqual([])
+})
+
 test('all whole-photo refusals on alterations sharing a sole bare original wait for a second look', async () => {
   const original = photo('shared-bare')
   const wrappers = ['alteration-one', 'alteration-two'].map(id => ({ ...photo(id), altered: [{ method: 'lanczos3-upscale' }], original }))

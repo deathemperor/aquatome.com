@@ -159,7 +159,8 @@ export async function namePublisherCredits(root: string, sources: readonly Sourc
   // First every copy of each photo, tied where its own caption ties it: one photo (one address in our store) is one
   // picture, credited one way wherever it is. A copy that can't tie by itself (an album copy with no caption) takes the
   // line its other copies tie to; copies that tie to different lines keep the publisher alone.
-  const found: { file: string; data: unknown; photos: { p: PhotoLike & Record<string, unknown>; t: ReturnType<typeof tiedCredit> }[] }[] = []
+  const creditAddress = (photo: Record<string, unknown>) => deadScreenPhotoUrls(photo as unknown as Photo).at(-1)!
+  const found: { file: string; data: unknown; photos: { p: PhotoLike & Record<string, unknown>; key: string; t: ReturnType<typeof tiedCredit> }[] }[] = []
   const lines = new Map<string, Set<string>>()
   const vetoed = new Map<string, Untied>()
   for (const file of files) {
@@ -175,7 +176,10 @@ export async function namePublisherCredits(root: string, sources: readonly Sourc
       const publisher = isPhoto(o) && typeof o.source === 'string' && o.licence === SOURCE_PHOTO_LICENCE ? names.get(o.source as SourceId) : undefined
       if (publisher && o.author === publisher) photos.push(o as PhotoLike & Record<string, unknown>)
       // A copy named already is one of its picture's copies too: a copy that ties to another line keeps the publisher alone.
-      else if (publisher && (o.author as string).endsWith(` / ${publisher}`)) lines.set(o.url as string, (lines.get(o.url as string) ?? new Set()).add((o.author as string).slice(0, -` / ${publisher}`.length)))
+      else if (publisher && (o.author as string).endsWith(` / ${publisher}`)) {
+        const key = creditAddress(o)
+        lines.set(key, (lines.get(key) ?? new Set()).add((o.author as string).slice(0, -` / ${publisher}`.length)))
+      }
       Object.values(o).forEach(visit)
     }
     visit(data)
@@ -185,9 +189,10 @@ export async function namePublisherCredits(root: string, sources: readonly Sourc
       const copy = p.sourceUrl ? await stored(p.source!, p.sourceUrl) : undefined
       const pageLine = PAGE_CREDITS[p.source as SourceId]
       const t = pageLine ? pageCredit(p.caption, copy, pageLine) : tiedCredit(p.caption, copy)
-      if ('name' in t) lines.set(p.url, (lines.get(p.url) ?? new Set()).add(t.name))
-      else if (vetoes(t.why, !!pageLine) && !vetoed.has(p.url)) vetoed.set(p.url, t.why)
-      tied.push({ p, t })
+      const key = creditAddress(p)
+      if ('name' in t) lines.set(key, (lines.get(key) ?? new Set()).add(t.name))
+      else if (vetoes(t.why, !!pageLine) && !vetoed.has(key)) vetoed.set(key, t.why)
+      tied.push({ p, key, t })
     }
     found.push({ file, data, photos: tied })
   }
@@ -196,8 +201,8 @@ export async function namePublisherCredits(root: string, sources: readonly Sourc
   let changed = 0
   for (const f of found) {
     let any = false
-    for (const { p, t } of f.photos) {
-      const one = lines.get(p.url), veto = vetoed.get(p.url)
+    for (const { p, key, t } of f.photos) {
+      const one = lines.get(key), veto = vetoed.get(key)
       if (veto) { untied.push({ file: relative(root, f.file), url: p.url, why: veto }); continue }
       if (!one || one.size > 1) { untied.push({ file: relative(root, f.file), url: p.url, why: one ? 'two lines across its copies' : 'why' in t ? t.why : 'not a credit' }); continue }
       p.author = `${[...one][0]} / ${p.author}`
