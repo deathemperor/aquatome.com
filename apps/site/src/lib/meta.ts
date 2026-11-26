@@ -5,6 +5,7 @@ import { saysSci } from './sci'
 
 const TITLE_LENGTH = 70
 const DESCRIPTION_LENGTH = 160
+const SHORTEST_SENTENCE_EXCERPT = 80
 const length = (text: string) => [...text].length
 const segmenters = new Map<string, Intl.Segmenter>()
 function segments(text: string, lang: Lang, granularity: 'word' | 'sentence' | 'grapheme') {
@@ -30,7 +31,9 @@ function clip(text: string, lang: Lang, max: number, granularity: 'word' | 'sent
 
 export function descriptionForSearch(lang: Lang, text: string, max = DESCRIPTION_LENGTH): string {
   if (length(text) <= max) return text
-  return clip(text, lang, max, 'sentence') || clip(text, lang, max, 'word') || clip(text, lang, max, 'grapheme')
+  const sentences = clip(text, lang, max, 'sentence')
+  if (length(sentences) >= SHORTEST_SENTENCE_EXCERPT) return sentences
+  return clip(text, lang, max, 'word') || clip(text, lang, max, 'grapheme')
 }
 
 /** The name, then its scientific name in brackets, unless the name says it already. */

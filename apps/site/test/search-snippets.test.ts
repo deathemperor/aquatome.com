@@ -16,7 +16,7 @@ test('long fish and plant titles keep both names before the care topics', () => 
 })
 
 test('descriptions keep complete sentences and cut Thai at a word boundary when necessary', () => {
-  const sentence = 'Bể cần nước sạch và đủ chỗ để cá bơi.'
+  const sentence = 'Khi nuôi cá theo đàn, hãy chọn bể có nước sạch và đủ khoảng trống để cả đàn cá bơi cùng nhau.'
   expect(descriptionForSearch('vi', sentence + ' ' + 'Các loại thức ăn cá có thể tìm trong bể '.repeat(8))).toBe(sentence)
   const thai = 'ปลาชนิดนี้ชอบน้ำสะอาดและมีพื้นที่ว่ายน้ำ'
   const clipped = descriptionForSearch('th', thai.repeat(12), 32)
@@ -27,7 +27,17 @@ test('descriptions keep complete sentences and cut Thai at a word boundary when 
 })
 
 test('guide descriptions use their own sentences without a truncation ellipsis', () => {
-  const first = 'Bể cần nước sạch và đủ chỗ để cá bơi, đặc biệt khi nuôi theo đàn.'
+  const first = 'Bể cần nước sạch và đủ chỗ để cá bơi, đặc biệt khi thả nhiều con và nuôi chúng theo đàn.'
   const html = `<figure><figcaption><p>${'Chú thích ảnh '.repeat(12)}</p></figcaption></figure><p>${first} ${'Trong bể có thể trồng nhiều cây thủy sinh '.repeat(6)}</p>`
-  expect(excerpt(html, 80)).toBe(first)
+  expect(excerpt(html, 100)).toBe(first)
+})
+
+
+test('a sentence under 80 characters leaves room for a word-boundary excerpt', () => {
+  const sentence = 'Bể cần nước sạch và đủ chỗ để cá bơi.'
+  const expected = sentence + ' Cá cũng cần chỗ ẩn để nghỉ, nhất là trong những ngày đầu mới thả'
+  const text = expected + ' cá vào bể trước khi chúng quen với dòng nước.'
+  expect([...expected].length).toBeGreaterThanOrEqual(80)
+  expect(descriptionForSearch('vi', text, [...expected].length + 2)).toBe(expected)
+  expect(descriptionForSearch('vi', sentence)).toBe(sentence)
 })
