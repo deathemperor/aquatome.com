@@ -280,6 +280,20 @@ export type LeftPlace = Stood & { times: number }
  * each photo `marked` names, added to `into` (url → places, with the entry).
  */
 type PhotoSlot = Omit<Stood, 'file'>
+function headingOccurrence(heading: string | undefined, index: number, order: string[] | undefined): number | undefined {
+  return heading === undefined || !order ? undefined : order.slice(0, index).filter(value => value === heading).length
+}
+
+function sameGuideSlot(p: Pick<PhotoSlot, 'path' | 'heading' | 'partOrder'>, q: PhotoSlot): boolean {
+  if (p.path?.[3] !== q.path?.[3]) return false
+  if (!p.path || !q.path) return !p.path && !q.path
+  if (p.heading === undefined || q.heading === undefined) return p.path[2] === q.path[2]
+  if (p.heading !== q.heading) return false
+  const first = headingOccurrence(p.heading, p.path[2], p.partOrder)
+  const second = headingOccurrence(q.heading, q.path[2], q.partOrder)
+  return first === undefined || second === undefined ? p.path[2] === q.path[2] : first === second
+}
+
 function photoSlots(data: unknown, guide: boolean): PhotoSlot[] {
   const doc = data as { photos?: unknown; video?: { figures?: unknown } } | undefined
   const out: PhotoSlot[] = []
@@ -304,11 +318,11 @@ function photoSlots(data: unknown, guide: boolean): PhotoSlot[] {
   return out
 }
 
-export function placesIn(root: string, file: string, data: unknown, marked: (url: string) => boolean | string | undefined, into: Map<string, Stood[]>) {
+export function placesIn(root: string, file: string, data: unknown, marked: (url: string, slot: PhotoSlot) => boolean | string | undefined, into: Map<string, Stood[]>) {
   const local = relative(root, file)
   for (const slot of photoSlots(data, local.startsWith('content/guides/'))) {
     const address = String(slot.photo.url)
-    const decision = marked(address)
+    const decision = marked(address, slot)
     if (!decision) continue
     const url = typeof decision === 'string' ? decision : address
     into.set(url, [...(into.get(url) ?? []), { ...slot, file: local, photo: JSON.parse(JSON.stringify(slot.photo)) }])
@@ -542,8 +556,8 @@ export function gitHistory(root: string): History {
         const seen = new Set<string>()
         for (const p of before) if (!setsCookies(String(p.photo.url))) served.add(placeKey({ ...p, file }))
         for (const p of before) {
-          // A part can move when another is dropped. Its heading identifies the same slot through that move.
-          const same = (q: PhotoSlot) => p.path?.[3] === q.path?.[3] && (p.heading !== undefined ? p.heading === q.heading : p.path?.[2] === q.path?.[2])
+          // A part can move when a neighboring part is dropped.
+          const same = (q: PhotoSlot) => sameGuideSlot(p, q)
           const position = { file, index: p.index, ...(p.path ? { path: p.path } : {}) }
           const key = placeKey(position)
           const usable = (q: PhotoSlot) => !served.has(key) || !setsCookies(String(q.photo.url))
@@ -599,23 +613,29 @@ async function checkUnpublishedRestores(root: string, local: SecondLooks, histor
     if (!prior?.off || prior.at !== mark.at || prior.why !== mark.why || prior.back) continue
     const historyPlaces = await history(url, mark.at, mark.settled)
     if (!historyPlaces) throw new Error('Could not verify an unpublished photo restore after pulling main')
-    const settled = new Set(mark.settled!.map(p => p.file))
+    const settled = new Set(mark.settled!.map(placeKey))
     const matches = photoAddressSet([url])
     for (const p of historyPlaces) {
-      if (p.times < 2 || !settled.has(p.file)) continue
-      const main = publishedJson(root, p.file)
-      if (Array.isArray(main?.photos) && main.photos.some(photo => typeof photo?.url === 'string' && matches(photo.url))) continue
+      if (p.times < 2 || !settled.has(placeKey(p))) continue
+      const guide = p.file.startsWith('content/guides/')
+      const hasSlot = (slot: PhotoSlot) => sameGuideSlot(p, slot) && typeof slot.photo.url === 'string' && matches(slot.photo.url)
+      if (photoSlots(publishedJson(root, p.file), guide).some(hasSlot)) continue
       const file = join(root, p.file)
       const raw = await readFile(file, 'utf8').catch((error: NodeJS.ErrnoException) => {
         if (error.code === 'ENOENT') return undefined
         throw error
       })
       if (raw === undefined) continue
-      const data = JSON.parse(raw) as { photos?: { url: string }[] }
-      if (!data.photos) continue
-      const keep = data.photos.filter(photo => !matches(photo.url))
-      if (keep.length === data.photos.length) continue
-      await replacePhotoDocument(file, `${JSON.stringify({ ...data, photos: keep }, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
+      const data = JSON.parse(raw) as { photos?: { url: string }[]; video?: { figures?: { photo?: { url: string }; moments?: { url: string }[] }[] } }
+      const found = photoSlots(data, guide).find(hasSlot)
+      if (!found) continue
+      if (!found.path) data.photos = data.photos!.filter(photo => !matches(photo.url))
+      else {
+        const figure = data.video!.figures![found.path[2]]!
+        if (found.path[3] === 'photo') delete figure.photo
+        else figure.moments = figure.moments!.filter(photo => !matches(photo.url))
+      }
+      await replacePhotoDocument(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
       undone.push(`${url}: it left ${p.file} again on main, and that removal stands`)
     }
   }
@@ -763,7 +783,12 @@ export async function putBackCleared(root: string, history: History, at = today(
       if (p.path) {
         const figures = doc.video?.figures
         if (!guideId || !Array.isArray(figures)) { out.off.push(`${u}: its part of ${p.file} is gone`); continue }
-        const at = p.heading === undefined ? p.path[2] : figures.findIndex(f => f.heading === p.heading)
+        const saved = p.path[2]
+        const headings = figures.flatMap((f, i) => f.heading === p.heading ? [i] : [])
+        const occurrence = headingOccurrence(p.heading, saved, p.partOrder)
+        const at = p.heading === undefined ? saved : occurrence === undefined
+          ? figures[saved]?.heading === p.heading ? saved : headings[0] ?? -1
+          : headings[occurrence] ?? -1
         if (at < 0 && p.heading !== undefined) {
           into = { heading: p.heading, moments: [] } as typeof into
           const current = figures.map(f => typeof f.heading === 'string' ? f.heading : '')

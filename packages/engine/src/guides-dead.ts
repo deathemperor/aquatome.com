@@ -1,14 +1,15 @@
-import { deadScreenPhotoUrls } from '@aq/schema'
+import { deadScreenPhotoUrls, type Photo } from '@aq/schema'
 import { createHash } from 'node:crypto'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { LlmError } from './claude'
 import { askedByCheck, type DeadScreenDeps, type DeadVerdict } from './dead-screen'
-import { holdForSecondLook, looks, placesIn, readSecondLook, waitingEntry, type Stood } from './last-photo'
+import { entriesDir, holdForSecondLook, looks, placesIn, readSecondLook, waitingEntry, type Stood } from './last-photo'
 import { compactRejection, compactVerdict, GUIDE_BACKLOG_FLAG, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
-import { writeImageCache } from './image-cache-write'
+import { replacePhotoDocument, writeImageCache } from './image-cache-write'
+import { shouldStripPhoto } from './watermarks'
 import { contactSheet, type PartPhotosOff } from './video-images'
 
 /**
@@ -105,15 +106,19 @@ export async function takeOffGuidesDead(root: string, dead: Map<string, string>,
   const off = new Set(going.map(([u]) => u))
   const recovery = new Map<string, Stood[]>()
   const edits = new Map<string, string>()
-  for (const [file, places] of files) {
+  // Without private recovery, keep the content entry for a clear. The durable flag hides it in the build.
+  if (entriesDir()) for (const [file, places] of files) {
     const raw = await readFile(file, 'utf8')
     const e = JSON.parse(raw) as Guide
-    placesIn(root, file, e, u => off.has(u), recovery)
-    if (e.photos) e.photos = e.photos.filter(p => !off.has(p.url))
-    for (const fig of new Set(places.flatMap(p => (p.fig === undefined ? [] : [p.fig])))) {
+    const remove = (photo: GuidePhoto) => shouldStripPhoto(photo as Photo, url => off.has(url), (_stored, original, blocked) =>
+      !blocked && (!rejected[original] || rejected[original].startsWith('waiting:')),
+    )
+    placesIn(root, file, e, (url, slot) => slot.path?.[3] === 'moments' ? off.has(url) : remove(slot.photo as Photo), recovery)
+    if (e.photos) e.photos = e.photos.filter(p => !remove(p))
+    for (const fig of new Set(places.flatMap(p => p.fig === undefined ? [] : [p.fig]))) {
       const f = e.video?.figures?.[fig]
       if (!f) continue
-      if (f.photo && off.has(f.photo.url)) delete f.photo
+      if (f.photo && remove(f.photo)) delete f.photo
       if (f.moments) f.moments = f.moments.filter(m => !off.has(m.url))
       if (!f.photo && !f.moments?.length) report.bare.push(`guides/${places[0]!.guide}: part ${fig + 1}`)
     }
@@ -122,7 +127,7 @@ export async function takeOffGuidesDead(root: string, dead: Map<string, string>,
   await holdForSecondLook(root, hold, step, undefined, recovery)
   await writePhotoState(state('_photo-rejected.json'), rejected)
   if (partsChanged) await writeImageCache(partsFile, `${JSON.stringify(parts, null, 2)}\n`)
-  for (const [file, data] of edits) await writeImageCache(file, data)
+  for (const [file, data] of edits) await replacePhotoDocument(file, data)
   return report
 }
 

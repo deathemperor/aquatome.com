@@ -974,6 +974,22 @@ test("a guide's part is found by its heading: one a step dropped once it had no 
   expect((await json(r, G)).video.figures).toEqual([{ heading: 'one', moments: [] }, { heading: 'two', moments: [frame] }, { heading: 'three', moments: [three] }])
 })
 
+test('a clear restores a stock photo to the second of two parts with the same heading', async () => {
+  const r = await store({})
+  const G = 'content/guides/ggg/entity.json'
+  const first = { ...stock, url: url('first-stock') }
+  const figures = [{ heading: 'Same heading', photo: first, moments: [] }, { heading: 'Same heading', photo: stock, moments: [frame] }]
+  await mkdir(join(r, G, '..'), { recursive: true })
+  await writeFile(join(r, G), JSON.stringify({ ...guideBefore, video: { ...guideBefore.video, figures } }))
+  await takeOffGuidesDead(r, new Map([[stock.url, 'sample']]), 'the guide photo check')
+  const marks = await json(r, SL)
+  marks[stock.url].look = { said: 'clear', by: 'reviewer', on: today() }
+  await writeFile(join(r, SL), JSON.stringify(marks))
+
+  expect((await putBackCleared(r, async () => [])).back).toEqual([`${G}: ${stock.url}`])
+  expect((await json(r, G)).video.figures).toEqual(figures)
+})
+
 test('clearing the second empty part before the first restores both before their surviving neighbor', async () => {
   const r = await store({})
   const G = 'content/guides/ggg/entity.json'

@@ -3,7 +3,7 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
-import { expect, test } from 'vitest'
+import { expect, onTestFinished, test, vi } from 'vitest'
 import { LlmError } from '../src/claude'
 import type { DeadScreenDeps } from '../src/dead-screen'
 import { GUIDE_DEAD_PROMPT, screenGuidesDead, takeOffGuidesDead } from '../src/guides-dead'
@@ -16,6 +16,8 @@ const pic = (name: string) => ({ url: m(name), width: 960, height: 640, licence:
 
 async function store() {
   const root = await mkdtemp(join(tmpdir(), 'guides-dead-'))
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
+  onTestFinished(() => { vi.unstubAllEnvs() })
   const put = async (path: string, data: unknown) => { await mkdir(join(root, path, '..'), { recursive: true }); await writeFile(join(root, path), `${JSON.stringify(data, null, 2)}\n`) }
   await put('content/guides/g/entity.json', {
     id: 'g',

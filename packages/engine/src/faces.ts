@@ -268,7 +268,7 @@ export async function screenNewPhotos(contentRoot: string, cacheFile: string, d:
     out.albumsFailed = photoFailure(err)
   }
   const backlog = o.backlog ?? BACKLOG_SHEETS
-  if (backlog > 0 && !out.owed && !out.albumsFailed && !out.albums?.left && !out.albums?.stopped && !out.albums?.failed.length) {
+  if (backlog > 0 && !out.owed && !out.albumsFailed && !out.albums?.left && !out.albums?.pendingTakeOffs && !out.albums?.stopped && !out.albums?.failed.length) {
     const room = o.room ?? faceRoom
     const more = () => { const left = room(); return left == null || left > NEW_PHOTO_RESERVE }
     try { out.guides = await screenGuidesDead(root, d.guideBacklog ?? d.dead, { limit: backlog * GUIDE_BACKLOG_PER_SHEET, more }) } catch (err) { out.guidesFailed = photoFailure(err) }

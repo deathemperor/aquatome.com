@@ -173,9 +173,10 @@ export async function readPartPhotosOff(contentRoot: string): Promise<PartPhotos
 }
 const partPhotoOff = (off: PartPhotosOff, guide: string, sourceUrl: string) => {
   const hashed = `sha256:${createHash('sha256').update(sourceUrl).digest('hex')}`
-  const key = [sourceUrl, hashed].find(k => Object.hasOwn(off, k))
-  const o = key ? off[key] : undefined
-  return !!o && (!o.guides || o.guides.includes(guide))
+  return [sourceUrl, hashed].some(key => {
+    const entry = Object.hasOwn(off, key) ? off[key] : undefined
+    return !!entry && (!entry.guides || entry.guides.includes(guide))
+  })
 }
 
 /** Pictures for one guide's sections; [] when nothing fitted (the guide is then done). */

@@ -4,7 +4,7 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
-import { expect, test } from 'vitest'
+import { expect, onTestFinished, test, vi } from 'vitest'
 import { LlmError } from '../src/claude'
 import { videoStills, type StillDeps } from '../src/video-stills'
 import type { TextLine } from '../src/watermarks'
@@ -23,6 +23,8 @@ const timed = (t: number, caption: string) => ({ ...moment(t, caption), t: Math.
  */
 async function site(over: Partial<StillDeps> = {}) {
   const root = await mkdtemp(join(tmpdir(), 'stills-'))
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
+  onTestFinished(() => { vi.unstubAllEnvs() })
   const put = async (path: string, data: unknown) => {
     await mkdir(join(root, path, '..'), { recursive: true })
     await writeFile(join(root, path), typeof data === 'string' ? data : `${JSON.stringify(data, null, 2)}\n`)

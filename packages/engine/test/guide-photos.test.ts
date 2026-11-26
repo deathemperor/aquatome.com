@@ -21,6 +21,8 @@ const photo = (n: string) => ({ url: url(n), width: 1000, height: 667, licence: 
 
 async function store(guides: Record<string, object>, equipment: Record<string, object> = {}) {
   const root = await mkdtemp(join(tmpdir(), 'guide-photos-'))
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
+  onTestFinished(() => { vi.unstubAllEnvs() })
   const put = async (path: string, data: unknown) => { await mkdir(join(root, path, '..'), { recursive: true }); await writeFile(join(root, path), `${JSON.stringify(data, null, 2)}\n`) }
   await mkdir(join(root, 'engine-state'))
   for (const [id, g] of Object.entries(guides)) await put(`content/guides/${id}/entity.json`, { id, ...g })
@@ -98,6 +100,28 @@ test.each(['photo', 'stock'])('a flagged fallback original of a guide %s keeps a
   expect(place === 'stock' ? saved.video.figures[0].photo : saved.photos[0]).toEqual(altered)
   expect((await json(root, 'engine-state/_photo-second-look.json'))[original.url]).toMatchObject({ off: true, pages: ['guides/guide'] })
   expect((await json(root, 'engine-state/_photo-rejected.json'))[original.url]).toMatch(/^waiting: /)
+})
+
+test.each(['photo', 'stock'])('a rejected stored guide %s keeps its eligible original', async place => {
+  const original = photo('original-live')
+  const altered = { ...photo('stored-dead'), altered: [{ method: 'lanczos3-upscale' }], original }
+  const guide = place === 'stock' ? { video: { figures: [{ photo: altered, moments: [] }] } } : { photos: [altered] }
+  const root = await store({ guide })
+  const { d } = model({ 'stored-dead': { dead: true } })
+  const result = await screenGuidePhotos(root, d, { limit: 1 })
+  expect(result.dead).toEqual([`${altered.url}: guides/guide`])
+  const saved = await json(root, 'content/guides/guide/entity.json')
+  expect(place === 'stock' ? saved.video.figures[0].photo : saved.photos[0]).toEqual(altered)
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[altered.url]).toMatch(/^waiting: /)
+})
+
+test('a flagged guide photo stays recoverable when private capture is unavailable', async () => {
+  const root = await store({ guide: { photos: [photo('flagged-dead')] } })
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', 'off')
+  const { d } = model({ 'flagged-dead': { dead: true } })
+  await screenGuidePhotos(root, d, { limit: 1 })
+  expect((await json(root, 'content/guides/guide/entity.json')).photos).toEqual([photo('flagged-dead')])
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[url('flagged-dead')]).toMatch(/^waiting: /)
 })
 
 test('hands or a person on a guide\'s photos, a mark on a video section\'s photo and a brand on a packshot take them off the guides and onto the blocklist; a brand stays on an equipment guide', async () => {
@@ -488,8 +512,6 @@ test("a photo asked again for its subject keeps its verdict: that look's dead an
 
 test("a still whose verdict says dead isn't cleared to show until its second look clears it", async () => {
   const root = await store({ 'youtube-b1': videoGuide([], [{ heading: 'x', moments: [still(20, true)] }]) })
-  vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
-  onTestFinished(() => { vi.unstubAllEnvs() })
   const frame = url('video/b1/at20-hd')
   await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({ [frame]: { person: false, mark: false, brand: false, note: '', dead: true } }))
   const person = async () => (await json(root, 'content/guides/youtube-b1/entity.json')).video.figures[0].moments[0].person
