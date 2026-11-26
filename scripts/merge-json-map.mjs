@@ -23,6 +23,8 @@ const placeKey = p => p.occurrence ? `${p.file}#${p.occurrence}` : p.file
 function mergePlaces(chosen, base, ours, theirs) {
   if (ours.off !== true || theirs.off !== true) return chosen
   const other = chosen === ours ? theirs : ours
+  const differentKind = chosen.why.split(':', 1)[0] !== other.why.split(':', 1)[0]
+  if (differentKind && !placesOf(other).some(p => p.capture)) return chosen
   const at = ours.at < theirs.at ? ours.at : theirs.at
   const datedPlaces = (mark, field) => placesOf(mark, field).map(p => {
     const { captureDay, captureWhy, ...place } = p
@@ -30,11 +32,13 @@ function mergePlaces(chosen, base, ours, theirs) {
     const reason = captureWhy ?? mark.why
     return { ...place, ...(captured === at ? {} : { captureDay: captured }), ...(reason === chosen.why ? {} : { captureWhy: reason }) }
   })
-  const settled = new Map([...datedPlaces(other, 'settled'), ...datedPlaces(chosen, 'settled')].map(p => [placeKey(p), p]))
+  const oldSettled = chosen.why === other.why ? datedPlaces(other, 'settled') : []
+  const settled = new Map([...oldSettled, ...datedPlaces(chosen, 'settled')].map(p => [placeKey(p), p]))
   const original = new Map(datedPlaces(base).map(p => [placeKey(p), p]))
   const pending = new Map(datedPlaces(chosen).map(p => [placeKey(p), p]))
   const sameCapture = (p, q) => !!p && !!q && p.capture === q.capture && p.index === q.index && p.captureDay === q.captureDay && p.captureWhy === q.captureWhy
   for (const place of datedPlaces(other)) {
+    if (differentKind && !place.capture) continue
     const before = original.get(placeKey(place))
     const selected = pending.get(placeKey(place))
     if (chosen.back && sameCapture(place, before)) continue
@@ -52,7 +56,7 @@ function mergePlaces(chosen, base, ours, theirs) {
   if ((settled.size || pending.size) && record(ours) && record(theirs)) merged.pages = [...new Set([...ours.pages, ...theirs.pages])].sort()
   if (settled.size) merged.settled = [...settled.values()]
   if (pending.size) return { ...merged, left: [...pending.values()] }
-  const completed = back ?? other.back
+  const completed = back ?? (chosen.why === other.why ? other.back : undefined)
   return completed ? { ...merged, back: completed } : merged
 }
 

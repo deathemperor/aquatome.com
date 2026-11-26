@@ -225,10 +225,10 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       if (held.has(it.url)) { holding.set(it.url, { why, pages: held.get(it.url)! }); report.held.push(`${it.key}: ${held.get(it.url)!.join(', ')}`) }
       continue
     }
-    for (const file of it.files) {
+    if (canCapture || !markedByAddress(it.url)) for (const file of it.files) {
       const { page } = await readPage(file)
       if (it.video) page.videos = (page.videos ?? []).filter(v => v.youtubeId !== it.video)
-      else if (canCapture || !markedByAddress(it.url)) page.photos = (page.photos ?? []).filter(p => p.url !== it.url || retainFallback(p))
+      else page.photos = (page.photos ?? []).filter(p => p.url !== it.url || retainFallback(p))
     }
     if (!it.video && firstOff.has(it.url)) {
       holding.set(it.url, { why, pages: firstOff.get(it.url)!, off: true })
