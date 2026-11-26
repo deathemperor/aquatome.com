@@ -4,7 +4,7 @@ import { chmod, cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/prom
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
-import { expect, test } from 'vitest'
+import { expect, onTestFinished, test, vi } from 'vitest'
 import { loadAll, mirrorPlan } from '@aq/schema'
 import { LlmError } from '../src/claude'
 import { screenDead, type DeadScreenDeps } from '../src/dead-screen'
@@ -130,8 +130,9 @@ test("a stop at the step's line leaves the face pass as written and every page a
 
   // A page the screen can't write: the step still ends, its face pass kept, the failure said.
   const again = await store()
-  await chmod(join(again, 'content/species/a/entity.json'), 0o444)
-  const failed = await run(again, deps().d)
+  const unwritable = join(again, 'content/species/a')
+  await chmod(unwritable, 0o555)
+  const failed = await run(again, deps().d).finally(() => chmod(unwritable, 0o755))
   expect(failed.deadFailed).toMatch(/^photo operation unavailable \[sha256:[0-9a-f]{64}\]$/)
   expect(failed.faces.removed).toEqual([`species/c/entity.json: ${m('c-face')}`])
   expect(Object.keys(await json(again, 'engine-state/_photo-faces.json'))).toHaveLength(6)
@@ -437,7 +438,7 @@ test.each([
   expect((await publicView()).species.find(p => p.id === 'alpha')?.photos.map(p => p.url)).toEqual([mirror.url])
 })
 
-test.each([false, true])('one clear restores the credited mirror from Git (both addresses refused: %s)', async both => {
+test.each([false, true])('one clear restores the credited mirror (both addresses refused: %s)', async both => {
   const source = { ...photo('source'), url: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/prior-dead.jpg' }
   const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(source.url)!.key}`, author: 'Sample mirror credit' }
   const sibling = photo('sibling-live')
@@ -452,6 +453,8 @@ test.each([false, true])('one clear restores the credited mirror from Git (both 
   git('init', '-q', '-b', 'main'); git('config', 'user.email', 't@example.org'); git('config', 'user.name', 'Sample Tester')
   git('add', '.'); git('commit', '-qm', 'page with the credited mirror')
 
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
+  onTestFinished(() => vi.unstubAllEnvs())
   const { d } = deps()
   if (both) d.dead.look = async () => ({ tiles: [1, 2].map(n => ({ n, dead: true, note: '' })) })
   const out = await run(root, d)
