@@ -358,3 +358,9 @@ function refOf(c: Content, x: Named): string {
 
 /** A guide's card picture (guideImages): its own photo or a still of its own video, else the first fish, plant or breed its title names. */
 export const guideImage = (c: Content, g: Localized<GuideEntity>): Photo | undefined => guideImages(c, g)[0]
+
+/** The localized name of the fish, plant or breed that supplied this guide's lead photo. */
+export function borrowedGuidePhotoName(c: Content, g: Localized<GuideEntity>, photo: Photo): string | undefined {
+  if (g.photos.includes(photo)) return undefined
+  return heads(c, g).find(page => page.photos.includes(photo))?.t.name
+}
