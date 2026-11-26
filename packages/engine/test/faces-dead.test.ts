@@ -194,3 +194,52 @@ test("the screen owes every photo of a fish or plant page that no look has judge
   expect(await run(root, next.d)).toEqual({ faces: expect.objectContaining({ checked: 0 }), owed: 0 })
   expect(next.sent).toEqual([])
 })
+
+async function onePage(photos: object[]) {
+  const root = await mkdtemp(join(tmpdir(), 'faces-dead-'))
+  await mkdir(join(root, 'content/species/a'), { recursive: true })
+  await mkdir(join(root, 'content/gallery'), { recursive: true })
+  await mkdir(join(root, 'engine-state'))
+  await writeFile(join(root, 'content/species/a/entity.json'), JSON.stringify({ id: 'a', photos }))
+  return root
+}
+
+test('a rejected alteration keeps its held original in the entity and paired album', async () => {
+  const original = photo('original-dead')
+  const altered = { ...original, url: m('altered-dead'), altered: [{ method: 'lanczos3-upscale' }], original: { url: original.url, width: original.width, height: original.height } }
+  const root = await onePage([altered])
+  await writeFile(join(root, 'content/gallery/a.json'), JSON.stringify({ id: 'a', photos: [altered] }))
+  await writeFile(join(root, 'engine-state/_photo-check.json'), JSON.stringify({ [original.url]: { ok: 'yes', typical: true } }))
+  const { d } = deps()
+  const out = await run(root, d)
+  expect(out.dead!.held).toEqual([`${original.url}: species/a`])
+  expect((await json(root, 'content/species/a/entity.json')).photos).toEqual([original])
+  expect((await json(root, 'content/gallery/a.json')).photos).toEqual([original])
+  expectControlledRejections(await json(root, 'engine-state/_photo-rejected.json'), { [altered.url]: 'dead' })
+})
+
+test('an unreadable sibling does not remove the only previously passed photo', async () => {
+  const old = photo('old-dead'), pending = photo('unreadable')
+  const root = await onePage([old, pending])
+  await writeFile(join(root, 'engine-state/_photo-check.json'), JSON.stringify({ [old.url]: { ok: 'yes', typical: true } }))
+  const flagged = await run(root, deps({ unreadable: pending.url }).d)
+  expect(flagged.dead!.held).toEqual([`${old.url}: species/a`])
+  expect(await urls(root, 'a')).toEqual([old.url, pending.url])
+  expect(await owed(root)).toEqual([pending.url])
+})
+
+test('a failed rejection write does not release an original with a dead verdict', async () => {
+  const original = photo('original-dead'), live = photo('live')
+  const altered = { ...original, url: m('altered'), altered: [{ method: 'lanczos3-upscale' }], original: { url: original.url } }
+  const root = await onePage([altered, live])
+  await writeFile(join(root, 'content/gallery/a.json'), JSON.stringify({ id: 'a', photos: [altered] }))
+  const rejected = join(root, 'engine-state/_photo-rejected.json')
+  await mkdir(rejected)
+  const failed = await run(root, deps().d)
+  expect(failed.deadFailed).toBeDefined()
+  expect(await owed(root)).toContain(original.url)
+  await expect(readFile(join(root, 'engine-state/_dead-screen.json'), 'utf8')).rejects.toMatchObject({ code: 'ENOENT' })
+  await rm(rejected, { recursive: true })
+  expect((await run(root, deps().d)).dead!.dead).toEqual([`${original.url}: dead screen dead`])
+  expectControlledRejections(await json(root, 'engine-state/_photo-rejected.json'), { [original.url]: 'dead' })
+})

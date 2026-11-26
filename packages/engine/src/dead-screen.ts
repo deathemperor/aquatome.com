@@ -158,15 +158,18 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const going = new Set(off.filter(x => !x.video && (sl.open(x.url) || (sl.waiting(x.url) && !passed.has(x.url)))).map(x => x.url))
   // Photos already listed never-again leave every page anyway (the sweep), so they count as going.
   const last = new Map<string, string[]>()
+  const sources = going.size ? (await readJson<Record<string, SourceInfo>>(join(content, 'sources.json')) ?? {}) : {}
+  const version = (p: Photo) => publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
   if (going.size) {
-    const sources = await readJson<Record<string, SourceInfo>>(join(content, 'sources.json')) ?? {}
-    const pages = await pagesShowing(content, p => publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)?.url)
-    for (const [url, refs] of lastPhotos(pages, u => going.has(u) || u in photoRejected)) if (going.has(url)) last.set(url, refs)
+    const pages = await pagesShowing(content, p => version(p)?.url)
+    const offPage = (u: string) => going.has(u) || u in photoRejected || (o.photos?.has(u) && !Object.hasOwn(cache, u)) === true
+    for (const [url, refs] of lastPhotos(pages, offPage)) if (going.has(url)) last.set(url, refs)
   }
   // Only one that passed the check before is held; this verdict, on one that never did, takes it off, marked (last-photo.ts).
   const held = new Map([...last].filter(([u]) => passed.has(u)))
   const firstOff = new Map([...last].filter(([u]) => !passed.has(u)))
   const holding = new Map<string, { why: string; pages: string[]; off?: true }>()
+  const preserved = new Map<string, string>()
   for (const it of off) {
     const why = `dead: ${cache[it.key]!.note} (the dead-fish screen)`
     if (!it.video && (!going.has(it.url) || held.has(it.url))) {
@@ -185,17 +188,40 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     for (const file of it.files) {
       const raw = await readFile(file, 'utf8')
       const e = JSON.parse(raw) as { photos?: Photo[]; videos?: { youtubeId: string }[] }
-      const next = it.video ? { ...e, videos: (e.videos ?? []).filter(v => v.youtubeId !== it.video) } : { ...e, photos: (e.photos ?? []).filter(p => p.url !== it.url) }
-      // Fallback metadata remains in the entity and album. The public gate reads its rejection record, so a clear makes
-      // the original eligible again without rewriting the alteration or losing its credit.
-      if (!it.video && next.photos?.length === e.photos?.length) continue
+      if (!it.video && !(e.photos ?? []).some(p => p.url === it.url)) continue
+      const next = it.video ? { ...e, videos: (e.videos ?? []).filter(v => v.youtubeId !== it.video) } : { ...e, photos: (e.photos ?? []).flatMap(p => {
+        if (p.url !== it.url) return [p]
+        const original = version(p)
+        if (!original || original.url === p.url || original.url in photoRejected || (going.has(original.url) && !held.has(original.url))) return []
+        preserved.set(p.url, original.url)
+        return [original]
+      }) }
+      // A first verdict on an original alone keeps its metadata. The loader holds the URL until cleared.
       await writeFile(file, `${JSON.stringify(next, null, indentOf(raw))}\n`)
+    }
+  }
+  if (preserved.size) {
+    const gallery = join(content, 'gallery')
+    for (const name of (await readdir(gallery).catch(() => [])).filter(f => f.endsWith('.json'))) {
+      const file = join(gallery, name)
+      const raw = await readFile(file, 'utf8')
+      const album = JSON.parse(raw) as { photos?: Photo[] }
+      let changed = false
+      const photos = (album.photos ?? []).map(p => {
+        if (!preserved.has(p.url)) return p
+        const original = version(p)
+        if (!original || original.url !== preserved.get(p.url)) return p
+        changed = true
+        return original
+      })
+      if (changed) await writeFile(file, `${JSON.stringify({ ...album, photos }, null, indentOf(raw))}\n`)
     }
   }
   await holdForSecondLook(root, holding, 'the dead-fish screen')
   const save = (f: string, data: object) => writePhotoState(state(f), data)
-  if (report.judged) await save('_dead-screen.json', cache)
   if (off.some(x => x.video)) await save('_video-rejected.json', videoRejected)
   if (off.some(x => !x.video && going.has(x.url) && !held.has(x.url))) await save('_photo-rejected.json', photoRejected)
+  // Publish a removal's reason before its completed verdict can release the build's waiting gate.
+  if (report.judged) await save('_dead-screen.json', cache)
   return report
 }

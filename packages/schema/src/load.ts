@@ -423,8 +423,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     const file = lang === 'vi' ? join(equipDir, f) : join(equipDir, lang, f)
     if (lang !== 'vi' && !(await exists(file))) continue
     const e = await readJson(file, EquipmentSchema)
-    const ok = (p: Photo) => cleanPhotos([p]).length > 0
-    const types = e.types.map(t => (!t.photo ? t : { ...t, photo: ok(t.photo) ? boxed(t.photo) : undefined }))
+    const types = e.types.map(t => (!t.photo ? t : { ...t, photo: cleanPhotos([t.photo])[0] }))
     // Its head picture waits like any other: a type's photo stands in, and with none to stand in the guide waits too.
     const hero = screened(e.hero) ? boxed(e.hero) : types.find(t => t.photo)?.photo
     if (hero) equipment.push({ ...e, hero, types })

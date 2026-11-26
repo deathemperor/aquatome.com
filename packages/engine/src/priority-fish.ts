@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { awaitsScreen, DEAD_SCREEN_FILE, deadLooked, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, hashDistance, isAllowedLicence, isGenerated, isOwnerCrop, mayPublish, PHOTO_SCREEN_FILE, pictureOf, SAME_PICTURE, setsCookies, unmarked, type Photo, type PhotoScreenEntry } from '@aq/schema'
+import { awaitsScreen, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, hashDistance, isAllowedLicence, isGenerated, isOwnerCrop, mayPublish, PHOTO_SCREEN_FILE, pictureOf, SAME_PICTURE, setsCookies, unmarked, type Photo, type PhotoScreenEntry } from '@aq/schema'
 import { diskOwners, EMPTIED_FILE, readList, showingPhotos } from './emptied-pages'
 import { isRejected } from './photos'
 
@@ -44,12 +44,14 @@ export async function readPriorityFish(root: string): Promise<Record<string, str
  */
 async function deadWaiting(root: string): Promise<Set<string>> {
   const record = (name: string) => readJson<Record<string, unknown> | undefined>(join(root, 'engine-state', name), undefined)
-  const [screen, check, subjects, secondLook] = await Promise.all([
-    record(DEAD_SCREEN_FILE), record(PHOTO_CHECK_FILE), record(PHOTO_SUBJECTS_FILE), record(SECOND_LOOK_RECORD),
+  const [screen, check, subjects, secondLook, owed] = await Promise.all([
+    record(DEAD_SCREEN_FILE), record(PHOTO_CHECK_FILE), record(PHOTO_SUBJECTS_FILE), record(SECOND_LOOK_RECORD), record(DEAD_OWED_FILE),
   ])
-  if (!screen) return new Set()
+  const waits = new Set(Object.keys(owed ?? {}))
+  if (!screen) return waits
   const looked = deadLooked({ screen, check, subjects, secondLook })
-  return new Set([...(await ownDeadPhotoUrls(join(root, 'content')))].filter(u => !looked(u)))
+  for (const u of await ownDeadPhotoUrls(join(root, 'content'))) if (!looked(u)) waits.add(u)
+  return waits
 }
 
 export async function shownPictures(root: string, kind: string, id: string, waiting?: ReadonlySet<string>): Promise<number> {

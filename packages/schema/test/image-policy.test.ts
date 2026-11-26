@@ -104,6 +104,24 @@ test('each source can revoke its altered pictures in one build; Glaser falls bac
   expect((await loadAll(opts)).galleries.alpha).toBeUndefined()
 })
 
+test('an equipment type uses the version that passed the photo gate', async () => {
+  const raw: Photo = {
+    ...real, url: 'https://media.aquatome.com/altered.webp', thumb: 'https://media.aquatome.com/altered-480.webp',
+    original: { url: real.url, width: real.width, height: real.height },
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-10', originalHash: hash }],
+  }
+  const root = await fixture([raw])
+  await mkdir(join(root, 'equipment'))
+  await writeFile(join(root, 'equipment/loc.json'), JSON.stringify({
+    category: 'loc', name: 'Lọc', lead: '', intro: '', hero: real, choose: [], mistakes: [], faq: [],
+    types: [{ id: 'a', name: 'A', match: 'a', desc: '', pick: '', buy: 'a', photo: raw }],
+  }))
+  await screenRecords(root, [raw, real], [real.url])
+  const content = await load(root)
+  expect(content.equipment[0]!.types[0]!.photo).toMatchObject({ url: real.url })
+  expect(content.equipment[0]!.types[0]!.photo?.thumb).toBeUndefined()
+})
+
 test('withdrawing a generated head retains its real album lead, including build-time invalidation',async()=>{
  const root=await fixture([ai],[real]);expect((await load(root,true)).species[0]!.photos[0]!.url).toBe(real.url)
  const file=join(root,'species/alpha/entity.json'),entity=JSON.parse(await readFile(file,'utf8'));delete entity.photos[0].generated.check;await writeFile(file,JSON.stringify(entity))
