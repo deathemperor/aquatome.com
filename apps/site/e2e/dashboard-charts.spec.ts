@@ -197,14 +197,13 @@ test('the first screen: the app\'s five cards, two columns on a desktop and one 
 
 test('the day charts: a hover or a tap shows the day beside its bar, inside the card, and nothing else is drawn', async ({ page, errors, isMobile }) => {
   test.skip(LIVE, 'the live dashboard opens only to the owner')
-  // The Design Lead (2026-11-09): a day's name under each bar, no axis, no readout line over it; the overview's draws
-  // found an answer only, so it has no legend (Fish ID's three kinds of call keep theirs).
+  // Fish ID keeps the three kinds of call in its legend, with each day named below its bar.
   await serve(page, '/_ab/nhan-dien-ca/', tz => fishIdPage({ ...FISH, tz }))
-  for (const [path, at] of [['/_ab/nhan-dien-ca/', '.charts']] as const) {
+  for (const [path, at] of [['/_ab/nhan-dien-ca/', '.detail-card']] as const) {
     for (const width of [390, 1280]) {
       await page.setViewportSize({ width, height: 900 })
       await page.goto(path)
-      const card = page.locator(at).first()
+      const card = page.locator(at).filter({ has: page.getByRole('heading', { name: 'Calls by day', exact: true }) })
       const chart = card.locator('figure.bare')
       await expect(chart).toHaveCount(1)
       await expect(chart.locator('.yax span, .readout')).toHaveCount(0)
