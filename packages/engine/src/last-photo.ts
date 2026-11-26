@@ -442,8 +442,7 @@ async function pruneKept(root: string, dir: string, local: SecondLooks) {
     if (!k || typeof k.url !== 'string' || !day(k.at) || typeof k.why !== 'string') continue
     const mark = marks[k.url], here = local[k.url]
     const restored = mark?.back && here?.back && mark.why === k.why && here.why === k.why &&
-      mark.settled?.some(p => p.file === k.file && (!k.replaces ||
-        ((p.captureDay ?? mark.at) === k.at && (p.capture === k.capture || p.capture !== k.replaces))))
+      mark.settled?.some(p => p.file === k.file && (p.capture === k.capture || !k.replaces || p.capture !== k.replaces))
     const agreed = !mark && !here && rejected[k.url] === k.why
     if (restored || agreed) await rm(path, { force: true })
   }
@@ -593,7 +592,7 @@ async function reconcileRebasedPlaces(root: string, local: SecondLooks) {
   const git = (...args: string[]) => spawnSync('git', ['-C', root, ...args], { encoding: 'utf8' })
   const done = Object.entries(local).filter(([, mark]) => mark.settled?.length && lookOf(mark)?.said === 'clear')
   if (!done.length) return out
-  const before = git('rev-parse', '--verify', '-q', 'ORIG_HEAD').stdout.trim()
+  const before = process.env.AQ_PHOTO_PRE_REBASE ?? git('rev-parse', '--verify', '-q', 'ORIG_HEAD').stdout.trim()
   if (!before) return out
   const common = git('merge-base', before, main)
   if (common.status !== 0) {
@@ -611,6 +610,11 @@ async function reconcileRebasedPlaces(root: string, local: SecondLooks) {
   if (diff.status !== 0) throw new Error('Could not compare restored photos with main')
   const changed = new Set(diff.stdout.split('\0'))
   const history = gitHistory(root, main)
+  const commits = git('log', '--first-parent', '--reverse', '--format=%H', `${base}..${before}`, '--', records)
+  if (commits.status !== 0) throw new Error('Could not read the pre-rebase photo recovery history')
+  const localStates = commits.stdout.split('\n').filter(Boolean).map(sha => ({
+    sha, marks: publishedJson(root, records, sha) as SecondLooks | undefined,
+  }))
   const urls = (doc: Record<string, unknown> | undefined): Record<string, unknown>[] =>
     Array.isArray(doc?.photos) ? doc.photos as Record<string, unknown>[] : []
   for (const [url, mark] of done) {
@@ -632,14 +636,19 @@ async function reconcileRebasedPlaces(root: string, local: SecondLooks) {
       if (raw === undefined) continue
       const doc = JSON.parse(raw) as Record<string, unknown>
       const photos = urls(doc)
-      const same = (photo: Record<string, unknown>) => typeof photo?.url === 'string' && matches(photo.url)
+      const same = (photo: Record<string, unknown>) =>
+        typeof photo?.url === 'string' && matches(photo.url) && !setsCookies(photo.url)
       const publicPhotos = urls(publishedJson(root, place.file, main))
       const priorPhotos = urls(publishedJson(root, place.file, before))
-      const returned = publicPhotos.find(p => same(p) && !setsCookies(p.url as string)) ?? publicPhotos.find(same)
+      const returned = publicPhotos.find(same)
       const departure = historyPlaces.find(p => p.file === place.file && p.times >= 2)
       if (departure && !returned) {
-        const old = new Set(priorPhotos.filter(same).map(p => JSON.stringify(p)))
-        const keep = photos.filter(p => !same(p) || !old.has(JSON.stringify(p)))
+        const landed = localStates.find(state => state.marks?.[url]?.settled?.some(p => p.file === place.file))
+        if (!landed) throw new Error('Could not verify the original entry restored before pulling main')
+        const entry = urls(publishedJson(root, place.file, landed.sha)).find(same)
+        const old = entry && JSON.stringify(entry)
+        if (!old || !priorPhotos.some(p => same(p) && JSON.stringify(p) === old)) continue
+        const keep = photos.filter(p => !same(p) || JSON.stringify(p) !== old)
         if (keep.length === photos.length) continue
         await replacePhotoDocument(file, `${JSON.stringify({ ...doc, photos: keep }, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
         out.off.push(`${url}: it left ${place.file} again on main, and that removal stands`)

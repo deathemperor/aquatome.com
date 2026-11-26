@@ -665,7 +665,7 @@ const privacy = `checks() { echo tests >> "$HOME/order"; ! grep -q legacy engine
 // As engine-cycle.sh ends: main caught up with, swept and checked, then pushed.
 const ending = `${privacy}; catch_up; sweep_merged; if ! verify_cycle; then keep_unpublished photos; echo "NOT PUBLISHED"; exit 0; fi; git push -q origin HEAD:main`
 // As engine-cycle.sh's push() takes a clean pull: swept, and checked again when that changed anything.
-const pushing = `${privacy}; main=$(git rev-parse '@{u}'); git pull -q --rebase; if ! swept_pull "$main" && ! verify_cycle; then keep_unpublished photos; echo "NOT PUBLISHED"; exit 0; fi; git push -q origin HEAD:main`
+const pushing = `${privacy}; main=$(git rev-parse '@{u}'); run=$(git rev-parse HEAD); git pull -q --rebase; if ! swept_pull "$main" "$run" && ! verify_cycle; then keep_unpublished photos; echo "NOT PUBLISHED"; exit 0; fi; git push -q origin HEAD:main`
 
 test('old-format photo records that a pull brings in are migrated before the tests, and go out migrated', () => {
   const c = clone()
@@ -727,16 +727,21 @@ test('an unverified merge sweep holds the push and retries the kept work', () =>
   const c = clone()
   migrating(c, false, true)
   c.sh(work)
+  const before = c.sh('git rev-parse HEAD')
   c.elsewhere('content/c.json', 'sf')
   const log = c.cycle(pushing)
   expect(log).toContain('LOG the sweep on main did not finish: not tested, not published')
   expect(log).toContain('NOT PUBLISHED')
   expect(c.onMain('content/b.json')).toBe('')
-  expect(c.branches()[0]).toMatch(/^kept\/photos\//)
+  const [kept] = c.branches()
+  expect(kept).toMatch(/^kept\/photos\//)
+  expect(c.sh(`git rev-parse ${kept}`)).toBe(before)
 
   c.sh('git fetch -q origin && git reset -q --hard origin/main')
   migrating(c)
-  expect(c.cycle(`${privacy}; publish_kept photos`)).toContain('LOG published kept/photos/')
+  const noteBase = 'pnpm() { if [ "$2" = sweep ]; then echo "$AQ_PHOTO_PRE_REBASE" > "$HOME/recovery-tip"; fi; command pnpm "$@"; }'
+  expect(c.cycle(`${privacy}; ${noteBase}; publish_kept photos`)).toContain('LOG published kept/photos/')
+  expect(c.sh('cat "$HOME/recovery-tip"')).toBe(before)
   expect(c.onMain('content/b.json')).toBe('photos')
   expect(c.branches()).toEqual([])
 }, slow(60_000))

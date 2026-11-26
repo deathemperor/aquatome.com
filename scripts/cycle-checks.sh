@@ -230,7 +230,7 @@ keep_unpublished() {
     local reason="photo records not migrated"
     [ -z "${SWEEP_FAILED:-}" ] || reason="the sweep on main did not finish"
     FAILED="$reason: this run's work is kept on kept/$1/$when for the next run"
-    keep_branch "kept/$1/$when" && log "$FAILED"
+    keep_branch "kept/$1/$when" "${SWEEP_RETRY_HEAD:-HEAD}" && log "$FAILED"
   else
     # Off main at once: a next run that couldn't fetch would carry on from this commit, and could publish it.
     keep_branch "held/$1/$when" && git reset -q --hard origin/main && log "checks failed twice: this run's work is on held/$1/$when, not published"
@@ -238,9 +238,9 @@ keep_unpublished() {
   # Its callers go on to say they aren't publishing, under set -e.
   return 0
 }
-# HEAD on branch $1, and in the cloud on GitHub's branch of that name.
+# Keep the given commit, defaulting to HEAD, on branch $1 and the same cloud branch.
 keep_branch() {
-  git branch -q -f "$1" HEAD || return 1
+  git branch -q -f "$1" "${2:-HEAD}" || return 1
   engine_cloud || return 0
   net git push -q origin "refs/heads/$1:refs/heads/$1" || { log "$1 couldn't be pushed to GitHub: this run's work is lost with the runner"; return 1; }
 }
@@ -639,7 +639,7 @@ push_kept() {
     # would pass a tree whose photo records weren't migrated, which push() never publishes (Grok's read).
     if [ "$(git rev-parse origin/main 2>/dev/null)" != "$main" ] && [ -z "$check" ]; then
       head=$(git rev-parse HEAD)
-      sweep_merged
+      sweep_merged "$run"
       swept=1
       if swept_clean "$head" "$main" "$(git rev-parse origin/main)"; then
         log "main moved and the sweep changed nothing the checks read: pushing again, not checked again, as a run's own push does"
@@ -648,7 +648,7 @@ push_kept() {
       fi
     fi
     if [ -n "$check" ]; then
-      [ -n "$swept" ] || sweep_merged
+      [ -n "$swept" ] || sweep_merged "$run"
       if ! verify_cycle; then
         if [ -n "$TIMED_OUT" ]; then KEPT_WHY="tests out of time again"
         elif [ -n "${MIGRATE_FAILED:-}" ]; then KEPT_WHY="its photo records couldn't be migrated"
@@ -787,13 +787,15 @@ verify_cycle() {
 # the tests see them. A migration that fails publishes nothing, and the work is kept for the next run, which migrates and
 # tests it again, never held for it (MIGRATE_FAILED; the Image Lead and the chief of staff, 13 Nov).
 sweep_for_publish() {
-  SWEEP_FAILED=
+  SWEEP_FAILED= SWEEP_RETRY_HEAD=
   pnpm engine sweep || { SWEEP_FAILED=1; log "sweep: failed, so nothing is published"; }
 }
 sweep_merged() {
+  local before="${1:-${PRE_SWEEP_HEAD:-}}"
   MIGRATE_FAILED=
   pnpm engine photo-privacy --write || { MIGRATE_FAILED=1; log "photo records: the migration failed, so nothing is published"; }
-  sweep_for_publish
+  AQ_PHOTO_PRE_REBASE="$before" sweep_for_publish
+  if [ -n "${SWEEP_FAILED:-}" ]; then SWEEP_RETRY_HEAD="$before"; fi
   git add content sources engine-state docs/review
   git diff --cached --quiet || git commit -q -m "content: sweep on main as it is now"
 }
@@ -806,7 +808,7 @@ sweep_merged() {
 swept_pull() {
   [ "$(git rev-parse '@{u}' 2>/dev/null)" = "$1" ] && return 0
   local head; head=$(git rev-parse HEAD)
-  sweep_merged
+  sweep_merged "${2:-}"
   swept_clean "$head" "$1" "$(git rev-parse '@{u}')"
 }
 # The sweep after a pull dates the pages main's commits changed (content/page-dates.json, the sitemap's dates), so it
@@ -876,7 +878,12 @@ replan_merged() {
 # this main, wouldn't see it (a reader of #1505, 16 Nov 2026). The sweep and the checks come after it (engine-cycle.sh).
 catch_up() {
   local run; run=$(git rev-parse HEAD)
-  if net git pull -q --rebase; then main_holds "$run" || true; return 0; fi
+  PRE_SWEEP_HEAD=
+  if net git pull -q --rebase; then
+    PRE_SWEEP_HEAD=$run
+    main_holds "$run" || true
+    return 0
+  fi
   git rebase --abort 2>/dev/null || true
   log "main changed this cycle's files meanwhile: checking as it started, push() settles the clash"
 }
