@@ -6,7 +6,7 @@ import { replacePhotoDocument, writeImageCache } from './image-cache-write'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { IMAGE_SWITCHES, isNonCommercial, ncAlone, photoAddressSet, photoFitsHead, photoKey, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto, type SourceInfo } from '@aq/schema'
+import { IMAGE_SWITCHES, isNonCommercial, ncAlone, photoAddressSet, photoFitsHead, photoKey, photoRejections, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
@@ -20,7 +20,7 @@ import { ageOf, ageUnasked, grownFirst, grownHead, headAsksAge, youngUnasked } f
 import { CF, namedOn, namedOrder, passesHead, SPECIES } from './photo-named'
 import { readAvoid } from './curation'
 import { priorityFish } from './priority-fish'
-import { permittedPhotoSource, readPhotoWaits } from './photo-visibility'
+import { permittedPhotoSource, readPhotoSources, readPhotoWaits } from './photo-visibility'
 
 type Photo = { url: string; caption?: string; author?: string; authorUrl?: string; sourceUrl?: string; licence?: string; generated?: unknown; unchecked?: boolean }
 /**
@@ -820,7 +820,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const first = (url: string) => sl.off(url) || (FIRST_OFF.test(added[url] ?? '') && freshBad.has(url))
   const offAt = new Set(shown.filter(off).map(x => `${x.file}\n${x.url}`))
   // One marked off at its first verdict is off wherever it shows, its never-again entry there or not (last-photo.ts).
-  const pendingGlobal = rejectedEntry(Object.fromEntries(Object.entries(added).filter(([, why]) => FIRST_OFF.test(why))))
+  const pendingGlobal = photoRejections(Object.fromEntries(Object.entries(added)
+    .filter(([, why]) => FIRST_OFF.test(why) || why.startsWith('watermark:'))), marks)
   const blockedAs = (file: string, url: string) => {
     const waiting = waitingAt(url)
     if (waiting) return waiting
@@ -835,7 +836,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const real = (ps: Photo[] | undefined) => (ps ?? []).filter(p => !p.generated)
   const ownPhotos = async (file: string) => real((await readJson<{ photos?: Photo[] }>(file))?.photos)
   const waitsFor = await readPhotoWaits(root, { check: legacy, subjects: cache, rejected })
-  const sources = (await readJson<Record<string, SourceInfo>>(join(content, 'sources.json'))) ?? {}
+  const sources = await readPhotoSources(content)
   const firstOff = new Map<string, { why: string; pages: string[]; off: true }>()
   const firstAliases = new Map<string, string>()
   const preservesOriginal = (url: string, original: string, blockedOriginal: boolean) => {

@@ -7,11 +7,11 @@ import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
-import { deadScreenPhotoUrls, IMAGE_SWITCHES, LOGO_FOLDERS, logoFolder, ocrHit, photoAddressSet, publicPhotoVersion, rejectedEntry, type Photo, type SourceInfo } from '@aq/schema'
+import { deadScreenPhotoUrls, IMAGE_SWITCHES, LOGO_FOLDERS, logoFolder, ocrHit, photoAddressSet, publicPhotoVersion, rejectedEntry, type Photo } from '@aq/schema'
 import { rememberMarkedPhotos } from './marked-photos'
 import { compactScreen, summarizeOcr, PHOTO_MARK_KINDS, PHOTO_POSITIONS, photoFailure, photoModelStop, type CompactScreen } from './photo-observations'
 import { writePhotoState } from './photo-state'
-import { permittedPhotoSource, readPhotoWaits } from './photo-visibility'
+import { permittedPhotoSource, readPhotoSources, readPhotoWaits } from './photo-visibility'
 import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, readSecondLook } from './last-photo'
 
 /** A line of text macOS Vision read on a photo: confidence 0–1, box 0–1 from the top left. */
@@ -182,7 +182,7 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
   // A screened shop's photo from its own pages is asked whose its marks are (own-mark.ts SCREENED_OWN_MARK), with the
   // shop's name and home page as we hold them. Not one already on the never-again list: a kept record would bring it back
   // (keptOwnMark), and photos listed before this rule return only by their own step, on the chief of staff's word.
-  const sources = JSON.parse(await readFile(join(root, 'content', 'sources.json'), 'utf8').catch(() => '{}')) as Record<string, SourceInfo>
+  const sources = await readPhotoSources(join(root, 'content'))
   const shopOf = (u: string): ShopPhoto | undefined => {
     // Nor one with a kept record already (a person's, on the chief of staff's word, or the image step's): the record
     // stands, and the screen's answer can't take it off or keep it a second way.

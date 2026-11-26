@@ -1010,3 +1010,16 @@ test('agreement with a face hold supersedes an approved shop watermark', async (
   expect(view.species.find(page => page.id === 'alpha')?.photos).toEqual([])
   expect(view.galleries.alpha).toBeUndefined()
 })
+
+test('an unreadable source permission record stops the dead screen before it removes a passed photo', async () => {
+  const only = { ...photo('sole-dead'), source: 'glaser' }
+  const root = await onePage([only])
+  await writeFile(join(root, 'engine-state/_photo-check.json'), JSON.stringify({ [only.url]: { ok: 'yes', person: false } }))
+  await mkdir(join(root, 'content/sources.json'))
+  const { d, sent } = deps()
+
+  await expect(screenDead(root, d.dead, { limit: 1 })).rejects.toThrow()
+  expect(sent).toEqual([])
+  expect(await urls(root, 'a')).toEqual([only.url])
+  await expect(readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8')).rejects.toMatchObject({ code: 'ENOENT' })
+})

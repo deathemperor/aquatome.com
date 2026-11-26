@@ -597,3 +597,17 @@ test("a waiting entry with no second-look record stays in force while the raw en
   expect((await json(r, 'engine-state/_photo-rejected.json'))[url('q-wait')]).toBe(waiting)
   expect(again.waitingOdd).toEqual([`${url('q-wait')}: no second-look record marked for it, kept off`])
 })
+
+test('a pending source watermark cannot count its mirror as a replacement for a passed last photo', async () => {
+  const r = await store({ aaa: [], bbb: [] }, { 'a-dead': { aaa: oldPass } })
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(source)!.key}`
+  const photoAt = (address: string) => ({ ...photo('sample'), url: address, source: undefined, licence: 'CC BY 4.0' })
+  await writeFile(join(r, 'content/species/aaa/entity.json'), JSON.stringify(fish('aaa', [photo('a-dead'), photoAt(mirror)])))
+  await writeFile(join(r, 'content/species/bbb/entity.json'), JSON.stringify(fish('bbb', [photoAt(source), photo('b-live')])))
+  const checked = await checkPagePhotos(r, model({ 'a-dead': dead, [name(source)]: { logo: true } }), { limit: 10, emptyCap: 0 })
+
+  expect(checked.heads.held).toContain(`species/aaa: ${url('a-dead')}`)
+  expect(await photosOf(r, 'aaa')).toEqual(['a-dead', name(mirror)])
+  expect((await json(r, 'engine-state/_photo-rejected.json'))[source]).toBeUndefined()
+})
