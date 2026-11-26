@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { lastPhotoVerdicts, looks, pagesShowing, readSecondLook } from './last-photo'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, facePhotoStatus, FACES_FILE, IMAGE_SWITCHES, isOwnerCrop, isVersionRejection, mayPublish, mayPublishLicence, ownDeadPhotoUrls, ownerCropFitsPage, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoRejections, photoWaitsFor, publicPhotoVersion, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, facePhotoStatus, FACES_FILE, IMAGE_SWITCHES, isOwnerCrop, isVersionRejection, mayPublish, mayPublishLicence, ownDeadPhotoUrls, originalPhotoRefusals, ownerCropFitsPage, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoRejections, rejectedEntry, photoWaitsFor, publicPhotoVersion, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
 
 const read = async <T>(root: string, name: string): Promise<Record<string, T> | undefined> => {
   const raw = await readFile(join(root, 'engine-state', name), 'utf8').catch((error: NodeJS.ErrnoException) => {
@@ -66,7 +66,11 @@ export async function holdablePhotoVerdicts(root: string, rejected: Record<strin
     if (storedReason && !isVersionRejection(storedReason)) return undefined
     return shown.url
   })
-  return lastPhotoVerdicts(pages, url => waits(url) || !!listed(url), [...verdicts].filter(url => !listed(url)), removesWrapper)
+  const pending = [...verdicts].filter(url => !listed(url))
+  const whole = pending.filter(removesWrapper)
+  const byAddress = rejectedEntry(Object.fromEntries(whole.map(url => [url, 'whole'])))
+  const originals = whole.length ? await originalPhotoRefusals(content, url => byAddress(url)?.[0]) : undefined
+  return lastPhotoVerdicts(pages, url => waits(url) || !!listed(url), pending, removesWrapper, originals)
 }
 
 export { isVersionRejection as versionRejection }

@@ -56,7 +56,7 @@ AquaTome (${u('/')}) is a Vietnamese aquarium handbook. Content is in Vietnamese
 ## Find a page
 
 - Species list: ${u('/ca/')} (plants: ${u('/cay/')}). Each profile is \`/ca/<slug>/\`; slugs are the Vietnamese common name
-  without diacritics (for example \`ca-neon-xanh\` for cá neon xanh, the green neon tetra Paracheirodon simulans).
+  without diacritics (for example \`ca-neon-xanh\` for cá neon xanh, the neon tetra Paracheirodon innesi).
 - Every page URL is in the sitemaps listed at ${u('/sitemap.xml')}, one per kind of page; search them or the species list for a common or scientific name.
 
 ## Read a page

@@ -6,7 +6,7 @@ import { replacePhotoDocument, writeImageCache } from './image-cache-write'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { deadScreenPhotoUrls, IMAGE_SWITCHES, isNonCommercial, ncAlone, photoAddressSet, photoFitsHead, photoKey, photoRejections, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto } from '@aq/schema'
+import { deadScreenPhotoUrls, isVersionRejection, originalPhotoRefusals, IMAGE_SWITCHES, isNonCommercial, ncAlone, photoAddressSet, photoFitsHead, photoKey, photoRejections, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
@@ -822,12 +822,27 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // One marked off at its first verdict is off wherever it shows, its never-again entry there or not (last-photo.ts).
   const pendingGlobal = photoRejections(added, marks)
   const existingGlobal = photoRejections(rejected, marks)
+  const originals = Object.values(added).some(why => !isVersionRejection(why))
+    ? await originalPhotoRefusals(content, url => {
+      const entry = pendingGlobal(url)
+      return entry && !isVersionRejection(entry[1]) ? entry[0] : undefined
+    }) : new Map<string, Set<string>>()
+  const linked = new Map<string, Set<string>>()
+  for (const [url, causes] of originals) {
+    const key = photoKey(url) ?? url
+    const prior = linked.get(key)
+    if (prior) for (const cause of causes) prior.add(cause)
+    else linked.set(key, causes)
+  }
+  const pendingOriginal = (url: string) => [...linked.get(photoKey(url) ?? url) ?? []].filter(cause => Object.hasOwn(added, cause))
   const blockedAs = (file: string, url: string) => {
     const waiting = waitingAt(url)
     if (waiting) return waiting
     if (url in added) return url
     const pending = pendingGlobal(url)?.[0]
     if (pending && pending in added) return pending
+    const original = pendingOriginal(url)[0]
+    if (original) return original
     const existing = existingGlobal(url)
     if (existing) return existing[0]
     if (offAt.has(`${file}\n${url}`) || sl.off(url)) return url
@@ -845,7 +860,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const verdict = pendingGlobal(original)?.[0] ?? original
     const waiting = waitingAt(url)
     const pending = pendingGlobal(url)?.[0]
-    const reason = rejectedAt(url)?.[1] ?? added[url] ?? (pending && added[pending]) ?? (waiting && secondLook[waiting]?.why) ?? ''
+    const canonical = firstAliases.get(url) ?? pending
+    const reason = (canonical && firstOff.get(canonical)?.why) ?? rejectedAt(url)?.[1] ?? added[url] ?? (pending && added[pending]) ?? (waiting && secondLook[waiting]?.why) ?? ''
     return /^(?:dead|people|waiting): /.test(reason) &&
       (!blockedOriginal || firstOff.has(firstAliases.get(verdict) ?? verdict) || !!waitingAt(original))
   }
@@ -878,6 +894,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       for (const version of new Set([photo.url, ...(served ? [served] : [])])) {
         const blocked = blockedAs(file, version)
         if (blocked) urls.add(blocked)
+        for (const cause of pendingOriginal(version)) urls.add(cause)
         const firstAt = firstByAddress(version)?.[0]
         if (firstAt) urls.add(firstAt)
       }
@@ -899,7 +916,17 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const visible = (galleryId(file) ? remaining : ncAlone(remaining)).length > 0
     return { removed: visible ? [] : [...removed], visible }
   }
-  const pageFiles = [...new Set(shown.filter(x => !x.guide && x.file.endsWith('entity.json')).map(x => x.file))]
+  const galleryOf = (file: string) => join(content, 'gallery', `${file.split('/').at(-2)}.json`)
+  const pageFiles = new Set(shown.filter(x => !x.guide && x.file.endsWith('entity.json')).map(x => x.file))
+  const linkedFiles = new Set<string>()
+  if (linked.size) for (const subject of all) {
+    const file = join(content, subject.kind, subject.id, 'entity.json')
+    for (const placement of [file, galleryOf(file)]) {
+      if (!(await ownPhotos(placement)).some(p => deadScreenPhotoUrls(p as ContentPhoto).some(url => pendingOriginal(url).length))) continue
+      linkedFiles.add(placement)
+      if (placement === file) pageFiles.add(file)
+    }
+  }
   const emptying: string[] = []
   const emptyBy = new Map<string, string[]>()
   for (const file of pageFiles) {
@@ -907,7 +934,6 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     if (removed.length) { emptying.push(file); emptyBy.set(file, removed) }
   }
   // A page with none of its own whose album would go whole is left with nothing too (the chief of staff, 2026-11-14).
-  const galleryOf = (file: string) => join(content, 'gallery', `${file.split('/').at(-2)}.json`)
   for (const g of [...new Set(shown.filter(x => !x.guide && /\/gallery\/[^/]+\.json$/.test(x.file)).map(x => x.file))]) {
     const s = byId.get(g.split('/').at(-1)!.replace(/\.json$/, ''))
     if (!s) continue
@@ -992,10 +1018,10 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const entry = rejectedAt(url)
     return canCapture && sl.off(at) && (!entry || entry[1] === waitingEntry(secondLook[at]!.why))
   }
-  for (const file of [...new Set(shown.map(x => x.file))]) {
+  for (const file of new Set([...shown.map(x => x.file), ...linkedFiles])) {
     const capture = (url: string) => {
       const reason = blockedAs(file, url)
-      return reason && first(reason) ? (firstAliases.get(reason) ?? reason) : undefined
+      return reason && first(reason) ? (firstAliases.get(reason) ?? reason) : firstByPhoto.get(photoKey(url) ?? url)
     }
     const raw = await readFile(file, 'utf8')
     const data = JSON.parse(raw) as { photos?: Photo[]; video?: { figures?: { photo?: Photo; moments?: { url: string }[] }[] } }

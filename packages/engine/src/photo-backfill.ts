@@ -6,7 +6,7 @@ import { mergePhotos, readKeeps } from './run'
 import { readPhotoWaits, readRecoveryRetention } from './photo-visibility'
 import { SOURCES, sourceById } from './sources'
 import { sourcesOnArchive } from './state'
-import { linkedPhotos, mayTake, pickSourcePhotos, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
+import { linkedPhotos, mayTake, pickSourcePhotos, storedSourcePhotos, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
 import { withSections } from './guide-sections'
 import { WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
 
@@ -58,6 +58,7 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
   const [photoWaits, pendingRefusal] = await Promise.all([
     readPhotoWaits(root, { rejected: blocked, watermarks: screen, freshOwn: true }), readRecoveryRetention(root),
   ])
+  let inventory: ReturnType<typeof storedSourcePhotos> | undefined
   const last = new Map<SourceId, number>()
   // Every request to a source (its page, photo pages, images) at the engine's pace for it.
   const polite = <A extends unknown[], R>(source: SourceId, f: (...a: A) => Promise<R>) => async (...a: A) => {
@@ -104,7 +105,9 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
           const terms = names[source]?.permission
           const photoDeps = { bytes: polite(source, d.bytes), media: d.media, blocked, refusedCredits: terms?.refusedCredits, coveredCredits: terms?.coveredCredits }
           const picked = pickSourcePhotos(images, url, e.scientificName ? [e.scientificName] : [], max, kind === 'guides' ? 'guide' : 'subject', src.minPhotoWidth, mayTake(source, name, photoDeps, e.photos))
-          const stored = await storeSourcePhotos(source, name, url, picked, photoDeps, e.photos, max)
+          const stored = picked.length ? await storeSourcePhotos(source, name, url, picked, {
+            ...photoDeps, stored: await (inventory ??= storedSourcePhotos(join(root, 'content'))),
+          }, e.photos, max) : []
           if (stored.length && kind === 'guides') {
             const body = async (l: string) => (JSON.parse(await readFile(join(root, 'content', kind, id, `${l}.json`), 'utf8').catch(() => '{}')) as { body?: string }).body
             e.photos = [...withSections(stored, { vi: (await body('vi')) ?? '', ...Object.fromEntries(await Promise.all(WRITTEN_OTHER_LANGS.map(async l => [l, await body(l)]))) }), ...e.photos.filter(p => p.sourceUrl !== url)]

@@ -1041,22 +1041,11 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     for (const drop of off.values()) for (const url of maps.keys()) drop.delete(url)
     maps.clear()
   }
-  for (const [page, drop] of off) {
-    const [kind, id] = page.split('/') as [string, string]
-    for (const file of [join(content, kind, id, 'entity.json'), join(content, 'gallery', `${id}.json`)]) {
-      const raw = await readFile(file, 'utf8').catch(() => null)
-      if (!raw) continue
-      const e = JSON.parse(raw) as { photos?: { url: string }[] }
-      if (!(e.photos ?? []).some(ph => drop.has(ph.url))) continue
-      for (const ph of e.photos!.filter(x => drop.has(x.url))) report.photos.push(`${page}: ${ph.url} (${drop.get(ph.url)})`)
-      await write(file, raw, { ...e, photos: e.photos!.filter(ph => !drop.has(ph.url)) })
-      changed(file.slice(content.length + 1))
-    }
-  }
   // A source's "read next" cards, stored as a guide's photos before the picker knew them (source-photos.ts): the unplaced
   // photos at the card's exact width that end a guide from that source's list, never its lead (an article's own photo that
   // no heading took is earlier in the list). Another article's picture, so off the guide and never picked again.
   const cardWidths = new Map(SOURCES.flatMap(s => (s.cardWidth ? [[s.id as string, s.cardWidth] as const] : [])))
+  const cardEdits = new Map<string, { id: string; raw: string; data: unknown }>()
   for (const id of (await readdir(join(content, 'guides')).catch(() => [] as string[])).sort()) {
     const file = join(content, 'guides', id, 'entity.json')
     const raw = await readFile(file, 'utf8').catch(() => null)
@@ -1072,7 +1061,29 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       report.photos.push(`guides/${id}: ${p.url} (a read-next card)`)
       maps.set(p.url, `card: a read-next card of ${e.source}, not an article's photo`)
     }
-    await write(file, raw, { ...e, photos: photos.slice(0, end) })
+    cardEdits.set(file, { id, raw, data: { ...e, photos: photos.slice(0, end) } })
+  }
+  // A map, a paper's plate or an ad's poster is no fish's photo: off every page, and never picked again.
+  if (maps.size) {
+    const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
+    const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
+    for (const [url, why] of maps) if (!rejected[url]) { rejected[url] = why; report.rejected++ }
+    if (report.rejected) await writePhotoState(rejectedFile, rejected)
+  }
+  for (const [page, drop] of off) {
+    const [kind, id] = page.split('/') as [string, string]
+    for (const file of [join(content, kind, id, 'entity.json'), join(content, 'gallery', `${id}.json`)]) {
+      const raw = await readFile(file, 'utf8').catch(() => null)
+      if (!raw) continue
+      const e = JSON.parse(raw) as { photos?: { url: string }[] }
+      if (!(e.photos ?? []).some(ph => drop.has(ph.url))) continue
+      for (const ph of e.photos!.filter(x => drop.has(x.url))) report.photos.push(`${page}: ${ph.url} (${drop.get(ph.url)})`)
+      await write(file, raw, { ...e, photos: e.photos!.filter(ph => !drop.has(ph.url)) })
+      changed(file.slice(content.length + 1))
+    }
+  }
+  for (const [file, { id, raw, data }] of cardEdits) {
+    await write(file, raw, data)
     changed(`guides/${id}/entity.json`)
   }
   // A guide's photo goes under the heading its label names (the site matches the two), so a label follows its heading when
@@ -1123,13 +1134,6 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     ;(report.text['photo-heading'] ??= []).push(`guides/${id}`)
   }
 
-  // A map, a paper's plate or an ad's poster is no fish's photo: off every page, and never picked again.
-  if (maps.size) {
-    const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
-    const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
-    for (const [url, why] of maps) if (!rejected[url]) { rejected[url] = why; report.rejected++ }
-    if (report.rejected) await writePhotoState(rejectedFile, rejected)
-  }
   // Every photo on the never-again list leaves the pages and albums the photo check strips, by the check's own rule (a
   // cleared shop's photo with the shop's own mark kept stays: watermarks.ts keptOwnMark). The check strips them only
   // in the tree its run started from. The cycle's push keeps its own lines where they clash with main's, so a photo a
