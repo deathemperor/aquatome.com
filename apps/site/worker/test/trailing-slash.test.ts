@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 import { LANG, OTHER_LANGS } from '@aq/schema/langs'
 import { expect, test } from 'vitest'
 import { handle, type Env } from '../index'
@@ -11,7 +12,7 @@ const request = (path: string, asset: Response, init?: RequestInit) => handle(ne
 } as unknown as Env)
 
 test('each slashless landing address reaches the Worker', () => {
-  const config = JSON.parse(readFileSync(new URL('../../wrangler.jsonc', import.meta.url), 'utf8').replace(/^\s*\/\/.*$/gm, ''))
+  const config = JSON.parse(readFileSync(fileURLToPath(new URL('../../wrangler.jsonc', import.meta.url).href), 'utf8').replace(/^\s*\/\/.*$/gm, ''))
   for (const path of [...VI_SECTIONS.map(section => `/${section}`), ...OTHER_LANGS.map(lang => LANG[lang].prefix)]) {
     expect(config.assets.run_worker_first, path).toContain(path)
   }
