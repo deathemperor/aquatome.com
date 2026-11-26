@@ -236,9 +236,10 @@ export async function writeSecondLook(root: string, sl: SecondLooks) {
  * The sweep's part: each photo the second look agreed on goes on the never-again list with the step's reason and
  * leaves the second look. Returns them.
  */
-export async function listAgreed(root: string): Promise<string[]> {
+export async function listAgreed(root: string, includes: (url: string) => boolean = () => true): Promise<string[]> {
   const sl = await readSecondLook(root)
-  const agreed = Object.keys(sl).filter(looks(sl).agreed)
+  const agreedBy = looks(sl).agreed
+  const agreed = Object.keys(sl).filter(url => includes(url) && agreedBy(url))
   if (!agreed.length) return []
   const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
   const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
