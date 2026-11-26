@@ -93,10 +93,9 @@ export function speciesDescription(lang: Lang, name: string, sci: string, card: 
 
 const plain = (html: string) => html.replace(/<a class="cite[^"]*"[^>]*>[\s\S]*?<\/a>/g, '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim()
 
-/** The first real paragraph (skipping photo captions and credits), cut at a word boundary. */
-export function excerpt(html: string, max = 155, lang: Lang = 'vi'): string {
+/** The first real paragraph, skipping photo captions and credits. */
+export function guideDescription(html: string): string {
   const body = html.replace(/<figure\b[^>]*>[\s\S]*?<\/figure>/g, '')
   const paras = [...body.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/g)].map(m => plain(m[1]!))
-  const text = paras.find(p => p.length >= 60 && !p.includes('©')) ?? plain(body)
-  return descriptionForSearch(lang, text, max)
+  return paras.find(p => p.length >= 60 && !p.includes('©')) ?? plain(body)
 }

@@ -441,9 +441,12 @@ test('a tool carries its page\'s own title, the line under its heading and its d
       const fullDescription = t(descriptionKey!)
       const title = dom.querySelector('title')?.text.replace(/ — AquaTome$/, '')
       const intro = dom.querySelector('p.intro')?.text
-      const snippet = dom.querySelector('meta[name="description"]')?.getAttribute('content')
+      const meta = dom.querySelector('meta[name="description"]')
+      const snippet = meta?.getAttribute('content')
 
       expect(snippet, tool.path).toBe(descriptionForSearch(lang, fullDescription))
+      const pagefindAttribute = meta?.getAttribute('data-pagefind-meta')?.match(/^description\[([\w-]+)\]$/)?.[1]
+      expect(pagefindAttribute && meta?.getAttribute(pagefindAttribute), tool.path).toBe(fullDescription)
       const expected = [...new Set([title, intro, fullDescription].filter((s): s is string => !!s && s !== tool.name))]
       expect(tool.words, tool.path).toEqual(expected)
     }

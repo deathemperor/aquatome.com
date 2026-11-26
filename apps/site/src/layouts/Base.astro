@@ -40,6 +40,7 @@ interface Props {
 const { title, description, noindex = false, jsonld = [], credits, creditsLater, image, alternates = {}, search = true, ads = true } = Astro.props
 const { lang, t } = i18n(Astro.url)
 const searchDescription = description && descriptionForSearch(lang, description)
+const descriptionClipped = searchDescription !== description
 const canonical = new URL(Astro.url.pathname, Astro.site).href
 // A page without address parameters is the same page in every language that has it; others pass their alternates.
 const viPath = toVi(Astro.url.pathname)
@@ -68,7 +69,8 @@ const speculation = JSON.stringify({ prefetch: [{ where, eagerness: 'eager' }], 
     {/* Hovering (or touching) a link loads that page in the background (Chrome, Edge, Samsung Internet), so the click is instant. Its HTML is fetched sooner still (10 ms hover; on phones, a link in view), since a page's first request can take ~0.5 s. Site pages only; never affiliate, outbound or admin links. */}
     <script is:inline type="speculationrules" set:html={speculation} />
     <title>{title}</title>
-    {searchDescription && <meta name="description" content={searchDescription} data-pagefind-meta="description[content]" />}
+    {/* Pagefind uses the full description to confirm query matches. */}
+    {searchDescription && <meta name="description" content={searchDescription} data-pagefind-meta={descriptionClipped ? 'description[data-full-description]' : 'description[content]'} data-full-description={descriptionClipped ? description : undefined} />}
     {(noindex || isStaging()) && <meta name="robots" content="noindex, follow" />}
     {/* Safari's own Smart App Banner, no script of ours (lib/app.ts). Not before the launch: Safari shows none until the store has the app. */}
     {APP_STATE === 'on' && <meta name="apple-itunes-app" content={`app-id=${APP_STORE_ID}, app-argument=${canonical}`} />}

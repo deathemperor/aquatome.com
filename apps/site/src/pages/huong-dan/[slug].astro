@@ -11,7 +11,7 @@ import Comments from '../../components/Comments.astro'
 import { getContent } from '../../lib/content'
 import { GUIDE_KIND_LABELS } from '../../lib/format'
 import { creditsFor } from '../../lib/credits'
-import { excerpt } from '../../lib/meta'
+import { descriptionForSearch, guideDescription } from '../../lib/meta'
 import { widthSrcset } from '../../lib/img'
 import GearList from '../../components/GearList.astro'
 import { categoryLabel } from '../../lib/format'
@@ -37,7 +37,8 @@ const { m, species, plants, ph, lead, gear, toc, prose, minutes, series, inSerie
 const srcset = lead && widthSrcset(lead)
 const uncarded = species.length + plants.length - cardSpecies.length - cardPlants.length
 const v = g.video
-const description = excerpt(g.t.body ?? '', undefined, lang)
+const fullDescription = guideDescription(g.t.body ?? '')
+const description = descriptionForSearch(lang, fullDescription)
 const back: [string, string] = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi/huong-dan/', t('Hướng dẫn')]
 const crumbs: [string, string][] = v ? [['/vi/video/', t('Video')]] : [back]
 if (v && series) crumbs.push([`/vi/video/${series.vi.slug}/`, series.vi.name])
@@ -60,7 +61,7 @@ if (v) {
 if (g.t.faq?.length) jsonld.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: g.t.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) })
 const alternates = await alternatesOf('guides', g.id)
 ---
-<Base title={`${g.t.name} — AquaTome`} description={description} image={ph?.url} jsonld={jsonld} noindex={!g.t.quality.indexable} alternates={alternates} credits={creditsFor(credited)}>
+<Base title={`${g.t.name} — AquaTome`} description={fullDescription} image={ph?.url} jsonld={jsonld} noindex={!g.t.quality.indexable} alternates={alternates} credits={creditsFor(credited)}>
   {/* The video's thumbnail is the page's largest image: open the connection while the page is still arriving. */}
   {v && <link slot="head" rel="preconnect" href="https://i.ytimg.com" />}
   <Nav slot="header" current={v ? '/vi/video/' : undefined} />

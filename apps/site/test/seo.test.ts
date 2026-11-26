@@ -211,10 +211,10 @@ test('glossary title asks the question; its description is the definition', () =
   expect(g.querySelector('title')?.text).toMatch(/ là gì\? — AquaTome$/)
   expect(g.querySelector('meta[name="description"]')?.getAttribute('content')?.length).toBeGreaterThan(20)
 })
-test('excerpt skips captions and credits, cuts at a word', async () => {
-  const { excerpt } = await import('../src/lib/meta')
+test('guide description skips captions and credits, and the snippet cuts at a word', async () => {
+  const { descriptionForSearch, guideDescription } = await import('../src/lib/meta')
   const html = '<figure><figcaption>Ảnh © Ai đó</figcaption></figure><p>Ngắn.</p><p>Ảnh © Nonn Panitvong, dạng vây đỏ của loài cá chạch này rất hiếm gặp</p><p>Từng bị xem nhẹ như đội dọn dẹp của bể cộng đồng, nhóm cá này thật ra có tập tính xã hội phức tạp và thú vị hơn nhiều người nghĩ, đặc biệt khi nuôi theo đàn lớn.</p>'
-  const e = excerpt(html, 80)
+  const e = descriptionForSearch('vi', guideDescription(html), 80)
   expect(e.startsWith('Từng bị xem nhẹ')).toBe(true)
   expect(e.endsWith('…')).toBe(false)
   expect(e.length).toBeLessThanOrEqual(80)

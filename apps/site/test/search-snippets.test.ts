@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 import { LANGS } from '@aq/schema/langs'
-import { descriptionForSearch, excerpt, plantTitle, speciesTitle } from '../src/lib/meta'
+import { descriptionForSearch, guideDescription, plantTitle, speciesTitle } from '../src/lib/meta'
 
 test('long fish and plant titles keep both names before the care topics', () => {
   for (const lang of LANGS) {
@@ -26,10 +26,13 @@ test('descriptions keep complete sentences and cut Thai at a word boundary when 
   expect(ends).toContain(clipped.length)
 })
 
-test('guide descriptions use their own sentences without a truncation ellipsis', () => {
+test('guide descriptions keep the full opening paragraph for search and shorten the public snippet', () => {
   const first = 'Bể cần nước sạch và đủ chỗ để cá bơi, đặc biệt khi thả nhiều con và nuôi chúng theo đàn.'
-  const html = `<figure><figcaption><p>${'Chú thích ảnh '.repeat(12)}</p></figcaption></figure><p>${first} ${'Trong bể có thể trồng nhiều cây thủy sinh '.repeat(6)}</p>`
-  expect(excerpt(html, 100)).toBe(first)
+  const paragraph = `${first} ${'Trong bể có thể trồng nhiều cây thủy sinh '.repeat(6).trimEnd()}`
+  const html = `<figure><figcaption><p>${'Chú thích ảnh '.repeat(12)}</p></figcaption></figure><p>${paragraph}</p>`
+  const description = guideDescription(html)
+  expect(description).toBe(paragraph)
+  expect(descriptionForSearch('vi', description, 100)).toBe(first)
 })
 
 
