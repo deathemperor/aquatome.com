@@ -1,4 +1,5 @@
-import { albumLooked, askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, photoLookAnswer, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoClears, photoKey, photoRejections, photoWaitsFor, publicPhotoVersion, rejectedEntry, facePhotoStatus, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { albumLooked, askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, photoLookAnswer, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoClears, photoKey, photoRejections, photoWaitsFor, publicPhotoVersion, rejectedEntry, facePhotoStatus, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
+import { createHash } from 'node:crypto'
 import { replacePhotoDocument } from './image-cache-write'
 import { compactRejection, compactVerdict, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
@@ -9,7 +10,7 @@ import sharp from 'sharp'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
 import { entriesDir, holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, type Stood } from './last-photo'
-import { permittedPhotoSource } from './photo-visibility'
+import { permittedPhotoSource, readPhotoSources } from './photo-visibility'
 
 /**
  * No dead fish on a page, for what the photo check hasn't asked about (photo-check.ts asks since 2026-11-05): each species
@@ -50,6 +51,22 @@ export const DEAD_SCREEN_PROMPT = `Each numbered tile is what an aquarium handbo
 Answer every tile, by its number.`
 export const PER_SHEET = 12
 const ALBUM_RETRY_FILE = '_photo-album-dead-retry.json'
+const ALBUM_TAKEOFFS_FILE = '_photo-album-dead-takeoffs.json'
+type TakeOffReceipt = true | { batch: string; acknowledged?: true }
+
+export async function acknowledgeAlbumTakeOffs(root: string, batch: string): Promise<number> {
+  const path = join(root, 'engine-state', ALBUM_TAKEOFFS_FILE)
+  const receipts = await readJson<Record<string, TakeOffReceipt>>(path) ?? {}
+  let count = 0
+  for (const receipt of Object.values(receipts)) {
+    if (receipt === true || receipt.batch !== batch || receipt.acknowledged) continue
+    receipt.acknowledged = true
+    count++
+  }
+  if (count) await writePhotoState(path, receipts)
+  return count
+}
+
 export const thumbnail = (youtubeId: string) => `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`
 /** A video's thumbnail, then the frames YouTube publishes from about a quarter, half and three quarters through. */
 export const videoFrames = (youtubeId: string) => [thumbnail(youtubeId), ...[1, 2, 3].map(n => `https://i.ytimg.com/vi/${youtubeId}/hq${n}.jpg`)]
@@ -100,19 +117,62 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const watermarkCache = await readJson<Record<string, PhotoScreenEntry>>(state(PHOTO_SCREEN_FILE))
   const isListed = photoRejections(photoRejected, watermarkCache)
   const initialLooks = await readSecondLook(root)
+  const initialClears = photoClears(initialLooks)
   const lookedBefore = deadLooked({ screen: cache, check, subjects, secondLook: initialLooks })
   // `firstOff`: a page's last photo the hold doesn't keep, its first verdict on a photo that never passed the check (last-photo.ts).
-  const report = { sheets: 0, judged: 0, dead: [] as string[], pendingTakeOffs: 0, held: [] as string[], firstOff: [] as string[], failed: [] as string[], left: 0, stopped: '' }
+  const report = { sheets: 0, judged: 0, dead: [] as string[], pendingTakeOffs: 0, albumBatches: [] as { id: string; urls: string[] }[], held: [] as string[], firstOff: [] as string[], failed: [] as string[], left: 0, stopped: '' }
+
+  const receipts = o.albums ? (await readJson<Record<string, TakeOffReceipt>>(state(ALBUM_TAKEOFFS_FILE))) ?? {} : {}
+  const applied = new Map<string, string>()
+  const deferred = new Set<string>()
+  const reportDead = (url: string, note: string) => {
+    const line = `${url}: ${note}`
+    if (o.albums) applied.set(url, line)
+    else report.dead.push(line)
+  }
+  const reportAlbumTakeOffs = async () => {
+    const completed: string[] = []
+    let changed = false
+    for (const [url, receipt] of Object.entries(receipts)) {
+      if (receipt !== true || deferred.has(url)) continue
+      if (initialClears(url) && !isListed(url)?.[1].startsWith('dead:')) {
+        delete receipts[url]
+        changed = true
+      } else {
+        completed.push(url)
+      }
+    }
+    completed.sort()
+    for (let start = 0; start < completed.length; start += 30) {
+      const urls = completed.slice(start, start + 30)
+      const batch = createHash('sha256').update(JSON.stringify(urls)).digest('hex')
+      for (const url of urls) {
+        receipts[url] = { batch }
+        report.dead.push(applied.get(url) ?? `${url}: dead screen dead`)
+      }
+      changed = true
+    }
+    // The same batch is available if the process stops before the CLI reports it.
+    if (changed) await writePhotoState(state(ALBUM_TAKEOFFS_FILE), receipts)
+    const batches = new Map<string, string[]>()
+    for (const [url, receipt] of Object.entries(receipts)) {
+      if (receipt === true || receipt.acknowledged) continue
+      const urls = batches.get(receipt.batch) ?? []
+      urls.push(url)
+      batches.set(receipt.batch, urls)
+    }
+    report.albumBatches = [...batches].map(([id, urls]) => ({ id, urls: urls.sort() }))
+  }
 
   // Videos first (the owner's find), then main photos; each picture once, with every page that shows it.
-  const sources = (await readJson<Record<string, SourceInfo>>(join(content, 'sources.json'))) ?? {}
+  const sources = await readPhotoSources(content)
   const version = (p: Photo) => publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
   const videos = new Map<string, Item>()
   const photos = new Map<string, Item>()
   const knownDead = new Map<string, Item>()
   if (o.albums) {
     const looked = albumLooked({ screen: cache, secondLook: initialLooks })
-    const cleared = photoClears(initialLooks)
+    const cleared = initialClears
     const agreedDead = rejectedEntry(Object.fromEntries(Object.entries(initialLooks)
       .filter(([, mark]) => mark.why.startsWith('dead:') && photoLookAnswer(mark)?.said === 'agree')
       .map(([url, mark]) => [url, mark.why])))
@@ -126,7 +186,8 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
         const entry = isListed(url)
         const record = entry && initialLooks[entry[0]]
         const rejection = entry && (entry[1].startsWith('dead:') ||
-          (entry[1].startsWith('waiting:') && record?.off && record.why.startsWith('dead:'))) ? entry[1] : undefined
+          (entry[1].startsWith('waiting:') && record && !cleared(url) &&
+            ((record.off && record.why.startsWith('dead:')) || cache[url]?.dead === true || receipts[url] === true))) ? entry[1] : undefined
         if (entry && !rejection) continue
         const agreement = rejection?.startsWith('dead:') ? undefined : agreedDead(url)
         const alreadyDead = !!rejection || !!agreement || (cache[url]?.dead === true && !cleared(url))
@@ -137,7 +198,10 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
         take.set(url, it)
       }
     }
-    if (!knownDead.size && (!o.limit || !photos.size)) return { ...report, left: photos.size }
+    if (!knownDead.size && (!o.limit || !photos.size)) {
+      await reportAlbumTakeOffs()
+      return { ...report, left: photos.size }
+    }
     // Copies can use the source address, its mirror, or a guide's stock slot.
     const byPhoto = new Map<string, Item[]>()
     for (const item of [...photos.values(), ...knownDead.values()]) {
@@ -332,6 +396,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     const reviewUrl = it.agreement || it.rejection?.startsWith('dead:') ? undefined : albumHold(it.url)
     if (reviewUrl && !entriesDir()) {
       report.pendingTakeOffs++
+      deferred.add(it.url)
       report.failed.push(`${it.key}: take-off waits for its recovery capture`)
       continue
     }
@@ -361,13 +426,13 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       const pending = secondLook[reviewUrl]!
       holding.set(reviewUrl, { why: pending.why, pages: pending.pages, off: true })
       photoRejected[reviewUrl] = waitingEntry(pending.why)
-      report.dead.push(`${it.key}: ${note}`)
+      reportDead(it.key, note)
     } else if (!it.video && firstOff.has(it.url)) {
       holding.set(it.url, { why, pages: firstOff.get(it.url)!, off: true })
       report.firstOff.push(`${it.key}: ${firstOff.get(it.url)!.join(', ')}`)
       photoRejected[it.url] = waitingEntry(why)
     } else if (it.video || !markedByAddress(it.url)) {
-      report.dead.push(`${it.key}: ${note}`)
+      reportDead(it.key, note)
       if (it.video) videoRejected[it.video] ??= why
       // Album screening records a take-off even when a wrapper stays to carry a passing original.
       else if (it.agreement) {
@@ -391,6 +456,11 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   if (off.some(x => x.video)) await save('_video-rejected.json', videoRejected)
   if (off.some(x => !x.video && going.has(x.url) && !heldByAddress(x.url))) await save('_photo-rejected.json', photoRejected)
   if (report.judged) await save('_dead-screen.json', cache)
+  // Keep receipts before editing either album. A retry can report a take-off even if its last entry is already gone.
+  if (applied.size) {
+    for (const url of applied.keys()) receipts[url] ??= true
+    await save(ALBUM_TAKEOFFS_FILE, receipts)
+  }
   // While a linked page still needs an edit, keep its album entry so a retry finds the take-off again.
   const galleryDir = join(content, 'gallery') + '/'
   const writes = [...edits].sort(([a], [b]) => Number(a.startsWith(galleryDir)) - Number(b.startsWith(galleryDir)))
@@ -398,5 +468,6 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     const next = `${JSON.stringify(page, null, indentOf(raw))}\n`
     if (next !== raw) await replacePhotoDocument(file, next)
   }
+  if (o.albums) await reportAlbumTakeOffs()
   return report
 }

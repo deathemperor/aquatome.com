@@ -628,8 +628,10 @@ test('the engine cycle and both video jobs keep unpublished work wherever they g
     // Each "not publishing" after the checks keeps the work first: after the run's commit, after a merge on push, and
     // after the sweep on a clean pull that brought main's commits in.
     const gaveUp = s.split('\n').filter(l => /not publishing/.test(l) && !/gate:/.test(l))
-    expect(gaveUp.length, name).toBe(3)
-    expect(s.match(new RegExp(`keep_unpublished ${job.replace(/[$"]/g, m => `\\${m}`)}`, 'g'))?.length, name).toBe(3)
+    // Two more paths keep the engine's content or records after an initial sweep fails.
+    const publishPaths = name === 'engine-cycle.sh' ? 5 : 3
+    expect(gaveUp.length, name).toBe(publishPaths)
+    expect(s.match(new RegExp(`keep_unpublished ${job.replace(/[$"]/g, m => `\\${m}`)}`, 'g'))?.length, name).toBe(publishPaths)
     // Kept work is published once a run has installed and set its merge drivers, before it does its own work.
     expect(s, name).toMatch(new RegExp(`pnpm install --frozen-lockfile --silent\\npublish_kept ${job.replace(/[$"]/g, m => `\\${m}`)}\\n`))
     expect(s.indexOf('\npublish_kept '), name).toBeGreaterThan(s.indexOf('merge.entity.driver'))
@@ -737,6 +739,33 @@ test('an unverified merge sweep holds the push and retries the kept work', () =>
   expect(c.cycle(`${privacy}; publish_kept photos`)).toContain('LOG published kept/photos/')
   expect(c.onMain('content/b.json')).toBe('photos')
   expect(c.branches()).toEqual([])
+}, slow(60_000))
+
+test('the engine keeps a content commit when its first sweep fails', () => {
+  const c = clone()
+  migrating(c, false, true)
+  c.sh(work)
+  const guard = /^if .*SWEEP_FAILED.*not publishing content.*$/m.exec(script('engine-cycle.sh'))?.[0]
+  expect(guard).toBeDefined()
+  const output = c.cycle(`${privacy}; code=0; (PART=photos; sweep_for_publish; ${guard}; git push -q origin HEAD:main) || code=$?; echo "code=$code"`)
+  expect(output).toContain('sweep failed, not publishing content')
+  expect(output).toContain('code=1')
+  expect(c.onMain('content/b.json')).toBe('')
+  expect(c.branches()[0]).toMatch(/^kept\/photos\//)
+}, slow(60_000))
+
+test('an initial video sweep failure keeps its recovery out of main', () => {
+  for (const f of ['video-cycle.sh', 'video-recheck.sh']) {
+    const c = clone()
+    migrating(c, false, true)
+    c.sh(work)
+    const initialSweep = /^sweep_for_publish$/m.exec(script(f))?.[0]
+    expect(initialSweep).toBe('sweep_for_publish')
+    const output = c.cycle(`${privacy}; ${initialSweep}; if ! verify_cycle; then keep_unpublished videos; echo "NOT PUBLISHED"; exit 0; fi; git push -q origin HEAD:main`)
+    expect(output).toContain('NOT PUBLISHED')
+    expect(c.onMain('content/b.json')).toBe('')
+    expect(c.branches()[0]).toMatch(/^kept\/videos\//)
+  }
 }, slow(60_000))
 
 // engine-cycle.sh's finish, on its own: a fault the run went on past fails the run when it ends, and on the Mac goes to

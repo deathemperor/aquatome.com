@@ -103,6 +103,16 @@ test('a clear retains a concurrently replaced capture', () => {
   expect(mergeMaps(base, concurrent, clear)).toEqual(merged)
 })
 
+test('a published settlement wins over a competing first capture of the same place', () => {
+  const mark = { why: 'dead: withheld', step: 'the photo check', pages: ['species/x'], at: '2026-11-20', off: true }
+  const a = { file: 'content/species/x/entity.json', index: 0, capture: 'published' }
+  const b = { ...a, capture: 'parallel' }
+  const done = { u: { ...mark, back: '2026-11-21', look: { said: 'clear', by: 'reviewer', on: '2026-11-21' }, settled: [a] } }
+  const competing = { u: { ...mark, left: [b] } }
+  expect(mergeMaps({ u: mark }, done, competing)).toEqual(done)
+  expect(mergeMaps({ u: mark }, competing, done)).toEqual(done)
+})
+
 test('merging captures retains both pages covered by the verdict', () => {
   const base = { why: 'dead: withheld', step: 'the photo check', at: '2026-11-20', off: true }
   const a = { ...base, pages: ['species/a'], left: [{ file: 'content/species/a/entity.json', index: 0 }] }
