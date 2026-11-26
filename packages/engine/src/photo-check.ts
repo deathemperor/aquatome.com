@@ -22,7 +22,7 @@ import { readAvoid } from './curation'
 import { priorityFish } from './priority-fish'
 import { readPhotoWaits } from './photo-visibility'
 
-type Photo = { url: string; caption?: string; author?: string; authorUrl?: string; sourceUrl?: string; licence?: string; generated?: unknown }
+type Photo = { url: string; caption?: string; author?: string; authorUrl?: string; sourceUrl?: string; licence?: string; generated?: unknown; unchecked?: boolean }
 /**
  * Does the photo show its page's subject: yes (in the wild too, where it is clearly seen); another species, breed or
  * variety (`note` says which); not a photo of the subject at all (a map, chart, hands, a tank, a packshot, a landscape or
@@ -795,7 +795,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const freshBad = new Set([...judgedNow].flatMap(k => { const i = k.indexOf(' '), u = k.slice(i + 1), v = cache[u]?.[k.slice(0, i)]; return v && (v.ok === 'dead' || v.person === true) && !passedPhoto(u) ? [u] : [] }))
   // A photo held for a second look, or one it cleared, isn't taken off on a verdict; but a hold on another reason doesn't
   // keep a photo from its first verdict of dead or a person (the independent reader, 20 Nov).
-  const spared = (url: string) => !sl.open(url) && !(sl.waiting(url) && freshBad.has(url))
+  const spared = (url: string) => !sl.open(url) && !((sl.waiting(url) || sl.held(url)) && freshBad.has(url))
   for (const url of everywhere.keys()) {
     const why = url in rejected || spared(url) ? undefined : blockedFor(cache[url], keepLogo(url) || ownMarkWaits.has(url))
     if (why) { added[url] = why; report.blocked.push(`${url}: ${why}`) }
@@ -834,11 +834,20 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const p = photo as ContentPhoto
     return publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
   }
-  const shownPhotos = async (file: string) => (await ownPhotos(file)).flatMap(photo => {
-    const stored = photo as ContentPhoto
-    const served = versionOf(stored)
-    return served ? [{ stored, served }] : []
-  })
+  const galleryId = (file: string) => /\/gallery\/([^/]+)\.json$/.exec(file)?.[1]
+  const albumChecked = (url: string, gallery: string) => {
+    const v = verdict(url, gallery)
+    return v && (v.person !== undefined || v.file)
+  }
+  const shownPhotos = async (file: string) => {
+    const gallery = galleryId(file)
+    return (await ownPhotos(file)).flatMap(photo => {
+      if (gallery && photo.unchecked && !albumChecked(photo.url, gallery)) return []
+      const stored = photo as ContentPhoto
+      const served = versionOf(stored)
+      return served ? [{ stored, served }] : []
+    })
+  }
   const blockedVersions = async (file: string) => {
     const urls = new Set<string>()
     for (const photo of await ownPhotos(file)) {
@@ -909,6 +918,11 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       firstOff.delete(url)
     } else firstByPhoto.set(key, url)
   }
+  for (const [url, why] of Object.entries(added)) {
+    if (firstOff.has(url)) continue
+    const canonical = firstByPhoto.get(`${why.split(':')[0]}\n${photoKey(url) ?? url}`)
+    if (canonical) firstAliases.set(url, canonical)
+  }
   for (const [url, h] of firstOff) report.firstOff.push(`${[...new Set(h.pages)].join(', ')}: ${url}`)
   report.blocked = report.blocked.filter(x => {
     const url = x.slice(0, x.indexOf(': '))
@@ -962,10 +976,9 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const removed: string[] = []
     stripPhotos(data, blocked(file), removed, [], preservesOriginal)
     // A gallery photo that waited (`unchecked`): judged for this page and left on, it shows from the next build.
-    const gallery = /\/gallery\/([^/]+)\.json$/.exec(file)?.[1]
-    if (gallery) for (const p of (data.photos ?? []) as (Photo & { unchecked?: boolean })[]) {
-      const v = p.unchecked ? verdict(p.url, gallery) : undefined
-      if (v && (v.person !== undefined || v.file)) delete p.unchecked
+    const gallery = galleryId(file)
+    if (gallery) for (const p of data.photos ?? []) {
+      if (p.unchecked && albumChecked(p.url, gallery)) delete p.unchecked
     }
     const s = byId.get(file.split('/').at(-2)!)
     // A fish its source's caption calls unwell or blemished (a split fin) counts as not typical, whatever the model said:
