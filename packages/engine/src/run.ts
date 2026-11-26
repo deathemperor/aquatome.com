@@ -295,17 +295,22 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   const glossary = await glossaryTerms(s)
   const sourceNames = (await readJson<Partial<Record<SourceId, { name: string; publish?: boolean | 'photos'; permission?: CreditTerms & { markRemoval?: { allowed?: boolean; date?: string } } }>>>(join(contentRoot, 'sources.json'))) ?? {}
   const gbifCache: Record<string, Taxon | null> = {}
-  const blocked = (await readJson<Record<string, string>>(join(root, 'engine-state/_photo-rejected.json'))) ?? {}
-  const screen = await readJson<Record<string, PhotoScreenEntry>>(join(root, 'engine-state', PHOTO_SCREEN_FILE))
-  const [photoWaits, pendingRefusal] = await Promise.all([
-    readPhotoWaits(root, { rejected: blocked, watermarks: screen, freshOwn: true }), readRecoveryRetention(root),
-  ])
+  const readPhotoState = async () => {
+    const blocked = (await readJson<Record<string, string>>(join(root, 'engine-state/_photo-rejected.json'))) ?? {}
+    const screen = await readJson<Record<string, PhotoScreenEntry>>(join(root, 'engine-state', PHOTO_SCREEN_FILE))
+    const [photoWaits, pendingRefusal] = await Promise.all([
+      readPhotoWaits(root, { rejected: blocked, watermarks: screen, freshOwn: true }), readRecoveryRetention(root),
+    ])
+    return { blocked, screen, photoWaits, pendingRefusal }
+  }
+  let photoState = await readPhotoState()
   let stored: ReturnType<typeof sourcePhotoInventory> | undefined
   const deadline = opts.maxMinutes ? deps.now().getTime() + opts.maxMinutes * 60_000 : Infinity
   const report: RunReport = { perSource: {}, needsHuman: [], movedToArchive: [], changed: [], errors: [], shopText: [] }
   const today = () => deps.now().toISOString().slice(0, 10)
   // What a re-read keeps of a page's photos (mergeRead): the owner's approved crops; never a never-again photo, or one whose source no longer lets us show photos.
-  const keeps = (page: string, scientificName: string): ReadKeeps => readKeeps(page, scientificName, blocked, sourceNames, screen, photoWaits, pendingRefusal)
+  const keeps = (page: string, scientificName: string): ReadKeeps =>
+    readKeeps(page, scientificName, photoState.blocked, sourceNames, photoState.screen, photoState.photoWaits, photoState.pendingRefusal)
   // A re-read that would leave a page with no photo keeps the old ones, each held for a person's second look (mergeRead).
   const holdLast = (held: Photo[], page: string) => holdForSecondLook(root, new Map(held.map(p => [p.url, { why: "rejected: the source's page no longer shows it", pages: [page] }])), 'the pages rewrite', today())
   // Source pages whose credits a read still has to learn (credit-reads.ts): read only on their own turn, like any page.
@@ -419,6 +424,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     const minWidth = sourceById(source).minPhotoWidth
     const sourceName = sourceNames[source]?.name ?? source
     const terms = sourceNames[source]?.permission
+    const blocked = photoState.blocked
     const photoDeps = { bytes, media: deps.media, blocked, refusedCredits: terms?.refusedCredits, coveredCredits: terms?.coveredCredits }
     const sourcePhotos = async (names: string[], existing: Photo[], max?: number) => {
       const picked = pickSourcePhotos(images, url, names, max, page.kind === 'guide' ? 'guide' : 'subject', minWidth, mayTake(source, sourceName, photoDeps, existing))
@@ -619,7 +625,11 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
         if (hash !== prev?.hash || r.capturedAt) await writeSnapshot(root, id, url, o, deps.now(), r.capturedAt)
         // A page whose credits are still to learn, read now on its own turn: what this read shows decides (credit-reads.ts).
         // Its own try: a failure here is ours, not the page's, so the page keeps its read and its turn, and its credits wait for the next one.
-        if (creditWaiting.has(url)) await creditRead(id, url, o.images).catch((e: unknown) => { report.errors.push(`${url}: credits not read, the page waits for its next turn: ${(e as Error).message.slice(0, 200)}`) })
+        if (creditWaiting.has(url)) {
+          await creditRead(id, url, o.images).catch((e: unknown) => { report.errors.push(`${url}: credits not read, the page waits for its next turn: ${(e as Error).message.slice(0, 200)}`) })
+          photoState = await readPhotoState()
+          stored = undefined
+        }
         // The page's pictures, read once for both the line read and the page's photos: ScotCat's from each picture's own page.
         let linked: Promise<{ images: PageImage[]; missed: string[] }> | undefined
         const pictures = () => (linked ??= (async () => {

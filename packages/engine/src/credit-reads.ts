@@ -1,11 +1,10 @@
 import { createHash } from 'node:crypto'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
-import { deadScreenPhotoUrls, photoAddressSet, type Photo, type SourceId } from '@aq/schema'
+import { CREDIT_HOLD_REJECTION, deadScreenPhotoUrls, photoAddressSet, type Photo, type SourceId } from '@aq/schema'
 import { holdForSecondLook, looks, readSecondLook } from './last-photo'
 import type { PageImage } from './outline'
 import { creditKind } from './photo-credit'
-import { compactRejection } from './photo-observations'
 import { recordPhotoRefusals, writePhotoState } from './photo-state'
 import { holdablePhotoVerdicts } from './photo-visibility'
 import { dedupeKey, photoKey, refusedCredit, type CreditTerms, type Media } from './source-photos'
@@ -41,7 +40,7 @@ export type CreditHold = { page: string; by: string; on: string; why: string; pl
 
 const REJECTED = 'engine-state/_photo-rejected.json'
 /** The never-again note a credit hold puts there, the same for every held photo: how a release knows its own. */
-export const HOLD_NOTE = compactRejection('rejected: held for a credit read')
+export const HOLD_NOTE = CREDIT_HOLD_REJECTION
 const readMap = async <T>(file: string): Promise<Record<string, T>> => JSON.parse(await readFile(file, 'utf8').catch((e: NodeJS.ErrnoException) => { if (e.code === 'ENOENT') return '{}'; throw e })) as Record<string, T>
 const writeMap = (file: string, v: Record<string, unknown>) => writeFile(file, `${JSON.stringify(Object.fromEntries(Object.entries(v).sort(([a], [b]) => a.localeCompare(b))), null, 2)}\n`)
 export const readCreditReads = (root: string) => readMap<CreditRead>(join(root, CREDIT_READS))

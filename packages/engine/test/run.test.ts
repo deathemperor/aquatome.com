@@ -3,7 +3,8 @@ import { readFileSync } from 'node:fs'
 import { copyFile, mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
+import * as creditReads from '../src/credit-reads'
 import sharp from 'sharp'
 import { ArchiveRefused } from '../src/archive'
 import { LockBusy } from '../src/mac-lock'
@@ -401,6 +402,25 @@ test("a page on the line-read list is read once though it isn't due: our photos 
   expect(JSON.parse(await readFile(join(root, 'engine-state/_credit-lines.json'), 'utf8'))).toEqual({})
   // Off the list, the page waits for its own turn again.
   expect((await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })).perSource.seriouslyfish?.fetched).toBe(0)
+})
+
+test('a page rewritten in the same run keeps the photo just released by its credit read', async () => {
+  const root = await fresh()
+  const slug = 'paracheirodon-axelrodi'
+  const url = `${SF}${slug}`
+  const file = join(root, 'content/species', slug, 'entity.json')
+  await runEngine(deps(root, { urls: [slug] }).d, { sources: ['seriouslyfish'] })
+  const page = JSON.parse(await readFile(file, 'utf8'))
+  const photo = page.photos[0]
+  await writeFile(file, JSON.stringify({ ...page, photos: [photo] }))
+  await creditReads.holdForCreditRead(root, [photo.url], 'reviewer', '2026-10-25', 'credit not yet read')
+  const credits = vi.spyOn(creditReads, 'pageCredits').mockReturnValue({ [photo.url]: { page: url, kind: 'own', at: '2026-10-28' } })
+  try {
+    const result = await runEngine(deps(root, { urls: [slug] }).d, { sources: ['seriouslyfish'], force: true, only: /paracheirodon-axelrodi/ })
+    expect(result.perSource.seriouslyfish?.processed).toBe(1)
+  } finally { credits.mockRestore() }
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toContainEqual(photo)
+  expect(JSON.parse(await readFile(join(root, creditReads.CREDIT_HOLDS), 'utf8'))).toEqual({})
 })
 
 test('a page the list leaves to its own turn is not read early', async () => {

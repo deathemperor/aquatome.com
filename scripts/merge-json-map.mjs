@@ -53,6 +53,11 @@ function mergePlaces(chosen, base, ours, theirs) {
   }
   const { back, left, settled: _settled, ...merged } = chosen
   merged.at = at
+  if (chosen.why !== other.why && placesOf(other).some(p => p.capture)) {
+    const reasons = [...(chosen.waitingReasons ?? []), ...(other.waitingReasons ?? []), other.why]
+    merged.waitingReasons = [...new Set(reasons.filter(reason =>
+      reason !== chosen.why && /^(?:dead|people|watermark|logo): withheld \[sha256:[a-f0-9]{64}\]$/.test(reason)))].sort()
+  }
   if ((settled.size || pending.size) && record(ours) && record(theirs)) merged.pages = [...new Set([...ours.pages, ...theirs.pages])].sort()
   if (settled.size) merged.settled = [...settled.values()]
   if (pending.size) return { ...merged, left: [...pending.values()] }
