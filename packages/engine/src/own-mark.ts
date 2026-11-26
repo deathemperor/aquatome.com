@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { CompactScreen } from './photo-observations'
 
-import { retainedOwnMark } from '@aq/schema'
+import { retainedOwnMark, SCREENED_OWN_MARK } from '@aq/schema'
 export { KEPT_BY, KEPT_WORD, OWN_MARK_SHOPS, isOwnMarkShop, keptAuthorOk, ownMarkSite, retainedOwnMark, SCREENED_OWN_MARK, screenedShop, type OwnMarkShop } from '@aq/schema'
 
 /** The kept-mark photos (engine-state/_photo-watermarks.json), which an album puts after its unmarked ones (gallery.ts rankGallery). */
@@ -39,7 +39,7 @@ export const KEPT_IN_ALBUM_ALONE = 6
 
 type Pic = { url: string; generated?: unknown }
 /** A screened shop's photo (SCREENED_OWN_MARK) whose mark is kept (`kept`), not an AI picture. */
-const shopKept = (kept: (url: string) => boolean) => (p: Pic) => !p.generated && kept(p.url) && SCREENED_OWN_MARK.some(s => p.url.startsWith(folder(s)))
+const shopKept = (kept: (url: string) => boolean) => (p: Pic) => !p.generated && kept(p.url) && SCREENED_OWN_MARK.some(s => p.url.startsWith(`https://media.aquatome.com/${s}/`))
 /** The page's limit: KEPT_IN_ALBUM, or KEPT_IN_ALBUM_ALONE where no real photo without a kept mark is on the page or in its album. */
 const keptLimit = (own: Pic[], album: Pic[], kept: (url: string) => boolean) =>
   [...own, ...album].some(p => !p.generated && !kept(p.url)) ? KEPT_IN_ALBUM : KEPT_IN_ALBUM_ALONE

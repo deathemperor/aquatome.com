@@ -1,4 +1,4 @@
-import { albumLooked, askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, photoLookAnswer, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoClears, photoKey, photoWaitsFor, publicPhotoVersion, rejectedEntry, facePhotoStatus, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { albumLooked, askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, photoLookAnswer, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoClears, photoKey, photoRejections, photoWaitsFor, publicPhotoVersion, rejectedEntry, facePhotoStatus, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
 import { replacePhotoDocument } from './image-cache-write'
 import { compactRejection, compactVerdict, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
@@ -8,7 +8,6 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
-import { keptOwnMark, type WatermarkEntry } from './watermarks'
 import { entriesDir, holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, type Stood } from './last-photo'
 import { permittedPhotoSource } from './photo-visibility'
 
@@ -98,7 +97,8 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     readJson<Record<string, unknown>>(state(PHOTO_CHECK_FILE)),
     readJson<Record<string, unknown>>(state(PHOTO_SUBJECTS_FILE)),
   ])
-  const isListed = rejectedEntry(photoRejected)
+  const watermarkCache = await readJson<Record<string, PhotoScreenEntry>>(state(PHOTO_SCREEN_FILE))
+  const isListed = photoRejections(photoRejected, watermarkCache)
   const initialLooks = await readSecondLook(root)
   const lookedBefore = deadLooked({ screen: cache, check, subjects, secondLook: initialLooks })
   // `firstOff`: a page's last photo the hold doesn't keep, its first verdict on a photo that never passed the check (last-photo.ts).
@@ -110,18 +110,12 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const videos = new Map<string, Item>()
   const photos = new Map<string, Item>()
   const knownDead = new Map<string, Item>()
-  let keptAlbumMark = (_url: string) => false
   if (o.albums) {
     const looked = albumLooked({ screen: cache, secondLook: initialLooks })
     const cleared = photoClears(initialLooks)
     const agreedDead = rejectedEntry(Object.fromEntries(Object.entries(initialLooks)
       .filter(([, mark]) => mark.why.startsWith('dead:') && photoLookAnswer(mark)?.said === 'agree')
       .map(([url, mark]) => [url, mark.why])))
-    const kept = keptOwnMark(photoRejected, (await readJson<Record<string, Pick<WatermarkEntry, 'retainedOwnMark'>>>(state(PHOTO_SCREEN_FILE))) ?? {})
-    keptAlbumMark = (url: string) => {
-      const entry = isListed(url)
-      return !!entry?.[1].startsWith('watermark:') && (kept(url) || kept(entry[0]))
-    }
     const albums = await readdir(join(content, 'gallery'))
     for (const name of albums.filter(f => f.endsWith('.json')).sort()) {
       const file = join(content, 'gallery', name)
@@ -129,7 +123,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       if (!Array.isArray(album?.photos)) throw new Error(`Album photo inventory unavailable: ${name}`)
       for (const url of new Set(album.photos.flatMap(deadScreenPhotoUrls))) {
         if (!url) continue
-        const entry = keptAlbumMark(url) ? undefined : isListed(url)
+        const entry = isListed(url)
         const record = entry && initialLooks[entry[0]]
         const rejection = entry && (entry[1].startsWith('dead:') ||
           (entry[1].startsWith('waiting:') && record?.off && record.why.startsWith('dead:'))) ? entry[1] : undefined
@@ -275,7 +269,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   // Photos already listed never-again leave every page anyway (the sweep), so they count as going.
   const last = new Map<string, string[]>()
   if (!o.albums && going.size) {
-    const [pages, owned, listed, faces, watermarks] = await Promise.all([
+    const [pages, owned, listed, faces] = await Promise.all([
       pagesShowing(content, (p, ref, scientificName) => {
         if (!permittedPhotoSource(p, sources, ref, scientificName)) return undefined
         const reason = isListed(p.url)?.[1]
@@ -287,12 +281,11 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       ownDeadPhotoUrls(content),
       o.photos ? undefined : readJson<Record<string, string>>(state(DEAD_OWED_FILE)),
       readJson<Record<string, number>>(state(FACES_FILE)),
-      readJson<Record<string, PhotoScreenEntry>>(state(PHOTO_SCREEN_FILE)),
     ])
     const looked = deadLooked({ screen: cache, check, subjects, secondLook })
     const { unread, altered: flaggedAlterations } = await facePhotoStatus(content, faces)
     const unjudged = new Set([...owned].filter(url => !looked(url)))
-    const waits = photoWaitsFor({ watermarks, owed: listed, unread, flaggedAlterations, faces, unjudged, deadScreen: oldCache, secondLook })
+    const waits = photoWaitsFor({ watermarks: watermarkCache, owed: listed, unread, flaggedAlterations, faces, unjudged, deadScreen: oldCache, secondLook })
     const unavailable = (u: string) => !!isListed(u) || waits(u)
     for (const [url, refs] of lastPhotoVerdicts(pages, unavailable, going)) last.set(url, refs)
   }
@@ -327,7 +320,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     // The wrapper holds the original's credit and other metadata until the person's decision or next look.
     const prior = isListed(original.url)?.[1]
     return markedByAddress(original.url) || heldByAddress(original.url) || albumHold(original.url) || sl.off(original.url) || prior?.startsWith('waiting:') ||
-      ((!prior || keptAlbumMark(original.url)) && !goingByAddress(original.url))
+      (!prior && !goingByAddress(original.url))
   }
   for (const it of off) {
     const note = cache[it.key]?.note ?? (it.rejection ? compactRejection(it.rejection) : '')
@@ -372,7 +365,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     } else if (!it.video && firstOff.has(it.url)) {
       holding.set(it.url, { why, pages: firstOff.get(it.url)!, off: true })
       report.firstOff.push(`${it.key}: ${firstOff.get(it.url)!.join(', ')}`)
-      photoRejected[it.url] ??= waitingEntry(why)
+      photoRejected[it.url] = waitingEntry(why)
     } else if (it.video || !markedByAddress(it.url)) {
       report.dead.push(`${it.key}: ${note}`)
       if (it.video) videoRejected[it.video] ??= why
@@ -381,8 +374,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
         const [address] = it.agreement
         if (!photoRejected[address] || photoRejected[address].startsWith('waiting:')) photoRejected[address] = why
       } else if (!it.rejection) {
-        if (keptAlbumMark(it.url)) photoRejected[it.url] = why
-        else photoRejected[it.url] ??= why
+        photoRejected[it.url] = why
       }
     }
   }

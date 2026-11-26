@@ -1,3 +1,5 @@
+import { photoAddressSet, rejectedEntry } from './photo-address'
+
 /**
  * The shops whose own mark on their own photos the owner allows: Aquarium Glaser's logo first (the chief of staff,
  * 2026-11-10), then every cleared shop (15 Nov). Cleared: a source the engine reads as a shop or importer (sources.ts
@@ -57,4 +59,12 @@ export const keptAuthorOk = (k: { by?: unknown; word?: unknown }): boolean => {
   if (k.word === undefined) return k.by !== 'person'
   const w = k.word as { who?: unknown; date?: unknown } | null
   return !!w && typeof w === 'object' && (KEPT_WORD as readonly unknown[]).includes(w.who) && typeof w.date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(w.date)
+}
+
+/** An approved shop mark waives only that watermark rejection, leaving other photo decisions in force. */
+export function photoRejections(rejected: Record<string, string>, marks: Record<string, { retainedOwnMark?: unknown }> = {}) {
+  const retained = photoAddressSet(Object.keys(marks).filter(url => retainedOwnMark(url, marks[url])))
+  return rejectedEntry(Object.fromEntries(Object.entries(rejected).filter(([url, why]) =>
+    !why.startsWith('watermark:') || !retained(url),
+  )))
 }
