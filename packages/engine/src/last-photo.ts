@@ -1,4 +1,4 @@
-import { photoKey, photoLookAnswer as lookOf, type Photo } from '@aq/schema'
+import { mirrorSearchTerms, photoAddressSet, photoKey, photoLookAnswer as lookOf, type Photo } from '@aq/schema'
 import { spawnSync } from 'node:child_process'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
@@ -264,19 +264,25 @@ export function gitHistory(root: string): History {
     const at = (rev: string, file: string) => { const r = git('show', `${rev}:${file}`); try { return r.status === 0 ? JSON.parse(r.stdout) as { photos?: unknown } : undefined } catch { return undefined } }
     const urls = (d: { photos?: unknown } | undefined) => (Array.isArray(d?.photos) ? d.photos as Record<string, unknown>[] : [])
     // The places that showed it just before its mark (grep's status is 1 when none does).
-    const held = git('grep', '-l', '-F', '-e', url, parent, '--', 'content/species', 'content/plants', 'content/breeds', 'content/gallery', 'content/guides')
+    const mirrors = mirrorSearchTerms(url)
+    const samePhoto = photoAddressSet([url])
+    const shown = (p: Record<string, unknown>) => typeof p?.url === 'string' && samePhoto(p.url)
+    const terms = [url, ...mirrors].flatMap(s => ['-e', s])
+    const held = git('grep', '-l', '-F', ...terms, parent, '--', 'content/species', 'content/plants', 'content/breeds', 'content/gallery', 'content/guides')
     if (held.status !== 0 && held.status !== 1) return undefined
-    const places = held.stdout.split('\n').map(l => l.slice(parent.length + 1)).filter(f => PLACE.test(f) && urls(at(parent, f)).some(p => p?.url === url))
+    const places = held.stdout.split('\n').map(l => l.slice(parent.length + 1)).filter(f => PLACE.test(f) && urls(at(parent, f)).some(shown))
     if (!places.length) return []
-    const log = git('log', ...line, '--reverse', '--format=%H', '-S', url, `${parent}..HEAD`, '--', ...places)
+    const search = mirrors.length ? [] : ['-S', url]
+    const log = git('log', ...line, '--reverse', '--format=%H', ...search, `${parent}..HEAD`, '--', ...places)
     if (log.status !== 0) return undefined
     const out = new Map<string, LeftPlace>()
     // Oldest first: the first leaving gives the place and the entry; every leaving counts.
     for (const sha of log.stdout.split('\n').filter(Boolean)) {
-      const files = git('diff', '--name-only', '--no-renames', '-S', url, `${sha}^`, sha, '--', ...places)
+      const files = git('diff', '--name-only', '--no-renames', ...search, `${sha}^`, sha, '--', ...places)
+      if (files.status !== 0) return undefined
       for (const file of files.stdout.split('\n').filter(Boolean)) {
-        const before = urls(at(`${sha}^`, file)), index = before.findIndex(p => p?.url === url)
-        if (index < 0 || urls(at(sha, file)).some(p => p?.url === url)) continue
+        const before = urls(at(`${sha}^`, file)), index = before.findIndex(shown)
+        if (index < 0 || urls(at(sha, file)).some(shown)) continue
         const had = out.get(file)
         if (had) had.times++
         else out.set(file, { file, index, photo: before[index]!, times: 1 })
@@ -337,16 +343,24 @@ export async function putBackCleared(root: string, history: History, at = today(
       if (p.times > 1) { out.off.push(`${u}: it left ${p.file} again after it came back, and that removal stands`); continue }
       const id = p.file.match(/^content\/(?:species|plants|breeds)\/([^/]+)\/entity\.json$|^content\/gallery\/([^/]+)\.json$/)
       const page = id?.[1] ?? id?.[2]
-      if (page && refused(page, u, named.has(page) ? CLEARED_VERDICT : undefined)) { out.off.push(`${u}: the check refused it on ${page}`); continue }
+      const address = typeof p.photo.url === 'string' ? p.photo.url : u
+      const aliasRejection = address === u ? undefined : rejected[address]
+      if (aliasRejection && aliasRejection !== waitingEntry(sl[u]!.why)) {
+        out.off.push(`${u}: its copy on ${p.file} is on the never-again list as ${aliasRejection.split(':')[0]}`)
+        continue
+      }
+      const aside = page && named.has(page) ? CLEARED_VERDICT : undefined
+      if (page && (refused(page, u, aside) || (u !== address && refused(page, address, aside)))) { out.off.push(`${u}: the check refused it on ${page}`); continue }
       const file = join(root, p.file)
       const raw = await readFile(file, 'utf8').catch(() => undefined)
       if (raw === undefined) { out.off.push(`${u}: ${p.file} is gone`); continue }
       const doc = JSON.parse(raw) as { photos?: Record<string, unknown>[] }
       const photos = Array.isArray(doc.photos) ? doc.photos : (doc.photos = [])
-      if (photos.some(x => x?.url === u)) continue
+      const samePhoto = photoAddressSet([u, address])
+      if (photos.some(x => typeof x?.url === 'string' && samePhoto(x.url))) continue
       photos.splice(Math.min(p.index, photos.length), 0, p.photo)
       await writeFile(file, `${JSON.stringify(doc, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
-      out.back.push(`${p.file}: ${u}`)
+      out.back.push(`${p.file}: ${address}`)
     }
     if (entry !== undefined) { delete rejected[u]; unlisted = true }
     sl[u]!.back = at

@@ -72,8 +72,8 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const secondLook = await readSecondLook(root)
   const sl = looks(secondLook)
   // A hold on another reason doesn't keep a photo that never passed from a face found now, its first verdict (photo-check.ts spared).
-  const passed = await readPassedBefore(root)
-  const face = (u: string) => cache[u]! > 0 && (sl.open(u) || (sl.waiting(u) && screened.has(u) && !passed.has(u)))
+  const passed = photoAddressSet(await readPassedBefore(root))
+  const face = (u: string) => cache[u]! > 0 && (sl.open(u) || (sl.waiting(u) && screened.has(u) && !passed(u)))
   const screen = waitingForDead && await readPhotoRecord(root, DEAD_SCREEN_FILE)
   const sources: Record<string, SourceInfo> = waitingForDead
     ? JSON.parse(await readFile(join(contentRoot, 'sources.json'), 'utf8').catch(() => '{}'))
@@ -104,7 +104,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const last = lastPhotoVerdicts(pagesToKeep, offPage, flagVerdicts)
   // Only one that passed the check before is held; a face found now, on one that never did, takes it off, marked on both
   // lists (last-photo.ts).
-  const firstOff = new Map([...last].filter(([u]) => screened.has(u) && !passed.has(u)))
+  const firstOff = new Map([...last].filter(([u]) => screened.has(u) && !passed(u)))
   for (const u of firstOff.keys()) last.delete(u)
   const why = 'people: a face (face detection)'
   await holdForSecondLook(root, new Map([...last].map(([u, pages]) => [u, { why, pages }])), 'face detection')
@@ -113,7 +113,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   // does: off a page that keeps other photos, it goes on the never-again list as refused, so the sweep takes its album
   // copies and no step brings it back (the independent reader, 20 Nov).
   // Only where it is given the list to write, as the engine's own call always is.
-  const refusedNow = rejectedFile ? [...screened].filter(u => face(u) && !passed.has(u) && !firstOff.has(u) && !last.has(u)) : []
+  const refusedNow = rejectedFile ? [...screened].filter(u => face(u) && !passed(u) && !firstOff.has(u) && !last.has(u)) : []
   if (firstOff.size || refusedNow.length) {
     const file = rejectedFile ?? join(root, 'engine-state', '_photo-rejected.json')
     const now = JSON.parse(await readFile(file, 'utf8').catch(() => '{}')) as Record<string, string>

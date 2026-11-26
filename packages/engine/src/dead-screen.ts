@@ -165,13 +165,17 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const secondLook = await readSecondLook(root)
   const sl = looks(secondLook)
   // A hold on another reason doesn't keep a photo that never passed from this, its first verdict (photo-check.ts spared).
-  const passed = off.some(x => !x.video) ? await readPassedBefore(root) : new Set<string>()
-  const going = new Set(off.filter(x => !x.video && (sl.open(x.url) || (sl.waiting(x.url) && !passed.has(x.url)))).map(x => x.url))
+  const passed = photoAddressSet(off.some(x => !x.video) ? await readPassedBefore(root) : [])
+  const going = new Set(off.filter(x => !x.video && (sl.open(x.url) || (sl.waiting(x.url) && !passed(x.url)))).map(x => x.url))
   // Photos already listed never-again leave every page anyway (the sweep), so they count as going.
   const last = new Map<string, string[]>()
   if (going.size) {
     const [pages, owned, listed, faces, watermarks] = await Promise.all([
-      pagesShowing(content, p => version(p)?.url),
+      pagesShowing(content, p => {
+        const reason = isListed(p.url)?.[1]
+        // The sweep removes the whole wrapper for a rejection that applies to the photo as a whole.
+        return reason && !/^(?:dead|people|waiting): /.test(reason) ? p.url : version(p)?.url
+      }),
       ownDeadPhotoUrls(content),
       o.photos ? undefined : readJson<Record<string, string>>(state(DEAD_OWED_FILE)),
       readJson<Record<string, number>>(state(FACES_FILE)),
@@ -186,8 +190,8 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     for (const [url, refs] of lastPhotoVerdicts(pages, offPage, going)) last.set(url, refs)
   }
   // Only one that passed the check before is held; this verdict, on one that never did, takes it off, marked (last-photo.ts).
-  const held = new Map([...last].filter(([u]) => passed.has(u)))
-  const firstOff = new Map([...last].filter(([u]) => !passed.has(u)))
+  const held = new Map([...last].filter(([u]) => passed(u)))
+  const firstOff = new Map([...last].filter(([u]) => !passed(u)))
   const holding = new Map<string, { why: string; pages: string[]; off?: true }>()
   type Page = { photos?: Photo[]; videos?: { youtubeId: string }[] }
   const edits = new Map<string, { raw: string; page: Page }>()

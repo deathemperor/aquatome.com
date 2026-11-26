@@ -101,7 +101,7 @@ test.each([[false, false], [true, false], [false, true], [true, true]])('another
   const source = mirror ? 'https://upload.wikimedia.org/wikipedia/commons/a/ab/original.webp' : url('original')
   const original = { ...photo('original'), url: mirror ? `https://media.aquatome.com/${mirrorPlan(source)!.key}` : source }
   await writeFile(join(r, 'content/species/bbb/entity.json'), JSON.stringify(fish('bbb', [{ ...photo('original'), url: source }, photo('b-live')])))
-  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [source]: { bbb: oldPass } }))
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [original.url]: { bbb: oldPass } }))
   const altered = {
     ...photo('altered'), altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'c'.repeat(64) }],
     original: { url: original.url, width: original.width, height: original.height },

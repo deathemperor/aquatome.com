@@ -2,7 +2,7 @@ import { spawnSync } from 'node:child_process'
 import { access, mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
-import { DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, LANGS, loadAll, PHOTO_BOXES_FILE, photoAddressSet, photoKey, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, vnDate, type Photo } from '@aq/schema'
+import { DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, LANGS, loadAll, mirrorSearchTerms, PHOTO_BOXES_FILE, photoAddressSet, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, vnDate, type Photo } from '@aq/schema'
 
 /**
  * Fish pages our removals left with no photo, first for new photos (the chief of staff, 21 Nov): every page a run's own
@@ -41,14 +41,6 @@ export type Read = (path: string) => Promise<string | undefined>
 export type Owners = (urls: string[]) => Promise<string[]>
 
 const OWNER_KINDS = ['species', 'plants', 'guides'] as const
-const MIRROR_HOSTS: Partial<Record<string, string[]>> = {
-  commons: ['upload.wikimedia.org/', 'thumb.wikimedia.org/'],
-  inaturalist: ['inaturalist-open-data.s3.amazonaws.com/', 'static.inaturalist.org/'],
-  flickr: ['.staticflickr.com/'],
-  gbif: ['api.gbif.org/v1/image/cache/'],
-}
-const mirrorHosts = (key: string | undefined) => key && MIRROR_HOSTS[key.split('/')[0]!]
-
 /** Owners as the working tree at `root` holds them: each page whose own photos hold one of the addresses. */
 export const diskOwners = (root: string): Owners => async urls => {
   const want = photoAddressSet(urls), out: string[] = []
@@ -66,13 +58,7 @@ export const diskOwners = (root: string): Owners => async urls => {
 const commitOwners = (
   root: string, at: string, read: Read, paths = OWNER_KINDS.map(k => `content/${k}/*/entity.json`),
 ): Owners => async urls => {
-  const matches = new Set(urls)
-  for (const url of urls) {
-    const key = photoKey(url), mirrors = mirrorHosts(key)
-    if (!mirrors) continue
-    matches.add(`https://media.aquatome.com/${key}`)
-    for (const host of mirrors) matches.add(host)
-  }
+  const matches = new Set(urls.flatMap(url => [url, ...mirrorSearchTerms(url)]))
   const r = spawnSync('git', ['-C', root, 'grep', '-l', '-F', '-f', '-', at, '--', ...paths], { input: [...matches].join('\n'), encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
   if (r.status === 1) return []
   if (r.status !== 0) throw new Error(`git grep at ${at}: ${r.stderr.trim()}`)
@@ -138,7 +124,7 @@ export async function showingPhotos(refs: string[], read: Read, owners: Owners):
       for (const f of [`content/${kind}/${id}/entity.json`, `content/gallery/${id}.json`]) { const s = await put(f); if (s !== undefined) theirs.push(s) }
     }
     const urls = theirs.flatMap(s => ((JSON.parse(s) as { photos?: Photo[] }).photos ?? []).flatMap(deadScreenPhotoUrls))
-    const waits = new Set(urls.filter(url => mirrorHosts(photoKey(url))))
+    const waits = new Set(urls.filter(url => mirrorSearchTerms(url).length))
     const record = await read(`engine-state/${FACES_FILE}`)
     if (record !== undefined) {
       const seen = JSON.parse(record) as Record<string, number>
