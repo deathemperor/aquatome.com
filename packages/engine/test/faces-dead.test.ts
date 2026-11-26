@@ -293,6 +293,48 @@ async function publicFixture(photos: object[], albums: object[], urls: string[])
   return { root, state, file, publicView }
 }
 
+test.each([false, true])('an agreement stays effective across an own-credit release (eligible original: %s)', async fallback => {
+  const stored = photo('reviewed'), original = photo('original')
+  const held = fallback ? { ...stored, altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }], original } : stored
+  const { root, state, publicView } = await publicFixture([held], [], [stored.url, original.url])
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [stored.url]: 0, [original.url]: 0 }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [stored.url]: { dead: false }, [original.url]: { dead: false } }))
+  await holdForCreditRead(root, [stored.url], 'reviewer', '2026-11-26', 'credit unread')
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+    [stored.url]: { why: 'dead: withheld', step: 'the photo check', pages: ['species/alpha'], at: '2026-11-26',
+      look: { said: 'agree', by: 'reviewer', on: '2026-11-26' } },
+  }))
+  const readUrl = fallback ? original.url : stored.url
+  await releaseCreditHolds(root, { [readUrl]: { page: stored.sourceUrl, kind: 'own', at: '2026-11-26' } })
+  const view = await publicView()
+  expect(view.species.find(p => p.id === 'alpha')?.photos.map(p => [p.url, p.author])).toEqual(fallback ? [[original.url, stored.author]] : [])
+  expect(view.photoWaits!(stored.url)).toBe(true)
+})
+
+test('a non-own credit read supersedes a waived shop watermark on the bare original', async () => {
+  const sourceUrl = 'https://www.aquariumglaser.de/example/'
+  const original = { ...photo('original'), url: 'https://media.aquatome.com/glaser/example.webp', sourceUrl }
+  const wrapper = { ...photo('wrapper'), altered: [{ method: 'lanczos3-upscale' }], original }
+  const { root, state, publicView } = await publicFixture([original], [original], [wrapper.url, original.url])
+  const guide = join(root, 'content/guides/sample/entity.json')
+  await mkdir(join(guide, '..'), { recursive: true })
+  await writeFile(guide, JSON.stringify({ id: 'sample', photos: [wrapper] }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [original.url]: 0 }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [original.url]: { dead: false } }))
+  await writeFile(join(state, '_photo-watermarks.json'), JSON.stringify({
+    [original.url]: { ocr: [], watermark: true, retainedOwnMark: { owner: 'source', source: 'glaser', sourceUrl } },
+  }))
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [original.url]: 'watermark: withheld' }))
+  expect((await publicView()).species.find(p => p.id === 'alpha')?.photos.map(p => p.url)).toEqual([original.url])
+  await holdForCreditRead(root, [wrapper.url], 'reviewer', '2026-11-26', 'credit unread')
+  await releaseCreditHolds(root, { [original.url]: { page: sourceUrl, kind: 'agency', at: '2026-11-26' } })
+  expectControlledRejections(await json(root, 'engine-state/_photo-rejected.json'), { [original.url]: 'rejected', [wrapper.url]: 'rejected' })
+  const view = await publicView()
+  expect(view.species.find(p => p.id === 'alpha')?.photos).toEqual([])
+  expect(view.galleries.alpha ?? []).toEqual([])
+  expect(view.photoWaits!(original.url)).toBe(true)
+})
+
 test.each(['face', 'dead'])('a credit-held original cannot replace a head with a %s verdict', async verdict => {
   const held = photo('credit-held'), head = photo(`head-${verdict}`)
   const wrapper = { ...photo('wrapper'), altered: [{ method: 'lanczos3-upscale' }], original: held }

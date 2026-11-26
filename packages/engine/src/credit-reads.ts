@@ -1,8 +1,8 @@
 import { createHash } from 'node:crypto'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
-import { CREDIT_HOLD_FILE, CREDIT_HOLD_REJECTION, creditHoldAddresses, creditHoldPhotoUrls, isVersionRejection, photoAddressSet, type Photo, type SourceId } from '@aq/schema'
-import { holdForSecondLook, looks, readSecondLook } from './last-photo'
+import { CREDIT_HOLD_FILE, CREDIT_HOLD_REJECTION, creditHoldAddresses, creditHoldPhotoUrls, deadScreenPhotoUrls, isVersionRejection, PHOTO_SCREEN_FILE, photoAddressSet, photoRejections, type Photo, type PhotoScreenEntry, type SourceId } from '@aq/schema'
+import { holdForSecondLook, listAgreed, looks, readSecondLook } from './last-photo'
 import type { PageImage } from './outline'
 import { creditKind } from './photo-credit'
 import { recordPhotoRefusals, writePhotoState } from './photo-state'
@@ -237,30 +237,41 @@ export async function holdForCreditRead(root: string, urls: readonly string[], b
  * shown and barred, and a state the next read's release finishes.
  */
 export async function releaseCreditHolds(root: string, credits: Record<string, PhotoCredit>): Promise<{ back: string[]; off: string[]; stuck: string[] }> {
-  const holds = await readMap<CreditHold>(join(root, CREDIT_HOLDS)), rejected = await readMap<string>(join(root, REJECTED))
+  const holds = await readMap<CreditHold>(join(root, CREDIT_HOLDS))
+  const matched = Object.entries(holds).flatMap(([url, hold]) => {
+    const addresses = creditHoldAddresses(url, hold)
+    const credit = addresses.flatMap(address => credits[address] ?? []).sort((a, b) => RANK[b.kind] - RANK[a.kind])[0]
+    return credit && credit.kind !== 'none' ? [{ url, hold, addresses, credit }] : []
+  })
+  if (!matched.length) return { back: [], off: [], stuck: [] }
+  // A curator's completed review stands even when the publisher credit read runs before the next sweep.
+  await listAgreed(root, photoAddressSet(matched.flatMap(({ addresses }) => addresses)))
+  const rejected = await readMap<string>(join(root, REJECTED))
+  const marks = await readMap<PhotoScreenEntry>(join(root, 'engine-state', PHOTO_SCREEN_FILE))
+  const listed = photoRejections(rejected, marks)
   const back: string[] = [], off: string[] = [], places: HeldPlace[] = [], cards: { url: string; c: CalendarPlace }[] = []
   const left = new Map<string, { places: HeldPlace[]; calendar: CalendarPlace[] }>()
-  for (const [u, h] of Object.entries(holds)) {
-    const addresses = creditHoldAddresses(u, h)
-    const c = addresses.flatMap(url => credits[url] ?? []).sort((a, b) => RANK[b.kind] - RANK[a.kind])[0]
-    if (!c) continue
-    if (c.kind === 'none') continue
+  for (const { url: u, hold: h, addresses, credit: c } of matched) {
     if (c.kind !== 'own') {
       const why = `rejected: ${c.kind} credit ${c.line ?? ''}`
       for (const url of addresses) {
-        const prior = rejected[url]
+        const prior = listed(url)?.[1]
         if (!prior || prior === HOLD_NOTE || isVersionRejection(prior)) rejected[url] = why
       }
       off.push(u)
       continue
     }
-    if (rejected[u] && rejected[u] !== HOLD_NOTE && !rejected[u].startsWith('waiting:')) {
+    const reason = listed(u)?.[1]
+    const independent = reason && reason !== HOLD_NOTE && !reason.startsWith('waiting:') ? reason : undefined
+    const returning = !independent ? h.places
+      : isVersionRejection(independent) ? h.places.filter(place => deadScreenPhotoUrls(place.photo).length > 1) : []
+    if (independent && !returning.length) {
       off.push(u)
       continue
     }
     back.push(u)
-    places.push(...h.places)
-    cards.push(...(h.calendar ?? []).map(c => ({ url: u, c })))
+    places.push(...returning)
+    if (!independent) cards.push(...(h.calendar ?? []).map(c => ({ url: u, c })))
   }
   const stay = (u: string) => left.get(u) ?? (left.set(u, { places: [], calendar: [] }), left.get(u)!)
   // Off the never-again list first, then back on the pages, then out of the holds: a failure at any point leaves no
