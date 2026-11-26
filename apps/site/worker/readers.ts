@@ -1,5 +1,5 @@
 import { aeSql, COUNTED, EVENTS, eventsSql, READERS_FROM, SINCE_RESET, WHO, WHO_RANK } from './admin/ae'
-import { localDay } from './admin/time'
+import { localDay, mondayOf } from './admin/time'
 import { withoutVi } from './paths'
 
 /**
@@ -118,6 +118,8 @@ export function summariseAppReads(rows: AppSession[], storeFrom = APP_STORE_FROM
  * days. A visitor is a browser, not a person: a reader on a phone and a computer is two, and one who cleared their
  * browser's storage starts again.
  */
+type RevisitWeek = { monday: string; visitors: number; returning: number }
+
 export type Revisits = {
   /** Browsers with a code. */
   visitors: number
@@ -129,6 +131,8 @@ export type Revisits = {
   noCode: number
   /** The pages returning visitors first landed on: what brings people back. */
   pages: { path: string; visitors: number }[]
+  /** Browsers seen each week, and those seen that week on a later day than their first in the window. */
+  weekly: RevisitWeek[]
 }
 export function revisitsOf(sessions: Session[], tz = 'UTC'): Revisits | undefined {
   const by = new Map<string, Session[]>()
@@ -142,8 +146,17 @@ export function revisitsOf(sessions: Session[], tz = 'UTC'): Revisits | undefine
   let returning = 0
   const gaps: number[] = []
   const pages = new Map<string, number>()
+  const weekly = new Map<string, RevisitWeek>()
   for (const list of by.values()) {
     const days = [...new Set(list.map(s => localDay(s.first, tz)))].sort()
+    // A browser counts once per week. Any visit after its first day makes it a return that week.
+    const weeks = new Map(days.map((day, i) => [mondayOf(day), i > 0] as const))
+    for (const [monday, returned] of weeks) {
+      const week = weekly.get(monday) ?? { monday, visitors: 0, returning: 0 }
+      week.visitors++
+      if (returned) week.returning++
+      weekly.set(monday, week)
+    }
     if (days.length < 2) continue
     returning++
     gaps.push(Math.round((Date.parse(days[1]!) - Date.parse(days[0]!)) / 86_400_000))
@@ -154,6 +167,7 @@ export function revisitsOf(sessions: Session[], tz = 'UTC'): Revisits | undefine
   return {
     visitors: by.size, returning, gapDays: gaps.length ? gaps[Math.floor((gaps.length - 1) / 2)]! : null,
     noCode: sessions.filter(s => !s.u).length, pages: top(pages, x => x, 10).map(([path, visitors]) => ({ path, visitors })),
+    weekly: [...weekly.values()].sort((a, b) => b.monday.localeCompare(a.monday)),
   }
 }
 

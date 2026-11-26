@@ -168,14 +168,34 @@ test('return visits, by the visitor code: browsers back on another day, how soon
     tab('o1', 'cccc3333', '2026-11-05 03:00:00', '/cay/x/', { who: 3 }), // ours: counts nowhere
   ]
   const r = summariseReaders(sessions, [], 14)
-  expect(r.revisits).toEqual({ visitors: 3, returning: 2, gapDays: 1, noCode: 1, pages: [{ path: '/ca/ca-betta/', visitors: 2 }] })
+  expect(r.revisits).toEqual({
+    visitors: 3, returning: 2, gapDays: 1, noCode: 1, pages: [{ path: '/ca/ca-betta/', visitors: 2 }],
+    weekly: [
+      { monday: '2026-11-09', visitors: 1, returning: 1 },
+      { monday: '2026-11-02', visitors: 3, returning: 2 },
+      { monday: '2026-10-26', visitors: 1, returning: 0 },
+    ],
+  })
   // A day is the viewer's: 23:30 and 00:30 in Vietnam are two days there, one in UTC.
   const late = [tab('x1', 'xxxx9999', '2026-11-01 16:30:00', '/'), tab('x2', 'xxxx9999', '2026-11-01 17:30:00', '/')]
   expect(summariseReaders(late, [], 14, 'UTC').revisits!.returning).toBe(0)
-  expect(summariseReaders(late, [], 14, 'Asia/Ho_Chi_Minh').revisits!.returning).toBe(1)
+  const vietnam = summariseReaders(late, [], 14, 'Asia/Ho_Chi_Minh').revisits!
+  expect(vietnam.returning).toBe(1)
+  expect(vietnam.weekly).toEqual([
+    { monday: '2026-11-02', visitors: 1, returning: 1 },
+    { monday: '2026-10-26', visitors: 1, returning: 0 },
+  ])
   // Shown once there is a code; not before (the visitor switch off).
-  expect(readersPage(new Date('2026-11-09T12:00:00Z'), r)).toContain('Return visits')
-  expect(readersSection(new Date('2026-11-09T12:00:00Z'), r).blocks.some(b => b.kind === 'heading' && b.text === 'Return visits')).toBe(true)
+  const now = new Date('2026-11-09T12:00:00Z')
+  const html = readersPage(now, r, 'UTC')
+  expect(html).toContain('Return visits')
+  expect(html).toContain('Returning visitors by week')
+  expect(html).toContain('9 Nov<br><span class="muted">So far</span>')
+  expect(html).toContain('26 Oct<br><span class="muted">Partial week</span>')
+  expect(html).toContain('<td>66.7%</td>')
+  const app = readersSection(now, r)
+  expect(app.blocks.some(b => b.kind === 'heading' && b.text === 'Return visits')).toBe(true)
+  expect(app.blocks.some(b => b.kind === 'heading' && b.text === 'Returning visitors by week')).toBe(false)
   const none = summariseReaders(sessions.map(s => ({ ...s, u: '' })), [], 14)
   expect(none.revisits).toBeUndefined()
   expect(readersPage(new Date('2026-11-09T12:00:00Z'), none)).not.toContain('Return visits')
