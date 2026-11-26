@@ -7,7 +7,7 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
-import { holdForSecondLook, lastPhotos, looks, pagesShowing, readPassedBefore, readSecondLook, waitingEntry } from './last-photo'
+import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, readPassedBefore, readSecondLook, waitingEntry } from './last-photo'
 
 /**
  * No dead fish on a page, for what the photo check hasn't asked about (photo-check.ts asks since 2026-11-05): each species
@@ -183,7 +183,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     const waits = photoWaitsFor({ watermarks, owed: listed, unread, flaggedAlterations, faces, unjudged, deadScreen: oldCache, secondLook })
     const goesOff = photoAddressSet(going)
     const offPage = (u: string) => goesOff(u) || !!isListed(u) || waits(u)
-    for (const [url, refs] of lastPhotos(pages, offPage)) if (going.has(url)) last.set(url, refs)
+    for (const [url, refs] of lastPhotoVerdicts(pages, offPage, going)) last.set(url, refs)
   }
   // Only one that passed the check before is held; this verdict, on one that never did, takes it off, marked (last-photo.ts).
   const held = new Map([...last].filter(([u]) => passed.has(u)))

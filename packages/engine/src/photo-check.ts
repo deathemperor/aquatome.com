@@ -6,7 +6,7 @@ import { writeImageCache } from './image-cache-write'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { IMAGE_SWITCHES, isNonCommercial, photoFitsHead, publicPhotoVersion, realPhotosFirst, type Photo as ContentPhoto, type SourceInfo } from '@aq/schema'
+import { IMAGE_SWITCHES, isNonCommercial, photoFitsHead, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto, type SourceInfo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
@@ -808,7 +808,15 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const first = (url: string) => sl.off(url) || (FIRST_OFF.test(added[url] ?? '') && freshBad.has(url))
   const offAt = new Set(shown.filter(off).map(x => `${x.file}\n${x.url}`))
   // One marked off at its first verdict is off wherever it shows, its never-again entry there or not (last-photo.ts).
-  const blocked = (file: string) => (url: string) => (url in rejected && !keepLogo(url)) || url in added || offAt.has(`${file}\n${url}`) || sl.off(url)
+  const pendingGlobal = rejectedEntry(Object.fromEntries(Object.entries(added).filter(([, why]) => FIRST_OFF.test(why))))
+  const blockedAs = (file: string, url: string) => {
+    if (url in added) return url
+    const pending = pendingGlobal(url)?.[0]
+    if (pending && pending in added) return pending
+    if ((url in rejected && !keepLogo(url)) || offAt.has(`${file}\n${url}`) || sl.off(url)) return url
+    return undefined
+  }
+  const blocked = (file: string) => (url: string) => blockedAs(file, url) !== undefined
   // Pages this run would leave with no photo of their own: more than the cap, and none of them loses any.
   const real = (ps: Photo[] | undefined) => (ps ?? []).filter(p => !p.generated)
   const ownPhotos = async (file: string) => real((await readJson<{ photos?: Photo[] }>(file))?.photos)
@@ -817,7 +825,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const firstOff = new Map<string, { why: string; pages: string[]; off: true }>()
   const preservesOriginal = (url: string, original: string, blockedOriginal: boolean) =>
     /^(?:dead|people|waiting): /.test(rejected[url] ?? added[url] ?? '') &&
-    (!blockedOriginal || firstOff.has(original) || !!rejected[original]?.startsWith('waiting:'))
+    (!blockedOriginal || firstOff.has(pendingGlobal(original)?.[0] ?? original) || !!rejected[original]?.startsWith('waiting:'))
   const versionOf = (photo: Photo) => {
     const p = photo as ContentPhoto
     return publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
@@ -828,11 +836,12 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   })
   const blockedVersions = async (file: string) => {
     const urls = new Set<string>()
-    const removes = blocked(file)
     for (const photo of await ownPhotos(file)) {
-      if (removes(photo.url)) urls.add(photo.url)
+      const stored = blockedAs(file, photo.url)
+      if (stored) urls.add(stored)
       const served = versionOf(photo)
-      if (served && removes(served.url)) urls.add(served.url)
+      const reason = served && blockedAs(file, served.url)
+      if (reason) urls.add(reason)
     }
     return urls
   }
@@ -842,9 +851,9 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const removed = new Set<string>()
     for (const { stored, served } of photos) {
       const dropsStored = shouldStripPhoto(stored, removes, preservesOriginal)
-      const dropsServed = removes(served.url)
-      if (dropsStored) removed.add(stored.url)
-      if (dropsServed) removed.add(served.url)
+      const dropsServed = blockedAs(file, served.url)
+      if (dropsStored) removed.add(blockedAs(file, stored.url) ?? stored.url)
+      if (dropsServed) removed.add(dropsServed)
       if (!dropsStored && !dropsServed && !waitsFor(served.url)) return []
     }
     return [...removed]

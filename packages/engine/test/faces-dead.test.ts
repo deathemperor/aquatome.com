@@ -400,6 +400,26 @@ test.each(['face detection', 'the dead-fish screen'])('a mirror being rejected b
   expect((await publicView()).species.find(p => p.id === 'alpha')?.photos.map(p => p.url)).toEqual([head.url])
 })
 
+test.each(['face detection', 'the dead-fish screen'])('%s records a page that only serves the verdict’s mirror', async step => {
+  const byFace = step === 'face detection'
+  const name = byFace ? 'prior-face.jpg' : 'prior-dead.jpg'
+  const source = { ...photo('source'), url: `https://upload.wikimedia.org/wikipedia/commons/a/ab/${name}` }
+  const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(source.url)!.key}` }
+  const sibling = photo('sibling-live')
+  const { root, state, file, publicView } = await publicFixture([mirror], [], [mirror.url, source.url, sibling.url])
+  const entity = JSON.parse(await readFile(file, 'utf8'))
+  const other = join(root, 'content/species/second')
+  await mkdir(other)
+  await writeFile(join(other, 'entity.json'), JSON.stringify({ ...entity, id: 'second', photos: [source, sibling] }))
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [source.url]: { ok: 'yes', person: false, ...(byFace ? { logo: false } : {}) } }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [mirror.url]: { dead: false }, [sibling.url]: { dead: false } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [mirror.url]: 0, [sibling.url]: 0, ...(byFace ? {} : { [source.url]: 0 }) }))
+
+  await run(root, deps().d)
+  expect((await json(root, 'engine-state/_photo-second-look.json'))[source.url]).toMatchObject({ step, pages: ['species/alpha'] })
+  expect((await publicView()).species.find(p => p.id === 'alpha')?.photos.map(p => p.url)).toEqual([mirror.url])
+})
+
 test.each(['face detection', 'the dead-fish screen'])('a sibling waiting on its watermark result cannot displace the last passed photo in %s', async step => {
   const flagged = photo(step === 'face detection' ? 'passed-face' : 'passed-dead')
   const pending = photo('watermark-pending')

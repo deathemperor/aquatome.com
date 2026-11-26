@@ -8,7 +8,7 @@ import { awaitsScreen, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadPhotoOf
 import { screenDead, type DeadScreenDeps } from './dead-screen'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
-import { holdForSecondLook, lastPhotos, looks, pagesShowing, readPassedBefore, readSecondLook, waitingEntry } from './last-photo'
+import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, readPassedBefore, readSecondLook, waitingEntry } from './last-photo'
 
 export type FaceDeps = { get: (url: string) => Promise<Uint8Array>; detect: (files: string[]) => Promise<number[]> }
 
@@ -97,10 +97,11 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   })
   const unread = photoAddressSet(todo.filter(u => !Object.hasOwn(cache, u)))
   const owesLook = photoAddressSet(waitingForDead ?? [])
-  const flagged = photoAddressSet(Object.keys(cache).filter(face))
+  const flagVerdicts = Object.keys(cache).filter(u => face(u) && !listed(u))
+  const flagged = photoAddressSet(flagVerdicts)
   const offPage = (u: string) => flagged(u) || !!listed(u) || owesLook(u) ||
     (!!waitingForDead && (unread(u) || deadPhotoOff(u, screen, secondLook) || (!!watermarks && awaitsScreen(u, watermarks[u]))))
-  const last = new Map([...lastPhotos(pagesToKeep, offPage)].filter(([u]) => face(u) && !listed(u)))
+  const last = lastPhotoVerdicts(pagesToKeep, offPage, flagVerdicts)
   // Only one that passed the check before is held; a face found now, on one that never did, takes it off, marked on both
   // lists (last-photo.ts).
   const firstOff = new Map([...last].filter(([u]) => screened.has(u) && !passed.has(u)))

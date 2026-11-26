@@ -1,4 +1,4 @@
-import { photoLookAnswer as lookOf, type Photo } from '@aq/schema'
+import { photoKey, photoLookAnswer as lookOf, type Photo } from '@aq/schema'
 import { spawnSync } from 'node:child_process'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
@@ -105,6 +105,26 @@ export function lastPhotos(pages: PageShows[], off: (url: string, ref: string) =
     for (const u of new Set(going)) out.set(u, [...(out.get(u) ?? []), p.ref])
   }
   return out
+}
+
+/** Attribute a page's loss to the address that received the verdict, even when it serves a mirror. */
+export function lastPhotoVerdicts(
+  pages: PageShows[], off: (url: string, ref: string) => boolean, verdicts: Iterable<string>,
+): Map<string, string[]> {
+  const addresses = new Map<string, string[]>()
+  for (const url of verdicts) {
+    const key = photoKey(url) ?? url
+    addresses.set(key, [...(addresses.get(key) ?? []), url])
+  }
+  const out = new Map<string, Set<string>>()
+  for (const [url, refs] of lastPhotos(pages, off)) {
+    for (const verdict of addresses.get(photoKey(url) ?? url) ?? []) {
+      const existing = out.get(verdict) ?? new Set<string>()
+      for (const ref of refs) existing.add(ref)
+      out.set(verdict, existing)
+    }
+  }
+  return new Map([...out].map(([url, refs]) => [url, [...refs]]))
 }
 
 const today = () => new Date().toISOString().slice(0, 10)

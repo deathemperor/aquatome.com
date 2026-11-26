@@ -3,6 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
+import { mirrorPlan } from '@aq/schema'
 import { screenDead, type DeadScreenDeps } from '../src/dead-screen'
 import { dropFacePhotos } from '../src/faces'
 import { listAgreed, unlistCleared, waitingEntry } from '../src/last-photo'
@@ -95,9 +96,12 @@ test('a verdict on the stored photo holds the last visible original if the edit 
   expect((await json(r, file)).photos).toEqual([altered])
 })
 
-test.each([false, true])('a refused fallback original gets a hold when another page’s verdict would empty its page (alteration also refused: %s)', async both => {
-  const r = await store({ aaa: ['altered'], bbb: ['original', 'b-live'] }, { original: { bbb: oldPass } })
-  const original = photo('original')
+test.each([[false, false], [true, false], [false, true], [true, true]])('another page’s refusal holds a last original (alteration also refused: %s, mirror: %s)', async (both, mirror) => {
+  const r = await store({ aaa: ['altered'], bbb: ['original', 'b-live'] })
+  const source = mirror ? 'https://upload.wikimedia.org/wikipedia/commons/a/ab/original.webp' : url('original')
+  const original = { ...photo('original'), url: mirror ? `https://media.aquatome.com/${mirrorPlan(source)!.key}` : source }
+  await writeFile(join(r, 'content/species/bbb/entity.json'), JSON.stringify(fish('bbb', [{ ...photo('original'), url: source }, photo('b-live')])))
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [source]: { bbb: oldPass } }))
   const altered = {
     ...photo('altered'), altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'c'.repeat(64) }],
     original: { url: original.url, width: original.width, height: original.height },
@@ -106,10 +110,10 @@ test.each([false, true])('a refused fallback original gets a hold when another p
   await writeFile(join(r, file), JSON.stringify(fish('aaa', [altered])))
   const checked = await checkPagePhotos(r, model({ original: dead, ...(both ? { altered: dead } : {}) }), { limit: 10, emptyCap: 0 })
   expect(checked.heads.held).toContain(`species/aaa: ${altered.url}`)
-  expect((await json(r, 'engine-state/_photo-second-look.json'))[original.url]).toMatchObject({
+  expect((await json(r, 'engine-state/_photo-second-look.json'))[source]).toMatchObject({
     why: expect.stringMatching(/^dead:/), pages: ['species/aaa'],
   })
-  expect((await json(r, 'engine-state/_photo-rejected.json'))[original.url]).toBeUndefined()
+  expect((await json(r, 'engine-state/_photo-rejected.json'))[source]).toBeUndefined()
   expect((await json(r, file)).photos).toEqual([altered])
   expect(await photosOf(r, 'bbb')).toEqual(['b-live'])
 })
