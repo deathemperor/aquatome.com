@@ -26,7 +26,7 @@ const numbered = Array.from({ length: page.lastPage }, (_, i) => i + 1)
     </nav>
   )}
   <ul class="entries">
-    {page.data.map(entry => <li><a href={entry.path} lang={LANG[langOf(entry.path)].html}>{entry.label ?? decodeURIComponent(entry.path)}</a></li>)}
+    {page.data.map(entry => <li><a href={entry.path} lang={LANG[langOf(entry.path)].html}>{entry.label}</a></li>)}
   </ul>
   <PageNav prev={page.currentPage > 1 ? cataloguePagePath(page.currentPage - 1) : undefined} next={page.currentPage < page.lastPage ? cataloguePagePath(page.currentPage + 1) : undefined} />
 </Browse>
