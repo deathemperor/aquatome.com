@@ -1,6 +1,8 @@
 import { createHash } from 'node:crypto'
 import sharp from 'sharp'
-import { deadScreenPhotoUrls, photoPlacements, type Photo, type SourceId } from '@aq/schema'
+import { readFile } from 'node:fs/promises'
+import { join } from 'node:path'
+import { DEAD_SCREEN_FILE, deadScreenPhotoUrls, FACES_FILE, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoPlacements, THUMB_WIDTH, type Photo, type SourceId } from '@aq/schema'
 import { parse } from 'node-html-parser'
 import { archiveStops } from './archive'
 import { dropEmails, type PageImage } from './outline'
@@ -201,6 +203,22 @@ export async function storedSourcePhotos(content: string): Promise<Map<string, P
   return stored
 }
 
+/** Existing verdicts name stored bytes even after the last page placement leaves. */
+export async function sourcePhotoInventory(root: string) {
+  const record = async (file: string) => {
+    const raw = await readFile(join(root, 'engine-state', file), 'utf8').catch((error: NodeJS.ErrnoException) => {
+      if (error.code === 'ENOENT') return '{}'
+      throw error
+    })
+    return Object.keys(JSON.parse(raw) as Record<string, unknown>)
+  }
+  const [stored, ...records] = await Promise.all([
+    storedSourcePhotos(join(root, 'content')),
+    ...[FACES_FILE, PHOTO_SCREEN_FILE, DEAD_SCREEN_FILE, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE].map(record),
+  ])
+  return { stored, screened: new Set(records.flat()) }
+}
+
 /**
  * Copy picked photos to our media bucket (once per image) and credit the source page. `blocked`: photos taken off the
  * site before (engine-state/_photo-rejected.json: watermarks, other species), skipped so a re-read doesn't bring them back.
@@ -208,7 +226,7 @@ export async function storedSourcePhotos(content: string): Promise<Map<string, P
  */
 export async function storeSourcePhotos(
   source: SourceId, sourceName: string, pageUrl: string, picked: Picked[],
-  deps: CreditTerms & { bytes: (url: string, referer: string) => Promise<Uint8Array>; media: Media; size?: (bytes: Uint8Array) => Promise<{ width?: number; height?: number }>; blocked?: Record<string, string>; stored?: Map<string, Photo> }, existing: Photo[], max = Infinity,
+  deps: CreditTerms & { bytes: (url: string, referer: string) => Promise<Uint8Array>; media: Media; size?: (bytes: Uint8Array) => Promise<{ width?: number; height?: number }>; blocked?: Record<string, string>; stored?: Map<string, Photo>; screened?: ReadonlySet<string> }, existing: Photo[], max = Infinity,
 ): Promise<SourcePhoto[]> {
   const out: SourcePhoto[] = []
   let extra = 0
@@ -249,17 +267,21 @@ export async function storeSourcePhotos(
         if (extra >= EXTRA_DOWNLOADS) continue
         extra++
       }
+      const screened = !!deps.screened?.has(url)
+      const address = screened ? url : img.src
       let bytes: Uint8Array
       try {
-        bytes = await deps.bytes(img.src, pageUrl)
+        bytes = await deps.bytes(address, pageUrl)
       } catch (e) {
         if (archiveStops(e)) throw e // the page waits for the archive, rather than losing its pictures
-        console.warn(`photo skipped ${img.src}: ${(e as Error).message}`) // one unreachable image doesn't fail the page
+        console.warn(`photo skipped ${address}: ${(e as Error).message}`) // one unreachable image doesn't fail the page
         continue
       }
       const { width = 0, height = 0 } = await (deps.size ?? (b => sharp(b).metadata()))(bytes).catch(() => ({ width: 0, height: 0 }))
       if (width < (img.minWidth ?? MIN_WIDTH) || !okShape(width, height)) continue
-      const stored = await deps.media.put(key, bytes) // storage failures (token, bucket) fail the page so it is retried
+      const stored = screened
+        ? { url, thumb: deps.media.urlFor(key.replace(/\.webp$/, `-${THUMB_WIDTH}.webp`)), width, height }
+        : await deps.media.put(key, bytes) // storage failures (token, bucket) fail the page so it is retried
       const credited = { ...stored, licence: SOURCE_PHOTO_LICENCE, author: line(img) ? `${line(img)} / ${sourceName}` : sourceName, sourceUrl: pageUrl, source }
       deps.stored?.set(url, credited)
       out.push({ ...credited, ...(img.alt ? { caption: img.alt.slice(0, 200) } : {}), ...(img.heading ? { heading: img.heading } : {}) })
