@@ -35,6 +35,7 @@ engine-state/_depth-search.json merge=jsonmap
 engine-state/_product-reviews.json merge=jsonmap
 engine-state/_video-stills.json merge=jsonmap
 engine-state/_dead-screen.json merge=jsonmap
+engine-state/_photo-album-dead-retry.json merge=jsonmap
 engine-state/_video-rejected.json merge=jsonmap
 engine-state/youtube.json merge=jsonmap
 engine-state/reviews/*.json merge=jsonmap

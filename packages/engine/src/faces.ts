@@ -229,11 +229,12 @@ export async function screenNewPhotos(contentRoot: string, cacheFile: string, d:
       out.deadFailed = photoFailure(err)
     }
   }
-  // Start the album queue once the page photos have all received a verdict.
-  if (out.owed || out.deadFailed || out.dead?.stopped || out.dead?.failed.length) return out
+  // Report the album queue even while page photos still have priority.
+  const pagesWaiting = out.owed || out.deadFailed || out.dead?.stopped || out.dead?.failed.length
   try {
-    const albums = await screenDead(root, d.dead, { limit: (o.albumSheets ?? ALBUM_SHEETS) * 12, albums: true })
-    if (albums.judged || albums.left || albums.failed.length || albums.stopped) out.albums = albums
+    const limit = pagesWaiting ? 0 : (o.albumSheets ?? ALBUM_SHEETS) * 12
+    const albums = await screenDead(root, d.dead, { limit, albums: true })
+    if (albums.judged || albums.dead.length || albums.left || albums.failed.length || albums.stopped) out.albums = albums
   } catch (err) {
     out.albumsFailed = photoFailure(err)
   }

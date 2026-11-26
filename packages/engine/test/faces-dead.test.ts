@@ -715,7 +715,7 @@ test('the album photos take the sheets a run allows, after every photo the scree
   const stopped = deps({ stop: true })
   const s = await screenNewPhotos(join(again, 'content'), join(again, 'engine-state/_photo-faces.json'), stopped.d, join(again, 'engine-state/_photo-rejected.json'), again)
   expect(s.dead).toMatchObject({ stopped: 'usage limit' })
-  expect(s.albums).toBeUndefined()
+  expect(s.albums).toMatchObject({ sheets: 0, left: 1 })
   expect(stopped.sent).toEqual([m('g-new-live')])
 
   // An unanswered tile keeps the page photo owed even when the sheet returned without throwing.
@@ -723,6 +723,82 @@ test('the album photos take the sheets a run allows, after every photo the scree
   const incomplete = { ...unanswered.d, dead: { ...unanswered.d.dead, look: async () => ({ tiles: [] }) } }
   const pending = await screenNewPhotos(join(again, 'content'), join(again, 'engine-state/_photo-faces.json'), incomplete, join(again, 'engine-state/_photo-rejected.json'), again, { albumSheets: 1 })
   expect(pending).toMatchObject({ owed: 1, dead: { judged: 0, failed: [] } })
-  expect(pending.albums).toBeUndefined()
+  expect(pending.albums).toMatchObject({ sheets: 0, left: 1 })
   expect(unanswered.sent).toEqual([m('g-new-live')])
+})
+
+
+async function albumFixture(photos: ReturnType<typeof photo>[]) {
+  const root = await mkdtemp(join(tmpdir(), 'faces-album-'))
+  const state = join(root, 'engine-state')
+  const file = join(root, 'content/gallery/a.json')
+  await mkdir(state, { recursive: true })
+  await mkdir(join(root, 'content/gallery'), { recursive: true })
+  await writeFile(file, JSON.stringify({ id: 'a', photos, seen: photos.length, updatedAt: '2026-11-26' }))
+  return { root, state, file }
+}
+
+test('an authorized album pass acts on a dead verdict from the earlier page pass without another look', async () => {
+  const dead = photo('held-dead')
+  const { root, state, file } = await albumFixture([dead])
+  await mkdir(join(root, 'content/species/a'), { recursive: true })
+  await writeFile(join(root, 'content/species/a/entity.json'), JSON.stringify({ id: 'a', photos: [dead] }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [dead.url]: { dead: true, note: '' } }))
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+    [dead.url]: { why: 'dead: withheld', step: 'the dead-fish screen', at: '2026-11-26', pages: ['species/a'] },
+  }))
+  const { d, sent } = deps()
+  const out = await screenDead(root, d.dead, { limit: 12, albums: true })
+  expect(out).toMatchObject({ sheets: 0, judged: 0, left: 0, dead: [expect.stringContaining(dead.url)] })
+  expect(sent).toEqual([])
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([])
+  expect(await urls(root, 'a')).toEqual([])
+})
+
+test('conflicting album answers leave their tile owed and repeated identical answers count once', async () => {
+  const a = photo('a'), b = photo('b')
+  const { root, state, file } = await albumFixture([a, b])
+  const { d } = deps()
+  const out = await screenDead(root, { ...d.dead, look: async () => ({ tiles: [
+    { n: 1, dead: true, note: '' }, { n: 1, dead: false, note: '' },
+    { n: 2, dead: false, note: '' }, { n: 2, dead: false, note: '' },
+  ] }) }, { limit: 12, albums: true })
+  expect(out).toMatchObject({ sheets: 1, judged: 1, left: 1, dead: [], failed: [`${a.url}: conflicting screen answers`] })
+  expect(Object.keys(JSON.parse(await readFile(join(state, '_dead-screen.json'), 'utf8')))).toEqual([b.url])
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([a, b])
+})
+
+test('a whole window of corrupt album images still lets a later readable photo advance', async () => {
+  const corrupt = Array.from({ length: 12 }, (_, i) => photo(`corrupt-${i}`))
+  const readable = photo('readable')
+  const { root, state } = await albumFixture([...corrupt, readable])
+  const real = await sharp({ create: { width: 64, height: 64, channels: 3, background: '#468' } }).png().toBuffer()
+  const sent: string[] = []
+  const d: DeadScreenDeps = {
+    get: async u => { sent.push(u); return u === readable.url ? real : Buffer.from('incorrect media type') },
+    look: async () => ({ tiles: [{ n: 1, dead: false, note: '' }] }),
+  }
+  const first = await screenDead(root, d, { limit: 12, albums: true })
+  expect(first).toMatchObject({ sheets: 0, judged: 0, left: 13 })
+  expect(first.failed).toHaveLength(12)
+  expect(sent).toEqual(corrupt.map(p => p.url))
+  sent.length = 0
+  const second = await screenDead(root, d, { limit: 12, albums: true })
+  expect(sent[0]).toBe(readable.url)
+  expect(second).toMatchObject({ sheets: 1, judged: 1, left: 12 })
+  expect(Object.keys(JSON.parse(await readFile(join(state, '_dead-screen.json'), 'utf8')))).toEqual([readable.url])
+})
+
+test('an album photo whose shop watermark was kept still owes the dead-fish screen', async () => {
+  const p = { ...photo('kept'), url: 'https://media.aquatome.com/glaser/sample.webp' }
+  const { root, state } = await albumFixture([p])
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [p.url]: 'watermark: withheld' }))
+  await writeFile(join(state, '_photo-watermarks.json'), JSON.stringify({ [p.url]: {
+    ocr: [], watermark: true, retainedOwnMark: { owner: 'source', source: 'glaser', sourceUrl: 'https://www.aquariumglaser.de/sample/' },
+  } }))
+  const { d, sent } = deps()
+  expect(await screenDead(root, d.dead, { limit: 0, albums: true })).toMatchObject({ judged: 0, left: 1 })
+  expect(sent).toEqual([])
+  expect(await screenDead(root, d.dead, { limit: 12, albums: true })).toMatchObject({ judged: 1, left: 0 })
+  expect(sent).toEqual([p.url])
 })

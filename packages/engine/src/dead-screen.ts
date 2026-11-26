@@ -1,4 +1,4 @@
-import { albumLooked, askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoWaitsFor, publicPhotoVersion, rejectedEntry, facePhotoStatus, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { albumLooked, askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, photoLookAnswer, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoWaitsFor, publicPhotoVersion, rejectedEntry, facePhotoStatus, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
 import { compactVerdict, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
@@ -7,6 +7,7 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
+import { keptOwnMark } from './watermarks'
 import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, type Stood } from './last-photo'
 
 /**
@@ -47,6 +48,7 @@ export const DEAD_SCREEN_PROMPT = `Each numbered tile is what an aquarium handbo
 - note: a few words on what it shows (for dead: what makes it so, e.g. "fish on a tape measure on a road").
 Answer every tile, by its number.`
 const PER_SHEET = 12
+const ALBUM_RETRY_FILE = '_photo-album-dead-retry.json'
 export const thumbnail = (youtubeId: string) => `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`
 /** A video's thumbnail, then the frames YouTube publishes from about a quarter, half and three quarters through. */
 export const videoFrames = (youtubeId: string) => [thumbnail(youtubeId), ...[1, 2, 3].map(n => `https://i.ytimg.com/vi/${youtubeId}/hq${n}.jpg`)]
@@ -88,7 +90,8 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     readJson<Record<string, unknown>>(state(PHOTO_SUBJECTS_FILE)),
   ])
   const isListed = rejectedEntry(photoRejected)
-  const lookedBefore = deadLooked({ screen: cache, check, subjects, secondLook: await readSecondLook(root) })
+  const initialLooks = await readSecondLook(root)
+  const lookedBefore = deadLooked({ screen: cache, check, subjects, secondLook: initialLooks })
   // `firstOff`: a page's last photo the hold doesn't keep, its first verdict on a photo that never passed the check (last-photo.ts).
   const report = { sheets: 0, judged: 0, dead: [] as string[], held: [] as string[], firstOff: [] as string[], failed: [] as string[], left: 0, stopped: '' }
 
@@ -97,25 +100,34 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const version = (p: Photo) => publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
   const videos = new Map<string, Item>()
   const photos = new Map<string, Item>()
+  const knownDead = new Map<string, Item>()
+  const keptAlbumMarks = new Set<string>()
   if (o.albums) {
-    const looked = albumLooked({ screen: cache, secondLook: await readSecondLook(root) })
+    const looked = albumLooked({ screen: cache, secondLook: initialLooks })
+    const kept = keptOwnMark(photoRejected, (await readJson<Record<string, PhotoScreenEntry>>(state(PHOTO_SCREEN_FILE))) ?? {})
     for (const name of (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort()) {
       const file = join(content, 'gallery', name)
       const album = await readJson<{ photos?: Photo[] }>(file)
       for (const url of new Set((album?.photos ?? []).flatMap(deadScreenPhotoUrls))) {
-        if (!url || isListed(url) || looked(url)) continue
-        const it = photos.get(url) ?? { key: url, url, files: [] }
+        if (!url) continue
+        const entry = isListed(url)
+        if (entry && !kept(entry[0]) && !(entry[1].startsWith('watermark:') && kept(url))) continue
+        if (entry) keptAlbumMarks.add(url)
+        const alreadyDead = cache[url]?.dead === true && !photoLookAnswer(initialLooks[url])
+        if (!alreadyDead && looked(url)) continue
+        const take = alreadyDead ? knownDead : photos
+        const it = take.get(url) ?? { key: url, url, files: [] }
         it.files.push(file)
-        photos.set(url, it)
+        take.set(url, it)
       }
     }
     if (o.limit === 0) return { ...report, left: photos.size }
-    // One that is a page's own photo too (528 on 22 Nov, most a head picked from the album) leaves that page at once as well.
+    // A copy picked for a page leaves it at the same push.
     for (const kind of ['species', 'plants', 'breeds']) {
       for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
         const file = join(content, kind, id, 'entity.json')
         const page = await readJson<{ photos?: Photo[] }>(file)
-        for (const url of new Set((page?.photos ?? []).flatMap(deadScreenPhotoUrls))) photos.get(url)?.files.push(file)
+        for (const url of new Set((page?.photos ?? []).flatMap(deadScreenPhotoUrls))) (photos.get(url) ?? knownDead.get(url))?.files.push(file)
       }
     }
   }
@@ -141,22 +153,31 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       }
     }
   }
+  const retry = o.albums ? (await readJson<Record<string, number>>(state(ALBUM_RETRY_FILE))) ?? {} : {}
   const order = new Map([...(o.photos ?? [])].map((u, i) => [u, i]))
-  const todo = [...videos.values(), ...[...photos.values()].sort((a, b) => (order.get(a.url) ?? 0) - (order.get(b.url) ?? 0))]
+  const rank = (url: string) => order.get(url) ?? retry[url] ?? 0
+  const todo = [...videos.values(), ...[...photos.values()].sort((a, b) => rank(a.url) - rank(b.url))]
   const batch = todo.slice(0, o.limit)
   report.left = todo.length - batch.length
   const sheets = Array.from({ length: Math.ceil(batch.length / PER_SHEET) }, (_, i) => batch.slice(i * PER_SHEET, (i + 1) * PER_SHEET))
 
   const dir = await mkdtemp(join(tmpdir(), 'dead-screen-'))
-  const off: Item[] = []
+  const off: Item[] = [...knownDead.values()]
+  const attempted = new Set<string>()
   try {
     await pool(sheets.map((items, i) => ({ items, i })), o.parallel ?? 1, async ({ items, i }) => {
       if (report.stopped) return
       const ok: { it: Item; b: Buffer; frames: boolean }[] = []
       for (const it of items) {
+        attempted.add(it.url)
         try {
           const first = Buffer.from(await d.get(it.url))
-          if (!it.video) { ok.push({ it, b: first, frames: false }); continue }
+          if (!it.video) {
+            // Decode each album photo separately so corrupt bytes cannot consume the entire sheet.
+            const b = o.albums ? await sharp(first).resize(400, 260, { fit: 'inside', withoutEnlargement: true }).toBuffer() : first
+            ok.push({ it, b, frames: false })
+            continue
+          }
           // A frame YouTube doesn't have (a very new or very short video) is passed over.
           const more: Buffer[] = []
           for (const u of videoFrames(it.video).slice(1)) { try { more.push(Buffer.from(await d.get(u))) } catch { /* not published */ } }
@@ -169,9 +190,20 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
         await writeFile(sheet, await contactSheet(ok.map(x => x.b), 400, 260, 4, 'contain'))
         const v = await d.look(sheet, DEAD_SCREEN_PROMPT)
         report.sheets++
+        const answers = new Map<number, DeadVerdict>()
+        const conflicting = new Set<number>()
         for (const t of v.tiles ?? []) {
-          const x = ok[t.n - 1]
-          if (!x || typeof t.dead !== 'boolean') continue
+          if (!Number.isInteger(t.n) || !ok[t.n - 1] || typeof t.dead !== 'boolean') continue
+          const prior = answers.get(t.n)
+          if (!prior) answers.set(t.n, t)
+          else if (prior.dead !== t.dead) conflicting.add(t.n)
+        }
+        for (const [tile, t] of answers) {
+          const x = ok[tile - 1]!
+          if (conflicting.has(tile)) {
+            report.failed.push(`${x.it.key}: conflicting screen answers`)
+            continue
+          }
           cache[x.it.key] = compactVerdict({ dead: t.dead, note: String(t.note ?? '').slice(0, 120), ...(x.frames ? { frames: true } : {}) })
           report.judged++
           if (t.dead) off.push(x.it)
@@ -185,7 +217,15 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     await rm(dir, { recursive: true, force: true })
   }
 
-  if (o.albums) report.left = todo.filter(it => !Object.hasOwn(cache, it.key)).length
+  if (o.albums) {
+    const remaining = todo.filter(it => !Object.hasOwn(cache, it.key))
+    report.left = remaining.length
+    const now = Date.now()
+    const attempts = Object.fromEntries(remaining.flatMap(({ url }) =>
+      attempted.has(url) ? [[url, now]] : Object.hasOwn(retry, url) ? [[url, retry[url]!]] : [],
+    ))
+    if (Object.keys(attempts).length || Object.keys(retry).length) await writePhotoState(state(ALBUM_RETRY_FILE), attempts)
+  }
 
   // Off the lists and off the pages that show them. A photo whose going would leave a page with nothing stays, held for
   // a second look (last-photo.ts); one the second look cleared stays too.
@@ -264,7 +304,10 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       report.dead.push(`${it.key}: ${cache[it.key]!.note}`)
       if (it.video) videoRejected[it.video] ??= why
       // The verdict holds a rejected alteration by its raw URL. Keep its fallback's wrapper out of the blanket sweep.
-      else if (!keptWrapper) photoRejected[it.url] ??= why
+      else if (!keptWrapper) {
+        if (keptAlbumMarks.has(it.url)) photoRejected[it.url] = why
+        else photoRejected[it.url] ??= why
+      }
     }
   }
   // A retry can always find the owning photo until its removal or hold is durable.
